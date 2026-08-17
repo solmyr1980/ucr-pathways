@@ -1,6 +1,7 @@
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { exampleFiles, readExample } from './example-utils.mjs';
 
 const root = process.cwd();
@@ -17,9 +18,9 @@ try {
     const pdfPath = path.join(outputDir, `${example.id}.pdf`);
     if (!fs.existsSync(htmlPath)) throw new Error(`Missing ${path.relative(root, htmlPath)}. Run build-linkedin-html.mjs first.`);
 
-    const html = fs.readFileSync(htmlPath, 'utf8');
     const page = await browser.newPage();
-    await page.setContent(html, { waitUntil: 'load' });
+    await page.goto(pathToFileURL(htmlPath).href, { waitUntil: 'load' });
+    await page.evaluate(() => document.fonts.ready);
     await page.pdf({
       path: pdfPath,
       printBackground: true,

@@ -3,6 +3,8 @@ const hasExample = params.has('example');
 const requestedId = (params.get('example') || '').toLowerCase();
 const safeId = /^[a-z0-9-]+$/.test(requestedId) ? requestedId : '';
 
+document.body.classList.add(hasExample ? 'example-mode' : 'landing-mode');
+
 let example;
 let current = 0;
 let lastWide = window.innerWidth > 980;
