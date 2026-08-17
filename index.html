@@ -1,268 +1,29 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>UCR Program Builder — Responsive Prototype TEST 2</title>
-<style>
-  :root{
-    --navy:#173b5a;
-    --blue:#2f78a5;
-    --ink:#17212b;
-    --muted:#687684;
-    --line:#dbe3e9;
-    --soft:#eef4f7;
-    --softer:#f7f9fa;
-    --paper:#ffffff;
-    --shadow:0 12px 34px rgba(23,59,90,.10);
-    --radius:12px;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0;
-    background:#f4f6f8;
-    color:var(--ink);
-    font-family:Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  }
-  button{font:inherit}
-  .topbar{
-    background:var(--navy);
-    color:#fff;
-  }
-  .topbar-inner{
-    max-width:1480px;
-    margin:auto;
-    padding:16px 28px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:18px;
-  }
-  .brand{font-size:20px;font-weight:750;letter-spacing:-.01em}
-  .meta{font-size:12px;opacity:.85;white-space:nowrap}
-
-  main{
-    max-width:1480px;
-    margin:0 auto;
-    padding:30px 28px 44px;
-  }
-  .intro{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end;margin-bottom:20px}
-  h1{font-size:clamp(28px,3vw,42px);line-height:1.04;margin:0 0 10px;letter-spacing:-.035em}
-  .interests{font-size:16px;line-height:1.45;color:var(--muted);margin:0}
-  .interests strong{color:var(--ink);font-weight:700}
-
-  .view-toggle{
-    display:flex;
-    border:1px solid var(--line);
-    background:#fff;
-    border-radius:999px;
-    padding:3px;
-    box-shadow:0 2px 8px rgba(0,0,0,.03);
-  }
-  .view-toggle button{
-    border:0;
-    background:transparent;
-    color:var(--muted);
-    padding:8px 13px;
-    border-radius:999px;
-    cursor:pointer;
-    font-size:13px;
-    font-weight:650;
-  }
-  .view-toggle button.active{background:var(--navy);color:#fff}
-
-  .spectrum{
-    display:grid;
-    grid-template-columns:auto 1fr auto;
-    align-items:center;
-    gap:12px;
-    color:var(--muted);
-    font-size:12px;
-    margin:20px 0 10px;
-  }
-  .spectrum-line{height:1px;background:var(--line);position:relative}
-  .spectrum-line:after{
-    content:"";
-    width:7px;height:7px;
-    border-top:1px solid #aebbc5;
-    border-right:1px solid #aebbc5;
-    transform:rotate(45deg);
-    position:absolute;right:0;top:-3px;
-  }
-
-  /* Compare-all desktop view */
-  .compare-shell{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-  .program-heads{
-    display:grid;
-    grid-template-columns:repeat(4,minmax(0,1fr));
-    gap:8px;
-    padding:8px;
-    background:#fff;
-    position:sticky;
-    top:0;
-    z-index:4;
-  }
-  .program-head{
-    min-height:68px;
-    color:white;
-    background:var(--blue);
-    border-radius:8px;
-    padding:11px 12px 9px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    text-align:center;
-  }
-  .program-head:first-child{background:var(--navy)}
-  .program-head strong{font-size:14px;line-height:1.15}
-  .program-head span{font-size:10.5px;line-height:1.2;opacity:.9;margin-top:5px}
-  .compare-note{font-size:11px;color:var(--muted);padding:0 10px 7px}
-  .section-label{
-    background:#eaf1f5;
-    color:#29475e;
-    padding:7px 10px;
-    font-size:12px;
-    font-weight:750;
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-  }
-  .rows{display:block}
-  .row{
-    display:grid;
-    grid-template-columns:repeat(4,minmax(0,1fr));
-    min-height:31px;
-  }
-  .cell{
-    padding:6px 9px;
-    font-size:11.5px;
-    line-height:1.22;
-    border-right:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    background:#fff;
-  }
-  .cell:last-child{border-right:0}
-  .cell.empty{background:#fbfcfd;color:transparent}
-  .cell.large{font-weight:650}
-  .source-note{padding:12px 10px 13px;color:var(--muted);font-size:10.5px;line-height:1.4}
-
-  /* One-at-a-time view */
-  #singleView{display:none}
-  .single-shell{
-    max-width:760px;
-    margin:0 auto;
-  }
-  .single-nav{
-    display:grid;
-    grid-template-columns:48px minmax(0,1fr) 48px;
-    align-items:center;
-    gap:10px;
-    margin:4px 0 12px;
-  }
-  .nav-btn{
-    width:44px;height:44px;
-    border-radius:50%;
-    border:1px solid var(--line);
-    background:white;
-    color:var(--navy);
-    cursor:pointer;
-    font-size:25px;
-    line-height:1;
-    box-shadow:0 2px 8px rgba(0,0,0,.04);
-  }
-  .nav-btn:disabled{opacity:.25;cursor:default}
-  .position{text-align:center}
-  .position-title{font-size:13px;font-weight:750;color:var(--ink)}
-  .dots{display:flex;justify-content:center;gap:7px;margin-top:7px}
-  .dot{width:7px;height:7px;border-radius:50%;background:#ccd5dc;cursor:pointer}
-  .dot.active{background:var(--blue);transform:scale(1.22)}
-
-  .single-card{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:14px;
-    overflow:hidden;
-    box-shadow:var(--shadow);
-    touch-action:pan-y;
-  }
-  .single-header{
-    background:var(--blue);
-    color:white;
-    padding:20px 20px 18px;
-    text-align:center;
-  }
-  .single-card.traditional .single-header{background:var(--navy)}
-  .single-header h2{margin:0;font-size:25px;letter-spacing:-.025em}
-  .single-header p{margin:6px 0 0;font-size:13px;opacity:.9}
-  .single-section{border-top:1px solid var(--line)}
-  .single-section:first-of-type{border-top:0}
-  .single-section h3{
-    margin:0;
-    padding:10px 16px;
-    background:var(--soft);
-    color:#29475e;
-    font-size:13px;
-    line-height:1.2;
-  }
-  .single-courses{margin:0;padding:0;list-style:none}
-  .single-courses li{
-    padding:9px 16px;
-    border-top:1px solid #edf1f4;
-    font-size:14px;
-    line-height:1.28;
-  }
-  .single-courses li:first-child{border-top:0}
-  .single-footer{padding:14px 16px;color:var(--muted);font-size:11px;line-height:1.4;border-top:1px solid var(--line)}
-  .mobile-hint{display:none;text-align:center;color:var(--muted);font-size:11px;margin:10px 0 0}
-
-  @media (max-width: 980px){
-    .intro{grid-template-columns:1fr}
-    .view-toggle{display:none}
-    #compareView{display:none !important}
-    #singleView{display:block !important}
-    .spectrum{margin-top:18px}
-    main{padding:25px 18px 36px}
-    .topbar-inner{padding:14px 18px}
-    .mobile-hint{display:block}
-  }
-  @media (max-width: 540px){
-    .topbar-inner{padding:12px 14px}
-    .brand{font-size:17px}
-    .meta{font-size:10.5px}
-    main{padding:20px 12px 30px}
-    h1{font-size:30px}
-    .interests{font-size:14px}
-    .spectrum{font-size:10px;gap:8px;margin-bottom:8px}
-    .single-nav{grid-template-columns:42px minmax(0,1fr) 42px;gap:6px}
-    .nav-btn{width:40px;height:40px;font-size:22px}
-    .single-header{padding:18px 14px 16px}
-    .single-header h2{font-size:22px}
-    .single-courses li{font-size:13.5px;padding:9px 13px}
-    .single-section h3{padding:9px 13px}
-  }
-  @media print{
-    body{background:#fff}
-    .topbar,.view-toggle,#singleView{display:none!important}
-    main{max-width:none;padding:0}
-    #compareView{display:block!important}
-    .compare-shell{box-shadow:none;border-radius:0}
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>UCR Program Builder</title>
+  <link rel="stylesheet" href="./assets/css/web.css">
 </head>
 <body>
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">UCR Program Builder</div>
-      <div class="meta">P-001 &nbsp;|&nbsp; Fall 2026 cohort</div>
+      <div id="programmeMeta" class="meta"></div>
     </div>
   </header>
 
   <main>
     <div class="intro">
       <div>
-        <h1>Four ways to study the same interests</h1>
-        <p class="interests">Your interests: <strong>Economics, politics, and why some countries become rich while others stay poor</strong></p>
+        <h1 id="pageTitle">Four ways to study the same interests</h1>
+        <p class="interests">
+          <span id="interestLabel">Your interests:</span>
+          <strong id="interestText"></strong>
+        </p>
       </div>
+
       <div class="view-toggle" role="group" aria-label="View mode">
         <button id="compareBtn" class="active" type="button">Compare all</button>
         <button id="singleBtn" type="button">One at a time</button>
@@ -270,207 +31,30 @@
     </div>
 
     <div class="spectrum" aria-hidden="true">
-      <span>more disciplinary depth</span>
+      <span id="spectrumLeft">more disciplinary depth</span>
       <div class="spectrum-line"></div>
-      <span>more interdisciplinary breadth</span>
+      <span id="spectrumRight">more interdisciplinary breadth</span>
     </div>
 
-    <section id="compareView" class="compare-shell" aria-label="Four programme comparison"></section>
+    <section id="compareView" class="compare-shell" aria-label="Programme comparison"></section>
 
     <section id="singleView" class="single-shell" aria-label="Programme carousel">
       <div class="single-nav">
-        <button class="nav-btn" id="prevBtn" aria-label="Previous programme">‹</button>
+        <button class="nav-btn" id="prevBtn" type="button" aria-label="Previous programme">‹</button>
         <div class="position">
           <div id="positionTitle" class="position-title"></div>
           <div id="dots" class="dots" aria-label="Programme positions"></div>
         </div>
-        <button class="nav-btn" id="nextBtn" aria-label="Next programme">›</button>
+        <button class="nav-btn" id="nextBtn" type="button" aria-label="Next programme">›</button>
       </div>
+
       <article id="singleCard" class="single-card"></article>
       <div class="mobile-hint">Swipe left or right to move between programmes</div>
     </section>
+
+    <section id="loadError" class="load-error" hidden></section>
   </main>
 
-<script>
-const programmes = [
-  { title:'Traditional Economics', subtitle:'Utrecht EBE', type:'traditional' },
-  { title:'Economics-led UCR', subtitle:'greatest disciplinary depth' },
-  { title:'Economics + Politics', subtitle:'balanced interests' },
-  { title:'Institutions & Development', subtitle:'thematic breadth' }
-];
-
-const sections = [
-  {
-    title:'Economics and economic systems test 3',
-    rows:[
-      ['Introduction to Economics and Business Economics','Introduction to Economics','Introduction to Economics','Introduction to Economics'],
-      ['Microeconomics, Institutions and Welfare','Microeconomics & Behavior','Microeconomics & Behavior',''],
-      ['Macroeconomics: European Perspective','International Macroeconomics','International Macroeconomics','International Macroeconomics'],
-      ['Intermediate Macroeconomics: Growth and Sustainability','','',''],
-      ['Development and Growth','','',''],
-      ['Causes and Consequences of Inequality (research)','','',''],
-      ['Market Failures, Institutions and Political Economy','Public Economics','Public Economics','Public Economics'],
-      ['Economics of the Public Sector','','',''],
-      ['Intermediate Microeconomics, Games and Behaviour','Behavioral Economics','Behavioral Economics',''],
-      ['Accounting and Finance','Accounting & Corporate Finance','',''],
-      ['Corporate Finance and Behaviour','Money, Banking & Finance','',''],
-      ['Strategy and Organisation','Business & Economy in the Age of AI','','Business & Economy in the Age of AI'],
-      ['','Entrepreneurship & Business Foundations','',''],
-      ['','International Business & Governance','','']
-    ]
-  },
-  {
-    title:'Politics, institutions and law',
-    rows:[
-      ['Philosophy, Politics and Economics','Introduction to Political Philosophy','Introduction to Political Philosophy','Introduction to Political Philosophy'],
-      ['','Foundations of Comparative Politics','Foundations of Comparative Politics','Foundations of Comparative Politics'],
-      ['','Theory of International Relations','Theory of International Relations','Theory of International Relations'],
-      ['','European Union Politics','European Union Politics','European Union Politics'],
-      ['','Governance of Sustainability','Governance of Sustainability','Governance of Sustainability'],
-      ['','Peace & Conflict','Peace & Conflict','Peace & Conflict'],
-      ['','Law, Society & Justice','Law, Society & Justice','Law, Society & Justice'],
-      ['','','Comparative Constitutional Law','Comparative Constitutional Law'],
-      ['','','Introduction to Public International Law',''],
-      ['','','Human Rights: Law & Philosophy','Human Rights: Law & Philosophy']
-    ]
-  },
-  {
-    title:'History and society',
-    rows:[
-      ['','Modern History','Modern History','Modern History'],
-      ['','History of Empires','History of Empires','History of Empires'],
-      ['','','','Native American Histories'],
-      ['','','Introduction to Sociology','Introduction to Sociology'],
-      ['','','Modern Sociology','Modern Sociology'],
-      ['','','','Social Movements & Environmental Justice']
-    ]
-  },
-  {
-    title:'Evidence, research and academic skills',
-    rows:[
-      ['Mathematics for Economists','','',''],
-      ['Statistics','Research Methods & Statistics','Research Methods & Statistics','Research Methods & Statistics'],
-      ['Econometrics','Econometrics','Econometrics',''],
-      ['','Qualitative Research Methodology','Qualitative Research Methodology','Qualitative Research Methodology'],
-      ['Applied Economics Research Course — 15 EC incl. thesis','History Research Seminar','History Research Seminar','History Research Seminar'],
-      ['','','','Introduction to Data Science'],
-      ['','Personal & Professional Development','Personal & Professional Development','Personal & Professional Development']
-    ]
-  },
-  {
-    title:'Flexible space',
-    rows:[
-      ['Optional course profile — 45 EC / about 6 courses','','','']
-    ]
-  }
-];
-
-function escapeHtml(s){
-  return s.replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
-}
-
-function renderCompare(){
-  const el=document.getElementById('compareView');
-  let html='<div class="program-heads">';
-  programmes.forEach(p=>{
-    html+=`<div class="program-head"><strong>${escapeHtml(p.title)}</strong><span>${escapeHtml(p.subtitle)}</span></div>`;
-  });
-  html+='</div><div class="compare-note">Blank cells mean there is no sufficiently comparable course in that position.</div>';
-  sections.forEach(section=>{
-    html+=`<div class="section-label">${escapeHtml(section.title)}</div><div class="rows">`;
-    section.rows.forEach(row=>{
-      html+='<div class="row">';
-      row.forEach((cell,i)=>{
-        const cls = cell ? 'cell' : 'cell empty';
-        html+=`<div class="${cls}" data-program="${i}">${cell ? escapeHtml(cell) : '&nbsp;'}</div>`;
-      });
-      html+='</div>';
-    });
-    html+='</div>';
-  });
-  html+='<div class="source-note">Traditional comparator: Utrecht University Economics and Business Economics, current programme. Optional profile space is left unspecified.</div>';
-  el.innerHTML=html;
-}
-
-let current=0;
-function renderDots(){
-  const dots=document.getElementById('dots');
-  dots.innerHTML=programmes.map((_,i)=>`<span class="dot ${i===current?'active':''}" data-i="${i}" aria-label="Programme ${i+1}"></span>`).join('');
-  dots.querySelectorAll('.dot').forEach(dot=>dot.addEventListener('click',()=>{current=Number(dot.dataset.i);renderSingle();}));
-}
-function renderSingle(){
-  const p=programmes[current];
-  const card=document.getElementById('singleCard');
-  card.className='single-card'+(p.type==='traditional'?' traditional':'');
-  let html=`<div class="single-header"><h2>${escapeHtml(p.title)}</h2><p>${escapeHtml(p.subtitle)}</p></div>`;
-  sections.forEach(section=>{
-    const courses=section.rows.map(r=>r[current]).filter(Boolean);
-    if(!courses.length) return;
-    html+=`<section class="single-section"><h3>${escapeHtml(section.title)}</h3><ul class="single-courses">`;
-    courses.forEach(c=>html+=`<li>${escapeHtml(c)}</li>`);
-    html+='</ul></section>';
-  });
-  if(current===0){
-    html+='<div class="single-footer">Traditional comparator: Utrecht University Economics and Business Economics, current programme. Optional profile space is left unspecified.</div>';
-  }
-  card.innerHTML=html;
-  document.getElementById('positionTitle').textContent=`${current+1} of 4`;
-  document.getElementById('prevBtn').disabled=current===0;
-  document.getElementById('nextBtn').disabled=current===programmes.length-1;
-  renderDots();
-}
-
-function setView(mode){
-  const compare=document.getElementById('compareView');
-  const single=document.getElementById('singleView');
-  const compareBtn=document.getElementById('compareBtn');
-  const singleBtn=document.getElementById('singleBtn');
-  if(mode==='single'){
-    compare.style.display='none';single.style.display='block';
-    compareBtn.classList.remove('active');singleBtn.classList.add('active');
-  } else {
-    compare.style.display='block';single.style.display='none';
-    compareBtn.classList.add('active');singleBtn.classList.remove('active');
-  }
-}
-
-document.getElementById('compareBtn').addEventListener('click',()=>setView('compare'));
-document.getElementById('singleBtn').addEventListener('click',()=>setView('single'));
-document.getElementById('prevBtn').addEventListener('click',()=>{if(current>0){current--;renderSingle();}});
-document.getElementById('nextBtn').addEventListener('click',()=>{if(current<programmes.length-1){current++;renderSingle();}});
-
-document.addEventListener('keydown',e=>{
-  const singleVisible=getComputedStyle(document.getElementById('singleView')).display!=='none';
-  if(!singleVisible) return;
-  if(e.key==='ArrowLeft' && current>0){current--;renderSingle();}
-  if(e.key==='ArrowRight' && current<programmes.length-1){current++;renderSingle();}
-});
-
-let touchStartX=null;
-const card=document.getElementById('singleCard');
-card.addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].clientX;},{passive:true});
-card.addEventListener('touchend',e=>{
-  if(touchStartX===null) return;
-  const dx=e.changedTouches[0].clientX-touchStartX;
-  touchStartX=null;
-  if(Math.abs(dx)<45) return;
-  if(dx<0 && current<programmes.length-1){current++;renderSingle();}
-  if(dx>0 && current>0){current--;renderSingle();}
-},{passive:true});
-
-renderCompare();
-renderSingle();
-if(window.innerWidth<=980) setView('single');
-
-let lastWide=window.innerWidth>980;
-window.addEventListener('resize',()=>{
-  const wide=window.innerWidth>980;
-  if(wide!==lastWide){
-    lastWide=wide;
-    if(!wide) setView('single');
-    else setView('compare');
-  }
-});
-</script>
+  <script type="module" src="./assets/js/app.js"></script>
 </body>
 </html>

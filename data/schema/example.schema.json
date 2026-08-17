@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://solmyr1980.github.io/ucr-program-builder/data/schema/example.schema.json",
+  "title": "UCR Program Builder example",
+  "description": "A deliberately flexible contract for one programme-comparison example. Visible wording, programme labels, block counts, row counts and cell contents remain data rather than renderer assumptions.",
+  "type": "object",
+  "required": ["schemaVersion", "id", "interests", "programmes", "blocks"],
+  "properties": {
+    "schemaVersion": { "type": "string" },
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "cohort": { "type": "string" },
+    "interests": { "type": "string", "minLength": 1 },
+    "display": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "interestLabel": { "type": "string" },
+        "comparisonNote": { "type": "string" },
+        "spectrum": {
+          "type": "object",
+          "properties": {
+            "left": { "type": "string" },
+            "right": { "type": "string" }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "programmes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "label"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "role": { "type": "string" },
+          "family": { "type": "string" },
+          "label": { "type": "string", "minLength": 1 },
+          "subtitle": { "type": "string" },
+          "accent": { "type": "string" },
+          "note": { "type": "string" },
+          "schedule": {
+            "type": "object",
+            "properties": {
+              "semesters": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["label", "courses"],
+                  "properties": {
+                    "label": { "type": "string" },
+                    "courses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": ["name"],
+                        "properties": {
+                          "code": { "type": "string" },
+                          "name": { "type": "string" },
+                          "level": { "type": ["integer", "string"] }
+                        },
+                        "additionalProperties": true
+                      }
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "blocks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["title", "rows"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string", "minLength": 1 },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["cells"],
+              "properties": {
+                "cells": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "oneOf": [
+                      { "type": "string" },
+                      {
+                        "type": "object",
+                        "required": ["text"],
+                        "properties": {
+                          "text": { "type": "string" },
+                          "note": { "type": "string" },
+                          "emphasis": { "type": "boolean" }
+                        },
+                        "additionalProperties": true
+                      },
+                      { "type": "null" }
+                    ]
+                  }
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["text"],
+        "properties": {
+          "placement": { "type": "string" },
+          "text": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

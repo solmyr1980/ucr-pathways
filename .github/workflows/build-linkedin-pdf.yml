@@ -1,18 +1,26 @@
-name: Build LinkedIn PDF
+name: Build LinkedIn PDFs
 
 on:
   workflow_dispatch:
+    inputs:
+      example_id:
+        description: 'Example id to build, or all'
+        required: false
+        default: 'all'
   push:
     branches: [main]
     paths:
-      - 'index.html'
-      - 'scripts/build-linkedin-html.mjs'
-      - 'scripts/render-linkedin-pdf.mjs'
+      - 'data/examples/**'
+      - 'data/schema/**'
+      - 'assets/css/linkedin.css'
+      - 'scripts/**'
       - '.github/workflows/build-linkedin-pdf.yml'
 
 jobs:
   build-pdf:
     runs-on: ubuntu-latest
+    env:
+      EXAMPLE_ID: ${{ github.event.inputs.example_id || 'all' }}
 
     steps:
       - name: Check out repository
@@ -23,20 +31,23 @@ jobs:
         with:
           node-version: 24
 
+      - name: Validate example data
+        run: node scripts/validate-example.mjs "$EXAMPLE_ID"
+
       - name: Install Playwright and Chromium
         run: |
           npm install --no-save playwright@1.56.0
           npx playwright install --with-deps chromium
 
-      - name: Build LinkedIn print page
-        run: node scripts/build-linkedin-html.mjs
+      - name: Build LinkedIn print pages
+        run: node scripts/build-linkedin-html.mjs "$EXAMPLE_ID"
 
-      - name: Generate PDF
-        run: node scripts/render-linkedin-pdf.mjs
+      - name: Generate PDFs
+        run: node scripts/render-linkedin-pdf.mjs "$EXAMPLE_ID"
 
-      - name: Upload PDF
+      - name: Upload PDFs
         uses: actions/upload-artifact@v4
         with:
-          name: linkedin-pdf
-          path: output/ucr-program-builder-linkedin.pdf
+          name: linkedin-pdfs
+          path: output/linkedin/*.pdf
           retention-days: 30
