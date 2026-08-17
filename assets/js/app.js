@@ -1,6 +1,7 @@
 const params = new URLSearchParams(window.location.search);
-const requestedId = (params.get('example') || 'p-001').toLowerCase();
-const safeId = /^[a-z0-9-]+$/.test(requestedId) ? requestedId : 'p-001';
+const hasExample = params.has('example');
+const requestedId = (params.get('example') || '').toLowerCase();
+const safeId = /^[a-z0-9-]+$/.test(requestedId) ? requestedId : '';
 
 let example;
 let current = 0;
@@ -25,6 +26,28 @@ function cellsForProgramme(block, programmeId) {
   return block.rows
     .map(row => normalizeCell(row.cells?.[programmeId]))
     .filter(Boolean);
+}
+
+function renderLanding(catalog) {
+  const display = catalog.display || {};
+  document.title = 'UCR Program Builder';
+  document.getElementById('programmeMeta').textContent = '';
+  document.getElementById('landingTitle').textContent = display.title || 'See how your interests can become a university programme';
+  document.getElementById('landingIntro').textContent = display.intro || '';
+  document.getElementById('examplesTitle').textContent = display.examplesTitle || 'Explore examples';
+  document.getElementById('examplesIntro').textContent = display.examplesIntro || '';
+
+  const cards = document.getElementById('exampleCards');
+  cards.innerHTML = (catalog.examples || []).map(item => `
+    <article class="example-card">
+      <h3>${esc(item.title)}</h3>
+      ${item.description ? `<p>${esc(item.description)}</p>` : ''}
+      <a href="?example=${encodeURIComponent(item.id)}">View example →</a>
+    </article>
+  `).join('');
+
+  document.getElementById('exampleView').hidden = true;
+  document.getElementById('landingView').hidden = false;
 }
 
 function renderMeta() {
@@ -173,32 +196,55 @@ function bindInteractions() {
   });
 }
 
-function showLoadError(error) {
-  document.getElementById('compareView').hidden = true;
-  document.getElementById('singleView').hidden = true;
-  document.querySelector('.spectrum').hidden = true;
+function showLoadError(message, error) {
+  document.getElementById('landingView').hidden = true;
+  document.getElementById('exampleView').hidden = true;
   const box = document.getElementById('loadError');
   box.hidden = false;
   const localHint = window.location.protocol === 'file:'
     ? ' This data-driven version must be opened through a web server; GitHub Pages will serve it correctly after you push the repository.'
     : '';
-  box.textContent = `Could not load example “${safeId}”.${localHint}`;
+  box.textContent = `${message}${localHint}`;
   console.error(error);
 }
 
-async function init() {
+async function loadJson(path) {
+  const response = await fetch(path, { cache: 'no-store' });
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return response.json();
+}
+
+async function initLanding() {
   try {
-    const response = await fetch(`./data/examples/${safeId}.json`, { cache: 'no-store' });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    example = await response.json();
+    const catalog = await loadJson('./data/catalog.json');
+    renderLanding(catalog);
+  } catch (error) {
+    showLoadError('Could not load the Program Builder examples.', error);
+  }
+}
+
+async function initExample() {
+  if (!safeId) {
+    showLoadError(`Could not load example “${requestedId}”.`, new Error('Invalid example id'));
+    return;
+  }
+
+  try {
+    example = await loadJson(`./data/examples/${safeId}.json`);
+    document.getElementById('landingView').hidden = true;
+    document.getElementById('exampleView').hidden = false;
     renderMeta();
     renderCompare();
     renderSingle();
     bindInteractions();
     setView(window.innerWidth <= 980 ? 'single' : 'compare');
   } catch (error) {
-    showLoadError(error);
+    showLoadError(`Could not load example “${safeId}”.`, error);
   }
 }
 
-init();
+if (hasExample) {
+  initExample();
+} else {
+  initLanding();
+}

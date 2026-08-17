@@ -9,47 +9,68 @@
 <body>
   <header class="topbar">
     <div class="topbar-inner">
-      <div class="brand">UCR Program Builder</div>
+      <a class="brand" href="./">UCR Program Builder</a>
       <div id="programmeMeta" class="meta"></div>
     </div>
   </header>
 
   <main>
-    <div class="intro">
-      <div>
-        <h1 id="pageTitle">Four ways to study the same interests</h1>
-        <p class="interests">
-          <span id="interestLabel">Your interests:</span>
-          <strong id="interestText"></strong>
-        </p>
+    <section id="landingView" class="landing" hidden>
+      <div class="landing-hero">
+        <p class="eyebrow">University College Roosevelt</p>
+        <h1 id="landingTitle">See how your interests can become a university programme</h1>
+        <p id="landingIntro" class="landing-intro"></p>
+        <a id="exploreLink" class="primary-link" href="#examples">Explore the examples ↓</a>
       </div>
 
-      <div class="view-toggle" role="group" aria-label="View mode">
-        <button id="compareBtn" class="active" type="button">Compare all</button>
-        <button id="singleBtn" type="button">One at a time</button>
-      </div>
-    </div>
-
-    <div class="spectrum" aria-hidden="true">
-      <span id="spectrumLeft">more disciplinary depth</span>
-      <div class="spectrum-line"></div>
-      <span id="spectrumRight">more interdisciplinary breadth</span>
-    </div>
-
-    <section id="compareView" class="compare-shell" aria-label="Programme comparison"></section>
-
-    <section id="singleView" class="single-shell" aria-label="Programme carousel">
-      <div class="single-nav">
-        <button class="nav-btn" id="prevBtn" type="button" aria-label="Previous programme">‹</button>
-        <div class="position">
-          <div id="positionTitle" class="position-title"></div>
-          <div id="dots" class="dots" aria-label="Programme positions"></div>
+      <section id="examples" class="examples-section" aria-labelledby="examplesTitle">
+        <div class="examples-heading">
+          <h2 id="examplesTitle">Explore examples</h2>
+          <p id="examplesIntro"></p>
         </div>
-        <button class="nav-btn" id="nextBtn" type="button" aria-label="Next programme">›</button>
+        <div id="exampleCards" class="example-grid"></div>
+      </section>
+    </section>
+
+    <section id="exampleView" hidden>
+      <a class="back-link" href="./">← All examples</a>
+
+      <div class="intro">
+        <div>
+          <h1 id="pageTitle">Four ways to study the same interests</h1>
+          <p class="interests">
+            <span id="interestLabel">Your interests:</span>
+            <strong id="interestText"></strong>
+          </p>
+        </div>
+
+        <div class="view-toggle" role="group" aria-label="View mode">
+          <button id="compareBtn" class="active" type="button">Compare all</button>
+          <button id="singleBtn" type="button">One at a time</button>
+        </div>
       </div>
 
-      <article id="singleCard" class="single-card"></article>
-      <div class="mobile-hint">Swipe left or right to move between programmes</div>
+      <div class="spectrum" aria-hidden="true">
+        <span id="spectrumLeft">more disciplinary depth</span>
+        <div class="spectrum-line"></div>
+        <span id="spectrumRight">more interdisciplinary breadth</span>
+      </div>
+
+      <section id="compareView" class="compare-shell" aria-label="Programme comparison"></section>
+
+      <section id="singleView" class="single-shell" aria-label="Programme carousel">
+        <div class="single-nav">
+          <button class="nav-btn" id="prevBtn" type="button" aria-label="Previous programme">‹</button>
+          <div class="position">
+            <div id="positionTitle" class="position-title"></div>
+            <div id="dots" class="dots" aria-label="Programme positions"></div>
+          </div>
+          <button class="nav-btn" id="nextBtn" type="button" aria-label="Next programme">›</button>
+        </div>
+
+        <article id="singleCard" class="single-card"></article>
+        <div class="mobile-hint">Swipe left or right to move between programmes</div>
+      </section>
     </section>
 
     <section id="loadError" class="load-error" hidden></section>
