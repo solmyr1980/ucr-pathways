@@ -2,8 +2,6 @@
 
 This repository stores and renders approved public **UCR Pathways** examples.
 
-The repository is still temporarily named `ucr-program-builder`. The repository and GitHub Pages path will be renamed in a later implementation step after the content, data contract and documentation are aligned.
-
 UCR Pathways compares:
 
 1. one disciplinary bachelor programme; and
@@ -30,7 +28,7 @@ The website and LinkedIn PDF use the same publication example record. Programme 
 ## Repository structure
 
 ```text
-ucr-program-builder/
+ucr-pathways/
 ├── index.html
 ├── assets/
 │   ├── brand/
@@ -128,16 +126,15 @@ The GitHub Pages root loads `data/catalog.json` and displays the catalog of appr
 The current public root is:
 
 ```text
-https://solmyr1980.github.io/ucr-program-builder/
+https://solmyr1980.github.io/ucr-pathways/
 ```
 
 An individual example is addressed with:
 
 ```text
-https://solmyr1980.github.io/ucr-program-builder/?example=p-001
+https://solmyr1980.github.io/ucr-pathways/?example=p-001
 ```
 
-These paths will change when the repository is renamed to `ucr-pathways`.
 
 ## Adding another public example
 
