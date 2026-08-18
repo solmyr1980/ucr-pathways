@@ -8,7 +8,6 @@ document.body.classList.add(hasExample ? 'example-mode' : 'landing-mode');
 let example;
 let current = 0;
 let lastWide = window.innerWidth > 980;
-
 const esc = (value = '') => String(value).replace(/[&<>"']/g, c => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
 }[c]));
@@ -19,9 +18,8 @@ function normalizeCell(cell) {
   if (typeof cell === 'object' && typeof cell.text === 'string' && cell.text.trim()) return cell;
   return null;
 }
-
 function isComparator(programme) {
-  return programme.role === 'comparator' || programme.family === 'comparator' || programme.accent === 'comparator';
+  return programme.role === 'comparator';
 }
 
 function cellsForProgramme(block, programmeId) {
@@ -29,16 +27,14 @@ function cellsForProgramme(block, programmeId) {
     .map(row => normalizeCell(row.cells?.[programmeId]))
     .filter(Boolean);
 }
-
 function renderLanding(catalog) {
   const display = catalog.display || {};
-  document.title = 'UCR Program Builder';
+  document.title = 'UCR Pathways';
   document.getElementById('programmeMeta').textContent = '';
-  document.getElementById('landingTitle').textContent = display.title || 'See how your interests can become a university programme';
+  document.getElementById('landingTitle').textContent = display.title || 'See how your interests could take shape';
   document.getElementById('landingIntro').textContent = display.intro || '';
   document.getElementById('examplesTitle').textContent = display.examplesTitle || 'Explore examples';
   document.getElementById('examplesIntro').textContent = display.examplesIntro || '';
-
   const cards = document.getElementById('exampleCards');
   cards.innerHTML = (catalog.examples || []).map(item => `
     <article class="example-card">
@@ -51,19 +47,17 @@ function renderLanding(catalog) {
   document.getElementById('exampleView').hidden = true;
   document.getElementById('landingView').hidden = false;
 }
-
 function renderMeta() {
   const display = example.display || {};
-  document.title = `${example.id.toUpperCase()} | UCR Program Builder`;
+  document.title = `${example.id.toUpperCase()} | UCR Pathways`;
   document.getElementById('programmeMeta').textContent = [example.id.toUpperCase(), example.cohort].filter(Boolean).join(' | ');
   document.getElementById('pageTitle').textContent = display.title || 'Four ways to study the same interests';
   document.getElementById('interestLabel').textContent = `${display.interestLabel || 'Your interests'}:`;
   document.getElementById('interestText').textContent = ` ${example.interests}`;
-  document.getElementById('spectrumLeft').textContent = display.spectrum?.left || 'more disciplinary depth';
-  document.getElementById('spectrumRight').textContent = display.spectrum?.right || 'more interdisciplinary breadth';
+  document.getElementById('spectrumLeft').textContent = display.spectrum?.left || 'greater disciplinary depth';
+  document.getElementById('spectrumRight').textContent = display.spectrum?.right || 'broader combinations of interests';
   document.documentElement.style.setProperty('--programme-count', example.programmes.length);
 }
-
 function renderCompare() {
   const el = document.getElementById('compareView');
   let html = '<div class="compare-content"><div class="program-heads">';
@@ -72,12 +66,10 @@ function renderCompare() {
     const cls = isComparator(programme) ? 'program-head comparator' : 'program-head';
     html += `<div class="${cls}"><strong>${esc(programme.label)}</strong>${programme.subtitle ? `<span>${esc(programme.subtitle)}</span>` : ''}</div>`;
   });
-
   html += '</div>';
   if (example.display?.comparisonNote) {
     html += `<div class="compare-note">${esc(example.display.comparisonNote)}</div>`;
   }
-
   example.blocks.forEach(block => {
     html += `<div class="section-label">${esc(block.title)}</div><div class="rows">`;
     block.rows.forEach(row => {
@@ -96,14 +88,12 @@ function renderCompare() {
     });
     html += '</div>';
   });
-
   const notes = (example.notes || []).filter(note => !note.placement || note.placement === 'comparison');
   notes.forEach(note => { html += `<div class="source-note">${esc(note.text)}</div>`; });
 
   html += '</div>';
   el.innerHTML = html;
 }
-
 function renderDots() {
   const dots = document.getElementById('dots');
   dots.innerHTML = example.programmes.map((_, i) =>
@@ -114,14 +104,12 @@ function renderDots() {
     renderSingle();
   }));
 }
-
 function renderSingle() {
   const programme = example.programmes[current];
   const card = document.getElementById('singleCard');
   card.className = `single-card${isComparator(programme) ? ' comparator' : ''}`;
 
   let html = `<div class="single-header"><h2>${esc(programme.label)}</h2>${programme.subtitle ? `<p>${esc(programme.subtitle)}</p>` : ''}</div>`;
-
   example.blocks.forEach(block => {
     const items = cellsForProgramme(block, programme.id);
     if (!items.length) return;
@@ -131,7 +119,6 @@ function renderSingle() {
     });
     html += '</ul></section>';
   });
-
   if (programme.note) html += `<div class="single-footer">${esc(programme.note)}</div>`;
 
   card.innerHTML = html;
@@ -140,13 +127,11 @@ function renderSingle() {
   document.getElementById('nextBtn').disabled = current === example.programmes.length - 1;
   renderDots();
 }
-
 function setView(mode) {
   const compare = document.getElementById('compareView');
   const single = document.getElementById('singleView');
   const compareBtn = document.getElementById('compareBtn');
   const singleBtn = document.getElementById('singleBtn');
-
   if (mode === 'single') {
     compare.style.display = 'none';
     single.style.display = 'block';
@@ -159,7 +144,6 @@ function setView(mode) {
     singleBtn.classList.remove('active');
   }
 }
-
 function bindInteractions() {
   document.getElementById('compareBtn').addEventListener('click', () => setView('compare'));
   document.getElementById('singleBtn').addEventListener('click', () => setView('single'));
@@ -169,14 +153,12 @@ function bindInteractions() {
   document.getElementById('nextBtn').addEventListener('click', () => {
     if (current < example.programmes.length - 1) { current += 1; renderSingle(); }
   });
-
   document.addEventListener('keydown', event => {
     const singleVisible = getComputedStyle(document.getElementById('singleView')).display !== 'none';
     if (!singleVisible) return;
     if (event.key === 'ArrowLeft' && current > 0) { current -= 1; renderSingle(); }
     if (event.key === 'ArrowRight' && current < example.programmes.length - 1) { current += 1; renderSingle(); }
   });
-
   let touchStartX = null;
   const card = document.getElementById('singleCard');
   card.addEventListener('touchstart', event => { touchStartX = event.changedTouches[0].clientX; }, { passive: true });
@@ -188,7 +170,6 @@ function bindInteractions() {
     if (dx < 0 && current < example.programmes.length - 1) { current += 1; renderSingle(); }
     if (dx > 0 && current > 0) { current -= 1; renderSingle(); }
   }, { passive: true });
-
   window.addEventListener('resize', () => {
     const wide = window.innerWidth > 980;
     if (wide !== lastWide) {
@@ -197,7 +178,6 @@ function bindInteractions() {
     }
   });
 }
-
 function showLoadError(message, error) {
   document.getElementById('landingView').hidden = true;
   document.getElementById('exampleView').hidden = true;
@@ -209,7 +189,6 @@ function showLoadError(message, error) {
   box.textContent = `${message}${localHint}`;
   console.error(error);
 }
-
 async function loadJson(path) {
   const response = await fetch(path, { cache: 'no-store' });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -221,16 +200,14 @@ async function initLanding() {
     const catalog = await loadJson('./data/catalog.json');
     renderLanding(catalog);
   } catch (error) {
-    showLoadError('Could not load the Program Builder examples.', error);
+    showLoadError('Could not load the UCR Pathways examples.', error);
   }
 }
-
 async function initExample() {
   if (!safeId) {
     showLoadError(`Could not load example “${requestedId}”.`, new Error('Invalid example id'));
     return;
   }
-
   try {
     example = await loadJson(`./data/examples/${safeId}.json`);
     document.getElementById('landingView').hidden = true;
