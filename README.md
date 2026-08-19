@@ -6,6 +6,16 @@ UCR Pathways compares one disciplinary reference programme with three feasible U
 
 Academic construction and feasibility validation happen upstream. This repository contains the approved public representation and the generic renderers used for the website, LinkedIn PDFs and Open Day PDF regression testing.
 
+## Authoritative project documents
+
+The current living UCR Pathways specifications are maintained in `docs/`:
+
+- `docs/UCR_Pathways_Master_Specification.md` — durable product, academic, content and architectural decisions;
+- `docs/UCR_Pathways_Production_Instructions.md` — academic generation, validation, Open Day output and public-export procedure;
+- `docs/UCR_Pathways_Web_LinkedIn_Workflow.md` — operational handoff to the public website, LinkedIn PDF and manual LinkedIn publication.
+
+These GitHub files are the authoritative maintained copies. Update them when a durable decision in their domain changes rather than maintaining duplicate project-source copies elsewhere. Stable evidence inputs, such as the enriched UCR course database, may remain outside the repository.
+
 ## Content flow
 
 ```text
