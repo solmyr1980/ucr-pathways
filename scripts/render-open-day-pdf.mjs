@@ -31,14 +31,48 @@ try {
 
     const layout = await page.evaluate(() => {
       const pages = [...document.querySelectorAll('.od-page')];
-      const issues = [];
       const tolerance = 1;
+      const densityModes = [
+        { name: 'normal', className: null },
+        { name: 'compact', className: 'density-compact' },
+        { name: 'dense', className: 'density-dense' }
+      ];
 
-      pages.forEach((pageEl, pageIndex) => {
+      function applyDensity(pageEl, className) {
+        pageEl.classList.remove('density-compact', 'density-dense');
+        if (className) pageEl.classList.add(className);
+        void pageEl.offsetHeight;
+      }
+
+      function findIssues(pageEl, pageIndex) {
+        const issues = [];
         const pageRect = pageEl.getBoundingClientRect();
+        const body = pageEl.querySelector('.od-body');
+
         if (pageEl.scrollHeight > pageEl.clientHeight + tolerance || pageEl.scrollWidth > pageEl.clientWidth + tolerance) {
-          issues.push(`page ${pageIndex + 1} scroll overflow (${pageEl.scrollWidth}x${pageEl.scrollHeight} vs ${pageEl.clientWidth}x${pageEl.clientHeight})`);
+          issues.push(`page ${pageIndex + 1} page overflow (${pageEl.scrollWidth}x${pageEl.scrollHeight} vs ${pageEl.clientWidth}x${pageEl.clientHeight})`);
         }
+
+        if (body) {
+          const bodyRect = body.getBoundingClientRect();
+          if (body.scrollHeight > body.clientHeight + tolerance || body.scrollWidth > body.clientWidth + tolerance) {
+            issues.push(`page ${pageIndex + 1} body overflow (${body.scrollWidth}x${body.scrollHeight} vs ${body.clientWidth}x${body.clientHeight})`);
+          }
+
+          [...body.querySelectorAll('*')].forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.width === 0 && rect.height === 0) return;
+            if (rect.right > bodyRect.right + tolerance || rect.bottom > bodyRect.bottom + tolerance || rect.left < bodyRect.left - tolerance || rect.top < bodyRect.top - tolerance) {
+              issues.push(`page ${pageIndex + 1}: ${el.tagName.toLowerCase()}.${el.className || ''} extends outside body`);
+            }
+          });
+        }
+
+        [...pageEl.querySelectorAll('.schedule-cell')].forEach((cell, cellIndex) => {
+          if (cell.scrollHeight > cell.clientHeight + tolerance || cell.scrollWidth > cell.clientWidth + tolerance) {
+            issues.push(`page ${pageIndex + 1}: schedule cell ${cellIndex + 1} clips content`);
+          }
+        });
 
         [...pageEl.querySelectorAll('*')].forEach(el => {
           const rect = el.getBoundingClientRect();
@@ -47,16 +81,31 @@ try {
             issues.push(`page ${pageIndex + 1}: ${el.tagName.toLowerCase()}.${el.className || ''} extends outside page`);
           }
         });
+
+        return [...new Set(issues)];
+      }
+
+      const results = pages.map((pageEl, pageIndex) => {
+        let finalIssues = [];
+        for (const mode of densityModes) {
+          applyDensity(pageEl, mode.className);
+          finalIssues = findIssues(pageEl, pageIndex);
+          if (!finalIssues.length) return { page: pageIndex + 1, density: mode.name, issues: [] };
+        }
+        return { page: pageIndex + 1, density: 'dense', issues: finalIssues };
       });
 
-      return { pageCount: pages.length, issues: [...new Set(issues)] };
+      return { pageCount: pages.length, results };
     });
 
     if (layout.pageCount !== 2) {
       throw new Error(`${example.id}: Open Day HTML must contain exactly 2 pages; found ${layout.pageCount}.`);
     }
-    if (layout.issues.length) {
-      throw new Error(`${example.id}: Open Day layout overflow detected:\n${layout.issues.join('\n')}`);
+
+    const failures = layout.results.filter(result => result.issues.length);
+    if (failures.length) {
+      const messages = failures.flatMap(result => result.issues);
+      throw new Error(`${example.id}: Open Day layout still overflows at maximum density:\n${messages.join('\n')}`);
     }
 
     await page.pdf({
@@ -72,7 +121,8 @@ try {
       throw new Error(`${example.id}: rendered Open Day PDF must contain exactly 2 pages; found ${pdfPages}.`);
     }
 
-    console.log(`Created ${path.relative(root, pdfPath)} (2 pages, no detected overflow)`);
+    const densities = layout.results.map(result => `page ${result.page}: ${result.density}`).join(', ');
+    console.log(`Created ${path.relative(root, pdfPath)} (2 pages; ${densities}; no detected clipping)`);
   }
 } finally {
   await browser.close();
