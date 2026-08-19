@@ -3,13 +3,16 @@ import path from 'node:path';
 
 export function exampleFiles(root, target = 'all') {
   const dir = path.join(root, 'data', 'examples');
+
   if (target !== 'all') {
     const id = target.toLowerCase().replace(/\.json$/i, '');
     if (!/^[a-z0-9-]+$/.test(id)) throw new Error(`Invalid example id: ${target}`);
+
     const file = path.join(dir, `${id}.json`);
     if (!fs.existsSync(file)) throw new Error(`Example not found: ${id}`);
     return [file];
   }
+
   return fs.readdirSync(dir)
     .filter(name => name.endsWith('.json'))
     .sort()
@@ -41,6 +44,17 @@ export function escapeHtml(value = '') {
   }[c]));
 }
 
+function isHttpUrl(value) {
+  if (typeof value !== 'string' || !value.trim()) return false;
+
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' || url.protocol === 'http:';
+  } catch {
+    return false;
+  }
+}
+
 export function validateExample(example, sourceName = 'example') {
   const errors = [];
   const warnings = [];
@@ -54,15 +68,53 @@ export function validateExample(example, sourceName = 'example') {
   if (typeof example.schemaVersion !== 'string' || !example.schemaVersion.trim()) {
     fail('schemaVersion is required');
   }
+
   if (typeof example.id !== 'string' || !/^[a-z0-9-]+$/.test(example.id)) {
     fail('id must use lowercase letters, numbers and hyphens');
   }
+
   if (typeof example.interests !== 'string' || !example.interests.trim()) {
     fail('interests must be a non-empty string');
   }
+
+  const reference = example.referenceProgramme;
+  if (!reference || typeof reference !== 'object' || Array.isArray(reference)) {
+    fail('referenceProgramme is required and must be an object');
+  } else {
+    if (typeof reference.name !== 'string' || !reference.name.trim()) {
+      fail('referenceProgramme.name is required');
+    }
+
+    if (typeof reference.institution !== 'string' || !reference.institution.trim()) {
+      fail('referenceProgramme.institution is required');
+    }
+
+    if (typeof reference.provenance !== 'string' || !reference.provenance.trim()) {
+      fail('referenceProgramme.provenance is required');
+    }
+
+    if (!isHttpUrl(reference.primarySourceUrl)) {
+      fail('referenceProgramme.primarySourceUrl must be an http(s) URL');
+    }
+
+    if (
+      typeof reference.name === 'string' &&
+      reference.name.trim() &&
+      typeof reference.institution === 'string' &&
+      reference.institution.trim() &&
+      typeof reference.provenance === 'string'
+    ) {
+      const expected = `Reference programme: ${reference.name.trim()}, ${reference.institution.trim()}`;
+      if (reference.provenance.trim() !== expected) {
+        fail(`referenceProgramme.provenance must equal "${expected}"`);
+      }
+    }
+  }
+
   if (!Array.isArray(example.programmes) || example.programmes.length !== 4) {
     fail('programmes must contain exactly four programmes');
   }
+
   if (!Array.isArray(example.blocks) || example.blocks.length === 0) {
     fail('blocks must be a non-empty array');
   }
@@ -84,9 +136,11 @@ export function validateExample(example, sourceName = 'example') {
     if (typeof programme.id !== 'string' || !/^[a-z0-9-]+$/.test(programme.id)) {
       fail(`programme ${index + 1} has an invalid id`);
     }
+
     if (programme.role !== expectedRoles[index]) {
       fail(`programme ${index + 1} must have role "${expectedRoles[index]}"`);
     }
+
     if (typeof programme.label !== 'string' || !programme.label.trim()) {
       fail(`programme ${programme.id || index + 1} needs a label`);
     }
@@ -191,6 +245,7 @@ export function validateExample(example, sourceName = 'example') {
     if (typeof block.title !== 'string' || !block.title.trim()) {
       fail(`block ${blockIndex + 1} needs a title`);
     }
+
     if (!Array.isArray(block.rows) || block.rows.length === 0) {
       fail(`block ${block.title || blockIndex + 1}: rows must be a non-empty array`);
       return;

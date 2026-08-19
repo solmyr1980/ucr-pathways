@@ -2,12 +2,13 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://solmyr1980.github.io/ucr-pathways/data/schema/example.schema.json",
   "title": "UCR Pathways public example",
-  "description": "Publication data contract for one UCR Pathways four-programme comparison. Programme content, labels, blocks, rows and cells remain data rather than renderer assumptions.",
+  "description": "Publication data contract for one UCR Pathways four-programme comparison. Programme content, provenance, labels, blocks, rows and cells remain data rather than renderer assumptions.",
   "type": "object",
   "required": [
     "schemaVersion",
     "id",
     "interests",
+    "referenceProgramme",
     "programmes",
     "blocks"
   ],
@@ -25,6 +26,9 @@
     "interests": {
       "type": "string",
       "minLength": 1
+    },
+    "referenceProgramme": {
+      "$ref": "#/$defs/referenceProgramme"
     },
     "display": {
       "type": "object",
@@ -166,6 +170,34 @@
     }
   },
   "$defs": {
+    "referenceProgramme": {
+      "type": "object",
+      "required": [
+        "name",
+        "institution",
+        "provenance",
+        "primarySourceUrl"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "institution": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provenance": {
+          "type": "string",
+          "minLength": 1
+        },
+        "primarySourceUrl": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "additionalProperties": true
+    },
     "programme": {
       "type": "object",
       "required": [
