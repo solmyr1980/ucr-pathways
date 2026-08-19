@@ -39,11 +39,14 @@ try {
         { name: 'dense', className: 'density-dense', tune: null }
       ];
 
-      // Page 1: use spare space where available, but preserve the existing
-      // normal/compact/dense fallbacks for genuinely dense comparisons.
+      // Page 1: use the largest readable hierarchy that fits. Scale programme
+      // headings, section headings, course text and notes together, then fall
+      // back automatically for denser comparisons.
       const comparisonModes = [
-        { name: 'spacious', className: null, tune: 'comparison-spacious' },
-        { name: 'roomy', className: null, tune: 'comparison-roomy' },
+        { name: 'spacious-8pt', className: null, tune: 'comparison-8' },
+        { name: 'spacious-7-5pt', className: null, tune: 'comparison-7-5' },
+        { name: 'spacious-7pt', className: null, tune: 'comparison-7' },
+        { name: 'roomy-6-5pt', className: null, tune: 'comparison-6-5' },
         ...fallbackDensityModes
       ];
 
@@ -81,13 +84,21 @@ try {
 
       function applyComparisonTune(pageEl, tune) {
         const settings = {
-          'comparison-spacious': {
-            cell: '6.5pt', note: '5.4pt', block: '6.75pt',
-            programme: '7.65pt', subtitle: '6pt', line: '1.12'
+          'comparison-8': {
+            cell: '8pt', note: '6.35pt', block: '7.65pt',
+            programme: '9.35pt', subtitle: '6.85pt', line: '1.13'
           },
-          'comparison-roomy': {
-            cell: '6.1pt', note: '5.2pt', block: '6.45pt',
-            programme: '7.4pt', subtitle: '5.85pt', line: '1.11'
+          'comparison-7-5': {
+            cell: '7.5pt', note: '6.05pt', block: '7.3pt',
+            programme: '8.95pt', subtitle: '6.6pt', line: '1.13'
+          },
+          'comparison-7': {
+            cell: '7pt', note: '5.75pt', block: '6.95pt',
+            programme: '8.55pt', subtitle: '6.35pt', line: '1.12'
+          },
+          'comparison-6-5': {
+            cell: '6.5pt', note: '5.45pt', block: '6.65pt',
+            programme: '8.15pt', subtitle: '6.1pt', line: '1.12'
           }
         };
         const setting = settings[tune];
