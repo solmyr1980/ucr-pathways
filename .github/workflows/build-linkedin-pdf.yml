@@ -36,7 +36,9 @@ jobs:
         run: node scripts/validate-example.mjs "$EXAMPLE_ID"
 
       - name: Install Playwright and Chromium
+        timeout-minutes: 10
         run: |
+          sudo sed -i 's|azure.archive.ubuntu.com|archive.ubuntu.com|g' /etc/apt/sources.list.d/ubuntu.sources
           npm install --no-save playwright@1.56.0
           npx playwright install --with-deps chromium
 
