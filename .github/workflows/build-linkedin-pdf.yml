@@ -1,4 +1,4 @@
-name: Build LinkedIn PDFs
+name: Build PDFs
 
 on:
   workflow_dispatch:
@@ -13,6 +13,9 @@ on:
       - 'data/examples/**'
       - 'data/schema/**'
       - 'assets/css/linkedin.css'
+      - 'assets/css/linkedin-alignment.css'
+      - 'assets/css/open-day.css'
+      - 'assets/brand/**'
       - 'assets/fonts/**'
       - 'scripts/**'
       - '.github/workflows/build-linkedin-pdf.yml'
@@ -44,12 +47,25 @@ jobs:
       - name: Build LinkedIn print pages
         run: node scripts/build-linkedin-html.mjs "$EXAMPLE_ID"
 
-      - name: Generate PDFs
+      - name: Build Open Day print pages
+        run: node scripts/build-open-day-html.mjs "$EXAMPLE_ID"
+
+      - name: Generate LinkedIn PDFs
         run: node scripts/render-linkedin-pdf.mjs "$EXAMPLE_ID"
 
-      - name: Upload PDFs
+      - name: Generate Open Day PDFs
+        run: node scripts/render-open-day-pdf.mjs "$EXAMPLE_ID"
+
+      - name: Upload LinkedIn PDFs
         uses: actions/upload-artifact@v4
         with:
           name: linkedin-pdfs
           path: output/linkedin/*.pdf
+          retention-days: 30
+
+      - name: Upload Open Day PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: open-day-pdfs
+          path: output/open-day/*.pdf
           retention-days: 30
