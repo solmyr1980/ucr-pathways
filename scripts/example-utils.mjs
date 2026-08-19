@@ -153,7 +153,12 @@ export function validateExample(example, sourceName = 'example') {
     }
 
     const schedule = programme.schedule;
-    if (schedule === undefined) return;
+    if (schedule === undefined) {
+      if (isUcrProgramme(programme)) {
+        fail(`UCR programme ${programme.id} must include a six-semester schedule`);
+      }
+      return;
+    }
 
     if (!schedule || typeof schedule !== 'object' || Array.isArray(schedule)) {
       fail(`programme ${programme.id} schedule must be an object`);
@@ -167,7 +172,7 @@ export function validateExample(example, sourceName = 'example') {
     }
 
     if (isUcrProgramme(programme) && semesters.length !== 6) {
-      fail(`UCR programme ${programme.id} must have six semesters when a schedule is supplied`);
+      fail(`UCR programme ${programme.id} must have exactly six semesters`);
     }
 
     const seenCourses = new Set();
