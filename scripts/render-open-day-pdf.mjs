@@ -39,13 +39,6 @@ try {
         { name: 'dense', className: 'density-dense', tune: null }
       ];
 
-      // Page 1 gets only a modest readability boost. If it causes any overflow,
-      // the renderer falls back to the existing normal/compact/dense sequence.
-      const comparisonModes = [
-        { name: 'roomy', className: null, tune: 'comparison-roomy' },
-        ...fallbackDensityModes
-      ];
-
       // Page 2 has six fixed-height semester rows with substantial spare space.
       // Try materially larger course text first, then step down only when needed.
       const scheduleModes = [
@@ -56,17 +49,6 @@ try {
       ];
 
       function clearInlineTuning(pageEl) {
-        [...pageEl.querySelectorAll('.comparison-cell')].forEach(el => {
-          el.style.fontSize = '';
-          el.style.lineHeight = '';
-        });
-        [...pageEl.querySelectorAll('.cell-note')].forEach(el => {
-          el.style.fontSize = '';
-          el.style.lineHeight = '';
-        });
-        [...pageEl.querySelectorAll('.block-title td')].forEach(el => {
-          el.style.fontSize = '';
-        });
         [...pageEl.querySelectorAll('.course-list li')].forEach(el => {
           el.style.fontSize = '';
           el.style.lineHeight = '';
@@ -80,20 +62,6 @@ try {
 
       function applyTune(pageEl, tune) {
         clearInlineTuning(pageEl);
-
-        if (tune === 'comparison-roomy') {
-          [...pageEl.querySelectorAll('.comparison-cell')].forEach(el => {
-            el.style.fontSize = '6.15pt';
-            el.style.lineHeight = '1.12';
-          });
-          [...pageEl.querySelectorAll('.cell-note')].forEach(el => {
-            el.style.fontSize = '5.2pt';
-            el.style.lineHeight = '1.1';
-          });
-          [...pageEl.querySelectorAll('.block-title td')].forEach(el => {
-            el.style.fontSize = '6.35pt';
-          });
-        }
 
         const scheduleSettings = {
           'schedule-9': { course: '9pt', semester: '7.6pt', line: '1.15', gap: '.8mm', semesterGap: '1.05mm' },
@@ -163,13 +131,7 @@ try {
       }
 
       const results = pages.map((pageEl, pageIndex) => {
-        const pageType = pageEl.dataset.page;
-        const modes = pageType === 'schedule'
-          ? scheduleModes
-          : pageType === 'comparison'
-            ? comparisonModes
-            : fallbackDensityModes;
-
+        const modes = pageEl.dataset.page === 'schedule' ? scheduleModes : fallbackDensityModes;
         let finalIssues = [];
         for (const mode of modes) {
           applyMode(pageEl, mode);
