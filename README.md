@@ -2,128 +2,35 @@
 
 This repository stores and renders approved public **UCR Pathways** examples.
 
-UCR Pathways compares:
+UCR Pathways compares one disciplinary reference programme with three feasible UCR pathways that move from greater disciplinary depth toward broader combinations of interests and themes.
 
-1. one disciplinary bachelor programme; and
-2. three feasible UCR pathways that progressively move from greater disciplinary depth toward broader combinations of interests and themes.
+Academic construction and feasibility validation happen upstream. This repository contains the approved public representation and the generic renderers used for the website, LinkedIn PDFs and Open Day PDF regression testing.
 
-The academic construction and feasibility validation happen upstream using the UCR Pathways instructions. This repository stores the approved public representation and renders it consistently for the website and LinkedIn PDF.
-
-## Public flow
+## Content flow
 
 ```text
-approved canonical comparison
+canonical academic comparison
         ↓
-publication example record
+substantive human review
+        ↓
+approved public example record
         ↓
 data/examples/<id>.json
-+ data/catalog.json
         ↓
         ├── GitHub Pages interactive example
-        └── GitHub Actions LinkedIn PDF
+        ├── GitHub Actions LinkedIn PDF
+        └── GitHub Actions Open Day PDF test output
 ```
 
-The website and LinkedIn PDF use the same publication example record. Programme content is not maintained separately in HTML or PDF-specific files.
+Programme content is not maintained separately in HTML or PDF-specific files.
 
-## Repository structure
+Real Open Day participant records remain non-public. `canonical/` is reserved for local canonical records and is excluded from Git. The public examples in this repository are also used as regression cases for the Open Day renderer.
 
-```text
-ucr-pathways/
-├── index.html
-├── assets/
-│   ├── brand/
-│   ├── css/
-│   │   ├── web.css
-│   │   └── linkedin.css
-│   ├── fonts/
-│   └── js/
-│       └── app.js
-├── data/
-│   ├── catalog.json
-│   ├── examples/
-│   │   └── p-001.json
-│   └── schema/
-│       └── example.schema.json
-├── publication/
-│   └── linkedin/
-├── scripts/
-│   ├── example-utils.mjs
-│   ├── validate-example.mjs
-│   ├── build-linkedin-html.mjs
-│   └── render-linkedin-pdf.mjs
-├── .github/
-│   └── workflows/
-│       └── build-linkedin-pdf.yml
-├── .gitattributes
-├── .gitignore
-└── README.md
-```
+## Current public examples
 
-`publication/linkedin/` is currently a legacy/reserved directory. It is not part of the pilot publication workflow.
+The repository currently contains five deliberately different stress-test examples (`p-001` through `p-005`). They exercise different disciplinary reference programmes, comparison structures, gaps, component sizes and UCR course combinations.
 
-## Publication data contract
-
-`data/schema/example.schema.json` defines the public example data contract.
-
-A public UCR Pathways example contains exactly four programmes in this semantic order:
-
-1. `comparator`
-2. `ucr-depth`
-3. `ucr-balanced`
-4. `ucr-thematic`
-
-`role` is the semantic source of truth. Programme IDs remain flexible but must be unique. Visible programme labels and subtitles remain example-specific data.
-
-`family` may remain as compatibility metadata but does not determine the programme's semantic role.
-
-Rows store cells by programme ID rather than by column position. A cell may be a string, `null`, or an object such as:
-
-```json
-{
-  "text": "Applied Economics Research Course",
-  "note": "15 EC incl. thesis",
-  "emphasis": true
-}
-```
-
-Blank cells are deliberate: they indicate that there is no sufficiently comparable named component in that position.
-
-## Academic validation versus repository validation
-
-The repository performs publication-structure checks. Its custom validator checks items such as:
-
-- required publication fields;
-- exactly four programmes with the settled semantic roles;
-- unique programme IDs;
-- valid block and row structure;
-- references to known programme IDs;
-- basic UCR schedule shape and duplicate scheduled courses when schedules are supplied.
-
-The JSON Schema defines the data contract; the current custom validator does not constitute full JSON Schema-engine validation.
-
-Academic feasibility remains upstream. In particular, the repository does not establish:
-
-- prerequisites;
-- actual semester availability;
-- Personal & Professional Development placement;
-- substantive course fit;
-- the full academic validity of a UCR programme.
-
-The enriched UCR course database and UCR Pathways instructions are authoritative for those checks.
-
-## Schedules
-
-Complete six-semester schedules remain mandatory in the canonical pathway record created upstream.
-
-Schedules are optional in the public example record. When a UCR schedule is supplied publicly, it must contain six semesters with four courses in each semester and no duplicate scheduled course.
-
-The current comparison website and LinkedIn PDF do not require schedules in order to render the comparison.
-
-## Landing page and example URLs
-
-The GitHub Pages root loads `data/catalog.json` and displays the catalog of approved public examples.
-
-The current public root is:
+The public catalog is at:
 
 ```text
 https://solmyr1980.github.io/ucr-pathways/
@@ -135,21 +42,38 @@ An individual example is addressed with:
 https://solmyr1980.github.io/ucr-pathways/?example=p-001
 ```
 
+## Publication data contract
 
-## Adding another public example
+`data/schema/example.schema.json` defines the executable public example contract.
 
-After human substantive review and explicit approval for public use:
+Each example contains exactly four programmes in this semantic order:
 
-1. add the approved publication record under `data/examples/<id>.json`;
-2. add or update its discovery entry in `data/catalog.json`;
-3. validate the example;
-4. commit and push the approved public data.
+1. `comparator`
+2. `ucr-depth`
+3. `ucr-balanced`
+4. `ucr-thematic`
 
-Adding an example should not require programme-specific changes to `index.html`, CSS or JavaScript.
+The three UCR programmes must each include a complete six-semester schedule with four courses per semester. The current Open Day renderer consumes those schedules.
 
-The catalog contains discovery metadata only. It should not duplicate the substantive programme comparison.
+Rows store comparison cells by programme ID. Blank cells are deliberate and indicate that no sufficiently comparable named component is shown in that position.
 
-## Website behavior
+The approved disciplinary source is recorded under `referenceProgramme`, including the exact student-facing provenance line and primary official source URL.
+
+## Validation boundary
+
+Repository validation checks the publication structure, including:
+
+- required fields and semantic programme roles;
+- unique programme IDs;
+- comparison block and row structure;
+- references to known programme IDs;
+- complete UCR schedule shape;
+- four courses per semester;
+- duplicate scheduled courses.
+
+Academic feasibility remains upstream. In particular, repository validation does not establish prerequisites, actual semester availability, PPD placement or substantive course fit. Those are checked against the enriched UCR course database during academic production.
+
+## Website
 
 The website renderer is generic and data-driven.
 
@@ -160,69 +84,35 @@ For an individual example:
 - wide screens can switch between `Compare all` and `One at a time`;
 - one-at-a-time mode supports forward/back controls, keyboard arrows and touch swiping.
 
-Programme titles, subtitles, blocks, rows, cells and notes come from the example data.
+Adding an approved example should normally require only a new `data/examples/<id>.json` record and a catalog entry, not programme-specific renderer changes.
 
-## LinkedIn PDF generation
+## PDF generation
 
-The LinkedIn renderer consumes the same approved example record as the website.
+The GitHub Actions workflow validates the selected example data, installs Playwright/Chromium, builds the print HTML and generates two artifact sets:
 
-The PDF uses one programme per page so the four-programme progression can be swiped through on a phone.
+- `linkedin-pdfs` — one programme per page for LinkedIn document posts;
+- `open-day-pdfs` — two-page A4 portrait handouts used to test the Open Day renderer.
 
-The GitHub Action:
+On relevant pushes, the workflow builds all examples. A manual workflow run can build one example or all examples.
 
-1. runs the custom example validator;
-2. installs the PDF-rendering dependencies;
-3. builds LinkedIn-specific print HTML;
-4. renders PDFs with Playwright;
-5. uploads the finished PDFs as a GitHub Actions artifact.
-
-On a push affecting relevant example or rendering files, the Action builds all examples. A manual workflow run may request one example ID or all examples.
+The Open Day renderer uses adaptive fitting. Page 1 retains the established comparison density logic. On page 2, the renderer first tries substantially larger semester-course typography and steps down only if a cell or page would overflow. The existing normal/compact/dense layouts remain as safe fallbacks.
 
 Generated files under `output/` are build artifacts and are ignored by Git.
 
 ## LinkedIn publication
 
-For the pilot, publication to LinkedIn is manual.
+For the pilot, LinkedIn publication remains human-controlled. The finished post uses the corresponding specific UCR Pathways example URL and may be published immediately or placed in LinkedIn's native scheduled-post queue.
 
-After substantive approval and a final visual check:
+## UCR Program Builder
 
-1. create the LinkedIn document post;
-2. upload the finished PDF;
-3. add the approved post text;
-4. include the URL of the corresponding interactive UCR Pathways example;
-5. place the post in LinkedIn's native scheduled-post queue.
+UCR Pathways and the **UCR Program Builder** are separate products. The downstream Program Builder destination is:
 
-Several approved posts may be prepared and scheduled for different days or weeks.
+```text
+https://program.ucr.nl/
+```
 
-**Make is not part of the current pilot workflow.** It may be reconsidered later only if automating the mechanical handoff to LinkedIn creates clear value.
-
-## UCR Pathways and the UCR Program Builder
-
-UCR Pathways and the UCR Program Builder are separate products.
-
-The public website and LinkedIn posts present **UCR Pathways** comparisons.
-
-The separate **UCR Program Builder** is the downstream tool where a prospective student can build a programme themselves. Open Day QR codes should lead there.
+Open Day QR codes and public `Build your own programme` calls to action point there.
 
 ## Visual identity
 
-The current web and LinkedIn CSS use the settled UCR visual identity:
-
-- Heritage Plum `#491E34`
-- Foundation White `#F8F5EE`
-- Academic Black `#2E2D2D`
-- Thoughtful Grey `#5C606B`
-- Reflective Lilac `#D0B7D0`
-- Clarity Blue `#C8DFE6`
-- Open Yellow `#FFE1A4`
-- Grounded Green `#4A6857`
-
-Display headings use IvyMode and body text uses Inter.
-
-Colour supports identity, navigation and orientation rather than serving as the main substantive classification system.
-
-## Local testing
-
-The website loads JSON with `fetch()`, so opening `index.html` directly through a `file://` URL will normally fail because of browser security rules.
-
-The normal workflow is to test the pushed GitHub Pages version. If local browser testing is needed, serve the repository through a local HTTP server.
+The website and PDF renderers use the settled UCR palette, IvyMode for display headings and Inter for body text. Colour supports identity, navigation and orientation rather than serving as the primary classification of programme content.
