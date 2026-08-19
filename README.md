@@ -16,6 +16,8 @@ The current living UCR Pathways specifications are maintained in `docs/`:
 
 These GitHub files are the authoritative maintained copies. Update them when a durable decision in their domain changes rather than maintaining duplicate project-source copies elsewhere. Stable evidence inputs, such as the enriched UCR course database, may remain outside the repository.
 
+Routine UCR Pathways work does not depend on a user-maintained local Git clone. Repository operations should be performed directly through the connected GitHub repository where available.
+
 ## Content flow
 
 ```text
@@ -34,7 +36,7 @@ data/examples/<id>.json
 
 Programme content is not maintained separately in HTML or PDF-specific files.
 
-Real Open Day participant records remain non-public. `canonical/` is reserved for local canonical records and is excluded from Git. The public examples in this repository are also used as regression cases for the Open Day renderer.
+Real Open Day participant records remain non-public and are not stored in this public repository. The public examples in this repository are also used as regression cases for the Open Day renderer.
 
 ## Current public examples
 
