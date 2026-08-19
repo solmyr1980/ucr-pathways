@@ -13,7 +13,7 @@ Use:
 - current official university sources for the disciplinary reference programme;
 - the current repository schema only when an approved public example record is requested.
 
-These instructions produce academic records and outputs. They do **not** publish to GitHub or LinkedIn and do not assume they can directly manage the user's local repository filesystem.
+These instructions produce academic records and Open Day outputs. They do **not** publish public examples to GitHub or LinkedIn. The workflow must not depend on a user-maintained local Git clone; repository operations belong to the downstream Web and LinkedIn Workflow and should be performed directly through the connected GitHub repository where available.
 
 ---
 
@@ -343,7 +343,7 @@ The record should contain content and semantic structure, not renderer-specific 
 
 Do not alter programme content later merely to make a renderer look more symmetrical.
 
-When handing the canonical record into the local project workflow, the established project location is `canonical/`. Canonical records must remain non-public; repository configuration is responsible for excluding that location from Git. Storage itself is an external handoff, not an action these instructions should pretend to perform autonomously.
+Canonical records must remain non-public and must not be stored in the public GitHub repository. They are working production records rather than repository content. The production workflow should not require a user-maintained local Git clone merely to hold them.
 
 ---
 
