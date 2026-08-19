@@ -39,9 +39,19 @@ try {
         { name: 'dense', className: 'density-dense', tune: null }
       ];
 
-      // Page 2 has six fixed-height semester rows with substantial spare space.
-      // Try materially larger course text first, then step down only when needed.
+      // Page 1: use spare space where available, but preserve the existing
+      // normal/compact/dense fallbacks for genuinely dense comparisons.
+      const comparisonModes = [
+        { name: 'spacious', className: null, tune: 'comparison-spacious' },
+        { name: 'roomy', className: null, tune: 'comparison-roomy' },
+        ...fallbackDensityModes
+      ];
+
+      // Page 2: try larger schedules first. Each mode scales the complete
+      // hierarchy together: programme heading > semester heading > courses.
       const scheduleModes = [
+        { name: 'spacious-11pt', className: null, tune: 'schedule-11' },
+        { name: 'spacious-10pt', className: null, tune: 'schedule-10' },
         { name: 'spacious-9pt', className: null, tune: 'schedule-9' },
         { name: 'spacious-8pt', className: null, tune: 'schedule-8' },
         { name: 'roomy-7pt', className: null, tune: 'schedule-7' },
@@ -49,37 +59,107 @@ try {
       ];
 
       function clearInlineTuning(pageEl) {
+        [
+          '.comparison-cell',
+          '.cell-note',
+          '.block-title td',
+          '.programme-head .programme-label',
+          '.programme-head .programme-subtitle',
+          '.course-list li',
+          '.semester-label',
+          '.schedule-programme-head .programme-label',
+          '.schedule-programme-head .programme-subtitle'
+        ].forEach(selector => {
+          [...pageEl.querySelectorAll(selector)].forEach(el => {
+            el.style.fontSize = '';
+            el.style.lineHeight = '';
+            el.style.marginBottom = '';
+            el.style.marginTop = '';
+          });
+        });
+      }
+
+      function applyComparisonTune(pageEl, tune) {
+        const settings = {
+          'comparison-spacious': {
+            cell: '6.5pt', note: '5.4pt', block: '6.75pt',
+            programme: '7.65pt', subtitle: '6pt', line: '1.12'
+          },
+          'comparison-roomy': {
+            cell: '6.1pt', note: '5.2pt', block: '6.45pt',
+            programme: '7.4pt', subtitle: '5.85pt', line: '1.11'
+          }
+        };
+        const setting = settings[tune];
+        if (!setting) return;
+
+        [...pageEl.querySelectorAll('.comparison-cell')].forEach(el => {
+          el.style.fontSize = setting.cell;
+          el.style.lineHeight = setting.line;
+        });
+        [...pageEl.querySelectorAll('.cell-note')].forEach(el => {
+          el.style.fontSize = setting.note;
+          el.style.lineHeight = '1.1';
+        });
+        [...pageEl.querySelectorAll('.block-title td')].forEach(el => {
+          el.style.fontSize = setting.block;
+        });
+        [...pageEl.querySelectorAll('.programme-head .programme-label')].forEach(el => {
+          el.style.fontSize = setting.programme;
+        });
+        [...pageEl.querySelectorAll('.programme-head .programme-subtitle')].forEach(el => {
+          el.style.fontSize = setting.subtitle;
+        });
+      }
+
+      function applyScheduleTune(pageEl, tune) {
+        const settings = {
+          'schedule-11': {
+            course: '11pt', semester: '11.5pt', programme: '12.5pt', subtitle: '7.5pt',
+            line: '1.13', gap: '.7mm', semesterGap: '1mm'
+          },
+          'schedule-10': {
+            course: '10pt', semester: '10.5pt', programme: '11.5pt', subtitle: '7.2pt',
+            line: '1.13', gap: '.7mm', semesterGap: '1mm'
+          },
+          'schedule-9': {
+            course: '9pt', semester: '9.5pt', programme: '10.5pt', subtitle: '6.9pt',
+            line: '1.14', gap: '.75mm', semesterGap: '1mm'
+          },
+          'schedule-8': {
+            course: '8pt', semester: '8.5pt', programme: '9.5pt', subtitle: '6.5pt',
+            line: '1.14', gap: '.7mm', semesterGap: '.95mm'
+          },
+          'schedule-7': {
+            course: '7pt', semester: '7.5pt', programme: '8.5pt', subtitle: '6.1pt',
+            line: '1.13', gap: '.62mm', semesterGap: '.9mm'
+          }
+        };
+        const setting = settings[tune];
+        if (!setting) return;
+
         [...pageEl.querySelectorAll('.course-list li')].forEach(el => {
-          el.style.fontSize = '';
-          el.style.lineHeight = '';
-          el.style.marginBottom = '';
+          el.style.fontSize = setting.course;
+          el.style.lineHeight = setting.line;
+          el.style.marginBottom = setting.gap;
         });
         [...pageEl.querySelectorAll('.semester-label')].forEach(el => {
-          el.style.fontSize = '';
-          el.style.marginBottom = '';
+          el.style.fontSize = setting.semester;
+          el.style.marginBottom = setting.semesterGap;
+        });
+        [...pageEl.querySelectorAll('.schedule-programme-head .programme-label')].forEach(el => {
+          el.style.fontSize = setting.programme;
+        });
+        [...pageEl.querySelectorAll('.schedule-programme-head .programme-subtitle')].forEach(el => {
+          el.style.fontSize = setting.subtitle;
         });
       }
 
       function applyTune(pageEl, tune) {
         clearInlineTuning(pageEl);
-
-        const scheduleSettings = {
-          'schedule-9': { course: '9pt', semester: '7.6pt', line: '1.15', gap: '.8mm', semesterGap: '1.05mm' },
-          'schedule-8': { course: '8pt', semester: '7.2pt', line: '1.14', gap: '.7mm', semesterGap: '.95mm' },
-          'schedule-7': { course: '7pt', semester: '6.8pt', line: '1.13', gap: '.62mm', semesterGap: '.9mm' }
-        };
-        const setting = scheduleSettings[tune];
-        if (setting) {
-          [...pageEl.querySelectorAll('.course-list li')].forEach(el => {
-            el.style.fontSize = setting.course;
-            el.style.lineHeight = setting.line;
-            el.style.marginBottom = setting.gap;
-          });
-          [...pageEl.querySelectorAll('.semester-label')].forEach(el => {
-            el.style.fontSize = setting.semester;
-            el.style.marginBottom = setting.semesterGap;
-          });
-        }
+        if (!tune) return;
+        if (tune.startsWith('comparison-')) applyComparisonTune(pageEl, tune);
+        if (tune.startsWith('schedule-')) applyScheduleTune(pageEl, tune);
       }
 
       function applyMode(pageEl, mode) {
@@ -131,7 +211,13 @@ try {
       }
 
       const results = pages.map((pageEl, pageIndex) => {
-        const modes = pageEl.dataset.page === 'schedule' ? scheduleModes : fallbackDensityModes;
+        const pageType = pageEl.dataset.page;
+        const modes = pageType === 'schedule'
+          ? scheduleModes
+          : pageType === 'comparison'
+            ? comparisonModes
+            : fallbackDensityModes;
+
         let finalIssues = [];
         for (const mode of modes) {
           applyMode(pageEl, mode);
