@@ -32,26 +32,25 @@ try {
     const layout = await page.evaluate(() => {
       const pages = [...document.querySelectorAll('.od-page')];
       const tolerance = 1;
-
       const fallbackDensityModes = [
         { name: 'normal', className: null, tune: null },
         { name: 'compact', className: 'density-compact', tune: null },
         { name: 'dense', className: 'density-dense', tune: null }
       ];
 
-      // Page 1: use the largest readable hierarchy that fits. Scale programme
-      // headings, section headings, course text and notes together, then fall
-      // back automatically for denser comparisons.
+      // Page 1 uses a fine-grained ladder so each comparison gets close to the
+      // largest readable hierarchy it can accommodate before falling back.
+      const comparisonSizes = [8, 7.75, 7.5, 7.25, 7, 6.75, 6.5, 6.25, 6, 5.75];
       const comparisonModes = [
-        { name: 'spacious-8pt', className: null, tune: 'comparison-8' },
-        { name: 'spacious-7-5pt', className: null, tune: 'comparison-7-5' },
-        { name: 'spacious-7pt', className: null, tune: 'comparison-7' },
-        { name: 'roomy-6-5pt', className: null, tune: 'comparison-6-5' },
+        ...comparisonSizes.map(size => ({
+          name: `comparison-${String(size).replace('.', '-') }pt`,
+          className: null,
+          tune: `comparison:${size}`
+        })),
         ...fallbackDensityModes
       ];
 
-      // Page 2: try larger schedules first. Each mode scales the complete
-      // hierarchy together: programme heading > semester heading > courses.
+      // Page 2 remains unchanged: programme heading > semester heading > course.
       const scheduleModes = [
         { name: 'spacious-11pt', className: null, tune: 'schedule-11' },
         { name: 'spacious-10pt', className: null, tune: 'schedule-10' },
@@ -63,13 +62,9 @@ try {
 
       function clearInlineTuning(pageEl) {
         [
-          '.comparison-cell',
-          '.cell-note',
-          '.block-title td',
-          '.programme-head .programme-label',
-          '.programme-head .programme-subtitle',
-          '.course-list li',
-          '.semester-label',
+          '.comparison-cell', '.cell-note', '.block-title td',
+          '.programme-head .programme-label', '.programme-head .programme-subtitle',
+          '.course-list li', '.semester-label',
           '.schedule-programme-head .programme-label',
           '.schedule-programme-head .programme-subtitle'
         ].forEach(selector => {
@@ -82,73 +77,43 @@ try {
         });
       }
 
-      function applyComparisonTune(pageEl, tune) {
-        const settings = {
-          'comparison-8': {
-            cell: '8pt', note: '6.35pt', block: '7.65pt',
-            programme: '9.35pt', subtitle: '6.85pt', line: '1.13'
-          },
-          'comparison-7-5': {
-            cell: '7.5pt', note: '6.05pt', block: '7.3pt',
-            programme: '8.95pt', subtitle: '6.6pt', line: '1.13'
-          },
-          'comparison-7': {
-            cell: '7pt', note: '5.75pt', block: '6.95pt',
-            programme: '8.55pt', subtitle: '6.35pt', line: '1.12'
-          },
-          'comparison-6-5': {
-            cell: '6.5pt', note: '5.45pt', block: '6.65pt',
-            programme: '8.15pt', subtitle: '6.1pt', line: '1.12'
-          }
-        };
-        const setting = settings[tune];
-        if (!setting) return;
+      function applyComparisonTune(pageEl, size) {
+        const cell = Number(size);
+        const programme = 0.8 * cell + 2.95;
+        const subtitle = 0.5 * cell + 2.85;
+        const block = 0.6 * cell + 2.85;
+        const note = 0.6 * cell + 1.55;
+        const line = cell >= 7.5 ? 1.13 : 1.12;
 
         [...pageEl.querySelectorAll('.comparison-cell')].forEach(el => {
-          el.style.fontSize = setting.cell;
-          el.style.lineHeight = setting.line;
+          el.style.fontSize = `${cell}pt`;
+          el.style.lineHeight = String(line);
         });
         [...pageEl.querySelectorAll('.cell-note')].forEach(el => {
-          el.style.fontSize = setting.note;
+          el.style.fontSize = `${note}pt`;
           el.style.lineHeight = '1.1';
         });
         [...pageEl.querySelectorAll('.block-title td')].forEach(el => {
-          el.style.fontSize = setting.block;
+          el.style.fontSize = `${block}pt`;
         });
         [...pageEl.querySelectorAll('.programme-head .programme-label')].forEach(el => {
-          el.style.fontSize = setting.programme;
+          el.style.fontSize = `${programme}pt`;
         });
         [...pageEl.querySelectorAll('.programme-head .programme-subtitle')].forEach(el => {
-          el.style.fontSize = setting.subtitle;
+          el.style.fontSize = `${subtitle}pt`;
         });
       }
 
       function applyScheduleTune(pageEl, tune) {
         const settings = {
-          'schedule-11': {
-            course: '11pt', semester: '11.5pt', programme: '12.5pt', subtitle: '7.5pt',
-            line: '1.13', gap: '.7mm', semesterGap: '1mm'
-          },
-          'schedule-10': {
-            course: '10pt', semester: '10.5pt', programme: '11.5pt', subtitle: '7.2pt',
-            line: '1.13', gap: '.7mm', semesterGap: '1mm'
-          },
-          'schedule-9': {
-            course: '9pt', semester: '9.5pt', programme: '10.5pt', subtitle: '6.9pt',
-            line: '1.14', gap: '.75mm', semesterGap: '1mm'
-          },
-          'schedule-8': {
-            course: '8pt', semester: '8.5pt', programme: '9.5pt', subtitle: '6.5pt',
-            line: '1.14', gap: '.7mm', semesterGap: '.95mm'
-          },
-          'schedule-7': {
-            course: '7pt', semester: '7.5pt', programme: '8.5pt', subtitle: '6.1pt',
-            line: '1.13', gap: '.62mm', semesterGap: '.9mm'
-          }
+          'schedule-11': { course: '11pt', semester: '11.5pt', programme: '12.5pt', subtitle: '7.5pt', line: '1.13', gap: '.7mm', semesterGap: '1mm' },
+          'schedule-10': { course: '10pt', semester: '10.5pt', programme: '11.5pt', subtitle: '7.2pt', line: '1.13', gap: '.7mm', semesterGap: '1mm' },
+          'schedule-9': { course: '9pt', semester: '9.5pt', programme: '10.5pt', subtitle: '6.9pt', line: '1.14', gap: '.75mm', semesterGap: '1mm' },
+          'schedule-8': { course: '8pt', semester: '8.5pt', programme: '9.5pt', subtitle: '6.5pt', line: '1.14', gap: '.7mm', semesterGap: '.95mm' },
+          'schedule-7': { course: '7pt', semester: '7.5pt', programme: '8.5pt', subtitle: '6.1pt', line: '1.13', gap: '.62mm', semesterGap: '.9mm' }
         };
         const setting = settings[tune];
         if (!setting) return;
-
         [...pageEl.querySelectorAll('.course-list li')].forEach(el => {
           el.style.fontSize = setting.course;
           el.style.lineHeight = setting.line;
@@ -169,7 +134,7 @@ try {
       function applyTune(pageEl, tune) {
         clearInlineTuning(pageEl);
         if (!tune) return;
-        if (tune.startsWith('comparison-')) applyComparisonTune(pageEl, tune);
+        if (tune.startsWith('comparison:')) applyComparisonTune(pageEl, tune.split(':')[1]);
         if (tune.startsWith('schedule-')) applyScheduleTune(pageEl, tune);
       }
 
@@ -188,13 +153,11 @@ try {
         if (pageEl.scrollHeight > pageEl.clientHeight + tolerance || pageEl.scrollWidth > pageEl.clientWidth + tolerance) {
           issues.push(`page ${pageIndex + 1} page overflow (${pageEl.scrollWidth}x${pageEl.scrollHeight} vs ${pageEl.clientWidth}x${pageEl.clientHeight})`);
         }
-
         if (body) {
           const bodyRect = body.getBoundingClientRect();
           if (body.scrollHeight > body.clientHeight + tolerance || body.scrollWidth > body.clientWidth + tolerance) {
             issues.push(`page ${pageIndex + 1} body overflow (${body.scrollWidth}x${body.scrollHeight} vs ${body.clientWidth}x${body.clientHeight})`);
           }
-
           [...body.querySelectorAll('*')].forEach(el => {
             const rect = el.getBoundingClientRect();
             if (rect.width === 0 && rect.height === 0) return;
@@ -203,13 +166,11 @@ try {
             }
           });
         }
-
         [...pageEl.querySelectorAll('.schedule-cell')].forEach((cell, cellIndex) => {
           if (cell.scrollHeight > cell.clientHeight + tolerance || cell.scrollWidth > cell.clientWidth + tolerance) {
             issues.push(`page ${pageIndex + 1}: schedule cell ${cellIndex + 1} clips content`);
           }
         });
-
         [...pageEl.querySelectorAll('*')].forEach(el => {
           const rect = el.getBoundingClientRect();
           if (rect.width === 0 && rect.height === 0) return;
@@ -217,18 +178,12 @@ try {
             issues.push(`page ${pageIndex + 1}: ${el.tagName.toLowerCase()}.${el.className || ''} extends outside page`);
           }
         });
-
         return [...new Set(issues)];
       }
 
       const results = pages.map((pageEl, pageIndex) => {
         const pageType = pageEl.dataset.page;
-        const modes = pageType === 'schedule'
-          ? scheduleModes
-          : pageType === 'comparison'
-            ? comparisonModes
-            : fallbackDensityModes;
-
+        const modes = pageType === 'schedule' ? scheduleModes : pageType === 'comparison' ? comparisonModes : fallbackDensityModes;
         let finalIssues = [];
         for (const mode of modes) {
           applyMode(pageEl, mode);
@@ -237,33 +192,25 @@ try {
         }
         return { page: pageIndex + 1, density: 'dense', issues: finalIssues };
       });
-
       return { pageCount: pages.length, results };
     });
 
     if (layout.pageCount !== 2) {
       throw new Error(`${example.id}: Open Day HTML must contain exactly 2 pages; found ${layout.pageCount}.`);
     }
-
     const failures = layout.results.filter(result => result.issues.length);
     if (failures.length) {
       const messages = failures.flatMap(result => result.issues);
       throw new Error(`${example.id}: Open Day layout still overflows at maximum density:\n${messages.join('\n')}`);
     }
 
-    await page.pdf({
-      path: pdfPath,
-      printBackground: true,
-      preferCSSPageSize: true,
-      margin: { top: 0, right: 0, bottom: 0, left: 0 }
-    });
+    await page.pdf({ path: pdfPath, printBackground: true, preferCSSPageSize: true, margin: { top: 0, right: 0, bottom: 0, left: 0 } });
     await page.close();
 
     const pdfPages = countPdfPages(pdfPath);
     if (pdfPages !== 2) {
       throw new Error(`${example.id}: rendered Open Day PDF must contain exactly 2 pages; found ${pdfPages}.`);
     }
-
     const densities = layout.results.map(result => `page ${result.page}: ${result.density}`).join(', ');
     console.log(`Created ${path.relative(root, pdfPath)} (2 pages; ${densities}; no detected clipping)`);
   }
