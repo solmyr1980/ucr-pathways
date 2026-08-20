@@ -108,7 +108,11 @@ These PDFs are generated publication outputs. They are not independent sources o
 
 This is the stable publication-control record read by Make.
 
-Its repository path and raw GitHub URL remain fixed between posts. Before each approved LinkedIn publication, replace its contents with the three values for the post to be published:
+Its repository path and base raw GitHub URL remain fixed between posts. HTTP 14 appends a per-run cache-busting query parameter so the GitHub/CDN cache cannot return stale control data:
+
+`?cb={{formatDate(now; "x")}}`
+
+Before each approved LinkedIn publication, replace the contents of `current.json` with the three values for the post to be published:
 
 ```json
 {
@@ -275,7 +279,7 @@ The Make scenario requires no post-specific editing. It always retrieves the sam
 
 The scenario performs these operations:
 
-1. retrieve `publication/queue/current.json` from GitHub;
+1. retrieve `publication/queue/current.json` from GitHub using the fixed raw URL plus a per-run `cb` query parameter;
 2. parse `example_id`, `title` and `commentary`;
 3. initialize a LinkedIn document upload and obtain an upload URL and document URN;
 4. construct `https://solmyr1980.github.io/ucr-pathways/publication/linkedin/<example_id>.pdf` and download the PDF;
@@ -284,7 +288,7 @@ The scenario performs these operations:
 
 The following infrastructure remains fixed between posts:
 
-- the raw GitHub URL for `publication/queue/current.json`;
+- the raw GitHub URL for `publication/queue/current.json`, with a per-run cache-busting `cb` query parameter;
 - LinkedIn person URN;
 - `/rest/documents?action=initializeUpload`;
 - the mapped LinkedIn upload URL;
