@@ -126,6 +126,18 @@ The fields mean:
 
 The file is intentionally overwritten for each approved post. Git commit history provides the audit trail of prior values, so separate per-post control files are not required for the manual pilot.
 
+When no approved post is staged, keep `current.json` in the inert placeholder state:
+
+```json
+{
+  "example_id": "__not_set__",
+  "title": "Not ready for publication",
+  "commentary": "Replace this control record with an approved LinkedIn post before running Make."
+}
+```
+
+This placeholder deliberately resolves to no real LinkedIn PDF, so an accidental Make run stops before the final LinkedIn publication step. It is a safety state, not a queue-status mechanism.
+
 Do not add publication status, scheduling or automatic queue-selection fields until queue semantics are deliberately designed and approved.
 
 ---
@@ -158,6 +170,8 @@ commit approved public data
           run approved Make scenario
                     ↓
              LinkedIn document post
+                    ↓
+      reset current.json to inert state
 ```
 
 Do not update project specifications merely because a build succeeds or fails.
@@ -279,7 +293,7 @@ The following infrastructure remains fixed between posts:
 - `/rest/posts`;
 - distribution and publication settings.
 
-For the manual pilot, update `current.json` for one approved post and run the scenario once. Do not yet implement automatic queue selection, status transitions, duplicate prevention or scheduled publication.
+For the manual pilot, update `current.json` for one approved post and run the scenario once. After a successful publication, reset `current.json` to the inert placeholder state. Do not yet implement automatic queue selection, status transitions, duplicate prevention or scheduled publication.
 
 After substantive and visual approval, run the scenario manually. The scenario should remain switched off as a scheduled automation unless a separate decision is made to automate publication timing.
 
@@ -303,7 +317,7 @@ To prevent maintenance drift:
 - landing-page discovery metadata comes from `data/catalog.json`;
 - exact build mechanics come from GitHub Actions and repository scripts;
 - generated public LinkedIn PDFs come from `publication/linkedin/<id>.pdf` and are never edited as sources;
-- the currently approved LinkedIn publication inputs come from `publication/queue/current.json`;
+- the currently staged LinkedIn publication inputs come from `publication/queue/current.json`;
 - Make derives the PDF URL from `example_id` rather than storing or editing a separate per-post PDF URL;
 - Git commit history records prior `current.json` values for the manual pilot;
 - current deployment/build status comes from GitHub;
