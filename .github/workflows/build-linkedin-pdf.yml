@@ -20,6 +20,9 @@ on:
       - 'scripts/**'
       - '.github/workflows/build-linkedin-pdf.yml'
 
+permissions:
+  contents: write
+
 jobs:
   build-pdf:
     runs-on: ubuntu-latest
@@ -69,3 +72,18 @@ jobs:
           name: open-day-pdfs
           path: output/open-day/*.pdf
           retention-days: 30
+
+      - name: Publish LinkedIn PDFs for GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        run: |
+          mkdir -p publication/linkedin
+          cp output/linkedin/*.pdf publication/linkedin/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- publication/linkedin/*.pdf
+          if git diff --cached --quiet; then
+            echo "No published LinkedIn PDFs changed."
+          else
+            git commit -m "Publish LinkedIn PDFs"
+            git push
+          fi
