@@ -18,6 +18,17 @@ These GitHub files are the authoritative maintained copies. Update them when a d
 
 Routine UCR Pathways work does not depend on a user-maintained local Git clone. Repository operations should be performed directly through the connected GitHub repository where available.
 
+## Repository operating rule
+
+This is a single-maintainer repository. Routine approved changes should be made directly on `main`.
+
+- Do not create a branch or pull request for routine documentation changes, approved example data, catalog changes, publication records, or ordinary renderer and copy fixes.
+- If a change appears risky or large enough that isolation would materially help, explain why and obtain explicit approval before creating a branch.
+- When a branch is explicitly approved, use one clearly named branch for the task. Do not create iterative `-v2`, `-v3`, or similar branches. Use a pull request only when a review or merge step adds value.
+- Once exceptional branch work has been incorporated into `main`, delete the branch immediately.
+- After substantial repository work, check repository hygiene. The normal state is one active branch (`main`) and no open pull requests. Closed or merged pull requests remain as normal GitHub history.
+- Git commit history is the routine rollback mechanism; do not create branches solely as a generic safety precaution.
+
 ## Content flow
 
 ```text
