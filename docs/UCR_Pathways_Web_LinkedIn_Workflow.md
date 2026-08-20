@@ -6,7 +6,7 @@ This document governs the operational handoff from an **approved public UCR Path
 
 1. the public UCR Pathways website;
 2. the LinkedIn PDF;
-3. manual LinkedIn publication.
+3. Make-assisted LinkedIn publication.
 
 It does **not** define academic generation, reference-programme selection, UCR course selection, Open Day production or academic validation. Those belong to the UCR Pathways Production Instructions.
 
@@ -90,6 +90,20 @@ Consume the same approved example records used by the website.
 
 There is no independent LinkedIn content copy.
 
+### `publication/linkedin/`
+
+Contains the public copies of generated LinkedIn PDFs used for downstream publication.
+
+For example `p-001` is published as:
+
+`publication/linkedin/p-001.pdf`
+
+and is available through GitHub Pages at:
+
+`https://solmyr1980.github.io/ucr-pathways/publication/linkedin/p-001.pdf`
+
+These PDFs are generated publication outputs. They are not independent sources of programme content and must not be hand-edited.
+
 ---
 
 ## 4. Publication flow
@@ -106,14 +120,18 @@ commit approved public data
         ├── GitHub Pages renders the website example
         │
         └── GitHub Actions validates and renders the LinkedIn PDF
-        ↓
-human visual review
-        ↓
-prepare/review LinkedIn post text
-        ↓
-manual LinkedIn document post
-        ↓
-LinkedIn native scheduling or publication
+                    ↓
+          publication/linkedin/<id>.pdf
+                    ↓
+             stable GitHub Pages URL
+                    ↓
+              human visual review
+                    ↓
+          prepare/review LinkedIn text
+                    ↓
+          run approved Make scenario
+                    ↓
+             LinkedIn document post
 ```
 
 Do not update project specifications merely because a build succeeds or fails.
@@ -170,11 +188,16 @@ At a high level, GitHub Actions:
 1. validates the selected public example data;
 2. builds the LinkedIn print representation;
 3. renders the PDF;
-4. exposes the PDF as a workflow artifact.
+4. retains the PDF as a downloadable workflow artifact;
+5. copies the generated LinkedIn PDF to `publication/linkedin/<id>.pdf` on `main` so GitHub Pages exposes it at a stable public URL.
+
+The public PDF URL therefore follows this pattern:
+
+`https://solmyr1980.github.io/ucr-pathways/publication/linkedin/<id>.pdf`
 
 Exact dependency-install commands, Playwright versions and build commands belong in the GitHub Actions configuration and repository scripts, not in this workflow document.
 
-Generated outputs are build artifacts, not sources of programme content.
+Generated PDFs are publication outputs, not sources of programme content. Do not hand-edit them.
 
 After generation, conduct a human visual review before publication.
 
@@ -184,9 +207,10 @@ After generation, conduct a human visual review before publication.
 
 For an approved example, prepare:
 
-- the finished LinkedIn PDF;
+- the finished LinkedIn PDF and its stable public PDF URL;
 - the specific interactive UCR Pathways example URL;
-- the LinkedIn post text.
+- the LinkedIn post text;
+- the LinkedIn document title.
 
 The post text may be written separately from the programme data, but it must describe the same approved example accurately.
 
@@ -196,17 +220,22 @@ Use the specific example URL rather than merely the landing page.
 
 ## 9. LinkedIn publication
 
-For the pilot, publication remains manual.
+For the pilot, publication uses the tested Make scenario but remains under manual human control.
 
-After substantive and visual approval:
+The scenario performs four operations:
 
-1. create the LinkedIn document post;
-2. upload the finished PDF;
-3. add the approved post text;
-4. include the specific interactive UCR Pathways example link;
-5. publish immediately or place the post in LinkedIn's native scheduled-post queue.
+1. initialize a LinkedIn document upload and obtain an upload URL and document URN;
+2. download the approved PDF from its stable GitHub Pages URL;
+3. upload the PDF bytes to LinkedIn using the temporary upload URL;
+4. create the LinkedIn post using the returned document URN.
 
-Several finished posts may be prepared in one session and scheduled for different days or weeks.
+For each real post, only the following publication inputs normally change:
+
+- the PDF URL in the HTTP download module;
+- the LinkedIn commentary in the final LinkedIn API module;
+- the document title in the final LinkedIn API module.
+
+After substantive and visual approval, run the scenario manually. The scenario should remain switched off as a scheduled automation unless a separate decision is made to automate publication timing.
 
 Human control remains mandatory over:
 
@@ -215,8 +244,6 @@ Human control remains mandatory over:
 - LinkedIn text;
 - publication timing;
 - final decision to publish.
-
-Full transfer automation to LinkedIn is outside the current pilot workflow.
 
 ---
 
@@ -229,6 +256,7 @@ To prevent maintenance drift:
 - the executable public-data contract comes from the repository schema;
 - landing-page discovery metadata comes from `data/catalog.json`;
 - exact build mechanics come from GitHub Actions and repository scripts;
+- generated public LinkedIn PDFs come from `publication/linkedin/<id>.pdf` and are never edited as sources;
 - current deployment/build status comes from GitHub;
 - durable public behavior and branding requirements come from the Master Specification.
 
