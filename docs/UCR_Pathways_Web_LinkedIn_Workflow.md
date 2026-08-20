@@ -104,11 +104,11 @@ and is available through GitHub Pages at:
 
 These PDFs are generated publication outputs. They are not independent sources of programme content and must not be hand-edited.
 
-### `publication/queue/`
+### `publication/queue/current.json`
 
-Contains the small publication-control record that supplies Make with the values that vary from one LinkedIn post to another.
+This is the stable publication-control record read by Make.
 
-For the manual single-post pilot, one JSON record is selected explicitly. The record contains only:
+Its repository path and raw GitHub URL remain fixed between posts. Before each approved LinkedIn publication, replace its contents with the three values for the post to be published:
 
 ```json
 {
@@ -123,6 +123,8 @@ The fields mean:
 - `example_id`: the approved example whose generated PDF will be posted;
 - `title`: the LinkedIn document title;
 - `commentary`: the LinkedIn post text.
+
+The file is intentionally overwritten for each approved post. Git commit history provides the audit trail of prior values, so separate per-post control files are not required for the manual pilot.
 
 Do not add publication status, scheduling or automatic queue-selection fields until queue semantics are deliberately designed and approved.
 
@@ -151,7 +153,7 @@ commit approved public data
                     ↓
           prepare/review LinkedIn text
                     ↓
-      write publication/queue/<id>.json
+     update publication/queue/current.json
                     ↓
           run approved Make scenario
                     ↓
@@ -235,7 +237,7 @@ For an approved example, prepare and approve:
 - the LinkedIn post text;
 - the LinkedIn document title.
 
-After approval, place the three variable publication inputs in `publication/queue/<id>.json`:
+After approval, update `publication/queue/current.json` with the three variable publication inputs:
 
 - `example_id`;
 - `title`;
@@ -255,18 +257,20 @@ Where the post text links to the interactive UCR Pathways example, use the speci
 
 For the pilot, publication uses the tested Make scenario but remains under manual human control.
 
-The Make scenario should require no post-specific editing. For each run, it reads one explicitly selected GitHub publication record and maps its values into the otherwise fixed LinkedIn publication flow.
+The Make scenario requires no post-specific editing. It always retrieves the same stable GitHub control record, `publication/queue/current.json`, parses `example_id`, `title` and `commentary`, and maps those values into the otherwise fixed LinkedIn publication flow.
 
 The scenario performs these operations:
 
-1. retrieve the selected `publication/queue/<id>.json` record from GitHub and parse `example_id`, `title` and `commentary`;
-2. initialize a LinkedIn document upload and obtain an upload URL and document URN;
-3. construct `https://solmyr1980.github.io/ucr-pathways/publication/linkedin/<example_id>.pdf` and download the PDF;
-4. upload the PDF bytes to LinkedIn using the temporary upload URL;
-5. create the LinkedIn post using the returned document URN, mapped `title` and mapped `commentary`.
+1. retrieve `publication/queue/current.json` from GitHub;
+2. parse `example_id`, `title` and `commentary`;
+3. initialize a LinkedIn document upload and obtain an upload URL and document URN;
+4. construct `https://solmyr1980.github.io/ucr-pathways/publication/linkedin/<example_id>.pdf` and download the PDF;
+5. upload the PDF bytes to LinkedIn using the temporary upload URL;
+6. create the LinkedIn post using the returned document URN, mapped `title` and mapped `commentary`.
 
 The following infrastructure remains fixed between posts:
 
+- the raw GitHub URL for `publication/queue/current.json`;
 - LinkedIn person URN;
 - `/rest/documents?action=initializeUpload`;
 - the mapped LinkedIn upload URL;
@@ -275,7 +279,7 @@ The following infrastructure remains fixed between posts:
 - `/rest/posts`;
 - distribution and publication settings.
 
-For the first implementation, use manual single-post mode: explicitly select the GitHub JSON record and run the scenario once. Do not yet implement automatic queue selection, status transitions, duplicate prevention or scheduled publication.
+For the manual pilot, update `current.json` for one approved post and run the scenario once. Do not yet implement automatic queue selection, status transitions, duplicate prevention or scheduled publication.
 
 After substantive and visual approval, run the scenario manually. The scenario should remain switched off as a scheduled automation unless a separate decision is made to automate publication timing.
 
@@ -299,8 +303,9 @@ To prevent maintenance drift:
 - landing-page discovery metadata comes from `data/catalog.json`;
 - exact build mechanics come from GitHub Actions and repository scripts;
 - generated public LinkedIn PDFs come from `publication/linkedin/<id>.pdf` and are never edited as sources;
-- post-specific LinkedIn publication inputs come from `publication/queue/<id>.json`;
+- the currently approved LinkedIn publication inputs come from `publication/queue/current.json`;
 - Make derives the PDF URL from `example_id` rather than storing or editing a separate per-post PDF URL;
+- Git commit history records prior `current.json` values for the manual pilot;
 - current deployment/build status comes from GitHub;
 - durable public behavior and branding requirements come from the Master Specification.
 
