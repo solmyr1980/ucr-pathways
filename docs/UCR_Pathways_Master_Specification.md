@@ -13,7 +13,7 @@ Use the following sources of truth for those matters:
 - the **UCR Pathways Production Instructions** for academic generation and Open Day production;
 - the **UCR Pathways Web and LinkedIn Workflow** for public publication operations;
 - the enriched UCR course database for UCR course evidence and availability;
-- the private normalized national programme registry for external programme discovery and reusable programme metadata;
+- the private working national programme registry for external programme discovery and reusable programme metadata;
 - the repository schema for the executable public-data contract;
 - the GitHub repository, Actions configuration and commit history for implementation state and build mechanics.
 
@@ -220,7 +220,7 @@ For the pilot, prefer a current Dutch research-university bachelor where one is 
 
 ## 5.2 Source basis
 
-Use the current private normalized national programme registry as the first discovery layer when it contains relevant programmes. The registry may identify the programme and provider, stable source identifiers, study modes, languages, locations and official programme URLs. It is not by itself sufficient to establish curriculum structure.
+Use the current private working national programme registry as the first discovery layer when it contains relevant programmes. It is not by itself sufficient to establish curriculum structure.
 
 First check whether a suitable current verified reference-programme record exists.
 
@@ -290,29 +290,15 @@ For a manually supervised production run, the proposed reference programme and a
 
 This is the only routine intermediate academic checkpoint. The final output remains subject to human checking before printing or publication.
 
-The national programme registry is a discovery and indexing layer. It does not replace the detailed verified comparator record required when a programme is actually used in a Pathways comparison.
-
 ## 5.5 National programme registry
 
-Maintain a private working national programme registry as a reusable discovery layer.
+Maintain a private working national programme registry as a reusable discovery and indexing layer.
 
-The untouched DUO/RIO source file in private Project Sources remains the source of truth. The working registry is a derived subset for day-to-day use, not a second source of truth.
+Preserve the raw national source unchanged in private Project Sources as the source of truth. A derived working registry may select, normalize or aggregate source records for practical use, but must remain traceable and reversible.
 
-For the current DUO-based registry:
+The registry does not replace current official curriculum sources or the detailed verified comparator record required when a programme is actually used in a Pathways comparison.
 
-- keep all original DUO columns and add no Pathways-owned enrichment or placeholder columns;
-- include current student-facing WO bachelor programmes at research universities that are relevant to the pilot;
-- exclude recognition-only rows without an education provider;
-- exclude non-bachelor offerings recorded under bachelor registrations, such as premasters, bridging programmes, educational modules and minors;
-- language does not determine inclusion;
-- full-time versus part-time does not determine inclusion;
-- use one row per distinct student-facing bachelor choice;
-- aggregate multiple DUO rows when they describe the same student-facing programme, preserving distinct source values in the existing DUO columns;
-- keep genuinely distinct student-facing variants separate even when DUO links them to the same recognised programme.
-
-Preserve the raw DUO source unchanged so the derived registry remains reversible and can be expanded with additional programme rows when needed.
-
-Do not add enrichment fields, review fields, Pathways identifiers or other structure for later stages until that later stage has been explicitly discussed and defined.
+Source-specific filtering, aggregation, schema and refresh mechanics belong with the registry implementation and working-data process, not in this Master Specification.
 
 ---
 
