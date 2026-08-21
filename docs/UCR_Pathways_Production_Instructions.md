@@ -38,7 +38,17 @@ Do not assume that the first-mentioned interest is more important.
 
 When generating synthetic prospective-student interests for testing, demonstrations or curated public-example development, treat the set as a portfolio rather than as unrelated prompts.
 
-Use the current enriched UCR course database as the substantive boundary. Every generated interest must be genuinely supportable by the UCR curriculum. Do not generate a central interest merely because it is plausible for a university applicant if UCR can represent it only weakly.
+Use the current enriched UCR course database as a **feasibility filter and substantive boundary, not as the generator of the interests**. Every generated interest must be genuinely supportable by the UCR curriculum, but the wording and initial ideas should originate from plausible prospective-student interests rather than from UCR course titles, track labels, unit names or catalogue order.
+
+Generate synthetic portfolios in this order:
+
+1. **Generate a substantially larger candidate pool independently of the UCR catalogue.** Think from the prospective student's world: school subjects, questions, problems, phenomena, skills, careers, technologies, cultural interests and issues they might care about. Do not walk through the UCR curriculum course by course or track by track while generating candidates.
+2. **Only after candidates exist, test them against the enriched UCR course database.** Keep candidates for which UCR can construct a strong and credible pathway; reject candidates whose central interest is only weakly represented.
+3. **Select the final portfolio from the feasible pool for realism, variety and non-repetition.** Broad curricular coverage is a selection and audit criterion, not a generation template.
+4. **Audit curriculum coverage after generation.** Do not impose equal quotas by UCR track, discipline, unit or administrative category unless a future task explicitly requires such quotas.
+5. **Mix the final order.** The sequence of synthetic interests must not mirror UCR's course, track, unit or database order.
+
+Prevent **catalogue leakage**. Do not copy, lightly paraphrase or single out distinctive words, combinations or topics merely because they appear in course names or catalogue fields. A distinctive term may appear only when it is independently plausible as something a prospective student would actually say. The finished portfolio should not allow a reader to reverse-engineer the UCR course catalogue from the interests.
 
 Write in realistic prospective-student language. Prefer ordinary wording over polished recruitment language. Avoid bombastic formulations such as “I am fascinated by…”. Fragments and compact lists are acceptable because the underlying question is simply “What are your interests?”.
 
@@ -55,7 +65,7 @@ Vary the form of the statements. Across a portfolio, include different combinati
 
 Do not manufacture combinations merely to showcase several UCR fields in one case. Multiple interests should form a psychologically plausible combination that a prospective student might actually give. One-interest statements are valuable and should remain one-interest statements; later pathway generation can broaden them through genuine subfields and neighbouring perspectives.
 
-For the current synthetic portfolio, distribute cases deliberately across the breadth of the UCR curriculum rather than trying to reproduce current applicant demand. Achieve that balance across the portfolio, not by forcing every individual statement to span several areas. A future portfolio may deliberately use a different distribution, including overrepresenting less visible fields, but only when that distribution is explicitly chosen.
+For the current synthetic portfolio, distribute cases deliberately across the breadth of the UCR curriculum rather than trying to reproduce current applicant demand. Achieve that balance across the **selected portfolio**, not by forcing every individual statement to span several areas and not by deriving a fixed number of statements from each curriculum area. A future portfolio may deliberately use a different distribution, including overrepresenting less visible fields, but only when that distribution is explicitly chosen.
 
 Avoid repetition. Reusing a discipline across cases is inevitable, but do not repeatedly use the same substantive question, combination or wording with only minor variation. Use original combinations where they remain realistic.
 
@@ -67,10 +77,11 @@ Keep the PDF constraint in view. The original interest statement appears on an i
 
 Use length and syntax as part of the realism. Mix compact lists, short questions or statements, and a smaller number of conversational responses.
 
-Before finalizing a synthetic portfolio, check both levels:
+Before finalizing a synthetic portfolio, check all three levels:
 
 1. **Individual plausibility:** could a real prospective student reasonably have written each statement?
 2. **Portfolio coverage:** does the complete set expose the breadth of UCR's actual curriculum without obvious repetition or artificial engineering?
+3. **Catalogue independence:** was the portfolio generated independently enough that its wording, grouping and order do not visibly reproduce UCR course titles or administrative curriculum structure?
 
 ---
 
