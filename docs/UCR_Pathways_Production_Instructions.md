@@ -34,6 +34,44 @@ Do not ask follow-up questions.
 
 Do not assume that the first-mentioned interest is more important.
 
+### 1.1 Synthetic interest portfolios
+
+When generating synthetic prospective-student interests for testing, demonstrations or curated public-example development, treat the set as a portfolio rather than as unrelated prompts.
+
+Use the current enriched UCR course database as the substantive boundary. Every generated interest must be genuinely supportable by the UCR curriculum. Do not generate a central interest merely because it is plausible for a university applicant if UCR can represent it only weakly.
+
+Write in realistic prospective-student language. Prefer ordinary wording over polished recruitment language. Avoid bombastic formulations such as “I am fascinated by…”. Fragments and compact lists are acceptable because the underlying question is simply “What are your interests?”.
+
+Vary the form of the statements. Across a portfolio, include different combinations of:
+
+- one, two or three interests;
+- disciplines;
+- questions;
+- real-world problems;
+- career directions;
+- practical skills;
+- phenomena;
+- more specific and less decided formulations.
+
+Do not manufacture combinations merely to showcase several UCR fields in one case. Multiple interests should form a psychologically plausible combination that a prospective student might actually give. One-interest statements are valuable and should remain one-interest statements; later pathway generation can broaden them through genuine subfields and neighbouring perspectives.
+
+For the current synthetic portfolio, distribute cases deliberately across the breadth of the UCR curriculum rather than trying to reproduce current applicant demand. Achieve that balance across the portfolio, not by forcing every individual statement to span several areas. A future portfolio may deliberately use a different distribution, including overrepresenting less visible fields, but only when that distribution is explicitly chosen.
+
+Avoid repetition. Reusing a discipline across cases is inevitable, but do not repeatedly use the same substantive question, combination or wording with only minor variation. Use original combinations where they remain realistic.
+
+Keep the PDF constraint in view. The original interest statement appears on an information-dense A4 page. As a working rule:
+
+- most synthetic statements should be about **6–15 words**;
+- some may extend to about **20–25 words**;
+- longer conversational answers should be occasional exceptions rather than the norm.
+
+Use length and syntax as part of the realism. Mix compact lists, short questions or statements, and a smaller number of conversational responses.
+
+Before finalizing a synthetic portfolio, check both levels:
+
+1. **Individual plausibility:** could a real prospective student reasonably have written each statement?
+2. **Portfolio coverage:** does the complete set expose the breadth of UCR's actual curriculum without obvious repetition or artificial engineering?
+
 ---
 
 ## 2. Operating sequence
