@@ -13,6 +13,7 @@ Use the following sources of truth for those matters:
 - the **UCR Pathways Production Instructions** for academic generation and Open Day production;
 - the **UCR Pathways Web and LinkedIn Workflow** for public publication operations;
 - the enriched UCR course database for UCR course evidence and availability;
+- the private normalized national programme registry for external programme discovery and reusable programme metadata;
 - the repository schema for the executable public-data contract;
 - the GitHub repository, Actions configuration and commit history for implementation state and build mechanics.
 
@@ -219,6 +220,8 @@ For the pilot, prefer a current Dutch research-university bachelor where one is 
 
 ## 5.2 Source basis
 
+Use the current private normalized national programme registry as the first discovery layer when it contains relevant programmes. The registry may identify the programme and provider, stable source identifiers, study modes, languages, locations and official programme URLs. It is not by itself sufficient to establish curriculum structure.
+
 First check whether a suitable current verified reference-programme record exists.
 
 If one exists, use it as the primary factual basis and consult current official sources when it is incomplete, ambiguous, outdated or materially conflicts with current information.
@@ -287,7 +290,33 @@ For a manually supervised production run, the proposed reference programme and a
 
 This is the only routine intermediate academic checkpoint. The final output remains subject to human checking before printing or publication.
 
-A comprehensive reference-programme database is not required for the pilot.
+The national programme registry is a discovery and indexing layer. It does not replace the detailed verified comparator record required when a programme is actually used in a Pathways comparison.
+
+## 5.5 National programme registry
+
+Maintain a private normalized national programme registry as a reusable upstream source for reference-programme discovery and for externally grounded prospective-student-interest work.
+
+The registry architecture is deliberately source-independent:
+
+- preserve each raw external source unchanged in private Project Sources;
+- maintain one normalized Pathways registry with a stable schema in private Project Sources;
+- keep import, reconciliation, validation and schema logic in `research/programme_registry/` in the public GitHub repository;
+- do not place the raw national database or the working registry in the public repository's `data/` directory, which remains reserved for approved publication records.
+
+Use DUO/RIO as the initial registry backbone. When the Studiekeuzedatabase is available, use it as an enrichment source where it adds useful fields or coverage rather than assuming that it must replace DUO/RIO wholesale.
+
+Keep source facts separate from Pathways-owned judgments. Represent scope decisions as reversible fields or flags rather than deleting records. The current default scope is:
+
+- Dutch research-university (`WO`) bachelors are eligible sources for prospective-student-interest discovery;
+- Dutch research-university bachelors are reference-programme candidates;
+- HBO programmes are not reference-programme candidates;
+- language does not determine inclusion;
+- full-time versus part-time does not determine inclusion;
+- final disciplinary character and comparator eligibility remain separate review judgments.
+
+For the normalized registry, use one programme × education provider as the default row unit. Aggregate modes, languages, locations and source-level variants within that record unless later evidence shows that they represent materially different curricula that should be separated. Preserve the raw source so this normalization remains reversible.
+
+On refresh, match programmes through stable source identifiers, preserve Pathways-owned enrichment, and report new, removed and materially changed source records rather than silently overwriting the working registry.
 
 ---
 
@@ -576,7 +605,6 @@ Those belong in the systems that actually execute or record the work.
 The following remain outside pilot scope:
 
 - a large reusable verified reference-programme database;
-- a comprehensive Dutch bachelor-programme database;
 - master's/alumni destination suggestions;
 - full LinkedIn transfer automation;
 - persistence that restores an exact UCR Pathways example in the UCR Program Builder.

@@ -10,6 +10,7 @@ Use:
 
 - the Master Specification for durable product decisions, approved copy and visual identity;
 - the enriched UCR course database for UCR course evidence and feasibility;
+- the private normalized national programme registry for external programme discovery and reusable programme metadata;
 - current official university sources for the disciplinary reference programme;
 - the current repository schema only when an approved public example record is requested.
 
@@ -39,6 +40,8 @@ Do not assume that the first-mentioned interest is more important.
 When generating synthetic prospective-student interests for testing, demonstrations or curated public-example development, treat the set as a portfolio rather than as unrelated prompts.
 
 Use the current enriched UCR course database as a **feasibility filter and substantive boundary, not as the generator of the interests**. Every generated interest must be genuinely supportable by the UCR curriculum, but the wording and initial ideas should originate from plausible prospective-student interests rather than from UCR course titles, track labels, unit names or catalogue order.
+
+When a current normalized national programme registry is available, it may be used as an external discovery source for plausible prospective-student interests. Use registry metadata to find relevant programmes and inspect official programme descriptions or pages for substantive interest language. Do not treat the national programme distribution as a quota system unless a future task explicitly chooses such a distribution. The UCR course database remains the feasibility filter rather than the generator of the candidate interests.
 
 Generate synthetic portfolios in this order:
 
@@ -143,6 +146,8 @@ Do not automatically choose the discipline mentioned first.
 For the pilot, prefer a current Dutch research-university bachelor where suitable.
 
 ### 4.2 Establish the source basis
+
+Use the current normalized national programme registry as the first candidate-discovery layer when available. It may supply programme/provider identity, stable source identifiers, modes, languages, locations and official programme URLs. Treat these as discovery metadata, not as sufficient evidence of curriculum structure.
 
 First check whether a suitable current verified reference-programme record exists in the available project sources.
 
