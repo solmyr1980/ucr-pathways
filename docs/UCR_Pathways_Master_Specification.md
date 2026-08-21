@@ -600,6 +600,12 @@ Before adding a new durable instruction, workflow, automation, integration, scri
 
 Prefer the simpler process when manual work is occasional, quick and low-risk. Reproducibility does not by itself require automation.
 
+Before acting, surface a materially simpler alternative when one exists. Do not add speculative functionality, flexibility or configurability for hypothetical future needs unless its expected benefit passes the same complexity and break-even test.
+
+Make surgical changes. Change only what the task requires, except where the requested change necessarily creates dependent cleanup. Do not refactor, redesign or improve adjacent parts merely because an opportunity is visible.
+
+For substantive implementation, define the intended result and a proportionate way to verify it before starting. Stop when those success criteria are met rather than extending the task into additional improvements.
+
 Before adding a new instruction:
 
 - identify the durable decision or demonstrated failure mode that the instruction records or prevents;
