@@ -1,0 +1,140 @@
+name: Build programme registry
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feature/programme-registry
+    paths:
+      - research/programme_registry/**
+      - .github/workflows/build-programme-registry.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set acquisition date
+        shell: bash
+        run: echo "ACQUIRED_DATE=$(date -u +%F)" >> "$GITHUB_ENV"
+
+      - name: Download current DUO RIO source
+        shell: bash
+        run: |
+          mkdir -p registry-artifact/raw registry-artifact/processed
+          curl --fail --location --retry 3 --retry-delay 5 \
+            --user-agent "UCR-Pathways/1.0" \
+            "https://onderwijsdata.duo.nl/dataset/7c0686f4-b5c2-418e-8e44-7be0057d8084/resource/ffffa7ad-e6a2-4ba7-9fc2-a09df4128555/download/ho_opleidingsoverzicht.csv" \
+            --output "registry-artifact/raw/DUO_RIO_HO_Opleidingsoverzicht_${ACQUIRED_DATE}.csv"
+
+      - name: Build normalized programme registry
+        shell: bash
+        run: |
+          python research/programme_registry/build_registry.py \
+            --input "registry-artifact/raw/DUO_RIO_HO_Opleidingsoverzicht_${ACQUIRED_DATE}.csv" \
+            --output registry-artifact/processed/ucr_pathways_programme_registry.csv \
+            --manifest registry-artifact/processed/registry_manifest.json \
+            --changes registry-artifact/processed/registry_changes.csv \
+            --acquired-date "$ACQUIRED_DATE"
+
+      - name: Validate registry output
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv
+          import json
+          from pathlib import Path
+
+          root = Path("registry-artifact/processed")
+          manifest = json.loads((root / "registry_manifest.json").read_text(encoding="utf-8"))
+          counts = manifest["registry"]["counts"]
+          assert counts["registry_programmes"] > 0, counts
+          assert counts["wo_bachelor_programmes"] > 0, counts
+          with (root / "ucr_pathways_programme_registry.csv").open(encoding="utf-8", newline="") as fh:
+              reader = csv.DictReader(fh)
+              required = {
+                  "programme_key",
+                  "registry_schema_version",
+                  "institution_name",
+                  "recognised_programme_code",
+                  "programme_name",
+                  "is_bachelor",
+                  "is_wo",
+                  "pathways_interest_source",
+                  "pathways_comparator_candidate",
+              }
+              missing = required - set(reader.fieldnames or [])
+              assert not missing, sorted(missing)
+          print(json.dumps(counts, indent=2))
+          PY
+
+      - name: Update authoritative programme-registry decisions
+        if: github.event_name == 'push' && github.ref == 'refs/heads/feature/programme-registry'
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          master = Path("docs/UCR_Pathways_Master_Specification.md")
+          text = master.read_text(encoding="utf-8")
+          old = """- the enriched UCR course database for UCR course evidence and availability;\n- the repository schema for the executable public-data contract;"""
+          new = """- the enriched UCR course database for UCR course evidence and availability;\n- the private normalized national programme registry for external programme discovery and reusable programme metadata;\n- the repository schema for the executable public-data contract;"""
+          if old not in text:
+              raise SystemExit("Master source-of-truth anchor not found")
+          text = text.replace(old, new, 1)
+
+          old = """## 5.2 Source basis\n\nFirst check whether a suitable current verified reference-programme record exists."""
+          new = """## 5.2 Source basis\n\nUse the current private normalized national programme registry as the first discovery layer when it contains relevant programmes. The registry may identify the programme and provider, stable source identifiers, study modes, languages, locations and official programme URLs. It is not by itself sufficient to establish curriculum structure.\n\nFirst check whether a suitable current verified reference-programme record exists."""
+          if old not in text:
+              raise SystemExit("Master section 5.2 anchor not found")
+          text = text.replace(old, new, 1)
+
+          old = "A comprehensive reference-programme database is not required for the pilot."
+          new = """The national programme registry is a discovery and indexing layer. It does not replace the detailed verified comparator record required when a programme is actually used in a Pathways comparison.\n\n## 5.5 National programme registry\n\nMaintain a private normalized national programme registry as a reusable upstream source for reference-programme discovery and for externally grounded prospective-student-interest work.\n\nThe registry architecture is deliberately source-independent:\n\n- preserve each raw external source unchanged in private Project Sources;\n- maintain one normalized Pathways registry with a stable schema in private Project Sources;\n- keep import, reconciliation, validation and schema logic in `research/programme_registry/` in the public GitHub repository;\n- do not place the raw national database or the working registry in the public repository's `data/` directory, which remains reserved for approved publication records.\n\nUse DUO/RIO as the initial registry backbone. When the Studiekeuzedatabase is available, use it as an enrichment source where it adds useful fields or coverage rather than assuming that it must replace DUO/RIO wholesale.\n\nKeep source facts separate from Pathways-owned judgments. Represent scope decisions as reversible fields or flags rather than deleting records. The current default scope is:\n\n- Dutch research-university (`WO`) bachelors are eligible sources for prospective-student-interest discovery;\n- Dutch research-university bachelors are reference-programme candidates;\n- HBO programmes are not reference-programme candidates;\n- language does not determine inclusion;\n- full-time versus part-time does not determine inclusion;\n- final disciplinary character and comparator eligibility remain separate review judgments.\n\nFor the normalized registry, use one programme × education provider as the default row unit. Aggregate modes, languages, locations and source-level variants within that record unless later evidence shows that they represent materially different curricula that should be separated. Preserve the raw source so this normalization remains reversible.\n\nOn refresh, match programmes through stable source identifiers, preserve Pathways-owned enrichment, and report new, removed and materially changed source records rather than silently overwriting the working registry."""
+          if old not in text:
+              raise SystemExit("Master registry-defer anchor not found")
+          text = text.replace(old, new, 1)
+          text = text.replace("- a comprehensive Dutch bachelor-programme database;\n", "", 1)
+          master.write_text(text, encoding="utf-8")
+
+          production = Path("docs/UCR_Pathways_Production_Instructions.md")
+          text = production.read_text(encoding="utf-8")
+          old = """- the enriched UCR course database for UCR course evidence and feasibility;\n- current official university sources for the disciplinary reference programme;"""
+          new = """- the enriched UCR course database for UCR course evidence and feasibility;\n- the private normalized national programme registry for external programme discovery and reusable programme metadata;\n- current official university sources for the disciplinary reference programme;"""
+          if old not in text:
+              raise SystemExit("Production source list anchor not found")
+          text = text.replace(old, new, 1)
+
+          anchor = """Use the current enriched UCR course database as a **feasibility filter and substantive boundary, not as the generator of the interests**. Every generated interest must be genuinely supportable by the UCR curriculum, but the wording and initial ideas should originate from plausible prospective-student interests rather than from UCR course titles, track labels, unit names or catalogue order.\n"""
+          addition = anchor + """\nWhen a current normalized national programme registry is available, it may be used as an external discovery source for plausible prospective-student interests. Use registry metadata to find relevant programmes and inspect official programme descriptions or pages for substantive interest language. Do not treat the national programme distribution as a quota system unless a future task explicitly chooses such a distribution. The UCR course database remains the feasibility filter rather than the generator of the candidate interests.\n"""
+          if anchor not in text:
+              raise SystemExit("Production synthetic-portfolio anchor not found")
+          text = text.replace(anchor, addition, 1)
+
+          old = """### 4.2 Establish the source basis\n\nFirst check whether a suitable current verified reference-programme record exists in the available project sources."""
+          new = """### 4.2 Establish the source basis\n\nUse the current normalized national programme registry as the first candidate-discovery layer when available. It may supply programme/provider identity, stable source identifiers, modes, languages, locations and official programme URLs. Treat these as discovery metadata, not as sufficient evidence of curriculum structure.\n\nFirst check whether a suitable current verified reference-programme record exists in the available project sources."""
+          if old not in text:
+              raise SystemExit("Production section 4.2 anchor not found")
+          text = text.replace(old, new, 1)
+          production.write_text(text, encoding="utf-8")
+          PY
+
+          if ! git diff --quiet -- docs/UCR_Pathways_Master_Specification.md docs/UCR_Pathways_Production_Instructions.md; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -- docs/UCR_Pathways_Master_Specification.md docs/UCR_Pathways_Production_Instructions.md
+            git commit -m "Document programme registry architecture"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+
+      - name: Upload private handoff artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ucr-pathways-programme-registry-${{ env.ACQUIRED_DATE }}
+          path: registry-artifact/
+          retention-days: 14
