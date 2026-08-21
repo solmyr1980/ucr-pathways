@@ -1,6 +1,6 @@
 {
   "generated": "2026-08-21",
-  "scope": "Current recognised Dutch WO bachelor programmes with a full-time route; no UCR feasibility filter applied.",
+  "scope": "Current recognised Dutch WO bachelor offerings with a full-time route; no UCR feasibility filter applied.",
   "studiekeuze123": {
     "source": "https://www.studiekeuze123.nl/opleidingen/categorie/wo-bachelor-opleidingen",
     "retrieved": "2026-08-21",
@@ -13,29 +13,36 @@
     "retrieved": "2026-08-21",
     "delimiter": ",",
     "all_rows": 6919,
-    "recognised_current_full_time_wo_bachelor_rows": 517
+    "retained_full_time_wo_bachelor_rows": 529
   },
-  "deduplicated_programme_institution_candidates": 341,
-  "pilot_seeds_found": 9,
+  "deduplicated_public_candidates": 345,
+  "candidate_kinds": {
+    "OPLEIDING": 345,
+    "VARIANT": 0
+  },
+  "pilot_seeds_found": 8,
   "pilot_seed_matches": [
     {
       "seed": "pilot-01",
       "programme": "Psychobiologie",
       "institution": "Universiteit van Amsterdam",
+      "kind": "OPLEIDING",
       "code": "50014",
       "score": "1.000"
     },
     {
       "seed": "pilot-02",
-      "programme": "Environmental Sciences",
+      "programme": "Bachelor's Environmental Sciences",
       "institution": "Wageningen University",
+      "kind": "OPLEIDING",
       "code": "56283",
       "score": "1.000"
     },
     {
       "seed": "pilot-04",
-      "programme": "Gezondheidswetenschappen",
+      "programme": "BA Gezondheidswetenschappen",
       "institution": "Universiteit Maastricht",
+      "kind": "OPLEIDING",
       "code": "56553",
       "score": "1.000"
     },
@@ -43,6 +50,7 @@
       "seed": "pilot-05",
       "programme": "Kunstgeschiedenis",
       "institution": "Universiteit Utrecht",
+      "kind": "OPLEIDING",
       "code": "56824",
       "score": "1.000"
     },
@@ -50,42 +58,40 @@
       "seed": "pilot-06",
       "programme": "Rechtsgeleerdheid",
       "institution": "Universiteit Utrecht",
+      "kind": "OPLEIDING",
       "code": "50700",
       "score": "1.000"
-    },
-    {
-      "seed": "pilot-07",
-      "programme": "Theologie",
-      "institution": "Tilburg University",
-      "code": "56109",
-      "score": "0.706"
     },
     {
       "seed": "pilot-08",
       "programme": "Business Administration",
       "institution": "Universiteit van Amsterdam",
+      "kind": "OPLEIDING",
       "code": "50897",
       "score": "1.000"
     },
     {
       "seed": "pilot-09",
-      "programme": "Psychologie",
-      "institution": "Universiteit van Amsterdam",
-      "code": "56604",
-      "score": "1.000"
+      "programme": "Theologie",
+      "institution": "Tilburg University",
+      "kind": "OPLEIDING",
+      "code": "56109",
+      "score": "0.667"
     },
     {
       "seed": "pilot-10",
       "programme": "Communicatiewetenschap",
       "institution": "Universiteit van Amsterdam",
+      "kind": "OPLEIDING",
       "code": "56615",
       "score": "1.000"
     }
   ],
   "method_notes": [
     "No UCR course evidence was used.",
-    "RIO rows with SOORT other than OPLEIDING were excluded so premasters, minors and internal programme components are not mistaken for bachelor programmes.",
-    "The longlist is deduplicated by recognised programme code plus education provider; multiple languages/locations remain preserved as metadata.",
-    "Studiekeuze123 is used as the public discovery/count benchmark; DUO RIO is used for official programme identity, code and current status."
+    "Both recognised HO programmes and recognised HO programme variants are retained because variants can be separate public study choices.",
+    "Rows without an ERKENDEOPLEIDINGSCODE are excluded; this prevents internal components such as premasters/minors from entering the bachelor universe.",
+    "Rows are deduplicated by provider plus RIO programme-unit code, preserving distinct variants while collapsing duplicate language/location records.",
+    "Studiekeuze123 supplies the public benchmark count; DUO RIO supplies official identity, status and codes."
   ]
 }
