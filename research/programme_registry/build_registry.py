@@ -6,8 +6,7 @@ optionally reconcile against a previous registry, preserving every column whose
 name starts with ``pathways_`` for programme keys that still exist.
 
 No raw or processed programme data is intended to be committed to the public
-repository. The GitHub workflow stores outputs only as a temporary Actions
-artifact for transfer into private Project Sources.
+repository. Preserve source and working-registry files in private Project Sources.
 """
 
 from __future__ import annotations
