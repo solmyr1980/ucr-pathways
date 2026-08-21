@@ -85,34 +85,101 @@ Before finalizing a synthetic portfolio, check all three levels:
 
 ### 1.2 Dutch bachelor programme interest enrichment
 
-When enriching a working table of Dutch bachelor programmes with prospective-student interest signals, preserve the table as a **single portable programme dataset**. Keep one row per programme-provider record and add one field named `student_interests`.
+Maintain Dutch bachelor programme enrichment as two linked tables within the same working workbook or data artefact:
 
-Do **not** create a second programme-interest table and do not create numbered fields such as `interest_1`, `interest_2`, and so on.
+- `Pathways_programmes`: one row per programme-provider record; preserve this source table unchanged during enrichment;
+- a programme-interest table: one row per programme-provider × candidate interest signal.
 
-For each programme, research current official programme-specific prospective-student material and preserve **all distinct validated academic interests** that the programme genuinely appears to target. Do not reduce them to a top five, rank them for storage, or impose a fixed maximum. Stop when the available programme-specific evidence reaches substantive saturation; do not pad a programme with weak or repetitive interests merely to increase the count.
+Do not concatenate all interests into one programme field and do not create numbered fields such as `interest_1`, `interest_2`, and so on.
 
-A valid interest may concern:
+Use a reliable programme-provider key. A CROHO code alone is not sufficient where the same recognised programme is offered by multiple providers. Preserve the source programme identifiers on every programme-interest row so that each signal remains traceable to the exact programme-provider record.
+
+#### High-recall research objective
+
+For each programme, research current official programme-specific material and preserve a **high-recall set of distinct, evidence-backed candidate interest signals** associated with the programme. There is no target number, top five or fixed maximum. Continue until the available programme-specific evidence reaches substantive saturation, but do not create unsupported or repetitive signals merely to increase the count.
+
+A candidate signal may concern:
 
 - a discipline or field;
 - a substantive question;
 - a phenomenon or real-world problem;
-- a practical or analytical skill that could shape academic study;
+- a practical, analytical or research skill that could meaningfully shape academic study;
 - a meaningful combination of fields;
-- a career direction that clearly implies an academic interest.
+- a substantive route, track, specialisation or thematic direction;
+- an illustrative or changing curricular topic;
+- a career, alumni or further-study direction that demonstrates a plausible academic application or outcome.
 
-Exclude general preferences about teaching methods, group work, programme flexibility, international classroom composition, study location, campus life, class size, workload, or other aspects that would not materially shape academic programme content. Also exclude university-wide honours, extracurricular or generic institutional themes unless the official material clearly connects them to the academic identity of the specific bachelor programme.
+The purpose of high recall is to preserve potentially useful long-tail information while recording how strongly each signal belongs to the bachelor itself. Storage and downstream selection therefore use different thresholds: weak-but-real signals may be retained if they are correctly classified.
 
-Prioritize official programme-facing sources such as the main prospective-student page, programme description, study programme, programme-specific testimonials, study routes or specializations, and programme-specific career or further-study pages. Do not infer interests merely from course titles when richer programme-facing evidence is available.
+Exclude general preferences about teaching methods, group work, programme flexibility, international classroom composition, studying abroad, study location, campus life, class size, workload or similar non-academic features. Exclude university-wide honours, extracurricular activities and generic institutional initiatives unless they clearly connect to the academic identity of the specific bachelor programme.
 
-During research and quality control, evidence strength and source URLs may be used to determine whether an interest is valid. The portable enriched dataset, however, stores the validated interest statements together in the single `student_interests` field unless a later task explicitly requires additional provenance fields.
+Prefer official programme-facing sources such as:
 
-Within `student_interests`, separate individual interests consistently with the delimiter:
+- the main prospective-student page;
+- programme descriptions and “why choose” material;
+- study-programme and curriculum pages;
+- routes, tracks, minors, specialisations and thematic packages;
+- programme-specific testimonials;
+- programme-specific career and further-study pages;
+- formal programme documents where needed.
 
-` || `
+Individual course pages, rotating themes, alumni stories and later-study outcomes may be used to preserve long-tail signals, but the resulting signal must be classified according to its actual relationship to the bachelor rather than treated automatically as programme-level evidence.
 
-Keep the delimiter out of the interest text itself. Preserve ordinary prospective-student language rather than converting the field into taxonomy labels.
+When official material already expresses a vivid, natural prospective-student question or problem, preserve that substantive wording where possible instead of automatically reducing it to a broad taxonomy label. Prefer ordinary English that a prospective student could plausibly write in response to **“What are your interests?”**.
 
-This external programme enrichment is an upstream source of plausible prospective-student interests. It does not replace the later UCR feasibility filter: when interests derived from external programme marketing are used for UCR Pathways cases, test them against the enriched UCR course database before selecting them for a synthetic portfolio.
+When using a dated curriculum, EER, handbook, study guide or similar official document, check whether a newer official version is available and prefer the newest current version unless there is a specific reason to retain an older one.
+
+Do not generate signals merely from isolated course titles when richer programme-facing evidence exists. A course-level topic may still be retained when it is substantively evidenced, but classify it as course/curriculum-level rather than inflating it into a programme-level interest.
+
+Split an item when the evidence supports meaningfully distinct candidate interests. Keep concepts together when they naturally form one substantive question or field. Do not atomise coherent ideas merely to increase the number of rows.
+
+#### Relationship classification
+
+Assign exactly one `interest_relationship` category to every retained signal:
+
+1. **Direct programme interest** — The bachelor explicitly presents this field, question, problem, phenomenon, skill or substantive interest as part of its programme identity or as something prospective students can meaningfully come to study. This requires strong programme-level prospective-student evidence.
+2. **Stable study direction** — The signal is supported by a recurring, structurally identifiable direction **within the bachelor itself**, such as a route, track, specialisation, minor, thematic package or equivalent substantial option. A later master's programme or graduate outcome does not by itself qualify a signal for this category.
+3. **Curricular topic** — The topic is genuinely and substantively taught within the bachelor, but the evidence mainly comes from individual subjects or curricular content rather than the programme's broader identity or stable structural directions.
+4. **Illustrative or temporary topic** — The topic appears as a particular example, project, case, changing annual theme, rotating course topic or otherwise contingent piece of programme content.
+5. **Outcome or individual trajectory** — The topic comes primarily from careers, alumni trajectories, master's destinations, later specialisations, professional applications or similar outcomes. It demonstrates something the degree may lead to, but not necessarily an academic interest that the bachelor itself actively targets or structurally offers.
+
+Classify the **relationship between the signal and the bachelor programme**, not merely the webpage on which the evidence appears. For example, an alumni story may mention a direct programme interest that is independently established elsewhere, while a topic on an official curriculum page may still be only illustrative or temporary.
+
+For downstream conservative automatic matching, categories 1–2 are the default core. Category 3 may be added when broader curricular matching is useful. Categories 4–5 remain preserved and searchable but are not normally treated as evidence that the bachelor actively targets that interest.
+
+#### Evidence and storage
+
+Use one row per programme-provider × candidate interest signal. Retain the production columns used in the validated pilot so that completed pilot records remain directly reusable:
+
+`source_excel_row`
+`OPLEIDINGSEENHEIDCODE`
+`ONDERWIJSAANBIEDER_NAAM`
+`ERKENDEOPLEIDINGSCODE`
+`NAAM_LANG`
+`student_interest`
+`evidence`
+`source_title`
+`source_url`
+`strength`
+`interest_relationship`
+
+Copy programme-identification fields directly from the corresponding source row.
+
+In `evidence`, briefly state what the official material says that supports the signal. In `source_title` and `source_url`, record the strongest official source. If several official sources materially contribute, keep them in the same cell separated by ` || ` rather than duplicating an otherwise identical programme-interest row solely because several sources support it.
+
+Retain `strength` for compatibility with the validated pilot and as supplementary provenance, but use `interest_relationship` as the principal downstream distinction. Do not rank interests or create a separate top-interests list.
+
+#### Incremental production and reuse
+
+Treat successfully completed and classified pilot records as production data. Do not discard or regenerate them merely because they originated during method development.
+
+Production must be resumable. Before researching a batch, identify programme-provider records that already have completed classified enrichment and skip them. Reprocess a completed programme only when a specific factual or classification problem has been identified or when its sources have become materially outdated.
+
+For each new batch, perform high-recall research and `interest_relationship` classification in the same operation rather than paying for a second full pass solely to classify the results.
+
+After each batch, apply lightweight quality control across the returned table: programme identity, duplicate pairs, required fields, official-source discipline, valid relationship categories and obvious outliers. Reopen sources only for genuinely questionable cases rather than independently re-researching every accepted row.
+
+This external programme enrichment is an upstream source of plausible prospective-student interests. It does not replace the later UCR feasibility filter: when signals derived from external programmes are used for UCR Pathways cases, test them against the enriched UCR course database before selecting them for a synthetic portfolio.
 
 ---
 
