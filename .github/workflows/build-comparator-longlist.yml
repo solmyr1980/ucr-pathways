@@ -1,12 +1,12 @@
 name: Build comparator longlist
 
 # Reproducible research build for Step 1 of the comparator-seeded portfolio experiment.
-# Revised to retain recognised public programme variants while excluding unrecognised components.
 on:
   workflow_dispatch:
   push:
     paths:
       - 'research/build_comparator_longlist.py'
+      - 'research/reconcile_comparator_longlist.py'
       - '.github/workflows/build-comparator-longlist.yml'
 
 permissions:
@@ -28,6 +28,9 @@ jobs:
 
       - name: Build external Dutch WO bachelor longlist
         run: python research/build_comparator_longlist.py
+
+      - name: Reconcile offering and programme-provider views
+        run: python research/reconcile_comparator_longlist.py
 
       - name: Show generated summary
         run: |
