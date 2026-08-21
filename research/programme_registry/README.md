@@ -8,10 +8,10 @@ Keep programme data out of the public repository.
 
 - **Raw external source files** belong in private Project Sources and are preserved unchanged.
 - **The normalized UCR Pathways programme registry** also belongs in private Project Sources.
-- **This public GitHub directory** contains only the schema, transformation/validation logic and refresh workflow.
+- **This public GitHub directory** contains only the schema and transformation, validation and reconciliation logic.
 - **`data/` in this repository remains publication data** for approved public UCR Pathways examples; do not place the national programme registry there.
 
-The current backbone is DUO's public **HO Opleidingsoverzicht**, derived from RIO and licensed CC BY 4.0. It contains funded current and future higher-education offerings. When the Studiekeuzedatabase becomes available, treat it as an enrichment source for the normalized registry rather than assuming that it must replace DUO/RIO wholesale.
+The current backbone is DUO's public **HO Opleidingsoverzicht**, derived from RIO. When the Studiekeuzedatabase becomes available, treat it as an enrichment source for the normalized registry rather than assuming that it must replace DUO/RIO wholesale.
 
 ## Registry contract
 
@@ -27,7 +27,7 @@ Modes, languages, locations and offered variants are aggregated into delimited s
 
 `ONDERWIJSAANBIEDERID::(VARIANT_VAN or ERKENDEOPLEIDINGSCODE or OPLEIDINGSEENHEIDCODE)`
 
-The raw DUO file remains available privately, so this normalization is reversible and can be revised if the source semantics require it.
+The raw source file remains available privately, so this normalization is reversible and can be revised if the source semantics require it.
 
 ## Source fields versus Pathways fields
 
@@ -48,6 +48,8 @@ These are flags, not destructive filters. The normalized registry retains progra
 
 ## Build and refresh
 
+Source acquisition is deliberately manual because it is infrequent, quick and low-risk. Download the source file from the authoritative provider, preserve it unchanged in Project Sources, and use the importer below to build or refresh the normalized registry. Reproducibility comes from the preserved dated source plus the versioned importer; it does not require automated acquisition.
+
 `build_registry.py` takes the DUO/RIO CSV and creates:
 
 - `ucr_pathways_programme_registry.csv` — normalized working registry;
@@ -66,13 +68,7 @@ python research/programme_registry/build_registry.py \
   --acquired-date 2026-08-21
 ```
 
-## GitHub Actions handoff
-
-`.github/workflows/build-programme-registry.yml` is a manual acquisition/build workflow. It downloads the current DUO/RIO source, runs the importer and uploads a temporary Actions artifact containing both the untouched raw CSV and the normalized outputs.
-
-The artifact is a handoff mechanism, not the long-term source of truth. After a successful run, download the artifact and add the raw source plus normalized registry to Project Sources. Do not commit them to this public repository.
-
-The workflow is intentionally **not scheduled**. Refreshes should be deliberate because the working registry contains Pathways-owned enrichment that must be reconciled rather than silently overwritten.
+A refresh should be deliberate because the working registry contains Pathways-owned enrichment that must be reconciled rather than silently overwritten.
 
 ## Comparator verification remains separate
 
