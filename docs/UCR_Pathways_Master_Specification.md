@@ -586,6 +586,28 @@ Do not duplicate information merely because it is important.
 
 Repeat a rule in another document only when that document needs the rule directly to execute its own task and the duplication is worth the maintenance cost.
 
+## 12.1 Minimum-complexity and instruction-governance rule
+
+Do not simplify merely to make the documentation shorter. Keep complexity that materially protects academic validity, fairness, privacy, source integrity, reproducibility, reliability or repeated operational work.
+
+Before adding a new durable instruction, workflow, automation, integration, script, data layer or recurring operational step, compare it with the simplest viable process. Explicitly consider:
+
+1. the simplest manual baseline;
+2. how often the task will occur and how much human effort the manual baseline actually costs;
+3. the implementation, maintenance and failure burden introduced by the more complex option;
+4. concrete benefits in time saved, reliability, reproducibility, scale, privacy or error prevention;
+5. whether there is a realistic break-even point within the expected life of the pilot or project.
+
+Prefer the simpler process when manual work is occasional, quick and low-risk. Reproducibility does not by itself require automation.
+
+Before adding a new instruction:
+
+- identify the durable decision or demonstrated failure mode that the instruction records or prevents;
+- check whether an existing instruction already covers the case;
+- prefer revising an existing rule over layering a near-duplicate rule on top of it;
+- place the rule in the single document that owns the decision, repeating it elsewhere only when execution genuinely requires the repetition;
+- do not add the instruction when its expected benefit is mainly hypothetical or when it creates more decision and maintenance burden than it removes.
+
 Do not use these documents to record:
 
 - successful or failed GitHub runs;
