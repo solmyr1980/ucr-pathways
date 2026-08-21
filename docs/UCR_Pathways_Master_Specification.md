@@ -294,29 +294,25 @@ The national programme registry is a discovery and indexing layer. It does not r
 
 ## 5.5 National programme registry
 
-Maintain a private normalized national programme registry as a reusable upstream source for reference-programme discovery and for externally grounded prospective-student-interest work.
+Maintain a private working national programme registry as a reusable discovery layer.
 
-The registry architecture is deliberately source-independent:
+The untouched DUO/RIO source file in private Project Sources remains the source of truth. The working registry is a derived subset for day-to-day use, not a second source of truth.
 
-- preserve each raw external source unchanged in private Project Sources;
-- maintain one normalized Pathways registry with a stable schema in private Project Sources;
-- keep import, reconciliation, validation and schema logic in `research/programme_registry/` in the public GitHub repository;
-- do not place the raw national database or the working registry in the public repository's `data/` directory, which remains reserved for approved publication records.
+For the current DUO-based registry:
 
-Use DUO/RIO as the initial registry backbone. When the Studiekeuzedatabase is available, use it as an enrichment source where it adds useful fields or coverage rather than assuming that it must replace DUO/RIO wholesale.
-
-Keep source facts separate from Pathways-owned judgments. Represent scope decisions as reversible fields or flags rather than deleting records. The current default scope is:
-
-- Dutch research-university (`WO`) bachelors are eligible sources for prospective-student-interest discovery;
-- Dutch research-university bachelors are reference-programme candidates;
-- HBO programmes are not reference-programme candidates;
+- keep all original DUO columns and add no Pathways-owned enrichment or placeholder columns;
+- include current student-facing WO bachelor programmes at research universities that are relevant to the pilot;
+- exclude recognition-only rows without an education provider;
+- exclude non-bachelor offerings recorded under bachelor registrations, such as premasters, bridging programmes, educational modules and minors;
 - language does not determine inclusion;
 - full-time versus part-time does not determine inclusion;
-- final disciplinary character and comparator eligibility remain separate review judgments.
+- use one row per distinct student-facing bachelor choice;
+- aggregate multiple DUO rows when they describe the same student-facing programme, preserving distinct source values in the existing DUO columns;
+- keep genuinely distinct student-facing variants separate even when DUO links them to the same recognised programme.
 
-For the normalized registry, use one programme × education provider as the default row unit. Aggregate modes, languages, locations and source-level variants within that record unless later evidence shows that they represent materially different curricula that should be separated. Preserve the raw source so this normalization remains reversible.
+Preserve the raw DUO source unchanged so the derived registry remains reversible and can be expanded with additional programme rows when needed.
 
-On refresh, match programmes through stable source identifiers, preserve Pathways-owned enrichment, and report new, removed and materially changed source records rather than silently overwriting the working registry.
+Do not add enrichment fields, review fields, Pathways identifiers or other structure for later stages until that later stage has been explicitly discussed and defined.
 
 ---
 
