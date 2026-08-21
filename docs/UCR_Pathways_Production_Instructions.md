@@ -83,6 +83,37 @@ Before finalizing a synthetic portfolio, check all three levels:
 2. **Portfolio coverage:** does the complete set expose the breadth of UCR's actual curriculum without obvious repetition or artificial engineering?
 3. **Catalogue independence:** was the portfolio generated independently enough that its wording, grouping and order do not visibly reproduce UCR course titles or administrative curriculum structure?
 
+### 1.2 Dutch bachelor programme interest enrichment
+
+When enriching a working table of Dutch bachelor programmes with prospective-student interest signals, preserve the table as a **single portable programme dataset**. Keep one row per programme-provider record and add one field named `student_interests`.
+
+Do **not** create a second programme-interest table and do not create numbered fields such as `interest_1`, `interest_2`, and so on.
+
+For each programme, research current official programme-specific prospective-student material and preserve **all distinct validated academic interests** that the programme genuinely appears to target. Do not reduce them to a top five, rank them for storage, or impose a fixed maximum. Stop when the available programme-specific evidence reaches substantive saturation; do not pad a programme with weak or repetitive interests merely to increase the count.
+
+A valid interest may concern:
+
+- a discipline or field;
+- a substantive question;
+- a phenomenon or real-world problem;
+- a practical or analytical skill that could shape academic study;
+- a meaningful combination of fields;
+- a career direction that clearly implies an academic interest.
+
+Exclude general preferences about teaching methods, group work, programme flexibility, international classroom composition, study location, campus life, class size, workload, or other aspects that would not materially shape academic programme content. Also exclude university-wide honours, extracurricular or generic institutional themes unless the official material clearly connects them to the academic identity of the specific bachelor programme.
+
+Prioritize official programme-facing sources such as the main prospective-student page, programme description, study programme, programme-specific testimonials, study routes or specializations, and programme-specific career or further-study pages. Do not infer interests merely from course titles when richer programme-facing evidence is available.
+
+During research and quality control, evidence strength and source URLs may be used to determine whether an interest is valid. The portable enriched dataset, however, stores the validated interest statements together in the single `student_interests` field unless a later task explicitly requires additional provenance fields.
+
+Within `student_interests`, separate individual interests consistently with the delimiter:
+
+` || `
+
+Keep the delimiter out of the interest text itself. Preserve ordinary prospective-student language rather than converting the field into taxonomy labels.
+
+This external programme enrichment is an upstream source of plausible prospective-student interests. It does not replace the later UCR feasibility filter: when interests derived from external programme marketing are used for UCR Pathways cases, test them against the enriched UCR course database before selecting them for a synthetic portfolio.
+
 ---
 
 ## 2. Operating sequence
