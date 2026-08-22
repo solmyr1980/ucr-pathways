@@ -38,6 +38,13 @@ export function isUcrProgramme(programme) {
   return ['ucr-depth', 'ucr-balanced', 'ucr-thematic'].includes(programme?.role);
 }
 
+export function linkedinProgrammes(example) {
+  const programmes = Array.isArray(example?.programmes) ? example.programmes : [];
+  return example?.display?.showComparatorOnLinkedIn === false
+    ? programmes.filter(programme => !isComparator(programme))
+    : programmes;
+}
+
 export function escapeHtml(value = '') {
   return String(value).replace(/[&<>"']/g, c => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
@@ -75,6 +82,13 @@ export function validateExample(example, sourceName = 'example') {
 
   if (typeof example.interests !== 'string' || !example.interests.trim()) {
     fail('interests must be a non-empty string');
+  }
+
+  if (
+    example?.display?.showComparatorOnLinkedIn !== undefined &&
+    typeof example.display.showComparatorOnLinkedIn !== 'boolean'
+  ) {
+    fail('display.showComparatorOnLinkedIn must be a boolean when supplied');
   }
 
   const reference = example.referenceProgramme;
