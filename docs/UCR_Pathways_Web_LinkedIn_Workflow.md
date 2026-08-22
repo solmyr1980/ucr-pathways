@@ -225,6 +225,10 @@ Do not hand-edit programme content in the website renderer to fix an individual 
 
 The LinkedIn PDF is rendered from the same approved publication record as the website.
 
+The approved publication record always retains the complete four-programme comparison. For LinkedIn presentation, the PDF may either show all four programme pages or omit the comparator and show only the three UCR programme pages. This choice affects only the LinkedIn PDF; the website, Open Day output and underlying four-programme record remain unchanged.
+
+Editorial framing — including the opening question, intellectual hook or market observation — belongs in the LinkedIn post commentary rather than in a dedicated opening PDF page.
+
 The renderer implements the LinkedIn presentation requirements defined in the Master Specification.
 
 At a high level, GitHub Actions:
