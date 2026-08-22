@@ -2,7 +2,7 @@ import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { exampleFiles, readExample } from './example-utils.mjs';
+import { exampleFiles, readExample, linkedinProgrammes } from './example-utils.mjs';
 
 const root = process.cwd();
 const target = process.argv[2] || 'all';
@@ -19,6 +19,7 @@ const browser = await chromium.launch({ headless: true });
 try {
   for (const file of exampleFiles(root, target)) {
     const example = readExample(file);
+    const expectedPageCount = linkedinProgrammes(example).length;
     const htmlPath = path.join(outputDir, `${example.id}.html`);
     const pdfPath = path.join(outputDir, `${example.id}.pdf`);
     if (!fs.existsSync(htmlPath)) throw new Error(`Missing ${path.relative(root, htmlPath)}. Run build-linkedin-html.mjs first.`);
@@ -74,8 +75,8 @@ try {
       return { pageCount: pages.length, results };
     });
 
-    if (layout.pageCount !== example.programmes.length) {
-      throw new Error(`${example.id}: LinkedIn HTML must contain ${example.programmes.length} pages; found ${layout.pageCount}.`);
+    if (layout.pageCount !== expectedPageCount) {
+      throw new Error(`${example.id}: LinkedIn HTML must contain ${expectedPageCount} pages; found ${layout.pageCount}.`);
     }
 
     const failures = layout.results.filter(result => result.issues.length);
@@ -93,8 +94,8 @@ try {
     await page.close();
 
     const pdfPages = countPdfPages(pdfPath);
-    if (pdfPages !== example.programmes.length) {
-      throw new Error(`${example.id}: rendered LinkedIn PDF must contain ${example.programmes.length} pages; found ${pdfPages}.`);
+    if (pdfPages !== expectedPageCount) {
+      throw new Error(`${example.id}: rendered LinkedIn PDF must contain ${expectedPageCount} pages; found ${pdfPages}.`);
     }
 
     const densities = layout.results.map(result => `page ${result.page}: ${result.density}`).join(', ');
