@@ -6,6 +6,7 @@ import {
   validateExample,
   normalizeCell,
   isComparator,
+  linkedinProgrammes,
   escapeHtml
 } from './example-utils.mjs';
 
@@ -29,8 +30,9 @@ for (const file of exampleFiles(root, target)) {
 
   const interestLabel = example.display?.interestLabel || 'Your interests';
   const meta = [example.id.toUpperCase(), example.cohort].filter(Boolean).join(' | ');
+  const programmes = linkedinProgrammes(example);
 
-  const pages = example.programmes.map((programme, index) => {
+  const pages = programmes.map((programme, index) => {
     const sections = example.blocks.map(block => {
       const items = block.rows
         .map(row => normalizeCell(row.cells?.[programme.id]))
@@ -58,7 +60,7 @@ for (const file of exampleFiles(root, target)) {
       ${provenance}
       <div class="content">${sections}</div>
       ${programme.note ? `<div class="programme-note">${escapeHtml(programme.note)}</div>` : ''}
-      <footer>${index + 1} / ${example.programmes.length} &nbsp; · &nbsp; UCR Pathways</footer>
+      <footer>${index + 1} / ${programmes.length} &nbsp; · &nbsp; UCR Pathways</footer>
     </article>`;
   }).join('\n');
 
