@@ -273,6 +273,24 @@ The post text may be written separately from the programme data, but it must des
 
 Where the post text links to the interactive UCR Pathways example, use the specific example URL rather than merely the landing page.
 
+### 8.1 Approved LinkedIn editorial scenarios
+
+For the pilot, use the following five editorial scenarios as the approved starting set. They are framing choices rather than rigid templates; each post still requires human editorial judgment and must describe the approved example accurately.
+
+| Scenario | LinkedIn commentary | Normal LinkedIn PDF mode |
+|---|---|---|
+| **1. The degree that doesn’t exist** | Explain the missing or unusual combination that no obvious disciplinary bachelor captures. | UCR-only: 3 UCR pages |
+| **2. What do you have to give up?** | Frame disciplinary choice as a trade-off and show which interests may fall away or be recovered. | Comparator + 3 UCR pages |
+| **3. Start with the question** | Open with the intellectual question or problem rather than with a degree title. | Usually comparator + 3 UCR pages |
+| **4. Same interest, surprisingly different programmes** | Hold the starting interest constant and frame the contrast between several coherent academic interpretations. | Comparator + 3 UCR pages |
+| **5. We looked at the Dutch bachelor market** | Lead with a relevant finding, pattern or gap from the Dutch bachelor market and connect it to what becomes possible at UCR. | Usually UCR-only: 3 UCR pages |
+
+The opening question, hook, trade-off or market observation belongs in `commentary`, not on a dedicated introductory PDF page.
+
+For scenario 5, do not build market charts or a second analytical-visual publication pipeline during the pilot. Keep the relevant market evidence in the LinkedIn commentary. Reconsider additional market-analysis visuals only through a separate deliberate decision if this scenario later proves especially valuable.
+
+These scenarios do not change the underlying four-programme publication record, the public website, Open Day output or the Make publication mechanism. The LinkedIn presentation choice is limited to the two existing PDF modes: comparator + three UCR pages, or three UCR pages only.
+
 ---
 
 ## 9. LinkedIn publication
