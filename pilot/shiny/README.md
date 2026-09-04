@@ -52,9 +52,9 @@ The app reads pathway records from:
 
 `data/examples/p-001.json` through `data/examples/p-005.json`
 
-It reads pilot access codes and the course lookup from:
+It reads pilot access codes from `pilot/shiny/data/access_codes.json` and course descriptions on demand from department files under:
 
-`pilot/shiny/data/`
+`pilot/shiny/data/courses/`
 
 A cache-busting query parameter is added to each fetch so a new app session does not intentionally reuse stale GitHub/CDN data.
 
