@@ -5,6 +5,7 @@ EXAMPLE_BASE <- "https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/
 PILOT_DATA_BASE <- "https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/pilot/shiny/data"
 ASSET_BASE <- "https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets"
 UCR_LOGO_URL <- paste0(ASSET_BASE, "/brand/ucr-primary-plum.png")
+UCR_WEBSITE_URL <- "https://ucr.nl/"
 PROGRAM_BUILDER_URL <- "https://program.ucr.nl/"
 
 cache_bust <- function(url) {
@@ -50,10 +51,17 @@ cell_value <- function(cell) {
 brand_lockup <- function(class_name = "brand-row") {
   div(
     class = class_name,
-    tags$img(
-      src = UCR_LOGO_URL,
-      class = "ucr-logo",
-      alt = "University College Roosevelt"
+    tags$a(
+      href = UCR_WEBSITE_URL,
+      target = "_blank",
+      rel = "noopener",
+      class = "ucr-logo-link",
+      `aria-label` = "University College Roosevelt website",
+      tags$img(
+        src = UCR_LOGO_URL,
+        class = "ucr-logo",
+        alt = "University College Roosevelt"
+      )
     ),
     div(class = "eyebrow", "UCR PATHWAYS")
   )
@@ -306,6 +314,12 @@ ui <- fluidPage(
 
       body { padding-bottom: 50px; }
       .container-fluid { max-width: 1500px; padding: 0 24px; }
+
+      .ucr-logo-link {
+        display: inline-block;
+        text-decoration: none;
+        line-height: 0;
+      }
 
       .ucr-logo {
         display: block;
