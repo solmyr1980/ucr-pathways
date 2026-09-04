@@ -3,6 +3,8 @@ library(jsonlite)
 
 EXAMPLE_BASE <- "https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/data/examples"
 PILOT_DATA_BASE <- "https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/pilot/shiny/data"
+ASSET_BASE <- "https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets"
+UCR_LOGO_URL <- paste0(ASSET_BASE, "/brand/ucr-primary-plum.png")
 PROGRAM_BUILDER_URL <- "https://program.ucr.nl/"
 
 cache_bust <- function(url) {
@@ -43,6 +45,18 @@ cell_value <- function(cell) {
   if (is.character(cell)) return(list(text = cell))
   if (is.list(cell) && nzchar(safe_text(cell$text))) return(cell)
   NULL
+}
+
+brand_lockup <- function(class_name = "brand-row") {
+  div(
+    class = class_name,
+    tags$img(
+      src = UCR_LOGO_URL,
+      class = "ucr-logo",
+      alt = "University College Roosevelt"
+    ),
+    div(class = "eyebrow", "UCR PATHWAYS")
+  )
 }
 
 render_compare_table <- function(pathway) {
@@ -163,7 +177,8 @@ render_pathway <- function(pathway) {
         div(
           class = "topbar",
           div(
-            div(class = "eyebrow", "UCR PATHWAYS"),
+            class = "topbar-main",
+            brand_lockup(),
             tags$h1(safe_text(pathway$display$title %||%
               "See how your interests could take shape in a disciplinary degree and three progressively broader UCR pathways."))
           ),
@@ -224,6 +239,54 @@ ui <- fluidPage(
     tags$meta(name = "viewport", content = "width=device-width, initial-scale=1"),
     tags$title("UCR Pathways — Shiny pilot"),
     tags$style(HTML("
+      @font-face {
+        font-family: 'IvyMode UCR';
+        src: url('https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets/fonts/IvyMode%20Light.otf') format('opentype');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'IvyMode UCR';
+        src: url('https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets/fonts/IvyMode%20Regular.otf') format('opentype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'IvyMode UCR';
+        src: url('https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets/fonts/IvyMode%20Semibold.otf') format('opentype');
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Inter UCR';
+        src: url('https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets/fonts/Inter_Light.ttf') format('truetype');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Inter UCR';
+        src: url('https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets/fonts/Inter_Medium.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Inter UCR';
+        src: url('https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets/fonts/Inter_Bold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         --plum: #491E34;
         --white: #F8F5EE;
@@ -238,11 +301,47 @@ ui <- fluidPage(
       html, body {
         background: var(--white);
         color: var(--black);
-        font-family: Inter, Arial, sans-serif;
+        font-family: 'Inter UCR', Inter, Arial, sans-serif;
       }
 
       body { padding-bottom: 50px; }
       .container-fluid { max-width: 1500px; padding: 0 24px; }
+
+      .ucr-logo {
+        display: block;
+        width: auto;
+        max-width: 220px;
+        max-height: 58px;
+        object-fit: contain;
+      }
+
+      .brand-row {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 13px;
+      }
+
+      .brand-row .eyebrow {
+        margin: 0;
+        padding-left: 18px;
+        border-left: 1px solid rgba(73, 30, 52, .22);
+      }
+
+      .access-brand {
+        display: block;
+        margin-bottom: 18px;
+      }
+
+      .access-brand .ucr-logo {
+        max-width: 250px;
+        max-height: 68px;
+        margin-bottom: 14px;
+      }
+
+      .access-brand .eyebrow {
+        margin-bottom: 0;
+      }
 
       .access-shell {
         min-height: 82vh;
@@ -252,7 +351,7 @@ ui <- fluidPage(
       }
 
       .access-card {
-        width: min(560px, 100%);
+        width: min(580px, 100%);
         background: #fff;
         border: 1px solid rgba(73, 30, 52, 0.16);
         border-radius: 18px;
@@ -270,11 +369,22 @@ ui <- fluidPage(
 
       h1, h2, h3, h4 {
         color: var(--plum);
-        font-family: Georgia, 'Times New Roman', serif;
+        font-family: 'IvyMode UCR', Georgia, 'Times New Roman', serif;
+        font-weight: 400;
       }
 
-      .access-card h1 { font-size: 36px; margin-top: 0; margin-bottom: 12px; }
-      .access-card p { color: var(--grey); font-size: 16px; line-height: 1.55; }
+      .access-card h1 {
+        font-size: 36px;
+        margin-top: 0;
+        margin-bottom: 12px;
+        line-height: 1.08;
+      }
+
+      .access-card p {
+        color: var(--grey);
+        font-size: 16px;
+        line-height: 1.55;
+      }
 
       .form-control {
         border-radius: 10px;
@@ -283,6 +393,7 @@ ui <- fluidPage(
         font-size: 17px;
         text-transform: uppercase;
         letter-spacing: .04em;
+        font-family: 'Inter UCR', Inter, Arial, sans-serif;
       }
 
       .btn-primary, .primary-button {
@@ -291,6 +402,8 @@ ui <- fluidPage(
         border-radius: 10px;
         min-height: 44px;
         padding: 10px 18px;
+        font-family: 'Inter UCR', Inter, Arial, sans-serif;
+        font-weight: 700;
       }
 
       .secondary-button {
@@ -298,35 +411,47 @@ ui <- fluidPage(
         color: var(--plum) !important;
         border: 1px solid rgba(73,30,52,.28) !important;
         border-radius: 10px;
+        font-family: 'Inter UCR', Inter, Arial, sans-serif;
       }
 
       .access-error {
         margin-top: 14px;
         color: #8b1e2d;
-        font-weight: 600;
+        font-weight: 700;
       }
 
-      .pathway-shell { padding-top: 28px; }
+      .pathway-shell { padding-top: 20px; }
+
       .topbar {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        gap: 24px;
-        margin-bottom: 20px;
+        gap: 28px;
+        margin-bottom: 16px;
+      }
+
+      .topbar-main {
+        min-width: 0;
+        flex: 1;
       }
 
       .topbar h1 {
-        max-width: 1050px;
+        max-width: 1000px;
         margin: 0;
-        font-size: clamp(30px, 4vw, 52px);
-        line-height: 1.07;
+        font-size: clamp(29px, 2.7vw, 40px);
+        line-height: 1.08;
+      }
+
+      .topbar .secondary-button {
+        flex: 0 0 auto;
+        margin-top: 2px;
       }
 
       .interest-card {
         background: var(--plum);
         color: #fff;
         border-radius: 15px;
-        padding: 18px 22px;
+        padding: 16px 20px;
         display: grid;
         grid-template-columns: auto 1fr;
         gap: 14px;
@@ -334,11 +459,11 @@ ui <- fluidPage(
         margin-bottom: 12px;
       }
 
-      .interest-label { font-weight: 700; opacity: .8; }
-      .interest-text { font-size: 18px; line-height: 1.45; }
+      .interest-label { font-weight: 700; opacity: .82; }
+      .interest-text { font-size: 18px; line-height: 1.4; }
 
       .reference-line {
-        margin: 10px 2px 24px;
+        margin: 10px 2px 22px;
         color: var(--grey);
         font-size: 14px;
       }
@@ -346,11 +471,14 @@ ui <- fluidPage(
       .reference-line a { color: var(--plum); text-decoration: underline; }
 
       .nav-pills { margin-bottom: 20px; }
+
       .nav-pills > li > a {
         color: var(--plum);
         border-radius: 9px;
-        font-weight: 600;
+        font-weight: 700;
+        font-family: 'Inter UCR', Inter, Arial, sans-serif;
       }
+
       .nav-pills > li.active > a,
       .nav-pills > li.active > a:hover,
       .nav-pills > li.active > a:focus {
@@ -393,7 +521,7 @@ ui <- fluidPage(
       }
 
       .programme-title { font-size: 16px; font-weight: 700; }
-      .programme-subtitle { font-size: 12px; opacity: .78; margin-top: 4px; font-weight: 400; }
+      .programme-subtitle { font-size: 12px; opacity: .78; margin-top: 4px; font-weight: 300; }
 
       .block-row th {
         background: var(--blue);
@@ -402,6 +530,7 @@ ui <- fluidPage(
         letter-spacing: .02em;
         padding-top: 10px;
         padding-bottom: 10px;
+        font-weight: 700;
       }
 
       .comparison-cell { background: #fff; line-height: 1.35; }
@@ -452,6 +581,7 @@ ui <- fluidPage(
         padding: 10px 11px;
         cursor: pointer;
         transition: transform .08s ease, background .12s ease;
+        font-family: 'Inter UCR', Inter, Arial, sans-serif;
       }
 
       .course-link:hover,
@@ -461,10 +591,11 @@ ui <- fluidPage(
         outline: none;
       }
 
-      .course-name { color: var(--black); font-weight: 650; line-height: 1.25; }
-      .course-meta { color: var(--grey); font-size: 11px; margin-top: 3px; }
+      .course-name { color: var(--black); font-weight: 700; line-height: 1.25; }
+      .course-meta { color: var(--grey); font-size: 11px; margin-top: 3px; font-weight: 300; }
 
       .cta-row { display: flex; justify-content: flex-end; margin-top: 26px; }
+
       .primary-cta {
         display: inline-block;
         background: var(--plum);
@@ -476,17 +607,43 @@ ui <- fluidPage(
       }
 
       .modal-content { border-radius: 14px; }
-      .modal-title { color: var(--plum); font-family: Georgia, 'Times New Roman', serif; }
+
+      .modal-title {
+        color: var(--plum);
+        font-family: 'IvyMode UCR', Georgia, 'Times New Roman', serif;
+        font-weight: 400;
+      }
+
       .course-description { font-size: 15px; line-height: 1.6; }
 
       @media (max-width: 980px) {
         .container-fluid { padding: 0 14px; }
         .topbar { display: block; }
         .topbar .secondary-button { margin-top: 14px; }
+        .brand-row { gap: 12px; margin-bottom: 12px; }
+        .brand-row .eyebrow { padding-left: 12px; }
+        .ucr-logo { max-width: 175px; max-height: 48px; }
+        .topbar h1 { font-size: clamp(27px, 7.2vw, 34px); }
         .interest-card { grid-template-columns: 1fr; gap: 4px; }
         .semester-grid { grid-template-columns: 1fr; }
         .access-card { padding: 26px 22px; }
         .access-card h1 { font-size: 31px; }
+        .access-brand .ucr-logo { max-width: 220px; max-height: 60px; }
+      }
+
+      @media (max-width: 560px) {
+        .brand-row {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .brand-row .eyebrow {
+          border-left: 0;
+          padding-left: 0;
+        }
+
+        .topbar h1 { font-size: 29px; }
       }
     ")),
     tags$script(HTML("
@@ -516,7 +673,7 @@ server <- function(input, output, session) {
           class = "access-shell",
           div(
             class = "access-card",
-            div(class = "eyebrow", "UCR PATHWAYS"),
+            brand_lockup("access-brand"),
             tags$h1("Your pathway"),
             tags$p("Enter the code you received to open your personalised UCR Pathways comparison."),
             textInput("access_code", label = NULL, placeholder = "UCR-XXXX-XXXX-XXXX-XXXX"),
