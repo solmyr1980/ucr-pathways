@@ -2,117 +2,131 @@
 
 ## Purpose and boundary
 
-This document governs the operational handoff from an **approved public UCR Pathways publication record** to:
+This document governs the **public communication layer** for the UCR Pathways project:
 
-1. the public UCR Pathways website;
-2. the LinkedIn PDF;
-3. Make-assisted LinkedIn publication.
+1. selection and preparation of approved public examples;
+2. the curated public website;
+3. LinkedIn PDF generation;
+4. Make-assisted LinkedIn publication.
 
-It does **not** define academic generation, reference-programme selection, UCR course selection, Open Day production or academic validation. Those belong to the UCR Pathways Production Instructions.
+It does **not** define student personalization, counselor corpus production, UCR course selection, external-programme reconstruction or academic validation. Those belong to the UCR Pathways Production Instructions.
 
-It does **not** record implementation history, successful or failed runs, temporary bugs or deployment status. GitHub is the source of truth for those matters.
+The internal project/repository name remains UCR Pathways, but user-facing website and publication interfaces must not present `UCR Pathways` or `Pathways` as a visible product/sub-brand.
 
-The exact repository schema and exact GitHub Actions commands are executable implementation sources and take precedence over prose descriptions of mechanics.
+Implementation history, temporary bugs and deployment status belong in GitHub rather than in this document.
 
 ---
 
-## 1. Entry condition
+# 1. Public communication architecture
 
-This workflow starts only when:
+The public website and LinkedIn are **not additional academic-generation products**.
+
+They sit above the two academic workflows:
+
+```text
+student workflow ───────┐
+                        ├── editorial/public selection ── approved public record
+counselor workflow ─────┘                                  │
+                                                           ├── curated website example
+                                                           └── LinkedIn PDF/post
+```
+
+The counselor corpus will normally provide the majority of public examples because it is deterministic and privacy-safe.
+
+A student-origin case may be used only after explicit public-use approval and confirmation that the record contains no identifying private information beyond an interest statement intentionally approved for publication.
+
+Neither the student app nor the counselor app automatically publishes content.
+
+---
+
+# 2. Entry condition for public use
+
+A record enters this workflow only when:
 
 - the canonical academic comparison has been completed and validated upstream;
 - substantive human review has occurred;
 - explicit approval for public use has been given;
-- a publication-safe structured example record has been prepared in conformity with the current repository schema.
+- a publication-safe structured record has been prepared in conformity with the current repository schema.
 
-Open Day participant outputs do not enter this workflow automatically.
+For student-origin cases, confirm privacy separately before public export.
+
+For counselor-origin cases, public approval is still required even though the underlying comparison is part of the deterministic counselor library.
 
 ---
 
-## 2. Single public content source
+# 3. Single public content source
 
-Use one approved structured publication record as the single programme-content source for both:
+Use one approved structured public record as the single programme-content source for both:
 
-- the website example;
+- the corresponding curated website example; and
 - the LinkedIn PDF.
 
-Do not maintain separate hand-edited versions of the comparison for HTML or PDF.
+Do not maintain separate hand-edited programme-content versions for HTML and PDF.
 
-The public record is derived upstream from the canonical academic record. This workflow does not reconstruct or reinterpret academic content.
+The public record is derived upstream from a validated canonical student or counselor record. This workflow does not reconstruct programmes, reselect UCR courses or reinterpret academic facts.
+
+Editorial website copy and LinkedIn commentary may frame the example differently, but they must describe the same approved programme content accurately.
 
 ---
 
-## 3. Repository handoff
+# 4. Repository responsibilities
 
 Current repository:
 
 `https://github.com/solmyr1980/ucr-pathways`
 
-Current public site:
+The repository name and technical GitHub Pages paths may retain `ucr-pathways`; this is internal/technical identity rather than visible user-facing branding.
 
-`https://solmyr1980.github.io/ucr-pathways/`
+## `data/examples/`
 
-Repository responsibilities:
+Contains approved **public** comparison records selected for website/LinkedIn use.
 
-### `data/examples/`
+It is **not** the complete counselor comparison corpus and must not be repurposed as the 600-record counselor database.
 
-Contains one approved structured record per public example.
+## `data/catalog.json`
 
-Programme-specific comparison content belongs here.
+Contains editorial discovery metadata for the curated public website examples.
 
-### `data/schema/example.schema.json`
+It may contain items such as:
 
-Defines the current executable publication-data contract.
-
-Do not duplicate the full schema in this workflow document.
-
-### `data/catalog.json`
-
-Contains discovery metadata used by the landing page.
-
-It may contain:
-
-- example ID;
+- public example ID;
 - short title;
-- short description.
+- short description;
+- optional editorial category/source type.
 
-It should not duplicate the substantive comparison.
+It does not duplicate the complete comparison content.
 
-### Website renderer and shared assets
+## `data/schema/`
 
-Provide the generic website presentation.
+Contains executable public-data contracts.
 
-Programme-specific content must not be hardcoded into the renderer.
+The schema should support approved records derived from either student or counselor origin while preserving one shared four-programme comparison core.
 
-### LinkedIn rendering scripts
+## Counselor data
 
-Consume the same approved example records used by the website.
+Programme metadata, programme-interest search indexes and the deterministic counselor comparison library belong in implementation data structures separate from `data/catalog.json` and the curated public-example directory.
 
-There is no independent LinkedIn content copy.
+## Website renderer
 
-### `publication/linkedin/`
+Provides a generic UCR-branded public showcase and comparison renderer.
 
-Contains the public copies of generated LinkedIn PDFs used for downstream publication.
+Programme-specific academic facts must come from approved structured records rather than hardcoded HTML/JavaScript.
 
-For example `p-001` is published as:
+## LinkedIn rendering scripts
 
-`publication/linkedin/p-001.pdf`
+Consume the same approved public records used by the website when publishing the same case.
 
-and is available through GitHub Pages at:
+## `publication/linkedin/`
 
-`https://solmyr1980.github.io/ucr-pathways/publication/linkedin/p-001.pdf`
+Contains generated LinkedIn PDFs used for downstream publication.
 
-These PDFs are generated publication outputs. They are not independent sources of programme content and must not be hand-edited.
+These are generated outputs and must not be hand-edited as sources of programme content.
 
-### `publication/queue/current.json`
+## `publication/queue/current.json`
 
-This is the stable publication-control record read by Make.
+Remains the stable manual publication-control record read by Make.
 
-Its repository path and base raw GitHub URL remain fixed between posts. HTTP 14 appends a per-run cache-busting query parameter so the GitHub/CDN cache cannot return stale control data:
-
-`?cb={{formatDate(now; "x")}}`
-
-Before each approved LinkedIn publication, replace the contents of `current.json` with the three values for the post to be published:
+Before each approved LinkedIn publication, set:
 
 ```json
 {
@@ -122,15 +136,7 @@ Before each approved LinkedIn publication, replace the contents of `current.json
 }
 ```
 
-The fields mean:
-
-- `example_id`: the approved example whose generated PDF will be posted;
-- `title`: the LinkedIn document title;
-- `commentary`: the LinkedIn post text.
-
-The file is intentionally overwritten for each approved post. Git commit history provides the audit trail of prior values, so separate per-post control files are not required for the manual pilot.
-
-When no approved post is staged, keep `current.json` in the inert placeholder state:
+When no approved post is staged, keep the inert placeholder state:
 
 ```json
 {
@@ -140,192 +146,169 @@ When no approved post is staged, keep `current.json` in the inert placeholder st
 }
 ```
 
-This placeholder deliberately resolves to no real LinkedIn PDF, so an accidental Make run stops before the final LinkedIn publication step. It is a safety state, not a queue-status mechanism.
-
-Do not add publication status, scheduling or automatic queue-selection fields until queue semantics are deliberately designed and approved.
+The placeholder is a safety state, not a queue-status mechanism.
 
 ---
 
-## 4. Publication flow
+# 5. Public website purpose and structure
 
-```text
-approved publication record
-        ↓
-write/update data/examples/<id>.json
-        ↓
-add/update discovery entry in data/catalog.json
-        ↓
-commit approved public data
-        ↓
-        ├── GitHub Pages renders the website example
-        │
-        └── GitHub Actions validates and renders the LinkedIn PDF
-                    ↓
-          publication/linkedin/<id>.pdf
-                    ↓
-             stable GitHub Pages URL
-                    ↓
-              human visual review
-                    ↓
-          prepare/review LinkedIn text
-                    ↓
-     update publication/queue/current.json
-                    ↓
-          run approved Make scenario
-                    ↓
-             LinkedIn document post
-                    ↓
-      reset current.json to inert state
-```
+The public website is a **curated UCR communication layer**, not:
 
-Do not update project specifications merely because a build succeeds or fails.
+- the private/personalized student app;
+- the exhaustive counselor search tool;
+- a dump of all student cases;
+- a dump of all counselor cases.
 
----
+The public landing page should:
 
-## 5. Repository validation
+- use UCR visual identity without visible Pathways branding;
+- explain the idea through a small deliberately selected set of examples/stories;
+- provide a clear route for prospective students toward the personalized student intake/experience;
+- provide a clear route for school counselors toward the counselor comparison tool;
+- provide the Program Builder destination where appropriate.
 
-Repository validation is a publication-structure check, not a second academic validation step.
+A curated example may illustrate, for example:
 
-The repository may check matters such as:
+- how a named Dutch bachelor compares with UCR options;
+- where UCR closely matches a field and where it does not;
+- how related subjects broaden a disciplinary programme;
+- a student-origin combination for which no obvious disciplinary degree exists;
+- a pattern observed across the Dutch bachelor market.
 
-- required fields and data types;
-- programme IDs and semantic roles;
-- block and row structure;
-- references to known programme IDs;
-- duplicate scheduled courses;
-- six-semester/four-courses structure where schedules are present.
+Do not treat example count as a coverage objective. Selection is editorial.
 
-Prerequisites, actual UCR semester availability, PPD placement and substantive course fit remain upstream academic responsibilities.
+## 5.1 Website example behavior
 
-The JSON Schema defines the public-data contract. Repository validation code enforces structural checks. Exact validation behavior belongs in the repository code, not this prose document.
+An individual approved example should render the four-programme comparison from structured data.
 
----
+Use the visible programme-label rules from the Master Specification:
 
-## 6. Public website workflow
+- comparator as `[Programme] at [Institution]`;
+- case-specific closest-match UCR label;
+- field + related-subjects UCR label;
+- broader-programme UCR label.
 
-The public root displays the catalog of approved examples.
+The comparator heading/source link must resolve to the approved official external programme page.
 
-Selecting an example loads its structured publication record using the routing implemented by the current website. This workflow should use the resulting specific example URL rather than duplicate the site's routing pattern in prose.
+Provide an appropriate UCR curriculum link from the UCR side.
 
-The website renderer implements the public behavior, copy, visual identity, link hierarchy and CTA defined in the Master Specification.
+Show EC credits consistently on comparator and UCR components.
 
-Operationally, verify that:
+Do not add research-seminar, exchange or elective-space boilerplate merely to fill perceived gaps.
 
-- the correct example loads;
-- visible content comes from the approved example record;
-- the Reference programme source link resolves to the approved official source;
-- the Program Builder CTA resolves to the canonical destination defined in the Master Specification;
-- the specific example URL can be copied for use in LinkedIn.
+## 5.2 Website navigation onward
 
-Do not hand-edit programme content in the website renderer to fix an individual example. Correct the approved data upstream instead.
+Where implementation destinations exist, provide clear calls to action such as:
+
+- **For prospective students** → approved student intake/personalized experience;
+- **For school counselors** → counselor comparison tool;
+- **Build/tweak your programme** → canonical Program Builder destination.
+
+When a curated counselor example is shown, the site may link into the counselor tool pre-focused on that programme or a relevant interest if technically supported.
+
+When a curated student-origin example is shown, the site may invite prospective students to submit their own interests or use the Program Builder.
+
+Do not claim a deep-link/prefill capability until it actually exists.
 
 ---
 
-## 7. LinkedIn PDF workflow
+# 6. Public example preparation
 
-The LinkedIn PDF is rendered from the same approved publication record as the website.
+For an approved source record:
 
-The approved publication record always retains the complete four-programme comparison. For LinkedIn presentation, the PDF may either show all four programme pages or omit the comparator and show only the three UCR programme pages. This choice affects only the LinkedIn PDF; the website, Open Day output and underlying four-programme record remain unchanged.
+1. identify whether the origin is `counselor` or `student`;
+2. confirm academic validation status;
+3. confirm explicit public-use approval;
+4. for student-origin cases, confirm privacy-safe content;
+5. derive the publication-safe structured record without changing programme facts;
+6. write/update `data/examples/<id>.json`;
+7. add/update the editorial entry in `data/catalog.json`;
+8. run repository validation;
+9. verify the website rendering;
+10. generate/review the LinkedIn PDF when the case is intended for LinkedIn.
 
-Editorial framing — including the opening question, intellectual hook or market observation — belongs in the LinkedIn post commentary rather than in a dedicated opening PDF page.
-
-The renderer implements the LinkedIn presentation requirements defined in the Master Specification.
-
-At a high level, GitHub Actions:
-
-1. validates the selected public example data;
-2. builds the LinkedIn print representation;
-3. renders the PDF;
-4. retains the PDF as a downloadable workflow artifact;
-5. copies the generated LinkedIn PDF to `publication/linkedin/<id>.pdf` on `main` so GitHub Pages exposes it at a stable public URL.
-
-The public PDF URL therefore follows this pattern:
-
-`https://solmyr1980.github.io/ucr-pathways/publication/linkedin/<id>.pdf`
-
-Exact dependency-install commands, Playwright versions and build commands belong in the GitHub Actions configuration and repository scripts, not in this workflow document.
-
-Generated PDFs are publication outputs, not sources of programme content. Do not hand-edit them.
-
-After generation, conduct a human visual review before publication.
+Do not hand-edit renderer code to fix one example's academic content. Correct the approved data upstream.
 
 ---
 
-## 8. LinkedIn post preparation
+# 7. LinkedIn PDF workflow
 
-For an approved example, prepare and approve:
+The LinkedIn PDF is rendered from the same approved public record as the website example when both present the same case.
+
+The approved record retains the complete four-programme comparison.
+
+The PDF may, as an editorial presentation choice:
+
+- show comparator + three UCR pages; or
+- omit the comparator page and show the three UCR pages only.
+
+This choice changes presentation only; it does not change the underlying academic record.
+
+Editorial framing belongs in LinkedIn commentary rather than in a second academic-content copy.
+
+At a high level, GitHub Actions may continue to:
+
+1. validate selected public example data;
+2. build LinkedIn print HTML;
+3. render the PDF;
+4. retain a workflow artifact;
+5. copy the generated PDF to `publication/linkedin/<id>.pdf` on `main` for a stable public URL.
+
+Generated PDFs are outputs, not sources.
+
+Conduct human visual review before publication.
+
+---
+
+# 8. LinkedIn editorial scenarios
+
+Retain the five approved starting scenarios, but source them from the redesigned project architecture.
+
+| Scenario | Likely source | Editorial framing |
+|---|---|---|
+| **1. The degree that doesn't exist** | Often student-origin | Show an unusual combination that no obvious disciplinary bachelor captures. |
+| **2. What do you have to give up?** | Counselor-origin | Use one named bachelor and show the trade-off between disciplinary depth and broader UCR combinations. |
+| **3. Start with the question** | Counselor interest index or approved student case | Start from a student-facing question/interest and connect it to study options. |
+| **4. Same interest, surprisingly different programmes** | Counselor interest index | Use one interest linked to several Dutch programmes to show different disciplinary interpretations. |
+| **5. We looked at the Dutch bachelor market** | Counselor corpus/registry | Lead with a defensible market pattern and connect it to UCR possibilities. |
+
+The counselor corpus gives scenarios 2–5 a broader evidence base. Do not imply that an interest-search result is a personalized counselor comparison.
+
+For scenario 5, do not automatically create a separate market-chart pipeline. Add analytical visuals only after a deliberate later decision.
+
+---
+
+# 9. LinkedIn post preparation and Make publication
+
+For an approved example prepare and approve:
 
 - the finished LinkedIn PDF at its stable public URL;
-- the LinkedIn post text;
-- the LinkedIn document title.
+- the LinkedIn document title;
+- the LinkedIn commentary.
 
-After approval, update `publication/queue/current.json` with the three variable publication inputs:
+Update `publication/queue/current.json` with `example_id`, `title` and `commentary`.
 
-- `example_id`;
-- `title`;
-- `commentary`.
+Make continues to derive the PDF URL from `example_id` using the stable repository pattern.
 
-The PDF URL is not stored separately. Make derives it from `example_id` using:
+The tested Make scenario may continue to:
 
-`https://solmyr1980.github.io/ucr-pathways/publication/linkedin/<example_id>.pdf`
-
-The post text may be written separately from the programme data, but it must describe the same approved example accurately.
-
-Where the post text links to the interactive UCR Pathways example, use the specific example URL rather than merely the landing page.
-
-### 8.1 Approved LinkedIn editorial scenarios
-
-For the pilot, use the following five editorial scenarios as the approved starting set. They are framing choices rather than rigid templates; each post still requires human editorial judgment and must describe the approved example accurately.
-
-| Scenario | LinkedIn commentary | Normal LinkedIn PDF mode |
-|---|---|---|
-| **1. The degree that doesn’t exist** | Explain the missing or unusual combination that no obvious disciplinary bachelor captures. | UCR-only: 3 UCR pages |
-| **2. What do you have to give up?** | Frame disciplinary choice as a trade-off and show which interests may fall away or be recovered. | Comparator + 3 UCR pages |
-| **3. Start with the question** | Open with the intellectual question or problem rather than with a degree title. | Usually comparator + 3 UCR pages |
-| **4. Same interest, surprisingly different programmes** | Hold the starting interest constant and frame the contrast between several coherent academic interpretations. | Comparator + 3 UCR pages |
-| **5. We looked at the Dutch bachelor market** | Lead with a relevant finding, pattern or gap from the Dutch bachelor market and connect it to what becomes possible at UCR. | Usually UCR-only: 3 UCR pages |
-
-The opening question, hook, trade-off or market observation belongs in `commentary`, not on a dedicated introductory PDF page.
-
-For scenario 5, do not build market charts or a second analytical-visual publication pipeline during the pilot. Keep the relevant market evidence in the LinkedIn commentary. Reconsider additional market-analysis visuals only through a separate deliberate decision if this scenario later proves especially valuable.
-
-These scenarios do not change the underlying four-programme publication record, the public website, Open Day output or the Make publication mechanism. The LinkedIn presentation choice is limited to the two existing PDF modes: comparator + three UCR pages, or three UCR pages only.
-
----
-
-## 9. LinkedIn publication
-
-For the pilot, publication uses the tested Make scenario but remains under manual human control.
-
-The Make scenario requires no post-specific editing. It always retrieves the same stable GitHub control record, `publication/queue/current.json`, parses `example_id`, `title` and `commentary`, and maps those values into the otherwise fixed LinkedIn publication flow.
-
-The scenario performs these operations:
-
-1. retrieve `publication/queue/current.json` from GitHub using the fixed raw URL plus a per-run `cb` query parameter;
+1. retrieve `publication/queue/current.json` using the fixed raw URL plus cache-busting query parameter;
 2. parse `example_id`, `title` and `commentary`;
-3. initialize a LinkedIn document upload and obtain an upload URL and document URN;
-4. construct `https://solmyr1980.github.io/ucr-pathways/publication/linkedin/<example_id>.pdf` and download the PDF;
-5. upload the PDF bytes to LinkedIn using the temporary upload URL;
-6. create the LinkedIn post using the returned document URN, mapped `title` and mapped `commentary`.
+3. initialize LinkedIn document upload;
+4. download the generated PDF;
+5. upload PDF bytes to LinkedIn;
+6. create the LinkedIn post using the returned document URN.
 
-The following infrastructure remains fixed between posts:
+For the current workflow, publication remains under manual human control.
 
-- the raw GitHub URL for `publication/queue/current.json`, with a per-run cache-busting `cb` query parameter;
-- LinkedIn person URN;
-- `/rest/documents?action=initializeUpload`;
-- the mapped LinkedIn upload URL;
-- binary PDF upload handling;
-- the mapped LinkedIn document URN;
-- `/rest/posts`;
-- distribution and publication settings.
+After a successful publication, reset `current.json` to the inert placeholder state.
 
-For the manual pilot, update `current.json` for one approved post and run the scenario once. After a successful publication, reset `current.json` to the inert placeholder state. Do not yet implement automatic queue selection, status transitions, duplicate prevention or scheduled publication.
-
-After substantive and visual approval, run the scenario manually. The scenario should remain switched off as a scheduled automation unless a separate decision is made to automate publication timing.
+Do not implement automatic queue selection, duplicate prevention, status transitions or scheduled publication unless separately approved.
 
 Human control remains mandatory over:
 
-- suitability for public use;
+- public suitability;
+- privacy where relevant;
 - final visual check;
 - LinkedIn text;
 - publication timing;
@@ -333,24 +316,21 @@ Human control remains mandatory over:
 
 ---
 
-## 10. Source-of-truth rules
+# 10. Source-of-truth rules
 
 To prevent maintenance drift:
 
-- academic facts and feasibility come from the upstream canonical process;
+- academic facts and feasibility come from upstream canonical student/counselor production;
+- counselor discovery comes from programme metadata + programme-interest indexes;
+- deterministic counselor comparisons come from the counselor comparison library;
 - approved public programme content comes from `data/examples/<id>.json`;
-- the executable public-data contract comes from the repository schema;
-- landing-page discovery metadata comes from `data/catalog.json`;
-- exact build mechanics come from GitHub Actions and repository scripts;
-- generated public LinkedIn PDFs come from `publication/linkedin/<id>.pdf` and are never edited as sources;
-- the currently staged LinkedIn publication inputs come from `publication/queue/current.json`;
-- Make derives the PDF URL from `example_id` rather than storing or editing a separate per-post PDF URL;
-- Git commit history records prior `current.json` values for the manual pilot;
-- current deployment/build status comes from GitHub;
-- durable public behavior and branding requirements come from the Master Specification.
+- public landing-page editorial metadata comes from `data/catalog.json`;
+- executable contracts come from repository schemas;
+- exact build mechanics come from GitHub Actions and scripts;
+- generated LinkedIn PDFs are never edited as sources;
+- staged LinkedIn publication inputs come from `publication/queue/current.json`;
+- durable public behavior and branding rules come from the Master Specification.
 
-Do not copy implementation status or build history into this document.
+Do not duplicate complete academic content across student app, counselor app, website and LinkedIn.
 
-Do not copy full academic-generation rules into this document.
-
-Do not create additional hand-maintained programme-content representations.
+Do not use this document to record temporary implementation state, build history or deployment incidents.
