@@ -1,0 +1,42 @@
+name: Validate Shiny pilots
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'pilot/shiny/**'
+      - 'pilot/counselor-shiny/**'
+      - 'data/counselor/**'
+      - '.github/workflows/validate-shiny.yml'
+
+jobs:
+  validate-shiny:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+
+      - name: Install Shiny dependencies
+        run: Rscript -e 'install.packages(c("shiny", "jsonlite"), repos="https://cloud.r-project.org")'
+
+      - name: Parse both apps
+        run: |
+          Rscript -e 'parse(file="pilot/shiny/app.R"); parse(file="pilot/counselor-shiny/app.R")'
+
+      - name: Load both Shiny app objects
+        run: |
+          Rscript -e 'x <- source("pilot/shiny/app.R", local=new.env())$value; stopifnot(inherits(x, "shiny.appobj"))'
+          Rscript -e 'x <- source("pilot/counselor-shiny/app.R", local=new.env())$value; stopifnot(inherits(x, "shiny.appobj"))'
+
+      - name: Validate pilot JSON inputs
+        run: |
+          Rscript -e 'library(jsonlite); fromJSON("data/counselor/pilot-programmes.json"); fromJSON("data/counselor/pilot-interests.json"); fromJSON("pilot/shiny/data/access_codes.json")'
+
+      - name: Check remote comparison fixtures
+        run: |
+          Rscript -e 'library(jsonlite); for (id in sprintf("p-%03d", 1:5)) fromJSON(sprintf("https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/data/examples/%s.json?cb=%s", id, as.numeric(Sys.time())))'
