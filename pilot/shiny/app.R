@@ -6,7 +6,15 @@ PILOT_DATA_BASE <- "https://raw.githubusercontent.com/solmyr1980/ucr-pathways/ma
 ASSET_BASE <- "https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets"
 UCR_LOGO_URL <- paste0(ASSET_BASE, "/brand/ucr-primary-plum.png")
 UCR_WEBSITE_URL <- "https://ucr.nl/"
+UCR_COURSES_URL <- "https://ucr.nl/education/courses/"
+ADMISSIONS_URL <- "https://ucr.nl/about-ucr/connect/"
 PROGRAM_BUILDER_URL <- "https://program.ucr.nl/"
+DISCLAIMER_PLACEHOLDER <- "[PLACEHOLDER — insert approved student-program disclaimer from the printed butterfly.]"
+UCR_COURSE_EC <- 7.5
+
+`%||%` <- function(x, y) {
+  if (is.null(x) || length(x) == 0 || identical(x, "")) y else x
+}
 
 cache_bust <- function(url) {
   separator <- if (grepl("\\?", url)) "&" else "?"
@@ -21,24 +29,34 @@ normalize_code <- function(x) {
   toupper(gsub("[^A-Z0-9]", "", trimws(x %||% "")))
 }
 
-`%||%` <- function(x, y) {
-  if (is.null(x) || length(x) == 0 || identical(x, "")) y else x
-}
-
 find_example_id <- function(access_map, submitted_code) {
   target <- normalize_code(submitted_code)
   if (!nzchar(target)) return(NULL)
-
   for (entry in access_map$entries %||% list()) {
-    if (identical(normalize_code(entry$code), target)) {
-      return(entry$example_id)
-    }
+    if (identical(normalize_code(entry$code), target)) return(entry$example_id)
   }
   NULL
 }
 
-safe_text <- function(x) {
-  x %||% ""
+safe_text <- function(x) x %||% ""
+
+comparator_meta <- function(record) {
+  record$comparator %||% record$referenceProgramme %||% list()
+}
+
+visible_label <- function(record, programme) {
+  meta <- comparator_meta(record)
+  programme_name <- safe_text(meta$name)
+  institution <- safe_text(meta$institution)
+
+  if (identical(programme$role, "comparator")) {
+    if (nzchar(programme_name) && nzchar(institution)) return(paste0(programme_name, " at ", institution))
+    return(safe_text(programme$label))
+  }
+  if (identical(programme$role, "ucr-depth")) return(paste0("Closest match to ", programme_name))
+  if (identical(programme$role, "ucr-balanced")) return(paste0(programme_name, " + related subjects"))
+  if (identical(programme$role, "ucr-thematic")) return("A broader programme around your interests")
+  safe_text(programme$label)
 }
 
 cell_value <- function(cell) {
@@ -48,40 +66,46 @@ cell_value <- function(cell) {
   NULL
 }
 
-brand_lockup <- function(class_name = "brand-row") {
+credit_text <- function(value, fallback = NULL) {
+  if (!is.null(value) && nzchar(trimws(as.character(value)))) return(paste0(value, " EC"))
+  if (!is.null(fallback)) return(paste0(fallback, " EC"))
+  ""
+}
+
+brand_header <- function() {
   div(
-    class = class_name,
+    class = "ucr-header",
     tags$a(
       href = UCR_WEBSITE_URL,
       target = "_blank",
       rel = "noopener",
-      class = "ucr-logo-link",
       `aria-label` = "University College Roosevelt website",
-      tags$img(
-        src = UCR_LOGO_URL,
-        class = "ucr-logo",
-        alt = "University College Roosevelt"
-      )
-    ),
-    div(class = "eyebrow", "UCR PATHWAYS")
+      tags$img(src = UCR_LOGO_URL, class = "ucr-logo", alt = "University College Roosevelt")
+    )
   )
 }
 
-render_compare_table <- function(pathway) {
-  programmes <- pathway$programmes %||% list()
-  blocks <- pathway$blocks %||% list()
+render_compare_table <- function(record) {
+  programmes <- record$programmes %||% list()
+  blocks <- record$blocks %||% list()
+  meta <- comparator_meta(record)
 
-  header_cells <- lapply(programmes, function(programme) {
+  headers <- lapply(programmes, function(programme) {
+    label <- visible_label(record, programme)
+    if (identical(programme$role, "comparator") && nzchar(safe_text(meta$primarySourceUrl))) {
+      title <- tags$a(href = meta$primarySourceUrl, target = "_blank", rel = "noopener", paste0(label, " ↗"))
+    } else {
+      title <- label
+    }
     tags$th(
-      div(class = "programme-title", safe_text(programme$label)),
-      if (nzchar(safe_text(programme$subtitle))) {
-        div(class = "programme-subtitle", safe_text(programme$subtitle))
+      div(class = "programme-title", title),
+      if (!identical(programme$role, "comparator")) {
+        tags$a(class = "programme-source", href = UCR_COURSES_URL, target = "_blank", rel = "noopener", "UCR courses ↗")
       }
     )
   })
 
   body_rows <- list()
-
   for (block in blocks) {
     body_rows[[length(body_rows) + 1]] <- tags$tr(
       class = "block-row",
@@ -89,21 +113,18 @@ render_compare_table <- function(pathway) {
     )
 
     for (row in block$rows %||% list()) {
-      row_cells <- lapply(programmes, function(programme) {
+      cells <- lapply(programmes, function(programme) {
         value <- cell_value(row$cells[[programme$id]])
-        if (is.null(value)) {
-          tags$td(class = "empty-cell", "\u00A0")
-        } else {
-          tags$td(
-            class = if (isTRUE(value$emphasis)) "comparison-cell emphasis" else "comparison-cell",
-            div(class = "cell-text", safe_text(value$text)),
-            if (nzchar(safe_text(value$note))) {
-              div(class = "cell-note", safe_text(value$note))
-            }
-          )
-        }
+        if (is.null(value)) return(tags$td(class = "empty-cell", "\u00A0"))
+        ec <- credit_text(value$credits, if (identical(programme$family, "ucr")) UCR_COURSE_EC else NULL)
+        tags$td(
+          class = if (isTRUE(value$emphasis)) "comparison-cell emphasis" else "comparison-cell",
+          div(class = "cell-text", safe_text(value$text)),
+          if (nzchar(ec)) div(class = "ec-badge", ec),
+          if (nzchar(safe_text(value$note))) div(class = "cell-note", safe_text(value$note))
+        )
       })
-      body_rows[[length(body_rows) + 1]] <- do.call(tags$tr, row_cells)
+      body_rows[[length(body_rows) + 1]] <- do.call(tags$tr, cells)
     }
   }
 
@@ -111,7 +132,7 @@ render_compare_table <- function(pathway) {
     class = "compare-scroll",
     tags$table(
       class = "compare-table",
-      tags$thead(do.call(tags$tr, header_cells)),
+      tags$thead(do.call(tags$tr, headers)),
       tags$tbody(do.call(tagList, body_rows))
     )
   )
@@ -119,122 +140,91 @@ render_compare_table <- function(pathway) {
 
 course_button <- function(course) {
   code <- safe_text(course$code)
+  ec <- credit_text(course$credits, UCR_COURSE_EC)
   tags$button(
     type = "button",
     class = "course-link",
     `data-code` = code,
     `data-name` = safe_text(course$name),
     div(class = "course-name", safe_text(course$name)),
-    div(
-      class = "course-meta",
-      paste0("Level ", safe_text(course$level)),
-      if (nzchar(code)) paste0(" · ", code) else ""
-    )
+    div(class = "course-meta", paste(c(paste0("Level ", safe_text(course$level)), ec, if (nzchar(code)) code else NULL), collapse = " · "))
   )
 }
 
-render_schedule <- function(programme) {
-  semester_cards <- lapply(programme$schedule$semesters %||% list(), function(semester) {
+render_schedule <- function(record, programme) {
+  cards <- lapply(programme$schedule$semesters %||% list(), function(semester) {
     tags$section(
       class = "semester-card",
       tags$h4(safe_text(semester$label)),
-      if (nzchar(safe_text(semester$term))) {
-        div(class = "semester-term", safe_text(semester$term))
-      },
-      div(
-        class = "semester-courses",
-        do.call(tagList, lapply(semester$courses %||% list(), course_button))
-      )
+      if (nzchar(safe_text(semester$term))) div(class = "semester-term", safe_text(semester$term)),
+      div(class = "semester-courses", do.call(tagList, lapply(semester$courses %||% list(), course_button)))
     )
   })
 
   div(
-    class = "schedule-programme",
+    class = "programme-view",
     div(
-      class = "schedule-header",
-      tags$h3(safe_text(programme$label)),
-      if (nzchar(safe_text(programme$subtitle))) {
-        tags$p(safe_text(programme$subtitle))
-      }
+      class = "programme-view-heading",
+      tags$h2(visible_label(record, programme)),
+      tags$a(href = UCR_COURSES_URL, target = "_blank", rel = "noopener", "View UCR courses ↗")
     ),
-    div(class = "semester-grid", do.call(tagList, semester_cards))
+    div(class = "semester-grid", do.call(tagList, cards)),
+    div(class = "disclaimer", tags$strong("Temporary disclaimer placeholder"), tags$p(DISCLAIMER_PLACEHOLDER))
   )
 }
 
-render_schedules <- function(pathway) {
-  ucr_programmes <- Filter(
-    function(programme) identical(programme$family, "ucr"),
-    pathway$programmes %||% list()
-  )
-  div(
-    class = "schedules",
-    do.call(tagList, lapply(ucr_programmes, render_schedule))
-  )
-}
-
-render_pathway <- function(pathway) {
-  reference <- pathway$referenceProgramme %||% list()
-  source_url <- safe_text(reference$primarySourceUrl)
-  reference_line <- safe_text(reference$provenance)
+render_student_record <- function(record) {
+  depth <- Filter(function(p) identical(p$role, "ucr-depth"), record$programmes %||% list())
+  depth <- if (length(depth)) depth[[1]] else NULL
+  interpretation <- safe_text(record$interestInterpretation)
 
   fluidRow(
     column(
       width = 12,
       div(
-        class = "pathway-shell",
+        class = "app-shell",
+        brand_header(),
         div(
-          class = "topbar",
+          class = "intro-row",
           div(
-            class = "topbar-main",
-            brand_lockup(),
-            tags$h1(safe_text(pathway$display$title %||%
-              "See how your interests could take shape in a disciplinary degree and three progressively broader UCR pathways."))
+            tags$h1("We are happy to share your personalized programme options."),
+            tags$p(class = "lede", "Explore a possible UCR programme, then see how it compares with another Dutch bachelor and two broader UCR alternatives.")
           ),
           actionButton("reset_pathway", "Use another code", class = "secondary-button")
         ),
         div(
-          class = "interest-card",
-          div(class = "interest-label", paste0(safe_text(pathway$display$interestLabel %||% "Your interests"), ":")),
-          div(class = "interest-text", safe_text(pathway$interests))
-        ),
-        if (nzchar(reference_line)) {
+          class = "input-summary",
           div(
-            class = "reference-line",
-            if (nzchar(source_url)) {
-              tags$a(href = source_url, target = "_blank", rel = "noopener", paste0(reference_line, " ↗"))
-            } else {
-              reference_line
-            }
+            class = "summary-panel",
+            tags$h3("You told us that…"),
+            tags$p(safe_text(record$interests))
+          ),
+          div(
+            class = "summary-panel interpretation",
+            tags$h3("For us, this means that…"),
+            if (nzchar(interpretation)) tags$p(interpretation) else tags$p(class = "pilot-placeholder", "[Academic interpretation will be stored here for production student records.]")
           )
-        },
+        ),
         tabsetPanel(
-          id = "pathway_tab",
+          id = "student_view",
           type = "pills",
           tabPanel(
-            "Compare programmes",
-            div(
-              class = "tab-copy",
-              safe_text(pathway$display$comparisonNote)
-            ),
-            render_compare_table(pathway)
+            "View my personalized programme",
+            if (!is.null(depth)) render_schedule(record, depth) else div(class = "load-error", "No personalized UCR programme is available in this record.")
           ),
           tabPanel(
-            "Semester plans",
-            div(
-              class = "tab-copy",
-              "Click or tap any UCR course to see its current description."
-            ),
-            render_schedules(pathway)
+            "See how this programme compares",
+            tags$p(class = "tab-copy", "This comparison shows another Dutch bachelor alongside three UCR programmes, from the closest match to broader ways of combining relevant subjects."),
+            render_compare_table(record)
           )
         ),
         div(
-          class = "cta-row",
-          tags$a(
-            class = "primary-cta",
-            href = PROGRAM_BUILDER_URL,
-            target = "_blank",
-            rel = "noopener",
-            "Build your own UCR programme →"
+          class = "next-step",
+          tags$h2("Would you like to find out more?"),
+          div(
+            class = "cta-row",
+            tags$a(class = "secondary-cta", href = ADMISSIONS_URL, target = "_blank", rel = "noopener", "Speak to Admissions ↗"),
+            tags$a(class = "primary-cta", href = PROGRAM_BUILDER_URL, target = "_blank", rel = "noopener", "Tweak this programme to your liking ↗")
           )
         )
       )
@@ -245,428 +235,80 @@ render_pathway <- function(pathway) {
 ui <- fluidPage(
   tags$head(
     tags$meta(name = "viewport", content = "width=device-width, initial-scale=1"),
-    tags$title("UCR Pathways — Shiny pilot"),
+    tags$title("Your personalized UCR programme"),
     tags$style(HTML("
-      @font-face {
-        font-family: 'IvyMode UCR';
-        src: url('https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets/fonts/IvyMode%20Light.otf') format('opentype');
-        font-weight: 300;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: 'IvyMode UCR';
-        src: url('https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets/fonts/IvyMode%20Regular.otf') format('opentype');
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: 'IvyMode UCR';
-        src: url('https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets/fonts/IvyMode%20Semibold.otf') format('opentype');
-        font-weight: 600;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: 'Inter UCR';
-        src: url('https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets/fonts/Inter_Light.ttf') format('truetype');
-        font-weight: 300;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: 'Inter UCR';
-        src: url('https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets/fonts/Inter_Medium.ttf') format('truetype');
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: 'Inter UCR';
-        src: url('https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets/fonts/Inter_Bold.ttf') format('truetype');
-        font-weight: 700;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      :root {
-        --plum: #491E34;
-        --white: #F8F5EE;
-        --black: #2E2D2D;
-        --grey: #5C606B;
-        --lilac: #D0B7D0;
-        --blue: #C8DFE6;
-        --yellow: #FFE1A4;
-        --green: #4A6857;
-      }
-
-      html, body {
-        background: var(--white);
-        color: var(--black);
-        font-family: 'Inter UCR', Inter, Arial, sans-serif;
-      }
-
-      body { padding-bottom: 50px; }
-      .container-fluid { max-width: 1500px; padding: 0 24px; }
-
-      .ucr-logo-link {
-        display: inline-block;
-        text-decoration: none;
-        line-height: 0;
-      }
-
-      .ucr-logo {
-        display: block;
-        width: auto;
-        max-width: 220px;
-        max-height: 58px;
-        object-fit: contain;
-      }
-
-      .brand-row {
-        display: flex;
-        align-items: center;
-        gap: 18px;
-        margin-bottom: 13px;
-      }
-
-      .brand-row .eyebrow {
-        margin: 0;
-        padding-left: 18px;
-        border-left: 1px solid rgba(73, 30, 52, .22);
-      }
-
-      .access-brand {
-        display: block;
-        margin-bottom: 18px;
-      }
-
-      .access-brand .ucr-logo {
-        max-width: 250px;
-        max-height: 68px;
-        margin-bottom: 14px;
-      }
-
-      .access-brand .eyebrow {
-        margin-bottom: 0;
-      }
-
-      .access-shell {
-        min-height: 82vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .access-card {
-        width: min(580px, 100%);
-        background: #fff;
-        border: 1px solid rgba(73, 30, 52, 0.16);
-        border-radius: 18px;
-        padding: 34px;
-        box-shadow: 0 18px 50px rgba(46,45,45,0.08);
-      }
-
-      .eyebrow {
-        letter-spacing: .14em;
-        font-size: 12px;
-        font-weight: 700;
-        color: var(--plum);
-        margin-bottom: 10px;
-      }
-
-      h1, h2, h3, h4 {
-        color: var(--plum);
-        font-family: 'IvyMode UCR', Georgia, 'Times New Roman', serif;
-        font-weight: 400;
-      }
-
-      .access-card h1 {
-        font-size: 36px;
-        margin-top: 0;
-        margin-bottom: 12px;
-        line-height: 1.08;
-      }
-
-      .access-card p {
-        color: var(--grey);
-        font-size: 16px;
-        line-height: 1.55;
-      }
-
-      .form-control {
-        border-radius: 10px;
-        min-height: 48px;
-        border-color: rgba(73, 30, 52, 0.28);
-        font-size: 17px;
-        text-transform: uppercase;
-        letter-spacing: .04em;
-        font-family: 'Inter UCR', Inter, Arial, sans-serif;
-      }
-
-      .btn-primary, .primary-button {
-        background: var(--plum) !important;
-        border-color: var(--plum) !important;
-        border-radius: 10px;
-        min-height: 44px;
-        padding: 10px 18px;
-        font-family: 'Inter UCR', Inter, Arial, sans-serif;
-        font-weight: 700;
-      }
-
-      .secondary-button {
-        background: transparent !important;
-        color: var(--plum) !important;
-        border: 1px solid rgba(73,30,52,.28) !important;
-        border-radius: 10px;
-        font-family: 'Inter UCR', Inter, Arial, sans-serif;
-      }
-
-      .access-error {
-        margin-top: 14px;
-        color: #8b1e2d;
-        font-weight: 700;
-      }
-
-      .pathway-shell { padding-top: 20px; }
-
-      .topbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 28px;
-        margin-bottom: 16px;
-      }
-
-      .topbar-main {
-        min-width: 0;
-        flex: 1;
-      }
-
-      .topbar h1 {
-        max-width: 1000px;
-        margin: 0;
-        font-size: clamp(29px, 2.7vw, 40px);
-        line-height: 1.08;
-      }
-
-      .topbar .secondary-button {
-        flex: 0 0 auto;
-        margin-top: 2px;
-      }
-
-      .interest-card {
-        background: var(--plum);
-        color: #fff;
-        border-radius: 15px;
-        padding: 16px 20px;
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 14px;
-        align-items: baseline;
-        margin-bottom: 12px;
-      }
-
-      .interest-label { font-weight: 700; opacity: .82; }
-      .interest-text { font-size: 18px; line-height: 1.4; }
-
-      .reference-line {
-        margin: 10px 2px 22px;
-        color: var(--grey);
-        font-size: 14px;
-      }
-
-      .reference-line a { color: var(--plum); text-decoration: underline; }
-
-      .nav-pills { margin-bottom: 20px; }
-
-      .nav-pills > li > a {
-        color: var(--plum);
-        border-radius: 9px;
-        font-weight: 700;
-        font-family: 'Inter UCR', Inter, Arial, sans-serif;
-      }
-
-      .nav-pills > li.active > a,
-      .nav-pills > li.active > a:hover,
-      .nav-pills > li.active > a:focus {
-        background: var(--plum);
-      }
-
-      .tab-copy {
-        color: var(--grey);
-        margin: 2px 0 16px;
-        max-width: 900px;
-      }
-
-      .compare-scroll {
-        overflow-x: auto;
-        border: 1px solid rgba(73,30,52,.14);
-        border-radius: 14px;
-        background: #fff;
-      }
-
-      .compare-table {
-        border-collapse: separate;
-        border-spacing: 0;
-        min-width: 1050px;
-        width: 100%;
-        table-layout: fixed;
-      }
-
-      .compare-table th,
-      .compare-table td {
-        border-right: 1px solid rgba(73,30,52,.1);
-        border-bottom: 1px solid rgba(73,30,52,.1);
-        padding: 13px 15px;
-        vertical-align: top;
-      }
-
-      .compare-table thead th {
-        background: var(--plum);
-        color: #fff;
-        border-right-color: rgba(255,255,255,.18);
-      }
-
-      .programme-title { font-size: 16px; font-weight: 700; }
-      .programme-subtitle { font-size: 12px; opacity: .78; margin-top: 4px; font-weight: 300; }
-
-      .block-row th {
-        background: var(--blue);
-        color: var(--plum);
-        font-size: 14px;
-        letter-spacing: .02em;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        font-weight: 700;
-      }
-
-      .comparison-cell { background: #fff; line-height: 1.35; }
-      .comparison-cell.emphasis { background: rgba(255,225,164,.36); }
-      .empty-cell { background: rgba(92,96,107,.035); }
-      .cell-note { color: var(--grey); font-size: 12px; margin-top: 5px; }
-
-      .schedule-programme {
-        margin: 0 0 34px;
-      }
-
-      .schedule-header {
-        border-left: 6px solid var(--plum);
-        padding: 2px 0 2px 14px;
-        margin-bottom: 14px;
-      }
-
-      .schedule-header h3 { margin: 0 0 3px; font-size: 27px; }
-      .schedule-header p { margin: 0; color: var(--grey); }
-
-      .semester-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .semester-card {
-        background: #fff;
-        border: 1px solid rgba(73,30,52,.14);
-        border-radius: 14px;
-        padding: 16px;
-      }
-
-      .semester-card h4 { margin: 0 0 2px; font-size: 18px; }
-      .semester-term { color: var(--grey); font-size: 12px; margin-bottom: 11px; }
-
-      .semester-courses {
-        display: grid;
-        gap: 8px;
-      }
-
-      .course-link {
-        width: 100%;
-        text-align: left;
-        background: rgba(200,223,230,.32);
-        border: 1px solid rgba(73,30,52,.10);
-        border-radius: 9px;
-        padding: 10px 11px;
-        cursor: pointer;
-        transition: transform .08s ease, background .12s ease;
-        font-family: 'Inter UCR', Inter, Arial, sans-serif;
-      }
-
-      .course-link:hover,
-      .course-link:focus {
-        background: rgba(208,183,208,.35);
-        transform: translateY(-1px);
-        outline: none;
-      }
-
-      .course-name { color: var(--black); font-weight: 700; line-height: 1.25; }
-      .course-meta { color: var(--grey); font-size: 11px; margin-top: 3px; font-weight: 300; }
-
-      .cta-row { display: flex; justify-content: flex-end; margin-top: 26px; }
-
-      .primary-cta {
-        display: inline-block;
-        background: var(--plum);
-        color: #fff !important;
-        padding: 12px 18px;
-        border-radius: 10px;
-        font-weight: 700;
-        text-decoration: none !important;
-      }
-
-      .modal-content { border-radius: 14px; }
-
-      .modal-title {
-        color: var(--plum);
-        font-family: 'IvyMode UCR', Georgia, 'Times New Roman', serif;
-        font-weight: 400;
-      }
-
-      .course-description { font-size: 15px; line-height: 1.6; }
-
-      @media (max-width: 980px) {
-        .container-fluid { padding: 0 14px; }
-        .topbar { display: block; }
-        .topbar .secondary-button { margin-top: 14px; }
-        .brand-row { gap: 12px; margin-bottom: 12px; }
-        .brand-row .eyebrow { padding-left: 12px; }
-        .ucr-logo { max-width: 175px; max-height: 48px; }
-        .topbar h1 { font-size: clamp(27px, 7.2vw, 34px); }
-        .interest-card { grid-template-columns: 1fr; gap: 4px; }
-        .semester-grid { grid-template-columns: 1fr; }
-        .access-card { padding: 26px 22px; }
-        .access-card h1 { font-size: 31px; }
-        .access-brand .ucr-logo { max-width: 220px; max-height: 60px; }
-      }
-
-      @media (max-width: 560px) {
-        .brand-row {
-          align-items: flex-start;
-          flex-direction: column;
-          gap: 8px;
-        }
-
-        .brand-row .eyebrow {
-          border-left: 0;
-          padding-left: 0;
-        }
-
-        .topbar h1 { font-size: 29px; }
-      }
+      @font-face { font-family: 'IvyMode UCR'; src: url('https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets/fonts/IvyMode%20Regular.otf') format('opentype'); font-weight: 400; font-display: swap; }
+      @font-face { font-family: 'Inter UCR'; src: url('https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets/fonts/Inter_Medium.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+      @font-face { font-family: 'Inter UCR'; src: url('https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets/fonts/Inter_Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
+      :root { --plum:#491E34; --white:#F8F5EE; --black:#2E2D2D; --grey:#5C606B; --lilac:#D0B7D0; --blue:#C8DFE6; --yellow:#FFE1A4; }
+      html, body { margin:0; background:var(--white); color:var(--black); font-family:'Inter UCR',Inter,Arial,sans-serif; }
+      body::before { content:''; display:block; height:24px; background:var(--plum); }
+      .container-fluid { max-width:1500px; padding:0 28px 52px; }
+      h1,h2,h3,h4 { color:var(--plum); font-family:'IvyMode UCR',Georgia,serif; font-weight:400; }
+      .ucr-header { padding:24px 0 20px; }
+      .ucr-logo { width:auto; max-width:245px; max-height:68px; object-fit:contain; }
+      .access-shell { min-height:75vh; display:flex; align-items:center; justify-content:center; }
+      .access-card { width:min(600px,100%); background:#fff; border:1px solid rgba(73,30,52,.14); border-radius:18px; padding:34px; box-shadow:0 18px 50px rgba(46,45,45,.08); }
+      .access-card h1 { font-size:38px; margin:0 0 12px; }
+      .access-card p,.lede,.tab-copy { color:var(--grey); line-height:1.55; }
+      .form-control { min-height:48px; border-radius:10px; border-color:rgba(73,30,52,.28); font-size:17px; text-transform:uppercase; }
+      .btn-primary,.primary-button { background:var(--plum)!important; border-color:var(--plum)!important; border-radius:10px; min-height:44px; font-weight:700; }
+      .secondary-button { background:transparent!important; color:var(--plum)!important; border:1px solid rgba(73,30,52,.28)!important; border-radius:10px; }
+      .access-error,.load-error { margin-top:14px; color:#8b1e2d; font-weight:700; }
+      .intro-row { display:flex; align-items:flex-start; justify-content:space-between; gap:28px; margin-bottom:18px; }
+      .intro-row h1 { margin:0; font-size:clamp(32px,3vw,46px); line-height:1.08; max-width:930px; }
+      .lede { max-width:850px; font-size:16px; }
+      .input-summary { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:18px 0 24px; }
+      .summary-panel { background:var(--plum); color:#fff; border-radius:15px; padding:20px; min-height:126px; }
+      .summary-panel.interpretation { background:#fff; color:var(--black); border:1px solid rgba(73,30,52,.16); }
+      .summary-panel h3 { color:inherit; margin:0 0 9px; font-size:21px; }
+      .summary-panel p { margin:0; line-height:1.5; font-size:17px; }
+      .pilot-placeholder { color:var(--grey); font-style:italic; }
+      .nav-pills { margin-bottom:20px; }
+      .nav-pills>li>a { color:var(--plum); border-radius:9px; font-weight:700; }
+      .nav-pills>li.active>a,.nav-pills>li.active>a:hover,.nav-pills>li.active>a:focus { background:var(--plum); }
+      .programme-view-heading { display:flex; align-items:baseline; justify-content:space-between; gap:18px; border-left:6px solid var(--plum); padding:3px 0 3px 15px; margin-bottom:15px; }
+      .programme-view-heading h2 { margin:0; font-size:29px; }
+      .programme-view-heading a,.programme-source { color:var(--plum); text-decoration:underline; font-size:12px; }
+      .semester-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+      .semester-card { background:#fff; border:1px solid rgba(73,30,52,.14); border-radius:14px; padding:16px; }
+      .semester-card h4 { margin:0 0 3px; font-size:19px; }
+      .semester-term { color:var(--grey); font-size:12px; margin-bottom:10px; }
+      .semester-courses { display:grid; gap:8px; }
+      .course-link { width:100%; text-align:left; background:rgba(200,223,230,.34); border:1px solid rgba(73,30,52,.10); border-radius:9px; padding:10px 11px; cursor:pointer; }
+      .course-name { font-weight:700; line-height:1.25; }
+      .course-meta { color:var(--grey); font-size:11px; margin-top:4px; }
+      .disclaimer { margin:18px 0 26px; padding:13px 15px; border:1px dashed rgba(139,30,45,.55); background:#fff; color:#8b1e2d; border-radius:10px; font-size:13px; }
+      .disclaimer p { margin:5px 0 0; }
+      .compare-scroll { overflow-x:auto; border:1px solid rgba(73,30,52,.14); border-radius:14px; background:#fff; }
+      .compare-table { border-collapse:separate; border-spacing:0; min-width:1120px; width:100%; table-layout:fixed; }
+      .compare-table th,.compare-table td { border-right:1px solid rgba(73,30,52,.1); border-bottom:1px solid rgba(73,30,52,.1); padding:13px 15px; vertical-align:top; }
+      .compare-table thead th { background:var(--plum); color:#fff; border-right-color:rgba(255,255,255,.18); }
+      .programme-title { font-size:16px; font-weight:700; }
+      .programme-title a,.programme-source { color:inherit; }
+      .programme-source { display:inline-block; margin-top:5px; color:#fff; opacity:.82; }
+      .block-row th { background:var(--blue); color:var(--plum); font-size:14px; font-weight:700; }
+      .comparison-cell { background:#fff; line-height:1.35; }
+      .comparison-cell.emphasis { background:rgba(255,225,164,.36); }
+      .empty-cell { background:rgba(92,96,107,.035); }
+      .ec-badge { display:inline-block; margin-top:6px; padding:2px 6px; border-radius:999px; background:rgba(73,30,52,.08); color:var(--grey); font-size:11px; }
+      .cell-note { color:var(--grey); font-size:12px; margin-top:5px; }
+      .next-step { margin-top:34px; border-top:1px solid rgba(73,30,52,.18); padding-top:22px; }
+      .next-step h2 { margin-top:0; }
+      .cta-row { display:flex; flex-wrap:wrap; gap:12px; }
+      .primary-cta,.secondary-cta { display:inline-block; padding:12px 18px; border-radius:10px; font-weight:700; text-decoration:none!important; }
+      .primary-cta { background:var(--plum); color:#fff!important; }
+      .secondary-cta { color:var(--plum)!important; border:1px solid rgba(73,30,52,.3); background:#fff; }
+      .modal-content { border-radius:14px; }
+      .modal-title { color:var(--plum); font-family:'IvyMode UCR',Georgia,serif; }
+      .course-description { font-size:15px; line-height:1.6; }
+      @media(max-width:980px){ .container-fluid{padding:0 14px 40px}.intro-row{display:block}.intro-row .secondary-button{margin-top:12px}.input-summary{grid-template-columns:1fr}.semester-grid{grid-template-columns:1fr}.programme-view-heading{display:block}.programme-view-heading a{display:inline-block;margin-top:7px}.ucr-logo{max-width:210px}.access-card{padding:26px 22px} }
     ")),
     tags$script(HTML("
       $(document).on('click', '.course-link', function() {
         const code = $(this).data('code');
         const name = $(this).data('name');
-        if (code) {
-          Shiny.setInputValue('course_click', {code: String(code), name: String(name || '')}, {priority: 'event'});
-        }
+        if (code) Shiny.setInputValue('course_click', {code:String(code), name:String(name||'')}, {priority:'event'});
       });
     "))
   ),
@@ -674,31 +316,27 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  pathway <- reactiveVal(NULL)
+  record <- reactiveVal(NULL)
   course_cache <- reactiveValues()
   access_error <- reactiveVal(NULL)
 
   output$app_body <- renderUI({
-    current <- pathway()
-
+    current <- record()
     if (is.null(current)) {
-      return(
+      return(div(
+        class = "access-shell",
         div(
-          class = "access-shell",
-          div(
-            class = "access-card",
-            brand_lockup("access-brand"),
-            tags$h1("Your pathway"),
-            tags$p("Enter the code you received to open your personalised UCR Pathways comparison."),
-            textInput("access_code", label = NULL, placeholder = "UCR-XXXX-XXXX-XXXX-XXXX"),
-            actionButton("unlock_pathway", "Open my pathway", class = "btn-primary"),
-            uiOutput("access_error_ui")
-          )
+          class = "access-card",
+          brand_header(),
+          tags$h1("Your personalized programme"),
+          tags$p("Enter the code you received to open the programme options prepared around your interests."),
+          textInput("access_code", label = NULL, placeholder = "UCR-XXXX-XXXX-XXXX-XXXX"),
+          actionButton("unlock_pathway", "Open my programme", class = "btn-primary"),
+          uiOutput("access_error_ui")
         )
-      )
+      ))
     }
-
-    render_pathway(current)
+    render_student_record(current)
   })
 
   output$access_error_ui <- renderUI({
@@ -708,26 +346,24 @@ server <- function(input, output, session) {
 
   observeEvent(input$unlock_pathway, {
     access_error(NULL)
-
     tryCatch({
       access_map <- fetch_json(paste0(PILOT_DATA_BASE, "/access_codes.json"))
       example_id <- find_example_id(access_map, input$access_code)
-
       if (is.null(example_id)) {
         access_error("That code was not recognised. Check it and try again.")
         return()
       }
-
-      selected_pathway <- fetch_json(paste0(EXAMPLE_BASE, "/", example_id, ".json"))
-      pathway(selected_pathway)
+      selected <- fetch_json(paste0(EXAMPLE_BASE, "/", example_id, ".json"))
+      if (is.null(selected$origin)) selected$origin <- "student"
+      record(selected)
     }, error = function(e) {
-      access_error("The pathway data could not be loaded from GitHub. Check your internet connection and try again.")
-      message("UCR Pathways pilot load error: ", conditionMessage(e))
+      access_error("The programme data could not be loaded. Check your internet connection and try again.")
+      message("Student pilot load error: ", conditionMessage(e))
     })
   })
 
   observeEvent(input$reset_pathway, {
-    pathway(NULL)
+    record(NULL)
     access_error(NULL)
   })
 
@@ -735,40 +371,19 @@ server <- function(input, output, session) {
     code <- safe_text(input$course_click$code)
     course_name <- safe_text(input$course_click$name)
     department <- substr(code, 1, 3)
-
     tryCatch({
       if (is.null(course_cache[[department]])) {
-        course_cache[[department]] <- fetch_json(
-          paste0(PILOT_DATA_BASE, "/courses/", department, ".json")
-        )
+        course_cache[[department]] <- fetch_json(paste0(PILOT_DATA_BASE, "/courses/", department, ".json"))
       }
-
       description <- course_cache[[department]]$descriptions[[code]]
-
       if (is.null(description) || !nzchar(safe_text(description))) {
-        showModal(modalDialog(
-          title = if (nzchar(course_name)) course_name else code,
-          "No course description was found in the current pilot course lookup.",
-          easyClose = TRUE,
-          footer = modalButton("Close")
-        ))
+        showModal(modalDialog(title = if (nzchar(course_name)) course_name else code, "No course description was found in the current pilot course lookup.", easyClose = TRUE, footer = modalButton("Close")))
         return()
       }
-
-      showModal(modalDialog(
-        title = if (nzchar(course_name)) course_name else code,
-        div(class = "course-description", safe_text(description)),
-        easyClose = TRUE,
-        footer = modalButton("Close")
-      ))
+      showModal(modalDialog(title = if (nzchar(course_name)) course_name else code, div(class = "course-description", safe_text(description)), easyClose = TRUE, footer = modalButton("Close")))
     }, error = function(e) {
-      showModal(modalDialog(
-        title = if (nzchar(course_name)) course_name else code,
-        "The course description could not be loaded from GitHub.",
-        easyClose = TRUE,
-        footer = modalButton("Close")
-      ))
-      message("UCR Pathways pilot course load error: ", conditionMessage(e))
+      showModal(modalDialog(title = if (nzchar(course_name)) course_name else code, "The course description could not be loaded.", easyClose = TRUE, footer = modalButton("Close")))
+      message("Student pilot course load error: ", conditionMessage(e))
     })
   })
 }
