@@ -21,8 +21,13 @@ jobs:
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
 
+      - name: Install system dependency for Shiny
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libuv1-dev
+
       - name: Install Shiny dependencies
-        run: Rscript -e 'install.packages(c("shiny", "jsonlite"), repos="https://cloud.r-project.org")'
+        run: Rscript -e 'install.packages(c("shiny", "jsonlite"), repos=Sys.getenv("RSPM"))'
 
       - name: Parse both apps
         run: |
@@ -40,3 +45,31 @@ jobs:
       - name: Check remote comparison fixtures
         run: |
           Rscript -e 'library(jsonlite); for (id in sprintf("p-%03d", 1:5)) fromJSON(sprintf("https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/data/examples/%s.json?cb=%s", id, as.numeric(Sys.time())))'
+
+      - name: Smoke-test student app startup
+        shell: bash
+        run: |
+          set -euo pipefail
+          Rscript -e 'shiny::runApp("pilot/shiny", host="127.0.0.1", port=3838, launch.browser=FALSE)' > /tmp/student-shiny.log 2>&1 &
+          pid=$!
+          ok=0
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:3838/ > /dev/null; then ok=1; break; fi
+            sleep 1
+          done
+          kill "$pid" 2>/dev/null || true
+          if [ "$ok" -ne 1 ]; then cat /tmp/student-shiny.log; exit 1; fi
+
+      - name: Smoke-test counselor app startup
+        shell: bash
+        run: |
+          set -euo pipefail
+          Rscript -e 'shiny::runApp("pilot/counselor-shiny", host="127.0.0.1", port=3839, launch.browser=FALSE)' > /tmp/counselor-shiny.log 2>&1 &
+          pid=$!
+          ok=0
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:3839/ > /dev/null; then ok=1; break; fi
+            sleep 1
+          done
+          kill "$pid" 2>/dev/null || true
+          if [ "$ok" -ne 1 ]; then cat /tmp/counselor-shiny.log; exit 1; fi
