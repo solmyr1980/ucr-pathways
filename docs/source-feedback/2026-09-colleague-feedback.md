@@ -12,7 +12,12 @@ It is **not** a fourth specification and must not be used as a substitute for th
 - `docs/UCR_Pathways_Production_Instructions.md`
 - `docs/UCR_Pathways_Web_LinkedIn_Workflow.md`
 
-The repository did not previously contain the colleagues' raw messages or a verbatim meeting transcript. The feedback below is therefore a **contemporaneous reconstruction from the project discussion in which the feedback was reviewed**. Where exact wording was preserved in that discussion it is reproduced; otherwise the point is paraphrased. The decision record below is the project's interpretation and resolution of the feedback, not a claim about what the colleague originally intended beyond the feedback as recorded.
+On 11 September 2026, Alexei supplied the underlying colleague feedback text directly in the project conversation. It is now preserved separately as verbatim source material:
+
+- `docs/source-feedback/2026-09-etienne-feedback-verbatim.txt` — signed by Etienne;
+- `docs/source-feedback/2026-09-gerda-feedback-verbatim.txt` — the second feedback block, archived under Gerda because this feedback had already been attributed to Gerda in the project discussion.
+
+The verbatim files preserve the supplied wording, spelling, punctuation and formatting quirks rather than silently correcting them. The summaries and decision mappings below are **project interpretations** of those source texts. Where there is any question about what a colleague actually wrote, consult the verbatim file. Where there is any question about the current project rule, consult the authoritative specifications.
 
 ---
 
@@ -234,4 +239,4 @@ Current authoritative location: Master Specification, section 4.1; Production In
 
 This archive explains **where decisions came from**. It does not govern current behavior.
 
-If this file conflicts with an authoritative specification, the current authoritative specification governs. If a future colleague provides new feedback, record it as a new dated source-feedback file rather than rewriting this historical record, then update an authoritative document only if a durable project decision actually changes.
+If this file conflicts with an authoritative specification, the current authoritative specification governs. If a future colleague provides new feedback, record it as a new dated verbatim source file rather than rewriting an earlier source, then update an authoritative document only if a durable project decision actually changes.
