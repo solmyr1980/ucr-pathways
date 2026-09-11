@@ -96,7 +96,7 @@ function renderComparison(example) {
         const cell = normalizeCell(row.cells?.[programme.id]);
         if (!cell) return '<td class="comparison-cell empty"></td>';
         const ec = cellCredit(cell, programme);
-        return `<td class="comparison-cell">${escapeHtml(cell.text)}${ec ? `<span class="cell-note">${escapeHtml(ec)}</span>` : ''}${cell.note ? `<span class="cell-note">${escapeHtml(cell.note)}</span>` : ''}</td>`;
+        return `<td class="comparison-cell">${escapeHtml(cell.text)}${ec ? ` · ${escapeHtml(ec)}` : ''}${cell.note ? `<span class="cell-note">${escapeHtml(cell.note)}</span>` : ''}</td>`;
       }).join('');
       return `<tr>${cells}</tr>`;
     }).join('');
