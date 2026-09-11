@@ -29,6 +29,18 @@ norm <- function(x) {
   gsub("[^a-z0-9]+", " ", x)
 }
 
+brand_header <- function() {
+  div(
+    class = "ucr-header",
+    tags$a(
+      href = UCR_WEBSITE_URL,
+      target = "_blank",
+      rel = "noopener",
+      tags$img(src = UCR_LOGO_URL, class = "ucr-logo", alt = "University College Roosevelt")
+    )
+  )
+}
+
 comparator_meta <- function(record) record$comparator %||% record$referenceProgramme %||% list()
 
 visible_label <- function(record, programme) {
@@ -83,7 +95,6 @@ search_programmes <- function(programmes, interests, query = "", institution = "
     provider_id <- as.character(programme$programmeProviderId)
     p_interests <- Filter(function(x) identical(as.character(x$programmeProviderId), provider_id), interests)
     programme_text <- paste(programme$displayName, programme$registryName, programme$institution, programme$degree, programme$language)
-
     score <- 0
     matches <- list()
 
@@ -92,13 +103,13 @@ search_programmes <- function(programmes, interests, query = "", institution = "
     } else {
       p_hits <- term_hits(query, programme_text)
       if (p_hits > 0) score <- score + 180 + 25 * p_hits
-      if (grepl(norm(query), norm(programme_text), fixed = TRUE)) score <- score + 100
+      if (nzchar(norm(query)) && grepl(norm(query), norm(programme_text), fixed = TRUE)) score <- score + 100
 
       for (interest in p_interests) {
         hits <- term_hits(query, interest$interest)
         if (hits > 0) {
           interest_score <- relationship_weight(interest$relationship) + 12 * hits
-          if (grepl(norm(query), norm(interest$interest), fixed = TRUE)) interest_score <- interest_score + 45
+          if (nzchar(norm(query)) && grepl(norm(query), norm(interest$interest), fixed = TRUE)) interest_score <- interest_score + 45
           score <- max(score, interest_score)
           matches[[length(matches) + 1]] <- list(
             interest = safe_text(interest$interest),
@@ -116,20 +127,28 @@ search_programmes <- function(programmes, interests, query = "", institution = "
   }
 
   if (!length(result)) return(list())
-  result[order(vapply(result, function(x) -x$score, numeric(1)), vapply(result, function(x) x$programme$displayName, character(1)))]
+  result[order(
+    vapply(result, function(x) -x$score, numeric(1)),
+    vapply(result, function(x) x$programme$displayName, character(1))
+  )]
 }
 
 render_compare_table <- function(record) {
   programmes <- record$programmes %||% list()
   meta <- comparator_meta(record)
+
   headers <- lapply(programmes, function(programme) {
     label <- visible_label(record, programme)
-    title <- if (identical(programme$role, "comparator") && nzchar(safe_text(meta$primarySourceUrl))) {
-      tags$a(href = meta$primarySourceUrl, target = "_blank", rel = "noopener", paste0(label, " ↗"))
-    } else label
+    if (identical(programme$role, "comparator") && nzchar(safe_text(meta$primarySourceUrl))) {
+      title <- tags$a(href = meta$primarySourceUrl, target = "_blank", rel = "noopener", paste0(label, " ↗"))
+    } else {
+      title <- label
+    }
     tags$th(
       div(class = "programme-title", title),
-      if (!identical(programme$role, "comparator")) tags$a(class = "programme-source", href = UCR_COURSES_URL, target = "_blank", rel = "noopener", "UCR courses ↗")
+      if (!identical(programme$role, "comparator")) {
+        tags$a(class = "programme-source", href = UCR_COURSES_URL, target = "_blank", rel = "noopener", "UCR courses ↗")
+      }
     )
   })
 
@@ -152,7 +171,14 @@ render_compare_table <- function(record) {
     }
   }
 
-  div(class = "compare-scroll", tags$table(class = "compare-table", tags$thead(do.call(tags$tr, headers)), tags$tbody(do.call(tagList, rows))))
+  div(
+    class = "compare-scroll",
+    tags$table(
+      class = "compare-table",
+      tags$thead(do.call(tags$tr, headers)),
+      tags$tbody(do.call(tagList, rows))
+    )
+  )
 }
 
 render_result_cards <- function(results) {
@@ -167,11 +193,13 @@ render_result_cards <- function(results) {
         class = "result-main",
         tags$h3(safe_text(programme$displayName)),
         tags$p(class = "institution", safe_text(programme$institution)),
-        if (length(matches)) div(
-          class = "match-line",
-          tags$strong("Matching interests: "),
-          paste(vapply(matches, function(x) x$interest, character(1)), collapse = " · ")
-        ) else if (nzchar(safe_text(programme$registryName)) && !identical(programme$registryName, programme$displayName)) {
+        if (length(matches)) {
+          div(
+            class = "match-line",
+            tags$strong("Matching interests: "),
+            paste(vapply(matches, function(x) x$interest, character(1)), collapse = " · ")
+          )
+        } else if (nzchar(safe_text(programme$registryName)) && !identical(programme$registryName, programme$displayName)) {
           div(class = "match-line", paste0("Registry name: ", programme$registryName))
         }
       ),
@@ -183,6 +211,7 @@ render_result_cards <- function(results) {
 render_comparison <- function(record) {
   div(
     class = "comparison-shell",
+    brand_header(),
     div(
       class = "comparison-head",
       div(
@@ -212,12 +241,12 @@ ui <- fluidPage(
       :root{--plum:#491E34;--white:#F8F5EE;--black:#2E2D2D;--grey:#5C606B;--blue:#C8DFE6;--yellow:#FFE1A4}
       html,body{margin:0;background:var(--white);color:var(--black);font-family:'Inter UCR',Inter,Arial,sans-serif} body::before{content:'';display:block;height:24px;background:var(--plum)}
       .container-fluid{max-width:1500px;padding:0 28px 52px} h1,h2,h3{font-family:'IvyMode UCR',Georgia,serif;color:var(--plum);font-weight:400}
-      .ucr-header{padding:24px 0 20px}.ucr-logo{width:auto;max-width:245px;max-height:68px}.hero{display:grid;grid-template-columns:1.4fr .6fr;gap:30px;align-items:end;margin-bottom:22px}.hero h1{font-size:clamp(34px,3.2vw,50px);line-height:1.05;margin:0 0 12px}.hero p{color:var(--grey);font-size:17px;line-height:1.55;max-width:900px}
-      .search-box{background:#fff;border:1px solid rgba(73,30,52,.16);border-radius:16px;padding:20px;margin-bottom:20px}.search-grid{display:grid;grid-template-columns:1fr 280px auto;gap:12px;align-items:end}.form-control{min-height:48px;border-radius:10px;border-color:rgba(73,30,52,.28);font-size:16px}.btn-primary{background:var(--plum)!important;border-color:var(--plum)!important;border-radius:10px;min-height:48px;font-weight:700}.pilot-note{background:rgba(255,225,164,.45);border-radius:10px;padding:10px 13px;color:var(--grey);font-size:13px;margin-top:12px}
+      .ucr-header{padding:24px 0 20px}.ucr-logo{width:auto;max-width:245px;max-height:68px}.hero{margin-bottom:22px}.hero h1{font-size:clamp(34px,3.2vw,50px);line-height:1.05;margin:0 0 12px;max-width:1050px}.hero p{color:var(--grey);font-size:17px;line-height:1.55;max-width:950px}
+      .search-box{background:#fff;border:1px solid rgba(73,30,52,.16);border-radius:16px;padding:20px;margin-bottom:20px}.search-grid{display:grid;grid-template-columns:1fr 300px;gap:12px;align-items:end}.form-control{min-height:48px;border-radius:10px;border-color:rgba(73,30,52,.28);font-size:16px}.pilot-note{background:rgba(255,225,164,.45);border-radius:10px;padding:10px 13px;color:var(--grey);font-size:13px;margin-top:12px}
       .results-meta{color:var(--grey);margin:4px 0 12px}.results{display:grid;gap:10px}.result-card{display:flex;justify-content:space-between;align-items:center;gap:20px;background:#fff;border:1px solid rgba(73,30,52,.14);border-radius:14px;padding:17px 18px}.result-card h3{margin:0 0 4px;font-size:23px}.institution{margin:0;color:var(--grey)}.match-line{color:var(--grey);font-size:13px;margin-top:8px;line-height:1.4}.open-comparison{background:var(--plum);color:#fff;border:0;border-radius:9px;padding:11px 14px;font-weight:700;white-space:nowrap}.no-results{padding:26px;background:#fff;border-radius:14px;color:var(--grey)}
       .comparison-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:18px}.comparison-head h1{margin:0 0 8px;font-size:clamp(31px,3vw,43px)}.comparison-head p{color:var(--grey);max-width:850px}.secondary-button{background:transparent!important;color:var(--plum)!important;border:1px solid rgba(73,30,52,.28)!important;border-radius:10px}
       .compare-scroll{overflow-x:auto;border:1px solid rgba(73,30,52,.14);border-radius:14px;background:#fff}.compare-table{border-collapse:separate;border-spacing:0;min-width:1120px;width:100%;table-layout:fixed}.compare-table th,.compare-table td{border-right:1px solid rgba(73,30,52,.1);border-bottom:1px solid rgba(73,30,52,.1);padding:13px 15px;vertical-align:top}.compare-table thead th{background:var(--plum);color:#fff;border-right-color:rgba(255,255,255,.18)}.programme-title{font-size:16px;font-weight:700}.programme-title a,.programme-source{color:inherit}.programme-source{display:inline-block;margin-top:5px;color:#fff;opacity:.82;font-size:12px}.block-row th{background:var(--blue);color:var(--plum);font-size:14px;font-weight:700}.comparison-cell{background:#fff;line-height:1.35}.comparison-cell.emphasis{background:rgba(255,225,164,.36)}.empty-cell{background:rgba(92,96,107,.035)}.ec-badge{display:inline-block;margin-top:6px;padding:2px 6px;border-radius:999px;background:rgba(73,30,52,.08);color:var(--grey);font-size:11px}.cell-note{color:var(--grey);font-size:12px;margin-top:5px}.transparency-note{margin-top:18px;background:#fff;border-left:5px solid var(--plum);padding:14px 17px;color:var(--grey);line-height:1.5}.transparency-note p{margin:5px 0 0}.cta-row{display:flex;justify-content:flex-end;margin-top:20px}.primary-cta{display:inline-block;background:var(--plum);color:#fff!important;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none!important}
-      @media(max-width:900px){.container-fluid{padding:0 14px 40px}.hero{grid-template-columns:1fr}.search-grid{grid-template-columns:1fr}.result-card{display:block}.open-comparison{margin-top:13px}.comparison-head{display:block}.comparison-head .secondary-button{margin-top:10px}.ucr-logo{max-width:210px}}
+      @media(max-width:900px){.container-fluid{padding:0 14px 40px}.search-grid{grid-template-columns:1fr}.result-card{display:block}.open-comparison{margin-top:13px}.comparison-head{display:block}.comparison-head .secondary-button{margin-top:10px}.ucr-logo{max-width:210px}}
     ")),
     tags$script(HTML("
       $(document).on('click', '.open-comparison', function(){
@@ -238,7 +267,8 @@ server <- function(input, output, session) {
     tryCatch({
       p <- fetch_json(PROGRAMME_URL)$programmes %||% list()
       i <- fetch_json(INTEREST_URL)$interests %||% list()
-      programmes(p); interests(i)
+      programmes(p)
+      interests(i)
       institutions <- sort(unique(vapply(p, function(x) safe_text(x$institution), character(1))))
       updateSelectInput(session, "institution", choices = c("All", institutions), selected = "All")
     }, error = function(e) {
@@ -255,33 +285,31 @@ server <- function(input, output, session) {
     if (!is.null(selected())) return(render_comparison(selected()))
 
     div(
-      brand_header <- div(class = "ucr-header", tags$a(href = UCR_WEBSITE_URL, target = "_blank", rel = "noopener", tags$img(src = UCR_LOGO_URL, class = "ucr-logo", alt = "University College Roosevelt"))),
-      brand_header,
+      brand_header(),
       div(
         class = "hero",
-        div(
-          tags$h1("See how different bachelor’s programmes compare with study options at UCR"),
-          tags$p("Search by bachelor’s programme or by what your student is interested in. Select a programme to see the closest UCR match and two broader ways of combining the field with related subjects and interests.")
-        )
+        tags$h1("See how different bachelor’s programmes compare with study options at UCR"),
+        tags$p("Search by bachelor’s programme or by what your student is interested in. Select a programme to see the closest UCR match and two broader ways of combining the field with related subjects and interests.")
       ),
       div(
         class = "search-box",
         div(
           class = "search-grid",
           textInput("search_text", "Search by programme or interest", placeholder = "e.g. Psychology, climate change, artificial intelligence…"),
-          selectInput("institution", "Institution", choices = "All"),
-          actionButton("refresh_search", "Search", class = "btn-primary")
+          selectInput("institution", "Institution", choices = "All")
         ),
         div(class = "pilot-note", "Pilot: this search currently contains five programme-provider comparisons. The production app will use the full deterministic comparison library.")
       ),
-      if (nzchar(safe_text(load_error()))) div(class = "no-results", safe_text(load_error())) else tagList(
-        div(class = "results-meta", paste0(length(results()), " programme", if (length(results()) == 1) "" else "s", " found")),
-        div(class = "results", render_result_cards(results()))
-      )
+      if (nzchar(safe_text(load_error()))) {
+        div(class = "no-results", safe_text(load_error()))
+      } else {
+        tagList(
+          div(class = "results-meta", paste0(length(results()), " programme", if (length(results()) == 1) "" else "s", " found")),
+          div(class = "results", render_result_cards(results()))
+        )
+      }
     )
   })
-
-  observeEvent(input$refresh_search, {})
 
   observeEvent(input$open_comparison, {
     example_id <- safe_text(input$open_comparison)
@@ -291,7 +319,12 @@ server <- function(input, output, session) {
       record$origin <- "counselor"
       selected(record)
     }, error = function(e) {
-      showModal(modalDialog(title = "Could not load comparison", "The selected comparison could not be loaded from GitHub.", easyClose = TRUE, footer = modalButton("Close")))
+      showModal(modalDialog(
+        title = "Could not load comparison",
+        "The selected comparison could not be loaded from GitHub.",
+        easyClose = TRUE,
+        footer = modalButton("Close")
+      ))
       message("Counselor comparison load error: ", conditionMessage(e))
     })
   })
