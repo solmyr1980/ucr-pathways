@@ -1,0 +1,110 @@
+/* Redesign layer for the four-surface UCR architecture. */
+
+.topbar { border-top-width: 20px; }
+.topbar-inner { min-height: 88px; }
+.brand-ucr { display: inline-flex; align-items: center; text-decoration: none; }
+.topbar-actions { display: flex; align-items: center; gap: 18px; }
+.builder-link {
+  color: var(--ucr-plum);
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.builder-link:hover { text-decoration: underline; }
+
+.landing-hero::before { display: none; }
+.landing-hero { padding-top: 34px; padding-bottom: 30px; }
+
+.audience-section {
+  padding: 6px 0 28px;
+  border-bottom: 1px solid var(--line);
+}
+.audience-section h2 {
+  margin: 0 0 16px;
+  font-size: clamp(25px, 2.5vw, 35px);
+  font-weight: 300;
+}
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.audience-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  min-height: 150px;
+}
+.audience-card h3 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 300;
+}
+.audience-card p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.audience-card a {
+  color: var(--ucr-plum);
+  font-weight: 700;
+  text-decoration: none;
+}
+.audience-status {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(208, 183, 208, .26);
+  color: var(--ucr-plum);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.program-head { background: var(--ucr-green); }
+.program-head strong a,
+.single-header a {
+  color: inherit;
+  text-decoration: none;
+}
+.program-source {
+  display: inline-block;
+  color: inherit;
+  font-size: 10px;
+  opacity: .86;
+  margin-top: 5px;
+  text-decoration: underline;
+}
+.ec-badge {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba(73,30,52,.08);
+  color: var(--muted);
+  font-size: 9.5px;
+  font-weight: 500;
+}
+.program-head .program-source,
+.single-header .program-source { color: var(--ucr-white); }
+
+.single-header .program-source { margin-top: 7px; }
+.single-courses .ec-badge { margin-left: 6px; margin-top: 0; vertical-align: middle; }
+
+.public-note {
+  padding: 12px 14px;
+  margin: 12px 10px 14px;
+  border-left: 4px solid var(--ucr-plum);
+  background: rgba(200,223,230,.24);
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+@media (max-width: 760px) {
+  .audience-grid { grid-template-columns: 1fr; }
+  .topbar-inner { align-items: flex-start; }
+  .topbar-actions { flex-direction: column; align-items: flex-end; gap: 5px; }
+  .builder-link { font-size: 11px; }
+}
