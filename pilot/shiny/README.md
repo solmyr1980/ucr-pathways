@@ -1,22 +1,30 @@
-# UCR Pathways — Shiny pilot
+# Personalized student Shiny pilot
 
-This is a deliberately small proof of concept for code-based delivery of the five existing public UCR Pathways examples.
+This pilot tests code-based delivery of a personalized UCR programme experience using the five existing comparison records as development fixtures.
+
+The user-facing interface intentionally uses UCR branding without a visible Pathways sub-brand.
 
 ## What the pilot tests
 
-- the Shiny app itself can remain generic;
-- a user enters a pathway-specific code;
-- the app retrieves the matching current pathway JSON directly from GitHub;
-- the app retrieves current UCR course descriptions from a separate GitHub-hosted lookup;
-- pathway data can therefore change without republishing the Shiny app;
-- UCR course names in the semester view can be clicked/tapped to reveal current descriptions;
-- the same interface works on desktop and narrower screens.
+- a student enters a student-specific access code;
+- the app retrieves the matching structured comparison record from GitHub;
+- the welcome view preserves the student's original wording and provides a separate place for the academic interpretation;
+- the first substantive view is the closest-match personalized UCR semester programme;
+- the student can switch to the four-programme comparison without regenerating content;
+- comparison headings use the new descriptive labels;
+- the external programme heading links to its approved official source;
+- UCR content links to the current UCR course overview;
+- UCR courses show EC information and can be clicked/tapped for descriptions;
+- the student receives Admissions and Program Builder calls to action;
+- the temporary disclaimer placeholder is visible until approved final disclaimer copy is supplied.
 
-This pilot does **not** test production privacy. The five examples and the code-to-example mapping are public test data.
+## Legacy-fixture limitation
+
+The five current example records predate the new `interestInterpretation` field. The pilot therefore shows an explicit development placeholder in the interpretation panel when that field is absent. Production student records must store the interpretation separately from the original interest statement.
 
 ## Requirements
 
-Install R and RStudio if they are not already installed. In R, install the two required packages once:
+Install R and RStudio if needed. Install the two R packages once:
 
 ```r
 install.packages(c("shiny", "jsonlite"))
@@ -30,9 +38,7 @@ From the repository root:
 shiny::runApp("pilot/shiny")
 ```
 
-Or open `pilot/shiny/app.R` in RStudio and click **Run App**.
-
-An internet connection is required because the app deliberately retrieves the current data from GitHub rather than bundling pathway data into the app.
+An internet connection is required because the pilot retrieves current data from GitHub.
 
 ## Pilot codes
 
@@ -46,18 +52,12 @@ An internet connection is required because the app deliberately retrieves the cu
 
 Formatting is forgiving: spaces and hyphens are ignored and letter case does not matter.
 
-## Live data sources
+## Data sources
 
-The app reads pathway records from:
+The pilot reads comparison fixtures from `data/examples/`, access codes from `pilot/shiny/data/access_codes.json`, and course descriptions from department files under `pilot/shiny/data/courses/`.
 
-`data/examples/p-001.json` through `data/examples/p-005.json`
+## Production privacy boundary
 
-It reads pilot access codes from `pilot/shiny/data/access_codes.json` and course descriptions on demand from department files under:
+This pilot **does not test production privacy**. The five examples and their code mapping are public development data.
 
-`pilot/shiny/data/courses/`
-
-A cache-busting query parameter is added to each fetch so a new app session does not intentionally reuse stale GitHub/CDN data.
-
-## Production boundary
-
-If this pilot is accepted, private participant pathway records should move to private server-side storage. The public GitHub access-code file used here must **not** become the production privacy mechanism.
+Production student-specific codes or links must resolve through appropriate private storage/access control. The public GitHub access-code mapping used here must never become the production privacy mechanism.
