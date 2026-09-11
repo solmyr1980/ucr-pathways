@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+export const UCR_DEFAULT_COURSE_EC = 7.5;
+
 export function exampleFiles(root, target = 'all') {
   const dir = path.join(root, 'data', 'examples');
 
@@ -38,6 +40,42 @@ export function isUcrProgramme(programme) {
   return ['ucr-depth', 'ucr-balanced', 'ucr-thematic'].includes(programme?.role);
 }
 
+export function comparatorMetadata(example) {
+  const comparator = example?.comparator || example?.referenceProgramme;
+  return comparator && typeof comparator === 'object' ? comparator : {};
+}
+
+export function comparatorLabel(example) {
+  const comparator = comparatorMetadata(example);
+  if (comparator.name && comparator.institution) {
+    return `${comparator.name} at ${comparator.institution}`;
+  }
+  return comparator.name || 'External bachelor programme';
+}
+
+export function visibleProgrammeLabel(example, programme) {
+  if (!programme) return '';
+  const comparator = comparatorMetadata(example);
+  const name = comparator.name || 'this programme';
+
+  if (programme.role === 'comparator') return comparatorLabel(example);
+  if (programme.role === 'ucr-depth') return `Closest match to ${name}`;
+  if (programme.role === 'ucr-balanced') return `${name} + related subjects`;
+  if (programme.role === 'ucr-thematic') {
+    return example?.origin === 'counselor'
+      ? 'A broader programme around related interests'
+      : 'A broader programme around your interests';
+  }
+
+  return programme.label || '';
+}
+
+export function courseCredits(course) {
+  const raw = course?.credits;
+  if (raw !== undefined && raw !== null && String(raw).trim() !== '') return raw;
+  return UCR_DEFAULT_COURSE_EC;
+}
+
 export function linkedinProgrammes(example) {
   const programmes = Array.isArray(example?.programmes) ? example.programmes : [];
   return example?.display?.showComparatorOnLinkedIn === false
@@ -53,13 +91,19 @@ export function escapeHtml(value = '') {
 
 function isHttpUrl(value) {
   if (typeof value !== 'string' || !value.trim()) return false;
-
   try {
     const url = new URL(value);
     return url.protocol === 'https:' || url.protocol === 'http:';
   } catch {
     return false;
   }
+}
+
+function validCreditValue(value) {
+  if (value === undefined || value === null || value === '') return true;
+  if (typeof value === 'number') return Number.isFinite(value) && value > 0;
+  if (typeof value === 'string') return value.trim().length > 0;
+  return false;
 }
 
 export function validateExample(example, sourceName = 'example') {
@@ -80,8 +124,32 @@ export function validateExample(example, sourceName = 'example') {
     fail('id must use lowercase letters, numbers and hyphens');
   }
 
-  if (typeof example.interests !== 'string' || !example.interests.trim()) {
-    fail('interests must be a non-empty string');
+  if (example.origin !== undefined && !['student', 'counselor'].includes(example.origin)) {
+    fail('origin must be "student" or "counselor" when supplied');
+  }
+
+  const studentLike = example.origin === 'student' || example.origin === undefined;
+  if (studentLike && (typeof example.interests !== 'string' || !example.interests.trim())) {
+    fail('student-origin and legacy examples need a non-empty interests string');
+  }
+
+  if (example.interestInterpretation !== undefined && (
+    typeof example.interestInterpretation !== 'string' || !example.interestInterpretation.trim()
+  )) {
+    fail('interestInterpretation must be a non-empty string when supplied');
+  }
+
+  if (example.origin === 'counselor') {
+    const provider = example.programmeProvider;
+    if (!provider || typeof provider !== 'object' || Array.isArray(provider)) {
+      fail('counselor-origin records require programmeProvider metadata');
+    } else if (
+      provider.programmeProviderId === undefined &&
+      provider.recognizedProgrammeId === undefined &&
+      provider.sourceExcelRow === undefined
+    ) {
+      fail('programmeProvider must include at least one stable registry identifier');
+    }
   }
 
   if (
@@ -91,36 +159,29 @@ export function validateExample(example, sourceName = 'example') {
     fail('display.showComparatorOnLinkedIn must be a boolean when supplied');
   }
 
-  const reference = example.referenceProgramme;
-  if (!reference || typeof reference !== 'object' || Array.isArray(reference)) {
-    fail('referenceProgramme is required and must be an object');
+  const comparator = comparatorMetadata(example);
+  if (!comparator || typeof comparator !== 'object' || Array.isArray(comparator)) {
+    fail('comparator metadata is required');
   } else {
-    if (typeof reference.name !== 'string' || !reference.name.trim()) {
-      fail('referenceProgramme.name is required');
+    if (typeof comparator.name !== 'string' || !comparator.name.trim()) {
+      fail('comparator.name is required');
     }
-
-    if (typeof reference.institution !== 'string' || !reference.institution.trim()) {
-      fail('referenceProgramme.institution is required');
+    if (typeof comparator.institution !== 'string' || !comparator.institution.trim()) {
+      fail('comparator.institution is required');
     }
-
-    if (typeof reference.provenance !== 'string' || !reference.provenance.trim()) {
-      fail('referenceProgramme.provenance is required');
+    if (!isHttpUrl(comparator.primarySourceUrl)) {
+      fail('comparator.primarySourceUrl must be an http(s) URL');
     }
+  }
 
-    if (!isHttpUrl(reference.primarySourceUrl)) {
-      fail('referenceProgramme.primarySourceUrl must be an http(s) URL');
-    }
+  if (!example.comparator && example.referenceProgramme) {
+    warn('referenceProgramme is a legacy alias; new records should use comparator');
+  }
 
-    if (
-      typeof reference.name === 'string' &&
-      reference.name.trim() &&
-      typeof reference.institution === 'string' &&
-      reference.institution.trim() &&
-      typeof reference.provenance === 'string'
-    ) {
-      const expected = `Reference programme: ${reference.name.trim()}, ${reference.institution.trim()}`;
-      if (reference.provenance.trim() !== expected) {
-        fail(`referenceProgramme.provenance must equal "${expected}"`);
+  if (example.links && typeof example.links === 'object') {
+    for (const [key, value] of Object.entries(example.links)) {
+      if (value !== undefined && value !== null && value !== '' && !isHttpUrl(value)) {
+        fail(`links.${key} must be an http(s) URL when supplied`);
       }
     }
   }
@@ -137,9 +198,7 @@ export function validateExample(example, sourceName = 'example') {
   const expectedRoles = ['comparator', 'ucr-depth', 'ucr-balanced', 'ucr-thematic'];
   const ids = programmes.map(p => p?.id).filter(Boolean);
 
-  if (new Set(ids).size !== ids.length) {
-    fail('programme ids must be unique');
-  }
+  if (new Set(ids).size !== ids.length) fail('programme ids must be unique');
 
   programmes.forEach((programme, index) => {
     if (!programme || typeof programme !== 'object' || Array.isArray(programme)) {
@@ -156,7 +215,7 @@ export function validateExample(example, sourceName = 'example') {
     }
 
     if (typeof programme.label !== 'string' || !programme.label.trim()) {
-      fail(`programme ${programme.id || index + 1} needs a label`);
+      fail(`programme ${programme.id || index + 1} needs a stored label`);
     }
 
     if (programme.family !== undefined) {
@@ -168,9 +227,7 @@ export function validateExample(example, sourceName = 'example') {
 
     const schedule = programme.schedule;
     if (schedule === undefined) {
-      if (isUcrProgramme(programme)) {
-        fail(`UCR programme ${programme.id} must include a six-semester schedule`);
-      }
+      if (isUcrProgramme(programme)) fail(`UCR programme ${programme.id} must include a six-semester schedule`);
       return;
     }
 
@@ -202,9 +259,7 @@ export function validateExample(example, sourceName = 'example') {
         fail(`programme ${programme.id}, semester ${semesterIndex + 1}: label is required`);
       } else {
         const labelKey = semester.label.trim().toLowerCase();
-        if (seenSemesterLabels.has(labelKey)) {
-          fail(`programme ${programme.id}: duplicate semester label "${semester.label}"`);
-        }
+        if (seenSemesterLabels.has(labelKey)) fail(`programme ${programme.id}: duplicate semester label "${semester.label}"`);
         seenSemesterLabels.add(labelKey);
       }
 
@@ -232,22 +287,17 @@ export function validateExample(example, sourceName = 'example') {
           fail(`programme ${programme.id}, semester ${semesterIndex + 1}, course ${courseIndex + 1}: code must be a string when supplied`);
         }
 
-        if (
-          course.level !== undefined &&
-          typeof course.level !== 'string' &&
-          !Number.isInteger(course.level)
-        ) {
+        if (course.level !== undefined && typeof course.level !== 'string' && !Number.isInteger(course.level)) {
           fail(`programme ${programme.id}, semester ${semesterIndex + 1}, course ${courseIndex + 1}: level must be a string or integer when supplied`);
         }
 
-        const keySource = typeof course.code === 'string' && course.code.trim()
-          ? course.code
-          : course.name;
-        const key = keySource.trim().toLowerCase();
-
-        if (seenCourses.has(key)) {
-          fail(`programme ${programme.id}: duplicate scheduled course ${keySource}`);
+        if (!validCreditValue(course.credits)) {
+          fail(`programme ${programme.id}, semester ${semesterIndex + 1}, course ${courseIndex + 1}: credits must be positive or a non-empty string when supplied`);
         }
+
+        const keySource = typeof course.code === 'string' && course.code.trim() ? course.code : course.name;
+        const key = keySource.trim().toLowerCase();
+        if (seenCourses.has(key)) fail(`programme ${programme.id}: duplicate scheduled course ${keySource}`);
         seenCourses.add(key);
       });
     });
@@ -261,9 +311,7 @@ export function validateExample(example, sourceName = 'example') {
       return;
     }
 
-    if (typeof block.title !== 'string' || !block.title.trim()) {
-      fail(`block ${blockIndex + 1} needs a title`);
-    }
+    if (typeof block.title !== 'string' || !block.title.trim()) fail(`block ${blockIndex + 1} needs a title`);
 
     if (!Array.isArray(block.rows) || block.rows.length === 0) {
       fail(`block ${block.title || blockIndex + 1}: rows must be a non-empty array`);
@@ -283,20 +331,19 @@ export function validateExample(example, sourceName = 'example') {
       }
 
       keys.forEach(key => {
-        if (!knownIds.has(key)) {
-          fail(`block ${block.title}, row ${rowIndex + 1}: unknown programme id ${key}`);
-        }
-
+        if (!knownIds.has(key)) fail(`block ${block.title}, row ${rowIndex + 1}: unknown programme id ${key}`);
         const raw = row.cells[key];
-        if (raw !== null && normalizeCell(raw) === null) {
+        const cell = normalizeCell(raw);
+        if (raw !== null && cell === null) {
           fail(`block ${block.title}, row ${rowIndex + 1}, programme ${key}: invalid cell value`);
+        }
+        if (cell && !validCreditValue(cell.credits)) {
+          fail(`block ${block.title}, row ${rowIndex + 1}, programme ${key}: invalid credits value`);
         }
       });
 
       const nonEmpty = keys.map(key => normalizeCell(row.cells[key])).filter(Boolean);
-      if (!nonEmpty.length) {
-        fail(`block ${block.title}, row ${rowIndex + 1}: row contains no substantive cell`);
-      }
+      if (!nonEmpty.length) fail(`block ${block.title}, row ${rowIndex + 1}: row contains no substantive cell`);
     });
   });
 
@@ -304,9 +351,11 @@ export function validateExample(example, sourceName = 'example') {
     example.notes.forEach((note, index) => {
       if (!note || typeof note !== 'object' || Array.isArray(note)) {
         fail(`note ${index + 1} must be an object`);
-      } else if (typeof note.text !== 'string' || !note.text.trim()) {
-        fail(`note ${index + 1} needs non-empty text`);
+        return;
       }
+      const hasText = typeof note.text === 'string' && note.text.trim();
+      const hasTemplate = typeof note.type === 'string' && note.type.trim() && note.params && typeof note.params === 'object';
+      if (!hasText && !hasTemplate) fail(`note ${index + 1} needs text or a template type with params`);
     });
   }
 
