@@ -1,141 +1,166 @@
 # UCR Pathways
 
-This repository stores and renders approved public **UCR Pathways** examples.
+`UCR Pathways` is the internal project and repository name for a set of UCR programme-comparison workflows and interfaces.
 
-UCR Pathways compares one disciplinary reference programme with three feasible UCR pathways that move from greater disciplinary depth toward broader combinations of interests and themes.
+The project name is **not** intended to appear as a user-facing sub-brand. Student, counselor and public interfaces use University College Roosevelt branding directly.
 
-Academic construction and feasibility validation happen upstream. This repository contains the approved public representation and the generic renderers used for the website, LinkedIn PDFs and Open Day PDF regression testing.
+## Current architecture
+
+The project has four distinct surfaces built on shared academic comparison content:
+
+1. **Student app** — a personalized experience generated from an actual prospective student's submitted interests.
+2. **Counselor app** — a deterministic searchable library of pre-produced comparisons, one per programme-provider record in scope.
+3. **Public website** — a curated showcase and communication layer rather than the complete counselor database.
+4. **LinkedIn** — an editorial distribution layer using selected approved public records and generated PDFs.
+
+The website and LinkedIn do not independently reconstruct academic content.
 
 ## Authoritative project documents
 
-The current living UCR Pathways specifications are maintained in `docs/`:
+The authoritative maintained specifications are in `docs/`:
 
 - `docs/UCR_Pathways_Master_Specification.md` — durable product, academic, content and architectural decisions;
-- `docs/UCR_Pathways_Production_Instructions.md` — academic generation, validation, Open Day output and public-export procedure;
-- `docs/UCR_Pathways_Web_LinkedIn_Workflow.md` — operational handoff to the public website, LinkedIn PDF and manual LinkedIn publication.
+- `docs/UCR_Pathways_Production_Instructions.md` — academic generation, validation and record creation for student and counselor workflows;
+- `docs/UCR_Pathways_Web_LinkedIn_Workflow.md` — public curation, website and LinkedIn publication workflow.
 
-These GitHub files are the authoritative maintained copies. Update them when a durable decision in their domain changes rather than maintaining duplicate project-source copies elsewhere. Stable evidence inputs, such as the enriched UCR course database, may remain outside the repository.
-
-Routine UCR Pathways work does not depend on a user-maintained local Git clone. Repository operations should be performed directly through the connected GitHub repository where available.
+Retrieve these current GitHub copies before substantive project work. Do not substitute old project-source copies or previous-conversation summaries.
 
 ## Repository operating rule
 
-This is a single-maintainer repository. Routine approved changes should be made directly on `main`.
+Routine approved work is performed directly on `main`.
 
-- Do not create a branch or pull request for routine documentation changes, approved example data, catalog changes, publication records, or ordinary renderer and copy fixes.
-- If a change appears risky or large enough that isolation would materially help, explain why and obtain explicit approval before creating a branch.
-- When a branch is explicitly approved, use one clearly named branch for the task. Do not create iterative `-v2`, `-v3`, or similar branches. Use a pull request only when a review or merge step adds value.
-- Once exceptional branch work has been incorporated into `main`, delete the branch immediately.
-- After substantial repository work, check repository hygiene. The normal state is one active branch (`main`) and no open pull requests. Closed or merged pull requests remain as normal GitHub history.
-- Git commit history is the routine rollback mechanism; do not create branches solely as a generic safety precaution.
+- Do not create branches or pull requests for routine work.
+- If isolation is genuinely needed for a risky exceptional change, explain why and obtain explicit approval first.
+- After substantial work, check repository hygiene. The normal state is one active branch (`main`) and no open pull requests.
+- Git commit history is the normal rollback mechanism.
 
-## Content flow
+## Shared comparison model
 
-```text
-canonical academic comparison
-        ↓
-substantive human review
-        ↓
-approved public example record
-        ↓
-data/examples/<id>.json
-        ↓
-        ├── GitHub Pages interactive example
-        ├── GitHub Actions LinkedIn PDF
-        └── GitHub Actions Open Day PDF test output
-```
+Every comparison has four stable semantic roles:
 
-Programme content is not maintained separately in HTML or PDF-specific files.
+1. `comparator` — one external Dutch bachelor programme;
+2. `ucr-depth` — closest feasible UCR match;
+3. `ucr-balanced` — the field plus related subjects or additional student interests;
+4. `ucr-thematic` — a broader UCR programme around relevant interests/questions/themes.
 
-Real Open Day participant records remain non-public and are not stored in this public repository. The public examples in this repository are also used as regression cases for the Open Day renderer.
+Visible programme headings use descriptive language rather than the internal role names.
 
-## Current public examples
+External programme provenance is integrated into the comparator heading as `[Programme] at [Institution]`, linked to the approved official source. UCR components link to the UCR course overview. EC information is shown on both sides where comparison components are displayed.
 
-The repository currently contains five deliberately different stress-test examples (`p-001` through `p-005`). They exercise different disciplinary reference programmes, comparison structures, gaps, component sizes and UCR course combinations.
+## Student workflow and pilot
 
-The public catalog is at:
+The production student workflow begins with an actual interest statement and preserves both:
 
-```text
-https://solmyr1980.github.io/ucr-pathways/
-```
+- the student's original wording;
+- a separate academic interpretation.
 
-An individual example is addressed with:
+The student app then offers:
 
-```text
-https://solmyr1980.github.io/ucr-pathways/?example=p-001
-```
+- a personalized UCR semester programme;
+- a comparison with the external bachelor and two broader UCR alternatives;
+- Admissions and Program Builder next steps.
 
-## Publication data contract
+The current Shiny proof of concept is under:
 
-`data/schema/example.schema.json` defines the executable public example contract.
+`pilot/shiny/`
 
-Each example contains exactly four programmes in this semantic order:
+It uses five public development fixtures and public test access codes. This is **not** a production privacy mechanism. Production student-specific records must use appropriate private storage/access control.
 
-1. `comparator`
-2. `ucr-depth`
-3. `ucr-balanced`
-4. `ucr-thematic`
+## Counselor workflow and pilot
 
-The three UCR programmes must each include a complete six-semester schedule with four courses per semester. The current Open Day renderer consumes those schedules.
+Counselor production is deterministic. The unit of production is one programme-provider record from the Dutch bachelor registry, processed in source worksheet order without prioritization.
 
-Rows store comparison cells by programme ID. Blank cells are deliberate and indicate that no sufficiently comparable named component is shown in that position.
+The counselor app supports two discovery routes into the same fixed comparison library:
 
-The approved disciplinary source is recorded under `referenceProgramme`, including the exact student-facing provenance line and primary official source URL.
+- programme-driven search;
+- interest-driven search using the programme-interest enrichment table.
 
-## Validation boundary
+An interest query locates relevant programmes; it does not regenerate or personalize the comparison.
 
-Repository validation checks the publication structure, including:
+Pilot implementation files are under:
 
-- required fields and semantic programme roles;
-- unique programme IDs;
-- comparison block and row structure;
-- references to known programme IDs;
-- complete UCR schedule shape;
-- four courses per semester;
-- duplicate scheduled courses.
+- `data/counselor/` — five-case search/index fixtures;
+- `pilot/counselor-shiny/` — deterministic search/retrieval Shiny proof of concept.
 
-Academic feasibility remains upstream. In particular, repository validation does not establish prerequisites, actual semester availability, PPD placement or substantive course fit. Those are checked against the enriched UCR course database during academic production.
+The complete programme-provider corpus will replace the pilot fixtures as comparisons are produced and validated.
 
-## Website
+## Public website
 
-The website renderer is generic and data-driven.
+The GitHub Pages site is a curated UCR showcase, not the complete counselor database and not the private student app.
 
-For an individual example:
+Public examples are stored in:
 
-- wide screens show all four programmes side by side by default;
-- narrow screens show one programme at a time;
-- wide screens can switch between `Compare all` and `One at a time`;
-- one-at-a-time mode supports forward/back controls, keyboard arrows and touch swiping.
+`data/examples/`
 
-Adding an approved example should normally require only a new `data/examples/<id>.json` record and a catalog entry, not programme-specific renderer changes.
+Editorial landing-page metadata is stored in:
 
-## PDF generation
+`data/catalog.json`
 
-The GitHub Actions workflow validates the selected example data, installs Playwright/Chromium, builds the print HTML and generates two artifact sets:
+Most future public examples will normally be selected from the counselor corpus. A student-origin case may be used only after explicit public-use approval and privacy review.
 
-- `linkedin-pdfs` — one programme per page for LinkedIn document posts;
-- `open-day-pdfs` — two-page A4 portrait handouts used to test the Open Day renderer.
+## Data contracts
 
-On relevant pushes, the workflow builds all examples. A manual workflow run can build one example or all examples.
+`data/schema/example.schema.json` defines the current public comparison contract.
 
-The Open Day renderer uses adaptive fitting. Page 1 retains the established comparison density logic. On page 2, the renderer first tries substantially larger semester-course typography and steps down only if a cell or page would overflow. The existing normal/compact/dense layouts remain as safe fallbacks.
+It supports records derived from either student or counselor workflows and retains temporary compatibility with the five legacy public examples during migration.
 
-Generated files under `output/` are build artifacts and are ignored by Git.
+The shared record model preserves:
+
+- comparator identity/source;
+- four programme roles;
+- UCR schedules;
+- comparison blocks and deliberate gaps;
+- EC credits;
+- explanatory notes;
+- optional student-origin or programme-provider metadata.
+
+The counselor programme index and programme-interest discovery index remain separate from curated public-example data.
+
+## Reusable explanatory notes
+
+Counselor comparisons do not require hundreds of manually written bespoke notes.
+
+The production instructions define reusable semantic note types for situations such as:
+
+- less disciplinary depth at UCR;
+- related fields rather than a full discipline;
+- missing specialist components;
+- similar territory organized through a different curricular structure.
+
+Use a note only when it prevents a material misunderstanding.
 
 ## LinkedIn publication
 
-For the pilot, LinkedIn publication remains human-controlled. The finished post uses the corresponding specific UCR Pathways example URL and may be published immediately or placed in LinkedIn's native scheduled-post queue.
+LinkedIn retains the existing human-controlled publication architecture:
+
+```text
+approved public record
+        ↓
+website example + generated LinkedIn PDF
+        ↓
+human visual/editorial review
+        ↓
+publication/queue/current.json
+        ↓
+manual Make scenario
+        ↓
+LinkedIn document post
+```
+
+Generated PDFs under `publication/linkedin/` are outputs, not programme-content sources.
+
+The existing editorial scenarios remain available, now drawing especially on the deterministic counselor corpus and programme-interest index.
 
 ## UCR Program Builder
 
-UCR Pathways and the **UCR Program Builder** are separate products. The downstream Program Builder destination is:
+The downstream UCR Program Builder remains a separate product:
 
-```text
-https://program.ucr.nl/
-```
+`https://program.ucr.nl/`
 
-Open Day QR codes and public `Build your own programme` calls to action point there.
+The project may link students there to modify or build their own programme, but must not imply automatic transfer of a displayed comparison unless that functionality has actually been implemented.
 
 ## Visual identity
 
-The website and PDF renderers use the settled UCR palette, IvyMode for display headings and Inter for body text. Colour supports identity, navigation and orientation rather than serving as the primary classification of programme content.
+User-facing interfaces follow UCR's settled visual identity and do not display a Pathways sub-brand.
+
+The implementation uses the approved UCR palette and configured UCR typography where available. Colour supports identity, navigation and orientation rather than acting as the principal academic classification system.
