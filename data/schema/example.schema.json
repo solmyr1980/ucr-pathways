@@ -1,62 +1,51 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://solmyr1980.github.io/ucr-pathways/data/schema/example.schema.json",
-  "title": "UCR Pathways public example",
-  "description": "Publication data contract for one UCR Pathways four-programme comparison. Programme content, provenance, labels, blocks, rows and cells remain data rather than renderer assumptions.",
+  "title": "UCR comparison public record",
+  "description": "Publication contract for one four-programme UCR comparison. Supports records derived from student or counselor workflows while retaining backward compatibility with legacy public examples.",
   "type": "object",
-  "required": [
-    "schemaVersion",
-    "id",
-    "interests",
-    "referenceProgramme",
-    "programmes",
-    "blocks"
-  ],
+  "required": ["schemaVersion", "id", "programmes", "blocks"],
   "properties": {
-    "schemaVersion": {
-      "type": "string"
+    "schemaVersion": {"type": "string", "minLength": 1},
+    "id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+    "origin": {"type": "string", "enum": ["student", "counselor"]},
+    "cohort": {"type": "string"},
+    "interests": {"type": "string", "minLength": 1},
+    "interestInterpretation": {"type": "string", "minLength": 1},
+    "programmeProvider": {
+      "type": "object",
+      "properties": {
+        "sourceExcelRow": {"type": ["integer", "string"]},
+        "programmeProviderId": {"type": ["string", "integer"]},
+        "recognizedProgrammeId": {"type": ["string", "integer"]}
+      },
+      "additionalProperties": true
     },
-    "id": {
-      "type": "string",
-      "pattern": "^[a-z0-9-]+$"
-    },
-    "cohort": {
-      "type": "string"
-    },
-    "interests": {
-      "type": "string",
-      "minLength": 1
-    },
+    "comparator": {"$ref": "#/$defs/comparatorMetadata"},
     "referenceProgramme": {
-      "$ref": "#/$defs/referenceProgramme"
+      "allOf": [{"$ref": "#/$defs/comparatorMetadata"}],
+      "description": "Legacy alias retained during migration. New records should use comparator."
+    },
+    "links": {
+      "type": "object",
+      "properties": {
+        "ucrCurriculumUrl": {"type": "string", "format": "uri"},
+        "studentIntakeUrl": {"type": "string", "format": "uri"},
+        "counselorAppUrl": {"type": "string", "format": "uri"},
+        "programBuilderUrl": {"type": "string", "format": "uri"},
+        "admissionsUrl": {"type": "string", "format": "uri"}
+      },
+      "additionalProperties": true
     },
     "display": {
       "type": "object",
       "properties": {
-        "title": {
-          "type": "string"
-        },
-        "interestLabel": {
-          "type": "string"
-        },
-        "comparisonNote": {
-          "type": "string"
-        },
+        "title": {"type": "string"},
+        "interestLabel": {"type": "string"},
+        "comparisonNote": {"type": "string"},
         "showComparatorOnLinkedIn": {
           "type": "boolean",
-          "description": "When false, the LinkedIn PDF omits the comparator page while the four-programme publication record remains unchanged."
-        },
-        "spectrum": {
-          "type": "object",
-          "properties": {
-            "left": {
-              "type": "string"
-            },
-            "right": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": true
+          "description": "When false, the LinkedIn PDF omits the comparator page while the four-programme record remains unchanged."
         }
       },
       "additionalProperties": true
@@ -66,352 +55,136 @@
       "minItems": 4,
       "maxItems": 4,
       "prefixItems": [
-        {
-          "allOf": [
-            {
-              "$ref": "#/$defs/programme"
-            },
-            {
-              "properties": {
-                "role": {
-                  "const": "comparator"
-                },
-                "family": {
-                  "const": "comparator"
-                }
-              }
-            }
-          ]
-        },
-        {
-          "allOf": [
-            {
-              "$ref": "#/$defs/programme"
-            },
-            {
-              "properties": {
-                "role": {
-                  "const": "ucr-depth"
-                },
-                "family": {
-                  "const": "ucr"
-                },
-                "schedule": {
-                  "$ref": "#/$defs/ucrSchedule"
-                }
-              },
-              "required": [
-                "schedule"
-              ]
-            }
-          ]
-        },
-        {
-          "allOf": [
-            {
-              "$ref": "#/$defs/programme"
-            },
-            {
-              "properties": {
-                "role": {
-                  "const": "ucr-balanced"
-                },
-                "family": {
-                  "const": "ucr"
-                },
-                "schedule": {
-                  "$ref": "#/$defs/ucrSchedule"
-                }
-              },
-              "required": [
-                "schedule"
-              ]
-            }
-          ]
-        },
-        {
-          "allOf": [
-            {
-              "$ref": "#/$defs/programme"
-            },
-            {
-              "properties": {
-                "role": {
-                  "const": "ucr-thematic"
-                },
-                "family": {
-                  "const": "ucr"
-                },
-                "schedule": {
-                  "$ref": "#/$defs/ucrSchedule"
-                }
-              },
-              "required": [
-                "schedule"
-              ]
-            }
-          ]
-        }
+        {"allOf": [{"$ref": "#/$defs/programme"}, {"properties": {"role": {"const": "comparator"}}}]},
+        {"allOf": [{"$ref": "#/$defs/programme"}, {"properties": {"role": {"const": "ucr-depth"}, "schedule": {"$ref": "#/$defs/ucrSchedule"}}, "required": ["schedule"]}]},
+        {"allOf": [{"$ref": "#/$defs/programme"}, {"properties": {"role": {"const": "ucr-balanced"}, "schedule": {"$ref": "#/$defs/ucrSchedule"}}, "required": ["schedule"]}]},
+        {"allOf": [{"$ref": "#/$defs/programme"}, {"properties": {"role": {"const": "ucr-thematic"}, "schedule": {"$ref": "#/$defs/ucrSchedule"}}, "required": ["schedule"]}]}
       ],
       "items": false
     },
     "blocks": {
       "type": "array",
       "minItems": 1,
-      "items": {
-        "$ref": "#/$defs/block"
-      }
+      "items": {"$ref": "#/$defs/block"}
     },
     "notes": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": [
-          "text"
-        ],
         "properties": {
-          "placement": {
-            "type": "string"
-          },
-          "text": {
+          "placement": {"type": "string"},
+          "type": {
             "type": "string",
-            "minLength": 1
-          }
+            "enum": ["less-disciplinary-depth", "related-fields-not-full-discipline", "missing-specialist-components", "different-curricular-structure", "custom"]
+          },
+          "params": {"type": "object", "additionalProperties": true},
+          "text": {"type": "string", "minLength": 1}
         },
+        "anyOf": [{"required": ["text"]}, {"required": ["type", "params"]}],
         "additionalProperties": true
       }
     }
   },
+  "anyOf": [
+    {"required": ["comparator"]},
+    {"required": ["referenceProgramme"]}
+  ],
   "$defs": {
-    "referenceProgramme": {
+    "comparatorMetadata": {
       "type": "object",
-      "required": [
-        "name",
-        "institution",
-        "provenance",
-        "primarySourceUrl"
-      ],
+      "required": ["name", "institution", "primarySourceUrl"],
       "properties": {
-        "name": {
-          "type": "string",
-          "minLength": 1
-        },
-        "institution": {
-          "type": "string",
-          "minLength": 1
-        },
-        "provenance": {
-          "type": "string",
-          "minLength": 1
-        },
-        "primarySourceUrl": {
-          "type": "string",
-          "format": "uri"
-        }
+        "name": {"type": "string", "minLength": 1},
+        "institution": {"type": "string", "minLength": 1},
+        "primarySourceUrl": {"type": "string", "format": "uri"},
+        "provenance": {"type": "string"},
+        "academicYear": {"type": "string"},
+        "route": {"type": "string"}
       },
       "additionalProperties": true
     },
     "programme": {
       "type": "object",
-      "required": [
-        "id",
-        "role",
-        "label"
-      ],
+      "required": ["id", "role", "label"],
       "properties": {
-        "id": {
-          "type": "string",
-          "pattern": "^[a-z0-9-]+$"
-        },
-        "role": {
-          "type": "string",
-          "enum": [
-            "comparator",
-            "ucr-depth",
-            "ucr-balanced",
-            "ucr-thematic"
-          ]
-        },
-        "family": {
-          "type": "string",
-          "enum": [
-            "comparator",
-            "ucr"
-          ]
-        },
-        "label": {
-          "type": "string",
-          "minLength": 1
-        },
-        "subtitle": {
-          "type": "string"
-        },
-        "accent": {
-          "type": "string"
-        },
-        "note": {
-          "type": "string"
-        },
-        "schedule": {
-          "$ref": "#/$defs/schedule"
-        }
+        "id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+        "role": {"type": "string", "enum": ["comparator", "ucr-depth", "ucr-balanced", "ucr-thematic"]},
+        "family": {"type": "string", "enum": ["comparator", "ucr"]},
+        "label": {"type": "string", "minLength": 1},
+        "subtitle": {"type": "string"},
+        "note": {"type": "string"},
+        "schedule": {"$ref": "#/$defs/schedule"}
       },
       "additionalProperties": true
     },
     "course": {
       "type": "object",
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "properties": {
-        "code": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string",
-          "minLength": 1
-        },
-        "level": {
-          "type": [
-            "integer",
-            "string"
-          ]
-        }
+        "code": {"type": "string"},
+        "name": {"type": "string", "minLength": 1},
+        "level": {"type": ["integer", "string"]},
+        "credits": {"type": ["number", "integer", "string"]}
       },
       "additionalProperties": true
     },
     "semester": {
       "type": "object",
-      "required": [
-        "label",
-        "courses"
-      ],
+      "required": ["label", "courses"],
       "properties": {
-        "label": {
-          "type": "string",
-          "minLength": 1
-        },
-        "courses": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/course"
-          }
-        }
+        "label": {"type": "string", "minLength": 1},
+        "courses": {"type": "array", "items": {"$ref": "#/$defs/course"}}
       },
       "additionalProperties": true
     },
     "ucrSemester": {
       "allOf": [
-        {
-          "$ref": "#/$defs/semester"
-        },
-        {
-          "properties": {
-            "courses": {
-              "type": "array",
-              "minItems": 4,
-              "maxItems": 4,
-              "items": {
-                "$ref": "#/$defs/course"
-              }
-            }
-          }
-        }
+        {"$ref": "#/$defs/semester"},
+        {"properties": {"courses": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"$ref": "#/$defs/course"}}}}
       ]
     },
     "schedule": {
       "type": "object",
-      "required": [
-        "semesters"
-      ],
-      "properties": {
-        "semesters": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/semester"
-          }
-        }
-      },
+      "required": ["semesters"],
+      "properties": {"semesters": {"type": "array", "items": {"$ref": "#/$defs/semester"}}},
       "additionalProperties": true
     },
     "ucrSchedule": {
       "type": "object",
-      "required": [
-        "semesters"
-      ],
-      "properties": {
-        "semesters": {
-          "type": "array",
-          "minItems": 6,
-          "maxItems": 6,
-          "items": {
-            "$ref": "#/$defs/ucrSemester"
-          }
-        }
-      },
+      "required": ["semesters"],
+      "properties": {"semesters": {"type": "array", "minItems": 6, "maxItems": 6, "items": {"$ref": "#/$defs/ucrSemester"}}},
       "additionalProperties": true
     },
     "cell": {
       "oneOf": [
-        {
-          "type": "string",
-          "minLength": 1
-        },
+        {"type": "string", "minLength": 1},
         {
           "type": "object",
-          "required": [
-            "text"
-          ],
+          "required": ["text"],
           "properties": {
-            "text": {
-              "type": "string",
-              "minLength": 1
-            },
-            "note": {
-              "type": "string"
-            },
-            "emphasis": {
-              "type": "boolean"
-            }
+            "text": {"type": "string", "minLength": 1},
+            "note": {"type": "string"},
+            "credits": {"type": ["number", "integer", "string"]},
+            "emphasis": {"type": "boolean"}
           },
           "additionalProperties": true
         },
-        {
-          "type": "null"
-        }
+        {"type": "null"}
       ]
     },
     "block": {
       "type": "object",
-      "required": [
-        "title",
-        "rows"
-      ],
+      "required": ["title", "rows"],
       "properties": {
-        "id": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string",
-          "minLength": 1
-        },
+        "id": {"type": "string"},
+        "title": {"type": "string", "minLength": 1},
         "rows": {
           "type": "array",
           "minItems": 1,
           "items": {
             "type": "object",
-            "required": [
-              "cells"
-            ],
-            "properties": {
-              "cells": {
-                "type": "object",
-                "minProperties": 1,
-                "additionalProperties": {
-                  "$ref": "#/$defs/cell"
-                }
-              }
-            },
+            "required": ["cells"],
+            "properties": {"cells": {"type": "object", "minProperties": 1, "additionalProperties": {"$ref": "#/$defs/cell"}}},
             "additionalProperties": true
           }
         }
