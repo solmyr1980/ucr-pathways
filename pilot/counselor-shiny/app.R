@@ -230,6 +230,27 @@ render_comparison <- function(record) {
   )
 }
 
+render_search_shell <- function() {
+  div(
+    brand_header(),
+    div(
+      class = "hero",
+      tags$h1("See how different bachelor’s programmes compare with study options at UCR"),
+      tags$p("Search by bachelor’s programme or by what your student is interested in. Select a programme to see the closest UCR match and two broader ways of combining the field with related subjects and interests.")
+    ),
+    div(
+      class = "search-box",
+      div(
+        class = "search-grid",
+        textInput("search_text", "Search by programme or interest", placeholder = "e.g. Psychology, climate change, artificial intelligence…"),
+        uiOutput("institution_filter")
+      ),
+      div(class = "pilot-note", "Pilot: this search currently contains five programme-provider comparisons. The production app will use the full deterministic comparison library.")
+    ),
+    uiOutput("search_results")
+  )
+}
+
 ui <- fluidPage(
   tags$head(
     tags$meta(name = "viewport", content = "width=device-width, initial-scale=1"),
@@ -269,8 +290,6 @@ server <- function(input, output, session) {
       i <- fetch_json(INTEREST_URL)$interests %||% list()
       programmes(p)
       interests(i)
-      institutions <- sort(unique(vapply(p, function(x) safe_text(x$institution), character(1))))
-      updateSelectInput(session, "institution", choices = c("All", institutions), selected = "All")
     }, error = function(e) {
       load_error("The counselor pilot data could not be loaded from GitHub.")
       message("Counselor pilot data error: ", conditionMessage(e))
@@ -282,32 +301,25 @@ server <- function(input, output, session) {
   })
 
   output$app_body <- renderUI({
-    if (!is.null(selected())) return(render_comparison(selected()))
+    record <- selected()
+    if (!is.null(record)) return(render_comparison(record))
+    render_search_shell()
+  })
 
-    div(
-      brand_header(),
-      div(
-        class = "hero",
-        tags$h1("See how different bachelor’s programmes compare with study options at UCR"),
-        tags$p("Search by bachelor’s programme or by what your student is interested in. Select a programme to see the closest UCR match and two broader ways of combining the field with related subjects and interests.")
-      ),
-      div(
-        class = "search-box",
-        div(
-          class = "search-grid",
-          textInput("search_text", "Search by programme or interest", placeholder = "e.g. Psychology, climate change, artificial intelligence…"),
-          selectInput("institution", "Institution", choices = "All")
-        ),
-        div(class = "pilot-note", "Pilot: this search currently contains five programme-provider comparisons. The production app will use the full deterministic comparison library.")
-      ),
-      if (nzchar(safe_text(load_error()))) {
-        div(class = "no-results", safe_text(load_error()))
-      } else {
-        tagList(
-          div(class = "results-meta", paste0(length(results()), " programme", if (length(results()) == 1) "" else "s", " found")),
-          div(class = "results", render_result_cards(results()))
-        )
-      }
+  output$institution_filter <- renderUI({
+    p <- programmes()
+    institutions <- sort(unique(vapply(p, function(x) safe_text(x$institution), character(1))))
+    selectInput("institution", "Institution", choices = c("All", institutions), selected = input$institution %||% "All")
+  })
+
+  output$search_results <- renderUI({
+    if (nzchar(safe_text(load_error()))) {
+      return(div(class = "no-results", safe_text(load_error())))
+    }
+    found <- results()
+    tagList(
+      div(class = "results-meta", paste0(length(found), " programme", if (length(found) == 1) "" else "s", " found")),
+      div(class = "results", render_result_cards(found))
     )
   })
 
