@@ -6,12 +6,17 @@ import {
   validateExample,
   normalizeCell,
   isComparator,
+  isUcrProgramme,
+  comparatorMetadata,
+  visibleProgrammeLabel,
   linkedinProgrammes,
-  escapeHtml
+  escapeHtml,
+  UCR_DEFAULT_COURSE_EC
 } from './example-utils.mjs';
 
 const root = process.cwd();
 const target = process.argv[2] || 'all';
+const ucrCoursesUrl = 'https://ucr.nl/education/courses/';
 
 const css = [
   fs.readFileSync(path.join(root, 'assets', 'css', 'linkedin.css'), 'utf8'),
@@ -21,6 +26,13 @@ const css = [
 const outputDir = path.join(root, 'output', 'linkedin');
 fs.mkdirSync(outputDir, { recursive: true });
 
+function creditLabel(item, programme) {
+  if (item?.credits !== undefined && item?.credits !== null && String(item.credits).trim()) {
+    return `${item.credits} EC`;
+  }
+  return isUcrProgramme(programme) ? `${UCR_DEFAULT_COURSE_EC} EC` : '';
+}
+
 for (const file of exampleFiles(root, target)) {
   const example = readExample(file);
   const { errors, warnings } = validateExample(example, path.basename(file));
@@ -28,9 +40,10 @@ for (const file of exampleFiles(root, target)) {
   warnings.forEach(message => console.warn(`WARNING: ${message}`));
   if (errors.length) throw new Error(errors.join('\n'));
 
-  const interestLabel = example.display?.interestLabel || 'Your interests';
-  const meta = [example.id.toUpperCase(), example.cohort].filter(Boolean).join(' | ');
+  const interestLabel = example.display?.interestLabel || 'Starting interests';
+  const meta = example.cohort || '';
   const programmes = linkedinProgrammes(example);
+  const comparator = comparatorMetadata(example);
 
   const pages = programmes.map((programme, index) => {
     const sections = example.blocks.map(block => {
@@ -42,25 +55,33 @@ for (const file of exampleFiles(root, target)) {
 
       return `<section class="section">
         <h2>${escapeHtml(block.title)}</h2>
-        <ul>${items.map(item => `<li>${escapeHtml(item.text)}${item.note ? `<span class="item-note">${escapeHtml(item.note)}</span>` : ''}</li>`).join('')}</ul>
+        <ul>${items.map(item => {
+          const ec = creditLabel(item, programme);
+          return `<li>${escapeHtml(item.text)}${ec ? ` <span class="item-note">· ${escapeHtml(ec)}</span>` : ''}${item.note ? `<span class="item-note">${escapeHtml(item.note)}</span>` : ''}</li>`;
+        }).join('')}</ul>
       </section>`;
     }).join('\n');
 
-    const provenance = isComparator(programme)
-      ? `<div class="reference-programme"><a href="${escapeHtml(example.referenceProgramme.primarySourceUrl)}">${escapeHtml(example.referenceProgramme.provenance)} ↗</a></div>`
+    const sourceUrl = isComparator(programme) ? comparator.primarySourceUrl : ucrCoursesUrl;
+    const sourceLabel = isComparator(programme) ? 'Official programme' : 'UCR courses';
+    const source = sourceUrl
+      ? `<div class="reference-programme"><a href="${escapeHtml(sourceUrl)}">${escapeHtml(sourceLabel)} ↗</a></div>`
+      : '';
+
+    const interest = example.interests
+      ? `<div class="interest">${escapeHtml(interestLabel)}: <strong>${escapeHtml(example.interests)}</strong></div>`
       : '';
 
     return `<article class="page${isComparator(programme) ? ' comparator' : ''}">
       <header class="card-head">
-        <div class="kicker">${escapeHtml(meta)}</div>
-        <h1>${escapeHtml(programme.label)}</h1>
-        ${programme.subtitle ? `<p>${escapeHtml(programme.subtitle)}</p>` : ''}
+        ${meta ? `<div class="kicker">${escapeHtml(meta)}</div>` : ''}
+        <h1>${escapeHtml(visibleProgrammeLabel(example, programme))}</h1>
       </header>
-      <div class="interest">${escapeHtml(interestLabel)}: <strong>${escapeHtml(example.interests)}</strong></div>
-      ${provenance}
+      ${interest}
+      ${source}
       <div class="content">${sections}</div>
       ${programme.note ? `<div class="programme-note">${escapeHtml(programme.note)}</div>` : ''}
-      <footer>${index + 1} / ${programmes.length} &nbsp; · &nbsp; UCR Pathways</footer>
+      <footer>${index + 1} / ${programmes.length} &nbsp; · &nbsp; University College Roosevelt</footer>
     </article>`;
   }).join('\n');
 
@@ -68,7 +89,7 @@ for (const file of exampleFiles(root, target)) {
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>${escapeHtml(example.id.toUpperCase())} - UCR Pathways - LinkedIn PDF</title>
+<title>${escapeHtml(example.id.toUpperCase())} - UCR comparison - LinkedIn PDF</title>
 <style>${css}</style>
 </head>
 <body>${pages}</body>
