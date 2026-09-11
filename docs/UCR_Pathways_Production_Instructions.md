@@ -2,219 +2,76 @@
 
 ## Purpose and boundary
 
-These instructions govern the academic production of a UCR Pathways comparison.
+These instructions govern academic production for the UCR Pathways project.
 
-They implement the **UCR Pathways Master Specification** and should not redefine product-level copy, branding, website behavior or publication workflow.
+They implement the **UCR Pathways Master Specification** and should not redefine product-level branding, website behavior or LinkedIn publication mechanics.
+
+They govern two academic production paths:
+
+1. **student workflow** — personalized generation from an actual prospective student's submitted interests;
+2. **counselor workflow** — deterministic generation of one comparison per programme-provider record in the approved Dutch bachelor registry scope.
 
 Use:
 
-- the Master Specification for durable product decisions, approved copy and visual identity;
+- the Master Specification for durable product decisions, copy principles and visual identity;
 - the enriched UCR course database for UCR course evidence and feasibility;
-- current official university sources for the disciplinary reference programme;
-- the current repository schema only when an approved public example record is requested.
+- the Dutch bachelor programme registry and programme-interest enrichment data for counselor scope and discovery metadata;
+- current official university sources for external programme reconstruction;
+- the current repository schemas only when creating records for implementation or public use.
 
-These instructions produce academic records and Open Day outputs. They do **not** publish public examples to GitHub or LinkedIn. The workflow must not depend on a user-maintained local Git clone; repository operations belong to the downstream Web and LinkedIn Workflow and should be performed directly through the connected GitHub repository where available.
+These instructions produce and validate academic records. They do not publish directly to the public website or LinkedIn.
 
 ---
 
-## 1. Inputs
+# 1. Shared academic principles
 
-For Open Day production receive:
+For both workflows:
 
-- `participant_id`;
-- `interest_statement`.
+- construct and validate programme content before designing the visual comparison;
+- use course/component content rather than titles alone;
+- represent genuine gaps honestly;
+- do not manufacture weak UCR matches;
+- do not weaken an external programme to make UCR look better;
+- preserve actual EC weights;
+- show EC credits consistently on both external and UCR components in user-facing comparisons;
+- do not force exact row-by-row or credit-by-credit symmetry;
+- do not fill gaps merely for visual balance;
+- do not introduce research-seminar callouts or exchange opportunities merely to reduce gaps;
+- do not create a special elective-space symmetry rule;
+- use reusable explanatory-note types only when they prevent a material misunderstanding.
 
-The UCR starting semester is configured for the batch rather than supplied per participant.
+Every comparison uses the four stable semantic roles:
 
-Preserve the participant's original wording.
+1. `comparator`;
+2. `ucr-depth`;
+3. `ucr-balanced`;
+4. `ucr-thematic`.
 
-Do not request or collect names or other personal information.
+Visible labels follow the Master Specification rather than exposing these internal role names.
 
-Do not ask follow-up questions.
+---
+
+# 2. Student workflow
+
+## 2.1 Inputs
+
+Receive:
+
+- a stable internal student/participant identifier where needed for delivery;
+- the actual `interest_statement` submitted through the approved intake route;
+- batch/cohort or starting-semester context where applicable.
+
+Preserve the student's original wording exactly.
+
+Do not request or collect names or other unnecessary personal information in the academic record.
 
 Do not assume that the first-mentioned interest is more important.
 
-### 1.1 Synthetic interest portfolios
+Do not require the student to understand UCR's curriculum structure.
 
-When generating synthetic prospective-student interests for testing, demonstrations or curated public-example development, treat the set as a portfolio rather than as unrelated prompts.
+## 2.2 Interpret the student's interests
 
-Use the current enriched UCR course database as a **feasibility filter and substantive boundary, not as the generator of the interests**. Every generated interest must be genuinely supportable by the UCR curriculum, but the wording and initial ideas should originate from plausible prospective-student interests rather than from UCR course titles, track labels, unit names or catalogue order.
-
-Generate synthetic portfolios in this order:
-
-1. **Generate a substantially larger candidate pool independently of the UCR catalogue.** Think from the prospective student's world: school subjects, questions, problems, phenomena, skills, careers, technologies, cultural interests and issues they might care about. Do not walk through the UCR curriculum course by course or track by track while generating candidates.
-2. **Only after candidates exist, test them against the enriched UCR course database.** Keep candidates for which UCR can construct a strong and credible pathway; reject candidates whose central interest is only weakly represented.
-3. **Select the final portfolio from the feasible pool for realism, variety and non-repetition.** Broad curricular coverage is a selection and audit criterion, not a generation template.
-4. **Audit curriculum coverage after generation.** Do not impose equal quotas by UCR track, discipline, unit or administrative category unless a future task explicitly requires such quotas.
-5. **Mix the final order.** The sequence of synthetic interests must not mirror UCR's course, track, unit or database order.
-
-Prevent **catalogue leakage**. Do not copy, lightly paraphrase or single out distinctive words, combinations or topics merely because they appear in course names or catalogue fields. A distinctive term may appear only when it is independently plausible as something a prospective student would actually say. The finished portfolio should not allow a reader to reverse-engineer the UCR course catalogue from the interests.
-
-Write in realistic prospective-student language. Prefer ordinary wording over polished recruitment language. Avoid bombastic formulations such as “I am fascinated by…”. Fragments and compact lists are acceptable because the underlying question is simply “What are your interests?”.
-
-Vary the form of the statements. Across a portfolio, include different combinations of:
-
-- one, two or three interests;
-- disciplines;
-- questions;
-- real-world problems;
-- career directions;
-- practical skills;
-- phenomena;
-- more specific and less decided formulations.
-
-Do not manufacture combinations merely to showcase several UCR fields in one case. Multiple interests should form a psychologically plausible combination that a prospective student might actually give. One-interest statements are valuable and should remain one-interest statements; later pathway generation can broaden them through genuine subfields and neighbouring perspectives.
-
-For the current synthetic portfolio, distribute cases deliberately across the breadth of the UCR curriculum rather than trying to reproduce current applicant demand. Achieve that balance across the **selected portfolio**, not by forcing every individual statement to span several areas and not by deriving a fixed number of statements from each curriculum area. A future portfolio may deliberately use a different distribution, including overrepresenting less visible fields, but only when that distribution is explicitly chosen.
-
-Avoid repetition. Reusing a discipline across cases is inevitable, but do not repeatedly use the same substantive question, combination or wording with only minor variation. Use original combinations where they remain realistic.
-
-Keep the PDF constraint in view. The original interest statement appears on an information-dense A4 page. As a working rule:
-
-- most synthetic statements should be about **6–15 words**;
-- some may extend to about **20–25 words**;
-- longer conversational answers should be occasional exceptions rather than the norm.
-
-Use length and syntax as part of the realism. Mix compact lists, short questions or statements, and a smaller number of conversational responses.
-
-Before finalizing a synthetic portfolio, check all three levels:
-
-1. **Individual plausibility:** could a real prospective student reasonably have written each statement?
-2. **Portfolio coverage:** does the complete set expose the breadth of UCR's actual curriculum without obvious repetition or artificial engineering?
-3. **Catalogue independence:** was the portfolio generated independently enough that its wording, grouping and order do not visibly reproduce UCR course titles or administrative curriculum structure?
-
-### 1.2 Dutch bachelor programme interest enrichment
-
-Maintain Dutch bachelor programme enrichment as two linked tables within the same working workbook or data artefact:
-
-- `Pathways_programmes`: one row per programme-provider record; preserve this source table unchanged during enrichment;
-- a programme-interest table: one row per programme-provider × candidate interest signal.
-
-Do not concatenate all interests into one programme field and do not create numbered fields such as `interest_1`, `interest_2`, and so on.
-
-Use a reliable programme-provider key. A CROHO code alone is not sufficient where the same recognised programme is offered by multiple providers. Preserve the source programme identifiers on every programme-interest row so that each signal remains traceable to the exact programme-provider record.
-
-#### High-recall research objective
-
-For each programme, research current official programme-specific material and preserve a **high-recall set of distinct, evidence-backed candidate interest signals** associated with the programme. There is no target number, top five or fixed maximum. Continue until the available programme-specific evidence reaches substantive saturation, but do not create unsupported or repetitive signals merely to increase the count.
-
-A candidate signal may concern:
-
-- a discipline or field;
-- a substantive question;
-- a phenomenon or real-world problem;
-- a practical, analytical or research skill that could meaningfully shape academic study;
-- a meaningful combination of fields;
-- a substantive route, track, specialisation or thematic direction;
-- an illustrative or changing curricular topic;
-- a career, alumni or further-study direction that demonstrates a plausible academic application or outcome.
-
-The purpose of high recall is to preserve potentially useful long-tail information while recording how strongly each signal belongs to the bachelor itself. Storage and downstream selection therefore use different thresholds: weak-but-real signals may be retained if they are correctly classified.
-
-Exclude general preferences about teaching methods, group work, programme flexibility, international classroom composition, studying abroad, study location, campus life, class size, workload or similar non-academic features. Exclude university-wide honours, extracurricular activities and generic institutional initiatives unless they clearly connect to the academic identity of the specific bachelor programme.
-
-Prefer official programme-facing sources such as:
-
-- the main prospective-student page;
-- programme descriptions and “why choose” material;
-- study-programme and curriculum pages;
-- routes, tracks, minors, specialisations and thematic packages;
-- programme-specific testimonials;
-- programme-specific career and further-study pages;
-- formal programme documents where needed.
-
-Individual course pages, rotating themes, alumni stories and later-study outcomes may be used to preserve long-tail signals, but the resulting signal must be classified according to its actual relationship to the bachelor rather than treated automatically as programme-level evidence.
-
-When official material already expresses a vivid, natural prospective-student question or problem, preserve that substantive wording where possible instead of automatically reducing it to a broad taxonomy label. Prefer ordinary English that a prospective student could plausibly write in response to **“What are your interests?”**.
-
-When using a dated curriculum, EER, handbook, study guide or similar official document, check whether a newer official version is available and prefer the newest current version unless there is a specific reason to retain an older one.
-
-Do not generate signals merely from isolated course titles when richer programme-facing evidence exists. A course-level topic may still be retained when it is substantively evidenced, but classify it as course/curriculum-level rather than inflating it into a programme-level interest.
-
-Split an item when the evidence supports meaningfully distinct candidate interests. Keep concepts together when they naturally form one substantive question or field. Do not atomise coherent ideas merely to increase the number of rows.
-
-#### Relationship classification
-
-Assign exactly one `interest_relationship` category to every retained signal:
-
-1. **Direct programme interest** — The bachelor explicitly presents this field, question, problem, phenomenon, skill or substantive interest as part of its programme identity or as something prospective students can meaningfully come to study. This requires strong programme-level prospective-student evidence.
-2. **Stable study direction** — The signal is supported by a recurring, structurally identifiable direction **within the bachelor itself**, such as a route, track, specialisation, minor, thematic package or equivalent substantial option. A later master's programme or graduate outcome does not by itself qualify a signal for this category.
-3. **Curricular topic** — The topic is genuinely and substantively taught within the bachelor, but the evidence mainly comes from individual subjects or curricular content rather than the programme's broader identity or stable structural directions.
-4. **Illustrative or temporary topic** — The topic appears as a particular example, project, case, changing annual theme, rotating course topic or otherwise contingent piece of programme content.
-5. **Outcome or individual trajectory** — The topic comes primarily from careers, alumni trajectories, master's destinations, later specialisations, professional applications or similar outcomes. It demonstrates something the degree may lead to, but not necessarily an academic interest that the bachelor itself actively targets or structurally offers.
-
-Classify the **relationship between the signal and the bachelor programme**, not merely the webpage on which the evidence appears. For example, an alumni story may mention a direct programme interest that is independently established elsewhere, while a topic on an official curriculum page may still be only illustrative or temporary.
-
-For downstream conservative automatic matching, categories 1–2 are the default core. Category 3 may be added when broader curricular matching is useful. Categories 4–5 remain preserved and searchable but are not normally treated as evidence that the bachelor actively targets that interest.
-
-#### Evidence and storage
-
-Use one row per programme-provider × candidate interest signal. Retain the production columns used in the validated pilot so that completed pilot records remain directly reusable:
-
-`source_excel_row`
-`OPLEIDINGSEENHEIDCODE`
-`ONDERWIJSAANBIEDER_NAAM`
-`ERKENDEOPLEIDINGSCODE`
-`NAAM_LANG`
-`student_interest`
-`evidence`
-`source_title`
-`source_url`
-`strength`
-`interest_relationship`
-
-Copy programme-identification fields directly from the corresponding source row.
-
-In `evidence`, briefly state what the official material says that supports the signal. In `source_title` and `source_url`, record the strongest official source. If several official sources materially contribute, keep them in the same cell separated by ` || ` rather than duplicating an otherwise identical programme-interest row solely because several sources support it.
-
-Retain `strength` for compatibility with the validated pilot and as supplementary provenance, but use `interest_relationship` as the principal downstream distinction. Do not rank interests or create a separate top-interests list.
-
-#### Incremental production and reuse
-
-Treat successfully completed and classified pilot records as production data. Do not discard or regenerate them merely because they originated during method development.
-
-Production must be resumable. Before researching a batch, identify programme-provider records that already have completed classified enrichment and skip them. Reprocess a completed programme only when a specific factual or classification problem has been identified or when its sources have become materially outdated.
-
-For each new batch, perform high-recall research and `interest_relationship` classification in the same operation rather than paying for a second full pass solely to classify the results.
-
-After each batch, apply lightweight quality control across the returned table: programme identity, duplicate pairs, required fields, official-source discipline, valid relationship categories and obvious outliers. Reopen sources only for genuinely questionable cases rather than independently re-researching every accepted row.
-
-This external programme enrichment is an upstream source of plausible prospective-student interests. It does not replace the later UCR feasibility filter: when signals derived from external programmes are used for UCR Pathways cases, test them against the enriched UCR course database before selecting them for a synthetic portfolio.
-
----
-
-## 2. Operating sequence
-
-Work in this order:
-
-1. Interpret the participant's interests academically.
-2. Identify the most defensible disciplinary depth endpoint.
-3. Propose a disciplinary reference programme and the authoritative current source basis.
-4. For a manually supervised run, stop once for human approval of the reference-programme/source basis.
-5. Reconstruct the approved reference programme and choose a coherent participant-relevant path through any available choices.
-6. Construct three progressively broader UCR programmes.
-7. Arrange each UCR programme across six semesters.
-8. Validate all three UCR programmes mechanically against the UCR feasibility rules.
-9. Compare the completed four programmes substantively.
-10. Give all four programmes short participant-specific titles.
-11. Derive comparison blocks, horizontal alignments, deliberate gaps and explanatory notes.
-12. Create the canonical pathway record.
-13. Generate the requested Open Day output from the canonical record.
-14. Only after substantive human review and explicit approval for public use, derive a publication example record when requested.
-
-After the reference-programme/source checkpoint, continue without further routine intermediate interruptions unless an error or material ambiguity requires intervention.
-
-Construct and validate programme content before designing the visual comparison.
-
-Do not maintain separate academic versions for Open Day, website and LinkedIn use.
-
----
-
-## 3. Interpret the participant's interests
-
-Interpret the input academically without requiring the participant to understand UCR's curriculum structure.
-
-Identify, where relevant:
+Produce a concise academic interpretation that identifies, where relevant:
 
 - disciplines;
 - substantive questions;
@@ -222,31 +79,206 @@ Identify, where relevant:
 - practical interests or skills;
 - meaningful connections among them.
 
-Do not force a thematic interest into one discipline merely because that makes course selection easier.
+For one stated interest, broaden through meaningful subfields, questions and neighbouring perspectives rather than inventing a second interest.
 
-Do not manufacture weak UCR matches where an interest is poorly represented.
+Preserve both:
 
-For one stated interest, broaden through meaningful subfields, questions and neighbouring perspectives rather than inventing another interest.
+- the original student wording; and
+- the academic interpretation.
 
----
+These are distinct fields. The interpretation must not replace the original statement.
 
-## 4. Disciplinary reference programme
+## 2.3 Select the external comparator
 
-### 4.1 Choose the reference programme
-
-Choose the disciplinary bachelor that provides the most useful depth endpoint for the participant's interests.
+Choose the Dutch bachelor that provides the most useful disciplinary/depth endpoint for the student's interests.
 
 Do not automatically choose the discipline mentioned first.
 
-For the pilot, prefer a current Dutch research-university bachelor where suitable.
+Prefer a current Dutch research-university bachelor where suitable.
 
-### 4.2 Establish the source basis
+For a manually supervised student run, propose the external programme and authoritative source basis for approval before full generation continues, unless an approved automated production configuration explicitly removes that checkpoint.
 
-First check whether a suitable current verified reference-programme record exists in the available project sources.
+## 2.4 Student operating sequence
 
-If one exists, use it as the primary factual basis and consult current official sources when it is incomplete, ambiguous, outdated or materially conflicts with current information.
+Work in this order:
 
-If no suitable verified record exists, reconstruct the programme from current official university sources.
+1. preserve and interpret the student's interests;
+2. identify the most defensible external comparator;
+3. establish and, where required, approve its authoritative source basis;
+4. reconstruct one coherent valid pathway through that external programme;
+5. construct `ucr-depth` as the closest feasible UCR match while responding meaningfully to the student's interests;
+6. construct `ucr-balanced` with substantially more balanced weight across the student's interests;
+7. construct `ucr-thematic` from questions/themes connecting those interests;
+8. schedule and mechanically validate all three UCR programmes;
+9. compare all four completed curricula;
+10. assign student-facing descriptive labels;
+11. create the canonical student record;
+12. generate the requested student-app/PDF representations from that record;
+13. only after explicit public approval, derive a publication-safe record when requested.
+
+---
+
+# 3. Counselor workflow
+
+## 3.1 Unit of production
+
+The unit of counselor production is one **programme-provider record** from the approved registry scope.
+
+A recognized programme offered by different providers remains separate when the registry provides distinct programme-provider records.
+
+Process records in existing worksheet order. Do not prioritize by:
+
+- UCR fit;
+- number of blank comparison cells;
+- applicant popularity;
+- institution;
+- discipline;
+- expected marketing value.
+
+Production should be resumable. Skip programme-provider records for which a completed current comparison already exists unless a specific factual or quality problem requires regeneration.
+
+## 3.2 Counselor inputs
+
+For each programme-provider record receive/preserve, as available:
+
+- source worksheet row/order;
+- programme-provider identifier;
+- recognized programme identifier;
+- programme name;
+- provider/institution name;
+- degree type and other registry metadata used for discovery/filtering;
+- associated programme-interest rows.
+
+The associated interests support **search/discovery**. They are not an individual student's input and must not personalize the fixed comparison.
+
+## 3.3 Reconstruct the selected external programme
+
+The comparator is predetermined by the programme-provider record. Do not select a different comparator because another programme would make a stronger UCR contrast.
+
+Use current official sources for the exact provider.
+
+If the programme cannot be reconstructed with reasonable confidence, flag the record for exception review rather than guessing or silently substituting another provider.
+
+Where formal routes/tracks/specializations exist, choose one coherent representative pathway using current official rules. Record the chosen route and source basis internally.
+
+When choices are genuinely open, preserve that openness rather than inventing a fictitious set of electives.
+
+## 3.4 Construct the three deterministic UCR alternatives
+
+### `ucr-depth` — closest match
+
+Construct the feasible UCR programme that most closely reproduces the substantive core, progression and methods of the selected external programme.
+
+Depth includes foundations, methods, research training and advanced specialization where UCR genuinely provides them.
+
+Do not define closeness merely by counting course labels.
+
+### `ucr-balanced` — field plus related subjects
+
+Retain a substantial core of the external field while deliberately adding closely related UCR subjects that broaden the academic perspective.
+
+The related subjects must be substantively defensible from the comparator's field, programme-interest evidence or neighbouring academic questions. Do not invent unrelated breadth merely to create visual difference.
+
+### `ucr-thematic` — broader programme
+
+Construct the broadest coherent UCR programme connected to the external programme's field, questions, applications and evidenced associated interests.
+
+It should demonstrate how UCR can bring relevant perspectives together without implying that the external bachelor itself contains all of those perspectives.
+
+## 3.5 Counselor operating sequence
+
+For each programme-provider record:
+
+1. identify the next unprocessed record in registry order;
+2. confirm programme identity/provider and current official source basis;
+3. reconstruct a coherent valid external curriculum/pathway;
+4. construct the three deterministic UCR alternatives;
+5. schedule and mechanically validate all three UCR programmes;
+6. compare all four completed curricula;
+7. assign the approved descriptive labels;
+8. select a reusable explanatory-note type only if needed;
+9. create the canonical counselor record with registry identifiers;
+10. add/update the deterministic comparison library;
+11. run structural and academic quality control;
+12. flag exceptions rather than inventing missing facts.
+
+There is no student-specific personalization step in this workflow.
+
+---
+
+# 4. Dutch bachelor programme-interest enrichment
+
+Maintain Dutch bachelor programme enrichment as two linked tables within the same working workbook or data artefact:
+
+- `Pathways_programmes`: one row per programme-provider record;
+- `programme_interests`: one row per programme-provider × candidate interest signal.
+
+Use a reliable programme-provider key. A CROHO/recognized-programme code alone is not sufficient where the same programme is offered by multiple providers.
+
+## 4.1 High-recall research objective
+
+For each programme preserve a high-recall set of distinct, evidence-backed candidate interest signals associated with the programme.
+
+A signal may concern:
+
+- a discipline or field;
+- a substantive question;
+- a phenomenon or real-world problem;
+- a practical, analytical or research skill;
+- a meaningful combination of fields;
+- a stable route, track, specialization or thematic direction;
+- an illustrative/changing curricular topic;
+- a career, alumni or further-study direction demonstrating plausible application/outcome.
+
+Prefer current official programme-facing sources.
+
+Do not create signals from isolated course titles when richer programme-facing evidence exists.
+
+Exclude generic preferences about teaching method, group work, campus life, location, class size, workload or similar non-academic features.
+
+## 4.2 Relationship classification
+
+Assign exactly one `interest_relationship` category:
+
+1. **Direct programme interest**;
+2. **Stable study direction**;
+3. **Curricular topic**;
+4. **Illustrative or temporary topic**;
+5. **Outcome or individual trajectory**.
+
+Classify the relationship between the signal and the bachelor, not merely the webpage type.
+
+For conservative counselor search ranking, categories 1–2 are the default core. Category 3 may broaden discovery. Categories 4–5 remain searchable but receive lower confidence/priority.
+
+Retain `strength` for compatibility/provenance where present, but use `interest_relationship` as the principal downstream distinction.
+
+## 4.3 Search use
+
+The programme-interest data provides a discovery index:
+
+`interest query → ranked programme-provider records → fixed counselor comparison`
+
+Do not use the interest query to regenerate the comparison.
+
+---
+
+# 5. Synthetic interest portfolios
+
+Synthetic interests may still be used for testing, demonstrations or curated public-example development.
+
+Generate candidates independently of the UCR catalogue, then use the enriched UCR course database as a feasibility filter rather than as the generator of the wording.
+
+Prefer realistic prospective-student language and vary statement form and specificity.
+
+Avoid catalogue leakage and repetitive combinations.
+
+Synthetic interests are not a substitute for actual student input in the production student app.
+
+---
+
+# 6. External programme evidence and reconstruction
+
+Use current official university sources.
 
 Prefer:
 
@@ -256,74 +288,41 @@ Prefer:
 4. official course-catalogue entries;
 5. general prospective-student programme pages.
 
-Do not use rankings, aggregators or unofficial summaries to establish programme structure.
-
-Prefer a primary official source that makes the selected programme and its structure easy for a reviewer to verify. Use additional official sources where necessary.
-
-If the programme cannot be reconstructed with reasonable confidence, choose another defensible reference programme rather than guessing.
-
-### 4.3 Human checkpoint
-
-For a manually supervised run, present:
-
-- the proposed reference programme;
-- institution;
-- proposed primary official source;
-- any additional official sources materially needed.
-
-Obtain approval for that reference-programme/source basis before full generation continues.
-
-This is the only routine intermediate academic checkpoint.
-
-### 4.4 Reconstruct before selecting
-
-Distinguish:
+For each comparator distinguish:
 
 - compulsory components;
 - restricted choices;
-- routes, tracks or specializations;
-- genuinely free elective or profiling space;
+- routes/tracks/specializations;
+- genuinely free elective/profiling space;
 - methods and research training;
-- thesis or capstone requirements;
-- relevant credit weights.
-
-Where the programme permits choices, select one coherent valid pathway that responds reasonably to the participant's interests.
-
-Give the reference programme the same reasonable opportunity for personalization that UCR receives.
+- thesis/capstone requirements;
+- relevant EC weights.
 
 Never:
 
 - present optional components as compulsory;
-- combine mutually exclusive options;
+- combine mutually exclusive choices;
 - violate programme rules;
-- deliberately select weak options to make UCR look better;
-- invent courses to fill genuinely open elective space;
-- make the reference programme artificially narrow.
+- choose weak options to make UCR look better;
+- invent courses to fill open space;
+- make the programme artificially narrow.
 
-Represent genuinely open space explicitly, for example:
-
-`Profiling space — 45 EC`
-
-### 4.5 Record provenance and verification
-
-Preserve the approved Reference programme provenance required by the Master Specification.
-
-Record internally, where relevant:
+Preserve internally, where relevant:
 
 - programme name;
-- institution;
+- institution/provider;
+- programme-provider identifiers;
 - primary official source URL;
 - additional official source URLs;
-- academic or curriculum year;
+- academic/curriculum year;
 - date checked;
+- route/track/specialization selected;
 - source notes;
-- selected route, track or specialization;
-- validation notes about the selected pathway;
-- reviewer-approval status.
+- validation/exception notes.
 
 ---
 
-## 5. UCR course evidence
+# 7. UCR course evidence
 
 Use the enriched UCR course database as the authoritative source for UCR course selection and feasibility.
 
@@ -336,53 +335,18 @@ Use, as relevant:
 - `methods`;
 - `description2`;
 - prerequisites;
-- planned semester availability.
+- planned semester availability;
+- EC/credit information where present.
 
 Give outline-derived `profile` information particular weight where available.
 
 Use course content rather than administrative cluster or unit labels.
 
-Course level may be derived from the course code.
-
 Do not infer fit from a title alone when richer course evidence points elsewhere.
 
 ---
 
-## 6. Construct the three UCR programmes
-
-### 6.1 Greatest disciplinary depth
-
-Construct the feasible UCR programme that remains closest to the disciplinary anchor while responding meaningfully to the participant's other interests.
-
-Depth includes foundations, progression, discipline-relevant methods, research training and advanced specialization.
-
-Do not define depth merely by counting courses carrying one disciplinary label.
-
-### 6.2 Balanced interests
-
-Give the participant's stated interests substantially more balanced weight.
-
-Do not mechanically divide courses equally among interests.
-
-### 6.3 Thematic breadth
-
-Start from the questions, problems and themes contained in or connecting the participant's interests rather than predetermined disciplinary quotas.
-
-Search across the whole UCR curriculum for substantively useful perspectives.
-
-The result should normally be the broadest UCR programme while remaining coherent and recognizably connected to the original input.
-
-Do not include courses merely to increase apparent variety.
-
-### 6.4 Participant-specific titles
-
-After constructing all four programmes, give each a short title describing what it actually does.
-
-Do not use the generic internal categories as the final programme titles.
-
----
-
-## 7. UCR feasibility validation
+# 8. UCR feasibility validation
 
 Each UCR programme must contain:
 
@@ -399,7 +363,7 @@ Also require:
 
 Do not invent requirements concerning clusters, units, concentrations, breadth or disciplinary distributions.
 
-Use data-analysis/code against the enriched UCR course database to validate:
+Use data-analysis/code against the enriched UCR course database to validate mechanically:
 
 - 24-course total;
 - uniqueness;
@@ -410,37 +374,25 @@ Use data-analysis/code against the enriched UCR course database to validate:
 - prerequisite order;
 - actual semester availability.
 
-If validation fails, repair the programme and run validation again.
+If validation fails, repair and validate again. Do not export a knowingly invalid UCR programme.
 
-Do not export a knowingly invalid UCR programme.
-
-Repository validation is not a substitute for this academic validation.
+Repository/schema validation is not a substitute for academic feasibility validation.
 
 ---
 
-## 8. Compare the completed curricula
+# 9. Compare the completed curricula
 
 Construct and validate all four programmes before building the comparison.
 
-Apply the same substantive classification principles to the reference programme and UCR programmes.
-
-Use content rather than titles alone.
-
 Treat methods, statistics, mathematics, econometrics, laboratory work and research training as part of disciplinary depth where they genuinely serve that role.
 
-Do not assume that one reference-programme component equals one UCR course.
+Do not assume one comparator component equals one UCR course.
 
-Preserve actual component weights, including 5, 7.5, 10 or other EC values.
+Preserve actual EC weights and show credits consistently on both sides in rendered comparison components.
 
-Do not distort either curriculum to force exact row-by-row or credit-by-credit correspondence.
+## 9.1 Comparison blocks
 
-Do not use proportional course-box scaling as a general encoding of credit weight. Show EC values or concise notes where component size matters.
-
-### 8.1 Comparison blocks
-
-Derive meaningful substantive blocks from the completed curricula.
-
-Possible blocks include:
+Derive meaningful substantive blocks from the completed curricula, such as:
 
 - major disciplines;
 - methods and research;
@@ -450,207 +402,222 @@ Possible blocks include:
 
 Do not create a broad theme that merely renames an existing disciplinary block.
 
-### 8.2 Alignments and gaps
+## 9.2 Alignments and gaps
 
 Within blocks:
 
 - align substantively comparable components horizontally;
 - preserve meaningful blank cells;
-- do not fill gaps merely for visual symmetry;
-- label genuinely open elective or profiling space explicitly;
-- show credit weights where omitting them would materially distort the comparison.
+- do not fill gaps for visual symmetry;
+- preserve genuine structural differences;
+- label genuinely open space where necessary for fair interpretation;
+- show credit weights consistently.
 
-Do not use numerical depth or breadth scores.
+Do not use numerical depth/breadth scores.
 
 ---
 
-## 9. Canonical pathway record
+# 10. Reusable explanatory-note taxonomy
 
-Create one canonical structured pathway record before rendering any output.
+Do **not** write a bespoke prose note for every counselor comparison.
 
-The canonical record is the authoritative academic representation of the case.
+Use a small semantic taxonomy. A note is optional and should appear only when a material difference could otherwise be misunderstood.
 
-Associate `participant_id` with the record internally for Open Day delivery and file naming. It is not part of the public academic comparison.
+Store the note type and parameters where practical; render the final sentence/paragraph from the template.
+
+## 10.1 `less-disciplinary-depth`
+
+Use when UCR covers the field but the external programme provides a materially deeper specialist sequence.
+
+Template:
+
+> The [external programme] includes a more extensive sequence in [specialist areas]. At UCR, students can study [relevant UCR areas], but UCR does not offer the same depth or sequence in [field].
+
+## 10.2 `related-fields-not-full-discipline`
+
+Use when UCR approaches the central subject/problem through related disciplines rather than offering the full disciplinary curriculum.
+
+Template:
+
+> The [external programme] combines [key components]. At UCR, students can approach [central subject/problem] through fields such as [relevant UCR fields]. These programmes therefore offer related perspectives rather than reproducing a full [discipline] curriculum.
+
+## 10.3 `missing-specialist-components`
+
+Use when UCR provides a substantial core match but lacks particular specialist components.
+
+Template:
+
+> Both programmes include substantial study of [shared field]. The [external programme] additionally includes specialist work in [missing areas]. UCR students can instead combine [UCR strengths], but those specialist components are not offered at the same level of depth.
+
+## 10.4 `different-curricular-structure`
+
+Use when similar substantive territory is organized differently.
+
+Template:
+
+> The [external programme] organizes study around a structured sequence in [discipline/route]. At UCR, comparable subjects are distributed across courses in [fields]. The UCR programme therefore covers related territory through a different curricular structure rather than reproducing the external programme course by course.
+
+## 10.5 Note-generation rules
+
+- Populate only evidenced parameters.
+- Do not exaggerate equivalence.
+- Do not hide genuine absence behind generic wording.
+- Do not mention research seminars, exchange opportunities or elective-space symmetry merely because those were once suggested as comparison devices.
+- Omit the note entirely when the comparison is already self-explanatory.
+
+---
+
+# 11. Canonical records
+
+Create one canonical structured record before rendering any output.
+
+## 11.1 Shared core
 
 Preserve at minimum:
 
-- original `interest_statement`;
-- relevant cohort or starting-semester context;
-- four programme identities, semantic roles and participant-specific titles;
-- reference-programme components, relevant notes and credit weights;
-- Reference programme provenance and internal verification metadata;
+- stable record ID;
+- `origin` (`student` or `counselor`);
+- four programme identities and semantic roles;
+- comparator name, institution/provider and approved official URL;
+- comparator components and relevant EC values;
 - complete 24-course set for each UCR programme;
-- six-semester schedule for each UCR programme, including course name, code where available and level;
-- substantive comparison blocks;
-- horizontal alignments and deliberate gaps;
-- explanatory or source notes needed for fair interpretation;
-- academic validation status.
+- six-semester schedule for each UCR programme;
+- UCR course credits where available/required;
+- comparison blocks;
+- alignments and deliberate gaps;
+- explanatory-note type/parameters or rendered note where needed;
+- academic validation status;
+- internal source/verification metadata.
 
-The record should contain content and semantic structure, not renderer-specific coordinates, CSS or page geometry.
+## 11.2 Student-origin additions
 
-Do not alter programme content later merely to make a renderer look more symmetrical.
+Preserve:
 
-Canonical records must remain non-public and must not be stored in the public GitHub repository. They are working production records rather than repository content. The production workflow should not require a user-maintained local Git clone merely to hold them.
+- original `interest_statement`;
+- academic interpretation;
+- internal delivery identifier where required;
+- relevant cohort/starting-semester context.
 
----
+Canonical student records remain private.
 
-## 10. Open Day output
+## 11.3 Counselor-origin additions
 
-Generate the Open Day PDF from the completed canonical record.
+Preserve:
 
-Follow the durable Open Day output requirements, approved copy and visual identity in the Master Specification.
+- source registry row/order;
+- programme-provider identifier;
+- recognized programme identifier;
+- other join keys required to connect the record to programme metadata and programme-interest search indexes.
 
-Use A4 portrait and two pages.
+Counselor records are deterministic library content but are not automatically public website/LinkedIn examples.
 
-### 10.1 Page 1
-
-Show:
-
-- participant ID;
-- original interest statement;
-- approved comparison sentence;
-- approved Reference programme provenance;
-- four participant-specific programme titles;
-- comparison blocks, alignments, deliberate gaps and relevant notes;
-- credit information where needed.
-
-Show the four programmes in the settled order.
-
-Do not organize page 1 by semester.
-
-Where PDF links are supported, link the Reference programme provenance to the approved official primary source.
-
-### 10.2 Page 2
-
-Show the same three UCR programmes used on page 1.
-
-For each programme show six semesters with exactly four courses per semester.
-
-For each course show:
-
-- course name;
-- level.
-
-Course codes may be omitted visibly unless needed for clarity, but should remain in the canonical record where available.
-
-### 10.3 Call to action and filename
-
-Use the UCR Program Builder destination defined in the Master Specification.
-
-Do not imply persistence unless it has actually been implemented.
-
-Use the participant ID as the PDF filename, for example:
-
-`P-037.pdf`
+The canonical record contains semantic content, not renderer coordinates, CSS or page geometry.
 
 ---
 
-## 11. Public example export
+# 12. Student-app and optional PDF output
 
-Open Day records are not automatically public.
+Render the student interface from the canonical student record.
 
-Prepare a publication example record only after substantive human review and explicit approval for public use.
+The welcome view must preserve the distinction between:
 
-Derive it from the canonical pathway record.
+- **You told us that…** — original wording;
+- **For us, this means that…** — academic interpretation.
 
-Do not:
+Provide the personalized programme view and comparison view from the same record.
+
+Use the placeholder disclaimer until approved final wording is supplied:
+
+> **[PLACEHOLDER — insert approved student-program disclaimer from the printed butterfly.]**
+
+Existing Open Day/two-page PDF output may continue as an optional renderer where useful. It must draw from the same canonical record rather than maintain independent academic content.
+
+---
+
+# 13. Counselor library and discovery indexes
+
+The counselor comparison library contains the fixed canonical/implementation record for each completed programme-provider case.
+
+Maintain discovery data separately from comparison content:
+
+- programme metadata/index;
+- programme-interest index;
+- deterministic comparison records.
+
+Do not flatten all interests into the comparison record merely for search convenience.
+
+Search results always resolve to programme-provider records and then load the pre-produced comparison.
+
+---
+
+# 14. Public export
+
+Neither workflow publishes automatically.
+
+Prepare a public publication record only after substantive human review and explicit approval for public use.
+
+The normal public source is a selected counselor record. A student-origin record may be exported only when privacy-safe and explicitly approved.
+
+Derive the public record from the canonical comparison. Do not:
 
 - reselect courses;
-- rewrite the substantive comparison;
 - rebuild alignments independently;
-- expose registration identity;
+- expose private student/delivery identity;
 - invent renderer-specific academic content.
 
-Conform to the current repository example schema.
-
-Preserve the approved:
-
-- interest statement;
-- four programme roles and titles;
-- Reference programme provenance and primary public source;
-- comparison blocks;
-- alignments;
-- deliberate gaps;
-- relevant notes.
-
-Use a publication-safe example ID.
-
-Include UCR schedules only when the current repository contract or renderer needs them. The complete schedules remain mandatory in the canonical record.
-
-The website and LinkedIn PDF render downstream from this approved publication record.
+The public website and LinkedIn render downstream from the same approved public record when they present the same case.
 
 ---
 
-## 12. Final validation
+# 15. Final validation
 
-Before export, confirm all relevant checks.
+Before marking a record complete, confirm the relevant checks.
 
-### Reference programme
+## External programme
 
-Confirm:
+- correct programme-provider identity;
+- current authoritative official source basis;
+- compulsory/restricted/open components distinguished correctly;
+- selected route/path valid;
+- EC weights represented fairly;
+- no invented components;
+- provenance/source metadata recorded.
 
-- current verified record or authoritative official sources;
-- approved primary source is reasonably easy to verify;
-- source-basis approval occurred where the manually supervised checkpoint applies;
-- compulsory, restricted and free components are distinguished correctly;
-- selected pathway is valid;
-- open elective space is not invented;
-- methods, research, thesis and component sizes are represented fairly;
-- provenance and verification metadata are recorded.
+## UCR programmes
 
-### UCR programmes
+- all mechanical feasibility checks pass;
+- `ucr-depth` is genuinely the closest feasible match;
+- `ucr-balanced` broadens through defensible related subjects/interests;
+- `ucr-thematic` is genuinely broader while remaining coherent;
+- progression arises from course content rather than quotas.
 
-Confirm the mechanical academic validation has passed for all three programmes.
-
-### Progression
-
-Confirm:
-
-- first UCR programme genuinely offers the greatest feasible disciplinary depth;
-- second gives the stated interests substantially more balanced weight;
-- third is genuinely broader and theme-led without becoming incoherent;
-- progression comes from course content rather than arbitrary quotas.
-
-### Comparison
-
-Confirm:
+## Comparison
 
 - same substantive classification principles across all four programmes;
-- alignments are justified;
-- genuine gaps remain;
-- open elective space is labelled;
-- credit-weight differences are not visually misleading.
+- alignments justified;
+- genuine gaps preserved;
+- EC shown consistently on external and UCR components;
+- explanatory note used only when needed and generated from an approved template.
 
-### Canonical record
+## Student records
 
-Confirm:
+- original input preserved verbatim;
+- academic interpretation stored separately;
+- privacy/delivery data kept out of public records;
+- placeholder/final disclaimer handled correctly.
 
-- complete approved academic content is present;
-- schedules match comparison content;
-- blocks and alignments match completed curricula;
-- validation status is recorded;
-- renderer-specific content has not become a second source of programme facts.
+## Counselor records
 
-### Open Day output
+- correct registry row/programme-provider key;
+- no accidental personalization from an interest query;
+- discovery interests remain linked rather than becoming programme claims;
+- record order/resumability preserved.
 
-Confirm:
-
-- page 1 and page 2 use the same three UCR programmes;
-- page 2 has four courses per semester;
-- participant ID and original interest statement are correct;
-- approved singular/plural wording is used;
-- Reference programme provenance is correct and linked where supported;
-- Program Builder destination is correct.
-
-### Public example, when requested
-
-Confirm:
+## Public export, when requested
 
 - explicit public-use approval;
-- no registration identity;
+- privacy-safe content;
 - current repository schema conformity;
-- settled semantic roles;
-- approved Reference programme provenance;
-- no substantive reinterpretation of the canonical comparison.
+- no substantive reinterpretation during export.
 
-Only then export the requested artifact.
+Only then release the requested artifact or library record.
