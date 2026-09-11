@@ -57,7 +57,7 @@ for (const file of exampleFiles(root, target)) {
         <h2>${escapeHtml(block.title)}</h2>
         <ul>${items.map(item => {
           const ec = creditLabel(item, programme);
-          return `<li>${escapeHtml(item.text)}${ec ? ` <span class="item-note">· ${escapeHtml(ec)}</span>` : ''}${item.note ? `<span class="item-note">${escapeHtml(item.note)}</span>` : ''}</li>`;
+          return `<li>${escapeHtml(item.text)}${ec ? ` <span class="item-credit">· ${escapeHtml(ec)}</span>` : ''}${item.note ? `<span class="item-note">${escapeHtml(item.note)}</span>` : ''}</li>`;
         }).join('')}</ul>
       </section>`;
     }).join('\n');
