@@ -1,4 +1,3 @@
-Sys.setenv(UCR_PILOT_LOCAL_DATA = "true")
 student <- new.env()
 counselor <- new.env()
 source("pilot/shiny/app.R", local = student)
@@ -10,12 +9,16 @@ for (entry in codes$entries) {
 stopifnot(is.null(student$find_example_id(codes, "invalid")))
 stopifnot(identical(student$course_level(3), "300-level"))
 
-programmes <- counselor$fetch_json(counselor$PROGRAMME_URL)$programmes
-interests <- counselor$fetch_json(counselor$INTEREST_URL)$interests
-stopifnot(length(counselor$search_programmes(programmes, interests)) == 5)
-stopifnot(length(counselor$search_programmes(programmes, interests, language = "NLD")) == 2)
-stopifnot(length(counselor$search_programmes(programmes, interests, query = "zzzzzzzz")) == 0)
+# Counselor data must be local, process-level and pre-indexed.
+stopifnot(file.exists(counselor$PROGRAMME_FILE), file.exists(counselor$INTEREST_FILE))
+stopifnot(!grepl("^https?://", counselor$PROGRAMME_FILE), !grepl("^https?://", counselor$INTEREST_FILE))
+stopifnot(length(counselor$COUNSELOR_DATA$programmes) == 5)
+stopifnot(length(counselor$search_programmes(counselor$COUNSELOR_DATA)) == 5)
+stopifnot(length(counselor$search_programmes(counselor$COUNSELOR_DATA, language = "NLD")) == 2)
+stopifnot(length(counselor$search_programmes(counselor$COUNSELOR_DATA, query = "zzzzzzzz")) == 0)
 stopifnot(counselor$relationship_weight("Direct programme interest") > counselor$relationship_weight("Outcome or individual trajectory"))
+stopifnot(all(vapply(counselor$COUNSELOR_DATA$programmes, function(x) nzchar(x$searchNorm), logical(1))))
+stopifnot(file.exists(counselor$comparison_path("p-001")))
 
 for (id in sprintf("p-%03d", 1:5)) {
   record <- jsonlite::fromJSON(paste0("data/examples/", id, ".json"), simplifyVector = FALSE)
