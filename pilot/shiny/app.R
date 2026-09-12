@@ -169,9 +169,32 @@ render_schedule <- function(record, programme) {
   )
 }
 
+student_ucr_programmes <- function(record) {
+  roles <- c("ucr-depth", "ucr-balanced", "ucr-thematic")
+  programmes <- record$programmes %||% list()
+  ordered <- lapply(roles, function(role) {
+    matches <- Filter(function(p) identical(p$role, role), programmes)
+    if (length(matches)) matches[[1]] else NULL
+  })
+  Filter(Negate(is.null), ordered)
+}
+
+render_programme_options <- function(record) {
+  programmes <- student_ucr_programmes(record)
+  if (!length(programmes)) return(div(class = "load-error", "No personalized UCR programme options are available in this record."))
+
+  option_tabs <- lapply(programmes, function(programme) {
+    tabPanel(visible_label(record, programme), render_schedule(record, programme))
+  })
+
+  div(
+    class = "programme-options",
+    tags$p(class = "tab-copy", "Choose an option below to inspect its complete six-semester programme."),
+    do.call(tabsetPanel, c(list(id = "programme_option", type = "tabs"), option_tabs))
+  )
+}
+
 render_student_record <- function(record) {
-  depth <- Filter(function(p) identical(p$role, "ucr-depth"), record$programmes %||% list())
-  depth <- if (length(depth)) depth[[1]] else NULL
   interpretation <- safe_text(record$interestInterpretation)
 
   fluidRow(
@@ -184,7 +207,7 @@ render_student_record <- function(record) {
           class = "intro-row",
           div(
             tags$h1("We are happy to share your personalized programme options."),
-            tags$p(class = "lede", "Explore a possible UCR programme, then see how it compares with another Dutch bachelor and two broader UCR alternatives.")
+            tags$p(class = "lede", "Explore three possible UCR programmes built around your interests, then see how they compare with another Dutch bachelor.")
           ),
           actionButton("reset_pathway", "Use another code", class = "secondary-button")
         ),
@@ -205,12 +228,12 @@ render_student_record <- function(record) {
           id = "student_view",
           type = "pills",
           tabPanel(
-            "View my personalized programme",
-            if (!is.null(depth)) render_schedule(record, depth) else div(class = "load-error", "No personalized UCR programme is available in this record.")
+            "View my personalized programme options",
+            render_programme_options(record)
           ),
           tabPanel(
-            "See how this programme compares",
-            tags$p(class = "tab-copy", "This comparison shows another Dutch bachelor alongside three UCR programmes, from the closest match to broader ways of combining relevant subjects."),
+            "See how these options compare",
+            tags$p(class = "tab-copy", "This comparison shows another Dutch bachelor alongside your three UCR programme options, from the closest match to broader ways of combining relevant subjects."),
             render_compare_table(record),
             render_comparison_notes(record),
             tags$p(class = "source-note", "Blank cells indicate that no sufficiently comparable named component is shown in that position. These are illustrative UCR programmes, not official tracks or guaranteed future schedules.")
@@ -233,7 +256,7 @@ render_student_record <- function(record) {
 ui <- fluidPage(
   tags$head(
     tags$meta(name = "viewport", content = "width=device-width, initial-scale=1"),
-    tags$title("Your personalized UCR programme"),
+    tags$title("Your personalized UCR programme options"),
     tags$style(HTML("
       html, body { margin:0; background:var(--white); color:var(--black); font-family:Inter,Arial,sans-serif; }
       body::before { content:''; display:block; height:24px; background:var(--plum); }
@@ -261,6 +284,8 @@ ui <- fluidPage(
       .nav-pills { margin-bottom:20px; }
       .nav-pills>li>a { color:var(--plum); border-radius:9px; font-weight:700; }
       .nav-pills>li.active>a,.nav-pills>li.active>a:hover,.nav-pills>li.active>a:focus { background:var(--plum); }
+      .programme-options .nav-tabs { margin-bottom:18px; }
+      .programme-options .nav-tabs>li>a { color:var(--plum); font-weight:700; }
       .programme-view-heading { display:flex; align-items:baseline; justify-content:space-between; gap:18px; border-left:6px solid var(--plum); padding:3px 0 3px 15px; margin-bottom:15px; }
       .programme-view-heading h2 { margin:0; font-size:29px; }
       .programme-view-heading a,.programme-source { color:var(--plum); text-decoration:underline; font-size:12px; }
@@ -324,10 +349,10 @@ server <- function(input, output, session) {
         div(
           class = "access-card",
           brand_header(),
-          tags$h1("Your personalized programme"),
-          tags$p("Enter the code you received to open the programme options prepared around your interests."),
+          tags$h1("Your personalized programme options"),
+          tags$p("Enter the code you received to open the three UCR programme options prepared around your interests."),
           textInput("access_code", label = "Your access code", placeholder = "UCR-XXXX-XXXX-XXXX-XXXX"),
-          actionButton("unlock_pathway", "Open my programme", class = "btn-primary"),
+          actionButton("unlock_pathway", "Open my programme options", class = "btn-primary"),
           uiOutput("access_error_ui")
         )
       ))
