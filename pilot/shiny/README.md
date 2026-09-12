@@ -9,7 +9,7 @@ The user-facing interface intentionally uses UCR branding without a visible Path
 - a student enters a student-specific access code;
 - the app retrieves the matching structured comparison record from GitHub;
 - the welcome view preserves the student's original wording and provides a separate place for the academic interpretation;
-- the first substantive view is the closest-match personalized UCR semester programme;
+- the first substantive view presents all three personalized UCR programme options in semester-by-semester format, ordered from closest match to broader alternatives and navigable through separate programme tabs;
 - the student can switch to the four-programme comparison without regenerating content;
 - comparison headings use the new descriptive labels;
 - the external programme heading links to its approved official source;
@@ -56,7 +56,7 @@ Formatting is forgiving: spaces and hyphens are ignored and letter case does not
 
 The pilot reads comparison fixtures from `data/examples/`, access codes from `pilot/shiny/data/access_codes.json`, and course descriptions from department files under `pilot/shiny/data/courses/`.
 
-Both views preserve material comparison notes. The programme view shows course levels as 100/200/300-level, and “Speak to Admissions” links to UCR's meeting-booking page.
+Both views preserve material comparison notes. Each programme-option tab shows the full six-semester schedule with course levels as 100/200/300-level, and “Speak to Admissions” links to UCR's meeting-booking page.
 
 ## Production privacy boundary
 
