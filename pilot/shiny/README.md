@@ -38,7 +38,7 @@ From the repository root:
 shiny::runApp("pilot/shiny")
 ```
 
-An internet connection is required because the pilot retrieves current data from GitHub.
+Run from a complete repository checkout. Both pilots serve the shared UCR logo, fonts and CSS from the local `assets/` directory and load shared presentation helpers from `pilot/shared.R`. An internet connection is required for normal retrieval of current data from GitHub. For offline development/tests, set `Sys.setenv(UCR_PILOT_LOCAL_DATA = "true")` before starting the app; this uses the checkout's fixtures instead.
 
 ## Pilot codes
 
@@ -55,6 +55,8 @@ Formatting is forgiving: spaces and hyphens are ignored and letter case does not
 ## Data sources
 
 The pilot reads comparison fixtures from `data/examples/`, access codes from `pilot/shiny/data/access_codes.json`, and course descriptions from department files under `pilot/shiny/data/courses/`.
+
+Both views preserve material comparison notes. The programme view shows course levels as 100/200/300-level, and “Speak to Admissions” links to UCR's meeting-booking page.
 
 ## Production privacy boundary
 

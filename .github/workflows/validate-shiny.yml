@@ -7,7 +7,12 @@ on:
     paths:
       - 'pilot/shiny/**'
       - 'pilot/counselor-shiny/**'
+      - 'pilot/shared.R'
+      - 'assets/css/brand.css'
+      - 'assets/css/shiny.css'
+      - 'data/examples/**'
       - 'data/counselor/**'
+      - 'scripts/test-shiny.R'
       - '.github/workflows/validate-shiny.yml'
 
 jobs:
@@ -27,7 +32,7 @@ jobs:
           sudo apt-get install -y libuv1-dev
 
       - name: Install Shiny dependencies
-        run: Rscript -e 'install.packages(c("shiny", "jsonlite"), repos=Sys.getenv("RSPM"))'
+        run: Rscript -e 'install.packages(c("shiny", "jsonlite", "testthat"), repos=Sys.getenv("RSPM"))'
 
       - name: Parse both apps
         run: |
@@ -41,6 +46,9 @@ jobs:
       - name: Validate pilot JSON inputs
         run: |
           Rscript -e 'library(jsonlite); fromJSON("data/counselor/pilot-programmes.json"); fromJSON("data/counselor/pilot-interests.json"); fromJSON("pilot/shiny/data/access_codes.json")'
+
+      - name: Check pilot behavior and rendering
+        run: Rscript scripts/test-shiny.R
 
       - name: Check remote comparison fixtures
         run: |

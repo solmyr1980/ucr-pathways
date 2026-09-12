@@ -163,4 +163,12 @@ The project may link students there to modify or build their own programme, but 
 
 User-facing interfaces follow UCR's settled visual identity and do not display a Pathways sub-brand.
 
-The implementation uses the approved UCR palette and configured UCR typography where available. Colour supports identity, navigation and orientation rather than acting as the principal academic classification system.
+The website, both Shiny pilots and both PDF renderers load the same UCR fonts and palette from `assets/css/brand.css`. Shiny screen states share `assets/css/shiny.css`; the website and print formats retain their own layout styles. Colour supports identity, navigation and orientation rather than acting as the principal academic classification system.
+
+## Quality control and current limitations
+
+See `docs/quality-control/2026-09-11-audit.md` for the feedback-by-feedback implementation review, verification evidence and unresolved production requirements. This is an implementation record, not another specification.
+
+The five public fixtures now store current descriptive labels and `comparator` metadata. They remain legacy demonstration records without asserted student/counselor production provenance. New records with an explicit production origin must provide a separate student interpretation or a programme-provider key, respectively. Public explanatory notes must contain final rendered text.
+
+Use `npm ci` and `npm run dev` for a local website preview; deployment remains the existing static GitHub Pages site. `npm test` and `npm run validate` check presentation contracts and fixture structure. `Rscript scripts/test-shiny.R` checks access-code handling, search, retrieval and note rendering with local fixtures. These checks do not replace course-database feasibility validation.

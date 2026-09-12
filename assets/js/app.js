@@ -1,3 +1,5 @@
+import { visibleProgrammeLabel, comparisonNotes, comparisonGuidance } from './comparison.js';
+
 const params = new URLSearchParams(window.location.search);
 const hasExample = params.has('example');
 const requestedId = (params.get('example') || '').toLowerCase();
@@ -43,20 +45,7 @@ function comparatorMeta(record = example) {
   return record?.comparator || record?.referenceProgramme || {};
 }
 
-function visibleLabel(programme) {
-  const comparator = comparatorMeta();
-  const name = comparator.name || 'this programme';
-  const institution = comparator.institution || '';
-  if (programme.role === 'comparator') return institution ? `${name} at ${institution}` : name;
-  if (programme.role === 'ucr-depth') return `Closest match to ${name}`;
-  if (programme.role === 'ucr-balanced') return `${name} + related subjects`;
-  if (programme.role === 'ucr-thematic') {
-    return example?.origin === 'counselor'
-      ? 'A broader programme around related interests'
-      : 'A broader programme around your interests';
-  }
-  return programme.label || '';
-}
+function visibleLabel(programme) { return visibleProgrammeLabel(example, programme); }
 
 function cellCredits(cell, programme) {
   if (cell?.credits !== undefined && cell?.credits !== null && String(cell.credits).trim()) {
@@ -165,10 +154,8 @@ function renderCompare() {
     html += '</div>';
   });
 
-  const notes = (example.notes || []).filter(note => (!note.placement || note.placement === 'comparison') && note.text);
-  notes.forEach(note => { html += `<div class="source-note">${esc(note.text)}</div>`; });
-
-  html += '<div class="public-note">Blank cells indicate that no sufficiently comparable named component is shown in that position. The UCR programmes are illustrative feasible compositions, not official tracks or guaranteed future schedules.</div>';
+  comparisonNotes(example).forEach(note => { html += `<div class="source-note">${esc(note)}</div>`; });
+  html += `<div class="public-note">${esc(comparisonGuidance)}</div>`;
   html += '</div>';
   el.innerHTML = html;
 }
@@ -176,7 +163,7 @@ function renderCompare() {
 function renderDots() {
   const dots = document.getElementById('dots');
   dots.innerHTML = example.programmes.map((_, i) =>
-    `<button class="dot ${i === current ? 'active' : ''}" type="button" data-i="${i}" aria-label="Programme ${i + 1}"></button>`
+    `<button class="dot ${i === current ? 'active' : ''}" type="button" data-i="${i}" aria-label="Programme ${i + 1}: ${esc(visibleLabel(example.programmes[i]))}" aria-current="${i === current ? 'true' : 'false'}"></button>`
   ).join('');
 
   dots.querySelectorAll('.dot').forEach(dot => dot.addEventListener('click', () => {
@@ -207,6 +194,9 @@ function renderSingle() {
 
   if (programme.note) html += `<div class="single-footer">${esc(programme.note)}</div>`;
   card.innerHTML = html;
+  document.getElementById('singleNotes').innerHTML =
+    comparisonNotes(example).map(note => `<p class="source-note">${esc(note)}</p>`).join('') +
+    `<p class="public-note">${esc(comparisonGuidance)}</p>`;
   document.getElementById('positionTitle').textContent = `${current + 1} of ${example.programmes.length}`;
   document.getElementById('prevBtn').disabled = current === 0;
   document.getElementById('nextBtn').disabled = current === example.programmes.length - 1;
@@ -218,6 +208,9 @@ function setView(mode) {
   const single = document.getElementById('singleView');
   const compareBtn = document.getElementById('compareBtn');
   const singleBtn = document.getElementById('singleBtn');
+
+  compareBtn.setAttribute('aria-pressed', String(mode !== 'single'));
+  singleBtn.setAttribute('aria-pressed', String(mode === 'single'));
 
   if (mode === 'single') {
     compare.style.display = 'none';

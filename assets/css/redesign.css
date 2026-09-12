@@ -5,13 +5,25 @@
 .brand-ucr { display: inline-flex; align-items: center; text-decoration: none; }
 .topbar-actions { display: flex; align-items: center; gap: 18px; }
 .builder-link {
-  color: var(--ucr-plum);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--ucr-plum);
+  color: var(--ucr-white);
   font-weight: 700;
-  font-size: 13px;
+  font-size: 14px;
   text-decoration: none;
   white-space: nowrap;
 }
-.builder-link:hover { text-decoration: underline; }
+.builder-link:visited { color: var(--ucr-white); }
+.builder-link:hover, .builder-link:focus-visible {
+  background: var(--ucr-green);
+  color: var(--ucr-white);
+  text-decoration: underline;
+}
 
 .landing-hero::before { display: none; }
 .landing-hero { padding-top: 34px; padding-bottom: 30px; }
@@ -106,5 +118,29 @@
   .audience-grid { grid-template-columns: 1fr; }
   .topbar-inner { align-items: flex-start; }
   .topbar-actions { flex-direction: column; align-items: flex-end; gap: 5px; }
-  .builder-link { font-size: 11px; }
+  .builder-link { max-width: 175px; white-space: normal; text-align: center; }
 }
+
+/* Shared readable screen sizes; the print renderers have their own layout. */
+body { font-size: 16px; }
+.cell, .single-courses li { font-size: 16px; line-height: 1.45; }
+.program-head strong { font-size: 18px; line-height: 1.25; }
+.program-source, .cell-note, .source-note, .public-note, .single-footer,
+.single-course-note, .section-label, .single-section h3, .back-link,
+.view-toggle button, .audience-status, .mobile-hint { font-size: 14px; }
+.program-source { opacity: 1; }
+.ec-badge { font-size: 12px; margin-left: 5px; }
+.source-note + .source-note { padding-top: 0; }
+.single-notes { margin-top: 16px; }
+.single-notes .public-note { margin: 12px 0; }
+.dot { width: 24px; height: 24px; border: 7px solid var(--ucr-white); }
+.dot.active { transform: none; }
+.topbar-inner { flex-wrap: wrap; }
+.topbar-actions { max-width: 100%; }
+.program-head a:hover, .single-header a:hover { text-decoration: underline; }
+@media (max-width: 540px) {
+  .topbar-inner, .example-mode .topbar-inner { align-items: center; }
+  .builder-link { max-width: 160px; padding: 8px 10px; }
+}
+
+@media (max-width: 980px) { .meta { display: none; } }

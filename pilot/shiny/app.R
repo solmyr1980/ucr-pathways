@@ -1,13 +1,20 @@
 library(shiny)
 library(jsonlite)
 
+# Run from the repository root or the app directory; keep brand assets local.
+root_candidates <- c(getwd(), file.path(getwd(), ".."), file.path(getwd(), "../.."))
+REPO_ROOT <- root_candidates[file.exists(file.path(root_candidates, "assets/css/brand.css"))][1]
+if (is.na(REPO_ROOT)) stop("Run this pilot from a complete ucr-pathways repository checkout.")
+REPO_ROOT <- normalizePath(REPO_ROOT)
+source(file.path(REPO_ROOT, "pilot/shared.R"), local = TRUE)
+
 EXAMPLE_BASE <- "https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/data/examples"
 PILOT_DATA_BASE <- "https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/pilot/shiny/data"
 ASSET_BASE <- "https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets"
-UCR_LOGO_URL <- paste0(ASSET_BASE, "/brand/ucr-primary-plum.png")
+UCR_LOGO_URL <- "ucr-assets/brand/ucr-primary-plum.png"
 UCR_WEBSITE_URL <- "https://ucr.nl/"
 UCR_COURSES_URL <- "https://ucr.nl/education/courses/"
-ADMISSIONS_URL <- "https://ucr.nl/about-ucr/connect/"
+ADMISSIONS_URL <- "https://ucr.nl/about-ucr/connect/meet-with-admissions/"
 PROGRAM_BUILDER_URL <- "https://program.ucr.nl/"
 DISCLAIMER_PLACEHOLDER <- "[PLACEHOLDER — insert approved student-program disclaimer from the printed butterfly.]"
 UCR_COURSE_EC <- 7.5
@@ -22,11 +29,15 @@ cache_bust <- function(url) {
 }
 
 fetch_json <- function(url) {
+  if (identical(Sys.getenv("UCR_PILOT_LOCAL_DATA"), "true")) {
+    prefix <- "https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/"
+    if (startsWith(url, prefix)) return(fromJSON(file.path(REPO_ROOT, substring(url, nchar(prefix) + 1)), simplifyVector = FALSE))
+  }
   fromJSON(cache_bust(url), simplifyVector = FALSE)
 }
 
 normalize_code <- function(x) {
-  toupper(gsub("[^A-Z0-9]", "", trimws(x %||% "")))
+  gsub("[^A-Z0-9]", "", toupper(trimws(x %||% "")))
 }
 
 find_example_id <- function(access_map, submitted_code) {
@@ -42,21 +53,6 @@ safe_text <- function(x) x %||% ""
 
 comparator_meta <- function(record) {
   record$comparator %||% record$referenceProgramme %||% list()
-}
-
-visible_label <- function(record, programme) {
-  meta <- comparator_meta(record)
-  programme_name <- safe_text(meta$name)
-  institution <- safe_text(meta$institution)
-
-  if (identical(programme$role, "comparator")) {
-    if (nzchar(programme_name) && nzchar(institution)) return(paste0(programme_name, " at ", institution))
-    return(safe_text(programme$label))
-  }
-  if (identical(programme$role, "ucr-depth")) return(paste0("Closest match to ", programme_name))
-  if (identical(programme$role, "ucr-balanced")) return(paste0(programme_name, " + related subjects"))
-  if (identical(programme$role, "ucr-thematic")) return("A broader programme around your interests")
-  safe_text(programme$label)
 }
 
 cell_value <- function(cell) {
@@ -116,7 +112,7 @@ render_compare_table <- function(record) {
       cells <- lapply(programmes, function(programme) {
         value <- cell_value(row$cells[[programme$id]])
         if (is.null(value)) return(tags$td(class = "empty-cell", "\u00A0"))
-        ec <- credit_text(value$credits, if (identical(programme$family, "ucr")) UCR_COURSE_EC else NULL)
+        ec <- credit_text(value$credits, if (!identical(programme$role, "comparator")) UCR_COURSE_EC else NULL)
         tags$td(
           class = if (isTRUE(value$emphasis)) "comparison-cell emphasis" else "comparison-cell",
           div(class = "cell-text", safe_text(value$text)),
@@ -147,7 +143,7 @@ course_button <- function(course) {
     `data-code` = code,
     `data-name` = safe_text(course$name),
     div(class = "course-name", safe_text(course$name)),
-    div(class = "course-meta", paste(c(paste0("Level ", safe_text(course$level)), ec, if (nzchar(code)) code else NULL), collapse = " · "))
+    div(class = "course-meta", paste(c(course_level(course$level), ec, if (nzchar(code)) code else NULL), collapse = " · "))
   )
 }
 
@@ -215,7 +211,9 @@ render_student_record <- function(record) {
           tabPanel(
             "See how this programme compares",
             tags$p(class = "tab-copy", "This comparison shows another Dutch bachelor alongside three UCR programmes, from the closest match to broader ways of combining relevant subjects."),
-            render_compare_table(record)
+            render_compare_table(record),
+            render_comparison_notes(record),
+            tags$p(class = "source-note", "Blank cells indicate that no sufficiently comparable named component is shown in that position. These are illustrative UCR programmes, not official tracks or guaranteed future schedules.")
           )
         ),
         div(
@@ -237,14 +235,10 @@ ui <- fluidPage(
     tags$meta(name = "viewport", content = "width=device-width, initial-scale=1"),
     tags$title("Your personalized UCR programme"),
     tags$style(HTML("
-      @font-face { font-family: 'IvyMode UCR'; src: url('https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets/fonts/IvyMode%20Regular.otf') format('opentype'); font-weight: 400; font-display: swap; }
-      @font-face { font-family: 'Inter UCR'; src: url('https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets/fonts/Inter_Medium.ttf') format('truetype'); font-weight: 400; font-display: swap; }
-      @font-face { font-family: 'Inter UCR'; src: url('https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets/fonts/Inter_Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
-      :root { --plum:#491E34; --white:#F8F5EE; --black:#2E2D2D; --grey:#5C606B; --lilac:#D0B7D0; --blue:#C8DFE6; --yellow:#FFE1A4; }
-      html, body { margin:0; background:var(--white); color:var(--black); font-family:'Inter UCR',Inter,Arial,sans-serif; }
+      html, body { margin:0; background:var(--white); color:var(--black); font-family:Inter,Arial,sans-serif; }
       body::before { content:''; display:block; height:24px; background:var(--plum); }
       .container-fluid { max-width:1500px; padding:0 28px 52px; }
-      h1,h2,h3,h4 { color:var(--plum); font-family:'IvyMode UCR',Georgia,serif; font-weight:400; }
+      h1,h2,h3,h4 { color:var(--plum); font-family:IvyMode,Georgia,serif; font-weight:400; }
       .ucr-header { padding:24px 0 20px; }
       .ucr-logo { width:auto; max-width:245px; max-height:68px; object-fit:contain; }
       .access-shell { min-height:75vh; display:flex; align-items:center; justify-content:center; }
@@ -300,10 +294,12 @@ ui <- fluidPage(
       .primary-cta { background:var(--plum); color:#fff!important; }
       .secondary-cta { color:var(--plum)!important; border:1px solid rgba(73,30,52,.3); background:#fff; }
       .modal-content { border-radius:14px; }
-      .modal-title { color:var(--plum); font-family:'IvyMode UCR',Georgia,serif; }
+      .modal-title { color:var(--plum); font-family:IvyMode,Georgia,serif; }
       .course-description { font-size:15px; line-height:1.6; }
       @media(max-width:980px){ .container-fluid{padding:0 14px 40px}.intro-row{display:block}.intro-row .secondary-button{margin-top:12px}.input-summary{grid-template-columns:1fr}.semester-grid{grid-template-columns:1fr}.programme-view-heading{display:block}.programme-view-heading a{display:inline-block;margin-top:7px}.ucr-logo{max-width:210px}.access-card{padding:26px 22px} }
     ")),
+    tags$link(rel = "stylesheet", href = "ucr-assets/css/brand.css"),
+    tags$link(rel = "stylesheet", href = "ucr-assets/css/shiny.css"),
     tags$script(HTML("
       $(document).on('click', '.course-link', function() {
         const code = $(this).data('code');
@@ -330,7 +326,7 @@ server <- function(input, output, session) {
           brand_header(),
           tags$h1("Your personalized programme"),
           tags$p("Enter the code you received to open the programme options prepared around your interests."),
-          textInput("access_code", label = NULL, placeholder = "UCR-XXXX-XXXX-XXXX-XXXX"),
+          textInput("access_code", label = "Your access code", placeholder = "UCR-XXXX-XXXX-XXXX-XXXX"),
           actionButton("unlock_pathway", "Open my programme", class = "btn-primary"),
           uiOutput("access_error_ui")
         )

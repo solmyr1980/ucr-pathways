@@ -81,7 +81,7 @@ The repository name and technical GitHub Pages paths may retain `ucr-pathways`; 
 
 Contains approved **public** comparison records selected for website/LinkedIn use.
 
-It is **not** the complete counselor comparison corpus and must not be repurposed as the 600-record counselor database.
+It is **not** the complete counselor comparison corpus and must not be repurposed as the full counselor database. Its scope comes from the current approved registry, not a fixed count in this workflow.
 
 ## `data/catalog.json`
 
@@ -257,6 +257,8 @@ At a high level, GitHub Actions may continue to:
 Generated PDFs are outputs, not sources.
 
 Conduct human visual review before publication.
+
+Check the website and PDFs against the same approved record: programme headings, component credits, source links and material explanatory notes must agree. Review website links and buttons in their normal, visited, hover and keyboard-focus states, and inspect both the four-column and single-programme views. Confirm that the UCR logo and fonts load, text contrasts with its background, and narrow screens or enlarged text do not clip content. PDF checks must include overflow, font loading, page count and visual inspection. Keep run results and unresolved implementation items in a dated repository audit, outside these authoritative workflow instructions.
 
 ---
 

@@ -41,6 +41,7 @@
       "type": "object",
       "properties": {
         "title": {"type": "string"},
+        "publicTitle": {"type": "string"},
         "interestLabel": {"type": "string"},
         "comparisonNote": {"type": "string"},
         "showComparatorOnLinkedIn": {
@@ -80,7 +81,8 @@
           "params": {"type": "object", "additionalProperties": true},
           "text": {"type": "string", "minLength": 1}
         },
-        "anyOf": [{"required": ["text"]}, {"required": ["type", "params"]}],
+        "required": ["text"],
+        "description": "Expand semantic templates upstream. Public renderers consume text; type and params may be retained for provenance.",
         "additionalProperties": true
       }
     }
@@ -88,6 +90,19 @@
   "anyOf": [
     {"required": ["comparator"]},
     {"required": ["referenceProgramme"]}
+  ],
+  "allOf": [
+    {
+      "if": {"properties": {"origin": {"const": "student"}}, "required": ["origin"]},
+      "then": {"required": ["interests", "interestInterpretation"]}
+    },
+    {
+      "if": {"properties": {"origin": {"const": "counselor"}}, "required": ["origin"]},
+      "then": {
+        "required": ["programmeProvider"],
+        "properties": {"programmeProvider": {"required": ["programmeProviderId"]}}
+      }
+    }
   ],
   "$defs": {
     "comparatorMetadata": {

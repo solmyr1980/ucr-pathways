@@ -1,0 +1,39 @@
+/* Shared screen identity and interactive states for both Shiny pilots. */
+:root {
+  --plum: var(--ucr-plum); --white: var(--ucr-white);
+  --black: var(--ucr-black); --grey: var(--ucr-grey);
+  --lilac: var(--ucr-lilac); --blue: var(--ucr-blue);
+  --yellow: var(--ucr-yellow); --green: var(--ucr-green);
+}
+html, body { font-family: Inter, Arial, sans-serif; font-size: 16px; }
+h1, h2, h3, h4, .modal-title { font-family: IvyMode, Georgia, serif; }
+button, input, select, textarea { font-family: inherit; }
+a { color: var(--plum); }
+a:hover, a:focus { color: var(--green); }
+.btn-primary, .primary-button, .nav-pills>li.active>a,
+.nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus,
+.primary-cta, .open-comparison { color: var(--white) !important; background: var(--plum); }
+.btn-primary:hover, .btn-primary:focus, .primary-button:hover,
+.primary-cta:hover, .primary-cta:focus, .open-comparison:hover,
+.open-comparison:focus { background: var(--green) !important; border-color: var(--green) !important; }
+.secondary-cta:hover, .secondary-button:hover { background: var(--yellow) !important; }
+.programme-title a, .programme-source,
+.programme-title a:hover, .programme-source:hover { color: var(--white); }
+.programme-source { opacity: 1; font-size: 14px; }
+.course-meta, .ec-badge, .semester-term { font-size: 12px; }
+.cell-note, .match-line, .pilot-note, .disclaimer { font-size: 14px; }
+.source-note { color: var(--grey); line-height: 1.5; margin: 16px 0; }
+.course-link { color: var(--black); }
+.course-link:hover { background: var(--blue); border-color: var(--plum); }
+.access-error, .load-error, .disclaimer { color: var(--plum); }
+.disclaimer { border-color: var(--plum); }
+.secondary-button, .open-comparison { min-height: 44px; white-space: normal; }
+.compare-scroll { max-width: 100%; }
+.result-card, .result-main, .search-grid > * { min-width: 0; }
+.cta-row { flex-wrap: wrap; }
+.primary-cta, .secondary-cta { overflow-wrap: anywhere; }
+@media (max-width: 600px) {
+  .access-card h1 { font-size: 30px; }
+  .nav-pills>li { float: none; margin: 0 0 6px; }
+  .ucr-logo { max-width: 100%; }
+}

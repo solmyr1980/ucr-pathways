@@ -27,6 +27,17 @@ try {
     const page = await browser.newPage();
     await page.goto(pathToFileURL(htmlPath).href, { waitUntil: 'load' });
     await page.evaluate(() => document.fonts.ready);
+    const assetErrors = await page.evaluate(() => {
+      const errors = [];
+      for (const family of ['IvyMode', 'Inter']) {
+        if (!document.fonts.check(`300 16px "${family}"`)) errors.push(`Missing font: ${family}`);
+      }
+      for (const image of document.images) {
+        if (!image.complete || !image.naturalWidth) errors.push(`Missing image: ${image.getAttribute('src')}`);
+      }
+      return errors;
+    });
+    if (assetErrors.length) throw new Error(`${example.id}: ${assetErrors.join('; ')}`);
 
     const layout = await page.evaluate(() => {
       const pages = [...document.querySelectorAll('.page')];

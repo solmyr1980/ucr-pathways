@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {
+  comparisonNotes,
   exampleFiles,
   readExample,
   validateExample,
@@ -74,12 +75,14 @@ for (const file of exampleFiles(root, target)) {
 
     return `<article class="page${isComparator(programme) ? ' comparator' : ''}">
       <header class="card-head">
+        <a href="https://ucr.nl/"><img class="print-logo" src="../../assets/brand/ucr-primary-white-on-plum.png" alt="University College Roosevelt"></a>
         ${meta ? `<div class="kicker">${escapeHtml(meta)}</div>` : ''}
         <h1>${escapeHtml(visibleProgrammeLabel(example, programme))}</h1>
       </header>
       ${interest}
       ${source}
       <div class="content">${sections}</div>
+      ${comparisonNotes(example).map(note => `<div class="programme-note">${escapeHtml(note)}</div>`).join('')}
       ${programme.note ? `<div class="programme-note">${escapeHtml(programme.note)}</div>` : ''}
       <footer>${index + 1} / ${programmes.length} &nbsp; · &nbsp; University College Roosevelt</footer>
     </article>`;
@@ -90,6 +93,7 @@ for (const file of exampleFiles(root, target)) {
 <head>
 <meta charset="utf-8">
 <title>${escapeHtml(example.id.toUpperCase())} - UCR comparison - LinkedIn PDF</title>
+<link rel="stylesheet" href="../../assets/css/brand.css">
 <style>${css}</style>
 </head>
 <body>${pages}</body>

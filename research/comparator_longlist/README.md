@@ -2,6 +2,8 @@
 
 Generated: 2026-08-21
 
+**Historical dataset:** these counts and the proposed Step 2 belong to the superseded longlist experiment. The current counselor scope comes from the approved programme registry, with no UCR-fit filter. See `docs/UCR_Pathways_Production_Instructions.md`.
+
 ## Scope
 
 Current recognised Dutch WO bachelor programmes with a full-time route. This is an external candidate universe: **no UCR feasibility filtering has been applied**.

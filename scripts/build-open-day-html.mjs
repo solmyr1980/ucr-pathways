@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {
+  comparisonNotes,
   exampleFiles,
   readExample,
   validateExample,
@@ -33,7 +34,7 @@ function cohortLabel(cohort) {
 function renderHeader(example, title) {
   const start = cohortLabel(example.cohort);
   return `<header class="od-header">
-    <img class="od-logo" src="${logoPath}" alt="University College Roosevelt">
+    <a href="https://ucr.nl/"><img class="od-logo" src="${logoPath}" alt="University College Roosevelt"></a>
     <div class="od-header-copy">
       <h1 class="od-product">${escapeHtml(title)}</h1>
     </div>
@@ -114,6 +115,7 @@ function renderComparison(example) {
         <thead><tr>${programmeHeads}</tr></thead>
         <tbody>${blockRows}</tbody>
       </table>
+      ${comparisonNotes(example).map(note => `<div class="od-page-note">${escapeHtml(note)}</div>`).join('')}
       <div class="od-page-note">Blank cells indicate that no sufficiently comparable named component is shown in that position.</div>
     </main>
     ${renderFooter('<strong>Illustrative programme:</strong> the options shown here are examples of feasible academic possibilities, not official tracks.')}
@@ -133,7 +135,7 @@ function renderSchedule(example) {
       const semester = programme.schedule.semesters[semesterIndex];
       const courses = semester.courses.map(course => {
         const ec = course.credits || UCR_DEFAULT_COURSE_EC;
-        return `<li>${escapeHtml(course.name)}${course.level !== undefined ? ` <span class="course-level">· L${escapeHtml(course.level)}</span>` : ''}<span class="course-level"> · ${escapeHtml(ec)} EC</span></li>`;
+        return `<li>${escapeHtml(course.name)}${course.level !== undefined ? ` <span class="course-level">· L${escapeHtml(Number(course.level) < 10 ? Number(course.level) * 100 : course.level)}</span>` : ''}<span class="course-level"> · ${escapeHtml(ec)} EC</span></li>`;
       }).join('');
       semesterCells.push(`<div class="schedule-cell${semesterIndex % 2 ? ' alt' : ''}">
         <h3 class="semester-label">${escapeHtml(semester.label)}</h3>
@@ -155,7 +157,7 @@ function renderSchedule(example) {
         ${heads}
         ${semesterCells.join('')}
       </div>
-      <div class="validation-strip"><strong>Structure checked</strong><span>24 unique courses per programme · 4 per semester · level-3 courses: ${levelCounts.join(' · ')}</span></div>
+      <div class="validation-strip"><strong>Structure checked</strong><span>24 unique courses per programme · 4 per semester · 300-level courses: ${levelCounts.join(' · ')}</span></div>
       <div class="od-page-note">${escapeHtml(disclaimer)}</div>
     </main>
     ${renderFooter('<strong>Next step:</strong> use the UCR Program Builder to explore and build your own programme.')}
@@ -174,6 +176,7 @@ for (const file of exampleFiles(root, target)) {
 <head>
 <meta charset="utf-8">
 <title>${escapeHtml(example.id)} - UCR personalized programme - PDF</title>
+<link rel="stylesheet" href="../../assets/css/brand.css">
 <style>${css}</style>
 </head>
 <body>${renderComparison(example)}${renderSchedule(example)}</body>

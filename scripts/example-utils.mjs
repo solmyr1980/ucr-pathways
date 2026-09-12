@@ -1,3 +1,5 @@
+import { comparatorMetadata, visibleProgrammeLabel } from '../assets/js/comparison.js';
+export { comparatorMetadata, visibleProgrammeLabel, comparisonNotes } from '../assets/js/comparison.js';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -40,34 +42,12 @@ export function isUcrProgramme(programme) {
   return ['ucr-depth', 'ucr-balanced', 'ucr-thematic'].includes(programme?.role);
 }
 
-export function comparatorMetadata(example) {
-  const comparator = example?.comparator || example?.referenceProgramme;
-  return comparator && typeof comparator === 'object' ? comparator : {};
-}
-
 export function comparatorLabel(example) {
   const comparator = comparatorMetadata(example);
   if (comparator.name && comparator.institution) {
     return `${comparator.name} at ${comparator.institution}`;
   }
   return comparator.name || 'External bachelor programme';
-}
-
-export function visibleProgrammeLabel(example, programme) {
-  if (!programme) return '';
-  const comparator = comparatorMetadata(example);
-  const name = comparator.name || 'this programme';
-
-  if (programme.role === 'comparator') return comparatorLabel(example);
-  if (programme.role === 'ucr-depth') return `Closest match to ${name}`;
-  if (programme.role === 'ucr-balanced') return `${name} + related subjects`;
-  if (programme.role === 'ucr-thematic') {
-    return example?.origin === 'counselor'
-      ? 'A broader programme around related interests'
-      : 'A broader programme around your interests';
-  }
-
-  return programme.label || '';
 }
 
 export function courseCredits(course) {
@@ -139,16 +119,14 @@ export function validateExample(example, sourceName = 'example') {
     fail('interestInterpretation must be a non-empty string when supplied');
   }
 
+  if (example.origin === 'student' && !example.interestInterpretation?.trim()) fail('student-origin records require a separate interestInterpretation');
+
   if (example.origin === 'counselor') {
     const provider = example.programmeProvider;
     if (!provider || typeof provider !== 'object' || Array.isArray(provider)) {
       fail('counselor-origin records require programmeProvider metadata');
-    } else if (
-      provider.programmeProviderId === undefined &&
-      provider.recognizedProgrammeId === undefined &&
-      provider.sourceExcelRow === undefined
-    ) {
-      fail('programmeProvider must include at least one stable registry identifier');
+    } else if (!String(provider.programmeProviderId || '').trim()) {
+      fail('programmeProvider requires programmeProviderId; a recognized programme code alone does not identify its provider');
     }
   }
 
@@ -355,7 +333,7 @@ export function validateExample(example, sourceName = 'example') {
       }
       const hasText = typeof note.text === 'string' && note.text.trim();
       const hasTemplate = typeof note.type === 'string' && note.type.trim() && note.params && typeof note.params === 'object';
-      if (!hasText && !hasTemplate) fail(`note ${index + 1} needs text or a template type with params`);
+      if (!hasText) fail(`note ${index + 1} requires rendered text; expand semantic templates before public export`);
     });
   }
 

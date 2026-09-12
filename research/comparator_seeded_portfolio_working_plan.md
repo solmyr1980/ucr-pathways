@@ -1,8 +1,10 @@
 # Comparator-seeded synthetic portfolio — working plan
 
-**Status:** Working research record, not an authoritative production specification.
+**Status:** Superseded experiment (August 2026), retained for provenance.
 
-This file preserves the current experimental workflow so the work can proceed one step at a time without reconstructing prior decisions. Durable decisions should be moved into the authoritative UCR Pathways documentation only after the experiment is evaluated and approved.
+The September redesign replaces this proposed 100-case portfolio and UCR-fit filtering with the full approved programme-provider registry in source worksheet order. Do not execute the steps below as current production instructions. Use `docs/UCR_Pathways_Production_Instructions.md`, sections 3–4. Historical wording and counts below describe the earlier experiment.
+
+This file preserves the earlier experimental workflow so the work can proceed one step at a time without reconstructing prior decisions. Durable decisions should be moved into the authoritative UCR Pathways documentation only after the experiment is evaluated and approved.
 
 ## Current experiment
 

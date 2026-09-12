@@ -337,6 +337,8 @@ The Production Instructions define the executable note taxonomy and generation r
 
 A note is warranted only when it helps prevent a material misunderstanding. Do not add boilerplate beneath every comparison merely because a template exists.
 
+Preserve warranted limitation notes in every representation of the comparison, including single-programme/mobile views and PDFs. Switching views must not hide a material limitation of the UCR match.
+
 ---
 
 # 9. Canonical comparison records
@@ -455,6 +457,8 @@ Approved palette:
 Use **IvyMode** for display headings and **Inter** for body text in the configured UCR rendering environment.
 
 Use colour primarily for identity, navigation and orientation rather than as the main substantive classification of courses.
+
+Use the UCR logo without redundant institutional naming beside it. Keep text readable against its actual background, including link, visited, hover, selected and keyboard-focus states. Check narrow screens and enlarged text as well as desktop layouts.
 
 If required brand fonts are unavailable, treat that as a rendering limitation to fix or report rather than silently inventing a different visual identity.
 

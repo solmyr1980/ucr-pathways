@@ -464,6 +464,7 @@ Template:
 - Do not hide genuine absence behind generic wording.
 - Do not mention research seminars, exchange opportunities or elective-space symmetry merely because those were once suggested as comparison devices.
 - Omit the note entirely when the comparison is already self-explanatory.
+- Expand a selected template into final text before exporting an implementation/public record. Retain its type and evidenced parameters as provenance where useful; do not send a parameter-only note to a renderer that expects text.
 
 ---
 
@@ -618,6 +619,7 @@ Before marking a record complete, confirm the relevant checks.
 - explicit public-use approval;
 - privacy-safe content;
 - current repository schema conformity;
+- final explanatory-note text present wherever a semantic template was selected;
 - no substantive reinterpretation during export.
 
 Only then release the requested artifact or library record.
