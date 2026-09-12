@@ -1,0 +1,108 @@
+{
+  "step": "registry-normalization-step-2",
+  "status": "complete",
+  "generated_date": "2026-09-12",
+  "scope": "Resolve all mechanical ambiguity cases from Step 1 using current official programme/institution sources. Registry identity only; no external-curriculum reconstruction or UCR comparison generation.",
+  "inputs": {
+    "resolution_cases": 83,
+    "source_registry_rows": 478,
+    "atomic_offerings": 569,
+    "step1_source_rows_affected_by_resolution_cases": 96
+  },
+  "outputs": {
+    "resolution_decisions": 83,
+    "official_source_records": 90,
+    "institutions_researched": 14,
+    "resolved_cases": 83
+  },
+  "decision_status": {
+    "active": 75,
+    "active-successor": 2,
+    "out-of-scope-current-identity": 1,
+    "teach-out-only": 5
+  },
+  "production_eligibility": {
+    "eligible_decisions": 77,
+    "ineligible_decisions": 6
+  },
+  "case_type_counts": {
+    "known-first-batch-identity-anomaly": 1,
+    "missing-core-registry-metadata": 8,
+    "multiple-languages-in-source-row": 21,
+    "multiple-locations-in-source-row": 4,
+    "multiple-programme-units-in-source-row": 5,
+    "programme-lifecycle-review": 12,
+    "programme-unit-reused-across-source-rows": 18,
+    "special-programme-structure-review": 14
+  },
+  "decision_action_counts": {
+    "exclude_current_counselor_target": 1,
+    "fill_missing_core_metadata": 7,
+    "merge_cross_provider_joint_identity": 1,
+    "merge_delivery_rows_to_single_target": 3,
+    "merge_free_registration_with_regular_target": 4,
+    "merge_joint_and_administrative_rows_to_single_target": 6,
+    "merge_language_and_delivery_variants": 1,
+    "merge_language_rows_to_single_target": 3,
+    "merge_language_variants": 16,
+    "merge_location_language_delivery_variants": 1,
+    "merge_location_variants": 1,
+    "merge_offerings_correct_current_metadata": 3,
+    "merge_offerings_to_single_target": 5,
+    "merge_source_rows_to_single_target": 3,
+    "merge_to_single_target": 2,
+    "normalize_to_current_identity_and_merge_languages": 1,
+    "normalize_to_current_successor": 2,
+    "remove_stale_delivery_variant": 1,
+    "retain_active_target_correct_lifecycle_interpretation": 4,
+    "retain_active_target_correct_metadata": 1,
+    "retain_active_target_ignore_future_lifecycle_marker": 2,
+    "retain_inactive_joint_target": 3,
+    "retain_inactive_target": 2,
+    "retain_joint_degree_target": 5,
+    "retain_special_route_target": 1,
+    "split_into_distinct_targets": 4
+  },
+  "institution_case_counts": {
+    "Eindhoven University of Technology": 2,
+    "Erasmus University Rotterdam": 5,
+    "Leiden University": 7,
+    "Maastricht University": 7,
+    "Open Universiteit": 1,
+    "Protestant Theological University": 4,
+    "Radboud University": 6,
+    "Theological University Apeldoorn": 1,
+    "Tilburg University": 5,
+    "University of Amsterdam": 26,
+    "University of Groningen": 10,
+    "University of Twente": 1,
+    "VU Amsterdam": 7,
+    "Wageningen University & Research": 1
+  },
+  "notable_normalization_patterns": [
+    "Delivery mode, language, location and registration identity are not assumed to define separate academic counselor targets.",
+    "Current official evidence can merge several source rows/offerings into one academic target or split one source representation into several genuine student-facing targets.",
+    "Joint degrees offered across multiple institutions are normalized toward one academic target with all institutions retained.",
+    "Future/legacy RIO lifecycle markers are interpreted against current official admissions/programme evidence rather than treated mechanically as closure.",
+    "Free-registration or administrative variants do not create separate counselor targets when no distinct current student-facing programme identity exists.",
+    "Teach-out-only or no-longer-current identities remain auditable but are marked not production-eligible."
+  ],
+  "validation": {
+    "decision_count_is_83": true,
+    "all_queue_cases_resolved_once": true,
+    "all_decision_statuses_resolved": true,
+    "source_ids_unique": true,
+    "all_decision_source_ids_exist": true,
+    "target_counts_nonnegative": true,
+    "decision_source_rows_cover_queue_rows": true,
+    "shared_target_groups_consistent": true,
+    "lifecycle_eligibility_consistent": true,
+    "cross_provider_joint_groups_consistent": true
+  },
+  "notes": [
+    "The 83 decisions are case-level resolution instructions, not the final normalized counselor programme table.",
+    "Several cases overlap the same source rows or provisional target group; Step 3 must apply all decisions jointly rather than summing target_count.",
+    "The final counselor target count will be calculated only after Step 3 constructs the normalized target and crosswalk tables.",
+    "The original Pathways_programmes, programme_interests, source_rows.csv, offerings.csv and resolution_cases.csv remain unchanged."
+  ]
+}
