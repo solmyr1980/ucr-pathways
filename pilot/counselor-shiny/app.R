@@ -1,45 +1,176 @@
 library(shiny)
 library(jsonlite)
 
-# Run from the repository root or the app directory; keep brand assets local.
+# Run from the repository root or the app directory; keep code, assets and data in one deployed release.
 root_candidates <- c(getwd(), file.path(getwd(), ".."), file.path(getwd(), "../.."))
 REPO_ROOT <- root_candidates[file.exists(file.path(root_candidates, "assets/css/brand.css"))][1]
-if (is.na(REPO_ROOT)) stop("Run this pilot from a complete ucr-pathways repository checkout.")
+if (is.na(REPO_ROOT)) stop("Run this app from a complete ucr-pathways repository checkout or deployment bundle.")
 REPO_ROOT <- normalizePath(REPO_ROOT)
 source(file.path(REPO_ROOT, "pilot/shared.R"), local = TRUE)
 
-REPO_RAW <- "https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main"
-PROGRAMME_URL <- paste0(REPO_RAW, "/data/counselor/pilot-programmes.json")
-INTEREST_URL <- paste0(REPO_RAW, "/data/counselor/pilot-interests.json")
-EXAMPLE_BASE <- paste0(REPO_RAW, "/data/examples")
+COUNSELOR_DATA_DIR <- file.path(REPO_ROOT, "data", "counselor")
+PRODUCTION_PROGRAMME_FILE <- file.path(COUNSELOR_DATA_DIR, "programmes.json")
+PRODUCTION_INTEREST_FILE <- file.path(COUNSELOR_DATA_DIR, "interests.json")
+PILOT_PROGRAMME_FILE <- file.path(COUNSELOR_DATA_DIR, "pilot-programmes.json")
+PILOT_INTEREST_FILE <- file.path(COUNSELOR_DATA_DIR, "pilot-interests.json")
+PRODUCTION_COMPARISON_DIR <- file.path(COUNSELOR_DATA_DIR, "comparisons")
+PILOT_COMPARISON_DIR <- file.path(REPO_ROOT, "data", "examples")
+
+USE_PRODUCTION_INDEX <- file.exists(PRODUCTION_PROGRAMME_FILE) && file.exists(PRODUCTION_INTEREST_FILE)
+PROGRAMME_FILE <- if (USE_PRODUCTION_INDEX) PRODUCTION_PROGRAMME_FILE else PILOT_PROGRAMME_FILE
+INTEREST_FILE <- if (USE_PRODUCTION_INDEX) PRODUCTION_INTEREST_FILE else PILOT_INTEREST_FILE
+IS_PILOT_DATA <- !USE_PRODUCTION_INDEX
+
 UCR_LOGO_URL <- "ucr-assets/brand/ucr-primary-plum.png"
 UCR_WEBSITE_URL <- "https://ucr.nl/"
 UCR_COURSES_URL <- "https://ucr.nl/education/courses/"
 PROGRAM_BUILDER_URL <- "https://program.ucr.nl/"
 UCR_COURSE_EC <- 7.5
+SEARCH_DEBOUNCE_MS <- 250
 
 `%||%` <- function(x, y) {
   if (is.null(x) || length(x) == 0 || identical(x, "")) y else x
 }
 
-safe_text <- function(x) x %||% ""
-
-cache_bust <- function(url) {
-  separator <- if (grepl("\\?", url)) "&" else "?"
-  paste0(url, separator, "cb=", sprintf("%.0f", as.numeric(Sys.time()) * 1000))
+safe_text <- function(x) {
+  if (is.null(x) || length(x) == 0 || is.na(x[[1]]) || identical(x[[1]], "")) return("")
+  as.character(x[[1]])
 }
 
-fetch_json <- function(url) {
-  if (identical(Sys.getenv("UCR_PILOT_LOCAL_DATA"), "true")) {
-    prefix <- "https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/"
-    if (startsWith(url, prefix)) return(fromJSON(file.path(REPO_ROOT, substring(url, nchar(prefix) + 1)), simplifyVector = FALSE))
-  }
-  fromJSON(cache_bust(url), simplifyVector = FALSE)
+read_json_file <- function(path) {
+  fromJSON(path, simplifyVector = FALSE)
 }
 
 norm <- function(x) {
-  x <- tolower(iconv(safe_text(x), to = "ASCII//TRANSLIT"))
-  gsub("[^a-z0-9]+", " ", x)
+  x <- iconv(safe_text(x), to = "ASCII//TRANSLIT", sub = "")
+  x <- tolower(x %||% "")
+  trimws(gsub("[^a-z0-9]+", " ", x))
+}
+
+relationship_weight <- function(x) {
+  key <- tolower(safe_text(x))
+  if (grepl("direct programme interest", key, fixed = TRUE)) return(100)
+  if (grepl("stable study direction", key, fixed = TRUE)) return(80)
+  if (grepl("curricular topic", key, fixed = TRUE)) return(60)
+  if (grepl("illustrative", key, fixed = TRUE)) return(40)
+  if (grepl("outcome", key, fixed = TRUE)) return(20)
+  10
+}
+
+prepare_search_data <- function(programmes, interests) {
+  prepared_programmes <- lapply(programmes, function(programme) {
+    programme$searchNorm <- norm(paste(
+      safe_text(programme$displayName),
+      safe_text(programme$registryName),
+      safe_text(programme$institution),
+      safe_text(programme$degree),
+      safe_text(programme$language)
+    ))
+    programme
+  })
+
+  prepared_interests <- lapply(interests, function(interest) {
+    interest$searchNorm <- norm(interest$interest)
+    interest$searchWeight <- relationship_weight(interest$relationship)
+    interest
+  })
+
+  if (length(prepared_interests)) {
+    provider_ids <- vapply(prepared_interests, function(x) as.character(x$programmeProviderId), character(1))
+    interests_by_provider <- split(prepared_interests, provider_ids)
+  } else {
+    interests_by_provider <- list()
+  }
+
+  list(
+    programmes = prepared_programmes,
+    interestsByProvider = interests_by_provider
+  )
+}
+
+# Load and prepare the discovery index once per R process, not once per counselor session.
+COUNSELOR_DATA_ERROR <- NULL
+COUNSELOR_DATA <- tryCatch({
+  programme_payload <- read_json_file(PROGRAMME_FILE)
+  interest_payload <- read_json_file(INTEREST_FILE)
+  prepare_search_data(
+    programme_payload$programmes %||% list(),
+    interest_payload$interests %||% list()
+  )
+}, error = function(e) {
+  COUNSELOR_DATA_ERROR <<- conditionMessage(e)
+  list(programmes = list(), interestsByProvider = list())
+})
+
+comparison_id <- function(programme) {
+  id <- safe_text(programme$comparisonId)
+  if (!nzchar(id)) id <- safe_text(programme$exampleId)
+  if (!nzchar(id)) id <- safe_text(programme$programmeProviderId)
+  id
+}
+
+comparison_path <- function(id) {
+  base_dir <- if (USE_PRODUCTION_INDEX) PRODUCTION_COMPARISON_DIR else PILOT_COMPARISON_DIR
+  path <- file.path(base_dir, paste0(id, ".json"))
+  if (!file.exists(path)) stop("No local comparison record found for ", id)
+  path
+}
+
+term_hits_normalized <- function(terms, haystack) {
+  if (!length(terms) || !nzchar(haystack)) return(0)
+  sum(vapply(terms, function(term) grepl(term, haystack, fixed = TRUE), logical(1)))
+}
+
+search_programmes <- function(search_data, query = "", institution = "All", language = "All") {
+  query_norm <- norm(query)
+  terms <- unlist(strsplit(query_norm, "\\s+"))
+  terms <- terms[nzchar(terms)]
+  result <- list()
+
+  for (programme in search_data$programmes) {
+    if (!identical(institution, "All") && !identical(safe_text(programme$institution), institution)) next
+    if (!identical(language, "All") && !identical(safe_text(programme$language), language)) next
+
+    provider_id <- as.character(programme$programmeProviderId)
+    p_interests <- search_data$interestsByProvider[[provider_id]] %||% list()
+    programme_norm <- safe_text(programme$searchNorm)
+    score <- 0
+    matches <- list()
+
+    if (!nzchar(query_norm)) {
+      score <- 1
+    } else {
+      p_hits <- term_hits_normalized(terms, programme_norm)
+      if (p_hits > 0) score <- score + 180 + 25 * p_hits
+      if (grepl(query_norm, programme_norm, fixed = TRUE)) score <- score + 100
+
+      for (interest in p_interests) {
+        interest_norm <- safe_text(interest$searchNorm)
+        hits <- term_hits_normalized(terms, interest_norm)
+        if (hits > 0) {
+          interest_score <- as.numeric(interest$searchWeight %||% relationship_weight(interest$relationship)) + 12 * hits
+          if (grepl(query_norm, interest_norm, fixed = TRUE)) interest_score <- interest_score + 45
+          score <- max(score, interest_score)
+          matches[[length(matches) + 1]] <- list(
+            interest = safe_text(interest$interest),
+            relationship = safe_text(interest$relationship),
+            score = interest_score
+          )
+        }
+      }
+    }
+
+    if (score > 0) {
+      if (length(matches)) matches <- matches[order(vapply(matches, function(x) -x$score, numeric(1)))]
+      result[[length(result) + 1]] <- list(programme = programme, score = score, matches = head(matches, 3))
+    }
+  }
+
+  if (!length(result)) return(list())
+  result[order(
+    vapply(result, function(x) -x$score, numeric(1)),
+    vapply(result, function(x) safe_text(x$programme$displayName), character(1))
+  )]
 }
 
 brand_header <- function() {
@@ -67,74 +198,6 @@ credit_text <- function(value, fallback = NULL) {
   if (!is.null(value) && nzchar(trimws(as.character(value)))) return(paste0(value, " EC"))
   if (!is.null(fallback)) return(paste0(fallback, " EC"))
   ""
-}
-
-relationship_weight <- function(x) {
-  key <- tolower(safe_text(x))
-  if (grepl("direct programme interest", key, fixed = TRUE)) return(100)
-  if (grepl("stable study direction", key, fixed = TRUE)) return(80)
-  if (grepl("curricular topic", key, fixed = TRUE)) return(60)
-  if (grepl("illustrative", key, fixed = TRUE)) return(40)
-  if (grepl("outcome", key, fixed = TRUE)) return(20)
-  10
-}
-
-term_hits <- function(query, text) {
-  terms <- unlist(strsplit(norm(query), "\\s+"))
-  terms <- terms[nzchar(terms)]
-  if (!length(terms)) return(0)
-  haystack <- norm(text)
-  sum(vapply(terms, function(term) grepl(term, haystack, fixed = TRUE), logical(1)))
-}
-
-search_programmes <- function(programmes, interests, query = "", institution = "All", language = "All") {
-  query <- trimws(query)
-  result <- list()
-
-  for (programme in programmes) {
-    if (!identical(institution, "All") && !identical(safe_text(programme$institution), institution)) next
-
-    if (!identical(language, "All") && !identical(safe_text(programme$language), language)) next
-
-    provider_id <- as.character(programme$programmeProviderId)
-    p_interests <- Filter(function(x) identical(as.character(x$programmeProviderId), provider_id), interests)
-    programme_text <- paste(programme$displayName, programme$registryName, programme$institution, programme$degree, programme$language)
-    score <- 0
-    matches <- list()
-
-    if (!nzchar(query)) {
-      score <- 1
-    } else {
-      p_hits <- term_hits(query, programme_text)
-      if (p_hits > 0) score <- score + 180 + 25 * p_hits
-      if (nzchar(norm(query)) && grepl(norm(query), norm(programme_text), fixed = TRUE)) score <- score + 100
-
-      for (interest in p_interests) {
-        hits <- term_hits(query, interest$interest)
-        if (hits > 0) {
-          interest_score <- relationship_weight(interest$relationship) + 12 * hits
-          if (nzchar(norm(query)) && grepl(norm(query), norm(interest$interest), fixed = TRUE)) interest_score <- interest_score + 45
-          score <- max(score, interest_score)
-          matches[[length(matches) + 1]] <- list(
-            interest = safe_text(interest$interest),
-            relationship = safe_text(interest$relationship),
-            score = interest_score
-          )
-        }
-      }
-    }
-
-    if (score > 0) {
-      if (length(matches)) matches <- matches[order(vapply(matches, function(x) -x$score, numeric(1)))]
-      result[[length(result) + 1]] <- list(programme = programme, score = score, matches = head(matches, 3))
-    }
-  }
-
-  if (!length(result)) return(list())
-  result[order(
-    vapply(result, function(x) -x$score, numeric(1)),
-    vapply(result, function(x) x$programme$displayName, character(1))
-  )]
 }
 
 render_compare_table <- function(record) {
@@ -186,7 +249,7 @@ render_compare_table <- function(record) {
 }
 
 render_result_cards <- function(results) {
-  if (!length(results)) return(div(class = "no-results", "No matching pilot programmes were found."))
+  if (!length(results)) return(div(class = "no-results", "No matching programmes were found."))
 
   do.call(tagList, lapply(results, function(result) {
     programme <- result$programme
@@ -207,7 +270,7 @@ render_result_cards <- function(results) {
           div(class = "match-line", paste0("Registry name: ", programme$registryName))
         }
       ),
-      tags$button(type = "button", class = "open-comparison", `data-id` = programme$exampleId, "Compare with UCR")
+      tags$button(type = "button", class = "open-comparison", `data-id` = comparison_id(programme), "Compare with UCR")
     )
   }))
 }
@@ -251,7 +314,9 @@ render_search_shell <- function(search_text = "") {
         uiOutput("institution_filter"),
         uiOutput("language_filter")
       ),
-      div(class = "pilot-note", "Pilot: this search currently contains five programme-provider comparisons. The production app will use the full deterministic comparison library.")
+      if (IS_PILOT_DATA) {
+        div(class = "pilot-note", paste0("Pilot: this search currently contains ", length(COUNSELOR_DATA$programmes), " programme-provider comparisons. The production app will use the full deterministic comparison library."))
+      }
     ),
     uiOutput("search_results")
   )
@@ -283,29 +348,25 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  programmes <- reactiveVal(list())
-  interests <- reactiveVal(list())
   selected <- reactiveVal(NULL)
-  load_error <- reactiveVal(NULL)
   saved_search <- reactiveValues(text = "", institution = "All", language = "All")
   observeEvent(input$search_text, saved_search$text <- input$search_text)
   observeEvent(input$institution, saved_search$institution <- input$institution)
   observeEvent(input$language, saved_search$language <- input$language)
 
-  observe({
-    tryCatch({
-      p <- fetch_json(PROGRAMME_URL)$programmes %||% list()
-      i <- fetch_json(INTEREST_URL)$interests %||% list()
-      programmes(p)
-      interests(i)
-    }, error = function(e) {
-      load_error("The counselor pilot data could not be loaded from GitHub.")
-      message("Counselor pilot data error: ", conditionMessage(e))
-    })
+  search_inputs <- reactive({
+    list(
+      query = input$search_text %||% "",
+      institution = input$institution %||% "All",
+      language = input$language %||% "All"
+    )
   })
+  debounced_search_inputs <- debounce(search_inputs, SEARCH_DEBOUNCE_MS)
 
   results <- reactive({
-    search_programmes(programmes(), interests(), input$search_text %||% "", input$institution %||% "All", input$language %||% "All")
+    if (nzchar(safe_text(COUNSELOR_DATA_ERROR))) return(list())
+    params <- debounced_search_inputs()
+    search_programmes(COUNSELOR_DATA, params$query, params$institution, params$language)
   })
 
   output$app_body <- renderUI({
@@ -315,20 +376,19 @@ server <- function(input, output, session) {
   })
 
   output$institution_filter <- renderUI({
-    p <- programmes()
-    institutions <- sort(unique(vapply(p, function(x) safe_text(x$institution), character(1))))
+    institutions <- sort(unique(vapply(COUNSELOR_DATA$programmes, function(x) safe_text(x$institution), character(1))))
     selectInput("institution", "Institution", choices = c("All", institutions), selected = isolate(saved_search$institution))
   })
 
   output$language_filter <- renderUI({
-    languages <- sort(unique(vapply(programmes(), function(x) safe_text(x$language), character(1))))
+    languages <- sort(unique(vapply(COUNSELOR_DATA$programmes, function(x) safe_text(x$language), character(1))))
     labels <- vapply(languages, function(x) switch(x, ENG = "English", NLD = "Dutch", x), character(1))
     selectInput("language", "Teaching language", choices = c("All" = "All", setNames(languages, labels)), selected = isolate(saved_search$language))
   })
 
   output$search_results <- renderUI({
-    if (nzchar(safe_text(load_error()))) {
-      return(div(class = "no-results", safe_text(load_error())))
+    if (nzchar(safe_text(COUNSELOR_DATA_ERROR))) {
+      return(div(class = "no-results", "The counselor comparison index could not be loaded from the deployed application data."))
     }
     found <- results()
     tagList(
@@ -338,16 +398,16 @@ server <- function(input, output, session) {
   })
 
   observeEvent(input$open_comparison, {
-    example_id <- safe_text(input$open_comparison)
-    if (!grepl("^[a-z0-9-]+$", example_id)) return()
+    id <- safe_text(input$open_comparison)
+    if (!grepl("^[A-Za-z0-9._-]+$", id)) return()
     tryCatch({
-      record <- fetch_json(paste0(EXAMPLE_BASE, "/", example_id, ".json"))
+      record <- read_json_file(comparison_path(id))
       record$origin <- "counselor" # Presentation context only; fixture provenance is unchanged.
       selected(record)
     }, error = function(e) {
       showModal(modalDialog(
         title = "Could not load comparison",
-        "The selected comparison could not be loaded from GitHub.",
+        "The selected comparison could not be loaded from the deployed application data.",
         easyClose = TRUE,
         footer = modalButton("Close")
       ))
