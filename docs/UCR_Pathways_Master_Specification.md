@@ -124,8 +124,10 @@ and:
 
 The welcome screen should provide access to two views of the same approved personalized record:
 
-- **View my personalized programme** — the semester-by-semester UCR programme view;
-- **See how this programme compares** — the four-programme comparison.
+- **View my personalized programme options** — semester-by-semester views of all three UCR programmes, in the stable order `ucr-depth`, `ucr-balanced`, `ucr-thematic`;
+- **See how these options compare** — the four-programme comparison.
+
+All three UCR programmes are personalized options generated from the same student interests. The student app must not present `ucr-depth` as the sole personalized programme while hiding the other two semester schedules. Within the programme-options view, use clear sub-navigation such as tabs or selectors so that the student can inspect each complete six-semester programme without requiring one long stacked page.
 
 The interface may allow movement between these views without regenerating academic content.
 
@@ -140,7 +142,7 @@ Exact Admissions destination is implementation/configuration data rather than a 
 
 ## 3.4 Student disclaimer
 
-The personalized programme must carry an approved disclaimer explaining its illustrative status and the relevance of actual curriculum rules and course availability.
+Each personalized programme option must carry an approved disclaimer explaining its illustrative status and the relevance of actual curriculum rules and course availability.
 
 Until the approved text from the printed butterfly is supplied, use the explicit placeholder:
 
