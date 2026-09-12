@@ -36,6 +36,14 @@ for (id in sprintf("p-%03d", 1:5)) {
     stopifnot(grepl("7.5 EC", rendered, fixed = TRUE), grepl("UCR courses", rendered, fixed = TRUE))
     for (note in record$notes) stopifnot(grepl(htmltools::htmlEscape(note$text), as.character(app$render_comparison_notes(record)), fixed = TRUE))
   }
+
+  student_options <- student$student_ucr_programmes(record)
+  stopifnot(length(student_options) == 3)
+  stopifnot(identical(vapply(student_options, function(x) x$role, character(1)), c("ucr-depth", "ucr-balanced", "ucr-thematic")))
+  programme_options_html <- as.character(student$render_programme_options(record))
+  for (programme in student_options) {
+    stopifnot(grepl(htmltools::htmlEscape(student$visible_label(record, programme)), programme_options_html, fixed = TRUE))
+  }
 }
 
 shiny::testServer(counselor$server, {
@@ -52,6 +60,7 @@ shiny::testServer(counselor$server, {
 shiny::testServer(student$server, {
   session$setInputs(access_code = tolower(codes$entries[[1]]$code), unlock_pathway = 1)
   stopifnot(identical(record()$id, codes$entries[[1]]$example_id))
+  stopifnot(length(student$student_ucr_programmes(record())) == 3)
   session$setInputs(reset_pathway = 1)
   stopifnot(is.null(record()))
 })
