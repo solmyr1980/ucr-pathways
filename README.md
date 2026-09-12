@@ -56,8 +56,9 @@ The production student workflow begins with an actual interest statement and pre
 
 The student app then offers:
 
-- a personalized UCR semester programme;
-- a comparison with the external bachelor and two broader UCR alternatives;
+- all three personalized UCR programme options in semester-by-semester format, ordered from the closest match to progressively broader alternatives;
+- sub-navigation that lets the student inspect each complete six-semester programme separately;
+- a comparison of the external bachelor with all three UCR programme options;
 - Admissions and Program Builder next steps.
 
 The current Shiny proof of concept is under:
@@ -171,4 +172,4 @@ See `docs/quality-control/2026-09-11-audit.md` for the feedback-by-feedback impl
 
 The five public fixtures now store current descriptive labels and `comparator` metadata. They remain legacy demonstration records without asserted student/counselor production provenance. New records with an explicit production origin must provide a separate student interpretation or a programme-provider key, respectively. Public explanatory notes must contain final rendered text.
 
-Use `npm ci` and `npm run dev` for a local website preview; deployment remains the existing static GitHub Pages site. `npm test` and `npm run validate` check presentation contracts and fixture structure. `Rscript scripts/test-shiny.R` checks access-code handling, search, retrieval and note rendering with local fixtures. These checks do not replace course-database feasibility validation.
+Use `npm ci` and `npm run dev` for a local website preview; deployment remains the existing static GitHub Pages site. `npm test` and `npm run validate` check presentation contracts and fixture structure. `Rscript scripts/test-shiny.R` checks access-code handling, search, retrieval, comparison-note rendering and all-three-programme semester-option rendering with local fixtures. These checks do not replace course-database feasibility validation.
