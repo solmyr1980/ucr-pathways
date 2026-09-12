@@ -1,0 +1,59 @@
+{
+  "step": "registry-normalization-step-1",
+  "status": "complete",
+  "generated_date": "2026-09-12",
+  "research_scope": "mechanical only; no web research or merge/split decisions",
+  "sources": [
+    {
+      "name": "UCR_Pathways_Programme_Registry.xlsx",
+      "sha256": "13cb842adb10d6e59f93a4d4ccd135f33cb63f96af7e6a6da01ba24d29a64da6",
+      "bytes": 1754194,
+      "handling": "read-only; source workbook unchanged"
+    },
+    {
+      "name": "DUO_RIO_HO_Opleidingsoverzicht_2026-08-21.csv",
+      "sha256": "b84a318ee723993c7f5401bac550601d52d187f70467be1c19c2d66e0a913810",
+      "bytes": 3967583,
+      "handling": "read-only; raw DUO/RIO extract unchanged"
+    }
+  ],
+  "reconciliation": {
+    "source_registry_rows": 478,
+    "distinct_referenced_offering_ids": 569,
+    "raw_duo_rows_behind_referenced_offerings": 577,
+    "offering_ids_with_multiple_raw_duo_rows": 8,
+    "source_rows_with_multiple_offering_ids": 87,
+    "multi_offering_rows_identity_sensitive_on_language_programme_unit_or_location": 30,
+    "multi_offering_rows_administrative_only_with_respect_to_those_identity_dimensions": 57,
+    "programme_unit_codes_reused_across_multiple_source_rows": 18,
+    "resolution_cases": 83,
+    "source_rows_affected_by_at_least_one_resolution_case": 96,
+    "source_rows_without_resolution_case": 382
+  },
+  "resolution_case_counts_by_type": {
+    "known-first-batch-identity-anomaly": 1,
+    "missing-core-registry-metadata": 8,
+    "multiple-languages-in-source-row": 21,
+    "multiple-locations-in-source-row": 4,
+    "multiple-programme-units-in-source-row": 5,
+    "programme-lifecycle-review": 12,
+    "programme-unit-reused-across-source-rows": 18,
+    "special-programme-structure-review": 14
+  },
+  "validation": {
+    "source_row_count_is_478": true,
+    "source_rows_unique_and_contiguous_2_479": true,
+    "all_source_rows_have_at_least_one_offering": true,
+    "offering_id_count_is_569": true,
+    "each_offering_maps_to_one_source_row": true,
+    "raw_duo_records_reconciled_to_577": true,
+    "resolution_case_count_is_83": true,
+    "resolution_references_have_no_orphans": true,
+    "needs_resolution_matches_case_references": true
+  },
+  "notes": [
+    "The 57/30 split classifies multi-offering rows only by whether language, programme-unit, or location differs across offerings. A row in the 57 may still carry another resolution case such as lifecycle or special programme structure.",
+    "AANGEBODEN_OPLEIDINGCODE is retained as source provenance and is not treated as the future counselor comparison ID.",
+    "The final counselor target count is intentionally unresolved at Step 1."
+  ]
+}
