@@ -43,16 +43,12 @@ jobs:
           Rscript -e 'x <- source("pilot/shiny/app.R", local=new.env())$value; stopifnot(inherits(x, "shiny.appobj"))'
           Rscript -e 'x <- source("pilot/counselor-shiny/app.R", local=new.env())$value; stopifnot(inherits(x, "shiny.appobj"))'
 
-      - name: Validate pilot JSON inputs
+      - name: Validate local pilot JSON inputs
         run: |
-          Rscript -e 'library(jsonlite); fromJSON("data/counselor/pilot-programmes.json"); fromJSON("data/counselor/pilot-interests.json"); fromJSON("pilot/shiny/data/access_codes.json")'
+          Rscript -e 'library(jsonlite); fromJSON("data/counselor/pilot-programmes.json"); fromJSON("data/counselor/pilot-interests.json"); fromJSON("pilot/shiny/data/access_codes.json"); for (id in sprintf("p-%03d", 1:5)) fromJSON(sprintf("data/examples/%s.json", id))'
 
       - name: Check pilot behavior and rendering
         run: Rscript scripts/test-shiny.R
-
-      - name: Check remote comparison fixtures
-        run: |
-          Rscript -e 'library(jsonlite); for (id in sprintf("p-%03d", 1:5)) fromJSON(sprintf("https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/data/examples/%s.json?cb=%s", id, as.numeric(Sys.time())))'
 
       - name: Smoke-test student app startup
         shell: bash
