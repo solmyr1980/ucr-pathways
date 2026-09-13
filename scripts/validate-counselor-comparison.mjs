@@ -157,6 +157,42 @@ function validateMapItems(items, fieldName, fail, { allowEmpty = false } = {}) {
   return labels;
 }
 
+function validateStableComparisonReferences(record, fail) {
+  const comparatorComponents = record?.comparator?.components;
+  if (!Array.isArray(comparatorComponents) || comparatorComponents.length === 0) {
+    fail('comparator.components must contain the complete reconstructed 180-EC comparator curriculum');
+  }
+
+  for (const programme of record?.programmes || []) {
+    if (!['ucr-depth', 'ucr-balanced', 'ucr-thematic'].includes(programme?.role)) continue;
+    for (const semester of programme?.schedule?.semesters || []) {
+      for (const course of semester?.courses || []) {
+        if (typeof course?.code !== 'string' || !course.code.trim()) {
+          fail(`scheduled course ${JSON.stringify(course?.name || '')} in ${programme.id} requires a course code in current production records`);
+        }
+      }
+    }
+  }
+
+  for (const block of record?.blocks || []) {
+    for (const [rowIndex, row] of (block?.rows || []).entries()) {
+      for (const programme of record?.programmes || []) {
+        const cell = normalizeCell(row?.cells?.[programme.id]);
+        if (!cell) continue;
+        if (programme.role === 'comparator') {
+          if (typeof cell.componentId !== 'string' || !cell.componentId.trim()) {
+            fail(`block ${block.title}, row ${rowIndex + 1}: comparator cell requires componentId`);
+          }
+        } else if (['ucr-depth', 'ucr-balanced', 'ucr-thematic'].includes(programme.role)) {
+          if (typeof cell.courseCode !== 'string' || !cell.courseCode.trim()) {
+            fail(`block ${block.title}, row ${rowIndex + 1}, programme ${programme.id}: UCR cell requires courseCode`);
+          }
+        }
+      }
+    }
+  }
+}
+
 const registryRows = parseCsv(fs.readFileSync(registryFile, 'utf8'));
 const registryById = new Map(registryRows.map(row => [row.counselor_programme_id, row]));
 
@@ -176,9 +212,10 @@ for (const file of files) {
   const fail = message => errors.push(`${sourceName}: ${message}`);
   const warn = message => warnings.push(`${sourceName}: ${message}`);
 
-  if (record.schemaVersion !== '1.2') fail('schemaVersion must be "1.2" for current counselor production records');
+  if (record.schemaVersion !== '1.3') fail('schemaVersion must be "1.3" for current counselor production records');
   if (record.origin !== 'counselor') fail('origin must be "counselor"');
   if (!cpPattern.test(String(record.id || ''))) fail('id must use permanent cp-000001 format');
+  validateStableComparisonReferences(record, fail);
 
   const provider = record?.programmeProvider;
   const counselorProgrammeId = String(provider?.counselorProgrammeId || '');
@@ -284,7 +321,7 @@ for (const file of files) {
       })
     );
     if (exactlySixtyByRole) {
-      warn('comparison uses an exact 3 × 60 EC structure for every programme; review for forced curriculum partitioning rather than genuine alignment');
+      warn('comparison uses an exact 3 × 60 EC structure for every programme; confirm that the equality is independently justified by the curricula rather than imposed as a template');
     }
   }
 
