@@ -38,12 +38,35 @@ for (id in sprintf("p-%03d", 1:5)) {
   }
 
   student_options <- student$student_ucr_programmes(record)
-  stopifnot(length(student_options) == 3)
-  stopifnot(identical(vapply(student_options, function(x) x$role, character(1)), c("ucr-depth", "ucr-balanced", "ucr-thematic")))
+  stopifnot(length(student_options) >= 1, length(student_options) <= 3)
+  stopifnot(all(vapply(student_options, student$is_ucr_programme, logical(1))))
   programme_options_html <- as.character(student$render_programme_options(record))
   for (programme in student_options) {
     stopifnot(grepl(htmltools::htmlEscape(student$visible_label(record, programme)), programme_options_html, fixed = TRUE))
   }
+}
+
+# Explicitly exercise one- and two-alternative rendering using the first public fixture.
+base_record <- jsonlite::fromJSON("data/examples/p-001.json", simplifyVector = FALSE)
+base_ucr <- student$student_ucr_programmes(base_record)
+stopifnot(length(base_ucr) >= 3)
+for (count in c(1, 2)) {
+  fixture <- base_record
+  keep <- c(base_record$programmes[[1]]$id, vapply(base_ucr[seq_len(count)], function(x) x$id, character(1)))
+  fixture$programmes <- c(list(base_record$programmes[[1]]), base_ucr[seq_len(count)])
+  fixture$blocks <- lapply(fixture$blocks, function(block) {
+    block$rows <- lapply(block$rows, function(row) {
+      row$cells <- row$cells[names(row$cells) %in% keep]
+      row
+    })
+    block$rows <- Filter(function(row) any(vapply(row$cells, function(cell) !is.null(cell) && length(cell) > 0, logical(1))), block$rows)
+    block
+  })
+  fixture$blocks <- Filter(function(block) length(block$rows) > 0, fixture$blocks)
+  stopifnot(length(student$student_ucr_programmes(fixture)) == count)
+  stopifnot(nzchar(as.character(student$render_compare_table(fixture))))
+  stopifnot(nzchar(as.character(student$render_programme_options(fixture))))
+  stopifnot(nzchar(as.character(counselor$render_compare_table(fixture))))
 }
 
 shiny::testServer(counselor$server, {
@@ -60,7 +83,8 @@ shiny::testServer(counselor$server, {
 shiny::testServer(student$server, {
   session$setInputs(access_code = tolower(codes$entries[[1]]$code), unlock_pathway = 1)
   stopifnot(identical(record()$id, codes$entries[[1]]$example_id))
-  stopifnot(length(student$student_ucr_programmes(record())) == 3)
+  option_count <- length(student$student_ucr_programmes(record()))
+  stopifnot(option_count >= 1, option_count <= 3)
   session$setInputs(reset_pathway = 1)
   stopifnot(is.null(record()))
 })
