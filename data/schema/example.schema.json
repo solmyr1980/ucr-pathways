@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://solmyr1980.github.io/ucr-pathways/data/schema/example.schema.json",
-  "title": "UCR comparison public record",
-  "description": "Publication contract for one four-programme UCR comparison. Supports records derived from student or counselor workflows while retaining backward compatibility with legacy public examples.",
+  "title": "UCR comparison record",
+  "description": "Shared comparison contract: exactly one external comparator followed by one to three ordered UCR alternatives. Legacy public role names remain readable during migration; schema 2.0/current production uses ucr-alternative.",
   "type": "object",
   "required": ["schemaVersion", "id", "programmes", "blocks"],
   "properties": {
@@ -22,6 +22,7 @@
       },
       "additionalProperties": true
     },
+    "alternativeSelection": {"$ref": "#/$defs/alternativeSelection"},
     "comparator": {"$ref": "#/$defs/comparatorMetadata"},
     "referenceProgramme": {
       "allOf": [{"$ref": "#/$defs/comparatorMetadata"}],
@@ -47,22 +48,24 @@
         "comparisonNote": {"type": "string"},
         "showComparatorOnLinkedIn": {
           "type": "boolean",
-          "description": "When false, the LinkedIn PDF omits the comparator page while the four-programme record remains unchanged."
+          "description": "When false, the LinkedIn PDF omits the comparator page while retaining all approved UCR alternatives."
         }
       },
       "additionalProperties": true
     },
     "programmes": {
       "type": "array",
-      "minItems": 4,
+      "minItems": 2,
       "maxItems": 4,
       "prefixItems": [
-        {"allOf": [{"$ref": "#/$defs/programme"}, {"properties": {"role": {"const": "comparator"}}}]},
-        {"allOf": [{"$ref": "#/$defs/programme"}, {"properties": {"role": {"const": "ucr-depth"}, "schedule": {"$ref": "#/$defs/ucrSchedule"}}, "required": ["schedule"]}]},
-        {"allOf": [{"$ref": "#/$defs/programme"}, {"properties": {"role": {"const": "ucr-balanced"}, "schedule": {"$ref": "#/$defs/ucrSchedule"}}, "required": ["schedule"]}]},
-        {"allOf": [{"$ref": "#/$defs/programme"}, {"properties": {"role": {"const": "ucr-thematic"}, "schedule": {"$ref": "#/$defs/ucrSchedule"}}, "required": ["schedule"]}]}
+        {
+          "allOf": [
+            {"$ref": "#/$defs/programme"},
+            {"properties": {"role": {"const": "comparator"}}}
+          ]
+        }
       ],
-      "items": false
+      "items": {"$ref": "#/$defs/ucrProgramme"}
     },
     "blocks": {
       "type": "array",
@@ -113,6 +116,18 @@
     }
   ],
   "$defs": {
+    "alternativeSelection": {
+      "type": "object",
+      "properties": {
+        "includedCount": {"type": "integer", "minimum": 1, "maximum": 3},
+        "stoppingReason": {
+          "type": "string",
+          "enum": ["maximum-reached", "insufficient-evidence", "not-substantively-distinct", "not-feasible"]
+        },
+        "assessment": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
     "comparatorMetadata": {
       "type": "object",
       "required": ["name", "institution", "primarySourceUrl"],
@@ -147,14 +162,27 @@
       "required": ["id", "role", "label"],
       "properties": {
         "id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
-        "role": {"type": "string", "enum": ["comparator", "ucr-depth", "ucr-balanced", "ucr-thematic"]},
+        "role": {"type": "string", "enum": ["comparator", "ucr-alternative", "ucr-depth", "ucr-balanced", "ucr-thematic"]},
         "family": {"type": "string", "enum": ["comparator", "ucr"]},
+        "alternativeKind": {"type": "string", "enum": ["closest-match", "related-direction", "question-led", "other-defensible"]},
         "label": {"type": "string", "minLength": 1},
         "subtitle": {"type": "string"},
         "note": {"type": "string"},
         "schedule": {"$ref": "#/$defs/schedule"}
       },
       "additionalProperties": true
+    },
+    "ucrProgramme": {
+      "allOf": [
+        {"$ref": "#/$defs/programme"},
+        {
+          "properties": {
+            "role": {"enum": ["ucr-alternative", "ucr-depth", "ucr-balanced", "ucr-thematic"]},
+            "schedule": {"$ref": "#/$defs/ucrSchedule"}
+          },
+          "required": ["schedule"]
+        }
+      ]
     },
     "course": {
       "type": "object",
