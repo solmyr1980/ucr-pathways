@@ -1,33 +1,85 @@
 # Counselor comparison data
 
-This directory is the implementation home for counselor-app discovery data and the deterministic comparison corpus. It is separate from `data/examples/`, which contains only examples explicitly approved for the public website and/or LinkedIn.
+This directory is the implementation home for counselor-app discovery data and the deterministic comparison corpus.
 
-## Authoritative programme identity and scope
+It is separate from `data/examples/`, which contains only examples explicitly selected and approved for the public website and/or LinkedIn.
 
-The counselor corpus is keyed by the normalized registry in `data/registry/`. The stable identity is `counselor_programme_id` from `data/registry/programmes.csv`. Source rows, offered-programme UUIDs, programme-unit codes and recognized-programme codes are provenance/crosswalk identifiers, not comparison identity.
+## Authoritative programme identity
 
-The current corpus includes only normalized targets with `production_eligible=true`, nonblank `production_order` and `programme_type=standard`. Joint/double/dual-degree targets remain valid normalized targets but are temporarily outside counselor comparison production until an approved presentation method exists.
+The counselor corpus is keyed by the normalized registry in `data/registry/`.
+
+The stable programme identity is `counselor_programme_id` from `data/registry/programmes.csv` (for example `cp-000001`). Source worksheet rows, `AANGEBODEN_OPLEIDINGCODE`, programme-unit codes and recognized-programme codes are retained as provenance/crosswalk identifiers and must not be used as the counselor comparison identity.
+
+The normalized registry may merge several registrations into one academic target or split a legacy source representation into several genuine academic targets.
+
+Registry eligibility and current counselor production scope are deliberately separate concepts. The current corpus includes only normalized targets with `production_eligible=true`, nonblank `production_order` and `programme_type=standard`. Targets classified as `joint-degree`, `double-bachelor` or `dual-degree-route` remain valid normalized targets but are temporarily excluded from counselor comparison production until an approved presentation method exists. Do not change the registry identity or lifecycle fields to implement that exclusion.
+
+## Pilot files
+
+The pilot files are deliberately small end-to-end test fixtures:
+
+- `pilot-programmes.json` — discovery records linked to existing comparison examples;
+- `pilot-interests.json` — a small set of classified interest signals for those fixtures.
+
+They exist to prove the counselor search/retrieval architecture. They are not the production programme registry and must not be interpreted as complete coverage.
 
 ## Production shape
 
-Keep three concerns separate: `programmes.json` discovery metadata, `interests.json` discovery interests, and `comparisons/<counselor_programme_id>.json` deterministic comparisons. During incremental production, do not create the production indexes; leave pilot indexes unchanged until the comparison corpus is complete and quality-controlled.
+Keep three concerns separate:
 
-## Current production contract
+1. `programmes.json` — deployed programme discovery metadata, one record per normalized target in the current counselor production scope;
+2. `interests.json` — deployed programme-interest discovery index linked by `counselor_programme_id`, limited to targets in the current counselor production scope;
+3. `comparisons/<counselor_programme_id>.json` — one completed validated deterministic comparison per in-scope normalized target.
 
-Current counselor production records use `schemaVersion: "1.3"`.
+Current counselor production records use `schemaVersion: "1.2"`.
 
-For every current production record, stable IDs and required normalized metadata must match `data/registry/programmes.csv`. `academicRationale` must contain `coreField`, `adjacentDirections`, `questionsApplications`, `balancedDirections`, an evidence-backed and scope-closed `thematicQuestion`, and `courseAlignment` covering exactly every scheduled course in each UCR programme.
+For every current production record:
 
-Course traceability is role-specific: depth courses trace to `coreField`; balanced courses trace to `coreField` or selected balanced directions; thematic courses trace only to thematic basis labels. `ACCPPDE101` is the sole `ucr-required` exception.
+- top-level `id`, `programmeProvider.counselorProgrammeId` and registry `counselor_programme_id` must be identical;
+- normalized registry metadata required by the counselor schema must match `data/registry/programmes.csv`, including canonical name, orders, institution IDs, programme type/status, eligibility, languages, modes and required provenance arrays;
+- `academicRationale` must be present before the UCR schedules are treated as production-complete.
 
-Validate current normalized production records with `npm run validate:counselor`. The validator cross-checks registry metadata, validates rationale/course traceability, rejects fixed UCR credit allocation across comparison blocks, and emits batch warnings for suspicious thematic-course palette reuse.
+`academicRationale` records the evidence-backed academic interest map used to construct the three UCR alternatives:
+
+- `coreField` — defining disciplinary content, methods, progression and specialist work;
+- `adjacentDirections` — genuinely related academic directions supported by evidence;
+- `questionsApplications` — evidenced questions, problems, phenomena and applications;
+- `balancedDirections` — one or two selected adjacent directions used for `ucr-balanced`;
+- `thematicQuestion` — the explicit organising question for `ucr-thematic`, with evidence and map labels on which it is based.
+
+The academic interest map and programme concepts must be established before UCR course selection. The UCR course catalogue is used to implement those concepts, not to invent them.
+
+Validate normalized production records with `npm run validate:counselor`. The validator intentionally ignores UUID-named pre-normalization comparison files; those files do not count as current production records.
+
+The validator cross-checks normalized production metadata against `data/registry/programmes.csv`, checks the academic-rationale structure and flags suspicious comparison patterns such as exact three-by-60-EC symmetry.
+
+During incremental corpus production, do **not** create the production `programmes.json` or `interests.json` indexes. Leave pilot indexes unchanged until the comparison corpus is complete and quality-controlled; then build the production indexes in one finalisation step from `data/registry/programmes.csv` and `data/registry/programme_interests.csv`, applying the then-current counselor production-scope rules.
+
+Interest search resolves to normalized counselor targets and then loads the fixed comparison. An interest query never regenerates or personalizes comparison content.
+
+Where `target_mapping_status=inherited-across-split-targets`, the inherited interest row is provenance/general discovery context only. It must not be used as target-specific academic evidence unless independently corroborated by current official evidence for the exact normalized target.
 
 ## Comparison blocks
 
-Comparison blocks are analytical alignments, not partitions. External curriculum components are not automatically blocks. There is no required number of blocks and no default 60/60/60 or fixed UCR credit allocation. Not every UCR course has to appear. Unequal EC totals and meaningful blanks are legitimate.
+Comparison blocks are analytical alignments of genuinely comparable curriculum components. They are not partitions of the full 180-EC programmes.
 
-## Provenance and runtime
+There is no required number of blocks and no default 60/60/60 structure. Not every UCR course has to appear in a comparison block. Unequal EC totals and meaningful blank cells are legitimate when they reflect genuine curricular differences.
 
-Use the crosswalks in `data/registry/` for source/offering/institution and identity-resolution provenance. `inherited-across-split-targets` interest evidence is not target-specific unless independently corroborated. Interest search locates a normalized target and then loads its fixed comparison; it never regenerates the comparison.
+## Registry provenance
 
-GitHub remains the version-controlled source of truth. The authoritative academic rules are in `docs/UCR_Pathways_Production_Instructions.md`; the reusable batch procedure is in `docs/Counselor_Batch_Assignment.md`.
+Use the crosswalks in `data/registry/` when traceability is needed:
+
+- `programme_source_rows.csv` — legacy workbook row → normalized target;
+- `programme_offerings.csv` — offered-programme UUID → normalized target;
+- `institutions.csv` — normalized institution identity and source aliases/IDs;
+- `resolution_decisions.csv` / `resolution_sources.csv` — identity-resolution evidence for ambiguous cases.
+
+Existing comparison records created before registry normalization must not be treated as evidence that the corresponding normalized target is production-complete until they have been checked/migrated against the current target ID and production rules.
+
+## Runtime and deployment
+
+GitHub remains the version-controlled source of truth. A deployed counselor app should receive the programme index, interest index and comparison records as part of the same deployment release as the application code rather than retrieving them from `raw.githubusercontent.com` during counselor use.
+
+At runtime, discovery indexes should be loaded and prepared once per application process. Individual comparison records should be read locally on demand. This keeps the app independent of GitHub latency or availability and ensures that code and data belong to the same release.
+
+The authoritative academic production rules are in `docs/UCR_Pathways_Production_Instructions.md` and the reusable batch procedure is in `docs/Counselor_Batch_Assignment.md`. Exact renderer/search implementation remains repository implementation detail under the Master Specification's implementation boundary.

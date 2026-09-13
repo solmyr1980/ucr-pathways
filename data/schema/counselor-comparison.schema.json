@@ -2,65 +2,147 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://solmyr1980.github.io/ucr-pathways/data/schema/counselor-comparison.schema.json",
   "title": "UCR counselor production comparison record",
-  "description": "Production contract for normalized deterministic counselor comparisons. Requires permanent normalized identity, registry-consistent metadata, an evidence-backed academic rationale, and course-level traceability from each UCR schedule back to the permitted rationale.",
+  "description": "Production contract for normalized deterministic counselor comparisons. Requires permanent normalized identity, registry-consistent metadata, and an evidence-backed academic rationale before UCR course construction.",
   "allOf": [
     {"$ref": "./example.schema.json"},
     {
       "type": "object",
       "required": ["schemaVersion", "origin", "id", "programmeProvider", "academicRationale"],
       "properties": {
-        "schemaVersion": {"const": "1.3"},
+        "schemaVersion": {"const": "1.2"},
         "origin": {"const": "counselor"},
-        "id": {"type": "string", "pattern": "^cp-[0-9]{6}$"},
+        "id": {
+          "type": "string",
+          "pattern": "^cp-[0-9]{6}$",
+          "description": "Must equal programmeProvider.counselorProgrammeId and the permanent counselor_programme_id from data/registry/programmes.csv."
+        },
         "programmeProvider": {
           "type": "object",
-          "required": ["counselorProgrammeId", "registryName", "registryOrder", "productionOrder", "normalizedInstitutionIds", "programmeType", "currentStatus", "productionEligible", "languages", "modes", "sourceExcelRows", "offeredProgrammeIds", "programmeUnitCodes", "recognizedProgrammeCodes", "variantOfCodes"],
+          "required": [
+            "counselorProgrammeId",
+            "registryName",
+            "registryOrder",
+            "productionOrder",
+            "normalizedInstitutionIds",
+            "programmeType",
+            "currentStatus",
+            "productionEligible",
+            "languages",
+            "modes",
+            "sourceExcelRows",
+            "offeredProgrammeIds",
+            "programmeUnitCodes",
+            "recognizedProgrammeCodes",
+            "variantOfCodes"
+          ],
           "properties": {
-            "counselorProgrammeId": {"type": "string", "pattern": "^cp-[0-9]{6}$"},
+            "counselorProgrammeId": {
+              "type": "string",
+              "pattern": "^cp-[0-9]{6}$"
+            },
             "registryName": {"type": "string", "minLength": 1},
             "registryOrder": {"type": "integer", "minimum": 1},
             "productionOrder": {"type": "integer", "minimum": 1},
-            "normalizedInstitutionIds": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+            "normalizedInstitutionIds": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {"type": "string", "minLength": 1}
+            },
             "programmeType": {"const": "standard"},
             "currentStatus": {"type": "string", "minLength": 1},
             "productionEligible": {"const": true},
-            "languages": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
-            "modes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
-            "sourceExcelRows": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "integer", "minimum": 1}},
-            "offeredProgrammeIds": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
-            "programmeUnitCodes": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
-            "recognizedProgrammeCodes": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
-            "variantOfCodes": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+            "languages": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {"type": "string", "minLength": 1}
+            },
+            "modes": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {"type": "string", "minLength": 1}
+            },
+            "sourceExcelRows": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {"type": "integer", "minimum": 1}
+            },
+            "offeredProgrammeIds": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {"type": "string", "minLength": 1}
+            },
+            "programmeUnitCodes": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {"type": "string", "minLength": 1}
+            },
+            "recognizedProgrammeCodes": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {"type": "string", "minLength": 1}
+            },
+            "variantOfCodes": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {"type": "string", "minLength": 1}
+            }
           },
           "additionalProperties": true
         },
         "academicRationale": {
           "type": "object",
-          "required": ["coreField", "adjacentDirections", "questionsApplications", "balancedDirections", "thematicQuestion", "courseAlignment"],
+          "required": [
+            "coreField",
+            "adjacentDirections",
+            "questionsApplications",
+            "balancedDirections",
+            "thematicQuestion"
+          ],
           "properties": {
-            "coreField": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/mapItem"}},
-            "adjacentDirections": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/mapItem"}},
-            "questionsApplications": {"type": "array", "items": {"$ref": "#/$defs/mapItem"}},
-            "balancedDirections": {"type": "array", "minItems": 1, "maxItems": 2, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+            "coreField": {
+              "type": "array",
+              "minItems": 1,
+              "items": {"$ref": "#/$defs/mapItem"}
+            },
+            "adjacentDirections": {
+              "type": "array",
+              "minItems": 1,
+              "items": {"$ref": "#/$defs/mapItem"}
+            },
+            "questionsApplications": {
+              "type": "array",
+              "items": {"$ref": "#/$defs/mapItem"}
+            },
+            "balancedDirections": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": {"type": "string", "minLength": 1}
+            },
             "thematicQuestion": {
               "type": "object",
               "required": ["text", "basisLabels", "evidence"],
               "properties": {
                 "text": {"type": "string", "minLength": 1},
-                "basisLabels": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
-                "evidence": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidenceRef"}}
+                "basisLabels": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {"type": "string", "minLength": 1}
+                },
+                "evidence": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {"$ref": "#/$defs/evidenceRef"}
+                }
               },
               "additionalProperties": true
-            },
-            "courseAlignment": {
-              "type": "object",
-              "required": ["ucr-depth", "ucr-balanced", "ucr-thematic"],
-              "properties": {
-                "ucr-depth": {"$ref": "#/$defs/courseAlignmentList"},
-                "ucr-balanced": {"$ref": "#/$defs/courseAlignmentList"},
-                "ucr-thematic": {"$ref": "#/$defs/courseAlignmentList"}
-              },
-              "additionalProperties": false
             }
           },
           "additionalProperties": true
@@ -73,7 +155,10 @@
       "type": "object",
       "required": ["sourceType", "reference"],
       "properties": {
-        "sourceType": {"type": "string", "enum": ["official-source", "programme-interest"]},
+        "sourceType": {
+          "type": "string",
+          "enum": ["official-source", "programme-interest"]
+        },
         "reference": {"type": "string", "minLength": 1},
         "note": {"type": "string"}
       },
@@ -84,21 +169,13 @@
       "required": ["label", "evidence"],
       "properties": {
         "label": {"type": "string", "minLength": 1},
-        "evidence": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidenceRef"}}
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/evidenceRef"}
+        }
       },
       "additionalProperties": true
-    },
-    "courseAlignmentItem": {
-      "type": "object",
-      "required": ["courseCode", "basisType", "basisLabels", "reason"],
-      "properties": {
-        "courseCode": {"type": "string", "pattern": "^[A-Z0-9]+$"},
-        "basisType": {"type": "string", "enum": ["academic-map", "ucr-required"]},
-        "basisLabels": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
-        "reason": {"type": "string", "minLength": 1}
-      },
-      "additionalProperties": true
-    },
-    "courseAlignmentList": {"type": "array", "minItems": 24, "maxItems": 24, "items": {"$ref": "#/$defs/courseAlignmentItem"}}
+    }
   }
 }
