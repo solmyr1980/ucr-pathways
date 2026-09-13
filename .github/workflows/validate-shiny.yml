@@ -12,7 +12,12 @@ on:
       - 'assets/css/shiny.css'
       - 'data/examples/**'
       - 'data/counselor/**'
+      - 'data/schema/**'
+      - 'scripts/example-utils.mjs'
+      - 'scripts/validate-example.mjs'
+      - 'scripts/validate-counselor-comparison.mjs'
       - 'scripts/test-shiny.R'
+      - 'package.json'
       - '.github/workflows/validate-shiny.yml'
 
 jobs:
@@ -22,6 +27,12 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+
+      - name: Validate public comparison records
+        run: node scripts/validate-example.mjs all
+
+      - name: Validate normalized counselor production records
+        run: node scripts/validate-counselor-comparison.mjs all
 
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
