@@ -40,9 +40,6 @@ jobs:
         with:
           node-version: 24
 
-      - name: Migrate public examples to variable alternatives
-        run: node scripts/migrate-public-alternatives.mjs
-
       - name: Validate example data
         run: node scripts/validate-example.mjs "$EXAMPLE_ID"
 
@@ -81,17 +78,17 @@ jobs:
           path: output/open-day/*.pdf
           retention-days: 30
 
-      - name: Publish migrated examples and LinkedIn PDFs
+      - name: Publish LinkedIn PDFs for GitHub Pages
         if: github.ref == 'refs/heads/main'
         run: |
           mkdir -p publication/linkedin
           cp output/linkedin/*.pdf publication/linkedin/
           git config user.name "github-actions[bot]"
           git config user.email "4189826+github-actions[bot]@users.noreply.github.com"
-          git add -- data/examples/*.json publication/linkedin/*.pdf
+          git add -- publication/linkedin/*.pdf
           if git diff --cached --quiet; then
-            echo "No migrated examples or published LinkedIn PDFs changed."
+            echo "No published LinkedIn PDFs changed."
           else
-            git commit -m "Migrate public examples and publish LinkedIn PDFs"
+            git commit -m "Publish LinkedIn PDFs"
             git push
           fi
