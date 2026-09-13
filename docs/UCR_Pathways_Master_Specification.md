@@ -219,9 +219,11 @@ Do not invent additional cluster, unit, concentration, breadth or disciplinary-d
 
 Construct and validate all four programmes before designing comparison blocks. Use actual content rather than titles alone and preserve actual EC weights.
 
-Align genuinely comparable material; preserve meaningful blanks and structural differences; do not force row-by-row symmetry, equal credit allocation, complete 180-EC partitioning or one-to-one course equivalence. Do not use numerical depth/breadth scores.
+The comparison is a **lossless 180-EC representation of each completed programme**, organised into meaningful substantive blocks. Every UCR course must appear exactly once in the comparison, including Personal & Professional Development. The external programme must likewise account for its complete 180 EC; genuine open-elective, profiling or restricted-choice space must be represented explicitly rather than disappearing from the comparison.
 
-Detailed block construction and anti-template checks belong to the Production Instructions.
+Blocks classify and align programme components; they do not replace them with selective summaries. Preserve meaningful blank cells and structural differences, and do not force row-by-row symmetry, equal block sizes, identical credit allocations or one-to-one course equivalence. The number and size of blocks should follow the curricula rather than a fixed template. Do not use numerical depth/breadth scores.
+
+Detailed block construction, stable component references and anti-template checks belong to the Production Instructions and executable validators.
 
 ---
 
@@ -229,7 +231,7 @@ Detailed block construction and anti-template checks belong to the Production In
 
 Explanatory notes should use reusable semantic templates defined in the Production Instructions and appear only when needed to prevent a material misunderstanding. A warranted limitation note must remain visible across representations.
 
-Create one canonical structured comparison record before rendering any surface. The record must identify its origin (`student` or `counselor`) and preserve the four programme identities, complete UCR schedules, comparator evidence, comparison structure, deliberate gaps, relevant credits, validation status and source/verification metadata.
+Create one canonical structured comparison record before rendering any surface. The record must identify its origin (`student` or `counselor`) and preserve the four programme identities, complete UCR schedules, the complete reconstructed comparator curriculum, comparator evidence, lossless comparison structure, deliberate gaps, credits, validation status and source/verification metadata.
 
 Student-origin records additionally preserve the original interest statement and academic interpretation.
 
