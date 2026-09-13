@@ -60,6 +60,11 @@ function makeNearDuplicate(source, changedCourses) {
     courses[i].code = `TESTDIST${String(i + 1).padStart(3, '0')}`;
     courses[i].name = `Distinctness test course ${i + 1}`;
   }
+  record.alternativeSelection = {
+    includedCount: alternatives.length,
+    stoppingReason: alternatives.length === 3 ? 'maximum-reached' : 'not-substantively-distinct',
+    assessment: 'Regression fixture for the production distinctness gate.'
+  };
   return record;
 }
 
