@@ -10,7 +10,9 @@ The counselor corpus is keyed by the normalized registry in `data/registry/`.
 
 The stable programme identity is `counselor_programme_id` from `data/registry/programmes.csv` (for example `cp-000001`). Source worksheet rows, `AANGEBODEN_OPLEIDINGCODE`, programme-unit codes and recognized-programme codes are retained as provenance/crosswalk identifiers and must not be used as the counselor comparison identity.
 
-The normalized registry may merge several registrations into one academic target or split a legacy source representation into several genuine academic targets. Production follows the registry's `production_order` and `production_eligible` fields.
+The normalized registry may merge several registrations into one academic target or split a legacy source representation into several genuine academic targets.
+
+Registry eligibility and current counselor production scope are deliberately separate concepts. The current corpus includes only normalized targets with `production_eligible=true`, nonblank `production_order` and `programme_type=standard`. Targets classified as `joint-degree`, `double-bachelor` or `dual-degree-route` remain valid normalized targets but are temporarily excluded from counselor comparison production until an approved presentation method exists. Do not change the registry identity or lifecycle fields to implement that exclusion.
 
 ## Pilot files
 
@@ -25,13 +27,19 @@ They exist to prove the counselor search/retrieval architecture. They are **not*
 
 Keep three concerns separate:
 
-1. `programmes.json` — deployed programme discovery metadata, one record per production-eligible normalized counselor target;
-2. `interests.json` — deployed programme-interest discovery index linked by `counselor_programme_id`;
-3. `comparisons/<counselor_programme_id>.json` — one completed validated deterministic comparison per normalized target, unless a later explicit schema decision separates comparison ID from target ID.
+1. `programmes.json` — deployed programme discovery metadata, one record per normalized target in the current counselor production scope;
+2. `interests.json` — deployed programme-interest discovery index linked by `counselor_programme_id`, limited to targets in the current counselor production scope;
+3. `comparisons/<counselor_programme_id>.json` — one completed validated deterministic comparison per in-scope normalized target, unless a later explicit schema decision separates comparison ID from target ID.
 
-During incremental corpus production, do **not** create the production `programmes.json` or `interests.json` indexes. Leave pilot indexes unchanged until the comparison corpus is complete and quality-controlled; then build the production indexes in one finalisation step from `data/registry/programmes.csv` and `data/registry/programme_interests.csv`.
+For current production records, the top-level `id`, `programmeProvider.counselorProgrammeId` and permanent registry `counselor_programme_id` must be identical. Legacy source/provider/offering identifiers remain provenance only.
+
+Validate normalized production records with `npm run validate:counselor`. The validator intentionally ignores UUID-named pre-normalization comparison files; those files do not count as current production records until they are checked and migrated to the normalized target contract.
+
+During incremental corpus production, do **not** create the production `programmes.json` or `interests.json` indexes. Leave pilot indexes unchanged until the comparison corpus is complete and quality-controlled; then build the production indexes in one finalisation step from `data/registry/programmes.csv` and `data/registry/programme_interests.csv`, applying the then-current counselor production-scope rules.
 
 Interest search resolves to normalized counselor targets and then loads the fixed comparison. An interest query never regenerates or personalizes comparison content.
+
+Where `target_mapping_status=inherited-across-split-targets`, the inherited interest row is provenance/general discovery context only. It must not be used as target-specific academic evidence unless independently corroborated by current official evidence for the exact normalized target.
 
 ## Registry provenance
 
