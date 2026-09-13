@@ -26,22 +26,21 @@ Do not duplicate this procedure in batch assignments or other workflow documents
 
 # 1. Shared academic principles
 
-Every comparison uses the four stable semantic roles:
+Every comparison contains exactly one external `comparator` and between **one and three ordered UCR alternatives**.
 
-1. `comparator`;
-2. `ucr-depth`;
-3. `ucr-balanced`;
-4. `ucr-thematic`.
+The first UCR alternative is always the closest feasible response to the field/interests under consideration. Additional alternatives are optional and are generated sequentially only when they are evidence-backed, coherent, substantively distinct and mechanically feasible.
+
+Concept labels such as `closest-match`, `related-direction` and `question-led` may be stored as internal metadata, but they are not mandatory slots. Do not create an alternative merely to instantiate a category.
 
 For both workflows:
 
-- construct the four programmes before designing the comparison;
+- construct the comparator and all included UCR programmes before designing the comparison;
 - use course/component content rather than titles alone;
 - represent genuine gaps and limitations honestly;
 - do not manufacture weak UCR matches;
 - do not weaken the external programme to make UCR look better;
 - preserve actual EC weights;
-- account for the complete 180 EC of every programme in the comparison exactly once;
+- account for the complete 180 EC of every included programme in the comparison exactly once;
 - do not force row-by-row, credit-by-credit or aesthetic symmetry;
 - use reusable explanatory notes only when they prevent a material misunderstanding.
 
@@ -81,7 +80,7 @@ Preserve relevant source metadata, including primary/additional official URLs, a
 
 Use the enriched UCR course database as the authoritative source for UCR selection and scheduling. Use actual course content, giving particular weight to outline-derived `profile` information where available, alongside name, discipline, topics, methods, descriptions, prerequisites and planned semester availability.
 
-Each UCR programme must have:
+Each included UCR programme must have:
 
 - exactly **24 unique courses**;
 - exactly **4 courses in each of six semesters**;
@@ -93,6 +92,31 @@ Each UCR programme must have:
 Do not invent additional cluster, unit, concentration, breadth or disciplinary-distribution requirements.
 
 Validate these rules mechanically against the enriched course database. Repository/schema validation does not replace academic feasibility validation.
+
+## 2.3 Shared alternative-selection rule
+
+Always attempt the UCR alternatives in order.
+
+### Alternative 1 — closest feasible response
+
+Construct the strongest defensible UCR programme for the evidenced field/interests. If no defensible 24-course UCR programme can be built, treat the case as an exception rather than exporting a weak comparison.
+
+### Alternative 2 — first genuinely different route
+
+Consider one additional coherent programme concept supported by the applicable evidence boundary. Include it only if it passes all four tests:
+
+1. **evidence** — the concept is supported by permitted evidence;
+2. **coherence** — it has a clear academic organising logic before course selection;
+3. **distinctness** — it represents a substantively different choice from Alternative 1 rather than cosmetic reshuffling;
+4. **feasibility** — it can satisfy all UCR mechanical constraints.
+
+If Alternative 2 fails, stop. Do not manufacture Alternative 3.
+
+### Alternative 3 — second genuinely different route
+
+Only after Alternative 2 is included, consider one further concept under the same four tests. Include it if defensible; otherwise stop at two.
+
+Three is the maximum, not the target. The stopping decision must be auditable in current production records. Exact duplicate UCR course sets are never distinct alternatives.
 
 ---
 
@@ -106,6 +130,8 @@ Preserve the student's original wording exactly and store the academic interpret
 
 Interpret the statement in terms of relevant disciplines, questions, phenomena/problems, practical interests/skills and meaningful connections. For one stated interest, broaden through genuine subfields, questions and neighbouring perspectives rather than inventing a second interest.
 
+The student's complete submitted statement is valid evidence. If the student supplies several interests, alternatives may legitimately vary their relative emphasis, combine them differently or organise them around an evidenced question. Do not add an interest the student did not supply merely to make alternatives more different.
+
 ## 3.2 Comparator and production sequence
 
 Choose the Dutch bachelor that provides the most useful disciplinary/depth endpoint for the student's interests. Do not automatically choose the first-mentioned discipline. Prefer a current Dutch research-university bachelor where suitable.
@@ -116,14 +142,13 @@ Then work in this order:
 
 1. preserve and interpret the student input;
 2. select and reconstruct the external comparator under Section 2.1;
-3. construct `ucr-depth` as the closest feasible UCR match responsive to the student's interests;
-4. construct `ucr-balanced` with substantially more balanced weight across the student's interests;
-5. construct `ucr-thematic` from questions/themes connecting those interests;
-6. schedule and mechanically validate all three UCR programmes under Section 2.2;
-7. construct the comparison under Section 5;
-8. create the canonical student record under Section 7;
-9. render the requested private student-app/PDF representations;
-10. only after explicit public approval, derive a publication-safe record when requested.
+3. construct and validate Alternative 1 under Sections 2.2–2.3;
+4. consider Alternative 2 under the same gates and stop if it cannot be justified;
+5. if Alternative 2 is included, consider Alternative 3 and stop if it cannot be justified;
+6. construct the comparison under Section 5 using only the included programmes;
+7. create the canonical student record under Section 7;
+8. render the requested private student-app/PDF representations;
+9. only after explicit public approval, derive a publication-safe record when requested.
 
 ## 3.3 Student output requirements
 
@@ -131,6 +156,8 @@ The student interface must preserve the distinction between:
 
 - **You told us that…** — original wording;
 - **For us, this means that…** — academic interpretation.
+
+Do not promise a fixed number of programme options. Present the included alternatives as the UCR programmes that best fit what the student told us.
 
 Use the placeholder disclaimer until approved final wording is supplied:
 
@@ -172,6 +199,8 @@ Where `target_mapping_status=inherited-across-split-targets`, the row is provena
 
 A search term never changes or personalizes the fixed comparison.
 
+Programme-interest data describe interests associated with the target programme. They do **not** establish that an imagined individual student also has unrelated additional interests. Use them to identify defensible academic directions, not to invent a fictional personal profile.
+
 ## 4.3 Canonical counselor production pipeline
 
 Complete the following sequence for **one target end-to-end** before moving to the next target.
@@ -194,45 +223,41 @@ The map has three layers:
 
 **Adjacent directions** — genuinely related directions supported by formal routes/specializations, stable study directions, strong direct programme interests, recurring curricular connections or programme-supported questions/applications.
 
-**Questions and applications** — evidenced questions, phenomena, problems and applications that the field addresses and that could support a thematic programme.
+**Questions and applications** — evidenced questions, phenomena, problems and applications that the field addresses and that could support a broader programme.
 
 Every substantive map item must be traceable to at least one current official source for the exact target or one valid target-specific programme-interest row.
 
-### Step 3 — Freeze the three UCR programme concepts
+Adjacent directions and questions/applications may legitimately be empty. Absence of evidence is a reason to stop generating alternatives, not a reason to fill the map from the UCR catalogue.
 
-Establish all three concepts before course selection.
+### Step 3 — Freeze Alternative 1
 
-**`ucr-depth`** — target the core field. Reproduce as closely as feasible the substantive core, progression, methods and advanced work. Preserve genuine UCR limitations rather than compensating with weakly related material.
+Define the closest feasible UCR concept from the core field. Reproduce as closely as feasible the substantive core, progression, methods and advanced work. Preserve genuine UCR limitations rather than compensating with weakly related material.
 
-**`ucr-balanced`** — retain a substantial core and select **one or two adjacent directions from the map**. Those selected directions are the only intended basis for broadening.
+Freeze this concept before selecting courses.
 
-**`ucr-thematic`** — state one explicit organising question, problem, phenomenon or application based on evidenced map items.
+### Step 4 — Select, trace and validate Alternative 1
 
-The thematic question is **scope-closed by its evidence**: it may synthesize evidenced items but must not introduce a new substantive domain, population, problem or application absent from them. Evidence about economic decision-making, for example, does not by itself justify historical, social, environmental or ethical systems; each such direction needs its own evidence.
+Use the enriched UCR course database only after the concept is frozen. Select courses because their actual content implements that concept.
 
-“Several relevant perspectives” means perspectives already justified by the evidence-backed map. If the evidence does not support a compelling expansion far beyond the field, keep the thematic concept relatively close to the field rather than manufacturing eclecticism.
+Except for mandatory `ACCPPDE101` Personal & Professional Development, every course must map concretely to one or more evidenced items used by the concept. Generic claims such as “adds breadth,” “adds context,” “provides another perspective,” or “helps understand complex systems” do not count unless that perspective/context is itself evidenced and directly relevant.
 
-### Step 4 — Select UCR courses from the frozen concepts
+Schedule and mechanically validate under Section 2.2.
 
-Only now use the enriched UCR course database.
+### Step 5 — Consider Alternative 2
 
-Select courses because their actual content implements the already frozen concept. Do not pick attractive courses first and then widen the concept, invent a bridge argument or add a new interest to justify them.
+Return to the evidence map before looking for courses. Identify one coherent alternative concept that differs substantively from Alternative 1 and is supported by map items. It may use an adjacent direction, a question/application, or another defensible reorganisation of the evidenced field.
 
-If availability makes a course set infeasible, repair course selection while preserving the concept. Revisit a concept only when the concept itself proves genuinely infeasible, and then return first to the external evidence and interest map.
+Freeze the concept first, then select courses, run course-to-concept traceability and validate feasibility. Record a concrete distinctness rationale explaining the educational choice that differs from Alternative 1.
 
-### Step 5 — Run course-to-concept traceability
+If no concept passes evidence, coherence, distinctness and feasibility, stop at one and record the stopping reason.
 
-Except for mandatory `ACCPPDE101` Personal & Professional Development:
+### Step 6 — Consider Alternative 3
 
-- every `ucr-depth` course must map to one or more `coreField` items;
-- every `ucr-balanced` course must map to the core field or one selected `balancedDirection`;
-- every `ucr-thematic` course must map to the thematic question and at least one evidenced map item that genuinely forms part of that question.
+Only if Alternative 2 is included, repeat Step 5 for one further defensible concept. It must be substantively distinct from the already included alternatives and remain inside the evidence boundary.
 
-For each course, be able to state one concrete sentence explaining what part of the fixed concept it serves using actual course content. Generic claims such as “adds breadth,” “adds context,” “provides another perspective,” or “helps understand complex systems” do not count unless that perspective/context is itself evidenced and directly relevant.
+If it fails any gate, stop at two and record the stopping reason. If it passes, include three and record `maximum-reached` as the stopping state.
 
-If a course cannot pass this test, remove it. The checklist is an internal production/QC aid under the current schema and is not a required record field.
-
-### Step 6 — Schedule and mechanically validate
+### Step 7 — Schedule terms
 
 For the current counselor corpus use the fixed **Fall 2026 UCR start**:
 
@@ -243,13 +268,11 @@ For the current counselor corpus use the fixed **Fall 2026 UCR start**:
 - Semester 5: `2028h2`
 - Semester 6: `2029h1`
 
-Apply all feasibility rules in Section 2.2. Repair and revalidate until they pass; do not export a knowingly invalid programme.
+### Step 8 — Build the comparison
 
-### Step 7 — Build the comparison
+Only after the external curriculum and all included UCR curricula are complete and validated, construct comparison blocks under Section 5.
 
-Only after the external curriculum and all three UCR curricula are complete and validated, construct comparison blocks under Section 5.
-
-### Step 8 — Create and validate the production record
+### Step 9 — Create and validate the production record
 
 Create the canonical counselor record under Section 7, run repository/schema validation and apply the completion gates in Section 9.
 
@@ -257,7 +280,7 @@ Create the canonical counselor record under Section 7, run repository/schema val
 
 Do not guess or substitute another target when a selected in-scope programme cannot be reconstructed confidently.
 
-If no defensible adjacent direction or thematic question can be established from evidence, do not invent one. If no academically defensible UCR alternative can satisfy the feasibility rules, report the limitation rather than manufacturing a match.
+If no academically defensible closest UCR alternative can satisfy the feasibility rules, report the limitation rather than manufacturing a match. If Alternative 2 or 3 cannot be established, stop with the number of defensible alternatives already completed.
 
 A non-standard target excluded by the current scope is not a blocked case; it is simply outside production scope.
 
@@ -270,9 +293,9 @@ Construct comparison blocks only from the **completed and validated 180-EC curri
 Apply all of the following rules:
 
 - there is no required number of blocks and no default three-block or 60/60/60 structure;
-- every UCR course must appear in the comparison **exactly once**, including `ACCPPDE101` Personal & Professional Development;
+- every included UCR course must appear in the comparison **exactly once**, including `ACCPPDE101` Personal & Professional Development;
 - every external curriculum component in the reconstructed coherent pathway must appear **exactly once**;
-- the displayed components for each of the four programme columns must total **180 EC**;
+- the displayed components for every included programme column must total **180 EC**;
 - genuine open-elective, profiling or restricted-choice space in the external programme must appear explicitly as such and retain its actual EC value;
 - one comparison cell represents one canonical course/component; do not combine several UCR courses into a prose bundle;
 - meaningful blank cells are legitimate when there is no sufficiently comparable component in another programme;
@@ -288,7 +311,7 @@ Displayed text and credits must agree with the referenced canonical course/compo
 
 Start from substantive correspondences and differences and let them determine block number, titles, row alignment and size. Do not force one external component to equal one UCR course, move a component into more than one block, omit inconvenient components, or fill gaps for visual symmetry.
 
-A pattern such as three round 60-EC blocks or identical UCR course allocation across blocks is a review signal when it appears repeatedly or without curricular justification; it is not forbidden when the actual curricula independently justify it.
+A pattern such as three round 60-EC blocks or identical allocations across several programme columns is a review signal when it appears repeatedly or without curricular justification; it is not forbidden when the actual curricula independently justify it.
 
 Show EC credits consistently on both external and UCR components. Do not use numerical depth/breadth scores.
 
@@ -335,29 +358,33 @@ Create one canonical structured record before rendering any output.
 Preserve at minimum:
 
 - stable record ID and `origin` (`student` or `counselor`);
-- four programme identities and semantic roles;
+- exactly one comparator identity and one to three ordered UCR alternative identities;
 - comparator name, institution/provider, official source and the complete reconstructed 180-EC component list;
-- complete 24-course set and six-semester schedule for each UCR programme;
+- complete 24-course set and six-semester schedule for each included UCR programme;
 - comparison blocks that account for every canonical component exactly once while preserving deliberate gaps in horizontal alignment;
 - stable comparison references back to UCR course codes and comparator component IDs in current production records;
 - explanatory-note type/parameters or rendered note where needed;
 - academic validation status and internal source/verification metadata.
 
+Optional internal `alternativeKind` metadata may describe an alternative as `closest-match`, `related-direction`, `question-led` or another approved type. It does not create a quota.
+
 ## 7.2 Student additions
 
-Preserve original `interest_statement`, separate academic interpretation, internal delivery identifier where required, and relevant cohort/starting-semester context. Student records remain private.
+Preserve original `interest_statement`, separate academic interpretation, internal delivery identifier where required, relevant cohort/starting-semester context and the rationale/stopping decision used to determine how many UCR alternatives were included. Student records remain private.
 
 ## 7.3 Counselor additions
 
-Current counselor production records use `schemaVersion: "1.3"`.
+Current counselor production records use `schemaVersion: "2.0"`.
 
 Preserve the permanent `counselor_programme_id`, normalized target metadata/provenance required by the current schema, and `academicRationale` containing:
 
 - evidence-backed `coreField`;
-- evidence-backed `adjacentDirections`;
-- evidence-backed `questionsApplications`;
-- one or two selected `balancedDirections`;
-- explicit `thematicQuestion`, its evidence and the map labels on which it is based.
+- evidence-backed `adjacentDirections`, which may be empty;
+- evidence-backed `questionsApplications`, which may be empty;
+- one rationale object for every included UCR alternative, identifying its `programmeId`, concept, evidence-map basis and evidence;
+- a distinctness rationale for every included alternative after the first.
+
+Preserve `alternativeSelection` containing the number of included UCR alternatives, a stopping state and a concise assessment. The included count must equal the number of UCR alternatives in `programmes`. For one or two alternatives, the stopping state explains why another was not defensible; for three, use `maximum-reached`.
 
 The canonical comparator object must contain its complete reconstructed `components` list. Each component has a stable `id`, display `name` and `credits`; the list totals 180 EC. Comparison cells then refer to those components by `componentId`.
 
@@ -375,7 +402,7 @@ The canonical record contains semantic content, not renderer coordinates, CSS or
 
 # 8. Library and public-export boundaries
 
-The counselor comparison library stores one fixed record per completed in-scope normalized target. Discovery programme metadata and programme-interest indexes remain separate from comparison content. Do not flatten all interests into a comparison record; `academicRationale` stores only evidence actually used for the three UCR concepts.
+The counselor comparison library stores one fixed record per completed in-scope normalized target. Discovery programme metadata and programme-interest indexes remain separate from comparison content. Do not flatten all interests into a comparison record; `academicRationale` stores only evidence actually used for the included UCR alternatives.
 
 During incremental counselor production, create individual files under `data/counselor/comparisons/` but do not create the final production `programmes.json` or `interests.json` discovery indexes until the comparison corpus is complete and quality-controlled. Leave pilot indexes unchanged.
 
@@ -391,28 +418,29 @@ The purpose of final QC is to confirm that the procedure above was followed, not
 
 A counselor record is complete only when all six gates pass:
 
-1. **Evidence gate** — external programme is fairly reconstructed and every substantive interest-map item is evidence-backed for the exact target.
-2. **Concept gate** — depth target, one/two balanced directions and thematic question were frozen before UCR course selection; the theme introduces no unevidenced domain, population, problem or application.
-3. **Course gate** — every non-PPD course passes course-to-concept traceability; no course relies only on generic breadth/context language.
-4. **Feasibility gate** — all mechanical UCR schedule constraints pass against the enriched database.
-5. **Comparison gate** — all four columns account for exactly 180 EC; each canonical UCR course/external component appears exactly once; PPD is visible; stable references agree with canonical data; and block alignment preserves genuine gaps rather than imposing a symmetry template.
+1. **Evidence gate** — external programme is fairly reconstructed and every substantive interest-map item used in an alternative is evidence-backed for the exact target.
+2. **Alternative gate** — Alternative 1 is the closest defensible response; each additional alternative passed evidence, coherence, distinctness and feasibility; the sequential stopping decision is recorded and no skipped slot was manufactured later.
+3. **Course gate** — every non-PPD course passes course-to-concept traceability; no course relies only on generic breadth/context language; every included alternative after the first has a concrete distinctness rationale.
+4. **Feasibility gate** — all mechanical UCR schedule constraints pass against the enriched database for every included programme.
+5. **Comparison gate** — every included column accounts for exactly 180 EC; each canonical UCR course/external component appears exactly once; PPD is visible; stable references agree with canonical data; and block alignment preserves genuine gaps rather than imposing a symmetry template.
 6. **Record gate** — the current counselor schema/validator passes and normalized identity/provenance matches the registry.
 
 ## 9.2 Batch-level counselor QC
 
 After all individually completed records pass the gates, inspect the batch only for **systematic** failure modes:
 
-- unsupported thematic domains or cross-disciplinary jumps;
-- generic/interchangeable thematic questions across unrelated targets;
-- recurring thematic course palettes or course reuse without independent justification;
+- unsupported domains or cross-disciplinary jumps;
+- generic/interchangeable alternative concepts across unrelated targets;
+- recurring course palettes or course reuse without independent justification;
+- systematic production of three alternatives regardless of evidence;
+- systematic production of only one alternative to avoid the work of testing additional possibilities;
 - recurring block templates or equal allocations that are not independently justified by the curricula;
-- copied logic between variants without target-specific support;
 - systematic weakening of external programmes.
 
 Similarity between genuinely related programmes is not itself a defect. Do not change a sound record merely to create artificial variety.
 
 ## 9.3 Student completion
 
-Confirm the student input is preserved verbatim, interpretation stored separately, UCR schedules mechanically valid, all four comparison columns account for the complete 180 EC without duplication or omission, comparison alignment is fair, and privacy/publication boundaries are respected.
+Confirm the student input is preserved verbatim, interpretation stored separately, the number of alternatives follows the sequential evidence/coherence/distinctness/feasibility rule, every included UCR schedule is mechanically valid, every comparison column accounts for the complete 180 EC without duplication or omission, comparison alignment is fair, and privacy/publication boundaries are respected.
 
 Only then release the requested artifact or library record.
