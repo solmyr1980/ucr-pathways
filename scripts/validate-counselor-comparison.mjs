@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { normalizeCell, readExample, validateExample } from './example-utils.mjs';
+import { isUcrProgramme, normalizeCell, readExample, validateExample } from './example-utils.mjs';
 
 const root = process.cwd();
 const target = process.argv[2] || 'all';
@@ -46,9 +46,8 @@ function parseCsv(text) {
       continue;
     }
 
-    if (ch === '"') {
-      quoted = true;
-    } else if (ch === ',') {
+    if (ch === '"') quoted = true;
+    else if (ch === ',') {
       row.push(field);
       field = '';
     } else if (ch === '\n') {
@@ -56,9 +55,7 @@ function parseCsv(text) {
       rows.push(row);
       row = [];
       field = '';
-    } else {
-      field += ch;
-    }
+    } else field += ch;
   }
 
   if (field.length || row.length) {
@@ -164,7 +161,7 @@ function validateStableComparisonReferences(record, fail) {
   }
 
   for (const programme of record?.programmes || []) {
-    if (!['ucr-depth', 'ucr-balanced', 'ucr-thematic'].includes(programme?.role)) continue;
+    if (!isUcrProgramme(programme)) continue;
     for (const semester of programme?.schedule?.semesters || []) {
       for (const course of semester?.courses || []) {
         if (typeof course?.code !== 'string' || !course.code.trim()) {
@@ -183,7 +180,7 @@ function validateStableComparisonReferences(record, fail) {
           if (typeof cell.componentId !== 'string' || !cell.componentId.trim()) {
             fail(`block ${block.title}, row ${rowIndex + 1}: comparator cell requires componentId`);
           }
-        } else if (['ucr-depth', 'ucr-balanced', 'ucr-thematic'].includes(programme.role)) {
+        } else if (isUcrProgramme(programme)) {
           if (typeof cell.courseCode !== 'string' || !cell.courseCode.trim()) {
             fail(`block ${block.title}, row ${rowIndex + 1}, programme ${programme.id}: UCR cell requires courseCode`);
           }
@@ -191,6 +188,47 @@ function validateStableComparisonReferences(record, fail) {
       }
     }
   }
+}
+
+function validateAlternativeRationales(record, rationale, mapLabels, fail) {
+  const ucrProgrammes = (record.programmes || []).filter(isUcrProgramme);
+  if (!Array.isArray(rationale.alternatives) || rationale.alternatives.length !== ucrProgrammes.length) {
+    fail(`academicRationale.alternatives must contain exactly one rationale for each of the ${ucrProgrammes.length} included UCR alternatives`);
+    return;
+  }
+
+  const seenIds = new Set();
+  rationale.alternatives.forEach((alternative, index) => {
+    const label = `academicRationale.alternatives[${index}]`;
+    if (!alternative || typeof alternative !== 'object' || Array.isArray(alternative)) {
+      fail(`${label} must be an object`);
+      return;
+    }
+
+    const expectedId = ucrProgrammes[index]?.id;
+    if (typeof alternative.programmeId !== 'string' || !alternative.programmeId.trim()) {
+      fail(`${label}.programmeId is required`);
+    } else {
+      if (alternative.programmeId !== expectedId) fail(`${label}.programmeId must be ${JSON.stringify(expectedId)} to preserve UCR alternative order`);
+      if (seenIds.has(alternative.programmeId)) fail('academicRationale.alternatives programmeId values must be unique');
+      seenIds.add(alternative.programmeId);
+    }
+
+    if (typeof alternative.concept !== 'string' || !alternative.concept.trim()) fail(`${label}.concept is required`);
+    if (!Array.isArray(alternative.basisLabels) || alternative.basisLabels.length === 0) {
+      fail(`${label}.basisLabels must identify at least one evidence-map item`);
+    } else {
+      if (new Set(alternative.basisLabels).size !== alternative.basisLabels.length) fail(`${label}.basisLabels must be unique`);
+      alternative.basisLabels.forEach(item => {
+        if (!mapLabels.has(item)) fail(`${label} basis label ${JSON.stringify(item)} is not present in the academic interest map`);
+      });
+    }
+    validateEvidence(alternative.evidence, label, fail);
+
+    if (index > 0 && (typeof alternative.distinctnessRationale !== 'string' || !alternative.distinctnessRationale.trim())) {
+      fail(`${label}.distinctnessRationale is required for every UCR alternative after the closest match`);
+    }
+  });
 }
 
 const registryRows = parseCsv(fs.readFileSync(registryFile, 'utf8'));
@@ -212,9 +250,28 @@ for (const file of files) {
   const fail = message => errors.push(`${sourceName}: ${message}`);
   const warn = message => warnings.push(`${sourceName}: ${message}`);
 
-  if (record.schemaVersion !== '1.3') fail('schemaVersion must be "1.3" for current counselor production records');
+  if (record.schemaVersion !== '2.0') fail('schemaVersion must be "2.0" for current counselor production records');
   if (record.origin !== 'counselor') fail('origin must be "counselor"');
   if (!cpPattern.test(String(record.id || ''))) fail('id must use permanent cp-000001 format');
+
+  const programmes = Array.isArray(record.programmes) ? record.programmes : [];
+  const ucrProgrammes = programmes.filter(isUcrProgramme);
+  if (ucrProgrammes.length < 1 || ucrProgrammes.length > 3) fail('record must contain one to three UCR alternatives');
+  ucrProgrammes.forEach((programme, index) => {
+    if (programme.role !== 'ucr-alternative') fail(`UCR programme ${programme.id || index + 1} must use role "ucr-alternative"`);
+    if (!['closest-match', 'related-direction', 'question-led', 'other-defensible'].includes(programme.alternativeKind)) {
+      fail(`UCR programme ${programme.id || index + 1} requires a valid alternativeKind`);
+    }
+    if (index === 0 && programme.alternativeKind !== 'closest-match') fail('the first UCR alternative must be alternativeKind "closest-match"');
+  });
+
+  const selection = record?.alternativeSelection;
+  if (!selection || typeof selection !== 'object' || Array.isArray(selection)) {
+    fail('alternativeSelection is required');
+  } else if (selection.includedCount !== ucrProgrammes.length) {
+    fail('alternativeSelection.includedCount must equal the number of included UCR alternatives');
+  }
+
   validateStableComparisonReferences(record, fail);
 
   const provider = record?.programmeProvider;
@@ -279,53 +336,26 @@ for (const file of files) {
     fail('academicRationale is required');
   } else {
     const coreLabels = validateMapItems(rationale.coreField, 'coreField', fail);
-    const adjacentLabels = validateMapItems(rationale.adjacentDirections, 'adjacentDirections', fail);
+    const adjacentLabels = validateMapItems(rationale.adjacentDirections, 'adjacentDirections', fail, { allowEmpty: true });
     const questionLabels = validateMapItems(rationale.questionsApplications, 'questionsApplications', fail, { allowEmpty: true });
-
-    if (!Array.isArray(rationale.balancedDirections) || rationale.balancedDirections.length < 1 || rationale.balancedDirections.length > 2) {
-      fail('academicRationale.balancedDirections must select one or two adjacent directions');
-    } else {
-      if (new Set(rationale.balancedDirections).size !== rationale.balancedDirections.length) {
-        fail('academicRationale.balancedDirections must be unique');
-      }
-      rationale.balancedDirections.forEach(direction => {
-        if (!adjacentLabels.includes(direction)) {
-          fail(`balanced direction ${JSON.stringify(direction)} is not present in academicRationale.adjacentDirections`);
-        }
-      });
-    }
-
-    const thematic = rationale.thematicQuestion;
-    if (!thematic || typeof thematic !== 'object' || Array.isArray(thematic)) {
-      fail('academicRationale.thematicQuestion is required');
-    } else {
-      if (typeof thematic.text !== 'string' || !thematic.text.trim()) fail('academicRationale.thematicQuestion.text is required');
-      if (!Array.isArray(thematic.basisLabels) || thematic.basisLabels.length === 0) {
-        fail('academicRationale.thematicQuestion.basisLabels must identify at least one map item');
-      } else {
-        const mapLabels = new Set([...coreLabels, ...adjacentLabels, ...questionLabels]);
-        thematic.basisLabels.forEach(label => {
-          if (!mapLabels.has(label)) fail(`thematic basis label ${JSON.stringify(label)} is not present in the academic interest map`);
-        });
-      }
-      validateEvidence(thematic.evidence, 'academicRationale.thematicQuestion', fail);
-    }
+    const mapLabels = new Set([...coreLabels, ...adjacentLabels, ...questionLabels]);
+    validateAlternativeRationales(record, rationale, mapLabels, fail);
   }
 
-  const programmeIds = ['comparator', 'ucr-depth', 'ucr-balanced', 'ucr-thematic'];
-  if (Array.isArray(record.blocks) && record.blocks.length === 3) {
-    const exactlySixtyByRole = programmeIds.every(programmeId =>
+  const programmeIds = programmes.map(programme => programme?.id).filter(Boolean);
+  if (Array.isArray(record.blocks) && record.blocks.length === 3 && programmeIds.length) {
+    const exactlySixtyByProgramme = programmeIds.every(programmeId =>
       record.blocks.every(block => {
         const credits = blockCredit(block, programmeId);
         return credits !== null && Math.abs(credits - 60) < 0.001;
       })
     );
-    if (exactlySixtyByRole) {
-      warn('comparison uses an exact 3 × 60 EC structure for every programme; confirm that the equality is independently justified by the curricula rather than imposed as a template');
+    if (exactlySixtyByProgramme) {
+      warn('comparison uses an exact 3 × 60 EC structure for every included programme; confirm that the equality is independently justified by the curricula rather than imposed as a template');
     }
   }
 
-  if (Array.isArray(record.blocks) && record.blocks.length) {
+  if (Array.isArray(record.blocks) && record.blocks.length && programmeIds.length) {
     let rows = 0;
     let completeRows = 0;
     for (const block of record.blocks) {
@@ -335,7 +365,7 @@ for (const file of files) {
       }
     }
     if (rows >= 3 && completeRows === rows) {
-      warn('every comparison row is populated for all four programmes; review whether genuine gaps have been suppressed for visual symmetry');
+      warn(`every comparison row is populated for all ${programmeIds.length} programmes; review whether genuine gaps have been suppressed for visual symmetry`);
     }
   }
 
