@@ -12,11 +12,13 @@ on:
       - 'assets/css/shiny.css'
       - 'data/examples/**'
       - 'data/counselor/**'
+      - 'data/registry/**'
       - 'data/schema/**'
       - 'scripts/example-utils.mjs'
       - 'scripts/quality.test.mjs'
       - 'scripts/validate-example.mjs'
       - 'scripts/validate-counselor-comparison.mjs'
+      - 'scripts/validate-registry-interests.mjs'
       - 'scripts/test-shiny.R'
       - 'package.json'
       - '.github/workflows/validate-shiny.yml'
@@ -34,6 +36,9 @@ jobs:
 
       - name: Validate normalized counselor production records
         run: node scripts/validate-counselor-comparison.mjs all
+
+      - name: Validate programme-interest registry
+        run: npm run validate:registry-interests
 
       - name: Run comparison integrity regression tests
         run: npm test
