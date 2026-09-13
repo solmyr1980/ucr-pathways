@@ -1,6 +1,6 @@
 # Counselor comparison Shiny pilot
 
-This pilot tests the deterministic counselor-app architecture with five existing comparisons and now uses the same runtime pattern intended for production.
+This pilot tests the deterministic counselor-app architecture and uses the same runtime pattern intended for production.
 
 ## What it tests
 
@@ -23,7 +23,7 @@ This pilot tests the deterministic counselor-app architecture with five existing
 
 GitHub is the authoritative source and deployment source, but the running app does **not** fetch counselor data from GitHub.
 
-The deployed app reads version-matched JSON files from its own local deployment bundle:
+The app reads version-matched JSON files from its own local repository/deployment bundle:
 
 - programme metadata/index;
 - programme-interest discovery index;
@@ -33,23 +33,33 @@ The programme and interest indexes are read and prepared **once when the R proce
 
 A selected comparison is read on demand from a small local JSON file. The app does not maintain a separate application-level comparison cache; the files are small and the operating system can cache frequently read files naturally.
 
-## Data files
+## Data modes
 
-When production files exist, the app automatically uses:
+The app selects the first complete data mode available in this order:
 
-- `data/counselor/programmes.json`;
-- `data/counselor/interests.json`;
-- `data/counselor/comparisons/<comparison-id>.json` (with `comparisonId` in the programme index; provider ID is the fallback stable identifier).
+1. **production** — `data/counselor/programmes.json` plus `data/counselor/interests.json`;
+2. **review** — `data/counselor/review-programmes.json` plus `data/counselor/review-interests.json`;
+3. **pilot** — `data/counselor/pilot-programmes.json` plus `data/counselor/pilot-interests.json`.
 
-Until those production files are created, the pilot falls back to:
+Production and review modes load comparison records from `data/counselor/comparisons/<comparison-id>.json`. Pilot mode loads the five approved fixtures from `data/examples/`.
 
-- `data/counselor/pilot-programmes.json`;
-- `data/counselor/pilot-interests.json`;
-- the five existing comparison fixtures in `data/examples/`.
+Review mode exists so completed counselor-production records can be inspected in the real app during incremental corpus production **without creating the final production discovery indexes early**. The review indexes are derived artifacts: they contain exactly the normalized `cp-*.json` comparisons currently completed in `data/counselor/comparisons/` and their linked programme-interest rows.
 
-The fallback exists only to keep the five-case pilot runnable while the full deterministic counselor corpus is produced. Once the production index files are present, no application-code change is required to use them.
+Refresh them from the repository root with:
 
-Current production comparison records use the schema 2.0 variable-alternative contract documented in `data/counselor/README.md` and the Production Instructions. The pilot renderer remains compatible with the approved public fixtures used during fallback.
+```bash
+npm run build:counselor-review
+```
+
+Check that committed review indexes are current with:
+
+```bash
+npm run validate:counselor-review
+```
+
+The `Refresh counselor review indexes` GitHub workflow performs this refresh automatically after relevant counselor comparison or registry changes. These review files are not the final `programmes.json` and `interests.json` production indexes.
+
+Current production comparison records use the schema 2.0 variable-alternative contract documented in `data/counselor/README.md` and the Production Instructions. The renderer remains compatible with the approved public fixtures used during pilot fallback.
 
 ## Run locally
 
@@ -65,7 +75,7 @@ Then, from the repository root:
 shiny::runApp("pilot/counselor-shiny")
 ```
 
-Run from a complete repository checkout or equivalent deployment bundle. The app serves the shared UCR logo, fonts and CSS from the local `assets/` directory and loads `pilot/shared.R`. Counselor search and comparison data are also local, so normal use does not require GitHub availability after deployment.
+Run from a complete repository checkout or equivalent deployment bundle. The app serves the shared UCR logo, fonts and CSS from the local `assets/` directory and loads `pilot/shared.R`. Counselor search and comparison data are also local, so normal use does not require GitHub availability after the repository/deployment bundle is present.
 
 BA/BSc, discipline and location filters are not claimed as implemented: the current fixture metadata does not reliably supply those distinctions. `degree = BACHELOR` is not a BA/BSc classification.
 
