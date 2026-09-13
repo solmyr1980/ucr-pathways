@@ -59,27 +59,28 @@ Do not imply that a displayed programme transfers automatically into the Program
 
 The project should make curriculum choices and trade-offs visible rather than explain Liberal Arts and Sciences primarily in abstract language.
 
-A comparison contains exactly four programme roles in this semantic order:
+Every comparison contains:
 
-1. `comparator` — one external Dutch bachelor programme;
-2. `ucr-depth` — the closest feasible UCR match;
-3. `ucr-balanced` — a UCR programme combining the field with related subjects or the student's additional interests;
-4. `ucr-thematic` — a broader UCR programme organised around relevant interests, questions or themes.
+1. exactly one `comparator` — one external Dutch bachelor programme; and
+2. between **one and three UCR alternatives**.
 
-The semantic roles are stable internal meanings. Visible labels are case-specific and should use ordinary language rather than internal role names.
+The UCR alternatives are ordered from the closest feasible response to progressively broader alternatives where such broader alternatives are genuinely defensible. The first UCR alternative is the closest feasible match. A second or third alternative is included only when it represents another coherent, evidence-backed and substantively distinct way of pursuing the relevant field, interests, question or application at UCR.
+
+There is **no requirement to reach three UCR alternatives**. Three is the maximum, not a quota. Do not manufacture additional interests, domains, questions or curricular differences merely to fill a fixed number of programme slots. One strong alternative is preferable to one strong alternative plus weak or redundant ones.
+
+Concepts such as **closest match**, **related direction** and **question-led/thematic programme** remain useful analytical types, but they are not mandatory programme roles and not every record must instantiate all three types.
 
 Neither the external bachelor nor UCR should be presented as inherently superior. Genuine strengths of the external programme and genuine limitations of UCR must remain visible.
 
 ## 2.1 Visible programme labels
 
-Use descriptive labels in the style of:
+Use ordinary, case-specific labels rather than internal taxonomy.
 
 - comparator: **[Programme] at [Institution]**;
-- `ucr-depth`: **Closest match to [programme or field]**;
-- `ucr-balanced`: **[programme or field] + related subjects**;
-- `ucr-thematic`: **A broader programme around your interests** or equivalent case-specific wording.
+- first UCR alternative: normally **Closest match to [programme or field]** or another accurate case-specific label;
+- additional UCR alternatives: descriptive labels that state the actual direction, combination, question or application represented.
 
-Do not expose internal taxonomy such as `ucr-depth` or use default labels such as `Reference programme`, `greatest disciplinary depth`, `balanced interests`, `thematic breadth`, `strong match` or `off the beaten track`.
+Do not expose internal implementation names such as `ucr-alternative`, `closest-match`, `related-direction` or `question-led` as user-facing product taxonomy unless a later design decision explicitly does so.
 
 The comparator heading or an adjacent clear source link should lead to the approved official programme/curriculum source.
 
@@ -99,6 +100,8 @@ The answer may contain disciplines, topics, questions, problems, practical inter
 
 Production must preserve the student's original wording, interpret it academically, avoid assuming that the first-mentioned interest is more important, and avoid manufacturing weak curricular matches. For a student who supplies one interest, broaden through meaningful subfields, questions and neighbouring perspectives rather than inventing a second interest.
 
+The student's full submitted interest statement is valid evidence for constructing and differentiating UCR alternatives. Where a student supplies several interests, alternatives may legitimately vary their relative emphasis or organise them differently. Where the input supports only one defensible programme, do not invent additional alternatives.
+
 ## 3.2 Student app journey
 
 The student experience should begin with a personalized welcome screen showing both:
@@ -115,10 +118,10 @@ and:
 
 The welcome screen should provide access to two views of the same approved personalized record:
 
-- **View my personalized programme options** — semester-by-semester views of all three UCR programmes in the stable order `ucr-depth`, `ucr-balanced`, `ucr-thematic`;
-- **See how these options compare** — the four-programme comparison.
+- **View my personalized programme options** — semester-by-semester views of every included UCR alternative, in record order;
+- **See how these options compare** — the external comparator alongside the same one to three UCR alternatives.
 
-All three UCR programmes are personalized options generated from the same student interests. The interface should let a student inspect each complete six-semester programme without requiring one long stacked page.
+The interface must not promise a fixed number of UCR options. Appropriate framing is that these are the UCR programmes that best fit what the student told us.
 
 ## 3.3 Student calls to action
 
@@ -189,11 +192,13 @@ Categories 1–2 form the conservative core; category 3 may broaden discovery; c
 
 Where `target_mapping_status=inherited-across-split-targets`, the inherited interest record is provenance/general discovery evidence only. It is not target-specific academic evidence unless independently corroborated for that exact normalized target.
 
-## 4.4 Counselor filters and transparency
+## 4.4 Counselor alternatives and transparency
 
-Filters may refine discovery where supported reliably by the registry; they do not alter the fixed comparison.
+A counselor comparison contains the comparator plus one to three UCR alternatives under the common architecture in Section 2.
 
-The interface must explain that comparisons are pre-produced at normalized target level, interest search does not personalize them, and UCR programmes are illustrative feasible compositions rather than official tracks or guaranteed future schedules.
+The external programme and valid target-specific programme-interest evidence establish the evidence boundary. They may justify neighbouring directions or broader questions, but they do not justify assuming that an imagined student has unrelated additional interests.
+
+The interface must explain that comparisons are pre-produced at normalized target level, interest search does not personalize them, and UCR programmes are illustrative feasible compositions rather than official tracks or guaranteed future schedules. It should not imply that every comparison contains the same number of UCR alternatives.
 
 ---
 
@@ -211,15 +216,26 @@ Never present optional material as compulsory, combine mutually exclusive choice
 
 Use the enriched UCR course database as the authoritative source for course content, prerequisites and planned semester availability.
 
-Each UCR programme must contain exactly 24 unique courses, four courses in each of six semesters, at least six 300-level courses, and Personal & Professional Development during Year 1. Prerequisites must precede dependent courses and every course must be available in its assigned semester.
+Each included UCR programme must contain exactly 24 unique courses, four courses in each of six semesters, at least six 300-level courses, and Personal & Professional Development during Year 1. Prerequisites must precede dependent courses and every course must be available in its assigned semester.
 
 Do not invent additional cluster, unit, concentration, breadth or disciplinary-distribution requirements. Validate mechanical feasibility against the enriched database.
 
-## 5.3 Comparison integrity
+## 5.3 Alternative-selection integrity
 
-Construct and validate all four programmes before designing comparison blocks. Use actual content rather than titles alone and preserve actual EC weights.
+Construct the closest feasible UCR alternative first. Consider additional alternatives sequentially. Include another alternative only when it passes all four tests:
 
-The comparison is a **lossless 180-EC representation of each completed programme**, organised into meaningful substantive blocks. Every UCR course must appear exactly once in the comparison, including Personal & Professional Development. The external programme must likewise account for its complete 180 EC; genuine open-elective, profiling or restricted-choice space must be represented explicitly rather than disappearing from the comparison.
+1. **evidence** — its organising basis is supported by the applicable evidence boundary;
+2. **coherence** — it is a coherent programme concept rather than an assortment of attractive courses;
+3. **distinctness** — it represents a substantively different educational choice rather than cosmetic reshuffling;
+4. **feasibility** — it can be built as a valid UCR programme under Section 5.2.
+
+Stop when the next alternative cannot pass these tests. Do not skip a failed second alternative in order to manufacture a third. Record-level production rules must make the stopping decision auditable.
+
+## 5.4 Comparison integrity
+
+Construct and validate the comparator and every included UCR programme before designing comparison blocks. Use actual content rather than titles alone and preserve actual EC weights.
+
+The comparison is a **lossless 180-EC representation of each completed programme**, organised into meaningful substantive blocks. Every included UCR course must appear exactly once in the comparison, including Personal & Professional Development. The external programme must likewise account for its complete 180 EC; genuine open-elective, profiling or restricted-choice space must be represented explicitly rather than disappearing from the comparison.
 
 Blocks classify and align programme components; they do not replace them with selective summaries. Preserve meaningful blank cells and structural differences, and do not force row-by-row symmetry, equal block sizes, identical credit allocations or one-to-one course equivalence. The number and size of blocks should follow the curricula rather than a fixed template. Do not use numerical depth/breadth scores.
 
@@ -231,11 +247,11 @@ Detailed block construction, stable component references and anti-template check
 
 Explanatory notes should use reusable semantic templates defined in the Production Instructions and appear only when needed to prevent a material misunderstanding. A warranted limitation note must remain visible across representations.
 
-Create one canonical structured comparison record before rendering any surface. The record must identify its origin (`student` or `counselor`) and preserve the four programme identities, complete UCR schedules, the complete reconstructed comparator curriculum, comparator evidence, lossless comparison structure, deliberate gaps, credits, validation status and source/verification metadata.
+Create one canonical structured comparison record before rendering any surface. The record must identify its origin (`student` or `counselor`) and preserve the comparator identity, between one and three ordered UCR alternative identities, complete UCR schedules, the complete reconstructed comparator curriculum, comparator evidence, lossless comparison structure, deliberate gaps, credits, validation status and source/verification metadata.
 
 Student-origin records additionally preserve the original interest statement and academic interpretation.
 
-Counselor-origin records additionally preserve the permanent `counselor_programme_id` and normalized provenance required to audit the target and connect it to programme-interest discovery. Under the current counselor contract, the stable record `id` equals the same permanent `counselor_programme_id`.
+Counselor-origin records additionally preserve the permanent `counselor_programme_id`, normalized provenance required to audit the target and connect it to programme-interest discovery, and the evidence/rationale supporting each included UCR alternative and the decision to stop before three where applicable. Under the current counselor contract, the stable record `id` equals the same permanent `counselor_programme_id`.
 
 Canonical records contain semantic content, not renderer coordinates, CSS or page geometry. Renderers may ignore fields they do not need, but they must not reinterpret or invent programme facts.
 
@@ -254,7 +270,7 @@ It should:
 
 Most public examples will normally be selected from approved counselor comparisons because they are stable and privacy-safe. A student-origin case may be used only after explicit public-use approval and removal of identifying information.
 
-Programme-specific content must come from approved structured publication records rather than being hardcoded into the renderer.
+Programme-specific content must come from approved structured publication records rather than being hardcoded into the renderer. A public example retains the same comparator plus one-to-three-UCR-alternative architecture as its approved source record; public presentation must not invent extra alternatives to fill a layout.
 
 ---
 
@@ -264,7 +280,7 @@ LinkedIn is an editorial distribution channel, not a separate academic source.
 
 Use selected approved publication records from the counselor corpus or an explicitly approved privacy-safe student case. When website and LinkedIn present the same case, both should consume the same approved public programme content.
 
-Editorial framing belongs in LinkedIn commentary rather than in a second hand-edited academic-content copy.
+Editorial framing belongs in LinkedIn commentary rather than in a second hand-edited academic-content copy. LinkedIn may omit the comparator page as an editorial presentation choice, but it must not add, remove or substitute UCR alternatives relative to the approved public record.
 
 Existing editorial scenarios may continue, including:
 
@@ -290,7 +306,7 @@ Do not maintain separate hand-edited programme-content copies for website and Li
 
 # 10. Optional event/PDF outputs
 
-Existing Open Day and other PDF renderers may continue to use canonical academic records where useful. They are output formats, not separate academic products, and must not force separate programme-content copies.
+Existing Open Day and other PDF renderers may continue to use canonical academic records where useful. They are output formats, not separate academic products, and must not force separate programme-content copies or a fixed number of UCR alternatives.
 
 ---
 
