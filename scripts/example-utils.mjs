@@ -35,11 +35,12 @@ export function normalizeCell(cell) {
 }
 
 export function isComparator(programme) {
-  return programme?.role === 'comparator';
+  return programme?.role === 'comparator' || programme?.family === 'comparator';
 }
 
 export function isUcrProgramme(programme) {
-  return ['ucr-depth', 'ucr-balanced', 'ucr-thematic'].includes(programme?.role);
+  if (programme?.family === 'ucr') return true;
+  return ['ucr-alternative', 'ucr-depth', 'ucr-balanced', 'ucr-thematic'].includes(programme?.role);
 }
 
 export function comparatorLabel(example) {
@@ -246,6 +247,54 @@ function validateComparisonCoverage(example, programmes, fail) {
   }
 }
 
+function validateAlternativeSelection(example, programmes, fail) {
+  const selection = example?.alternativeSelection;
+  if (selection === undefined) return;
+  if (!selection || typeof selection !== 'object' || Array.isArray(selection)) {
+    fail('alternativeSelection must be an object when supplied');
+    return;
+  }
+
+  const ucrCount = programmes.filter(isUcrProgramme).length;
+  if (!Number.isInteger(selection.includedCount) || selection.includedCount < 1 || selection.includedCount > 3) {
+    fail('alternativeSelection.includedCount must be an integer from 1 to 3');
+  } else if (selection.includedCount !== ucrCount) {
+    fail(`alternativeSelection.includedCount is ${selection.includedCount} but record contains ${ucrCount} UCR alternatives`);
+  }
+
+  const reasons = ['maximum-reached', 'insufficient-evidence', 'not-substantively-distinct', 'not-feasible'];
+  if (!reasons.includes(selection.stoppingReason)) {
+    fail('alternativeSelection.stoppingReason is invalid');
+  } else if (ucrCount === 3 && selection.stoppingReason !== 'maximum-reached') {
+    fail('three UCR alternatives require alternativeSelection.stoppingReason = "maximum-reached"');
+  } else if (ucrCount < 3 && selection.stoppingReason === 'maximum-reached') {
+    fail('alternativeSelection.stoppingReason cannot be "maximum-reached" when fewer than three UCR alternatives are included');
+  }
+
+  if (typeof selection.assessment !== 'string' || !selection.assessment.trim()) {
+    fail('alternativeSelection.assessment must be a non-empty string');
+  }
+}
+
+function validateDistinctUcrCourseSets(programmes, fail) {
+  const seen = new Map();
+  for (const programme of programmes.filter(isUcrProgramme)) {
+    const courses = scheduledCourses(programme);
+    if (!courses.length) continue;
+    const signature = courses
+      .map(course => String(course?.code || course?.name || '').trim().toLowerCase())
+      .filter(Boolean)
+      .sort()
+      .join('|');
+    if (!signature) continue;
+    if (seen.has(signature)) {
+      fail(`UCR alternatives ${seen.get(signature)} and ${programme.id} have identical course sets and are not substantively distinct programmes`);
+    } else {
+      seen.set(signature, programme.id);
+    }
+  }
+}
+
 export function validateExample(example, sourceName = 'example') {
   const errors = [];
   const warnings = [];
@@ -331,8 +380,8 @@ export function validateExample(example, sourceName = 'example') {
     }
   }
 
-  if (!Array.isArray(example.programmes) || example.programmes.length !== 4) {
-    fail('programmes must contain exactly four programmes');
+  if (!Array.isArray(example.programmes) || example.programmes.length < 2 || example.programmes.length > 4) {
+    fail('programmes must contain one comparator followed by one to three UCR alternatives');
   }
 
   if (!Array.isArray(example.blocks) || example.blocks.length === 0) {
@@ -340,9 +389,7 @@ export function validateExample(example, sourceName = 'example') {
   }
 
   const programmes = Array.isArray(example.programmes) ? example.programmes : [];
-  const expectedRoles = ['comparator', 'ucr-depth', 'ucr-balanced', 'ucr-thematic'];
   const ids = programmes.map(p => p?.id).filter(Boolean);
-
   if (new Set(ids).size !== ids.length) fail('programme ids must be unique');
 
   programmes.forEach((programme, index) => {
@@ -355,16 +402,30 @@ export function validateExample(example, sourceName = 'example') {
       fail(`programme ${index + 1} has an invalid id`);
     }
 
-    if (programme.role !== expectedRoles[index]) {
-      fail(`programme ${index + 1} must have role "${expectedRoles[index]}"`);
+    if (index === 0) {
+      if (!isComparator(programme)) fail('programme 1 must be the comparator');
+    } else {
+      if (!isUcrProgramme(programme) || isComparator(programme)) {
+        fail(`programme ${index + 1} must be a UCR alternative`);
+      }
+      if (example.schemaVersion === '2.0' && programme.role !== 'ucr-alternative') {
+        fail(`programme ${index + 1} must use role "ucr-alternative" in schema 2.0`);
+      }
+      if (index === 1 && example.schemaVersion === '2.0' && programme.alternativeKind !== 'closest-match') {
+        fail('the first UCR alternative must use alternativeKind "closest-match" in schema 2.0');
+      }
     }
 
     if (typeof programme.label !== 'string' || !programme.label.trim()) {
       fail(`programme ${programme.id || index + 1} needs a stored label`);
     }
 
+    if (programme.alternativeKind !== undefined && !['closest-match', 'related-direction', 'question-led', 'other-defensible'].includes(programme.alternativeKind)) {
+      fail(`programme ${programme.id || index + 1} has invalid alternativeKind`);
+    }
+
     if (programme.family !== undefined) {
-      const expectedFamily = programme.role === 'comparator' ? 'comparator' : 'ucr';
+      const expectedFamily = index === 0 ? 'comparator' : 'ucr';
       if (programme.family !== expectedFamily) {
         fail(`programme ${programme.id || index + 1} family must be "${expectedFamily}" when supplied`);
       }
@@ -372,7 +433,7 @@ export function validateExample(example, sourceName = 'example') {
 
     const schedule = programme.schedule;
     if (schedule === undefined) {
-      if (isUcrProgramme(programme)) fail(`UCR programme ${programme.id} must include a six-semester schedule`);
+      if (index > 0) fail(`UCR programme ${programme.id} must include a six-semester schedule`);
       return;
     }
 
@@ -387,7 +448,7 @@ export function validateExample(example, sourceName = 'example') {
       return;
     }
 
-    if (isUcrProgramme(programme) && semesters.length !== 6) {
+    if (index > 0 && semesters.length !== 6) {
       fail(`UCR programme ${programme.id} must have exactly six semesters`);
     }
 
@@ -413,7 +474,7 @@ export function validateExample(example, sourceName = 'example') {
         return;
       }
 
-      if (isUcrProgramme(programme) && semester.courses.length !== 4) {
+      if (index > 0 && semester.courses.length !== 4) {
         fail(`UCR programme ${programme.id}, semester ${semesterIndex + 1}: expected four courses`);
       }
 
@@ -447,6 +508,9 @@ export function validateExample(example, sourceName = 'example') {
       });
     });
   });
+
+  validateAlternativeSelection(example, programmes, fail);
+  validateDistinctUcrCourseSets(programmes, fail);
 
   const knownIds = new Set(ids);
 
