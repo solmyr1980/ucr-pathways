@@ -23,6 +23,14 @@ stopifnot(all(vapply(nld_results, function(x) identical(x$programme$language, "N
 if (counselor$IS_PILOT_DATA) {
   stopifnot(length(counselor$COUNSELOR_DATA$programmes) == 5, length(nld_results) == 2)
 }
+if (counselor$IS_REVIEW_DATA) {
+  review_ids <- vapply(counselor$COUNSELOR_DATA$programmes, function(x) as.character(x$programmeProviderId), character(1))
+  stopifnot(identical(review_ids, sprintf("cp-%06d", 1:4)))
+  stopifnot(length(nld_results) == 3)
+  stopifnot(all(vapply(review_ids, function(id) file.exists(counselor$comparison_path(id)), logical(1))))
+  psychology_results <- counselor$search_programmes(counselor$COUNSELOR_DATA, query = "psychology")
+  stopifnot(any(vapply(psychology_results, function(x) identical(x$programme$programmeProviderId, "cp-000004"), logical(1))))
+}
 
 first_programme <- counselor$COUNSELOR_DATA$programmes[[1]]
 test_comparison_id <- counselor$comparison_id(first_programme)
