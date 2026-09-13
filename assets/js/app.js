@@ -1,4 +1,4 @@
-import { visibleProgrammeLabel, comparisonNotes, comparisonGuidance } from './comparison.js';
+import { visibleProgrammeLabel, comparisonNotes, comparisonGuidance, isComparatorProgramme, isUcrAlternative } from './comparison.js';
 
 const params = new URLSearchParams(window.location.search);
 const hasExample = params.has('example');
@@ -25,11 +25,11 @@ function normalizeCell(cell) {
 }
 
 function isComparator(programme) {
-  return programme?.role === 'comparator';
+  return isComparatorProgramme(programme);
 }
 
 function isUcr(programme) {
-  return ['ucr-depth', 'ucr-balanced', 'ucr-thematic'].includes(programme?.role);
+  return isUcrAlternative(programme);
 }
 
 function safeExternalUrl(value) {
