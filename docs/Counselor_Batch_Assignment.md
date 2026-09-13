@@ -2,7 +2,7 @@
 
 **Reference name:** Counselor Batch Assignment  
 **Purpose:** Reusable production assignment for batches of deterministic counselor comparisons  
-**Default batch size:** 20 normalized counselor programme targets  
+**Default batch size:** 20 normalized counselor programme targets in the current production scope  
 **Fixed UCR starting cohort:** Fall 2026  
 **Repository:** `solmyr1980/ucr-pathways`
 
@@ -49,13 +49,20 @@ Also inspect the current repository implementation relevant to counselor records
 
 Use the GitHub versions as authoritative. Do not substitute remembered instructions, earlier chats or superseded Project Source copies.
 
-## 2. Authoritative registry model
+## 2. Authoritative registry model and current production scope
 
-The unit of production is one row of `data/registry/programmes.csv` with:
+The normalized registry and the current counselor production scope are related but not identical.
 
-- a permanent `counselor_programme_id`;
+The stable registry identity is one row of `data/registry/programmes.csv` with a permanent `counselor_programme_id`. Registry lifecycle/currentness is represented by `production_eligible` and `production_order`.
+
+For the **current counselor corpus**, select only targets that satisfy all of the following:
+
+- permanent `counselor_programme_id`;
 - `production_eligible=true`;
-- a nonblank `production_order`.
+- nonblank `production_order`; and
+- `programme_type=standard`.
+
+Targets with `programme_type=joint-degree`, `double-bachelor` or `dual-degree-route` are temporarily excluded from counselor comparison production until an approved way of presenting those structures has been adopted. Keep them in the normalized registry. Do not change their permanent IDs, normalization decisions, current status, institutions, `production_eligible` value or `production_order` merely to implement this temporary presentation-scope decision.
 
 `counselor_programme_id` is the stable counselor comparison identity.
 
@@ -71,9 +78,10 @@ The normalized target may legitimately:
 
 - merge several source worksheet rows;
 - merge several offered-programme UUIDs;
-- combine delivery/language/campus registrations that represent one academic programme;
-- represent one joint/double/dual-degree route involving several institutions; or
+- combine delivery/language/campus registrations that represent one academic programme; or
 - result from a split where one source representation contained several academically distinct targets.
+
+Joint/double/dual structures remain legitimate normalized targets, but they are not selectable under the current counselor production scope.
 
 Do not undo the Step 2/Step 3 normalization during comparison production.
 
@@ -81,12 +89,15 @@ Do not undo the Step 2/Step 3 normalization during comparison production.
 
 Unless the user specifies otherwise, process the next **20** rows in ascending `production_order` from `data/registry/programmes.csv` that:
 
-- have `production_eligible=true`; and
+- have `production_eligible=true`;
+- have `programme_type=standard`; and
 - do not already have a completed current production counselor comparison requiring no repair.
+
+The batch size is 20 **in-scope targets**. A non-standard target skipped by the current production-scope rule does not consume a batch slot and is not a blocked case.
 
 Do not select from original worksheet-row order independently of `production_order`.
 
-Do not replace a blocked target with a later target merely to keep the number of completed comparisons at 20. Complete the remainder of the selected batch and report the blocked case.
+Do not replace a genuinely blocked **selected in-scope target** with a later target merely to keep the number of completed comparisons at 20. Complete the remainder of the selected batch and report the blocked case.
 
 Pilot search fixtures and public examples do **not** automatically count as completed production counselor records. Existing pre-normalization counselor records may be reused only after confirming that they correspond to the normalized target and satisfy the current production rules.
 
@@ -109,7 +120,7 @@ When the target is a normalized merge, research the current academic programme r
 
 When the target is a normalized split, research the exact named route/track represented by that target.
 
-When the target is joint/double/dual, preserve the real multi-institution/special structure rather than forcing it into a standard 180-EC single-provider model.
+If a `joint-degree`, `double-bachelor` or `dual-degree-route` target appears in a selected batch, do not produce it. Treat that as a selection-logic error because these types are currently outside production scope.
 
 ## 5. Research each external programme independently
 
@@ -162,7 +173,7 @@ Use them as follows:
 - `Curricular topic` may broaden the substantive picture;
 - `Illustrative or temporary topic` and `Outcome or individual trajectory` may inform applications or themes cautiously but should not define the programme's core.
 
-Where `target_mapping_status` is `inherited-across-split-targets`, treat the historical interest evidence cautiously: it was inherited from a pre-normalization source row and is not evidence that every signal is equally characteristic of every split target.
+Where `target_mapping_status=inherited-across-split-targets`, the historical interest record is inherited provenance/general discovery context only. It is **not target-specific academic evidence** for either split target. Do not use it to justify the target's core, `ucr-balanced` directions or `ucr-thematic` themes unless the same claim is independently corroborated by current official evidence for that exact normalized target. Target-specific official curriculum research takes precedence; inherited interest evidence must never substitute for it.
 
 Do not generate a different comparison depending on a search term. Every search route must ultimately lead to the same fixed comparison.
 
@@ -181,7 +192,7 @@ Retain a substantial core of the external field while deliberately adding closel
 Choose those related subjects from:
 
 - the academic structure of the external programme;
-- strong associated programme-interest evidence;
+- strong associated programme-interest evidence that is valid for the exact normalized target;
 - neighbouring academic questions that are substantively defensible.
 
 The result should be meaningfully broader than `ucr-depth`, not simply the same programme with arbitrary substitutions.
@@ -192,7 +203,7 @@ Construct the broadest coherent UCR programme that remains recognisably connecte
 
 Organise it around relevant questions, phenomena, applications or combinations of perspectives rather than attempting to reproduce the external disciplinary structure.
 
-Use associated programme-interest evidence where helpful, but do not imply that every theme included in the UCR version is itself a structural part of the external bachelor.
+Use associated programme-interest evidence where helpful, subject to the split-target restriction in section 6, but do not imply that every theme included in the UCR version is itself a structural part of the external bachelor.
 
 Use a case-specific visible label. Avoid wording that falsely implies an individual counselor user has supplied personal interests.
 
@@ -273,14 +284,14 @@ Populate only claims supported by the researched curricula.
 
 Create one structured counselor comparison record per successfully completed normalized target.
 
-Use the current repository comparison structure and schema conventions rather than inventing a parallel format.
+Use the current repository comparison structure and the counselor-production schema rather than inventing a parallel format.
 
 Each record must at minimum contain:
 
 - current schema version;
 - `origin: "counselor"`;
-- stable record/comparison ID equal to `counselor_programme_id` unless the repository contract explicitly separates them;
-- `counselorProgrammeId` / normalized target identity;
+- top-level stable record `id` equal to the permanent `counselor_programme_id`;
+- `programmeProvider.counselorProgrammeId` equal to the same permanent `counselor_programme_id`;
 - normalized target name and institution identity/identities;
 - source registry rows and offered-programme UUIDs as provenance;
 - programme-unit, recognized-programme and variant identifiers where available;
@@ -298,11 +309,17 @@ Each record must at minimum contain:
 
 Do **not** use `AANGEBODEN_OPLEIDINGCODE`, source worksheet row, programme-unit code or recognized-programme code as the comparison ID.
 
+Under the current contract:
+
+`id == programmeProvider.counselorProgrammeId == counselor_programme_id`
+
 Use:
 
 `data/counselor/comparisons/<counselor_programme_id>.json`
 
 unless a later explicit repository schema decision establishes a separate comparison ID.
+
+Legacy provider/offering identifiers remain provenance fields only.
 
 ## 14. Incremental-production rule
 
@@ -310,7 +327,7 @@ Create the individual comparison files under `data/counselor/comparisons/`, but 
 
 Leave existing pilot indexes unchanged during incremental production.
 
-Generate the full production discovery indexes in one later finalisation step after the deterministic comparison corpus is complete and quality-controlled. Build those indexes from the normalized registry/interest layer rather than directly from the legacy workbook.
+Generate the full production discovery indexes in one later finalisation step after the deterministic comparison corpus is complete and quality-controlled. Build those indexes from the normalized registry/interest layer and include only targets in the then-current counselor production scope.
 
 Do not modify:
 
@@ -327,12 +344,15 @@ Counselor production does not constitute public approval.
 
 Before completing the run, verify for every new record:
 
+- target satisfies the current production-scope filter;
 - correct `counselor_programme_id` and `production_order`;
+- top-level `id` and `programmeProvider.counselorProgrammeId` both equal that permanent ID;
 - correct normalized target identity and participating institution(s);
 - source-row/offering provenance retained;
 - current official source basis;
 - coherent and valid external pathway;
 - fair treatment of optional/open curriculum space;
+- inherited-across-split interest evidence is not used as target-specific evidence without independent official corroboration;
 - three substantively distinct UCR alternatives;
 - exact 24-course UCR totals;
 - four courses per semester;
@@ -345,9 +365,9 @@ Before completing the run, verify for every new record:
 - substantive alignment of comparison blocks;
 - no invented equivalence;
 - no hidden UCR limitation;
-- schema/structural validity.
+- counselor-production schema/structural validity.
 
-Run automated validation across all completed records.
+Run automated validation across all completed current production records.
 
 For each batch, inspect the records as a set for systematic failure modes—for example repetitive UCR programmes, overuse of the same courses without substantive justification, generic thematic programmes, or a tendency to weaken external programmes.
 
@@ -355,7 +375,7 @@ Do not change a sound record merely to create artificial variety across the batc
 
 ## 16. Exceptions
 
-If a selected target cannot be reconstructed confidently from current official evidence:
+If a selected in-scope target cannot be reconstructed confidently from current official evidence:
 
 - do not guess;
 - do not substitute another programme;
@@ -367,6 +387,8 @@ If a selected target cannot be reconstructed confidently from current official e
 If current official evidence suggests the normalized target identity itself is wrong or has materially changed, flag a **registry exception** rather than silently changing the comparison target during production.
 
 Likewise, if no academically defensible UCR alternative can satisfy the feasibility rules, report the genuine limitation rather than manufacturing a match.
+
+A target excluded solely because its programme type is `joint-degree`, `double-bachelor` or `dual-degree-route` is not an exception or blocked case under the current rules; it is simply outside the current counselor production scope.
 
 ## 17. GitHub working rules
 
