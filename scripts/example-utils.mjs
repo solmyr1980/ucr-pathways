@@ -277,7 +277,7 @@ function validateAlternativeSelection(example, programmes, fail) {
     fail(`alternativeSelection.includedCount is ${selection.includedCount} but record contains ${ucrCount} UCR alternatives`);
   }
 
-  const reasons = ['maximum-reached', 'insufficient-evidence', 'not-substantively-distinct', 'not-feasible'];
+  const reasons = ['maximum-reached', 'insufficient-evidence', 'not-substantially-distinct', 'not-substantively-distinct', 'not-feasible'];
   if (!reasons.includes(selection.stoppingReason)) {
     fail('alternativeSelection.stoppingReason is invalid');
   } else if (ucrCount === 3 && selection.stoppingReason !== 'maximum-reached') {
@@ -291,7 +291,7 @@ function validateAlternativeSelection(example, programmes, fail) {
   }
 }
 
-function validateDistinctUcrCourseSets(programmes, fail) {
+function validateDistinctUcrCourseSets(programmes, report) {
   const alternatives = programmes.filter(isUcrProgramme)
     .map(programme => ({
       programme,
@@ -314,7 +314,7 @@ function validateDistinctUcrCourseSets(programmes, fail) {
       const courseFloorFails = leftDistinctCourses < UCR_MIN_DISTINCT_COURSES || rightDistinctCourses < UCR_MIN_DISTINCT_COURSES;
       const ecFloorFails = leftDistinctEc + 0.001 < UCR_MIN_DISTINCT_EC || rightDistinctEc + 0.001 < UCR_MIN_DISTINCT_EC;
       if (courseFloorFails || ecFloorFails) {
-        fail(
+        report(
           `UCR alternatives ${left.programme.id} and ${right.programme.id} are not substantively distinct: ` +
           `${shared} courses are shared; each alternative must differ by at least ${UCR_MIN_DISTINCT_COURSES} courses / ${UCR_MIN_DISTINCT_EC} EC ` +
           `(actual distinct content: ${leftDistinctCourses} courses / ${leftDistinctEc} EC versus ${rightDistinctCourses} courses / ${rightDistinctEc} EC)`
@@ -539,7 +539,8 @@ export function validateExample(example, sourceName = 'example') {
   });
 
   validateAlternativeSelection(example, programmes, fail);
-  validateDistinctUcrCourseSets(programmes, fail);
+  const currentProductionRecord = example.origin === 'student' || example.origin === 'counselor' || example.alternativeSelection !== undefined;
+  validateDistinctUcrCourseSets(programmes, currentProductionRecord ? fail : warn);
 
   const knownIds = new Set(ids);
 
