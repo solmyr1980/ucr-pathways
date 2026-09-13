@@ -1,0 +1,48 @@
+name: Refresh counselor review indexes
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'data/counselor/comparisons/**'
+      - 'data/registry/programmes.csv'
+      - 'data/registry/programme_interests.csv'
+      - 'scripts/build-counselor-review-index.mjs'
+      - 'package.json'
+      - '.github/workflows/refresh-counselor-review.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: counselor-review-refresh
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Build review indexes
+        run: npm run build:counselor-review
+
+      - name: Verify generated review indexes
+        run: npm run validate:counselor-review
+
+      - name: Commit refreshed review indexes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add data/counselor/review-programmes.json data/counselor/review-interests.json
+          if git diff --cached --quiet; then
+            echo "Review indexes already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Refresh counselor review indexes"
+          git push
