@@ -50,7 +50,7 @@ Pilot search fixtures and public examples do not count as completed production c
 
 Process **one selected target end-to-end before moving to the next**.
 
-For each target, execute the canonical counselor production pipeline in **Section 4 of the Production Instructions** exactly as written, including its evidence, concept, course-traceability, feasibility, comparison and record gates.
+For each target, execute the canonical counselor production pipeline in **Section 4 of the Production Instructions** exactly as written, including its evidence, sequential alternative-selection, course-traceability, feasibility, comparison and record gates.
 
 Do not restate, reinterpret or supplement the academic method from this batch assignment. If a genuine contract or registry problem is discovered, handle it in the appropriate upstream layer rather than inventing a batch-specific workaround.
 
@@ -73,7 +73,8 @@ In particular:
 - do not guess unresolved external-programme structure;
 - do not silently change normalized target identity;
 - do not substitute a later target for a blocked selected target;
-- do not manufacture an adjacent direction, thematic question or UCR match merely to finish the batch.
+- do not manufacture an additional UCR alternative merely to reach three;
+- if the next alternative fails the evidence, coherence, distinctness or feasibility gates, stop at the number already completed and record the stopping reason.
 
 Continue with the remaining selected targets and report the exception.
 
@@ -108,9 +109,10 @@ Report concisely:
 1. selected `counselor_programme_id`, `production_order`, programme name and institution(s);
 2. number of completed comparison records;
 3. unresolved/exception targets;
-4. confirmation that completed UCR programmes passed mechanical feasibility validation;
-5. material source discrepancies or registry exceptions;
-6. GitHub commit containing the batch;
-7. any issue that should be resolved before the next batch.
+4. confirmation that every included UCR alternative passed mechanical feasibility validation;
+5. distribution of records with one, two and three UCR alternatives, with stopping reasons for records below three;
+6. material source discrepancies or registry exceptions;
+7. GitHub commit containing the batch;
+8. any issue that should be resolved before the next batch.
 
 Do not stop for routine intermediate approval during a production batch.
