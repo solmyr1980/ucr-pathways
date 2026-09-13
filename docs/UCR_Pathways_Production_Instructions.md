@@ -41,6 +41,7 @@ For both workflows:
 - do not manufacture weak UCR matches;
 - do not weaken the external programme to make UCR look better;
 - preserve actual EC weights;
+- account for the complete 180 EC of every programme in the comparison exactly once;
 - do not force row-by-row, credit-by-credit or aesthetic symmetry;
 - use reusable explanatory notes only when they prevent a material misunderstanding.
 
@@ -70,7 +71,9 @@ For the comparator distinguish:
 - thesis/capstone requirements;
 - EC weights.
 
-Where choices must be instantiated, select one coherent valid pathway. Never combine mutually exclusive choices, present optional material as compulsory, invent components to fill open space, violate programme rules, deliberately choose weak options, or make the programme artificially narrow.
+Reconstruct one coherent **180-EC pathway**. Where choices must be instantiated, select one coherent valid pathway. Where the programme contains genuine open elective or profiling space, preserve that space explicitly as a curriculum component rather than inventing content for it or dropping it from the comparison.
+
+Never combine mutually exclusive choices, present optional material as compulsory, invent components to fill open space, violate programme rules, deliberately choose weak options, or make the programme artificially narrow.
 
 Preserve relevant source metadata, including primary/additional official URLs, academic/curriculum year, date checked, selected route/track and exception notes.
 
@@ -175,7 +178,7 @@ Complete the following sequence for **one target end-to-end** before moving to t
 
 ### Step 1 — Confirm target and reconstruct the external programme
 
-Confirm normalized identity, institutions and provenance. Research the exact academic programme/route represented by the normalized target and reconstruct one coherent valid pathway under Section 2.1.
+Confirm normalized identity, institutions and provenance. Research the exact academic programme/route represented by the normalized target and reconstruct one coherent valid 180-EC pathway under Section 2.1.
 
 When the target is a normalized merge, research the current academic programme rather than re-splitting administrative registrations. When it is a normalized split, research the exact named route/track represented by that target.
 
@@ -262,22 +265,30 @@ A non-standard target excluded by the current scope is not a blocked case; it is
 
 # 5. Comparison construction
 
-Construct comparison blocks from **completed curricula**. Blocks are analytical alignments, not partitions of the full 180-EC programmes.
+Construct comparison blocks only from the **completed and validated 180-EC curricula**. The blocks are a lossless classification and alignment of those curricula, not a selective analytical summary.
 
-There is:
+Apply all of the following rules:
 
-- no required number of blocks;
-- no default three-block structure;
-- no default 60/60/60 external partition;
-- no requirement to place every UCR course into a block;
-- no requirement for block totals to sum to 180 EC for each programme;
-- no required equality of course counts or EC across columns.
+- there is no required number of blocks and no default three-block or 60/60/60 structure;
+- every UCR course must appear in the comparison **exactly once**, including `ACCPPDE101` Personal & Professional Development;
+- every external curriculum component in the reconstructed coherent pathway must appear **exactly once**;
+- the displayed components for each of the four programme columns must total **180 EC**;
+- genuine open-elective, profiling or restricted-choice space in the external programme must appear explicitly as such and retain its actual EC value;
+- one comparison cell represents one canonical course/component; do not combine several UCR courses into a prose bundle;
+- meaningful blank cells are legitimate when there is no sufficiently comparable component in another programme;
+- unequal block sizes, unequal numbers of components within a block and structural gaps are legitimate and often desirable;
+- methods, mathematics, statistics, econometrics, laboratory work and research training count as substantive disciplinary content where appropriate.
 
-Start from substantive correspondences/differences and let them determine block number and size. Preserve meaningful blank cells and unmatched specialist components. Treat methods, mathematics, statistics, econometrics, laboratory work and research training as substantive disciplinary content where appropriate.
+For current production records, comparison cells must refer back to the canonical programme data using stable identifiers rather than relying on free text alone:
 
-Do not force one external component to equal one UCR course or fill gaps for visual symmetry.
+- UCR cells use `courseCode` matching the scheduled UCR course;
+- comparator cells use `componentId` matching the reconstructed external curriculum component.
 
-A pattern such as three round 60-EC comparator blocks or identical UCR course/credit allocation in every block is presumptively a template artefact. Retain such equality only when the actual curricula independently justify it.
+Displayed text and credits must agree with the referenced canonical course/component. These stable references are validation keys; renderers may continue to display ordinary course/component names and EC values.
+
+Start from substantive correspondences and differences and let them determine block number, titles, row alignment and size. Do not force one external component to equal one UCR course, move a component into more than one block, omit inconvenient components, or fill gaps for visual symmetry.
+
+A pattern such as three round 60-EC blocks or identical UCR course allocation across blocks is a review signal when it appears repeatedly or without curricular justification; it is not forbidden when the actual curricula independently justify it.
 
 Show EC credits consistently on both external and UCR components. Do not use numerical depth/breadth scores.
 
@@ -325,9 +336,10 @@ Preserve at minimum:
 
 - stable record ID and `origin` (`student` or `counselor`);
 - four programme identities and semantic roles;
-- comparator name, institution/provider, official source and relevant components/EC;
+- comparator name, institution/provider, official source and the complete reconstructed 180-EC component list;
 - complete 24-course set and six-semester schedule for each UCR programme;
-- comparison blocks, alignments and deliberate gaps;
+- comparison blocks that account for every canonical component exactly once while preserving deliberate gaps in horizontal alignment;
+- stable comparison references back to UCR course codes and comparator component IDs in current production records;
 - explanatory-note type/parameters or rendered note where needed;
 - academic validation status and internal source/verification metadata.
 
@@ -337,7 +349,7 @@ Preserve original `interest_statement`, separate academic interpretation, intern
 
 ## 7.3 Counselor additions
 
-Current counselor production records use `schemaVersion: "1.2"`.
+Current counselor production records use `schemaVersion: "1.3"`.
 
 Preserve the permanent `counselor_programme_id`, normalized target metadata/provenance required by the current schema, and `academicRationale` containing:
 
@@ -346,6 +358,10 @@ Preserve the permanent `counselor_programme_id`, normalized target metadata/prov
 - evidence-backed `questionsApplications`;
 - one or two selected `balancedDirections`;
 - explicit `thematicQuestion`, its evidence and the map labels on which it is based.
+
+The canonical comparator object must contain its complete reconstructed `components` list. Each component has a stable `id`, display `name` and `credits`; the list totals 180 EC. Comparison cells then refer to those components by `componentId`.
+
+Every UCR comparison cell must contain the scheduled course's `courseCode`. The cell text and credits must match that canonical course. This prevents a course from being duplicated, omitted or silently renamed in the comparison layer.
 
 For current production records:
 
@@ -379,7 +395,7 @@ A counselor record is complete only when all six gates pass:
 2. **Concept gate** — depth target, one/two balanced directions and thematic question were frozen before UCR course selection; the theme introduces no unevidenced domain, population, problem or application.
 3. **Course gate** — every non-PPD course passes course-to-concept traceability; no course relies only on generic breadth/context language.
 4. **Feasibility gate** — all mechanical UCR schedule constraints pass against the enriched database.
-5. **Comparison gate** — blocks reflect genuine alignment/gaps rather than a predetermined partition or symmetry template.
+5. **Comparison gate** — all four columns account for exactly 180 EC; each canonical UCR course/external component appears exactly once; PPD is visible; stable references agree with canonical data; and block alignment preserves genuine gaps rather than imposing a symmetry template.
 6. **Record gate** — the current counselor schema/validator passes and normalized identity/provenance matches the registry.
 
 ## 9.2 Batch-level counselor QC
@@ -389,7 +405,7 @@ After all individually completed records pass the gates, inspect the batch only 
 - unsupported thematic domains or cross-disciplinary jumps;
 - generic/interchangeable thematic questions across unrelated targets;
 - recurring thematic course palettes or course reuse without independent justification;
-- fixed comparison templates such as recurring three-by-60-EC partitions or equal UCR allocations;
+- recurring block templates or equal allocations that are not independently justified by the curricula;
 - copied logic between variants without target-specific support;
 - systematic weakening of external programmes.
 
@@ -397,6 +413,6 @@ Similarity between genuinely related programmes is not itself a defect. Do not c
 
 ## 9.3 Student completion
 
-Confirm the student input is preserved verbatim, interpretation stored separately, UCR schedules mechanically valid, comparison fair, and privacy/publication boundaries respected.
+Confirm the student input is preserved verbatim, interpretation stored separately, UCR schedules mechanically valid, all four comparison columns account for the complete 180 EC without duplication or omission, comparison alignment is fair, and privacy/publication boundaries are respected.
 
 Only then release the requested artifact or library record.
