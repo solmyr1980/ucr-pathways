@@ -86,6 +86,166 @@ function validCreditValue(value) {
   return false;
 }
 
+export function creditNumber(value) {
+  if (typeof value === 'number' && Number.isFinite(value)) return value;
+  if (typeof value !== 'string' || !value.trim()) return null;
+  const match = value.replace(',', '.').match(/-?\d+(?:\.\d+)?/);
+  return match ? Number(match[0]) : null;
+}
+
+function normalizedLabel(value) {
+  return String(value || '').trim().toLowerCase().replace(/\s+/g, ' ');
+}
+
+function approximatelyEqual(left, right, tolerance = 0.001) {
+  return Number.isFinite(left) && Number.isFinite(right) && Math.abs(left - right) < tolerance;
+}
+
+function comparisonEntries(blocks, programmeId) {
+  const entries = [];
+  (Array.isArray(blocks) ? blocks : []).forEach((block, blockIndex) => {
+    (Array.isArray(block?.rows) ? block.rows : []).forEach((row, rowIndex) => {
+      const cell = normalizeCell(row?.cells?.[programmeId]);
+      if (cell) entries.push({ cell, block, blockIndex, rowIndex });
+    });
+  });
+  return entries;
+}
+
+function scheduledCourses(programme) {
+  return (programme?.schedule?.semesters || []).flatMap(semester => semester?.courses || []);
+}
+
+function validateComparisonCoverage(example, programmes, fail) {
+  const comparator = comparatorMetadata(example);
+
+  for (const programme of programmes) {
+    if (!programme?.id) continue;
+    const entries = comparisonEntries(example.blocks, programme.id);
+    let total = 0;
+    let numericCredits = true;
+
+    for (const { cell, block, rowIndex } of entries) {
+      const credits = creditNumber(cell.credits);
+      if (credits === null || credits <= 0) {
+        numericCredits = false;
+        fail(`comparison ${programme.id}, block ${block?.title || 'untitled'}, row ${rowIndex + 1}: explicit numeric credits are required`);
+      } else {
+        total += credits;
+      }
+    }
+
+    if (numericCredits && !approximatelyEqual(total, 180)) {
+      fail(`comparison ${programme.id} totals ${total} EC; every programme comparison must total 180 EC`);
+    }
+
+    if (isUcrProgramme(programme)) {
+      const courses = scheduledCourses(programme);
+      const byCode = new Map();
+      const byName = new Map();
+      for (const course of courses) {
+        if (typeof course?.code === 'string' && course.code.trim()) byCode.set(course.code.trim().toLowerCase(), course);
+        const nameKey = normalizedLabel(course?.name);
+        if (!byName.has(nameKey)) byName.set(nameKey, []);
+        byName.get(nameKey).push(course);
+      }
+
+      const seen = new Set();
+      for (const { cell, block, rowIndex } of entries) {
+        let course = null;
+        if (typeof cell.courseCode === 'string' && cell.courseCode.trim()) {
+          course = byCode.get(cell.courseCode.trim().toLowerCase()) || null;
+          if (!course) {
+            fail(`comparison ${programme.id}, block ${block?.title || 'untitled'}, row ${rowIndex + 1}: courseCode ${JSON.stringify(cell.courseCode)} is not in the scheduled programme`);
+            continue;
+          }
+        } else {
+          const matches = byName.get(normalizedLabel(cell.text)) || [];
+          if (matches.length === 1) course = matches[0];
+          else if (matches.length === 0) {
+            fail(`comparison ${programme.id}, block ${block?.title || 'untitled'}, row ${rowIndex + 1}: ${JSON.stringify(cell.text)} is not a scheduled UCR course`);
+            continue;
+          } else {
+            fail(`comparison ${programme.id}, block ${block?.title || 'untitled'}, row ${rowIndex + 1}: course name ${JSON.stringify(cell.text)} is ambiguous; use courseCode`);
+            continue;
+          }
+        }
+
+        if (normalizedLabel(cell.text) !== normalizedLabel(course.name)) {
+          fail(`comparison ${programme.id}: displayed text ${JSON.stringify(cell.text)} does not match referenced course ${JSON.stringify(course.name)}`);
+        }
+
+        const cellCredits = creditNumber(cell.credits);
+        const canonicalCredits = creditNumber(courseCredits(course));
+        if (cellCredits !== null && canonicalCredits !== null && !approximatelyEqual(cellCredits, canonicalCredits)) {
+          fail(`comparison ${programme.id}: ${course.code || course.name} shows ${cellCredits} EC but the scheduled course has ${canonicalCredits} EC`);
+        }
+
+        const key = (course.code || course.name).trim().toLowerCase();
+        if (seen.has(key)) fail(`comparison ${programme.id}: duplicate course ${course.code || course.name}`);
+        seen.add(key);
+      }
+
+      const missing = courses.filter(course => !seen.has((course.code || course.name).trim().toLowerCase()));
+      if (missing.length) {
+        fail(`comparison ${programme.id}: scheduled courses missing from comparison: ${missing.map(course => course.code || course.name).join(', ')}`);
+      }
+
+      const ppd = courses.find(course => String(course?.code || '').toUpperCase() === 'ACCPPDE101');
+      if (ppd && !seen.has((ppd.code || ppd.name).trim().toLowerCase())) {
+        fail(`comparison ${programme.id}: Personal & Professional Development must appear exactly once in the comparison`);
+      }
+      continue;
+    }
+
+    if (isComparator(programme) && Array.isArray(comparator?.components) && comparator.components.length) {
+      const byId = new Map();
+      let componentTotal = 0;
+      for (const component of comparator.components) {
+        const id = String(component?.id || '').trim();
+        if (!id) {
+          fail('comparator.components entries require stable ids');
+          continue;
+        }
+        if (byId.has(id)) fail(`comparator.components contains duplicate id ${id}`);
+        byId.set(id, component);
+        const credits = creditNumber(component?.credits);
+        if (credits === null || credits <= 0) fail(`comparator component ${id} requires positive numeric credits`);
+        else componentTotal += credits;
+      }
+      if (!approximatelyEqual(componentTotal, 180)) {
+        fail(`comparator.components total ${componentTotal} EC; reconstructed comparator must total 180 EC`);
+      }
+
+      const seen = new Set();
+      for (const { cell, block, rowIndex } of entries) {
+        const componentId = String(cell.componentId || '').trim();
+        if (!componentId) {
+          fail(`comparison comparator, block ${block?.title || 'untitled'}, row ${rowIndex + 1}: componentId is required when comparator.components is present`);
+          continue;
+        }
+        const component = byId.get(componentId);
+        if (!component) {
+          fail(`comparison comparator: componentId ${JSON.stringify(componentId)} is not in comparator.components`);
+          continue;
+        }
+        if (seen.has(componentId)) fail(`comparison comparator: duplicate component ${componentId}`);
+        seen.add(componentId);
+        if (normalizedLabel(cell.text) !== normalizedLabel(component.name)) {
+          fail(`comparison comparator: displayed text ${JSON.stringify(cell.text)} does not match component ${JSON.stringify(component.name)}`);
+        }
+        const cellCredits = creditNumber(cell.credits);
+        const componentCredits = creditNumber(component.credits);
+        if (cellCredits !== null && componentCredits !== null && !approximatelyEqual(cellCredits, componentCredits)) {
+          fail(`comparison comparator: component ${componentId} shows ${cellCredits} EC but canonical component has ${componentCredits} EC`);
+        }
+      }
+      const missing = comparator.components.filter(component => !seen.has(String(component?.id || '').trim()));
+      if (missing.length) fail(`comparison comparator: canonical components missing from comparison: ${missing.map(component => component.id).join(', ')}`);
+    }
+  }
+}
+
 export function validateExample(example, sourceName = 'example') {
   const errors = [];
   const warnings = [];
@@ -325,12 +485,20 @@ export function validateExample(example, sourceName = 'example') {
         if (cell && !validCreditValue(cell.credits)) {
           fail(`block ${block.title}, row ${rowIndex + 1}, programme ${key}: invalid credits value`);
         }
+        if (cell?.courseCode !== undefined && (typeof cell.courseCode !== 'string' || !cell.courseCode.trim())) {
+          fail(`block ${block.title}, row ${rowIndex + 1}, programme ${key}: courseCode must be a non-empty string when supplied`);
+        }
+        if (cell?.componentId !== undefined && (typeof cell.componentId !== 'string' || !cell.componentId.trim())) {
+          fail(`block ${block.title}, row ${rowIndex + 1}, programme ${key}: componentId must be a non-empty string when supplied`);
+        }
       });
 
       const nonEmpty = keys.map(key => normalizeCell(row.cells[key])).filter(Boolean);
       if (!nonEmpty.length) fail(`block ${block.title}, row ${rowIndex + 1}: row contains no substantive cell`);
     });
   });
+
+  validateComparisonCoverage(example, programmes, fail);
 
   if (Array.isArray(example.notes)) {
     example.notes.forEach((note, index) => {
