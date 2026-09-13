@@ -88,14 +88,14 @@ render_compare_table <- function(record) {
 
   headers <- lapply(programmes, function(programme) {
     label <- visible_label(record, programme)
-    if (identical(programme$role, "comparator") && nzchar(safe_text(meta$primarySourceUrl))) {
+    if (is_comparator_programme(programme) && nzchar(safe_text(meta$primarySourceUrl))) {
       title <- tags$a(href = meta$primarySourceUrl, target = "_blank", rel = "noopener", paste0(label, " ↗"))
     } else {
       title <- label
     }
     tags$th(
       div(class = "programme-title", title),
-      if (!identical(programme$role, "comparator")) {
+      if (is_ucr_programme(programme)) {
         tags$a(class = "programme-source", href = UCR_COURSES_URL, target = "_blank", rel = "noopener", "UCR courses ↗")
       }
     )
@@ -112,7 +112,7 @@ render_compare_table <- function(record) {
       cells <- lapply(programmes, function(programme) {
         value <- cell_value(row$cells[[programme$id]])
         if (is.null(value)) return(tags$td(class = "empty-cell", "\u00A0"))
-        ec <- credit_text(value$credits, if (!identical(programme$role, "comparator")) UCR_COURSE_EC else NULL)
+        ec <- credit_text(value$credits, if (is_ucr_programme(programme)) UCR_COURSE_EC else NULL)
         tags$td(
           class = if (isTRUE(value$emphasis)) "comparison-cell emphasis" else "comparison-cell",
           div(class = "cell-text", safe_text(value$text)),
@@ -170,13 +170,7 @@ render_schedule <- function(record, programme) {
 }
 
 student_ucr_programmes <- function(record) {
-  roles <- c("ucr-depth", "ucr-balanced", "ucr-thematic")
-  programmes <- record$programmes %||% list()
-  ordered <- lapply(roles, function(role) {
-    matches <- Filter(function(p) identical(p$role, role), programmes)
-    if (length(matches)) matches[[1]] else NULL
-  })
-  Filter(Negate(is.null), ordered)
+  Filter(is_ucr_programme, record$programmes %||% list())
 }
 
 render_programme_options <- function(record) {
@@ -207,7 +201,7 @@ render_student_record <- function(record) {
           class = "intro-row",
           div(
             tags$h1("We are happy to share your personalized programme options."),
-            tags$p(class = "lede", "Explore three possible UCR programmes built around your interests, then see how they compare with another Dutch bachelor.")
+            tags$p(class = "lede", "Explore the UCR programmes that best fit what you told us, then see how they compare with another Dutch bachelor.")
           ),
           actionButton("reset_pathway", "Use another code", class = "secondary-button")
         ),
@@ -233,7 +227,7 @@ render_student_record <- function(record) {
           ),
           tabPanel(
             "See how these options compare",
-            tags$p(class = "tab-copy", "This comparison shows another Dutch bachelor alongside your three UCR programme options, from the closest match to broader ways of combining relevant subjects."),
+            tags$p(class = "tab-copy", "This comparison shows another Dutch bachelor alongside the UCR programme options that could be defended from your interests, ordered from the closest match toward broader alternatives where those are genuinely supported."),
             render_compare_table(record),
             render_comparison_notes(record),
             tags$p(class = "source-note", "Blank cells indicate that no sufficiently comparable named component is shown in that position. These are illustrative UCR programmes, not official tracks or guaranteed future schedules.")
@@ -300,7 +294,7 @@ ui <- fluidPage(
       .disclaimer { margin:18px 0 26px; padding:13px 15px; border:1px dashed rgba(139,30,45,.55); background:#fff; color:#8b1e2d; border-radius:10px; font-size:13px; }
       .disclaimer p { margin:5px 0 0; }
       .compare-scroll { overflow-x:auto; border:1px solid rgba(73,30,52,.14); border-radius:14px; background:#fff; }
-      .compare-table { border-collapse:separate; border-spacing:0; min-width:1120px; width:100%; table-layout:fixed; }
+      .compare-table { border-collapse:separate; border-spacing:0; min-width:min(1120px, 100%); width:100%; table-layout:fixed; }
       .compare-table th,.compare-table td { border-right:1px solid rgba(73,30,52,.1); border-bottom:1px solid rgba(73,30,52,.1); padding:13px 15px; vertical-align:top; }
       .compare-table thead th { background:var(--plum); color:#fff; border-right-color:rgba(255,255,255,.18); }
       .programme-title { font-size:16px; font-weight:700; }
@@ -350,7 +344,7 @@ server <- function(input, output, session) {
           class = "access-card",
           brand_header(),
           tags$h1("Your personalized programme options"),
-          tags$p("Enter the code you received to open the three UCR programme options prepared around your interests."),
+          tags$p("Enter the code you received to open the UCR programme options prepared around your interests."),
           textInput("access_code", label = "Your access code", placeholder = "UCR-XXXX-XXXX-XXXX-XXXX"),
           actionButton("unlock_pathway", "Open my programme options", class = "btn-primary"),
           uiOutput("access_error_ui")
