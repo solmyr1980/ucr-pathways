@@ -125,8 +125,15 @@ export function validateExample(example, sourceName = 'example') {
     const provider = example.programmeProvider;
     if (!provider || typeof provider !== 'object' || Array.isArray(provider)) {
       fail('counselor-origin records require programmeProvider metadata');
-    } else if (!String(provider.programmeProviderId || '').trim()) {
-      fail('programmeProvider requires programmeProviderId; a recognized programme code alone does not identify its provider');
+    } else {
+      const normalizedId = String(provider.counselorProgrammeId || '').trim();
+      const legacyId = String(provider.programmeProviderId || '').trim();
+      if (!normalizedId && !legacyId) {
+        fail('programmeProvider requires counselorProgrammeId for normalized records or programmeProviderId for legacy records');
+      }
+      if (normalizedId && !/^cp-[0-9]{6}$/.test(normalizedId)) {
+        fail('programmeProvider.counselorProgrammeId must use cp-000001 format');
+      }
     }
   }
 
@@ -332,7 +339,6 @@ export function validateExample(example, sourceName = 'example') {
         return;
       }
       const hasText = typeof note.text === 'string' && note.text.trim();
-      const hasTemplate = typeof note.type === 'string' && note.type.trim() && note.params && typeof note.params === 'object';
       if (!hasText) fail(`note ${index + 1} requires rendered text; expand semantic templates before public export`);
     });
   }
