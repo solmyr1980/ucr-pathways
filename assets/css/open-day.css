@@ -112,7 +112,7 @@ html, body {
   table-layout: fixed;
   border: .2mm solid var(--rule);
 }
-.comparison-table col { width: 25%; }
+.comparison-table col { width: calc(100% / var(--programme-count, 4)); }
 .comparison-table th,
 .comparison-table td {
   border-right: .16mm solid var(--rule);
@@ -225,7 +225,7 @@ html, body {
   flex: 1;
   min-height: 0;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--ucr-count, 3), minmax(0, 1fr));
   grid-template-rows: auto repeat(6, minmax(0, 1fr));
   border: .2mm solid var(--rule);
 }
@@ -236,7 +236,6 @@ html, body {
   color: var(--ucr-white);
   border-right: .16mm solid rgba(248, 245, 238, .35);
 }
-.schedule-programme-head:nth-child(3) { border-right: 0; }
 .schedule-programme-head .programme-label { font-size: 7.2pt; }
 .schedule-programme-head .programme-subtitle { font-size: 5.7pt; }
 .schedule-cell {
@@ -246,7 +245,6 @@ html, body {
   border-top: .16mm solid var(--rule);
   overflow: hidden;
 }
-.schedule-cell:nth-child(3n) { border-right: 0; }
 .schedule-cell.alt { background: rgba(200, 223, 230, .16); }
 .semester-label {
   margin: 0 0 1.1mm;
