@@ -9,18 +9,19 @@ The user-facing interface intentionally uses UCR branding without a visible Path
 - a student enters a student-specific access code;
 - the app retrieves the matching structured comparison record from GitHub;
 - the welcome view preserves the student's original wording and provides a separate place for the academic interpretation;
-- the first substantive view presents all three personalized UCR programme options in semester-by-semester format, ordered from closest match to broader alternatives and navigable through separate programme tabs;
-- the student can switch to the four-programme comparison without regenerating content;
-- comparison headings use the new descriptive labels;
+- the first substantive view presents every included personalized UCR programme option in semester-by-semester format, ordered from the closest feasible match toward broader alternatives where those are genuinely supported;
+- records may contain between one and three UCR programme options; the interface does not manufacture empty or weak slots merely to reach three;
+- the student can switch to the comparison view without regenerating content;
+- comparison headings use descriptive case-specific labels;
 - the external programme heading links to its approved official source;
 - UCR content links to the current UCR course overview;
 - UCR courses show EC information and can be clicked/tapped for descriptions;
 - the student receives Admissions and Program Builder calls to action;
 - the temporary disclaimer placeholder is visible until approved final disclaimer copy is supplied.
 
-## Legacy-fixture limitation
+## Development-fixture limitation
 
-The five current example records predate the new `interestInterpretation` field. The pilot therefore shows an explicit development placeholder in the interpretation panel when that field is absent. Production student records must store the interpretation separately from the original interest statement.
+The five current public examples are development fixtures rather than production-private student records. Where an example lacks a stored `interestInterpretation`, the pilot shows an explicit development placeholder in the interpretation panel. Production student records must store the interpretation separately from the original interest statement and must follow the current one-to-three-alternative production rule.
 
 ## Requirements
 
