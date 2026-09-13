@@ -6,18 +6,19 @@
 
 This document contains the durable product, academic, content and architectural decisions for the UCR Pathways project.
 
-It does **not** record implementation status, completed work, temporary problems, deployment history, exact build commands or a running backlog.
+It does **not** contain the detailed procedure for generating academic records, public-publication operations, implementation status, completed work, temporary problems, exact build commands or a running backlog.
 
-Use the following sources of truth for those matters:
+Use the following sources of truth:
 
-- the **UCR Pathways Production Instructions** for academic generation, validation and record creation;
-- the **UCR Pathways Web and LinkedIn Workflow** for public curation and publication operations;
-- the enriched UCR course database for UCR course evidence and availability;
-- the normalized counselor registry in `data/registry/`, derived from the Dutch bachelor programme registry and programme-interest enrichment data, for counselor scope, identity and discovery;
-- the repository schemas for executable data contracts;
-- the GitHub repository, Actions configuration and commit history for implementation state and build mechanics.
+- **UCR Pathways Production Instructions** — academic generation, validation and record creation;
+- **UCR Pathways Web and LinkedIn Workflow** — public curation, website and LinkedIn publication operations;
+- the enriched UCR course database — UCR course evidence and availability;
+- `data/registry/` — normalized counselor identity, production order, provenance and programme-interest discovery data;
+- repository schemas and validators — executable data contracts and mechanical record checks;
+- GitHub repository state, Actions and commit history — implementation state and build mechanics;
+- **UCR Pathways Supporting Research Workflows** — programme-interest enrichment and synthetic-interest work only, not routine student/counselor academic production.
 
-A document should change only when a durable decision within its own domain changes.
+A rule should be stated in the document that owns it rather than repeated across documents. A batch assignment may invoke authoritative instructions but must not redefine them.
 
 ---
 
@@ -36,11 +37,11 @@ Technical repository paths and internal identifiers may continue to contain `ucr
 The project supports four distinct surfaces that share academic comparison content but serve different purposes:
 
 1. **Student app** — a personalized experience generated from an actual prospective student's submitted interests.
-2. **Counselor app** — a deterministic searchable library of pre-produced comparisons, one per normalized counselor programme target in the current counselor production scope.
+2. **Counselor app** — a deterministic searchable library of pre-produced comparisons, one per normalized counselor programme target in the current production scope.
 3. **Public website** — a curated communication and showcase layer, not an exhaustive comparison database.
 4. **LinkedIn** — an editorial distribution channel using selected approved comparisons and stories.
 
-The website and LinkedIn are not additional academic-generation workflows. They reuse approved content from the student or counselor workflow.
+The website and LinkedIn are downstream communication surfaces. They do not regenerate academic content.
 
 ## 1.3 UCR Program Builder
 
@@ -76,11 +77,11 @@ Use descriptive labels in the style of:
 - comparator: **[Programme] at [Institution]**;
 - `ucr-depth`: **Closest match to [programme or field]**;
 - `ucr-balanced`: **[programme or field] + related subjects**;
-- `ucr-thematic`: **A broader programme around your interests** or the equivalent case-specific wording.
+- `ucr-thematic`: **A broader programme around your interests** or equivalent case-specific wording.
 
-Do not use visible labels such as `Reference programme`, `greatest disciplinary depth`, `balanced interests`, `thematic breadth`, `strong match` or `off the beaten track` as the default interface taxonomy.
+Do not expose internal taxonomy such as `ucr-depth` or use default labels such as `Reference programme`, `greatest disciplinary depth`, `balanced interests`, `thematic breadth`, `strong match` or `off the beaten track`.
 
-The comparator heading itself supplies programme and institution provenance and should link to the approved official programme or curriculum source.
+The comparator heading or an adjacent clear source link should lead to the approved official programme/curriculum source.
 
 ---
 
@@ -88,7 +89,7 @@ The comparator heading itself supplies programme and institution provenance and 
 
 ## 3.1 Input and generation model
 
-The student app is **organic and personalized**. It is generated only from actual prospective-student input received through the designated website form or equivalent approved intake route.
+The student app is **organic and personalized**. It is generated from actual prospective-student input received through the approved intake route.
 
 The standard question remains:
 
@@ -96,21 +97,11 @@ The standard question remains:
 
 The answer may contain disciplines, topics, questions, problems, practical interests, skills or phenomena in any combination.
 
-The production process must:
-
-- preserve the student's original wording;
-- interpret the response academically;
-- not assume that the first-mentioned interest is more important;
-- not require the student to understand UCR's curriculum structure;
-- not manufacture weak curricular matches where UCR represents an interest poorly.
-
-For a student who supplies one interest, broaden through meaningful subfields, questions and neighbouring perspectives rather than inventing an additional interest.
+Production must preserve the student's original wording, interpret it academically, avoid assuming that the first-mentioned interest is more important, and avoid manufacturing weak curricular matches. For a student who supplies one interest, broaden through meaningful subfields, questions and neighbouring perspectives rather than inventing a second interest.
 
 ## 3.2 Student app journey
 
-The student experience should begin with a personalized welcome screen.
-
-Show both:
+The student experience should begin with a personalized welcome screen showing both:
 
 > **You told us that…**
 >
@@ -124,21 +115,19 @@ and:
 
 The welcome screen should provide access to two views of the same approved personalized record:
 
-- **View my personalized programme options** — semester-by-semester views of all three UCR programmes, in the stable order `ucr-depth`, `ucr-balanced`, `ucr-thematic`;
+- **View my personalized programme options** — semester-by-semester views of all three UCR programmes in the stable order `ucr-depth`, `ucr-balanced`, `ucr-thematic`;
 - **See how these options compare** — the four-programme comparison.
 
-All three UCR programmes are personalized options generated from the same student interests. The student app must not present `ucr-depth` as the sole personalized programme while hiding the other two semester schedules. Within the programme-options view, use clear sub-navigation such as tabs or selectors so that the student can inspect each complete six-semester programme without requiring one long stacked page.
-
-The interface may allow movement between these views without regenerating academic content.
+All three UCR programmes are personalized options generated from the same student interests. The interface should let a student inspect each complete six-semester programme without requiring one long stacked page.
 
 ## 3.3 Student calls to action
 
-After the substantive programme content, provide two distinct next steps where the interface supports them:
+After the substantive programme content, provide two distinct next steps where supported:
 
 - **Speak to Admissions** — to the approved Admissions contact or booking route;
 - **Tweak this programme to your liking** — to the canonical UCR Program Builder destination.
 
-Exact Admissions destination is implementation/configuration data rather than a durable academic rule.
+Exact Admissions destination is implementation/configuration data.
 
 ## 3.4 Student disclaimer
 
@@ -154,9 +143,7 @@ The placeholder must be visibly distinguishable in development and must not be m
 
 Names and unnecessary personal information remain outside academic pathway records.
 
-Student-specific access codes or links must not expose private pathway records through a public code-to-record mapping. Production privacy must use an appropriate private access/storage mechanism.
-
-A student case is not automatically approved for public website or LinkedIn use.
+Student-specific access codes or links must not expose private pathway records through a public code-to-record mapping. A student case is not automatically approved for public website or LinkedIn use.
 
 ---
 
@@ -166,40 +153,27 @@ A student case is not automatically approved for public website or LinkedIn use.
 
 The counselor app is **deterministic**, not a live personalization engine.
 
-Produce one fixed comparison for every normalized counselor programme target in the **current counselor production scope**.
+Produce one fixed comparison for every normalized counselor programme target in the current production scope. A target is currently in scope only when `data/registry/programmes.csv` shows:
 
-The current production scope consists only of targets in `data/registry/programmes.csv` that:
+- `production_eligible=true`;
+- nonblank `production_order`; and
+- `programme_type=standard`.
 
-- have `production_eligible=true`;
-- have a nonblank `production_order`; and
-- have `programme_type=standard`.
+Targets with `programme_type=joint-degree`, `double-bachelor` or `dual-degree-route` remain legitimate normalized registry targets but are temporarily excluded from comparison production until an approved presentation method exists. Do not change their permanent identity, lifecycle fields, institutions or normalization decisions merely to implement this presentation-scope exclusion.
 
-Targets with `programme_type=joint-degree`, `double-bachelor` or `dual-degree-route` are **temporarily excluded from counselor comparison production** until the project adopts a convincing way to represent those structures in the four-programme comparison. They remain valid normalized registry targets with their permanent IDs, provenance, institutions and lifecycle status intact. This presentation-scope decision must **not** be implemented by changing their registry identity, current status, `production_eligible` value, permanent `counselor_programme_id` or historical normalization decision.
+The permanent production identity is `counselor_programme_id`. Source worksheet rows, offered-programme UUIDs, programme-unit codes, recognized-programme codes, language, mode and campus registrations are provenance/join information rather than independent counselor comparison identities.
 
-The unit of production is the normalized target identified by permanent `counselor_programme_id` in `data/registry/programmes.csv`. Original worksheet rows, `AANGEBODEN_OPLEIDINGCODE`, programme-unit codes and recognized-programme codes are provenance and join identifiers, not the counselor comparison identity.
-
-Normalization may merge several source rows or registrations into one academic target when they represent delivery, language, campus, free-registration or other administrative variants of the same programme. It may split a source representation when current official evidence establishes genuinely distinct academic routes. Genuine joint/double/dual-degree structures remain represented accurately in the normalized registry even while they are outside the current counselor production scope. Inactive or teach-out identities may remain in the normalized registry for provenance but do not enter production when `production_eligible=false`.
-
-Permanent counselor target IDs must be preserved across later registry refreshes rather than regenerated from source ordering.
-
-Production proceeds in `production_order` from `data/registry/programmes.csv` after applying the current production-scope filter. Do not prioritize cases by UCR fit, applicant popularity, blank-cell count or another ranking criterion.
+Permanent counselor target IDs must be preserved across later registry refreshes. Production proceeds in `production_order` after applying the current scope filter; do not prioritize by UCR fit, popularity or marketing value.
 
 ## 4.2 Two discovery routes, one comparison library
 
-The counselor may discover the same fixed comparison through either:
-
-- programme identity; or
-- student-facing interests associated with programmes in the programme-interest enrichment data.
-
-These routes are **not competing products**. They are two entry points into one deterministic comparison library.
+The counselor may discover the same fixed comparison through either programme identity or student-facing interests associated with programmes in the programme-interest data.
 
 Use one search experience where practical:
 
 > **Search by programme or interest**
 
-Programme name, institution and relevant metadata may be searched directly. Interest search uses the normalized programme-interest table to return ranked counselor programme targets that are in the current counselor production scope.
-
-Interest search is a **discovery mechanism only**. Entering an interest does not regenerate or personalize the selected comparison. The interface must not imply otherwise.
+Interest search is a discovery mechanism only. Entering an interest does not regenerate or personalize the selected comparison.
 
 ## 4.3 Interest-search ranking
 
@@ -211,185 +185,61 @@ Use `interest_relationship` as the principal evidence distinction for determinis
 4. illustrative or temporary topic;
 5. outcome or individual trajectory.
 
-Categories 1–2 form the conservative core. Category 3 may broaden discovery. Categories 4–5 may remain searchable but should not be presented as equally strong evidence that the bachelor structurally targets the interest.
+Categories 1–2 form the conservative core; category 3 may broaden discovery; categories 4–5 should receive lower confidence/priority.
 
-Where `target_mapping_status=inherited-across-split-targets`, the inherited interest record is provenance/general discovery evidence only. It must not be treated as target-specific academic evidence for either split target unless the claim is independently corroborated by current official evidence for that exact target.
+Where `target_mapping_status=inherited-across-split-targets`, the inherited interest record is provenance/general discovery evidence only. It is not target-specific academic evidence unless independently corroborated for that exact normalized target.
 
-The interface may show matching interests or other concise reasons for a programme appearing in the results.
+## 4.4 Counselor filters and transparency
 
-## 4.4 Counselor filters
+Filters may refine discovery where supported reliably by the registry; they do not alter the fixed comparison.
 
-The counselor interface may provide filters supported reliably by the programme registry, such as institution, location, degree type or disciplinary grouping.
-
-Filters refine discovery; they do not alter the underlying fixed comparison.
-
-## 4.5 Counselor transparency
-
-The counselor interface must explain that:
-
-- comparisons are pre-produced at normalized counselor programme-target level;
-- interest search helps locate relevant programmes but does not personalize the comparison to an individual student;
-- the UCR programmes are illustrative feasible compositions rather than official tracks or guaranteed future schedules.
+The interface must explain that comparisons are pre-produced at normalized target level, interest search does not personalize them, and UCR programmes are illustrative feasible compositions rather than official tracks or guaranteed future schedules.
 
 ---
 
-# 5. External programme evidence and fair reconstruction
+# 5. Durable academic comparison principles
 
-## 5.1 Source basis
+Detailed execution belongs exclusively to the **Production Instructions**. The durable principles are:
 
-Use current official university sources to reconstruct each comparator.
+## 5.1 External programme fairness
 
-Prefer, where available:
+Reconstruct comparators from current official university evidence. Represent compulsory, restricted-choice, route/specialization, open-elective, methods/research, thesis/capstone and EC structure fairly. Where choices must be instantiated, use one coherent valid pathway.
 
-1. formal curriculum or graduation requirements;
-2. official student-facing curriculum pages;
-3. official route, track or specialization pages;
-4. official course-catalogue entries;
-5. general prospective-student programme pages.
+Never present optional material as compulsory, combine mutually exclusive choices, invent components, violate programme rules, deliberately choose weak options to favour UCR, or make the external programme artificially narrow.
 
-Do not use rankings, aggregators or unofficial summaries to establish programme structure.
+## 5.2 UCR feasibility
 
-For public-facing links, prefer one current official page that makes the programme and its structure easy to verify. Preserve additional official sources internally where needed.
+Use the enriched UCR course database as the authoritative source for course content, prerequisites and planned semester availability.
 
-## 5.2 Fair reconstruction
+Each UCR programme must contain exactly 24 unique courses, four courses in each of six semesters, at least six 300-level courses, and Personal & Professional Development during Year 1. Prerequisites must precede dependent courses and every course must be available in its assigned semester.
 
-Before selecting what to display, distinguish:
+Do not invent additional cluster, unit, concentration, breadth or disciplinary-distribution requirements. Validate mechanical feasibility against the enriched database.
 
-- compulsory components;
-- restricted choices;
-- tracks, routes or specializations;
-- genuinely free elective or profiling space;
-- methods and research training;
-- thesis or capstone requirements;
-- relevant EC weights.
+## 5.3 Comparison integrity
 
-Where choices exist, select one coherent valid pathway appropriate to the production context.
+Construct and validate all four programmes before designing comparison blocks. Use actual content rather than titles alone and preserve actual EC weights.
 
-Never:
+Align genuinely comparable material; preserve meaningful blanks and structural differences; do not force row-by-row symmetry, equal credit allocation, complete 180-EC partitioning or one-to-one course equivalence. Do not use numerical depth/breadth scores.
 
-- present optional components as compulsory;
-- combine mutually exclusive choices;
-- violate programme rules;
-- deliberately choose weak options to make UCR look better;
-- invent courses to fill genuinely open elective space;
-- make the external programme artificially narrow merely to sharpen the contrast with UCR.
-
-Represent genuine gaps honestly.
-
-## 5.3 Comparator presentation
-
-In user-facing digital interfaces, identify the comparator directly as:
-
-> **[Programme] at [Institution]**
-
-Link this heading or an adjacent clear source link to the approved official programme page.
-
-Do not require a separate visible `Reference programme:` line.
-
-Internal records must still preserve the programme name, institution and source metadata explicitly.
+Detailed block construction and anti-template checks belong to the Production Instructions.
 
 ---
 
-# 6. UCR course evidence and feasibility
+# 6. Explanatory notes and canonical records
 
-Use the enriched UCR course database as the authoritative source for UCR course selection and feasibility.
+Explanatory notes should use reusable semantic templates defined in the Production Instructions and appear only when needed to prevent a material misunderstanding. A warranted limitation note must remain visible across representations.
 
-Use course content rather than administrative cluster or unit labels. Give particular weight to outline-derived `profile` information where available, alongside name, discipline, topics, methods, descriptions, prerequisites and planned semester availability.
-
-Each UCR programme must contain:
-
-- exactly **24 unique courses**;
-- exactly **4 courses in each of six semesters**;
-- at least **6 courses at 300 level**;
-- **Personal & Professional Development** during Year 1.
-
-In addition:
-
-- every prerequisite must have been completed in an earlier semester;
-- every selected course must actually be available in the semester in which it is placed;
-- courses may not be duplicated.
-
-Do not invent additional requirements concerning clusters, units, concentrations, breadth or disciplinary distributions.
-
-Validate all UCR feasibility rules mechanically against the enriched UCR course database.
-
----
-
-# 7. Comparison principles and credits
-
-Construct and validate all four programmes before designing the comparison.
-
-Apply the same substantive classification principles to the external programme and UCR programmes. Use content rather than titles alone.
-
-Do not assume that one comparator component equals one UCR course.
-
-Preserve actual component weights. **Show EC credits consistently on both the external and UCR sides** when displaying curriculum components; do not show comparator EC while leaving equivalent UCR components unlabelled.
-
-Do not use proportional course-box scaling as a general encoding of credit weight.
-
-Within comparison blocks:
-
-- align genuinely comparable components horizontally;
-- retain meaningful blank cells;
-- do not fill gaps merely for visual symmetry;
-- preserve structural differences neutrally;
-- do not introduce special research-seminar callouts merely to reduce gaps;
-- do not add exchange opportunities merely to fill open space;
-- do not create a new special rule for elective-space symmetry.
-
-Do not use numerical depth or breadth scores.
-
-## 7.1 UCR links
-
-Digital comparison interfaces must provide an appropriate link to UCR curriculum information in addition to the comparator's official programme link.
-
-The exact destination may be configured centrally and updated without changing academic records.
-
----
-
-# 8. Reusable explanatory notes
-
-Explanatory notes should be generated from evidenced comparison facts using reusable semantic templates rather than written manually for every counselor target case.
-
-The Production Instructions define the executable note taxonomy and generation rules.
-
-A note is warranted only when it helps prevent a material misunderstanding. Do not add boilerplate beneath every comparison merely because a template exists.
-
-Preserve warranted limitation notes in every representation of the comparison, including single-programme/mobile views and PDFs. Switching views must not hide a material limitation of the UCR match.
-
----
-
-# 9. Canonical comparison records
-
-Create one canonical structured comparison record before rendering any surface.
-
-The record must identify its origin, normally either:
-
-- `student` — personalized from an actual student's interest statement; or
-- `counselor` — fixed to one normalized counselor programme target.
-
-The shared comparison core should preserve:
-
-- origin and stable record identity;
-- comparator programme name, institution and official source URL;
-- four programme identities and semantic roles;
-- complete 24-course sets and six-semester schedules for the three UCR programmes;
-- component EC credits where applicable;
-- comparison blocks, alignments and deliberate gaps;
-- explanatory-note type and parameters or rendered text where required;
-- academic validation status and internal source/verification metadata.
+Create one canonical structured comparison record before rendering any surface. The record must identify its origin (`student` or `counselor`) and preserve the four programme identities, complete UCR schedules, comparator evidence, comparison structure, deliberate gaps, relevant credits, validation status and source/verification metadata.
 
 Student-origin records additionally preserve the original interest statement and academic interpretation.
 
-Counselor-origin records additionally preserve the permanent `counselor_programme_id` plus the source-row, offered-programme, programme-unit, recognized-programme and institution provenance needed to audit the normalized target and join to the programme-interest index. Under the current counselor production contract, the stable record `id` must equal the same permanent `counselor_programme_id`; legacy provider/offering identifiers remain provenance only.
+Counselor-origin records additionally preserve the permanent `counselor_programme_id` and normalized provenance required to audit the target and connect it to programme-interest discovery. Under the current counselor contract, the stable record `id` equals the same permanent `counselor_programme_id`.
 
-The canonical record contains content and semantic structure, not renderer-specific coordinates, CSS or page geometry.
-
-Renderers may ignore fields they do not need, but they must not reinterpret or invent programme facts.
+Canonical records contain semantic content, not renderer coordinates, CSS or page geometry. Renderers may ignore fields they do not need, but they must not reinterpret or invent programme facts.
 
 ---
 
-# 10. Public website
+# 7. Public website
 
 The public website is a **curated communication and showcase layer**, not the exhaustive counselor database and not the private student app.
 
@@ -398,28 +248,21 @@ It should:
 - use UCR branding without visible Pathways branding;
 - present a deliberately selected set of examples or stories;
 - explain programme possibilities through concrete comparisons rather than an exhaustive catalogue;
-- provide a clear route for prospective students toward the student intake/personalized experience;
-- provide a clear route for school counselors toward the counselor comparison tool;
-- provide the Program Builder CTA where appropriate.
+- provide clear routes toward the student experience, counselor tool and Program Builder where appropriate.
 
 Most public examples will normally be selected from approved counselor comparisons because they are stable and privacy-safe. A student-origin case may be used only after explicit public-use approval and removal of identifying information.
 
-The website remains data-driven. Programme-specific content must come from approved structured publication records rather than being hardcoded into the renderer.
+Programme-specific content must come from approved structured publication records rather than being hardcoded into the renderer.
 
 ---
 
-# 11. LinkedIn
+# 8. LinkedIn
 
 LinkedIn is an editorial distribution channel, not a separate academic source.
 
-Use selected approved publication records from either:
+Use selected approved publication records from the counselor corpus or an explicitly approved privacy-safe student case. When website and LinkedIn present the same case, both should consume the same approved public programme content.
 
-- the counselor corpus, normally; or
-- an explicitly approved privacy-safe student case.
-
-The LinkedIn PDF and public website example should continue to consume the same approved public programme content when they present the same case.
-
-Editorial framing belongs in the LinkedIn post commentary rather than in a second hand-edited copy of programme content.
+Editorial framing belongs in LinkedIn commentary rather than in a second hand-edited academic-content copy.
 
 Existing editorial scenarios may continue, including:
 
@@ -429,35 +272,27 @@ Existing editorial scenarios may continue, including:
 - same interest, surprisingly different programmes;
 - findings from the Dutch bachelor market.
 
-The larger deterministic counselor corpus and programme-interest index may supply examples and evidence for these scenarios.
-
 Publication remains human-controlled unless a later decision explicitly changes that rule.
 
 ---
 
-# 12. Public curation and privacy
+# 9. Public curation and privacy
 
-Neither the student app nor the counselor app automatically publishes a case to the public website or LinkedIn.
+Neither the student app nor the counselor app automatically publishes a case.
 
-A comparison becomes public only after:
-
-1. substantive human review;
-2. explicit approval for public use; and
-3. creation of a publication-safe record conforming to the current repository contract.
+A comparison becomes public only after substantive human review, explicit approval for public use, and creation of a publication-safe record conforming to the current repository contract.
 
 Do not maintain separate hand-edited programme-content copies for website and LinkedIn.
 
 ---
 
-# 13. Optional event/PDF outputs
+# 10. Optional event/PDF outputs
 
-Existing Open Day and other PDF renderers may continue to use the same canonical academic records where useful.
-
-They are output formats, not separate academic products. Their existence must not force the student app, counselor app, website or LinkedIn to maintain separate programme content.
+Existing Open Day and other PDF renderers may continue to use canonical academic records where useful. They are output formats, not separate academic products, and must not force separate programme-content copies.
 
 ---
 
-# 14. Visual identity
+# 11. Visual identity
 
 All user-facing surfaces should follow the settled UCR visual identity.
 
@@ -474,24 +309,26 @@ Approved palette:
 
 Use **IvyMode** for display headings and **Inter** for body text in the configured UCR rendering environment.
 
-Use colour primarily for identity, navigation and orientation rather than as the main substantive classification of courses.
-
-Use the UCR logo without redundant institutional naming beside it. Keep text readable against its actual background, including link, visited, hover, selected and keyboard-focus states. Check narrow screens and enlarged text as well as desktop layouts.
+Use colour primarily for identity, navigation and orientation rather than as the main substantive classification of courses. Use the UCR logo without redundant institutional naming beside it. Keep text readable against its actual background, including link, visited, hover, selected and keyboard-focus states, and check narrow screens and enlarged text.
 
 If required brand fonts are unavailable, treat that as a rendering limitation to fix or report rather than silently inventing a different visual identity.
 
 ---
 
-# 15. Document ownership and implementation boundary
+# 12. Document ownership and implementation boundary
 
-Maintain three authoritative project documents:
+Maintain three **authoritative** project documents:
 
 1. **Master Specification** — durable product, academic, content and architectural decisions.
-2. **Production Instructions** — executable academic generation, validation and record-creation procedure for both student and counselor workflows.
+2. **Production Instructions** — the single authoritative procedure for academic generation, validation and record creation for student and counselor workflows.
 3. **Web and LinkedIn Workflow** — operational public curation, website and LinkedIn publication workflow.
 
-Exact schema fields, storage paths, search implementation, Shiny code, hosting choice and deployment commands belong to the repository implementation unless a durable architectural decision explicitly promotes them into this specification.
+Maintain **UCR Pathways Supporting Research Workflows** as a supporting reference for programme-interest enrichment and synthetic-interest work. It is not part of the routine context for student or counselor comparison production.
 
-In particular, **Shiny/Shinylive is an implementation candidate, not an authoritative product requirement** at this stage.
+`Counselor_Batch_Assignment.md` is an execution wrapper. It selects and runs a batch under the Production Instructions; it must not duplicate or redefine academic methodology.
 
-Do not use these documents to record successful or failed runs, temporary bugs, deployment status or routine next steps.
+Exact schema fields, storage paths, search implementation, Shiny code, hosting choice and deployment commands belong to repository implementation unless a durable architectural decision explicitly promotes them into this specification. **Shiny/Shinylive remains an implementation candidate, not an authoritative product requirement.**
+
+If wording conflicts across layers, resolve it according to ownership: this Master governs durable product decisions; Production Instructions govern academic generation; Web and LinkedIn Workflow governs public publication; schemas/validators govern executable data contracts; batch assignments cannot override those sources unless the user explicitly changes the underlying decision.
+
+Do not use authoritative documents to record successful or failed runs, temporary bugs, deployment status or routine next steps.
