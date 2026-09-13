@@ -219,14 +219,14 @@ render_compare_table <- function(record) {
 
   headers <- lapply(programmes, function(programme) {
     label <- visible_label(record, programme)
-    if (identical(programme$role, "comparator") && nzchar(safe_text(meta$primarySourceUrl))) {
+    if (is_comparator_programme(programme) && nzchar(safe_text(meta$primarySourceUrl))) {
       title <- tags$a(href = meta$primarySourceUrl, target = "_blank", rel = "noopener", paste0(label, " ↗"))
     } else {
       title <- label
     }
     tags$th(
       div(class = "programme-title", title),
-      if (!identical(programme$role, "comparator")) {
+      if (is_ucr_programme(programme)) {
         tags$a(class = "programme-source", href = UCR_COURSES_URL, target = "_blank", rel = "noopener", "UCR courses ↗")
       }
     )
@@ -239,7 +239,7 @@ render_compare_table <- function(record) {
       cells <- lapply(programmes, function(programme) {
         value <- cell_value(row$cells[[programme$id]])
         if (is.null(value)) return(tags$td(class = "empty-cell", "\u00A0"))
-        ec <- credit_text(value$credits, if (!identical(programme$role, "comparator")) UCR_COURSE_EC else NULL)
+        ec <- credit_text(value$credits, if (is_ucr_programme(programme)) UCR_COURSE_EC else NULL)
         tags$td(
           class = if (isTRUE(value$emphasis)) "comparison-cell emphasis" else "comparison-cell",
           div(class = "cell-text", safe_text(value$text)),
@@ -305,7 +305,7 @@ render_comparison <- function(record) {
     div(
       class = "transparency-note",
       tags$strong("How to read this comparison"),
-      tags$p("The first UCR programme is the closest feasible match. The other two show broader ways of combining the field with related subjects and interests. These are illustrative feasible compositions, not official UCR tracks or guaranteed future schedules.")
+      tags$p("The first UCR programme is the closest feasible match. Additional UCR programmes appear only when the evidence supports a coherent, substantively different and feasible alternative. These are illustrative feasible compositions, not official UCR tracks or guaranteed future schedules.")
     ),
     div(class = "cta-row", tags$a(class = "primary-cta", href = PROGRAM_BUILDER_URL, target = "_blank", rel = "noopener", "Explore the UCR Program Builder ↗"))
   )
@@ -317,7 +317,7 @@ render_search_shell <- function(search_text = "") {
     div(
       class = "hero",
       tags$h1("See how different bachelor’s programmes compare with study options at UCR"),
-      tags$p("Search by bachelor’s programme or by what your student is interested in. Select a programme to see the closest UCR match and two broader ways of combining the field with related subjects and interests.")
+      tags$p("Search by bachelor’s programme or by what your student is interested in. Select a programme to see the closest feasible UCR match and, where genuinely supported, additional UCR ways of pursuing the field or related questions.")
     ),
     div(
       class = "search-box",
@@ -348,7 +348,7 @@ ui <- fluidPage(
       .search-box{background:#fff;border:1px solid rgba(73,30,52,.16);border-radius:16px;padding:20px;margin-bottom:20px}.search-grid{display:grid;grid-template-columns:minmax(0,1fr) 260px 180px;gap:12px;align-items:end}.form-control{min-height:48px;border-radius:10px;border-color:rgba(73,30,52,.28);font-size:16px}.pilot-note{background:rgba(255,225,164,.45);border-radius:10px;padding:10px 13px;color:var(--grey);font-size:13px;margin-top:12px}
       .results-meta{color:var(--grey);margin:4px 0 12px}.results{display:grid;gap:10px}.result-card{display:flex;justify-content:space-between;align-items:center;gap:20px;background:#fff;border:1px solid rgba(73,30,52,.14);border-radius:14px;padding:17px 18px}.result-card h3{margin:0 0 4px;font-size:23px}.institution{margin:0;color:var(--grey)}.match-line{color:var(--grey);font-size:13px;margin-top:8px;line-height:1.4}.open-comparison{background:var(--plum);color:#fff;border:0;border-radius:9px;padding:11px 14px;font-weight:700;white-space:nowrap}.no-results{padding:26px;background:#fff;border-radius:14px;color:var(--grey)}
       .comparison-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:18px}.comparison-head h1{margin:0 0 8px;font-size:clamp(31px,3vw,43px)}.comparison-head p{color:var(--grey);max-width:850px}.secondary-button{background:transparent!important;color:var(--plum)!important;border:1px solid rgba(73,30,52,.28)!important;border-radius:10px}
-      .compare-scroll{overflow-x:auto;border:1px solid rgba(73,30,52,.14);border-radius:14px;background:#fff}.compare-table{border-collapse:separate;border-spacing:0;min-width:1120px;width:100%;table-layout:fixed}.compare-table th,.compare-table td{border-right:1px solid rgba(73,30,52,.1);border-bottom:1px solid rgba(73,30,52,.1);padding:13px 15px;vertical-align:top}.compare-table thead th{background:var(--plum);color:#fff;border-right-color:rgba(255,255,255,.18)}.programme-title{font-size:16px;font-weight:700}.programme-title a,.programme-source{color:inherit}.programme-source{display:inline-block;margin-top:5px;color:#fff;opacity:.82;font-size:12px}.block-row th{background:var(--blue);color:var(--plum);font-size:14px;font-weight:700}.comparison-cell{background:#fff;line-height:1.35}.comparison-cell.emphasis{background:rgba(255,225,164,.36)}.empty-cell{background:rgba(92,96,107,.035)}.ec-badge{display:inline-block;margin-top:6px;padding:2px 6px;border-radius:999px;background:rgba(73,30,52,.08);color:var(--grey);font-size:11px}.cell-note{color:var(--grey);font-size:12px;margin-top:5px}.transparency-note{margin-top:18px;background:#fff;border-left:5px solid var(--plum);padding:14px 17px;color:var(--grey);line-height:1.5}.transparency-note p{margin:5px 0 0}.cta-row{display:flex;justify-content:flex-end;margin-top:20px}.primary-cta{display:inline-block;background:var(--plum);color:#fff!important;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none!important}
+      .compare-scroll{overflow-x:auto;border:1px solid rgba(73,30,52,.14);border-radius:14px;background:#fff}.compare-table{border-collapse:separate;border-spacing:0;min-width:min(1120px,100%);width:100%;table-layout:fixed}.compare-table th,.compare-table td{border-right:1px solid rgba(73,30,52,.1);border-bottom:1px solid rgba(73,30,52,.1);padding:13px 15px;vertical-align:top}.compare-table thead th{background:var(--plum);color:#fff;border-right-color:rgba(255,255,255,.18)}.programme-title{font-size:16px;font-weight:700}.programme-title a,.programme-source{color:inherit}.programme-source{display:inline-block;margin-top:5px;color:#fff;opacity:.82;font-size:12px}.block-row th{background:var(--blue);color:var(--plum);font-size:14px;font-weight:700}.comparison-cell{background:#fff;line-height:1.35}.comparison-cell.emphasis{background:rgba(255,225,164,.36)}.empty-cell{background:rgba(92,96,107,.035)}.ec-badge{display:inline-block;margin-top:6px;padding:2px 6px;border-radius:999px;background:rgba(73,30,52,.08);color:var(--grey);font-size:11px}.cell-note{color:var(--grey);font-size:12px;margin-top:5px}.transparency-note{margin-top:18px;background:#fff;border-left:5px solid var(--plum);padding:14px 17px;color:var(--grey);line-height:1.5}.transparency-note p{margin:5px 0 0}.cta-row{display:flex;justify-content:flex-end;margin-top:20px}.primary-cta{display:inline-block;background:var(--plum);color:#fff!important;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none!important}
       @media(max-width:900px){.container-fluid{padding:0 14px 40px}.search-grid{grid-template-columns:1fr}.result-card{display:block}.open-comparison{margin-top:13px}.comparison-head{display:block}.comparison-head .secondary-button{margin-top:10px}.ucr-logo{max-width:210px}}
     ")),
     tags$link(rel = "stylesheet", href = "ucr-assets/css/brand.css"),
