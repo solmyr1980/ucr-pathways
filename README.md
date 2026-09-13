@@ -9,7 +9,7 @@ The project name is **not** intended to appear as a user-facing sub-brand. Stude
 The project has four distinct surfaces built on shared academic comparison content:
 
 1. **Student app** — a personalized experience generated from an actual prospective student's submitted interests.
-2. **Counselor app** — a deterministic searchable library of pre-produced comparisons, one per programme-provider record in scope.
+2. **Counselor app** — a deterministic searchable library of pre-produced comparisons, one per normalized counselor programme target in scope.
 3. **Public website** — a curated showcase and communication layer rather than the complete counselor database.
 4. **LinkedIn** — an editorial distribution layer using selected approved public records and generated PDFs.
 
@@ -36,14 +36,16 @@ Routine approved work is performed directly on `main`.
 
 ## Shared comparison model
 
-Every comparison has four stable semantic roles:
+Every comparison contains:
 
-1. `comparator` — one external Dutch bachelor programme;
-2. `ucr-depth` — closest feasible UCR match;
-3. `ucr-balanced` — the field plus related subjects or additional student interests;
-4. `ucr-thematic` — a broader UCR programme around relevant interests/questions/themes.
+1. exactly one external Dutch bachelor `comparator`; and
+2. between **one and three ordered UCR alternatives**.
 
-Visible programme headings use descriptive language rather than the internal role names.
+The first UCR alternative is the closest feasible match. Additional alternatives are included only when they are evidence-backed, academically coherent, substantively distinct and mechanically feasible. Three is the maximum, not a quota.
+
+Current production records use the generic UCR role `ucr-alternative`. Optional `alternativeKind` metadata may describe an alternative as `closest-match`, `related-direction`, `question-led` or another defensible type; these are analytical descriptions, not mandatory slots.
+
+Visible programme headings use descriptive case-specific language rather than internal role names.
 
 External programme provenance is integrated into the comparator heading as `[Programme] at [Institution]`, linked to the approved official source. UCR components link to the UCR course overview. EC information is shown on both sides where comparison components are displayed.
 
@@ -56,9 +58,9 @@ The production student workflow begins with an actual interest statement and pre
 
 The student app then offers:
 
-- all three personalized UCR programme options in semester-by-semester format, ordered from the closest match to progressively broader alternatives;
+- the one to three personalized UCR programme options that can be defended from the student's interests, ordered from the closest match toward broader alternatives where supported;
 - sub-navigation that lets the student inspect each complete six-semester programme separately;
-- a comparison of the external bachelor with all three UCR programme options;
+- a comparison of the external bachelor with every included UCR programme option;
 - Admissions and Program Builder next steps.
 
 The current Shiny proof of concept is under:
@@ -69,7 +71,9 @@ It uses five public development fixtures and public test access codes. This is *
 
 ## Counselor workflow and pilot
 
-Counselor production is deterministic. The unit of production is one programme-provider record from the Dutch bachelor registry, processed in source worksheet order without prioritization.
+Counselor production is deterministic. The unit of production is one normalized target from the counselor programme registry, processed in `production_order` without prioritization by fit or marketing value.
+
+For each target, production first builds the closest feasible UCR alternative, then considers a second and third sequentially. If the next alternative cannot pass the evidence, coherence, distinctness and feasibility gates, production stops and records why.
 
 The counselor app supports two discovery routes into the same fixed comparison library:
 
@@ -83,7 +87,7 @@ Pilot implementation files are under:
 - `data/counselor/` — five-case search/index fixtures;
 - `pilot/counselor-shiny/` — deterministic search/retrieval Shiny proof of concept.
 
-The complete programme-provider corpus will replace the pilot fixtures as comparisons are produced and validated.
+The complete normalized counselor corpus will replace the pilot fixtures as comparisons are produced and validated.
 
 ## Public website
 
@@ -99,16 +103,20 @@ Editorial landing-page metadata is stored in:
 
 Most future public examples will normally be selected from the counselor corpus. A student-origin case may be used only after explicit public-use approval and privacy review.
 
+Website examples preserve the same comparator + one-to-three-UCR-alternatives structure as their approved source records; the public renderer does not create additional alternatives to fill a layout.
+
 ## Data contracts
 
-`data/schema/example.schema.json` defines the current public comparison contract.
+`data/schema/example.schema.json` defines the shared/public comparison contract.
 
-It supports records derived from either student or counselor workflows and retains temporary compatibility with the five legacy public examples during migration.
+It supports records derived from either student or counselor workflows with one comparator and one to three UCR alternatives.
+
+`data/schema/counselor-comparison.schema.json` defines the stricter current counselor production contract. Counselor production uses `schemaVersion: "2.0"` and requires an auditable `alternativeSelection` decision plus evidence-backed rationale for every included UCR alternative.
 
 The shared record model preserves:
 
 - comparator identity/source;
-- four programme roles;
+- one to three ordered UCR alternatives;
 - UCR schedules;
 - comparison blocks and deliberate gaps;
 - EC credits;
@@ -148,7 +156,7 @@ manual Make scenario
 LinkedIn document post
 ```
 
-Generated PDFs under `publication/linkedin/` are outputs, not programme-content sources.
+Generated PDFs under `publication/linkedin/` are outputs, not programme-content sources. LinkedIn may omit the comparator page as an editorial presentation choice, but it retains every included UCR alternative from the approved public record.
 
 The existing editorial scenarios remain available, now drawing especially on the deterministic counselor corpus and programme-interest index.
 
@@ -170,6 +178,6 @@ The website, both Shiny pilots and both PDF renderers load the same UCR fonts an
 
 See `docs/quality-control/2026-09-11-audit.md` for the feedback-by-feedback implementation review, verification evidence and unresolved production requirements. This is an implementation record, not another specification.
 
-The five public fixtures now store current descriptive labels and `comparator` metadata. They remain legacy demonstration records without asserted student/counselor production provenance. New records with an explicit production origin must provide a separate student interpretation or a programme-provider key, respectively. Public explanatory notes must contain final rendered text.
+The five public fixtures retain their approved academic content and now use the generic UCR-alternative structure. They remain demonstration/public records without asserted current counselor production provenance. New records with an explicit production origin must satisfy the applicable current production contract. Public explanatory notes must contain final rendered text.
 
-Use `npm ci` and `npm run dev` for a local website preview; deployment remains the existing static GitHub Pages site. `npm test` and `npm run validate` check presentation contracts and fixture structure. `Rscript scripts/test-shiny.R` checks access-code handling, search, retrieval, comparison-note rendering and all-three-programme semester-option rendering with local fixtures. These checks do not replace course-database feasibility validation.
+Use `npm ci` and `npm run dev` for a local website preview; deployment remains the existing static GitHub Pages site. `npm test` and `npm run validate` check presentation contracts and fixture structure. `Rscript scripts/test-shiny.R` checks access-code handling, search, retrieval, comparison-note rendering and variable programme-option rendering with local fixtures. These checks do not replace course-database feasibility validation.
