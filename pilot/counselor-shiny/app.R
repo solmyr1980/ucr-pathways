@@ -11,15 +11,29 @@ source(file.path(REPO_ROOT, "pilot/shared.R"), local = TRUE)
 COUNSELOR_DATA_DIR <- file.path(REPO_ROOT, "data", "counselor")
 PRODUCTION_PROGRAMME_FILE <- file.path(COUNSELOR_DATA_DIR, "programmes.json")
 PRODUCTION_INTEREST_FILE <- file.path(COUNSELOR_DATA_DIR, "interests.json")
+REVIEW_PROGRAMME_FILE <- file.path(COUNSELOR_DATA_DIR, "review-programmes.json")
+REVIEW_INTEREST_FILE <- file.path(COUNSELOR_DATA_DIR, "review-interests.json")
 PILOT_PROGRAMME_FILE <- file.path(COUNSELOR_DATA_DIR, "pilot-programmes.json")
 PILOT_INTEREST_FILE <- file.path(COUNSELOR_DATA_DIR, "pilot-interests.json")
 PRODUCTION_COMPARISON_DIR <- file.path(COUNSELOR_DATA_DIR, "comparisons")
 PILOT_COMPARISON_DIR <- file.path(REPO_ROOT, "data", "examples")
 
-USE_PRODUCTION_INDEX <- file.exists(PRODUCTION_PROGRAMME_FILE) && file.exists(PRODUCTION_INTEREST_FILE)
-PROGRAMME_FILE <- if (USE_PRODUCTION_INDEX) PRODUCTION_PROGRAMME_FILE else PILOT_PROGRAMME_FILE
-INTEREST_FILE <- if (USE_PRODUCTION_INDEX) PRODUCTION_INTEREST_FILE else PILOT_INTEREST_FILE
-IS_PILOT_DATA <- !USE_PRODUCTION_INDEX
+HAS_PRODUCTION_INDEX <- file.exists(PRODUCTION_PROGRAMME_FILE) && file.exists(PRODUCTION_INTEREST_FILE)
+HAS_REVIEW_INDEX <- file.exists(REVIEW_PROGRAMME_FILE) && file.exists(REVIEW_INTEREST_FILE)
+DATA_MODE <- if (HAS_PRODUCTION_INDEX) "production" else if (HAS_REVIEW_INDEX) "review" else "pilot"
+PROGRAMME_FILE <- switch(DATA_MODE,
+  production = PRODUCTION_PROGRAMME_FILE,
+  review = REVIEW_PROGRAMME_FILE,
+  pilot = PILOT_PROGRAMME_FILE
+)
+INTEREST_FILE <- switch(DATA_MODE,
+  production = PRODUCTION_INTEREST_FILE,
+  review = REVIEW_INTEREST_FILE,
+  pilot = PILOT_INTEREST_FILE
+)
+COMPARISON_DIR <- if (identical(DATA_MODE, "pilot")) PILOT_COMPARISON_DIR else PRODUCTION_COMPARISON_DIR
+IS_PILOT_DATA <- identical(DATA_MODE, "pilot")
+IS_REVIEW_DATA <- identical(DATA_MODE, "review")
 
 UCR_LOGO_URL <- "ucr-assets/brand/ucr-primary-plum.png"
 UCR_WEBSITE_URL <- "https://ucr.nl/"
@@ -110,8 +124,7 @@ comparison_id <- function(programme) {
 }
 
 comparison_path <- function(id) {
-  base_dir <- if (USE_PRODUCTION_INDEX) PRODUCTION_COMPARISON_DIR else PILOT_COMPARISON_DIR
-  path <- file.path(base_dir, paste0(id, ".json"))
+  path <- file.path(COMPARISON_DIR, paste0(id, ".json"))
   if (!file.exists(path)) stop("No local comparison record found for ", id)
   path
 }
@@ -314,7 +327,9 @@ render_search_shell <- function(search_text = "") {
         uiOutput("institution_filter"),
         uiOutput("language_filter")
       ),
-      if (IS_PILOT_DATA) {
+      if (IS_REVIEW_DATA) {
+        div(class = "pilot-note", paste0("Review mode: this search currently contains ", length(COUNSELOR_DATA$programmes), " production-test comparisons. These records are being reviewed before the full counselor corpus is released."))
+      } else if (IS_PILOT_DATA) {
         div(class = "pilot-note", paste0("Pilot: this search currently contains ", length(COUNSELOR_DATA$programmes), " programme-provider comparisons. The production app will use the full deterministic comparison library."))
       }
     ),
