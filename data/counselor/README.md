@@ -33,30 +33,43 @@ Keep three concerns separate:
 2. `interests.json` — deployed programme-interest discovery index linked by `counselor_programme_id`, limited to targets in the current counselor production scope;
 3. `comparisons/<counselor_programme_id>.json` — one completed validated deterministic comparison per in-scope normalized target.
 
-Current counselor production records use `schemaVersion: "1.3"`.
+Current counselor production records use `schemaVersion: "2.0"`.
+
+Every comparison contains exactly one external comparator followed by **one to three ordered UCR alternatives**. The first UCR alternative is the closest feasible match. Additional alternatives are included only when they pass the evidence, coherence, substantive-distinctness and feasibility gates in the Production Instructions. Three is the maximum, not a quota.
 
 For every current production record:
 
 - top-level `id`, `programmeProvider.counselorProgrammeId` and registry `counselor_programme_id` must be identical;
 - normalized registry metadata required by the counselor schema must match `data/registry/programmes.csv`, including canonical name, orders, institution IDs, programme type/status, eligibility, languages, modes and required provenance arrays;
 - `academicRationale` must be present before the UCR schedules are treated as production-complete;
+- `alternativeSelection` must record the included UCR count, why production stopped, and a concise assessment;
 - `comparator.components` must contain one coherent complete 180-EC reconstruction of the external curriculum;
 - every UCR comparison cell must carry `courseCode` matching its scheduled course;
 - every comparator comparison cell must carry `componentId` matching a canonical comparator component.
 
-`academicRationale` records the evidence-backed academic interest map used to construct the three UCR alternatives:
+`academicRationale` records the evidence-backed academic interest map and the concepts actually used:
 
 - `coreField` — defining disciplinary content, methods, progression and specialist work;
-- `adjacentDirections` — genuinely related academic directions supported by evidence;
-- `questionsApplications` — evidenced questions, problems, phenomena and applications;
-- `balancedDirections` — one or two selected adjacent directions used for `ucr-balanced`;
-- `thematicQuestion` — the explicit organising question for `ucr-thematic`, with evidence and map labels on which it is based.
+- `adjacentDirections` — genuinely related academic directions supported by evidence; this may be empty;
+- `questionsApplications` — evidenced questions, problems, phenomena and applications; this may be empty;
+- `alternatives` — exactly one rationale object for every included UCR programme, in the same order as `programmes`.
 
-The academic interest map and programme concepts must be established before UCR course selection. The UCR course catalogue is used to implement those concepts, not to invent them.
+Each alternative rationale identifies its `programmeId`, concept, evidence-map `basisLabels` and evidence references. Every alternative after the closest match also requires a concrete `distinctnessRationale` explaining the educational choice that differs from the preceding/other included alternatives.
+
+The academic interest map and each programme concept must be established before UCR course selection. The UCR course catalogue is used to implement those concepts, not to invent them.
+
+`alternativeSelection.stoppingReason` is one of:
+
+- `maximum-reached` — three defensible alternatives were included;
+- `insufficient-evidence` — the evidence boundary did not support another coherent concept;
+- `not-substantively-distinct` — another concept would be too similar to alternatives already included;
+- `not-feasible` — the next concept could not be implemented as a valid UCR programme.
+
+If Alternative 2 fails, production stops at one; do not skip ahead to invent Alternative 3.
 
 Validate normalized production records with `npm run validate:counselor`. The validator intentionally ignores UUID-named pre-normalization comparison files; those files do not count as current production records.
 
-The validator cross-checks normalized production metadata against `data/registry/programmes.csv`, checks the academic-rationale structure, checks stable component references, rejects duplicate or missing courses/components, and requires every programme column to account for exactly 180 EC. Exact three-by-60 symmetry remains a review signal rather than a prohibition.
+The validator cross-checks normalized production metadata against `data/registry/programmes.csv`, checks the evidence map and per-alternative rationale structure, checks the stopping decision, checks stable component references, rejects duplicate or missing courses/components, rejects identical UCR course sets presented as different alternatives, and requires every included programme column to account for exactly 180 EC. Exact three-by-60 symmetry remains a review signal rather than a prohibition.
 
 During incremental corpus production, do **not** create the production `programmes.json` or `interests.json` indexes. Leave pilot indexes unchanged until the comparison corpus is complete and quality-controlled; then build the production indexes in one finalisation step from `data/registry/programmes.csv` and `data/registry/programme_interests.csv`, applying the then-current counselor production-scope rules.
 
@@ -68,7 +81,7 @@ Where `target_mapping_status=inherited-across-split-targets`, the inherited inte
 
 Comparison blocks are a **lossless classification and alignment of complete 180-EC programmes**.
 
-There is no required number of blocks and no default 60/60/60 structure. Every UCR course, including Personal & Professional Development, must appear exactly once. Every canonical comparator component must likewise appear exactly once. Each programme column must total 180 EC.
+There is no required number of blocks and no default 60/60/60 structure. Every course in every included UCR alternative, including Personal & Professional Development, must appear exactly once. Every canonical comparator component must likewise appear exactly once. Each included programme column must total 180 EC.
 
 Blocks may have unequal sizes and may contain meaningful blank cells when no sufficiently comparable component exists in another programme. Complete coverage must never be confused with forced row-by-row equivalence or visual symmetry.
 
@@ -83,7 +96,7 @@ Use the crosswalks in `data/registry/` when traceability is needed:
 - `institutions.csv` — normalized institution identity and source aliases/IDs;
 - `resolution_decisions.csv` / `resolution_sources.csv` — identity-resolution evidence for ambiguous cases.
 
-Existing comparison records created before registry normalization or before schema version 1.3 must not be treated as evidence that the corresponding normalized target is production-complete until they have been checked/migrated against the current target ID and production rules.
+Existing comparison records created before registry normalization or before schema version 2.0 must not be treated as evidence that the corresponding normalized target is production-complete until they have been checked/migrated against the current target ID and production rules.
 
 ## Runtime and deployment
 
