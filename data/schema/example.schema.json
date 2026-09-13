@@ -15,6 +15,7 @@
     "programmeProvider": {
       "type": "object",
       "properties": {
+        "counselorProgrammeId": {"type": "string", "pattern": "^cp-[0-9]{6}$"},
         "sourceExcelRow": {"type": ["integer", "string"]},
         "programmeProviderId": {"type": ["string", "integer"]},
         "recognizedProgrammeId": {"type": ["string", "integer"]}
@@ -100,7 +101,14 @@
       "if": {"properties": {"origin": {"const": "counselor"}}, "required": ["origin"]},
       "then": {
         "required": ["programmeProvider"],
-        "properties": {"programmeProvider": {"required": ["programmeProviderId"]}}
+        "properties": {
+          "programmeProvider": {
+            "anyOf": [
+              {"required": ["counselorProgrammeId"]},
+              {"required": ["programmeProviderId"]}
+            ]
+          }
+        }
       }
     }
   ],
