@@ -4,6 +4,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 export const UCR_DEFAULT_COURSE_EC = 7.5;
+export const UCR_MIN_DISTINCT_EC = 30;
+export const UCR_MIN_DISTINCT_COURSES = 4;
 
 export function exampleFiles(root, target = 'all') {
   const dir = path.join(root, 'data', 'examples');
@@ -115,6 +117,19 @@ function comparisonEntries(blocks, programmeId) {
 
 function scheduledCourses(programme) {
   return (programme?.schedule?.semesters || []).flatMap(semester => semester?.courses || []);
+}
+
+function courseKey(course) {
+  return String(course?.code || course?.name || '').trim().toLowerCase();
+}
+
+function distinctCourseCredits(courses, otherKeys) {
+  return courses
+    .filter(course => !otherKeys.has(courseKey(course)))
+    .reduce((sum, course) => {
+      const credits = creditNumber(courseCredits(course));
+      return credits === null ? sum : sum + credits;
+    }, 0);
 }
 
 function validateComparisonCoverage(example, programmes, fail) {
@@ -277,20 +292,34 @@ function validateAlternativeSelection(example, programmes, fail) {
 }
 
 function validateDistinctUcrCourseSets(programmes, fail) {
-  const seen = new Map();
-  for (const programme of programmes.filter(isUcrProgramme)) {
-    const courses = scheduledCourses(programme);
-    if (!courses.length) continue;
-    const signature = courses
-      .map(course => String(course?.code || course?.name || '').trim().toLowerCase())
-      .filter(Boolean)
-      .sort()
-      .join('|');
-    if (!signature) continue;
-    if (seen.has(signature)) {
-      fail(`UCR alternatives ${seen.get(signature)} and ${programme.id} have identical course sets and are not substantively distinct programmes`);
-    } else {
-      seen.set(signature, programme.id);
+  const alternatives = programmes.filter(isUcrProgramme)
+    .map(programme => ({
+      programme,
+      courses: scheduledCourses(programme)
+    }))
+    .filter(({ courses }) => courses.length);
+
+  for (let i = 0; i < alternatives.length; i += 1) {
+    for (let j = i + 1; j < alternatives.length; j += 1) {
+      const left = alternatives[i];
+      const right = alternatives[j];
+      const leftKeys = new Set(left.courses.map(courseKey).filter(Boolean));
+      const rightKeys = new Set(right.courses.map(courseKey).filter(Boolean));
+      const shared = [...leftKeys].filter(key => rightKeys.has(key)).length;
+      const leftDistinctCourses = [...leftKeys].filter(key => !rightKeys.has(key)).length;
+      const rightDistinctCourses = [...rightKeys].filter(key => !leftKeys.has(key)).length;
+      const leftDistinctEc = distinctCourseCredits(left.courses, rightKeys);
+      const rightDistinctEc = distinctCourseCredits(right.courses, leftKeys);
+
+      const courseFloorFails = leftDistinctCourses < UCR_MIN_DISTINCT_COURSES || rightDistinctCourses < UCR_MIN_DISTINCT_COURSES;
+      const ecFloorFails = leftDistinctEc + 0.001 < UCR_MIN_DISTINCT_EC || rightDistinctEc + 0.001 < UCR_MIN_DISTINCT_EC;
+      if (courseFloorFails || ecFloorFails) {
+        fail(
+          `UCR alternatives ${left.programme.id} and ${right.programme.id} are not substantively distinct: ` +
+          `${shared} courses are shared; each alternative must differ by at least ${UCR_MIN_DISTINCT_COURSES} courses / ${UCR_MIN_DISTINCT_EC} EC ` +
+          `(actual distinct content: ${leftDistinctCourses} courses / ${leftDistinctEc} EC versus ${rightDistinctCourses} courses / ${rightDistinctEc} EC)`
+        );
+      }
     }
   }
 }
