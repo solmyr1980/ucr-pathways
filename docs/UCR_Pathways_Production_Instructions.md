@@ -116,7 +116,21 @@ If Alternative 2 fails, stop. Do not manufacture Alternative 3.
 
 Only after Alternative 2 is included, consider one further concept under the same four tests. Include it if defensible; otherwise stop at two.
 
-Three is the maximum, not the target. The stopping decision must be auditable in current production records. Exact duplicate UCR course sets are never distinct alternatives.
+### Mechanical distinctness floor
+
+The qualitative distinctness test above is primary, but every additional UCR alternative must also pass a hard mechanical floor.
+
+For **every pair** of included UCR alternatives:
+
+- each programme must contain at least **30 EC** of courses that are not present in the other programme;
+- under the current 7.5-EC UCR course structure, this means at least **4 different courses** in each programme;
+- equivalently, two 24-course alternatives may share at most **20 courses**.
+
+This is a necessary condition, not a sufficient definition of distinctness. Passing the 30-EC floor does not make an alternative academically distinct by itself. The alternative must first have an evidence-backed organising concept, and the courses that differ must be genuine curricular consequences of that concept rather than arbitrary substitutions made to satisfy the number.
+
+If an otherwise proposed alternative shares 21 or more of its 24 courses with any already included UCR alternative, reject it as `not-substantively-distinct`. Do not repair the failure by swapping unrelated courses merely to cross the threshold.
+
+Three is the maximum, not the target. The stopping decision must be auditable in current production records.
 
 ---
 
@@ -143,8 +157,8 @@ Then work in this order:
 1. preserve and interpret the student input;
 2. select and reconstruct the external comparator under Section 2.1;
 3. construct and validate Alternative 1 under Sections 2.2–2.3;
-4. consider Alternative 2 under the same gates and stop if it cannot be justified;
-5. if Alternative 2 is included, consider Alternative 3 and stop if it cannot be justified;
+4. consider Alternative 2 under the same gates, including the pairwise 30-EC distinctness floor, and stop if it cannot be justified;
+5. if Alternative 2 is included, consider Alternative 3 and require it to pass the same 30-EC floor against **each** already included UCR alternative;
 6. construct the comparison under Section 5 using only the included programmes;
 7. create the canonical student record under Section 7;
 8. render the requested private student-app/PDF representations;
@@ -247,13 +261,17 @@ Schedule and mechanically validate under Section 2.2.
 
 Return to the evidence map before looking for courses. Identify one coherent alternative concept that differs substantively from Alternative 1 and is supported by map items. It may use an adjacent direction, a question/application, or another defensible reorganisation of the evidenced field.
 
-Freeze the concept first, then select courses, run course-to-concept traceability and validate feasibility. Record a concrete distinctness rationale explaining the educational choice that differs from Alternative 1.
+Freeze the concept first, then select courses, run course-to-concept traceability and validate feasibility. Record a concrete distinctness rationale explaining the educational choice that differs from Alternative 1 and how that choice materially changes course selection.
+
+After the schedule is complete, apply the Section 2.3 mechanical floor. Alternative 2 must differ from Alternative 1 by at least **30 EC / 4 courses** in each programme. If it does not, reject Alternative 2 as `not-substantively-distinct`; do not make arbitrary course substitutions to force it over the threshold.
 
 If no concept passes evidence, coherence, distinctness and feasibility, stop at one and record the stopping reason.
 
 ### Step 6 — Consider Alternative 3
 
 Only if Alternative 2 is included, repeat Step 5 for one further defensible concept. It must be substantively distinct from the already included alternatives and remain inside the evidence boundary.
+
+After scheduling, Alternative 3 must pass the **30 EC / 4-course floor separately against Alternative 1 and Alternative 2**. Failing either pairwise comparison means Alternative 3 is `not-substantively-distinct` and must not be included.
 
 If it fails any gate, stop at two and record the stopping reason. If it passes, include three and record `maximum-reached` as the stopping state.
 
@@ -382,7 +400,7 @@ Preserve the permanent `counselor_programme_id`, normalized target metadata/prov
 - evidence-backed `adjacentDirections`, which may be empty;
 - evidence-backed `questionsApplications`, which may be empty;
 - one rationale object for every included UCR alternative, identifying its `programmeId`, concept, evidence-map basis and evidence;
-- a distinctness rationale for every included alternative after the first.
+- a distinctness rationale for every included alternative after the first that explains the evidenced organising difference and the material curricular consequences.
 
 Preserve `alternativeSelection` containing the number of included UCR alternatives, a stopping state and a concise assessment. The included count must equal the number of UCR alternatives in `programmes`. For one or two alternatives, the stopping state explains why another was not defensible; for three, use `maximum-reached`.
 
@@ -419,8 +437,8 @@ The purpose of final QC is to confirm that the procedure above was followed, not
 A counselor record is complete only when all six gates pass:
 
 1. **Evidence gate** — external programme is fairly reconstructed and every substantive interest-map item used in an alternative is evidence-backed for the exact target.
-2. **Alternative gate** — Alternative 1 is the closest defensible response; each additional alternative passed evidence, coherence, distinctness and feasibility; the sequential stopping decision is recorded and no skipped slot was manufactured later.
-3. **Course gate** — every non-PPD course passes course-to-concept traceability; no course relies only on generic breadth/context language; every included alternative after the first has a concrete distinctness rationale.
+2. **Alternative gate** — Alternative 1 is the closest defensible response; each additional alternative passed evidence, coherence, qualitative distinctness, the pairwise **30 EC / 4-course minimum**, and feasibility; the sequential stopping decision is recorded and no skipped slot was manufactured later.
+3. **Course gate** — every non-PPD course passes course-to-concept traceability; no course relies only on generic breadth/context language; every included alternative after the first has a concrete distinctness rationale; and courses changed to establish distinctness are genuine consequences of the evidenced concept rather than arbitrary threshold-filling substitutions.
 4. **Feasibility gate** — all mechanical UCR schedule constraints pass against the enriched database for every included programme.
 5. **Comparison gate** — every included column accounts for exactly 180 EC; each canonical UCR course/external component appears exactly once; PPD is visible; stable references agree with canonical data; and block alignment preserves genuine gaps rather than imposing a symmetry template.
 6. **Record gate** — the current counselor schema/validator passes and normalized identity/provenance matches the registry.
@@ -437,10 +455,10 @@ After all individually completed records pass the gates, inspect the batch only 
 - recurring block templates or equal allocations that are not independently justified by the curricula;
 - systematic weakening of external programmes.
 
-Similarity between genuinely related programmes is not itself a defect. Do not change a sound record merely to create artificial variety.
+Similarity between genuinely related programmes is not itself a defect. Do not change a sound record merely to create artificial variety. The 30-EC rule is a minimum safeguard against near-duplicates, not a target for maximizing difference.
 
 ## 9.3 Student completion
 
-Confirm the student input is preserved verbatim, interpretation stored separately, the number of alternatives follows the sequential evidence/coherence/distinctness/feasibility rule, every included UCR schedule is mechanically valid, every comparison column accounts for the complete 180 EC without duplication or omission, comparison alignment is fair, and privacy/publication boundaries are respected.
+Confirm the student input is preserved verbatim, interpretation stored separately, the number of alternatives follows the sequential evidence/coherence/distinctness/feasibility rule, every pair of included UCR alternatives passes the **30 EC / 4-course distinctness floor**, every included UCR schedule is mechanically valid, every comparison column accounts for the complete 180 EC without duplication or omission, comparison alignment is fair, and privacy/publication boundaries are respected.
 
 Only then release the requested artifact or library record.
