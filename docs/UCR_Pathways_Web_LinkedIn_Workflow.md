@@ -37,6 +37,8 @@ A student-origin case may be used only after explicit public-use approval and co
 
 Neither the student app nor the counselor app automatically publishes content.
 
+Every approved public comparison preserves the common academic architecture: exactly one comparator plus **one to three UCR alternatives**. The public layer inherits the number of alternatives from the approved source record and never adds a weak alternative to fill a layout.
+
 ---
 
 # 2. Entry condition for public use
@@ -63,7 +65,7 @@ Use one approved structured public record as the single programme-content source
 
 Do not maintain separate hand-edited programme-content versions for HTML and PDF.
 
-The public record is derived upstream from a validated canonical student or counselor record. This workflow does not reconstruct programmes, reselect UCR courses or reinterpret academic facts.
+The public record is derived upstream from a validated canonical student or counselor record. This workflow does not reconstruct programmes, reselect UCR courses, change the number of alternatives or reinterpret academic facts.
 
 Editorial website copy and LinkedIn commentary may frame the example differently, but they must describe the same approved programme content accurately.
 
@@ -100,7 +102,7 @@ It does not duplicate the complete comparison content.
 
 Contains executable public-data contracts.
 
-The schema should support approved records derived from either student or counselor origin while preserving one shared four-programme comparison core.
+The schema should support approved records derived from either student or counselor origin while preserving one shared **comparator + one-to-three-UCR-alternatives** comparison core.
 
 ## Counselor data
 
@@ -110,11 +112,11 @@ Programme metadata, programme-interest search indexes and the deterministic coun
 
 Provides a generic UCR-branded public showcase and comparison renderer.
 
-Programme-specific academic facts must come from approved structured records rather than hardcoded HTML/JavaScript.
+Programme-specific academic facts must come from approved structured records rather than hardcoded HTML/JavaScript. Layouts must render correctly with two, three or four total programme columns.
 
 ## LinkedIn rendering scripts
 
-Consume the same approved public records used by the website when publishing the same case.
+Consume the same approved public records used by the website when publishing the same case. Page counts therefore vary with the number of included UCR alternatives and with the editorial choice to show or omit the comparator page.
 
 ## `publication/linkedin/`
 
@@ -169,24 +171,23 @@ The public landing page should:
 
 A curated example may illustrate, for example:
 
-- how a named Dutch bachelor compares with UCR options;
+- how a named Dutch bachelor compares with one or more UCR options;
 - where UCR closely matches a field and where it does not;
-- how related subjects broaden a disciplinary programme;
+- how related subjects broaden a disciplinary programme when such a broader route is genuinely supported;
 - a student-origin combination for which no obvious disciplinary degree exists;
 - a pattern observed across the Dutch bachelor market.
 
-Do not treat example count as a coverage objective. Selection is editorial.
+Do not treat example count or number of UCR alternatives as a coverage objective. Selection is editorial and the academic record controls how many alternatives exist.
 
 ## 5.1 Website example behavior
 
-An individual approved example should render the four-programme comparison from structured data.
+An individual approved example should render the comparator and every included UCR alternative from structured data.
 
 Use the visible programme-label rules from the Master Specification:
 
 - comparator as `[Programme] at [Institution]`;
-- case-specific closest-match UCR label;
-- field + related-subjects UCR label;
-- broader-programme UCR label.
+- first UCR alternative as a case-specific closest-match label;
+- later UCR alternatives with descriptive labels that state their actual direction, combination, question or application.
 
 The comparator heading/source link must resolve to the approved official external programme page.
 
@@ -194,7 +195,7 @@ Provide an appropriate UCR curriculum link from the UCR side.
 
 Show EC credits consistently on comparator and UCR components.
 
-Do not add research-seminar, exchange or elective-space boilerplate merely to fill perceived gaps.
+Do not add research-seminar, exchange or elective-space boilerplate merely to fill perceived gaps. Do not create empty visual placeholders for UCR alternatives that were not included upstream.
 
 ## 5.2 Website navigation onward
 
@@ -220,11 +221,11 @@ For an approved source record:
 2. confirm academic validation status;
 3. confirm explicit public-use approval;
 4. for student-origin cases, confirm privacy-safe content;
-5. derive the publication-safe structured record without changing programme facts;
+5. derive the publication-safe structured record without changing programme facts or alternative count;
 6. write/update `data/examples/<id>.json`;
 7. add/update the editorial entry in `data/catalog.json`;
 8. run repository validation;
-9. verify the website rendering;
+9. verify the website rendering at the record's actual number of programme columns;
 10. generate/review the LinkedIn PDF when the case is intended for LinkedIn.
 
 Do not hand-edit renderer code to fix one example's academic content. Correct the approved data upstream.
@@ -235,14 +236,14 @@ Do not hand-edit renderer code to fix one example's academic content. Correct th
 
 The LinkedIn PDF is rendered from the same approved public record as the website example when both present the same case.
 
-The approved record retains the complete four-programme comparison.
+The approved record retains the complete comparator + one-to-three-UCR-alternatives comparison.
 
 The PDF may, as an editorial presentation choice:
 
-- show comparator + three UCR pages; or
-- omit the comparator page and show the three UCR pages only.
+- show the comparator page plus one page for every included UCR alternative; or
+- omit the comparator page and show only the included UCR alternatives.
 
-This choice changes presentation only; it does not change the underlying academic record.
+This choice changes presentation only; it does not change the underlying academic record or the number/content of UCR alternatives.
 
 Editorial framing belongs in LinkedIn commentary rather than in a second academic-content copy.
 
@@ -258,7 +259,7 @@ Generated PDFs are outputs, not sources.
 
 Conduct human visual review before publication.
 
-Check the website and PDFs against the same approved record: programme headings, component credits, source links and material explanatory notes must agree. Review website links and buttons in their normal, visited, hover and keyboard-focus states, and inspect both the four-column and single-programme views. Confirm that the UCR logo and fonts load, text contrasts with its background, and narrow screens or enlarged text do not clip content. PDF checks must include overflow, font loading, page count and visual inspection. Keep run results and unresolved implementation items in a dated repository audit, outside these authoritative workflow instructions.
+Check the website and PDFs against the same approved record: programme headings, component credits, source links and material explanatory notes must agree. Review website links and buttons in their normal, visited, hover and keyboard-focus states, and inspect comparison and single-programme views at all supported programme counts. Confirm that the UCR logo and fonts load, text contrasts with its background, and narrow screens or enlarged text do not clip content. PDF checks must include overflow, font loading, page count and visual inspection. Keep run results and unresolved implementation items in a dated repository audit, outside these authoritative workflow instructions.
 
 ---
 
@@ -269,7 +270,7 @@ Retain the five approved starting scenarios, but source them from the redesigned
 | Scenario | Likely source | Editorial framing |
 |---|---|---|
 | **1. The degree that doesn't exist** | Often student-origin | Show an unusual combination that no obvious disciplinary bachelor captures. |
-| **2. What do you have to give up?** | Counselor-origin | Use one named bachelor and show the trade-off between disciplinary depth and broader UCR combinations. |
+| **2. What do you have to give up?** | Counselor-origin | Use one named bachelor and show the trade-off between disciplinary depth and whichever broader UCR alternatives are genuinely supported. |
 | **3. Start with the question** | Counselor interest index or approved student case | Start from a student-facing question/interest and connect it to study options. |
 | **4. Same interest, surprisingly different programmes** | Counselor interest index | Use one interest linked to several Dutch programmes to show different disciplinary interpretations. |
 | **5. We looked at the Dutch bachelor market** | Counselor corpus/registry | Lead with a defensible market pattern and connect it to UCR possibilities. |
@@ -322,7 +323,7 @@ Human control remains mandatory over:
 
 To prevent maintenance drift:
 
-- academic facts and feasibility come from upstream canonical student/counselor production;
+- academic facts, alternative count and feasibility come from upstream canonical student/counselor production;
 - counselor discovery comes from programme metadata + programme-interest indexes;
 - deterministic counselor comparisons come from the counselor comparison library;
 - approved public programme content comes from `data/examples/<id>.json`;
