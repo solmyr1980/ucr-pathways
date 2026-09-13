@@ -122,7 +122,23 @@
         "primarySourceUrl": {"type": "string", "format": "uri"},
         "provenance": {"type": "string"},
         "academicYear": {"type": "string"},
-        "route": {"type": "string"}
+        "route": {"type": "string"},
+        "components": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/comparatorComponent"}
+        }
+      },
+      "additionalProperties": true
+    },
+    "comparatorComponent": {
+      "type": "object",
+      "required": ["id", "name", "credits"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+        "name": {"type": "string", "minLength": 1},
+        "credits": {"type": ["number", "integer", "string"]},
+        "note": {"type": "string"}
       },
       "additionalProperties": true
     },
@@ -188,6 +204,8 @@
             "text": {"type": "string", "minLength": 1},
             "note": {"type": "string"},
             "credits": {"type": ["number", "integer", "string"]},
+            "courseCode": {"type": "string", "minLength": 1},
+            "componentId": {"type": "string", "minLength": 1},
             "emphasis": {"type": "boolean"}
           },
           "additionalProperties": true
