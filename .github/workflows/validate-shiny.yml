@@ -14,6 +14,7 @@ on:
       - 'data/counselor/**'
       - 'data/registry/**'
       - 'data/schema/**'
+      - 'scripts/build-counselor-review-index.mjs'
       - 'scripts/example-utils.mjs'
       - 'scripts/quality.test.mjs'
       - 'scripts/validate-example.mjs'
@@ -40,6 +41,9 @@ jobs:
       - name: Validate programme-interest registry
         run: npm run validate:registry-interests
 
+      - name: Validate counselor review indexes
+        run: npm run validate:counselor-review
+
       - name: Run comparison integrity regression tests
         run: npm test
 
@@ -63,11 +67,11 @@ jobs:
           Rscript -e 'x <- source("pilot/shiny/app.R", local=new.env())$value; stopifnot(inherits(x,"shiny.appobj"))'
           Rscript -e 'x <- source("pilot/counselor-shiny/app.R", local=new.env())$value; stopifnot(inherits(x,"shiny.appobj"))'
 
-      - name: Validate local pilot JSON inputs
+      - name: Validate local JSON inputs
         run: |
-          Rscript -e 'library(jsonlite); fromJSON("data/counselor/pilot-programmes.json"); fromJSON("data/counselor/pilot-interests.json"); fromJSON("pilot/shiny/data/access_codes.json"); for (id in sprintf("p-%03d", 1:5)) fromJSON(sprintf("data/examples/%s.json", id))'
+          Rscript -e 'library(jsonlite); fromJSON("data/counselor/pilot-programmes.json"); fromJSON("data/counselor/pilot-interests.json"); fromJSON("data/counselor/review-programmes.json"); fromJSON("data/counselor/review-interests.json"); fromJSON("pilot/shiny/data/access_codes.json"); for (id in sprintf("p-%03d", 1:5)) fromJSON(sprintf("data/examples/%s.json", id))'
 
-      - name: Check pilot behavior and rendering
+      - name: Check pilot and review behavior and rendering
         run: Rscript scripts/test-shiny.R
 
       - name: Smoke-test student app startup
