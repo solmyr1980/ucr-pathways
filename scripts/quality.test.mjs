@@ -50,6 +50,19 @@ function recordWithAlternativeCount(source, count) {
   return record;
 }
 
+function makeNearDuplicate(source, changedCourses) {
+  const record = structuredClone(source);
+  const alternatives = ucrProgrammes(record);
+  assert.ok(alternatives.length >= 2);
+  alternatives[1].schedule = structuredClone(alternatives[0].schedule);
+  const courses = alternatives[1].schedule.semesters.flatMap(semester => semester.courses);
+  for (let i = 0; i < changedCourses; i += 1) {
+    courses[i].code = `TESTDIST${String(i + 1).padStart(3, '0')}`;
+    courses[i].name = `Distinctness test course ${i + 1}`;
+  }
+  return record;
+}
+
 test('public examples retain complete 180 EC comparisons and feasible UCR programme structure', () => {
   for (const record of records) {
     assert.deepEqual(validateExample(record).errors, []);
@@ -104,12 +117,21 @@ test('comparison validation rejects missing, duplicate and unreferenced curricul
   assert.ok(validateExample(badReference).errors.some(error => error.includes('is not in the scheduled programme')));
 });
 
-test('exact duplicate UCR course sets are not accepted as distinct alternatives', () => {
-  const record = structuredClone(records[0]);
-  const alternatives = ucrProgrammes(record);
-  assert.ok(alternatives.length >= 2);
-  alternatives[1].schedule = structuredClone(alternatives[0].schedule);
-  assert.ok(validateExample(record).errors.some(error => error.includes('identical course sets')));
+test('UCR alternatives require at least four courses / 30 EC of pairwise distinct content', () => {
+  const exactDuplicate = makeNearDuplicate(records[0], 0);
+  assert.ok(validateExample(exactDuplicate).errors.some(error => error.includes('24 courses are shared')));
+
+  const oneDifferent = makeNearDuplicate(records[0], 1);
+  assert.ok(validateExample(oneDifferent).errors.some(error => error.includes('23 courses are shared')));
+
+  const threeDifferent = makeNearDuplicate(records[0], 3);
+  assert.ok(validateExample(threeDifferent).errors.some(error => error.includes('21 courses are shared')));
+
+  const fourDifferent = makeNearDuplicate(records[0], 4);
+  assert.ok(
+    !validateExample(fourDifferent).errors.some(error => error.includes('are not substantively distinct')),
+    '20/24 shared courses is the minimum mechanically acceptable distinctness threshold'
+  );
 });
 
 test('case-specific labels and substantive notes survive presentation', () => {
