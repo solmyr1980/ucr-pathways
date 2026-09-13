@@ -1,7 +1,7 @@
 # Counselor Batch Assignment
 
 **Purpose:** Reusable execution wrapper for deterministic counselor-comparison batches  
-**Default batch size:** 20 in-scope normalized counselor targets  
+**Default batch size:** 2 in-scope normalized counselor targets  
 **Fixed UCR starting cohort:** Fall 2026  
 **Repository:** `solmyr1980/ucr-pathways`  
 **Academic methodology:** `docs/UCR_Pathways_Production_Instructions.md`
@@ -36,11 +36,11 @@ Use current GitHub/Project Source data rather than remembered instructions or su
 
 # 2. Select the batch
 
-Unless the user specifies otherwise, select the next **20** targets in ascending `production_order` from `data/registry/programmes.csv` that satisfy the current production-scope rules in the Master/Production Instructions and do not already have a completed current production record requiring no repair.
+Unless the user specifies otherwise, select the next **2** targets in ascending `production_order` from `data/registry/programmes.csv` that satisfy the current production-scope rules in the Master/Production Instructions and do not already have a completed current production record requiring no repair.
 
 A target outside the current production scope does not consume a batch slot.
 
-Do not replace a genuinely blocked selected in-scope target with a later target merely to maintain 20 completed records. Complete the remainder and report the blocker.
+Do not replace a genuinely blocked selected in-scope target with a later target merely to maintain 2 completed records. Complete the remainder and report the blocker.
 
 Pilot search fixtures and public examples do not count as completed production counselor records.
 
