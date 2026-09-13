@@ -1,32 +1,53 @@
 # Counselor comparison data
 
-This directory is the implementation home for counselor-app discovery data and the deterministic programme-provider comparison corpus.
+This directory is the implementation home for counselor-app discovery data and the deterministic comparison corpus.
 
 It is separate from `data/examples/`, which contains only examples explicitly selected and approved for the public website and/or LinkedIn.
+
+## Authoritative programme identity
+
+The counselor corpus is keyed by the normalized registry in `data/registry/`.
+
+The stable programme identity is `counselor_programme_id` from `data/registry/programmes.csv` (for example `cp-000001`). Source worksheet rows, `AANGEBODEN_OPLEIDINGCODE`, programme-unit codes and recognized-programme codes are retained as provenance/crosswalk identifiers and must not be used as the counselor comparison identity.
+
+The normalized registry may merge several registrations into one academic target or split a legacy source representation into several genuine academic targets. Production follows the registry's `production_order` and `production_eligible` fields.
 
 ## Pilot files
 
 The current pilot files are deliberately small end-to-end test fixtures:
 
-- `pilot-programmes.json` — five programme-provider records linked to the five existing comparison examples;
-- `pilot-interests.json` — a small set of classified interest signals for those five records.
+- `pilot-programmes.json` — five discovery records linked to existing comparison examples;
+- `pilot-interests.json` — a small set of classified interest signals for those fixtures.
 
-They exist to prove the counselor search/retrieval architecture before the full corpus is produced. They are **not** the production programme registry and must not be interpreted as complete coverage.
+They exist to prove the counselor search/retrieval architecture. They are **not** the production programme registry and must not be interpreted as complete coverage.
 
 ## Production shape
 
 Keep three concerns separate:
 
-1. `programmes.json` — programme metadata/index, one record per programme-provider;
-2. `interests.json` — programme-interest discovery index, many interest signals linked to programme-provider IDs;
-3. `comparisons/<comparison-id>.json` — one completed validated deterministic comparison per programme-provider. The programme index should carry `comparisonId`; the programme-provider ID remains the fallback stable identifier.
+1. `programmes.json` — deployed programme discovery metadata, one record per production-eligible normalized counselor target;
+2. `interests.json` — deployed programme-interest discovery index linked by `counselor_programme_id`;
+3. `comparisons/<counselor_programme_id>.json` — one completed validated deterministic comparison per normalized target, unless a later explicit schema decision separates comparison ID from target ID.
 
-Interest search resolves to programme-provider records and then loads the fixed comparison. An interest query never regenerates or personalizes comparison content.
+During incremental corpus production, do **not** create the production `programmes.json` or `interests.json` indexes. Leave pilot indexes unchanged until the comparison corpus is complete and quality-controlled; then build the production indexes in one finalisation step from `data/registry/programmes.csv` and `data/registry/programme_interests.csv`.
+
+Interest search resolves to normalized counselor targets and then loads the fixed comparison. An interest query never regenerates or personalizes comparison content.
+
+## Registry provenance
+
+Use the crosswalks in `data/registry/` when traceability is needed:
+
+- `programme_source_rows.csv` — legacy workbook row → normalized target;
+- `programme_offerings.csv` — offered-programme UUID → normalized target;
+- `institutions.csv` — normalized institution identity and source aliases/IDs;
+- `resolution_decisions.csv` / `resolution_sources.csv` — identity-resolution evidence for ambiguous cases.
+
+Existing comparison records created before registry normalization must not be treated as evidence that the corresponding normalized target is production-complete until they have been checked/migrated against the current target ID and production rules.
 
 ## Runtime and deployment
 
-GitHub remains the version-controlled source of truth for these files. A deployed counselor app should receive the programme index, interest index and comparison records as part of the same deployment release as the application code rather than retrieving them from `raw.githubusercontent.com` during counselor use.
+GitHub remains the version-controlled source of truth. A deployed counselor app should receive the programme index, interest index and comparison records as part of the same deployment release as the application code rather than retrieving them from `raw.githubusercontent.com` during counselor use.
 
-At runtime, the discovery indexes should be loaded and prepared once per application process. Individual comparison records should be read locally on demand. This keeps the running app independent of GitHub latency or availability and ensures that code and data belong to the same release.
+At runtime, discovery indexes should be loaded and prepared once per application process. Individual comparison records should be read locally on demand. This keeps the app independent of GitHub latency or availability and ensures that code and data belong to the same release.
 
-The authoritative academic production rules are in `docs/UCR_Pathways_Production_Instructions.md`. Exact storage paths and search implementation remain repository implementation details under the Master Specification's implementation boundary.
+The authoritative academic production rules are in `docs/UCR_Pathways_Production_Instructions.md` and the reusable batch procedure is in `docs/Counselor_Batch_Assignment.md`. Exact renderer/search implementation remains repository implementation detail under the Master Specification's implementation boundary.

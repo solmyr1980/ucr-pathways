@@ -1,88 +1,79 @@
-# Counselor registry normalization baseline
+# Counselor registry normalization
 
-This directory is the plain-text normalization layer between the original UCR Pathways programme registry and later counselor comparison production.
+This directory is the authoritative plain-text normalization layer between the original UCR Pathways programme registry and deterministic counselor comparison production.
 
 **DUO/RIO source snapshot:** 2026-08-21  
-**Step 2 official-source check date:** 2026-09-12
+**Step 2 official-source check date:** 2026-09-12  
+**Step 3 normalized-registry build date:** 2026-09-12
 
-The original programme workbook and DUO/RIO CSV remain unchanged. This directory contains derived, auditable normalization data.
+The original programme workbook and DUO/RIO CSV remain unchanged.
 
 ## Status
 
-**Step 1 — complete.** The 478 source registry rows were mechanically unpacked into 569 atomic offered-programme identifiers and an 83-case ambiguity queue.
+**Step 1 — complete.** 478 source registry rows were unpacked into 569 atomic offered-programme identifiers and an 83-case ambiguity queue.
 
-**Step 2 — complete.** All 83 ambiguity cases have been researched and resolved against current official programme/institution sources. The decisions concern registry identity only: merge/split treatment, current identity, delivery/language/location variants, lifecycle status, joint/special structures and missing core metadata. They do **not** reconstruct full external curricula or generate UCR comparisons.
+**Step 2 — complete.** All 83 ambiguity cases were researched and resolved using 90 current official source records.
+
+**Step 3 — complete.** The source rows, atomic offerings and overlapping resolution decisions have been applied jointly to create the normalized counselor programme registry and complete provenance crosswalks.
+
+## Final normalized scope
+
+- Normalized programme targets: **460** (`478 - 1 excluded - 18 net merge consolidation + 1 genuine one-to-many split`)
+- Production-eligible counselor targets: **457**
+- Retained non-production targets (teach-out/inactive): **3**
+- Explicitly excluded source identities with no current target: **1** (`Academische Pabo`, source row 2)
+- Normalized institutions: **20**
+- Original programme-interest records preserved: **22227**
+- Normalized programme-interest rows after target mapping: **22259**
+
+The production corpus must now use `counselor_programme_id`, not source worksheet row, `AANGEBODEN_OPLEIDINGCODE`, programme-unit code or CROHO/recognized-programme code, as the stable comparison identity.
 
 ## Files
 
-- `source_rows.csv` — one row per original `Pathways_programmes` worksheet row (478 rows), retaining source identity fields needed for joins plus Step 1 flags and resolution-case links.
-- `offerings.csv` — one row per referenced `AANGEBODEN_OPLEIDINGCODE` (569 rows), preserving atomic DUO/RIO identity, provider, language, mode, lifecycle, URL, cooperation and location evidence.
-- `resolution_cases.csv` — immutable Step 1 mechanical ambiguity/research queue (83 cases).
-- `resolution_decisions.csv` — one researched decision for each of the 83 cases.
-- `resolution_sources.csv` — 90 current official source records supporting the Step 2 decisions.
-- `build_report.json` — Step 1 reconciliation totals, input hashes, case-type counts and validation results.
-- `step2_report.json` — Step 2 completion summary and global validation results.
+- `source_rows.csv` — immutable Step 1 source-row baseline (478 rows).
+- `offerings.csv` — immutable Step 1 atomic offered-programme baseline (569 rows).
+- `resolution_cases.csv` — immutable Step 1 ambiguity queue (83 cases).
+- `resolution_decisions.csv` — Step 2 researched decision for every ambiguity case.
+- `resolution_sources.csv` — Step 2 official evidence (90 source records).
+- `programmes.csv` — final normalized programme targets with permanent counselor IDs and production order.
+- `programme_offerings.csv` — every atomic `AANGEBODEN_OPLEIDINGCODE` mapped to its normalized target or explicit exclusion.
+- `programme_source_rows.csv` — every original `Pathways_programmes` worksheet row mapped to its normalized target(s) or explicit exclusion.
+- `institutions.csv` — normalized institution identities used by programme targets, with original provider IDs/names retained as aliases/provenance.
+- `programme_interests.csv` — all original programme-interest evidence, preserved in plain text and linked to normalized counselor target IDs.
+- `build_report.json` — Step 1 reconciliation and validation.
+- `step2_report.json` — Step 2 research-resolution summary and validation.
+- `step3_report.json` — Step 3 normalized-registry reconciliation and validation.
 
-## Step 1 reconciliation
+## Permanent target identity
 
-- Source registry rows: **478**
-- Distinct referenced offering IDs: **569**
-- Raw DUO/RIO source records behind those IDs: **577**
-- Offering IDs with more than one raw DUO/RIO row: **8**
-- Source rows containing multiple offering IDs: **87**
-- Multi-offering rows identity-sensitive on language/programme-unit/location: **30**
-- Multi-offering rows administrative-only on those identity dimensions: **57**
-- Resolution cases: **83**, affecting **96** source rows
-- Source rows with no explicit Step 1 resolution case: **382**
+`counselor_programme_id` values use `cp-000001` style IDs. They are assigned in normalized registry order for this initial build. **After this build is committed, these IDs are permanent.** A future registry refresh must reconcile new source data against the existing target table and preserve established IDs rather than regenerate all IDs from worksheet order.
 
-The 57/30 split concerns only language/programme-unit/location differences. A row in the 57 can still require resolution for lifecycle status, special-degree structure or another independent issue.
+A counselor target may therefore have:
 
-## Step 2 outcome
+- several source worksheet rows;
+- several offered-programme UUIDs;
+- several delivery modes or languages;
+- several participating institutions; or
+- one source row that was split into multiple academically distinct targets.
 
-All **83/83** cases are resolved. The evidence base contains **90 official-source records** across 14 institutions/provider groups.
+None of the source identifiers above is, by itself, the counselor comparison identity.
 
-The research confirms that the source registry mixes several kinds of identity:
+## Production order
 
-- academic programme identity;
-- offered-programme/registration identity;
-- delivery mode;
-- language route;
-- campus/location;
-- joint/double/dual-degree structure;
-- legacy or teach-out registrations.
+Counselor comparison production follows `production_order` in `programmes.csv`. It is derived from the original registry ordering while applying the approved normalization decisions:
 
-These dimensions must not be collapsed into one key or treated as automatically equivalent.
+- merged targets occupy the earliest contributing source-row position;
+- genuine splits create adjacent targets where required;
+- `production_eligible=false` targets remain auditable but have no production order.
 
-Important recurring treatments recorded in `resolution_decisions.csv` include:
+## Interest mapping
 
-- merge full-time/part-time offerings when they are delivery variants of one academic programme;
-- merge language offerings when official sources show one programme, but split them when they are genuinely distinct academic tracks;
-- merge administrative/free-registration rows with the corresponding public programme when no separate student-facing academic identity exists;
-- retain genuine joint/double/dual-degree structures and their participating institutions;
-- split one source representation when current official evidence shows multiple distinct student-facing programmes;
-- normalize stale names or registrations to a current successor where continuity is clear;
-- retain teach-out records for provenance but mark them not production-eligible;
-- exclude a source identity from current counselor production when the present route is not an in-scope WO bachelor.
+`programme_interests.csv` preserves the original high-recall evidence rather than rewriting it. Each record is linked through its original `source_excel_row` to the normalized target.
 
-## Data rules
+Where one source row now represents multiple academic targets and the historical interest evidence cannot distinguish them, the evidence is inherited by each split target and marked `inherited-across-split-targets`. This currently applies to the Leiden Political Science split. It is provenance-preserving, not a claim that every historical signal is equally strong for both routes.
 
-1. `source_excel_row` remains the join back to existing `programme_interests` evidence.
-2. `AANGEBODEN_OPLEIDINGCODE` is source provenance, not the future counselor comparison ID.
-3. Academic identity is distinct from registration identity, delivery mode, language and campus.
-4. Multiple source rows and offerings may map to one counselor target.
-5. One source row may map to several counselor targets when official evidence supports genuinely distinct programmes/tracks.
-6. Joint programmes should be represented as one academic target with all participating institutions where the current programme is genuinely joint.
-7. `resolution_cases.csv` remains immutable; researched outcomes and evidence are stored separately.
-8. Do not infer the final target count by summing case-level `target_count`, because cases overlap. Step 3 must apply the full decision set jointly.
-9. The original workbook, programme-interest table and Step 1 source tables remain unchanged.
+Records linked to the excluded Academische Pabo source row remain in the file with no counselor target so that no original evidence disappears silently.
 
-## Next stage
+## Production boundary
 
-Step 3 will construct the actual normalized counselor programme registry and crosswalks from:
-
-- the 382 source rows with no Step 1 ambiguity case;
-- the 83 resolved case decisions;
-- the atomic offering table;
-- the source-row provenance links.
-
-Step 3 should assign permanent counselor target IDs, normalize institution identity, create source-row/offering crosswalks, reconcile the existing interest links and calculate the final number of counselor production targets. Only after that normalized registry is validated should counselor comparison production resume.
+This registry layer defines **what the counselor production targets are**. It does not reconstruct their curricula, create UCR alternatives, or publish any comparison. Full external-programme research and UCR programme construction remain governed by the Production Instructions and Counselor Batch Assignment.

@@ -1,0 +1,78 @@
+{
+  "step": "registry-normalization-step-3",
+  "status": "complete",
+  "generated_date": "2026-09-12",
+  "purpose": "Construct the normalized counselor programme target registry and complete crosswalks from the Step 1 atomic baseline and Step 2 resolution decisions.",
+  "inputs": {
+    "source_registry_rows": 478,
+    "atomic_offerings": 569,
+    "step2_resolution_cases": 83,
+    "original_programme_interest_records": 22227
+  },
+  "outputs": {
+    "normalized_programme_targets": 460,
+    "production_eligible_targets": 457,
+    "non_production_targets": 3,
+    "normalized_institutions": 20,
+    "source_row_crosswalk_rows": 479,
+    "offering_crosswalk_rows": 569,
+    "normalized_programme_interest_rows": 22259,
+    "original_interest_records_without_current_target": 35,
+    "original_interest_records_duplicated_across_split_targets": 32
+  },
+  "target_status_counts": {
+    "active": 455,
+    "active-successor": 2,
+    "teach-out-only": 3
+  },
+  "programme_type_counts": {
+    "double-bachelor": 1,
+    "dual-degree-route": 1,
+    "joint-degree": 8,
+    "standard": 450
+  },
+  "normalization_basis_counts": {
+    "step1-no-ambiguity": 382,
+    "step2-resolved": 69,
+    "step2-resolved-split": 9
+  },
+  "permanent_id_rule": "Assign cp-000001... in normalized registry order (minimum source worksheet row, with resolved split targets adjacent). Once committed, these IDs are permanent and must be preserved by future registry refreshes rather than regenerated from scratch.",
+  "production_order_rule": "Production order follows normalized registry order after excluding production_eligible=false targets. Merged targets take the earliest contributing source row; split targets occupy adjacent positions where one source row creates multiple academic targets.",
+  "interest_mapping_rule": "Preserve every original programme_interests record. Map it to the normalized target(s) of its source row. Where one original source row splits into multiple targets and the existing interest evidence cannot distinguish them (Leiden Political Science), preserve the record against both targets with target_mapping_status=inherited-across-split-targets. Records from excluded source row 2 remain auditable with a blank target ID.",
+  "validation": {
+    "source_row_count_is_478": true,
+    "all_source_rows_accounted": true,
+    "exactly_one_excluded_source_row": true,
+    "offering_count_is_569": true,
+    "all_offerings_accounted": true,
+    "no_offering_maps_to_multiple_targets": true,
+    "all_target_ids_unique": true,
+    "registry_order_contiguous": true,
+    "production_order_contiguous": true,
+    "all_targets_have_institution": true,
+    "all_target_institution_ids_exist": true,
+    "original_interest_count_is_22227": true,
+    "all_original_interest_records_accounted": true,
+    "all_interest_source_rows_exist": true,
+    "all_mapped_interest_target_ids_exist": true,
+    "step2_case_count_is_83": true,
+    "all_step2_cases_represented": true
+  },
+  "notes": [
+    "Step 3 does not reconstruct external curricula and does not create counselor comparison JSON files.",
+    "The original Pathways_programmes and programme_interests workbook sheets remain unchanged.",
+    "Teach-out/inactive targets remain in programmes.csv for provenance but are excluded from production_order.",
+    "The out-of-scope Academische Pabo source row remains in source-row/offering/interest provenance with no counselor target.",
+    "programme_interests.csv is a normalized plain-text derivative of the original interest table plus target mapping; it is not yet the deployed counselor interests.json index."
+  ],
+  "reconciliation": {
+    "starting_source_rows": 478,
+    "excluded_source_identities_without_target": 1,
+    "merged_target_groups": 17,
+    "source_rows_in_merged_groups": 35,
+    "net_target_reduction_from_merges": 18,
+    "one_to_many_split_source_rows": 1,
+    "net_target_increase_from_splits": 1,
+    "calculation": "478 - 1 - 18 + 1 = 460 normalized programme targets"
+  }
+}

@@ -13,7 +13,7 @@ Use the following sources of truth for those matters:
 - the **UCR Pathways Production Instructions** for academic generation, validation and record creation;
 - the **UCR Pathways Web and LinkedIn Workflow** for public curation and publication operations;
 - the enriched UCR course database for UCR course evidence and availability;
-- the Dutch bachelor programme registry and programme-interest enrichment data for the counselor corpus and discovery layer;
+- the normalized counselor registry in `data/registry/`, derived from the Dutch bachelor programme registry and programme-interest enrichment data, for counselor scope, identity and discovery;
 - the repository schemas for executable data contracts;
 - the GitHub repository, Actions configuration and commit history for implementation state and build mechanics.
 
@@ -36,7 +36,7 @@ Technical repository paths and internal identifiers may continue to contain `ucr
 The project supports four distinct surfaces that share academic comparison content but serve different purposes:
 
 1. **Student app** — a personalized experience generated from an actual prospective student's submitted interests.
-2. **Counselor app** — a deterministic searchable library of pre-produced comparisons, one per programme-provider record in scope.
+2. **Counselor app** — a deterministic searchable library of pre-produced comparisons, one per production-eligible normalized counselor programme target in scope.
 3. **Public website** — a curated communication and showcase layer, not an exhaustive comparison database.
 4. **LinkedIn** — an editorial distribution channel using selected approved comparisons and stories.
 
@@ -166,9 +166,15 @@ A student case is not automatically approved for public website or LinkedIn use.
 
 The counselor app is **deterministic**, not a live personalization engine.
 
-Produce one fixed comparison for every programme-provider record in the approved Dutch bachelor registry scope. The programme-provider record is the unit of production: the same recognized programme offered by two providers is treated as two records when the registry distinguishes them.
+Produce one fixed comparison for every **production-eligible normalized counselor programme target** in the approved Dutch bachelor scope.
 
-Production proceeds in existing registry worksheet order. Do not prioritize cases by UCR fit, applicant popularity, blank-cell count or another ranking criterion.
+The unit of production is the normalized target identified by permanent `counselor_programme_id` in `data/registry/programmes.csv`. Original worksheet rows, `AANGEBODEN_OPLEIDINGCODE`, programme-unit codes and recognized-programme codes are provenance and join identifiers, not the counselor comparison identity.
+
+Normalization may merge several source rows or registrations into one academic target when they represent delivery, language, campus, free-registration or other administrative variants of the same programme. It may split a source representation when current official evidence establishes genuinely distinct academic routes. Genuine joint degrees are represented as one academic target with participating institutions preserved. Inactive or teach-out identities may remain in the normalized registry for provenance but do not enter production when `production_eligible=false`.
+
+Permanent counselor target IDs must be preserved across later registry refreshes rather than regenerated from source ordering.
+
+Production proceeds in `production_order` from `data/registry/programmes.csv`. Do not prioritize cases by UCR fit, applicant popularity, blank-cell count or another ranking criterion.
 
 ## 4.2 Two discovery routes, one comparison library
 
@@ -183,7 +189,7 @@ Use one search experience where practical:
 
 > **Search by programme or interest**
 
-Programme name, institution and relevant metadata may be searched directly. Interest search uses the linked programme-interest table to return ranked programme-provider records.
+Programme name, institution and relevant metadata may be searched directly. Interest search uses the normalized programme-interest table to return ranked counselor programme targets.
 
 Interest search is a **discovery mechanism only**. Entering an interest does not regenerate or personalize the selected comparison. The interface must not imply otherwise.
 
@@ -211,7 +217,7 @@ Filters refine discovery; they do not alter the underlying fixed comparison.
 
 The counselor interface must explain that:
 
-- comparisons are pre-produced at programme-provider level;
+- comparisons are pre-produced at normalized counselor programme-target level;
 - interest search helps locate relevant programmes but does not personalize the comparison to an individual student;
 - the UCR programmes are illustrative feasible compositions rather than official tracks or guaranteed future schedules.
 
@@ -333,7 +339,7 @@ The exact destination may be configured centrally and updated without changing a
 
 # 8. Reusable explanatory notes
 
-Explanatory notes should be generated from evidenced comparison facts using reusable semantic templates rather than written manually for every programme-provider case.
+Explanatory notes should be generated from evidenced comparison facts using reusable semantic templates rather than written manually for every counselor target case.
 
 The Production Instructions define the executable note taxonomy and generation rules.
 
@@ -350,7 +356,7 @@ Create one canonical structured comparison record before rendering any surface.
 The record must identify its origin, normally either:
 
 - `student` — personalized from an actual student's interest statement; or
-- `counselor` — fixed to one programme-provider record.
+- `counselor` — fixed to one normalized counselor programme target.
 
 The shared comparison core should preserve:
 
@@ -365,7 +371,7 @@ The shared comparison core should preserve:
 
 Student-origin records additionally preserve the original interest statement and academic interpretation.
 
-Counselor-origin records additionally preserve the programme-provider identifiers needed to join back to the programme registry and programme-interest index.
+Counselor-origin records additionally preserve the permanent `counselor_programme_id` plus the source-row, offered-programme, programme-unit, recognized-programme and institution provenance needed to audit the normalized target and join to the programme-interest index.
 
 The canonical record contains content and semantic structure, not renderer-specific coordinates, CSS or page geometry.
 

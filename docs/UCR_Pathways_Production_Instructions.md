@@ -9,13 +9,13 @@ They implement the **UCR Pathways Master Specification** and should not redefine
 They govern two academic production paths:
 
 1. **student workflow** — personalized generation from an actual prospective student's submitted interests;
-2. **counselor workflow** — deterministic generation of one comparison per programme-provider record in the approved Dutch bachelor registry scope.
+2. **counselor workflow** — deterministic generation of one comparison per production-eligible normalized counselor programme target in the approved Dutch bachelor scope.
 
 Use:
 
 - the Master Specification for durable product decisions, copy principles and visual identity;
 - the enriched UCR course database for UCR course evidence and feasibility;
-- the Dutch bachelor programme registry and programme-interest enrichment data for counselor scope and discovery metadata;
+- the normalized registry layer in `data/registry/` for counselor target identity, production order, provenance and normalized programme-interest discovery metadata;
 - current official university sources for external programme reconstruction;
 - the current repository schemas only when creating records for implementation or public use.
 
@@ -122,11 +122,11 @@ Work in this order:
 
 ## 3.1 Unit of production
 
-The unit of counselor production is one **programme-provider record** from the approved registry scope.
+The unit of counselor production is one **production-eligible normalized counselor programme target** from `data/registry/programmes.csv`.
 
-A recognized programme offered by different providers remains separate when the registry provides distinct programme-provider records.
+The stable identity is `counselor_programme_id`. Source worksheet rows, offered-programme UUIDs, programme-unit codes, recognized-programme codes, language, delivery mode and campus registrations are provenance/normalization inputs rather than independent production identities.
 
-Process records in existing worksheet order. Do not prioritize by:
+Follow `production_order` in the normalized registry. Do not prioritize by:
 
 - UCR fit;
 - number of blank comparison cells;
@@ -135,27 +135,29 @@ Process records in existing worksheet order. Do not prioritize by:
 - discipline;
 - expected marketing value.
 
-Production should be resumable. Skip programme-provider records for which a completed current comparison already exists unless a specific factual or quality problem requires regeneration.
+Production should be resumable. Skip normalized targets for which a completed current comparison already exists unless a specific factual or quality problem requires regeneration. Permanent `counselor_programme_id` values must be preserved across later registry refreshes.
 
 ## 3.2 Counselor inputs
 
-For each programme-provider record receive/preserve, as available:
+For each normalized counselor target receive/preserve, as available:
 
-- source worksheet row/order;
-- programme-provider identifier;
-- recognized programme identifier;
-- programme name;
-- provider/institution name;
-- degree type and other registry metadata used for discovery/filtering;
-- associated programme-interest rows.
+- permanent `counselor_programme_id`;
+- `registry_order` and `production_order`;
+- canonical target name and programme type/status;
+- normalized participating institution identity/identities;
+- source worksheet rows and offered-programme UUIDs;
+- programme-unit, recognized-programme and variant identifiers;
+- aliases, locations, languages and modes;
+- Step 2 identity-resolution provenance where applicable;
+- associated normalized programme-interest rows linked by `counselor_programme_id`.
 
-The associated interests support **search/discovery**. They are not an individual student's input and must not personalize the fixed comparison.
+The associated interests support **search/discovery**. They are not an individual student's input and must not personalize the fixed comparison. Source identifiers remain traceability fields and must not replace `counselor_programme_id` as the production identity.
 
 ## 3.3 Reconstruct the selected external programme
 
-The comparator is predetermined by the programme-provider record. Do not select a different comparator because another programme would make a stronger UCR contrast.
+The comparator is predetermined by the normalized counselor target. Do not select a different comparator because another programme would make a stronger UCR contrast.
 
-Use current official sources for the exact provider.
+Use current official sources for the exact academic programme/route represented by the normalized target and its participating institution(s). When the target is a normalized merge, do not re-split administrative registrations. When it is a normalized split, research the exact named track/route represented by that target.
 
 If the programme cannot be reconstructed with reasonable confidence, flag the record for exception review rather than guessing or silently substituting another provider.
 
@@ -187,17 +189,17 @@ It should demonstrate how UCR can bring relevant perspectives together without i
 
 ## 3.5 Counselor operating sequence
 
-For each programme-provider record:
+For each normalized counselor programme target:
 
-1. identify the next unprocessed record in registry order;
-2. confirm programme identity/provider and current official source basis;
+1. identify the next unprocessed production-eligible target in `production_order`;
+2. confirm normalized target identity, participating institution(s), provenance and current official source basis;
 3. reconstruct a coherent valid external curriculum/pathway;
 4. construct the three deterministic UCR alternatives;
 5. schedule and mechanically validate all three UCR programmes;
 6. compare all four completed curricula;
 7. assign the approved descriptive labels;
 8. select a reusable explanatory-note type only if needed;
-9. create the canonical counselor record with registry identifiers;
+9. create the canonical counselor record with `counselor_programme_id` and registry provenance;
 10. add/update the deterministic comparison library;
 11. run structural and academic quality control;
 12. flag exceptions rather than inventing missing facts.
@@ -213,7 +215,9 @@ Maintain Dutch bachelor programme enrichment as two linked tables within the sam
 - `Pathways_programmes`: one row per programme-provider record;
 - `programme_interests`: one row per programme-provider × candidate interest signal.
 
-Use a reliable programme-provider key. A CROHO/recognized-programme code alone is not sufficient where the same programme is offered by multiple providers.
+Use a reliable programme-provider key during the historical enrichment stage. A CROHO/recognized-programme code alone is not sufficient where the same programme is offered by multiple providers.
+
+For counselor production and discovery, use the normalized derivative in `data/registry/programme_interests.csv`, linked by permanent `counselor_programme_id`. The original workbook rows remain provenance. Where historical interest evidence is inherited across a resolved split target, preserve and respect its `target_mapping_status` rather than treating it as target-specific research.
 
 ## 4.1 High-recall research objective
 
@@ -256,7 +260,7 @@ Retain `strength` for compatibility/provenance where present, but use `interest_
 
 The programme-interest data provides a discovery index:
 
-`interest query → ranked programme-provider records → fixed counselor comparison`
+`interest query → ranked normalized counselor programme targets → fixed counselor comparison`
 
 Do not use the interest query to regenerate the comparison.
 
@@ -311,7 +315,7 @@ Preserve internally, where relevant:
 
 - programme name;
 - institution/provider;
-- programme-provider identifiers;
+- `counselor_programme_id` and source registry/offering provenance identifiers;
 - primary official source URL;
 - additional official source URLs;
 - academic/curriculum year;
@@ -505,10 +509,11 @@ Canonical student records remain private.
 
 Preserve:
 
-- source registry row/order;
-- programme-provider identifier;
-- recognized programme identifier;
-- other join keys required to connect the record to programme metadata and programme-interest search indexes.
+- permanent `counselor_programme_id`;
+- normalized target name, programme type/status and participating institution(s);
+- source registry rows and offered-programme UUIDs;
+- programme-unit, recognized-programme and variant identifiers where present;
+- other provenance/join keys required to connect the record to normalized programme metadata and programme-interest search indexes.
 
 Counselor records are deterministic library content but are not automatically public website/LinkedIn examples.
 
@@ -537,7 +542,7 @@ Existing Open Day/two-page PDF output may continue as an optional renderer where
 
 # 13. Counselor library and discovery indexes
 
-The counselor comparison library contains the fixed canonical/implementation record for each completed programme-provider case.
+The counselor comparison library contains the fixed canonical/implementation record for each completed normalized counselor programme target.
 
 Maintain discovery data separately from comparison content:
 
@@ -547,7 +552,7 @@ Maintain discovery data separately from comparison content:
 
 Do not flatten all interests into the comparison record merely for search convenience.
 
-Search results always resolve to programme-provider records and then load the pre-produced comparison.
+Search results always resolve to normalized counselor programme targets and then load the pre-produced comparison.
 
 ---
 
@@ -576,7 +581,7 @@ Before marking a record complete, confirm the relevant checks.
 
 ## External programme
 
-- correct programme-provider identity;
+- correct normalized counselor target identity and participating institution(s);
 - current authoritative official source basis;
 - compulsory/restricted/open components distinguished correctly;
 - selected route/path valid;
@@ -609,7 +614,7 @@ Before marking a record complete, confirm the relevant checks.
 
 ## Counselor records
 
-- correct registry row/programme-provider key;
+- correct permanent `counselor_programme_id` and normalized target provenance;
 - no accidental personalization from an interest query;
 - discovery interests remain linked rather than becoming programme claims;
 - record order/resumability preserved.
