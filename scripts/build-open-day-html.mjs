@@ -101,17 +101,20 @@ function renderComparison(example) {
       }).join('');
       return `<tr>${cells}</tr>`;
     }).join('');
-    return `<tr class="block-title"><td colspan="4">${escapeHtml(block.title)}</td></tr>${rows}`;
+    return `<tr class="block-title"><td colspan="${example.programmes.length}">${escapeHtml(block.title)}</td></tr>${rows}`;
   }).join('');
 
-  return `<section class="od-page" data-page="comparison">
+  const colgroup = `<colgroup>${example.programmes.map(() => '<col>').join('')}</colgroup>`;
+  const ucrCount = example.programmes.filter(isUcrProgramme).length;
+
+  return `<section class="od-page" data-page="comparison" style="--programme-count:${example.programmes.length}">
     ${renderHeader(example, 'Your personalized programme options')}
     <main class="od-body">
       ${renderInterest(example)}
       ${renderInterpretation(example)}
-      <p class="od-intro">See how another Dutch bachelor compares with three study programmes that could be composed at UCR.</p>
+      <p class="od-intro">See how another Dutch bachelor compares with ${ucrCount === 1 ? 'the UCR programme' : 'the UCR programmes'} that can be defensibly composed around this case.</p>
       <table class="comparison-table">
-        <colgroup><col><col><col><col></colgroup>
+        ${colgroup}
         <thead><tr>${programmeHeads}</tr></thead>
         <tbody>${blockRows}</tbody>
       </table>
@@ -123,7 +126,7 @@ function renderComparison(example) {
 }
 
 function renderSchedule(example) {
-  const ucrProgrammes = example.programmes.filter(programme => !isComparator(programme));
+  const ucrProgrammes = example.programmes.filter(isUcrProgramme);
   const heads = ucrProgrammes.map(programme => `<div class="schedule-programme-head">
     <span class="programme-label">${escapeHtml(visibleProgrammeLabel(example, programme))}</span>
     <span class="programme-subtitle"><a href="${ucrCoursesUrl}">UCR courses ↗</a></span>
@@ -148,11 +151,11 @@ function renderSchedule(example) {
     .flatMap(semester => semester.courses)
     .filter(course => Number(course.level) === 3).length);
 
-  return `<section class="od-page" data-page="schedule">
+  return `<section class="od-page" data-page="schedule" style="--ucr-count:${ucrProgrammes.length}">
     ${renderHeader(example, 'Possible UCR programmes — semester by semester')}
     <main class="od-body schedule-body">
       ${renderInterest(example)}
-      <p class="od-intro schedule-intro">The same three UCR programmes shown on page 1, arranged across six semesters with four courses in each semester.</p>
+      <p class="od-intro schedule-intro">The same UCR ${ucrProgrammes.length === 1 ? 'programme' : 'programmes'} shown on page 1, arranged across six semesters with four courses in each semester.</p>
       <div class="schedule-grid">
         ${heads}
         ${semesterCells.join('')}
