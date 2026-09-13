@@ -16,12 +16,12 @@ Registry eligibility and current counselor production scope are deliberately sep
 
 ## Pilot files
 
-The current pilot files are deliberately small end-to-end test fixtures:
+The pilot files are deliberately small end-to-end test fixtures:
 
-- `pilot-programmes.json` — five discovery records linked to existing comparison examples;
+- `pilot-programmes.json` — discovery records linked to existing comparison examples;
 - `pilot-interests.json` — a small set of classified interest signals for those fixtures.
 
-They exist to prove the counselor search/retrieval architecture. They are **not** the production programme registry and must not be interpreted as complete coverage.
+They exist to prove the counselor search/retrieval architecture. They are not the production programme registry and must not be interpreted as complete coverage.
 
 ## Production shape
 
@@ -29,17 +29,41 @@ Keep three concerns separate:
 
 1. `programmes.json` — deployed programme discovery metadata, one record per normalized target in the current counselor production scope;
 2. `interests.json` — deployed programme-interest discovery index linked by `counselor_programme_id`, limited to targets in the current counselor production scope;
-3. `comparisons/<counselor_programme_id>.json` — one completed validated deterministic comparison per in-scope normalized target, unless a later explicit schema decision separates comparison ID from target ID.
+3. `comparisons/<counselor_programme_id>.json` — one completed validated deterministic comparison per in-scope normalized target.
 
-For current production records, the top-level `id`, `programmeProvider.counselorProgrammeId` and permanent registry `counselor_programme_id` must be identical. Legacy source/provider/offering identifiers remain provenance only.
+Current counselor production records use `schemaVersion: "1.2"`.
 
-Validate normalized production records with `npm run validate:counselor`. The validator intentionally ignores UUID-named pre-normalization comparison files; those files do not count as current production records until they are checked and migrated to the normalized target contract.
+For every current production record:
+
+- top-level `id`, `programmeProvider.counselorProgrammeId` and registry `counselor_programme_id` must be identical;
+- normalized registry metadata required by the counselor schema must match `data/registry/programmes.csv`, including canonical name, orders, institution IDs, programme type/status, eligibility, languages, modes and required provenance arrays;
+- `academicRationale` must be present before the UCR schedules are treated as production-complete.
+
+`academicRationale` records the evidence-backed academic interest map used to construct the three UCR alternatives:
+
+- `coreField` — defining disciplinary content, methods, progression and specialist work;
+- `adjacentDirections` — genuinely related academic directions supported by evidence;
+- `questionsApplications` — evidenced questions, problems, phenomena and applications;
+- `balancedDirections` — one or two selected adjacent directions used for `ucr-balanced`;
+- `thematicQuestion` — the explicit organising question for `ucr-thematic`, with evidence and map labels on which it is based.
+
+The academic interest map and programme concepts must be established before UCR course selection. The UCR course catalogue is used to implement those concepts, not to invent them.
+
+Validate normalized production records with `npm run validate:counselor`. The validator intentionally ignores UUID-named pre-normalization comparison files; those files do not count as current production records.
+
+The validator cross-checks normalized production metadata against `data/registry/programmes.csv`, checks the academic-rationale structure and flags suspicious comparison patterns such as exact three-by-60-EC symmetry.
 
 During incremental corpus production, do **not** create the production `programmes.json` or `interests.json` indexes. Leave pilot indexes unchanged until the comparison corpus is complete and quality-controlled; then build the production indexes in one finalisation step from `data/registry/programmes.csv` and `data/registry/programme_interests.csv`, applying the then-current counselor production-scope rules.
 
 Interest search resolves to normalized counselor targets and then loads the fixed comparison. An interest query never regenerates or personalizes comparison content.
 
 Where `target_mapping_status=inherited-across-split-targets`, the inherited interest row is provenance/general discovery context only. It must not be used as target-specific academic evidence unless independently corroborated by current official evidence for the exact normalized target.
+
+## Comparison blocks
+
+Comparison blocks are analytical alignments of genuinely comparable curriculum components. They are not partitions of the full 180-EC programmes.
+
+There is no required number of blocks and no default 60/60/60 structure. Not every UCR course has to appear in a comparison block. Unequal EC totals and meaningful blank cells are legitimate when they reflect genuine curricular differences.
 
 ## Registry provenance
 

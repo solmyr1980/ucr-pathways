@@ -22,8 +22,8 @@ Each selected normalized counselor programme target must produce one fixed four-
 
 1. the exact external Dutch bachelor programme/route represented by the normalized target;
 2. `ucr-depth` — the closest feasible UCR match;
-3. `ucr-balanced` — the field plus substantively related subjects;
-4. `ucr-thematic` — a broader coherent UCR programme built around relevant questions, applications and academic directions connected to the field.
+3. `ucr-balanced` — the field plus one or two evidence-backed adjacent directions;
+4. `ucr-thematic` — a broader coherent UCR programme organised around one explicit evidence-backed question, problem, phenomenon or application.
 
 The comparison belongs to the normalized counselor programme target. It is not personalized to an individual student.
 
@@ -83,7 +83,7 @@ The normalized target may legitimately:
 
 Joint/double/dual structures remain legitimate normalized targets, but they are not selectable under the current counselor production scope.
 
-Do not undo the Step 2/Step 3 normalization during comparison production.
+Do not undo the normalization during comparison production.
 
 ## 3. Select the batch
 
@@ -99,22 +99,26 @@ Do not select from original worksheet-row order independently of `production_ord
 
 Do not replace a genuinely blocked **selected in-scope target** with a later target merely to keep the number of completed comparisons at 20. Complete the remainder of the selected batch and report the blocked case.
 
-Pilot search fixtures and public examples do **not** automatically count as completed production counselor records. Existing pre-normalization counselor records may be reused only after confirming that they correspond to the normalized target and satisfy the current production rules.
+Pilot search fixtures and public examples do not automatically count as completed production counselor records. Existing pre-normalization counselor records may be reused only after confirming that they correspond to the normalized target and satisfy the current production rules.
 
-## 4. Preserve normalized target identity
+## 4. Preserve normalized target identity and registry metadata
 
-For each selected target preserve:
+For each selected target preserve the current normalized registry values required by the counselor-production schema, including:
 
 - `counselor_programme_id`;
 - `registry_order` and `production_order`;
 - canonical target name;
 - normalized institution identity/identities;
 - programme type and current status;
+- production eligibility;
+- normalized languages and modes;
 - source worksheet rows;
 - offered-programme UUIDs;
 - programme-unit/recognized-programme/variant identifiers where present;
 - aliases and relevant registry URLs;
 - Step 2 resolution/provenance fields where applicable.
+
+Do not collapse normalized language or mode arrays to one scalar value.
 
 When the target is a normalized merge, research the current academic programme represented by the target rather than treating each historical registration as a separate comparator.
 
@@ -134,7 +138,7 @@ Use this source hierarchy where available:
 4. official course-catalogue information;
 5. general official prospective-student pages.
 
-Registry URLs and Step 2 identity-resolution sources are starting evidence, not automatically sufficient curriculum evidence.
+Registry URLs and identity-resolution sources are starting evidence, not automatically sufficient curriculum evidence.
 
 For the external programme distinguish:
 
@@ -153,7 +157,7 @@ Do not:
 - combine mutually exclusive options;
 - treat optional courses as compulsory;
 - invent courses to fill elective space;
-- deliberately select weak options to make UCR look stronger;
+- deliberately select weak options to make UCR stronger;
 - artificially narrow the external programme;
 - silently force current official information to agree with old registry metadata.
 
@@ -173,11 +177,61 @@ Use them as follows:
 - `Curricular topic` may broaden the substantive picture;
 - `Illustrative or temporary topic` and `Outcome or individual trajectory` may inform applications or themes cautiously but should not define the programme's core.
 
-Where `target_mapping_status=inherited-across-split-targets`, the historical interest record is inherited provenance/general discovery context only. It is **not target-specific academic evidence** for either split target. Do not use it to justify the target's core, `ucr-balanced` directions or `ucr-thematic` themes unless the same claim is independently corroborated by current official evidence for that exact normalized target. Target-specific official curriculum research takes precedence; inherited interest evidence must never substitute for it.
+Where `target_mapping_status=inherited-across-split-targets`, the historical interest record is inherited provenance/general discovery context only. It is not target-specific academic evidence unless the same claim is independently corroborated by current official evidence for that exact normalized target.
 
 Do not generate a different comparison depending on a search term. Every search route must ultimately lead to the same fixed comparison.
 
-## 7. Construct `ucr-depth`
+## 7. Build an academic interest map before selecting UCR courses
+
+This step is mandatory.
+
+The counselor workflow begins with a named bachelor, not with a student's personal list of interests. Therefore do not invent additional interests to create `ucr-balanced` or `ucr-thematic`, and do not browse the UCR catalogue for attractive breadth and then work backwards to a rationale.
+
+Build an **evidence-backed academic interest map** for the exact target with three layers.
+
+### 7.1 Core field
+
+Identify what defines the external programme academically:
+
+- central disciplines and subfields;
+- foundations and progression;
+- mathematics/statistics/methods/research training;
+- advanced or specialist work;
+- thesis/capstone where relevant.
+
+### 7.2 Adjacent directions
+
+Identify genuinely related directions supported by evidence, such as:
+
+- formal tracks/routes/specialisations;
+- stable study directions;
+- strong direct programme interests;
+- recurring curricular connections to neighbouring disciplines;
+- neighbouring academic directions clearly supported by programme questions or applications.
+
+Do not add a direction merely because UCR offers a course in it.
+
+### 7.3 Questions and applications
+
+Identify substantive questions, phenomena, problems and applications that the field addresses and that could support a thematic programme.
+
+These may come from current official programme evidence or valid target-specific programme-interest evidence.
+
+### 7.4 Evidence rule
+
+Every substantive map item must be traceable to at least one current official source or valid target-specific programme-interest row.
+
+In the production record, preserve that traceability in `academicRationale` using evidence references.
+
+Do not use the UCR course database to generate the map. Use it only after the map and the three programme concepts have been established.
+
+## 8. Freeze the three programme concepts before course selection
+
+Before selecting individual UCR courses, explicitly establish all three programme concepts.
+
+### 8.1 `ucr-depth`
+
+Use the core-field layer as the principal target.
 
 Construct the feasible UCR programme that comes closest to the substantive core, progression and methods of the external programme.
 
@@ -185,31 +239,31 @@ Consider disciplinary content, methods, mathematics/statistics, research trainin
 
 Where UCR genuinely lacks important specialist areas, preserve that limitation. Do not compensate with weakly related courses merely to create apparent equivalence.
 
-## 8. Construct `ucr-balanced`
+### 8.2 `ucr-balanced`
 
-Retain a substantial core of the external field while deliberately adding closely related subjects available at UCR.
+Retain a substantial core of the external field and select **one or two adjacent directions from the academic interest map**.
 
-Choose those related subjects from:
+Store the selected direction labels in `academicRationale.balancedDirections`.
 
-- the academic structure of the external programme;
-- strong associated programme-interest evidence that is valid for the exact normalized target;
-- neighbouring academic questions that are substantively defensible.
+The result should be meaningfully broader than `ucr-depth`, not the same programme with arbitrary substitutions.
 
-The result should be meaningfully broader than `ucr-depth`, not simply the same programme with arbitrary substitutions.
+Do not use a direction absent from the map merely to create difference.
 
-## 9. Construct `ucr-thematic`
+### 8.3 `ucr-thematic`
 
-Construct the broadest coherent UCR programme that remains recognisably connected to the external field.
+Before selecting courses, state **one explicit organising question, problem, phenomenon or application**.
 
-Organise it around relevant questions, phenomena, applications or combinations of perspectives rather than attempting to reproduce the external disciplinary structure.
+The theme must be traceable to the academic interest map and supported by evidence. Store it in `academicRationale.thematicQuestion`, including the map labels and evidence on which it is based.
 
-Use associated programme-interest evidence where helpful, subject to the split-target restriction in section 6, but do not imply that every theme included in the UCR version is itself a structural part of the external bachelor.
+Then construct the broadest coherent UCR programme that addresses that question from several relevant perspectives.
 
-Use a case-specific visible label. Avoid wording that falsely implies an individual counselor user has supplied personal interests.
+A course belongs in this programme because it helps answer the organising question, not simply because it is broad, interesting or available.
 
-## 10. Build and mechanically validate every UCR programme
+If the evidence does not support a compelling expansion far beyond the field, keep the thematic programme relatively close to the field. Do not manufacture eclecticism merely to make option 3 look dramatically different.
 
-Use the current enriched UCR course database, especially:
+## 9. Construct the three UCR programmes from the fixed concepts
+
+Only now use the current enriched UCR course database, especially:
 
 - `osiris`
 - `name`
@@ -223,7 +277,7 @@ Use the current enriched UCR course database, especially:
 
 Give outline-derived `profile` information particular weight where available.
 
-For the counselor corpus use the fixed **Fall 2026 UCR start**, with:
+For the counselor corpus use the fixed **Fall 2026 UCR start**:
 
 - Semester 1: `2026h2`
 - Semester 2: `2027h1`
@@ -248,18 +302,35 @@ Do not export a programme that fails validation. Repair it and validate again.
 
 Do not invent additional UCR requirements concerning clusters, concentrations, disciplinary distributions or breadth.
 
-## 11. Build the comparison only after all four curricula are complete
+If course availability makes the fixed concept infeasible, repair the course selection while preserving the concept. If the concept itself proves academically infeasible at UCR, revisit it using the same evidence-backed map; do not simply switch to an unrelated theme that happens to fit the catalogue.
+
+## 10. Build the comparison only after all four curricula are complete
 
 Do not design comparison blocks while the programmes are still being assembled.
 
-After reconstructing the external programme and validating all three UCR programmes:
+After reconstructing the external programme and validating all three UCR programmes, derive substantive comparison blocks from the complete curricula.
 
-- derive substantive comparison blocks from the complete curricula;
+Comparison blocks are **analytical alignments**, not partitions of the 180-EC curricula.
+
+Therefore:
+
+- there is no required number of blocks;
+- there is no default three-block structure;
+- blocks are not automatically 60 EC each;
+- do not allocate all 24 UCR courses to blocks merely because they exist in the programme;
+- block totals do not have to sum to 180 EC for every programme;
+- unequal credit totals across aligned cells are legitimate;
+- meaningful blank cells are expected when no genuine counterpart exists.
+
+Within blocks:
+
 - align genuinely comparable components horizontally;
-- preserve meaningful blank cells;
 - preserve actual EC weights;
 - show credits consistently for external and UCR components;
-- treat methods/research training as substantive disciplinary content where appropriate.
+- preserve meaningful blank cells;
+- preserve genuine structural differences;
+- treat methods/research training as substantive disciplinary content where appropriate;
+- leave specialist external components unmatched when UCR has no genuine counterpart.
 
 Do not force one external component to equal one UCR course.
 
@@ -267,7 +338,7 @@ Do not fill gaps for visual symmetry.
 
 Do not use numerical depth or breadth scores.
 
-## 12. Explanatory notes
+## 11. Explanatory notes
 
 Use the existing reusable note taxonomy only where a material difference could otherwise be misunderstood:
 
@@ -280,25 +351,25 @@ Do not add a note merely because a template exists.
 
 Populate only claims supported by the researched curricula.
 
-## 13. Production record
+## 12. Production record
 
 Create one structured counselor comparison record per successfully completed normalized target.
 
-Use the current repository comparison structure and the counselor-production schema rather than inventing a parallel format.
+Use the current repository comparison structure and counselor-production schema. Current production records use:
+
+`schemaVersion: "1.2"`
 
 Each record must at minimum contain:
 
-- current schema version;
 - `origin: "counselor"`;
 - top-level stable record `id` equal to the permanent `counselor_programme_id`;
-- `programmeProvider.counselorProgrammeId` equal to the same permanent `counselor_programme_id`;
-- normalized target name and institution identity/identities;
-- source registry rows and offered-programme UUIDs as provenance;
-- programme-unit, recognized-programme and variant identifiers where available;
+- `programmeProvider.counselorProgrammeId` equal to the same permanent ID;
+- normalized registry metadata required by the schema, including canonical target name, orders, institution IDs, programme type/status, eligibility, normalized languages and modes, and provenance arrays;
 - approved primary official source URL;
 - relevant additional official sources/provenance;
 - academic year/currentness information;
 - selected route/track where applicable;
+- `academicRationale` containing the evidence-backed map, balanced directions and thematic question;
 - all four programme roles;
 - complete UCR six-semester schedules;
 - external curriculum/component information and EC;
@@ -307,7 +378,7 @@ Each record must at minimum contain:
 - explanatory note where warranted;
 - internal validation/source metadata.
 
-Do **not** use `AANGEBODEN_OPLEIDINGCODE`, source worksheet row, programme-unit code or recognized-programme code as the comparison ID.
+Do not use `AANGEBODEN_OPLEIDINGCODE`, source worksheet row, programme-unit code or recognized-programme code as the comparison ID.
 
 Under the current contract:
 
@@ -317,11 +388,9 @@ Use:
 
 `data/counselor/comparisons/<counselor_programme_id>.json`
 
-unless a later explicit repository schema decision establishes a separate comparison ID.
-
 Legacy provider/offering identifiers remain provenance fields only.
 
-## 14. Incremental-production rule
+## 13. Incremental-production rule
 
 Create the individual comparison files under `data/counselor/comparisons/`, but **do not create the production `programmes.json` or `interests.json` discovery indexes while the comparison corpus is incomplete**.
 
@@ -340,20 +409,23 @@ Do not modify:
 
 Counselor production does not constitute public approval.
 
-## 15. Batch quality control
+## 14. Batch quality control
 
 Before completing the run, verify for every new record:
 
 - target satisfies the current production-scope filter;
-- correct `counselor_programme_id` and `production_order`;
-- top-level `id` and `programmeProvider.counselorProgrammeId` both equal that permanent ID;
-- correct normalized target identity and participating institution(s);
-- source-row/offering provenance retained;
+- correct `counselor_programme_id`, `registry_order` and `production_order`;
+- production metadata matches `data/registry/programmes.csv`, including canonical name, institutions, programme type/status, eligibility, languages, modes and required provenance arrays;
+- top-level `id` and `programmeProvider.counselorProgrammeId` both equal the permanent ID;
 - current official source basis;
 - coherent and valid external pathway;
 - fair treatment of optional/open curriculum space;
 - inherited-across-split interest evidence is not used as target-specific evidence without independent official corroboration;
-- three substantively distinct UCR alternatives;
+- complete evidence-backed academic interest map;
+- one or two `balancedDirections` selected from actual adjacent directions in the map;
+- explicit evidence-backed `thematicQuestion` tied to map items;
+- thematic concept was not generated from UCR course availability;
+- three substantively distinct UCR alternatives without manufactured breadth;
 - exact 24-course UCR totals;
 - four courses per semester;
 - unique UCR courses;
@@ -361,6 +433,7 @@ Before completing the run, verify for every new record:
 - PPD in Year 1;
 - prerequisites satisfied;
 - semester availability satisfied;
+- comparison blocks are genuine alignments rather than forced 180-EC partitions;
 - comparison credits preserved;
 - substantive alignment of comparison blocks;
 - no invented equivalence;
@@ -369,11 +442,19 @@ Before completing the run, verify for every new record:
 
 Run automated validation across all completed current production records.
 
-For each batch, inspect the records as a set for systematic failure modes—for example repetitive UCR programmes, overuse of the same courses without substantive justification, generic thematic programmes, or a tendency to weaken external programmes.
+For each batch, inspect the records as a set for systematic failure modes, including:
+
+- repetitive UCR programmes;
+- overuse of the same courses without substantive justification;
+- generic thematic programmes;
+- thematic questions that are interchangeable across unrelated targets;
+- unsupported cross-disciplinary jumps;
+- forced three-block/60-EC comparison structures;
+- a tendency to weaken external programmes.
 
 Do not change a sound record merely to create artificial variety across the batch.
 
-## 16. Exceptions
+## 15. Exceptions
 
 If a selected in-scope target cannot be reconstructed confidently from current official evidence:
 
@@ -386,11 +467,13 @@ If a selected in-scope target cannot be reconstructed confidently from current o
 
 If current official evidence suggests the normalized target identity itself is wrong or has materially changed, flag a **registry exception** rather than silently changing the comparison target during production.
 
+If no academically defensible adjacent direction or thematic question can be established from the evidence, do not invent one. Report the limitation and resolve it explicitly before treating that record as complete.
+
 Likewise, if no academically defensible UCR alternative can satisfy the feasibility rules, report the genuine limitation rather than manufacturing a match.
 
 A target excluded solely because its programme type is `joint-degree`, `double-bachelor` or `dual-degree-route` is not an exception or blocked case under the current rules; it is simply outside the current counselor production scope.
 
-## 17. GitHub working rules
+## 16. GitHub working rules
 
 Work only on the existing `main` branch.
 
@@ -405,6 +488,23 @@ Do not restructure the repository.
 Do not change the authoritative project documentation, normalized registry, application code or schemas merely to make a production batch easier. If a genuine contract or registry problem is discovered, report it and fix it in the appropriate upstream layer rather than silently redesigning the project during production.
 
 Commit completed production records and strictly necessary validation changes to `main`.
+
+## 17. Operating sequence for each selected target
+
+Use this exact high-level sequence:
+
+1. confirm normalized target and registry metadata;
+2. reconstruct the exact external programme from current official sources;
+3. retrieve target-specific programme-interest evidence;
+4. build the academic interest map;
+5. freeze `ucr-depth`, selected balanced direction(s), and the thematic organising question;
+6. only then select UCR courses;
+7. schedule and mechanically validate all three UCR programmes;
+8. build comparison blocks from the completed curricula without forcing symmetry;
+9. create the schema-1.2 production record with `academicRationale`;
+10. run record-level and batch-level QC.
+
+Do not skip the academic interest map or theme-definition step even when the field appears obvious.
 
 ## 18. Final deliverable
 
