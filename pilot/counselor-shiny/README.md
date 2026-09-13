@@ -10,8 +10,11 @@ This pilot tests the deterministic counselor-app architecture with five existing
 - search always resolves to a programme-provider record;
 - opening a result loads a **pre-produced fixed comparison** rather than generating a personalized comparison;
 - the same comparison can therefore be reached through programme-driven or interest-driven discovery;
+- each comparison shows exactly one external comparator and between one and three UCR alternatives;
+- the first UCR alternative is the closest feasible match, while additional alternatives appear only when upstream production found them evidence-backed, coherent, substantively distinct and feasible;
+- the interface does not imply that every target has the same number of UCR alternatives;
 - external programme provenance is integrated into the comparator heading and links to the approved official source;
-- UCR comparison headings use the approved descriptive labels;
+- UCR comparison headings use descriptive case-specific labels;
 - UCR components display EC information and link to the UCR course overview;
 - material explanatory notes remain visible, and returning to search preserves the query and filters;
 - the interface uses UCR branding without a visible Pathways sub-brand.
@@ -45,6 +48,8 @@ Until those production files are created, the pilot falls back to:
 - the five existing comparison fixtures in `data/examples/`.
 
 The fallback exists only to keep the five-case pilot runnable while the full deterministic counselor corpus is produced. Once the production index files are present, no application-code change is required to use them.
+
+Current production comparison records use the schema 2.0 variable-alternative contract documented in `data/counselor/README.md` and the Production Instructions. The pilot renderer remains compatible with the approved public fixtures used during fallback.
 
 ## Run locally
 
