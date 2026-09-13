@@ -14,6 +14,7 @@ on:
       - 'data/counselor/**'
       - 'data/schema/**'
       - 'scripts/example-utils.mjs'
+      - 'scripts/quality.test.mjs'
       - 'scripts/validate-example.mjs'
       - 'scripts/validate-counselor-comparison.mjs'
       - 'scripts/test-shiny.R'
@@ -34,6 +35,9 @@ jobs:
       - name: Validate normalized counselor production records
         run: node scripts/validate-counselor-comparison.mjs all
 
+      - name: Run comparison integrity regression tests
+        run: npm test
+
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
 
@@ -51,8 +55,8 @@ jobs:
 
       - name: Load both Shiny app objects
         run: |
-          Rscript -e 'x <- source("pilot/shiny/app.R", local=new.env())$value; stopifnot(inherits(x, "shiny.appobj"))'
-          Rscript -e 'x <- source("pilot/counselor-shiny/app.R", local=new.env())$value; stopifnot(inherits(x, "shiny.appobj"))'
+          Rscript -e 'x <- source("pilot/shiny/app.R", local=new.env())$value; stopifnot(inherits(x,"shiny.appobj"))'
+          Rscript -e 'x <- source("pilot/counselor-shiny/app.R", local=new.env())$value; stopifnot(inherits(x,"shiny.appobj"))'
 
       - name: Validate local pilot JSON inputs
         run: |
