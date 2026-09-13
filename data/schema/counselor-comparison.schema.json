@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://solmyr1980.github.io/ucr-pathways/data/schema/counselor-comparison.schema.json",
+  "title": "UCR counselor production comparison record",
+  "description": "Production contract for normalized deterministic counselor comparisons. Extends the shared four-programme comparison structure while requiring permanent normalized counselor identity.",
+  "allOf": [
+    {"$ref": "./example.schema.json"},
+    {
+      "type": "object",
+      "required": ["origin", "id", "programmeProvider"],
+      "properties": {
+        "origin": {"const": "counselor"},
+        "id": {
+          "type": "string",
+          "pattern": "^cp-[0-9]{6}$",
+          "description": "Must equal programmeProvider.counselorProgrammeId and the permanent counselor_programme_id from data/registry/programmes.csv. Equality is additionally enforced by the counselor validator."
+        },
+        "programmeProvider": {
+          "type": "object",
+          "required": ["counselorProgrammeId"],
+          "properties": {
+            "counselorProgrammeId": {
+              "type": "string",
+              "pattern": "^cp-[0-9]{6}$",
+              "description": "Permanent normalized counselor_programme_id from data/registry/programmes.csv."
+            }
+          }
+        }
+      }
+    }
+  ]
+}
