@@ -2,19 +2,30 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://solmyr1980.github.io/ucr-pathways/data/schema/counselor-comparison.schema.json",
   "title": "UCR counselor production comparison record",
-  "description": "Production contract for normalized deterministic counselor comparisons. Requires permanent normalized identity, registry-consistent metadata, and an evidence-backed academic rationale before UCR course construction.",
+  "description": "Production contract for normalized deterministic counselor comparisons. Requires permanent normalized identity, evidence-backed academic rationale, a complete reconstructed 180-EC comparator, and stable references from comparison cells to canonical curriculum components.",
   "allOf": [
     {"$ref": "./example.schema.json"},
     {
       "type": "object",
-      "required": ["schemaVersion", "origin", "id", "programmeProvider", "academicRationale"],
+      "required": ["schemaVersion", "origin", "id", "programmeProvider", "academicRationale", "comparator"],
       "properties": {
-        "schemaVersion": {"const": "1.2"},
+        "schemaVersion": {"const": "1.3"},
         "origin": {"const": "counselor"},
         "id": {
           "type": "string",
           "pattern": "^cp-[0-9]{6}$",
           "description": "Must equal programmeProvider.counselorProgrammeId and the permanent counselor_programme_id from data/registry/programmes.csv."
+        },
+        "comparator": {
+          "type": "object",
+          "required": ["components"],
+          "properties": {
+            "components": {
+              "type": "array",
+              "minItems": 1,
+              "items": {"$ref": "./example.schema.json#/$defs/comparatorComponent"}
+            }
+          }
         },
         "programmeProvider": {
           "type": "object",
