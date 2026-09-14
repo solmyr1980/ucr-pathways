@@ -98,6 +98,7 @@ const completed = comparisonFiles.map(name => {
   assert(registryRow.production_eligible === 'true', `${id}: registry target is not production eligible`);
   assert(registryRow.programme_type === 'standard', `${id}: registry target is outside current counselor production scope`);
   assert(String(registryRow.production_order || '').trim(), `${id}: registry target has no production_order`);
+  assert(String(registryRow.display_name_en || '').trim(), `${id}: registry target has no display_name_en`);
   assert(record.programmeProvider?.counselorProgrammeId === id, `${id}: comparison/provider identity mismatch`);
 
   return { record, registryRow };
@@ -121,7 +122,7 @@ const programmes = completed.map(({ record, registryRow }) => {
     opleidingseenheidcode: unitCodes[0] ?? null,
     recognizedProgrammeId: recognizedCodes[0] ?? null,
     registryName: registryRow.canonical_name,
-    displayName: comparator.name || registryRow.canonical_name,
+    displayName: registryRow.display_name_en,
     institution: comparator.institution || '',
     degree: 'BACHELOR',
     language: languages.length === 1 ? languages[0] : languages.join(' / '),
