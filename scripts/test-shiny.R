@@ -25,11 +25,20 @@ if (counselor$IS_PILOT_DATA) {
 }
 if (counselor$IS_REVIEW_DATA) {
   review_ids <- vapply(counselor$COUNSELOR_DATA$programmes, function(x) as.character(x$programmeProviderId), character(1))
+  review_names <- vapply(counselor$COUNSELOR_DATA$programmes, function(x) as.character(x$displayName), character(1))
   stopifnot(identical(review_ids, sprintf("cp-%06d", 1:4)))
+  stopifnot(identical(review_names, c(
+    "Bachelor of Public Administration",
+    "Bachelor in Management of International Social Challenges",
+    "Bachelor of Pedagogical Sciences",
+    "Bachelor of Psychology"
+  )))
   stopifnot(length(nld_results) == 3)
   stopifnot(all(vapply(review_ids, function(id) file.exists(counselor$comparison_path(id)), logical(1))))
   psychology_results <- counselor$search_programmes(counselor$COUNSELOR_DATA, query = "psychology")
   stopifnot(any(vapply(psychology_results, function(x) identical(x$programme$programmeProviderId, "cp-000004"), logical(1))))
+  stopifnot(length(counselor$search_programmes(counselor$COUNSELOR_DATA, query = "bestuurskunde")) == 0)
+  stopifnot(!grepl("bestuurskunde", counselor$COUNSELOR_DATA$programmes[[1]]$searchNorm, fixed = TRUE))
 }
 
 first_programme <- counselor$COUNSELOR_DATA$programmes[[1]]
@@ -84,6 +93,8 @@ shiny::testServer(counselor$server, {
   stopifnot(identical(shell, output$app_body)) # Typing must not recreate the input.
   session$setInputs(search_text = "test query", open_comparison = test_comparison_id)
   stopifnot(identical(selected()$id, test_record$id))
+  if (!is.null(selected()$comparator)) stopifnot(identical(selected()$comparator$name, first_programme$displayName))
+  if (!is.null(selected()$referenceProgramme)) stopifnot(identical(selected()$referenceProgramme$name, first_programme$displayName))
   session$setInputs(back_to_search = 1)
   stopifnot(is.null(selected()), identical(saved_search$text, "test query"))
 })
