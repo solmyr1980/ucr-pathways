@@ -351,6 +351,30 @@ Maintain **UCR Pathways Supporting Research Workflows** as a supporting referenc
 
 Exact schema fields, storage paths, search implementation, Shiny code, hosting choice and deployment commands belong to repository implementation unless a durable architectural decision explicitly promotes them into this specification. **Shiny/Shinylive remains an implementation candidate, not an authoritative product requirement.**
 
+## 12.1 Human handoff for tool limitations
+
+When a required repository or file operation cannot be completed safely and directly with the available tools, ChatGPT must not keep improvising increasingly fragile workarounds. It must stop and request the smallest specific human action needed to unblock the workflow.
+
+Human escalation is mandatory when any of the following applies:
+
+- an exact file must be preserved but the available tools cannot reliably download, edit or upload it without reconstruction risk;
+- the operation would require reconstructing a large or complex file from partial responses;
+- an integrity, hash or equivalent validation check fails;
+- the required repository action is unavailable through the active connector or toolset;
+- two reasonable attempts at the same repository or file operation fail; or
+- a short human action would materially reduce the risk or complexity compared with continued automated workaround attempts.
+
+The first integrity failure or the second failed attempt at the same operation is a mandatory stop-and-escalate point. Human assistance is a normal part of the workflow, not a failure state.
+
+A handoff request must state exactly:
+
+1. what ChatGPT cannot safely complete;
+2. why continuing automatically is risky;
+3. the minimum action the user needs to perform; and
+4. what ChatGPT will verify and continue doing after the handoff.
+
+After the user completes the requested action, ChatGPT must verify the resulting repository or file state before continuing.
+
 If wording conflicts across layers, resolve it according to ownership: this Master governs durable product decisions; Production Instructions govern academic generation; Web and LinkedIn Workflow governs public publication; schemas/validators govern executable data contracts; batch assignments cannot override those sources unless the user explicitly changes the underlying decision.
 
 Do not use authoritative documents to record successful or failed runs, temporary bugs, deployment status or routine next steps.
