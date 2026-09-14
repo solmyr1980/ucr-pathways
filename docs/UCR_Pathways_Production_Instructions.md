@@ -215,6 +215,15 @@ A search term never changes or personalizes the fixed comparison.
 
 Programme-interest data describe interests associated with the target programme. They do **not** establish that an imagined individual student also has unrelated additional interests. Use them to identify defensible academic directions, not to invent a fictional personal profile.
 
+For construction, retrieve **every** `programme_interests` row linked to the exact `counselor_programme_id` and assign it one construction role before defining additional alternatives:
+
+- `Direct programme interest` and `Stable study direction` → **generator-eligible**: may generate a candidate direction;
+- `Curricular topic` → **support-only**: may strengthen or enrich a direction but may not generate one by itself;
+- `Illustrative or temporary topic` and `Outcome or individual trajectory` → **search-only**: retain for discovery but do not use to generate UCR alternatives;
+- `target_mapping_status=inherited-across-split-targets` → **excluded-inherited** for construction unless the same substantive direction is independently corroborated for the exact target by current official evidence.
+
+Do not select a convenient subset of generator-eligible rows. Cluster all generator-eligible interests into coherent substantive directions before choosing an additional alternative. Record all assessed rows and the exact generating/supporting rows for every candidate direction so that inclusion and rejection decisions are auditable.
+
 ## 4.3 Canonical counselor production pipeline
 
 Complete the following sequence for **one target end-to-end** before moving to the next target.
@@ -242,6 +251,8 @@ The map has three layers:
 Every substantive map item must be traceable to at least one current official source for the exact target or one valid target-specific programme-interest row.
 
 Adjacent directions and questions/applications may legitimately be empty. Absence of evidence is a reason to stop generating alternatives, not a reason to fill the map from the UCR catalogue.
+
+When programme-interest rows are available, the evidence map must reflect the complete construction assessment described in Section 4.2. Build candidate directions from substantive clusters of generator-eligible interests, using support-only rows only as supplementary evidence. A single isolated interest row may define a candidate only when it is itself a coherent substantive direction. Search-only and excluded-inherited rows must not enter candidate construction. Preserve the exact interest-row provenance and disposition of each candidate direction in `academicRationale.interestSelection`.
 
 ### Step 3 — Freeze Alternative 1
 
@@ -274,6 +285,10 @@ Only if Alternative 2 is included, repeat Step 5 for one further defensible conc
 After scheduling, Alternative 3 must pass the **30 EC / 4-course floor separately against Alternative 1 and Alternative 2**. Failing either pairwise comparison means Alternative 3 is `not-substantively-distinct` and must not be included.
 
 If it fails any gate, stop at two and record the stopping reason. If it passes, include three and record `maximum-reached` as the stopping state.
+
+### Step 6A — Finalize visible UCR labels
+
+After every included 24-course UCR curriculum has been selected, scheduled and validated, review its visible label against the completed curriculum. Preserve the generating `concept` separately in the academic rationale. The final `label` must describe what the completed programme actually contains and must not let one motivating strand masquerade as the whole programme. Use a single-field label only when the completed curriculum is genuinely dominated by that field; otherwise use an accurate combination or question/application label. Record a concise `labelRationale` for each UCR alternative.
 
 ### Step 7 — Schedule terms
 
@@ -316,6 +331,10 @@ Apply all of the following rules:
 - the displayed components for every included programme column must total **180 EC**;
 - genuine open-elective, profiling or restricted-choice space in the external programme must appear explicitly as such and retain its actual EC value;
 - one comparison cell represents one canonical course/component; do not combine several UCR courses into a prose bundle;
+
+- for the UCR alternatives, exact `courseCode` identity is the **only** basis for sharing a row: build the UCR side of the comparison from the union of included UCR course codes, create one canonical row and block for each code, populate every UCR alternative that contains that exact code, and leave the other UCR cells blank;
+- two different UCR course codes must occupy separate rows even when their content is similar; never create a row-level equivalence merely for visual alignment;
+- assign the canonical block once for the course code within that comparison; the same course may not appear under different blocks in different UCR alternatives;
 - meaningful blank cells are legitimate when there is no sufficiently comparable component in another programme;
 - unequal block sizes, unequal numbers of components within a block and structural gaps are legitimate and often desirable;
 - methods, mathematics, statistics, econometrics, laboratory work and research training count as substantive disciplinary content where appropriate.

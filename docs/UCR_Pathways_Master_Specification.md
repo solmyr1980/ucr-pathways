@@ -82,6 +82,8 @@ Use ordinary, case-specific labels rather than internal taxonomy.
 
 Do not expose internal implementation names such as `ucr-alternative`, `closest-match`, `related-direction` or `question-led` as user-facing product taxonomy unless a later design decision explicitly does so.
 
+For every UCR alternative, distinguish the **generating concept** from the **visible programme label**. The concept records why the alternative was constructed. Assign the final visible label only after the complete UCR curriculum has been built and validated. The label must describe the actual curricular composition broadly enough that it does not present one strand as though it defined the whole programme.
+
 The comparator heading or an adjacent clear source link should lead to the approved official programme/curriculum source.
 
 ---
@@ -196,6 +198,8 @@ Categories 1–2 form the conservative core; category 3 may broaden discovery; c
 
 Where `target_mapping_status=inherited-across-split-targets`, the inherited interest record is provenance/general discovery evidence only. It is not target-specific academic evidence unless independently corroborated for that exact normalized target.
 
+For counselor programme construction, programme-interest evidence is stricter than discovery search. All target-linked programme-interest rows must be assessed. `Direct programme interest` and `Stable study direction` rows may generate candidate directions; `Curricular topic` rows may support but not independently generate a direction; `Illustrative or temporary topic` and `Outcome or individual trajectory` rows remain discovery evidence and do not generate UCR alternatives. Eligible interests must be considered as evidence-backed substantive directions rather than selected ad hoc as isolated rows.
+
 ## 4.4 Counselor alternatives and transparency
 
 A counselor comparison contains the comparator plus one to three UCR alternatives under the common architecture in Section 2.
@@ -242,6 +246,8 @@ Construct and validate the comparator and every included UCR programme before de
 The comparison is a **lossless 180-EC representation of each completed programme**, organised into meaningful substantive blocks. Every included UCR course must appear exactly once in the comparison, including Personal & Professional Development. The external programme must likewise account for its complete 180 EC; genuine open-elective, profiling or restricted-choice space must be represented explicitly rather than disappearing from the comparison.
 
 Blocks classify and align programme components; they do not replace them with selective summaries. Preserve meaningful blank cells and structural differences, and do not force row-by-row symmetry, equal block sizes, identical credit allocations or one-to-one course equivalence. The number and size of blocks should follow the curricula rather than a fixed template. Do not use numerical depth/breadth scores.
+
+Within one comparison, **exact UCR course identity is the only basis for sharing a UCR comparison row**. A UCR course code has one canonical row and one canonical block. Every included UCR alternative containing that exact code populates that row; alternatives not containing it remain blank. Different UCR course codes occupy different rows even when their content is closely related. This identity rule does not require symmetry between different courses or between UCR and the external comparator.
 
 Detailed block construction, stable component references and anti-template checks belong to the Production Instructions and executable validators.
 
