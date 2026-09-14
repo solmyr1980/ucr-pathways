@@ -172,9 +172,13 @@ Permanent counselor target IDs must be preserved across later registry refreshes
 
 The counselor may discover the same fixed comparison through either programme identity or student-facing interests associated with programmes in the programme-interest data.
 
+The counselor interface and its discovery search operate in **English**. Every normalized counselor target must have a nonblank `display_name_en` in `data/registry/programmes.csv`; this is the user-facing programme name used for counselor display and programme-name search. `canonical_name` and aliases remain provenance/normalization data and must not be exposed or indexed merely to provide Dutch-language programme search. Teaching language remains separate metadata and may of course be Dutch.
+
+Student-facing programme interests used for counselor discovery must likewise be in English.
+
 Use one search experience where practical:
 
-> **Search by programme or interest**
+> **Search in English by programme or interest**
 
 Interest search is a discovery mechanism only. Entering an interest does not regenerate or personalize the selected comparison.
 
