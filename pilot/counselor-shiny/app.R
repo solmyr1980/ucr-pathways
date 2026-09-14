@@ -75,7 +75,6 @@ prepare_search_data <- function(programmes, interests) {
   prepared_programmes <- lapply(programmes, function(programme) {
     programme$searchNorm <- norm(paste(
       safe_text(programme$displayName),
-      safe_text(programme$registryName),
       safe_text(programme$institution),
       safe_text(programme$degree),
       safe_text(programme$language)
@@ -127,6 +126,11 @@ comparison_path <- function(id) {
   path <- file.path(COMPARISON_DIR, paste0(id, ".json"))
   if (!file.exists(path)) stop("No local comparison record found for ", id)
   path
+}
+
+programme_for_comparison <- function(id) {
+  matches <- Filter(function(programme) identical(comparison_id(programme), id), COUNSELOR_DATA$programmes)
+  if (length(matches)) matches[[1]] else NULL
 }
 
 term_hits_normalized <- function(terms, haystack) {
@@ -279,8 +283,6 @@ render_result_cards <- function(results) {
             tags$strong("Matching interests: "),
             paste(vapply(matches, function(x) paste0(x$interest, " (", x$relationship, ")"), character(1)), collapse = " · ")
           )
-        } else if (nzchar(safe_text(programme$registryName)) && !identical(programme$registryName, programme$displayName)) {
-          div(class = "match-line", paste0("Registry name: ", programme$registryName))
         }
       ),
       tags$button(type = "button", class = "open-comparison", `data-id` = comparison_id(programme), "Compare with UCR")
@@ -317,13 +319,13 @@ render_search_shell <- function(search_text = "") {
     div(
       class = "hero",
       tags$h1("See how different bachelor’s programmes compare with study options at UCR"),
-      tags$p("Search by bachelor’s programme or by what your student is interested in. Select a programme to see the closest feasible UCR match and, where genuinely supported, additional UCR ways of pursuing the field or related questions.")
+      tags$p("Search in English by bachelor’s programme or by what your student is interested in. Select a programme to see the closest feasible UCR match and, where genuinely supported, additional UCR ways of pursuing the field or related questions.")
     ),
     div(
       class = "search-box",
       div(
         class = "search-grid",
-        textInput("search_text", "Search by programme or interest", value = search_text, placeholder = "e.g. Psychology, climate change, artificial intelligence…"),
+        textInput("search_text", "Search in English by programme or interest", value = search_text, placeholder = "e.g. Psychology, climate change, artificial intelligence…"),
         uiOutput("institution_filter"),
         uiOutput("language_filter")
       ),
@@ -417,6 +419,12 @@ server <- function(input, output, session) {
     if (!grepl("^[A-Za-z0-9._-]+$", id)) return()
     tryCatch({
       record <- read_json_file(comparison_path(id))
+      programme <- programme_for_comparison(id)
+      display_name <- if (is.null(programme)) "" else safe_text(programme$displayName)
+      if (nzchar(display_name)) {
+        if (!is.null(record$comparator)) record$comparator$name <- display_name
+        if (!is.null(record$referenceProgramme)) record$referenceProgramme$name <- display_name
+      }
       record$origin <- "counselor" # Presentation context only; fixture provenance is unchanged.
       selected(record)
     }, error = function(e) {
