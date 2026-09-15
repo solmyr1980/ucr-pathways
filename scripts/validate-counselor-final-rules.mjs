@@ -42,75 +42,81 @@ function scheduledCourseCodes(programme) {
   return codes;
 }
 
-function hasAnyFinalMethodologyFields(record) {
-  const selection = record?.academicRationale?.interestSelection;
-  const alternatives = Array.isArray(record?.academicRationale?.alternatives)
-    ? record.academicRationale.alternatives
-    : [];
-  return Object.hasOwn(selection || {}, 'coveredByClosestMatchInterestRows') ||
-    alternatives.some(alternative =>
-      Object.hasOwn(alternative || {}, 'courseTraceability') ||
-      Object.hasOwn(alternative || {}, 'progressionAssessment')
-    ) ||
-    (Array.isArray(selection?.candidateDirections) && selection.candidateDirections.some(candidate =>
-      Object.hasOwn(candidate || {}, 'organisingLogic') || Object.hasOwn(candidate || {}, 'assessment')
-    )) ||
-    Object.hasOwn(record?.comparator || {}, 'routeSelectionRule') ||
-    Object.hasOwn(record?.comparator || {}, 'routeSelectionBasis');
-}
-
 let failed = false;
 for (const file of recordFiles()) {
   const sourceName = path.basename(file);
   const record = JSON.parse(fs.readFileSync(file, 'utf8'));
   const errors = [];
   const fail = message => errors.push(`${sourceName}: ${message}`);
+  const rationale = record?.academicRationale;
+  const audit = rationale?.finalMethodologyAudit;
 
-  if (legacyPendingReaudit.has(record.id) && !hasAnyFinalMethodologyFields(record)) {
+  if (legacyPendingReaudit.has(record.id) && !audit) {
     console.warn(`WARNING: ${sourceName}: legacy pre-final-methodology record; final-rule audit deferred until the four-case re-audit phase`);
     continue;
   }
 
-  const comparator = record?.comparator || {};
-  if (nonEmptyString(comparator.route)) {
-    if (!routeRules.has(comparator.routeSelectionRule)) {
-      fail('comparator.routeSelectionRule is required when comparator.route is set and must use an approved neutral route-selection rule');
-    }
-    if (!nonEmptyString(comparator.routeSelectionBasis)) {
-      fail('comparator.routeSelectionBasis is required when comparator.route is set');
-    }
-  } else if (comparator.routeSelectionRule || comparator.routeSelectionBasis) {
-    fail('comparator route-selection metadata must not be present without comparator.route');
-  }
-
-  const rationale = record?.academicRationale;
-  if (!rationale || typeof rationale !== 'object' || Array.isArray(rationale)) {
-    fail('academicRationale is required');
+  if (!audit || typeof audit !== 'object' || Array.isArray(audit)) {
+    fail('academicRationale.finalMethodologyAudit is required for every new or re-audited counselor record');
   } else {
+    const comparator = record?.comparator || {};
+    const routeAudit = audit.comparatorRouteSelection;
+    if (nonEmptyString(comparator.route)) {
+      if (!routeAudit || typeof routeAudit !== 'object' || Array.isArray(routeAudit)) {
+        fail('finalMethodologyAudit.comparatorRouteSelection is required when comparator.route is set');
+      } else {
+        if (routeAudit.route !== comparator.route) fail('comparatorRouteSelection.route must equal comparator.route');
+        if (!routeRules.has(routeAudit.selectionRule)) fail('comparatorRouteSelection.selectionRule must use an approved neutral route-selection rule');
+        if (!nonEmptyString(routeAudit.basis)) fail('comparatorRouteSelection.basis is required');
+      }
+    } else if (routeAudit) {
+      fail('comparatorRouteSelection must not be present when comparator.route is absent');
+    }
+
     const mapLabels = new Set();
     for (const field of ['coreField', 'adjacentDirections', 'questionsApplications']) {
-      for (const item of Array.isArray(rationale[field]) ? rationale[field] : []) {
+      for (const item of Array.isArray(rationale?.[field]) ? rationale[field] : []) {
         if (nonEmptyString(item?.label)) mapLabels.add(item.label.trim());
       }
     }
 
     const ucrProgrammes = (record.programmes || []).filter(programme => programme?.family === 'ucr');
-    const programmesById = new Map(ucrProgrammes.map(programme => [programme.id, programme]));
-    const alternatives = Array.isArray(rationale.alternatives) ? rationale.alternatives : [];
+    const rationaleAlternatives = Array.isArray(rationale?.alternatives) ? rationale.alternatives : [];
+    const rationaleByProgramme = new Map(rationaleAlternatives.map(item => [item?.programmeId, item]));
+    const programmeById = new Map(ucrProgrammes.map(programme => [programme.id, programme]));
+    const alternativeAudits = Array.isArray(audit.alternatives) ? audit.alternatives : [];
+    const auditByProgramme = new Map();
 
-    for (const [index, alternative] of alternatives.entries()) {
-      const label = `academicRationale.alternatives[${index}]`;
-      const programme = programmesById.get(alternative?.programmeId);
-      if (!programme) {
-        fail(`${label}.programmeId does not identify an included UCR programme`);
+    for (const [index, alternativeAudit] of alternativeAudits.entries()) {
+      const label = `finalMethodologyAudit.alternatives[${index}]`;
+      const programmeId = String(alternativeAudit?.programmeId || '').trim();
+      if (!programmeId) {
+        fail(`${label}.programmeId is required`);
+        continue;
+      }
+      if (auditByProgramme.has(programmeId)) fail(`finalMethodologyAudit.alternatives duplicates programmeId ${programmeId}`);
+      auditByProgramme.set(programmeId, alternativeAudit);
+      if (!programmeById.has(programmeId)) fail(`${label}.programmeId ${programmeId} is not an included UCR programme`);
+    }
+
+    for (const programme of ucrProgrammes) {
+      const alternativeAudit = auditByProgramme.get(programme.id);
+      const rationaleAlternative = rationaleByProgramme.get(programme.id);
+      const label = `finalMethodologyAudit alternative ${programme.id}`;
+      if (!alternativeAudit) {
+        fail(`${label} is required`);
+        continue;
+      }
+      if (!rationaleAlternative) {
+        fail(`${programme.id} has no matching academicRationale.alternatives entry`);
         continue;
       }
 
       const scheduled = scheduledCourseCodes(programme).filter(code => code !== ppdCode);
       const expectedCodes = new Set(scheduled);
-      const trace = Array.isArray(alternative?.courseTraceability) ? alternative.courseTraceability : null;
+      const trace = Array.isArray(alternativeAudit.courseTraceability) ? alternativeAudit.courseTraceability : null;
       if (!trace) {
-        fail(`${label}.courseTraceability is required under the final methodology`);
+        fail(`${label}.courseTraceability is required`);
       } else {
         const traceByCode = new Map();
         for (const [traceIndex, entry] of trace.entries()) {
@@ -130,8 +136,8 @@ for (const file of recordFiles()) {
             if (new Set(entry.basisLabels).size !== entry.basisLabels.length) fail(`${entryLabel}.basisLabels must be unique`);
             for (const basis of entry.basisLabels) {
               if (!mapLabels.has(basis)) fail(`${entryLabel} basis label ${JSON.stringify(basis)} is not present in the academic interest map`);
-              if (!Array.isArray(alternative?.basisLabels) || !alternative.basisLabels.includes(basis)) {
-                fail(`${entryLabel} basis label ${JSON.stringify(basis)} is not part of the alternative's evidence-map basis`);
+              if (!Array.isArray(rationaleAlternative?.basisLabels) || !rationaleAlternative.basisLabels.includes(basis)) {
+                fail(`${entryLabel} basis label ${JSON.stringify(basis)} is not part of ${programme.id}'s evidence-map basis`);
               }
             }
           }
@@ -140,39 +146,40 @@ for (const file of recordFiles()) {
         for (const code of expectedCodes) {
           if (!traceByCode.has(code)) fail(`${label}.courseTraceability must explain scheduled non-PPD course ${code}`);
         }
-        for (const code of traceByCode.keys()) {
-          if (!expectedCodes.has(code)) continue;
-        }
         if (trace.length !== expectedCodes.size) {
           fail(`${label}.courseTraceability must contain exactly one entry for each of the ${expectedCodes.size} scheduled non-PPD courses`);
         }
       }
 
-      const progression = alternative?.progressionAssessment;
+      const progression = alternativeAudit.progressionAssessment;
       if (!progression || typeof progression !== 'object' || Array.isArray(progression)) {
-        fail(`${label}.progressionAssessment is required under the final methodology`);
+        fail(`${label}.progressionAssessment is required`);
       } else {
         if (progression.status !== 'passed') fail(`${label}.progressionAssessment.status must be "passed"`);
         if (!nonEmptyString(progression.rationale)) fail(`${label}.progressionAssessment.rationale is required`);
       }
     }
 
-    const selection = rationale.interestSelection;
+    if (alternativeAudits.length !== ucrProgrammes.length) {
+      fail(`finalMethodologyAudit.alternatives must contain exactly one audit for each of the ${ucrProgrammes.length} included UCR alternatives`);
+    }
+
+    const selection = rationale?.interestSelection;
     if (!selection || typeof selection !== 'object' || Array.isArray(selection)) {
       fail('academicRationale.interestSelection is required');
     } else {
       const assessed = Array.isArray(selection.assessedInterests) ? selection.assessedInterests : [];
       const assessedByRow = new Map(assessed.filter(item => Number.isInteger(item?.registryRow)).map(item => [item.registryRow, item]));
       const generatorRows = new Set(assessed.filter(item => item?.constructionRole === 'generator-eligible').map(item => item.registryRow));
-
-      const covered = Array.isArray(selection.coveredByClosestMatchInterestRows)
-        ? selection.coveredByClosestMatchInterestRows
-        : null;
       const coverageCounts = new Map([...generatorRows].map(row => [row, 0]));
+
+      const covered = Array.isArray(audit.coveredByClosestMatchInterestRows)
+        ? audit.coveredByClosestMatchInterestRows
+        : null;
       if (!covered) {
-        fail('interestSelection.coveredByClosestMatchInterestRows is required under the final methodology');
+        fail('finalMethodologyAudit.coveredByClosestMatchInterestRows is required');
       } else {
-        if (new Set(covered).size !== covered.length) fail('interestSelection.coveredByClosestMatchInterestRows must be unique');
+        if (new Set(covered).size !== covered.length) fail('finalMethodologyAudit.coveredByClosestMatchInterestRows must be unique');
         for (const row of covered) {
           const item = assessedByRow.get(row);
           if (!item) fail(`coveredByClosestMatchInterestRows references unassessed row ${row}`);
@@ -182,18 +189,38 @@ for (const file of recordFiles()) {
       }
 
       const candidates = Array.isArray(selection.candidateDirections) ? selection.candidateDirections : [];
-      for (const [index, candidate] of candidates.entries()) {
-        const candidateLabel = `interestSelection.candidateDirections[${index}]`;
-        if (!nonEmptyString(candidate?.organisingLogic)) fail(`${candidateLabel}.organisingLogic is required`);
-        if (!nonEmptyString(candidate?.assessment)) fail(`${candidateLabel}.assessment is required`);
-        if (nonEmptyString(candidate?.label) && catchAllLabelPattern.test(candidate.label)) {
-          fail(`${candidateLabel}.label appears to be an omnibus residual category; use a specific coherent academic direction instead`);
+      const candidateLabels = new Set(candidates.map(candidate => candidate?.label).filter(nonEmptyString));
+      const candidateAssessments = Array.isArray(audit.candidateAssessments) ? audit.candidateAssessments : [];
+      const assessmentByLabel = new Map();
+      for (const [index, candidateAudit] of candidateAssessments.entries()) {
+        const label = `finalMethodologyAudit.candidateAssessments[${index}]`;
+        const candidateLabel = String(candidateAudit?.candidateLabel || '').trim();
+        if (!candidateLabel) {
+          fail(`${label}.candidateLabel is required`);
+          continue;
         }
-        const generating = Array.isArray(candidate?.generatingInterestRows) ? candidate.generatingInterestRows : [];
-        for (const row of generating) {
+        if (assessmentByLabel.has(candidateLabel)) fail(`finalMethodologyAudit.candidateAssessments duplicates candidate ${JSON.stringify(candidateLabel)}`);
+        assessmentByLabel.set(candidateLabel, candidateAudit);
+        if (!candidateLabels.has(candidateLabel)) fail(`${label} references unknown candidate direction ${JSON.stringify(candidateLabel)}`);
+        if (!nonEmptyString(candidateAudit?.organisingLogic)) fail(`${label}.organisingLogic is required`);
+        if (!nonEmptyString(candidateAudit?.assessment)) fail(`${label}.assessment is required`);
+      }
+
+      for (const candidate of candidates) {
+        const candidateLabel = String(candidate?.label || '').trim();
+        if (candidateLabel && catchAllLabelPattern.test(candidateLabel)) {
+          fail(`candidate direction ${JSON.stringify(candidateLabel)} appears to be an omnibus residual category; use a specific coherent academic direction instead`);
+        }
+        if (candidateLabel && !assessmentByLabel.has(candidateLabel)) {
+          fail(`finalMethodologyAudit.candidateAssessments must assess candidate direction ${JSON.stringify(candidateLabel)}`);
+        }
+        for (const row of Array.isArray(candidate?.generatingInterestRows) ? candidate.generatingInterestRows : []) {
           const item = assessedByRow.get(row);
           if (item?.constructionRole === 'generator-eligible') coverageCounts.set(row, (coverageCounts.get(row) || 0) + 1);
         }
+      }
+      if (candidateAssessments.length !== candidateLabels.size) {
+        fail('finalMethodologyAudit.candidateAssessments must contain exactly one audit for every candidate direction');
       }
 
       for (const row of generatorRows) {
