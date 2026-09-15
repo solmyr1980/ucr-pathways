@@ -30,7 +30,7 @@ jobs:
       - name: Repair cp-000005 JSON checkpoint
         shell: bash
         run: >-
-          node -e "const fs=require('fs'); const f='data/counselor/comparisons/cp-000005.json'; let s=fs.readFileSync(f,'utf8'); const a='\"courseCode\":\"BENENTR212\"}}]},{\"title\":\"Sustainability, technology & data\"'; const b='\"courseCode\":\"BENENTR212\"}}}]},{\"title\":\"Sustainability, technology & data\"'; if(s.includes(a)){fs.writeFileSync(f,s.replace(a,b)); console.log('Repaired cp-000005 JSON checkpoint.')} else {console.log('cp-000005 checkpoint repair already applied.')};"
+          node -e "const fs=require('fs'); const f='data/counselor/comparisons/cp-000005.json'; let s=fs.readFileSync(f,'utf8'); const fixes=[['\"courseCode\":\"BENENTR212\"}}]},{\"title\":\"Sustainability, technology & data\"','\"courseCode\":\"BENENTR212\"}}}]},{\"title\":\"Sustainability, technology & data\"'],['\"courseCode\":\"DISARIN311\"}}]},{\"title\":\"Personal & professional development\"','\"courseCode\":\"DISARIN311\"}}}]},{\"title\":\"Personal & professional development\"']]; let n=0; for(const [a,b] of fixes){if(s.includes(a)){s=s.replace(a,b); n++;}} fs.writeFileSync(f,s); console.log('Applied '+n+' cp-000005 checkpoint repair(s).');"
 
       - name: Build review indexes
         run: npm run build:counselor-review
