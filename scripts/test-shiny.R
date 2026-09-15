@@ -46,6 +46,41 @@ test_comparison_id <- counselor$comparison_id(first_programme)
 stopifnot(nzchar(test_comparison_id), file.exists(counselor$comparison_path(test_comparison_id)))
 test_record <- jsonlite::fromJSON(counselor$comparison_path(test_comparison_id), simplifyVector = FALSE)
 
+# Counselor comparison summaries are derived from the four accepted production records.
+acceptance_records <- lapply(sprintf("cp-%06d", 1:4), function(id) {
+  record <- jsonlite::fromJSON(file.path("data/counselor/comparisons", paste0(id, ".json")), simplifyVector = FALSE)
+  record$origin <- "counselor"
+  record
+})
+expected_ucr_counts <- c(2L, 3L, 2L, 3L)
+for (index in seq_along(acceptance_records)) {
+  record <- acceptance_records[[index]]
+  ucr_programmes <- counselor$ucr_programmes_for_summary(record)
+  stopifnot(length(ucr_programmes) == expected_ucr_counts[[index]])
+  summary_html <- as.character(counselor$render_comparison_summary(record))
+  stopifnot(grepl("What this comparison shows", summary_html, fixed = TRUE))
+  stopifnot(grepl("Important limitation", summary_html, fixed = TRUE))
+  for (programme in ucr_programmes) {
+    stopifnot(grepl(htmltools::htmlEscape(counselor$visible_label(record, programme)), summary_html, fixed = TRUE))
+    rationale <- counselor$alternative_rationale_for(record, programme$id)
+    if (!is.null(rationale) && nzchar(counselor$safe_text(rationale$concept))) {
+      stopifnot(grepl(htmltools::htmlEscape(counselor$safe_text(rationale$concept)), summary_html, fixed = TRUE))
+    }
+  }
+  route <- counselor$safe_text(counselor$comparator_meta(record)$route)
+  if (nzchar(route)) stopifnot(grepl(htmltools::htmlEscape(route), summary_html, fixed = TRUE))
+}
+stopifnot(grepl("Brain &amp; Cognition specialisation", as.character(counselor$render_comparison_summary(acceptance_records[[4]])), fixed = TRUE))
+
+# Relationship classifications remain internal ranking metadata, not counselor-facing search copy.
+result_fixture <- list(list(
+  programme = first_programme,
+  matches = list(list(interest = "climate change", relationship = "Direct programme interest", score = 100))
+))
+result_html <- as.character(counselor$render_result_cards(result_fixture))
+stopifnot(grepl("climate change", result_html, fixed = TRUE))
+stopifnot(!grepl("Direct programme interest", result_html, fixed = TRUE))
+
 for (id in sprintf("p-%03d", 1:5)) {
   record <- jsonlite::fromJSON(paste0("data/examples/", id, ".json"), simplifyVector = FALSE)
   for (app in list(student, counselor)) {

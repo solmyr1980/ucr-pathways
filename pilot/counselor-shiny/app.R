@@ -217,6 +217,59 @@ credit_text <- function(value, fallback = NULL) {
   ""
 }
 
+ucr_programmes_for_summary <- function(record) {
+  Filter(is_ucr_programme, record$programmes %||% list())
+}
+
+alternative_rationale_for <- function(record, programme_id) {
+  alternatives <- record$academicRationale$alternatives %||% list()
+  matches <- Filter(function(item) identical(safe_text(item$programmeId), safe_text(programme_id)), alternatives)
+  if (length(matches)) matches[[1]] else NULL
+}
+
+render_comparison_summary <- function(record) {
+  programmes <- ucr_programmes_for_summary(record)
+  if (!length(programmes)) return(NULL)
+  meta <- comparator_meta(record)
+  route <- safe_text(meta$route)
+  comparator_name <- safe_text(meta$name)
+  comparator_institution <- safe_text(meta$institution)
+  comparator_label <- paste(c(comparator_name, if (nzchar(comparator_institution)) paste0("at ", comparator_institution)), collapse = " ")
+
+  cards <- lapply(seq_along(programmes), function(index) {
+    programme <- programmes[[index]]
+    rationale <- alternative_rationale_for(record, programme$id)
+    concept <- if (is.null(rationale)) "" else safe_text(rationale$concept)
+    div(
+      class = "summary-card",
+      div(class = "summary-kicker", if (index == 1) "Closest UCR match" else "Additional UCR option"),
+      tags$h3(visible_label(record, programme)),
+      if (nzchar(concept)) tags$p(concept)
+    )
+  })
+
+  div(
+    class = "comparison-summary",
+    div(
+      class = "summary-heading",
+      tags$h2("What this comparison shows"),
+      tags$p(paste0(
+        "A curriculum-level comparison of ", comparator_label, " with ", length(programmes),
+        if (length(programmes) == 1) " feasible UCR study composition." else " feasible UCR study compositions."
+      ))
+    ),
+    if (nzchar(route)) {
+      div(class = "route-note", tags$strong("Comparator pathway shown: "), route)
+    },
+    div(class = "summary-grid", do.call(tagList, cards)),
+    div(
+      class = "equivalence-note",
+      tags$strong("Important limitation"),
+      tags$p("This is a curriculum comparison. A UCR composition is not the same disciplinary degree and does not by itself establish a professional qualification or automatic eligibility for a particular master’s programme.")
+    )
+  )
+}
+
 render_compare_table <- function(record) {
   programmes <- record$programmes %||% list()
   meta <- comparator_meta(record)
@@ -281,7 +334,7 @@ render_result_cards <- function(results) {
           div(
             class = "match-line",
             tags$strong("Matching interests: "),
-            paste(vapply(matches, function(x) paste0(x$interest, " (", x$relationship, ")"), character(1)), collapse = " · ")
+            paste(unique(vapply(matches, function(x) safe_text(x$interest), character(1))), collapse = " · ")
           )
         }
       ),
@@ -302,6 +355,7 @@ render_comparison <- function(record) {
       ),
       actionButton("back_to_search", "← Back to search", class = "secondary-button")
     ),
+    render_comparison_summary(record),
     render_compare_table(record),
     render_comparison_notes(record),
     div(
@@ -350,6 +404,7 @@ ui <- fluidPage(
       .search-box{background:#fff;border:1px solid rgba(73,30,52,.16);border-radius:16px;padding:20px;margin-bottom:20px}.search-grid{display:grid;grid-template-columns:minmax(0,1fr) 260px 180px;gap:12px;align-items:end}.form-control{min-height:48px;border-radius:10px;border-color:rgba(73,30,52,.28);font-size:16px}.pilot-note{background:rgba(255,225,164,.45);border-radius:10px;padding:10px 13px;color:var(--grey);font-size:13px;margin-top:12px}
       .results-meta{color:var(--grey);margin:4px 0 12px}.results{display:grid;gap:10px}.result-card{display:flex;justify-content:space-between;align-items:center;gap:20px;background:#fff;border:1px solid rgba(73,30,52,.14);border-radius:14px;padding:17px 18px}.result-card h3{margin:0 0 4px;font-size:23px}.institution{margin:0;color:var(--grey)}.match-line{color:var(--grey);font-size:13px;margin-top:8px;line-height:1.4}.open-comparison{background:var(--plum);color:#fff;border:0;border-radius:9px;padding:11px 14px;font-weight:700;white-space:nowrap}.no-results{padding:26px;background:#fff;border-radius:14px;color:var(--grey)}
       .comparison-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:18px}.comparison-head h1{margin:0 0 8px;font-size:clamp(31px,3vw,43px)}.comparison-head p{color:var(--grey);max-width:850px}.secondary-button{background:transparent!important;color:var(--plum)!important;border:1px solid rgba(73,30,52,.28)!important;border-radius:10px}
+      .comparison-summary{margin:0 0 20px;background:#fff;border:1px solid rgba(73,30,52,.14);border-radius:14px;padding:18px}.summary-heading h2{margin:0 0 5px;font-size:27px}.summary-heading p{margin:0;color:var(--grey);line-height:1.5}.route-note{margin-top:12px;padding:10px 12px;border-radius:9px;background:rgba(185,217,235,.32);color:var(--plum)}.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:14px}.summary-card{border:1px solid rgba(73,30,52,.14);border-radius:11px;padding:14px;background:rgba(255,255,255,.96)}.summary-card h3{font-family:Inter,Arial,sans-serif;font-size:17px;font-weight:700;margin:3px 0 7px;color:var(--plum)}.summary-card p{margin:0;color:var(--grey);font-size:14px;line-height:1.48}.summary-kicker{text-transform:uppercase;letter-spacing:.055em;font-size:11px;font-weight:800;color:var(--grey)}.equivalence-note{margin-top:14px;border-left:5px solid var(--plum);padding:11px 14px;background:rgba(255,225,164,.28);color:var(--grey);line-height:1.5}.equivalence-note p{margin:4px 0 0}
       .compare-scroll{overflow-x:auto;border:1px solid rgba(73,30,52,.14);border-radius:14px;background:#fff}.compare-table{border-collapse:separate;border-spacing:0;min-width:min(1120px,100%);width:100%;table-layout:fixed}.compare-table th,.compare-table td{border-right:1px solid rgba(73,30,52,.1);border-bottom:1px solid rgba(73,30,52,.1);padding:13px 15px;vertical-align:top}.compare-table thead th{background:var(--plum);color:#fff;border-right-color:rgba(255,255,255,.18)}.programme-title{font-size:16px;font-weight:700}.programme-title a,.programme-source{color:inherit}.programme-source{display:inline-block;margin-top:5px;color:#fff;opacity:.82;font-size:12px}.block-row th{background:var(--blue);color:var(--plum);font-size:14px;font-weight:700}.comparison-cell{background:#fff;line-height:1.35}.comparison-cell.emphasis{background:rgba(255,225,164,.36)}.empty-cell{background:rgba(92,96,107,.035)}.ec-badge{display:inline-block;margin-top:6px;padding:2px 6px;border-radius:999px;background:rgba(73,30,52,.08);color:var(--grey);font-size:11px}.cell-note{color:var(--grey);font-size:12px;margin-top:5px}.transparency-note{margin-top:18px;background:#fff;border-left:5px solid var(--plum);padding:14px 17px;color:var(--grey);line-height:1.5}.transparency-note p{margin:5px 0 0}.cta-row{display:flex;justify-content:flex-end;margin-top:20px}.primary-cta{display:inline-block;background:var(--plum);color:#fff!important;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none!important}
       @media(max-width:900px){.container-fluid{padding:0 14px 40px}.search-grid{grid-template-columns:1fr}.result-card{display:block}.open-comparison{margin-top:13px}.comparison-head{display:block}.comparison-head .secondary-button{margin-top:10px}.ucr-logo{max-width:210px}}
     ")),
