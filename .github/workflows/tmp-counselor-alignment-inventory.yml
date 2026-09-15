@@ -1,0 +1,26 @@
+name: Temporary counselor alignment inventory
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/tmp-counselor-alignment-inventory.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build inventory
+        run: node scripts/tmp-counselor-alignment-inventory.mjs
+      - name: Commit inventory
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/counselor/tmp-alignment-inventory.json
+          git commit -m "Generate temporary counselor alignment inventory"
+          git push
