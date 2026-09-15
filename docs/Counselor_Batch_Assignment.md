@@ -54,9 +54,11 @@ For each target, execute the canonical counselor production pipeline in **Sectio
 
 A target is not considered processed merely because its comparator, alternative concepts, course sets or schedules have been worked out. Before beginning work on the next selected target, the current target must have:
 
-1. a complete canonical JSON record at `data/counselor/comparisons/<counselor_programme_id>.json`;
-2. all record-level counselor validation and completion gates passed; and
-3. that completed record committed to the existing `main` branch.
+1. a complete compact academic decision file committed at `data/counselor/decisions/<counselor_programme_id>.json`;
+2. a successful GitHub Actions compiler and validation run;
+3. a complete canonical JSON record published at `data/counselor/comparisons/<counselor_programme_id>.json`;
+4. all record-level counselor validation and completion gates passed; and
+5. that completed canonical record committed to the existing `main` branch.
 
 Treat each selected target as an atomic resumable production unit. Do not develop several targets in parallel and postpone serialization, validation or GitHub persistence until the end of the batch. If execution stops partway through a batch, already completed and committed target records remain valid checkpoints; resume from the first selected target that does not yet have a completed current production record.
 
@@ -64,7 +66,11 @@ Do not restate, reinterpret or supplement the academic method from this batch as
 
 Current counselor UCR scheduling uses the fixed Fall 2026 cohort defined in the Production Instructions.
 
-Create successful production records at:
+Record completed academic decisions at:
+
+`data/counselor/decisions/<counselor_programme_id>.json`
+
+The production workflow publishes successful canonical records at:
 
 `data/counselor/comparisons/<counselor_programme_id>.json`
 
@@ -106,11 +112,11 @@ Work only on the existing `main` branch.
 
 Do not create another branch, pull request, duplicate repository structure or repository reorganization.
 
-Commit each completed counselor comparison record to `main` before beginning the next selected target. Do not hold an entire batch as uncommitted or unserialized working state.
+Commit one completed counselor decision file to `main`. Let the counselor compiler workflow generate, validate and publish its canonical comparison before beginning the next selected target. Do not hand-edit or directly commit a new canonical comparison, and do not hold an entire batch as uncommitted or unserialized working state.
 
 Do not modify public examples, `data/catalog.json`, website content, LinkedIn records, publication queues or generated PDFs as part of counselor corpus production.
 
-Commit completed production records and only strictly necessary upstream fixes to `main`.
+Commit completed decision files and only strictly necessary upstream fixes to `main`. The GitHub Action commits the validated canonical production record. It must not overwrite an existing canonical comparison.
 
 ---
 
@@ -124,7 +130,7 @@ Report concisely:
 4. confirmation that every included UCR alternative passed mechanical feasibility validation;
 5. distribution of records with one, two and three UCR alternatives, with stopping reasons for records below three;
 6. material source discrepancies or registry exceptions;
-7. GitHub commit containing the batch;
+7. GitHub decision and generated-canonical commits containing the batch;
 8. any issue that should be resolved before the next batch.
 
 Do not stop for routine intermediate approval during a production batch.

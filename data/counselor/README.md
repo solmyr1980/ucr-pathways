@@ -35,6 +35,14 @@ Keep three concerns separate:
 
 Current counselor production records use `schemaVersion: "2.0"`.
 
+## Production compilation
+
+Academic production now begins with a compact explicit decision file under `decisions/`. ChatGPT completes the academic work first: comparator reconstruction, evidence mapping, alternative concepts, course selection, semester assignment, curriculum-based labels, block placement, substantive comparator matches and rationales. The selected-course facts are verified against the enriched UCR course Project Source and included in the decision input; that Project Source is not copied into GitHub.
+
+The deterministic compiler in `scripts/build-counselor-comparison.mjs` reads that decision file plus current GitHub registry data. It constructs normalized provider metadata, assessed programme interests, fixed semester scaffolding, canonical same-course rows and other mechanical schema 2.0 fields. It never makes an academic choice. The GitHub workflow runs the compiler and the existing counselor validators, then commits a new canonical comparison only after every check succeeds. It fails safely when a canonical target file already exists.
+
+The decision-file contract and local command are documented in `decisions/README.md`. Regression fixtures for `cp-000004` and `cp-000005` run in temporary storage and cannot overwrite those canonical records.
+
 Every comparison contains exactly one external comparator followed by **one to three ordered UCR alternatives**. The first UCR alternative is the closest feasible match. Additional alternatives are included only when they pass the evidence, coherence, substantive-distinctness and feasibility gates in the Production Instructions. Three is the maximum, not a quota.
 
 For every current production record:

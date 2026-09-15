@@ -337,7 +337,11 @@ Only after the external curriculum and all included UCR curricula are complete a
 
 ### Step 9 — Create and validate the production record
 
-Create the canonical counselor record under Section 7, run repository/schema validation and apply the completion gates in Section 9.
+After all academic decisions and completion-gate judgments are finished, encode them in the compact counselor decision-file convention. The decision file must state every fact or judgment that the compiler cannot safely derive, including the verified selected-course facts, explicit semester assignments, academic rationale, final labels, block placement and comparator alignment.
+
+Commit that decision file to the existing `main` branch. GitHub Actions runs the deterministic compiler, builds the proposed canonical counselor record under Section 7, and runs the existing counselor validators. It publishes the canonical comparison to `main` only when compilation and validation both succeed. The compiler may add mechanical scaffolding from current GitHub registry data but must never invent a missing academic decision. It must fail if the target canonical comparison already exists.
+
+Do not begin the next target until the Action has published the complete canonical comparison, all record-level gates have passed, and the resulting canonical record is committed to `main`. A failed Action is an incomplete target, not a production checkpoint.
 
 ## 4.4 Counselor exceptions
 
@@ -448,6 +452,8 @@ Preserve original `interest_statement`, separate academic interpretation, intern
 
 Current counselor production records use `schemaVersion: "2.0"`.
 
+The compact decision file is the auditable academic input to that canonical record. It carries the completed academic decisions and the verified UCR course facts needed at compilation time. The compiler obtains normalized provider metadata and the complete assessed-interest rows from current GitHub registry files, derives only mechanical record structure, and expands the explicit schedules and comparison layout. It does not need direct access to the enriched UCR course database because course selection, feasibility assessment and the verified selected-course facts remain explicit pre-compilation work. The decision file must not be treated as a second canonical comparison or as permission for the compiler to make academic choices.
+
 Preserve the permanent `counselor_programme_id`, normalized target metadata/provenance required by the current schema, and `academicRationale` containing:
 
 - evidence-backed `coreField`;
@@ -480,7 +486,7 @@ The canonical record contains semantic content, not renderer coordinates, CSS or
 
 The counselor comparison library stores one fixed record per completed in-scope normalized target. Discovery programme metadata and programme-interest indexes remain separate from comparison content. Do not flatten all interests into a comparison record; preserve the evidence and construction assessment required to audit the included alternatives and stopping decision without turning the comparison record into a second discovery index.
 
-During incremental counselor production, create individual files under `data/counselor/comparisons/` but do not create the final production `programmes.json` or `interests.json` discovery indexes until the comparison corpus is complete and quality-controlled. Leave pilot indexes unchanged.
+During incremental counselor production, publish individual files under `data/counselor/comparisons/` through the decision-file, compiler and validation workflow. Do not create the final production `programmes.json` or `interests.json` discovery indexes until the comparison corpus is complete and quality-controlled. Leave pilot indexes unchanged.
 
 Neither workflow publishes automatically. Public export requires substantive human review and explicit public-use approval. Derive publication-safe records from canonical academic records without reselecting courses, rebuilding alignments or inventing renderer-specific academic facts.
 

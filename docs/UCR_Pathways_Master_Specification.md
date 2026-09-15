@@ -269,6 +269,8 @@ Student-origin records additionally preserve the original interest statement and
 
 Counselor-origin records additionally preserve the permanent `counselor_programme_id`, normalized provenance required to audit the target and connect it to programme-interest discovery, the evidence/rationale supporting each included UCR alternative and the decision to stop before three where applicable, and enough course-level traceability to audit why every non-PPD UCR course belongs to its generating concept. Under the current counselor contract, the stable record `id` equals the same permanent `counselor_programme_id`.
 
+Counselor production uses a two-stage record architecture. ChatGPT makes and records the academic decisions explicitly in a compact decision file. A deterministic compiler then adds only mechanically derivable registry, programme-interest, schedule and comparison scaffolding. Existing validators must pass before GitHub Actions publishes the canonical comparison. The compiler must not select courses, schedule them, define alternatives, name programmes, assign substantive blocks or decide comparator matches. A failed compilation or validation produces no canonical comparison, and production never overwrites a completed canonical record.
+
 Canonical records contain semantic content, not renderer coordinates, CSS or page geometry. Renderers may ignore fields they do not need, but they must not reinterpret or invent programme facts.
 
 ---
