@@ -1,0 +1,98 @@
+name: Build counselor comparison
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'data/counselor/decisions/**'
+      - 'scripts/build-counselor-comparison.mjs'
+      - 'scripts/test-counselor-compiler.mjs'
+      - 'scripts/validate-counselor-comparison.mjs'
+      - 'scripts/validate-counselor-structural-rules.mjs'
+      - 'scripts/validate-counselor-final-rules.mjs'
+      - 'scripts/example-utils.mjs'
+      - 'data/registry/programmes.csv'
+      - 'data/registry/programme_interests.csv'
+      - 'package.json'
+      - '.github/workflows/build-counselor-comparison.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: counselor-comparison-production
+  cancel-in-progress: false
+
+jobs:
+  compile-and-validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out complete repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Select safe execution mode
+        id: mode
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" != "push" ]]; then
+            echo "mode=dry-run" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          mapfile -t changed_decisions < <(
+            git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" |
+              grep -E '^data/counselor/decisions/cp-[0-9]{6}\.json$' || true
+          )
+
+          if [[ "${#changed_decisions[@]}" -eq 0 ]]; then
+            echo "mode=dry-run" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [[ "${#changed_decisions[@]}" -ne 1 ]]; then
+            echo "Production commits must add exactly one root decision file." >&2
+            exit 1
+          fi
+
+          decision_path="${changed_decisions[0]}"
+          change_status="$(git diff-tree --no-commit-id --name-status -r "$GITHUB_SHA" -- "$decision_path" | awk '{print $1}')"
+          if [[ "$change_status" != "A" ]]; then
+            echo "Production decision files are immutable; expected an added file but found status $change_status." >&2
+            exit 1
+          fi
+
+          echo "mode=production" >> "$GITHUB_OUTPUT"
+          echo "decision_path=$decision_path" >> "$GITHUB_OUTPUT"
+          echo "comparison_id=$(basename "$decision_path" .json)" >> "$GITHUB_OUTPUT"
+
+      - name: Run compiler regressions in temporary storage
+        if: steps.mode.outputs.mode == 'dry-run'
+        run: npm run test:counselor-compiler
+
+      - name: Build proposed canonical comparison
+        if: steps.mode.outputs.mode == 'production'
+        run: npm run build:counselor -- "${{ steps.mode.outputs.decision_path }}"
+
+      - name: Run unchanged counselor validators
+        if: steps.mode.outputs.mode == 'production'
+        run: npm run validate:counselor
+
+      - name: Publish validated canonical comparison
+        if: steps.mode.outputs.mode == 'production'
+        shell: bash
+        run: |
+          set -euo pipefail
+          comparison="data/counselor/comparisons/${{ steps.mode.outputs.comparison_id }}.json"
+          git add "$comparison"
+          if git diff --cached --quiet; then
+            echo "Compiler produced no new canonical comparison." >&2
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Publish ${{ steps.mode.outputs.comparison_id }} counselor comparison"
+          git push
