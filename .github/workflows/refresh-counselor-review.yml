@@ -9,6 +9,9 @@ on:
       - 'data/registry/programmes.csv'
       - 'data/registry/programme_interests.csv'
       - 'scripts/build-counselor-review-index.mjs'
+      - 'scripts/validate-counselor-comparison.mjs'
+      - 'scripts/validate-counselor-structural-rules.mjs'
+      - 'scripts/validate-counselor-final-rules.mjs'
       - 'package.json'
       - '.github/workflows/refresh-counselor-review.yml'
 
@@ -27,27 +30,25 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Repair cp-000005 JSON checkpoint
-        shell: bash
-        run: >-
-          node -e "const fs=require('fs'); const f='data/counselor/comparisons/cp-000005.json'; let s=fs.readFileSync(f,'utf8'); const fixes=[['\"courseCode\":\"BENENTR212\"}}]},{\"title\":\"Sustainability, technology & data\"','\"courseCode\":\"BENENTR212\"}}}]},{\"title\":\"Sustainability, technology & data\"'],['\"courseCode\":\"DISARIN311\"}}]},{\"title\":\"Personal & professional development\"','\"courseCode\":\"DISARIN311\"}}}]},{\"title\":\"Personal & professional development\"']]; let n=0; for(const [a,b] of fixes){if(s.includes(a)){s=s.replace(a,b); n++;}} fs.writeFileSync(f,s); console.log('Applied '+n+' cp-000005 checkpoint repair(s).');"
-
       - name: Build review indexes
         run: npm run build:counselor-review
 
       - name: Verify generated review indexes
         run: npm run validate:counselor-review
 
+      - name: Validate counselor production
+        run: npm run validate:counselor
+
       - name: Commit refreshed review indexes
         shell: bash
         run: |
           set -euo pipefail
-          git add data/counselor/comparisons/cp-000005.json data/counselor/review-programmes.json data/counselor/review-interests.json
+          git add data/counselor/review-programmes.json data/counselor/review-interests.json
           if git diff --cached --quiet; then
             echo "Review indexes already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Repair cp-000005 and refresh counselor review indexes"
+          git commit -m "Refresh counselor review indexes"
           git push
