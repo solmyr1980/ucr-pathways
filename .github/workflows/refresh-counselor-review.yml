@@ -27,6 +27,23 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Repair cp-000005 JSON checkpoint
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const file = 'data/counselor/comparisons/cp-000005.json';
+          const oldText = '\"courseCode\":\"BENENTR212\"}}]},{\"title\":\"Sustainability, technology & data\"';
+          const newText = '\"courseCode\":\"BENENTR212\"}}}]},{\"title\":\"Sustainability, technology & data\"';
+          const text = fs.readFileSync(file, 'utf8');
+          if (text.includes(oldText)) {
+            fs.writeFileSync(file, text.replace(oldText, newText));
+            console.log('Repaired cp-000005 JSON checkpoint.');
+          } else {
+            console.log('cp-000005 checkpoint repair already applied.');
+          }
+          NODE
+
       - name: Build review indexes
         run: npm run build:counselor-review
 
@@ -37,12 +54,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git add data/counselor/review-programmes.json data/counselor/review-interests.json
+          git add data/counselor/comparisons/cp-000005.json data/counselor/review-programmes.json data/counselor/review-interests.json
           if git diff --cached --quiet; then
             echo "Review indexes already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Refresh counselor review indexes"
+          git commit -m "Repair cp-000005 and refresh counselor review indexes"
           git push
