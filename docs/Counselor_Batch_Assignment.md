@@ -10,6 +10,38 @@ This assignment selects and runs a batch. It does **not** redefine counselor-pro
 
 ---
 
+# 0. Execution model and division of labour
+
+Use **normal Chat as the default execution surface for routine counselor production**. Do not send ordinary production targets to Work merely because the task is substantial.
+
+The intended division of labour is:
+
+- **Normal Chat** owns the academic work: retrieving the governing GitHub rules, researching the external programme, assessing programme-interest evidence, using the enriched UCR course Project Source, designing alternatives, selecting and scheduling courses, writing the compact v2 decision file, committing that decision to `main`, monitoring the resulting GitHub Actions run, and repairing ordinary decision-level failures.
+- **GitHub Actions** owns deterministic execution: compiling the compact decision into canonical schema 2.0, running the unchanged validators, publishing the canonical comparison only after validation passes, and refreshing the counselor review indexes.
+- **Work** is reserved for one-time or exceptional infrastructure engineering that materially benefits from its own execution environment or full-repository filesystem access: compiler/schema development, migrations, regression-harness work, repository-wide diagnostics, or implementation problems that cannot be handled safely and efficiently through normal Chat plus GitHub Actions. Work is not the routine academic-production engine.
+
+Conserve Work usage. If normal Chat can make the academic decisions and GitHub Actions can perform the deterministic build/validation/publish steps, do not use Work.
+
+When Work is genuinely required, normal Chat must formulate a self-contained copy-paste assignment for it. The user should not have to translate the technical requirements between the two environments. That assignment must state, where relevant:
+
+1. the exact objective and governing GitHub sources;
+2. the files or behaviours that are frozen and must not change;
+3. explicit non-destructive boundaries;
+4. quantitative success criteria where the objective can otherwise be interpreted loosely;
+5. regression cases and unchanged validators that must continue to pass;
+6. clear stop conditions for unsafe or ambiguous outcomes; and
+7. the exact final evidence/report required for independent review.
+
+For risky infrastructure changes, separate **prototype/proof** from **migration**. First prove the proposed architecture in temporary or non-production state; only after independent review should a second assignment migrate it into production.
+
+After Work reports completion, normal Chat must independently inspect the actual GitHub repository state, relevant diffs/files, and GitHub Actions results before accepting the implementation. A Work report by itself is not sufficient evidence that the intended objective was achieved.
+
+Routine production failures remain in normal Chat. If the compiler succeeds but an unchanged validator rejects a decision, diagnose and repair the academic/decision input and rerun the same target. Do not weaken a validator or redesign the infrastructure merely to make one target pass. Escalate back to Work only when repeated failures reveal a genuine structural tooling problem rather than an ordinary decision inconsistency.
+
+The responsibility boundary remains unchanged regardless of execution surface: **AI makes academic decisions; deterministic code expresses, checks and publishes them.** Work may implement or repair that code, but it must not become the source of routine academic judgement.
+
+---
+
 # 1. Retrieve the governing sources
 
 Before starting a batch, retrieve the current GitHub versions of:
