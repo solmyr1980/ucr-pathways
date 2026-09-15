@@ -67,7 +67,12 @@ function jsonCell(value, fallback = []) {
 }
 
 function readJson(file) {
-  return JSON.parse(fs.readFileSync(file, 'utf8'));
+  const text = fs.readFileSync(file, 'utf8');
+  try {
+    return JSON.parse(text);
+  } catch (error) {
+    throw new Error(`${path.relative(root, file)}: invalid JSON: ${error.message}`);
+  }
 }
 
 function stableJson(value) {
