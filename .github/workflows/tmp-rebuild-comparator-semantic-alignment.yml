@@ -1,0 +1,34 @@
+name: One-off comparator semantic alignment rebuild
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/tmp-rebuild-comparator-semantic-alignment.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild comparator semantic alignment
+        run: node scripts/tmp-rebuild-comparator-semantic-alignment.mjs
+      - name: Validate counselor records
+        run: npm run validate:counselor
+      - name: Rebuild review indexes
+        run: npm run build:counselor-review
+      - name: Validate review indexes
+        run: npm run validate:counselor-review
+      - name: Run repository quality tests
+        run: npm test
+      - name: Commit repaired alignment
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/UCR_Pathways_Master_Specification.md docs/UCR_Pathways_Production_Instructions.md data/schema/counselor-comparison.schema.json scripts/validate-counselor-structural-rules.mjs data/counselor/comparisons/cp-000001.json data/counselor/comparisons/cp-000002.json data/counselor/comparisons/cp-000003.json data/counselor/comparisons/cp-000004.json data/counselor/review-programmes.json data/counselor/review-interests.json
+          git commit -m "Rebuild comparator semantic alignment"
+          git push
