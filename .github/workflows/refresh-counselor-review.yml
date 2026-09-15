@@ -2,6 +2,9 @@ name: Refresh counselor review indexes
 
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Build counselor comparison"]
+    types: [completed]
   push:
     branches: [main]
     paths:
@@ -24,6 +27,9 @@ concurrency:
 
 jobs:
   refresh:
+    if: >-
+      github.event_name != 'workflow_run' ||
+      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push')
     runs-on: ubuntu-latest
 
     steps:
