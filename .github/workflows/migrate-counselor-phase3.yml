@@ -23,6 +23,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Patch cp-000001 sociology re-audit
+        run: |
+          python - <<'PYFIX'
+          from pathlib import Path
+          p = Path('scripts/migrate-counselor-phase3.mjs')
+          s = p.read_text()
+          old = "  swap(ucr(r, 'ucr-1'), 'GOSSOCI214', 'GOSPOLI311');\n  swap(ucr(r, 'ucr-2'), 'GOSSOCI214', 'GOSPOLI311');\n"
+          new = "  swap(ucr(r, 'ucr-1'), 'GOSSOCI214', 'GOSPOLI311');\n  const cp1p2 = ucr(r, 'ucr-2');\n  replaceAtCourse(cp1p2, 'GOSSOCI311', { code: 'GOSSOCI214', name: 'Modern Sociology', level: 2, credits: 7.5 });\n  removeProgrammeCourseCell(r, 'ucr-2', 'GOSSOCI311');\n  const cp1SociRow = findRowByUcrCode(r, 'GOSSOCI214');\n  assert(cp1SociRow, 'cp-000001: missing canonical GOSSOCI214 row');\n  cp1SociRow.row.cells['ucr-2'] = { text: 'Modern Sociology', credits: 7.5, courseCode: 'GOSSOCI214' };\n"
+          if old not in s:
+              raise SystemExit('cp-000001 migration block not found')
+          s = s.replace(old, new, 1)
+          s = s.replace("'ucr-2': 'Passed after re-sequencing the sociology strand so Introduction to Sociology precedes Modern Sociology, which in turn precedes New Issues in Contemporary Social Theory; Sustainability Essentials I also precedes Sustainability Essentials II. Formal prerequisites and fixed-term availability remain satisfied.'", "'ucr-2': 'Passed after replacing the advanced contemporary-social-theory course with Modern Sociology, so Introduction to Sociology precedes the later sociology course; Sustainability Essentials I also precedes Sustainability Essentials II. Formal prerequisites and fixed-term availability remain satisfied.'", 1)
+          p.write_text(s)
+          PYFIX
       - name: Apply phase-three re-audit
         run: node scripts/migrate-counselor-phase3.mjs
       - name: Validate counselor records
