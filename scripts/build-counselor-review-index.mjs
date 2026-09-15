@@ -71,7 +71,15 @@ function readJson(file) {
   try {
     return JSON.parse(text);
   } catch (error) {
-    throw new Error(`${path.relative(root, file)}: invalid JSON: ${error.message}`);
+    const match = String(error.message || '').match(/position\s+(\d+)/i);
+    let context = '';
+    if (match) {
+      const position = Number(match[1]);
+      const start = Math.max(0, position - 180);
+      const end = Math.min(text.length, position + 180);
+      context = `\nContext ${start}-${end}: ${JSON.stringify(text.slice(start, end))}`;
+    }
+    throw new Error(`${path.relative(root, file)}: invalid JSON: ${error.message}${context}`);
   }
 }
 
