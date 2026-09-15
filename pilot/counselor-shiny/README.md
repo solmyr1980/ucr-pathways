@@ -5,12 +5,16 @@ This pilot tests the deterministic counselor-app architecture and uses the same 
 ## What it tests
 
 - one search box can find programmes by programme name, institution or student-facing interest;
-- institution and teaching-language filters refine that search; matching interests retain their relationship classification;
+- institution and teaching-language filters refine that search; result cards show the student-facing matching interest phrases while relationship classifications remain internal ranking metadata;
 - interest signals rank programme-provider records using the existing `interest_relationship` classification;
 - search always resolves to a programme-provider record;
 - opening a result loads a **pre-produced fixed comparison** rather than generating a personalized comparison;
 - the same comparison can therefore be reached through programme-driven or interest-driven discovery;
 - each comparison shows exactly one external comparator and between one and three UCR alternatives;
+- the comparison screen is summary-first: it identifies the closest UCR match and any additional included alternatives before the full 180-EC table;
+- the summary is derived from the validated comparison record, including the case-specific UCR labels and `academicRationale.alternatives[].concept`, rather than maintained as separate counselor copy;
+- where the comparator record contains a selected route or specialisation, that route is shown above the curriculum table;
+- a prominent limitation explains that curricular similarity does not make a UCR composition the same disciplinary degree and does not by itself establish professional qualification or automatic master’s eligibility;
 - the first UCR alternative is the closest feasible match, while additional alternatives appear only when upstream production found them evidence-backed, coherent, substantively distinct and feasible;
 - the interface does not imply that every target has the same number of UCR alternatives;
 - external programme provenance is integrated into the comparator heading and links to the approved official source;
@@ -18,6 +22,22 @@ This pilot tests the deterministic counselor-app architecture and uses the same 
 - UCR components display EC information and link to the UCR course overview;
 - material explanatory notes remain visible, and returning to search preserves the query and filters;
 - the interface uses UCR branding without a visible Pathways sub-brand.
+
+## Comparison presentation
+
+The counselor screen deliberately separates interpretation from evidence. The reading order is:
+
+1. a concise statement of what is being compared;
+2. the selected comparator pathway, when the canonical record contains one;
+3. one summary card for each included UCR alternative, using the validated programme label and academic concept;
+4. the curricular-equivalence limitation;
+5. the complete course/component-level comparison table;
+6. existing source and explanatory notes;
+7. the existing explanation of how alternatives are selected and the Program Builder call to action.
+
+The full comparison table remains the evidence layer and is not shortened or selectively sampled. The summary layer does not introduce a second academic narrative: it is rendered directly from fields already present in the validated comparison record. A target with one or two UCR alternatives therefore displays only those alternatives; an absent third alternative is not presented as missing data.
+
+Search remains discovery rather than personalization. Relationship classifications such as `Direct programme interest`, `Stable study direction` and `Curricular topic` continue to affect search ranking internally, but counselor-facing result cards display only the matching interest phrases.
 
 ## Runtime data architecture
 
