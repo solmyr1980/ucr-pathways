@@ -64,7 +64,7 @@ Every comparison contains:
 1. exactly one `comparator` — one external Dutch bachelor programme; and
 2. between **one and three UCR alternatives**.
 
-The UCR alternatives are ordered from the closest feasible response to progressively broader alternatives where such broader alternatives are genuinely defensible. The first UCR alternative is the closest feasible match. A second or third alternative is included only when it represents another coherent, evidence-backed and substantively distinct way of pursuing the relevant field, interests, question or application at UCR.
+The first UCR alternative is the closest feasible match. Any second or third alternative is an additional defensible response with a genuinely different organising logic; it may be narrower, thematic, question-led, application-led or otherwise differently organised, and it does not need to be broader than the preceding alternative. Include it only when it represents another coherent, evidence-backed and substantively distinct way of pursuing the relevant field, interests, question or application at UCR.
 
 There is **no requirement to reach three UCR alternatives**. Three is the maximum, not a quota. Do not manufacture additional interests, domains, questions or curricular differences merely to fill a fixed number of programme slots. One strong alternative is preferable to one strong alternative plus weak or redundant ones.
 
@@ -198,7 +198,7 @@ Categories 1–2 form the conservative core; category 3 may broaden discovery; c
 
 Where `target_mapping_status=inherited-across-split-targets`, the inherited interest record is provenance/general discovery evidence only. It is not target-specific academic evidence unless independently corroborated for that exact normalized target.
 
-For counselor programme construction, programme-interest evidence is stricter than discovery search. All target-linked programme-interest rows must be assessed. `Direct programme interest` and `Stable study direction` rows may generate candidate directions; `Curricular topic` rows may support but not independently generate a direction; `Illustrative or temporary topic` and `Outcome or individual trajectory` rows remain discovery evidence and do not generate UCR alternatives. Eligible interests must be considered as evidence-backed substantive directions rather than selected ad hoc as isolated rows.
+For counselor programme construction, programme-interest evidence is stricter than discovery search. All target-linked programme-interest rows must be assessed. `Direct programme interest` and `Stable study direction` rows may generate candidate directions; `Curricular topic` rows may support but not independently generate a direction; `Illustrative or temporary topic` and `Outcome or individual trajectory` rows remain discovery evidence and do not generate UCR alternatives. Eligible interests must be considered as evidence-backed substantive directions rather than selected ad hoc as isolated rows. Generator-eligible interests must not be placed in an omnibus residual category merely to prove that they were considered: each must either be substantively covered by the core/closest-match concept or belong to a genuinely coherent candidate direction.
 
 ## 4.4 Counselor alternatives and transparency
 
@@ -218,6 +218,8 @@ Detailed execution belongs exclusively to the **Production Instructions**. The d
 
 Reconstruct comparators from current official university evidence. Represent compulsory, restricted-choice, route/specialization, open-elective, methods/research, thesis/capstone and EC structure fairly. Where choices must be instantiated, use one coherent valid pathway.
 
+When a generic programme target contains several formal routes and one route must be instantiated, select the route that best represents the programme's broad academic identity. If no route is clearly more representative, use the least specialized or most general route available under the official curriculum. Never choose a route because it happens to improve the apparent UCR match. Preserve the selected route and the basis for the choice in the academic record when it materially shapes the comparator.
+
 Never present optional material as compulsory, combine mutually exclusive choices, invent components, violate programme rules, deliberately choose weak options to favour UCR, or make the external programme artificially narrow.
 
 ## 5.2 UCR feasibility
@@ -225,6 +227,8 @@ Never present optional material as compulsory, combine mutually exclusive choice
 Use the enriched UCR course database as the authoritative source for course content, prerequisites and planned semester availability.
 
 Each included UCR programme must contain exactly 24 unique courses, four courses in each of six semesters, at least six 300-level courses, and Personal & Professional Development during Year 1. Prerequisites must precede dependent courses and every course must be available in its assigned semester.
+
+Formal prerequisites are necessary but not sufficient for a credible semester plan. Course ordering must also respect explicit academic progression in the course evidence and should normally place relevant foundational study before advanced work that clearly builds on it.
 
 Do not invent additional cluster, unit, concentration, breadth or disciplinary-distribution requirements. Validate mechanical feasibility against the enriched database.
 
@@ -263,7 +267,7 @@ Create one canonical structured comparison record before rendering any surface. 
 
 Student-origin records additionally preserve the original interest statement and academic interpretation.
 
-Counselor-origin records additionally preserve the permanent `counselor_programme_id`, normalized provenance required to audit the target and connect it to programme-interest discovery, and the evidence/rationale supporting each included UCR alternative and the decision to stop before three where applicable. Under the current counselor contract, the stable record `id` equals the same permanent `counselor_programme_id`.
+Counselor-origin records additionally preserve the permanent `counselor_programme_id`, normalized provenance required to audit the target and connect it to programme-interest discovery, the evidence/rationale supporting each included UCR alternative and the decision to stop before three where applicable, and enough course-level traceability to audit why every non-PPD UCR course belongs to its generating concept. Under the current counselor contract, the stable record `id` equals the same permanent `counselor_programme_id`.
 
 Canonical records contain semantic content, not renderer coordinates, CSS or page geometry. Renderers may ignore fields they do not need, but they must not reinterpret or invent programme facts.
 
