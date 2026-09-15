@@ -56,6 +56,8 @@ For every current production record:
 
 Each alternative rationale identifies its `programmeId`, concept, evidence-map `basisLabels` and evidence references. Every alternative after the closest match also requires a concrete `distinctnessRationale` explaining the educational choice that differs from the preceding/other included alternatives.
 
+Every production record must also contain `academicRationale.finalMethodologyAudit`. This supplemental audit records any neutral comparator-route choice, generator-eligible interests explicitly covered by the closest-match core, a coherence assessment for every candidate direction, one course-level evidence-map rationale for every scheduled non-PPD course, and a passed academic-progression assessment for every included UCR alternative. The first four counselor records (`cp-000001` through `cp-000004`) have been re-audited against this final methodology and no longer use a legacy exemption.
+
 The academic interest map and each programme concept must be established before UCR course selection. The UCR course catalogue is used to implement those concepts, not to invent them.
 
 `alternativeSelection.stoppingReason` is one of:
@@ -69,7 +71,7 @@ If Alternative 2 fails, production stops at one; do not skip ahead to invent Alt
 
 Validate normalized production records with `npm run validate:counselor`. The validator intentionally ignores UUID-named pre-normalization comparison files; those files do not count as current production records.
 
-The validator cross-checks normalized production metadata against `data/registry/programmes.csv`, checks the evidence map and per-alternative rationale structure, checks the stopping decision, checks stable component references, rejects duplicate or missing courses/components, rejects identical UCR course sets presented as different alternatives, and requires every included programme column to account for exactly 180 EC. Exact three-by-60 symmetry remains a review signal rather than a prohibition.
+The validator cross-checks normalized production metadata against `data/registry/programmes.csv`, checks the evidence map and per-alternative rationale structure, checks the stopping decision, checks stable component references, rejects duplicate or missing courses/components, rejects identical UCR course sets presented as different alternatives, requires every included programme column to account for exactly 180 EC, and enforces the final-methodology audit contract. Exact three-by-60 symmetry remains a review signal rather than a prohibition.
 
 During incremental corpus production, do **not** create the production `programmes.json` or `interests.json` indexes. Leave pilot indexes unchanged until the comparison corpus is complete and quality-controlled; then build the production indexes in one finalisation step from `data/registry/programmes.csv` and `data/registry/programme_interests.csv`, applying the then-current counselor production-scope rules.
 
