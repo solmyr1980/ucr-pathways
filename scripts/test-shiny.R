@@ -72,6 +72,11 @@ for (index in seq_along(acceptance_records)) {
 }
 stopifnot(grepl("Brain &amp; Cognition specialisation", as.character(counselor$render_comparison_summary(acceptance_records[[4]])), fixed = TRUE))
 
+# The summary-first view replaces the former generic bottom "How to read" note.
+comparison_html <- as.character(counselor$render_comparison(acceptance_records[[1]]))
+stopifnot(grepl("What this comparison shows", comparison_html, fixed = TRUE))
+stopifnot(!grepl("How to read this comparison", comparison_html, fixed = TRUE))
+
 # Relationship classifications remain internal ranking metadata, not counselor-facing search copy.
 result_fixture <- list(list(
   programme = first_programme,

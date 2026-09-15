@@ -358,11 +358,6 @@ render_comparison <- function(record) {
     render_comparison_summary(record),
     render_compare_table(record),
     render_comparison_notes(record),
-    div(
-      class = "transparency-note",
-      tags$strong("How to read this comparison"),
-      tags$p("The first UCR programme is the closest feasible match. Additional UCR programmes appear only when the evidence supports a coherent, substantively different and feasible alternative. These are illustrative feasible compositions, not official UCR tracks or guaranteed future schedules.")
-    ),
     div(class = "cta-row", tags$a(class = "primary-cta", href = PROGRAM_BUILDER_URL, target = "_blank", rel = "noopener", "Explore the UCR Program Builder ↗"))
   )
 }
