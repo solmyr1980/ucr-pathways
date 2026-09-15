@@ -150,6 +150,73 @@ for (const file of recordFiles()) {
     }
   }
 
+  // Comparator placement is a separately audited semantic decision made after canonical UCR rows are fixed.
+  const scheduledUcrCodes = new Set();
+  for (const programme of ucrProgrammes) {
+    for (const semester of programme?.schedule?.semesters || []) {
+      for (const course of semester?.courses || []) scheduledUcrCodes.add(String(course.code || '').trim());
+    }
+  }
+
+  const comparatorComponents = new Map((record?.comparator?.components || []).map(component => [component.id, component]));
+  const comparatorLocation = new Map();
+  for (const [blockIndex, block] of (record.blocks || []).entries()) {
+    for (const [rowIndex, row] of (block.rows || []).entries()) {
+      const comparatorCell = normalizeCell(row?.cells?.comparator);
+      if (!comparatorCell) continue;
+      const componentId = String(comparatorCell.componentId || '').trim();
+      if (!componentId) continue;
+      if (comparatorLocation.has(componentId)) {
+        fail(`comparator component ${componentId} appears in more than one comparison row`);
+        continue;
+      }
+      const rowCodes = new Set();
+      for (const programme of ucrProgrammes) {
+        const cell = normalizeCell(row?.cells?.[programme.id]);
+        if (cell?.courseCode) rowCodes.add(String(cell.courseCode).trim());
+      }
+      if (rowCodes.size > 1) fail(`comparator component ${componentId} shares a row with multiple UCR course codes`);
+      comparatorLocation.set(componentId, {
+        location: `${blockIndex}:${rowIndex}`,
+        ucrCourseCode: rowCodes.size === 1 ? [...rowCodes][0] : null
+      });
+    }
+  }
+
+  for (const componentId of comparatorComponents.keys()) {
+    if (!comparatorLocation.has(componentId)) fail(`comparator component ${componentId} is missing from the comparison`);
+  }
+  for (const componentId of comparatorLocation.keys()) {
+    if (!comparatorComponents.has(componentId)) fail(`comparison references unknown comparator component ${componentId}`);
+  }
+
+  const alignment = Array.isArray(record.comparisonAlignment) ? record.comparisonAlignment : [];
+  const alignmentByComponent = new Map();
+  for (const [index, item] of alignment.entries()) {
+    const label = `comparisonAlignment[${index}]`;
+    const componentId = String(item?.componentId || '').trim();
+    if (!componentId) { fail(`${label}.componentId is required`); continue; }
+    if (alignmentByComponent.has(componentId)) fail(`comparisonAlignment duplicates comparator component ${componentId}`);
+    alignmentByComponent.set(componentId, item);
+    if (!comparatorComponents.has(componentId)) fail(`${label} references unknown comparator component ${componentId}`);
+    if (typeof item?.rationale !== 'string' || !item.rationale.trim()) fail(`${label}.rationale is required`);
+    if (!['substantive-match', 'unmatched'].includes(item?.matchType)) fail(`${label}.matchType is invalid`);
+    const actual = comparatorLocation.get(componentId);
+    if (!actual) continue;
+    if (item.matchType === 'substantive-match') {
+      const code = String(item?.ucrCourseCode || '').trim();
+      if (!code) fail(`${label}.ucrCourseCode is required for substantive-match`);
+      else if (!scheduledUcrCodes.has(code)) fail(`${label}.ucrCourseCode ${code} is not scheduled in any UCR alternative`);
+      if (actual.ucrCourseCode !== code) fail(`${componentId} declares semantic match to ${code} but is actually placed with ${actual.ucrCourseCode || 'no UCR course'}`);
+    } else {
+      if (item.ucrCourseCode) fail(`${label} is unmatched and must not carry ucrCourseCode`);
+      if (actual.ucrCourseCode) fail(`${componentId} is declared unmatched but shares a row with ${actual.ucrCourseCode}`);
+    }
+  }
+  for (const componentId of comparatorComponents.keys()) {
+    if (!alignmentByComponent.has(componentId)) fail(`comparisonAlignment must assess comparator component ${componentId}`);
+  }
+
   // Final labels describe the completed curriculum; the generating concept is preserved separately.
   const rationaleAlternatives = record?.academicRationale?.alternatives;
   if (!Array.isArray(rationaleAlternatives) || rationaleAlternatives.length !== ucrProgrammes.length) {

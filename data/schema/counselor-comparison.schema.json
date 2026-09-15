@@ -16,7 +16,8 @@
         "programmeProvider",
         "academicRationale",
         "alternativeSelection",
-        "comparator"
+        "comparator",
+        "comparisonAlignment"
       ],
       "properties": {
         "schemaVersion": {
@@ -308,6 +309,9 @@
             }
           },
           "additionalProperties": true
+        },
+        "comparisonAlignment": {
+          "$ref": "#/$defs/comparisonAlignment"
         }
       }
     }
@@ -545,6 +549,44 @@
         }
       },
       "additionalProperties": false
+    },
+    "comparisonAlignmentEntry": {
+      "type": "object",
+      "required": [
+        "componentId",
+        "matchType",
+        "rationale"
+      ],
+      "properties": {
+        "componentId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "matchType": {
+          "type": "string",
+          "enum": [
+            "substantive-match",
+            "unmatched"
+          ]
+        },
+        "ucrCourseCode": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "comparisonAlignment": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/comparisonAlignmentEntry"
+      }
     }
   }
 }

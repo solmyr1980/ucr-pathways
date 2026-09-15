@@ -249,6 +249,8 @@ Blocks classify and align programme components; they do not replace them with se
 
 Within one comparison, **exact UCR course identity is the only basis for sharing a UCR comparison row**. A UCR course code has one canonical row and one canonical block. Every included UCR alternative containing that exact code populates that row; alternatives not containing it remain blank. Different UCR course codes occupy different rows even when their content is closely related. This identity rule does not require symmetry between different courses or between UCR and the external comparator.
 
+After the canonical UCR rows are fixed, place each external comparator component independently according to **substantive curricular correspondence**. Co-location in a row means that the external component and the UCR course are meaningfully comparable; it must never be inherited merely from an earlier row position. A strong direct subject match takes precedence over a weaker thematic resemblance. Where no sufficiently direct UCR counterpart exists, retain the comparator component on its own row and preserve the gap rather than force a misleading alignment.
+
 Detailed block construction, stable component references and anti-template checks belong to the Production Instructions and executable validators.
 
 ---

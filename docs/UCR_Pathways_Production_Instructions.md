@@ -335,6 +335,10 @@ Apply all of the following rules:
 - for the UCR alternatives, exact `courseCode` identity is the **only** basis for sharing a row: build the UCR side of the comparison from the union of included UCR course codes, create one canonical row and block for each code, populate every UCR alternative that contains that exact code, and leave the other UCR cells blank;
 - two different UCR course codes must occupy separate rows even when their content is similar; never create a row-level equivalence merely for visual alignment;
 - assign the canonical block once for the course code within that comparison; the same course may not appear under different blocks in different UCR alternatives;
+- **only after the UCR rows are fixed**, place every comparator component independently against the strongest defensible UCR counterpart, using actual component/course content rather than previous row position;
+- a shared comparator/UCR row asserts substantive correspondence. Prefer a direct same-subject match over a looser thematic association (for example, Developmental Psychology belongs with Lifespan Developmental Psychology rather than with an unrelated social-science course);
+- when no sufficiently direct UCR counterpart exists, give the comparator component its own row with blank UCR cells. Never preserve or invent a weak match merely to reduce blank space;
+- record the decision for every comparator component in `comparisonAlignment`: either `substantive-match` with the selected `ucrCourseCode`, or `unmatched`, together with a concise rationale. If the UCR row structure changes, comparator placement must be recomputed rather than carried over by row index;
 - meaningful blank cells are legitimate when there is no sufficiently comparable component in another programme;
 - unequal block sizes, unequal numbers of components within a block and structural gaps are legitimate and often desirable;
 - methods, mathematics, statistics, econometrics, laboratory work and research training count as substantive disciplinary content where appropriate.
