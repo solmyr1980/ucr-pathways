@@ -77,7 +77,7 @@ jobs:
 
       - name: Build proposed canonical comparison
         if: steps.mode.outputs.mode == 'production'
-        run: npm run build:counselor -- "${{ steps.mode.outputs.decision_path }}"
+        run: npm run build:counselor:v2 -- "${{ steps.mode.outputs.decision_path }}"
 
       - name: Run unchanged counselor validators
         if: steps.mode.outputs.mode == 'production'

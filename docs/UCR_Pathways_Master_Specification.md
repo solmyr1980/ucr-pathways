@@ -271,6 +271,8 @@ Counselor-origin records additionally preserve the permanent `counselor_programm
 
 Counselor production uses a two-stage record architecture. ChatGPT makes and records the academic decisions explicitly in a compact decision file. A deterministic compiler then adds only mechanically derivable registry, programme-interest, schedule and comparison scaffolding. Existing validators must pass before GitHub Actions publishes the canonical comparison. The compiler must not select courses, schedule them, define alternatives, name programmes, assign substantive blocks or decide comparator matches. A failed compilation or validation produces no canonical comparison, and production never overwrites a completed canonical record.
 
+The active counselor decision contract is `decisionSchemaVersion: "2.0"`; compiled canonical counselor records remain `schemaVersion: "2.0"`. Decision schema v2 uses compact source tokens, programme-interest row references, tuple-form verified course facts, explicit semester groups, shared course-to-basis traceability with explicit overrides, and compact block-row assignments. The v1 compiler and regression fixtures remain available only as a temporary fallback and regression reference until v2 has succeeded on a new production target.
+
 Canonical records contain semantic content, not renderer coordinates, CSS or page geometry. Renderers may ignore fields they do not need, but they must not reinterpret or invent programme facts.
 
 ---

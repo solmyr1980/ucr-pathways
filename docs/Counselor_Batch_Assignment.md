@@ -26,6 +26,7 @@ Inspect the current implementation needed for the batch:
 - `data/registry/README.md`;
 - `data/counselor/README.md`;
 - current counselor comparison schema and validator;
+- the active v2 counselor decision contract and compiler;
 - the current enriched UCR course database.
 
 Inspect registry crosswalk/provenance files or existing comparison records only when they are needed to resolve a selected target or determine whether a current production record already exists.
@@ -54,7 +55,7 @@ For each target, execute the canonical counselor production pipeline in **Sectio
 
 A target is not considered processed merely because its comparator, alternative concepts, course sets or schedules have been worked out. Before beginning work on the next selected target, the current target must have:
 
-1. a complete compact academic decision file committed at `data/counselor/decisions/<counselor_programme_id>.json`;
+1. a complete compact `decisionSchemaVersion: "2.0"` academic decision file committed at `data/counselor/decisions/<counselor_programme_id>.json`;
 2. a successful GitHub Actions compiler and validation run;
 3. a complete canonical JSON record published at `data/counselor/comparisons/<counselor_programme_id>.json`;
 4. all record-level counselor validation and completion gates passed; and
@@ -113,6 +114,8 @@ Work only on the existing `main` branch.
 Do not create another branch, pull request, duplicate repository structure or repository reorganization.
 
 Commit one completed counselor decision file to `main`. Let the counselor compiler workflow generate, validate and publish its canonical comparison before beginning the next selected target. Do not hand-edit or directly commit a new canonical comparison, and do not hold an entire batch as uncommitted or unserialized working state.
+
+New production decision files must use v2. Decision schema v1 and its compiler remain available only as a documented recovery fallback and regression reference; do not submit a new v1 production decision unless a manual recovery decision explicitly authorizes it.
 
 Do not modify public examples, `data/catalog.json`, website content, LinkedIn records, publication queues or generated PDFs as part of counselor corpus production.
 
