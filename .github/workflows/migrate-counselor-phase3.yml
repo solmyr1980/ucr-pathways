@@ -1,0 +1,50 @@
+name: Counselor phase 3 re-audit migration
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/migrate-counselor-phase3.mjs
+      - .github/workflows/migrate-counselor-phase3.yml
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Apply phase-three re-audit
+        run: node scripts/migrate-counselor-phase3.mjs
+      - name: Validate counselor records
+        run: npm run validate:counselor
+      - name: Validate programme-interest registry
+        run: npm run validate:registry-interests
+      - name: Validate counselor review indexes
+        run: npm run validate:counselor-review
+      - name: Run regression tests
+        run: npm test
+      - name: Commit migrated records and remove migration machinery
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm scripts/migrate-counselor-phase3.mjs .github/workflows/migrate-counselor-phase3.yml
+          git add data/counselor/comparisons/cp-000001.json \
+                  data/counselor/comparisons/cp-000002.json \
+                  data/counselor/comparisons/cp-000003.json \
+                  data/counselor/comparisons/cp-000004.json \
+                  scripts/validate-counselor-structural-rules.mjs \
+                  scripts/validate-counselor-final-rules.mjs
+          git diff --cached --check
+          git commit -m "Complete counselor four-case final re-audit"
+          git push origin HEAD:main
