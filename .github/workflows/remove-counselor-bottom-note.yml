@@ -1,0 +1,87 @@
+name: Remove redundant counselor bottom note
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/remove-counselor-bottom-note.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Remove redundant note and add regression check
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          app_path = Path('pilot/counselor-shiny/app.R')
+          app = app_path.read_text()
+          old = '''    render_comparison_notes(record),
+              div(
+                class = "transparency-note",
+                tags$strong("How to read this comparison"),
+                tags$p("The first UCR programme is the closest feasible match. Additional UCR programmes appear only when the evidence supports a coherent, substantively different and feasible alternative. These are illustrative feasible compositions, not official UCR tracks or guaranteed future schedules.")
+              ),
+          '''
+          new = '''    render_comparison_notes(record),
+          '''
+          if old not in app:
+              raise SystemExit('bottom transparency-note block not found')
+          app = app.replace(old, new, 1)
+          app_path.write_text(app)
+
+          test_path = Path('scripts/test-shiny.R')
+          test = test_path.read_text()
+          marker = '''stopifnot(grepl("Brain &amp; Cognition specialisation", as.character(counselor$render_comparison_summary(acceptance_records[[4]])), fixed = TRUE))
+          '''
+          insert = marker + '''
+          # The summary-first view replaces the former generic bottom "How to read" note.
+          comparison_html <- as.character(counselor$render_comparison(acceptance_records[[1]]))
+          stopifnot(grepl("What this comparison shows", comparison_html, fixed = TRUE))
+          stopifnot(!grepl("How to read this comparison", comparison_html, fixed = TRUE))
+          '''
+          if marker not in test:
+              raise SystemExit('summary regression marker not found')
+          test = test.replace(marker, insert, 1)
+          test_path.write_text(test)
+          PY
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+
+      - name: Install system dependency for Shiny
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libuv1-dev
+
+      - name: Install test dependencies
+        run: Rscript -e 'install.packages(c("shiny", "jsonlite", "testthat"), repos=Sys.getenv("RSPM"))'
+
+      - name: Validate counselor app
+        run: |
+          Rscript -e 'parse(file="pilot/counselor-shiny/app.R")'
+          Rscript scripts/test-shiny.R
+          npm run validate:counselor
+          npm test
+
+      - name: Commit change and remove temporary workflow
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/remove-counselor-bottom-note.yml
+          git add pilot/counselor-shiny/app.R scripts/test-shiny.R
+          git diff --cached --check
+          git commit -m "Remove redundant counselor comparison note"
+          git push origin HEAD:main
