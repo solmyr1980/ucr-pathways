@@ -52,6 +52,14 @@ Process **one selected target end-to-end before moving to the next**.
 
 For each target, execute the canonical counselor production pipeline in **Section 4 of the Production Instructions** exactly as written, including its evidence, sequential alternative-selection, course-traceability, feasibility, comparison and record gates.
 
+A target is not considered processed merely because its comparator, alternative concepts, course sets or schedules have been worked out. Before beginning work on the next selected target, the current target must have:
+
+1. a complete canonical JSON record at `data/counselor/comparisons/<counselor_programme_id>.json`;
+2. all record-level counselor validation and completion gates passed; and
+3. that completed record committed to the existing `main` branch.
+
+Treat each selected target as an atomic resumable production unit. Do not develop several targets in parallel and postpone serialization, validation or GitHub persistence until the end of the batch. If execution stops partway through a batch, already completed and committed target records remain valid checkpoints; resume from the first selected target that does not yet have a completed current production record.
+
 Do not restate, reinterpret or supplement the academic method from this batch assignment. If a genuine contract or registry problem is discovered, handle it in the appropriate upstream layer rather than inventing a batch-specific workaround.
 
 Current counselor UCR scheduling uses the fixed Fall 2026 cohort defined in the Production Instructions.
@@ -82,11 +90,13 @@ Continue with the remaining selected targets and report the exception.
 
 # 5. Batch quality control
 
-After every individually completed record has passed the record-level completion gates in the Production Instructions:
+After every individually completed record has passed the record-level completion gates in the Production Instructions and has been committed as required by Section 3:
 
 1. run automated counselor validation across all completed current production records;
 2. run the **batch-level counselor QC** in Section 9.2 of the Production Instructions;
 3. repair only genuine failures; do not alter sound records merely to create superficial variety.
+
+Batch-level QC may produce a later corrective commit, but it does not replace the per-target persistence checkpoint in Section 3.
 
 ---
 
@@ -95,6 +105,8 @@ After every individually completed record has passed the record-level completion
 Work only on the existing `main` branch.
 
 Do not create another branch, pull request, duplicate repository structure or repository reorganization.
+
+Commit each completed counselor comparison record to `main` before beginning the next selected target. Do not hold an entire batch as uncommitted or unserialized working state.
 
 Do not modify public examples, `data/catalog.json`, website content, LinkedIn records, publication queues or generated PDFs as part of counselor corpus production.
 
