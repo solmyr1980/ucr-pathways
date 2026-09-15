@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Patch cp-000001 sociology re-audit
+      - name: Patch migration assumptions
         run: |
           python - <<'PYFIX'
           from pathlib import Path
@@ -35,6 +35,7 @@ jobs:
               raise SystemExit('cp-000001 migration block not found')
           s = s.replace(old, new, 1)
           s = s.replace("'ucr-2': 'Passed after re-sequencing the sociology strand so Introduction to Sociology precedes Modern Sociology, which in turn precedes New Issues in Contemporary Social Theory; Sustainability Essentials I also precedes Sustainability Essentials II. Formal prerequisites and fixed-term availability remain satisfied.'", "'ucr-2': 'Passed after replacing the advanced contemporary-social-theory course with Modern Sociology, so Introduction to Sociology precedes the later sociology course; Sustainability Essentials I also precedes Sustainability Essentials II. Formal prerequisites and fixed-term availability remain satisfied.'", 1)
+          s = s.replace("  r.validation.officialEvidenceChecked = '2026-09-15';", "  (r.validation ||= {}).officialEvidenceChecked = '2026-09-15';")
           p.write_text(s)
           PYFIX
       - name: Apply phase-three re-audit
