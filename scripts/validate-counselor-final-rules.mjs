@@ -6,7 +6,7 @@ const target = process.argv[2] || 'all';
 const comparisonsDir = path.join(root, 'data', 'counselor', 'comparisons');
 const cpPattern = /^cp-[0-9]{6}$/;
 const ppdCode = 'ACCPPDE101';
-const legacyPendingReaudit = new Set(['cp-000001', 'cp-000002', 'cp-000003', 'cp-000004']);
+const legacyPendingReaudit = new Set();
 const routeRules = new Set([
   'target-named',
   'broad-academic-identity',

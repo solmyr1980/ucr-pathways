@@ -307,9 +307,14 @@ for (const file of recordFiles()) {
       }
     }
 
+    const coveredByClosest = new Set(
+      Array.isArray(record?.academicRationale?.finalMethodologyAudit?.coveredByClosestMatchInterestRows)
+        ? record.academicRationale.finalMethodologyAudit.coveredByClosestMatchInterestRows
+        : []
+    );
     for (const item of assessed) {
-      if (item.constructionRole === 'generator-eligible' && !generatedRows.has(item.registryRow)) {
-        fail(`generator-eligible interest row ${item.registryRow} was not assessed within any candidate direction`);
+      if (item.constructionRole === 'generator-eligible' && !generatedRows.has(item.registryRow) && !coveredByClosest.has(item.registryRow)) {
+        fail(`generator-eligible interest row ${item.registryRow} was neither assessed within a candidate direction nor explicitly covered by the closest-match core`);
       }
     }
     for (const programme of ucrProgrammes.slice(1)) {
