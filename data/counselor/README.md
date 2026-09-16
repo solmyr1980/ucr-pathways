@@ -37,7 +37,9 @@ Current counselor production records use `schemaVersion: "2.0"`.
 
 ## Production compilation
 
-Academic production now begins with a compact explicit decision file under `decisions/`. ChatGPT completes the academic work first: comparator reconstruction, evidence mapping, alternative concepts, course selection, semester assignment, curriculum-based labels, block placement, substantive comparator matches and rationales. The selected-course facts are verified against the enriched UCR course Project Source and included in the decision input; that Project Source is not copied into GitHub.
+Academic production begins with a compact explicit decision file under `decisions/`. The AI production agent completes the academic work first: comparator reconstruction, evidence mapping, alternative concepts, course selection, semester assignment, curriculum-based labels, block placement, substantive comparator matches and rationales.
+
+For UCR course evidence, use the current `ucr_courses_enriched.xlsx` supplied by the human operator under the rules in `data/reference/README.md`. The authoritative repository copy is stored at `data/reference/ucr_courses_enriched.xlsx` for human distribution and version control. The AI must verify that the human-provided copy is accessible before counselor production and use that supplied copy throughout the workstream rather than repeatedly retrieving the workbook from GitHub. Selected-course facts are verified against that dataset and included explicitly in the decision input.
 
 The deterministic compiler in `scripts/build-counselor-comparison.mjs` reads that decision file plus current GitHub registry data. It constructs normalized provider metadata, assessed programme interests, fixed semester scaffolding, canonical same-course rows and other mechanical schema 2.0 fields. It never makes an academic choice. The GitHub workflow runs the compiler and the existing counselor validators, then commits a new canonical comparison only after every check succeeds. It fails safely when a canonical target file already exists.
 
