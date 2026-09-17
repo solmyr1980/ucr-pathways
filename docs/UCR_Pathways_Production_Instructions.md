@@ -79,6 +79,8 @@ Apply the following route-selection rule whenever formal routes/tracks/specializ
 3. if no route is clearly more representative, choose the least specialized or most general route available under the official curriculum;
 4. if several routes remain equally general with no substantive basis for preferring one, use their order in the current official curriculum as a neutral tie-break.
 
+Name and store a formal route, track or specialization only when current official evidence confirms both its exact name and its availability in the applicable academic year. If the official evidence confirms only a generic major, elective or profiling structure, preserve that structure generically and leave the route unspecified. Do not carry forward a historical route name, infer one from course titles or use an unverified route merely because it produces a more concrete comparison.
+
 Never select a comparator route because it creates an easier or stronger apparent match to UCR. Record the selected route/track and a concise basis for the selection whenever the choice materially shapes the 180-EC pathway. That route information must remain available to downstream counselor presentation.
 
 Never combine mutually exclusive choices, present optional material as compulsory, invent components to fill open space, violate programme rules, deliberately choose weak options, or make the programme artificially narrow.
@@ -104,6 +106,8 @@ Normally place relevant foundational or introductory study before advanced work 
 
 For both workflows, every course except mandatory `ACCPPDE101` Personal & Professional Development must make a concrete substantive contribution to the programme's evidenced concept. Generic claims such as breadth, context or another perspective are insufficient unless that role is itself evidenced and specific to the concept.
 
+The course-traceability rationale must make clear whether a course directly implements an evidenced subject or method, or makes a specific complementary contribution to it. A complementary course is acceptable only when its actual content materially supports the concept. Mere adjacency, general context or possible relevance does not justify inclusion, and an adjacent course must never be described as a direct substitute for disciplinary content that UCR does not offer.
+
 Do not invent additional cluster, unit, concentration, breadth or disciplinary-distribution requirements.
 
 Validate the numerical, prerequisite and availability rules mechanically against the enriched course database. Mechanical validation does not replace the academic progression or course-to-concept tests above, and repository/schema validation does not replace academic feasibility validation.
@@ -126,6 +130,8 @@ Consider one additional coherent programme concept supported by the applicable e
 4. **feasibility** — it can satisfy all UCR mechanical constraints and academic-progression requirements.
 
 If Alternative 2 fails, stop. Do not manufacture Alternative 3.
+
+A different label or thematic framing does not by itself establish a different route. The candidate concept must change the programme's academic priorities and lead to material curricular consequences. When Alternative 1 already covers the candidate evidence and no genuinely different curriculum follows from it, reject the candidate as `not-substantively-distinct` even if arbitrary substitutions could satisfy the numerical floor.
 
 ### Alternative 3 — second genuinely different route
 
@@ -337,6 +343,12 @@ Only after the external curriculum and all included UCR curricula are complete a
 
 Identify whether the comparator has one clear bachelor thesis, capstone, research project or equivalent independent-research component. Record that component's stable `componentId` as `researchComponentId`; record `researchComponentId: null` when no such comparator component exists. This decision controls only placement of the standardized UCR optional-research comparison element and does not alter comparator reconstruction, UCR course selection or scheduling.
 
+### Step 8A — Reconcile the completed academic decisions
+
+Before encoding the production record, audit the completed curricula rather than relying on the original intentions. For every included alternative, confirm the full chain from permitted evidence to the frozen concept and from that concept to the actual content of every selected non-PPD course. Check that the final label, rationale and comparison claims describe the completed curriculum without overstating direct disciplinary coverage or turning a complementary course into a substitute.
+
+Reassess every rejected candidate against the completed alternatives. If its evidence is already substantively covered and does not produce a genuinely different curriculum, record `not-substantively-distinct`; if its concept cannot support a credible 24-course programme, record the applicable evidence, coherence or feasibility failure. Finally, recheck every named comparator route and material comparator component against current official evidence for the applicable academic year. Schema validity and numerical distinctness do not replace this reconciliation.
+
 ### Step 9 — Create and validate the production record
 
 After all academic decisions and completion-gate judgments are finished, encode them using the active counselor decision contract, `decisionSchemaVersion: "2.0"`. The compact v2 decision must state every fact or judgment that the compiler cannot safely derive, including the comparator route and components, official sources, alternative concepts and outcomes, verified selected-course facts, six explicit semester assignments, final labels and label review, programme-interest construction ownership, course-to-basis relationships and substantive reasons, progression and distinctness judgments, block placement, comparator matches or explicit unmatched status, `researchComponentId` (a comparator component ID or explicit `null`), and the stopping decision.
@@ -507,9 +519,9 @@ The purpose of final QC is to confirm that the procedure above was followed, not
 
 A counselor record is complete only when all six gates pass:
 
-1. **Evidence gate** — external programme is fairly reconstructed; any comparator route choice follows the neutral route-selection rule and is recorded when material; every substantive interest-map item used in an alternative is evidence-backed for the exact target; and every generator-eligible interest row is either substantively covered by the closest-match core or assigned to a coherent candidate direction rather than an omnibus residual bucket.
-2. **Alternative gate** — Alternative 1 is the closest defensible response; each additional alternative passed evidence, coherence, qualitative distinctness, the pairwise **30 EC / 4-course minimum**, and feasibility; the sequential stopping decision is recorded and no skipped slot was manufactured later.
-3. **Course gate** — every non-PPD course has one explicit course-traceability entry linking it to evidenced concept items with a substantive rationale; no course relies only on generic breadth/context language; every included alternative after the first has a concrete distinctness rationale; and courses changed to establish distinctness are genuine consequences of the evidenced concept rather than arbitrary threshold-filling substitutions.
+1. **Evidence gate** — external programme is fairly reconstructed; any named comparator route is confirmed by current official evidence for the applicable academic year, follows the neutral route-selection rule and is recorded when material; every substantive interest-map item used in an alternative is evidence-backed for the exact target; and every generator-eligible interest row is either substantively covered by the closest-match core or assigned to a coherent candidate direction rather than an omnibus residual bucket.
+2. **Alternative gate** — Alternative 1 is the closest defensible response; each additional alternative passed evidence, coherence, qualitative distinctness, the pairwise **30 EC / 4-course minimum**, and feasibility; its different organising logic produces material curricular consequences; the sequential stopping decision is recorded; and no skipped slot or relabelled near-duplicate was manufactured later.
+3. **Course gate** — every non-PPD course has one explicit course-traceability entry linking its actual content to evidenced concept items with a substantive rationale; the rationale accurately presents the course as a direct or specific complementary contribution; no merely adjacent course is treated as a substitute or justified only through generic breadth/context language; every included alternative after the first has a concrete distinctness rationale; and courses changed to establish distinctness are genuine consequences of the evidenced concept rather than arbitrary threshold-filling substitutions.
 4. **Feasibility gate** — all mechanical UCR schedule constraints pass against the enriched database and the semester order is academically credible under the progression rule for every included programme. A formal `prerequisite = NONE` does not by itself establish acceptable sequencing.
 5. **Comparison gate** — every included programme still accounts for exactly 180 EC of canonical curriculum; each canonical UCR course/external component appears exactly once; PPD is visible; **Optional independent research — 15 EC** appears once in every UCR column as a comparison-only element and is excluded from the 180-EC total; its placement follows `researchComponentId` or the PPD-block fallback; stable references agree with canonical data; and block alignment preserves genuine gaps rather than imposing a symmetry template.
 6. **Record gate** — the current counselor schema/validator passes and normalized identity/provenance matches the registry.
