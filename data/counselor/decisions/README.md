@@ -47,6 +47,7 @@ The compiler must fail when an academic decision is missing or invalid. It must 
 - `basis` assigns short stable IDs such as `c0`, `a0` and `q0` to evidence-backed core, adjacent and question/application items.
 - `trace` supplies shared `[courseCode, basisIds, substantiveReason]` decisions. `traceOverrides` records an explicit alternative-specific relationship when the shared decision does not apply.
 - A block row `[courseCode, componentId, rationale]` explicitly matches that comparator component to that UCR course. `[null, componentId, rationale]` explicitly leaves the component unmatched. `[courseCode, null, null]` assigns a UCR course without forcing comparator symmetry.
+- `researchComponentId` is required in every new v2 production decision. Set it to the stable comparator component ID for the bachelor thesis, capstone, research project or equivalent independent-research component; set it explicitly to `null` when no such comparator component exists. It controls only placement of the standardized **Optional independent research — 15 EC** comparison element.
 - `routeSelection` contains the explicit route judgment or `null` when no comparator route is selected.
 - `progression` contains the explicit status and concise academic rationale.
 - Every additional alternative requires a substantive `distinctness` rationale.

@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { compileCounselorDecision } from './build-counselor-comparison.mjs';
+import { stripOptionalIndependentResearch } from './optional-independent-research.mjs';
 
 const root = process.cwd();
 const fixtureDirectory = path.join(root, 'data', 'counselor', 'decisions', '_regression');
@@ -28,7 +29,7 @@ const generated = new Map();
 for (const id of ids) {
   const decision = JSON.parse(fs.readFileSync(path.join(fixtureDirectory, `${id}.json`), 'utf8'));
   const actual = compileCounselorDecision(decision, root);
-  const expected = JSON.parse(fs.readFileSync(path.join(comparisonDirectory, `${id}.json`), 'utf8'));
+  const expected = stripOptionalIndependentResearch(JSON.parse(fs.readFileSync(path.join(comparisonDirectory, `${id}.json`), 'utf8')));
   assert.deepStrictEqual(
     normalizedSubstantiveRecord(actual),
     normalizedSubstantiveRecord(expected),

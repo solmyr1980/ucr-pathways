@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { compileV2 } from './build-counselor-comparison-v2.mjs';
+import { stripOptionalIndependentResearch } from './optional-independent-research.mjs';
 
 const root = process.cwd();
 const fixtureDirectory = path.join(root, 'data', 'counselor', 'decisions', '_regression', 'v2');
@@ -88,7 +89,7 @@ for (const id of ids) {
 
   const decision = JSON.parse(fs.readFileSync(fixturePath, 'utf8'));
   const actual = compileV2(decision, root);
-  const expected = JSON.parse(fs.readFileSync(canonicalPath, 'utf8'));
+  const expected = stripOptionalIndependentResearch(JSON.parse(fs.readFileSync(canonicalPath, 'utf8')));
   assert.deepEqual(semanticProjection(actual), semanticProjection(expected), `${id} v2 compiler regression changed a substantive decision`);
   generated.set(id, actual);
   console.log(`${id}: ${fixtureSize} bytes; semantic v2 regression PASS`);

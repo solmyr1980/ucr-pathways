@@ -5,17 +5,18 @@
   "scripts": {
     "dev": "vite",
     "validate": "node scripts/validate-example.mjs all",
-    "validate:counselor": "node scripts/validate-counselor-comparison.mjs all && node scripts/validate-counselor-structural-rules.mjs all && node scripts/validate-counselor-final-rules.mjs all",
-    "build:counselor": "node scripts/build-counselor-comparison-v2.mjs",
+    "validate:counselor": "node scripts/validate-counselor-production.mjs",
+    "build:counselor": "node scripts/build-counselor-production.mjs",
     "build:counselor:v1": "node scripts/build-counselor-comparison.mjs",
-    "build:counselor:v2": "node scripts/build-counselor-comparison-v2.mjs",
-    "test:counselor-compiler": "npm run test:counselor-compiler:v1 && npm run test:counselor-compiler:v2",
+    "build:counselor:v2": "node scripts/build-counselor-production.mjs",
+    "test:counselor-compiler": "npm run test:counselor-compiler:v1 && npm run test:counselor-compiler:v2 && npm run test:optional-research",
     "test:counselor-compiler:v1": "node scripts/test-counselor-compiler.mjs",
     "test:counselor-compiler:v2": "node scripts/test-counselor-compiler-v2.mjs",
     "validate:registry-interests": "node scripts/validate-registry-interests.mjs",
     "build:counselor-review": "node scripts/build-counselor-review-index.mjs",
     "validate:counselor-review": "node scripts/build-counselor-review-index.mjs --check",
-    "test": "node --test scripts/quality.test.mjs"
+    "test": "node --test scripts/quality.test.mjs",
+    "test:optional-research": "node scripts/test-optional-independent-research.mjs"
   },
   "devDependencies": {
     "vite": "8.3.0",

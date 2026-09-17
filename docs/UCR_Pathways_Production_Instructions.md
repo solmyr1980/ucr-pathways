@@ -335,9 +335,11 @@ For the current counselor corpus use the fixed **Fall 2026 UCR start**:
 
 Only after the external curriculum and all included UCR curricula are complete and validated, construct comparison blocks under Section 5.
 
+Identify whether the comparator has one clear bachelor thesis, capstone, research project or equivalent independent-research component. Record that component's stable `componentId` as `researchComponentId`; record `researchComponentId: null` when no such comparator component exists. This decision controls only placement of the standardized UCR optional-research comparison element and does not alter comparator reconstruction, UCR course selection or scheduling.
+
 ### Step 9 — Create and validate the production record
 
-After all academic decisions and completion-gate judgments are finished, encode them using the active counselor decision contract, `decisionSchemaVersion: "2.0"`. The compact v2 decision must state every fact or judgment that the compiler cannot safely derive, including the comparator route and components, official sources, alternative concepts and outcomes, verified selected-course facts, six explicit semester assignments, final labels and label review, programme-interest construction ownership, course-to-basis relationships and substantive reasons, progression and distinctness judgments, block placement, comparator matches or explicit unmatched status, and the stopping decision.
+After all academic decisions and completion-gate judgments are finished, encode them using the active counselor decision contract, `decisionSchemaVersion: "2.0"`. The compact v2 decision must state every fact or judgment that the compiler cannot safely derive, including the comparator route and components, official sources, alternative concepts and outcomes, verified selected-course facts, six explicit semester assignments, final labels and label review, programme-interest construction ownership, course-to-basis relationships and substantive reasons, progression and distinctness judgments, block placement, comparator matches or explicit unmatched status, `researchComponentId` (a comparator component ID or explicit `null`), and the stopping decision.
 
 Commit that decision file to the existing `main` branch. GitHub Actions runs the v2 deterministic compiler, builds the proposed canonical counselor record under Section 7, and runs the unchanged counselor validators. It publishes the canonical comparison to `main` only when compilation and validation both succeed. The compiler may expand source and evidence tokens, add normalized registry data and assessed-interest objects, add fixed semester labels and terms, repeat verified course metadata, create programme IDs, rows, cells, alignment objects and audit bookkeeping, and calculate counts and totals. It must never invent a missing academic decision and must fail if the target canonical comparison already exists. Decision schema v1 remains available only through the explicitly versioned fallback command; do not use it for new production files.
 
@@ -362,7 +364,10 @@ Apply all of the following rules:
 - there is no required number of blocks and no default three-block or 60/60/60 structure;
 - every included UCR course must appear in the comparison **exactly once**, including `ACCPPDE101` Personal & Professional Development;
 - every external curriculum component in the reconstructed coherent pathway must appear **exactly once**;
-- the displayed components for every included programme column must total **180 EC**;
+- the scheduled/canonical components for every included programme column must total **180 EC**;
+- every UCR alternative additionally displays **Optional independent research — 15 EC** as a standardized comparison-only element; it is not a scheduled course, is excluded from the 24-course and 180-EC totals, and must never be added to the enriched UCR course database;
+- when `researchComponentId` identifies a comparator bachelor thesis, capstone, research project or equivalent independent-research component, place the UCR optional-research element in that comparator row in every UCR column when those cells are otherwise blank; if an existing substantive UCR course match already occupies that row, place the optional-research element in a separate row immediately adjacent within the same block rather than displacing the academic match;
+- when `researchComponentId` is `null`, add a separate optional-research row in the same block as `ACCPPDE101` Personal & Professional Development;
 - genuine open-elective, profiling or restricted-choice space in the external programme must appear explicitly as such and retain its actual EC value;
 - one comparison cell represents one canonical course/component; do not combine several UCR courses into a prose bundle;
 
@@ -437,8 +442,8 @@ Preserve at minimum:
 - exactly one comparator identity and one to three ordered UCR alternative identities;
 - comparator name, institution/provider, official source and the complete reconstructed 180-EC component list;
 - complete 24-course set and six-semester schedule for each included UCR programme;
-- comparison blocks that account for every canonical component exactly once while preserving deliberate gaps in horizontal alignment;
-- stable comparison references back to UCR course codes and comparator component IDs in current production records;
+- comparison blocks that account for every canonical 180-EC component exactly once while preserving deliberate gaps in horizontal alignment, plus the standardized UCR-only **Optional independent research — 15 EC** comparison element;
+- stable comparison references back to UCR course codes and comparator component IDs in current production records, with the optional-research element explicitly marked as comparison-only and excluded from programme-credit totals;
 - explanatory-note type/parameters or rendered note where needed;
 - academic validation status and internal source/verification metadata.
 
@@ -506,7 +511,7 @@ A counselor record is complete only when all six gates pass:
 2. **Alternative gate** — Alternative 1 is the closest defensible response; each additional alternative passed evidence, coherence, qualitative distinctness, the pairwise **30 EC / 4-course minimum**, and feasibility; the sequential stopping decision is recorded and no skipped slot was manufactured later.
 3. **Course gate** — every non-PPD course has one explicit course-traceability entry linking it to evidenced concept items with a substantive rationale; no course relies only on generic breadth/context language; every included alternative after the first has a concrete distinctness rationale; and courses changed to establish distinctness are genuine consequences of the evidenced concept rather than arbitrary threshold-filling substitutions.
 4. **Feasibility gate** — all mechanical UCR schedule constraints pass against the enriched database and the semester order is academically credible under the progression rule for every included programme. A formal `prerequisite = NONE` does not by itself establish acceptable sequencing.
-5. **Comparison gate** — every included column accounts for exactly 180 EC; each canonical UCR course/external component appears exactly once; PPD is visible; stable references agree with canonical data; and block alignment preserves genuine gaps rather than imposing a symmetry template.
+5. **Comparison gate** — every included programme still accounts for exactly 180 EC of canonical curriculum; each canonical UCR course/external component appears exactly once; PPD is visible; **Optional independent research — 15 EC** appears once in every UCR column as a comparison-only element and is excluded from the 180-EC total; its placement follows `researchComponentId` or the PPD-block fallback; stable references agree with canonical data; and block alignment preserves genuine gaps rather than imposing a symmetry template.
 6. **Record gate** — the current counselor schema/validator passes and normalized identity/provenance matches the registry.
 
 ## 9.2 Batch-level counselor QC
