@@ -8,6 +8,11 @@ on:
       - 'data/counselor/decisions/**'
       - 'scripts/build-counselor-comparison.mjs'
       - 'scripts/build-counselor-comparison-v2.mjs'
+      - 'scripts/build-counselor-production.mjs'
+      - 'scripts/optional-independent-research.mjs'
+      - 'scripts/validate-counselor-production.mjs'
+      - 'scripts/test-optional-independent-research.mjs'
+      - 'scripts/apply-optional-independent-research-change.mjs'
       - 'scripts/test-counselor-compiler.mjs'
       - 'scripts/test-counselor-compiler-v2.mjs'
       - 'scripts/validate-counselor-comparison.mjs'
@@ -70,6 +75,31 @@ jobs:
           echo "mode=production" >> "$GITHUB_OUTPUT"
           echo "decision_path=$decision_path" >> "$GITHUB_OUTPUT"
           echo "comparison_id=$(basename "$decision_path" .json)" >> "$GITHUB_OUTPUT"
+
+      # OPTIONAL_RESEARCH_MIGRATION_START
+      - name: Apply optional independent research migration
+        if: steps.mode.outputs.mode == 'dry-run'
+        run: node scripts/apply-optional-independent-research-change.mjs
+
+      - name: Run migration regressions
+        if: steps.mode.outputs.mode == 'dry-run'
+        run: npm run test:counselor-compiler
+
+      - name: Commit validated optional research migration
+        if: steps.mode.outputs.mode == 'dry-run'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No migration changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Implement optional independent research comparison element"
+          git push
+      # OPTIONAL_RESEARCH_MIGRATION_END
 
       - name: Run compiler regressions in temporary storage
         if: steps.mode.outputs.mode == 'dry-run'
