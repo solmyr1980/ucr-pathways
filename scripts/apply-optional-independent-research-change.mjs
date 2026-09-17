@@ -12,7 +12,12 @@ function replaceOnce(value, before, after, label) {
   return value.replace(before, after);
 }
 
-// Durable product rule.
+const currentPackage = JSON.parse(read('package.json'));
+if (currentPackage.scripts?.['build:counselor:v2'] === 'node scripts/build-counselor-production.mjs') {
+  console.log('Optional independent research migration is already applied; no changes needed.');
+  process.exit(0);
+}
+
 {
   const rel = 'docs/UCR_Pathways_Master_Specification.md';
   let value = read(rel);
@@ -25,7 +30,6 @@ function replaceOnce(value, before, after, label) {
   write(rel, value);
 }
 
-// Academic production procedure.
 {
   const rel = 'docs/UCR_Pathways_Production_Instructions.md';
   let value = read(rel);
@@ -62,7 +66,6 @@ function replaceOnce(value, before, after, label) {
   write(rel, value);
 }
 
-// Active v2 decision conventions.
 {
   const rel = 'data/counselor/decisions/README.md';
   let value = read(rel);
@@ -75,7 +78,6 @@ function replaceOnce(value, before, after, label) {
   write(rel, value);
 }
 
-// Package commands: production build adds the comparison-only element; validation strips it before legacy 180-EC validators.
 {
   const rel = 'package.json';
   const pkg = JSON.parse(read(rel));
@@ -87,7 +89,6 @@ function replaceOnce(value, before, after, label) {
   write(rel, `${JSON.stringify(pkg, null, 2)}\n`);
 }
 
-// Regression tests compare academic decisions only; optional research is comparison-only.
 {
   const rel = 'scripts/test-counselor-compiler.mjs';
   let value = read(rel);
@@ -124,7 +125,6 @@ function replaceOnce(value, before, after, label) {
   write(rel, value);
 }
 
-// Migrate the completed counselor corpus without reopening academic programme decisions.
 const existingResearchComponents = {
   'cp-000001': 'pa-bachelor-project',
   'cp-000002': 'misoc-bachelor-project',
@@ -147,20 +147,4 @@ for (const [id, researchComponentId] of Object.entries(existingResearchComponent
   write(rel, `${JSON.stringify(record, null, 2)}\n`);
 }
 
-// Finalize the workflow by removing this one-time migration step and its trigger path.
-{
-  const rel = '.github/workflows/build-counselor-comparison.yml';
-  let value = read(rel);
-  value = value.replace("      - 'scripts/apply-optional-independent-research-change.mjs'\n", '');
-  const start = '      # OPTIONAL_RESEARCH_MIGRATION_START\n';
-  const end = '      # OPTIONAL_RESEARCH_MIGRATION_END\n';
-  const startIndex = value.indexOf(start);
-  const endIndex = value.indexOf(end);
-  if (startIndex < 0 || endIndex < startIndex) throw new Error('Workflow migration block not found');
-  value = value.slice(0, startIndex) + value.slice(endIndex + end.length);
-  write(rel, value);
-}
-
-// Remove this one-time script from the final repository state.
-fs.rmSync(file('scripts/apply-optional-independent-research-change.mjs'));
 console.log('Optional independent research migration prepared successfully.');
