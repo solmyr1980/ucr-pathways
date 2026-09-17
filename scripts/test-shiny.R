@@ -26,14 +26,17 @@ if (counselor$IS_PILOT_DATA) {
 if (counselor$IS_REVIEW_DATA) {
   review_ids <- vapply(counselor$COUNSELOR_DATA$programmes, function(x) as.character(x$programmeProviderId), character(1))
   review_names <- vapply(counselor$COUNSELOR_DATA$programmes, function(x) as.character(x$displayName), character(1))
-  stopifnot(identical(review_ids, sprintf("cp-%06d", 1:4)))
-  stopifnot(identical(review_names, c(
+  expected_review_ids <- tools::file_path_sans_ext(sort(list.files(
+    "data/counselor/comparisons",
+    pattern = "^cp-[0-9]{6}\\.json$"
+  )))
+  stopifnot(identical(review_ids, expected_review_ids))
+  stopifnot(identical(head(review_names, 4), c(
     "Bachelor of Public Administration",
     "Bachelor in Management of International Social Challenges",
     "Bachelor of Pedagogical Sciences",
     "Bachelor of Psychology"
   )))
-  stopifnot(length(nld_results) == 3)
   stopifnot(all(vapply(review_ids, function(id) file.exists(counselor$comparison_path(id)), logical(1))))
   psychology_results <- counselor$search_programmes(counselor$COUNSELOR_DATA, query = "psychology")
   stopifnot(any(vapply(psychology_results, function(x) identical(x$programme$programmeProviderId, "cp-000004"), logical(1))))

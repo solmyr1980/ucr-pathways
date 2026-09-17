@@ -41,7 +41,7 @@ Search remains discovery rather than personalization. Relationship classificatio
 
 ## Runtime data architecture
 
-GitHub is the authoritative source and deployment source, but the running app does **not** fetch counselor data from GitHub.
+GitHub is the authoritative source. Deployment uploads a version-matched runtime bundle from those repository files, but the running app does **not** fetch counselor data from GitHub.
 
 The app reads version-matched JSON files from its own local repository/deployment bundle:
 
@@ -96,6 +96,40 @@ shiny::runApp("pilot/counselor-shiny")
 ```
 
 Run from a complete repository checkout or equivalent deployment bundle. The app serves the shared UCR logo, fonts and CSS from the local `assets/` directory and loads `pilot/shared.R`. Counselor search and comparison data are also local, so normal use does not require GitHub availability after the repository/deployment bundle is present.
+
+## Deploy to shinyapps.io
+
+Shinyapps.io does not deploy directly from GitHub. The repository therefore contains one deployment script that asks `rsconnect` to build and upload a temporary counselor-only bundle from the authoritative files. It does not create or maintain a second copy of the app.
+
+Install the deployment package once:
+
+```r
+install.packages("rsconnect")
+```
+
+In the shinyapps.io dashboard, open **Account > Tokens**, reveal the token, and run the displayed `rsconnect::setAccountInfo(...)` command in R. Keep the token and secret out of GitHub.
+
+From the repository root, check the exact runtime selection and package dependencies without publishing:
+
+```bash
+Rscript scripts/deploy-counselor-shiny.R --check-bundle
+```
+
+Then deploy:
+
+```bash
+Rscript scripts/deploy-counselor-shiny.R
+```
+
+The default shinyapps.io application name is `ucr-counselor`. If the configured account contains several accounts or a different app name is required, specify them explicitly:
+
+```bash
+Rscript scripts/deploy-counselor-shiny.R --account=ACCOUNT --app-name=APP-NAME
+```
+
+The upload contains only the counselor `app.R`, `pilot/shared.R`, the required UCR logo, fonts and CSS, the available counselor indexes, their comparison records and the pilot fallback records. It excludes the student app, counselor decision files, registry source data and unrelated website assets.
+
+The script validates every available data mode before deployment. At runtime the app still selects production, review or pilot data in the order documented above. When counselor data changes, update the repository normally, pull the current `main` checkout and run the same deployment command again. Shinyapps.io installs the detected R dependencies and replaces the existing application release.
 
 BA/BSc, discipline and location filters are not claimed as implemented: the current fixture metadata does not reliably supply those distinctions. `degree = BACHELOR` is not a BA/BSc classification.
 
