@@ -1,12 +1,17 @@
 student <- new.env()
 counselor <- new.env()
+Sys.setenv(UCR_STUDENT_DATA_MODE = "public")
 source("pilot/shiny/app.R", local = student)
 source("pilot/counselor-shiny/app.R", local = counselor)
 codes <- jsonlite::fromJSON("pilot/shiny/data/access_codes.json", simplifyVector = FALSE)
 for (entry in codes$entries) {
-  stopifnot(identical(student$find_example_id(codes, tolower(gsub("-", " ", entry$code))), entry$example_id))
+  formatted <- tolower(gsub("-", " ", entry$code))
+  loaded <- student$load_student_record_for_code(student$STUDENT_DATA_CONFIG, formatted)
+  stopifnot(identical(loaded$id, entry$example_id))
 }
-stopifnot(is.null(student$find_example_id(codes, "invalid")))
+stopifnot(identical(student$STUDENT_DATA_CONFIG$mode, "public"))
+stopifnot(is.null(student$load_student_record_for_code(student$STUDENT_DATA_CONFIG, "invalid")))
+stopifnot(is.na(student$normalize_student_code("UCR/INVALID")))
 stopifnot(identical(student$course_level(3), "300-level"))
 
 # Counselor data must be local, process-level and pre-indexed.

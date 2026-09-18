@@ -67,7 +67,45 @@ The current Shiny proof of concept is under:
 
 `pilot/shiny/`
 
-It uses five public development fixtures and public test access codes. This is **not** a production privacy mechanism. Production student-specific records must use appropriate private storage/access control.
+In public-development mode it uses five tracked public fixtures and public test access codes. The private deployment test adds a strict boundary:
+
+- application code, schemas, branding and public fixtures remain in GitHub;
+- student records, the private access index and locally generated codes live under the Git-ignored `private/` tree;
+- the shinyapps.io deployment script bundles only the required application files and selected private records;
+- the Shiny server performs code lookup and record reading; the private index and complete record collection are never exposed as static browser assets.
+
+The private mode is selected once at application startup. A private deployment cannot fall back to the public access map or public records.
+
+### Run the five-case private student deployment test
+
+After pulling the repository, install the required R packages once:
+
+```r
+install.packages(c("shiny", "jsonlite", "openssl", "rsconnect"))
+```
+
+Then run these commands from the repository root:
+
+```text
+Rscript scripts/init-student-private-test.R
+Rscript scripts/deploy-student-shiny.R --check
+Rscript scripts/deploy-student-shiny.R --check-bundle
+Rscript scripts/deploy-student-shiny.R
+```
+
+The initializer clones `p-001` through `p-005` into ignored private test records, adds separate academic interpretations and generates new strong random access codes. It prints the codes and saves them in the ignored local file `private/student-test-codes.txt`. It refuses to overwrite existing private data. To replace only a previously generated five-case test dataset and rotate its codes, run:
+
+```text
+Rscript scripts/init-student-private-test.R --reset-test
+```
+
+The deployment defaults to the test-oriented shinyapps.io application name `ucr-student-private-test`. Override the account or name when needed:
+
+```text
+Rscript scripts/deploy-student-shiny.R --account=YOUR_ACCOUNT --app-name=YOUR_TEST_APP_NAME
+```
+
+The deploying computer must first be authorized for the relevant shinyapps.io account through `rsconnect`; account tokens and secrets must remain outside this repository. This architecture is tested with public development content. Passing the technical checks does not by itself authorize deployment of real prospective-student information; that requires the applicable Utrecht University/UCR privacy, processor, retention and access approvals.
 
 ## Counselor workflow and pilot
 

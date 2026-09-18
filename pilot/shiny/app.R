@@ -8,9 +8,6 @@ if (is.na(REPO_ROOT)) stop("Run this pilot from a complete ucr-pathways reposito
 REPO_ROOT <- normalizePath(REPO_ROOT)
 source(file.path(REPO_ROOT, "pilot/shared.R"), local = TRUE)
 
-EXAMPLE_BASE <- "https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/data/examples"
-PILOT_DATA_BASE <- "https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/pilot/shiny/data"
-ASSET_BASE <- "https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/assets"
 UCR_LOGO_URL <- "ucr-assets/brand/ucr-primary-plum.png"
 UCR_WEBSITE_URL <- "https://ucr.nl/"
 UCR_COURSES_URL <- "https://ucr.nl/education/courses/"
@@ -23,31 +20,8 @@ UCR_COURSE_EC <- 7.5
   if (is.null(x) || length(x) == 0 || identical(x, "")) y else x
 }
 
-cache_bust <- function(url) {
-  separator <- if (grepl("\\?", url)) "&" else "?"
-  paste0(url, separator, "cb=", sprintf("%.0f", as.numeric(Sys.time()) * 1000))
-}
-
-fetch_json <- function(url) {
-  if (identical(Sys.getenv("UCR_PILOT_LOCAL_DATA"), "true")) {
-    prefix <- "https://raw.githubusercontent.com/solmyr1980/ucr-pathways/main/"
-    if (startsWith(url, prefix)) return(fromJSON(file.path(REPO_ROOT, substring(url, nchar(prefix) + 1)), simplifyVector = FALSE))
-  }
-  fromJSON(cache_bust(url), simplifyVector = FALSE)
-}
-
-normalize_code <- function(x) {
-  gsub("[^A-Z0-9]", "", toupper(trimws(x %||% "")))
-}
-
-find_example_id <- function(access_map, submitted_code) {
-  target <- normalize_code(submitted_code)
-  if (!nzchar(target)) return(NULL)
-  for (entry in access_map$entries %||% list()) {
-    if (identical(normalize_code(entry$code), target)) return(entry$example_id)
-  }
-  NULL
-}
+source(file.path(REPO_ROOT, "pilot/shiny/student-data.R"), local = TRUE)
+STUDENT_DATA_CONFIG <- load_student_data_config(REPO_ROOT)
 
 safe_text <- function(x) x %||% ""
 
@@ -330,7 +304,7 @@ ui <- fluidPage(
   uiOutput("app_body")
 )
 
-server <- function(input, output, session) {
+make_student_server <- function(data_config) function(input, output, session) {
   record <- reactiveVal(NULL)
   course_cache <- reactiveValues()
   access_error <- reactiveVal(NULL)
@@ -362,18 +336,15 @@ server <- function(input, output, session) {
   observeEvent(input$unlock_pathway, {
     access_error(NULL)
     tryCatch({
-      access_map <- fetch_json(paste0(PILOT_DATA_BASE, "/access_codes.json"))
-      example_id <- find_example_id(access_map, input$access_code)
-      if (is.null(example_id)) {
+      selected <- load_student_record_for_code(data_config, input$access_code)
+      if (is.null(selected)) {
         access_error("That code was not recognised. Check it and try again.")
         return()
       }
-      selected <- fetch_json(paste0(EXAMPLE_BASE, "/", example_id, ".json"))
-      if (is.null(selected$origin)) selected$origin <- "student"
       record(selected)
     }, error = function(e) {
-      access_error("The programme data could not be loaded. Check your internet connection and try again.")
-      message("Student pilot load error: ", conditionMessage(e))
+      access_error("The programme data could not be loaded. Please try again later.")
+      message("Student app load error: ", conditionMessage(e))
     })
   })
 
@@ -388,7 +359,10 @@ server <- function(input, output, session) {
     department <- substr(code, 1, 3)
     tryCatch({
       if (is.null(course_cache[[department]])) {
-        course_cache[[department]] <- fetch_json(paste0(PILOT_DATA_BASE, "/courses/", department, ".json"))
+        course_cache[[department]] <- read_student_json(
+          student_course_file(data_config, department),
+          paste("course descriptions for", department)
+        )
       }
       description <- course_cache[[department]]$descriptions[[code]]
       if (is.null(description) || !nzchar(safe_text(description))) {
@@ -402,5 +376,7 @@ server <- function(input, output, session) {
     })
   })
 }
+
+server <- make_student_server(STUDENT_DATA_CONFIG)
 
 shinyApp(ui, server)

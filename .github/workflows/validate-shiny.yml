@@ -23,7 +23,11 @@ on:
       - 'scripts/validate-counselor-final-rules.mjs'
       - 'scripts/validate-registry-interests.mjs'
       - 'scripts/test-shiny.R'
+      - 'scripts/test-student-private.R'
+      - 'scripts/init-student-private-test.R'
+      - 'scripts/deploy-student-shiny.R'
       - 'scripts/deploy-counselor-shiny.R'
+      - '.gitignore'
       - 'package.json'
       - '.github/workflows/validate-shiny.yml'
 
@@ -59,7 +63,7 @@ jobs:
           sudo apt-get install -y libuv1-dev
 
       - name: Install Shiny dependencies
-        run: Rscript -e 'install.packages(c("shiny", "jsonlite", "rsconnect", "testthat"), repos=Sys.getenv("RSPM"))'
+        run: Rscript -e 'install.packages(c("shiny", "jsonlite", "openssl", "rsconnect", "testthat"), repos=Sys.getenv("RSPM"))'
 
       - name: Parse both apps
         run: |
@@ -76,6 +80,15 @@ jobs:
 
       - name: Check pilot and review behavior and rendering
         run: Rscript scripts/test-shiny.R
+
+      - name: Create ignored private student test data
+        run: Rscript scripts/init-student-private-test.R
+
+      - name: Validate private student behavior and fail-closed checks
+        run: Rscript scripts/test-student-private.R
+
+      - name: Validate shinyapps.io student bundle
+        run: Rscript scripts/deploy-student-shiny.R --check-bundle
 
       - name: Validate shinyapps.io counselor bundle
         run: Rscript scripts/deploy-counselor-shiny.R --check-bundle
