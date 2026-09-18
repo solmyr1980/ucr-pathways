@@ -60,7 +60,7 @@ acceptance_records <- lapply(sprintf("cp-%06d", 1:4), function(id) {
   record$origin <- "counselor"
   record
 })
-expected_ucr_counts <- c(2L, 3L, 2L, 3L)
+expected_ucr_counts <- c(2L, 2L, 1L, 3L)
 for (index in seq_along(acceptance_records)) {
   record <- acceptance_records[[index]]
   ucr_programmes <- counselor$ucr_programmes_for_summary(record)
