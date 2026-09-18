@@ -57,7 +57,7 @@ stopifnot(identical(student$STUDENT_DATA_CONFIG$mode, "private"))
 
 shiny::testServer(student$make_student_server(config), {
   session$flushReact()
-  locked_html <- as.character(output$app_body)
+  locked_html <- paste(as.character(output$app_body), collapse = "")
   stopifnot(!any(vapply(private_codes, grepl, logical(1), x = locked_html, fixed = TRUE)))
   stopifnot(!any(vapply(config$record_ids, grepl, logical(1), x = locked_html, fixed = TRUE)))
 
@@ -69,7 +69,7 @@ shiny::testServer(student$make_student_server(config), {
   session$setInputs(access_code = private_codes[[1]], unlock_pathway = 3)
   stopifnot(identical(record()$id, config$record_ids[[1]]))
   session$flushReact()
-  selected_html <- as.character(output$app_body)
+  selected_html <- paste(as.character(output$app_body), collapse = "")
   stopifnot(grepl(record()$interests, selected_html, fixed = TRUE))
   second_record <- load_student_record_for_code(config, private_codes[[2]])
   stopifnot(!grepl(second_record$interests, selected_html, fixed = TRUE))

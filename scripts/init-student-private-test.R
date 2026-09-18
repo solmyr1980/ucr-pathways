@@ -4,10 +4,12 @@
 # deployment path. This script never edits the tracked public fixtures.
 
 args <- commandArgs(trailingOnly = TRUE)
-known <- args %in% "--reset-test"
+known <- args %in% c("--reset-test", "--quiet")
 if (any(!known)) stop("Unknown argument: ", args[!known][[1]])
 if (sum(args == "--reset-test") > 1) stop("Specify --reset-test only once.")
+if (sum(args == "--quiet") > 1) stop("Specify --quiet only once.")
 reset_test <- "--reset-test" %in% args
+quiet <- "--quiet" %in% args
 
 script_argument <- grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE)
 if (!length(script_argument)) stop("Run this file with Rscript.")
@@ -145,10 +147,14 @@ config <- load_student_data_config(repo_root, "private")
 if (!identical(sort(config$record_ids), sort(test_ids))) stop("Generated private dataset did not validate as expected.")
 validate_private_test_derivation(config, repo_root)
 
-cat(
-  "Private five-case student test dataset created.\n",
-  "Access codes:\n",
-  paste(sprintf("  %s  %s", test_ids, codes), collapse = "\n"),
-  "\n\nSaved for later reference in: private/student-test-codes.txt\n",
-  sep = ""
-)
+if (quiet) {
+  cat("Private five-case student test dataset created; codes saved in the ignored local code file.\n")
+} else {
+  cat(
+    "Private five-case student test dataset created.\n",
+    "Access codes:\n",
+    paste(sprintf("  %s  %s", test_ids, codes), collapse = "\n"),
+    "\n\nSaved for later reference in: private/student-test-codes.txt\n",
+    sep = ""
+  )
+}

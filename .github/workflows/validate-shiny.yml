@@ -82,7 +82,7 @@ jobs:
         run: Rscript scripts/test-shiny.R
 
       - name: Create ignored private student test data
-        run: Rscript scripts/init-student-private-test.R
+        run: Rscript scripts/init-student-private-test.R --quiet
 
       - name: Validate private student behavior and fail-closed checks
         run: Rscript scripts/test-student-private.R
