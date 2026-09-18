@@ -10,7 +10,7 @@ New production targets use `decisionSchemaVersion: "2.0"`. The AI production age
 
 The v2 compiler creates a canonical counselor record with `schemaVersion: "2.0"`. The decision and canonical schema versions are independent even though both are currently 2.0.
 
-Decision files under `_regression/` are test fixtures. They must never be published as production decisions or overwrite canonical comparisons.
+Decision files and expected outputs under `_regression/` are test fixtures. They must never be published as production decisions or overwrite canonical comparisons.
 
 ## Academic responsibility
 
@@ -68,6 +68,7 @@ Decision schema v1 remains available temporarily for regression and manual recov
 
 - compiler: `scripts/build-counselor-comparison.mjs`;
 - fixtures: `data/counselor/decisions/_regression/cp-000004.json` and `cp-000005.json`;
+- stable expected outputs shared by the v1 and v2 regression suites: `data/counselor/decisions/_regression/expected/cp-000004.json` and `cp-000005.json`;
 - command: `npm run build:counselor:v1 -- <decision-file>`;
 - test: `npm run test:counselor-compiler:v1`.
 

@@ -4,11 +4,10 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { compileCounselorDecision } from './build-counselor-comparison.mjs';
-import { stripOptionalIndependentResearch } from './optional-independent-research.mjs';
 
 const root = process.cwd();
 const fixtureDirectory = path.join(root, 'data', 'counselor', 'decisions', '_regression');
-const comparisonDirectory = path.join(root, 'data', 'counselor', 'comparisons');
+const expectedDirectory = path.join(fixtureDirectory, 'expected');
 const ids = ['cp-000004', 'cp-000005'];
 
 function normalizedSubstantiveRecord(record) {
@@ -29,11 +28,11 @@ const generated = new Map();
 for (const id of ids) {
   const decision = JSON.parse(fs.readFileSync(path.join(fixtureDirectory, `${id}.json`), 'utf8'));
   const actual = compileCounselorDecision(decision, root);
-  const expected = stripOptionalIndependentResearch(JSON.parse(fs.readFileSync(path.join(comparisonDirectory, `${id}.json`), 'utf8')));
+  const expected = JSON.parse(fs.readFileSync(path.join(expectedDirectory, `${id}.json`), 'utf8'));
   assert.deepStrictEqual(
     normalizedSubstantiveRecord(actual),
     normalizedSubstantiveRecord(expected),
-    `${id} compiler regression changed a substantive decision`
+    `${id} compiler regression changed the stable expected output`
   );
   generated.set(id, actual);
   console.log(`${id}: semantic regression reconstruction OK`);

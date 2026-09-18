@@ -4,11 +4,10 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { compileV2 } from './build-counselor-comparison-v2.mjs';
-import { stripOptionalIndependentResearch } from './optional-independent-research.mjs';
 
 const root = process.cwd();
 const fixtureDirectory = path.join(root, 'data', 'counselor', 'decisions', '_regression', 'v2');
-const comparisonDirectory = path.join(root, 'data', 'counselor', 'comparisons');
+const expectedDirectory = path.join(root, 'data', 'counselor', 'decisions', '_regression', 'expected');
 const ids = ['cp-000004', 'cp-000005'];
 
 function normalizedEvidence(evidence) {
@@ -81,16 +80,16 @@ function semanticProjection(record) {
 const generated = new Map();
 for (const id of ids) {
   const fixturePath = path.join(fixtureDirectory, `${id}.json`);
-  const canonicalPath = path.join(comparisonDirectory, `${id}.json`);
+  const expectedPath = path.join(expectedDirectory, `${id}.json`);
   const fixtureSize = fs.statSync(fixturePath).size;
-  const canonicalSize = fs.statSync(canonicalPath).size;
+  const expectedSize = fs.statSync(expectedPath).size;
   assert.ok(fixtureSize <= 20_000, `${id} v2 fixture is ${fixtureSize} bytes; maximum is 20,000`);
-  assert.ok(fixtureSize / canonicalSize <= 0.30, `${id} v2 fixture exceeds 30% of canonical size`);
+  assert.ok(fixtureSize / expectedSize <= 0.30, `${id} v2 fixture exceeds 30% of expected-output size`);
 
   const decision = JSON.parse(fs.readFileSync(fixturePath, 'utf8'));
   const actual = compileV2(decision, root);
-  const expected = stripOptionalIndependentResearch(JSON.parse(fs.readFileSync(canonicalPath, 'utf8')));
-  assert.deepEqual(semanticProjection(actual), semanticProjection(expected), `${id} v2 compiler regression changed a substantive decision`);
+  const expected = JSON.parse(fs.readFileSync(expectedPath, 'utf8'));
+  assert.deepEqual(semanticProjection(actual), semanticProjection(expected), `${id} v2 compiler regression changed the stable expected output`);
   generated.set(id, actual);
   console.log(`${id}: ${fixtureSize} bytes; semantic v2 regression PASS`);
 }
