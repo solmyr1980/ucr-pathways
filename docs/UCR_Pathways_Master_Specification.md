@@ -64,11 +64,16 @@ Every comparison contains:
 1. exactly one `comparator` — one external Dutch bachelor programme; and
 2. between **one and three UCR alternatives**.
 
-The first UCR alternative is the closest feasible match. Any second or third alternative is an additional defensible response with a genuinely different organising logic; it may be narrower, thematic, question-led, application-led or otherwise differently organised, and it does not need to be broader than the preceding alternative. Include it only when it represents another coherent, evidence-backed and substantively distinct way of pursuing the relevant field, interests, question or application at UCR.
+The relationship between those elements differs by workflow:
+
+- **Student records:** UCR programmes are generated directly from the student's submitted interests and academic interpretation. The external bachelor is selected as a useful point of comparison only after the UCR programme concepts have been established. It is not the generating reference point, and the first UCR programme is not defined as the closest match to that comparator. The UCR programmes are ordered as needed for clear presentation.
+- **Counselor records:** the external bachelor is the explicit production target. The first UCR alternative is therefore the closest feasible UCR response to that target, with any additional alternatives constructed from valid target-specific evidence.
+
+Any second or third UCR programme is an additional defensible response with a genuinely different organising logic; it may be narrower, thematic, question-led, application-led or otherwise differently organised, and it does not need to be broader than the preceding programme. Include it only when it represents another coherent, evidence-backed and substantively distinct way of pursuing the applicable field, interests, question or application at UCR.
 
 There is **no requirement to reach three UCR alternatives**. Three is the maximum, not a quota. Do not manufacture additional interests, domains, questions or curricular differences merely to fill a fixed number of programme slots. One strong alternative is preferable to one strong alternative plus weak or redundant ones.
 
-Concepts such as **closest match**, **related direction** and **question-led/thematic programme** remain useful analytical types, but they are not mandatory programme roles and not every record must instantiate all three types.
+Concepts such as **closest match**, **related direction** and **question-led/thematic programme** remain useful analytical types in the contexts where they apply, but they are not mandatory programme roles and not every record must instantiate all three types. Comparator-relative closest-match logic applies to counselor production, not to student programme generation.
 
 Neither the external bachelor nor UCR should be presented as inherently superior. Genuine strengths of the external programme and genuine limitations of UCR must remain visible.
 
@@ -77,8 +82,9 @@ Neither the external bachelor nor UCR should be presented as inherently superior
 Use ordinary, case-specific labels rather than internal taxonomy.
 
 - comparator: **[Programme] at [Institution]**;
-- first UCR alternative: normally **Closest match to [programme or field]** or another accurate case-specific label;
-- additional UCR alternatives: descriptive labels that state the actual direction, combination, question or application represented.
+- student UCR programmes: descriptive titles that name the actual programme direction and the particular way it responds to the student's interests; do not label the first programme as a closest match to the external comparator or define later programmes as progressively broader versions of it;
+- counselor first UCR alternative: normally **Closest match to [programme or field]** or another accurate case-specific label;
+- counselor additional UCR alternatives: descriptive labels that state the actual direction, combination, question or application represented.
 
 Do not expose internal implementation names such as `ucr-alternative`, `closest-match`, `related-direction` or `question-led` as user-facing product taxonomy unless a later design decision explicitly does so.
 
@@ -102,7 +108,7 @@ The answer may contain disciplines, topics, questions, problems, practical inter
 
 Production must preserve the student's original wording, interpret it academically, avoid assuming that the first-mentioned interest is more important, and avoid manufacturing weak curricular matches. For a student who supplies one interest, broaden through meaningful subfields, questions and neighbouring perspectives rather than inventing a second interest.
 
-The student's full submitted interest statement is valid evidence for constructing and differentiating UCR alternatives. Where a student supplies several interests, alternatives may legitimately vary their relative emphasis or organise them differently. Where the input supports only one defensible programme, do not invent additional alternatives.
+The student's full submitted interest statement is valid evidence for constructing and differentiating UCR programmes. Where a student supplies several interests, programmes may legitimately vary their relative emphasis or organise them differently. Where the input supports only one defensible programme, do not invent additional programmes. Select the external Dutch bachelor later as a useful comparison point; do not use it to generate or name the student's UCR programmes.
 
 ## 3.2 Student app journey
 
@@ -120,17 +126,17 @@ and:
 
 The welcome screen should provide access to two views of the same approved personalized record:
 
-- **View my personalized programme options** — semester-by-semester views of every included UCR alternative, in record order;
-- **See how these options compare** — the external comparator alongside the same one to three UCR alternatives.
+- **Explore my UCR programme/programmes** — dynamically singular or plural, with semester-by-semester views of every included UCR programme in record order;
+- **Compare with a Dutch bachelor** — the external comparator alongside the same one to three UCR programmes.
 
-The interface must not promise a fixed number of UCR options. Appropriate framing is that these are the UCR programmes that best fit what the student told us.
+The interface must not promise a fixed number of UCR programmes. Appropriate framing is that one or more possible UCR programmes have been prepared around what the student told us.
 
 ## 3.3 Student calls to action
 
 After the substantive programme content, provide two distinct next steps where supported:
 
 - **Speak to Admissions** — to the approved Admissions contact or booking route;
-- **Tweak this programme to your liking** — to the canonical UCR Program Builder destination.
+- **Build your own UCR programme** — to the canonical UCR Program Builder destination, without implying that a displayed programme transfers automatically.
 
 Exact Admissions destination is implementation/configuration data.
 
@@ -234,7 +240,7 @@ Do not invent additional cluster, unit, concentration, breadth or disciplinary-d
 
 ## 5.3 Alternative-selection integrity
 
-Construct the closest feasible UCR alternative first. Consider additional alternatives sequentially. Include another alternative only when it passes all four tests:
+For a student record, construct the first UCR programme directly from the student's interpreted interests, without using the external comparator as its generating reference. For a counselor record, construct the closest feasible UCR alternative to the external target first. In both workflows, consider additional alternatives sequentially and include another only when it passes all four tests:
 
 1. **evidence** — its organising basis is supported by the applicable evidence boundary;
 2. **coherence** — it is a coherent programme concept rather than an assortment of attractive courses;

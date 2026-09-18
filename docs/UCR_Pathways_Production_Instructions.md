@@ -28,7 +28,9 @@ Do not duplicate this procedure in batch assignments or other workflow documents
 
 Every comparison contains exactly one external `comparator` and between **one and three ordered UCR alternatives**.
 
-The first UCR alternative is always the closest feasible response to the field/interests under consideration. Additional alternatives are optional and are generated sequentially only when they are evidence-backed, coherent, substantively distinct and mechanically feasible. They do not need to become progressively broader; a later alternative may instead be narrower, thematic, question-led, application-led or otherwise differently organised when the evidence genuinely supports that choice.
+For student records, construct the UCR programmes directly from the student's submitted interests and academic interpretation. Freeze their concepts before selecting the external bachelor used for comparison; neither their generation nor their visible labels may be defined relative to that comparator. For counselor records, the external bachelor is the explicit target and the first UCR alternative is the closest feasible response to it.
+
+Additional alternatives are optional and are generated sequentially only when they are evidence-backed, coherent, substantively distinct and mechanically feasible. They do not need to become progressively broader; a later alternative may instead be narrower, thematic, question-led, application-led or otherwise differently organised when the evidence genuinely supports that choice.
 
 Concept labels such as `closest-match`, `related-direction` and `question-led` may be stored as internal metadata, but they are not mandatory slots. Do not create an alternative merely to instantiate a category.
 
@@ -116,9 +118,9 @@ Validate the numerical, prerequisite and availability rules mechanically against
 
 Always attempt the UCR alternatives in order.
 
-### Alternative 1 — closest feasible response
+### Alternative 1 — workflow-specific starting point
 
-Construct the strongest defensible UCR programme for the evidenced field/interests. If no defensible 24-course UCR programme can be built, treat the case as an exception rather than exporting a weak comparison.
+For a student record, construct a coherent UCR programme directly from the complete interpreted interest statement. Do not use the external comparator as a generation target or naming reference. For a counselor record, construct the strongest defensible UCR response to the external target and its permitted target-specific evidence. If no defensible 24-course UCR programme can be built, treat the case as an exception rather than exporting a weak comparison.
 
 ### Alternative 2 — first genuinely different route
 
@@ -167,23 +169,24 @@ Interpret the statement in terms of relevant disciplines, questions, phenomena/p
 
 The student's complete submitted statement is valid evidence. If the student supplies several interests, alternatives may legitimately vary their relative emphasis, combine them differently or organise them around an evidenced question. Do not add an interest the student did not supply merely to make alternatives more different.
 
-## 3.2 Comparator and production sequence
+## 3.2 Student programme and comparison sequence
 
-Choose the Dutch bachelor that provides the most useful disciplinary/depth endpoint for the student's interests. Do not automatically choose the first-mentioned discipline. Prefer a current Dutch research-university bachelor where suitable.
+Construct the UCR programme concepts directly from the student's interpreted interests. Once the included UCR programmes have been established, choose the Dutch bachelor that provides the most useful concrete point of comparison for those interests. Do not automatically choose the first-mentioned discipline. Prefer a current Dutch research-university bachelor where suitable. The comparator must not retroactively determine the UCR concepts, course selections, order or visible labels.
 
-For manually supervised production, propose the comparator and authoritative source basis for approval before full generation unless an approved automated configuration explicitly removes that checkpoint.
+For manually supervised production, propose the student-derived UCR concepts and then the comparator and authoritative source basis for approval before full comparison construction unless an approved automated configuration explicitly removes that checkpoint.
 
 Then work in this order:
 
 1. preserve and interpret the student input;
-2. select and reconstruct the external comparator under Section 2.1;
-3. construct and validate Alternative 1 under Sections 2.2–2.3;
-4. consider Alternative 2 under the same gates, including the pairwise 30-EC distinctness floor, and stop if it cannot be justified;
-5. if Alternative 2 is included, consider Alternative 3 and require it to pass the same 30-EC floor against **each** already included UCR alternative;
-6. construct the comparison under Section 5 using only the included programmes;
-7. create the canonical student record under Section 7;
-8. render the requested private student-app/PDF representations;
-9. only after explicit public approval, derive a publication-safe record when requested.
+2. construct and validate Alternative 1 directly from the interpreted interests under Sections 2.2–2.3;
+3. consider Alternative 2 under the same gates, including the pairwise 30-EC distinctness floor, and stop if it cannot be justified;
+4. if Alternative 2 is included, consider Alternative 3 and require it to pass the same 30-EC floor against **each** already included UCR alternative;
+5. finalize case-specific, curriculum-accurate labels for every included UCR programme;
+6. select and reconstruct the external comparator under Section 2.1 without changing the frozen UCR programmes;
+7. construct the comparison under Section 5 using only the included programmes;
+8. create the canonical student record under Section 7;
+9. render the requested private student-app/PDF representations;
+10. only after explicit public approval, derive a publication-safe record when requested.
 
 ## 3.3 Student output requirements
 
@@ -192,7 +195,7 @@ The student interface must preserve the distinction between:
 - **You told us that…** — original wording;
 - **For us, this means that…** — academic interpretation.
 
-Do not promise a fixed number of programme options. Present the included alternatives as the UCR programmes that best fit what the student told us.
+Do not promise a fixed number of programmes. Present the included UCR programmes in natural singular or plural language. Give every programme a case-specific title describing the programme itself and how it responds to the student's interests; do not use comparator-relative closest-match labels or generic progressively broader labels.
 
 Use the placeholder disclaimer until approved final wording is supplied:
 
@@ -544,6 +547,6 @@ Similarity between genuinely related programmes is not itself a defect. Do not c
 
 ## 9.3 Student completion
 
-Confirm the student input is preserved verbatim, interpretation stored separately, the number of alternatives follows the sequential evidence/coherence/distinctness/feasibility rule, every pair of included UCR alternatives passes the **30 EC / 4-course distinctness floor**, every included UCR schedule is mechanically valid and academically credible in its progression, every non-PPD course has a concrete substantive relationship to the evidenced programme concept, every comparison column accounts for the complete 180 EC without duplication or omission, comparison alignment is fair, and privacy/publication boundaries are respected.
+Confirm the student input is preserved verbatim, interpretation stored separately, the UCR programmes were generated and named directly from that interpreted input before comparator selection, the number of alternatives follows the sequential evidence/coherence/distinctness/feasibility rule, every pair of included UCR alternatives passes the **30 EC / 4-course distinctness floor**, every included UCR schedule is mechanically valid and academically credible in its progression, every non-PPD course has a concrete substantive relationship to the evidenced programme concept, every comparison column accounts for the complete 180 EC without duplication or omission, comparison alignment is fair, and privacy/publication boundaries are respected.
 
 Only then release the requested artifact or library record.

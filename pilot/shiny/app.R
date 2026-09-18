@@ -14,6 +14,7 @@ UCR_COURSES_URL <- "https://ucr.nl/education/courses/"
 ADMISSIONS_URL <- "https://ucr.nl/about-ucr/connect/meet-with-admissions/"
 PROGRAM_BUILDER_URL <- "https://program.ucr.nl/"
 DISCLAIMER_PLACEHOLDER <- "[PLACEHOLDER — insert approved student-program disclaimer from the printed butterfly.]"
+COURSE_DESCRIPTION_UNAVAILABLE <- "A course description is not currently available."
 UCR_COURSE_EC <- 7.5
 
 `%||%` <- function(x, y) {
@@ -139,7 +140,7 @@ render_schedule <- function(record, programme) {
       tags$a(href = UCR_COURSES_URL, target = "_blank", rel = "noopener", "View UCR courses ↗")
     ),
     div(class = "semester-grid", do.call(tagList, cards)),
-    div(class = "disclaimer", tags$strong("Temporary disclaimer placeholder"), tags$p(DISCLAIMER_PLACEHOLDER))
+    div(class = "disclaimer", tags$strong("Development notice — approved disclaimer pending"), tags$p(DISCLAIMER_PLACEHOLDER))
   )
 }
 
@@ -149,7 +150,7 @@ student_ucr_programmes <- function(record) {
 
 render_programme_options <- function(record) {
   programmes <- student_ucr_programmes(record)
-  if (!length(programmes)) return(div(class = "load-error", "No personalized UCR programme options are available in this record."))
+  if (!length(programmes)) return(div(class = "load-error", "No UCR programmes are available."))
 
   option_tabs <- lapply(programmes, function(programme) {
     tabPanel(visible_label(record, programme), render_schedule(record, programme))
@@ -157,13 +158,69 @@ render_programme_options <- function(record) {
 
   div(
     class = "programme-options",
-    tags$p(class = "tab-copy", "Choose an option below to inspect its complete six-semester programme."),
+    tags$p(
+      class = "tab-copy",
+      if (length(programmes) == 1) {
+        "Explore the complete six-semester programme below."
+      } else {
+        "Choose a programme below to explore its complete six-semester plan."
+      }
+    ),
     do.call(tabsetPanel, c(list(id = "programme_option", type = "tabs"), option_tabs))
+  )
+}
+
+student_experience_copy <- function(record) {
+  programmes <- student_ucr_programmes(record)
+  count <- length(programmes)
+  comparator <- Filter(is_comparator_programme, record$programmes %||% list())
+  comparator_label <- if (length(comparator)) {
+    visible_label(record, comparator[[1]])
+  } else {
+    "a relevant bachelor elsewhere in the Netherlands"
+  }
+
+  if (count == 1) {
+    return(list(
+      heading = "We've prepared a UCR programme around your interests.",
+      lede = paste0(
+        "We interpreted your interests in academic terms. Explore the complete programme semester by semester, ",
+        "or compare it with ", comparator_label, "."
+      ),
+      programme_tab = "Explore my UCR programme",
+      comparison_intro = paste0(
+        "This view compares your UCR programme with ", comparator_label,
+        ". It shows where the curricula overlap and where they differ."
+      ),
+      source_note = paste0(
+        "A blank cell means there is no closely comparable course or component in that row. ",
+        "This UCR programme shows one possible way of studying at UCR; it is not an official track or guaranteed future schedule."
+      )
+    ))
+  }
+
+  count_word <- if (count %in% 1:3) c("one", "two", "three")[[count]] else as.character(count)
+  list(
+    heading = paste0("We've prepared ", count_word, " UCR programmes around your interests."),
+    lede = paste0(
+      "We interpreted your interests in academic terms. Explore each complete programme semester by semester, ",
+      "or compare the programmes with ", comparator_label, "."
+    ),
+    programme_tab = "Explore my UCR programmes",
+    comparison_intro = paste0(
+      "This view compares your UCR programmes with ", comparator_label,
+      ". It shows where the curricula overlap and where they differ."
+    ),
+    source_note = paste0(
+      "A blank cell means there is no closely comparable course or component in that row. ",
+      "These UCR programmes show possible ways of studying at UCR; they are not official tracks or guaranteed future schedules."
+    )
   )
 }
 
 render_student_record <- function(record) {
   interpretation <- safe_text(record$interestInterpretation)
+  copy <- student_experience_copy(record)
 
   fluidRow(
     column(
@@ -174,8 +231,8 @@ render_student_record <- function(record) {
         div(
           class = "intro-row",
           div(
-            tags$h1("We are happy to share your personalized programme options."),
-            tags$p(class = "lede", "Explore the UCR programmes that best fit what you told us, then see how they compare with another Dutch bachelor.")
+            tags$h1(copy$heading),
+            tags$p(class = "lede", copy$lede)
           ),
           actionButton("reset_pathway", "Use another code", class = "secondary-button")
         ),
@@ -189,31 +246,31 @@ render_student_record <- function(record) {
           div(
             class = "summary-panel interpretation",
             tags$h3("For us, this means that…"),
-            if (nzchar(interpretation)) tags$p(interpretation) else tags$p(class = "pilot-placeholder", "[Academic interpretation will be stored here for production student records.]")
+            if (nzchar(interpretation)) tags$p(interpretation) else tags$p(class = "missing-copy", "An academic interpretation is not currently available.")
           )
         ),
         tabsetPanel(
           id = "student_view",
           type = "pills",
           tabPanel(
-            "View my personalized programme options",
+            copy$programme_tab,
             render_programme_options(record)
           ),
           tabPanel(
-            "See how these options compare",
-            tags$p(class = "tab-copy", "This comparison shows another Dutch bachelor alongside the UCR programme options that could be defended from your interests, ordered from the closest match toward broader alternatives where those are genuinely supported."),
+            "Compare with a Dutch bachelor",
+            tags$p(class = "tab-copy", copy$comparison_intro),
             render_compare_table(record),
             render_comparison_notes(record),
-            tags$p(class = "source-note", "Blank cells indicate that no sufficiently comparable named component is shown in that position. These are illustrative UCR programmes, not official tracks or guaranteed future schedules.")
+            tags$p(class = "source-note", copy$source_note)
           )
         ),
         div(
           class = "next-step",
-          tags$h2("Would you like to find out more?"),
+          tags$h2("Ready to take the next step?"),
           div(
             class = "cta-row",
             tags$a(class = "secondary-cta", href = ADMISSIONS_URL, target = "_blank", rel = "noopener", "Speak to Admissions ↗"),
-            tags$a(class = "primary-cta", href = PROGRAM_BUILDER_URL, target = "_blank", rel = "noopener", "Tweak this programme to your liking ↗")
+            tags$a(class = "primary-cta", href = PROGRAM_BUILDER_URL, target = "_blank", rel = "noopener", "Build your own UCR programme ↗")
           )
         )
       )
@@ -224,7 +281,7 @@ render_student_record <- function(record) {
 ui <- fluidPage(
   tags$head(
     tags$meta(name = "viewport", content = "width=device-width, initial-scale=1"),
-    tags$title("Your personalized UCR programme options"),
+    tags$title("Your UCR study possibilities"),
     tags$style(HTML("
       html, body { margin:0; background:var(--white); color:var(--black); font-family:Inter,Arial,sans-serif; }
       body::before { content:''; display:block; height:24px; background:var(--plum); }
@@ -248,7 +305,7 @@ ui <- fluidPage(
       .summary-panel.interpretation { background:#fff; color:var(--black); border:1px solid rgba(73,30,52,.16); }
       .summary-panel h3 { color:inherit; margin:0 0 9px; font-size:21px; }
       .summary-panel p { margin:0; line-height:1.5; font-size:17px; }
-      .pilot-placeholder { color:var(--grey); font-style:italic; }
+      .missing-copy { color:var(--grey); font-style:italic; }
       .nav-pills { margin-bottom:20px; }
       .nav-pills>li>a { color:var(--plum); border-radius:9px; font-weight:700; }
       .nav-pills>li.active>a,.nav-pills>li.active>a:hover,.nav-pills>li.active>a:focus { background:var(--plum); }
@@ -317,10 +374,10 @@ make_student_server <- function(data_config) function(input, output, session) {
         div(
           class = "access-card",
           brand_header(),
-          tags$h1("Your personalized programme options"),
-          tags$p("Enter the code you received to open the UCR programme options prepared around your interests."),
+          tags$h1("Explore your UCR study possibilities"),
+          tags$p("Enter the code you received to open the programme information prepared around your interests."),
           textInput("access_code", label = "Your access code", placeholder = "UCR-XXXX-XXXX-XXXX-XXXX"),
-          actionButton("unlock_pathway", "Open my programme options", class = "btn-primary"),
+          actionButton("unlock_pathway", "Open my UCR overview", class = "btn-primary"),
           uiOutput("access_error_ui")
         )
       ))
@@ -366,7 +423,7 @@ make_student_server <- function(data_config) function(input, output, session) {
       }
       description <- course_cache[[department]]$descriptions[[code]]
       if (is.null(description) || !nzchar(safe_text(description))) {
-        showModal(modalDialog(title = if (nzchar(course_name)) course_name else code, "No course description was found in the current pilot course lookup.", easyClose = TRUE, footer = modalButton("Close")))
+        showModal(modalDialog(title = if (nzchar(course_name)) course_name else code, COURSE_DESCRIPTION_UNAVAILABLE, easyClose = TRUE, footer = modalButton("Close")))
         return()
       }
       showModal(modalDialog(title = if (nzchar(course_name)) course_name else code, div(class = "course-description", safe_text(description)), easyClose = TRUE, footer = modalButton("Close")))

@@ -41,15 +41,15 @@ Every comparison contains:
 1. exactly one external Dutch bachelor `comparator`; and
 2. between **one and three ordered UCR alternatives**.
 
-The first UCR alternative is the closest feasible match. Additional alternatives are included only when they are evidence-backed, academically coherent, substantively distinct and mechanically feasible. Three is the maximum, not a quota.
+Student and counselor records use that structure differently. Student UCR programmes are generated directly from the student's interpreted interests; the external bachelor is selected later as a useful comparison point and does not define the first programme or its label. Counselor records start from an external target, so their first UCR alternative remains the closest feasible response to that target. Additional programmes are included only when they are evidence-backed, academically coherent, substantively distinct and mechanically feasible. Three is the maximum, not a quota, and later programmes do not have to become progressively broader.
 
-Current production records use the generic UCR role `ucr-alternative`. Optional `alternativeKind` metadata may describe an alternative as `closest-match`, `related-direction`, `question-led` or another defensible type; these are analytical descriptions, not mandatory slots.
+Current production records use the generic UCR role `ucr-alternative`. Optional `alternativeKind` metadata may describe an analytical type, but those types are not mandatory slots and must not make student labels comparator-relative. Counselor records may continue to use `closest-match` where the external bachelor is the explicit target.
 
 Visible programme headings use descriptive case-specific language rather than internal role names.
 
 External programme provenance is integrated into the comparator heading as `[Programme] at [Institution]`, linked to the approved official source. UCR components link to the UCR course overview. EC information is shown on both sides where comparison components are displayed.
 
-## Student workflow and pilot
+## Student workflow and app
 
 The production student workflow begins with an actual interest statement and preserves both:
 
@@ -58,12 +58,12 @@ The production student workflow begins with an actual interest statement and pre
 
 The student app then offers:
 
-- the one to three personalized UCR programme options that can be defended from the student's interests, ordered from the closest match toward broader alternatives where supported;
+- one to three complete UCR programmes constructed directly from the student's interpreted interests, each with a case-specific title describing the programme itself;
 - sub-navigation that lets the student inspect each complete six-semester programme separately;
-- a comparison of the external bachelor with every included UCR programme option;
+- a comparison of a relevant Dutch bachelor with the same included UCR programmes;
 - Admissions and Program Builder next steps.
 
-The current Shiny proof of concept is under:
+The current Shiny implementation is under:
 
 `pilot/shiny/`
 
@@ -99,10 +99,10 @@ The initializer clones `p-001` through `p-005` into ignored private test records
 Rscript scripts/init-student-private-test.R --reset-test
 ```
 
-The deployment defaults to the test-oriented shinyapps.io application name `ucr-student-private-test`. Override the account or name when needed:
+The deployment targets the single permanent shinyapps.io application name `ucr-student`. Override the account when needed:
 
 ```text
-Rscript scripts/deploy-student-shiny.R --account=YOUR_ACCOUNT --app-name=YOUR_TEST_APP_NAME
+Rscript scripts/deploy-student-shiny.R --account=YOUR_ACCOUNT
 ```
 
 The deploying computer must first be authorized for the relevant shinyapps.io account through `rsconnect`; account tokens and secrets must remain outside this repository. This architecture is tested with public development content. Passing the technical checks does not by itself authorize deployment of real prospective-student information; that requires the applicable Utrecht University/UCR privacy, processor, retention and access approvals.
