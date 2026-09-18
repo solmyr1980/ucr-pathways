@@ -131,6 +131,8 @@ The welcome screen should provide access to two views of the same approved perso
 
 The interface must not promise a fixed number of UCR programmes. Appropriate framing is that one or more possible UCR programmes have been prepared around what the student told us.
 
+In the programme view, every UCR programme displays its canonical programme concept immediately below its title and before its six-semester schedule. The concept serves as a concise description of the programme's organising academic combination or emphasis and its response to the student's interests; it is not a separate renderer-specific description field.
+
 ## 3.3 Student calls to action
 
 After the substantive programme content, provide two distinct next steps where supported:

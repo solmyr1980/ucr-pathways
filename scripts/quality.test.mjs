@@ -28,6 +28,8 @@ function recordWithAlternativeCount(source, count) {
   const keptUcr = ucrProgrammes(record).slice(0, count);
   const keptIds = new Set([comparator.id, ...keptUcr.map(programme => programme.id)]);
   record.programmes = [comparator, ...keptUcr];
+  record.academicRationale.alternatives = record.academicRationale.alternatives
+    .filter(alternative => keptIds.has(alternative.programmeId));
   record.blocks = record.blocks
     .map(block => ({
       ...block,
@@ -91,6 +93,28 @@ test('shared validator accepts one, two and three UCR alternatives', () => {
     const fixture = recordWithAlternativeCount(golden, count);
     assert.deepEqual(validateExample(fixture).errors, [], `${count}-alternative fixture should validate`);
   }
+});
+
+test('student programme concepts align one-for-one with UCR alternatives', () => {
+  const missing = structuredClone(records[0]);
+  missing.academicRationale.alternatives.pop();
+  assert.ok(validateExample(missing).errors.some(error => error.includes('exactly one concept')));
+
+  const duplicate = structuredClone(records[0]);
+  duplicate.academicRationale.alternatives[1].programmeId = duplicate.academicRationale.alternatives[0].programmeId;
+  assert.ok(validateExample(duplicate).errors.some(error => error.includes('programmeId values must be unique')));
+
+  const comparator = structuredClone(records[0]);
+  comparator.academicRationale.alternatives[0].programmeId = comparator.programmes[0].id;
+  assert.ok(validateExample(comparator).errors.some(error => error.includes('must not assign a programme concept to the comparator')));
+
+  const unknown = structuredClone(records[0]);
+  unknown.academicRationale.alternatives[0].programmeId = 'ucr-unknown';
+  assert.ok(validateExample(unknown).errors.some(error => error.includes('unknown programmeId')));
+
+  const blank = structuredClone(records[0]);
+  blank.academicRationale.alternatives[0].concept = ' ';
+  assert.ok(validateExample(blank).errors.some(error => error.includes('.concept is required')));
 });
 
 test('comparison validation rejects missing, duplicate and unreferenced curriculum content', () => {

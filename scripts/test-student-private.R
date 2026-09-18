@@ -47,6 +47,19 @@ for (index in seq_along(private_codes)) {
   stopifnot(identical(record$interests, public_record$interests))
   stopifnot(nzchar(record$interestInterpretation), identical(record$origin, "student"))
 }
+
+valid_private_record <- load_student_record_for_code(config, private_codes[[1]])
+missing_concepts <- valid_private_record
+missing_concepts$academicRationale <- NULL
+stopifnot(expect_error(validate_student_record(missing_concepts, missing_concepts$id, "private")))
+
+blank_concept <- valid_private_record
+blank_concept$academicRationale$alternatives[[1]]$concept <- " "
+stopifnot(expect_error(validate_student_record(blank_concept, blank_concept$id, "private")))
+
+comparator_concept <- valid_private_record
+comparator_concept$academicRationale$alternatives[[1]]$programmeId <- comparator_concept$programmes[[1]]$id
+stopifnot(expect_error(validate_student_record(comparator_concept, comparator_concept$id, "private")))
 stopifnot(is.na(normalize_student_code("UCR/INVALID")))
 stopifnot(is.null(load_student_record_for_code(config, "UCR-XXXX-XXXX-XXXX-XXXX")))
 

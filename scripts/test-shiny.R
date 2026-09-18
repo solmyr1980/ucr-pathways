@@ -108,7 +108,10 @@ for (id in sprintf("p-%03d", 1:5)) {
   programme_options_html <- as.character(student$render_programme_options(record))
   for (programme in student_options) {
     label <- student$visible_label(record, programme)
+    rationale <- student$alternative_rationale_for(record, programme$id)
     stopifnot(grepl(htmltools::htmlEscape(label), programme_options_html, fixed = TRUE))
+    stopifnot(!is.null(rationale), nzchar(student$safe_text(rationale$concept)))
+    stopifnot(grepl(htmltools::htmlEscape(student$safe_text(rationale$concept)), programme_options_html, fixed = TRUE))
     stopifnot(!grepl("closest match", label, ignore.case = TRUE))
     stopifnot(!grepl("broader programme around", label, ignore.case = TRUE))
     stopifnot(!grepl("related subjects", label, ignore.case = TRUE))
@@ -123,6 +126,7 @@ fixture_with_ucr_count <- function(count) {
   fixture <- base_record
   keep <- c(base_record$programmes[[1]]$id, vapply(base_ucr[seq_len(count)], function(x) x$id, character(1)))
   fixture$programmes <- c(list(base_record$programmes[[1]]), base_ucr[seq_len(count)])
+  fixture$academicRationale$alternatives <- Filter(function(alternative) alternative$programmeId %in% keep, fixture$academicRationale$alternatives)
   fixture$blocks <- lapply(fixture$blocks, function(block) {
     block$rows <- lapply(block$rows, function(row) {
       row$cells <- row$cells[names(row$cells) %in% keep]
@@ -153,6 +157,10 @@ for (count in 1:3) {
   stopifnot(!grepl("transfer", rendered_student, ignore.case = TRUE))
   stopifnot(!grepl("ordered from the closest match toward broader alternatives", rendered_student, fixed = TRUE))
   stopifnot(!grepl("could be defended", rendered_student, fixed = TRUE))
+  for (programme in student$student_ucr_programmes(fixture)) {
+    rationale <- student$alternative_rationale_for(fixture, programme$id)
+    stopifnot(grepl(htmltools::htmlEscape(rationale$concept), rendered_student, fixed = TRUE))
+  }
 
   if (count == 1) {
     stopifnot(identical(copy$programme_tab, "Explore my UCR programme"))

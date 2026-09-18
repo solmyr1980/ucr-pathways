@@ -23,6 +23,7 @@
       "additionalProperties": true
     },
     "alternativeSelection": {"$ref": "#/$defs/alternativeSelection"},
+    "academicRationale": {"$ref": "#/$defs/academicRationale"},
     "comparator": {"$ref": "#/$defs/comparatorMetadata"},
     "referenceProgramme": {
       "allOf": [{"$ref": "#/$defs/comparatorMetadata"}],
@@ -98,7 +99,7 @@
   "allOf": [
     {
       "if": {"properties": {"origin": {"const": "student"}}, "required": ["origin"]},
-      "then": {"required": ["interests", "interestInterpretation"]}
+      "then": {"required": ["interests", "interestInterpretation", "academicRationale"]}
     },
     {
       "if": {"properties": {"origin": {"const": "counselor"}}, "required": ["origin"]},
@@ -116,6 +117,28 @@
     }
   ],
   "$defs": {
+    "academicRationale": {
+      "type": "object",
+      "required": ["alternatives"],
+      "properties": {
+        "alternatives": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {"$ref": "#/$defs/programmeRationale"}
+        }
+      },
+      "additionalProperties": true
+    },
+    "programmeRationale": {
+      "type": "object",
+      "required": ["programmeId", "concept"],
+      "properties": {
+        "programmeId": {"type": "string", "minLength": 1},
+        "concept": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
     "alternativeSelection": {
       "type": "object",
       "properties": {

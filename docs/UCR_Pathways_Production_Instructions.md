@@ -197,6 +197,8 @@ The student interface must preserve the distinction between:
 
 Do not promise a fixed number of programmes. Present the included UCR programmes in natural singular or plural language. Give every programme a case-specific title describing the programme itself and how it responds to the student's interests; do not use comparator-relative closest-match labels or generic progressively broader labels.
 
+For every included UCR programme, preserve one display-ready `concept` in `academicRationale.alternatives`, linked by `programmeId`. The concept is normally one or two concise sentences explaining the programme's organising academic combination or emphasis and how it responds to the student's interests. Where several programmes are included, their concepts should make the substantive differences clear. Do not refer to a student programme as the closest match to the comparator, expose internal alternative types or production logic, repeat the title mechanically, or make claims that the completed curriculum does not support. This canonical concept supplies the description shown before the semester schedule; do not create a parallel student-app description field.
+
 Use the placeholder disclaimer until approved final wording is supplied:
 
 > **[PLACEHOLDER — insert approved student-program disclaimer from the printed butterfly.]**
@@ -466,7 +468,7 @@ Optional internal `alternativeKind` metadata may describe an alternative as `clo
 
 ## 7.2 Student additions
 
-Preserve original `interest_statement`, separate academic interpretation, internal delivery identifier where required, relevant cohort/starting-semester context and the rationale/stopping decision used to determine how many UCR alternatives were included. Student records remain private.
+Preserve original `interest_statement`, separate academic interpretation, internal delivery identifier where required, relevant cohort/starting-semester context and the rationale/stopping decision used to determine how many UCR alternatives were included. Store `academicRationale.alternatives` with exactly one entry for each included UCR programme; each entry contains the matching `programmeId` and its canonical `concept`. Counselor-specific evidence-map, programme-interest and course-traceability fields are not required merely to support the student description. Student records remain private.
 
 ## 7.3 Counselor additions
 

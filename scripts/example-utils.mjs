@@ -291,6 +291,51 @@ function validateAlternativeSelection(example, programmes, fail) {
   }
 }
 
+function validateAcademicRationale(example, programmes, fail) {
+  const rationale = example?.academicRationale;
+  const studentLike = example?.origin === 'student' || example?.origin === undefined;
+  if (rationale === undefined) {
+    if (studentLike) fail('student-origin and legacy examples require academicRationale with one concept per UCR alternative');
+    return;
+  }
+  if (!rationale || typeof rationale !== 'object' || Array.isArray(rationale)) {
+    fail('academicRationale must be an object');
+    return;
+  }
+  if (!Array.isArray(rationale.alternatives)) {
+    fail('academicRationale.alternatives must be an array');
+    return;
+  }
+
+  const programmeIds = new Set(programmes.map(programme => programme?.id).filter(Boolean));
+  const comparatorIds = new Set(programmes.filter(isComparator).map(programme => programme.id));
+  const ucrIds = programmes.filter(isUcrProgramme).map(programme => programme.id);
+  const rationaleIds = [];
+  rationale.alternatives.forEach((alternative, index) => {
+    if (!alternative || typeof alternative !== 'object' || Array.isArray(alternative)) {
+      fail(`academicRationale.alternatives[${index}] must be an object`);
+      return;
+    }
+    const programmeId = typeof alternative.programmeId === 'string' ? alternative.programmeId.trim() : '';
+    if (!programmeId) {
+      fail(`academicRationale.alternatives[${index}].programmeId is required`);
+    } else {
+      rationaleIds.push(programmeId);
+      if (!programmeIds.has(programmeId)) fail(`academicRationale references unknown programmeId ${programmeId}`);
+      if (comparatorIds.has(programmeId)) fail('academicRationale must not assign a programme concept to the comparator');
+    }
+    if (typeof alternative.concept !== 'string' || !alternative.concept.trim()) {
+      fail(`academicRationale.alternatives[${index}].concept is required`);
+    }
+  });
+
+  if (new Set(rationaleIds).size !== rationaleIds.length) fail('academicRationale programmeId values must be unique');
+  const rationaleIdSet = new Set(rationaleIds);
+  if (rationaleIds.length !== ucrIds.length || ucrIds.some(id => !rationaleIdSet.has(id))) {
+    fail('academicRationale.alternatives must contain exactly one concept for every UCR alternative');
+  }
+}
+
 function validateDistinctUcrCourseSets(programmes, report) {
   const alternatives = programmes.filter(isUcrProgramme)
     .map(programme => ({
@@ -538,6 +583,7 @@ export function validateExample(example, sourceName = 'example') {
     });
   });
 
+  validateAcademicRationale(example, programmes, fail);
   validateAlternativeSelection(example, programmes, fail);
   const currentProductionRecord = example.origin === 'student' || example.origin === 'counselor' || example.alternativeSelection !== undefined;
   validateDistinctUcrCourseSets(programmes, currentProductionRecord ? fail : warn);

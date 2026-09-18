@@ -221,12 +221,6 @@ ucr_programmes_for_summary <- function(record) {
   Filter(is_ucr_programme, record$programmes %||% list())
 }
 
-alternative_rationale_for <- function(record, programme_id) {
-  alternatives <- record$academicRationale$alternatives %||% list()
-  matches <- Filter(function(item) identical(safe_text(item$programmeId), safe_text(programme_id)), alternatives)
-  if (length(matches)) matches[[1]] else NULL
-}
-
 render_comparison_summary <- function(record) {
   programmes <- ucr_programmes_for_summary(record)
   if (!length(programmes)) return(NULL)

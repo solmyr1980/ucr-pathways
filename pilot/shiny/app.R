@@ -123,6 +123,8 @@ course_button <- function(course) {
 }
 
 render_schedule <- function(record, programme) {
+  rationale <- alternative_rationale_for(record, programme$id)
+  concept <- if (is.null(rationale)) "" else safe_text(rationale$concept)
   cards <- lapply(programme$schedule$semesters %||% list(), function(semester) {
     tags$section(
       class = "semester-card",
@@ -139,6 +141,7 @@ render_schedule <- function(record, programme) {
       tags$h2(visible_label(record, programme)),
       tags$a(href = UCR_COURSES_URL, target = "_blank", rel = "noopener", "View UCR courses ↗")
     ),
+    if (nzchar(concept)) tags$p(class = "programme-concept", concept),
     div(class = "semester-grid", do.call(tagList, cards)),
     div(class = "disclaimer", tags$strong("Development notice — approved disclaimer pending"), tags$p(DISCLAIMER_PLACEHOLDER))
   )
@@ -314,6 +317,7 @@ ui <- fluidPage(
       .programme-view-heading { display:flex; align-items:baseline; justify-content:space-between; gap:18px; border-left:6px solid var(--plum); padding:3px 0 3px 15px; margin-bottom:15px; }
       .programme-view-heading h2 { margin:0; font-size:29px; }
       .programme-view-heading a,.programme-source { color:var(--plum); text-decoration:underline; font-size:12px; }
+      .programme-concept { max-width:920px; margin:0 0 18px 21px; color:var(--grey); font-size:16px; line-height:1.55; }
       .semester-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
       .semester-card { background:#fff; border:1px solid rgba(73,30,52,.14); border-radius:14px; padding:16px; }
       .semester-card h4 { margin:0 0 3px; font-size:19px; }
@@ -346,7 +350,7 @@ ui <- fluidPage(
       .modal-content { border-radius:14px; }
       .modal-title { color:var(--plum); font-family:IvyMode,Georgia,serif; }
       .course-description { font-size:15px; line-height:1.6; }
-      @media(max-width:980px){ .container-fluid{padding:0 14px 40px}.intro-row{display:block}.intro-row .secondary-button{margin-top:12px}.input-summary{grid-template-columns:1fr}.semester-grid{grid-template-columns:1fr}.programme-view-heading{display:block}.programme-view-heading a{display:inline-block;margin-top:7px}.ucr-logo{max-width:210px}.access-card{padding:26px 22px} }
+      @media(max-width:980px){ .container-fluid{padding:0 14px 40px}.intro-row{display:block}.intro-row .secondary-button{margin-top:12px}.input-summary{grid-template-columns:1fr}.semester-grid{grid-template-columns:1fr}.programme-view-heading{display:block}.programme-view-heading a{display:inline-block;margin-top:7px}.programme-concept{margin-left:0}.ucr-logo{max-width:210px}.access-card{padding:26px 22px} }
     ")),
     tags$link(rel = "stylesheet", href = "ucr-assets/css/brand.css"),
     tags$link(rel = "stylesheet", href = "ucr-assets/css/shiny.css"),

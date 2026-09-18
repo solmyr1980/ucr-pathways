@@ -10,6 +10,16 @@ is_ucr_programme <- function(programme) {
   programme$role %in% c("ucr-alternative", "ucr-depth", "ucr-balanced", "ucr-thematic")
 }
 
+alternative_rationale_for <- function(record, programme_id) {
+  alternatives <- record$academicRationale$alternatives
+  if (!is.list(alternatives)) return(NULL)
+  target_id <- as.character(programme_id %||% "")
+  matches <- Filter(function(item) {
+    identical(as.character(item$programmeId %||% ""), target_id)
+  }, alternatives)
+  if (length(matches)) matches[[1]] else NULL
+}
+
 visible_label <- function(record, programme) {
   meta <- record$comparator %||% record$referenceProgramme %||% list()
   if (is_comparator_programme(programme)) return(paste0(meta$name, " at ", meta$institution))

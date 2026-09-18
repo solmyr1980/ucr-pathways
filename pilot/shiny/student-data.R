@@ -56,6 +56,58 @@ student_record_filename <- function(entry, mode) {
   paste0(student_record_id(entry, mode), ".json")
 }
 
+validate_student_programme_concepts <- function(record, programmes, expected_id, required = FALSE) {
+  rationale <- record$academicRationale
+  if (is.null(rationale)) {
+    if (required) stop("Student record ", expected_id, " has no academicRationale.")
+    return(invisible(TRUE))
+  }
+  if (!is.list(rationale) || is.null(rationale$alternatives) || !is.list(rationale$alternatives)) {
+    stop("Student record ", expected_id, " must contain academicRationale.alternatives.")
+  }
+
+  programme_ids <- vapply(programmes, function(programme) {
+    as.character(student_value(programme$id, ""))
+  }, character(1))
+  comparator_ids <- programme_ids[vapply(programmes, function(programme) {
+    identical(programme$role, "comparator") || identical(programme$family, "comparator")
+  }, logical(1))]
+  ucr_ids <- programme_ids[vapply(programmes, function(programme) {
+    identical(programme$family, "ucr") ||
+      as.character(student_value(programme$role, "")) %in% c("ucr-alternative", "ucr-depth", "ucr-balanced", "ucr-thematic")
+  }, logical(1))]
+
+  alternatives <- rationale$alternatives
+  rationale_ids <- vapply(seq_along(alternatives), function(index) {
+    item <- alternatives[[index]]
+    if (!is.list(item)) stop("Student record ", expected_id, " has an invalid programme concept entry.")
+    programme_id <- item$programmeId
+    concept <- item$concept
+    if (is.null(programme_id) || length(programme_id) != 1 || is.na(programme_id) || !nzchar(trimws(as.character(programme_id)))) {
+      stop("Student record ", expected_id, " has a programme concept without programmeId.")
+    }
+    if (is.null(concept) || length(concept) != 1 || is.na(concept) || !nzchar(trimws(as.character(concept)))) {
+      stop("Student record ", expected_id, " has a blank concept for programme ", as.character(programme_id), ".")
+    }
+    as.character(programme_id)
+  }, character(1))
+
+  unknown_ids <- setdiff(rationale_ids, programme_ids)
+  if (length(unknown_ids)) {
+    stop("Student record ", expected_id, " references an unknown programmeId in academicRationale: ", paste(unknown_ids, collapse = ", "), ".")
+  }
+  if (any(rationale_ids %in% comparator_ids)) {
+    stop("Student record ", expected_id, " must not assign a programme concept to the comparator.")
+  }
+  if (anyDuplicated(rationale_ids)) {
+    stop("Student record ", expected_id, " has duplicate programme concepts.")
+  }
+  if (length(rationale_ids) != length(ucr_ids) || !setequal(rationale_ids, ucr_ids)) {
+    stop("Student record ", expected_id, " must contain exactly one programme concept for every UCR alternative.")
+  }
+  invisible(TRUE)
+}
+
 validate_student_record <- function(record, expected_id, mode) {
   if (!is.list(record)) stop("Student record ", expected_id, " must be a JSON object.")
   if (!identical(as.character(student_value(record$id, "")), expected_id)) {
@@ -84,6 +136,21 @@ validate_student_record <- function(record, expected_id, mode) {
   if (comparator_count != 1 || ucr_count < 1 || ucr_count > 3) {
     stop("Student record ", expected_id, " has an invalid comparator/UCR alternative structure.")
   }
+  comparator_flags <- vapply(programmes, function(programme) {
+    identical(programme$role, "comparator") || identical(programme$family, "comparator")
+  }, logical(1))
+  ucr_flags <- vapply(programmes, function(programme) {
+    identical(programme$family, "ucr") ||
+      as.character(student_value(programme$role, "")) %in% c("ucr-alternative", "ucr-depth", "ucr-balanced", "ucr-thematic")
+  }, logical(1))
+  if (any(comparator_flags & ucr_flags)) {
+    stop("Student record ", expected_id, " incorrectly classifies a comparator as a UCR alternative.")
+  }
+  programme_ids <- vapply(programmes, function(programme) as.character(student_value(programme$id, "")), character(1))
+  if (any(!nzchar(programme_ids)) || anyDuplicated(programme_ids)) {
+    stop("Student record ", expected_id, " must use unique nonblank programme ids.")
+  }
+  validate_student_programme_concepts(record, programmes, expected_id, required = identical(mode, "private"))
   if (!is.list(record$blocks) || !length(record$blocks)) {
     stop("Student record ", expected_id, " has no comparison blocks.")
   }
