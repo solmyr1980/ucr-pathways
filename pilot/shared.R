@@ -19,11 +19,20 @@ visible_label <- function(record, programme) {
     return(if (identical(record$origin, "counselor")) sub("your interests", "related interests", label, fixed = TRUE) else label)
   }
 
+  if (!identical(record$origin, "counselor")) {
+    ucr_programmes <- Filter(is_ucr_programme, record$programmes %||% list())
+    if (length(ucr_programmes) == 1) return("Your UCR programme")
+    programme_ids <- vapply(ucr_programmes, function(item) item$id %||% "", character(1))
+    programme_index <- match(programme$id %||% "", programme_ids)
+    if (!is.na(programme_index)) return(paste("UCR programme", programme_index))
+    return("UCR programme")
+  }
+
   kind <- programme$alternativeKind %||% programme$alternative_kind %||% ""
   if (identical(kind, "closest-match") || identical(programme$role, "ucr-depth")) return(paste0("Closest match to ", meta$name))
   if (identical(kind, "related-direction") || identical(programme$role, "ucr-balanced")) return(paste0(meta$name, " + related subjects"))
   if (identical(kind, "question-led") || identical(programme$role, "ucr-thematic")) {
-    return(if (identical(record$origin, "counselor")) "A broader programme around related interests" else "A broader programme around your interests")
+    return("A broader programme around related interests")
   }
   "Another UCR programme option"
 }

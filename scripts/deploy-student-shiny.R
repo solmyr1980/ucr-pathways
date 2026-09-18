@@ -15,8 +15,7 @@ option_value <- function(name, default = NULL) {
 }
 
 known_argument <- args %in% c("--check", "--check-bundle") |
-  startsWith(args, "--account=") |
-  startsWith(args, "--app-name=")
+  startsWith(args, "--account=")
 if (any(!known_argument)) stop("Unknown argument: ", args[!known_argument][[1]])
 if (all(c("--check", "--check-bundle") %in% args)) stop("Use either --check or --check-bundle, not both.")
 
@@ -138,15 +137,14 @@ if ("--check-bundle" %in% args) {
 }
 
 account <- option_value("--account", Sys.getenv("SHINYAPPS_ACCOUNT", unset = ""))
-app_name <- option_value("--app-name", Sys.getenv("UCR_STUDENT_SHINY_APP_NAME", unset = "ucr-student-private-test"))
-if (!nzchar(app_name)) stop("The shinyapps.io application name cannot be blank.")
+app_name <- "ucr-student"
 
 rsconnect::deployApp(
   appDir = repo_root,
   appFiles = runtime_files,
   appPrimaryDoc = "pilot/shiny/app.R",
   appName = app_name,
-  appTitle = "Your personalized UCR programme options — private test",
+  appTitle = "Your personalized UCR study possibilities",
   account = if (nzchar(account)) account else NULL,
   server = "shinyapps.io",
   appMode = "shiny",

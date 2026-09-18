@@ -1,26 +1,29 @@
-# Personalized student Shiny pilot
+# Personalized student Shiny app
 
 This app supports two explicit server-side data modes:
 
-- **public development** — the five tracked public comparison records and public pilot access codes;
+- **public development** — the five tracked public comparison records and public development access codes;
 - **private bundled** — ignored local student records and a private access index included only in the shinyapps.io deployment bundle.
 
 The user-facing interface intentionally uses UCR branding without a visible Pathways sub-brand.
 
-## What the pilot tests
+These are two data modes of one student app, not separate public, private, pilot or test applications.
+
+## Student journey
 
 - a student enters a student-specific access code;
 - the server resolves the code and reads only the matching structured comparison record;
 - the welcome view preserves the student's original wording and provides a separate place for the academic interpretation;
-- the first substantive view presents every included personalized UCR programme option in semester-by-semester format, ordered from the closest feasible match toward broader alternatives where those are genuinely supported;
-- records may contain between one and three UCR programme options; the interface does not manufacture empty or weak slots merely to reach three;
+- the first substantive view presents every included personalized UCR programme in semester-by-semester format, using case-specific titles derived from the student's interests and the completed curriculum;
+- records may contain between one and three UCR programmes; the interface adapts its singular/plural wording and does not assume that later programmes are broader;
 - the student can switch to the comparison view without regenerating content;
+- the comparison uses a relevant Dutch bachelor as a concrete point of comparison, not as the generating reference for the student's UCR programmes;
 - comparison headings use descriptive case-specific labels;
 - the external programme heading links to its approved official source;
 - UCR content links to the current UCR course overview;
 - UCR courses show EC information and can be clicked/tapped for descriptions;
 - the student receives Admissions and Program Builder calls to action;
-- the temporary disclaimer placeholder is visible until approved final disclaimer copy is supplied.
+- the development-only disclaimer placeholder is visibly marked until approved final disclaimer copy is supplied.
 
 ## Data-mode boundary
 
@@ -44,9 +47,9 @@ From the repository root:
 shiny::runApp("pilot/shiny")
 ```
 
-Run from a complete repository checkout. Both pilots serve the shared UCR logo, fonts and CSS from the local `assets/` directory and load shared presentation helpers from `pilot/shared.R`. Public-development data and course descriptions are read from the checkout, so normal local use does not depend on GitHub at runtime.
+Run from a complete repository checkout. Both Shiny apps serve the shared UCR logo, fonts and CSS from the local `assets/` directory and load shared presentation helpers from `pilot/shared.R`. Public-development data and course descriptions are read from the checkout, so normal local use does not depend on GitHub at runtime.
 
-## Pilot codes
+## Public development codes
 
 | Example | Code |
 |---|---|
@@ -77,7 +80,7 @@ Rscript scripts/deploy-student-shiny.R
 
 The initializer creates `private/student-records/`, `private/student-access.json`, `private/student-mode.json` and `private/student-test-codes.txt`. The complete `private/` tree is ignored by Git. Generated records preserve the five original interest statements, add fixed test interpretations, and use newly generated 80-bit access codes. The deployment bundle excludes the local code-reference text file, the public access map and the public example records.
 
-The default deployment name is `ucr-student-private-test`. Use `--account=...` and `--app-name=...` to override it. The deployment computer must already have the relevant shinyapps.io account authorized through `rsconnect`.
+The deployment name is `ucr-student`. Use `--account=...` when the shinyapps.io account is not already selected. The deployment computer must already have the relevant shinyapps.io account authorized through `rsconnect`.
 
 No standalone Git command-line executable is required. Initialization and deployment validate the root-anchored `/private/` rule directly from the repository `.gitignore`.
 

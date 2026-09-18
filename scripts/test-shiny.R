@@ -107,15 +107,19 @@ for (id in sprintf("p-%03d", 1:5)) {
   stopifnot(all(vapply(student_options, student$is_ucr_programme, logical(1))))
   programme_options_html <- as.character(student$render_programme_options(record))
   for (programme in student_options) {
-    stopifnot(grepl(htmltools::htmlEscape(student$visible_label(record, programme)), programme_options_html, fixed = TRUE))
+    label <- student$visible_label(record, programme)
+    stopifnot(grepl(htmltools::htmlEscape(label), programme_options_html, fixed = TRUE))
+    stopifnot(!grepl("closest match", label, ignore.case = TRUE))
+    stopifnot(!grepl("broader programme around", label, ignore.case = TRUE))
+    stopifnot(!grepl("related subjects", label, ignore.case = TRUE))
   }
 }
 
-# Explicitly exercise one- and two-alternative rendering using the first public fixture.
+# Explicitly exercise one-, two- and three-programme rendering and copy.
 base_record <- jsonlite::fromJSON("data/examples/p-001.json", simplifyVector = FALSE)
 base_ucr <- student$student_ucr_programmes(base_record)
 stopifnot(length(base_ucr) >= 3)
-for (count in c(1, 2)) {
+fixture_with_ucr_count <- function(count) {
   fixture <- base_record
   keep <- c(base_record$programmes[[1]]$id, vapply(base_ucr[seq_len(count)], function(x) x$id, character(1)))
   fixture$programmes <- c(list(base_record$programmes[[1]]), base_ucr[seq_len(count)])
@@ -128,11 +132,61 @@ for (count in c(1, 2)) {
     block
   })
   fixture$blocks <- Filter(function(block) length(block$rows) > 0, fixture$blocks)
+  fixture
+}
+
+for (count in 1:3) {
+  fixture <- fixture_with_ucr_count(count)
   stopifnot(length(student$student_ucr_programmes(fixture)) == count)
   stopifnot(nzchar(as.character(student$render_compare_table(fixture))))
   stopifnot(nzchar(as.character(student$render_programme_options(fixture))))
   stopifnot(nzchar(as.character(counselor$render_compare_table(fixture))))
+
+  copy <- student$student_experience_copy(fixture)
+  rendered_student <- as.character(student$render_student_record(fixture))
+  stopifnot(grepl(htmltools::htmlEscape(copy$heading), rendered_student, fixed = TRUE))
+  stopifnot(grepl("Compare with a Dutch bachelor", rendered_student, fixed = TRUE))
+  stopifnot(grepl("Build your own UCR programme", rendered_student, fixed = TRUE))
+  stopifnot(grepl("A blank cell means there is no closely comparable course or component in that row.", rendered_student, fixed = TRUE))
+  stopifnot(!grepl("pilot", rendered_student, ignore.case = TRUE))
+  stopifnot(!grepl("Tweak this programme", rendered_student, fixed = TRUE))
+  stopifnot(!grepl("transfer", rendered_student, ignore.case = TRUE))
+  stopifnot(!grepl("ordered from the closest match toward broader alternatives", rendered_student, fixed = TRUE))
+  stopifnot(!grepl("could be defended", rendered_student, fixed = TRUE))
+
+  if (count == 1) {
+    stopifnot(identical(copy$programme_tab, "Explore my UCR programme"))
+    stopifnot(identical(copy$heading, "We've prepared a UCR programme around your interests."))
+    stopifnot(grepl("your UCR programme with", copy$comparison_intro, fixed = TRUE))
+    stopifnot(!grepl("your UCR programmes with", copy$comparison_intro, fixed = TRUE))
+    stopifnot(grepl("This UCR programme shows one possible way", copy$source_note, fixed = TRUE))
+    stopifnot(!grepl("These UCR programmes", copy$source_note, fixed = TRUE))
+  } else {
+    stopifnot(identical(copy$programme_tab, "Explore my UCR programmes"))
+    stopifnot(grepl(paste0(c("", "two", "three")[[count]], " UCR programmes"), copy$heading, fixed = TRUE))
+    stopifnot(grepl("your UCR programmes with", copy$comparison_intro, fixed = TRUE))
+    stopifnot(grepl("These UCR programmes show possible ways", copy$source_note, fixed = TRUE))
+  }
 }
+
+# Missing student labels fall back neutrally instead of inventing comparator-
+# relative or progressively broader programme roles.
+fallback_fixture <- fixture_with_ucr_count(3)
+fallback_fixture$origin <- "student"
+for (index in seq_along(fallback_fixture$programmes)) {
+  if (student$is_ucr_programme(fallback_fixture$programmes[[index]])) fallback_fixture$programmes[[index]]$label <- ""
+}
+fallback_labels <- vapply(student$student_ucr_programmes(fallback_fixture), function(programme) {
+  student$visible_label(fallback_fixture, programme)
+}, character(1))
+stopifnot(identical(fallback_labels, paste("UCR programme", 1:3)))
+
+app_source <- paste(readLines("pilot/shiny/app.R", warn = FALSE), collapse = "\n")
+deploy_source <- paste(readLines("scripts/deploy-student-shiny.R", warn = FALSE), collapse = "\n")
+stopifnot(identical(student$COURSE_DESCRIPTION_UNAVAILABLE, "A course description is not currently available."))
+stopifnot(grepl('app_name <- "ucr-student"', deploy_source, fixed = TRUE))
+stopifnot(!grepl("ucr-student-private-test", deploy_source, fixed = TRUE))
+stopifnot(!grepl("current pilot course lookup", app_source, fixed = TRUE))
 
 shiny::testServer(counselor$server, {
   session$flushReact()
@@ -148,6 +202,9 @@ shiny::testServer(counselor$server, {
 })
 
 shiny::testServer(student$server, {
+  session$flushReact()
+  locked_html <- paste(as.character(output$app_body), collapse = "")
+  stopifnot(!grepl("pilot", locked_html, ignore.case = TRUE))
   session$setInputs(access_code = tolower(codes$entries[[1]]$code), unlock_pathway = 1)
   stopifnot(identical(record()$id, codes$entries[[1]]$example_id))
   option_count <- length(student$student_ucr_programmes(record()))
