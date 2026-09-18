@@ -107,6 +107,8 @@ Rscript scripts/deploy-student-shiny.R --account=YOUR_ACCOUNT --app-name=YOUR_TE
 
 The deploying computer must first be authorized for the relevant shinyapps.io account through `rsconnect`; account tokens and secrets must remain outside this repository. This architecture is tested with public development content. Passing the technical checks does not by itself authorize deployment of real prospective-student information; that requires the applicable Utrecht University/UCR privacy, processor, retention and access approvals.
 
+The student initializer and deployment checks do not require a standalone Git command-line installation. They verify the root-anchored `/private/` rule directly in the repository `.gitignore` before creating or bundling private data.
+
 ## Counselor workflow and pilot
 
 Counselor production is deterministic. The unit of production is one normalized target from the counselor programme registry, processed in `production_order` without prioritization by fit or marketing value.

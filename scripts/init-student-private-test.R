@@ -23,7 +23,9 @@ if (!requireNamespace("openssl", quietly = TRUE)) {
   stop("Install the openssl package before initializing the private test dataset.")
 }
 
+source(file.path(repo_root, "scripts", "student-private-workflow.R"), local = TRUE)
 source(file.path(repo_root, "pilot", "shiny", "student-data.R"), local = TRUE)
+assert_private_tree_ignored(repo_root)
 
 test_ids <- sprintf("p-%03d", 1:5)
 interpretations <- c(

@@ -79,4 +79,6 @@ The initializer creates `private/student-records/`, `private/student-access.json
 
 The default deployment name is `ucr-student-private-test`. Use `--account=...` and `--app-name=...` to override it. The deployment computer must already have the relevant shinyapps.io account authorized through `rsconnect`.
 
+No standalone Git command-line executable is required. Initialization and deployment validate the root-anchored `/private/` rule directly from the repository `.gitignore`.
+
 This test demonstrates the local-file-to-private-bundle architecture with public development content. Real prospective-student data require separate institutional approval for the hosting and privacy arrangements.

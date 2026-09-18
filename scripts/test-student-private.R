@@ -5,7 +5,28 @@ if (!requireNamespace("jsonlite", quietly = TRUE) || !requireNamespace("shiny", 
 }
 
 repo_root <- normalizePath(".", winslash = "/", mustWork = TRUE)
+source(file.path(repo_root, "scripts", "student-private-workflow.R"), local = TRUE)
 source(file.path(repo_root, "pilot", "shiny", "student-data.R"), local = TRUE)
+
+expect_error <- function(expression) inherits(try(force(expression), silent = TRUE), "try-error")
+test_ignore_contract <- function() {
+  test_root <- tempfile("student-private-ignore-")
+  dir.create(test_root)
+  on.exit(unlink(test_root, recursive = TRUE), add = TRUE)
+  ignore_path <- file.path(test_root, ".gitignore")
+
+  writeLines("/private/", ignore_path)
+  stopifnot(isTRUE(assert_private_tree_ignored(test_root)))
+
+  writeLines("private/", ignore_path)
+  stopifnot(expect_error(assert_private_tree_ignored(test_root)))
+
+  writeLines(c("/private/", "!/*"), ignore_path)
+  stopifnot(expect_error(assert_private_tree_ignored(test_root)))
+}
+
+test_ignore_contract()
+assert_private_tree_ignored(repo_root)
 config <- load_student_data_config(repo_root, "private")
 if (!identical(config$marker$datasetType, "five-public-fixture-test")) {
   stop("Refusing to test or modify a private dataset that is not the generated five-case test dataset.")
@@ -37,15 +58,8 @@ for (entry in public_codes$entries) {
   stopifnot(is.null(load_student_record_for_code(config, entry$code)))
 }
 
-# The private tree is neither tracked nor mounted as a Shiny static resource.
-tracked <- system2("git", c("-C", repo_root, "ls-files", "--", "private"), stdout = TRUE, stderr = TRUE)
-stopifnot(!length(tracked) || !any(nzchar(tracked)))
-for (path in c("private/student-mode.json", "private/student-access.json", file.path("private/student-records", config$record_files))) {
-  status <- system2("git", c("-C", repo_root, "check-ignore", "-q", "--", path))
-  stopifnot(identical(status, 0L))
-}
-git_status <- system2("git", c("-C", repo_root, "status", "--short", "--untracked-files=all"), stdout = TRUE, stderr = TRUE)
-stopifnot(!any(grepl("private/", git_status, fixed = TRUE)))
+# The private tree is covered by the repository's root ignore rule and is not
+# mounted as a Shiny static resource.
 resource_code <- paste(readLines(file.path(repo_root, "pilot", "shared.R"), warn = FALSE), collapse = "\n")
 stopifnot(!grepl("addResourcePath\\([^\\n]*private", resource_code))
 stopifnot(!dir.exists(file.path(repo_root, "pilot", "shiny", "www", "private")))

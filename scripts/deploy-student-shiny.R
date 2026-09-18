@@ -28,32 +28,14 @@ repo_root <- normalizePath(file.path(dirname(script_path), ".."), winslash = "/"
 if (!requireNamespace("jsonlite", quietly = TRUE)) {
   stop("Install the jsonlite package before checking or deploying the student app.")
 }
+source(file.path(repo_root, "scripts", "student-private-workflow.R"), local = TRUE)
 source(file.path(repo_root, "pilot", "shiny", "student-data.R"), local = TRUE)
-
-git_output <- function(arguments, allow_failure = FALSE) {
-  output <- system2("git", c("-C", repo_root, arguments), stdout = TRUE, stderr = TRUE)
-  status <- attr(output, "status")
-  if (is.null(status)) status <- 0L
-  if (status != 0L && !allow_failure) stop(paste(output, collapse = "\n"))
-  list(output = output, status = status)
-}
-
-inside_work_tree <- git_output(c("rev-parse", "--is-inside-work-tree"))$output
-if (!identical(inside_work_tree[[1]], "true")) stop("Student deployment must run from a Git checkout.")
-
-tracked_private <- git_output(c("ls-files", "--", "private"))$output
-if (length(tracked_private) && any(nzchar(tracked_private))) {
-  stop("Refusing deployment because private student data are tracked by Git: ", paste(tracked_private, collapse = ", "))
-}
+assert_private_tree_ignored(repo_root)
 
 private_root <- file.path(repo_root, "private")
 if (!dir.exists(private_root)) stop("Missing private student directory. Run scripts/init-student-private-test.R first for this test.")
 private_files_on_disk <- list.files(private_root, recursive = TRUE, full.names = FALSE, all.files = TRUE, no.. = TRUE)
 if (!length(private_files_on_disk)) stop("The private student directory is empty.")
-for (relative in file.path("private", private_files_on_disk)) {
-  ignored <- git_output(c("check-ignore", "-q", "--", relative), allow_failure = TRUE)
-  if (ignored$status != 0L) stop("Refusing deployment because a private file is not ignored by Git: ", relative)
-}
 
 config <- load_student_data_config(repo_root, "private")
 if (!identical(config$marker$datasetType, "five-public-fixture-test")) {
