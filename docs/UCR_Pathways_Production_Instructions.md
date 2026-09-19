@@ -102,9 +102,9 @@ Each included UCR programme must have:
 - every prerequisite completed in an earlier semester;
 - every course available in its assigned semester.
 
-Formal prerequisites are hard requirements but are not the complete academic sequencing test. Before accepting a schedule, inspect the actual course evidence for progression signals such as `builds on`, `assumes`, `advanced continuation`, explicit reference to prior disciplinary study, or a clearly advanced methodological/subject role. A missing formal prerequisite must not be treated as evidence that an advanced course is automatically suitable at the start of the programme.
+For course sequencing, formal prerequisites and planned semester availability are hard constraints. Complete every formal prerequisite in an earlier semester and assign each course only to a semester in which it is available.
 
-Normally place relevant foundational or introductory study before advanced work in the same field when the latter clearly builds on that foundation. A 300-level designation by itself does not prohibit an early placement; the substantive course evidence determines whether progression is credible. If a course explicitly depends academically on earlier study even though that dependency is not encoded as a formal prerequisite, schedule the relevant foundation first. If a credible sequence cannot be achieved without breaking the programme concept or availability constraints, revise the course set or treat the programme as infeasible rather than silently accepting an implausible order.
+Also inspect the actual course evidence for advisory progression signals such as `builds on`, `assumes`, `advanced continuation`, explicit reference to prior disciplinary study, or a clearly advanced methodological or subject role. Prefer to place relevant foundational or introductory study before advanced work that clearly builds on it when this is feasible within the formal constraints and programme concept. These signals do not create additional prerequisites or an independent pass/fail test. Where no formal prerequisite exists, UCR's open curriculum permits alternative sequencing; do not reject or rebuild an otherwise valid programme merely because another academically reasonable sequence might be preferable. A 300-level designation by itself does not prohibit early placement.
 
 For both workflows, every course except mandatory `ACCPPDE101` Personal & Professional Development must make a concrete substantive contribution to the programme's evidenced concept. Generic claims such as breadth, context or another perspective are insufficient unless that role is itself evidenced and specific to the concept.
 
@@ -112,7 +112,7 @@ The course-traceability rationale must make clear whether a course directly impl
 
 Do not invent additional cluster, unit, concentration, breadth or disciplinary-distribution requirements.
 
-Validate the numerical, prerequisite and availability rules mechanically against the enriched course database. Mechanical validation does not replace the academic progression or course-to-concept tests above, and repository/schema validation does not replace academic feasibility validation.
+Validate the numerical, prerequisite and availability rules mechanically against the enriched course database. Review advisory progression when choosing among feasible schedules, but do not treat it as an additional mechanical constraint or independent completion gate. Mechanical and repository/schema validation do not replace the course-to-concept test above.
 
 ## 2.3 Shared alternative-selection rule
 
@@ -129,7 +129,7 @@ Consider one additional coherent programme concept supported by the applicable e
 1. **evidence** — the concept is supported by permitted evidence;
 2. **coherence** — it has a clear academic organising logic before course selection;
 3. **distinctness** — it represents a substantively different choice from Alternative 1 rather than cosmetic reshuffling;
-4. **feasibility** — it can satisfy all UCR mechanical constraints and academic-progression requirements.
+4. **feasibility** — it can satisfy all UCR mechanical constraints, including formal prerequisites and planned semester availability.
 
 If Alternative 2 fails, stop. Do not manufacture Alternative 3.
 
@@ -307,13 +307,13 @@ Create one course-traceability entry for every non-PPD course. Each entry must i
 
 The mapping must be specific enough to answer, without reconstructing hidden reasoning, **why this particular course belongs in this particular programme**. A course may map to several evidenced items where appropriate, but a generic alternative-level rationale is not a substitute for course-level traceability.
 
-Then schedule the curriculum and apply both parts of Section 2.2: academic progression first, and the mechanical prerequisite/availability/credit checks. A mechanically valid but academically implausible sequence does not pass.
+Then schedule the curriculum under Section 2.2. Apply the mechanical prerequisite, availability and credit checks as hard constraints, and use advisory progression signals to prefer a sensible sequence where feasible. Do not fail an otherwise valid schedule solely because another academically reasonable order might be preferable.
 
 ### Step 5 — Consider Alternative 2
 
 Return to the evidence map before looking for courses. Identify one coherent alternative concept that differs substantively from Alternative 1 and is supported by map items. It may use an adjacent direction, a question/application, or another defensible reorganisation of the evidenced field.
 
-Freeze the concept first, then select courses, create the same per-course traceability required in Step 4, validate academic progression and mechanical feasibility, and record a concrete distinctness rationale explaining the educational choice that differs from Alternative 1 and how that choice materially changes course selection.
+Freeze the concept first, then select courses, create the same per-course traceability required in Step 4, validate mechanical feasibility, review advisory progression, and record a concrete distinctness rationale explaining the educational choice that differs from Alternative 1 and how that choice materially changes course selection.
 
 After the schedule is complete, apply the Section 2.3 mechanical floor. Alternative 2 must differ from Alternative 1 by at least **30 EC / 4 courses** in each programme. If it does not, reject Alternative 2 as `not-substantively-distinct`; do not make arbitrary course substitutions to force it over the threshold.
 
@@ -321,7 +321,7 @@ If no concept passes evidence, coherence, distinctness and feasibility, stop at 
 
 ### Step 6 — Consider Alternative 3
 
-Only if Alternative 2 is included, repeat Step 5 for one further defensible concept. It must be substantively distinct from the already included alternatives and remain inside the evidence boundary. Apply the same per-course traceability, academic-progression and feasibility requirements.
+Only if Alternative 2 is included, repeat Step 5 for one further defensible concept. It must be substantively distinct from the already included alternatives and remain inside the evidence boundary. Apply the same per-course traceability, advisory progression review and mechanical-feasibility requirements.
 
 After scheduling, Alternative 3 must pass the **30 EC / 4-course floor separately against Alternative 1 and Alternative 2**. Failing either pairwise comparison means Alternative 3 is `not-substantively-distinct` and must not be included.
 
@@ -392,9 +392,10 @@ Apply all of the following rules:
 - two different UCR course codes must occupy separate rows even when their content is similar; never create a row-level equivalence merely for visual alignment;
 - assign the canonical block once for the course code within that comparison; the same course may not appear under different blocks in different UCR alternatives;
 - **only after the UCR rows are fixed**, place every comparator component independently against the strongest defensible UCR counterpart, using actual component/course content rather than previous row position;
-- a shared comparator/UCR row asserts **substantial curricular correspondence**, not full course equivalence. Place components on the same row when they address materially the same primary academic subject, method or educational function, even when their disciplinary framing, breadth or emphasis differs;
-- prefer the strongest defensible counterpart and use actual component/course content rather than title similarity alone. A direct same-subject match remains preferable to a looser thematic association (for example, Developmental Psychology belongs with Lifespan Developmental Psychology rather than with an unrelated social-science course);
-- keep components on separate rows when the overlap is only partial, adjacent, incidental or merely methodological rather than substantively the same area. When no substantial curricular counterpart exists, give the comparator component its own row with blank UCR cells. Never preserve or invent a weak match merely to reduce blank space;
+- a shared comparator/UCR row asserts a **meaningful curricular relationship**, not full course equivalence. Place components on the same row when the UCR course directly addresses an important and identifiable part of the comparator component's primary subject, disciplinary method or specific educational function, even when it does not reproduce the component's full scope, level or disciplinary framing;
+- for a broad integrated comparator component that cannot defensibly be divided into separately credited elements, alignment with the strongest directly relevant UCR course is acceptable when the relationship independently meets the preceding standard. The alignment rationale must identify the shared subject, method or function and make the difference in scope clear. Being the strongest available course is not by itself sufficient;
+- prefer the strongest adequate counterpart and use actual component/course content rather than title similarity alone. A direct same-subject match remains preferable to a looser thematic association (for example, Developmental Psychology belongs with Lifespan Developmental Psychology rather than with an unrelated social-science course);
+- keep components on separate rows when the relationship is merely contextual, adjacent, incidental, generally useful background, based mainly on title similarity, or grounded only in a generic transferable method or educational function. Partial overlap does not by itself preclude alignment when it concerns an important and identifiable part of the comparator component. When no UCR course meets that standard, give the comparator component its own row with blank UCR cells. Never preserve or invent a weak match merely to reduce blank space;
 - record the decision for every comparator component in `comparisonAlignment`: either `substantive-match` with the selected `ucrCourseCode`, or `unmatched`, together with a concise rationale. If the UCR row structure changes, comparator placement must be recomputed rather than carried over by row index;
 - meaningful blank cells are legitimate when there is no sufficiently comparable component in another programme;
 - unequal block sizes, unequal numbers of components within a block and structural gaps are legitimate and often desirable;
@@ -520,6 +521,8 @@ Neither workflow publishes automatically. Public export requires substantive hum
 
 The purpose of final QC is to confirm that the procedure above was followed, not to restate it in a second instruction set.
 
+Once a record has passed the completion gates and been published, reopen it only for a hard-rule violation or a material error. Material errors include a materially inaccurate comparator reconstruction, an unsupported alternative, a weak or irrelevant course choice, an omitted curriculum component, a clearly misleading alignment or an inaccurate rationale that changes the academic interpretation. Do not reopen a record merely because another reasonable course choice, sequence, block placement or alignment could have been made.
+
 ## 9.1 Record-level counselor gates
 
 A counselor record is complete only when all six gates pass:
@@ -527,18 +530,18 @@ A counselor record is complete only when all six gates pass:
 1. **Evidence gate** — external programme is fairly reconstructed; any named comparator route is confirmed by current official evidence for the applicable academic year, follows the neutral route-selection rule and is recorded when material; every substantive interest-map item used in an alternative is evidence-backed for the exact target; and every generator-eligible interest row is either substantively covered by the closest-match core or assigned to a coherent candidate direction rather than an omnibus residual bucket.
 2. **Alternative gate** — Alternative 1 is the closest defensible response; each additional alternative passed evidence, coherence, qualitative distinctness, the pairwise **30 EC / 4-course minimum**, and feasibility; its different organising logic produces material curricular consequences; the sequential stopping decision is recorded; and no skipped slot or relabelled near-duplicate was manufactured later.
 3. **Course gate** — every non-PPD course has one explicit course-traceability entry linking its actual content to evidenced concept items with a substantive rationale; the rationale accurately presents the course as a direct or specific complementary contribution; no merely adjacent course is treated as a substitute or justified only through generic breadth/context language; every included alternative after the first has a concrete distinctness rationale; and courses changed to establish distinctness are genuine consequences of the evidenced concept rather than arbitrary threshold-filling substitutions.
-4. **Feasibility gate** — all mechanical UCR schedule constraints pass against the enriched database and the semester order is academically credible under the progression rule for every included programme. A formal `prerequisite = NONE` does not by itself establish acceptable sequencing.
-5. **Comparison gate** — every included programme still accounts for exactly 180 EC of canonical curriculum; each canonical UCR course/external component appears exactly once; PPD is visible; **Optional independent research — 15 EC** appears once in every UCR column as a comparison-only element and is excluded from the 180-EC total; its placement follows `researchComponentId` or the PPD-block fallback; stable references agree with canonical data; and block alignment preserves genuine gaps rather than imposing a symmetry template.
+4. **Feasibility gate** — all mechanical UCR schedule constraints pass against the enriched database, including formal prerequisites and planned semester availability. Advisory progression has been considered where feasible but is not an independent reason for failure.
+5. **Comparison gate** — every included programme still accounts for exactly 180 EC of canonical curriculum; each canonical UCR course/external component appears exactly once; PPD is visible; **Optional independent research — 15 EC** appears once in every UCR column as a comparison-only element and is excluded from the 180-EC total; its placement follows `researchComponentId` or the PPD-block fallback; stable references agree with canonical data; every shared comparator/UCR row represents a meaningful curricular relationship under Section 5; and block alignment preserves genuine gaps rather than imposing a symmetry template.
 6. **Record gate** — the current counselor schema/validator passes and normalized identity/provenance matches the registry.
 
 ## 9.2 Batch-level counselor QC
 
-After all individually completed records pass the gates, inspect the batch only for **systematic** failure modes:
+After all individually completed records pass the gates, use batch QC primarily to identify **systematic** failure modes and recurring process problems:
 
 - unsupported domains or cross-disciplinary jumps;
 - generic/interchangeable alternative concepts across unrelated targets;
 - recurring course palettes or course reuse without independent justification;
-- implausible early placement of advanced courses despite available foundational sequencing;
+- systematic disregard of clear advisory progression despite readily available foundation-first sequencing;
 - omnibus residual interest clusters or repeated use of blanket rejection rationales for unrelated candidate directions;
 - systematic production of three alternatives regardless of evidence;
 - systematic production of only one alternative to avoid the work of testing additional possibilities;
@@ -547,8 +550,10 @@ After all individually completed records pass the gates, inspect the batch only 
 
 Similarity between genuinely related programmes is not itself a defect. Do not change a sound record merely to create artificial variety. The 30-EC rule is a minimum safeguard against near-duplicates, not a target for maximizing difference.
 
+If the same debatable judgment recurs across otherwise valid records, improve the governing rule for future production rather than repeatedly revising completed records. Reopen an existing record only when its own issue meets the hard-rule or material-error threshold above.
+
 ## 9.3 Student completion
 
-Confirm the student input is preserved verbatim, interpretation stored separately, the UCR programmes were generated and named directly from that interpreted input before comparator selection, the number of alternatives follows the sequential evidence/coherence/distinctness/feasibility rule, every pair of included UCR alternatives passes the **30 EC / 4-course distinctness floor**, every included UCR schedule is mechanically valid and academically credible in its progression, every non-PPD course has a concrete substantive relationship to the evidenced programme concept, every comparison column accounts for the complete 180 EC without duplication or omission, comparison alignment is fair, and privacy/publication boundaries are respected.
+Confirm the student input is preserved verbatim, interpretation stored separately, the UCR programmes were generated and named directly from that interpreted input before comparator selection, the number of alternatives follows the sequential evidence/coherence/distinctness/feasibility rule, every pair of included UCR alternatives passes the **30 EC / 4-course distinctness floor**, every included UCR schedule satisfies the mechanical constraints and has considered advisory progression where feasible, every non-PPD course has a concrete substantive relationship to the evidenced programme concept, every comparison column accounts for the complete 180 EC without duplication or omission, comparison alignment is fair, and privacy/publication boundaries are respected.
 
 Only then release the requested artifact or library record.
