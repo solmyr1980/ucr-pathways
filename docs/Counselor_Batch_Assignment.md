@@ -124,7 +124,7 @@ After every individually completed record has passed the record-level completion
 
 1. run automated counselor validation across all completed current production records;
 2. run the **batch-level counselor QC** in Section 9.2 of the Production Instructions;
-3. repair only genuine failures; do not alter sound records merely to create superficial variety.
+3. apply the completed-record correction threshold in Section 9 of the Production Instructions; do not alter sound records merely to create superficial variety.
 
 Batch-level QC may produce a later corrective commit, but it does not replace the per-target persistence checkpoint in Section 3.
 
