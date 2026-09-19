@@ -66,14 +66,24 @@ jobs:
 
           decision_path="${changed_decisions[0]}"
           change_status="$(git diff-tree --no-commit-id --name-status -r "$GITHUB_SHA" -- "$decision_path" | awk '{print $1}')"
-          if [[ "$change_status" != "A" ]]; then
-            echo "Production decision files are immutable; expected an added file but found status $change_status." >&2
+          comparison_id="$(basename "$decision_path" .json)"
+          comparison_path="data/counselor/comparisons/${comparison_id}.json"
+
+          if [[ "$change_status" == "A" ]]; then
+            echo "mode=production" >> "$GITHUB_OUTPUT"
+          elif [[ "$change_status" == "M" ]]; then
+            if ! git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" | grep -Fxq "$comparison_path"; then
+              echo "A repaired decision must be committed with its regenerated canonical comparison." >&2
+              exit 1
+            fi
+            echo "mode=repair" >> "$GITHUB_OUTPUT"
+          else
+            echo "Expected an added production decision or an explicitly repaired decision; found status $change_status." >&2
             exit 1
           fi
 
-          echo "mode=production" >> "$GITHUB_OUTPUT"
           echo "decision_path=$decision_path" >> "$GITHUB_OUTPUT"
-          echo "comparison_id=$(basename "$decision_path" .json)" >> "$GITHUB_OUTPUT"
+          echo "comparison_id=$comparison_id" >> "$GITHUB_OUTPUT"
 
       - name: Run compiler regressions in temporary storage
         if: steps.mode.outputs.mode == 'dry-run'
@@ -83,8 +93,17 @@ jobs:
         if: steps.mode.outputs.mode == 'production'
         run: npm run build:counselor:v2 -- "${{ steps.mode.outputs.decision_path }}"
 
+      - name: Verify repaired canonical comparison
+        if: steps.mode.outputs.mode == 'repair'
+        shell: bash
+        run: |
+          set -euo pipefail
+          proposed="$RUNNER_TEMP/${{ steps.mode.outputs.comparison_id }}.json"
+          npm run build:counselor -- "${{ steps.mode.outputs.decision_path }}" --output "$proposed"
+          cmp "$proposed" "data/counselor/comparisons/${{ steps.mode.outputs.comparison_id }}.json"
+
       - name: Run unchanged counselor validators
-        if: steps.mode.outputs.mode == 'production'
+        if: steps.mode.outputs.mode == 'production' || steps.mode.outputs.mode == 'repair'
         run: npm run validate:counselor
 
       - name: Publish validated canonical comparison

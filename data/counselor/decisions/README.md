@@ -60,7 +60,9 @@ Run locally with:
 
 `npm run build:counselor -- data/counselor/decisions/cp-XXXXXX.json`
 
-The production workflow accepts exactly one newly added root decision file, runs the v2 compiler, validates the proposed canonical record with the unchanged counselor validators, and publishes it only after validation succeeds. Decision files are immutable and the compiler refuses to overwrite an existing canonical comparison.
+For new production, the workflow accepts exactly one newly added root decision file, runs the v2 compiler, validates the proposed canonical record with the unchanged counselor validators, and publishes it only after validation succeeds. The compiler refuses to overwrite an existing canonical comparison.
+
+A published decision may be changed only for an explicitly authorized repair that meets the material-error or hard-rule threshold in the Production Instructions. Where a root v2 decision exists, the repair commit must modify exactly that decision and include its deterministically regenerated canonical comparison. The workflow recompiles the decision in temporary storage, requires byte-for-byte agreement with the committed canonical record, and reruns the counselor validators without attempting a second publication commit.
 
 ## V1 fallback
 
