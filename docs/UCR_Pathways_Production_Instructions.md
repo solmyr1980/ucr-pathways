@@ -54,13 +54,15 @@ Visible labels follow the Master Specification rather than exposing internal rol
 
 ## 2.1 External programme reconstruction
 
-Use current official university evidence. Prefer, where available:
+Use current official university evidence and choose sources according to the claim being established.
 
-1. formal curriculum or graduation requirements;
-2. official curriculum/study-programme pages;
-3. official route, track or specialization pages;
-4. official course-catalogue entries;
-5. general official prospective-student pages.
+Use current official programme and curriculum webpages as the normal starting point. Use official route, track or specialization pages and official course-catalogue entries where they provide the necessary detail. General official prospective-student pages may provide orientation or substantive context, but do not use them alone for formal claims they do not establish.
+
+Consult the current OER or another formal programme document when needed to establish or verify formal matters such as exact EC weights, compulsory versus elective status, graduation requirements, formal routes or an ambiguity that the webpages do not resolve. Do not require or search for an OER merely because it is formally more authoritative when current official webpages already provide sufficient evidence for an accurate reconstruction.
+
+Official webpages are sufficient when, taken together, they establish a coherent 180-EC pathway and adequately identify the EC and status of its components, any selected formal route, genuine open elective or profiling space, and the thesis or capstone requirement. Once this threshold is met, stop external source discovery unless another material claim remains unsupported.
+
+When current official sources conflict or leave a formal requirement ambiguous, verify the applicable academic or curriculum year and consult the current OER or another formally adopted programme document. For formal requirements, prefer the current formally adopted source after confirming that it applies to the relevant year.
 
 For the comparator distinguish:
 
