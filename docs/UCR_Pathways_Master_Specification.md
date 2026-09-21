@@ -133,6 +133,8 @@ The interface must not promise a fixed number of UCR programmes. Its singular/pl
 
 In the programme view, every UCR programme displays its canonical programme concept immediately below its title and before its six-semester schedule. The concept serves as a concise description of the programme's organising academic combination or emphasis and its response to the student's interests; it is not a separate renderer-specific description field.
 
+On narrow screens, each programme schedule must provide a direct route back to the programme selector when the record contains more than one UCR programme. The comparison view must show one complete programme column at a time, with touch-swipe navigation and visible previous/next and position controls. Wider screens retain the full side-by-side comparison.
+
 Student-app interface copy written within the application uses American spelling, apart from any deliberately retained call-to-action label. Text supplied by canonical records, the course database or other source data remains unchanged.
 
 ## 3.3 Student calls to action
@@ -140,7 +142,7 @@ Student-app interface copy written within the application uses American spelling
 Near the top of the student record, before the interest summary and substantive programme content, provide two distinct next steps where supported:
 
 - **Speak to Admissions** — to the approved Admissions contact or booking route;
-- **Build your own UCR programme** — to the canonical UCR Program Builder destination, without implying that a displayed programme transfers automatically.
+- **Build your own UCR program** — to the canonical UCR Program Builder destination, without implying that a displayed programme transfers automatically.
 
 Exact Admissions destination is implementation/configuration data.
 

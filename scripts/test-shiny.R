@@ -143,13 +143,17 @@ for (count in 1:3) {
   fixture <- fixture_with_ucr_count(count)
   stopifnot(length(student$student_ucr_programmes(fixture)) == count)
   stopifnot(nzchar(as.character(student$render_compare_table(fixture))))
+  mobile_comparison_html <- as.character(student$render_mobile_comparison(fixture))
+  stopifnot(grepl("mobile-comparison", mobile_comparison_html, fixed = TRUE))
+  stopifnot(grepl(paste("1 of", count + 1), mobile_comparison_html, fixed = TRUE))
+  stopifnot(lengths(regmatches(mobile_comparison_html, gregexpr("mobile-comparison-card", mobile_comparison_html, fixed = TRUE))) == count + 1)
   stopifnot(nzchar(as.character(student$render_programme_options(fixture))))
   stopifnot(nzchar(as.character(counselor$render_compare_table(fixture))))
 
   copy <- student$student_experience_copy(fixture)
   rendered_student <- as.character(student$render_student_record(fixture))
   stopifnot(grepl("Compare with a Dutch bachelor", rendered_student, fixed = TRUE))
-  stopifnot(grepl("Build your own UCR programme", rendered_student, fixed = TRUE))
+  stopifnot(grepl("Build your own UCR program", rendered_student, fixed = TRUE))
   stopifnot(grepl("Speak to Admissions", rendered_student, fixed = TRUE))
   stopifnot(grepl("Click any course to view its description.", rendered_student, fixed = TRUE))
   stopifnot(grepl(htmltools::htmlEscape(student$STUDENT_DISCLAIMER), rendered_student, fixed = TRUE))
@@ -174,6 +178,7 @@ for (count in 1:3) {
     stopifnot(grepl("This UCR program shows one possible way", copy$source_note, fixed = TRUE))
     stopifnot(!grepl("These UCR programs", copy$source_note, fixed = TRUE))
   } else {
+    stopifnot(grepl("Back to program selection", rendered_student, fixed = TRUE))
     stopifnot(identical(copy$programme_tab, "Explore my UCR programs"))
     stopifnot(grepl("your UCR programs with", copy$comparison_intro, fixed = TRUE))
     stopifnot(grepl("These UCR programs show possible ways", copy$source_note, fixed = TRUE))
@@ -200,6 +205,10 @@ stopifnot(!grepl("Development notice — approved disclaimer pending", app_sourc
 stopifnot(grepl('app_name <- "ucr-student"', deploy_source, fixed = TRUE))
 stopifnot(!grepl("ucr-student-private-test", deploy_source, fixed = TRUE))
 stopifnot(!grepl("current pilot course lookup", app_source, fixed = TRUE))
+stopifnot(identical(student$UCR_WEBSITE_URL, "https://ucr.nl/?utm_source=shinyapps&utm_medium=landing_page&utm_campaign=your_curriculum&utm_content=logo"))
+stopifnot(identical(student$ADMISSIONS_URL, "https://ucr.nl/about-ucr/connect/meet-with-admissions/?utm_source=shinyapps&utm_medium=landing_page&utm_campaign=your_curriculum&utm_content=button_admissions"))
+stopifnot(identical(student$PROGRAM_BUILDER_URL, "https://program.ucr.nl/?utm_source=shinyapps&utm_medium=landing_page&utm_campaign=your_curriculum&utm_content=button_program_builder"))
+stopifnot(grepl("showMobileComparison", app_source, fixed = TRUE))
 
 shiny::testServer(counselor$server, {
   session$flushReact()

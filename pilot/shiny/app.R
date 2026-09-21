@@ -9,10 +9,10 @@ REPO_ROOT <- normalizePath(REPO_ROOT)
 source(file.path(REPO_ROOT, "pilot/shared.R"), local = TRUE)
 
 UCR_LOGO_URL <- "ucr-assets/brand/ucr-primary-plum.png"
-UCR_WEBSITE_URL <- "https://ucr.nl/"
+UCR_WEBSITE_URL <- "https://ucr.nl/?utm_source=shinyapps&utm_medium=landing_page&utm_campaign=your_curriculum&utm_content=logo"
 UCR_COURSES_URL <- "https://ucr.nl/education/courses/"
-ADMISSIONS_URL <- "https://ucr.nl/about-ucr/connect/meet-with-admissions/"
-PROGRAM_BUILDER_URL <- "https://program.ucr.nl/"
+ADMISSIONS_URL <- "https://ucr.nl/about-ucr/connect/meet-with-admissions/?utm_source=shinyapps&utm_medium=landing_page&utm_campaign=your_curriculum&utm_content=button_admissions"
+PROGRAM_BUILDER_URL <- "https://program.ucr.nl/?utm_source=shinyapps&utm_medium=landing_page&utm_campaign=your_curriculum&utm_content=button_program_builder"
 STUDENT_DISCLAIMER <- paste(
   "We’ve done our best to make sure this program is as complete and accurate a match to your interests as possible.",
   "But since our curriculum is as flexible and responsive as our students, things may change after you read this.",
@@ -105,12 +105,90 @@ render_compare_table <- function(record) {
   }
 
   div(
-    class = "compare-scroll",
+    class = "compare-scroll desktop-comparison",
     tags$table(
       class = "compare-table",
       tags$thead(do.call(tags$tr, headers)),
       tags$tbody(do.call(tagList, body_rows))
     )
+  )
+}
+
+render_mobile_comparison <- function(record) {
+  programmes <- record$programmes %||% list()
+  blocks <- record$blocks %||% list()
+  meta <- comparator_meta(record)
+
+  cards <- lapply(seq_along(programmes), function(index) {
+    programme <- programmes[[index]]
+    label <- visible_label(record, programme)
+    source_url <- if (is_comparator_programme(programme)) safe_text(meta$primarySourceUrl) else UCR_COURSES_URL
+    source_label <- if (is_comparator_programme(programme)) "Official program ↗" else "UCR courses ↗"
+
+    sections <- lapply(blocks, function(block) {
+      items <- Filter(Negate(is.null), lapply(block$rows %||% list(), function(row) {
+        value <- cell_value(row$cells[[programme$id]])
+        if (is.null(value)) return(NULL)
+        ec <- credit_text(value$credits, if (is_ucr_programme(programme)) UCR_COURSE_EC else NULL)
+        tags$li(
+          class = if (isTRUE(value$emphasis)) "mobile-comparison-item emphasis" else "mobile-comparison-item",
+          div(class = "cell-text", safe_text(value$text)),
+          if (nzchar(ec)) div(class = "ec-badge", ec),
+          if (nzchar(safe_text(value$note))) div(class = "cell-note", safe_text(value$note))
+        )
+      }))
+      if (!length(items)) return(NULL)
+      tags$section(
+        class = "mobile-comparison-section",
+        tags$h3(safe_text(block$title)),
+        tags$ul(do.call(tagList, items))
+      )
+    })
+
+    tags$article(
+      class = paste(c(
+        "mobile-comparison-card",
+        if (is_comparator_programme(programme)) "comparator" else NULL,
+        if (index == 1) "active" else NULL
+      ), collapse = " "),
+      `data-comparison-index` = index - 1,
+      hidden = if (index != 1) "hidden" else NULL,
+      div(
+        class = "mobile-comparison-header",
+        tags$h2(label),
+        if (nzchar(source_url)) tags$a(href = source_url, target = "_blank", rel = "noopener", source_label)
+      ),
+      do.call(tagList, sections)
+    )
+  })
+
+  dots <- lapply(seq_along(programmes), function(index) {
+    tags$button(
+      type = "button",
+      class = paste(c("mobile-comparison-dot", if (index == 1) "active" else NULL), collapse = " "),
+      `data-comparison-dot` = index - 1,
+      `aria-label` = paste("Program", index, visible_label(record, programmes[[index]])),
+      `aria-current` = if (index == 1) "true" else "false"
+    )
+  })
+
+  div(
+    class = "mobile-comparison",
+    `data-comparison-count` = length(programmes),
+    tabindex = "0",
+    `aria-label` = "Program comparison carousel",
+    div(
+      class = "mobile-comparison-nav",
+      tags$button(type = "button", class = "mobile-comparison-button previous", `aria-label` = "Previous program", disabled = "disabled", "←"),
+      div(
+        class = "mobile-comparison-position",
+        div(class = "mobile-comparison-position-title", paste("1 of", length(programmes))),
+        div(class = "mobile-comparison-dots", do.call(tagList, dots))
+      ),
+      tags$button(type = "button", class = "mobile-comparison-button next", `aria-label` = "Next program", disabled = if (length(programmes) == 1) "disabled" else NULL, "→")
+    ),
+    div(class = "mobile-comparison-cards", do.call(tagList, cards)),
+    tags$p(class = "mobile-comparison-hint", "Swipe horizontally to view each program.")
   )
 }
 
@@ -127,7 +205,7 @@ course_button <- function(course) {
   )
 }
 
-render_schedule <- function(record, programme) {
+render_schedule <- function(record, programme, show_return = FALSE) {
   rationale <- alternative_rationale_for(record, programme$id)
   concept <- if (is.null(rationale)) "" else safe_text(rationale$concept)
   cards <- lapply(programme$schedule$semesters %||% list(), function(semester) {
@@ -148,7 +226,13 @@ render_schedule <- function(record, programme) {
     ),
     if (nzchar(concept)) tags$p(class = "programme-concept", concept),
     div(class = "semester-grid", do.call(tagList, cards)),
-    div(class = "disclaimer", tags$p(STUDENT_DISCLAIMER))
+    div(class = "disclaimer", tags$p(STUDENT_DISCLAIMER)),
+    if (show_return) tags$a(
+      href = "#programme-selection",
+      class = "program-selection-return secondary-button",
+      `data-return-to-programs` = "true",
+      "Back to program selection ↑"
+    )
   )
 }
 
@@ -161,10 +245,11 @@ render_programme_options <- function(record) {
   if (!length(programmes)) return(div(class = "load-error", "No UCR programs are available."))
 
   option_tabs <- lapply(programmes, function(programme) {
-    tabPanel(visible_label(record, programme), render_schedule(record, programme))
+    tabPanel(visible_label(record, programme), render_schedule(record, programme, show_return = length(programmes) > 1))
   })
 
   div(
+    id = "programme-selection",
     class = "programme-options",
     tags$p(
       class = "tab-copy",
@@ -238,7 +323,7 @@ render_student_record <- function(record) {
           div(
             class = "cta-row",
             tags$a(class = "secondary-cta", href = ADMISSIONS_URL, target = "_blank", rel = "noopener", "Speak to Admissions ↗"),
-            tags$a(class = "primary-cta", href = PROGRAM_BUILDER_URL, target = "_blank", rel = "noopener", "Build your own UCR programme ↗")
+            tags$a(class = "primary-cta", href = PROGRAM_BUILDER_URL, target = "_blank", rel = "noopener", "Build your own UCR program ↗")
           ),
           actionButton("reset_pathway", "Use another code", class = "secondary-button")
         ),
@@ -267,6 +352,7 @@ render_student_record <- function(record) {
             "Compare with a Dutch bachelor",
             tags$p(class = "tab-copy", copy$comparison_intro),
             render_compare_table(record),
+            render_mobile_comparison(record),
             render_comparison_notes(record),
             tags$p(class = "source-note", copy$source_note)
           )
@@ -323,6 +409,7 @@ ui <- fluidPage(
       .course-meta { color:var(--grey); font-size:11px; margin-top:4px; }
       .disclaimer { margin:18px 0 26px; padding:13px 15px; border:1px solid rgba(73,30,52,.14); background:rgba(92,96,107,.035); color:var(--grey); border-radius:10px; font-size:13px; line-height:1.5; }
       .disclaimer p { margin:0; }
+      .program-selection-return { display:none; width:max-content; margin:0 auto 26px; padding:10px 14px; align-items:center; text-decoration:none!important; }
       .compare-scroll { overflow-x:auto; border:1px solid rgba(73,30,52,.14); border-radius:14px; background:#fff; }
       .compare-table { border-collapse:separate; border-spacing:0; min-width:min(1120px, 100%); width:100%; table-layout:fixed; }
       .compare-table th,.compare-table td { border-right:1px solid rgba(73,30,52,.1); border-bottom:1px solid rgba(73,30,52,.1); padding:13px 15px; vertical-align:top; }
@@ -336,6 +423,28 @@ ui <- fluidPage(
       .empty-cell { background:rgba(92,96,107,.035); }
       .ec-badge { display:inline-block; margin-top:6px; padding:2px 6px; border-radius:999px; background:rgba(73,30,52,.08); color:var(--grey); font-size:11px; }
       .cell-note { color:var(--grey); font-size:12px; margin-top:5px; }
+      .mobile-comparison { display:none; }
+      .mobile-comparison-nav { display:grid; grid-template-columns:44px minmax(0,1fr) 44px; align-items:center; gap:8px; margin:4px 0 12px; }
+      .mobile-comparison-button { width:42px; height:42px; border-radius:50%; border:1px solid rgba(73,30,52,.22); background:#fff; color:var(--plum); font-size:22px; line-height:1; }
+      .mobile-comparison-button:disabled { opacity:.25; }
+      .mobile-comparison-position { text-align:center; }
+      .mobile-comparison-position-title { color:var(--black); font-size:13px; font-weight:700; }
+      .mobile-comparison-dots { display:flex; justify-content:center; gap:7px; margin-top:7px; }
+      .mobile-comparison-dot { width:8px; height:8px; padding:0; border:0; border-radius:50%; background:var(--lilac); }
+      .mobile-comparison-dot.active { background:var(--plum); transform:scale(1.2); }
+      .mobile-comparison-card { overflow:hidden; border:1px solid rgba(73,30,52,.14); border-radius:14px; background:#fff; box-shadow:0 12px 32px rgba(73,30,52,.09); touch-action:pan-y; }
+      .mobile-comparison-card[hidden] { display:none; }
+      .mobile-comparison-header { padding:18px 16px 16px; background:var(--green); color:#fff; text-align:center; }
+      .mobile-comparison-card.comparator .mobile-comparison-header { background:var(--plum); }
+      .mobile-comparison-header h2 { margin:0; color:inherit; font-size:23px; line-height:1.1; }
+      .mobile-comparison-header a { display:inline-block; margin-top:7px; color:inherit; font-size:12px; text-decoration:underline; }
+      .mobile-comparison-section { border-top:1px solid rgba(73,30,52,.1); }
+      .mobile-comparison-section h3 { margin:0; padding:10px 14px; background:var(--blue); color:var(--black); font-family:Inter,Arial,sans-serif; font-size:13px; font-weight:700; }
+      .mobile-comparison-section ul { margin:0; padding:0; list-style:none; }
+      .mobile-comparison-item { padding:10px 14px; border-top:1px solid rgba(73,30,52,.1); line-height:1.35; }
+      .mobile-comparison-item:first-child { border-top:0; }
+      .mobile-comparison-item.emphasis { background:rgba(255,225,164,.36); }
+      .mobile-comparison-hint { margin:10px 0 0; color:var(--grey); font-size:11px; text-align:center; }
       .cta-row { display:flex; flex-wrap:wrap; gap:12px; }
       .primary-cta,.secondary-cta { display:inline-block; padding:12px 18px; border-radius:10px; font-weight:700; text-decoration:none!important; }
       .primary-cta { background:var(--plum); color:#fff!important; }
@@ -343,7 +452,7 @@ ui <- fluidPage(
       .modal-content { border-radius:14px; }
       .modal-title { color:var(--plum); font-family:IvyMode,Georgia,serif; }
       .course-description { font-size:15px; line-height:1.6; }
-      @media(max-width:980px){ .container-fluid{padding:0 14px 40px}.top-actions{align-items:flex-start;flex-direction:column}.input-summary{grid-template-columns:1fr}.semester-grid{grid-template-columns:1fr}.programme-view-heading{display:block}.programme-view-heading a{display:inline-block;margin-top:7px}.programme-concept{margin-left:0}.ucr-logo{max-width:210px}.access-card{padding:26px 22px} }
+      @media(max-width:980px){ .container-fluid{padding:0 14px 40px}.top-actions{align-items:flex-start;flex-direction:column}.input-summary{grid-template-columns:1fr}.semester-grid{grid-template-columns:1fr}.programme-view-heading{display:block}.programme-view-heading a{display:inline-block;margin-top:7px}.programme-concept{margin-left:0}.ucr-logo{max-width:210px}.access-card{padding:26px 22px}.program-selection-return{display:flex}.desktop-comparison{display:none}.mobile-comparison{display:block} }
     ")),
     tags$link(rel = "stylesheet", href = "ucr-assets/css/brand.css"),
     tags$link(rel = "stylesheet", href = "ucr-assets/css/shiny.css"),
@@ -352,6 +461,61 @@ ui <- fluidPage(
         const code = $(this).data('code');
         const name = $(this).data('name');
         if (code) Shiny.setInputValue('course_click', {code:String(code), name:String(name||'')}, {priority:'event'});
+      });
+
+      function showMobileComparison(root, requestedIndex) {
+        const count = Number(root.dataset.comparisonCount || 0);
+        const index = Math.max(0, Math.min(count - 1, requestedIndex));
+        root.dataset.currentComparison = String(index);
+        root.querySelectorAll('.mobile-comparison-card').forEach((card, cardIndex) => {
+          const active = cardIndex === index;
+          card.hidden = !active;
+          card.classList.toggle('active', active);
+        });
+        root.querySelectorAll('.mobile-comparison-dot').forEach((dot, dotIndex) => {
+          const active = dotIndex === index;
+          dot.classList.toggle('active', active);
+          dot.setAttribute('aria-current', String(active));
+        });
+        root.querySelector('.mobile-comparison-position-title').textContent = `${index + 1} of ${count}`;
+        root.querySelector('.mobile-comparison-button.previous').disabled = index === 0;
+        root.querySelector('.mobile-comparison-button.next').disabled = index === count - 1;
+      }
+
+      $(document).on('click', '.mobile-comparison-button.previous, .mobile-comparison-button.next, .mobile-comparison-dot', function() {
+        const root = this.closest('.mobile-comparison');
+        const current = Number(root.dataset.currentComparison || 0);
+        const requested = this.hasAttribute('data-comparison-dot')
+          ? Number(this.dataset.comparisonDot)
+          : current + (this.classList.contains('next') ? 1 : -1);
+        showMobileComparison(root, requested);
+      });
+
+      $(document).on('keydown', '.mobile-comparison', function(event) {
+        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+        const current = Number(this.dataset.currentComparison || 0);
+        showMobileComparison(this, current + (event.key === 'ArrowRight' ? 1 : -1));
+      });
+
+      $(document).on('touchstart', '.mobile-comparison-card', function(event) {
+        this.closest('.mobile-comparison').dataset.touchStartX = String(event.originalEvent.changedTouches[0].clientX);
+      });
+
+      $(document).on('touchend', '.mobile-comparison-card', function(event) {
+        const root = this.closest('.mobile-comparison');
+        const start = Number(root.dataset.touchStartX);
+        delete root.dataset.touchStartX;
+        if (!Number.isFinite(start)) return;
+        const distance = event.originalEvent.changedTouches[0].clientX - start;
+        if (Math.abs(distance) < 45) return;
+        const current = Number(root.dataset.currentComparison || 0);
+        showMobileComparison(root, current + (distance < 0 ? 1 : -1));
+      });
+
+      $(document).on('click', '[data-return-to-programs]', function(event) {
+        event.preventDefault();
+        const target = document.getElementById('programme-selection');
+        if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
       });
     "))
   ),
