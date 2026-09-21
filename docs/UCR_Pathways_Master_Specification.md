@@ -129,13 +129,15 @@ The welcome screen should provide access to two views of the same approved perso
 - **Explore my UCR programme/programmes** — dynamically singular or plural, with semester-by-semester views of every included UCR programme in record order;
 - **Compare with a Dutch bachelor** — the external comparator alongside the same one to three UCR programmes.
 
-The interface must not promise a fixed number of UCR programmes. Appropriate framing is that one or more possible UCR programmes have been prepared around what the student told us.
+The interface must not promise a fixed number of UCR programmes. Its singular/plural wording must adapt to the record without adding a heading that states how many programmes were prepared.
 
 In the programme view, every UCR programme displays its canonical programme concept immediately below its title and before its six-semester schedule. The concept serves as a concise description of the programme's organising academic combination or emphasis and its response to the student's interests; it is not a separate renderer-specific description field.
 
+Student-app interface copy written within the application uses American spelling, apart from any deliberately retained call-to-action label. Text supplied by canonical records, the course database or other source data remains unchanged.
+
 ## 3.3 Student calls to action
 
-After the substantive programme content, provide two distinct next steps where supported:
+Near the top of the student record, before the interest summary and substantive programme content, provide two distinct next steps where supported:
 
 - **Speak to Admissions** — to the approved Admissions contact or booking route;
 - **Build your own UCR programme** — to the canonical UCR Program Builder destination, without implying that a displayed programme transfers automatically.
@@ -146,11 +148,9 @@ Exact Admissions destination is implementation/configuration data.
 
 Each personalized programme option must carry an approved disclaimer explaining its illustrative status and the relevance of actual curriculum rules and course availability.
 
-Until the approved text from the printed butterfly is supplied, use the explicit placeholder:
+Use the following approved text:
 
-> **[PLACEHOLDER — insert approved student-program disclaimer from the printed butterfly.]**
-
-The placeholder must be visibly distinguishable in development and must not be mistaken for approved final copy.
+> We’ve done our best to make sure this program is as complete and accurate a match to your interests as possible. But since our curriculum is as flexible and responsive as our students, things may change after you read this. By the time you start building your program online (or in Middelburg), some courses may have shifted, been added, or taken a well-deserved break. In short: things change and no rights may be derived from this document.
 
 ## 3.5 Student privacy and access
 

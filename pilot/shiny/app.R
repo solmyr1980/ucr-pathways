@@ -13,7 +13,12 @@ UCR_WEBSITE_URL <- "https://ucr.nl/"
 UCR_COURSES_URL <- "https://ucr.nl/education/courses/"
 ADMISSIONS_URL <- "https://ucr.nl/about-ucr/connect/meet-with-admissions/"
 PROGRAM_BUILDER_URL <- "https://program.ucr.nl/"
-DISCLAIMER_PLACEHOLDER <- "[PLACEHOLDER — insert approved student-program disclaimer from the printed butterfly.]"
+STUDENT_DISCLAIMER <- paste(
+  "We’ve done our best to make sure this program is as complete and accurate a match to your interests as possible.",
+  "But since our curriculum is as flexible and responsive as our students, things may change after you read this.",
+  "By the time you start building your program online (or in Middelburg), some courses may have shifted, been added, or taken a well-deserved break.",
+  "In short: things change and no rights may be derived from this document."
+)
 COURSE_DESCRIPTION_UNAVAILABLE <- "A course description is not currently available."
 UCR_COURSE_EC <- 7.5
 
@@ -143,7 +148,7 @@ render_schedule <- function(record, programme) {
     ),
     if (nzchar(concept)) tags$p(class = "programme-concept", concept),
     div(class = "semester-grid", do.call(tagList, cards)),
-    div(class = "disclaimer", tags$strong("Development notice — approved disclaimer pending"), tags$p(DISCLAIMER_PLACEHOLDER))
+    div(class = "disclaimer", tags$p(STUDENT_DISCLAIMER))
   )
 }
 
@@ -153,7 +158,7 @@ student_ucr_programmes <- function(record) {
 
 render_programme_options <- function(record) {
   programmes <- student_ucr_programmes(record)
-  if (!length(programmes)) return(div(class = "load-error", "No UCR programmes are available."))
+  if (!length(programmes)) return(div(class = "load-error", "No UCR programs are available."))
 
   option_tabs <- lapply(programmes, function(programme) {
     tabPanel(visible_label(record, programme), render_schedule(record, programme))
@@ -164,9 +169,9 @@ render_programme_options <- function(record) {
     tags$p(
       class = "tab-copy",
       if (length(programmes) == 1) {
-        "Explore the complete six-semester programme below."
+        "Explore the complete six-semester program below. Click any course to view its description."
       } else {
-        "Choose a programme below to explore its complete six-semester plan."
+        "Choose a program below to explore its complete six-semester plan. Click any course to view its description."
       }
     ),
     do.call(tabsetPanel, c(list(id = "programme_option", type = "tabs"), option_tabs))
@@ -185,38 +190,35 @@ student_experience_copy <- function(record) {
 
   if (count == 1) {
     return(list(
-      heading = "We've prepared a UCR programme around your interests.",
       lede = paste0(
-        "We interpreted your interests in academic terms. Explore the complete programme semester by semester, ",
+        "We interpreted your interests in academic terms. Explore the complete program semester by semester, ",
         "or compare it with ", comparator_label, "."
       ),
-      programme_tab = "Explore my UCR programme",
+      programme_tab = "Explore my UCR program",
       comparison_intro = paste0(
-        "This view compares your UCR programme with ", comparator_label,
+        "This view compares your UCR program with ", comparator_label,
         ". It shows where the curricula overlap and where they differ."
       ),
       source_note = paste0(
         "A blank cell means there is no closely comparable course or component in that row. ",
-        "This UCR programme shows one possible way of studying at UCR; it is not an official track or guaranteed future schedule."
+        "This UCR program shows one possible way of studying at UCR; it is not an official track or guaranteed future schedule."
       )
     ))
   }
 
-  count_word <- if (count %in% 1:3) c("one", "two", "three")[[count]] else as.character(count)
   list(
-    heading = paste0("We've prepared ", count_word, " UCR programmes around your interests."),
     lede = paste0(
-      "We interpreted your interests in academic terms. Explore each complete programme semester by semester, ",
-      "or compare the programmes with ", comparator_label, "."
+      "We interpreted your interests in academic terms. Explore each complete program semester by semester, ",
+      "or compare the programs with ", comparator_label, "."
     ),
-    programme_tab = "Explore my UCR programmes",
+    programme_tab = "Explore my UCR programs",
     comparison_intro = paste0(
-      "This view compares your UCR programmes with ", comparator_label,
+      "This view compares your UCR programs with ", comparator_label,
       ". It shows where the curricula overlap and where they differ."
     ),
     source_note = paste0(
       "A blank cell means there is no closely comparable course or component in that row. ",
-      "These UCR programmes show possible ways of studying at UCR; they are not official tracks or guaranteed future schedules."
+      "These UCR programs show possible ways of studying at UCR; they are not official tracks or guaranteed future schedules."
     )
   )
 }
@@ -232,13 +234,15 @@ render_student_record <- function(record) {
         class = "app-shell",
         brand_header(),
         div(
-          class = "intro-row",
+          class = "top-actions",
           div(
-            tags$h1(copy$heading),
-            tags$p(class = "lede", copy$lede)
+            class = "cta-row",
+            tags$a(class = "secondary-cta", href = ADMISSIONS_URL, target = "_blank", rel = "noopener", "Speak to Admissions ↗"),
+            tags$a(class = "primary-cta", href = PROGRAM_BUILDER_URL, target = "_blank", rel = "noopener", "Build your own UCR programme ↗")
           ),
           actionButton("reset_pathway", "Use another code", class = "secondary-button")
         ),
+        tags$p(class = "lede intro-lede", copy$lede),
         div(
           class = "input-summary",
           div(
@@ -266,15 +270,6 @@ render_student_record <- function(record) {
             render_comparison_notes(record),
             tags$p(class = "source-note", copy$source_note)
           )
-        ),
-        div(
-          class = "next-step",
-          tags$h2("Ready to take the next step?"),
-          div(
-            class = "cta-row",
-            tags$a(class = "secondary-cta", href = ADMISSIONS_URL, target = "_blank", rel = "noopener", "Speak to Admissions ↗"),
-            tags$a(class = "primary-cta", href = PROGRAM_BUILDER_URL, target = "_blank", rel = "noopener", "Build your own UCR programme ↗")
-          )
         )
       )
     )
@@ -300,9 +295,9 @@ ui <- fluidPage(
       .btn-primary,.primary-button { background:var(--plum)!important; border-color:var(--plum)!important; border-radius:10px; min-height:44px; font-weight:700; }
       .secondary-button { background:transparent!important; color:var(--plum)!important; border:1px solid rgba(73,30,52,.28)!important; border-radius:10px; }
       .access-error,.load-error { margin-top:14px; color:#8b1e2d; font-weight:700; }
-      .intro-row { display:flex; align-items:flex-start; justify-content:space-between; gap:28px; margin-bottom:18px; }
-      .intro-row h1 { margin:0; font-size:clamp(32px,3vw,46px); line-height:1.08; max-width:930px; }
+      .top-actions { display:flex; align-items:center; justify-content:space-between; gap:28px; margin-bottom:14px; }
       .lede { max-width:850px; font-size:16px; }
+      .intro-lede { margin:0 0 18px; }
       .input-summary { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:18px 0 24px; }
       .summary-panel { background:var(--plum); color:#fff; border-radius:15px; padding:20px; min-height:126px; }
       .summary-panel.interpretation { background:#fff; color:var(--black); border:1px solid rgba(73,30,52,.16); }
@@ -326,8 +321,8 @@ ui <- fluidPage(
       .course-link { width:100%; text-align:left; background:rgba(200,223,230,.34); border:1px solid rgba(73,30,52,.10); border-radius:9px; padding:10px 11px; cursor:pointer; }
       .course-name { font-weight:700; line-height:1.25; }
       .course-meta { color:var(--grey); font-size:11px; margin-top:4px; }
-      .disclaimer { margin:18px 0 26px; padding:13px 15px; border:1px dashed rgba(139,30,45,.55); background:#fff; color:#8b1e2d; border-radius:10px; font-size:13px; }
-      .disclaimer p { margin:5px 0 0; }
+      .disclaimer { margin:18px 0 26px; padding:13px 15px; border:1px solid rgba(73,30,52,.14); background:rgba(92,96,107,.035); color:var(--grey); border-radius:10px; font-size:13px; line-height:1.5; }
+      .disclaimer p { margin:0; }
       .compare-scroll { overflow-x:auto; border:1px solid rgba(73,30,52,.14); border-radius:14px; background:#fff; }
       .compare-table { border-collapse:separate; border-spacing:0; min-width:min(1120px, 100%); width:100%; table-layout:fixed; }
       .compare-table th,.compare-table td { border-right:1px solid rgba(73,30,52,.1); border-bottom:1px solid rgba(73,30,52,.1); padding:13px 15px; vertical-align:top; }
@@ -341,8 +336,6 @@ ui <- fluidPage(
       .empty-cell { background:rgba(92,96,107,.035); }
       .ec-badge { display:inline-block; margin-top:6px; padding:2px 6px; border-radius:999px; background:rgba(73,30,52,.08); color:var(--grey); font-size:11px; }
       .cell-note { color:var(--grey); font-size:12px; margin-top:5px; }
-      .next-step { margin-top:34px; border-top:1px solid rgba(73,30,52,.18); padding-top:22px; }
-      .next-step h2 { margin-top:0; }
       .cta-row { display:flex; flex-wrap:wrap; gap:12px; }
       .primary-cta,.secondary-cta { display:inline-block; padding:12px 18px; border-radius:10px; font-weight:700; text-decoration:none!important; }
       .primary-cta { background:var(--plum); color:#fff!important; }
@@ -350,7 +343,7 @@ ui <- fluidPage(
       .modal-content { border-radius:14px; }
       .modal-title { color:var(--plum); font-family:IvyMode,Georgia,serif; }
       .course-description { font-size:15px; line-height:1.6; }
-      @media(max-width:980px){ .container-fluid{padding:0 14px 40px}.intro-row{display:block}.intro-row .secondary-button{margin-top:12px}.input-summary{grid-template-columns:1fr}.semester-grid{grid-template-columns:1fr}.programme-view-heading{display:block}.programme-view-heading a{display:inline-block;margin-top:7px}.programme-concept{margin-left:0}.ucr-logo{max-width:210px}.access-card{padding:26px 22px} }
+      @media(max-width:980px){ .container-fluid{padding:0 14px 40px}.top-actions{align-items:flex-start;flex-direction:column}.input-summary{grid-template-columns:1fr}.semester-grid{grid-template-columns:1fr}.programme-view-heading{display:block}.programme-view-heading a{display:inline-block;margin-top:7px}.programme-concept{margin-left:0}.ucr-logo{max-width:210px}.access-card{padding:26px 22px} }
     ")),
     tags$link(rel = "stylesheet", href = "ucr-assets/css/brand.css"),
     tags$link(rel = "stylesheet", href = "ucr-assets/css/shiny.css"),
@@ -379,7 +372,7 @@ make_student_server <- function(data_config) function(input, output, session) {
           class = "access-card",
           brand_header(),
           tags$h1("Explore your UCR study possibilities"),
-          tags$p("Enter the code you received to open the programme information prepared around your interests."),
+          tags$p("Enter the code you received to open the program information prepared around your interests."),
           textInput("access_code", label = "Your access code", placeholder = "UCR-XXXX-XXXX-XXXX-XXXX"),
           actionButton("unlock_pathway", "Open my UCR overview", class = "btn-primary"),
           uiOutput("access_error_ui")
@@ -399,12 +392,12 @@ make_student_server <- function(data_config) function(input, output, session) {
     tryCatch({
       selected <- load_student_record_for_code(data_config, input$access_code)
       if (is.null(selected)) {
-        access_error("That code was not recognised. Check it and try again.")
+        access_error("That code was not recognized. Check it and try again.")
         return()
       }
       record(selected)
     }, error = function(e) {
-      access_error("The programme data could not be loaded. Please try again later.")
+      access_error("The program data could not be loaded. Please try again later.")
       message("Student app load error: ", conditionMessage(e))
     })
   })

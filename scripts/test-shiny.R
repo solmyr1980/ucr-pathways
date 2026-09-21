@@ -148,10 +148,15 @@ for (count in 1:3) {
 
   copy <- student$student_experience_copy(fixture)
   rendered_student <- as.character(student$render_student_record(fixture))
-  stopifnot(grepl(htmltools::htmlEscape(copy$heading), rendered_student, fixed = TRUE))
   stopifnot(grepl("Compare with a Dutch bachelor", rendered_student, fixed = TRUE))
   stopifnot(grepl("Build your own UCR programme", rendered_student, fixed = TRUE))
+  stopifnot(grepl("Speak to Admissions", rendered_student, fixed = TRUE))
+  stopifnot(grepl("Click any course to view its description.", rendered_student, fixed = TRUE))
+  stopifnot(grepl(htmltools::htmlEscape(student$STUDENT_DISCLAIMER), rendered_student, fixed = TRUE))
   stopifnot(grepl("A blank cell means there is no closely comparable course or component in that row.", rendered_student, fixed = TRUE))
+  stopifnot(!grepl("Ready to take the next step?", rendered_student, fixed = TRUE))
+  stopifnot(!grepl("We've prepared", rendered_student, fixed = TRUE))
+  stopifnot(regexpr("Speak to Admissions", rendered_student, fixed = TRUE)[[1]] < regexpr("You told us that", rendered_student, fixed = TRUE)[[1]])
   stopifnot(!grepl("pilot", rendered_student, ignore.case = TRUE))
   stopifnot(!grepl("Tweak this programme", rendered_student, fixed = TRUE))
   stopifnot(!grepl("transfer", rendered_student, ignore.case = TRUE))
@@ -163,17 +168,15 @@ for (count in 1:3) {
   }
 
   if (count == 1) {
-    stopifnot(identical(copy$programme_tab, "Explore my UCR programme"))
-    stopifnot(identical(copy$heading, "We've prepared a UCR programme around your interests."))
-    stopifnot(grepl("your UCR programme with", copy$comparison_intro, fixed = TRUE))
-    stopifnot(!grepl("your UCR programmes with", copy$comparison_intro, fixed = TRUE))
-    stopifnot(grepl("This UCR programme shows one possible way", copy$source_note, fixed = TRUE))
-    stopifnot(!grepl("These UCR programmes", copy$source_note, fixed = TRUE))
+    stopifnot(identical(copy$programme_tab, "Explore my UCR program"))
+    stopifnot(grepl("your UCR program with", copy$comparison_intro, fixed = TRUE))
+    stopifnot(!grepl("your UCR programs with", copy$comparison_intro, fixed = TRUE))
+    stopifnot(grepl("This UCR program shows one possible way", copy$source_note, fixed = TRUE))
+    stopifnot(!grepl("These UCR programs", copy$source_note, fixed = TRUE))
   } else {
-    stopifnot(identical(copy$programme_tab, "Explore my UCR programmes"))
-    stopifnot(grepl(paste0(c("", "two", "three")[[count]], " UCR programmes"), copy$heading, fixed = TRUE))
-    stopifnot(grepl("your UCR programmes with", copy$comparison_intro, fixed = TRUE))
-    stopifnot(grepl("These UCR programmes show possible ways", copy$source_note, fixed = TRUE))
+    stopifnot(identical(copy$programme_tab, "Explore my UCR programs"))
+    stopifnot(grepl("your UCR programs with", copy$comparison_intro, fixed = TRUE))
+    stopifnot(grepl("These UCR programs show possible ways", copy$source_note, fixed = TRUE))
   }
 }
 
@@ -187,11 +190,13 @@ for (index in seq_along(fallback_fixture$programmes)) {
 fallback_labels <- vapply(student$student_ucr_programmes(fallback_fixture), function(programme) {
   student$visible_label(fallback_fixture, programme)
 }, character(1))
-stopifnot(identical(fallback_labels, paste("UCR programme", 1:3)))
+stopifnot(identical(fallback_labels, paste("UCR program", 1:3)))
 
 app_source <- paste(readLines("pilot/shiny/app.R", warn = FALSE), collapse = "\n")
 deploy_source <- paste(readLines("scripts/deploy-student-shiny.R", warn = FALSE), collapse = "\n")
 stopifnot(identical(student$COURSE_DESCRIPTION_UNAVAILABLE, "A course description is not currently available."))
+stopifnot(!grepl("DISCLAIMER_PLACEHOLDER", app_source, fixed = TRUE))
+stopifnot(!grepl("Development notice — approved disclaimer pending", app_source, fixed = TRUE))
 stopifnot(grepl('app_name <- "ucr-student"', deploy_source, fixed = TRUE))
 stopifnot(!grepl("ucr-student-private-test", deploy_source, fixed = TRUE))
 stopifnot(!grepl("current pilot course lookup", app_source, fixed = TRUE))

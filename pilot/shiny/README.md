@@ -22,8 +22,9 @@ These are two data modes of one student app, not separate public, private, pilot
 - the external programme heading links to its approved official source;
 - UCR content links to the current UCR course overview;
 - UCR courses show EC information and can be clicked/tapped for descriptions;
-- the student receives Admissions and Program Builder calls to action;
-- the development-only disclaimer placeholder is visibly marked until approved final disclaimer copy is supplied.
+- the student receives Admissions and Program Builder calls to action near the top of the record;
+- each programme option shows the approved student-program disclaimer;
+- application-authored interface text uses American spelling apart from deliberately retained call-to-action labels, while source-data text remains unchanged.
 
 ## Data-mode boundary
 

@@ -31,11 +31,11 @@ visible_label <- function(record, programme) {
 
   if (!identical(record$origin, "counselor")) {
     ucr_programmes <- Filter(is_ucr_programme, record$programmes %||% list())
-    if (length(ucr_programmes) == 1) return("Your UCR programme")
+    if (length(ucr_programmes) == 1) return("Your UCR program")
     programme_ids <- vapply(ucr_programmes, function(item) item$id %||% "", character(1))
     programme_index <- match(programme$id %||% "", programme_ids)
-    if (!is.na(programme_index)) return(paste("UCR programme", programme_index))
-    return("UCR programme")
+    if (!is.na(programme_index)) return(paste("UCR program", programme_index))
+    return("UCR program")
   }
 
   kind <- programme$alternativeKind %||% programme$alternative_kind %||% ""
