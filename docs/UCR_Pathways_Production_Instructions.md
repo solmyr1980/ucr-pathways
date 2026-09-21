@@ -93,7 +93,7 @@ Preserve relevant source metadata, including primary/additional official URLs, a
 
 ## 2.2 UCR course evidence, progression and mechanical feasibility
 
-Use the enriched UCR course database as the authoritative source for UCR selection and scheduling. Use actual course content, giving particular weight to outline-derived `profile` information where available, alongside name, discipline, topics, methods, descriptions, prerequisites and planned semester availability.
+Use the current GitHub `main` version of `data/reference/ucr_courses_enriched.xlsx` as the authoritative source for UCR selection and scheduling. Retrieve it directly from the repository; do not require a separately uploaded or human-supplied copy. Use actual course content, giving particular weight to outline-derived `profile` information where available, alongside name, discipline, topics, methods, descriptions, prerequisites and planned semester availability.
 
 Each included UCR programme must have:
 
@@ -477,7 +477,7 @@ Preserve original `interest_statement`, separate academic interpretation, intern
 
 Current counselor production decision files use `decisionSchemaVersion: "2.0"`; compiled canonical records use `schemaVersion: "2.0"`.
 
-The compact decision file is the auditable academic input to that canonical record. It carries the completed academic decisions and the verified UCR course facts needed at compilation time. V2 declares official URLs once in `sources`; tokens such as `s0` refer to those URLs, while integer evidence tokens refer to stable `programme_interests.csv` registry rows. The compiler obtains normalized provider metadata and the complete assessed-interest rows from current GitHub registry files, derives only mechanical record structure, and expands the explicit schedules, traceability and comparison layout. GitHub Actions cannot access the enriched UCR course Project Source. Course selection and feasibility assessment therefore occur before compilation, and the verified selected-course code, name, level and credit facts remain explicit compact input. The decision file must not be treated as a second canonical comparison or as permission for the compiler to make academic choices.
+The compact decision file is the auditable academic input to that canonical record. It carries the completed academic decisions and the verified UCR course facts needed at compilation time. V2 declares official URLs once in `sources`; tokens such as `s0` refer to those URLs, while integer evidence tokens refer to stable `programme_interests.csv` registry rows. The compiler obtains normalized provider metadata and the complete assessed-interest rows from current GitHub registry files, derives only mechanical record structure, and expands the explicit schedules, traceability and comparison layout. The AI production agent performs course selection and feasibility assessment against the repository workbook before compilation. The compiler deliberately does not make those academic decisions, so the verified selected-course code, name, level and credit facts remain explicit compact input. The decision file must not be treated as a second canonical comparison or as permission for the compiler to make academic choices.
 
 The v1 compiler and v1 regression fixtures remain available as fallback and regression support during the initial v2 production period. They are not an alternative active production contract.
 

@@ -12,15 +12,14 @@ This assignment selects and runs a batch. It does **not** redefine counselor-pro
 
 # 0. Execution model and division of labour
 
-Routine counselor production is performed by an **AI production agent** working from the current GitHub repository plus the required reference files supplied by the human operator.
+Routine counselor production is performed by an **AI production agent** working from the current GitHub repository.
 
 The intended division of labour is:
 
-- **Human operator** — provides the AI with the required reference files, assigns exact counselor targets when several contributors are working, and grants the required repository access. For counselor production, the human must make the current `data/reference/ucr_courses_enriched.xlsx` available to the AI as specified in `data/reference/README.md`.
-- **AI production agent** — owns the academic work: retrieving the governing GitHub rules, researching the external programme, assessing programme-interest evidence, using the human-provided enriched UCR course dataset, designing alternatives, selecting and scheduling courses, writing the compact v2 decision file, committing that decision to `main`, monitoring the resulting GitHub Actions run, and repairing ordinary decision-level failures.
+- **AI production agent** — owns the academic work: retrieving the governing GitHub rules and the current `data/reference/ucr_courses_enriched.xlsx` from `main`, researching the external programme, assessing programme-interest evidence, designing alternatives, selecting and scheduling courses, writing the compact v2 decision file, committing that decision to `main`, monitoring the resulting GitHub Actions run, and repairing ordinary decision-level failures.
 - **GitHub Actions** — owns deterministic execution: compiling the compact decision into canonical schema 2.0, running the unchanged validators, publishing the canonical comparison only after validation passes, and refreshing the counselor review indexes.
 
-Before academic production begins, the AI must verify that `ucr_courses_enriched.xlsx` is accessible in its working environment. If it is not accessible, stop and report the missing dependency. Do not reconstruct UCR course evidence from memory, public web sources or incomplete substitutes. Once supplied by the human, use that copy throughout the production workstream rather than repeatedly retrieving the workbook from GitHub for individual targets.
+Before academic production begins, retrieve the current `main` version of `data/reference/ucr_courses_enriched.xlsx` and verify that it is readable. If it is not accessible, stop and report the missing dependency. Do not ask for a separately uploaded copy or reconstruct UCR course evidence from memory, public web sources or incomplete substitutes. Use the retrieved GitHub copy throughout the production workstream unless repository changes may have altered it.
 
 Infrastructure engineering is separate from routine academic production. Do not weaken validators, move academic judgment into deterministic code, or redesign infrastructure merely to make one target pass. Repeated failures that reveal a genuine structural tooling problem should be treated as infrastructure work rather than as a target-specific workaround.
 
@@ -39,6 +38,7 @@ For ordinary counselor production, do **not** load the Web/LinkedIn Workflow or 
 
 Inspect the current implementation needed for the batch:
 
+- `data/reference/ucr_courses_enriched.xlsx`;
 - `data/registry/programmes.csv`;
 - `data/registry/programme_interests.csv`;
 - `data/registry/README.md`;
@@ -46,17 +46,17 @@ Inspect the current implementation needed for the batch:
 - current counselor comparison schema and validator;
 - the active v2 counselor decision contract and compiler.
 
-Verify that the human-provided `ucr_courses_enriched.xlsx` required by `data/reference/README.md` is accessible before course-level academic work begins. Do not retrieve the workbook again for every target.
+Verify that the current GitHub `main` version of `data/reference/ucr_courses_enriched.xlsx` is readable before course-level academic work begins. Retrieve it once for the workstream rather than again for every target.
 
 Inspect registry crosswalk/provenance files or existing comparison records only when they are needed to resolve a selected target or determine whether a current production record already exists.
 
-Use current GitHub rules and registry data, together with the current human-provided reference workbook, rather than remembered instructions or superseded copies.
+Use the current GitHub rules, registry data and reference workbook rather than remembered instructions or superseded copies.
 
 ---
 
 # 2. Select the batch
 
-If the human operator has assigned specific `counselor_programme_id` values, process **exactly those assigned targets**. In a multi-contributor workstream, do not independently claim or substitute another target.
+If the user has assigned specific `counselor_programme_id` values, process **exactly those assigned targets**. In a multi-contributor workstream, do not independently claim or substitute another target.
 
 If no specific targets have been assigned, and the user asks for the next batch, select the next **2** targets in ascending `production_order` from `data/registry/programmes.csv` that satisfy the current production-scope rules in the Master/Production Instructions and do not already have a completed current production record requiring no repair.
 

@@ -18,10 +18,8 @@ For counselor production, this is the authoritative UCR course-evidence dataset 
 
 ## AI access rule
 
-The copies in this directory are maintained in GitHub for **human distribution and version control**.
+The files in this directory are the authoritative repository copies.
 
-The human operator is responsible for obtaining the required file from the current `main` branch and making it available to the AI system through whatever persistent file-access mechanism that system supports.
+For counselor production, the AI must retrieve `data/reference/ucr_courses_enriched.xlsx` directly from the current GitHub `main` branch and verify that it is readable before academic production begins. Do not require a separate upload, Project Source copy or other human-provided duplicate.
 
-For counselor production, the AI must have access to `ucr_courses_enriched.xlsx` before academic production begins. The AI must verify that the file is accessible in its working environment. If it is not accessible, stop and report the missing dependency rather than reconstructing UCR course evidence from memory, public web sources or incomplete substitutes.
-
-Once the human has supplied the file, use that supplied copy throughout the production workstream. Do **not** repeatedly retrieve the workbook from GitHub for individual counselor targets. The human operator is responsible for ensuring that the supplied copy corresponds to the current authoritative GitHub version when the workstream begins.
+Use the retrieved GitHub copy throughout the production workstream. Retrieve it again only when repository changes may have altered it. If the file is unavailable or unreadable, stop and report the missing dependency rather than reconstructing UCR course evidence from memory, public web sources or incomplete substitutes.
