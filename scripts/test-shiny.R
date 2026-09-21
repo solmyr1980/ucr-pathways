@@ -146,7 +146,7 @@ for (count in 1:3) {
   mobile_comparison_html <- as.character(student$render_mobile_comparison(fixture))
   stopifnot(grepl("mobile-comparison", mobile_comparison_html, fixed = TRUE))
   stopifnot(grepl(paste("1 of", count + 1), mobile_comparison_html, fixed = TRUE))
-  stopifnot(lengths(regmatches(mobile_comparison_html, gregexpr("mobile-comparison-card", mobile_comparison_html, fixed = TRUE))) == count + 1)
+  stopifnot(lengths(regmatches(mobile_comparison_html, gregexpr("data-comparison-index", mobile_comparison_html, fixed = TRUE))) == count + 1)
   stopifnot(nzchar(as.character(student$render_programme_options(fixture))))
   stopifnot(nzchar(as.character(counselor$render_compare_table(fixture))))
 
