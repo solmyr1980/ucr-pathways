@@ -193,6 +193,87 @@ stopifnot(identical(
 current_fixture_path <- file.path(test_root, "data", "test-fixtures", "student-current-production.json")
 current_fixture <- read_student_json(current_fixture_path, "current production-format fixture")
 current_fixture_id <- as.character(current_fixture$id)
+
+# The current student model permits one to three organically generated UCR
+# alternatives. Derive smaller records from the complete fixture so all three
+# supported counts exercise the same current-format contract.
+current_format_variant <- function(source_record, ucr_count) {
+  record <- source_record
+  ucr_ids <- vapply(
+    record$programmes[vapply(record$programmes, student_is_ucr_programme, logical(1))],
+    function(programme) as.character(programme$id),
+    character(1)
+  )
+  retained_ucr_ids <- head(ucr_ids, ucr_count)
+  retained_ids <- c("comparator", retained_ucr_ids)
+  record$id <- paste0("current-production-fixture-", ucr_count, "-option")
+  record$programmes <- record$programmes[vapply(
+    record$programmes,
+    function(programme) as.character(programme$id) %in% retained_ids,
+    logical(1)
+  )]
+  record$academicRationale$alternatives <- record$academicRationale$alternatives[vapply(
+    record$academicRationale$alternatives,
+    function(alternative) as.character(alternative$programmeId) %in% retained_ucr_ids,
+    logical(1)
+  )]
+  record$blocks <- Filter(function(block) length(block$rows) > 0L, lapply(record$blocks, function(block) {
+    block$rows <- Filter(function(row) length(row$cells) > 0L, lapply(block$rows, function(row) {
+      row$cells <- row$cells[intersect(names(row$cells), retained_ids)]
+      row
+    }))
+    block
+  }))
+  record$alternativeSelection$includedCount <- ucr_count
+  record$alternativeSelection$stoppingReason <- if (ucr_count == 3L) "maximum-reached" else "insufficient-evidence"
+  record$alternativeSelection$assessment <- paste(
+    "Synthetic current-format regression variant with",
+    ucr_count,
+    if (ucr_count == 1L) "UCR alternative." else "UCR alternatives."
+  )
+
+  find_alignment_code <- function(component_id) {
+    for (block in record$blocks) {
+      for (row in block$rows) {
+        if (!identical(student_trimmed_string(row$cells$comparator$componentId), component_id)) next
+        for (programme_id in retained_ucr_ids) {
+          code <- student_trimmed_string(row$cells[[programme_id]]$courseCode)
+          if (nzchar(code)) return(code)
+        }
+      }
+    }
+    ""
+  }
+  record$comparisonAlignment <- lapply(record$comparator$components, function(component) {
+    component_id <- student_trimmed_string(component$id)
+    course_code <- find_alignment_code(component_id)
+    if (nzchar(course_code)) {
+      list(
+        componentId = component_id,
+        matchType = "substantive-match",
+        ucrCourseCode = course_code,
+        rationale = "Synthetic alignment rationale included to exercise the current production record structure."
+      )
+    } else {
+      list(
+        componentId = component_id,
+        matchType = "unmatched",
+        rationale = "No scheduled UCR course is asserted as a counterpart in this synthetic regression fixture."
+      )
+    }
+  })
+  record
+}
+
+for (ucr_count in 1:3) {
+  variant <- current_format_variant(current_fixture, ucr_count)
+  stopifnot(sum(vapply(variant$programmes, student_is_ucr_programme, logical(1))) == ucr_count)
+  variant_path <- tempfile(paste0("current-production-", ucr_count, "-option-"), fileext = ".json")
+  on.exit(unlink(variant_path), add = TRUE)
+  jsonlite::write_json(variant, variant_path, auto_unbox = TRUE, pretty = TRUE, null = "null")
+  validate_student_record_mechanically(test_root, variant_path, variant$id)
+}
+
 stopifnot(file.copy(current_fixture_path, file.path(record_dir, paste0(current_fixture_id, ".json"))))
 current_add <- run_script(c("scripts/add-students-private.R", "--quiet"))
 if (current_add$status != 0L) stop(paste(current_add$output, collapse = "\n"))
