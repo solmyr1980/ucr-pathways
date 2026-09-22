@@ -202,7 +202,9 @@ for (block_index in seq_along(optional_record$blocks)) {
   for (row_index in seq_along(optional_record$blocks[[block_index]]$rows)) {
     row <- optional_record$blocks[[block_index]]$rows[[row_index]]
     has_ppd <- any(vapply(ucr_ids, function(id) {
-      identical(student_value(row$cells[[id]]$courseCode, ""), "ACCPPDE101")
+      cell <- row$cells[[id]]
+      identical(student_value(cell$courseCode, ""), "ACCPPDE101") ||
+        identical(student_normalized_label(cell$text), "personal & professional development")
     }, logical(1)))
     if (has_ppd) {
       target_block <- block_index
