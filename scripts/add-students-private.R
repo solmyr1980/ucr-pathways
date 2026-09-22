@@ -37,8 +37,8 @@ if (!length(result$records)) {
 if (quiet) {
   cat(result$resultsFile, "\n", sep = "")
 } else {
-  if (isTRUE(result$convertedTestDataset)) {
-    cat("Verified disposable test records removed; private data converted to production mode.\n\n")
+  if (isTRUE(result$migratedPrivateDataset)) {
+    cat("Existing private dataset migrated to cumulative production mode; existing records and access codes preserved.\n\n")
   }
   cat(
     "New student records registered.\n",
