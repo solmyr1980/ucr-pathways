@@ -78,8 +78,7 @@ From the repository root:
 
 ```text
 Rscript scripts/init-student-private-test.R
-Rscript scripts/deploy-student-shiny.R --check
-Rscript scripts/deploy-student-shiny.R --check-bundle
+Rscript scripts/validate-and-deploy-student.R --check-only
 ```
 
 The initializer creates `private/student-records/`, `private/student-access.json`, `private/student-mode.json` and `private/student-test-codes.txt`. The complete `private/` tree is ignored by Git. Generated records preserve the five original interest statements, add fixed test interpretations, and use newly generated 80-bit access codes. The deployment bundle excludes the local code-reference text file, the public access map and the public example records.
@@ -90,7 +89,9 @@ No standalone Git command-line executable is required. Initialization and deploy
 
 ## Cumulative real-student production workflow
 
-shinyapps.io is the approved deployment target for the real-student workflow. GitHub must contain no real student data. Keep completed records outside the repository or beneath its ignored `private/` tree.
+shinyapps.io is the approved deployment target for the real-student workflow. GitHub must contain no real student data. Keep the secure incoming folder outside the repository; imported records and access mappings are stored beneath its ignored `private/` tree.
+
+For one central list of production, setup, diagnostic and test commands, see [`docs/operations/STUDENT_APP_COMMANDS.txt`](../../docs/operations/STUDENT_APP_COMMANDS.txt).
 
 Put any number of completed student JSON records in one secure incoming folder. Import the entire folder with one command:
 
@@ -107,7 +108,7 @@ The batch import:
 - updates the cumulative private index once; and
 - writes the new codes to the ignored private file `private/student-last-batch-codes.csv`.
 
-Importing does not deploy the app. You can therefore import one batch now, another batch later, and deploy all accumulated records once when you are ready. Keep incoming records outside the repository; if they must be inside it, use only the ignored `private/` tree.
+Importing does not deploy the app. You can therefore import one batch now, another batch later, and deploy all accumulated records once when you are ready.
 
 Validate the full cumulative dataset and exact bundle, then deploy once:
 

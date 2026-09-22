@@ -88,8 +88,7 @@ Then run these commands from the repository root:
 
 ```text
 Rscript scripts/init-student-private-test.R
-Rscript scripts/deploy-student-shiny.R --check
-Rscript scripts/deploy-student-shiny.R --check-bundle
+Rscript scripts/validate-and-deploy-student.R --check-only
 ```
 
 The initializer clones `p-001` through `p-005` into ignored private test records, adds separate academic interpretations and generates new strong random access codes. It prints the codes and saves them in the ignored local file `private/student-test-codes.txt`. It refuses to overwrite existing private data. To replace only a previously generated five-case test dataset and rotate its codes, run:
@@ -98,7 +97,7 @@ The initializer clones `p-001` through `p-005` into ignored private test records
 Rscript scripts/init-student-private-test.R --reset-test
 ```
 
-The disposable five-case dataset cannot be deployed over the live app. Real production uses one cumulative ignored dataset and the single permanent shinyapps.io application name `ucr-student`.
+The disposable five-case dataset cannot be deployed over the live app. Real production uses one cumulative ignored dataset and the single permanent shinyapps.io application name `ucr-student`. The complete operational command reference is in [`docs/operations/STUDENT_APP_COMMANDS.txt`](docs/operations/STUDENT_APP_COMMANDS.txt).
 
 For routine production, place any number of completed student JSON records in one secure folder and import the folder with one command:
 
@@ -109,10 +108,10 @@ Rscript scripts/add-students-private.R --folder="C:/secure/incoming/ready"
 The import is all-or-nothing, preserves all existing records and codes, and creates one new cryptographically secure code per record. It does not deploy. Repeat imports as needed, then validate and deploy the complete accumulated dataset once:
 
 ```text
-Rscript scripts/validate-and-deploy-student.R --account=YOUR_ACCOUNT
+Rscript scripts/validate-and-deploy-student.R
 ```
 
-Omit `--account=...` when the account is already selected. The latest batch's codes are written to `private/student-last-batch-codes.csv`; distribute them only after deployment succeeds. For a single record, `Rscript scripts/add-student-private.R --record="C:/secure/incoming/p-006.json"` remains available as a fallback.
+Add `--account=YOUR_ACCOUNT` when the account is not already selected. The latest batch's codes are written to `private/student-last-batch-codes.csv`; distribute them only after deployment succeeds. For a single record, `Rscript scripts/add-student-private.R --record="C:/secure/incoming/p-006.json"` remains available as a fallback.
 
 shinyapps.io is the approved target for this workflow. The deploying computer must first be authorized for the relevant account through `rsconnect`; account tokens and secrets remain outside this repository. The ignored local `private/` dataset is the authoritative operational copy and requires secure institutional backup.
 

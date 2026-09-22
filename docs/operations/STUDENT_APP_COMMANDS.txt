@@ -1,0 +1,74 @@
+UCR PATHWAYS — STUDENT APP COMMAND REFERENCE
+
+Run commands from the repository root.
+Real student records and generated access codes must never be committed to GitHub.
+
+
+ROUTINE PRODUCTION
+
+1. Import every completed JSON record in a secure incoming folder outside the
+repository checkout:
+
+Rscript scripts/add-students-private.R --folder="C:/secure/incoming/ready"
+
+The import is all-or-nothing and does not deploy the app. Repeat this command
+for additional batches as needed. The latest batch's codes are saved in:
+
+private/student-last-batch-codes.csv
+
+2. When ready, validate and deploy all accumulated records once:
+
+Rscript scripts/validate-and-deploy-student.R
+
+If the shinyapps.io account is not already selected, use this version instead:
+
+Rscript scripts/validate-and-deploy-student.R --account=YOUR_ACCOUNT
+
+Distribute the new access codes only after deployment completes successfully.
+
+
+USEFUL ALTERNATIVES
+
+Validate the complete dataset and deployment bundle without deploying:
+
+Rscript scripts/validate-and-deploy-student.R --check-only
+
+Import one completed record instead of a folder:
+
+Rscript scripts/add-student-private.R --record="C:/secure/incoming/p-006.json"
+
+Create an empty cumulative production dataset explicitly (normally unnecessary):
+
+Rscript scripts/add-student-private.R --init
+
+
+ONE-TIME SETUP
+
+Install the required R packages:
+
+Rscript -e "install.packages(c('shiny','jsonlite','openssl','rsconnect'))"
+
+Authorize the relevant shinyapps.io account once by running the
+rsconnect::setAccountInfo(...) command supplied under Account > Tokens in the
+shinyapps.io dashboard. Keep the token and secret outside GitHub.
+
+
+LOCAL DEVELOPMENT AND PRIVATE-DATA TESTING
+
+Run the public-development student app locally:
+
+Rscript -e "shiny::runApp('pilot/shiny')"
+
+Create the disposable five-case private test dataset:
+
+Rscript scripts/init-student-private-test.R
+
+Validate that test dataset and its exact deployment bundle without deploying:
+
+Rscript scripts/validate-and-deploy-student.R --check-only
+
+Replace an existing five-case test dataset and rotate its test codes:
+
+Rscript scripts/init-student-private-test.R --reset-test
+
+The disposable five-case dataset cannot be deployed over the live student app.
