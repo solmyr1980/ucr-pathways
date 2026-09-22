@@ -92,42 +92,45 @@ No standalone Git command-line executable is required. Initialization and deploy
 
 shinyapps.io is the approved deployment target for the real-student workflow. GitHub must contain no real student data. Keep completed records outside the repository or beneath its ignored `private/` tree.
 
-Initialize the cumulative production dataset once:
+Put any number of completed student JSON records in one secure incoming folder. Import the entire folder with one command:
 
 ```text
-Rscript scripts/add-student-private.R --init
+Rscript scripts/add-students-private.R --folder="C:/secure/incoming/ready"
 ```
 
-Add a completed validated student record:
+The batch import:
+
+- validates every JSON record before publishing any member of the batch;
+- rejects the complete batch if a record is malformed or an ID already exists;
+- generates a stable cryptographically secure 80-bit code for each student;
+- preserves all previously imported records and codes;
+- updates the cumulative private index once; and
+- writes the new codes to the ignored private file `private/student-last-batch-codes.csv`.
+
+Importing does not deploy the app. You can therefore import one batch now, another batch later, and deploy all accumulated records once when you are ready. Keep incoming records outside the repository; if they must be inside it, use only the ignored `private/` tree.
+
+Validate the full cumulative dataset and exact bundle, then deploy once:
+
+```text
+Rscript scripts/validate-and-deploy-student.R
+```
+
+Use `--account=...` when the shinyapps.io account is not already selected. The deployment computer must already have that account authorized through `rsconnect`. Distribute the access codes from `private/student-last-batch-codes.csv` only after the command reports that deployment completed successfully.
+
+For an occasional single record, the original fallback remains available:
 
 ```text
 Rscript scripts/add-student-private.R --record="C:/secure/incoming/p-006.json"
 ```
 
-The command:
+The first successful addition creates the production structure automatically. An explicit empty initialization remains available with `Rscript scripts/add-student-private.R --init`, but is not part of the routine workflow. Run only one addition process at a time. If a process is interrupted and no addition is still running, remove the reported stale lock directory before retrying.
 
-- validates the incoming private student record;
-- refuses duplicate record IDs;
-- generates a cryptographically secure 80-bit code that does not collide with existing private or public-development codes;
-- appends the new record and mapping while preserving all existing entries and codes;
-- serializes additions with a private lock; and
-- prints the new student's stable access code.
-
-The first addition creates the production structure automatically, so the explicit initialization command is optional. Run only one addition process at a time. If a process is interrupted and no addition is still running, remove the reported stale lock directory before retrying.
-
-Validate the complete production dataset and deployment bundle:
+For diagnostics without deployment, run:
 
 ```text
-Rscript scripts/deploy-student-shiny.R --check
-Rscript scripts/deploy-student-shiny.R --check-bundle
+Rscript scripts/validate-and-deploy-student.R --check-only
 ```
 
-Deploy the expanded cumulative dataset to the same `ucr-student` app:
-
-```text
-Rscript scripts/deploy-student-shiny.R
-```
-
-Use `--account=...` when the shinyapps.io account is not already selected. The deployment computer must already have the relevant shinyapps.io account authorized through `rsconnect`. The bundle contains the private access index and only its referenced student records; it excludes the public examples, public development access map, local lock/staging material and administrative code-reference files. A valid access code renders only its corresponding record.
+The deploy command always targets the same `ucr-student` app. The bundle contains the private access index and only its referenced student records; it excludes the public examples, public development access map, local lock/staging material and administrative code-reference files. A valid access code renders only its corresponding record.
 
 The ignored local `private/` dataset is cumulative and is the authoritative operational copy. Back it up through an approved secure institutional method. Losing this directory also loses the authoritative record of stable student codes; backup design and automation are outside this repository.

@@ -98,20 +98,21 @@ The initializer clones `p-001` through `p-005` into ignored private test records
 Rscript scripts/init-student-private-test.R --reset-test
 ```
 
-The disposable five-case dataset cannot be deployed over the live app. Real production uses one cumulative ignored dataset and the single permanent shinyapps.io application name `ucr-student`. Initialize or add a completed record with:
+The disposable five-case dataset cannot be deployed over the live app. Real production uses one cumulative ignored dataset and the single permanent shinyapps.io application name `ucr-student`.
+
+For routine production, place any number of completed student JSON records in one secure folder and import the folder with one command:
 
 ```text
-Rscript scripts/add-student-private.R --init
-Rscript scripts/add-student-private.R --record="C:/secure/incoming/p-006.json"
+Rscript scripts/add-students-private.R --folder="C:/secure/incoming/ready"
 ```
 
-Each addition preserves all existing records and codes, creates one new cryptographically secure code and appends one mapping. Validate and deploy the expanded dataset with:
+The import is all-or-nothing, preserves all existing records and codes, and creates one new cryptographically secure code per record. It does not deploy. Repeat imports as needed, then validate and deploy the complete accumulated dataset once:
 
 ```text
-Rscript scripts/deploy-student-shiny.R --check
-Rscript scripts/deploy-student-shiny.R --check-bundle
-Rscript scripts/deploy-student-shiny.R --account=YOUR_ACCOUNT
+Rscript scripts/validate-and-deploy-student.R --account=YOUR_ACCOUNT
 ```
+
+Omit `--account=...` when the account is already selected. The latest batch's codes are written to `private/student-last-batch-codes.csv`; distribute them only after deployment succeeds. For a single record, `Rscript scripts/add-student-private.R --record="C:/secure/incoming/p-006.json"` remains available as a fallback.
 
 shinyapps.io is the approved target for this workflow. The deploying computer must first be authorized for the relevant account through `rsconnect`; account tokens and secrets remain outside this repository. The ignored local `private/` dataset is the authoritative operational copy and requires secure institutional backup.
 

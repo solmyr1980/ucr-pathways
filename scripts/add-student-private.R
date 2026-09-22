@@ -53,8 +53,9 @@ if (quiet) {
     "Student added to the cumulative private dataset.\n",
     "Record ID: ", result$recordId, "\n",
     "Stable access code: ", result$accessCode, "\n",
+    "Private code sheet: ", result$resultsFile, "\n",
     "The access code will remain unchanged when later students are added.\n",
+    "No deployment has occurred yet; deploy successfully before distributing the code.\n",
     sep = ""
   )
 }
-

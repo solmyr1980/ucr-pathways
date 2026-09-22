@@ -35,7 +35,9 @@ copy_relative <- function(relative) {
 for (relative in c(
   ".gitignore",
   "scripts/student-private-workflow.R",
+  "scripts/add-students-private.R",
   "scripts/deploy-student-shiny.R",
+  "scripts/validate-and-deploy-student.R",
   "pilot/shiny/app.R",
   "pilot/shiny/student-data.R",
   "pilot/shiny/data",
@@ -45,6 +47,20 @@ for (relative in c(
   "assets/fonts"
 )) {
   copy_relative(relative)
+}
+
+run_script <- function(arguments) {
+  old <- setwd(test_root)
+  on.exit(setwd(old), add = TRUE)
+  output <- system2(
+    file.path(R.home("bin"), "Rscript"),
+    arguments,
+    stdout = TRUE,
+    stderr = TRUE
+  )
+  status <- attr(output, "status")
+  if (is.null(status)) status <- 0L
+  list(status = status, output = output)
 }
 
 # Creation of an initially empty cumulative dataset is valid for preparation,
@@ -68,36 +84,74 @@ second_input <- completed_fixture("p-002", "A synthetic completed interpretation
 third_input <- completed_fixture("p-003", "A synthetic completed interpretation for the lock-rejection test.")
 on.exit(unlink(c(first_input, second_input, third_input)), add = TRUE)
 
-first <- add_student_production_record(test_root, first_input)
+initial_batch <- tempfile("completed-student-batch-")
+dir.create(initial_batch)
+on.exit(unlink(initial_batch, recursive = TRUE), add = TRUE)
+stopifnot(file.copy(first_input, file.path(initial_batch, "p-001.json")))
+stopifnot(file.copy(second_input, file.path(initial_batch, "p-002.json")))
+batch_add <- run_script(c("scripts/add-students-private.R", paste0("--folder=", initial_batch), "--quiet"))
+if (batch_add$status != 0L) stop(paste(batch_add$output, collapse = "\n"))
+
+batch_results_path <- file.path(test_root, "private", "student-last-batch-codes.csv")
+batch_results <- read.csv(batch_results_path, stringsAsFactors = FALSE)
+stopifnot(identical(batch_results$record_id, c("p-001", "p-002")))
+first <- list(
+  recordId = "p-001",
+  accessCode = batch_results$access_code[[1]],
+  resultsFile = batch_results_path
+)
+second <- list(
+  recordId = "p-002",
+  accessCode = batch_results$access_code[[2]],
+  resultsFile = batch_results_path
+)
 stopifnot(grepl(STUDENT_PRIVATE_CODE_PATTERN, first$accessCode, perl = TRUE))
 first_path <- file.path(test_root, "private", "student-records", "p-001.json")
 first_hash <- unname(tools::md5sum(first_path))
 
-second <- add_student_production_record(test_root, second_input)
 production <- validate_student_production_dataset(test_root)
 stopifnot(identical(production$ids, c("p-001", "p-002")))
 stopifnot(identical(production$codes[[1]], first$accessCode))
 stopifnot(identical(unname(tools::md5sum(first_path)), first_hash))
 stopifnot(!identical(normalize_student_code(first$accessCode), normalize_student_code(second$accessCode)))
 
-# Duplicate ids, malformed records and concurrent additions are rejected.
-stopifnot(expect_error(add_student_production_record(
+# A duplicate or malformed member rejects the complete batch without adding the
+# otherwise valid new record. Concurrent additions are also rejected.
+stopifnot(expect_error(add_student_production_records(
   test_root,
-  first_input
+  c(first_input, third_input)
 )))
+stopifnot(!file.exists(file.path(test_root, "private", "student-records", "p-003.json")))
 malformed <- read_student_json(file.path(repo_root, "data", "examples", "p-003.json"))
 malformed$origin <- "student"
 malformed$interestInterpretation <- NULL
 malformed_path <- tempfile("malformed-student-", fileext = ".json")
 on.exit(if (file.exists(malformed_path)) unlink(malformed_path), add = TRUE)
 jsonlite::write_json(malformed, malformed_path, auto_unbox = TRUE, pretty = TRUE, null = "null")
-stopifnot(expect_error(add_student_production_record(test_root, malformed_path)))
+stopifnot(expect_error(add_student_production_records(test_root, c(third_input, malformed_path))))
+stopifnot(!file.exists(file.path(test_root, "private", "student-records", "p-003.json")))
 held_lock <- acquire_student_production_lock(test_root)
 stopifnot(expect_error(add_student_production_record(
   test_root,
   third_input
 )))
 release_student_production_lock(held_lock)
+
+# A later successful batch preserves all earlier records and codes. The private
+# code sheet intentionally contains only the most recently imported batch.
+later_batch <- tempfile("later-student-batch-")
+dir.create(later_batch)
+on.exit(unlink(later_batch, recursive = TRUE), add = TRUE)
+stopifnot(file.copy(third_input, file.path(later_batch, "p-003.json")))
+later_add <- run_script(c("scripts/add-students-private.R", paste0("--folder=", later_batch), "--quiet"))
+if (later_add$status != 0L) stop(paste(later_add$output, collapse = "\n"))
+production <- validate_student_production_dataset(test_root)
+stopifnot(identical(production$ids, c("p-001", "p-002", "p-003")))
+stopifnot(identical(production$codes[[1]], first$accessCode))
+stopifnot(identical(production$codes[[2]], second$accessCode))
+stopifnot(identical(unname(tools::md5sum(first_path)), first_hash))
+latest_results <- read.csv(batch_results_path, stringsAsFactors = FALSE)
+stopifnot(identical(latest_results$record_id, "p-003"))
 
 # Public development codes do not unlock private production records.
 config <- load_student_data_config(test_root, "private")
@@ -120,27 +174,11 @@ stopifnot(expect_error(load_student_data_config(test_root, "private")))
 connection <- file(access_path, open = "wb")
 writeBin(access_bytes, connection)
 close(connection)
-stopifnot(identical(load_student_data_config(test_root, "private")$record_ids, c("p-001", "p-002")))
+stopifnot(identical(load_student_data_config(test_root, "private")$record_ids, c("p-001", "p-002", "p-003")))
 
-run_script <- function(arguments) {
-  old <- setwd(test_root)
-  on.exit(setwd(old), add = TRUE)
-  output <- system2(
-    file.path(R.home("bin"), "Rscript"),
-    arguments,
-    stdout = TRUE,
-    stderr = TRUE
-  )
-  status <- attr(output, "status")
-  if (is.null(status)) status <- 0L
-  list(status = status, output = output)
-}
-
-# Production data pass both the deployment selection and rsconnect bundle checks.
-check <- run_script(c("scripts/deploy-student-shiny.R", "--check"))
-if (check$status != 0L) stop(paste(check$output, collapse = "\n"))
-bundle <- run_script(c("scripts/deploy-student-shiny.R", "--check-bundle"))
-if (bundle$status != 0L) stop(paste(bundle$output, collapse = "\n"))
+# The operator's one-command deploy wrapper runs both pre-deployment checks.
+deployment_check <- run_script(c("scripts/validate-and-deploy-student.R", "--check-only"))
+if (deployment_check$status != 0L) stop(paste(deployment_check$output, collapse = "\n"))
 
 # The resulting production configuration can start the app and reveals only the
 # selected record after a valid code.
@@ -152,7 +190,7 @@ student_source <- source(file.path(test_root, "pilot", "shiny", "app.R"), local 
 setwd(old)
 if (is.na(old_mode)) Sys.unsetenv("UCR_STUDENT_DATA_MODE") else Sys.setenv(UCR_STUDENT_DATA_MODE = old_mode)
 stopifnot(inherits(student_source$value, "shiny.appobj"))
-stopifnot(identical(student$STUDENT_DATA_CONFIG$record_ids, c("p-001", "p-002")))
+stopifnot(identical(student$STUDENT_DATA_CONFIG$record_ids, c("p-001", "p-002", "p-003")))
 
 shiny::testServer(student$make_student_server(student$STUDENT_DATA_CONFIG), {
   session$setInputs(access_code = first$accessCode, unlock_pathway = 1)
@@ -162,4 +200,4 @@ shiny::testServer(student$make_student_server(student$STUDENT_DATA_CONFIG), {
   stopifnot(!grepl(load_student_record_for_code(config, second$accessCode)$interests, selected_html, fixed = TRUE))
 })
 
-cat("Cumulative student production, isolation, deployment bundle, and startup checks passed.\n")
+cat("Batch student production, isolation, one-command deployment checks, and startup checks passed.\n")

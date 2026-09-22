@@ -95,8 +95,12 @@ if (length(missing_runtime)) stop("Deployment selection contains missing files: 
 if (any(startsWith(runtime_files, "data/examples/")) || "pilot/shiny/data/access_codes.json" %in% runtime_files) {
   stop("Private deployment selection must not contain public records or the public pilot access map.")
 }
-if ("private/student-test-codes.txt" %in% runtime_files) {
-  stop("The local code-reference file must not be included in the deployment bundle.")
+administrative_private_files <- c(
+  "private/student-test-codes.txt",
+  "private/student-last-batch-codes.csv"
+)
+if (any(administrative_private_files %in% runtime_files)) {
+  stop("Local administrative code-reference files must not be included in the deployment bundle.")
 }
 
 bundle_bytes <- sum(file.info(file.path(repo_root, runtime_files))$size)
