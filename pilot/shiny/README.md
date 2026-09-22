@@ -83,7 +83,7 @@ Rscript scripts/validate-and-deploy-student.R --check-only
 
 The initializer creates `private/student-records/`, `private/student-access.json`, `private/student-mode.json` and `private/student-test-codes.txt`. The complete `private/` tree is ignored by Git. Generated records preserve the five original interest statements, add fixed test interpretations, and use newly generated 80-bit access codes. The deployment bundle excludes the local code-reference text file, the public access map and the public example records.
 
-The disposable five-case dataset cannot be deployed over the live app. It remains a regression fixture for checking the private-data boundary and deployment bundle.
+The five-case dataset cannot be deployed over the live app while it is still marked as a test dataset. It can also serve as the starting contents of the cumulative private dataset when additional records are registered.
 
 No standalone Git command-line executable is required. Initialization and deployment validate the root-anchored `/private/` rule directly from the repository `.gitignore`.
 
@@ -109,7 +109,7 @@ Registration:
 - updates the cumulative private index once; and
 - writes the new codes to the ignored private file `private/student-last-batch-codes.csv`.
 
-Registration does not deploy the app. You can therefore register one batch now, another batch later, and deploy all accumulated records once when you are ready. If a batch fails, its files remain in `private/student-records/` for correction, while the access index and existing codes remain unchanged. If the folder still contains the verified disposable five-case test dataset, the first valid real record triggers a safe conversion: the five test fixtures and their test codes are removed, the real file remains, and production registration continues in the same command.
+Registration does not deploy the app. You can therefore register one batch now, another batch later, and deploy all accumulated records once when you are ready. If a batch fails, its files remain in `private/student-records/` for correction, while the access index and existing codes remain unchanged. If the folder began as the five-case test dataset, the first additional record triggers a non-destructive metadata migration to cumulative production mode: all five existing records and their private access codes remain unchanged, the new record is appended, and registration continues in the same command.
 
 Validate the full cumulative dataset and exact bundle, then deploy once:
 
