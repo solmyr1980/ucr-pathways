@@ -97,7 +97,7 @@ The initializer clones `p-001` through `p-005` into ignored private test records
 Rscript scripts/init-student-private-test.R --reset-test
 ```
 
-The disposable five-case dataset cannot be deployed over the live app. Real production uses one cumulative ignored dataset and the single permanent shinyapps.io application name `ucr-student`. The complete operational command reference is in [`docs/operations/STUDENT_APP_COMMANDS.txt`](docs/operations/STUDENT_APP_COMMANDS.txt).
+The five-case dataset cannot be deployed over the live app while it is still marked as a test dataset. Real production uses one cumulative ignored dataset and the single permanent shinyapps.io application name `ucr-student`. The complete operational command reference is in [`docs/operations/STUDENT_APP_COMMANDS.txt`](docs/operations/STUDENT_APP_COMMANDS.txt).
 
 For routine production, place any number of completed student JSON records directly in `private/student-records/`, then register every new record with one command:
 
@@ -105,7 +105,7 @@ For routine production, place any number of completed student JSON records direc
 Rscript scripts/add-students-private.R
 ```
 
-Registration is all-or-nothing, preserves all existing production records and codes, and creates one new cryptographically secure code per record. If the private folder still contains the verified disposable five-case test dataset, registering the first real record replaces those fixtures automatically. Registration does not deploy. Add and register further records as needed, then validate and deploy the complete accumulated dataset once:
+Registration is all-or-nothing, preserves all existing records and codes, and creates one new cryptographically secure code per new record. If the private folder began as the five-case test dataset, registering the first additional record changes only the dataset metadata to cumulative production mode; `p-001` through `p-005` and their existing private access codes remain unchanged. Registration does not deploy. Add and register further records as needed, then validate and deploy the complete accumulated dataset once:
 
 ```text
 Rscript scripts/validate-and-deploy-student.R
