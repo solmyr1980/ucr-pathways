@@ -221,10 +221,10 @@ shiny::testServer(student$make_student_server(student$STUDENT_DATA_CONFIG), {
   stopifnot(!grepl(load_student_record_for_code(config, second$accessCode)$interests, selected_html, fixed = TRUE))
 })
 
-# A machine that still contains the verified five-case private test dataset can
-# begin real production without manual cleanup. The first real record triggers
-# conversion, removes only the disposable fixtures and keeps the real file.
-migration_root <- tempfile("student-test-to-production-")
+# An existing private dataset can become the cumulative production dataset
+# without deleting or rewriting any existing record or changing any existing
+# access code. A newly placed record is then appended in the same run.
+migration_root <- tempfile("student-existing-to-production-")
 dir.create(migration_root)
 on.exit(unlink(migration_root, recursive = TRUE), add = TRUE)
 for (relative in c(
@@ -241,9 +241,15 @@ for (relative in c(
 test_initialization <- run_script(c("scripts/init-student-private-test.R", "--quiet"), migration_root)
 if (test_initialization$status != 0L) stop(paste(test_initialization$output, collapse = "\n"))
 
-# Simulate an older local five-fixture dataset whose metadata predates the
-# current production/test datasetType labels. Conversion must rely on the
-# verified fixture contents rather than require one exact historical marker.
+before_config <- load_student_data_config(migration_root, "private")
+before_entries <- before_config$access_map$entries
+before_codes <- vapply(before_entries, function(entry) as.character(entry$code), character(1))
+before_paths <- before_config$record_paths
+before_hashes <- unname(tools::md5sum(before_paths))
+stopifnot(identical(before_config$record_ids, sprintf("p-%03d", 1:5)))
+
+# Simulate older private metadata. The migration must validate and preserve the
+# indexed dataset rather than depend on one exact historical datasetType label.
 legacy_marker_path <- file.path(migration_root, "private", "student-mode.json")
 legacy_access_path <- file.path(migration_root, "private", "student-access.json")
 legacy_marker <- read_student_json(legacy_marker_path, "legacy private marker")
@@ -265,16 +271,23 @@ jsonlite::write_json(
 )
 migration <- run_script("scripts/add-students-private.R", migration_root)
 if (migration$status != 0L) stop(paste(migration$output, collapse = "\n"))
-stopifnot(any(grepl("converted to production mode", migration$output, fixed = TRUE)))
-migrated <- validate_student_production_dataset(migration_root)
-stopifnot(identical(migrated$ids, "p-006"))
-stopifnot(identical(migrated$files, "p-006.json"))
-stopifnot(!file.exists(file.path(migration_root, "private", "student-test-codes.txt")))
-stopifnot(!any(file.exists(file.path(
-  migration_root,
-  "private",
-  "student-records",
-  paste0(sprintf("p-%03d", 1:5), ".json")
-))))
+stopifnot(any(grepl("existing records and access codes preserved", migration$output, fixed = TRUE)))
 
-cat("Direct-folder registration, test-to-production conversion, deployment checks, and startup checks passed.\n")
+migrated <- validate_student_production_dataset(migration_root)
+expected_ids <- sprintf("p-%03d", 1:6)
+stopifnot(identical(migrated$ids, expected_ids))
+stopifnot(identical(migrated$files, paste0(expected_ids, ".json")))
+stopifnot(identical(migrated$entries[1:5], before_entries))
+stopifnot(identical(migrated$codes[1:5], before_codes))
+stopifnot(identical(
+  unname(tools::md5sum(file.path(migration_root, "private", "student-records", paste0(sprintf("p-%03d", 1:5), ".json")))),
+  before_hashes
+))
+stopifnot(file.exists(file.path(migration_root, "private", "student-test-codes.txt")))
+latest_migration_results <- read.csv(
+  file.path(migration_root, "private", "student-last-batch-codes.csv"),
+  stringsAsFactors = FALSE
+)
+stopifnot(identical(latest_migration_results$record_id, "p-006"))
+
+cat("Direct-folder registration, non-destructive metadata migration, deployment checks, and startup checks passed.\n")
