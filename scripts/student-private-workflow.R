@@ -131,7 +131,7 @@ student_production_marker <- function() {
     schemaVersion = "1.0",
     mode = "private",
     datasetType = STUDENT_PRODUCTION_DATASET_TYPE,
-    generator = "scripts/add-student-private.R"
+    generator = "scripts/add-students-private.R"
   )
 }
 
@@ -144,7 +144,11 @@ student_production_access_index <- function(entries = list()) {
   )
 }
 
-validate_student_production_dataset <- function(repo_root, allow_empty = FALSE) {
+validate_student_production_dataset <- function(
+  repo_root,
+  allow_empty = FALSE,
+  allow_unindexed_records = FALSE
+) {
   paths <- student_production_paths(repo_root)
   required <- c(paths$marker, paths$access, paths$record_dir)
   if (any(!file.exists(required) & !dir.exists(required))) {
@@ -181,18 +185,39 @@ validate_student_production_dataset <- function(repo_root, allow_empty = FALSE) 
   }
 
   disk_files <- sort(list.files(paths$record_dir, pattern = "\\.json$", all.files = FALSE, no.. = TRUE))
-  if (!identical(disk_files, sort(files))) {
-    stop("Production student-record files do not exactly match the private access index.")
+  missing_files <- setdiff(files, disk_files)
+  unindexed_files <- setdiff(disk_files, files)
+  if (length(missing_files)) {
+    stop(
+      "The private access index refers to missing student-record files: ",
+      paste(missing_files, collapse = ", ")
+    )
+  }
+  if (length(unindexed_files) && !allow_unindexed_records) {
+    stop(
+      "Unregistered JSON files are present in private/student-records: ",
+      paste(unindexed_files, collapse = ", "),
+      ". Run scripts/add-students-private.R before validation or deployment."
+    )
   }
   for (index in seq_along(entries)) {
     record <- read_student_json(file.path(paths$record_dir, files[[index]]), paste("production student record", ids[[index]]))
     validate_student_record(record, ids[[index]], "private")
   }
 
-  list(paths = paths, marker = marker, access = access, entries = entries, codes = codes, ids = ids, files = files)
+  list(
+    paths = paths,
+    marker = marker,
+    access = access,
+    entries = entries,
+    codes = codes,
+    ids = ids,
+    files = files,
+    unindexed_files = unindexed_files
+  )
 }
 
-initialize_student_production_dataset <- function(repo_root) {
+initialize_student_production_dataset <- function(repo_root, allow_unindexed_records = FALSE) {
   assert_private_tree_ignored(repo_root)
   paths <- student_production_paths(repo_root)
   if (!dir.exists(paths$root) && !dir.create(paths$root, recursive = TRUE, showWarnings = FALSE)) {
@@ -206,10 +231,122 @@ initialize_student_production_dataset <- function(repo_root) {
     if (!dir.create(paths$record_dir, recursive = TRUE, showWarnings = FALSE)) stop("Could not create ", paths$record_dir)
     student_write_json_atomic(student_production_marker(), paths$marker)
     student_write_json_atomic(student_production_access_index(), paths$access)
+  } else if (
+    allow_unindexed_records &&
+      dir.exists(paths$record_dir) &&
+      !file.exists(paths$marker) &&
+      !file.exists(paths$access)
+  ) {
+    top_level <- setdiff(
+      list.files(paths$root, all.files = TRUE, no.. = TRUE),
+      c(basename(paths$record_dir), basename(paths$lock))
+    )
+    record_items <- list.files(paths$record_dir, all.files = TRUE, no.. = TRUE)
+    invalid_record_items <- record_items[!grepl("^[a-z0-9][a-z0-9-]*\\.json$", record_items)]
+    if (length(top_level) || length(invalid_record_items)) {
+      stop(
+        "Refusing to initialize around unexpected files in private/. Keep only lower-case JSON records in ",
+        "private/student-records for first-time registration."
+      )
+    }
+    student_write_json_atomic(student_production_marker(), paths$marker)
+    student_write_json_atomic(student_production_access_index(), paths$access)
   } else if (!all(existing)) {
     stop("Incomplete private student dataset; refusing to initialize over partial data.")
   }
-  validate_student_production_dataset(repo_root, allow_empty = TRUE)
+  validate_student_production_dataset(
+    repo_root,
+    allow_empty = TRUE,
+    allow_unindexed_records = allow_unindexed_records
+  )
+}
+
+register_unindexed_student_records <- function(repo_root) {
+  assert_private_tree_ignored(repo_root)
+  paths <- student_production_paths(repo_root)
+  lock <- acquire_student_production_lock(repo_root)
+  on.exit(release_student_production_lock(lock), add = TRUE)
+
+  initialize_student_production_dataset(repo_root, allow_unindexed_records = TRUE)
+  current <- validate_student_production_dataset(
+    repo_root,
+    allow_empty = TRUE,
+    allow_unindexed_records = TRUE
+  )
+  incoming_files <- current$unindexed_files
+  if (!length(incoming_files)) {
+    return(list(records = list(), resultsFile = paths$batch_results))
+  }
+
+  incoming <- lapply(seq_along(incoming_files), function(index) {
+    filename <- incoming_files[[index]]
+    source <- file.path(paths$record_dir, filename)
+    record <- read_student_json(source, paste("unregistered student record", filename))
+    id <- as.character(student_value(record$id, ""))
+    validate_student_record(record, id, "private")
+    expected_filename <- paste0(id, ".json")
+    if (!identical(filename, expected_filename)) {
+      stop(
+        "Student record filename must match its id exactly: expected ",
+        expected_filename,
+        " but found ",
+        filename,
+        "."
+      )
+    }
+    list(record = record, id = id, filename = filename, source = source)
+  })
+  incoming_ids <- vapply(incoming, function(item) item$id, character(1))
+  if (anyDuplicated(incoming_ids)) stop("The unregistered batch contains duplicate student record ids.")
+  duplicate_ids <- intersect(incoming_ids, current$ids)
+  if (length(duplicate_ids)) stop("Student record id already exists: ", paste(duplicate_ids, collapse = ", "))
+
+  forbidden <- unique(c(
+    vapply(current$codes, normalize_student_code, character(1)),
+    student_public_development_codes(repo_root)
+  ))
+  codes <- character(length(incoming))
+  for (index in seq_along(incoming)) {
+    for (attempt in seq_len(1000L)) {
+      candidate <- student_random_access_code()
+      normalized <- normalize_student_code(candidate)
+      generated <- codes[nzchar(codes)]
+      generated <- vapply(generated, normalize_student_code, character(1))
+      if (!normalized %in% c(forbidden, generated)) {
+        codes[[index]] <- candidate
+        break
+      }
+    }
+    if (!nzchar(codes[[index]])) stop("Could not generate a unique student access code.")
+  }
+
+  new_entries <- lapply(seq_along(incoming), function(index) {
+    list(code = codes[[index]], recordId = incoming_ids[[index]], recordFile = incoming_files[[index]])
+  })
+  updated_index <- student_production_access_index(c(current$entries, new_entries))
+  results_lines <- c("record_id,access_code", paste(incoming_ids, codes, sep = ","))
+  old_access <- readBin(paths$access, what = "raw", n = file.info(paths$access)$size)
+
+  committed <- FALSE
+  tryCatch({
+    student_write_json_atomic(updated_index, paths$access)
+    validate_student_production_dataset(repo_root)
+    student_write_text_atomic(results_lines, paths$batch_results)
+    committed <- TRUE
+  }, error = function(e) {
+    connection <- file(paths$access, open = "wb")
+    writeBin(old_access, connection)
+    close(connection)
+    stop("Student registration was rolled back: ", conditionMessage(e))
+  })
+  if (!committed) stop("Student registration did not complete.")
+
+  list(
+    records = lapply(seq_along(incoming), function(index) {
+      list(recordId = incoming_ids[[index]], accessCode = codes[[index]], recordFile = incoming[[index]]$source)
+    }),
+    resultsFile = paths$batch_results
+  )
 }
 
 student_random_access_code <- function() {

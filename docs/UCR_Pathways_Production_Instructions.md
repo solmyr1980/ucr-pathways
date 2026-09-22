@@ -205,7 +205,7 @@ Use the approved student disclaimer recorded in the Master Specification:
 
 > We’ve done our best to make sure this program is as complete and accurate a match to your interests as possible. But since our curriculum is as flexible and responsive as our students, things may change after you read this. By the time you start building your program online (or in Middelburg), some courses may have shifted, been added, or taken a well-deserved break. In short: things change and no rights may be derived from this document.
 
-Canonical real-student records remain private. After academic generation and validation, place completed JSON records in the secure incoming location used by the documented cumulative private-data workflow. The workflow may import one record or a complete folder as an all-or-nothing batch. Importing and deployment are separate: operators may accumulate several imports and deploy the complete dataset once when ready. Never commit a record, original interest statement, interpretation or access mapping to GitHub.
+Canonical real-student records remain private. After academic generation and validation, place completed JSON records directly in the ignored local `private/student-records/` directory. The documented registration command detects all files not yet present in the private access index and processes them as one all-or-nothing batch. Registration and deployment are separate: operators may accumulate several registered batches and deploy the complete dataset once when ready. Never commit a record, original interest statement, interpretation or access mapping to GitHub.
 
 ---
 

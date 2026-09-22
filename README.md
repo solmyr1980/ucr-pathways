@@ -99,19 +99,19 @@ Rscript scripts/init-student-private-test.R --reset-test
 
 The disposable five-case dataset cannot be deployed over the live app. Real production uses one cumulative ignored dataset and the single permanent shinyapps.io application name `ucr-student`. The complete operational command reference is in [`docs/operations/STUDENT_APP_COMMANDS.txt`](docs/operations/STUDENT_APP_COMMANDS.txt).
 
-For routine production, place any number of completed student JSON records in one secure folder and import the folder with one command:
+For routine production, place any number of completed student JSON records directly in `private/student-records/`, then register every new record with one command:
 
 ```text
-Rscript scripts/add-students-private.R --folder="C:/secure/incoming/ready"
+Rscript scripts/add-students-private.R
 ```
 
-The import is all-or-nothing, preserves all existing records and codes, and creates one new cryptographically secure code per record. It does not deploy. Repeat imports as needed, then validate and deploy the complete accumulated dataset once:
+Registration is all-or-nothing, preserves all existing records and codes, and creates one new cryptographically secure code per record. It does not deploy. Add and register further records as needed, then validate and deploy the complete accumulated dataset once:
 
 ```text
 Rscript scripts/validate-and-deploy-student.R
 ```
 
-Add `--account=YOUR_ACCOUNT` when the account is not already selected. The latest batch's codes are written to `private/student-last-batch-codes.csv`; distribute them only after deployment succeeds. For a single record, `Rscript scripts/add-student-private.R --record="C:/secure/incoming/p-006.json"` remains available as a fallback.
+Add `--account=YOUR_ACCOUNT` when the account is not already selected. The latest batch's codes are written to `private/student-last-batch-codes.csv`; distribute them only after deployment succeeds. For compatibility, `Rscript scripts/add-student-private.R --record="C:/path/to/p-006.json"` can still import one record from another location.
 
 shinyapps.io is the approved target for this workflow. The deploying computer must first be authorized for the relevant account through `rsconnect`; account tokens and secrets remain outside this repository. The ignored local `private/` dataset is the authoritative operational copy and requires secure institutional backup.
 

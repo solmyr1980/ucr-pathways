@@ -63,14 +63,6 @@ run_script <- function(arguments) {
   list(status = status, output = output)
 }
 
-# Creation of an initially empty cumulative dataset is valid for preparation,
-# while app loading and deployment continue to fail closed until a record exists.
-lock <- acquire_student_production_lock(test_root)
-empty <- initialize_student_production_dataset(test_root)
-release_student_production_lock(lock)
-stopifnot(length(empty$entries) == 0L)
-stopifnot(expect_error(load_student_data_config(test_root, "private")))
-
 completed_fixture <- function(id, interpretation) {
   record <- read_student_json(file.path(repo_root, "data", "examples", paste0(id, ".json")))
   record$origin <- "student"
@@ -82,14 +74,17 @@ completed_fixture <- function(id, interpretation) {
 first_input <- completed_fixture("p-001", "A synthetic completed interpretation for the first production-workflow test record.")
 second_input <- completed_fixture("p-002", "A synthetic completed interpretation for the second production-workflow test record.")
 third_input <- completed_fixture("p-003", "A synthetic completed interpretation for the lock-rejection test.")
-on.exit(unlink(c(first_input, second_input, third_input)), add = TRUE)
+fourth_input <- completed_fixture("p-004", "A synthetic completed interpretation for the malformed-batch test record.")
+on.exit(unlink(c(first_input, second_input, third_input, fourth_input)), add = TRUE)
 
-initial_batch <- tempfile("completed-student-batch-")
-dir.create(initial_batch)
-on.exit(unlink(initial_batch, recursive = TRUE), add = TRUE)
-stopifnot(file.copy(first_input, file.path(initial_batch, "p-001.json")))
-stopifnot(file.copy(second_input, file.path(initial_batch, "p-002.json")))
-batch_add <- run_script(c("scripts/add-students-private.R", paste0("--folder=", initial_batch), "--quiet"))
+# First-time use starts with completed files placed directly in the familiar
+# private/student-records directory. Registration creates the missing metadata.
+record_dir <- file.path(test_root, "private", "student-records")
+dir.create(record_dir, recursive = TRUE)
+stopifnot(file.copy(first_input, file.path(record_dir, "p-001.json")))
+stopifnot(file.copy(second_input, file.path(record_dir, "p-002.json")))
+stopifnot(expect_error(load_student_data_config(test_root, "private")))
+batch_add <- run_script(c("scripts/add-students-private.R", "--quiet"))
 if (batch_add$status != 0L) stop(paste(batch_add$output, collapse = "\n"))
 
 batch_results_path <- file.path(test_root, "private", "student-last-batch-codes.csv")
@@ -115,35 +110,55 @@ stopifnot(identical(production$codes[[1]], first$accessCode))
 stopifnot(identical(unname(tools::md5sum(first_path)), first_hash))
 stopifnot(!identical(normalize_student_code(first$accessCode), normalize_student_code(second$accessCode)))
 
-# A duplicate or malformed member rejects the complete batch without adding the
-# otherwise valid new record. Concurrent additions are also rejected.
+# Explicit single-record import remains available as a compatibility fallback
+# and continues to reject duplicate ids.
 stopifnot(expect_error(add_student_production_records(
   test_root,
   c(first_input, third_input)
 )))
-stopifnot(!file.exists(file.path(test_root, "private", "student-records", "p-003.json")))
-malformed <- read_student_json(file.path(repo_root, "data", "examples", "p-003.json"))
-malformed$origin <- "student"
+
+# A malformed member rejects the complete directly placed batch. Input files
+# remain available for correction, while the access index and code sheet remain
+# unchanged.
+stopifnot(file.copy(third_input, file.path(record_dir, "p-003.json")))
+malformed <- read_student_json(fourth_input, "malformed production fixture")
 malformed$interestInterpretation <- NULL
-malformed_path <- tempfile("malformed-student-", fileext = ".json")
-on.exit(if (file.exists(malformed_path)) unlink(malformed_path), add = TRUE)
-jsonlite::write_json(malformed, malformed_path, auto_unbox = TRUE, pretty = TRUE, null = "null")
-stopifnot(expect_error(add_student_production_records(test_root, c(third_input, malformed_path))))
-stopifnot(!file.exists(file.path(test_root, "private", "student-records", "p-003.json")))
-held_lock <- acquire_student_production_lock(test_root)
-stopifnot(expect_error(add_student_production_record(
+jsonlite::write_json(
+  malformed,
+  file.path(record_dir, "p-004.json"),
+  auto_unbox = TRUE,
+  pretty = TRUE,
+  null = "null"
+)
+access_path <- file.path(test_root, "private", "student-access.json")
+access_before_failure <- readBin(access_path, what = "raw", n = file.info(access_path)$size)
+codes_before_failure <- readBin(batch_results_path, what = "raw", n = file.info(batch_results_path)$size)
+failed_batch <- run_script(c("scripts/add-students-private.R", "--quiet"))
+stopifnot(failed_batch$status != 0L)
+pending <- validate_student_production_dataset(
   test_root,
-  third_input
-)))
+  allow_unindexed_records = TRUE
+)
+stopifnot(identical(pending$ids, c("p-001", "p-002")))
+stopifnot(identical(pending$unindexed_files, c("p-003.json", "p-004.json")))
+stopifnot(identical(
+  readBin(access_path, what = "raw", n = file.info(access_path)$size),
+  access_before_failure
+))
+stopifnot(identical(
+  readBin(batch_results_path, what = "raw", n = file.info(batch_results_path)$size),
+  codes_before_failure
+))
+
+# Concurrent registration is rejected without modifying pending files.
+held_lock <- acquire_student_production_lock(test_root)
+stopifnot(expect_error(register_unindexed_student_records(test_root)))
 release_student_production_lock(held_lock)
 
 # A later successful batch preserves all earlier records and codes. The private
-# code sheet intentionally contains only the most recently imported batch.
-later_batch <- tempfile("later-student-batch-")
-dir.create(later_batch)
-on.exit(unlink(later_batch, recursive = TRUE), add = TRUE)
-stopifnot(file.copy(third_input, file.path(later_batch, "p-003.json")))
-later_add <- run_script(c("scripts/add-students-private.R", paste0("--folder=", later_batch), "--quiet"))
+# code sheet intentionally contains only the most recently registered batch.
+unlink(file.path(record_dir, "p-004.json"))
+later_add <- run_script(c("scripts/add-students-private.R", "--quiet"))
 if (later_add$status != 0L) stop(paste(later_add$output, collapse = "\n"))
 production <- validate_student_production_dataset(test_root)
 stopifnot(identical(production$ids, c("p-001", "p-002", "p-003")))
@@ -152,6 +167,13 @@ stopifnot(identical(production$codes[[2]], second$accessCode))
 stopifnot(identical(unname(tools::md5sum(first_path)), first_hash))
 latest_results <- read.csv(batch_results_path, stringsAsFactors = FALSE)
 stopifnot(identical(latest_results$record_id, "p-003"))
+
+# Running registration with no new files is a successful no-op and does not
+# replace the latest code sheet.
+no_change <- run_script(c("scripts/add-students-private.R"))
+stopifnot(no_change$status == 0L)
+stopifnot(any(grepl("No new student records", no_change$output, fixed = TRUE)))
+stopifnot(identical(read.csv(batch_results_path, stringsAsFactors = FALSE)$record_id, "p-003"))
 
 # Public development codes do not unlock private production records.
 config <- load_student_data_config(test_root, "private")
@@ -164,7 +186,6 @@ stopifnot(identical(load_student_record_for_code(config, first$accessCode)$id, "
 
 # Missing or malformed private indexes fail closed. All mutations occur only in
 # the isolated synthetic repository.
-access_path <- file.path(test_root, "private", "student-access.json")
 access_bytes <- readBin(access_path, what = "raw", n = file.info(access_path)$size)
 file.rename(access_path, paste0(access_path, ".missing"))
 stopifnot(expect_error(load_student_data_config(test_root, "private")))
@@ -200,4 +221,4 @@ shiny::testServer(student$make_student_server(student$STUDENT_DATA_CONFIG), {
   stopifnot(!grepl(load_student_record_for_code(config, second$accessCode)$interests, selected_html, fixed = TRUE))
 })
 
-cat("Batch student production, isolation, one-command deployment checks, and startup checks passed.\n")
+cat("Direct-folder student registration, isolation, deployment checks, and startup checks passed.\n")

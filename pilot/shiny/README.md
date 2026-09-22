@@ -89,26 +89,27 @@ No standalone Git command-line executable is required. Initialization and deploy
 
 ## Cumulative real-student production workflow
 
-shinyapps.io is the approved deployment target for the real-student workflow. GitHub must contain no real student data. Keep the secure incoming folder outside the repository; imported records and access mappings are stored beneath its ignored `private/` tree.
+shinyapps.io is the approved deployment target for the real-student workflow. GitHub must contain no real student data. Completed records and access mappings remain beneath the ignored local `private/` tree.
 
 For one central list of production, setup, diagnostic and test commands, see [`docs/operations/STUDENT_APP_COMMANDS.txt`](../../docs/operations/STUDENT_APP_COMMANDS.txt).
 
-Put any number of completed student JSON records in one secure incoming folder. Import the entire folder with one command:
+Put any number of completed student JSON records directly in `private/student-records/`. Register every new record with one command:
 
 ```text
-Rscript scripts/add-students-private.R --folder="C:/secure/incoming/ready"
+Rscript scripts/add-students-private.R
 ```
 
-The batch import:
+Registration:
 
-- validates every JSON record before publishing any member of the batch;
-- rejects the complete batch if a record is malformed or an ID already exists;
+- detects files that are not yet present in the private access index;
+- validates every new JSON record before changing that index;
+- rejects the complete batch if a record is malformed, incorrectly named or has a duplicate ID;
 - generates a stable cryptographically secure 80-bit code for each student;
-- preserves all previously imported records and codes;
+- preserves all previously registered records and codes;
 - updates the cumulative private index once; and
 - writes the new codes to the ignored private file `private/student-last-batch-codes.csv`.
 
-Importing does not deploy the app. You can therefore import one batch now, another batch later, and deploy all accumulated records once when you are ready.
+Registration does not deploy the app. You can therefore register one batch now, another batch later, and deploy all accumulated records once when you are ready. If a batch fails, its files remain in `private/student-records/` for correction, while the access index and existing codes remain unchanged.
 
 Validate the full cumulative dataset and exact bundle, then deploy once:
 
@@ -118,10 +119,10 @@ Rscript scripts/validate-and-deploy-student.R
 
 Use `--account=...` when the shinyapps.io account is not already selected. The deployment computer must already have that account authorized through `rsconnect`. Distribute the access codes from `private/student-last-batch-codes.csv` only after the command reports that deployment completed successfully.
 
-For an occasional single record, the original fallback remains available:
+For compatibility, the original single-record import remains available for a record stored elsewhere:
 
 ```text
-Rscript scripts/add-student-private.R --record="C:/secure/incoming/p-006.json"
+Rscript scripts/add-student-private.R --record="C:/path/to/p-006.json"
 ```
 
 The first successful addition creates the production structure automatically. An explicit empty initialization remains available with `Rscript scripts/add-student-private.R --init`, but is not part of the routine workflow. Run only one addition process at a time. If a process is interrupted and no addition is still running, remove the reported stale lock directory before retrying.
@@ -132,6 +133,6 @@ For diagnostics without deployment, run:
 Rscript scripts/validate-and-deploy-student.R --check-only
 ```
 
-The deploy command always targets the same `ucr-student` app. The bundle contains the private access index and only its referenced student records; it excludes the public examples, public development access map, local lock/staging material and administrative code-reference files. A valid access code renders only its corresponding record.
+The deploy command always targets the same `ucr-student` app. It refuses to deploy while any JSON file in `private/student-records/` remains unregistered. The bundle contains the private access index and only its referenced student records; it excludes the public examples, public development access map, local lock material and administrative code-reference files. A valid access code renders only its corresponding record.
 
 The ignored local `private/` dataset is cumulative and is the authoritative operational copy. Back it up through an approved secure institutional method. Losing this directory also loses the authoritative record of stable student codes; backup design and automation are outside this repository.

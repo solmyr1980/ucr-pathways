@@ -6,13 +6,16 @@ Real student records and generated access codes must never be committed to GitHu
 
 ROUTINE PRODUCTION
 
-1. Import every completed JSON record in a secure incoming folder outside the
-repository checkout:
+1. Put every completed JSON record directly in:
 
-Rscript scripts/add-students-private.R --folder="C:/secure/incoming/ready"
+private/student-records
 
-The import is all-or-nothing and does not deploy the app. Repeat this command
-for additional batches as needed. The latest batch's codes are saved in:
+Then register all new records with one command:
+
+Rscript scripts/add-students-private.R
+
+Registration is all-or-nothing and does not deploy the app. Repeat these two
+steps for additional batches as needed. The latest batch's codes are saved in:
 
 private/student-last-batch-codes.csv
 
@@ -33,9 +36,9 @@ Validate the complete dataset and deployment bundle without deploying:
 
 Rscript scripts/validate-and-deploy-student.R --check-only
 
-Import one completed record instead of a folder:
+Compatibility fallback: import one completed record from another location:
 
-Rscript scripts/add-student-private.R --record="C:/secure/incoming/p-006.json"
+Rscript scripts/add-student-private.R --record="C:/path/to/p-006.json"
 
 Create an empty cumulative production dataset explicitly (normally unnecessary):
 

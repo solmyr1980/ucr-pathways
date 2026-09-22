@@ -1,13 +1,11 @@
 #!/usr/bin/env Rscript
 
-# Add every completed JSON record in one folder to the cumulative private dataset.
+# Register every new JSON record already placed in private/student-records.
 
 args <- commandArgs(trailingOnly = TRUE)
-folder_args <- args[startsWith(args, "--folder=")]
 quiet <- "--quiet" %in% args
-known <- args == "--quiet" | startsWith(args, "--folder=")
+known <- args == "--quiet"
 if (any(!known)) stop("Unknown argument: ", args[!known][[1]])
-if (length(folder_args) != 1L) stop("Specify --folder=<completed-records-folder> exactly once.")
 
 script_argument <- grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE)
 if (!length(script_argument)) stop("Run this file with Rscript.")
@@ -24,25 +22,24 @@ if (!requireNamespace("openssl", quietly = TRUE)) {
 source(file.path(repo_root, "pilot", "shiny", "student-data.R"), local = TRUE)
 source(file.path(repo_root, "scripts", "student-private-workflow.R"), local = TRUE)
 
-folder <- sub("^--folder=", "", folder_args[[1]])
-if (!nzchar(folder) || !dir.exists(folder)) stop("--folder must name an existing folder.")
-folder <- normalizePath(folder, winslash = "/", mustWork = TRUE)
-record_paths <- sort(list.files(
-  folder,
-  pattern = "\\.json$",
-  full.names = TRUE,
-  recursive = FALSE,
-  ignore.case = TRUE
-))
-if (!length(record_paths)) stop("The folder contains no JSON records: ", folder)
+result <- register_unindexed_student_records(repo_root)
+if (!length(result$records)) {
+  if (!quiet) {
+    cat(
+      "No new student records were found in private/student-records.\n",
+      "No files or access codes were changed.\n",
+      sep = ""
+    )
+  }
+  quit(status = 0)
+}
 
-result <- add_student_production_records(repo_root, record_paths)
 if (quiet) {
   cat(result$resultsFile, "\n", sep = "")
 } else {
   cat(
-    "Student batch added to the cumulative private dataset.\n",
-    "Records added: ", length(result$records), "\n",
+    "New student records registered.\n",
+    "Records registered: ", length(result$records), "\n",
     "No deployment has occurred yet.\n\n",
     sep = ""
   )
