@@ -51,7 +51,8 @@ for (relative in c(
   "assets/css",
   "assets/brand/ucr-primary-plum.png",
   "assets/fonts",
-  "data/examples"
+  "data/examples",
+  "data/test-fixtures/student-current-production.json"
 )) {
   copy_relative(relative)
 }
@@ -186,53 +187,20 @@ stopifnot(identical(
   c("p-001", "p-002", "p-003")
 ))
 
-# The standardized 15-EC optional-research opportunity is comparison-only. It
-# must be validated and displayed once per UCR alternative, but excluded from
-# both the 180-EC comparison total and scheduled-course correspondence.
-add_optional_research_fixture <- function(record) {
-  ucr_ids <- vapply(
-    record$programmes[vapply(record$programmes, student_is_ucr_programme, logical(1))],
-    function(programme) as.character(programme$id),
-    character(1)
-  )
-  target_block <- NULL
-  target_row <- NULL
-  for (block_index in seq_along(record$blocks)) {
-    for (row_index in seq_along(record$blocks[[block_index]]$rows)) {
-      row <- record$blocks[[block_index]]$rows[[row_index]]
-      has_ppd <- any(vapply(ucr_ids, function(id) {
-        cell <- row$cells[[id]]
-        identical(student_value(cell$courseCode, ""), "ACCPPDE101") ||
-          identical(student_normalized_label(cell$text), "personal & professional development")
-      }, logical(1)))
-      if (has_ppd) {
-        target_block <- block_index
-        target_row <- row_index
-        break
-      }
-    }
-    if (!is.null(target_block)) break
-  }
-  stopifnot(!is.null(target_block), !is.null(target_row))
-  optional_cells <- setNames(lapply(ucr_ids, function(id) list(
-    text = STUDENT_OPTIONAL_RESEARCH_TEXT,
-    credits = STUDENT_OPTIONAL_RESEARCH_CREDITS,
-    comparisonOnly = TRUE,
-    comparisonElementId = STUDENT_OPTIONAL_RESEARCH_ID
-  )), ucr_ids)
-  optional_row <- list(comparisonOnly = STUDENT_OPTIONAL_RESEARCH_ID, cells = optional_cells)
-  rows <- record$blocks[[target_block]]$rows
-  record$blocks[[target_block]]$rows <- append(rows, list(optional_row), after = target_row)
-  record
-}
-
-optional_record <- read_student_json(first_input, "optional-research validation fixture")
-optional_record$id <- "optional-research-valid"
-optional_record <- add_optional_research_fixture(optional_record)
-optional_path <- tempfile("optional-research-valid-", fileext = ".json")
-on.exit(unlink(optional_path), add = TRUE)
-jsonlite::write_json(optional_record, optional_path, auto_unbox = TRUE, pretty = TRUE, null = "null")
-validate_student_record_mechanically(test_root, optional_path, optional_record$id)
+# Register one complete current-format record through the same batch command an
+# operator uses. This fixture includes stable references, canonical comparator
+# components, alignment decisions and comparison-only optional research.
+current_fixture_path <- file.path(test_root, "data", "test-fixtures", "student-current-production.json")
+current_fixture <- read_student_json(current_fixture_path, "current production-format fixture")
+current_fixture_id <- as.character(current_fixture$id)
+stopifnot(file.copy(current_fixture_path, file.path(record_dir, paste0(current_fixture_id, ".json"))))
+current_add <- run_script(c("scripts/add-students-private.R", "--quiet"))
+if (current_add$status != 0L) stop(paste(current_add$output, collapse = "\n"))
+current_ids <- c("p-001", "p-002", "p-003", current_fixture_id)
+production <- validate_student_production_dataset(test_root)
+stopifnot(identical(production$ids, current_ids))
+latest_results <- read.csv(batch_results_path, stringsAsFactors = FALSE)
+stopifnot(identical(latest_results$record_id, current_ids))
 
 # Records that pass the lightweight startup checks but violate the private
 # workflow's mechanical contract must be rejected before the access index or
@@ -242,7 +210,6 @@ access_before_malformed <- readBin(access_path, what = "raw", n = file.info(acce
 codes_before_malformed <- readBin(batch_results_path, what = "raw", n = file.info(batch_results_path)$size)
 expect_mechanical_rejection <- function(record, id, expected_text) {
   record$id <- id
-  record <- add_optional_research_fixture(record)
   path <- file.path(record_dir, paste0(id, ".json"))
   jsonlite::write_json(record, path, auto_unbox = TRUE, pretty = TRUE, null = "null")
   result <- run_script(c("scripts/add-students-private.R", "--quiet"))
@@ -261,21 +228,21 @@ expect_mechanical_rejection <- function(record, id, expected_text) {
   stopifnot(identical(after$ids, registered_before_malformed$ids))
 }
 
-malformed <- read_student_json(first_input, "six-semester rejection fixture")
+malformed <- read_student_json(current_fixture_path, "six-semester rejection fixture")
 malformed$programmes[[2]]$schedule$semesters <- malformed$programmes[[2]]$schedule$semesters[1:5]
 expect_mechanical_rejection(malformed, "malformed-semesters", "exactly six semesters")
 
-malformed <- read_student_json(first_input, "four-course semester rejection fixture")
+malformed <- read_student_json(current_fixture_path, "four-course semester rejection fixture")
 malformed$programmes[[2]]$schedule$semesters[[1]]$courses <-
   malformed$programmes[[2]]$schedule$semesters[[1]]$courses[1:3]
 expect_mechanical_rejection(malformed, "malformed-semester-load", "expected four courses")
 
-malformed <- read_student_json(first_input, "unique-course rejection fixture")
+malformed <- read_student_json(current_fixture_path, "unique-course rejection fixture")
 malformed$programmes[[2]]$schedule$semesters[[6]]$courses[[4]] <-
   malformed$programmes[[2]]$schedule$semesters[[1]]$courses[[2]]
 expect_mechanical_rejection(malformed, "malformed-duplicate-course", "exactly 24 unique scheduled courses")
 
-malformed <- read_student_json(first_input, "advanced-course rejection fixture")
+malformed <- read_student_json(current_fixture_path, "advanced-course rejection fixture")
 advanced_seen <- 0L
 for (semester_index in seq_along(malformed$programmes[[2]]$schedule$semesters)) {
   for (course_index in seq_along(malformed$programmes[[2]]$schedule$semesters[[semester_index]]$courses)) {
@@ -290,7 +257,7 @@ for (semester_index in seq_along(malformed$programmes[[2]]$schedule$semesters)) 
 }
 expect_mechanical_rejection(malformed, "malformed-advanced-count", "at least 6 are required")
 
-malformed <- read_student_json(first_input, "PPD timing rejection fixture")
+malformed <- read_student_json(current_fixture_path, "PPD timing rejection fixture")
 first_semester_codes <- vapply(
   malformed$programmes[[2]]$schedule$semesters[[1]]$courses,
   function(course) as.character(course$code),
@@ -303,7 +270,7 @@ malformed$programmes[[2]]$schedule$semesters[[1]]$courses[[ppd_index]] <- later
 malformed$programmes[[2]]$schedule$semesters[[3]]$courses[[1]] <- ppd
 expect_mechanical_rejection(malformed, "malformed-ppd", "must schedule ACCPPDE101 in Year 1")
 
-malformed <- read_student_json(first_input, "comparison coverage rejection fixture")
+malformed <- read_student_json(current_fixture_path, "comparison coverage rejection fixture")
 ucr_id <- malformed$programmes[[2]]$id
 removed <- FALSE
 for (block_index in seq_along(malformed$blocks)) {
@@ -319,7 +286,7 @@ for (block_index in seq_along(malformed$blocks)) {
 stopifnot(removed)
 expect_mechanical_rejection(malformed, "malformed-coverage", "scheduled courses missing from comparison")
 
-malformed <- read_student_json(first_input, "180-EC comparator rejection fixture")
+malformed <- read_student_json(current_fixture_path, "180-EC comparator rejection fixture")
 removed <- FALSE
 for (block_index in seq_along(malformed$blocks)) {
   for (row_index in seq_along(malformed$blocks[[block_index]]$rows)) {
@@ -334,11 +301,11 @@ for (block_index in seq_along(malformed$blocks)) {
 stopifnot(removed)
 expect_mechanical_rejection(malformed, "malformed-comparator-coverage", "comparison comparator totals")
 
-malformed <- read_student_json(first_input, "comparator source rejection fixture")
+malformed <- read_student_json(current_fixture_path, "comparator source rejection fixture")
 malformed$comparator$primarySourceUrl <- ""
 expect_mechanical_rejection(malformed, "malformed-comparator-source", "comparator.primarySourceUrl")
 
-malformed <- read_student_json(first_input, "canonical comparator component rejection fixture")
+malformed <- read_student_json(current_fixture_path, "canonical comparator component rejection fixture")
 components <- list()
 component_index <- 0L
 for (block_index in seq_along(malformed$blocks)) {
@@ -361,7 +328,7 @@ stopifnot(abs(sum(vapply(components, function(component) component$credits, nume
 malformed$comparator$components <- components[-length(components)]
 expect_mechanical_rejection(malformed, "malformed-comparator-components", "comparator.components total")
 
-malformed <- read_student_json(first_input, "distinctness rejection fixture")
+malformed <- read_student_json(current_fixture_path, "distinctness rejection fixture")
 malformed$programmes[[3]]$schedule <- malformed$programmes[[2]]$schedule
 expect_mechanical_rejection(malformed, "malformed-distinctness", "are not substantively distinct")
 
@@ -385,7 +352,7 @@ stopifnot(expect_error(load_student_data_config(test_root, "private")))
 connection <- file(access_path, open = "wb")
 writeBin(access_bytes, connection)
 close(connection)
-stopifnot(identical(load_student_data_config(test_root, "private")$record_ids, c("p-001", "p-002", "p-003")))
+stopifnot(identical(load_student_data_config(test_root, "private")$record_ids, current_ids))
 
 # The operator's one-command deploy wrapper runs both pre-deployment checks.
 deployment_check <- run_script(c("scripts/validate-and-deploy-student.R", "--check-only"))
@@ -401,7 +368,7 @@ student_source <- source(file.path(test_root, "pilot", "shiny", "app.R"), local 
 setwd(old)
 if (is.na(old_mode)) Sys.unsetenv("UCR_STUDENT_DATA_MODE") else Sys.setenv(UCR_STUDENT_DATA_MODE = old_mode)
 stopifnot(inherits(student_source$value, "shiny.appobj"))
-stopifnot(identical(student$STUDENT_DATA_CONFIG$record_ids, c("p-001", "p-002", "p-003")))
+stopifnot(identical(student$STUDENT_DATA_CONFIG$record_ids, current_ids))
 
 shiny::testServer(student$make_student_server(student$STUDENT_DATA_CONFIG), {
   session$setInputs(access_code = first$accessCode, unlock_pathway = 1)
@@ -451,9 +418,8 @@ legacy_access$datasetType <- "legacy-private-test"
 student_write_json_atomic(legacy_marker, legacy_marker_path)
 student_write_json_atomic(legacy_access, legacy_access_path)
 
-real_record <- read_student_json(first_input, "synthetic first real record")
+real_record <- read_student_json(current_fixture_path, "synthetic current-format record")
 real_record$id <- "p-006"
-real_record <- add_optional_research_fixture(real_record)
 real_record_input <- tempfile("p-006-compatibility-", fileext = ".json")
 on.exit(unlink(real_record_input), add = TRUE)
 jsonlite::write_json(
