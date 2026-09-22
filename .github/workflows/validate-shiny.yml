@@ -24,7 +24,9 @@ on:
       - 'scripts/validate-registry-interests.mjs'
       - 'scripts/test-shiny.R'
       - 'scripts/test-student-private.R'
+      - 'scripts/test-student-production.R'
       - 'scripts/init-student-private-test.R'
+      - 'scripts/add-student-private.R'
       - 'scripts/deploy-student-shiny.R'
       - 'scripts/student-private-workflow.R'
       - 'scripts/deploy-counselor-shiny.R'
@@ -90,6 +92,9 @@ jobs:
 
       - name: Validate shinyapps.io student bundle
         run: Rscript scripts/deploy-student-shiny.R --check-bundle
+
+      - name: Validate cumulative student production workflow
+        run: Rscript scripts/test-student-production.R
 
       - name: Validate shinyapps.io counselor bundle
         run: Rscript scripts/deploy-counselor-shiny.R --check-bundle

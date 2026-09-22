@@ -67,7 +67,7 @@ The current Shiny implementation is under:
 
 `pilot/shiny/`
 
-In public-development mode it uses five tracked public fixtures and public test access codes. The private deployment test adds a strict boundary:
+In public-development mode it uses five tracked public fixtures and public test access codes. Private test and production modes enforce a strict boundary:
 
 - application code, schemas, branding and public fixtures remain in GitHub;
 - student records, the private access index and locally generated codes live under the Git-ignored `private/` tree;
@@ -90,7 +90,6 @@ Then run these commands from the repository root:
 Rscript scripts/init-student-private-test.R
 Rscript scripts/deploy-student-shiny.R --check
 Rscript scripts/deploy-student-shiny.R --check-bundle
-Rscript scripts/deploy-student-shiny.R
 ```
 
 The initializer clones `p-001` through `p-005` into ignored private test records, adds separate academic interpretations and generates new strong random access codes. It prints the codes and saves them in the ignored local file `private/student-test-codes.txt`. It refuses to overwrite existing private data. To replace only a previously generated five-case test dataset and rotate its codes, run:
@@ -99,13 +98,22 @@ The initializer clones `p-001` through `p-005` into ignored private test records
 Rscript scripts/init-student-private-test.R --reset-test
 ```
 
-The deployment targets the single permanent shinyapps.io application name `ucr-student`. Override the account when needed:
+The disposable five-case dataset cannot be deployed over the live app. Real production uses one cumulative ignored dataset and the single permanent shinyapps.io application name `ucr-student`. Initialize or add a completed record with:
 
 ```text
+Rscript scripts/add-student-private.R --init
+Rscript scripts/add-student-private.R --record="C:/secure/incoming/p-006.json"
+```
+
+Each addition preserves all existing records and codes, creates one new cryptographically secure code and appends one mapping. Validate and deploy the expanded dataset with:
+
+```text
+Rscript scripts/deploy-student-shiny.R --check
+Rscript scripts/deploy-student-shiny.R --check-bundle
 Rscript scripts/deploy-student-shiny.R --account=YOUR_ACCOUNT
 ```
 
-The deploying computer must first be authorized for the relevant shinyapps.io account through `rsconnect`; account tokens and secrets must remain outside this repository. This architecture is tested with public development content. Passing the technical checks does not by itself authorize deployment of real prospective-student information; that requires the applicable Utrecht University/UCR privacy, processor, retention and access approvals.
+shinyapps.io is the approved target for this workflow. The deploying computer must first be authorized for the relevant account through `rsconnect`; account tokens and secrets remain outside this repository. The ignored local `private/` dataset is the authoritative operational copy and requires secure institutional backup.
 
 The student initializer and deployment checks do not require a standalone Git command-line installation. They verify the root-anchored `/private/` rule directly in the repository `.gitignore` before creating or bundling private data.
 

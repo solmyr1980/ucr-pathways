@@ -32,15 +32,28 @@ source(file.path(repo_root, "pilot", "shiny", "student-data.R"), local = TRUE)
 assert_private_tree_ignored(repo_root)
 
 private_root <- file.path(repo_root, "private")
-if (!dir.exists(private_root)) stop("Missing private student directory. Run scripts/init-student-private-test.R first for this test.")
+if (!dir.exists(private_root)) {
+  stop(
+    "Missing private student directory. Run scripts/add-student-private.R --init for production ",
+    "or scripts/init-student-private-test.R for the disposable five-case test."
+  )
+}
 private_files_on_disk <- list.files(private_root, recursive = TRUE, full.names = FALSE, all.files = TRUE, no.. = TRUE)
 if (!length(private_files_on_disk)) stop("The private student directory is empty.")
 
 config <- load_student_data_config(repo_root, "private")
-if (!identical(config$marker$datasetType, "five-public-fixture-test")) {
-  stop("This test deployment script currently requires the marked five-public-fixture test dataset.")
+dataset_type <- as.character(student_value(config$marker$datasetType, ""))
+if (!dataset_type %in% c("five-public-fixture-test", STUDENT_PRODUCTION_DATASET_TYPE)) {
+  stop("Private student dataset must be the marked five-case test or cumulative production dataset.")
 }
-validate_private_test_derivation(config, repo_root)
+if (identical(dataset_type, "five-public-fixture-test")) {
+  validate_private_test_derivation(config, repo_root)
+} else {
+  production <- validate_student_production_dataset(repo_root)
+  if (!identical(config$record_ids, production$ids) || !identical(config$record_files, production$files)) {
+    stop("Production deployment configuration differs from the validated cumulative dataset.")
+  }
+}
 
 required_files <- c(
   "pilot/shiny/app.R",
@@ -134,6 +147,13 @@ if ("--check-bundle" %in% args) {
   })
   cat("rsconnect student bundle and dependency checks passed.\n")
   quit(status = 0)
+}
+
+if (identical(dataset_type, "five-public-fixture-test")) {
+  stop(
+    "Refusing to deploy the disposable five-case dataset over the live student app. ",
+    "Use --check or --check-bundle for that regression fixture."
+  )
 }
 
 account <- option_value("--account", Sys.getenv("SHINYAPPS_ACCOUNT", unset = ""))

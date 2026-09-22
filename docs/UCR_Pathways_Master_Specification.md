@@ -160,6 +160,12 @@ Names and unnecessary personal information remain outside academic pathway recor
 
 Student-specific access codes or links must not expose private pathway records through a public code-to-record mapping. A student case is not automatically approved for public website or LinkedIn use.
 
+GitHub contains no real student data. Real student interest statements, academic interpretations, records, access codes and code-to-record mappings may exist only in the ignored local `/private/` tree and in the server-side shinyapps.io deployment bundle. The public examples and their development codes remain tracked test fixtures and are not real student data.
+
+The student app uses one cumulative private production dataset and one shinyapps.io application, `ucr-student`. Adding a student appends one validated record and one new unique access mapping while preserving all existing records and codes. A student's code is generated once and remains stable across later additions and redeployments. After a valid code is entered, the app renders only the corresponding record.
+
+shinyapps.io is the approved deployment target for this private workflow. The local cumulative `/private/` dataset is the authoritative operational copy and requires secure institutional backup; backup design and automation remain outside the application repository.
+
 ---
 
 # 4. Counselor app

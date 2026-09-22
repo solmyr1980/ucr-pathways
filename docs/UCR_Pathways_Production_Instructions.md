@@ -175,7 +175,7 @@ The student's complete submitted statement is valid evidence. If the student sup
 
 Construct the UCR programme concepts directly from the student's interpreted interests. Once the included UCR programmes have been established, choose the Dutch bachelor that provides the most useful concrete point of comparison for those interests. Do not automatically choose the first-mentioned discipline. Prefer a current Dutch research-university bachelor where suitable. The comparator must not retroactively determine the UCR concepts, course selections, order or visible labels.
 
-For manually supervised production, propose the student-derived UCR concepts and then the comparator and authoritative source basis for approval before full comparison construction unless an approved automated configuration explicitly removes that checkpoint.
+Student academic production is autonomous. Proceed from the submitted interest statement through the complete validated student record without stopping for approval after proposing the UCR concepts or comparator. A completed case may be reviewed and corrected after generation, but there is no pre-construction human approval gate. This autonomy concerns the AI academic-production workflow; it does not add live AI generation to the Shiny application. The private software workflow begins with the completed student-record JSON file.
 
 Then work in this order:
 
@@ -201,11 +201,11 @@ Do not promise a fixed number of programmes. Present the included UCR programmes
 
 For every included UCR programme, preserve one display-ready `concept` in `academicRationale.alternatives`, linked by `programmeId`. The concept is normally one or two concise sentences explaining the programme's organising academic combination or emphasis and how it responds to the student's interests. Where several programmes are included, their concepts should make the substantive differences clear. Do not refer to a student programme as the closest match to the comparator, expose internal alternative types or production logic, repeat the title mechanically, or make claims that the completed curriculum does not support. This canonical concept supplies the description shown before the semester schedule; do not create a parallel student-app description field.
 
-Use the placeholder disclaimer until approved final wording is supplied:
+Use the approved student disclaimer recorded in the Master Specification:
 
-> **[PLACEHOLDER — insert approved student-program disclaimer from the printed butterfly.]**
+> We’ve done our best to make sure this program is as complete and accurate a match to your interests as possible. But since our curriculum is as flexible and responsive as our students, things may change after you read this. By the time you start building your program online (or in Middelburg), some courses may have shifted, been added, or taken a well-deserved break. In short: things change and no rights may be derived from this document.
 
-Canonical student records remain private.
+Canonical real-student records remain private. After academic generation and validation, hand the completed JSON record to the documented cumulative private-data workflow. Never commit the record, original interest statement, interpretation or access mapping to GitHub.
 
 ---
 

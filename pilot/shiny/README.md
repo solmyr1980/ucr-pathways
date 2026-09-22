@@ -9,6 +9,8 @@ The user-facing interface intentionally uses UCR branding without a visible Path
 
 These are two data modes of one student app, not separate public, private, pilot or test applications.
 
+Academic production is autonomous in the sense defined by the Production Instructions: the AI workflow proceeds from the submitted interest statement to a completed validated JSON record without an intermediate approval stop. The Shiny app does not generate programmes live. The private-data workflow described below begins with that completed record.
+
 ## Student journey
 
 - a student enters a student-specific access code;
@@ -78,13 +80,54 @@ From the repository root:
 Rscript scripts/init-student-private-test.R
 Rscript scripts/deploy-student-shiny.R --check
 Rscript scripts/deploy-student-shiny.R --check-bundle
-Rscript scripts/deploy-student-shiny.R
 ```
 
 The initializer creates `private/student-records/`, `private/student-access.json`, `private/student-mode.json` and `private/student-test-codes.txt`. The complete `private/` tree is ignored by Git. Generated records preserve the five original interest statements, add fixed test interpretations, and use newly generated 80-bit access codes. The deployment bundle excludes the local code-reference text file, the public access map and the public example records.
 
-The deployment name is `ucr-student`. Use `--account=...` when the shinyapps.io account is not already selected. The deployment computer must already have the relevant shinyapps.io account authorized through `rsconnect`.
+The disposable five-case dataset cannot be deployed over the live app. It remains a regression fixture for checking the private-data boundary and deployment bundle.
 
 No standalone Git command-line executable is required. Initialization and deployment validate the root-anchored `/private/` rule directly from the repository `.gitignore`.
 
-This test demonstrates the local-file-to-private-bundle architecture with public development content. Real prospective-student data require separate institutional approval for the hosting and privacy arrangements.
+## Cumulative real-student production workflow
+
+shinyapps.io is the approved deployment target for the real-student workflow. GitHub must contain no real student data. Keep completed records outside the repository or beneath its ignored `private/` tree.
+
+Initialize the cumulative production dataset once:
+
+```text
+Rscript scripts/add-student-private.R --init
+```
+
+Add a completed validated student record:
+
+```text
+Rscript scripts/add-student-private.R --record="C:/secure/incoming/p-006.json"
+```
+
+The command:
+
+- validates the incoming private student record;
+- refuses duplicate record IDs;
+- generates a cryptographically secure 80-bit code that does not collide with existing private or public-development codes;
+- appends the new record and mapping while preserving all existing entries and codes;
+- serializes additions with a private lock; and
+- prints the new student's stable access code.
+
+The first addition creates the production structure automatically, so the explicit initialization command is optional. Run only one addition process at a time. If a process is interrupted and no addition is still running, remove the reported stale lock directory before retrying.
+
+Validate the complete production dataset and deployment bundle:
+
+```text
+Rscript scripts/deploy-student-shiny.R --check
+Rscript scripts/deploy-student-shiny.R --check-bundle
+```
+
+Deploy the expanded cumulative dataset to the same `ucr-student` app:
+
+```text
+Rscript scripts/deploy-student-shiny.R
+```
+
+Use `--account=...` when the shinyapps.io account is not already selected. The deployment computer must already have the relevant shinyapps.io account authorized through `rsconnect`. The bundle contains the private access index and only its referenced student records; it excludes the public examples, public development access map, local lock/staging material and administrative code-reference files. A valid access code renders only its corresponding record.
+
+The ignored local `private/` dataset is cumulative and is the authoritative operational copy. Back it up through an approved secure institutional method. Losing this directory also loses the authoritative record of stable student codes; backup design and automation are outside this repository.

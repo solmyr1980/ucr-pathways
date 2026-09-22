@@ -164,6 +164,10 @@ load_student_data_config <- function(repo_root, requested_mode = Sys.getenv("UCR
     marker_file <- file.path(private_root, "student-mode.json")
     marker <- read_student_json(marker_file, "private student mode marker")
     if (!identical(marker$mode, "private")) stop("Private student mode marker must declare mode private.")
+    allowed_private_datasets <- c("five-public-fixture-test", "production-cumulative")
+    if (!as.character(student_value(marker$datasetType, "")) %in% allowed_private_datasets) {
+      stop("Private student mode marker has an unsupported datasetType.")
+    }
     access_file <- file.path(private_root, "student-access.json")
     record_dir <- file.path(private_root, "student-records")
   } else {
@@ -179,6 +183,9 @@ load_student_data_config <- function(repo_root, requested_mode = Sys.getenv("UCR
   if (!is.list(entries) || !length(entries)) stop("The ", mode, " student access index has no entries.")
   if (identical(mode, "private") && !identical(access_map$mode, "private")) {
     stop("Private student access index must declare mode private.")
+  }
+  if (identical(mode, "private") && !identical(access_map$datasetType, marker$datasetType)) {
+    stop("Private student access index datasetType must match the mode marker.")
   }
 
   normalized_codes <- vapply(entries, function(entry) normalize_student_code(entry$code), character(1))
