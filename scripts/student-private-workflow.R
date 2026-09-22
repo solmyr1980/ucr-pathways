@@ -217,24 +217,88 @@ validate_student_production_dataset <- function(
   )
 }
 
+verify_disposable_private_test_dataset <- function(repo_root) {
+  paths <- student_production_paths(repo_root)
+  required <- c(paths$marker, paths$access, paths$record_dir)
+  if (any(!file.exists(required) & !dir.exists(required))) return(NULL)
+
+  marker <- read_student_json(paths$marker, "private student mode marker")
+  access <- read_student_json(paths$access, "private student access index")
+  if (!identical(marker$mode, "private") || !identical(access$mode, "private")) return(NULL)
+
+  entries <- access$entries
+  if (!is.list(entries) || length(entries) != 5L) return(NULL)
+
+  expected_ids <- sprintf("p-%03d", 1:5)
+  expected_files <- paste0(expected_ids, ".json")
+  ids <- vapply(entries, function(entry) as.character(student_value(entry$recordId, "")), character(1))
+  files <- vapply(entries, function(entry) as.character(student_value(entry$recordFile, "")), character(1))
+  codes <- vapply(entries, function(entry) as.character(student_value(entry$code, "")), character(1))
+  normalized_codes <- vapply(codes, normalize_student_code, character(1))
+
+  if (!identical(sort(ids), expected_ids)) return(NULL)
+  if (!identical(sort(files), expected_files)) return(NULL)
+  if (any(!grepl(STUDENT_PRIVATE_CODE_PATTERN, codes, perl = TRUE)) || anyDuplicated(normalized_codes)) return(NULL)
+
+  disk_files <- sort(list.files(paths$record_dir, pattern = "\\.json$", all.files = FALSE, no.. = TRUE))
+  if (!all(expected_files %in% disk_files)) return(NULL)
+
+  record_paths <- character(length(expected_ids))
+  for (index in seq_along(expected_ids)) {
+    id <- expected_ids[[index]]
+    filename <- files[[match(id, ids)]]
+    private_path <- file.path(paths$record_dir, filename)
+    private_record <- read_student_json(private_path, paste("private test record", id))
+    valid <- tryCatch({
+      validate_student_record(private_record, id, "private")
+      TRUE
+    }, error = function(e) FALSE)
+    if (!valid) return(NULL)
+
+    public_record <- read_student_json(
+      file.path(repo_root, "data", "examples", paste0(id, ".json")),
+      paste("public source fixture", id)
+    )
+    private_core <- private_record
+    public_core <- public_record
+    private_core$origin <- NULL
+    private_core$interestInterpretation <- NULL
+    public_core$origin <- NULL
+    public_core$interestInterpretation <- NULL
+    if (!identical(private_core, public_core)) return(NULL)
+    record_paths[[index]] <- private_path
+  }
+
+  list(
+    marker = marker,
+    access = access,
+    record_ids = expected_ids,
+    record_files = expected_files,
+    record_paths = record_paths
+  )
+}
+
 convert_private_test_dataset_for_production <- function(repo_root) {
   paths <- student_production_paths(repo_root)
   required <- c(paths$marker, paths$access, paths$record_dir)
   if (any(!file.exists(required) & !dir.exists(required))) return(FALSE)
 
   marker <- read_student_json(paths$marker, "private student mode marker")
-  if (!identical(marker$datasetType, "five-public-fixture-test")) return(FALSE)
-  if (!identical(marker$generator, "scripts/init-student-private-test.R")) {
-    stop("Refusing to convert a private test dataset whose generator is not recognized.")
-  }
+  access <- read_student_json(paths$access, "private student access index")
+  already_production <- identical(marker$mode, "private") &&
+    identical(marker$datasetType, STUDENT_PRODUCTION_DATASET_TYPE) &&
+    identical(access$mode, "private") &&
+    identical(access$datasetType, STUDENT_PRODUCTION_DATASET_TYPE)
+  if (already_production) return(FALSE)
 
-  config <- load_student_data_config(repo_root, "private")
-  validate_private_test_derivation(config, repo_root)
+  verified_test <- verify_disposable_private_test_dataset(repo_root)
+  if (is.null(verified_test)) return(FALSE)
+
   disk_files <- sort(list.files(paths$record_dir, pattern = "\\.json$", all.files = FALSE, no.. = TRUE))
-  incoming_files <- setdiff(disk_files, config$record_files)
+  incoming_files <- setdiff(disk_files, verified_test$record_files)
   if (!length(incoming_files)) {
     stop(
-      "The private folder still contains only the disposable five-case test dataset. ",
+      "The private folder still contains only the verified disposable five-case test dataset. ",
       "Place at least one completed real-student JSON file in private/student-records before registering."
     )
   }
@@ -258,12 +322,12 @@ convert_private_test_dataset_for_production <- function(repo_root) {
     }
     id
   }, character(1))
-  if (anyDuplicated(incoming_ids) || length(intersect(incoming_ids, config$record_ids))) {
+  if (anyDuplicated(incoming_ids) || length(intersect(incoming_ids, verified_test$record_ids))) {
     stop("Real-student records cannot reuse an ID from the disposable test dataset.")
   }
 
   test_codes <- file.path(paths$root, "student-test-codes.txt")
-  disposable <- c(config$record_paths, paths$marker, paths$access, test_codes)
+  disposable <- c(verified_test$record_paths, paths$marker, paths$access, test_codes)
   disposable <- disposable[file.exists(disposable)]
   staging <- tempfile(pattern = ".student-test-conversion-", tmpdir = paths$root)
   if (!dir.create(staging, showWarnings = FALSE)) stop("Could not prepare private test-data conversion.")
