@@ -16,9 +16,9 @@ test_root <- tempfile("student-production-repo-")
 dir.create(test_root)
 on.exit(unlink(test_root, recursive = TRUE), add = TRUE)
 
-copy_relative <- function(relative) {
+copy_relative <- function(relative, destination_root = test_root) {
   source_path <- file.path(repo_root, relative)
-  destination <- file.path(test_root, relative)
+  destination <- file.path(destination_root, relative)
   if (!file.exists(source_path) && !dir.exists(source_path)) stop("Missing test source: ", source_path)
   dir.create(dirname(destination), recursive = TRUE, showWarnings = FALSE)
   if (dir.exists(source_path)) {
@@ -49,8 +49,8 @@ for (relative in c(
   copy_relative(relative)
 }
 
-run_script <- function(arguments) {
-  old <- setwd(test_root)
+run_script <- function(arguments, execution_root = test_root) {
+  old <- setwd(execution_root)
   on.exit(setwd(old), add = TRUE)
   output <- system2(
     file.path(R.home("bin"), "Rscript"),
@@ -221,4 +221,46 @@ shiny::testServer(student$make_student_server(student$STUDENT_DATA_CONFIG), {
   stopifnot(!grepl(load_student_record_for_code(config, second$accessCode)$interests, selected_html, fixed = TRUE))
 })
 
-cat("Direct-folder student registration, isolation, deployment checks, and startup checks passed.\n")
+# A machine that still contains the verified five-case private test dataset can
+# begin real production without manual cleanup. The first real record triggers
+# conversion, removes only the disposable fixtures and keeps the real file.
+migration_root <- tempfile("student-test-to-production-")
+dir.create(migration_root)
+on.exit(unlink(migration_root, recursive = TRUE), add = TRUE)
+for (relative in c(
+  ".gitignore",
+  "scripts/student-private-workflow.R",
+  "scripts/add-students-private.R",
+  "scripts/init-student-private-test.R",
+  "pilot/shiny/student-data.R",
+  "pilot/shiny/data",
+  "data/examples"
+)) {
+  copy_relative(relative, migration_root)
+}
+test_initialization <- run_script(c("scripts/init-student-private-test.R", "--quiet"), migration_root)
+if (test_initialization$status != 0L) stop(paste(test_initialization$output, collapse = "\n"))
+real_record <- read_student_json(first_input, "synthetic first real record")
+real_record$id <- "p-006"
+jsonlite::write_json(
+  real_record,
+  file.path(migration_root, "private", "student-records", "p-006.json"),
+  auto_unbox = TRUE,
+  pretty = TRUE,
+  null = "null"
+)
+migration <- run_script("scripts/add-students-private.R", migration_root)
+if (migration$status != 0L) stop(paste(migration$output, collapse = "\n"))
+stopifnot(any(grepl("converted to production mode", migration$output, fixed = TRUE)))
+migrated <- validate_student_production_dataset(migration_root)
+stopifnot(identical(migrated$ids, "p-006"))
+stopifnot(identical(migrated$files, "p-006.json"))
+stopifnot(!file.exists(file.path(migration_root, "private", "student-test-codes.txt")))
+stopifnot(!any(file.exists(file.path(
+  migration_root,
+  "private",
+  "student-records",
+  paste0(sprintf("p-%03d", 1:5), ".json")
+))))
+
+cat("Direct-folder registration, test-to-production conversion, deployment checks, and startup checks passed.\n")

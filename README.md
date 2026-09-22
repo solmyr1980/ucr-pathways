@@ -105,7 +105,7 @@ For routine production, place any number of completed student JSON records direc
 Rscript scripts/add-students-private.R
 ```
 
-Registration is all-or-nothing, preserves all existing records and codes, and creates one new cryptographically secure code per record. It does not deploy. Add and register further records as needed, then validate and deploy the complete accumulated dataset once:
+Registration is all-or-nothing, preserves all existing production records and codes, and creates one new cryptographically secure code per record. If the private folder still contains the verified disposable five-case test dataset, registering the first real record replaces those fixtures automatically. Registration does not deploy. Add and register further records as needed, then validate and deploy the complete accumulated dataset once:
 
 ```text
 Rscript scripts/validate-and-deploy-student.R

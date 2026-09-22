@@ -109,7 +109,7 @@ Registration:
 - updates the cumulative private index once; and
 - writes the new codes to the ignored private file `private/student-last-batch-codes.csv`.
 
-Registration does not deploy the app. You can therefore register one batch now, another batch later, and deploy all accumulated records once when you are ready. If a batch fails, its files remain in `private/student-records/` for correction, while the access index and existing codes remain unchanged.
+Registration does not deploy the app. You can therefore register one batch now, another batch later, and deploy all accumulated records once when you are ready. If a batch fails, its files remain in `private/student-records/` for correction, while the access index and existing codes remain unchanged. If the folder still contains the verified disposable five-case test dataset, the first valid real record triggers a safe conversion: the five test fixtures and their test codes are removed, the real file remains, and production registration continues in the same command.
 
 Validate the full cumulative dataset and exact bundle, then deploy once:
 

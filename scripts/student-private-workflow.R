@@ -217,6 +217,89 @@ validate_student_production_dataset <- function(
   )
 }
 
+convert_private_test_dataset_for_production <- function(repo_root) {
+  paths <- student_production_paths(repo_root)
+  required <- c(paths$marker, paths$access, paths$record_dir)
+  if (any(!file.exists(required) & !dir.exists(required))) return(FALSE)
+
+  marker <- read_student_json(paths$marker, "private student mode marker")
+  if (!identical(marker$datasetType, "five-public-fixture-test")) return(FALSE)
+  if (!identical(marker$generator, "scripts/init-student-private-test.R")) {
+    stop("Refusing to convert a private test dataset whose generator is not recognized.")
+  }
+
+  config <- load_student_data_config(repo_root, "private")
+  validate_private_test_derivation(config, repo_root)
+  disk_files <- sort(list.files(paths$record_dir, pattern = "\\.json$", all.files = FALSE, no.. = TRUE))
+  incoming_files <- setdiff(disk_files, config$record_files)
+  if (!length(incoming_files)) {
+    stop(
+      "The private folder still contains only the disposable five-case test dataset. ",
+      "Place at least one completed real-student JSON file in private/student-records before registering."
+    )
+  }
+
+  incoming_ids <- vapply(incoming_files, function(filename) {
+    record <- read_student_json(
+      file.path(paths$record_dir, filename),
+      paste("unregistered student record", filename)
+    )
+    id <- as.character(student_value(record$id, ""))
+    validate_student_record(record, id, "private")
+    expected_filename <- paste0(id, ".json")
+    if (!identical(filename, expected_filename)) {
+      stop(
+        "Student record filename must match its id exactly: expected ",
+        expected_filename,
+        " but found ",
+        filename,
+        "."
+      )
+    }
+    id
+  }, character(1))
+  if (anyDuplicated(incoming_ids) || length(intersect(incoming_ids, config$record_ids))) {
+    stop("Real-student records cannot reuse an ID from the disposable test dataset.")
+  }
+
+  test_codes <- file.path(paths$root, "student-test-codes.txt")
+  disposable <- c(config$record_paths, paths$marker, paths$access, test_codes)
+  disposable <- disposable[file.exists(disposable)]
+  staging <- tempfile(pattern = ".student-test-conversion-", tmpdir = paths$root)
+  if (!dir.create(staging, showWarnings = FALSE)) stop("Could not prepare private test-data conversion.")
+  staged <- file.path(staging, basename(disposable))
+  moved <- logical(length(disposable))
+  new_metadata_started <- FALSE
+  converted <- FALSE
+  on.exit({
+    if (!converted) {
+      if (new_metadata_started && file.exists(paths$marker)) unlink(paths$marker)
+      if (new_metadata_started && file.exists(paths$access)) unlink(paths$access)
+      for (index in which(moved)) {
+        if (file.exists(staged[[index]])) file.rename(staged[[index]], disposable[[index]])
+      }
+    }
+    if (dir.exists(staging)) unlink(staging, recursive = TRUE)
+  }, add = TRUE)
+
+  for (index in seq_along(disposable)) {
+    if (!file.rename(disposable[[index]], staged[[index]])) {
+      stop("Could not isolate the verified disposable test dataset for conversion.")
+    }
+    moved[[index]] <- TRUE
+  }
+  new_metadata_started <- TRUE
+  student_write_json_atomic(student_production_marker(), paths$marker)
+  student_write_json_atomic(student_production_access_index(), paths$access)
+  validate_student_production_dataset(
+    repo_root,
+    allow_empty = TRUE,
+    allow_unindexed_records = TRUE
+  )
+  converted <- TRUE
+  TRUE
+}
+
 initialize_student_production_dataset <- function(repo_root, allow_unindexed_records = FALSE) {
   assert_private_tree_ignored(repo_root)
   paths <- student_production_paths(repo_root)
@@ -267,6 +350,7 @@ register_unindexed_student_records <- function(repo_root) {
   lock <- acquire_student_production_lock(repo_root)
   on.exit(release_student_production_lock(lock), add = TRUE)
 
+  converted_test_dataset <- convert_private_test_dataset_for_production(repo_root)
   initialize_student_production_dataset(repo_root, allow_unindexed_records = TRUE)
   current <- validate_student_production_dataset(
     repo_root,
@@ -275,7 +359,11 @@ register_unindexed_student_records <- function(repo_root) {
   )
   incoming_files <- current$unindexed_files
   if (!length(incoming_files)) {
-    return(list(records = list(), resultsFile = paths$batch_results))
+    return(list(
+      records = list(),
+      resultsFile = paths$batch_results,
+      convertedTestDataset = converted_test_dataset
+    ))
   }
 
   incoming <- lapply(seq_along(incoming_files), function(index) {
@@ -345,7 +433,8 @@ register_unindexed_student_records <- function(repo_root) {
     records = lapply(seq_along(incoming), function(index) {
       list(recordId = incoming_ids[[index]], accessCode = codes[[index]], recordFile = incoming[[index]]$source)
     }),
-    resultsFile = paths$batch_results
+    resultsFile = paths$batch_results,
+    convertedTestDataset = converted_test_dataset
   )
 }
 
