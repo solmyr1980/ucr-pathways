@@ -217,68 +217,68 @@ validate_student_production_dataset <- function(
   )
 }
 
-verify_disposable_private_test_dataset <- function(repo_root) {
+validate_existing_private_dataset_for_migration <- function(repo_root) {
   paths <- student_production_paths(repo_root)
   required <- c(paths$marker, paths$access, paths$record_dir)
   if (any(!file.exists(required) & !dir.exists(required))) return(NULL)
 
   marker <- read_student_json(paths$marker, "private student mode marker")
   access <- read_student_json(paths$access, "private student access index")
-  if (!identical(marker$mode, "private") || !identical(access$mode, "private")) return(NULL)
+  if (!identical(marker$mode, "private") || !identical(access$mode, "private")) {
+    return(NULL)
+  }
 
   entries <- access$entries
-  if (!is.list(entries) || length(entries) != 5L) return(NULL)
+  if (is.null(entries)) entries <- list()
+  if (!is.list(entries)) stop("Existing private student access-index entries must be an array.")
 
-  expected_ids <- sprintf("p-%03d", 1:5)
-  expected_files <- paste0(expected_ids, ".json")
-  ids <- vapply(entries, function(entry) as.character(student_value(entry$recordId, "")), character(1))
-  files <- vapply(entries, function(entry) as.character(student_value(entry$recordFile, "")), character(1))
   codes <- vapply(entries, function(entry) as.character(student_value(entry$code, "")), character(1))
   normalized_codes <- vapply(codes, normalize_student_code, character(1))
+  ids <- vapply(entries, function(entry) as.character(student_value(entry$recordId, "")), character(1))
+  files <- vapply(entries, function(entry) as.character(student_value(entry$recordFile, "")), character(1))
 
-  if (!identical(sort(ids), expected_ids)) return(NULL)
-  if (!identical(sort(files), expected_files)) return(NULL)
-  if (any(!grepl(STUDENT_PRIVATE_CODE_PATTERN, codes, perl = TRUE)) || anyDuplicated(normalized_codes)) return(NULL)
+  if (length(entries)) {
+    if (any(!grepl(STUDENT_PRIVATE_CODE_PATTERN, codes, perl = TRUE)) || anyDuplicated(normalized_codes)) {
+      stop("Existing private student access codes are not canonical and unique; refusing metadata migration.")
+    }
+    if (any(!grepl("^[a-z0-9][a-z0-9-]*$", ids)) || anyDuplicated(ids)) {
+      stop("Existing private student record ids are not valid and unique; refusing metadata migration.")
+    }
+    if (any(!grepl("^[a-z0-9][a-z0-9-]*\\.json$", files)) || any(files != basename(files)) || anyDuplicated(files)) {
+      stop("Existing private student record filenames are not simple, valid and unique; refusing metadata migration.")
+    }
+  }
 
   disk_files <- sort(list.files(paths$record_dir, pattern = "\\.json$", all.files = FALSE, no.. = TRUE))
-  if (!all(expected_files %in% disk_files)) return(NULL)
-
-  record_paths <- character(length(expected_ids))
-  for (index in seq_along(expected_ids)) {
-    id <- expected_ids[[index]]
-    filename <- files[[match(id, ids)]]
-    private_path <- file.path(paths$record_dir, filename)
-    private_record <- read_student_json(private_path, paste("private test record", id))
-    valid <- tryCatch({
-      validate_student_record(private_record, id, "private")
-      TRUE
-    }, error = function(e) FALSE)
-    if (!valid) return(NULL)
-
-    public_record <- read_student_json(
-      file.path(repo_root, "data", "examples", paste0(id, ".json")),
-      paste("public source fixture", id)
+  missing_files <- setdiff(files, disk_files)
+  if (length(missing_files)) {
+    stop(
+      "Existing private access index refers to missing student-record files: ",
+      paste(missing_files, collapse = ", "),
+      ". Refusing metadata migration."
     )
-    private_core <- private_record
-    public_core <- public_record
-    private_core$origin <- NULL
-    private_core$interestInterpretation <- NULL
-    public_core$origin <- NULL
-    public_core$interestInterpretation <- NULL
-    if (!identical(private_core, public_core)) return(NULL)
-    record_paths[[index]] <- private_path
+  }
+
+  for (index in seq_along(entries)) {
+    record <- read_student_json(
+      file.path(paths$record_dir, files[[index]]),
+      paste("existing private student record", ids[[index]])
+    )
+    validate_student_record(record, ids[[index]], "private")
   }
 
   list(
     marker = marker,
     access = access,
-    record_ids = expected_ids,
-    record_files = expected_files,
-    record_paths = record_paths
+    entries = entries,
+    codes = codes,
+    ids = ids,
+    files = files,
+    unindexed_files = setdiff(disk_files, files)
   )
 }
 
-convert_private_test_dataset_for_production <- function(repo_root) {
+migrate_private_dataset_to_production <- function(repo_root) {
   paths <- student_production_paths(repo_root)
   required <- c(paths$marker, paths$access, paths$record_dir)
   if (any(!file.exists(required) & !dir.exists(required))) return(FALSE)
@@ -291,77 +291,51 @@ convert_private_test_dataset_for_production <- function(repo_root) {
     identical(access$datasetType, STUDENT_PRODUCTION_DATASET_TYPE)
   if (already_production) return(FALSE)
 
-  verified_test <- verify_disposable_private_test_dataset(repo_root)
-  if (is.null(verified_test)) return(FALSE)
+  existing <- validate_existing_private_dataset_for_migration(repo_root)
+  if (is.null(existing)) {
+    stop("Existing private student dataset cannot be safely migrated to cumulative production mode.")
+  }
 
-  disk_files <- sort(list.files(paths$record_dir, pattern = "\\.json$", all.files = FALSE, no.. = TRUE))
-  incoming_files <- setdiff(disk_files, verified_test$record_files)
-  if (!length(incoming_files)) {
-    stop(
-      "The private folder still contains only the verified disposable five-case test dataset. ",
-      "Place at least one completed real-student JSON file in private/student-records before registering."
+  new_marker <- existing$marker
+  new_marker$schemaVersion <- as.character(student_value(new_marker$schemaVersion, "1.0"))
+  new_marker$mode <- "private"
+  new_marker$datasetType <- STUDENT_PRODUCTION_DATASET_TYPE
+  new_marker$generator <- "scripts/add-students-private.R"
+
+  new_access <- existing$access
+  new_access$schemaVersion <- as.character(student_value(new_access$schemaVersion, "1.0"))
+  new_access$mode <- "private"
+  new_access$datasetType <- STUDENT_PRODUCTION_DATASET_TYPE
+  new_access$entries <- existing$entries
+
+  old_marker <- readBin(paths$marker, what = "raw", n = file.info(paths$marker)$size)
+  old_access <- readBin(paths$access, what = "raw", n = file.info(paths$access)$size)
+  migrated <- FALSE
+  tryCatch({
+    student_write_json_atomic(new_marker, paths$marker)
+    student_write_json_atomic(new_access, paths$access)
+    migrated_dataset <- validate_student_production_dataset(
+      repo_root,
+      allow_empty = TRUE,
+      allow_unindexed_records = TRUE
     )
-  }
-
-  incoming_ids <- vapply(incoming_files, function(filename) {
-    record <- read_student_json(
-      file.path(paths$record_dir, filename),
-      paste("unregistered student record", filename)
-    )
-    id <- as.character(student_value(record$id, ""))
-    validate_student_record(record, id, "private")
-    expected_filename <- paste0(id, ".json")
-    if (!identical(filename, expected_filename)) {
-      stop(
-        "Student record filename must match its id exactly: expected ",
-        expected_filename,
-        " but found ",
-        filename,
-        "."
-      )
+    if (!identical(migrated_dataset$ids, existing$ids) ||
+        !identical(migrated_dataset$codes, existing$codes) ||
+        !identical(migrated_dataset$files, existing$files)) {
+      stop("Metadata migration changed existing student records, codes, or filenames.")
     }
-    id
-  }, character(1))
-  if (anyDuplicated(incoming_ids) || length(intersect(incoming_ids, verified_test$record_ids))) {
-    stop("Real-student records cannot reuse an ID from the disposable test dataset.")
-  }
+    migrated <- TRUE
+  }, error = function(e) {
+    marker_connection <- file(paths$marker, open = "wb")
+    writeBin(old_marker, marker_connection)
+    close(marker_connection)
+    access_connection <- file(paths$access, open = "wb")
+    writeBin(old_access, access_connection)
+    close(access_connection)
+    stop("Private student metadata migration was rolled back: ", conditionMessage(e))
+  })
 
-  test_codes <- file.path(paths$root, "student-test-codes.txt")
-  disposable <- c(verified_test$record_paths, paths$marker, paths$access, test_codes)
-  disposable <- disposable[file.exists(disposable)]
-  staging <- tempfile(pattern = ".student-test-conversion-", tmpdir = paths$root)
-  if (!dir.create(staging, showWarnings = FALSE)) stop("Could not prepare private test-data conversion.")
-  staged <- file.path(staging, basename(disposable))
-  moved <- logical(length(disposable))
-  new_metadata_started <- FALSE
-  converted <- FALSE
-  on.exit({
-    if (!converted) {
-      if (new_metadata_started && file.exists(paths$marker)) unlink(paths$marker)
-      if (new_metadata_started && file.exists(paths$access)) unlink(paths$access)
-      for (index in which(moved)) {
-        if (file.exists(staged[[index]])) file.rename(staged[[index]], disposable[[index]])
-      }
-    }
-    if (dir.exists(staging)) unlink(staging, recursive = TRUE)
-  }, add = TRUE)
-
-  for (index in seq_along(disposable)) {
-    if (!file.rename(disposable[[index]], staged[[index]])) {
-      stop("Could not isolate the verified disposable test dataset for conversion.")
-    }
-    moved[[index]] <- TRUE
-  }
-  new_metadata_started <- TRUE
-  student_write_json_atomic(student_production_marker(), paths$marker)
-  student_write_json_atomic(student_production_access_index(), paths$access)
-  validate_student_production_dataset(
-    repo_root,
-    allow_empty = TRUE,
-    allow_unindexed_records = TRUE
-  )
-  converted <- TRUE
-  TRUE
+  migrated
 }
 
 initialize_student_production_dataset <- function(repo_root, allow_unindexed_records = FALSE) {
@@ -414,7 +388,7 @@ register_unindexed_student_records <- function(repo_root) {
   lock <- acquire_student_production_lock(repo_root)
   on.exit(release_student_production_lock(lock), add = TRUE)
 
-  converted_test_dataset <- convert_private_test_dataset_for_production(repo_root)
+  migrated_private_dataset <- migrate_private_dataset_to_production(repo_root)
   initialize_student_production_dataset(repo_root, allow_unindexed_records = TRUE)
   current <- validate_student_production_dataset(
     repo_root,
@@ -426,7 +400,7 @@ register_unindexed_student_records <- function(repo_root) {
     return(list(
       records = list(),
       resultsFile = paths$batch_results,
-      convertedTestDataset = converted_test_dataset
+      migratedPrivateDataset = migrated_private_dataset
     ))
   }
 
@@ -498,7 +472,7 @@ register_unindexed_student_records <- function(repo_root) {
       list(recordId = incoming_ids[[index]], accessCode = codes[[index]], recordFile = incoming[[index]]$source)
     }),
     resultsFile = paths$batch_results,
-    convertedTestDataset = converted_test_dataset
+    migratedPrivateDataset = migrated_private_dataset
   )
 }
 
