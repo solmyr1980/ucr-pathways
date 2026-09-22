@@ -240,6 +240,20 @@ for (relative in c(
 }
 test_initialization <- run_script(c("scripts/init-student-private-test.R", "--quiet"), migration_root)
 if (test_initialization$status != 0L) stop(paste(test_initialization$output, collapse = "\n"))
+
+# Simulate an older local five-fixture dataset whose metadata predates the
+# current production/test datasetType labels. Conversion must rely on the
+# verified fixture contents rather than require one exact historical marker.
+legacy_marker_path <- file.path(migration_root, "private", "student-mode.json")
+legacy_access_path <- file.path(migration_root, "private", "student-access.json")
+legacy_marker <- read_student_json(legacy_marker_path, "legacy private marker")
+legacy_access <- read_student_json(legacy_access_path, "legacy private access index")
+legacy_marker$datasetType <- "legacy-private-test"
+legacy_marker$generator <- NULL
+legacy_access$datasetType <- "legacy-private-test"
+student_write_json_atomic(legacy_marker, legacy_marker_path)
+student_write_json_atomic(legacy_access, legacy_access_path)
+
 real_record <- read_student_json(first_input, "synthetic first real record")
 real_record$id <- "p-006"
 jsonlite::write_json(
