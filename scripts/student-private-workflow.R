@@ -3,6 +3,9 @@
 STUDENT_PRODUCTION_DATASET_TYPE <- "production-cumulative"
 STUDENT_PRIVATE_CODE_ALPHABET <- strsplit("ABCDEFGHJKLMNPQRSTUVWXYZ23456789", "", fixed = TRUE)[[1]]
 STUDENT_PRIVATE_CODE_PATTERN <- "^UCR-(?:[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{4}-){3}[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{4}$"
+STUDENT_OPTIONAL_RESEARCH_ID <- "optional-independent-research"
+STUDENT_OPTIONAL_RESEARCH_TEXT <- "Optional independent research"
+STUDENT_OPTIONAL_RESEARCH_CREDITS <- 15
 
 assert_private_tree_ignored <- function(repo_root) {
   ignore_path <- file.path(repo_root, ".gitignore")
@@ -209,6 +212,11 @@ student_normalize_comparison_cell <- function(cell) {
   NULL
 }
 
+student_is_optional_research_cell <- function(cell) {
+  isTRUE(cell$comparisonOnly) &&
+    identical(student_trimmed_string(cell$comparisonElementId), STUDENT_OPTIONAL_RESEARCH_ID)
+}
+
 student_comparison_entries <- function(blocks, programme_id) {
   entries <- list()
   for (block_index in seq_along(blocks)) {
@@ -246,6 +254,7 @@ student_is_retained_legacy_fixture <- function(repo_root, record) {
 
 validate_student_record_mechanically <- function(repo_root, record_path, label = basename(record_path)) {
   record <- read_student_json(record_path, paste("student record", label))
+  retained_legacy_fixture <- student_is_retained_legacy_fixture(repo_root, record)
   errors <- character()
   fail <- function(message) errors <<- c(errors, message)
   approximately_equal <- function(left, right) {
@@ -332,7 +341,37 @@ validate_student_record_mechanically <- function(repo_root, record_path, label =
     programme_id <- student_trimmed_string(programme$id)
     if (!nzchar(programme_id)) next
     entries <- student_comparison_entries(blocks, programme_id)
-    credits <- vapply(entries, function(entry) student_credit_number(entry$cell$credits), numeric(1))
+    comparison_only <- vapply(entries, function(entry) {
+      isTRUE(entry$cell$comparisonOnly) || nzchar(student_trimmed_string(entry$cell$comparisonElementId))
+    }, logical(1))
+    optional_research <- vapply(entries, function(entry) {
+      student_is_optional_research_cell(entry$cell)
+    }, logical(1))
+    invalid_comparison_only <- comparison_only & !optional_research
+    if (any(invalid_comparison_only)) {
+      fail(paste0("comparison ", programme_id, " contains an unknown comparison-only element"))
+    }
+    for (entry in entries[optional_research]) {
+      if (!identical(student_trimmed_string(entry$cell$text), STUDENT_OPTIONAL_RESEARCH_TEXT) ||
+          !approximately_equal(student_credit_number(entry$cell$credits), STUDENT_OPTIONAL_RESEARCH_CREDITS)) {
+        fail(paste0(
+          "comparison ", programme_id,
+          " has invalid Optional independent research text or credits"
+        ))
+      }
+    }
+    if (student_is_ucr_programme(programme)) {
+      if (!retained_legacy_fixture && sum(optional_research) != 1L) {
+        fail(paste0(
+          "comparison ", programme_id,
+          " must contain Optional independent research exactly once"
+        ))
+      }
+    } else if (any(optional_research)) {
+      fail("the comparator must not contain the UCR-only Optional independent research element")
+    }
+    curriculum_entries <- entries[!comparison_only]
+    credits <- vapply(curriculum_entries, function(entry) student_credit_number(entry$cell$credits), numeric(1))
     if (length(credits) && all(!is.na(credits)) && !approximately_equal(sum(credits), 180)) {
       fail(paste0(
         "comparison ", programme_id, " totals ", sum(credits),
@@ -347,7 +386,7 @@ validate_student_record_mechanically <- function(repo_root, record_path, label =
       course_codes <- vapply(courses, function(course) tolower(student_trimmed_string(course$code)), character(1))
       course_names <- vapply(courses, function(course) student_normalized_label(course$name), character(1))
       seen <- character()
-      for (entry in entries) {
+      for (entry in curriculum_entries) {
         cell <- entry$cell
         cell_code <- tolower(student_trimmed_string(cell$courseCode))
         matches <- if (nzchar(cell_code)) which(course_codes == cell_code) else which(course_names == student_normalized_label(cell$text))
@@ -389,7 +428,7 @@ validate_student_record_mechanically <- function(repo_root, record_path, label =
         fail(paste0("comparator.components total ", sum(component_credits, na.rm = TRUE), " EC; reconstructed comparator must total 180 EC"))
       }
       seen_components <- character()
-      for (entry in entries) {
+      for (entry in curriculum_entries) {
         component_id <- student_trimmed_string(entry$cell$componentId)
         match <- which(component_ids == component_id)
         if (!nzchar(component_id) || length(match) != 1L) {
@@ -413,7 +452,7 @@ validate_student_record_mechanically <- function(repo_root, record_path, label =
     }
   }
 
-  if (!student_is_retained_legacy_fixture(repo_root, record)) {
+  if (!retained_legacy_fixture) {
     ucr_programmes <- programmes[vapply(programmes, student_is_ucr_programme, logical(1))]
     if (length(ucr_programmes) > 1L) {
       for (left_index in seq_len(length(ucr_programmes) - 1L)) {
