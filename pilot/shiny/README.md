@@ -24,7 +24,7 @@ Academic production is autonomous in the sense defined by the Production Instruc
 - the external programme heading links to its approved official source;
 - UCR content links to the current UCR course overview;
 - UCR courses show EC information and can be clicked/tapped for descriptions;
-- the student receives Admissions and Program Builder calls to action near the top of the record;
+- the student receives Admissions and Program Builder calls to action near the top on wider screens and after the substantive record content on narrow screens;
 - on narrow screens, each multi-option programme schedule links back to the programme selector;
 - on narrow screens, the comparison shows one programme at a time with swipe, arrow and position controls, while wider screens retain the full comparison table;
 - each programme option shows the approved student-program disclaimer;

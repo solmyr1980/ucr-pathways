@@ -61,6 +61,14 @@ brand_header <- function() {
   )
 }
 
+cta_buttons <- function(location_class) {
+  div(
+    class = paste("cta-row", location_class),
+    tags$a(class = "secondary-cta", href = ADMISSIONS_URL, target = "_blank", rel = "noopener", "Speak to Admissions ↗"),
+    tags$a(class = "primary-cta", href = PROGRAM_BUILDER_URL, target = "_blank", rel = "noopener", "Build your own UCR program ↗")
+  )
+}
+
 render_compare_table <- function(record) {
   programmes <- record$programmes %||% list()
   blocks <- record$blocks %||% list()
@@ -320,11 +328,7 @@ render_student_record <- function(record) {
         brand_header(),
         div(
           class = "top-actions",
-          div(
-            class = "cta-row",
-            tags$a(class = "secondary-cta", href = ADMISSIONS_URL, target = "_blank", rel = "noopener", "Speak to Admissions ↗"),
-            tags$a(class = "primary-cta", href = PROGRAM_BUILDER_URL, target = "_blank", rel = "noopener", "Build your own UCR program ↗")
-          ),
+          cta_buttons("desktop-cta"),
           actionButton("reset_pathway", "Use another code", class = "secondary-button")
         ),
         tags$p(class = "lede intro-lede", copy$lede),
@@ -356,7 +360,8 @@ render_student_record <- function(record) {
             render_comparison_notes(record),
             tags$p(class = "source-note", copy$source_note)
           )
-        )
+        ),
+        cta_buttons("mobile-cta")
       )
     )
   )
@@ -446,13 +451,14 @@ ui <- fluidPage(
       .mobile-comparison-item.emphasis { background:rgba(255,225,164,.36); }
       .mobile-comparison-hint { margin:10px 0 0; color:var(--grey); font-size:11px; text-align:center; }
       .cta-row { display:flex; flex-wrap:wrap; gap:12px; }
+      .mobile-cta { display:none; }
       .primary-cta,.secondary-cta { display:inline-block; padding:12px 18px; border-radius:10px; font-weight:700; text-decoration:none!important; }
       .primary-cta { background:var(--plum); color:#fff!important; }
       .secondary-cta { color:var(--plum)!important; border:1px solid rgba(73,30,52,.3); background:#fff; }
       .modal-content { border-radius:14px; }
       .modal-title { color:var(--plum); font-family:IvyMode,Georgia,serif; }
       .course-description { font-size:15px; line-height:1.6; }
-      @media(max-width:980px){ .container-fluid{padding:0 14px 40px}.top-actions{align-items:flex-start;flex-direction:column}.input-summary{grid-template-columns:1fr}.semester-grid{grid-template-columns:1fr}.programme-view-heading{display:block}.programme-view-heading a{display:inline-block;margin-top:7px}.programme-concept{margin-left:0}.ucr-logo{max-width:210px}.access-card{padding:26px 22px}.program-selection-return{display:flex}.desktop-comparison{display:none}.mobile-comparison{display:block} }
+      @media(max-width:980px){ .container-fluid{padding:0 14px 40px}.top-actions{align-items:flex-start;flex-direction:column}.desktop-cta{display:none}.mobile-cta{display:flex;margin-top:26px}.input-summary{grid-template-columns:1fr}.semester-grid{grid-template-columns:1fr}.programme-view-heading{display:block}.programme-view-heading a{display:inline-block;margin-top:7px}.programme-concept{margin-left:0}.ucr-logo{max-width:210px}.access-card{padding:26px 22px}.program-selection-return{display:flex}.desktop-comparison{display:none}.mobile-comparison{display:block} }
     ")),
     tags$link(rel = "stylesheet", href = "ucr-assets/css/brand.css"),
     tags$link(rel = "stylesheet", href = "ucr-assets/css/shiny.css"),
