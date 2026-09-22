@@ -453,6 +453,7 @@ student_write_json_atomic(legacy_access, legacy_access_path)
 
 real_record <- read_student_json(first_input, "synthetic first real record")
 real_record$id <- "p-006"
+real_record <- add_optional_research_fixture(real_record)
 real_record_input <- tempfile("p-006-compatibility-", fileext = ".json")
 on.exit(unlink(real_record_input), add = TRUE)
 jsonlite::write_json(
