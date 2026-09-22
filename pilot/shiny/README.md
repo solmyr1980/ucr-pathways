@@ -38,7 +38,7 @@ The private tree is not mounted as a Shiny resource path and is never placed und
 
 ## Requirements
 
-Install R and RStudio if needed. For local development, initialization and deployment checks, install these packages once:
+Install R, RStudio and Node.js if needed. Node.js lets the private workflow invoke the repository's existing shared JavaScript record validator automatically; it does not add another operator command. For local development, initialization and deployment checks, install these R packages once:
 
 ```r
 install.packages(c("shiny", "jsonlite", "openssl", "rsconnect"))
@@ -107,7 +107,7 @@ Registration:
 - generates a stable cryptographically secure 80-bit code for each student;
 - preserves all previously registered records and codes;
 - updates the cumulative private index once; and
-- writes the new codes to the ignored private file `private/student-last-batch-codes.csv`.
+- refreshes the ignored private file `private/student-last-batch-codes.csv` as the complete cumulative record-ID/access-code mapping. The historical filename is retained to avoid creating a second overlapping operator code file.
 
 Registration does not deploy the app. You can therefore register one batch now, another batch later, and deploy all accumulated records once when you are ready. If a batch fails, its files remain in `private/student-records/` for correction, while the access index and existing codes remain unchanged. If the folder began as the five-case test dataset, the first additional record triggers a non-destructive metadata migration to cumulative production mode: all five existing records and their private access codes remain unchanged, the new record is appended, and registration continues in the same command.
 
@@ -117,7 +117,7 @@ Validate the full cumulative dataset and exact bundle, then deploy once:
 Rscript scripts/validate-and-deploy-student.R
 ```
 
-Use `--account=...` when the shinyapps.io account is not already selected. The deployment computer must already have that account authorized through `rsconnect`. Distribute the access codes from `private/student-last-batch-codes.csv` only after the command reports that deployment completed successfully.
+Use `--account=...` when the shinyapps.io account is not already selected. The deployment computer must already have that account authorized through `rsconnect`. Distribute the required access codes from the complete cumulative mapping in `private/student-last-batch-codes.csv` only after the command reports that deployment completed successfully.
 
 For compatibility, the original single-record import remains available for a record stored elsewhere:
 
@@ -125,7 +125,9 @@ For compatibility, the original single-record import remains available for a rec
 Rscript scripts/add-student-private.R --record="C:/path/to/p-006.json"
 ```
 
-The first successful addition creates the production structure automatically. An explicit empty initialization remains available with `Rscript scripts/add-student-private.R --init`, but is not part of the routine workflow. Run only one addition process at a time. If a process is interrupted and no addition is still running, remove the reported stale lock directory before retrying.
+This command is now a thin wrapper around the same cumulative registration process as the routine direct-folder command, including the same non-destructive migration of a legacy or five-case private dataset. The first successful addition creates the production structure automatically. An explicit empty initialization remains available with `Rscript scripts/add-student-private.R --init`, but is not part of the routine workflow. Run only one addition process at a time. If a process is interrupted and no addition is still running, remove the reported stale lock directory before retrying.
+
+Both registration and pre-deployment checks invoke the shared comparison validator. They mechanically require six four-course semesters, 24 unique scheduled courses, at least six 300-level courses, PPD exactly once in Year 1, the required comparator identity and source metadata, complete canonical comparator components where supplied, complete 180-EC comparison coverage, correspondence between scheduled UCR courses and comparison rows, and the pairwise distinctness floor. The unchanged retained `p-001`–`p-005` fixtures keep their legacy validation treatment. Formal prerequisites and planned semester availability remain mandatory during academic production, but the repository has no existing shared course-database validator that the deployment workflow can reuse without creating substantial parallel architecture; those two checks are therefore not repeated mechanically at deployment.
 
 For diagnostics without deployment, run:
 

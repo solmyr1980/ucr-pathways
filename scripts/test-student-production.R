@@ -34,7 +34,10 @@ copy_relative <- function(relative, destination_root = test_root) {
 
 for (relative in c(
   ".gitignore",
+  "scripts/example-utils.mjs",
+  "scripts/validate-example.mjs",
   "scripts/student-private-workflow.R",
+  "scripts/add-student-private.R",
   "scripts/add-students-private.R",
   "scripts/deploy-student-shiny.R",
   "scripts/validate-and-deploy-student.R",
@@ -42,9 +45,11 @@ for (relative in c(
   "pilot/shiny/student-data.R",
   "pilot/shiny/data",
   "pilot/shared.R",
+  "assets/js/comparison.js",
   "assets/css",
   "assets/brand/ucr-primary-plum.png",
-  "assets/fonts"
+  "assets/fonts",
+  "data/examples"
 )) {
   copy_relative(relative)
 }
@@ -93,12 +98,12 @@ stopifnot(identical(batch_results$record_id, c("p-001", "p-002")))
 first <- list(
   recordId = "p-001",
   accessCode = batch_results$access_code[[1]],
-  resultsFile = batch_results_path
+  codeSheet = batch_results_path
 )
 second <- list(
   recordId = "p-002",
   accessCode = batch_results$access_code[[2]],
-  resultsFile = batch_results_path
+  codeSheet = batch_results_path
 )
 stopifnot(grepl(STUDENT_PRIVATE_CODE_PATTERN, first$accessCode, perl = TRUE))
 first_path <- file.path(test_root, "private", "student-records", "p-001.json")
@@ -156,7 +161,7 @@ stopifnot(expect_error(register_unindexed_student_records(test_root)))
 release_student_production_lock(held_lock)
 
 # A later successful batch preserves all earlier records and codes. The private
-# code sheet intentionally contains only the most recently registered batch.
+# code sheet is cumulative so the operator retains one complete mapping.
 unlink(file.path(record_dir, "p-004.json"))
 later_add <- run_script(c("scripts/add-students-private.R", "--quiet"))
 if (later_add$status != 0L) stop(paste(later_add$output, collapse = "\n"))
@@ -166,14 +171,148 @@ stopifnot(identical(production$codes[[1]], first$accessCode))
 stopifnot(identical(production$codes[[2]], second$accessCode))
 stopifnot(identical(unname(tools::md5sum(first_path)), first_hash))
 latest_results <- read.csv(batch_results_path, stringsAsFactors = FALSE)
-stopifnot(identical(latest_results$record_id, "p-003"))
+stopifnot(identical(latest_results$record_id, c("p-001", "p-002", "p-003")))
+stopifnot(identical(latest_results$access_code[1:2], c(first$accessCode, second$accessCode)))
 
 # Running registration with no new files is a successful no-op and does not
 # replace the latest code sheet.
 no_change <- run_script(c("scripts/add-students-private.R"))
 stopifnot(no_change$status == 0L)
 stopifnot(any(grepl("No new student records", no_change$output, fixed = TRUE)))
-stopifnot(identical(read.csv(batch_results_path, stringsAsFactors = FALSE)$record_id, "p-003"))
+stopifnot(identical(
+  read.csv(batch_results_path, stringsAsFactors = FALSE)$record_id,
+  c("p-001", "p-002", "p-003")
+))
+
+# Records that pass the lightweight R shape checks but violate the shared
+# academic-mechanical contract must be rejected before the access index or
+# cumulative code sheet changes.
+registered_before_malformed <- validate_student_production_dataset(test_root)
+access_before_malformed <- readBin(access_path, what = "raw", n = file.info(access_path)$size)
+codes_before_malformed <- readBin(batch_results_path, what = "raw", n = file.info(batch_results_path)$size)
+expect_mechanical_rejection <- function(record, id, expected_text) {
+  record$id <- id
+  path <- file.path(record_dir, paste0(id, ".json"))
+  jsonlite::write_json(record, path, auto_unbox = TRUE, pretty = TRUE, null = "null")
+  result <- run_script(c("scripts/add-students-private.R", "--quiet"))
+  stopifnot(result$status != 0L)
+  stopifnot(any(grepl(expected_text, result$output, fixed = TRUE)))
+  unlink(path)
+  stopifnot(identical(
+    readBin(access_path, what = "raw", n = file.info(access_path)$size),
+    access_before_malformed
+  ))
+  stopifnot(identical(
+    readBin(batch_results_path, what = "raw", n = file.info(batch_results_path)$size),
+    codes_before_malformed
+  ))
+  after <- validate_student_production_dataset(test_root)
+  stopifnot(identical(after$ids, registered_before_malformed$ids))
+}
+
+malformed <- read_student_json(first_input, "six-semester rejection fixture")
+malformed$programmes[[2]]$schedule$semesters <- malformed$programmes[[2]]$schedule$semesters[1:5]
+expect_mechanical_rejection(malformed, "malformed-semesters", "exactly six semesters")
+
+malformed <- read_student_json(first_input, "four-course semester rejection fixture")
+malformed$programmes[[2]]$schedule$semesters[[1]]$courses <-
+  malformed$programmes[[2]]$schedule$semesters[[1]]$courses[1:3]
+expect_mechanical_rejection(malformed, "malformed-semester-load", "expected four courses")
+
+malformed <- read_student_json(first_input, "unique-course rejection fixture")
+malformed$programmes[[2]]$schedule$semesters[[6]]$courses[[4]] <-
+  malformed$programmes[[2]]$schedule$semesters[[1]]$courses[[2]]
+expect_mechanical_rejection(malformed, "malformed-duplicate-course", "exactly 24 unique scheduled courses")
+
+malformed <- read_student_json(first_input, "advanced-course rejection fixture")
+advanced_seen <- 0L
+for (semester_index in seq_along(malformed$programmes[[2]]$schedule$semesters)) {
+  for (course_index in seq_along(malformed$programmes[[2]]$schedule$semesters[[semester_index]]$courses)) {
+    course <- malformed$programmes[[2]]$schedule$semesters[[semester_index]]$courses[[course_index]]
+    if (as.numeric(course$level) >= 3) {
+      advanced_seen <- advanced_seen + 1L
+      if (advanced_seen > 5L) {
+        malformed$programmes[[2]]$schedule$semesters[[semester_index]]$courses[[course_index]]$level <- 2L
+      }
+    }
+  }
+}
+expect_mechanical_rejection(malformed, "malformed-advanced-count", "at least 6 are required")
+
+malformed <- read_student_json(first_input, "PPD timing rejection fixture")
+first_semester_codes <- vapply(
+  malformed$programmes[[2]]$schedule$semesters[[1]]$courses,
+  function(course) as.character(course$code),
+  character(1)
+)
+ppd_index <- which(first_semester_codes == "ACCPPDE101")[[1]]
+ppd <- malformed$programmes[[2]]$schedule$semesters[[1]]$courses[[ppd_index]]
+later <- malformed$programmes[[2]]$schedule$semesters[[3]]$courses[[1]]
+malformed$programmes[[2]]$schedule$semesters[[1]]$courses[[ppd_index]] <- later
+malformed$programmes[[2]]$schedule$semesters[[3]]$courses[[1]] <- ppd
+expect_mechanical_rejection(malformed, "malformed-ppd", "must schedule ACCPPDE101 in Year 1")
+
+malformed <- read_student_json(first_input, "comparison coverage rejection fixture")
+ucr_id <- malformed$programmes[[2]]$id
+removed <- FALSE
+for (block_index in seq_along(malformed$blocks)) {
+  for (row_index in seq_along(malformed$blocks[[block_index]]$rows)) {
+    if (!is.null(malformed$blocks[[block_index]]$rows[[row_index]]$cells[[ucr_id]])) {
+      malformed$blocks[[block_index]]$rows[[row_index]]$cells[[ucr_id]] <- NULL
+      removed <- TRUE
+      break
+    }
+  }
+  if (removed) break
+}
+stopifnot(removed)
+expect_mechanical_rejection(malformed, "malformed-coverage", "scheduled courses missing from comparison")
+
+malformed <- read_student_json(first_input, "180-EC comparator rejection fixture")
+removed <- FALSE
+for (block_index in seq_along(malformed$blocks)) {
+  for (row_index in seq_along(malformed$blocks[[block_index]]$rows)) {
+    if (!is.null(malformed$blocks[[block_index]]$rows[[row_index]]$cells$comparator)) {
+      malformed$blocks[[block_index]]$rows[[row_index]]$cells$comparator <- NULL
+      removed <- TRUE
+      break
+    }
+  }
+  if (removed) break
+}
+stopifnot(removed)
+expect_mechanical_rejection(malformed, "malformed-comparator-coverage", "comparison comparator totals")
+
+malformed <- read_student_json(first_input, "comparator source rejection fixture")
+malformed$comparator$primarySourceUrl <- ""
+expect_mechanical_rejection(malformed, "malformed-comparator-source", "comparator.primarySourceUrl")
+
+malformed <- read_student_json(first_input, "canonical comparator component rejection fixture")
+components <- list()
+component_index <- 0L
+for (block_index in seq_along(malformed$blocks)) {
+  for (row_index in seq_along(malformed$blocks[[block_index]]$rows)) {
+    cell <- malformed$blocks[[block_index]]$rows[[row_index]]$cells$comparator
+    if (!is.null(cell)) {
+      component_index <- component_index + 1L
+      component_id <- paste0("component-", component_index)
+      cell$componentId <- component_id
+      malformed$blocks[[block_index]]$rows[[row_index]]$cells$comparator <- cell
+      components[[component_index]] <- list(
+        id = component_id,
+        name = cell$text,
+        credits = cell$credits
+      )
+    }
+  }
+}
+stopifnot(abs(sum(vapply(components, function(component) component$credits, numeric(1))) - 180) < 0.001)
+malformed$comparator$components <- components[-length(components)]
+expect_mechanical_rejection(malformed, "malformed-comparator-components", "comparator.components total")
+
+malformed <- read_student_json(first_input, "distinctness rejection fixture")
+malformed$programmes[[3]]$schedule <- malformed$programmes[[2]]$schedule
+expect_mechanical_rejection(malformed, "malformed-distinctness", "are not substantively distinct")
 
 # Public development codes do not unlock private production records.
 config <- load_student_data_config(test_root, "private")
@@ -229,9 +368,13 @@ dir.create(migration_root)
 on.exit(unlink(migration_root, recursive = TRUE), add = TRUE)
 for (relative in c(
   ".gitignore",
+  "scripts/example-utils.mjs",
+  "scripts/validate-example.mjs",
   "scripts/student-private-workflow.R",
+  "scripts/add-student-private.R",
   "scripts/add-students-private.R",
   "scripts/init-student-private-test.R",
+  "assets/js/comparison.js",
   "pilot/shiny/student-data.R",
   "pilot/shiny/data",
   "data/examples"
@@ -262,14 +405,19 @@ student_write_json_atomic(legacy_access, legacy_access_path)
 
 real_record <- read_student_json(first_input, "synthetic first real record")
 real_record$id <- "p-006"
+real_record_input <- tempfile("p-006-compatibility-", fileext = ".json")
+on.exit(unlink(real_record_input), add = TRUE)
 jsonlite::write_json(
   real_record,
-  file.path(migration_root, "private", "student-records", "p-006.json"),
+  real_record_input,
   auto_unbox = TRUE,
   pretty = TRUE,
   null = "null"
 )
-migration <- run_script("scripts/add-students-private.R", migration_root)
+migration <- run_script(
+  c("scripts/add-student-private.R", paste0("--record=", real_record_input)),
+  migration_root
+)
 if (migration$status != 0L) stop(paste(migration$output, collapse = "\n"))
 stopifnot(any(grepl("existing records and access codes preserved", migration$output, fixed = TRUE)))
 
@@ -288,6 +436,7 @@ latest_migration_results <- read.csv(
   file.path(migration_root, "private", "student-last-batch-codes.csv"),
   stringsAsFactors = FALSE
 )
-stopifnot(identical(latest_migration_results$record_id, "p-006"))
+stopifnot(identical(latest_migration_results$record_id, expected_ids))
+stopifnot(identical(latest_migration_results$access_code[1:5], before_codes))
 
 cat("Direct-folder registration, non-destructive metadata migration, deployment checks, and startup checks passed.\n")

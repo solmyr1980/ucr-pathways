@@ -15,9 +15,13 @@ Then register all new records with one command:
 Rscript scripts/add-students-private.R
 
 Registration is all-or-nothing and does not deploy the app. Repeat these two
-steps for additional batches as needed. The latest batch's codes are saved in:
+steps for additional batches as needed. The complete cumulative record-ID/code
+mapping is refreshed after every registration and saved in:
 
 private/student-last-batch-codes.csv
+
+The historical filename is retained so that the workflow continues to use one
+operator-facing code file rather than creating overlapping code sheets.
 
 If the private folder already contains earlier records and access codes,
 registration treats them as the starting cumulative dataset. It preserves every
@@ -46,6 +50,10 @@ Compatibility fallback: import one completed record from another location:
 
 Rscript scripts/add-student-private.R --record="C:/path/to/p-006.json"
 
+This is a thin wrapper around the same cumulative registration process. It can
+therefore migrate the same legacy or five-case private dataset as the routine
+registration command.
+
 Create an empty cumulative production dataset explicitly (normally unnecessary):
 
 Rscript scripts/add-student-private.R --init
@@ -56,6 +64,10 @@ ONE-TIME SETUP
 Install the required R packages:
 
 Rscript -e "install.packages(c('shiny','jsonlite','openssl','rsconnect'))"
+
+Install Node.js if it is not already installed. Registration and deployment use
+the repository's existing JavaScript comparison validator through the `node`
+command; no separate validation command is required.
 
 Authorize the relevant shinyapps.io account once by running the
 rsconnect::setAccountInfo(...) command supplied under Account > Tokens in the

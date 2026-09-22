@@ -105,17 +105,17 @@ For routine production, place any number of completed student JSON records direc
 Rscript scripts/add-students-private.R
 ```
 
-Registration is all-or-nothing, preserves all existing records and codes, and creates one new cryptographically secure code per new record. If the private folder began as the five-case test dataset, registering the first additional record changes only the dataset metadata to cumulative production mode; `p-001` through `p-005` and their existing private access codes remain unchanged. Registration does not deploy. Add and register further records as needed, then validate and deploy the complete accumulated dataset once:
+Registration is all-or-nothing, preserves all existing records and codes, and creates one new cryptographically secure code per new record. It also invokes the existing shared comparison validator as the final mechanical record gate. If the private folder began as the five-case test dataset, registering the first additional record changes only the dataset metadata to cumulative production mode; `p-001` through `p-005` and their existing private access codes remain unchanged. Registration does not deploy. Add and register further records as needed, then validate and deploy the complete accumulated dataset once:
 
 ```text
 Rscript scripts/validate-and-deploy-student.R
 ```
 
-Add `--account=YOUR_ACCOUNT` when the account is not already selected. The latest batch's codes are written to `private/student-last-batch-codes.csv`; distribute them only after deployment succeeds. For compatibility, `Rscript scripts/add-student-private.R --record="C:/path/to/p-006.json"` can still import one record from another location.
+Add `--account=YOUR_ACCOUNT` when the account is not already selected. `student-access.json` remains the authoritative private index. The operator-facing `private/student-last-batch-codes.csv` is refreshed after every registration with the complete cumulative record-ID/access-code mapping; its historical filename is retained so that no second overlapping code file is introduced. Distribute codes only after deployment succeeds. For compatibility, `Rscript scripts/add-student-private.R --record="C:/path/to/p-006.json"` can still import one record from another location and now uses the same registration and legacy-migration path as the routine command.
 
 shinyapps.io is the approved target for this workflow. The deploying computer must first be authorized for the relevant account through `rsconnect`; account tokens and secrets remain outside this repository. The ignored local `private/` dataset is the authoritative operational copy and requires secure institutional backup.
 
-The student initializer and deployment checks do not require a standalone Git command-line installation. They verify the root-anchored `/private/` rule directly in the repository `.gitignore` before creating or bundling private data.
+The student initializer and deployment checks do not require a standalone Git command-line installation. They verify the root-anchored `/private/` rule directly in the repository `.gitignore` before creating or bundling private data. Node.js is required because registration and deployment automatically reuse the repository's shared JavaScript comparison validator; this adds no separate operator step.
 
 ## Counselor workflow and pilot
 

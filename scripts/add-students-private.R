@@ -27,7 +27,7 @@ if (!length(result$records)) {
   if (!quiet) {
     cat(
       "No new student records were found in private/student-records.\n",
-      "No files or access codes were changed.\n",
+      "No student records or access codes were added; the complete private code sheet is current.\n",
       sep = ""
     )
   }
@@ -35,7 +35,7 @@ if (!length(result$records)) {
 }
 
 if (quiet) {
-  cat(result$resultsFile, "\n", sep = "")
+  cat(result$codeSheet, "\n", sep = "")
 } else {
   if (isTRUE(result$migratedPrivateDataset)) {
     cat("Existing private dataset migrated to cumulative production mode; existing records and access codes preserved.\n\n")
@@ -50,7 +50,7 @@ if (quiet) {
     cat(record$recordId, ": ", record$accessCode, "\n", sep = "")
   }
   cat(
-    "\nPrivate code sheet: ", result$resultsFile, "\n",
+    "\nComplete private code sheet: ", result$codeSheet, "\n",
     "Deploy successfully before distributing these access codes.\n",
     sep = ""
   )

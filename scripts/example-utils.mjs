@@ -123,6 +123,18 @@ function courseKey(course) {
   return String(course?.code || course?.name || '').trim().toLowerCase();
 }
 
+function courseLevelNumber(value) {
+  if (typeof value === 'number' && Number.isFinite(value)) return value;
+  if (typeof value !== 'string') return null;
+  const match = value.match(/\d+/);
+  return match ? Number(match[0]) : null;
+}
+
+function isAdvancedCourse(course) {
+  const level = courseLevelNumber(course?.level);
+  return level !== null && (level >= 300 || (level >= 3 && level < 10));
+}
+
 function distinctCourseCredits(courses, otherKeys) {
   return courses
     .filter(course => !otherKeys.has(courseKey(course)))
@@ -369,7 +381,7 @@ function validateDistinctUcrCourseSets(programmes, report) {
   }
 }
 
-export function validateExample(example, sourceName = 'example') {
+export function validateExample(example, sourceName = 'example', options = {}) {
   const errors = [];
   const warnings = [];
   const fail = message => errors.push(`${sourceName}: ${message}`);
@@ -485,7 +497,12 @@ export function validateExample(example, sourceName = 'example') {
       if (example.schemaVersion === '2.0' && programme.role !== 'ucr-alternative') {
         fail(`programme ${index + 1} must use role "ucr-alternative" in schema 2.0`);
       }
-      if (index === 1 && example.schemaVersion === '2.0' && programme.alternativeKind !== 'closest-match') {
+      if (
+        index === 1 &&
+        example.schemaVersion === '2.0' &&
+        example.origin !== 'student' &&
+        programme.alternativeKind !== 'closest-match'
+      ) {
         fail('the first UCR alternative must use alternativeKind "closest-match" in schema 2.0');
       }
     }
@@ -581,12 +598,39 @@ export function validateExample(example, sourceName = 'example') {
         seenCourses.add(key);
       });
     });
+
+    if (index > 0) {
+      const courses = scheduledCourses(programme);
+      if (courses.length !== 24 || seenCourses.size !== 24) {
+        fail(`UCR programme ${programme.id} must contain exactly 24 unique scheduled courses`);
+      }
+
+      const advancedCount = courses.filter(isAdvancedCourse).length;
+      if (advancedCount < 6) {
+        fail(`UCR programme ${programme.id} has ${advancedCount} 300-level courses; at least 6 are required`);
+      }
+
+      const ppdLocations = [];
+      semesters.forEach((semester, semesterIndex) => {
+        (semester?.courses || []).forEach(course => {
+          if (String(course?.code || '').trim().toUpperCase() === 'ACCPPDE101') {
+            ppdLocations.push(semesterIndex);
+          }
+        });
+      });
+      if (ppdLocations.length !== 1) {
+        fail(`UCR programme ${programme.id} must schedule ACCPPDE101 exactly once`);
+      } else if (ppdLocations[0] > 1) {
+        fail(`UCR programme ${programme.id} must schedule ACCPPDE101 in Year 1`);
+      }
+    }
   });
 
   validateAcademicRationale(example, programmes, fail);
   validateAlternativeSelection(example, programmes, fail);
   const currentProductionRecord = example.origin === 'student' || example.origin === 'counselor' || example.alternativeSelection !== undefined;
-  validateDistinctUcrCourseSets(programmes, currentProductionRecord ? fail : warn);
+  const strictDistinctness = options.strictDistinctness ?? currentProductionRecord;
+  validateDistinctUcrCourseSets(programmes, strictDistinctness ? fail : warn);
 
   const knownIds = new Set(ids);
 

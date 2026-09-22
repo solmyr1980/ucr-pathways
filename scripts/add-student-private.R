@@ -49,11 +49,14 @@ result <- add_student_production_record(repo_root, record_path)
 if (quiet) {
   cat(result$accessCode, "\n", sep = "")
 } else {
+  if (isTRUE(result$migratedPrivateDataset)) {
+    cat("Existing private dataset migrated to cumulative production mode; existing records and access codes preserved.\n\n")
+  }
   cat(
     "Student added to the cumulative private dataset.\n",
     "Record ID: ", result$recordId, "\n",
     "Stable access code: ", result$accessCode, "\n",
-    "Private code sheet: ", result$resultsFile, "\n",
+    "Complete private code sheet: ", result$codeSheet, "\n",
     "The access code will remain unchanged when later students are added.\n",
     "No deployment has occurred yet; deploy successfully before distributing the code.\n",
     sep = ""

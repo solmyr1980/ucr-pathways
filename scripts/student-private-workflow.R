@@ -102,7 +102,7 @@ student_production_paths <- function(repo_root) {
     record_dir = file.path(private_root, "student-records"),
     marker = file.path(private_root, "student-mode.json"),
     access = file.path(private_root, "student-access.json"),
-    batch_results = file.path(private_root, "student-last-batch-codes.csv"),
+    code_sheet = file.path(private_root, "student-last-batch-codes.csv"),
     lock = file.path(private_root, ".student-production.lock")
   )
 }
@@ -142,6 +142,40 @@ student_production_access_index <- function(entries = list()) {
     datasetType = STUDENT_PRODUCTION_DATASET_TYPE,
     entries = entries
   )
+}
+
+student_code_sheet_lines <- function(entries) {
+  ids <- vapply(entries, function(entry) as.character(student_value(entry$recordId, "")), character(1))
+  codes <- vapply(entries, function(entry) as.character(student_value(entry$code, "")), character(1))
+  c("record_id,access_code", paste(ids, codes, sep = ","))
+}
+
+validate_student_record_mechanically <- function(repo_root, record_path, label = basename(record_path)) {
+  node <- Sys.which("node")
+  if (!nzchar(node)) {
+    stop(
+      "Node.js is required for the shared mechanical student-record validator. ",
+      "Install Node.js before registering or deploying private student records."
+    )
+  }
+  validator <- file.path(repo_root, "scripts", "validate-example.mjs")
+  if (!file.exists(validator)) stop("Missing shared student-record validator: ", validator)
+  record_path <- normalizePath(record_path, winslash = "/", mustWork = TRUE)
+  old_directory <- setwd(repo_root)
+  on.exit(setwd(old_directory), add = TRUE)
+  output <- system2(
+    node,
+    c(shQuote(validator), "--file", shQuote(record_path)),
+    stdout = TRUE,
+    stderr = TRUE
+  )
+  status <- attr(output, "status")
+  if (is.null(status)) status <- 0L
+  if (!identical(status, 0L)) {
+    detail <- if (length(output)) paste(output, collapse = "\n") else "Shared validator returned no details."
+    stop("Mechanical validation failed for ", label, ":\n", detail)
+  }
+  invisible(TRUE)
 }
 
 validate_student_production_dataset <- function(
@@ -201,8 +235,10 @@ validate_student_production_dataset <- function(
     )
   }
   for (index in seq_along(entries)) {
-    record <- read_student_json(file.path(paths$record_dir, files[[index]]), paste("production student record", ids[[index]]))
+    record_path <- file.path(paths$record_dir, files[[index]])
+    record <- read_student_json(record_path, paste("production student record", ids[[index]]))
     validate_student_record(record, ids[[index]], "private")
+    validate_student_record_mechanically(repo_root, record_path, ids[[index]])
   }
 
   list(
@@ -260,11 +296,13 @@ validate_existing_private_dataset_for_migration <- function(repo_root) {
   }
 
   for (index in seq_along(entries)) {
+    record_path <- file.path(paths$record_dir, files[[index]])
     record <- read_student_json(
-      file.path(paths$record_dir, files[[index]]),
+      record_path,
       paste("existing private student record", ids[[index]])
     )
     validate_student_record(record, ids[[index]], "private")
+    validate_student_record_mechanically(repo_root, record_path, ids[[index]])
   }
 
   list(
@@ -382,11 +420,13 @@ initialize_student_production_dataset <- function(repo_root, allow_unindexed_rec
   )
 }
 
-register_unindexed_student_records <- function(repo_root) {
+register_unindexed_student_records <- function(repo_root, lock_already_held = FALSE) {
   assert_private_tree_ignored(repo_root)
   paths <- student_production_paths(repo_root)
-  lock <- acquire_student_production_lock(repo_root)
-  on.exit(release_student_production_lock(lock), add = TRUE)
+  if (!lock_already_held) {
+    lock <- acquire_student_production_lock(repo_root)
+    on.exit(release_student_production_lock(lock), add = TRUE)
+  }
 
   migrated_private_dataset <- migrate_private_dataset_to_production(repo_root)
   initialize_student_production_dataset(repo_root, allow_unindexed_records = TRUE)
@@ -397,9 +437,10 @@ register_unindexed_student_records <- function(repo_root) {
   )
   incoming_files <- current$unindexed_files
   if (!length(incoming_files)) {
+    student_write_text_atomic(student_code_sheet_lines(current$entries), paths$code_sheet)
     return(list(
       records = list(),
-      resultsFile = paths$batch_results,
+      codeSheet = paths$code_sheet,
       migratedPrivateDataset = migrated_private_dataset
     ))
   }
@@ -410,6 +451,7 @@ register_unindexed_student_records <- function(repo_root) {
     record <- read_student_json(source, paste("unregistered student record", filename))
     id <- as.character(student_value(record$id, ""))
     validate_student_record(record, id, "private")
+    validate_student_record_mechanically(repo_root, source, id)
     expected_filename <- paste0(id, ".json")
     if (!identical(filename, expected_filename)) {
       stop(
@@ -450,14 +492,14 @@ register_unindexed_student_records <- function(repo_root) {
     list(code = codes[[index]], recordId = incoming_ids[[index]], recordFile = incoming_files[[index]])
   })
   updated_index <- student_production_access_index(c(current$entries, new_entries))
-  results_lines <- c("record_id,access_code", paste(incoming_ids, codes, sep = ","))
+  code_sheet_lines <- student_code_sheet_lines(updated_index$entries)
   old_access <- readBin(paths$access, what = "raw", n = file.info(paths$access)$size)
 
   committed <- FALSE
   tryCatch({
     student_write_json_atomic(updated_index, paths$access)
     validate_student_production_dataset(repo_root)
-    student_write_text_atomic(results_lines, paths$batch_results)
+    student_write_text_atomic(code_sheet_lines, paths$code_sheet)
     committed <- TRUE
   }, error = function(e) {
     connection <- file(paths$access, open = "wb")
@@ -471,7 +513,7 @@ register_unindexed_student_records <- function(repo_root) {
     records = lapply(seq_along(incoming), function(index) {
       list(recordId = incoming_ids[[index]], accessCode = codes[[index]], recordFile = incoming[[index]]$source)
     }),
-    resultsFile = paths$batch_results,
+    codeSheet = paths$code_sheet,
     migratedPrivateDataset = migrated_private_dataset
   )
 }
@@ -527,6 +569,7 @@ add_student_production_records <- function(repo_root, record_paths) {
     record <- read_student_json(record_paths[[index]], paste("incoming completed student record", index))
     id <- as.character(student_value(record$id, ""))
     validate_student_record(record, id, "private")
+    validate_student_record_mechanically(repo_root, record_paths[[index]], id)
     list(record = record, id = id, filename = paste0(id, ".json"), source = record_paths[[index]])
   })
   incoming_ids <- vapply(incoming, function(item) item$id, character(1))
@@ -536,87 +579,46 @@ add_student_production_records <- function(repo_root, record_paths) {
 
   lock <- acquire_student_production_lock(repo_root)
   on.exit(release_student_production_lock(lock), add = TRUE)
-  initialize_student_production_dataset(repo_root)
-  current <- validate_student_production_dataset(repo_root, allow_empty = TRUE)
-  duplicate_ids <- intersect(incoming_ids, current$ids)
-  if (length(duplicate_ids)) stop("Student record id already exists: ", paste(duplicate_ids, collapse = ", "))
-  duplicate_files <- intersect(incoming_files, current$files)
-  if (length(duplicate_files)) stop("Student record file already exists: ", paste(duplicate_files, collapse = ", "))
-
-  forbidden <- unique(c(
-    vapply(current$codes, normalize_student_code, character(1)),
-    student_public_development_codes(repo_root)
-  ))
-  codes <- character(length(incoming))
-  for (index in seq_along(incoming)) {
-    for (attempt in seq_len(1000L)) {
-      candidate <- student_random_access_code()
-      normalized <- normalize_student_code(candidate)
-      if (!normalized %in% c(forbidden, vapply(codes[nzchar(codes)], normalize_student_code, character(1)))) {
-        codes[[index]] <- candidate
-        break
-      }
-    }
-    if (!nzchar(codes[[index]])) stop("Could not generate a unique student access code.")
+  if (!dir.exists(paths$record_dir) && !dir.create(paths$record_dir, recursive = TRUE, showWarnings = FALSE)) {
+    stop("Could not create ", paths$record_dir)
   }
 
-  new_entries <- lapply(seq_along(incoming), function(index) {
-    list(code = codes[[index]], recordId = incoming_ids[[index]], recordFile = incoming_files[[index]])
-  })
-  updated_index <- student_production_access_index(c(current$entries, new_entries))
-  staging <- tempfile(pattern = ".student-stage-", tmpdir = paths$root)
-  if (!dir.create(staging, showWarnings = FALSE)) stop("Could not create private staging directory.")
-  on.exit(if (dir.exists(staging)) unlink(staging, recursive = TRUE), add = TRUE)
-  staged_records <- file.path(staging, incoming_files)
   destinations <- file.path(paths$record_dir, incoming_files)
-  for (index in seq_along(incoming)) {
-    student_write_json_atomic(incoming[[index]]$record, staged_records[[index]])
-    staged_check <- read_student_json(staged_records[[index]], paste("staged student record", incoming_ids[[index]]))
-    validate_student_record(staged_check, incoming_ids[[index]], "private")
-  }
-  results_lines <- c(
-    "record_id,access_code",
-    paste(incoming_ids, codes, sep = ",")
-  )
-  staged_results <- file.path(staging, "student-last-batch-codes.csv")
-  student_write_text_atomic(results_lines, staged_results)
-
   published <- character()
-  for (index in seq_along(staged_records)) {
-    if (!file.rename(staged_records[[index]], destinations[[index]])) {
-      if (length(published)) unlink(published[file.exists(published)])
-      stop("Could not publish the complete private student batch.")
+  for (index in seq_along(incoming)) {
+    destination <- destinations[[index]]
+    same_file <- file.exists(destination) && identical(
+      normalizePath(incoming[[index]]$source, winslash = "/", mustWork = TRUE),
+      normalizePath(destination, winslash = "/", mustWork = TRUE)
+    )
+    if (same_file) next
+    if (file.exists(destination)) {
+      stop("Student record file already exists: ", destination)
     }
-    published <- c(published, destinations[[index]])
+    student_write_json_atomic(incoming[[index]]$record, destination)
+    published <- c(published, destination)
   }
+
   committed <- FALSE
   on.exit(if (!committed && length(published)) unlink(published[file.exists(published)]), add = TRUE)
-  old_access <- readBin(paths$access, what = "raw", n = file.info(paths$access)$size)
-  tryCatch({
-    student_write_json_atomic(updated_index, paths$access)
-    validate_student_production_dataset(repo_root)
-    results <- readLines(staged_results, warn = FALSE, encoding = "UTF-8")
-    student_write_text_atomic(results, paths$batch_results)
-    committed <- TRUE
-  }, error = function(e) {
-    connection <- file(paths$access, open = "wb")
-    writeBin(old_access, connection)
-    close(connection)
-    if (length(published)) unlink(published[file.exists(published)])
-    stop("Student batch was rolled back: ", conditionMessage(e))
-  })
+  registered <- register_unindexed_student_records(repo_root, lock_already_held = TRUE)
+  registered_ids <- vapply(registered$records, function(item) item$recordId, character(1))
+  if (!all(incoming_ids %in% registered_ids)) {
+    stop("Compatibility import did not register every supplied student record as new.")
+  }
+  committed <- TRUE
 
   list(
-    records = lapply(seq_along(incoming), function(index) {
-      list(recordId = incoming_ids[[index]], accessCode = codes[[index]], recordFile = destinations[[index]])
-    }),
-    resultsFile = paths$batch_results
+    records = registered$records[registered_ids %in% incoming_ids],
+    codeSheet = registered$codeSheet,
+    migratedPrivateDataset = registered$migratedPrivateDataset
   )
 }
 
 add_student_production_record <- function(repo_root, record_path) {
   batch <- add_student_production_records(repo_root, record_path)
   result <- batch$records[[1]]
-  result$resultsFile <- batch$resultsFile
+  result$codeSheet <- batch$codeSheet
+  result$migratedPrivateDataset <- batch$migratedPrivateDataset
   result
 }

@@ -48,6 +48,9 @@ if (!dataset_type %in% c("five-public-fixture-test", STUDENT_PRODUCTION_DATASET_
 }
 if (identical(dataset_type, "five-public-fixture-test")) {
   validate_private_test_derivation(config, repo_root)
+  for (index in seq_along(config$record_paths)) {
+    validate_student_record_mechanically(repo_root, config$record_paths[[index]], config$record_ids[[index]])
+  }
 } else {
   production <- validate_student_production_dataset(repo_root)
   if (!identical(config$record_ids, production$ids) || !identical(config$record_files, production$files)) {

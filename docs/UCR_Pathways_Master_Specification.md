@@ -162,7 +162,7 @@ Student-specific access codes or links must not expose private pathway records t
 
 GitHub contains no real student data. Completed records, access codes and code-to-record mappings belong in the ignored local `/private/` tree and the server-side shinyapps.io deployment bundle. Operators place completed records directly in `/private/student-records/`; the registration workflow validates and indexes new files before deployment. The public examples and their development codes remain tracked test fixtures and are not real student data.
 
-The student app uses one cumulative private production dataset and one shinyapps.io application, `ucr-student`. Registering one or more completed student records adds one validated record and one new unique access mapping per student while preserving all existing records and codes. Registration does not deploy the app: operators may accumulate several batches locally and deploy the complete dataset once when ready. A student's code is generated once and remains stable across later registrations and redeployments. After a valid code is entered, the app renders only the corresponding record.
+The student app uses one cumulative private production dataset and one shinyapps.io application, `ucr-student`. Registering one or more completed student records adds one validated record and one new unique access mapping per student while preserving all existing records and codes. Registration does not deploy the app: operators may accumulate several batches locally and deploy the complete dataset once when ready. A student's code is generated once and remains stable across later registrations and redeployments. `student-access.json` remains the authoritative machine-readable index; the operator-facing private CSV is regenerated as a complete cumulative record-ID/code mapping after every registration. After a valid code is entered, the app renders only the corresponding record.
 
 shinyapps.io is the approved deployment target for this private workflow. The local cumulative `/private/` dataset is the authoritative operational copy and requires secure institutional backup; backup design and automation remain outside the application repository.
 
@@ -383,7 +383,7 @@ Maintain **UCR Pathways Supporting Research Workflows** as a supporting referenc
 
 `Counselor_Batch_Assignment.md` is an execution wrapper. It selects and runs a batch under the Production Instructions; it must not duplicate or redefine academic methodology.
 
-Exact schema fields, storage paths, search implementation, Shiny code, hosting choice and deployment commands belong to repository implementation unless a durable architectural decision explicitly promotes them into this specification. **Shiny/Shinylive remains an implementation candidate, not an authoritative product requirement.**
+Exact schema fields, storage paths, search implementation and deployment commands belong to repository implementation unless a durable architectural decision explicitly promotes them into this specification. For the private student workflow, Section 3.5 records the current durable hosting decision: the approved architecture is the server-side Shiny app on shinyapps.io under the fixed application name `ucr-student`. Shinylive is not an approved private-data deployment architecture.
 
 ## 12.1 Human handoff for tool limitations
 
