@@ -10,6 +10,11 @@ if (length(missing_packages)) stop("Install required test packages: ", paste(mis
 repo_root <- normalizePath(".", winslash = "/", mustWork = TRUE)
 source(file.path(repo_root, "pilot", "shiny", "student-data.R"), local = TRUE)
 source(file.path(repo_root, "scripts", "student-private-workflow.R"), local = TRUE)
+private_workflow_source <- paste(
+  readLines(file.path(repo_root, "scripts", "student-private-workflow.R"), warn = FALSE),
+  collapse = "\n"
+)
+stopifnot(!grepl('Sys.which("node")', private_workflow_source, fixed = TRUE))
 
 expect_error <- function(expression) inherits(try(force(expression), silent = TRUE), "try-error")
 test_root <- tempfile("student-production-repo-")
@@ -34,8 +39,6 @@ copy_relative <- function(relative, destination_root = test_root) {
 
 for (relative in c(
   ".gitignore",
-  "scripts/example-utils.mjs",
-  "scripts/validate-example.mjs",
   "scripts/student-private-workflow.R",
   "scripts/add-student-private.R",
   "scripts/add-students-private.R",
@@ -45,7 +48,6 @@ for (relative in c(
   "pilot/shiny/student-data.R",
   "pilot/shiny/data",
   "pilot/shared.R",
-  "assets/js/comparison.js",
   "assets/css",
   "assets/brand/ucr-primary-plum.png",
   "assets/fonts",
@@ -184,8 +186,8 @@ stopifnot(identical(
   c("p-001", "p-002", "p-003")
 ))
 
-# Records that pass the lightweight R shape checks but violate the shared
-# academic-mechanical contract must be rejected before the access index or
+# Records that pass the lightweight startup checks but violate the private
+# workflow's mechanical contract must be rejected before the access index or
 # cumulative code sheet changes.
 registered_before_malformed <- validate_student_production_dataset(test_root)
 access_before_malformed <- readBin(access_path, what = "raw", n = file.info(access_path)$size)
@@ -368,13 +370,10 @@ dir.create(migration_root)
 on.exit(unlink(migration_root, recursive = TRUE), add = TRUE)
 for (relative in c(
   ".gitignore",
-  "scripts/example-utils.mjs",
-  "scripts/validate-example.mjs",
   "scripts/student-private-workflow.R",
   "scripts/add-student-private.R",
   "scripts/add-students-private.R",
   "scripts/init-student-private-test.R",
-  "assets/js/comparison.js",
   "pilot/shiny/student-data.R",
   "pilot/shiny/data",
   "data/examples"

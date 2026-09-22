@@ -150,30 +150,297 @@ student_code_sheet_lines <- function(entries) {
   c("record_id,access_code", paste(ids, codes, sep = ","))
 }
 
-validate_student_record_mechanically <- function(repo_root, record_path, label = basename(record_path)) {
-  node <- Sys.which("node")
-  if (!nzchar(node)) {
-    stop(
-      "Node.js is required for the shared mechanical student-record validator. ",
-      "Install Node.js before registering or deploying private student records."
+student_trimmed_string <- function(value) {
+  if (is.null(value) || length(value) != 1L || is.na(value)) return("")
+  trimws(as.character(value))
+}
+
+student_normalized_label <- function(value) {
+  tolower(gsub("[[:space:]]+", " ", student_trimmed_string(value)))
+}
+
+student_credit_number <- function(value) {
+  if (is.null(value) || length(value) != 1L || is.na(value)) return(NA_real_)
+  if (is.numeric(value) && is.finite(value)) return(as.numeric(value))
+  text <- gsub(",", ".", student_trimmed_string(value), fixed = TRUE)
+  match <- regexpr("-?[0-9]+(?:\\.[0-9]+)?", text, perl = TRUE)
+  if (match[[1]] < 0L) return(NA_real_)
+  as.numeric(regmatches(text, match))
+}
+
+student_is_comparator_programme <- function(programme) {
+  identical(programme$role, "comparator") || identical(programme$family, "comparator")
+}
+
+student_is_ucr_programme <- function(programme) {
+  identical(programme$family, "ucr") ||
+    student_trimmed_string(programme$role) %in% c(
+      "ucr-alternative", "ucr-depth", "ucr-balanced", "ucr-thematic"
     )
+}
+
+student_scheduled_courses <- function(programme) {
+  semesters <- student_value(programme$schedule$semesters, list())
+  unlist(lapply(semesters, function(semester) student_value(semester$courses, list())), recursive = FALSE)
+}
+
+student_course_key <- function(course) {
+  key <- student_trimmed_string(course$code)
+  if (!nzchar(key)) key <- student_trimmed_string(course$name)
+  tolower(key)
+}
+
+student_course_credits <- function(course) {
+  credits <- student_credit_number(student_value(course$credits, 7.5))
+  if (is.na(credits)) 0 else credits
+}
+
+student_is_advanced_course <- function(course) {
+  level <- student_credit_number(course$level)
+  !is.na(level) && (level >= 300 || (level >= 3 && level < 10))
+}
+
+student_normalize_comparison_cell <- function(cell) {
+  if (is.null(cell)) return(NULL)
+  if (is.character(cell) && length(cell) == 1L && nzchar(trimws(cell))) {
+    return(list(text = cell))
   }
-  validator <- file.path(repo_root, "scripts", "validate-example.mjs")
-  if (!file.exists(validator)) stop("Missing shared student-record validator: ", validator)
-  record_path <- normalizePath(record_path, winslash = "/", mustWork = TRUE)
-  old_directory <- setwd(repo_root)
-  on.exit(setwd(old_directory), add = TRUE)
-  output <- system2(
-    node,
-    c(shQuote(validator), "--file", shQuote(record_path)),
-    stdout = TRUE,
-    stderr = TRUE
-  )
-  status <- attr(output, "status")
-  if (is.null(status)) status <- 0L
-  if (!identical(status, 0L)) {
-    detail <- if (length(output)) paste(output, collapse = "\n") else "Shared validator returned no details."
-    stop("Mechanical validation failed for ", label, ":\n", detail)
+  if (is.list(cell) && nzchar(student_trimmed_string(cell$text))) return(cell)
+  NULL
+}
+
+student_comparison_entries <- function(blocks, programme_id) {
+  entries <- list()
+  for (block_index in seq_along(blocks)) {
+    block <- blocks[[block_index]]
+    rows <- student_value(block$rows, list())
+    for (row_index in seq_along(rows)) {
+      cells <- rows[[row_index]]$cells
+      cell <- if (is.list(cells)) student_normalize_comparison_cell(cells[[programme_id]]) else NULL
+      if (!is.null(cell)) {
+        entries[[length(entries) + 1L]] <- list(
+          cell = cell,
+          block = block,
+          row_index = row_index
+        )
+      }
+    }
+  }
+  entries
+}
+
+student_is_retained_legacy_fixture <- function(repo_root, record) {
+  id <- student_trimmed_string(record$id)
+  if (!grepl("^p-00[1-5]$", id)) return(FALSE)
+  fixture_path <- file.path(repo_root, "data", "examples", paste0(id, ".json"))
+  if (!file.exists(fixture_path)) return(FALSE)
+  fixture <- read_student_json(fixture_path, paste("public source fixture", id))
+  private_core <- record
+  public_core <- fixture
+  private_core$origin <- NULL
+  private_core$interestInterpretation <- NULL
+  public_core$origin <- NULL
+  public_core$interestInterpretation <- NULL
+  identical(private_core, public_core)
+}
+
+validate_student_record_mechanically <- function(repo_root, record_path, label = basename(record_path)) {
+  record <- read_student_json(record_path, paste("student record", label))
+  errors <- character()
+  fail <- function(message) errors <<- c(errors, message)
+  approximately_equal <- function(left, right) {
+    !is.na(left) && !is.na(right) && abs(left - right) < 0.001
+  }
+
+  comparator <- student_value(record$comparator, record$referenceProgramme)
+  if (!is.list(comparator)) {
+    fail("comparator metadata is required")
+  } else {
+    if (!nzchar(student_trimmed_string(comparator$name))) fail("comparator.name is required")
+    if (!nzchar(student_trimmed_string(comparator$institution))) fail("comparator.institution is required")
+    source_url <- student_trimmed_string(comparator$primarySourceUrl)
+    if (!grepl("^https?://[^[:space:]]+$", source_url, perl = TRUE)) {
+      fail("comparator.primarySourceUrl must be an http(s) URL")
+    }
+  }
+
+  programmes <- record$programmes
+  if (!is.list(programmes) || length(programmes) < 2L || length(programmes) > 4L) {
+    fail("programmes must contain one comparator followed by one to three UCR alternatives")
+    programmes <- list()
+  }
+  if (length(programmes)) {
+    if (!student_is_comparator_programme(programmes[[1]])) fail("programme 1 must be the comparator")
+    if (length(programmes) > 1L) {
+      for (index in 2:length(programmes)) {
+        if (!student_is_ucr_programme(programmes[[index]]) || student_is_comparator_programme(programmes[[index]])) {
+          fail(paste0("programme ", index, " must be a UCR alternative"))
+        }
+      }
+    }
+  }
+
+  for (index in seq_along(programmes)) {
+    programme <- programmes[[index]]
+    if (index == 1L) next
+    programme_id <- student_trimmed_string(programme$id)
+    semesters <- programme$schedule$semesters
+    if (!is.list(semesters) || length(semesters) != 6L) {
+      fail(paste0("UCR programme ", programme_id, " must have exactly six semesters"))
+      next
+    }
+    for (semester_index in seq_along(semesters)) {
+      courses <- semesters[[semester_index]]$courses
+      if (!is.list(courses) || length(courses) != 4L) {
+        fail(paste0(
+          "UCR programme ", programme_id, ", semester ", semester_index,
+          ": expected four courses"
+        ))
+      }
+    }
+    courses <- student_scheduled_courses(programme)
+    course_keys <- vapply(courses, student_course_key, character(1))
+    if (length(courses) != 24L || length(unique(course_keys[nzchar(course_keys)])) != 24L) {
+      fail(paste0("UCR programme ", programme_id, " must contain exactly 24 unique scheduled courses"))
+    }
+    advanced_count <- sum(vapply(courses, student_is_advanced_course, logical(1)))
+    if (advanced_count < 6L) {
+      fail(paste0(
+        "UCR programme ", programme_id, " has ", advanced_count,
+        " 300-level courses; at least 6 are required"
+      ))
+    }
+    ppd_locations <- integer()
+    for (semester_index in seq_along(semesters)) {
+      codes <- vapply(
+        student_value(semesters[[semester_index]]$courses, list()),
+        function(course) toupper(student_trimmed_string(course$code)),
+        character(1)
+      )
+      if (any(codes == "ACCPPDE101")) ppd_locations <- c(ppd_locations, rep(semester_index, sum(codes == "ACCPPDE101")))
+    }
+    if (length(ppd_locations) != 1L) {
+      fail(paste0("UCR programme ", programme_id, " must schedule ACCPPDE101 exactly once"))
+    } else if (ppd_locations[[1]] > 2L) {
+      fail(paste0("UCR programme ", programme_id, " must schedule ACCPPDE101 in Year 1"))
+    }
+  }
+
+  blocks <- student_value(record$blocks, list())
+  for (programme_index in seq_along(programmes)) {
+    programme <- programmes[[programme_index]]
+    programme_id <- student_trimmed_string(programme$id)
+    if (!nzchar(programme_id)) next
+    entries <- student_comparison_entries(blocks, programme_id)
+    credits <- vapply(entries, function(entry) student_credit_number(entry$cell$credits), numeric(1))
+    if (length(credits) && all(!is.na(credits)) && !approximately_equal(sum(credits), 180)) {
+      fail(paste0(
+        "comparison ", programme_id, " totals ", sum(credits),
+        " EC; every programme comparison must total 180 EC"
+      ))
+    } else if (!length(credits) || any(is.na(credits)) || any(credits <= 0)) {
+      fail(paste0("comparison ", programme_id, " requires positive explicit numeric credits"))
+    }
+
+    if (student_is_ucr_programme(programme)) {
+      courses <- student_scheduled_courses(programme)
+      course_codes <- vapply(courses, function(course) tolower(student_trimmed_string(course$code)), character(1))
+      course_names <- vapply(courses, function(course) student_normalized_label(course$name), character(1))
+      seen <- character()
+      for (entry in entries) {
+        cell <- entry$cell
+        cell_code <- tolower(student_trimmed_string(cell$courseCode))
+        matches <- if (nzchar(cell_code)) which(course_codes == cell_code) else which(course_names == student_normalized_label(cell$text))
+        if (length(matches) != 1L) {
+          reference <- if (nzchar(cell_code)) cell_code else student_trimmed_string(cell$text)
+          fail(paste0("comparison ", programme_id, ": ", reference, " does not identify exactly one scheduled UCR course"))
+          next
+        }
+        course <- courses[[matches[[1]]]]
+        key <- student_course_key(course)
+        if (key %in% seen) fail(paste0("comparison ", programme_id, ": duplicate course ", key))
+        seen <- c(seen, key)
+        if (!identical(student_normalized_label(cell$text), student_normalized_label(course$name))) {
+          fail(paste0("comparison ", programme_id, ": displayed course text does not match the scheduled course"))
+        }
+        if (!approximately_equal(student_credit_number(cell$credits), student_course_credits(course))) {
+          fail(paste0("comparison ", programme_id, ": displayed course credits do not match the scheduled course"))
+        }
+      }
+      missing <- courses[!vapply(courses, function(course) student_course_key(course) %in% seen, logical(1))]
+      if (length(missing)) {
+        names <- vapply(missing, function(course) student_trimmed_string(student_value(course$code, course$name)), character(1))
+        fail(paste0(
+          "comparison ", programme_id, ": scheduled courses missing from comparison: ",
+          paste(names, collapse = ", ")
+        ))
+      }
+    } else if (
+      student_is_comparator_programme(programme) &&
+        is.list(comparator) &&
+        is.list(comparator$components) &&
+        length(comparator$components)
+    ) {
+      components <- comparator$components
+      component_ids <- vapply(components, function(component) student_trimmed_string(component$id), character(1))
+      component_credits <- vapply(components, function(component) student_credit_number(component$credits), numeric(1))
+      if (any(!nzchar(component_ids)) || anyDuplicated(component_ids)) fail("comparator.components requires unique stable ids")
+      if (any(is.na(component_credits)) || any(component_credits <= 0) || !approximately_equal(sum(component_credits), 180)) {
+        fail(paste0("comparator.components total ", sum(component_credits, na.rm = TRUE), " EC; reconstructed comparator must total 180 EC"))
+      }
+      seen_components <- character()
+      for (entry in entries) {
+        component_id <- student_trimmed_string(entry$cell$componentId)
+        match <- which(component_ids == component_id)
+        if (!nzchar(component_id) || length(match) != 1L) {
+          fail("comparison comparator: every cell must reference exactly one canonical component")
+          next
+        }
+        if (component_id %in% seen_components) fail(paste0("comparison comparator: duplicate component ", component_id))
+        seen_components <- c(seen_components, component_id)
+        component <- components[[match[[1]]]]
+        if (!identical(student_normalized_label(entry$cell$text), student_normalized_label(component$name))) {
+          fail("comparison comparator: displayed text does not match the referenced component")
+        }
+        if (!approximately_equal(student_credit_number(entry$cell$credits), student_credit_number(component$credits))) {
+          fail("comparison comparator: displayed credits do not match the referenced component")
+        }
+      }
+      missing_components <- setdiff(component_ids, seen_components)
+      if (length(missing_components)) {
+        fail(paste0("comparison comparator: canonical components missing from comparison: ", paste(missing_components, collapse = ", ")))
+      }
+    }
+  }
+
+  if (!student_is_retained_legacy_fixture(repo_root, record)) {
+    ucr_programmes <- programmes[vapply(programmes, student_is_ucr_programme, logical(1))]
+    if (length(ucr_programmes) > 1L) {
+      for (left_index in seq_len(length(ucr_programmes) - 1L)) {
+        for (right_index in (left_index + 1L):length(ucr_programmes)) {
+          left <- ucr_programmes[[left_index]]
+          right <- ucr_programmes[[right_index]]
+          left_courses <- student_scheduled_courses(left)
+          right_courses <- student_scheduled_courses(right)
+          left_keys <- unique(vapply(left_courses, student_course_key, character(1)))
+          right_keys <- unique(vapply(right_courses, student_course_key, character(1)))
+          left_distinct <- setdiff(left_keys, right_keys)
+          right_distinct <- setdiff(right_keys, left_keys)
+          left_ec <- sum(vapply(left_courses[vapply(left_courses, function(course) student_course_key(course) %in% left_distinct, logical(1))], student_course_credits, numeric(1)))
+          right_ec <- sum(vapply(right_courses[vapply(right_courses, function(course) student_course_key(course) %in% right_distinct, logical(1))], student_course_credits, numeric(1)))
+          if (length(left_distinct) < 4L || length(right_distinct) < 4L || left_ec + 0.001 < 30 || right_ec + 0.001 < 30) {
+            fail(paste0(
+              "UCR alternatives ", left$id, " and ", right$id,
+              " are not substantively distinct: each alternative must differ by at least 4 courses / 30 EC"
+            ))
+          }
+        }
+      }
+    }
+  }
+
+  if (length(errors)) {
+    stop("Mechanical validation failed for ", label, ":\n", paste(unique(errors), collapse = "\n"))
   }
   invisible(TRUE)
 }

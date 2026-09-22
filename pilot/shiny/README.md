@@ -38,7 +38,7 @@ The private tree is not mounted as a Shiny resource path and is never placed und
 
 ## Requirements
 
-Install R, RStudio and Node.js if needed. Node.js lets the private workflow invoke the repository's existing shared JavaScript record validator automatically; it does not add another operator command. For local development, initialization and deployment checks, install these R packages once:
+Install R and RStudio if needed. For local development, initialization and deployment checks, install these R packages once:
 
 ```r
 install.packages(c("shiny", "jsonlite", "openssl", "rsconnect"))
@@ -127,7 +127,7 @@ Rscript scripts/add-student-private.R --record="C:/path/to/p-006.json"
 
 This command is now a thin wrapper around the same cumulative registration process as the routine direct-folder command, including the same non-destructive migration of a legacy or five-case private dataset. The first successful addition creates the production structure automatically. An explicit empty initialization remains available with `Rscript scripts/add-student-private.R --init`, but is not part of the routine workflow. Run only one addition process at a time. If a process is interrupted and no addition is still running, remove the reported stale lock directory before retrying.
 
-Both registration and pre-deployment checks invoke the shared comparison validator. They mechanically require six four-course semesters, 24 unique scheduled courses, at least six 300-level courses, PPD exactly once in Year 1, the required comparator identity and source metadata, complete canonical comparator components where supplied, complete 180-EC comparison coverage, correspondence between scheduled UCR courses and comparison rows, and the pairwise distinctness floor. The unchanged retained `p-001`–`p-005` fixtures keep their legacy validation treatment. Formal prerequisites and planned semester availability remain mandatory during academic production, but the repository has no existing shared course-database validator that the deployment workflow can reuse without creating substantial parallel architecture; those two checks are therefore not repeated mechanically at deployment.
+Both registration and pre-deployment checks invoke the private workflow's built-in R validator. They mechanically require six four-course semesters, 24 unique scheduled courses, at least six 300-level courses, PPD exactly once in Year 1, the required comparator identity and source metadata, complete canonical comparator components where supplied, complete 180-EC comparison coverage, correspondence between scheduled UCR courses and comparison rows, and the pairwise distinctness floor. The unchanged retained `p-001`–`p-005` fixtures keep their legacy validation treatment. Formal prerequisites and planned semester availability remain mandatory during academic production, but the repository has no existing shared course-database validator that the deployment workflow can reuse without creating substantial parallel architecture; those two checks are therefore not repeated mechanically at deployment.
 
 For diagnostics without deployment, run:
 
