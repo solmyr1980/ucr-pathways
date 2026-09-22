@@ -189,41 +189,46 @@ stopifnot(identical(
 # The standardized 15-EC optional-research opportunity is comparison-only. It
 # must be validated and displayed once per UCR alternative, but excluded from
 # both the 180-EC comparison total and scheduled-course correspondence.
+add_optional_research_fixture <- function(record) {
+  ucr_ids <- vapply(
+    record$programmes[vapply(record$programmes, student_is_ucr_programme, logical(1))],
+    function(programme) as.character(programme$id),
+    character(1)
+  )
+  target_block <- NULL
+  target_row <- NULL
+  for (block_index in seq_along(record$blocks)) {
+    for (row_index in seq_along(record$blocks[[block_index]]$rows)) {
+      row <- record$blocks[[block_index]]$rows[[row_index]]
+      has_ppd <- any(vapply(ucr_ids, function(id) {
+        cell <- row$cells[[id]]
+        identical(student_value(cell$courseCode, ""), "ACCPPDE101") ||
+          identical(student_normalized_label(cell$text), "personal & professional development")
+      }, logical(1)))
+      if (has_ppd) {
+        target_block <- block_index
+        target_row <- row_index
+        break
+      }
+    }
+    if (!is.null(target_block)) break
+  }
+  stopifnot(!is.null(target_block), !is.null(target_row))
+  optional_cells <- setNames(lapply(ucr_ids, function(id) list(
+    text = STUDENT_OPTIONAL_RESEARCH_TEXT,
+    credits = STUDENT_OPTIONAL_RESEARCH_CREDITS,
+    comparisonOnly = TRUE,
+    comparisonElementId = STUDENT_OPTIONAL_RESEARCH_ID
+  )), ucr_ids)
+  optional_row <- list(comparisonOnly = STUDENT_OPTIONAL_RESEARCH_ID, cells = optional_cells)
+  rows <- record$blocks[[target_block]]$rows
+  record$blocks[[target_block]]$rows <- append(rows, list(optional_row), after = target_row)
+  record
+}
+
 optional_record <- read_student_json(first_input, "optional-research validation fixture")
 optional_record$id <- "optional-research-valid"
-ucr_ids <- vapply(
-  optional_record$programmes[vapply(optional_record$programmes, student_is_ucr_programme, logical(1))],
-  function(programme) as.character(programme$id),
-  character(1)
-)
-target_block <- NULL
-target_row <- NULL
-for (block_index in seq_along(optional_record$blocks)) {
-  for (row_index in seq_along(optional_record$blocks[[block_index]]$rows)) {
-    row <- optional_record$blocks[[block_index]]$rows[[row_index]]
-    has_ppd <- any(vapply(ucr_ids, function(id) {
-      cell <- row$cells[[id]]
-      identical(student_value(cell$courseCode, ""), "ACCPPDE101") ||
-        identical(student_normalized_label(cell$text), "personal & professional development")
-    }, logical(1)))
-    if (has_ppd) {
-      target_block <- block_index
-      target_row <- row_index
-      break
-    }
-  }
-  if (!is.null(target_block)) break
-}
-stopifnot(!is.null(target_block), !is.null(target_row))
-optional_cells <- setNames(lapply(ucr_ids, function(id) list(
-  text = STUDENT_OPTIONAL_RESEARCH_TEXT,
-  credits = STUDENT_OPTIONAL_RESEARCH_CREDITS,
-  comparisonOnly = TRUE,
-  comparisonElementId = STUDENT_OPTIONAL_RESEARCH_ID
-)), ucr_ids)
-optional_row <- list(comparisonOnly = STUDENT_OPTIONAL_RESEARCH_ID, cells = optional_cells)
-rows <- optional_record$blocks[[target_block]]$rows
-optional_record$blocks[[target_block]]$rows <- append(rows, list(optional_row), after = target_row)
+optional_record <- add_optional_research_fixture(optional_record)
 optional_path <- tempfile("optional-research-valid-", fileext = ".json")
 on.exit(unlink(optional_path), add = TRUE)
 jsonlite::write_json(optional_record, optional_path, auto_unbox = TRUE, pretty = TRUE, null = "null")
@@ -237,6 +242,7 @@ access_before_malformed <- readBin(access_path, what = "raw", n = file.info(acce
 codes_before_malformed <- readBin(batch_results_path, what = "raw", n = file.info(batch_results_path)$size)
 expect_mechanical_rejection <- function(record, id, expected_text) {
   record$id <- id
+  record <- add_optional_research_fixture(record)
   path <- file.path(record_dir, paste0(id, ".json"))
   jsonlite::write_json(record, path, auto_unbox = TRUE, pretty = TRUE, null = "null")
   result <- run_script(c("scripts/add-students-private.R", "--quiet"))
