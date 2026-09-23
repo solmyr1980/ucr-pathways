@@ -148,11 +148,11 @@ Exact Admissions destination is implementation/configuration data.
 
 ## 3.4 Student disclaimer
 
-Each personalized programme option must carry an approved disclaimer explaining its illustrative status and the relevance of actual curriculum rules and course availability.
+Each personalized programme option must display the approved disclaimer about the course offer at publication and possible changes before the student starts.
 
 Use the following approved text:
 
-> We’ve done our best to make sure this program is as complete and accurate a match to your interests as possible. But since our curriculum is as flexible and responsive as our students, things may change after you read this. By the time you start building your program online (or in Middelburg), some courses may have shifted, been added, or taken a well-deserved break. In short: things change and no rights may be derived from this document.
+> This app gives you an overview of the courses UCR offers at the time of publication. Because our curriculum keeps developing, the course offer does too: courses may be updated, new ones may be added, and others may be changed or removed. So use this app to explore the possibilities at UCR, but keep in mind that the exact course offer may look different by the time you start. No rights can be derived from the information in this app.
 
 ## 3.5 Student privacy and access
 

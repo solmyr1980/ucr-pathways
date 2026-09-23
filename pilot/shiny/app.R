@@ -14,10 +14,10 @@ UCR_COURSES_URL <- "https://ucr.nl/education/courses/"
 ADMISSIONS_URL <- "https://ucr.nl/about-ucr/connect/meet-with-admissions/?utm_source=shinyapps&utm_medium=landing_page&utm_campaign=your_curriculum&utm_content=button_admissions"
 PROGRAM_BUILDER_URL <- "https://program.ucr.nl/?utm_source=shinyapps&utm_medium=landing_page&utm_campaign=your_curriculum&utm_content=button_program_builder"
 STUDENT_DISCLAIMER <- paste(
-  "We’ve done our best to make sure this program is as complete and accurate a match to your interests as possible.",
-  "But since our curriculum is as flexible and responsive as our students, things may change after you read this.",
-  "By the time you start building your program online (or in Middelburg), some courses may have shifted, been added, or taken a well-deserved break.",
-  "In short: things change and no rights may be derived from this document."
+  "This app gives you an overview of the courses UCR offers at the time of publication.",
+  "Because our curriculum keeps developing, the course offer does too: courses may be updated, new ones may be added, and others may be changed or removed.",
+  "So use this app to explore the possibilities at UCR, but keep in mind that the exact course offer may look different by the time you start.",
+  "No rights can be derived from the information in this app."
 )
 COURSE_DESCRIPTION_UNAVAILABLE <- "A course description is not currently available."
 UCR_COURSE_EC <- 7.5
