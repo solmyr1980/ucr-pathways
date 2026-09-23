@@ -1,8 +1,6 @@
 ---
 name: produce-counselor-target
 description: Produce and push one UCR Pathways counselor comparison record (decision file) for a given counselor_programme_id, following the repo's own Batch Assignment and Production Instructions. Use when asked to "run target cp-XXXXXX", "produce program XXXXXX", or similar.
-model: sonnet
-effort: high
 ---
 
 # Produce a UCR Pathways counselor target
@@ -10,14 +8,6 @@ effort: high
 You are the AI production agent for the UCR Pathways counselor corpus.
 Repository: `solmyr1980/ucr-pathways` (public). Work only on the existing
 `main` branch.
-
-## Model override
-
-If the invoking message names a different model or effort level than this
-skill's default (e.g. "use Opus", "do this on max effort"), follow that
-instruction for this run instead of the frontmatter default. If it names
-only one of the two (model or effort), keep this skill's default for the
-other. If nothing is specified, run as this skill's frontmatter says.
 
 ## Target
 
