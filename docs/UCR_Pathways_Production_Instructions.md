@@ -56,11 +56,15 @@ Visible labels follow the Master Specification rather than exposing internal rol
 
 Use current official university evidence and choose sources according to the claim being established.
 
+Before broad source discovery, identify the material facts still needed to reconstruct the comparator: curriculum components and their EC, compulsory/restricted/elective status, any material route or specialization structure, genuine open elective or profiling space, relevant mathematics/statistics/methods/research training, thesis or capstone requirements, and the applicable academic or curriculum year. Year-by-year placement is required only where the official curriculum defines it materially. Search against these unresolved facts rather than browsing open-endedly.
+
 Use current official programme and curriculum webpages as the normal starting point. Use official route, track or specialization pages and official course-catalogue entries where they provide the necessary detail. General official prospective-student pages may provide orientation or substantive context, but do not use them alone for formal claims they do not establish.
 
 Consult the current OER or another formal programme document when needed to establish or verify formal matters such as exact EC weights, compulsory versus elective status, graduation requirements, formal routes or an ambiguity that the webpages do not resolve. Do not require or search for an OER merely because it is formally more authoritative when current official webpages already provide sufficient evidence for an accurate reconstruction.
 
-Official webpages are sufficient when, taken together, they establish a coherent 180-EC pathway and adequately identify the EC and status of its components, any selected formal route, genuine open elective or profiling space, and the thesis or capstone requirement. Once this threshold is met, stop external source discovery unless another material claim remains unsupported.
+If an official catalogue or portal is inaccessible to the available tools, do not repeatedly retry it. Use another current official university source where that source adequately establishes the required fact. If a material requirement remains unresolved after reasonable source search, treat the target as an exception rather than guessing or publishing an uncertain reconstruction.
+
+Official webpages are sufficient when, taken together, they establish a coherent 180-EC pathway and adequately identify the EC and status of its components, any selected formal route, genuine open elective or profiling space, and the thesis or capstone requirement. Once this threshold is met, stop external source discovery unless another material claim remains unsupported. Do not seek redundant corroboration merely to obtain multiple sources when one appropriate current official source adequately establishes the claim.
 
 When current official sources conflict or leave a formal requirement ambiguous, verify the applicable academic or curriculum year and consult the current OER or another formally adopted programme document. For formal requirements, prefer the current formally adopted source after confirming that it applies to the relevant year.
 
