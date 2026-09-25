@@ -8,6 +8,8 @@ New production targets use `decisionSchemaVersion: "2.0"`. The AI production age
 
 `data/counselor/decisions/<counselor_programme_id>.json`
 
+The decision has two terminal outcomes. A normal comparison uses the existing v2 fields and may omit `recordStatus`. An exception sets `recordStatus: "exception"`, preserves the external comparator and official sources, explicitly supplies `routeSelection` or `null`, and supplies `exception` with type, reason, `checkedOn` date and curriculum context. `no-defensible-ucr-match` additionally requires a complete 180-EC external curriculum and `ucrCourseEvidence` explaining the failed closest-match assessment against the current enriched workbook. `external-programme-unresolved` and `registry-exception` retain supported components without inventing an unknown 180-EC structure. Neither exception decisions nor generated records contain UCR alternatives or comparison blocks. Both outcomes publish to the same `comparisons/<id>.json` location through the existing Action.
+
 The v2 compiler creates a canonical counselor record with `schemaVersion: "2.0"`. The decision and canonical schema versions are independent even though both are currently 2.0.
 
 Decision files and expected outputs under `_regression/` are test fixtures. They must never be published as production decisions or overwrite canonical comparisons.
@@ -47,7 +49,7 @@ The compiler must fail when an academic decision is missing or invalid. It must 
 - `basis` assigns short stable IDs such as `c0`, `a0` and `q0` to evidence-backed core, adjacent and question/application items.
 - `trace` supplies shared `[courseCode, basisIds, substantiveReason]` decisions. `traceOverrides` records an explicit alternative-specific relationship when the shared decision does not apply.
 - A block row `[courseCode, componentId, rationale]` explicitly matches that comparator component to that UCR course. `[null, componentId, rationale]` explicitly leaves the component unmatched. `[courseCode, null, null]` assigns a UCR course without forcing comparator symmetry.
-- `researchComponentId` is required in every new v2 production decision. Set it to the stable comparator component ID for the bachelor thesis, capstone, research project or equivalent independent-research component; set it explicitly to `null` when no such comparator component exists. It controls only placement of the standardized **Optional independent research — 15 EC** comparison element.
+- `researchComponentId` is required in every new v2 comparison decision and omitted for exceptions. Set it to the stable comparator component ID for the bachelor thesis, capstone, research project or equivalent independent-research component; set it explicitly to `null` when no such comparator component exists. It controls only placement of the standardized **Optional independent research — 15 EC** comparison element.
 - `routeSelection` contains the explicit route judgment or `null` when no comparator route is selected.
 - `progression` contains the explicit status and concise academic rationale.
 - Every additional alternative requires a substantive `distinctness` rationale.

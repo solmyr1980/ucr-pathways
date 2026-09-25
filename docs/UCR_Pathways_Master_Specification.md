@@ -174,7 +174,7 @@ shinyapps.io is the approved deployment target for this private workflow. The lo
 
 The counselor app is **deterministic**, not a live personalization engine.
 
-Produce one fixed comparison for every normalized counselor programme target in the current production scope. A target is currently in scope only when `data/registry/programmes.csv` shows:
+Produce one completed counselor record for every normalized target in the current production scope: either a fixed comparison or an explicit exception when no academically defensible comparison can be made. Both outcomes count as processed. A target is currently in scope only when `data/registry/programmes.csv` shows:
 
 - `production_eligible=true`;
 - nonblank `production_order`; and
@@ -219,6 +219,8 @@ For counselor programme construction, programme-interest evidence is stricter th
 ## 4.4 Counselor alternatives and transparency
 
 A counselor comparison contains the comparator plus one to three UCR alternatives under the common architecture in Section 2.
+
+When no defensible UCR closest match exists, retain the external programme and publish an exception in the same counselor record corpus. An exception remains searchable and opens a clear external-programme view without an empty UCR column. The exception must state its academic reason; it must not turn related courses into weak substitutes. Existing comparison records without `recordStatus` mean `comparison`; new exception records use `recordStatus: "exception"`. No separate exception register or registry status is needed. The Production Instructions govern the detailed exception decisions and evidence.
 
 The external programme and valid target-specific programme-interest evidence establish the evidence boundary. They may justify neighbouring directions or broader questions, but they do not justify assuming that an imagined student has unrelated additional interests.
 

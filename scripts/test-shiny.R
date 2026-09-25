@@ -47,6 +47,20 @@ if (counselor$IS_REVIEW_DATA) {
   stopifnot(any(vapply(psychology_results, function(x) identical(x$programme$programmeProviderId, "cp-000004"), logical(1))))
   stopifnot(length(counselor$search_programmes(counselor$COUNSELOR_DATA, query = "bestuurskunde")) == 0)
   stopifnot(!grepl("bestuurskunde", counselor$COUNSELOR_DATA$programmes[[1]]$searchNorm, fixed = TRUE))
+  if (file.exists("data/counselor/comparisons/cp-000040.json")) {
+    german_results <- counselor$search_programmes(counselor$COUNSELOR_DATA, query = "German language")
+    stopifnot(any(vapply(german_results, function(x) identical(x$programme$programmeProviderId, "cp-000040"), logical(1))))
+    german_interest_results <- counselor$search_programmes(counselor$COUNSELOR_DATA, query = "German linguistics")
+    stopifnot(any(vapply(german_interest_results, function(x) identical(x$programme$programmeProviderId, "cp-000040"), logical(1))))
+    german <- jsonlite::fromJSON(counselor$comparison_path("cp-000040"), simplifyVector = FALSE)
+    exception_html <- as.character(counselor$render_comparison(german))
+    stopifnot(grepl("cannot construct a sufficiently close programme", exception_html, fixed = TRUE))
+    stopifnot(grepl("Linguistik im Fokus", exception_html, fixed = TRUE))
+    stopifnot(grepl("Official programme source", exception_html, fixed = TRUE))
+    stopifnot(!grepl("UCR courses", exception_html, fixed = TRUE))
+    exception_result <- counselor$render_result_cards(german_results[which(vapply(german_results, function(x) identical(x$programme$programmeProviderId, "cp-000040"), logical(1)))])
+    stopifnot(grepl("View programme", as.character(exception_result), fixed = TRUE))
+  }
 }
 
 first_programme <- counselor$COUNSELOR_DATA$programmes[[1]]

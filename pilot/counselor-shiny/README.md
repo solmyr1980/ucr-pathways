@@ -8,9 +8,9 @@ This pilot tests the deterministic counselor-app architecture and uses the same 
 - institution and teaching-language filters refine that search; result cards show the student-facing matching interest phrases while relationship classifications remain internal ranking metadata;
 - interest signals rank programme-provider records using the existing `interest_relationship` classification;
 - search always resolves to a programme-provider record;
-- opening a result loads a **pre-produced fixed comparison** rather than generating a personalized comparison;
+- opening a result loads a **pre-produced fixed counselor record** rather than generating a personalized comparison;
 - the same comparison can therefore be reached through programme-driven or interest-driven discovery;
-- each comparison shows exactly one external comparator and between one and three UCR alternatives;
+- each normal comparison shows exactly one external comparator and between one and three UCR alternatives; a completed exception shows the supported external programme and a reason, with no artificial UCR column;
 - the comparison screen is summary-first: it identifies the closest UCR match and any additional included alternatives before the full 180-EC table;
 - the summary is derived from the validated comparison record, including the case-specific UCR labels and `academicRationale.alternatives[].concept`, rather than maintained as separate counselor copy;
 - where the comparator record contains a selected route or specialisation, that route is shown above the curriculum table;
@@ -61,9 +61,9 @@ The app selects the first complete data mode available in this order:
 2. **review** — `data/counselor/review-programmes.json` plus `data/counselor/review-interests.json`;
 3. **pilot** — `data/counselor/pilot-programmes.json` plus `data/counselor/pilot-interests.json`.
 
-Production and review modes load comparison records from `data/counselor/comparisons/<comparison-id>.json`. Pilot mode loads the five approved fixtures from `data/examples/`.
+Production and review modes load comparison or exception records from `data/counselor/comparisons/<comparison-id>.json`. Pilot mode loads the five approved fixtures from `data/examples/`.
 
-Review mode exists so completed counselor-production records can be inspected in the real app during incremental corpus production **without creating the final production discovery indexes early**. The review indexes are derived artifacts: they contain exactly the normalized `cp-*.json` comparisons currently completed in `data/counselor/comparisons/` and their linked programme-interest rows.
+Review mode exists so completed counselor-production records can be inspected in the real app during incremental corpus production **without creating the final production discovery indexes early**. The review indexes are derived artifacts: they contain exactly the normalized `cp-*.json` completed comparisons and exceptions currently in `data/counselor/comparisons/` and their linked programme-interest rows. Exception results remain searchable; opening one displays the source, supported external curriculum and reason instead of a comparison table.
 
 Refresh them from the repository root with:
 

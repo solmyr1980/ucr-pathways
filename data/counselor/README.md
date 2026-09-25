@@ -31,9 +31,9 @@ Keep three concerns separate:
 
 1. `programmes.json` — deployed programme discovery metadata, one record per normalized target in the current counselor production scope;
 2. `interests.json` — deployed programme-interest discovery index linked by `counselor_programme_id`, limited to targets in the current counselor production scope;
-3. `comparisons/<counselor_programme_id>.json` — one completed validated deterministic comparison per in-scope normalized target.
+3. `comparisons/<counselor_programme_id>.json` — one completed validated deterministic comparison or exception per in-scope normalized target.
 
-Current counselor production records use `schemaVersion: "2.0"`.
+Current counselor production records use `schemaVersion: "2.0"`. Existing records without `recordStatus` are comparisons. An explicit `recordStatus: "exception"` retains the same normalized identity and location, with one compact `exception` object and no fabricated UCR alternative. The initial types are `no-defensible-ucr-match`, `external-programme-unresolved` and `registry-exception`. For a no-match case the external 180-EC curriculum and UCR course-database assessment are required.
 
 ## Production compilation
 
@@ -41,13 +41,13 @@ Academic production begins with a compact explicit decision file under `decision
 
 For UCR course evidence, retrieve and use the current GitHub `main` version of `data/reference/ucr_courses_enriched.xlsx` under the rules in `data/reference/README.md`. Do not require a separate upload or human-provided copy. Retrieve the workbook once for the production workstream and use it throughout unless repository changes may have altered it. Selected-course facts are verified against that dataset and included explicitly in the decision input.
 
-The deterministic compiler in `scripts/build-counselor-comparison.mjs` reads that decision file plus current GitHub registry data. It constructs normalized provider metadata, assessed programme interests, fixed semester scaffolding, canonical same-course rows and other mechanical schema 2.0 fields. It never makes an academic choice. The GitHub workflow runs the compiler and the existing counselor validators, then commits a new canonical comparison only after every check succeeds. It fails safely when a canonical target file already exists.
+The active v2 compiler in `scripts/build-counselor-comparison-v2.mjs` reads that decision file plus current GitHub registry data. It constructs normalized provider metadata, assessed programme interests, fixed semester scaffolding, canonical same-course rows and other mechanical schema 2.0 fields. It never makes an academic choice. The GitHub workflow runs the compiler and the existing counselor validators, then commits a new canonical record only after every check succeeds. It fails safely when a canonical target file already exists.
 
 The decision-file contract and local command are documented in `decisions/README.md`. Regression fixtures for `cp-000004` and `cp-000005` run in temporary storage and cannot overwrite those canonical records.
 
-Every comparison contains exactly one external comparator followed by **one to three ordered UCR alternatives**. The first UCR alternative is the closest feasible match. Additional alternatives are included only when they pass the evidence, coherence, substantive-distinctness and feasibility gates in the Production Instructions. Three is the maximum, not a quota.
+Every normal comparison contains exactly one external comparator followed by **one to three ordered UCR alternatives**. The first UCR alternative is the closest feasible match. Additional alternatives are included only when they pass the evidence, coherence, substantive-distinctness and feasibility gates in the Production Instructions. Three is the maximum, not a quota. A completed exception instead retains the supported external evidence and explains why a normal comparison cannot be constructed.
 
-For every current production record:
+For every normal comparison record:
 
 - top-level `id`, `programmeProvider.counselorProgrammeId` and registry `counselor_programme_id` must be identical;
 - normalized registry metadata required by the counselor schema must match `data/registry/programmes.csv`, including canonical name, orders, institution IDs, programme type/status, eligibility, languages, modes and required provenance arrays;
@@ -66,7 +66,7 @@ For every current production record:
 
 Each alternative rationale identifies its `programmeId`, concept, evidence-map `basisLabels` and evidence references. Every alternative after the closest match also requires a concrete `distinctnessRationale` explaining the educational choice that differs from the preceding/other included alternatives.
 
-Every production record must also contain `academicRationale.finalMethodologyAudit`. This supplemental audit records any neutral comparator-route choice, generator-eligible interests explicitly covered by the closest-match core, a coherence assessment for every candidate direction, one course-level evidence-map rationale for every scheduled non-PPD course, and a passed academic-progression assessment for every included UCR alternative. The first four counselor records (`cp-000001` through `cp-000004`) have been re-audited against this final methodology and no longer use a legacy exemption.
+Every normal comparison record must also contain `academicRationale.finalMethodologyAudit`. This supplemental audit records any neutral comparator-route choice, generator-eligible interests explicitly covered by the closest-match core, a coherence assessment for every candidate direction, one course-level evidence-map rationale for every scheduled non-PPD course, and a passed academic-progression assessment for every included UCR alternative. The first four counselor records (`cp-000001` through `cp-000004`) have been re-audited against this final methodology and no longer use a legacy exemption.
 
 The academic interest map and each programme concept must be established before UCR course selection. The UCR course catalogue is used to implement those concepts, not to invent them.
 

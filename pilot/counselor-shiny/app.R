@@ -332,12 +332,49 @@ render_result_cards <- function(results) {
           )
         }
       ),
-      tags$button(type = "button", class = "open-comparison", `data-id` = comparison_id(programme), "Compare with UCR")
+      tags$button(type = "button", class = "open-comparison", `data-id` = comparison_id(programme),
+        if (identical(safe_text(programme$recordStatus), "exception")) "View programme" else "Compare with UCR")
     )
   }))
 }
 
+render_exception <- function(record) {
+  meta <- comparator_meta(record)
+  components <- meta$components %||% list()
+  div(
+    class = "comparison-shell",
+    brand_header(),
+    div(class = "comparison-head",
+      div(tags$h1(safe_text(meta$name)), tags$p(safe_text(meta$institution))),
+      actionButton("back_to_search", "← Back to search", class = "secondary-button")
+    ),
+    div(class = "comparison-summary",
+      tags$h2("About this programme"),
+      tags$p(if (identical(safe_text(record$exception$type), "no-defensible-ucr-match"))
+        "UCR currently cannot construct a sufficiently close programme for a meaningful curriculum comparison."
+        else "A reliable curriculum comparison is currently unavailable for this programme."),
+      tags$p(safe_text(record$exception$reason)),
+      if (nzchar(safe_text(meta$route))) div(class = "route-note", tags$strong("External pathway: "), safe_text(meta$route)),
+      tags$p("Curriculum context: ", safe_text(meta$academicYear)),
+      tags$p(safe_text(record$exception$curriculumContext)),
+      tags$a(href = safe_text(meta$primarySourceUrl), target = "_blank", rel = "noopener", "Official programme source ↗")
+    ),
+    if (length(components)) div(class = "compare-scroll",
+      tags$table(class = "compare-table",
+        tags$thead(tags$tr(tags$th(paste0("External curriculum at ", safe_text(meta$institution))))),
+        tags$tbody(do.call(tagList, lapply(components, function(component) {
+          tags$tr(tags$td(class = "comparison-cell", div(class = "cell-text", safe_text(component$name)),
+            div(class = "ec-badge", credit_text(component$credits)),
+            if (nzchar(safe_text(component$note))) div(class = "cell-note", safe_text(component$note))))
+        })))
+      )
+    ),
+    if (nzchar(safe_text(meta$sourceNotes))) div(class = "transparency-note", tags$p(safe_text(meta$sourceNotes)))
+  )
+}
+
 render_comparison <- function(record) {
+  if (identical(safe_text(record$recordStatus), "exception")) return(render_exception(record))
   div(
     class = "comparison-shell",
     brand_header(),
@@ -361,8 +398,8 @@ render_search_shell <- function(search_text = "") {
     brand_header(),
     div(
       class = "hero",
-      tags$h1("See how different bachelor’s programmes compare with study options at UCR"),
-      tags$p("Search in English by bachelor’s programme or by what your student is interested in. Select a programme to see the closest feasible UCR match and, where genuinely supported, additional UCR ways of pursuing the field or related questions.")
+      tags$h1("Explore bachelor’s programmes and study options at UCR"),
+      tags$p("Search in English by bachelor’s programme or by what your student is interested in. Select a programme to see the available UCR comparison or a clear explanation when a meaningful comparison is not possible.")
     ),
     div(
       class = "search-box",
@@ -373,7 +410,7 @@ render_search_shell <- function(search_text = "") {
         uiOutput("language_filter")
       ),
       if (IS_REVIEW_DATA) {
-        div(class = "pilot-note", paste0("Review mode: this search currently contains ", length(COUNSELOR_DATA$programmes), " production-test comparisons. These records are being reviewed before the full counselor corpus is released."))
+        div(class = "pilot-note", paste0("Review mode: this search currently contains ", length(COUNSELOR_DATA$programmes), " production records. These records are being reviewed before the full counselor corpus is released."))
       } else if (IS_PILOT_DATA) {
         div(class = "pilot-note", paste0("Pilot: this search currently contains ", length(COUNSELOR_DATA$programmes), " programme-provider comparisons. The production app will use the full deterministic comparison library."))
       }

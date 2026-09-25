@@ -368,13 +368,15 @@ After all academic decisions and completion-gate judgments are finished, encode 
 
 Commit that decision file to the existing `main` branch. GitHub Actions runs the v2 deterministic compiler, builds the proposed canonical counselor record under Section 7, and runs the unchanged counselor validators. It publishes the canonical comparison to `main` only when compilation and validation both succeed. The compiler may expand source and evidence tokens, add normalized registry data and assessed-interest objects, add fixed semester labels and terms, repeat verified course metadata, create programme IDs, rows, cells, alignment objects and audit bookkeeping, and calculate counts and totals. It must never invent a missing academic decision and must fail if the target canonical comparison already exists. Decision schema v1 remains available only through the explicitly versioned fallback command; do not use it for new production files.
 
-Do not begin the next target until the Action has published the complete canonical comparison, all record-level gates have passed, and the resulting canonical record is committed to `main`. A failed Action is an incomplete target, not a production checkpoint.
+Do not begin the next target until the Action has published a validated canonical comparison or exception and committed it to `main`. A failed Action is an incomplete target, not a production checkpoint.
 
 ## 4.4 Counselor exceptions
 
-Do not guess or substitute another target when a selected in-scope programme cannot be reconstructed confidently.
+Research and reconstruct the external programme first. Test the closest UCR Alternative 1 against current target-specific evidence and the enriched UCR course database. If its 24 courses cannot form an academically defensible programme, publish `recordStatus: "exception"` with type `no-defensible-ucr-match`; do not manufacture a match. Preserve the complete 180-EC external curriculum, official sources, academic year, compulsory and choice structure, route-selection basis, thesis and source notes. In the compact decision and generated record, include an `exception` object with a substantive reason, date checked, curriculum context and a concrete UCR course-database assessment. No UCR programme or comparison blocks are encoded.
 
-If no academically defensible closest UCR alternative can satisfy the feasibility rules, report the limitation rather than manufacturing a match. If Alternative 2 or 3 cannot be established, stop with the number of defensible alternatives already completed.
+When official evidence cannot establish a reliable external curriculum after reasonable research, use `external-programme-unresolved`; when official evidence materially conflicts with the normalized target, use `registry-exception`. Record what is supported, explain the unresolved facts and do not invent components or force a 180-EC reconstruction for these two types. An unfinished or failed attempt is not an exception: commit the compact academic decision, pass exception-specific validation and publish the generated record in `data/counselor/comparisons/` before marking the target complete.
+
+Existing comparison records without `recordStatus` remain comparisons; an explicit `recordStatus: "comparison"` has the same meaning. All normal comparison gates, including one to three alternatives, remain unchanged. If Alternative 2 or 3 cannot be established, stop with the number of defensible alternatives already completed rather than use an exception.
 
 A non-standard target excluded by the current scope is not a blocked case; it is simply outside production scope.
 
@@ -517,7 +519,7 @@ The canonical record contains semantic content, not renderer coordinates, CSS or
 
 # 8. Library and public-export boundaries
 
-The counselor comparison library stores one fixed record per completed in-scope normalized target. Discovery programme metadata and programme-interest indexes remain separate from comparison content. Do not flatten all interests into a comparison record; preserve the evidence and construction assessment required to audit the included alternatives and stopping decision without turning the comparison record into a second discovery index.
+The counselor record library stores one completed comparison or exception per in-scope normalized target. Discovery programme metadata and programme-interest indexes remain separate from comparison content. Do not flatten all interests into a comparison record; preserve the evidence and construction assessment required to audit the included alternatives and stopping decision without turning the comparison record into a second discovery index.
 
 During incremental counselor production, publish individual files under `data/counselor/comparisons/` through the decision-file, compiler and validation workflow. Do not create the final production `programmes.json` or `interests.json` discovery indexes until the comparison corpus is complete and quality-controlled. Leave pilot indexes unchanged.
 

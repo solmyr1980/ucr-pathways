@@ -14,6 +14,7 @@ on:
       - 'scripts/test-optional-independent-research.mjs'
       - 'scripts/test-counselor-compiler.mjs'
       - 'scripts/test-counselor-compiler-v2.mjs'
+      - 'scripts/test-counselor-exception.mjs'
       - 'scripts/validate-counselor-comparison.mjs'
       - 'scripts/validate-counselor-structural-rules.mjs'
       - 'scripts/validate-counselor-final-rules.mjs'
@@ -86,7 +87,6 @@ jobs:
           echo "comparison_id=$comparison_id" >> "$GITHUB_OUTPUT"
 
       - name: Run compiler regressions in temporary storage
-        if: steps.mode.outputs.mode == 'dry-run'
         run: npm run test:counselor-compiler
 
       - name: Build proposed canonical comparison
@@ -102,7 +102,7 @@ jobs:
           npm run build:counselor -- "${{ steps.mode.outputs.decision_path }}" --output "$proposed"
           cmp "$proposed" "data/counselor/comparisons/${{ steps.mode.outputs.comparison_id }}.json"
 
-      - name: Run unchanged counselor validators
+      - name: Run counselor production validators
         if: steps.mode.outputs.mode == 'production' || steps.mode.outputs.mode == 'repair'
         run: npm run validate:counselor
 

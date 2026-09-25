@@ -46,6 +46,7 @@ let failed = false;
 for (const file of recordFiles()) {
   const sourceName = path.basename(file);
   const record = JSON.parse(fs.readFileSync(file, 'utf8'));
+  if (record.recordStatus === 'exception') continue; // No UCR alternatives or comparison blocks exist.
   const errors = [];
   const fail = message => errors.push(`${sourceName}: ${message}`);
   const rationale = record?.academicRationale;

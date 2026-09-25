@@ -101,7 +101,7 @@ const comparisonFiles = fs.readdirSync(comparisonDir)
   .filter(name => /^cp-\d{6}\.json$/.test(name))
   .sort();
 
-assert(comparisonFiles.length > 0, 'No completed normalized counselor comparison records found.');
+assert(comparisonFiles.length > 0, 'No completed normalized counselor production records found.');
 
 const completed = comparisonFiles.map(name => {
   const record = readJson(path.join(comparisonDir, name));
@@ -113,6 +113,13 @@ const completed = comparisonFiles.map(name => {
   assert(String(registryRow.production_order || '').trim(), `${id}: registry target has no production_order`);
   assert(String(registryRow.display_name_en || '').trim(), `${id}: registry target has no display_name_en`);
   assert(record.programmeProvider?.counselorProgrammeId === id, `${id}: comparison/provider identity mismatch`);
+  assert(name === `${id}.json`, `${name}: record ID does not match filename`);
+  assert(record.recordStatus === undefined || ['comparison', 'exception'].includes(record.recordStatus), `${id}: invalid recordStatus`);
+  if (record.recordStatus === 'exception') {
+    assert(record.exception?.reason && record.exception?.type && record.comparator?.primarySourceUrl, `${id}: incomplete exception record`);
+  } else {
+    assert((record.programmes || []).some(programme => programme.family === 'ucr'), `${id}: incomplete comparison record`);
+  }
 
   return { record, registryRow };
 }).sort((a, b) => Number(a.registryRow.production_order) - Number(b.registryRow.production_order));
@@ -130,6 +137,7 @@ const programmes = completed.map(({ record, registryRow }) => {
 
   return {
     comparisonId: record.id,
+    ...(record.recordStatus === 'exception' ? { recordStatus: 'exception' } : {}),
     sourceExcelRow: sourceRows[0] ?? null,
     programmeProviderId: record.id,
     opleidingseenheidcode: unitCodes[0] ?? null,

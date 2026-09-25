@@ -231,6 +231,43 @@ function validateAlternativeRationales(record, rationale, mapLabels, fail) {
   });
 }
 
+function validateException(record, fail) {
+  const value = record.exception;
+  if (!value || typeof value !== 'object' || Array.isArray(value)) { fail('exception decision is required'); return; }
+  const types = ['no-defensible-ucr-match', 'external-programme-unresolved', 'registry-exception'];
+  if (!types.includes(value.type)) fail('exception.type is not an approved type');
+  for (const field of ['reason', 'curriculumContext']) {
+    if (typeof value[field] !== 'string' || !value[field].trim()) fail(`exception.${field} is required`);
+  }
+  if (typeof value.checkedOn !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value.checkedOn) || Number.isNaN(Date.parse(value.checkedOn))) fail('exception.checkedOn must be a valid YYYY-MM-DD date');
+  const comparator = record.comparator;
+  if (!comparator || typeof comparator !== 'object' || Array.isArray(comparator)) { fail('exception comparator is required'); return; }
+  for (const field of ['name', 'institution', 'academicYear', 'sourceNotes']) {
+    if (typeof comparator[field] !== 'string' || !comparator[field].trim()) fail(`comparator.${field} is required`);
+  }
+  if (typeof comparator.primarySourceUrl !== 'string' || !/^https:\/\//.test(comparator.primarySourceUrl)) fail('comparator.primarySourceUrl must be an official HTTPS source');
+  if (!Array.isArray(comparator.additionalSourceUrls) || comparator.additionalSourceUrls.some(url => typeof url !== 'string' || !/^https:\/\//.test(url))) fail('comparator.additionalSourceUrls must contain official HTTPS sources');
+  if (comparator.route) {
+    if (comparator.routeSelection?.route !== comparator.route || typeof comparator.routeSelection?.basis !== 'string' || !comparator.routeSelection.basis.trim()) fail('selected comparator route requires its explicit basis');
+  } else if (comparator.routeSelection) fail('comparator.routeSelection requires a selected route');
+  const components = comparator.components;
+  if (!Array.isArray(components)) fail('comparator.components must be an array of supported components');
+  else {
+    const ids = new Set();
+    for (const [index, item] of components.entries()) {
+      if (!item || typeof item.id !== 'string' || !item.id.trim() || typeof item.name !== 'string' || !item.name.trim() || typeof item.credits !== 'number' || !Number.isFinite(item.credits) || item.credits <= 0) fail(`comparator component ${index + 1} requires id, name and positive EC`);
+      if (ids.has(item?.id)) fail(`duplicate comparator component ${item.id}`);
+      ids.add(item?.id);
+    }
+    if (value.type === 'no-defensible-ucr-match' && (!components.length || Math.abs(components.reduce((sum, item) => sum + (Number(item?.credits) || 0), 0) - 180) > 0.001)) fail('no-defensible-ucr-match requires a complete 180-EC external curriculum');
+  }
+  if (value.type === 'no-defensible-ucr-match' && (typeof value.ucrCourseEvidence !== 'string' || !value.ucrCourseEvidence.trim())) fail('exception.ucrCourseEvidence must explain the current UCR course-database assessment');
+  if (!Array.isArray(record.programmes) || record.programmes.length !== 1 || record.programmes[0]?.id !== 'comparator' || record.programmes[0]?.role !== 'comparator') fail('exception must contain only the external comparator programme');
+  for (const key of ['blocks', 'comparisonAlignment', 'alternativeSelection', 'academicRationale']) {
+    if (Object.hasOwn(record, key)) fail(`exception must not contain ${key} comparison data`);
+  }
+}
+
 const registryRows = parseCsv(fs.readFileSync(registryFile, 'utf8'));
 const registryById = new Map(registryRows.map(row => [row.counselor_programme_id, row]));
 
@@ -244,7 +281,8 @@ if (target === 'all' && files.length === 0) {
 for (const file of files) {
   const sourceName = path.basename(file);
   const record = readExample(file);
-  const generic = validateExample(record, sourceName);
+  const exceptionRecord = record.recordStatus === 'exception';
+  const generic = exceptionRecord ? { errors: [], warnings: [] } : validateExample(record, sourceName);
   const errors = [...generic.errors];
   const warnings = [...generic.warnings];
   const fail = message => errors.push(`${sourceName}: ${message}`);
@@ -253,10 +291,12 @@ for (const file of files) {
   if (record.schemaVersion !== '2.0') fail('schemaVersion must be "2.0" for current counselor production records');
   if (record.origin !== 'counselor') fail('origin must be "counselor"');
   if (!cpPattern.test(String(record.id || ''))) fail('id must use permanent cp-000001 format');
+  if (record.recordStatus !== undefined && !['comparison', 'exception'].includes(record.recordStatus)) fail('recordStatus must be comparison or exception');
+  if (!exceptionRecord && Object.hasOwn(record, 'exception')) fail('comparison record must not contain an exception decision');
 
   const programmes = Array.isArray(record.programmes) ? record.programmes : [];
   const ucrProgrammes = programmes.filter(isUcrProgramme);
-  if (ucrProgrammes.length < 1 || ucrProgrammes.length > 3) fail('record must contain one to three UCR alternatives');
+  if (!exceptionRecord && (ucrProgrammes.length < 1 || ucrProgrammes.length > 3)) fail('record must contain one to three UCR alternatives');
   ucrProgrammes.forEach((programme, index) => {
     if (programme.role !== 'ucr-alternative') fail(`UCR programme ${programme.id || index + 1} must use role "ucr-alternative"`);
     if (!['closest-match', 'related-direction', 'question-led', 'other-defensible'].includes(programme.alternativeKind)) {
@@ -266,6 +306,7 @@ for (const file of files) {
   });
 
   const selection = record?.alternativeSelection;
+  if (!exceptionRecord) {
   if (!selection || typeof selection !== 'object' || Array.isArray(selection)) {
     fail('alternativeSelection is required');
   } else if (selection.includedCount !== ucrProgrammes.length) {
@@ -273,6 +314,7 @@ for (const file of files) {
   }
 
   validateStableComparisonReferences(record, fail);
+  }
 
   const provider = record?.programmeProvider;
   const counselorProgrammeId = String(provider?.counselorProgrammeId || '');
@@ -329,6 +371,15 @@ for (const file of files) {
     if (Object.hasOwn(provider, 'language') || Object.hasOwn(provider, 'mode')) {
       fail('use normalized programmeProvider.languages and programmeProvider.modes arrays; scalar language/mode fields are not current production metadata');
     }
+  }
+
+  if (exceptionRecord) {
+    validateException(record, fail);
+    if (errors.length) {
+      failed = true;
+      errors.forEach(message => console.error(`ERROR: ${message}`));
+    } else console.log(`Valid counselor production exception: ${sourceName}`);
+    continue;
   }
 
   const rationale = record?.academicRationale;

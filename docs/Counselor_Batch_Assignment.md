@@ -58,11 +58,11 @@ Use the current GitHub rules, registry data and reference workbook rather than r
 
 If the user has assigned specific `counselor_programme_id` values, process **exactly those assigned targets**. In a multi-contributor workstream, do not independently claim or substitute another target.
 
-If no specific targets have been assigned, and the user asks for the next batch, select the next **2** targets in ascending `production_order` from `data/registry/programmes.csv` that satisfy the current production-scope rules in the Master/Production Instructions and do not already have a completed current production record requiring no repair.
+If no specific targets have been assigned, and the user asks for the next batch, select the next **2** targets in ascending `production_order` from `data/registry/programmes.csv` that satisfy the current production-scope rules in the Master/Production Instructions and have neither a completed comparison nor a completed exception record requiring no repair.
 
 A target outside the current production scope does not consume a batch slot.
 
-Do not replace a genuinely blocked selected or assigned in-scope target with a later target merely to maintain 2 completed records. Complete the remainder and report the blocker.
+Do not replace a genuinely blocked selected or assigned in-scope target with a later target merely to maintain 2 completed records. A validated, published exception is a completed outcome; an unpublished or failed attempt remains blocked. Complete the remainder and report any blocker.
 
 Pilot search fixtures and public examples do not count as completed production counselor records.
 
@@ -78,8 +78,8 @@ A target is not considered processed merely because its comparator, alternative 
 
 1. a complete compact `decisionSchemaVersion: "2.0"` academic decision file committed at `data/counselor/decisions/<counselor_programme_id>.json`;
 2. a successful GitHub Actions compiler and validation run;
-3. a complete canonical JSON record published at `data/counselor/comparisons/<counselor_programme_id>.json`;
-4. all record-level counselor validation and completion gates passed; and
+3. a complete canonical comparison or exception JSON record published at `data/counselor/comparisons/<counselor_programme_id>.json`;
+4. all applicable comparison or exception validation and completion gates passed; and
 5. that completed canonical record committed to the existing `main` branch.
 
 Treat each target as an atomic resumable production unit. If execution stops partway through a batch, already completed and committed target records remain valid checkpoints; resume from the first assigned or selected target that does not yet have a completed current production record.
@@ -138,7 +138,7 @@ Do not create another branch, pull request, duplicate repository structure or re
 
 Before pushing a new production decision, synchronize with the current `main` state and confirm that the assigned target has not already been completed by another contributor.
 
-Only **one new root production decision file may be pushed at a time across contributors**. Commit one completed counselor decision file to `main`, then let the counselor compiler workflow generate, validate and publish its canonical comparison before another contributor pushes the next new production decision. The next contributor must synchronize with the resulting current `main` state before pushing.
+Only **one new root production decision file may be pushed at a time across contributors**. Commit one completed counselor decision file to `main`, then let the counselor compiler workflow generate, validate and publish its canonical comparison or exception before another contributor pushes the next new production decision. The next contributor must synchronize with the resulting current `main` state before pushing.
 
 Do not hand-edit or directly commit a new canonical comparison, and do not push several new root decision files together.
 
@@ -155,7 +155,7 @@ Commit completed decision files and only strictly necessary upstream fixes to `m
 Report concisely:
 
 1. assigned/selected `counselor_programme_id`, `production_order`, programme name and institution(s);
-2. number of completed comparison records;
+2. number of completed comparison and exception records;
 3. unresolved/exception targets;
 4. confirmation that every included UCR alternative passed mechanical feasibility validation;
 5. distribution of records with one, two and three UCR alternatives, with stopping reasons for records below three;

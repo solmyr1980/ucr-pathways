@@ -6,6 +6,7 @@ const SCHEMA = '2.0';
 const RECORD_SCHEMA = '2.0';
 const CP_PATTERN = /^cp-[0-9]{6}$/;
 const KINDS = new Set(['closest-match', 'related-direction', 'question-led', 'other-defensible']);
+const EXCEPTION_TYPES = new Set(['no-defensible-ucr-match', 'external-programme-unresolved', 'registry-exception']);
 const SEMESTERS = [
   ['Year 1 · Semester 1', '2026h2'], ['Year 1 · Semester 2', '2027h1'],
   ['Year 2 · Semester 1', '2027h2'], ['Year 2 · Semester 2', '2028h1'],
@@ -104,6 +105,45 @@ export function compileV2(decision, repositoryRoot) {
     constructionRole: constructionRole(row)
   }));
   const assessedByRow = new Map(assessedInterests.map(item => [item.registryRow, item]));
+
+  if (decision.recordStatus === 'exception') {
+    const input = decision.comparator;
+    const exception = decision.exception;
+    requireCondition(input && text(input.name) && text(input.institution), 'exception comparator name and institution are required');
+    requireCondition(input.primarySource && typeof input.primarySource === 'string', 'exception comparator primary official source is required');
+    requireCondition(text(input.academicYear) && text(input.sourceNotes), 'exception comparator curriculum context and source notes are required');
+    requireCondition(exception && EXCEPTION_TYPES.has(exception.type) && text(exception.reason) && /^\d{4}-\d{2}-\d{2}$/.test(exception.checkedOn || ''), 'exception requires an approved type, substantive reason and checkedOn date');
+    requireCondition(text(exception.curriculumContext), 'exception requires curriculumContext');
+    requireCondition(!['courses', 'trace', 'alternatives', 'blocks', 'selection', 'basis', 'candidates', 'closestOwnedInterests'].some(key => Object.hasOwn(decision, key)), 'exception must not contain a fabricated UCR alternative or comparison decisions');
+    requireCondition(Object.hasOwn(decision, 'routeSelection'), 'exception must explicitly provide routeSelection or null');
+    requireCondition(input.route ? decision.routeSelection?.route === input.route && text(decision.routeSelection?.basis) : decision.routeSelection === null, 'exception routeSelection must explain the selected route or be null');
+    const components = (input.components || []).map((tuple, index) => {
+      requireCondition(Array.isArray(tuple) && tuple.length >= 3 && text(tuple[0]) && text(tuple[1]) && Number.isFinite(tuple[2]) && tuple[2] > 0, `exception comparator component ${index + 1} is incomplete`);
+      return { id: tuple[0], name: tuple[1], credits: tuple[2], ...(tuple[3] ? { note: tuple[3] } : {}) };
+    });
+    requireCondition(new Set(components.map(item => item.id)).size === components.length, 'exception comparator component IDs must be unique');
+    if (exception.type === 'no-defensible-ucr-match') {
+      requireCondition(components.length > 0 && Math.abs(components.reduce((sum, item) => sum + item.credits, 0) - 180) < 0.001, 'no-defensible-ucr-match requires a complete 180-EC comparator');
+      requireCondition(text(exception.ucrCourseEvidence), 'no-defensible-ucr-match requires a substantive assessment against the current UCR course database');
+    }
+    const comparator = {
+      name: input.name, institution: input.institution,
+      primarySourceUrl: expandEvidenceToken(input.primarySource).reference,
+      academicYear: input.academicYear,
+      ...(input.route ? { route: input.route } : {}),
+      additionalSourceUrls: (input.additionalSources || []).map(token => expandEvidenceToken(token).reference),
+      sourceNotes: input.sourceNotes, components,
+      ...(decision.routeSelection ? { routeSelection: structuredClone(decision.routeSelection) } : {})
+    };
+    requireCondition(/^https:\/\//.test(comparator.primarySourceUrl), 'exception primary source must be an official HTTPS URL');
+    return {
+      schemaVersion: RECORD_SCHEMA, origin: 'counselor', recordStatus: 'exception', id: decision.id,
+      programmeProvider: provider(registry), comparator,
+      programmes: [{ id: 'comparator', role: 'comparator', family: 'comparator', label: `${comparator.name} at ${comparator.institution}` }],
+      exception: structuredClone(exception)
+    };
+  }
+  requireCondition(decision.recordStatus === undefined || decision.recordStatus === 'comparison', 'recordStatus must be comparison or exception');
 
   const comparatorInput = decision.comparator;
   requireCondition(comparatorInput && text(comparatorInput.name) && text(comparatorInput.institution), 'comparator name and institution are required');

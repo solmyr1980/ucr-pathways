@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://solmyr1980.github.io/ucr-pathways/data/schema/counselor-exception.schema.json",
+  "title": "Completed counselor production exception",
+  "type": "object",
+  "required": ["schemaVersion", "origin", "id", "recordStatus", "programmeProvider", "comparator", "programmes", "exception"],
+  "properties": {
+    "schemaVersion": { "const": "2.0" },
+    "origin": { "const": "counselor" },
+    "id": { "type": "string", "pattern": "^cp-[0-9]{6}$" },
+    "recordStatus": { "const": "exception" },
+    "programmeProvider": { "type": "object" },
+    "comparator": {
+      "type": "object",
+      "required": ["name", "institution", "primarySourceUrl", "academicYear", "sourceNotes", "components"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "institution": { "type": "string", "minLength": 1 },
+        "primarySourceUrl": { "type": "string", "format": "uri" },
+        "academicYear": { "type": "string", "minLength": 1 },
+        "sourceNotes": { "type": "string", "minLength": 1 },
+        "components": { "type": "array", "items": { "$ref": "./example.schema.json#/$defs/comparatorComponent" } }
+      }
+    },
+    "programmes": {
+      "type": "array", "minItems": 1, "maxItems": 1,
+      "items": { "type": "object", "required": ["id", "role"], "properties": { "id": { "const": "comparator" }, "role": { "const": "comparator" } } }
+    },
+    "exception": {
+      "type": "object", "required": ["type", "reason", "checkedOn", "curriculumContext"],
+      "properties": {
+        "type": { "enum": ["no-defensible-ucr-match", "external-programme-unresolved", "registry-exception"] },
+        "reason": { "type": "string", "minLength": 1 },
+        "checkedOn": { "type": "string", "format": "date" },
+        "curriculumContext": { "type": "string", "minLength": 1 },
+        "ucrCourseEvidence": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [{ "if": { "properties": { "type": { "const": "no-defensible-ucr-match" } } }, "then": { "required": ["ucrCourseEvidence"] } }]
+    }
+  },
+  "allOf": [{ "not": { "anyOf": [
+    { "required": ["blocks"] }, { "required": ["comparisonAlignment"] },
+    { "required": ["alternativeSelection"] }, { "required": ["academicRationale"] }
+  ] } }]
+}

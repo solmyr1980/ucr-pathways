@@ -5,6 +5,7 @@
 # the app, counselor data, or shared brand assets is required.
 
 args <- commandArgs(trailingOnly = TRUE)
+`%||%` <- function(value, fallback) if (is.null(value) || length(value) == 0L) fallback else value
 
 option_value <- function(name, default = NULL) {
   prefix <- paste0(name, "=")
@@ -104,6 +105,21 @@ comparison_files_for <- function(mode_name) {
   missing_comparisons <- comparison_files[!file.exists(file.path(repo_root, comparison_files))]
   if (length(missing_comparisons)) {
     stop("Missing comparison file(s) for ", mode_name, " mode: ", paste(missing_comparisons, collapse = ", "))
+  }
+  if (mode_name != "pilot") {
+    for (index in seq_along(comparison_ids)) {
+      record <- jsonlite::fromJSON(file.path(repo_root, comparison_files[[index]]), simplifyVector = FALSE)
+      status <- record$recordStatus %||% "comparison"
+      if (!identical(record$id, comparison_ids[[index]]) ||
+          !status %in% c("comparison", "exception") ||
+          (identical(status, "exception") && (!nzchar(record$exception$reason %||% "") ||
+                                               length(record$programmes %||% list()) != 1L)) ||
+          (identical(status, "comparison") && length(record$programmes %||% list()) < 2L)) {
+        stop("Invalid completed counselor record for ", comparison_ids[[index]], ".")
+      }
+      indexed_status <- programme_data$programmes[[index]]$recordStatus %||% "comparison"
+      if (!identical(status, indexed_status)) stop("Stale counselor index status for ", comparison_ids[[index]], ".")
+    }
   }
   comparison_files
 }

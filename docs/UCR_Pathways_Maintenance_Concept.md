@@ -103,6 +103,7 @@ The intended maintenance model would distinguish several levels of intervention:
 | UCR course becomes infeasible in an existing alternative | Repair and revalidate the affected alternative/comparison |
 | External curriculum changes materially | Reconstruct comparator and reconsider affected UCR alternatives |
 | New UCR course materially improves an academic area | Targeted reassessment of relevant counselor comparisons |
+| New or substantially changed UCR courses address the documented gap in a `no-defensible-ucr-match` exception | Reconsider that exception and publish a comparison only if a defensible 24-course closest match is now possible |
 | New normalized Dutch bachelor target | Run normal production for the new target |
 | Programme discontinued or structurally transformed | Apply registry/lifecycle decision and update or retire downstream comparison as appropriate |
 

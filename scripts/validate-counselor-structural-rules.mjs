@@ -97,6 +97,7 @@ let failed = false;
 for (const file of recordFiles()) {
   const sourceName = path.basename(file);
   const record = JSON.parse(fs.readFileSync(file, 'utf8'));
+  if (record.recordStatus === 'exception') continue; // The exception-specific validator checks these records.
   const errors = [];
   const fail = message => errors.push(`${sourceName}: ${message}`);
   const ucrProgrammes = (record.programmes || []).filter(programme => programme?.family === 'ucr');

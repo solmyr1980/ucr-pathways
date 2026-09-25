@@ -21,6 +21,7 @@ function parseArguments(argv) {
 }
 
 export function buildProductionRecord(decision, repositoryRoot) {
+  if (decision.recordStatus === 'exception') return compileV2(decision, repositoryRoot);
   if (!Object.hasOwn(decision, 'researchComponentId')) {
     fail('researchComponentId must be supplied explicitly as a comparator component ID or null');
   }
@@ -38,7 +39,7 @@ function main() {
   if (fs.existsSync(outputPath)) fail(`refusing to overwrite existing canonical comparison: ${outputPath}`);
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   fs.writeFileSync(outputPath, `${JSON.stringify(record, null, 2)}\n`, { flag: 'wx' });
-  console.log(`Built ${record.id} with optional independent research at ${outputPath}`);
+  console.log(`Built ${record.id} counselor ${record.recordStatus || 'comparison'} record at ${outputPath}`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
