@@ -1,8 +1,6 @@
 # Step 1 — Dutch WO bachelor longlist
 
-Generated: 2026-08-21
-
-**Historical dataset:** these counts and the proposed Step 2 belong to the superseded longlist experiment. The current counselor scope comes from the approved programme registry, with no UCR-fit filter. See `docs/UCR_Pathways_Production_Instructions.md`.
+Generated: 2026-09-25
 
 ## Scope
 
@@ -10,10 +8,10 @@ Current recognised Dutch WO bachelor programmes with a full-time route. This is 
 
 ## Counts
 
-- Studiekeuze123 reports **447** WO bachelor offerings, including **438** with a full-time route.
-- DUO RIO contributes 529 retained current full-time WO-bachelor rows.
-- Those rows contain **522 offered-programme UUIDs**; this is retained as an audit/provenance view because one registered bachelor can have several offered records.
-- Collapsing to the registered bachelor + provider identity yields **345 programme/institution candidates**. This is the frozen external longlist for Step 2.
+- Studiekeuze123 reports **448** WO bachelor offerings, including **439** with a full-time route.
+- DUO RIO contributes 523 retained current full-time WO-bachelor rows.
+- Those rows contain **523 offered-programme UUIDs**; this is retained as an audit/provenance view because one registered bachelor can have several offered records.
+- Collapsing to the registered bachelor + provider identity yields **342 programme/institution candidates**. This is the frozen external longlist for Step 2.
 - **9/10** existing pilot seeds were automatically located; this marker is diagnostic only and does not affect the longlist.
 
 ## Saved files
