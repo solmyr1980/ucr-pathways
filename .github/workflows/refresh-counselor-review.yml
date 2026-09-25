@@ -22,8 +22,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: counselor-review-refresh
-  cancel-in-progress: true
+  group: main-publication
+  queue: max
 
 jobs:
   refresh:
@@ -35,6 +35,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Build review indexes
         run: npm run build:counselor-review
@@ -57,4 +59,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Refresh counselor review indexes"
+          git pull --rebase origin main
           git push

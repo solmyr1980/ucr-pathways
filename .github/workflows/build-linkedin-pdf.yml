@@ -25,6 +25,11 @@ on:
 permissions:
   contents: write
 
+# Serialize every automated main writer, including counselor and research builds.
+concurrency:
+  group: main-publication
+  queue: max
+
 jobs:
   build-pdf:
     runs-on: ubuntu-latest
@@ -34,6 +39,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -90,5 +97,6 @@ jobs:
             echo "No published LinkedIn PDFs changed."
           else
             git commit -m "Publish LinkedIn PDFs"
+            git pull --rebase origin main
             git push
           fi

@@ -28,8 +28,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: counselor-comparison-production
-  cancel-in-progress: false
+  group: main-publication
+  queue: max
 
 jobs:
   compile-and-validate:
@@ -39,7 +39,9 @@ jobs:
       - name: Check out complete repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          ref: main
+          # The event SHA may precede another queued publication on main.
+          fetch-depth: 0
 
       - name: Select safe execution mode
         id: mode
@@ -120,4 +122,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Publish ${{ steps.mode.outputs.comparison_id }} counselor comparison"
+          git pull --rebase origin main
           git push
