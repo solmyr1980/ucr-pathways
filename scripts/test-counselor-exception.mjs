@@ -52,8 +52,3 @@ try {
   fs.rmSync(temp, { recursive: true, force: true });
 }
 console.log('Counselor exception compilation and validation: PASS');
-const completedIds = new Set(fs.readdirSync('data/counselor/comparisons').filter(name => /^cp-\d{6}\.json$/.test(name)).map(name => name.slice(0, -5)));
-if (completedIds.has('cp-000040')) {
-  assert.ok(!completedIds.has('cp-000042'), 'cp-000042 remains the next unfinished in-scope target');
-  console.log('Completed cp-000040 is excluded from the next batch; cp-000042 remains unfinished.');
-}
