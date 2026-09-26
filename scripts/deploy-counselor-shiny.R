@@ -129,11 +129,15 @@ referenced_comparisons <- unique(unlist(lapply(available_modes, comparison_files
 index_files <- unique(unlist(lapply(mode_definitions[available_modes], function(definition) {
   c(definition$programmes, definition$interests)
 }), use.names = FALSE))
+course_directory <- "pilot/shiny/data/courses"
+course_files <- file.path(course_directory, list.files(file.path(repo_root, course_directory), pattern = "^[A-Z]{3}\\.json$"))
+if (!length(course_files)) stop("No UCR course-description files found in ", course_directory, ".")
 
 runtime_files <- sort(unique(c(
   required_files,
   index_files,
-  referenced_comparisons
+  referenced_comparisons,
+  course_files
 )))
 
 missing_runtime <- runtime_files[!file.exists(file.path(repo_root, runtime_files))]

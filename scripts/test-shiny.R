@@ -97,6 +97,31 @@ comparison_html <- as.character(counselor$render_comparison(acceptance_records[[
 stopifnot(grepl("What this comparison shows", comparison_html, fixed = TRUE))
 stopifnot(!grepl("How to read this comparison", comparison_html, fixed = TRUE))
 
+# Only UCR cells with course codes open the shared course-description data.
+ucr <- counselor$ucr_programmes_for_summary(acceptance_records[[1]])[[1]]
+comparator <- acceptance_records[[1]]$programmes[[1]]
+course_fixture <- list(
+  programmes = list(comparator, ucr),
+  comparator = acceptance_records[[1]]$comparator,
+  blocks = list(list(title = "Courses", rows = list(
+    list(cells = setNames(list(
+      list(text = "External course", courseCode = "EXT123"),
+      list(text = "UCR course", courseCode = "GOSGATE102")
+    ), c(comparator$id, ucr$id))),
+    list(cells = setNames(list(NULL, list(text = "Uncoded UCR component")), c(comparator$id, ucr$id)))
+  )))
+)
+course_html <- as.character(counselor$render_compare_table(course_fixture))
+stopifnot(grepl('class="course-link" data-code="GOSGATE102"', course_html, fixed = TRUE))
+stopifnot(!grepl('data-code="EXT123"', course_html, fixed = TRUE))
+stopifnot(lengths(regmatches(course_html, gregexpr('class="course-link"', course_html, fixed = TRUE))) == 1L)
+course_data <- jsonlite::fromJSON(file.path(counselor$COURSE_DESCRIPTION_DIR, "GOS.json"), simplifyVector = FALSE)
+stopifnot(grepl(htmltools::htmlEscape(course_data$descriptions$GOSGATE102),
+  as.character(counselor$course_description_dialog("GOSGATE102", "UCR course", course_data$descriptions$GOSGATE102)), fixed = TRUE))
+stopifnot(grepl(counselor$COURSE_DESCRIPTION_UNAVAILABLE,
+  as.character(counselor$course_description_dialog("GOSUNKNOWN", "Unknown course", NULL)), fixed = TRUE))
+stopifnot(identical(counselor$COURSE_DESCRIPTION_UNAVAILABLE, student$COURSE_DESCRIPTION_UNAVAILABLE))
+
 # Relationship classifications remain internal ranking metadata, not counselor-facing search copy.
 result_fixture <- list(list(
   programme = first_programme,
@@ -236,6 +261,8 @@ shiny::testServer(counselor$server, {
   stopifnot(identical(selected()$id, test_record$id))
   if (!is.null(selected()$comparator)) stopifnot(identical(selected()$comparator$name, first_programme$displayName))
   if (!is.null(selected()$referenceProgramme)) stopifnot(identical(selected()$referenceProgramme$name, first_programme$displayName))
+  session$setInputs(course_click = list(code = "GOSGATE102", name = "UCR course"))
+  stopifnot(identical(course_cache$GOS$descriptions$GOSGATE102, course_data$descriptions$GOSGATE102))
   session$setInputs(back_to_search = 1)
   stopifnot(is.null(selected()), identical(saved_search$text, "test query"))
 })
