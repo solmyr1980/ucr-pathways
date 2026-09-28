@@ -18,3 +18,4 @@
   Backfilled 2026-09-28 11:25 CEST: production succeeded and pushed to main at the time; this run's log-append step never ran, so the entry was missing until now.
 2026-09-28 03:55 UTC · cp-000122 · produced ✓ · main ✓ (eff1810)
 2026-09-28 08:38 UTC · cp-000123 · produced ✓ · main ✓ (609239f)
+2026-09-28 14:39 UTC · cp-000124 · produced ✓ · main ✓ (1185af4)
