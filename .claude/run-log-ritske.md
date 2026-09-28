@@ -12,6 +12,8 @@
 2026-09-27 08:45 UTC · cp-000117 · produced ✓ · main ✓ (242d94d)
 2026-09-27 13:42 UTC · cp-000118 · produced ✓ · main ✓ (de2ccf8)
 2026-09-27 18:27 UTC · cp-000119 · produced ✓ · main ✓ (861ba35)
+2026-09-28 11:29 UTC · cp-000120 · skipped — out of scope, not produced
+  Note added 2026-09-28 11:29 CEST: cp-000120 is a joint-degree target (UvA/VU Liberal Arts and Sciences). Per Master Specification §4.1, joint-degree/double-bachelor/dual-degree-route targets are legitimate registry entries but temporarily excluded from comparison production until an approved presentation method exists. Correctly never processed; the next in-scope target after cp-000119 was cp-000121.
 2026-09-27 22:52 UTC · cp-000121 · produced ✓ · main ✓ (676aff2)
   Backfilled 2026-09-28 11:25 CEST: production succeeded and pushed to main at the time; this run's log-append step never ran, so the entry was missing until now.
 2026-09-28 03:55 UTC · cp-000122 · produced ✓ · main ✓ (eff1810)
