@@ -1,5 +1,7 @@
 2026-09-25 08:43 UTC · cp-000107 · produced ✓ · main ✓ (fad29fc)
 2026-09-25 13:41 UTC · cp-000108 · produced ✓ · main ✓ (552d161)
+2026-09-25 18:40 UTC · cp-000109 · produced ✓ · main ✓ (4800698)
+  Backfilled 2026-09-28 11:25 CEST: production succeeded and pushed to main at the time; this run's log-append step never ran, so the entry was missing until now.
 2026-09-25 22:36 UTC · cp-000110 · produced ✓ · main ✓ (121e7ef)
 2026-09-26 03:42 UTC · cp-000111 · produced ✓ · main ✓ (d6ab068)
 2026-09-26 08:52 UTC · cp-000112 · produced ✓ · main ✓ (c688053)
@@ -10,5 +12,7 @@
 2026-09-27 08:45 UTC · cp-000117 · produced ✓ · main ✓ (242d94d)
 2026-09-27 13:42 UTC · cp-000118 · produced ✓ · main ✓ (de2ccf8)
 2026-09-27 18:27 UTC · cp-000119 · produced ✓ · main ✓ (861ba35)
+2026-09-27 22:52 UTC · cp-000121 · produced ✓ · main ✓ (676aff2)
+  Backfilled 2026-09-28 11:25 CEST: production succeeded and pushed to main at the time; this run's log-append step never ran, so the entry was missing until now.
 2026-09-28 03:55 UTC · cp-000122 · produced ✓ · main ✓ (eff1810)
 2026-09-28 08:38 UTC · cp-000123 · produced ✓ · main ✓ (609239f)
