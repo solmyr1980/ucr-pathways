@@ -21,3 +21,5 @@
 2026-09-28 14:39 UTC · cp-000124 · produced ✓ · main ✓ (1185af4)
 2026-09-28 19:24 UTC · cp-000125 · produced ✓ · main ✓ (3873729)
 2026-09-28 22:25 UTC · cp-000126 · produced ✓ · main ✓ (17c1790)
+2026-09-29 15:32 UTC · cp-000127 · produced ✓ · main ✓ (17d5a03; published 99a9831)
+Note: cp-000120 (Amsterdam University College) is the lowest id in 106-150 with no record, but it is a joint-degree target and outside counselor production scope (Production Instructions 4.1), so it was skipped, not blocked. The next in-scope target, cp-000127, was produced instead. The routine's range-complete check should treat cp-000120 and cp-000147 (also joint-degree) as out of scope.
