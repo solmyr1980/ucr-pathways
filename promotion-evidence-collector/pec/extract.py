@@ -100,21 +100,24 @@ def extract_docx(data: bytes) -> ExtractedDocument:
     doc.metadata_title = (props.title or "").strip()
     doc.metadata_date = _iso(props.created) or _iso(props.modified)
 
+    # Word paragraphs are real paragraph boundaries, so they are separated by
+    # a blank line. List items stay attached to the paragraph before them.
     blocks: list[str] = []
-    current: list[str] = []
+    current = ""
     for para in document.paragraphs:
         text = para.text.strip()
         style = (para.style.name or "").lower() if para.style is not None else ""
         if style.startswith("heading") and current:
-            blocks.append("\n".join(current))
-            current = []
-        if text:
-            prefix = "- " if "list" in style else ""
-            current.append(prefix + text)
-        elif current and current[-1] != "":
-            current.append("")
+            blocks.append(current)
+            current = ""
+        if not text:
+            continue
+        if "list" in style:
+            current += ("\n- " if current else "- ") + text
+        else:
+            current += ("\n\n" if current else "") + text
     if current:
-        blocks.append("\n".join(current))
+        blocks.append(current)
     for table in document.tables:
         rows = []
         for row in table.rows:

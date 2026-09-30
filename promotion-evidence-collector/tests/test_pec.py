@@ -216,3 +216,82 @@ def test_l3_counts_distinct_primary_domains_only(tmp_path):
     assert check["statement"].startswith("Current uploaded evidence supports Level 3 claims in 1 domain.")
     draft = generate(s, DossierOptions())
     assert draft.overview_header["L3 domains supported"] == "1"
+
+
+# ---------------------------------------------------------------------------
+# Regressions found on the first real batch (generic text, no real documents)
+
+
+def test_candidate_written_documents_are_self_description():
+    from pec.signals import detect_genre
+
+    assert detect_genre("Teaching_Portfolio.docx", "Portfolio") == "reflective"
+    assert detect_genre("letter_of_motivation.pdf", "Dear colleagues") == "application"
+    assert detect_genre("Letter_2022.pdf", "With this Letter of Motivation, I would like to apply for the programme.") == "application"
+    assert detect_genre("Letter_2022.pdf", "Dear Dr. X, we are pleased to appoint you.") == "letter"
+
+
+def test_intentions_are_not_completed_work():
+    d = classify("If appointed, I will lead and manage the tutoring system and develop it further across UCR.")
+    assert d.status == "CONTEXT" and d.level == "Not assigned"
+    d = classify("I am keen to develop management experience and see great potential for the tutoring system at UCR.")
+    assert d is None or d.level != "L3A"
+
+
+def test_inquiry_question_in_proposal_stays_potential_l3b():
+    d = classify("This project seeks to make an intervention in the curriculum. The pedagogical question of this project: "
+                 "To what extent can an interdisciplinary educational intervention bridge the disciplines at UCR?")
+    assert d.level == "L3B" and d.status == "POTENTIAL"
+
+
+def test_course_development_is_not_curriculum_leadership():
+    d = classify("Course Creator: Developed core courses in film and media that shape institutional teaching.")
+    assert d.level == "L2"
+
+
+def test_headings_and_self_assessments_are_not_evidence():
+    assert classify("Teaching-Related Grants, Fellowships, and Awards") is None
+    d = classify("My record demonstrates sustained leadership in institutional teaching development and contribution to pedagogical knowledge. This aligns with Level 3A and Level 3B criteria.")
+    assert d.status == "CONTEXT"
+
+
+def test_service_and_educational_presentations_are_context():
+    assert classify("Journal Reviewer: Reviewer for journals that shape disciplinary teaching.").status == "CONTEXT"
+    assert classify("Conference Presentations: Presented at international meetings on teaching-relevant methods.").status == "CONTEXT"
+
+
+def test_spelled_out_numbers_show_reach():
+    d = classify("Head Tutor: Oversaw advising quality and teaching quality across seventeen faculty tutors.")
+    assert d.level == "L3A" and d.status == "VERIFIED"
+
+
+def test_wrapped_pdf_prose_is_rejoined():
+    from pec.signals import segment
+
+    page = ("This project seeks to make an interdisciplinary intervention in the curriculum by bringing\n"
+            "together professors and students from different disciplines. The fundamental question: To\n"
+            "what extent can an interdisciplinary educational intervention bridge the disciplines at UCR?\n"
+            "Short closing line.\n" + "Filler sentence about the humanities and their place in the college. " * 12)
+    passages = segment(page)
+    assert any("To what extent can an interdisciplinary educational intervention bridge" in p.replace("\n", " ") for p in passages)
+
+
+def test_metadata_author_alone_creates_one_authorship_item(tmp_path):
+    import pymupdf
+
+    pdf = pymupdf.open()
+    page = pdf.new_page()
+    page.insert_textbox(pymupdf.Rect(50, 50, 545, 800), "College Advising Handbook\n\n" + (
+        "The Head Tutor oversees the tutoring system, coordinates training of tutors, appraises tutors, and reports "
+        "findings to the Board of Studies.\n\nTutors advise students on course selection and hold office hours. ") * 3, fontsize=10)
+    pdf.set_metadata({"author": "Doe, Jordan"})
+    data = pdf.tobytes()
+    s = Store(tmp_path / "meta.sqlite3")
+    s.set_setting("candidate_name", "Jordan Doe")
+    ingest(s, "Advising_Handbook.pdf", data)
+    analyze(s, "rules")
+    items = queries.evidence(s)
+    authorship = [i for i in items if i["title"].startswith("Possible authorship")]
+    assert len(authorship) == 1 and "unclear_authorship" in authorship[0]["review_reasons"]
+    assert authorship[0]["status"] == "POTENTIAL" and authorship[0]["level"] == "Not assigned"
+    assert all(i["status"] in ("CONTEXT", "POTENTIAL") for i in items)

@@ -253,7 +253,8 @@ class Member:
 
     @property
     def l3a_ok(self) -> bool:
-        return self.draft.level == "L3A" and self.sig.action and self.sig.scope and not self.sig.membership_only
+        return (self.draft.level == "L3A" and self.sig.action and self.sig.scope and not self.sig.membership_only
+                and not self.sig.intent_only)
 
 
 @dataclass
@@ -362,11 +363,13 @@ def _load_members(store: Store, candidate_name: str) -> list[Member]:
         genre = doc["genre"]
         self_desc = genre in sg.SELF_GENRES or (sig.first_person and genre in SELF_FIRST_PERSON_GENRES)
         mentions = sg.mentions_person(row["text"], candidate_name)
-        linked = self_desc or mentions or doc_linked[doc["id"]] or meta_linked[doc["id"]]
+        # A metadata author field does not link a passage to the candidate.
+        # Such documents produce one authorship item for review instead.
+        linked = self_desc or mentions or doc_linked[doc["id"]]
         members.append(Member(
             passage_id=row["pid"], doc=doc, page_no=row["page_no"], text=row["text"], norm_hash=row["norm_hash"],
             draft=draft, sig=sig, self_desc=self_desc, linked=linked,
-            metadata_link_only=linked and not (self_desc or mentions or doc_linked[doc["id"]]),
+            metadata_link_only=not linked and meta_linked[doc["id"]],
             group=groups.get(doc["id"], doc["id"]),
         ))
     return members
@@ -429,6 +432,8 @@ def build_item(key: str, members: list[Member], store: Store, inquiry_cache: dic
             + (", and a second source links the candidate to it." if len(all_groups) >= 2 else ".")
         )
         primary = l3a_self[0] if l3a_self else primary
+        if not any(m.linked and not m.self_desc for m in members):
+            notes.append("No independent uploaded source names the candidate in this role. The link rests on the candidate's own account.")
         decided = True
     elif l3a_self:
         level, status, confidence = "L3A", "SUPPORTED", "Medium"
@@ -509,7 +514,12 @@ def build_item(key: str, members: list[Member], store: Store, inquiry_cache: dic
     # Dates and contradictions.
     ranges: dict[int, tuple[str, str]] = {}
     starts, ends = [], []
+    entity_def = next((e for e in sg.ENTITIES if e.key == key), None)
     for m in linked:
+        if entity_def and not re.search(entity_def.pattern, m.text, re.I):
+            continue  # a date elsewhere in the passage may not belong to the role
+        if entity_def and m.doc["genre"] == "application":
+            continue  # an application predates the role it applies for
         start, end = sg.date_range(m.text)
         if start:
             starts.append(start)
@@ -524,11 +534,6 @@ def build_item(key: str, members: list[Member], store: Store, inquiry_cache: dic
     real_ends = [e for e in ends if e != "present"]
     date_end = "present" if "present" in ends else (max(real_ends) if real_ends else "")
 
-    if any(m.metadata_link_only for m in linked):
-        reasons.append("unclear_authorship")
-        notes.append("The only link to the candidate is the file's metadata author field, which does not establish authorship.")
-        if status == "VERIFIED":
-            status = "SUPPORTED"
 
     if confidence == "Low":
         reasons.append("low_confidence")
@@ -539,6 +544,11 @@ def build_item(key: str, members: list[Member], store: Store, inquiry_cache: dic
     for m in sorted(linked + role_desc, key=lambda x: (x.self_desc, -len(x.text))):
         if m.passage_id == primary.passage_id:
             continue
+        if m.sig.intent_only and status != "CONTEXT":
+            continue  # a statement of intention does not support completed work
+        if (m.doc["genre"] == "application" and primary.doc["genre"] != "application"
+                and status in ("VERIFIED", "SUPPORTED") and level in ("L3A", "L3B")):
+            continue  # an application for a role does not show work done in it
         role = "duplicate copy" if m.norm_hash in seen_hashes else "supporting"
         seen_hashes.add(m.norm_hash)
         sources.append((m.passage_id, role, m.self_desc))
@@ -562,6 +572,34 @@ def build_item(key: str, members: list[Member], store: Store, inquiry_cache: dic
         confidence=confidence, date_start=date_start, date_end=date_end, missing=missing,
         notes=list(dict.fromkeys(notes)), reasons=list(dict.fromkeys(reasons)), sources=sources,
     )
+
+
+def authorship_items(store: Store, members: list[Member]) -> list[Item]:
+    """One review item per document whose only link to the candidate is the
+    file's metadata author field."""
+    by_doc: dict[int, list[Member]] = defaultdict(list)
+    for m in members:
+        if m.metadata_link_only:
+            by_doc[m.doc["id"]].append(m)
+    items = []
+    for doc_id, ms in by_doc.items():
+        doc = ms[0].doc
+        first = store.one("SELECT text FROM pages WHERE document_id = ? ORDER BY page_no LIMIT 1", (doc_id,))
+        heading = next((ln.strip() for ln in (first["text"] if first else "").splitlines() if len(ln.strip()) >= 8), doc["filename"])
+        full = "\n".join(r["text"] for r in store.q("SELECT text FROM pages WHERE document_id = ?", (doc_id,)))
+        domains = sg.pick_domains(sg.domain_scores(full)) or [6]
+        types = ["W"] if doc["genre"] in WORK_GENRES or doc["genre"] == "other" else []
+        items.append(Item(
+            fingerprint=f"authorship:{doc_id}", title=f"Possible authorship: {heading[:90]}",
+            claim=f"The file metadata lists \"{doc['metadata_author']}\" as author of {doc['filename']}. The document text does not name the candidate.",
+            domains=domains, level="Not assigned",
+            level_reason="A metadata author field does not establish authorship, so no level is assigned.",
+            evidence_types=types, status="POTENTIAL", confidence="Low",
+            missing=["Documentation establishing authorship or substantial contribution, for example minutes, an email, a commissioning note, or a title page naming the candidate."],
+            reasons=["unclear_authorship"],
+            sources=[(ms[0].passage_id, "primary", False)],
+        ))
+    return items
 
 
 def _terms(text: str) -> set[str]:
@@ -601,6 +639,7 @@ def rebuild(store: Store) -> dict:
             clusters[into].extend(clusters.pop(key))
     inquiry_cache: dict = {}
     items = [i for i in (build_item(k, v, store, inquiry_cache) for k, v in clusters.items()) if i]
+    items.extend(authorship_items(store, members))
     suggest_corroboration(items)
 
     with store.tx() as c:

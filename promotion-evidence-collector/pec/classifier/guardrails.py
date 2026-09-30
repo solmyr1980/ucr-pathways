@@ -38,6 +38,12 @@ def apply(draft: Draft) -> Draft:
     s = sg.compute(draft.passage)
     active = draft.status in ("VERIFIED", "SUPPORTED")
 
+    if s.intent_only and draft.level in ("L2", "L3A", "L3B", "L4") and active:
+        draft.status = "POTENTIAL"
+        draft.level_reason = "The passage states intended or planned work, not completed work. " + draft.level_reason
+        _add_missing(draft, "A source showing that the intended work was carried out.")
+        active = False
+
     if draft.level == "L3A":
         if s.membership_only:
             draft.level = "L2"

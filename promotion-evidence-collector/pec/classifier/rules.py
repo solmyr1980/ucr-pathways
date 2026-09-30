@@ -49,7 +49,9 @@ def _types(s: sg.Signals, *extra: str) -> list[str]:
 
 def is_relevant(text: str, s: sg.Signals, entity: sg.Entity | None) -> bool:
     if len(text) < 30 and not sg.YEAR_RE.search(text):
-        return False  # headings and fragments
+        return False  # fragments
+    if s.heading:
+        return False  # section headings such as "Teaching-Related Grants"
     if entity:
         return True
     top = max(s.domain_scores.values() or [0])
@@ -64,7 +66,10 @@ def is_relevant(text: str, s: sg.Signals, entity: sg.Entity | None) -> bool:
     return s.total_domain_score >= 3 and top >= 2
 
 
-def classify_passage(text: str, page_no: int = 1) -> Draft | None:
+PLAN_GENRES = {"application", "proposal"}
+
+
+def classify_passage(text: str, page_no: int = 1, genre: str = "") -> Draft | None:
     s = sg.compute(text)
     entity = sg.match_entity(text)
     if not is_relevant(text, s, entity):
@@ -88,6 +93,20 @@ def classify_passage(text: str, page_no: int = 1) -> Draft | None:
 
     kind = entity.kind if entity else ""
 
+    # 0. Self-assessment against the framework and stated intentions.
+    if s.self_assessment and not s.action:
+        return draft(
+            status="CONTEXT", confidence="High", evidence_types=_types(s),
+            level_reason="A statement of the level the candidate claims. It is not evidence of that level.",
+        )
+    edu_inquiry = sg.educational_inquiry(s) or (kind == "project" and s.edu_object and len(s.inquiry) >= 2)
+    if s.intent_only and not edu_inquiry:
+        return draft(
+            status="CONTEXT", confidence="High", evidence_types=_types(s),
+            level_reason="The passage states intended or planned work, not completed work.",
+            missing_evidence=["A source showing that the intended work was carried out."],
+        )
+
     # 1. Teaching qualifications.
     if kind == "qualification" or (s.qualification and re.search(r"teaching qualification|\b(SU?TQ|UTQ)\b|SKO|BKO", text, re.I)):
         return draft(
@@ -103,10 +122,13 @@ def classify_passage(text: str, page_no: int = 1) -> Draft | None:
             notes="Educational relevance would need a source showing work on teaching, curriculum, or educational policy.",
         )
 
-    edu_inquiry = sg.educational_inquiry(s) or (kind == "project" and s.edu_object and len(s.inquiry) >= 2)
-
-    # 3. Disciplinary scholarship, presentations and peer review.
-    if (s.publication or s.presentation or s.peer_review) and not edu_inquiry and (s.disciplinary or not s.edu_object):
+    # 3. Disciplinary scholarship, presentations and peer review. A
+    # publication or presentation on an educational topic without documented
+    # inquiry is also context. Supervising students whose work was published
+    # is teaching and is handled below.
+    supervision = bool(re.search(r"\bsupervis", text, re.I))
+    if (s.peer_review and not edu_inquiry) or (
+            (s.publication or s.presentation) and not edu_inquiry and not supervision):
         if s.student_coauthor:
             return draft(
                 title=_title(text, entity, generic) if (entity or generic) else "Co-authored disciplinary research with former student",
@@ -118,6 +140,12 @@ def classify_passage(text: str, page_no: int = 1) -> Draft | None:
             return draft(
                 domains=[6], evidence_types=_types(s, "R"), status="CONTEXT", confidence="High" if s.disciplinary else "Medium",
                 level_reason="External academic service in the discipline. It is relevant context but not evidence of educational leadership or educational inquiry.",
+            )
+        if s.edu_object and not s.disciplinary:
+            return draft(
+                domains=[6], evidence_types=_types(s, "W"), status="CONTEXT", confidence="Medium",
+                level_reason="A presentation or publication on an educational topic. Without a documented inquiry question, method, and findings it is context, not L3B.",
+                missing_evidence=["For L3B: the educational question, method, evidence, findings, and use in practice."],
             )
         return draft(
             domains=[6], evidence_types=_types(s, "W"), status="CONTEXT", confidence="High" if s.disciplinary else "Medium",
@@ -166,8 +194,16 @@ def classify_passage(text: str, page_no: int = 1) -> Draft | None:
             level_reason="An award is recognition. It does not by itself demonstrate institutional impact.",
         )
 
-    # 6. Institutional leadership.
-    if s.action and s.scope and not s.membership_only:
+    # 6. Institutional leadership. In the candidate's own first-person account
+    # only completed actions count. Course development counts only with
+    # explicit reach across UCR or the curriculum.
+    if s.course_development and not s.broad_reach:
+        return draft(
+            level="L2", status="VERIFIED", confidence="Medium",
+            level_reason="Course development beyond own teaching. Developing courses does not by itself establish curriculum leadership.",
+            missing_evidence=["Evidence that the courses changed curriculum or practice beyond the candidate's own teaching, for example programme documents or adoption records."],
+        )
+    if s.action and s.scope and not s.membership_only and (s.completed_action or not s.first_person):
         return draft(
             title=_title(text, entity, generic, l3a=True), level="L3A", status="VERIFIED",
             confidence="High" if s.action_count >= 2 else "Medium",
@@ -213,7 +249,12 @@ def classify_passage(text: str, page_no: int = 1) -> Draft | None:
             level_reason="Contribution beyond own teaching, for example work with colleagues or on curriculum beyond one course. Institutional reach is not shown.",
         )
 
-    # 8. Own teaching, design, tutoring and evaluations.
+    # 8. Own teaching, design, tutoring and evaluations. Argument or background
+    # prose without a described activity is not evidence.
+    if not (s.activity or "E" in s.types or "REFLECTIVE" in s.types or entity):
+        return None
+    if genre in PLAN_GENRES and not entity:
+        return None  # background or argument in an application or proposal
     reason = "Documents the candidate's own teaching, course design, or tutoring practice."
     if "E" in s.types:
         reason = "Evaluation of the candidate's own teaching or tutoring."
@@ -228,7 +269,7 @@ class RuleEngine:
         drafts: list[Draft] = []
         for page_no, page in enumerate(doc.pages, start=1):
             for passage in sg.segment(page):
-                result = classify_passage(passage, page_no)
+                result = classify_passage(passage, page_no, doc.genre)
                 if result is not None:
                     drafts.append(result)
         return drafts

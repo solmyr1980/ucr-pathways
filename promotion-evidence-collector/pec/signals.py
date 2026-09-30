@@ -21,10 +21,11 @@ SELF_GENRES = {"cv", "reflective", "biography", "application"}
 GENRE_PATTERNS: list[tuple[str, str, str]] = [
     # (genre, filename pattern, text pattern)
     ("cv", r"\b(cv|resume|curriculum[ _-]?vitae|vita)\b", r"\bcurriculum vitae\b|\bresum[eé]\b"),
-    ("reflective", r"reflect|teaching[ _-]statement|teaching[ _-]philosophy|personal[ _-]statement|self[ _-]?(evaluation|assessment)|narrative",
+    ("reflective", r"reflect|portfolio|teaching[ _-]statement|teaching[ _-]philosophy|personal[ _-]statement|self[ _-]?(evaluation|assessment)|narrative",
      r"\breflective statement\b|\bteaching statement\b|\bteaching philosophy\b|\bpersonal statement\b|\bself-evaluation\b"),
     ("biography", r"\bbio(graphy)?\b", r"^\s*(dr\.?|prof\.?)?\s*[A-Z][a-z]+ [A-Z][a-z]+ is an? (assistant|associate|professor|lecturer)"),
-    ("application", r"application|promotion[ _-]request", r"\bapplication for\b"),
+    ("application", r"application|promotion[ _-]request|motivation|cover[ _-]letter|sollicitatie",
+     r"\bapplication for\b|\bletter of motivation\b|\bI am applying\b|\bI would like to apply\b|\bapply for the\b"),
     ("certificate", r"certificat|diploma|\bsutq\b|\bsko\b|\bbko\b|\butq\b", r"\bcertif(y|ies|icate)\b|\bhas successfully completed\b|\bis hereby awarded\b"),
     ("minutes", r"minutes|notulen", r"\bminutes of\b|\bpresent:\s|\bapologies:\s|\baction points?\b"),
     ("handbook", r"handbook|manual|guide", r"\bhandbook\b"),
@@ -42,8 +43,13 @@ GENRE_PATTERNS: list[tuple[str, str, str]] = [
 def detect_genre(filename: str, text: str) -> str:
     name = filename.lower()
     head = text[:3000]
+    application_text = next(p[2] for p in GENRE_PATTERNS if p[0] == "application")
     for genre, fname_pat, _ in GENRE_PATTERNS:
         if re.search(fname_pat, name, re.I):
+            # A letter the candidate wrote to apply for something is the
+            # candidate's own account, not an independent letter.
+            if genre == "letter" and re.search(application_text, head, re.I | re.M):
+                return "application"
             return genre
     for genre, _, text_pat in GENRE_PATTERNS:
         if re.search(text_pat, head, re.I | re.M):
@@ -57,6 +63,7 @@ def detect_genre(filename: str, text: str) -> str:
 BULLET = re.compile(r"^\s*([-*•▪●‣]|\d+[.)])\s+")
 DATE_LINE = re.compile(r"^\s*(\d{4}|[A-Z][a-z]{2,8}\.? \d{4})")
 MAX_PASSAGE = 700
+WRAP_WIDTH = 55  # a line at least this long is treated as wrapped prose
 TARGET_WINDOW = 480
 
 
@@ -86,21 +93,30 @@ def segment(page_text: str) -> list[str]:
         if len(joined) <= MAX_PASSAGE:
             passages.append(joined)
             continue
-        # Group lines into entries that start with a date or a non-bullet line
-        # followed by bullets.
-        entries: list[list[str]] = []
+        # Rebuild paragraphs. A full-width line (PDF line wrap) continues the
+        # paragraph. A short line ends it. Bullets attach to a short heading
+        # line such as a CV entry title.
+        paras: list[str] = []
         for line in lines:
-            starts_entry = not BULLET.match(line) and (DATE_LINE.match(line) or len(line) < 120)
-            if not entries or (starts_entry and sum(len(x) for x in entries[-1]) > 60):
-                entries.append([line])
+            if not paras:
+                paras.append(line)
+                continue
+            prev = paras[-1]
+            last_line = prev.split("\n")[-1]
+            if BULLET.match(line):
+                if len(prev) < 120 and "\n" not in prev and not BULLET.match(prev):
+                    paras[-1] = prev + "\n" + line
+                else:
+                    paras.append(line)
+            elif len(last_line.strip()) >= WRAP_WIDTH:
+                paras[-1] = prev + " " + line.strip()
             else:
-                entries[-1].append(line)
-        for entry in entries:
-            text = "\n".join(entry)
-            if len(text) <= MAX_PASSAGE:
-                passages.append(text)
+                paras.append(line)
+        for para in paras:
+            if len(para) <= MAX_PASSAGE:
+                passages.append(para)
             else:
-                passages.extend(_split_long(re.sub(r"\s*\n\s*", " ", text)))
+                passages.extend(_split_long(re.sub(r"\s*\n\s*", " ", para)))
     return [p.strip() for p in passages if len(re.sub(r"\W", "", p)) >= 12]
 
 
@@ -237,7 +253,7 @@ DOMAIN_TERMS: dict[int, list[tuple[str, int]]] = {
         (r"\bexam(s|ination|inations)?\b", 1), (r"\blearning (outcomes|objectives|goals)\b", 2),
         (r"\bcourse design\b|\bdesign(ed|ing)? (a |the |new )?(course|module|assignment)", 3),
         (r"\bsyllab(us|i)\b", 2), (r"\bconstructive alignment\b", 3), (r"\bassignments?\b", 1)],
-    3: [(r"\btutor(s|ing|ed|ial)?\b", 2), (r"\bhead tutor\b", 3), (r"\badvis(ing|ed|e|ees?|ors?|er|ers)\b", 2),
+    3: [(r"\btutor(s|ing|ed|ial)?\b", 3), (r"\bhead tutor\b", 3), (r"\badvis(ing|ed|e|ees?|ors?|er|ers)\b", 2),
         (r"\bacademic advising\b", 3), (r"\bstudy advice\b", 2), (r"\bportfolios?\b", 1), (r"\bbelonging\b", 2),
         (r"\bstudent (development|wellbeing|well-being|support)\b", 2), (r"\bpastoral\b", 2), (r"\btutees?\b", 3)],
     4: [(r"\b(faculty|teacher|staff|professional) development\b", 3), (r"\bprofessional learning\b", 3),
@@ -292,7 +308,7 @@ ACTION_RE = re.compile(
     r"reform\w*|apprais(ed|es|ing)|appraise|train(ed|s|ing)|supervis(ed|es|ing)|organi[sz](ed|es|ing)|initiat\w*|"
     r"draft(ed|s|ing)|wrote|author(ed)|launch\w*|set up|buil[dt]\w*|creat(ed|es|ing)|redesign\w*|"
     r"report(ed|s|ing)? (findings|recommendations|to the)|ensur(ed|es|ing)|responsible for|advis(ed|es) the (board|executive)|"
-    r"negotiat\w*|spearhead\w*|convened?|rolled out|embedded|integrat(ed|es|ing))\b",
+    r"negotiat\w*|spearhead\w*|convened?|rolled out|embedded|integrat(ed|es|ing)|conduct(ed|s|ing)|mentor(ed|ing))\b",
     re.I,
 )
 
@@ -304,7 +320,9 @@ SCOPE_RE = re.compile(
     r"(the|social sciences?|humanities|sciences?|arts|academic core) department|"
     r"(tutoring|advising|mentoring|assessment|curriculum|feedback|quality assurance|training) (system|structure|framework|policy|policies|guidelines|procedures)|"
     r"accreditation|nvao|self[-\s]evaluation report|teaching quality|"
-    r"\d+\s+(faculty\s+|academic\s+)?(tutors|faculty|advisors|advisers|staff|teachers|lecturers|colleagues|members of staff))\b",
+    r"(\d+|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty)\s+"
+    r"(faculty\s+|academic\s+)?(tutors|faculty|advisors|advisers|staff|teachers|lecturers|colleagues|members of staff|instructors)|"
+    r"departmental (strategy|curriculum|budgets?|structures?|policy)|across (the )?(social sciences|humanities|sciences|academic core|department))\b",
     re.I,
 )
 
@@ -350,7 +368,7 @@ AWARD_RE = re.compile(r"\b(award(ed)?|prize|nominated|nomination|honou?r(ed)?|fe
 GRANT_RE = re.compile(r"\b(grant(s|ed)?|funding|funded|fund)\b", re.I)
 EDU_GRANT_RE = re.compile(r"\b(educational|teaching|education|innovation|comenius|senior fellow|teaching fellow)\b", re.I)
 PD_GRANT_RE = re.compile(r"\bprofessional[-\s]development\b", re.I)
-PEER_REVIEW_RE = re.compile(r"\b(peer[-\s]review(er|ed|ing)? for|reviewer for|referee for|reviewed (manuscripts|articles|for)|editorial board|external examiner|external reviewer|advisory board|panel member)\b", re.I)
+PEER_REVIEW_RE = re.compile(r"\b(peer[-\s]review(er|ed|ing)? for|reviewer for|journal reviewer|editor(ial)?\b|edited|advisory roles?|conference organi[sz]ation|organi[sz]ed (international )?(conferences|symposia)|referee for|reviewed (manuscripts|articles|for)|editorial board|external examiner|external reviewer|advisory board|panel member)\b", re.I)
 EXTERNAL_RE = re.compile(r"\b(national|international|external(ly)?|other universities|beyond ucr|dutch universities|european)\b", re.I)
 GOVERNANCE_RE = re.compile(r"\bworks council\b|\bondernemingsraad\b|\bstaff council\b|\bunion\b|\bemployee (participation|representation)\b", re.I)
 REFLECTIVE_RE = re.compile(r"\b(i (learned|learnt|realised|realized|reflect\w*|came to|now see|believe)|my (approach|philosophy|development|aim) |reflect(ion|ive|ing)|looking back|in retrospect|lessons? learned)\b", re.I)
@@ -358,6 +376,20 @@ WORK_RE = re.compile(r"\b(handbook|course materials?|syllab(us|i)|curriculum pro
 EVAL_RE = re.compile(r"\b(student evaluations?|course evaluations?|evaluation (scores?|results|report)|peer observation|observed|reviewer comments?|formal feedback|accreditation (feedback|panel|report)|committee evaluation|performance review|annual review|appraisal|p&d|r&o|mean score|average score|rated|satisfaction)\b", re.I)
 USE_RE = re.compile(r"\b(implemented|adopted|in use|continue[sd]? to be used|still used|rolled out|became (standard|established|the norm)|established practice|used by (colleagues|all|other)|embedded in|institutionali[sz]ed|now used|has been used|standard practice|taken up|incorporated into)\b", re.I)
 RECOGNITION_RE = re.compile(r"\b(award(ed)?|prize|competitive|invited|keynote|selected|fellowship|nominated|external adoption|grant(ed)?)\b", re.I)
+INTENT_RE = re.compile(
+    r"\b(I|we)\s+(will|would|shall|plan to|intend to|hope to|aim to|seek to|expect to|look forward to|can imagine|foresee)\b"
+    r"|\bif (appointed|selected|successful)\b|\bmy (basic )?idea is to\b|\bthe (ambitious )?goal of (my|this) project\b|\b(this|the) (project|intervention|course|programme|program) (will|seeks to|aims to)\b",
+    re.I,
+)
+COURSE_DEV_RE = re.compile(r"\b(develop|design|creat|build|buil)\w*\b[^.;]{0,60}\bcourses?\b|\bcourse creator\b", re.I)
+BROAD_REACH_RE = re.compile(r"\bacross (ucr|the college|the curriculum|departments|clusters|programmes|programs)\b|\b(ucr|college|curriculum)[-\s]wide\b", re.I)
+SELF_ASSESSMENT_RE = re.compile(r"\blevel\s*3\s*[ab]?\b|\bL3[AB]?\b|\b(3A|3B) criteria\b", re.I)
+ACTIVITY_RE = re.compile(
+    r"\b(taught|teach(es|ing)?|lectur\w+|tutor(ed|ing|s)?|advis(ed|ing|or|ors)|supervis\w+|mentor\w*|guided|coordinat\w+|"
+    r"grad(ed|ing)|assess(ed|ing)|design(ed|ing)|develop(ed|ing)|organi[sz]ed|presented|evaluat\w+|served|chair\w*|managed|led)\b",
+    re.I,
+)
+PAST_ACTION_RE = re.compile(r"(ed|\bled|oversaw|wrote|built|set up|rolled out|began|ran)$", re.I)
 FIRST_PERSON_RE = re.compile(r"\b(I|my|me)\b")
 SECOND_PERSON_RE = re.compile(r"\b(you|your)\b", re.I)
 
@@ -386,6 +418,13 @@ class Signals:
     peer_review: bool = False
     external: bool = False
     governance: bool = False
+    intent_only: bool = False  # states intentions or plans without a completed action
+    completed_action: bool = False
+    course_development: bool = False
+    broad_reach: bool = False
+    self_assessment: bool = False
+    activity: bool = False
+    heading: bool = False
     first_person: bool = False
     second_person: bool = False
     types: set[str] = field(default_factory=set)
@@ -401,6 +440,16 @@ def compute(text: str) -> Signals:
     actions = ACTION_RE.findall(text)
     s.action_count = len(actions)
     s.action = s.action_count > 0
+    completed = any(PAST_ACTION_RE.search(m.group(0)) for m in ACTION_RE.finditer(text))
+    s.completed_action = completed
+    s.intent_only = bool(INTENT_RE.search(text)) and not completed
+    s.course_development = bool(COURSE_DEV_RE.search(text))
+    s.broad_reach = bool(BROAD_REACH_RE.search(text))
+    s.self_assessment = bool(SELF_ASSESSMENT_RE.search(text))
+    s.activity = bool(ACTIVITY_RE.search(text))
+    words = [w for w in re.findall(r"[A-Za-z][\w'-]*", text) if len(w) > 3]
+    s.heading = (len(text) < 90 and "\n" not in text.strip() and not re.search(r"[.:;]", text) and not YEAR_RE.search(text)
+                 and bool(words) and sum(w[0].isupper() for w in words) / len(words) >= 0.6)
     s.scope = bool(SCOPE_RE.search(text))
     s.leadership_word = bool(LEADERSHIP_WORD_RE.search(text))
     s.membership_only = bool(MEMBERSHIP_RE.search(text)) and not s.leadership_word and s.action_count == 0
