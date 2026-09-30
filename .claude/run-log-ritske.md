@@ -25,3 +25,5 @@
 Note: cp-000120 (Amsterdam University College) is the lowest id in 106-150 with no record, but it is a joint-degree target and outside counselor production scope (Production Instructions 4.1), so it was skipped, not blocked. The next in-scope target, cp-000127, was produced instead. The routine's range-complete check should treat cp-000120 and cp-000147 (also joint-degree) as out of scope.
 2026-09-29 19:20 UTC · cp-000128 · produced ✓ · main ✓ (bf5b686; published dd12408)
 2026-09-29 22:55 UTC · cp-000129 · produced ✓ · main ✓ (e7057b5; published 3e49d2a)
+2026-09-30 13:21 UTC · cp-000130 · produced ✓ · main ✓ (aeaed54; published ed0154e)
+Note: The official Maastricht curriculum page publishes the revised ELS outline only as an image without EC values, and curriculum.maastrichtuniversity.nl was unreachable; year-1 EC came from the 2025-26 Faculty of Law PDF, year-2 EC and the 12-EC essay from the 2024-25 archive PDF, and the 48 EC year-3 elective space (8 x 6 EC) is derived by arithmetic and flagged in the decision sourceNotes. A human may want to confirm it against the current Education and Examination Regulations.
