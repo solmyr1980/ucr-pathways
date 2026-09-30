@@ -27,3 +27,5 @@ Note: cp-000120 (Amsterdam University College) is the lowest id in 106-150 with 
 2026-09-29 22:55 UTC · cp-000129 · produced ✓ · main ✓ (e7057b5; published 3e49d2a)
 2026-09-30 13:21 UTC · cp-000130 · produced ✓ · main ✓ (aeaed54; published ed0154e)
 Note: The official Maastricht curriculum page publishes the revised ELS outline only as an image without EC values, and curriculum.maastrichtuniversity.nl was unreachable; year-1 EC came from the 2025-26 Faculty of Law PDF, year-2 EC and the 12-EC essay from the 2024-25 archive PDF, and the 48 EC year-3 elective space (8 x 6 EC) is derived by arithmetic and flagged in the decision sourceNotes. A human may want to confirm it against the current Education and Examination Regulations.
+2026-09-30 18:25 UTC · cp-000131 · produced ✓ · main ✓ (7ce761c; published 471c019)
+Note: The 2025-26 Faculty course descriptions list every EPH course with EC but not the 30-EC year-2 minor; it is derived by arithmetic (180 less 60, 30 and 60) and flagged in the decision sourceNotes. A human may want to confirm it against the Education and Examination Regulations.
