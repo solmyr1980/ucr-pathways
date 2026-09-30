@@ -319,7 +319,7 @@ def portfolio_entry(item: dict, refs: References, include_passages: bool) -> Por
 
 
 def _best(items: list[dict], domain: int) -> dict | None:
-    in_domain = [i for i in items if domain in i["domains"] and i["level"] != "Not assigned"]
+    in_domain = [i for i in items if queries.primary_domain(i) == domain and i["level"] != "Not assigned"]
     for statuses in (("VERIFIED",), ("SUPPORTED",)):
         pool = [i for i in in_domain if i["status"] in statuses]
         if pool:
@@ -340,7 +340,7 @@ def build_overview(items: list[dict], refs: References) -> tuple[dict, list[dict
         if best["level"] in L3_LEVELS and best["status"] == "VERIFIED":
             l3_verified += 1
         level = best["level"] if best["status"] != "POTENTIAL" else f"Potential {best['level']}"
-        also = [i for i in items if d in i["domains"] and i["status"] == best["status"] and i["level"] in L3_LEVELS
+        also = [i for i in items if queries.primary_domain(i) == d and i["status"] == best["status"] and i["level"] in L3_LEVELS
                 and i["level"] != best["level"] and best["level"] in L3_LEVELS]
         if also:
             level = " and ".join(sorted({best["level"], also[0]["level"]}))

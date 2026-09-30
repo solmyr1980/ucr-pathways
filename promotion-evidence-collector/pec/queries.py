@@ -82,11 +82,17 @@ def counts(store: Store) -> dict:
             "duplicate_copies": copies}
 
 
+def primary_domain(item: dict) -> int | None:
+    """An item's level counts only in its primary domain. Secondary domains
+    show relevance but never add a domain to the Level 3 count."""
+    return item["domains"][0] if item["domains"] else None
+
+
 def domain_summary(store: Store) -> list[dict]:
     items = evidence(store, "WHERE status != 'REJECT'")
     summary = []
     for number, name in fw.DOMAINS.items():
-        in_domain = [i for i in items if number in i["domains"]]
+        in_domain = [i for i in items if primary_domain(i) == number]
         supported_levels = [i["level"] for i in in_domain if i["status"] in ("VERIFIED", "SUPPORTED") and i["level"] != "Not assigned"]
         best_rank = max((fw.LEVEL_RANK[lv] for lv in supported_levels), default=0)
         best = sorted({lv for lv in supported_levels if fw.LEVEL_RANK[lv] == best_rank}) if best_rank else []
@@ -112,9 +118,9 @@ def requirement_check(store: Store) -> dict:
         for item in items:
             if not fw.level_at_least(item["level"], rule["min_level"]) or item["level"] == "Not assigned":
                 continue
-            for d in item["domains"]:
-                if d in rule["domains"]:
-                    (verified_domains if item["status"] == "VERIFIED" else supported_domains).add(d)
+            d = primary_domain(item)
+            if d in rule["domains"]:
+                (verified_domains if item["status"] == "VERIFIED" else supported_domains).add(d)
         needed = rule["min_domains"]
         if len(verified_domains) >= needed:
             outcome = "met"

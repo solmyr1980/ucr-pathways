@@ -200,3 +200,19 @@ def test_full_report_includes_context(store):
     document = docx.Document(io.BytesIO(full_report_docx(store)))
     text = "\n".join(p.text for p in document.paragraphs)
     assert "not the promotion dossier" in text and "Works Council" in text
+
+
+def test_l3_counts_distinct_primary_domains_only(tmp_path):
+    """L3A and L3B in one domain count once. Secondary domains never count."""
+    s = Store(tmp_path / "count.sqlite3")
+    rows = [("a", "L3A", [3, 4]), ("b", "L3B", [3]), ("c", "L3A", [3, 5])]
+    with s.tx() as c:
+        for fp, level, domains in rows:
+            c.execute("INSERT INTO evidence(fingerprint, title, claim, domains, level, level_reason, evidence_types, status, "
+                      "confidence) VALUES (?, ?, '', ?, ?, '', '[]', 'VERIFIED', 'High')", (fp, fp, json.dumps(domains), level))
+    check = queries.requirement_check(s)
+    l3 = next(r for r in check["checks"] if r["key"] == "L3")
+    assert l3["verified_domains"] == [3] and l3["outcome"] == "partial"
+    assert check["statement"].startswith("Current uploaded evidence supports Level 3 claims in 1 domain.")
+    draft = generate(s, DossierOptions())
+    assert draft.overview_header["L3 domains supported"] == "1"
