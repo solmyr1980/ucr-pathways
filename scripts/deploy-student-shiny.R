@@ -77,7 +77,8 @@ records <- lapply(seq_along(config$record_paths), function(index) {
   read_student_json(config$record_paths[[index]], paste("student record", config$record_ids[[index]]))
 })
 course_codes <- unlist(lapply(records, function(record) {
-  unlist(lapply(record$programmes, function(programme) {
+  ucr_programmes <- record$programmes[vapply(record$programmes, student_is_ucr_programme, logical(1))]
+  unlist(lapply(ucr_programmes, function(programme) {
     unlist(lapply(student_value(programme$schedule$semesters, list()), function(semester) {
       vapply(student_value(semester$courses, list()), function(course) as.character(student_value(course$code, "")), character(1))
     }), use.names = FALSE)
