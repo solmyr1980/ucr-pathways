@@ -64,3 +64,4 @@ Note: The 2026-27 MSLAS Education and Examination Regulations give the full 180-
 2026-10-06 UTC · cp-000149 · produced ✓ (exception: external-programme-unresolved) · main ✓ (0c3c102; published e7e2dee)
 Note: Published as an exception, not a comparison. The 2026-27 OU study guide's component table sums to 185 EC (50-EC propedeuse vs the stated 60; six portal-type courses in the schedule vs four), and theme-block membership, skills-block makeup and the choice-block/free-space split are unstated; the programme-specific 2026-27 OER was not accessible. A human may want to supply that OER curriculum and, if it resolves the structure, repair this target into a full comparison (UCR has ample history, philosophy, literature, art-history and media courses).
 2026-10-06 13:22 UTC · cp-000150 · produced ✓ · main ✓ (d08f28d; published 13e2c87)
+2026-10-06 18:14 UTC · Range complete
