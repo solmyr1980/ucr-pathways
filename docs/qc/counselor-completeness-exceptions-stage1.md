@@ -1,6 +1,6 @@
 # Counselor completeness and exceptions: first-stage audit
 
-Status: in progress. Batches 1–6 completed on 7 October 2026: all 19 scope exclusions and 41 exceptions audited within the first-stage scope. 99 exceptions remain pending.
+Status: in progress. Batches 1–7 completed on 7 October 2026: all 19 scope exclusions and 51 exceptions audited within the first-stage scope. 89 exceptions remain pending.
 
 ## Scope and method
 
@@ -17,16 +17,16 @@ The classification applies only to the stated audit scope. Resolving an external
 | Normalized registry targets | 460 | — | — |
 | In-scope targets with canonical records | 441 | — | — |
 | Completed comparisons | 301 | Outside this stage | — |
-| Completed exceptions | 140 | 41 | 99 |
+| Completed exceptions | 140 | 51 | 89 |
 | Excluded normalized targets | 19 | 19 | 0 |
-| First-stage audit cases | 159 | 60 | 99 |
+| First-stage audit cases | 159 | 70 | 89 |
 
 All 441 in-scope IDs have a canonical filename; there are no missing in-scope IDs, duplicate record filenames or out-of-scope canonical records. The review-index ID set matches both registry scope and canonical filenames. Status totals use that current generated index; all 140 indexed exceptions were additionally read directly to verify ID, exception status and formal type. Enumeration does not constitute a substantive exception audit.
 
 | Formal exception type | Corpus total | Substantively audited |
 |---|---:|---:|
 | external-programme-unresolved | 20 | 7 |
-| no-defensible-ucr-match | 117 | 32 |
+| no-defensible-ucr-match | 117 | 42 |
 | registry-exception | 3 | 2 |
 
 ## Batch 1 findings
@@ -2103,13 +2103,374 @@ Verification and closure checks:
 
 UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
 
+## Cumulative findings after batch 7
+
+| Finding | Count |
+|---|---:|
+| confirmed | 56 |
+| incorrect | 10 |
+| outdated | 0 |
+| still-unresolved | 4 |
+
+| Required action | Count |
+|---|---:|
+| none | 51 |
+| reprocess-as-comparison | 0 |
+| reassess-exception | 12 |
+| correct-registry-and-reprocess | 4 |
+| research-again-later | 3 |
+
+## Batch 7 findings
+
+Nine findings are confirmed within the external-programme scope. CP205 is incorrect in its ordinary third-year choice classification: the current TER distinguishes 15-EC minor space from 15 EC of restricted faculty courses. Its 180-EC arithmetic is sound, and specific 30-EC alternatives exist, but the stored generic open-minor description does not establish their conditions. An explicit ordinary 180-EC reconstruction and field-level remediation plan are recorded. No current UCR feasibility outcome is inferred.
+
+CP200 is the generic Dutch Languages and Cultures umbrella and retains a valid first-listed Dutch representative pathway. It is distinguished from the specifically named CP198/CP199 duplicate pair; common selected components alone do not prove duplicate normalized identity. Current formal tables control older public course lists for Astronomy, Linguistics and Applied Physics. Chemical Engineering’s internal-year discrepancy and today’s inaccessible Ocasys are preserved explicitly; the university’s current index links the exact appendix as 2026–2027. No case is classified as outdated or externally unresolved.
+
+| ID | Programme | Formal type | Finding | Required action |
+|---|---|---|---|---|
+| cp-000200 | Dutch Languages and Cultures — Dutch Language and Culture route | no-defensible-ucr-match | confirmed | none |
+| cp-000205 | Religious Studies | no-defensible-ucr-match | incorrect | reassess-exception |
+| cp-000206 | Chemistry | no-defensible-ucr-match | confirmed | none |
+| cp-000207 | Chemical Engineering | no-defensible-ucr-match | confirmed | none |
+| cp-000210 | Astronomy | no-defensible-ucr-match | confirmed | none |
+| cp-000211 | Linguistics | no-defensible-ucr-match | confirmed | none |
+| cp-000212 | Dentistry (Tandheelkunde) | no-defensible-ucr-match | confirmed | none |
+| cp-000213 | Industrial Engineering and Management | no-defensible-ucr-match | confirmed | none |
+| cp-000214 | Applied Physics | no-defensible-ucr-match | confirmed | none |
+| cp-000215 | Applied Mathematics | no-defensible-ucr-match | confirmed | none |
+
+## Batch 7 evidence and implementation plans
+
+### cp-000200 — Dutch Languages and Cultures — Dutch Language and Culture route
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-05.
+
+Existing substantive reason: The selected route is a discipline-specific Dutch Studies degree whose compulsory spine combines Dutch phonology, syntax, semantics and language acquisition with historical and present-day Dutch, medieval, early-modern and modern Dutch literature, advanced Dutch-language proficiency, research workshops and a Dutch Studies thesis. UCR offers one introductory Dutch course plus genuine general courses in literature, rhetoric, communication and psycholinguistics, but those courses do not provide a sustained advanced Dutch-language, Dutch-linguistics and Dutch-literature sequence. Constructing a 24-course UCR schedule from broader adjacent subjects would change the named academic field and leave the defining Dutch core uncovered.
+
+Current official evidence supports the generic Dutch Languages and Cultures umbrella, its two tracks and the neutral first-listed Dutch pathway at 180 EC for September 2026 entrants. CP200 is the generic target, unlike the specifically named duplicate Dutch-track pair CP198/CP199. Identical selected components alone do not make this broader normalized identity a duplicate.
+
+Provenance: data/counselor/comparisons/cp-000200.json; source worksheet row(s) 213. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [OER Nederlandse Talen en Culturen 2026–2027](https://www.rug.nl/let/onze-faculteit/organisatie/diensten-en-voorzieningen/onderwijsinstituut/oeren/2026-2027/bacheloropleidingen/delen-b/ba-oer-ntc-2627.pdf) — Cover; Articles 2.5, 3.2, 4.1, 5.1 and 8.3; PDF pp. 1, 3, 6–9, 15; Adopted 2026–2027. One ISAT 50479 bachelor has two tracks: Nederlandse Taal en Cultuur and Friese Taal en Cultuur. Article 2.5 identifies predecessor Dutch ISAT 56804. For September 2026 entrants each track has 60+60+60 EC; the adopted later years enter OCASYS in 2027–2028 and 2028–2029. Both have minor 30, faculty-wide choice 10 and thesis 10 in year three; Dutch adds two 5-EC subject units, Frisian adds internship 10. Research ateliers require two subject domains, with literature and linguistics specified for Frisian. Dutch instruction is Dutch; Frisian is Dutch or Frisian, with track-language thesis unless approved otherwise. Adopted 7 July 2026. Cover and cohort tables visually inspected.
+- [Dutch Languages and Cultures](https://www.rug.nl/bachelors/dutch-languages-and-cultures/) — Facts, two programme options, degree title and CROHO; Current official prospectus; adopted September 2026 cohort rules. Current Dutch-taught, full-time, 180-EC umbrella bachelor under 50479. It offers Dutch Language and Culture and Frisian Language and Culture. This normalized target is the generic umbrella; the Dutch track is a valid first-listed representative pathway. It differs in identity/coverage from the specifically named Dutch-track targets in the CP198/CP199 duplicate pair. Sharing a neutrally selected curriculum does not by itself prove duplicate normalized identity. The current cohort OER was retrieved again and its Dutch continuation table visually inspected.
+
+External credit structure: Stored/current Dutch representative pathway is 60+60+60=180. Final year is minor 30, faculty choice 10, thesis 10 and two 5-EC subject units. Adopted later years enter the catalogue as the September 2026 cohort progresses.
+
+Result: confirmed; required action: none.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Generic umbrella CP200 remains distinguishable from its specifically named track targets. The coordinated CP198/CP199 duplicate correction must preserve this distinction and avoid treating representative curriculum overlap alone as duplicate identity.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000205 — Religious Studies
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-06.
+
+Existing substantive reason: The Groningen bachelor is defined by sustained disciplinary study of Christianity, Judaism, Islam, Hinduism, Buddhism and indigenous South Asian traditions; comparative Religious Studies concepts and methods; anthropology, psychology and sociology of religion; ritual; sacred images and texts; religion, media, identity and politics; a dedicated specialisation; and a Religious Studies thesis. UCR has relevant courses in philosophy, sociology, politics, history, archaeology, literature, media and cultural analysis, but no course or sequence in Religious Studies, theology, comparative religion, sacred texts, lived religion or the history and practice of religious traditions. A 24-course UCR programme could examine culture, ideas and institutions around religion, yet most courses would treat religion only incidentally and would omit the target’s defining disciplinary core. Publishing it as a closest match would therefore misstate what UCR teaches.
+
+The complete disciplinary Religious Studies core and English identity are supported. The stored third-year 30-EC generic open minor overstates ordinary choice freedom: adopted Article 7.1 separates 15 minor from 15 restricted faculty courses. Specific 30-EC alternatives/replacements are permitted, but the record does not identify the alternative and conditions needed to justify its unrestricted label. A complete ordinary 180-EC route is now explicitly verified.
+
+Provenance: data/counselor/comparisons/cp-000205.json; source worksheet row(s) 218. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Fresh rc-0029, resolved 12 September 2026, merges offerings and corrects instruction language to English while retaining Dutch-coded offering as stale raw provenance. Current prospectus and adopted TER support the correction; permission to submit some assessments in Dutch does not change instruction language.
+
+Current official sources (checked 7 October 2026):
+
+- [Religious Studies](https://www.rug.nl/bachelors/religious-studies/?lang=en) — Identity, years one/two and third-year alternatives, thesis and science communication; Current undated prospectus; formal TER controls 2026–2027. English, 180 EC, 50902. First and second years each show eight compulsory 7.5-EC religion/methods units. Third year includes thesis seminar 7.5, thesis 10, science communication 5 and named specialisation alternatives 7.5. The webpage presents 30-EC minor options without explaining the ordinary formal 15-EC minor plus 15-EC faculty-course restriction. Its contemporary social/political emphasis supports the selected Cultural and Political Impact of Religion option; the current TER controls formal allocation. rc-0029’s English-language correction remains supported.
+- [TER BA Religious Studies 2026–2027](https://www.rug.nl/rcs/education/studyguide/oer-26-27/ter-ba-rs-26-27.pdf) — Articles 3.5/3.6, 4.1 and 7.1.1–7.1.6; PDF pp. 2, 9–10, 14–15; Adopted 2026–2027; 27 August 2026. Adopted 27 August 2026; current official index links this TER. Cover academic year and interior headers are 2026–2027 despite a stale cover running line and concept metadata. Ordinary third year: minor/personal minor 15 (or Quranic Arabic plus optional module), two of three faculty units at 7.5 each, one of two specialisations 7.5, thesis seminar 7.5, science communication 5 and thesis 10. Faculty alternatives are Climate Change, End Times, Sustainability; Religion, Space and Place; optional module. Separate permitted abroad/education/spiritual-care alternatives and Board-approved replacements do not make every ordinary 30-EC block unrestricted. First two years are 60 each. Formal choice clauses visually inspected.
+
+External credit structure: Stored components sum to 180 but misclassify the ordinary third-year choice space. Correct ordinary allocation is 60+60+[15 minor+15 restricted faculty+7.5 specialisation+7.5 thesis seminar+10 thesis+5 science communication]=180. Permitted named/approved 30-EC alternatives require their own conditions.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Christianity: History, Sources and Praxis | 7.5 | required |
+| 1 | Concepts and Methods 1: Study of Religion | 7.5 | required |
+| 1 | Anthropology of Religion | 7.5 | required |
+| 1 | Religion in South Asia | 7.5 | required |
+| 1 | Judaism: History, Sources and Praxis | 7.5 | required |
+| 1 | Psychology and Sociology of Religion | 7.5 | required |
+| 1 | Islam: History, Sources and Praxis | 7.5 | required |
+| 1 | Philosophy of Religion and Spirituality | 7.5 | required |
+| 2 | Concepts and Methods 2: Researching Religion | 7.5 | required |
+| 2 | Rituals in Theory and Practice | 7.5 | required |
+| 2 | Ethics, Religion and Care | 7.5 | required |
+| 2 | The Sacred Image | 7.5 | required |
+| 2 | Religion, Media and Popular Culture | 7.5 | required |
+| 2 | The Text Awakens: Reading and Using of Religious Texts | 7.5 | required |
+| 2 | Religion, Diversity and Identity | 7.5 | required |
+| 2 | Religion and Politics | 7.5 | required |
+| 3 | University or approved personal minor | 15 | open-choice; Ordinary route; Quranic Arabic 1 plus optional module is a mutually exclusive alternative. |
+| 3 | Climate Change, End Times, Sustainability | 7.5 | restricted-choice; First of three faculty options; select two. |
+| 3 | Religion, Space and Place | 7.5 | restricted-choice; Second faculty option; optional module is the unselected third alternative. |
+| 3 | Cultural and Political Impact of Religion | 7.5 | restricted-choice; Existing broad-academic-identity specialisation retained; Origins of Religion is an alternative. |
+| 3 | Thesis Seminar | 7.5 | required |
+| 3 | Bachelor Thesis | 10 | required |
+| 3 | Science Communication | 5 | required |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. A complete ordinary external reconstruction for later remediation; canonical production data remains unchanged and final UCR feasibility is unassessed.
+
+Choice and source-context rules:
+
+- Keep 15 ordinary minor separate from the 15-EC choose-two faculty requirement.
+- Retain Cultural and Political Impact of Religion as the selected specialisation under the existing broad-identity rule; no UCR-based choice.
+- The 30-EC abroad/education/spiritual-care opportunities and Board-approved replacements are alternatives with conditions, not proof that every ordinary 30-EC block is open.
+- Do not add optional Quranic Arabic or a third faculty unit to the selected route.
+
+Result: incorrect; required action: reassess-exception.
+
+Incorrect concerns ordinary third-year credit/choice classification, not the stored arithmetic total or final UCR decision. Current formal rules permit distinct 30-EC alternatives, but the stored generic route does not establish their conditions. No dated evidence shows a supported earlier ordinary allocation later superseded, so outdated is not assigned.
+
+Recommended follow-up: Replace the unqualified 30-EC minor component with 15-EC minor plus two 7.5-EC restricted faculty units; select the first two named faculty options neutrally. Retain the selected Cultural and Political Impact specialisation and all research/communication credits. Update source context and route-selection basis, explain separately permitted 30-EC alternatives, and reassess the exception narrative without deciding UCR fit.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/decisions/cp-000205.json`, fields: `sources`, `comparator.primarySource/additionalSources`, `comparator.components tuples`, `comparator.sourceNotes`, `routeSelection.basis`, `exception.curriculumContext`, `exception.reason if it makes a choice-space claim`, `exception.checkedOn`. Correct the existing version-2 compact academic decision first: change the y3-minor tuple from 30 to 15 EC, add two stable-ID 7.5-EC faculty-course tuples using the verified ordinary pathway, add a source token for the adopted TER and align source/choice context. Preserve the broad-identity specialisation selection and original UCR evidence as historical provenance until the separate fit reassessment. Compile the canonical record from the corrected decision using the current exception workflow.
+- `data/counselor/comparisons/cp-000205.json`, fields: `comparator.components[id=y3-minor]`, `comparator.components new restricted-faculty components`, `comparator.primarySourceUrl`, `comparator.additionalSourceUrls`, `comparator.sourceNotes`, `comparator.routeSelection.basis`, `exception.curriculumContext`, `exception.reason if it makes a choice-space claim`, `exception.checkedOn`. Reconstruct the ordinary current third year as minor 15, Climate Change/End Times/Sustainability 7.5 and Religion/Space/Place 7.5, selected as the first two of three faculty options independently of UCR. Retain Cultural and Political Impact 7.5 under the existing broad-identity rationale, thesis seminar 7.5, thesis 10 and science communication 5. Preserve first/second-year components. Add the controlling TER, replace unqualified 30-EC-open-minor language and explain permitted 30-EC alternatives and approval/replacement requirements. Keep the selected specialisation; do not choose a different option to ease UCR fit.
+- `data/counselor/review-programmes.json and existing generated counselor artifacts`, fields: `affected CP205 curriculum/source summaries`. Regenerate affected external summaries after the canonical correction through the existing production workflow. Preserve the original audit provenance and the separate pending UCR decision.
+
+Dependencies:
+
+- Current TER resolves the ordinary 180-EC route; no further external-source prerequisite is needed for that reconstruction.
+- If retaining the stored generic 30-EC minor instead, identify the exact permitted alternative and its replacement/approval conditions before claiming that pathway is valid.
+- Final UCR feasibility remains independent stage two.
+
+Verification and closure checks:
+
+- First year 60, second year 60 and third year 60; ordinary minor is 15 and exactly two faculty choices total 15.
+- Do not stack all three faculty choices, Quranic Arabic plus minor, or a 30-EC alternative plus the ordinary 15-EC faculty requirements.
+- Source notes, route-selection basis and context accurately distinguish ordinary structure from named/approved alternatives; preserve specialisation, seminar, thesis and communication credits.
+- Recompilation reproduces the corrected canonical record from its compact decision; run exception-specific schema/record validation at implementation.
+- Canonical and generated summaries agree; close the external allocation correction separately from final UCR reassessment.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000206 — Chemistry
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-06.
+
+Existing substantive reason: The University of Groningen programme is a cumulative experimental Chemistry degree. Its defining spine includes molecular structure and reactivity, organic, inorganic, physical and quantum chemistry, spectroscopy, transport phenomena, materials, chemical safety, multiple synthesis and analysis laboratories, a 20-EC chemistry specialisation, a research practical and a 15-EC experimental research project. UCR offers valuable biology, biochemistry, biomedical science, mathematics, programming, data science and one life-science laboratory course, but no general, organic, inorganic or physical chemistry sequence, no spectroscopy or chemical-analysis sequence, no chemical-transport or quantum-chemistry course, and no staged synthesis/analysis laboratory formation. Even the selected Chemistry of Life specialisation rests on that missing chemistry core. A UCR programme assembled from biological and quantitative courses would therefore be a molecular-biomedicine programme, not a defensible Chemistry comparator.
+
+The indexed current Chemistry appendix supports all 180 EC, staged experimental chemistry requirements and the selected 20-EC Chemistry of Life specialisation. Its dedicated Appendix II route list supports the neutral first-listed selection despite a later differently ordered summary. Minor 30 and research/practical credits remain separate.
+
+Provenance: data/counselor/comparisons/cp-000206.json; source worksheet row(s) 219. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [TER appendix BSc Chemistry 2026–2027](https://www.rug.nl/fse/education/ter/ter-2627-bsc/8-ter-bsc-chemistry-26-27.pdf) — Appendices I–IV; PDF pp. 1–6, especially II p. 4 and course tables pp. 4–6; Current 2026–2027. Required first year is twelve 5-EC units. Upper years contain ten required 5-EC chemistry units, one 20-EC specialisation, research practical 5, research project 15 and minor 30: 60+120=180. Appendix II lists Chemistry of Life first; its four 5-EC units are Recombinant DNA and Biotechnology, Chemical Biology, (Bio)-catalysis and Cellular Chemistry. Appendix IV’s summary orders specialisations differently, but the earlier dedicated route list supports the stored neutral selection. Lab/synthesis, analysis, quantum/physical/organic/inorganic chemistry and chemical safety are substantive requirements. Project requires first year plus 130 EC and approval steps. Minor choices are deepening Chemistry, Industrial Chemistry or university minors. Table visually inspected.
+- [FSE Teaching and Examination Regulations](https://www.rug.nl/fse/education/ter/?lang=en) — 2026–2027 bachelor appendix links and page modification date; Current official index; last modified 4 September 2026. Official index links the exact current appendix URLs for Chemistry, Chemical Engineering, Astronomy, Industrial Engineering and Management, Applied Physics and Applied Mathematics under 2026–2027. Index last modified 4 September 2026. This establishes current institutional publication context; it does not silently remove Chemical Engineering’s internal-year discrepancy or substitute a retrieved catalogue for an inaccessible one.
+
+External credit structure: Stored/current total 180: first year 60; upper common chemistry 50, specialisation 20, research practical 5, research project 15 and minor 30. Formal appendix groups upper years together; no unsupported 60/60 split is invented.
+
+Result: confirmed; required action: none.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000207 — Chemical Engineering
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-06.
+
+Existing substantive reason: The Groningen bachelor is an integrated chemistry-and-process-engineering degree. Its compulsory spine combines organic, inorganic and physical chemistry, spectroscopy and synthesis laboratories with thermodynamics, transport phenomena, reactor engineering, separation processes, process control, process equipment, polymer chemistry and engineering, product technology, numerical analysis, multiple engineering practicals, a 10-EC process-design project and a 15-EC research project. UCR offers useful sustainability, mathematics, programming, data, biology, biochemistry and one life-science laboratory course, but no chemistry sequence and no chemical/process-engineering curriculum. It lacks reactors, separations, process control, thermodynamics, transport engineering, process equipment, polymer engineering, synthesis laboratories and process design. A UCR programme assembled from adjacent science, sustainability and data courses would not be a defensible Chemical Engineering comparator.
+
+The university currently publishes the exact appendix under 2026–2027; its tables support 60+105+15=180 and the chemistry/process-engineering spine. Its 2025/2026 running year is a real source-context discrepancy already disclosed in the record. Today’s inaccessible Ocasys does not disprove the original access claim; current index and programme evidence support applicability, with that limitation retained.
+
+Provenance: data/counselor/comparisons/cp-000207.json; source worksheet row(s) 220. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [Current published TER appendix BSc Chemical Engineering](https://www.rug.nl/fse/education/ter/ter-2627-bsc/7-ter-bsc-chemical-engineering-26-27.pdf) — Appendices II–IV; PDF pp. 1, 4–6; official index labels document 2026–2027; Published as 2026–2027; internal running year 2025/2026. Ordinary bachelor: first year 60, upper-year compulsory study 105 and individually Board-approved elective study 15, total 180. Required process-engineering core includes reactors, transport, thermodynamics, separations, process control/equipment, polymer analysis/engineering practicals, Process Design 10 and research 15. Electives may come from bachelor programmes with individual approval; five listed chemical-engineering options are examples, not a licence to treat optional Polymer Engineering as an extra requirement. The PDF repeatedly says 2025/2026, while the official index links this exact file as 2026–2027. Keep that source conflict explicit. Today’s Ocasys retrieval exposed no curriculum; the original access claim was not reproduced. Table visually inspected.
+- [FSE Teaching and Examination Regulations](https://www.rug.nl/fse/education/ter/?lang=en) — 2026–2027 bachelor appendix links and page modification date; Current official index; last modified 4 September 2026. Official index links the exact current appendix URLs for Chemistry, Chemical Engineering, Astronomy, Industrial Engineering and Management, Applied Physics and Applied Mathematics under 2026–2027. Index last modified 4 September 2026. This establishes current institutional publication context; it does not silently remove Chemical Engineering’s internal-year discrepancy or substitute a retrieved catalogue for an inaccessible one.
+- [Chemical Engineering](https://www.rug.nl/bachelors/chemical-engineering/?lang=en) — Facts, course tables and curriculum; Current official prospectus. Current English, 180-EC BSc, 56960. Describes thermodynamics, transport, reactor/process engineering and industrial scale. Public tables corroborate substantial required study, the 10-EC process design and 15-EC research project, but omit some first-year units and mix later-year placement/listing; they do not independently resolve every credit or substitute for the indexed formal appendix. The current appendix controls the 60+105+15 structure, with its year-label caveat retained.
+
+External credit structure: Stored/currently indexed total 180: compulsory first year 60, upper required study 105 and approved electives 15. The formal appendix groups upper years together; the public list is not an exact alternative credit allocation.
+
+Result: confirmed; required action: none.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Source-context limitations:
+
+- Official index labels the retrieved appendix 2026–2027; internal running headers remain 2025/2026. Current publication context supports use with this disclosed caveat.
+- Today’s Ocasys retrieval returned an empty application shell, so the prior current-catalogue access assertion was not independently reproduced. This access limitation is not classified as an incorrect historical claim.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000210 — Astronomy
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-06.
+
+Existing substantive reason: The University of Groningen programme is a full disciplinary Astronomy degree. Its compulsory 150-EC major combines calculus, linear algebra, differential equations, numerical methods and statistics with mechanics and relativity, electromagnetism, quantum physics, thermal physics, waves and optics, observational astronomy, planetary science, stellar and galactic physics, radiative processes, advanced electrodynamics, astrophysical hydrodynamics, the interstellar medium, laboratory skills and a 15-EC astronomy research project. UCR offers useful mathematics and computation plus adjacent study in Earth systems, imaging and robotics, but no Astronomy or Astrophysics course, no sustained physics core and no astronomical-observation or experimental-physics laboratory sequence. A UCR programme assembled from mathematics, computing and Earth science would be a coherent quantitative pathway, not a defensible Astronomy comparator.
+
+Current formal Astronomy requirements support major 150 plus minor 30, required mathematics/physics/observation progression and a 15-EC research project. Stored components follow the current appendix rather than the older public summary. Deepening minors are optional; the university-wide 15-EC introductory minor is not available to this cohort of Astronomy students.
+
+Provenance: data/counselor/comparisons/cp-000210.json; source worksheet row(s) 223. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [FSE Teaching and Examination Regulations](https://www.rug.nl/fse/education/ter/?lang=en) — 2026–2027 bachelor appendix links and page modification date; Current official index; last modified 4 September 2026. Official index links the exact current appendix URLs for Chemistry, Chemical Engineering, Astronomy, Industrial Engineering and Management, Applied Physics and Applied Mathematics under 2026–2027. Index last modified 4 September 2026. This establishes current institutional publication context; it does not silently remove Chemical Engineering’s internal-year discrepancy or substitute a retrieved catalogue for an inaccessible one.
+- [TER appendix BSc Astronomy 2026–2027](https://www.rug.nl/fse/education/ter/ter-2627-bsc/4-ter-bsc-astronomy-26-27.pdf) — Appendices I–IV; PDF pp. 3–6; Current 2026–2027. Mandatory Astronomy major 150 plus free minor 30. First and second years each total 60; final major is Advanced Electrodynamics 5, Astrophysical Hydrodynamics 5, Interstellar Medium 5 and research 15. Mathematics, general physics, observations, computing and astronomical research establish the core. The two 30-EC deepening minors are optional ways to fill minor space; the 15-EC university minor Astronomy through space and time is explicitly unavailable to Astronomy/Physics/Applied Physics students. The selected generic 30-EC minor therefore remains valid without inventing a named minor. Current appendix differs from the older public summary (Mathematical Physics/Cosmology); stored components follow the current appendix. Table visually inspected.
+
+External credit structure: Stored/current total 180: years 60+60, then 15 named advanced major study, research 15 and minor 30.
+
+Result: confirmed; required action: none.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000211 — Linguistics
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-06.
+
+Existing substantive reason: The University of Groningen bachelor requires a cumulative scientific language sequence spanning phonology, syntax, morphology, semantics, pragmatics, language acquisition and change, psycholinguistics, neurolinguistics, clinical linguistics, language and speech disorders, dyslexia, neuroimaging, statistics and advanced graduation seminars. UCR offers one dedicated Psycholinguistics course and useful neighbouring study in cognition, psychology, communication, rhetoric, AI and data science, but it has no coherent foundation in structural linguistics and no clinical- or neurolinguistics progression. A 24-course response would replace most of the target discipline with adjacent fields rather than provide a defensible Linguistics comparator.
+
+The adopted 2026 entrant table supports the recorded 60+60+30+30 structure, four faculty-wide alternatives and three selected 10-EC graduation portfolios. The selected ordinary route keeps new-cohort Statistics/Morphology/Psycholinguistics Project weights rather than the older public second-year list. Speech-Therapy exemptions and alternative portfolio rules are acknowledged as other permitted pathways, not additions to this route.
+
+Provenance: data/counselor/comparisons/cp-000211.json; source worksheet row(s) 224. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [OER Taalwetenschap 2026–2027](https://www.rug.nl/let/onze-faculteit/organisatie/diensten-en-voorzieningen/onderwijsinstituut/oeren/2026-2027/bacheloropleidingen/delen-b/ba-taalwetenschap-deelb.pdf) — Articles 3.2, 4.1, 5.1 and 8.3; PDF pp. 4–6, 9; Current 2026–2027. Adopted 7 July 2026, effective 1 September 2026. September 2026 ordinary route: first year 60, second year 60 including Morphology 5, Statistics 5 and Psycholinguistics Project 10, minor 30 and three of five graduation-portfolio units at 10 each. First three formally listed portfolios are Neurolinguistics, Psycholinguistics/Developmental Language Disorders and Syntax. Speech-Therapy minor participants have specific second-year exemptions and mandatory portfolio selections; those are not the selected ordinary pathway. A standalone extra thesis is not prescribed beyond the graduation portfolio. Current webpage’s older second-year list differs; formal cohort table controls. Table and footnotes visually inspected.
+- [Linguistics](https://www.rug.nl/bachelors/linguistics/?lang=en) — Facts, faculty-wide choices and first/second/third-year descriptions; Current official prospectus; adopted OER controls cohort. Dutch, 180 EC, 56803. Confirms a theoretical and neuro/clinical linguistic identity, four faculty-wide options and graduation research seminars. Cultural Heritage is first in the displayed faculty-wide choice list. Public second-year Morphology 10, Psycholinguistics 5 and Language/Neuroimaging 5 reflect a different listing from the adopted 2026 entrant table; they are not substituted for Morphology 5, Statistics 5 and Psycholinguistics Project 10. Selected portfolio choices remain restricted alternatives, not universally compulsory named tracks.
+
+External credit structure: Stored/current ordinary 2026 entrant route totals 60+60+30 minor+three 10-EC graduation portfolios=180. Portfolios contain graduation research; no extra thesis is added.
+
+Result: confirmed; required action: none.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000212 — Dentistry (Tandheelkunde)
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-06.
+
+Existing substantive reason: The defining 180-ECTS curriculum is entirely compulsory and integrates oral and general health science, oral diseases, radiation protection, dental diagnosis and treatment, progressive professional and technical skills, and supervised care of real patients in the 12-ECTS Bachelor Clinic. The current UCR catalogue provides relevant biomedical science, psychology, public health and research methods, but no dentistry, oral anatomy or biology, cariology, periodontology, dental materials, restorative procedures, endodontology, dental radiography, preclinical simulation, treatment planning or supervised clinical dental care. A 24-course UCR programme could reproduce parts of the biomedical and behavioural context but would omit the profession-defining dental science, manual skills and patient treatment. It would therefore not be a defensible closest match.
+
+The adopted current Dentistry OER and published patient-care description support all 29 required components, 60+60+60 EC, staged skills and the 12-EC supervised clinic. No track, minor or elective space applies to the selected ordinary bachelor. Browser concept metadata does not negate explicit adoption/current publication. Thesis/scientific work is embedded; full professional qualification also requires the master.
+
+Provenance: data/counselor/comparisons/cp-000212.json; source worksheet row(s) 225. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [OER Bachelor Tandheelkunde 2026–2027](https://www.rug.nl/umcg/education/tandheelkunde/belangrijkedocumententhk/documenten2627/oerthkbachelor2627.pdf) — Cover adoption; Articles 3.3–3.6, 4.1, 7.1 and 9.3; PDF pp. 1, 9–11, 15–16, 21–22; Adopted 2026–2027; 20 May 2026. Adopted 20 May 2026. Ordinary Dutch/full-time programme has no tracks, minor space or elective components. All 29 units total 60+60+60=180. Third year includes professional skills 12, scientific skills/research 8, supervised Bachelor Clinic 12 and other oral-health/diagnosis/radiation-protection/context study. Clinic entry requires completed first year, both second-year professional-skills units, oral-healthcare context 2, three of four theory units and scientific skills 2. Separate shortened-entry programmes are not stacked onto the ordinary bachelor. Scientific work/thesis is embedded, not extra credit. Current title and adopted text control over browser concept metadata. Table visually inspected.
+- [Tandheelkunde](https://www.rug.nl/bachelors/dentistry/) — Facts and clinical progression; Current official prospectus. Dutch/full-time 180-EC bachelor, 56560. Practical training begins with artificial jaws/teeth, followed by diagnostics and supervised patient treatment; third-year students share a treatment chair and treat non-complex patients. Bachelor research/thesis is completed alongside the clinical sequence. The full professional qualification includes a subsequent three-year master, so bachelor clinical formation is not itself a claim of completed dentist licensure.
+- [Belangrijke documenten Tandheelkunde](https://www.rug.nl/umcg/education/tandheelkunde/belangrijkedocumententhk/) — Current OER link and last-modified date; Current official index; last modified 21 September 2026. Official documents page links the exact 2026–2027 Bachelor Dentistry OER, current guide and assessment plan. Last modified 21 September 2026. The published governing OER’s explicit adoption statement resolves the concept metadata concern; no inaccessible draft is substituted.
+
+External credit structure: Stored/current 29 compulsory units total 60+60+60=180. Clinical and scientific activities are integrated within those weights; no minor, elective or additional uncredited thesis is added.
+
+Result: confirmed; required action: none.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000213 — Industrial Engineering and Management
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-06.
+
+Existing substantive reason: Groningen explicitly defines Industrial Engineering and Management as a predominantly technical engineering degree: two-thirds technical science and one-third business. The selected pathway combines calculus, linear algebra, statistics, programming, materials and transport phenomena with engineering-system dynamics, complex-system design, mechanics, signals, control, CAD and manufacturing, production techniques, construction, mechanical craftsmanship and a 20-ECTS industrial integration project. UCR can reproduce meaningful business, data, programming, mathematics, sustainability and product-design context, but it has no coherent mechanics, materials, transport, manufacturing, control-engineering, construction or workshop sequence and no comparable industrial-engineering capstone. A 24-course UCR programme would therefore shift the degree's centre of gravity from engineering to general business and data study rather than constitute a defensible closest match.
+
+The current appendix supports the complete selected Production Technology and Logistics pathway: first year 60, common advanced core 30, specialisation 40, minor 30 and integration project 20. Its engineering/workshop/design core is supported. The official two-thirds technical description is contextual, not an extra credit partition; other specialisation/minor alternatives remain alternatives.
+
+Provenance: data/counselor/comparisons/cp-000213.json; source worksheet row(s) 226. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [FSE Teaching and Examination Regulations](https://www.rug.nl/fse/education/ter/?lang=en) — 2026–2027 bachelor appendix links and page modification date; Current official index; last modified 4 September 2026. Official index links the exact current appendix URLs for Chemistry, Chemical Engineering, Astronomy, Industrial Engineering and Management, Applied Physics and Applied Mathematics under 2026–2027. Index last modified 4 September 2026. This establishes current institutional publication context; it does not silently remove Chemical Engineering’s internal-year discrepancy or substitute a retrieved catalogue for an inaccessible one.
+- [TER appendix BSc Industrial Engineering and Management 2026–2027](https://www.rug.nl/fse/education/ter/ter-2627-bsc/10-ter-bsc-industrial-engineering-and-management-26-27.pdf) — Appendices II–IV; PDF pp. 2–6; Current 2026–2027. First year 60; common upper-year core 30; one specialisation 40; minor 30; integration project 20, total 180. Production Technology and Logistics is first and supplies eight required 5-EC units, including mechanics, systems/control, CAD/manufacturing, construction and mechanical craftsmanship. Sustainable Process Engineering is a distinct alternative, not an additional requirement. Minor permits deepening courses, university/teacher-training/business options and approved personal/abroad packages, with overlap and language-course limits. Project requires 140 EC including all first-year study and designated design-methodology study. The public second-year track total is 30, but complete formal specialisation is 40 across later years. Table visually inspected.
+- [Industrial Engineering and Management](https://www.rug.nl/bachelors/industrial-engineering-and-management/?lang=en) — Facts, programme character and course tables; Current official prospectus. Current English, 180-EC BSc under 56994. University describes the programme as predominantly technical, approximately two-thirds technical science and one-third business. This describes academic character rather than a separately calculated credit partition for every minor choice. Public year tables split specialisation study across years; the formal 40-EC route total is retained.
+
+External credit structure: Stored/current total 180: first year 60, upper common core 30, selected specialisation 40, minor 30 and integration project 20. Upper-year allocation is preserved as formally grouped rather than an invented yearly split.
+
+Result: confirmed; required action: none.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000214 — Applied Physics
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-06.
+
+Existing substantive reason: Applied Physics is a cumulative experimental and engineering-physics degree. Its compulsory formation progresses through mechanics and relativity, electromagnetism, quantum and thermal physics, waves and optics, atomic and solid-state physics, fluid physics, materials science, electronics, signal processing, device physics, control engineering, instrumentation and nanofabrication. Four staged laboratory/design components and a 15-ECTS Applied Physics research project integrate that disciplinary sequence. UCR provides useful mathematics, programming, data, robotics and sustainable-energy applications, but no disciplinary physics sequence, experimental-physics laboratories, materials/device/instrumentation formation or physics research capstone. A UCR programme assembled from quantitative and adjacent technology courses would not be a defensible Applied Physics comparator.
+
+Current adopted/published appendix supports the complete 180-EC Applied Physics pathway, compulsory laboratories, three coherent restricted choices and accepted bachelor-level control study. Its deepening minor does not create an omitted 30-EC open-choice entitlement. Current formal Differential Equations controls over the public Mathematical Physics label; the record already explains that source distinction.
+
+Provenance: data/counselor/comparisons/cp-000214.json; source worksheet row(s) 227. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [FSE Teaching and Examination Regulations](https://www.rug.nl/fse/education/ter/?lang=en) — 2026–2027 bachelor appendix links and page modification date; Current official index; last modified 4 September 2026. Official index links the exact current appendix URLs for Chemistry, Chemical Engineering, Astronomy, Industrial Engineering and Management, Applied Physics and Applied Mathematics under 2026–2027. Index last modified 4 September 2026. This establishes current institutional publication context; it does not silently remove Chemical Engineering’s internal-year discrepancy or substitute a retrieved catalogue for an inaccessible one.
+- [TER appendix BSc Applied Physics 2026–2027](https://www.rug.nl/fse/education/ter/ter-2627-bsc/2-ter-bsc-applied-physics-26-27.pdf) — Appendices I–IV; PDF pp. 3–7; Current 2026–2027. One Applied Physics major and a deepening Applied Physics minor, not generic free-minor space. Current tables give 60+60+60=180. Four laboratory/design units are compulsory. Final year has six compulsory 5-EC technical units, three restricted choices of 5 each and research 15. Selected Atoms and Molecules, Principles of Measurement Systems and Nanoprobing/Nanofabrication are first in their distinct groups. Control Engineering for BME is expressly accepted at appropriate bachelor level despite its master code. Current first-year Differential Equations controls over public Mathematical Physics summary and legacy browser metadata. Table visually inspected.
+
+External credit structure: Stored/current total 180 with years 60+60+60. Final 60 is six required 5-EC units, three selected 5-EC choices and research 15; the deepening minor is represented within that technical structure, not added.
+
+Result: confirmed; required action: none.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000215 — Applied Mathematics
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-06.
+
+Existing substantive reason: The Groningen bachelor is a full disciplinary Applied Mathematics degree. Its 165-ECTS major builds from proof-based analysis, calculus, sets and numbers, graph theory, two linear-algebra courses, probability, programming, mechanics and linear systems into topology, complex and functional analysis, multivariable analysis, ordinary and partial differential equations, numerical analysis, optimization, mathematical modelling, computational science, advanced systems and modelling projects, and a 15-ECTS Applied Mathematics research project. UCR offers a useful six-course mathematics sequence plus programming, data science and selected computational applications, but it does not provide the breadth, depth or staged project and research spine required for a 24-course Applied Mathematics programme. A UCR programme assembled from mathematics, AI, data science and applications would be a coherent quantitative or computational pathway, not a defensible substitute for the target degree.
+
+Current requirements support the selected 165-major/15-minor Applied Mathematics pathway at 180 EC and all neutral restricted selections without duplication. Permitted 30-EC abroad/education alternatives replace 15 major EC; they do not undermine the chosen ordinary route. The third project option is marked for 2027–2028 and is not needed for the two selected available projects.
+
+Provenance: data/counselor/comparisons/cp-000215.json; source worksheet row(s) 228. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [FSE Teaching and Examination Regulations](https://www.rug.nl/fse/education/ter/?lang=en) — 2026–2027 bachelor appendix links and page modification date; Current official index; last modified 4 September 2026. Official index links the exact current appendix URLs for Chemistry, Chemical Engineering, Astronomy, Industrial Engineering and Management, Applied Physics and Applied Mathematics under 2026–2027. Index last modified 4 September 2026. This establishes current institutional publication context; it does not silently remove Chemical Engineering’s internal-year discrepancy or substitute a retrieved catalogue for an inaccessible one.
+- [TER appendix BSc Applied Mathematics 2026–2027](https://www.rug.nl/fse/education/ter/ter-2627-bsc/1-ter-bsc-applied-mathematics-26-27.pdf) — Appendices II–IV; PDF pp. 5–9; Current 2026–2027. Selected ordinary route is major 165 plus minor 15, total 180: first year 60 and later major requirements 105. Applied Mathematics first-year project matches the named degree. Project Mathematical Modelling/Systems Theory and Numerical Linear Algebra/Advanced Systems Theory are the first available selections in two distinct choose-two groups. Statistical Modelling fills the further 5-EC elective without duplication. Preparation 5 and research 15 remain distinct. Other approved electives are possible. A permitted 30-EC abroad/education minor replaces the 10-EC advanced-choice pair and 5-EC elective, reducing major to 150; it does not add 15 EC. Table visually inspected.
+
+External credit structure: Stored/current ordinary route totals 180: first year 60, later major 105 and minor 15. Alternative 30-minor route reduces the major by the advanced pair 10 plus elective 5, preserving the same total.
+
+Result: confirmed; required action: none.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
 ## Remaining work and next batch
 
-All 19 scope exclusions are complete. Forty-one of 140 exceptions have received the first-stage audit; 99 remain pending. The next batch is: cp-000200, cp-000205, cp-000206, cp-000207, cp-000210, cp-000211, cp-000212, cp-000213, cp-000214, cp-000215.
+All 19 scope exclusions are complete. Fifty-one of 140 exceptions have received the first-stage audit; 89 remain pending. The next batch is: cp-000216, cp-000217, cp-000244, cp-000246, cp-000247, cp-000248, cp-000249, cp-000250, cp-000251, cp-000252.
 
-Completed and pending entries reconcile exactly to 159 cases by audit_population + counselor_programme_id: 60 unique completed keys and 99 unique pending keys, with no overlap or omissions. All 50 earlier case objects, their source entries and batch evidence sections are preserved. Pending entries have no audit finding. A completed still-unresolved finding is a completed research result, not a pending inventory entry. The confirmed duplicate remains two audited permanent-ID cases in this original audit inventory; production scope counts change only when the later correction is implemented.
+Completed and pending entries reconcile exactly to 159 cases by audit_population + counselor_programme_id: 70 unique completed keys and 89 unique pending keys, with no overlap or omissions. All 60 earlier case objects, source entries and batch evidence sections are preserved. Pending entries have no audit finding. A completed still-unresolved finding is a completed research result, not a pending inventory entry. Production population counts remain unchanged until later corrections are implemented.
 
-After the exhaustive audit, consolidate the action queue and execute targeted remediation with exact field changes, source evidence, dependencies and closure checks. Batch-5/6 actionable entries already carry those structured plans; earlier entries retain their original recommendations. Group the CP198/CP199 pair under one shared remediation task, avoiding contradictory owner choices or repeated merges. Close external/registry corrections independently of the later UCR feasibility stage. Research-dependent work resumes on its stated trigger.
+After the exhaustive audit, consolidate the action queue and execute targeted remediation with exact field changes, source evidence, dependencies and closure checks. Batch-5/6/7 actionable entries already carry structured plans; earlier entries retain their original recommendations. Keep CP198/CP199 under one shared correction task, preserving the distinction from generic CP200. Close external/registry corrections independently of the later UCR feasibility stage. Research-dependent work resumes on its stated trigger.
 
 Stage two will independently assess UCR feasibility for every current no-defensible-ucr-match record and any resolved external case requiring a final fit decision. Confirmation here establishes only the stated external/registry basis. The exhaustive first-stage audit remains in progress.
 
