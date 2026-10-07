@@ -1,6 +1,6 @@
 # Counselor completeness and exceptions: first-stage audit
 
-Status: in progress. Batches 1–4 completed on 7 October 2026: all 19 scope exclusions and 21 exceptions audited within the first-stage scope. 119 exceptions remain pending.
+Status: in progress. Batches 1–5 completed on 7 October 2026: all 19 scope exclusions and 31 exceptions audited within the first-stage scope. 109 exceptions remain pending.
 
 ## Scope and method
 
@@ -17,17 +17,17 @@ The classification applies only to the stated audit scope. Resolving an external
 | Normalized registry targets | 460 | — | — |
 | In-scope targets with canonical records | 441 | — | — |
 | Completed comparisons | 301 | Outside this stage | — |
-| Completed exceptions | 140 | 21 | 119 |
+| Completed exceptions | 140 | 31 | 109 |
 | Excluded normalized targets | 19 | 19 | 0 |
-| First-stage audit cases | 159 | 40 | 119 |
+| First-stage audit cases | 159 | 50 | 109 |
 
 All 441 in-scope IDs have a canonical filename; there are no missing in-scope IDs, duplicate record filenames or out-of-scope canonical records. The review-index ID set matches both registry scope and canonical filenames. Status totals use that current generated index; all 140 indexed exceptions were additionally read directly to verify ID, exception status and formal type. Enumeration does not constitute a substantive exception audit.
 
 | Formal exception type | Corpus total | Substantively audited |
 |---|---:|---:|
-| external-programme-unresolved | 20 | 1 |
-| no-defensible-ucr-match | 117 | 20 |
-| registry-exception | 3 | 0 |
+| external-programme-unresolved | 20 | 7 |
+| no-defensible-ucr-match | 117 | 23 |
+| registry-exception | 3 | 1 |
 
 ## Batch 1 findings
 
@@ -1169,13 +1169,584 @@ No material factual question remains unresolved within the defining external-bas
 
 UCR-side reassessment pending: **yes**. Existing UCR claims are preserved as provenance only. Stage-two UCR feasibility assessment remains pending.
 
+## Cumulative findings after batch 5
+
+| Finding | Count |
+|---|---:|
+| confirmed | 39 |
+| incorrect | 7 |
+| outdated | 0 |
+| still-unresolved | 4 |
+
+| Required action | Count |
+|---|---:|
+| none | 35 |
+| reprocess-as-comparison | 0 |
+| reassess-exception | 10 |
+| correct-registry-and-reprocess | 2 |
+| research-again-later | 3 |
+
+## Batch 5 findings
+
+Three findings are confirmed, four are incorrect within their stated factual scope, and three remain externally unresolved. Current adopted regulations now supply complete external structures for CP097, CP098 and CP119; these require exception reassessment, not automatic comparison conversion. CP156 requires a route-dependent language/exegesis narrative correction. CP099 has a separately confirmed registry-language error while its curriculum remains unresolved. CP134’s existing registry exception is confirmed and requires a teach-out/language correction. These secondary attribute errors are recorded separately rather than double-counted in primary finding totals. No case is classified as outdated.
+
+Every actionable batch-5 entry includes affected fields, proposed changes, dependencies, verification/closure checks and, where needed, a concrete research trigger. These prepare the later remediation pass; all plans remain unimplemented. Earlier audit objects are preserved.
+
+| ID | Programme | Formal type | Finding | Required action |
+|---|---|---|---|---|
+| cp-000097 | Medicine (Geneeskunde) | external-programme-unresolved | incorrect | reassess-exception |
+| cp-000098 | History (Geschiedenis) | external-programme-unresolved | incorrect | reassess-exception |
+| cp-000099 | Health and Life Sciences (Gezondheid en Leven) | external-programme-unresolved | still-unresolved | correct-registry-and-reprocess |
+| cp-000100 | Health Sciences (Gezondheidswetenschappen) | external-programme-unresolved | still-unresolved | research-again-later |
+| cp-000119 | Bachelor Theologie en Religiewetenschappen | external-programme-unresolved | incorrect | reassess-exception |
+| cp-000134 | Bachelor Fiscal Economics | registry-exception | confirmed | correct-registry-and-reprocess |
+| cp-000140 | Circular Engineering | no-defensible-ucr-match | confirmed | none |
+| cp-000149 | General Cultural Studies (Algemene Cultuurwetenschappen) | external-programme-unresolved | still-unresolved | research-again-later |
+| cp-000156 | Theologie | no-defensible-ucr-match | incorrect | reassess-exception |
+| cp-000159 | Archaeology | no-defensible-ucr-match | confirmed | none |
+
+## Batch 5 evidence and implementation plans
+
+### cp-000097 — Medicine (Geneeskunde)
+
+Institution: Vrije Universiteit Amsterdam. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `external-programme-unresolved`; existing check date: 2026-09-26.
+
+Existing substantive reason: The exact 2026-entry VUmc-Compas component credits, minor credit status and thesis weight cannot be verified from accessible current official VU sources. A complete 180-EC route would require guessed weights, so a canonical comparison cannot be made yet. Independently, the identified patient-centred clinical training, examination and diagnosis, professional practice and care/general-practice placements cannot be represented as a medical bachelor by UCR's academic biomedical and health courses.
+
+Fresh public-HTML retrieval exposed the current Compas OER after web-tool failures. The current claim that component, minor and thesis credits cannot be verified is no longer supported: the adopted table supplies a complete 180-EC route, including a 24-EC minor and 6-EC thesis. The 2026-entry outgoing Compas sequence and clinical core are supported. Embedded clinical/research activities must not be credited twice.
+
+Provenance: data/counselor/comparisons/cp-000097.json; source worksheet row(s) 104. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [VU Studiegids — Geneeskunde](https://studiegids.vu.nl/nl/Bachelor/2026-2027/geneeskunde) — Programme facts, current OER link and embedded-stage descriptions; Current 2026–2027 guide; retrieved directly as public HTML. Dutch, full-time, three-year, 180-EC VUmc-compas bachelor. Public HTML retrieval exposed the current OER link despite repeated web-retrieval failures. Clinical practice and research activities are partly embedded in the Arts en patiënt sequence.
+- [OER Bachelor Geneeskunde VUmc-compas 2026–2027](https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/151c0dc2-797e-46fb-b61c-ac16761ceb04/1%20OER%20Ba%20VUmc-compas%202026-2027%20DEF.pdf) — Articles 11.1–11.5, PDF pp. 15–18; Articles 12.1–12.3, PDF pp. 21–23 (repeated printed footer numbering); Adopted 2026–2027. Major 156 EC including a 6-EC thesis; minor 24 EC. Years one and two each have ten required 6-EC units. Year three has minor 24, thesis 6 and five required 6-EC clinical units. Care placement carries 6 EC; other practice/research lines are embedded rather than additional credit. External minors require approval, level conditions and no overlap. Medicine students do not add the extra 6-EC thesis required of visiting non-Medicine minor students.
+- [Overgangsregeling VUMED360](https://vu.nl/nl/student/studenten-bachelor-geneeskunde/overgangsregeling-vumed360) — Publication update 26 August 2026; final teaching and validity dates; Current transition; future implementation dates. VUMED360 starts September 2027. Last complete old B1/B2/B3 teaching occurs in 2026–2027, 2027–2028 and 2028–2029 respectively; old results expire 31 August 2030. The Fall 2026 route is the outgoing Compas sequence.
+
+External credit structure: Stored total 0 EC is intentionally partial. Current adopted Compas route is now verified at 60+60+60=180: required major 156 including thesis 6, plus minor 24. Embedded practice/research lines have no extra EC.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Binnenstebuiten (M_BBIBU22) | 6 | required |
+| 1 | Bouw en bewegen (M_BBB15) | 6 | required |
+| 1 | Metabole systemen (M_BMS15) | 6 | required |
+| 1 | Medisch wetenschappelijk onderzoek 1 (M_BMWO115) | 6 | required |
+| 1 | Arts en patiënt 1 (M_BAP115) | 6 | required |
+| 1 | Homeostase (M_BHS15) | 6 | required |
+| 1 | Circulatie en volumeregulatie (M_BCV15) | 6 | required |
+| 1 | Hersenen en zintuigen (M_BHZ15) | 6 | required |
+| 1 | Arts en patiënt 2 (M_BAP215) | 6 | required |
+| 1 | Praktijkstage Zorg (M_BZS15) | 6 | required |
+| 2 | Schade, afweer en herstel (M_BSAH15) | 6 | required |
+| 2 | Start van het leven (M_BSVHL15) | 6 | required |
+| 2 | Groei en ontwikkeling (M_BGO15) | 6 | required |
+| 2 | Leefstijl, gezondheidszorg en het bewegingsapparaat (M_BLSGZ15) | 6 | required |
+| 2 | Arts en patiënt 3 (M_BAP315) | 6 | required |
+| 2 | Sekse, seksualiteit en relaties (M_BSSR15) | 6 | required |
+| 2 | Infectie en inflammatie (M_BINF15) | 6 | required |
+| 2 | Hematologie en oncologie (M_BHO15) | 6 | required |
+| 2 | Medisch wetenschappelijk onderzoek 2 (M_BMWO215) | 6 | required |
+| 2 | Arts en patiënt 4 (M_BAP415) | 6 | required |
+| 3 | Approved minor | 24 | choice; Keep as one 24-EC block; approval/level/no-overlap rules apply. |
+| 3 | Bachelorthesis (M_BBT16) | 6 | required |
+| 3 | Spijsvertering en stofwisseling (M_BSS16) | 6 | required |
+| 3 | Circulatie en vasculaire stoornissen (M_BCVS16) | 6 | required |
+| 3 | Neurologie en oogheelkunde (M_BNO16) | 6 | required |
+| 3 | Psychisch functioneren en cognitie (M_BPFC16) | 6 | required |
+| 3 | Arts en patiënt 5 (M_BAP516) | 6 | required |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Audit reconstruction only. Later taught requirements can change; retain transition/cohort context and verify applicable regulations when implementing.
+
+Choice and source-context rules:
+
+- 24-EC minor; outside faculty requires approval, maximum 6 EC at level 100 and minimum 12 EC at level 300; no overlap or placement-only minor.
+- KWO1/KWO2 and general-practice placement are embedded; add no separate unverified EC.
+- The additional visiting-student minor thesis is not an extra Medicine requirement.
+
+Result: incorrect; required action: reassess-exception.
+
+Incorrect concerns the current unavailable-credit basis, not the historical tool-access report or the ultimate UCR outcome.
+
+Recommended follow-up: Reconstruct the external Compas route from the current OER, update sources and current unresolved rationale, and reassess the exception without automatically publishing a comparison.
+
+Unresolved factual question / historical limitation: The prior tools’ access limitations are preserved as provenance. No dated historical evidence establishes that a previously valid curriculum changed into the present one; incorrect refers only to the current unsupported description or unresolved-source basis, not the truth of the original access report. An outdated classification is not justified.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/comparisons/cp-000097.json`, fields: `comparator.components`, `comparator.primarySourceUrl`, `comparator.additionalSourceUrls`, `comparator.academicYear`, `comparator.sourceNotes`, `exception.reason`, `exception.curriculumContext`, `exception.checkedOn`. Use verified_external_structure in this audit as the source-backed reconstruction; preserve its route, choice and cohort qualifiers. Refresh obsolete current access claims. Reassess the formal exception after external reconstruction; do not automatically change recordStatus/type.
+
+Dependencies:
+
+- No remaining broad external research prerequisite for the current adopted route; verify continued applicability at implementation.
+- Final comparison-versus-no-match decision depends on independent UCR assessment, outside this audit/remediation preparation.
+
+Verification and closure checks:
+
+- One coherent adopted route totals 180 EC and 60 per study year; all choices and embedded requirements counted once.
+- Record sources, years, route and delivery mode accurately; preserve prior access limitations in history.
+- Close external-source remediation only after canonical fields and generated counselor outputs agree; keep ultimate UCR decision pending until separately assessed.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000098 — History (Geschiedenis)
+
+Institution: Vrije Universiteit Amsterdam. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `external-programme-unresolved`; existing check date: 2026-09-26.
+
+Existing substantive reason: The accessible current official VU prospectus is a thematic and partial course overview; it explicitly sends readers to the study guide for the complete programme. Individual VU 2026–27 course entries establish 60 EC of named components, but not the full compulsory sequence, the amount and restrictions of second-year free choice, the third-year minor/placement alternatives, or all third-year research-college credits. The applicable formal degree plan/OER is inaccessible to the available tools. Filling the other 120 EC or treating all displayed optional courses as mandatory would invent a 180-EC pathway. The UCR History response is academically plausible, but a fair lossless comparison must await a verified complete VU curriculum.
+
+The adopted current OER now supplies the complete Dutch Geschiedenis/Algemeen route and its restrictions. The stored 60-EC subset remains valid partial evidence, but the current claim that a full official allocation is unavailable is no longer supported. Do not substitute History and International Studies or combine alternative research seminars.
+
+Provenance: data/counselor/comparisons/cp-000098.json; source worksheet row(s) 105. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [VU Studiegids — Geschiedenis](https://studiegids.vu.nl/nl/Bachelor/2026-2027/geschiedenis) — Programme facts and linked current regulations; 2026–2027. The 180-EC programme has distinct Dutch Geschiedenis and English History and International Studies routes. The generic Dutch target must use the Dutch table.
+- [OER Bachelor Geschiedenis 2026–2027](https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/60718e0d-72f7-4581-85a0-a015b1d5063f/OER%2026-27%20BA%20Geschiedenis%20NL%2027.08.2026.pdf) — Annex, PDF pp. 22–23: Dutch trajectory and Algemeen third year; adoption statement p. 19; Adopted 2026–2027. Complete 180-EC Dutch general route: first year 60; second year 48 required plus 12 choice, with prior approval for other level-200 courses; third year 30 minor/approved abroad/placement choice plus 9 required research college, one of two 9-EC seminars, 3 colloquium and 9 thesis. A placement uses 12 EC plus 18 electives within the same 30-EC allowance. Regulations adopted 26 May 2026. Tables visually checked.
+
+External credit structure: Stored total 60 EC is a supported partial subset. Current adopted Dutch general route now verifies 180 EC, with 12 second-year choice, 30 third-year choice, 9+9 research, 3 colloquium and 9 thesis.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | De oorsprong van de geschiedenis: De globaliserende mediterrane wereld 3500 v.Chr.–1000 n.Chr. (L_GOBAGES114) | 9 | required |
+| 1 | Modern Europa (L_GABAGES136) | 9 | required |
+| 1 | Wereldgeschiedenis 1000–heden (L_GABAGES137) | 9 | required |
+| 1 | Middeleeuws en Vroegmodern Europa (L_GABAGES138) | 9 | required |
+| 1 | Academische vaardigheden voor historici (L_AABAGESACV) | 6 | required |
+| 1 | Geschiedenis Schrijven (L_ETBAGES101) | 6 | required |
+| 1 | Geschiedenis en Actualiteit (L_GABAGES126) | 6 | required |
+| 1 | Key Texts in Philosophy (L_YABAALG008) | 6 | required |
+| 2 | Religie en staatsvorming (L_GABAGES231) | 6 | required |
+| 2 | Mondiale milieuvraagstukken (L_GABAGES233) | 6 | required |
+| 2 | Capitalism and Inequality (L_GABAGES232) | 6 | restricted-choice; Selected period-1 option; other level-200 courses require prior approval. |
+| 2 | Latin America in Modern History (L_GWBAGES214) | 6 | restricted-choice; Selected period-2 option; alternatives are not additional requirements. |
+| 2 | Oral History (L_AABAGES223) | 3 | required |
+| 2 | History by Numbers (L_AABAGES224) | 3 | required |
+| 2 | Democratische revoluties (L_GABAGES235) | 6 | required |
+| 2 | Onderzoekscollege 1 (L_GABAGES236) | 6 | required |
+| 2 | Holocaust en Genocide (L_GCBAGES219) | 6 | required |
+| 2 | Onderzoekscollege 2 (L_GABAGES238) | 6 | required |
+| 2 | The Digital Historian (L_GABAGES240) | 6 | required |
+| 3 | Minor / approved abroad / placement and electives | 30 | choice; Placement 12 plus electives 18 is one alternative within 30, not extra EC. |
+| 3 | Onderzoekscollege Cultuur, Religie en Kennis 500–1800 (L_GABAGES317) | 9 | required |
+| 3 | Research Seminar Global and Political History 1500–present (L_GABAGES318) | 9 | restricted-choice; One of this or Global Economic and Social History; never both. |
+| 3 | Colloquium (L_GABAGESCOL) | 3 | required |
+| 3 | Scriptie (L_GABAGESSCR) | 9 | required |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Complete current adopted route, not a guarantee of unchanged future-year offerings for a new entrant.
+
+Choice and source-context rules:
+
+- Year-two 12 EC is preserved as two supported selections, not additional mandatory courses.
+- Year-three 30-EC choice and alternative 9-EC seminar are counted once.
+- Do not substitute English History and International Studies codes or a specialist Dutch third-year route.
+
+Result: incorrect; required action: reassess-exception.
+
+Incorrect concerns the current unavailable-credit basis, not the historical tool-access report or the ultimate UCR outcome.
+
+Recommended follow-up: Expand the partial external reconstruction using the adopted Dutch general-route table and refresh its source context and exception rationale.
+
+Unresolved factual question / historical limitation: The prior tools’ access limitations are preserved as provenance. No dated historical evidence establishes that a previously valid curriculum changed into the present one; incorrect refers only to the current unsupported description or unresolved-source basis, not the truth of the original access report. An outdated classification is not justified.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/comparisons/cp-000098.json`, fields: `comparator.components`, `comparator.primarySourceUrl`, `comparator.additionalSourceUrls`, `comparator.academicYear`, `comparator.sourceNotes`, `exception.reason`, `exception.curriculumContext`, `exception.checkedOn`. Use verified_external_structure in this audit as the source-backed reconstruction; preserve its route, choice and cohort qualifiers. Refresh obsolete current access claims. Reassess the formal exception after external reconstruction; do not automatically change recordStatus/type.
+
+Dependencies:
+
+- No remaining broad external research prerequisite for the current adopted route; verify continued applicability at implementation.
+- Final comparison-versus-no-match decision depends on independent UCR assessment, outside this audit/remediation preparation.
+
+Verification and closure checks:
+
+- One coherent adopted route totals 180 EC and 60 per study year; all choices and embedded requirements counted once.
+- Record sources, years, route and delivery mode accurately; preserve prior access limitations in history.
+- Close external-source remediation only after canonical fields and generated counselor outputs agree; keep ultimate UCR decision pending until separately assessed.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000099 — Health and Life Sciences (Gezondheid en Leven)
+
+Institution: Vrije Universiteit Amsterdam. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `external-programme-unresolved`; existing check date: 2026-09-26.
+
+Existing substantive reason: For a Fall 2026 entrant the new curriculum has no old specialisations. The adopted 2026–27 OER gives exact first-year and minimum minor credits, but its detailed year-two and thesis-credit tables concern the outgoing specialisations. The current new-curriculum explanation names the six-plus-four second-year structure and third-year research and communication work without their applicable EC and full choice allocation. Importing the old 24-EC or 18-EC thesis weights, or treating both members of each restricted choice pair as compulsory, would misstate the 2026-cohort 180-EC route. A lossless external comparison therefore remains unresolved.
+
+Fresh current OER and revision document corroborate the unresolved future-cohort credit gap: only first-year 60 and minimum minor 30 are securely allocated. Six-plus-four year-two positions and third-year research/communication are qualitative, not exact new-cohort EC. Independently, official Dutch instruction confirms a registry language error: ENG must be corrected to NLD. Correcting identity will not resolve the curriculum exception.
+
+Provenance: data/counselor/comparisons/cp-000099.json; source worksheet row(s) 106. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [VU Studiegids — Gezondheid en Leven](https://studiegids.vu.nl/nl/Bachelor/2026-2027/gezondheid-en-leven) — Programme facts and curriculum change notice; 2026–2027. Current programme is Dutch, full-time and 180 EC. The 2026 entrants follow a new curriculum rather than the old BMW/DGZ/KW major routes. The registry ENG language conflicts with official programme facts.
+- [OER Bachelor Gezondheid en Leven 2026–2027](https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/ede76ee3-4e16-41c8-8ccc-ce484951eac1/B%20Gezondheid%20en%20Leven%20OER%202026-2027.pdf) — Articles 10.2/10.4, PDF pp. 15/18; 11.3, pp. 19–22; 12.1, pp. 22–23; Adopted 2026–2027. No formal specialisations apply to 2026 entrants; instruction language is Dutch. Ten first-year units total 60 EC. Old major/thesis tables do not establish new-cohort future requirements. Minimum minor/free space is 30 EC with level and approval conditions; old thesis alternatives of 18 or 24 EC cannot be borrowed.
+- [Nieuw curriculum bachelor Gezondheid en Leven](https://assets-eu-01.kc-usercontent.com/ff31ad68-341e-015e-fb52-24df7a00ecea/f4d7310d-6aba-45d8-aa25-ab026e822f74/Toelichting%20Curriculumherziening%20website%20G_L.pdf) — PDF pp. 1–2 and 4–6; year diagram visually checked; Prospective curriculum for September 2026 entrants; undated PDF linked from current official prospectus. New curriculum begins September 2026. Year two has six mandatory courses and four choice positions, including one from Genomica/Kwalitatief onderzoek and one from Anatomie en fysiologie 2/Systeemtransformatie. Year three has minor, biomedical or societal research and science communication, with societal research preparation. The diagram and descriptions supply no exact EC; the diagram and prose use different preparation-course labels.
+
+External credit structure: Stored total 90 EC remains a supported subset: first year 60 plus minimum minor 30. New-cohort later weights remain unresolved; no outgoing-track weights are substituted.
+
+Result: still-unresolved; required action: correct-registry-and-reprocess.
+
+Secondary attribute finding(s):
+
+- normalized registry language: incorrect; stored ["ENG"], verified ["NLD"]. Separate closure: Future-cohort external curriculum remains unresolved.
+
+Recommended follow-up: Correct normalized language to NLD through a documented registry correction, preserve the raw ENG provenance, refresh affected counselor metadata, and keep the external curriculum unresolved until applicable new-cohort credits are published.
+
+Unresolved factual question / historical limitation: Obtain the 2026-entry year-two/year-three adopted credit and choice allocation, including preparation for societal research, research project/thesis and science communication; resolve differing preparation-course labels before assigning weights.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `official_source_ids_json`, `official_source_urls_json`, `normalization_basis`. For cp-000099 set normalized languages_json=["NLD"] using a documented researched correction and the current OER/guide. Preserve permanent ID, raw source rows and raw ENG offering provenance.
+- `data/registry/resolution_decisions.csv; data/registry/resolution_sources.csv`, fields: `documented post-build correction and official evidence`. Record the language override without inventing an existing ambiguity case or rewriting immutable source/ambiguity tables; use the repository correction workflow and retain reproducible provenance.
+- `data/counselor/comparisons/cp-000099.json`, fields: `programmeProvider.languages`, `comparator.sourceNotes`, `exception.reason`, `exception.curriculumContext`, `exception.checkedOn`. Refresh affected identity/context after registry correction; retain external-programme-unresolved and supported 90-EC subset pending current-cohort requirements.
+
+Dependencies:
+
+- Exact new-cohort year-two/year-three credits and choice rules remain unpublished in the retrieved current authority.
+- A researched post-build correction must be retained by any registry rebuild; choose its existing workflow before implementation.
+
+Verification and closure checks:
+
+- Normalized language is NLD; canonical and generated identity agree while immutable ENG source provenance remains.
+- Language correction is closed independently; curriculum exception remains open until a source-backed 180-EC route is established.
+- Do not borrow 18/24-EC outgoing-track thesis weights or count both restricted-pair alternatives.
+
+Research trigger: Current applicable new-cohort OER/degree table or official clarification of full credit and choice allocation.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000100 — Health Sciences (Gezondheidswetenschappen)
+
+Institution: Vrije Universiteit Amsterdam. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `external-programme-unresolved`; existing check date: 2026-09-26.
+
+Existing substantive reason: The new curriculum was phased in from 2025–26. For a Fall 2026 entrant, the 2026–27 OER securely specifies 120 EC across the first two years and at least 30 EC of third-year free choice, but its current third-year table (6 EC Epidemiologie & Biostatistiek III and 18 EC Bachelorstage) does not establish the full future new-cohort route. The same OER names Methodologie 5 for the new cohort with its code still unknown, while the prospective page describes professional work, research placement and bachelor thesis without applicable component credits. Even adding the two listed old-cohort third-year courses to the supported 150 EC reaches only 174 EC. Assigning the missing credits to a third-year elective, methodology, professional module or thesis by subtraction would invent the formal pathway.
+
+Current formal evidence still supports 120 EC across years one/two plus minimum 30 minor. Outgoing-cohort 6+18 third-year units and optional courses do not establish the new entrant’s future third year. Methodologie 5, professional preparation and placement/thesis cannot receive weights inferred by subtraction.
+
+Provenance: data/counselor/comparisons/cp-000100.json; source worksheet row(s) 107. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [VU Studiegids — Gezondheidswetenschappen](https://studiegids.vu.nl/nl/Bachelor/2026-2027/gezondheidswetenschappen) — Programme facts and linked current OER; 2026–2027. Dutch, full-time, 180-EC programme. Its new curriculum is being phased in, so a current third-year teaching table cannot automatically be assigned to a new entrant.
+- [OER Bachelor Gezondheidswetenschappen 2026–2027](https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/4d43408f-790d-4f02-94d4-8aa29ae358d5/B%20Gezondheidswetenschappen%20OER%202026-2027.pdf) — Article 9.1, PDF p. 13; Articles 11.3–12.1, pp. 19–22; Article 15.2, p. 22; Adopted 2026–2027. First two years total 120 EC, including two restricted 6-EC second-year choices. Minimum minor/free choice is 30 EC. The new curriculum starts in 2025–2026; Methodologie 5 is named with code unknown. Currently listed old third-year Epidemiologie & Biostatistiek III (6) and Bachelorstage (18) do not resolve the applicable future new-cohort allocation.
+- [Gezondheidswetenschappen — inhoud](https://vu.nl/nl/onderwijs/bachelor/gezondheidswetenschappen/inhoud) — Third-year description; Current prospective undated page. Prospective third year includes a minor, professional preparation and a three-month research placement/bachelor thesis, without exact component EC. These qualitative descriptions do not fill the unresolved 30-EC later requirement by subtraction.
+
+External credit structure: Stored total 150 EC remains a supported subset: first two years 120 plus minimum minor 30. The old-cohort 24-EC third-year listing is not a complete applicable new-cohort remainder.
+
+Result: still-unresolved; required action: research-again-later.
+
+Recommended follow-up: Retain the supported 150-EC subset and explicit exception; revisit only when applicable new-cohort year-three requirements or an official clarification resolves all credits and choice rules.
+
+Unresolved factual question / historical limitation: What are the applicable new-cohort credits and requirements for Methodologie 5, professional preparation, placement/thesis and the remaining third-year structure?
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/comparisons/cp-000100.json`, fields: `comparator.components`, `comparator.sourceNotes`, `comparator.academicYear`, `exception.reason`, `exception.curriculumContext`, `exception.checkedOn`. Retain the current 150-EC supported subset; update only documented source context now. Add later components only when an applicable new-cohort table resolves all requirements and weights.
+
+Dependencies:
+
+- Current new-cohort third-year adopted allocation or university clarification.
+
+Verification and closure checks:
+
+- All added requirements apply to the same cohort; methods, professional work and stage/thesis are counted once.
+- Complete route reaches 180 EC from evidence, not subtraction; close external reconstruction then reassess exception.
+
+Research trigger: Publication of the applicable new-cohort year-three credit table, especially Methodologie 5 and placement/thesis.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000119 — Bachelor Theologie en Religiewetenschappen
+
+Institution: Vrije Universiteit Amsterdam. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `external-programme-unresolved`; existing check date: 2026-09-27.
+
+Existing substantive reason: The exact EC weights and compulsory-versus-elective status of every curriculum component in the selected Religie en Levensbeschouwing route cannot be verified from any source accessible to available tools. VU's own current regulations page states the formal OER/TER is published only inside the dynamic studiegids.vu.nl study-guide application, which returned no extractable curriculum content to available retrieval tools, and the only standalone official OER document discoverable through reasonable search (2017-2018) predates the current three-route structure -- it still treats Islam as an elective minor rather than a parallel afstudeerrichting -- and does not reliably describe the current curriculum. A complete 180-EC comparator would require inventing credit weights and compulsory/elective status that no current or formally adopted source supports, so a canonical comparison cannot be made yet.
+
+Current adopted regulations now expose the selected comparative Religie en Levensbeschouwing route, its full 180 EC, alternatives and six-year part-time pacing. The current credit-access rationale is no longer supported. Previously used prospectus course lists describe the programme starting in 2027, so they cannot substitute for the adopted 2026–2027 route.
+
+Provenance: data/counselor/comparisons/cp-000119.json; source worksheet row(s) 127. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [VU Studiegids — Theologie en Religiewetenschappen](https://studiegids.vu.nl/nl/Bachelor/2026-2027/theologie-en-religiewetenschappen) — Programme facts and linked current OER; 2026–2027. 180-EC programme offered full-time and part-time, with Christian theology, Islam and comparative religious-studies directions. The selected Religie en Levensbeschouwing direction is supported by the current regulations.
+- [OER Theologie en Religiewetenschappen 2026–2027](https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/110b4a0f-1fe1-40b1-a797-60a6aab14bd4/OER%2026-27%20B%20TRS%20NL.pdf) — Articles 10.4 and 11–12, PDF pp. 16–18; Annex 1, physical PDF p. 26 (appendix printed 5/34); Adopted 2026–2027. Religie en Levensbeschouwing table defines 60+60+60 EC, with part-time pacing over six years. Ten 6-EC first-year units; ten 6-EC second-year positions with explicit choices; third year 30 minor plus two 6-EC research labs, two 6-EC profile units and 6 thesis. Minor/free choice needs approval and level rules. Initial instruction is Dutch; selected third year is English. Visual inspection confirms table position, alternatives and credits.
+- [Zingeving, geestelijke verzorging en samenleving — inhoud](https://vu.nl/nl/onderwijs/bachelor/theologie-en-religiewetenschappen/traject/zingeving-geestelijke-verzorging-en-samenleving/inhoud) — Programme-start label above the three-year course overview; Prospective September 2027 route. The advertised qualitative course lists explicitly concern a programme starting in 2027. They are not the current 2026–2027 formal curriculum and cannot replace its credits or compulsory/choice structure.
+
+External credit structure: Stored total 0 EC was intentionally empty. Current adopted comparative route now verifies 60+60+60=180, including 30 minor, two 6-EC research labs and 6 thesis; part-time pace changes duration, not total.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Research Lab 1: Onderzoek en Argumentatie in Theologie en Religiewetenschap (G_BATRSCC105) | 6 | required |
+| 1 | World Religions (G_BATRSCC101) | 6 | required |
+| 1 | Inleiding Religiewetenschappen (G_BATRSPC131) | 6 | required |
+| 1 | Hedendaagse religieuze vraagstukken in historisch perspectief (G_BATRSCC106) | 6 | required |
+| 1 | Geschiedenis van de Wereldfilosofie (G_BATRSCC107) | 6 | required |
+| 1 | Geschiedenis van het Christendom (G_BATRSPC125) | 6 | required |
+| 1 | Religious Myths and Rituals (G_BATRSPC105) | 6 | required |
+| 1 | Judaism (G_BATRSPC111) | 6 | required |
+| 1 | Hinduism (G_BATRSPC110) | 6 | required |
+| 1 | Islam (G_BATRSPC116) | 6 | required |
+| 2 | Psychology of Religion (G_BATRSAL058) | 6 | choice; Shown blue choice position instantiated with the displayed course; not universal common core. |
+| 2 | Interreligieuze Hermeneutiek (G_BATRSCC204) | 6 | required |
+| 2 | Religion, Violence and Fundamentalism (G_BATRSAL084) | 6 | restricted-choice; One of three displayed period-2 options. |
+| 2 | Sociale wetenschappen (G_BATRSCC205) | 6 | required |
+| 2 | Religions and Gender (G_BATRSAL054) | 6 | restricted-choice; Alternative: Geestelijke verzorging bij sterven en rouw. |
+| 2 | Godsdienstfilosofie (G_BATRSCC206) | 6 | required |
+| 2 | Geschiedenis van de Islam na 1800 (G_BATRSPC219) | 6 | restricted-choice; Alternative: Communicatie in Geestelijke Zorg. |
+| 2 | Anthropology of Religion (G_BATRSPC205) | 6 | required |
+| 2 | Islamitische filosofie (G_BATRSPC207) | 6 | restricted-choice; One of three displayed period-5 options. |
+| 2 | Religions, Media and Popular Culture (G_BATRSPC214) | 6 | required |
+| 3 | Approved minor/free-choice semester | 30 | choice; Five 6-EC positions; approved free courses or 12-EC placement plus 18 courses; level conditions apply. |
+| 3 | Research Lab: Preparation Thesis (G_BATRSCC301) | 6 | required |
+| 3 | Interreligious Relations: Mutual Perceptions and Interactions (G_BATRSPC301) | 6 | required |
+| 3 | Research Lab: Exercise in Analytic Methodologies (G_BATRSCC302) | 6 | required |
+| 3 | Comparative Religious Ethics (G_BATRSPC303) | 6 | required |
+| 3 | Thesis (G_BATRSCCSCR) | 6 | required |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Current adopted curriculum only; part-time pacing is six years in this table, not a distinct 360-EC route or a future-2027 reconstruction.
+
+Choice and source-context rules:
+
+- Preserve comparative general-route selection, independent of UCR fit.
+- Part-time Annex table splits each 60-EC study year over two years; total remains 180 EC.
+- Document the blue choice position and each OR selection separately; count no alternatives twice.
+- Third-year minor/free choice requires approval and at least 12 EC level 300 for individually selected courses.
+- Third-year instruction is English within the predominantly Dutch programme; prospective 2027 course lists are separate.
+
+Result: incorrect; required action: reassess-exception.
+
+Incorrect concerns the current unavailable-credit basis, not the historical tool-access report or the ultimate UCR outcome.
+
+Recommended follow-up: Build the selected current comparative route from Annex 1, preserve part-time identity, document choice instantiations and update sources/year context and exception rationale.
+
+Unresolved factual question / historical limitation: The prior tools’ access limitations are preserved as provenance. No dated historical evidence establishes that a previously valid curriculum changed into the present one; incorrect refers only to the current unsupported description or unresolved-source basis, not the truth of the original access report. An outdated classification is not justified.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/comparisons/cp-000119.json`, fields: `comparator.components`, `comparator.primarySourceUrl`, `comparator.additionalSourceUrls`, `comparator.academicYear`, `comparator.sourceNotes`, `exception.reason`, `exception.curriculumContext`, `exception.checkedOn`. Use verified_external_structure in this audit as the source-backed reconstruction; preserve its route, choice and cohort qualifiers. Refresh obsolete current access claims. Reassess the formal exception after external reconstruction; do not automatically change recordStatus/type.
+
+Dependencies:
+
+- No remaining broad external research prerequisite for the current adopted route; verify continued applicability at implementation.
+- Final comparison-versus-no-match decision depends on independent UCR assessment, outside this audit/remediation preparation.
+
+Verification and closure checks:
+
+- One coherent adopted route totals 180 EC and 60 per study year; all choices and embedded requirements counted once.
+- Record sources, years, route and delivery mode accurately; preserve prior access limitations in history.
+- Close external-source remediation only after canonical fields and generated counselor outputs agree; keep ultimate UCR decision pending until separately assessed.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000134 — Bachelor Fiscal Economics
+
+Institution: Maastricht University. Audit scope: Normalized identity/lifecycle conflict and current teach-out rules; no UCR feasibility assessment.
+
+Existing formal type: `registry-exception`; existing check date: 2026-10-01.
+
+Existing substantive reason: The normalized target is an active 180-EC Maastricht University bachelor, but the current official SBE regulations (2026-2027, article 16.8) state that the Bachelor Fiscal Economics is being phased out: no new education is offered beyond year-3 repeat education in 2026-2027, only examinations remain through 2027-2028, and degrees can no longer be issued from 1 November 2028. The regulations contain no current first- or second-year curriculum, so no current 180-EC pathway for a student starting in 2026 exists to reconstruct, and the registry's active, production-eligible status conflicts with that evidence. The reachable sources establish only a 60-EC third-year outline, and encoding it as a full programme or guessing the missing 120 EC would invent components. The target's lifecycle status must be reviewed against the university's current programme register before any UCR comparison is attempted.
+
+The current adopted teach-out rules confirm the registry exception: no new 2026-entry route can be reconstructed. Third-year repeat teaching and later examinations/degree issuance remain available to existing students. The normalized active/eligible target therefore conflicts with new-entrant production scope; the existing exception correctly identifies that conflict. Partly Dutch/partly English instruction also contradicts the normalized ENG-only language description.
+
+Provenance: data/counselor/comparisons/cp-000134.json; source worksheet row(s) 145. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [SBE Bachelor EER 2026–2027 — Fiscal Economics](https://www.maastrichtuniversity.nl/file/sbe-bsc-eer-2026-2027pdf) — Article 16.8, printed pp. 60–61 (PDF pp. 68–69); Appendix I, Article 17, printed pp. 100–102; Adopted 2026–2027. Last third-year repeat education is in 2026–2027; examinations only through 2027–2028; no degree certificates from 1 November 2028. No current new-intake first/second-year route is specified. The remaining third-year outline is 26 required taught + 8 thesis + 26 listed electives/study abroad = 60 EC. Teaching/examination language is partly English and partly Dutch; ENG-only provenance is incomplete.
+
+External credit structure: Stored 60 EC is a third-year teach-out outline only: four 6.5-EC requirements plus 8 thesis and 26 elective/abroad. No current new-intake 180-EC route is established.
+
+Result: confirmed; required action: correct-registry-and-reprocess.
+
+Secondary attribute finding(s):
+
+- normalized registry language: incorrect; stored ["ENG"], verified ["ENG", "NLD"]. Separate closure: Confirmed lifecycle conflict and teach-out correction.
+
+Recommended follow-up: Record a researched lifecycle correction using the existing teach-out-only convention, set production_eligible=false and clear production_order, retain the permanent ID/history and partial third-year evidence, and refresh affected production inventories. Correct language metadata to include NLD and ENG with official provenance.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `current_status`, `production_eligible`, `production_order`, `languages_json`, `corrected_attributes_json`, `official_source_ids_json`, `official_source_urls_json`. For cp-000134 propose current_status="teach-out-only", production_eligible=false, production_order blank, languages_json=["ENG","NLD"]. Document no-new-entry scope, last teaching 2026–2027, last examinations 2027–2028 and certificate cutoff 2028-11-01. Retain permanent ID, standard type, 180-EC historical degree identity and all crosswalk provenance.
+- `data/registry/resolution_decisions.csv; data/registry/resolution_sources.csv`, fields: `documented post-build lifecycle/language correction`. Use existing teach-out-only precedent with researched official evidence; preserve immutable source and ambiguity baselines and ensure rebuild retains the correction.
+- `data/counselor/comparisons/cp-000134.json; data/counselor/review-programmes.json; other affected generated counselor inventories`, fields: `scope membership`, `exception source context`, `review/coverage counts`. Reconcile canonical-record handling for the newly out-of-scope permanent target with repository scope rules. Preserve historical registry/exception evidence; regenerate inventories so it is no longer a new-entrant production target. Do not construct a 180-EC intake route from the 60-EC teach-out table.
+
+Dependencies:
+
+- Confirm authoritative lifecycle/new-enrolment record or record why adopted EER controls; reconcile any register conflict before final lifecycle correction.
+- Choose repository-supported retention/archive treatment for an existing canonical record that leaves scope, without losing its provenance.
+
+Verification and closure checks:
+
+- New-entrant production excludes cp-000134; history and crosswalks retain the same permanent ID.
+- Teach-out is not mislabeled already nonexistent: existing-student teaching, examinations and certificate cutoff remain distinct.
+- Registry rebuild and generated inventories reproduce eligibility/order changes and reconcile counts; language includes both official languages.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000140 — Circular Engineering
+
+Institution: Maastricht University. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-03.
+
+Existing substantive reason: The defining curriculum of the selected route is a chemical-engineering sequence built on physics and chemistry: Fundamentals of Engineering, Chemistry and Chemical Engineering, and Thermodynamics and Engineering Physics in the compulsory first year, physics, electronics, chemistry and biology laboratory skills, fluid mechanics and heat and mass transfer in year 2, and in year 3 chemical engineering thermodynamics and kinetics, separation processes, reactor engineering, chemical plant design, process design and control, unit-operations and industrial-process-design skills and a 25-EC engineering thesis. UCR offers circular-economy, life-cycle, energy and environmental-engineering-adjacent courses, a mathematics and numerical-methods line and biochemistry and cell-biology courses, but no physics, chemistry sequence, thermodynamics, transport phenomena, reactor or process engineering, mechanics or engineering design. A 24-course programme would be a sustainability-and-mathematics programme with a small circular-economy core padded with unrelated life-science or computing courses, and it would not reproduce the programme's engineering substance; the unmatched components include essentially all of the 25-EC concentration course sequence, the engineering physics and chemistry core and the thesis. The comparison would have to present adjacent sustainability courses as substitutes for engineering content that UCR does not teach.
+
+Current adopted regulations corroborate the complete selected Circular Chemical Engineering route, engineering/science laboratories and design/thesis core. Second-year restricted choices form a coherent period-specific instantiation; their subject content is not a universal requirement for every concentration. No open allowance is invented.
+
+Provenance: data/counselor/comparisons/cp-000140.json; source worksheet row(s) 152. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [EER BSc Circular Engineering 2026–2027](https://www.maastrichtuniversity.nl/sites/default/files/2026-09/EER%20BSC%20CE%2026-27.pdf) — Articles 3.5–3.9, PDF pp. 9–10; Appendix I, pp. 22–23; Adopted 2026–2027. 180 EC: first year 40 courses + 10 skills + 10 projects; second year 40 restricted course selections + 10 restricted skills + 10 projects; third year 5 common + 25 concentration + 5 skills + 25 thesis. The stored Chemical Engineering concentration and period-specific second-year selections are coherent. Field-specific electives are instantiated choices, not common requirements across all routes.
+
+External credit structure: Stored and adopted selected route total 180 EC. Restricted year-two and concentration selections remain distinct from programme-wide common requirements.
+
+Result: confirmed; required action: none.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000149 — General Cultural Studies (Algemene Cultuurwetenschappen)
+
+Institution: Open Universiteit. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `external-programme-unresolved`; existing check date: 2026-10-06.
+
+Existing substantive reason: Current official OU sources do not establish a consistent 180-EC pathway for 2026-27. The study guide's component table totals 185 EC and contradicts both the 60-EC propedeuse and the six portal-type courses in the annual schedule; the split of the 45 EC left between choice block and free space, the membership of the theme blocks and the make-up of the 15-EC skills block are not stated, and the programme-specific OER that would resolve them was not accessible. Fixing a 180-EC route would require guessing which figures are correct, so no canonical comparison is published.
+
+Fresh current guide and programme facts retain the 50-versus-60, 135-versus-120 and 185-versus-180 conflicts. Newly located programme-specific regulations explain a coherent 2025–2026 allocation, but are explicitly older and cannot control the conflicting 2026–2027 guide. The current skills-course change prevents assuming unchanged membership. Broad research can now be narrowed to the current controlling document.
+
+Provenance: data/counselor/comparisons/cp-000149.json; source worksheet row(s) 162. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [Bachelor Algemene Cultuurwetenschappen 2026–2027](https://www.ou.nl/en/-/bcw-2026-2027_bachelor-algemene-cultuurwetenschappen) — Degree facts and structure; 2026–2027. The standard Dutch part-time degree is 180 EC, with 60-EC propedeuse and 120-EC postpropedeuse. The separate Open Bachelor is not this target.
+- [Studiegids Algemene Cultuurwetenschappen 2026–2027](https://www.ou.nl/digitaldownloads/BD476.pdf) — PDF p. 7 diagram; course/annual schedules; p. 43 regulations notice; 2026–2027. Diagram gives propedeuse 50 EC and postpropedeuse 135 EC, totalling 185 rather than the stated 180. Annual schedule gives twelve 5-EC propedeuse courses, including six portal courses rather than four. Choice/skills allocation therefore needs controlling current programme-specific regulations, not arithmetic repair.
+- [OER — programme-specific Algemene Cultuurwetenschappen](https://vraagenantwoord.ou.nl/privatedata/docs/OER_WO_bacheloropleiding_Algemene_cultuurwetenschappen.pdf) — Both pages; explicit academic-year header; 2025–2026; older official evidence, not current authority. 2025–2026 regulations reconstruct 60 + 45 themes + 15 restricted choice + 30 free + 15 skills + 15 graduation = 180 EC. This narrows the current contradiction but does not control 2026–2027. Current guide changes a skills-course label/code; unchanged future requirements cannot be assumed.
+- [OU documents / questions portal](https://www.ou.nl/documenten) — Guide-directed documents URL and public redirect; Access checked 7 October 2026; current programme-specific OER not retrieved. Current guide directs readers here for 2026–2027 OER and implementation rules. Retrieval redirects to the FAQ without exposing the current programme-specific document; reasonable official-domain searches retrieved only the older programme-specific OER.
+
+External credit structure: Stored total 0 EC is intentional. Current schematic totals 185, conflicts with 60+120 degree facts, and cannot be repaired using older 2025–2026 rules without current authority.
+
+Result: still-unresolved; required action: research-again-later.
+
+Recommended follow-up: Obtain the 2026–2027 programme-specific OER/implementation schedule or a university clarification; reconcile the current portal, theme, choice, free-space, skills and graduation allocation before supplying any complete components.
+
+Unresolved factual question / historical limitation: Does the current controlling regulation retain 15 EC restricted choice, 30 EC free space and the older skills allocation, and which current courses belong to each block? Resolve the six-versus-four portal count and the erroneous schematic totals.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/comparisons/cp-000149.json`, fields: `comparator.sourceNotes`, `comparator.additionalSourceUrls`, `comparator.components`, `exception.reason`, `exception.curriculumContext`, `exception.checkedOn`. Add the newly found 2025–2026 programme-specific OER only as older diagnostic evidence. Keep current reconstruction unresolved. When the current controlling document is available, build its exact block membership/weights and explain the 2026–2027 guide errors.
+
+Dependencies:
+
+- Current 2026–2027 programme-specific OER/implementation schedule or official clarification that controls the conflicting guide.
+
+Verification and closure checks:
+
+- Propedeuse 60 plus postpropedeuse 120 from current authority; portal count, theme membership, restricted choice, free space, skills and graduation reconcile.
+- 2025–2026 rules and separate Open Bachelor are not silently substituted.
+- Resolve current skills-course change and count 15-EC graduation once; close external reconstruction then reassess exception.
+
+Research trigger: Accessible current programme-specific regulation or explicit university clarification of the guide/table contradictions.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000156 — Theologie
+
+Institution: Protestantse Theologische Universiteit. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-29.
+
+Existing substantive reason: The programme's defining academic identity is sustained Protestant Christian theology and theology-specific method: systematic, historical, practical and biblical theology; Greek and Hebrew; exegesis in the source languages; theology, aesthetics and culture; Reformation history; Judaism and Islam in theological context; personal worldview formation; and a 15-EC final theological project. Only the 30-EC minor is broadly open. UCR offers adjacent philosophy, ethics, history, sociology, politics, literature, art history and cultural analysis, but no sustained theology, scripture, source-language, exegesis or pastoral curriculum. A 24-course UCR schedule assembled from neighbouring humanities and social sciences would erase the target's defining theological sequence and would not be a defensible substantive match.
+
+The selected 180-EC language route and sustained theological core are supported. However, exception.curriculumContext incorrectly universalises biblical languages and exegesis across all available routes. The OER permits language-free replacements, already acknowledged in comparator.sourceNotes. The current reason/context must distinguish the selected route from common requirements and the ministerial-master exit profile.
+
+Provenance: data/counselor/comparisons/cp-000156.json; source worksheet row(s) 169. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+rc-0016 fills Dutch/Utrecht/180-EC metadata; fresh authoritative evidence corroborates that correction. Stale Groningen interests remain provenance only.
+
+Current official sources (checked 7 October 2026):
+
+- [PThU OER Bachelor Theologie 2026–2027](https://www.pthu.nl/over-pthu/organisatie/regelingen-en-rechtspositie/oer-bachelor-theologie-2026-2027.pdf) — Annex 2, PDF pp. 45–46 and alternative-path footnotes; Adopted 9 July 2026; effective 1 September 2026. Selected language route totals 180 EC: first year 60; second year 24 track + 15 Greek + 15 Hebrew + 6 worldview; third year 30 minor + 9 exegesis + 6 theology/media + 15 thesis. Footnotes allow replacing languages with four additional track courses and Interreligious Practices, and exegesis with an unused track unit plus a 3-EC recent-publication unit. Languages/exegesis are required for the ministerial-master exit profile, not every permitted bachelor route.
+- [PThU Bachelor Theologie](https://www.pthu.nl/onderwijs/bachelor/theologie-utrecht/) — Current programme location and degree facts; Current undated programme page. The authoritative target is the current Utrecht bachelor; old Groningen partnership interests do not override its identity. Registry decision rc-0016 fills the same Dutch, Utrecht, 180-EC metadata.
+
+External credit structure: Stored selected route totals 180 EC and remains valid. The error is universalising route-dependent language/exegesis content, not component arithmetic.
+
+Result: incorrect; required action: reassess-exception.
+
+Incorrect concerns the universal language/exegesis claim. The selected route and theological core are supported; the ultimate UCR decision was not assessed.
+
+Recommended follow-up: Correct the universal language/exegesis claim while preserving the valid selected route and its 180 EC. Describe the documented replacement pathway and restrict Greek/Hebrew/exegesis claims to the selected or ministerial-profile route; reassess the exception on that corrected basis.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/comparisons/cp-000156.json`, fields: `exception.curriculumContext`, `exception.reason`, `exception.checkedOn`, `comparator.sourceNotes`. Replace the universal language/exegesis statement with selected-language-route qualification. Explain permitted replacements and ministerial-master exit-profile requirements. Retain supported 180-EC components, neutral Systematic Theology track choice and Utrecht identity; sourceNotes already acknowledges the alternative.
+
+Dependencies:
+
+- No external-source prerequisite; final UCR feasibility decision remains a separate stage-two task.
+
+Verification and closure checks:
+
+- Context/reason/sourceNotes agree that Greek, Hebrew and source-language exegesis are route-dependent.
+- Replacement pathway is described accurately and not stacked onto the 180-EC selected route.
+- Close factual narrative correction when canonical and generated narratives agree; retain UCR reassessment pending.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000159 — Archaeology
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-29.
+
+Existing substantive reason: The Groningen programme devotes 120 EC in its first two years to archaeology and then adds archaeological theory, data analysis, research design and a 10-EC archaeology thesis. Required study spans Greek and Roman, north-west European and Arctic archaeology; material culture, conservation and archaeometry; GIS and geoarchaeology; archaeobotany, zooarchaeology and human osteoarchaeology; and two credited fieldwork sequences. UCR has a small but valuable archaeology and heritage group—Introduction to World Archaeology, Greek Archaeology, and Heritage & Ancient Democracy—but no supervised excavation sequence, archaeological-materials or conservation laboratory sequence, bioarchaeology sequence, GIS/geoarchaeology sequence or archaeology thesis. Filling 24 places mainly with history, art, environmental science and generic methods would present neighbouring disciplines as an Archaeology bachelor. No defensible closest 24-course UCR programme can therefore be formed.
+
+Current official tables corroborate the complete archaeology route, compulsory fieldwork and material/bioarchaeological methods. Genuine minor and IMPACT choices remain distinct; regional module selections do not constitute separate formal degree routes. The defining external basis is supported.
+
+Provenance: data/counselor/comparisons/cp-000159.json; source worksheet row(s) 172. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [RUG Bachelor Archaeology](https://www.rug.nl/bachelors/archaeology/?lang=en) — Programme facts and all three-year curriculum tables; Current programme page; no separate academic-year label on curriculum table. Complete 180-EC programme: first/second-year archaeology each 60 EC; third year minor 30, theory/data/research design 10, restricted IMPACT choice 10 and thesis 10. Required first/second-year fieldwork, material/conservation, GIS/geoarchaeology and bioarchaeology remain supported. Regional selections within modules are not separate degree routes.
+
+External credit structure: Stored complete route totals 180 EC; current table supports 60+60+30+10+10+10 and keeps minor/IMPACT choices separate.
+
+Result: confirmed; required action: none.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
 ## Remaining work and next batch
 
-All 19 scope exclusions are complete. Twenty-one of 140 exceptions have received the first-stage audit; 119 remain pending. The next batch is: cp-000097, cp-000098, cp-000099, cp-000100, cp-000119, cp-000134, cp-000140, cp-000149, cp-000156, cp-000159.
+All 19 scope exclusions are complete. Thirty-one of 140 exceptions have received the first-stage audit; 109 remain pending. The next batch is: cp-000171, cp-000172, cp-000174, cp-000175, cp-000179, cp-000192, cp-000194, cp-000196, cp-000198, cp-000199.
 
-Completed and pending entries reconcile exactly to 159 cases by audit_population + counselor_programme_id: 40 unique completed keys and 119 unique pending keys, with no overlap or omissions. All 30 earlier case objects and their source entries are preserved. Pending entries have no audit finding. An audited still-unresolved case is a completed research finding, not a pending inventory entry.
+Completed and pending entries reconcile exactly to 159 cases by audit_population + counselor_programme_id: 50 unique completed keys and 109 unique pending keys, with no overlap or omissions. All 40 earlier case objects and their source entries are preserved. Pending entries have no audit finding. A completed still-unresolved finding is a completed research result, not a pending inventory entry.
 
-Stage two will independently assess UCR feasibility for every current no-defensible-ucr-match record. Confirmation in this report establishes only the external-programme basis. The exhaustive first-stage audit remains in progress.
+After the exhaustive audit, consolidate the action queue and execute targeted remediation with exact field changes, source evidence, dependencies and closure checks. Batch-5 entries already carry those structured plans; earlier entries retain their original recommendations. Close external/registry corrections independently of the later UCR feasibility stage. Research-dependent work resumes on its stated trigger, rather than repeating the whole programme search.
+
+Stage two will independently assess UCR feasibility for every current no-defensible-ucr-match record and any resolved external case requiring a final fit decision. Confirmation here establishes only the stated external/registry basis. The exhaustive first-stage audit remains in progress.
 
 ## Production-data boundary
 
