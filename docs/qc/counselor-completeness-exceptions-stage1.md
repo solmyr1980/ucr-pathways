@@ -1,6 +1,6 @@
 # Counselor completeness and exceptions: first-stage audit
 
-Status: in progress. Batches 1–5 completed on 7 October 2026: all 19 scope exclusions and 31 exceptions audited within the first-stage scope. 109 exceptions remain pending.
+Status: in progress. Batches 1–6 completed on 7 October 2026: all 19 scope exclusions and 41 exceptions audited within the first-stage scope. 99 exceptions remain pending.
 
 ## Scope and method
 
@@ -17,17 +17,17 @@ The classification applies only to the stated audit scope. Resolving an external
 | Normalized registry targets | 460 | — | — |
 | In-scope targets with canonical records | 441 | — | — |
 | Completed comparisons | 301 | Outside this stage | — |
-| Completed exceptions | 140 | 31 | 109 |
+| Completed exceptions | 140 | 41 | 99 |
 | Excluded normalized targets | 19 | 19 | 0 |
-| First-stage audit cases | 159 | 50 | 109 |
+| First-stage audit cases | 159 | 60 | 99 |
 
 All 441 in-scope IDs have a canonical filename; there are no missing in-scope IDs, duplicate record filenames or out-of-scope canonical records. The review-index ID set matches both registry scope and canonical filenames. Status totals use that current generated index; all 140 indexed exceptions were additionally read directly to verify ID, exception status and formal type. Enumeration does not constitute a substantive exception audit.
 
 | Formal exception type | Corpus total | Substantively audited |
 |---|---:|---:|
 | external-programme-unresolved | 20 | 7 |
-| no-defensible-ucr-match | 117 | 23 |
-| registry-exception | 3 | 1 |
+| no-defensible-ucr-match | 117 | 32 |
+| registry-exception | 3 | 2 |
 
 ## Batch 1 findings
 
@@ -1738,13 +1738,378 @@ No material external factual question remains within this scope. Final registry/
 
 UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
 
+## Cumulative findings after batch 6
+
+| Finding | Count |
+|---|---:|
+| confirmed | 47 |
+| incorrect | 9 |
+| outdated | 0 |
+| still-unresolved | 4 |
+
+| Required action | Count |
+|---|---:|
+| none | 42 |
+| reprocess-as-comparison | 0 |
+| reassess-exception | 11 |
+| correct-registry-and-reprocess | 4 |
+| research-again-later | 3 |
+
+## Batch 6 findings
+
+Eight findings are confirmed and two are incorrect within the stated factual scope. CP175 needs a semester-specific bachelor-project annotation correction: preparation in 3.1, project conduct in 3.2, with credits unchanged. CP198 incorrectly states three formal routes where the current regulation defines two. CP199’s existing registry-exception is confirmed: it duplicates the current Dutch track already represented by CP198 through documented successor normalization. CP198 and CP199 require one coordinated registry correction, counted as two affected cases rather than two independent merges. No case is classified as outdated or externally unresolved in this batch.
+
+All ten selected external pathways are supported at 180 EC. Confirmation applies to external requirements and identity only; existing UCR claims remain provenance and await stage two. Actionable entries include field-level changes, dependencies and closure checks. The proposed surviving Dutch owner is CP198; alias/history representation and canonical treatment must use the repository-supported model before implementation. All plans remain unimplemented.
+
+| ID | Programme | Formal type | Finding | Required action |
+|---|---|---|---|---|
+| cp-000171 | BA European Languages and Cultures — German major, European Language and Society profile | no-defensible-ucr-match | confirmed | none |
+| cp-000172 | Pharmacy | no-defensible-ucr-match | confirmed | none |
+| cp-000174 | Frisian Language and Culture | no-defensible-ucr-match | confirmed | none |
+| cp-000175 | Medicine | no-defensible-ucr-match | incorrect | reassess-exception |
+| cp-000179 | Griekse en Latijnse Taal en Cultuur (Classics) | no-defensible-ucr-match | confirmed | none |
+| cp-000192 | Bachelor Life Science and Technology | no-defensible-ucr-match | confirmed | none |
+| cp-000194 | Middle Eastern Studies | no-defensible-ucr-match | confirmed | none |
+| cp-000196 | Physics | no-defensible-ucr-match | confirmed | none |
+| cp-000198 | Dutch Languages and Cultures — Dutch Language and Culture | no-defensible-ucr-match | incorrect | correct-registry-and-reprocess |
+| cp-000199 | Dutch Language and Culture — track within Dutch Languages and Cultures | registry-exception | confirmed | correct-registry-and-reprocess |
+
+## Batch 6 evidence and implementation plans
+
+### cp-000171 — BA European Languages and Cultures — German major, European Language and Society profile
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-03.
+
+Existing substantive reason: The Groningen programme is defined by cumulative proficiency in a chosen European language and by language-specific study through that language. The neutral pathway contains 30 EC of staged German proficiency, 15 EC of German language-specific work across language and society, culture and literature, and politics and society, a further 10-EC interdisciplinary German module, and a thesis grounded in the selected language and profile. UCR's current catalogue contains no German course and no sustained sequence in any European language comparable to this requirement. Its single introductory Dutch course does not create a major-language pathway. UCR literature, media, history, politics, sociology and communication courses can support comparative European questions, but they cannot supply the language competence on which the defining profile and language-specific modules depend. A 24-course response would therefore be a broad European humanities and social-science programme without the programme's central language curriculum, not a defensible closest match.
+
+Current formal and prospectus evidence supports the selected German/European Language and Society route, all 180 EC, major-language progression and restricted choice. rc-0021 language-variant merging remains supported. Its discipline/language requirements describe this selected ordinary route, not every approved Open Degree alternative.
+
+Provenance: data/counselor/comparisons/cp-000171.json; source worksheet row(s) 184. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Fresh rc-0021 (12 September 2026) merges row 184 language variants into one 180-EC Dutch/English bachelor; current OER and prospectus corroborate the same ISAT identity.
+
+Current official sources (checked 7 October 2026):
+
+- [OER European Languages and Cultures 2026–2027](https://www.rug.nl/let/onze-faculteit/organisatie/diensten-en-voorzieningen/onderwijsinstituut/oeren/2026-2027/bacheloropleidingen/delen-b/ba-etc-partb-2627.pdf) — Articles 3.2, 4.1, 5.1–5.2 and language table, PDF pp. 5–8; Adopted 2026–2027. ISAT 56124. The selected German/European Language and Society pathway is 60+60+60 EC: German proficiency 30, three year-two language-specific units 15, year-three language-specific unit 10, restricted year-two choice 10, minor 30 and thesis 10. Three profiles and eight major languages are available. Lectures are English, seminars may be Dutch/English, and language-specific study uses the major language. Restricted choice is profile-plus, another profile or another language. An approved Open Degree can replace some language-specific units; it is a separate permitted alternative, not the selected ordinary route.
+- [European Languages, Cultures and Politics](https://www.rug.nl/bachelors/european-languages-cultures-and-politics/?lang=en) — Programme facts, major-language list and profile order; Current official prospectus; formal 2026–2027 OER controls cohort requirements. Current Dutch/English bachelor, 180 EC, ISAT 56124. The marketing title includes Politics; adopted regulations retain European Languages and Cultures. German and European Language and Society appear first in the relevant option lists. This corroborates the neutral selected pathway and rc-0021 language-variant normalization without making its language requirements universal across approved alternatives.
+
+External credit structure: Stored and adopted selected pathway total 180 EC, with 60+60+60 years. Year-two restricted choice 10 and minor 30 remain choice spaces; the selected ordinary route retains all required German-language study.
+
+Result: confirmed; required action: none.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000172 — Pharmacy
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-03.
+
+Existing substantive reason: The programme's defining academic identity is a cumulative pharmaceutical-science and professional Pharmacy curriculum: pharmaceutical analysis, technology and biopharmacy; receptor and systems pharmacology; pharmacokinetics, pharmacoepidemiology and pharmacotherapy; drug-group study across major organ systems and diseases; medicinal and organic chemistry; bioanalysis and instrumental analysis; compounding and dosage-form knowledge; pharmaceutical microbiology; laboratory practice; patient care and communication; professional formation; and a pharmaceutical research project. UCR provides a useful biomedical foundation and one dedicated Pharmacology course, but no chemistry curriculum and no sustained pharmaceutical analysis, formulation, pharmacokinetics, pharmacoepidemiology, medicinal chemistry, drug-group, compounding, pharmaceutical-care or pharmacy-practice sequence. A 24-course UCR schedule built from adjacent life science, psychology, data and health courses would replace rather than reproduce the target's defining pharmaceutical progression and is therefore not a defensible substantive match.
+
+The selected Pharmacy major is supported at 180 EC, with 165 required and 15 restricted elective EC. Its professional/pharmacological and laboratory spine is external evidence for the stored exception basis. The broader MPS alternative has a minor, but it is not the selected eponymous Pharmacy route.
+
+Provenance: data/counselor/comparisons/cp-000172.json; source worksheet row(s) 185. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [TER BSc Pharmacy 2026–2027](https://www.rug.nl/fse/education/ter/ter-2627-bsc/13-ter-bsc-pharmacy-26-27.pdf) — Appendices II–IV, PDF pp. 5–9; Adopted 2026–2027. The eponymous Pharmacy major requires 165 EC plus 15 restricted elective EC, with no free minor. The alternative Medical Pharmaceutical Sciences major requires 135 EC plus 15 restricted electives and 30 minor. Shared first and second years each total 60. Selected Pharmacy year three has research 15, six required 5-EC units and restricted electives 15. Laboratory, pharmacological, patient-care and professional-development study are defining requirements; this bachelor alone is not pharmacist licensure. The Pharmacy route is supported independently of UCR fit; the no-minor statement is route-specific. The third-year table was visually inspected.
+
+External credit structure: Stored selected Pharmacy major totals 180 EC: first year 60, second year 60, final-year research 15 plus six required 5-EC units plus restricted electives 15. The separate MPS route has a 30-EC minor; no alternatives are stacked.
+
+Result: confirmed; required action: none.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000174 — Frisian Language and Culture
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-03.
+
+Existing substantive reason: The programme is defined by sustained study through and about Frisian: track-specific language use and variation, Frisian linguistics, historical and modern Frisian literature and language culture, research ateliers in Frisian literature and linguistics, a field internship and an independent thesis normally written in Frisian. UCR offers useful adjacent study in general communication, psycholinguistics, stylistics, literary analysis, media, cultural heritage, history, politics and sociology, but it offers no Frisian-language course and no cumulative sequence in Frisian proficiency, linguistics, literature or regional culture. Its one introductory Dutch course cannot replace that progression. A 24-course UCR response would therefore be a broad language-and-culture programme that omits the target's defining Frisian curriculum, not a defensible closest match.
+
+The specifically named Frisian track is current under ISAT 50479 and has an adopted September 2026 180-EC continuation, including a 10-EC internship. Dutch or Frisian teaching and Frisian thesis requirements support the language/culture identity; the normalized Dutch language value is supported but not an exhaustive statement of track instruction.
+
+Provenance: data/counselor/comparisons/cp-000174.json; source worksheet row(s) 187. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [OER Nederlandse Talen en Culturen 2026–2027](https://www.rug.nl/let/onze-faculteit/organisatie/diensten-en-voorzieningen/onderwijsinstituut/oeren/2026-2027/bacheloropleidingen/delen-b/ba-oer-ntc-2627.pdf) — Cover; Articles 2.5, 3.2, 4.1, 5.1 and 8.3; PDF pp. 1, 3, 6–9, 15; Adopted 2026–2027. One ISAT 50479 bachelor has two tracks: Nederlandse Taal en Cultuur and Friese Taal en Cultuur. Article 2.5 identifies predecessor Dutch ISAT 56804. For September 2026 entrants each track has 60+60+60 EC; the adopted later years enter OCASYS in 2027–2028 and 2028–2029. Both have minor 30, faculty-wide choice 10 and thesis 10 in year three; Dutch adds two 5-EC subject units, Frisian adds internship 10. Research ateliers require two subject domains, with literature and linguistics specified for Frisian. Dutch instruction is Dutch; Frisian is Dutch or Frisian, with track-language thesis unless approved otherwise. Adopted 7 July 2026. Cover and cohort tables visually inspected.
+- [Friese taal en cultuur](https://www.rug.nl/bachelors/frisian-language-and-culture/) — Identity, facts, new curriculum and year-one description; Current official prospectus for September 2026 curriculum. Current Frisian track under Dutch Languages and Cultures, 180 EC, taught in Dutch and Frisian. The new cohort combines Frisian language/culture with shared literary and linguistic study. Supplemental proficiency assistance is not an extra credit-bearing requirement to add to the adopted 60-EC first year. Future later-year requirements are explicitly prescribed by the adopted OER, not inferred from concurrent older cohorts.
+
+External credit structure: Stored September 2026 Frisian track totals 60+60+60=180. Final year is minor 30, faculty choice 10, thesis 10 and internship 10. Future OCASYS release dates do not leave credits unresolved: adopted OER prescribes the continuation.
+
+Result: confirmed; required action: none.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000175 — Medicine
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-03.
+
+Existing substantive reason: The Groningen bachelor is the first professional phase of medical training and integrates broad biomedical and pathophysiological knowledge with longitudinal clinical reasoning, patient-centred problem-based learning, medical consultation, diagnosis and treatment decisions, communication with patients and professionals, supervised competency development, healthy-ageing and prevention work, scientific training, professional formation and recurring medical knowledge progression tests. UCR can build a strong biomedical-science curriculum and add psychology, population health and research methods, but it does not offer clinical medical education, supervised patient contact, medical consultation training, diagnostic and treatment practice, clinical placements, longitudinal physician competencies or a comprehensive medical progress-testing sequence. A 24-course UCR schedule would therefore be a defensible biomedical or health-sciences programme, but not a defensible closest match to Medicine.
+
+The current 180-EC medical structure and selected Sustainable Care route are supported. The narrow error is project allocation: the 10-EC 3.1 component note names the bachelor project without distinguishing preparation, while the 20-EC 3.2 component note omits the project conducted in that semester. Current guide explicitly separates 3.1 preparation from 3.2 project conduct.
+
+Provenance: data/counselor/comparisons/cp-000175.json; source worksheet row(s) 188. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [TER Bachelor Medicine 2026–2027](https://www.rug.nl/umcg/education/geneeskunde/belangrijkedocumentengnk/documentenbachelor/terbachelormedicine2627.pdf) — Articles 3.3, 4.1, 7.1, 15.4 and Appendix 3; PDF pp. 7–8, 11, 26, 30–31; Adopted 2026–2027. Compulsory 180 EC, no minor/free elective: year one Causes of Diseases 35, Knowledge Development 4, Competency Development 21; year two 36+4+20; year three 26+4+30. Final competency units are 3.1 at 10 EC and 3.2 at 20 EC. Sustainable Care is first among four Dutch learning communities; assignment is binding, not an unrestricted elective. Legacy English Global Health intake stopped in 2024–2025 and is phasing out; that does not remove the selected current Dutch route.
+- [Study guide Bachelor Medicine 2026–2027](https://www.rug.nl/umcg/education/geneeskunde/belangrijkedocumentengnk/documentenbachelor/studyguidebachelorgnk2627.pdf) — PDF pp. 34–36, especially semester 3.2 heading and preparation note; version 21 July 2026; 2026–2027; version 21 July 2026. Competency Development 3.1 develops consultation/clinical reasoning, professional development, healthy ageing and scientific preparation. Bachelor project preparation and proposal begin in 3.1; project conduct, thesis, reflection and presentation belong to Competency Development 3.2. The project integrates competency pathways, including individual work within teams of three to five. Stored 3.1 note says it includes the project, while the 3.2 note omits the project. Correct the allocation descriptions, retain 10/20 EC and count no additional standalone thesis credits. Page 36 was visually inspected.
+
+External credit structure: Stored and adopted credits total 180: year totals 35+4+21, 36+4+20 and 26+4+30, each 60. Final competency components remain 10 and 20 EC; project preparation/conduct descriptions need correction, not an extra thesis component.
+
+Result: incorrect; required action: reassess-exception.
+
+Incorrect concerns semester-specific project annotations only. The complete medical credit structure is supported; existing UCR claims were not independently checked.
+
+Recommended follow-up: Correct semester-specific component notes, placing project preparation in 3.1 and project/thesis/presentation in 3.2. Preserve current component weights, overall medical structure and source-backed route; reassess exception narrative consistency without deciding UCR fit.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/comparisons/cp-000175.json`, fields: `comparator.components[id=y3-competency-3-1].note`, `comparator.components[id=y3-competency-3-2].note`, `comparator.additionalSourceUrls`, `comparator.sourceNotes`, `exception.curriculumContext`, `exception.checkedOn`. Describe 3.1 as clinical/professional competency study including bachelor-project preparation and proposal; describe 3.2 as the integrated bachelor project with research, thesis, reflection and presentation. Add the current guide if absent and align any semester-specific context. Preserve 10/20-EC weights, 180 total and selected Sustainable Care route. Do not introduce standalone thesis credits or assert universal clinical placements based on these sources.
+- `data/counselor/review-programmes.json and existing generated counselor artifacts`, fields: `affected CP175 summaries and source context`. Regenerate only affected derived context through the normal production workflow after the canonical factual note is corrected.
+
+Dependencies:
+
+- Current sources resolve the external allocation; any change to final UCR feasibility remains a separate stage-two decision.
+
+Verification and closure checks:
+
+- 3.1 project preparation is distinguished from 3.2 project conduct, and canonical/generated notes agree with guide pp. 34–36.
+- Original 60+60+60 allocation and 10/20 final competency credits are unchanged; no project credit is double counted.
+- Close factual annotation correction separately; record the final UCR fit judgment as pending until independent stage two.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000179 — Griekse en Latijnse Taal en Cultuur (Classics)
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-05.
+
+Existing substantive reason: The compulsory curriculum is organized around progressive proficiency and original-language reading in both Ancient Greek and Latin, followed by advanced Greek and Latin seminars, epigraphy and papyrology, original-language poetry analysis and a thesis in the field. UCR offers substantial adjacent work in archaeology, heritage, ancient history, philosophy, myth and comparative literature, but it offers neither Ancient Greek nor Latin language instruction and therefore no cumulative classical-philology sequence. A 24-course UCR programme assembled from those adjacent fields would omit the target's defining two-language core and would not be a defensible Classics match.
+
+Current OER supports the complete Greek/Latin disciplinary sequence and 180 EC, including two separate 10-EC research seminars. The conditional transition modules replace corresponding proficiency rather than adding credit. Stale footer year does not supersede current cover, adoption and effective date.
+
+Provenance: data/counselor/comparisons/cp-000179.json; source worksheet row(s) 192. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [OER Griekse en Latijnse Taal en Cultuur 2026–2027](https://www.rug.nl/let/onze-faculteit/organisatie/diensten-en-voorzieningen/onderwijsinstituut/oeren/2026-2027/bacheloropleidingen/delen-b/ba-gltc-deelb-2627.pdf) — Articles 3.2, 4.1, 5.1 and 8.3; PDF pp. 6–7, 9; cover p. 1; Adopted 2026–2027. Required Greek and Latin proficiency/reading and classical literature, history/archaeology, epigraphy/papyrology and philosophy establish the field. Year one totals 60; year two 60 including faculty choice 10; year three minor 30, Greek research seminar 10, Latin research seminar 10 and thesis 10. A 10-EC transition module replaces corresponding proficiency for an entrant lacking that school language; it is not extra credit. Cover and effective/adoption dates establish 2026–2027 (effective 1 September 2026; adopted 23 June 2026), despite stale 2025–2026 footers. Dutch full-time/part-time offerings share the normalized academic target.
+
+External credit structure: Stored and adopted credits total 180: 60+60 plus minor 30, two research seminars of 10 each and thesis 10. Conditional language transition replaces, rather than augments, proficiency credit.
+
+Result: confirmed; required action: none.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000192 — Bachelor Life Science and Technology
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-05.
+
+Existing substantive reason: The University of Groningen programme is an integrated life-science, chemistry, physics and experimental-technology degree. Its compulsory spine joins mammalian cell biology, biochemistry, physiology, genetics and evolution with a two-course organic-chemistry sequence, pharmaceutical analysis, bioinorganic chemistry, optics, thermodynamics, biophysics, quantum and classical mechanics, imaging and spectroscopy. That theory is reinforced by dedicated practical courses in optics and cell biology, microbiology and organic chemistry, then by applied microbiology, applied biotechnology and a 15-EC research project. UCR offers meaningful molecular biology, biochemistry, physiology, genetics, pharmacology, laboratory, calculus, linear-algebra, programming and data-science courses. It does not offer the chemistry, physics, imaging, spectroscopy, microbiology, biotechnology and staged laboratory progression that defines this degree. A UCR programme built from the closest available courses would be a credible molecular-biomedicine pathway, but it would not be a defensible Life Science and Technology comparator.
+
+Current regulations support the complete 180-EC generic Life Science and Technology route, its substantial required chemistry/physics/mathematics/laboratory core and 30 minor plus 15 approved restricted electives. Specialisation guidance does not make an arbitrary additional route compulsory.
+
+Provenance: data/counselor/comparisons/cp-000192.json; source worksheet row(s) 205. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [TER BSc Life Science and Technology 2026–2027](https://www.rug.nl/fse/education/ter/ter-2627-bsc/11-ter-bsc-life-science-and-technology-26-27.pdf) — Appendices II–IV, PDF pp. 3–6; Adopted 2026–2027. One current Life Science and Technology major. First and second years each contain twelve 5-EC required units, spanning chemistry, optics/physics, mathematics/programming, biology/physiology and several practicals. Third year is minor 30, bachelor research 15 and restricted electives 15. Electives require approval and come from Biology, Chemistry, Biomedical Engineering, Medical Pharmaceutical Sciences or Physics; later-master requirements also apply. Faculty/university minors and approved study at other universities are permitted. Specialisation guidance for master preparation does not require arbitrarily selecting a separate formal route for this generic bachelor. Restricted 15 EC is not unrestricted choice.
+
+External credit structure: Stored and adopted credits total 180: required years 60+60, then minor 30, research 15 and approved restricted electives 15. Master-preparation specialisations are not added to that total.
+
+Result: confirmed; required action: none.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000194 — Middle Eastern Studies
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-05.
+
+Existing substantive reason: The University of Groningen programme is an integrated area-studies degree anchored in a progressive 30-EC Arabic-language sequence and a compulsory 30-EC study-abroad semester in Cairo or Rabat. Its disciplinary spine then studies the modern Middle East through region-specific history, Judaism and Islam, politics and international relations, culture and soft power, empire and colonialism, Islam and modernity, conflict, and relations between Europe and the Middle East. UCR offers meaningful global history, empire, international relations, peace and conflict, public international law, migration, sociology, literature, media and cultural-heritage courses. It offers neither Arabic nor a Middle Eastern Studies, Islam, Judaism or regional religious-studies sequence, and it has no embedded regional semester equivalent. A UCR programme built from the closest courses would be a credible global-history or international-relations pathway, but not a defensible Middle Eastern Studies comparator.
+
+Current formal requirements support 180 EC, including 30 Arabic progression and a 30-EC regional semester abroad. The programme’s own current Curriculum paragraph supports the stored Global Change/Cultural Heritage restriction for both faculty-wide units; no broader choices are imported from another programme.
+
+Provenance: data/counselor/comparisons/cp-000194.json; source worksheet row(s) 207. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [OER Midden-Oosten Studies 2026–2027](https://www.rug.nl/let/onze-faculteit/organisatie/diensten-en-voorzieningen/onderwijsinstituut/oeren/2026-2027/bacheloropleidingen/delen-b/ba-mos-deelb-2627.pdf) — Articles 4.1 and 5.1; PDF pp. 6–7; Adopted 2026–2027. Year one 60 includes Arabic Beginner 10 and Intermediate 10; year two 60 includes Arabic Advanced 10 and the 30-EC semester abroad. First/second-year substantive Middle Eastern history, religion, politics, culture and research requirements remain distinct from choice space. Year three is minor 30, thesis 10, faculty-wide unit 10 and two 5-EC subject units. Both faculty-wide units are retained within the total, not double counted as extra electives.
+- [Middle Eastern Studies](https://www.rug.nl/bachelors/middle-eastern-studies/?lang=en) — Year-two course table and Curriculum paragraph; Current official prospectus. Current table places the 30-EC abroad semester in Cairo or Rabat. The Curriculum paragraph explicitly restricts both first-year and third-year 10-EC faculty-wide choices to Global Change or Cultural Heritage. That supports the stored choice descriptions; a broader list of options on another programme’s page is not substituted. Arabic progression and regional study remain compulsory alongside minor choice.
+
+External credit structure: Stored and adopted credits total 180: 60+60+60, with Arabic 10+10+10, regional semester 30, minor 30, thesis 10 and two separate faculty-wide 10-EC choice units.
+
+Result: confirmed; required action: none.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000196 — Physics
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-05.
+
+Existing substantive reason: The University of Groningen programme is a full disciplinary Physics degree. Its 150-EC major integrates calculus, linear algebra, differential equations and computational methods with classical and relativistic mechanics, electromagnetism, quantum physics, thermal and statistical physics, waves and optics, atomic and solid-state physics, electronics, subatomic physics, nanophysics, advanced electrodynamics, multiple staged physics laboratories and a 15-EC physics research project. UCR offers a useful mathematics and computation sequence and some applications in energy, earth systems, imaging and robotics, but it offers no Physics or Astronomy courses and no experimental-physics laboratory sequence. A UCR programme assembled from mathematics, computing and sustainability courses would be a coherent quantitative or energy-systems pathway, not a defensible Physics comparator.
+
+Current adopted Physics requirements support the selected 180-EC route, compulsory mathematical/physics/laboratory progression, restricted selections and 30-EC minor. Research is 15 EC, with a footnote marker; optional advanced lab and the separate double-degree research rule are not compulsory additions.
+
+Provenance: data/counselor/comparisons/cp-000196.json; source worksheet row(s) 209. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [TER BSc Physics 2026–2027](https://www.rug.nl/fse/education/ter/ter-2627-bsc/14-ter-bsc-physics-26-27.pdf) — Appendices II–IV, PDF pp. 4–6; Appendix VI p. 11; Adopted 2026–2027. Physics major 150 plus minor 30. First year has 55 required plus one 5-EC choice; second year has 55 required plus one 5-EC choice. Year three has ethics/professional study 5, two distinct restricted 5-EC choices, bachelor research 15 and minor 30. Selected first-listed Astronomy, Biomaterials, Nanophysics and Advanced Electrodynamics are valid alternatives, not universally compulsory. Advanced Experiments 2 is an alternative, not an extra required lab. Research is 15 EC with superscript footnote 1, not 151 EC; the 20-EC combined Mathematics/Physics research rule concerns a separate double-degree alternative. Current cover/headers control over stale document metadata. Table visually inspected.
+
+External credit structure: Stored and adopted credits total 180: 60+60+60. Final year is 30 minor, 15 research, 5 professional/ethical study and two 5-EC restricted selections. Superscript research footnote adds no EC.
+
+Result: confirmed; required action: none.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000198 — Dutch Languages and Cultures — Dutch Language and Culture
+
+Institution: University of Groningen. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-05.
+
+Existing substantive reason: This is a discipline-specific Dutch Studies degree whose compulsory spine combines Dutch phonology, syntax, semantics and language acquisition with historical and present-day Dutch, medieval, early-modern and modern Dutch literature, advanced Dutch-language proficiency, research workshops and a Dutch Studies thesis. UCR offers one introductory Dutch course plus genuine general courses in literature, rhetoric, communication and psycholinguistics, but those courses do not provide a sustained advanced Dutch-language, Dutch-linguistics and Dutch-literature sequence. Constructing a 24-course UCR schedule from the broader adjacent subjects would change the named academic field and leave the defining Dutch core uncovered.
+
+The September 2026 Dutch route is fully supported at 180 EC. Its sourceNotes incorrectly says the current regulation defines three routes; the cover defines two. rc-0026 already normalizes the old 56804 target to current 50479 Dutch Studies, confirming the coupled duplicate conflict with CP199. Correcting the identity duplication takes priority over the narrow route-count note.
+
+Provenance: data/counselor/comparisons/cp-000198.json; source worksheet row(s) 211. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Fresh rc-0026 (12 September 2026) normalizes source row 211 from older Dutch Language and Culture into current Dutch Languages and Cultures, retaining Dutch Language and Culture as the route. Row 212 is the current VARIANT of that same route; current OER/prospectus corroborate the overlap.
+
+Current official sources (checked 7 October 2026):
+
+- [OER Nederlandse Talen en Culturen 2026–2027](https://www.rug.nl/let/onze-faculteit/organisatie/diensten-en-voorzieningen/onderwijsinstituut/oeren/2026-2027/bacheloropleidingen/delen-b/ba-oer-ntc-2627.pdf) — Cover; Articles 2.5, 3.2, 4.1, 5.1 and 8.3; PDF pp. 1, 3, 6–9, 15; Adopted 2026–2027. One ISAT 50479 bachelor has two tracks: Nederlandse Taal en Cultuur and Friese Taal en Cultuur. Article 2.5 identifies predecessor Dutch ISAT 56804. For September 2026 entrants each track has 60+60+60 EC; the adopted later years enter OCASYS in 2027–2028 and 2028–2029. Both have minor 30, faculty-wide choice 10 and thesis 10 in year three; Dutch adds two 5-EC subject units, Frisian adds internship 10. Research ateliers require two subject domains, with literature and linguistics specified for Frisian. Dutch instruction is Dutch; Frisian is Dutch or Frisian, with track-language thesis unless approved otherwise. Adopted 7 July 2026. Cover and cohort tables visually inspected.
+- [Nederlandse Taal en Cultuur](https://www.rug.nl/bachelors/dutch-language-and-culture/) — Programme facts, degree title, CROHO and cohort curriculum; Current official prospectus; adopted OER establishes September 2026 cohort. The named Dutch route awards BA in Nederlandse Talen en Culturen, CROHO 50479, 180 EC, Dutch instruction. Together with the adopted OER and rc-0026 normalization of row 211 from old 56804 to this successor route, the row-212 VARIANT entry represents the same current route, not another independent bachelor. Route count in CP198 sourceNotes is three; current formal evidence is two. This is a current factual contradiction, with no dated evidence supporting an outdated classification.
+
+External credit structure: Stored September 2026 Dutch track totals 60+60+60=180. Final year is minor 30, faculty choice 10, thesis 10 and two 5-EC subject units. The prescribed 2027–2028/2028–2029 continuation is distinct from older-cohort tables.
+
+Result: incorrect; required action: correct-registry-and-reprocess.
+
+Incorrect concerns the current three-route source note. The selected Dutch track and its credits are supported; duplicate identity is a separately confirmed conflict.
+
+Secondary attribute finding(s):
+
+- duplicate normalized current academic route: confirmed; stored ["cp-000198 and cp-000199 are separately eligible targets"], verified ["Both represent one current Dutch Language and Culture track"]. Separate closure: Two-track source-note correction and later UCR feasibility decision.
+
+Recommended follow-up: Resolve CP198/CP199 together as one current Dutch route; prefer CP198 as owner because its earlier permanent ID already carries the documented successor normalization. Retain CP199 permanently as a supported historical alias/duplicate rather than deleting or renumbering it. Preserve raw source/old identifiers, reconcile crosswalk ownership and fix CP198 route count from three to two.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `cp-000198 canonical_name/current_status/production_eligible/production_order`, `source_excel_rows_json`, `offering_ids_json`, `corrected_attributes_json`, `official_source_ids_json`, `official_source_urls_json`, `normalization_basis`, `cp-000199 current_status/production_eligible/production_order`. Record one current Dutch Language and Culture track under umbrella ISAT 50479. Prefer CP198 as surviving production owner (earlier permanent ID; rc-0026 already maps it to the successor), subject to supported alias handling. Associate source rows 211 and 212 and their offering IDs with that one owner. Retain CP199 as a permanent historical alias/duplicate with production_eligible=false and blank production_order. Preserve old 56804 and both programme-unit identifiers as provenance, distinguish current umbrella code from raw historical identifiers, and never delete or renumber an ID.
+- `data/registry/programme_source_rows.csv; data/registry/programme_offerings.csv`, fields: `counselor_programme_id ownership for source row 212 and its current offering`, `traceable linkage to former CP199 owner`. Use the schema-supported crosswalk/alias model to associate both raw sources and offerings with the one current owner, retaining the former CP199 relationship in history. Avoid both independent eligible routes and unexplained duplicated current ownership.
+- `data/registry/resolution_decisions.csv; data/registry/resolution_sources.csv and existing post-build correction workflow`, fields: `documented successor/duplicate correction`, `current official identity evidence`, `historical decision retention`. Document the coordinated correction and sources through the existing researched correction workflow so rebuilds reproduce it. Preserve rc-0026 and its original evidence; append a supported correction/decision rather than rewriting immutable upstream source, offering or resolution-case tables. Do not invent a resolved case ID or unsupported decision enum.
+- `data/counselor/comparisons/cp-000198.json`, fields: `programmeProvider source/offer/identity metadata`, `comparator.sourceNotes`, `comparator.additionalSourceUrls`, `exception.curriculumContext`, `exception.checkedOn`. Refresh provider provenance after normalized ownership is resolved. Replace three formal routes with two named tracks. Preserve the complete September 2026 Dutch curriculum and its later-year effective cohort dates; the final no-defensible-ucr-match decision remains pending independent UCR assessment.
+- `data/counselor/comparisons/cp-000199.json; data/counselor/review-programmes.json and existing generated inventories`, fields: `duplicate canonical record retention/alias treatment`, `production scope/status summaries`, `route ownership and aggregate counts`. Apply repository-supported handling for a formerly eligible canonical target retained outside production. Preserve permanent ID, original registry-exception evidence and source history. Generate one independent current Dutch route; do not construct a second comparison or silently drop the original audit entry.
+
+Dependencies:
+
+- Confirm the repository-supported permanent alias/history and out-of-scope canonical retention mechanism before implementation; no new current_status or decision enum is proposed as already supported.
+- Choose and document the surviving owner once for both entries; CP198 is the proposed owner, not an implemented decision.
+- Retain the researched identity correction in the registry rebuild workflow; exact crosswalk representation must preserve raw provenance.
+- Any final UCR fit decision for the surviving route is separate stage two.
+
+Verification and closure checks:
+
+- Exactly one independently production-eligible Dutch Language and Culture route exists under current 50479; CP174 Frisian remains a separate track.
+- Both permanent IDs and the old/new programme-unit identifiers remain traceable; rows 211/212 and both offering UUIDs are retained without contradictory active ownership.
+- Registry rebuild, canonical metadata and generated scope/count inventories agree; retained duplicate has production_eligible=false and blank production_order.
+- CP198 sourceNotes says two tracks and its components remain 180 EC for the correct 2026 entrant continuation; old cohort tables are not substituted.
+- Original audit entries, registry-exception reason and historical rc-0026 remain intact. Closing duplicate normalization does not assert UCR feasibility.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000199 — Dutch Language and Culture — track within Dutch Languages and Cultures
+
+Institution: University of Groningen. Audit scope: Normalized duplicate academic identity and current cohort requirements; no UCR feasibility assessment.
+
+Existing formal type: `registry-exception`; existing check date: 2026-10-05.
+
+Existing substantive reason: Current official evidence does not support cp-000199 as an independent academic target distinct from cp-000198. The 2026–27 regulation defines a single current Dutch Languages and Cultures bachelor (ISAT 50479) with a Dutch Language and Culture track, while explicitly identifying Dutch Language and Culture ISAT 56804 as the predecessor programme. The registry has already normalized that predecessor into cp-000198 as the current successor route, but cp-000199 separately represents the same current Dutch Language and Culture track through a VARIANT record under the new programme. Publishing a second UCR comparison for cp-000199 would duplicate one academic route under two permanent counselor IDs. The registry normalization must determine which ID owns this route and merge or cross-reference the duplicate before a comparison is attempted.
+
+Current OER/prospectus and rc-0026 confirm that CP199 is the same current Dutch Language and Culture track already represented by CP198, not a second independent target. The existing registry-exception rationale is supported. Full external credits are known; duplicate normalized academic identity remains the blocker.
+
+Provenance: data/counselor/comparisons/cp-000199.json; source worksheet row(s) 212. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Fresh rc-0026 (12 September 2026) normalizes source row 211 from older Dutch Language and Culture into current Dutch Languages and Cultures, retaining Dutch Language and Culture as the route. Row 212 is the current VARIANT of that same route; current OER/prospectus corroborate the overlap.
+
+Current official sources (checked 7 October 2026):
+
+- [OER Nederlandse Talen en Culturen 2026–2027](https://www.rug.nl/let/onze-faculteit/organisatie/diensten-en-voorzieningen/onderwijsinstituut/oeren/2026-2027/bacheloropleidingen/delen-b/ba-oer-ntc-2627.pdf) — Cover; Articles 2.5, 3.2, 4.1, 5.1 and 8.3; PDF pp. 1, 3, 6–9, 15; Adopted 2026–2027. One ISAT 50479 bachelor has two tracks: Nederlandse Taal en Cultuur and Friese Taal en Cultuur. Article 2.5 identifies predecessor Dutch ISAT 56804. For September 2026 entrants each track has 60+60+60 EC; the adopted later years enter OCASYS in 2027–2028 and 2028–2029. Both have minor 30, faculty-wide choice 10 and thesis 10 in year three; Dutch adds two 5-EC subject units, Frisian adds internship 10. Research ateliers require two subject domains, with literature and linguistics specified for Frisian. Dutch instruction is Dutch; Frisian is Dutch or Frisian, with track-language thesis unless approved otherwise. Adopted 7 July 2026. Cover and cohort tables visually inspected.
+- [Nederlandse Taal en Cultuur](https://www.rug.nl/bachelors/dutch-language-and-culture/) — Programme facts, degree title, CROHO and cohort curriculum; Current official prospectus; adopted OER establishes September 2026 cohort. The named Dutch route awards BA in Nederlandse Talen en Culturen, CROHO 50479, 180 EC, Dutch instruction. Together with the adopted OER and rc-0026 normalization of row 211 from old 56804 to this successor route, the row-212 VARIANT entry represents the same current route, not another independent bachelor. Route count in CP198 sourceNotes is three; current formal evidence is two. This is a current factual contradiction, with no dated evidence supporting an outdated classification.
+
+External credit structure: The same September 2026 Dutch track has complete 180 EC. Identical supported academic structure establishes no separate route entitlement for this duplicate permanent ID; normalized ownership must be resolved first.
+
+Result: confirmed; required action: correct-registry-and-reprocess.
+
+Recommended follow-up: Execute the same coordinated identity correction recorded for CP198. Remove the retained duplicate from independent production eligibility, preserve its permanent ID and provenance through the repository-supported alias/history mechanism, regenerate affected inventories and retain the original registry-exception audit evidence.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `cp-000198 canonical_name/current_status/production_eligible/production_order`, `source_excel_rows_json`, `offering_ids_json`, `corrected_attributes_json`, `official_source_ids_json`, `official_source_urls_json`, `normalization_basis`, `cp-000199 current_status/production_eligible/production_order`. Record one current Dutch Language and Culture track under umbrella ISAT 50479. Prefer CP198 as surviving production owner (earlier permanent ID; rc-0026 already maps it to the successor), subject to supported alias handling. Associate source rows 211 and 212 and their offering IDs with that one owner. Retain CP199 as a permanent historical alias/duplicate with production_eligible=false and blank production_order. Preserve old 56804 and both programme-unit identifiers as provenance, distinguish current umbrella code from raw historical identifiers, and never delete or renumber an ID.
+- `data/registry/programme_source_rows.csv; data/registry/programme_offerings.csv`, fields: `counselor_programme_id ownership for source row 212 and its current offering`, `traceable linkage to former CP199 owner`. Use the schema-supported crosswalk/alias model to associate both raw sources and offerings with the one current owner, retaining the former CP199 relationship in history. Avoid both independent eligible routes and unexplained duplicated current ownership.
+- `data/registry/resolution_decisions.csv; data/registry/resolution_sources.csv and existing post-build correction workflow`, fields: `documented successor/duplicate correction`, `current official identity evidence`, `historical decision retention`. Document the coordinated correction and sources through the existing researched correction workflow so rebuilds reproduce it. Preserve rc-0026 and its original evidence; append a supported correction/decision rather than rewriting immutable upstream source, offering or resolution-case tables. Do not invent a resolved case ID or unsupported decision enum.
+- `data/counselor/comparisons/cp-000198.json`, fields: `programmeProvider source/offer/identity metadata`, `comparator.sourceNotes`, `comparator.additionalSourceUrls`, `exception.curriculumContext`, `exception.checkedOn`. Refresh provider provenance after normalized ownership is resolved. Replace three formal routes with two named tracks. Preserve the complete September 2026 Dutch curriculum and its later-year effective cohort dates; the final no-defensible-ucr-match decision remains pending independent UCR assessment.
+- `data/counselor/comparisons/cp-000199.json; data/counselor/review-programmes.json and existing generated inventories`, fields: `duplicate canonical record retention/alias treatment`, `production scope/status summaries`, `route ownership and aggregate counts`. Apply repository-supported handling for a formerly eligible canonical target retained outside production. Preserve permanent ID, original registry-exception evidence and source history. Generate one independent current Dutch route; do not construct a second comparison or silently drop the original audit entry.
+
+Dependencies:
+
+- Confirm the repository-supported permanent alias/history and out-of-scope canonical retention mechanism before implementation; no new current_status or decision enum is proposed as already supported.
+- Choose and document the surviving owner once for both entries; CP198 is the proposed owner, not an implemented decision.
+- Retain the researched identity correction in the registry rebuild workflow; exact crosswalk representation must preserve raw provenance.
+- Any final UCR fit decision for the surviving route is separate stage two.
+
+Verification and closure checks:
+
+- Exactly one independently production-eligible Dutch Language and Culture route exists under current 50479; CP174 Frisian remains a separate track.
+- Both permanent IDs and the old/new programme-unit identifiers remain traceable; rows 211/212 and both offering UUIDs are retained without contradictory active ownership.
+- Registry rebuild, canonical metadata and generated scope/count inventories agree; retained duplicate has production_eligible=false and blank production_order.
+- CP198 sourceNotes says two tracks and its components remain 180 EC for the correct 2026 entrant continuation; old cohort tables are not substituted.
+- Original audit entries, registry-exception reason and historical rc-0026 remain intact. Closing duplicate normalization does not assert UCR feasibility.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
 ## Remaining work and next batch
 
-All 19 scope exclusions are complete. Thirty-one of 140 exceptions have received the first-stage audit; 109 remain pending. The next batch is: cp-000171, cp-000172, cp-000174, cp-000175, cp-000179, cp-000192, cp-000194, cp-000196, cp-000198, cp-000199.
+All 19 scope exclusions are complete. Forty-one of 140 exceptions have received the first-stage audit; 99 remain pending. The next batch is: cp-000200, cp-000205, cp-000206, cp-000207, cp-000210, cp-000211, cp-000212, cp-000213, cp-000214, cp-000215.
 
-Completed and pending entries reconcile exactly to 159 cases by audit_population + counselor_programme_id: 50 unique completed keys and 109 unique pending keys, with no overlap or omissions. All 40 earlier case objects and their source entries are preserved. Pending entries have no audit finding. A completed still-unresolved finding is a completed research result, not a pending inventory entry.
+Completed and pending entries reconcile exactly to 159 cases by audit_population + counselor_programme_id: 60 unique completed keys and 99 unique pending keys, with no overlap or omissions. All 50 earlier case objects, their source entries and batch evidence sections are preserved. Pending entries have no audit finding. A completed still-unresolved finding is a completed research result, not a pending inventory entry. The confirmed duplicate remains two audited permanent-ID cases in this original audit inventory; production scope counts change only when the later correction is implemented.
 
-After the exhaustive audit, consolidate the action queue and execute targeted remediation with exact field changes, source evidence, dependencies and closure checks. Batch-5 entries already carry those structured plans; earlier entries retain their original recommendations. Close external/registry corrections independently of the later UCR feasibility stage. Research-dependent work resumes on its stated trigger, rather than repeating the whole programme search.
+After the exhaustive audit, consolidate the action queue and execute targeted remediation with exact field changes, source evidence, dependencies and closure checks. Batch-5/6 actionable entries already carry those structured plans; earlier entries retain their original recommendations. Group the CP198/CP199 pair under one shared remediation task, avoiding contradictory owner choices or repeated merges. Close external/registry corrections independently of the later UCR feasibility stage. Research-dependent work resumes on its stated trigger.
 
 Stage two will independently assess UCR feasibility for every current no-defensible-ucr-match record and any resolved external case requiring a final fit decision. Confirmation here establishes only the stated external/registry basis. The exhaustive first-stage audit remains in progress.
 
