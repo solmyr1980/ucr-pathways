@@ -1,6 +1,6 @@
 # Counselor completeness and exceptions: first-stage audit
 
-Status: in progress. Batches 1–8 completed on 7 October 2026: all 19 scope exclusions and 61 exceptions audited within the first-stage scope. 79 exceptions remain pending.
+Status: in progress. Batches 1–9 completed on 7 October 2026: all 19 scope exclusions and 71 exceptions audited within the first-stage scope. 69 exceptions remain pending.
 
 ## Scope and method
 
@@ -17,16 +17,16 @@ The classification applies only to the stated audit scope. Resolving an external
 | Normalized registry targets | 460 | — | — |
 | In-scope targets with canonical records | 441 | — | — |
 | Completed comparisons | 301 | Outside this stage | — |
-| Completed exceptions | 140 | 61 | 79 |
+| Completed exceptions | 140 | 71 | 69 |
 | Excluded normalized targets | 19 | 19 | 0 |
-| First-stage audit cases | 159 | 80 | 79 |
+| First-stage audit cases | 159 | 90 | 69 |
 
 All 441 in-scope IDs have a canonical filename; there are no missing in-scope IDs, duplicate record filenames or out-of-scope canonical records. The review-index ID set matches both registry scope and canonical filenames. Status totals use that current generated index; all 140 indexed exceptions were additionally read directly to verify ID, exception status and formal type. Enumeration does not constitute a substantive exception audit.
 
 | Formal exception type | Corpus total | Substantively audited |
 |---|---:|---:|
 | external-programme-unresolved | 20 | 7 |
-| no-defensible-ucr-match | 117 | 52 |
+| no-defensible-ucr-match | 117 | 62 |
 | registry-exception | 3 | 2 |
 
 ## Batch 1 findings
@@ -3178,16 +3178,896 @@ UCR-side assessment pending: **yes**. Existing UCR claims are preserved as prove
 - CP250: Current adopted OER printed totals are 60+61+60=181. KT2755 is visibly 4.5; minor 30 and final required 6.5+6.5+15+2 are established. The complete current 180 pathway remains unresolved; the implementation plan has an explicit research trigger and closure blocker.
 - CP252: Current official language ENG; upstream offering NLD remains raw provenance. Curriculum secondary finding confirmed; normalized-language primary finding incorrect.
 
+## Cumulative findings after batch 9
+
+| Finding | Count |
+|---|---:|
+| confirmed | 60 |
+| incorrect | 26 |
+| outdated | 0 |
+| still-unresolved | 4 |
+
+| Required action | Count |
+|---|---:|
+| none | 55 |
+| reprocess-as-comparison | 0 |
+| reassess-exception | 25 |
+| correct-registry-and-reprocess | 7 |
+| research-again-later | 3 |
+
+## Batch 9 findings
+
+One external basis is confirmed; nine cases require corrections to stated external credit, choice, compulsory-content, source-context or normalized-language facts. Delft Applied Physics matches its current September 2026 entrant chart. Marine Technology requires current 14-credit final project and formal course allocation; Applied Mathematics requires exactly one non-mathematical elective; Mechanical Engineering retains accurate components but has four formal year-two projects, not three. Nanobiology has English instruction, assigned mixed practical pairs and 2.5-credit specialist elective options. TU/e Automotive and Electrical Engineering require 125 core/10 ITEC/45 elective rather than 120/15/45, with optional course examples qualified. Biomedical Engineering requires Dutch+English metadata and currentBBT125/10/45 allocation. Industrial Design exact printed courses/projects/PPD/ITEC/profiling replace unsupported generic year aggregates.
+
+TU/e Architecture needs a neutral AUDE main-track selection. Its current formal core/table 125 and article elective 45 conflict with Appendix 2 elective 40 and webpage 130/10/40; project 7P1B30 is printed 5. This five-credit conflict is recorded as secondary still-unresolved, with a concrete official-clarification trigger. Industrial Design separately has a coherent 180 diagram but formal core 125+ITEC10+Appendix 2 profiling 50=185; that aggregate conflict also requires clarification. No credit is invented and complete formal credit closure remains blocked for these two cases. Incorrect primary findings are scoped factual corrections, not an independent verdict on the historical UCR conclusions. No outdated classification is inferred from discovery alone.
+
+Sources were retrieved directly from official sites and public programme endpoints. Material PDF tables/figures were visually inspected. Current formal requirements control ambiguity; prospective entrant charts and explicitly outgoing-cohort schedules are kept distinct. All changes here are audit evidence/plans only.
+
+| ID | Programme | Formal type | Finding | Required action |
+|---|---|---|---|---|
+| cp-000253 | Bachelor Marine Technology | no-defensible-ucr-match | incorrect | reassess-exception |
+| cp-000254 | Bachelor Nanobiology | no-defensible-ucr-match | incorrect | correct-registry-and-reprocess |
+| cp-000258 | Bachelor Applied Physics | no-defensible-ucr-match | confirmed | none |
+| cp-000259 | Bachelor Applied Mathematics | no-defensible-ucr-match | incorrect | reassess-exception |
+| cp-000260 | Bachelor Mechanical Engineering | no-defensible-ucr-match | incorrect | reassess-exception |
+| cp-000261 | Bachelor Automotive Technology | no-defensible-ucr-match | incorrect | reassess-exception |
+| cp-000262 | Bachelor Biomedical Engineering | no-defensible-ucr-match | incorrect | correct-registry-and-reprocess |
+| cp-000263 | Bachelor Architecture, Urbanism and Building Sciences | no-defensible-ucr-match | incorrect | reassess-exception |
+| cp-000265 | Bachelor Electrical Engineering | no-defensible-ucr-match | incorrect | reassess-exception |
+| cp-000266 | Bachelor Industrial Design | no-defensible-ucr-match | incorrect | reassess-exception |
+
+## Batch 9 evidence and implementation plans
+
+### cp-000253 — Bachelor Marine Technology
+
+Institution: Delft University of Technology. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-03.
+
+Existing substantive reason: Marine Technology is a cumulative naval-architecture and marine-engineering degree. Its compulsory spine combines analysis, linear algebra, differential equations, probability, numerical mathematics, statics, dynamics, strength of materials, thermodynamics, rigid-body and continuum mechanics, hydromechanics, hydrostatics, marine structures, resistance, propulsion and drive systems, ship design, complex loads and vibration, electrical systems and control, ship production, integrated maritime projects and a final marine research or design project. UCR offers meaningful mathematics, programming, sustainability, water-management and general design courses. It does not offer the required engineering-mechanics, hydrodynamics, naval-architecture, marine propulsion, structural, production, control and vessel-design progression or equivalent experimental and project facilities. A UCR pathway could study sustainable maritime systems from environmental, policy and quantitative perspectives, but it would not be a defensible Marine Technology comparator.
+
+Current formal course-level requirements conflict with the live older category breakdown: final project 14 rather than 12, exact integration/course allocation and three different final-year course names. A source-backed 180 reconstruction is available.
+
+Provenance: data/counselor/comparisons/cp-000253.json; source worksheet row(s) 266. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [Marine Technology: what will I learn?](https://www.tudelft.nl/onderwijs/opleidingen/bachelors/maritieme-techniek/bsc-maritieme-techniek/over-de-opleiding/wat-ga-ik-leren) — Degree structure and linked older diagram; Current official programme. Dutch three-year maritime engineering degree. Live category breakdown still totals 24 mathematics +36 mechanics +58 specialist +20 projects +30 minor +12 final project. Current formal regulations instead establish course weights, a 14-EC final project and different final-year titles. The live older breakdown is not controlling for current formal requirements.
+- [OER BSc Mechanical Engineering and Marine Technology 2026–2027](https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/ME/Onderwijs/GERELATEERD/Reglementen/Archief%20Onderwijsreglementen/2026-2027/OER%20BSc%20WB-MT_DEFINITIEF.pdf) — Mechanical curriculum PDF p.25; Marine curriculum p.30; BEP conditions pp.26/31; Current 2026–2027. Mechanical: first and second years ten 6-EC units each; third minor 30, control 6, integrated systems 6, engineer/society 4 and final project 14. Four year-two units are formally grouped as projects, including Process Engineering and Thermodynamics. Marine: year 1 mathematics 12 + mechanics 24 + maritime theory 16 + integration 8=60; year 2 mathematics 12 + advanced mechanics 6 + control 6 + maritime theory 18 + ship-design project 6 + integration 12=60; year 3 minor 30 + dynamics maritime structures 6 + electric drive/conversion 4 + ship motions/manoeuvring 6 + BEP14=60. Mathematical/advanced-mechanics subparts are embedded, not additional courses. MT1466-26 supersedes MT1466. BEP requires all first year and at least 54 second-year credits. Tables visually inspected.
+
+External credit structure: Stored component arithmetic totals 180 EC. Current formal course-level requirements conflict with the live older category breakdown: final project 14 rather than 12, exact integration/course allocation and three different final-year course names. A source-backed 180 reconstruction is available.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Mathematics 1 (WBMT1050-24) | 6 | required |
+| 1 | Mathematics 2 (WBMT1051) | 6 | required |
+| 1 | Statics (WB1630-20) | 6 | required |
+| 1 | Strength of Materials (WB1631-24) | 6 | required |
+| 1 | Dynamics (WB1135) | 6 | required |
+| 1 | Thermodynamics (WB1530-14) | 6 | required |
+| 1 | Introduction to Marine Technology (MT1461-25) | 4 | required |
+| 1 | Hydrostatics (MT1462) | 4 | required |
+| 1 | Mechanics of Marine Structures 1 (MT1464) | 4 | required |
+| 1 | Resistance, Propulsion and Drive 1 (MT1465) | 4 | required |
+| 1 | Integration and Skills 1 (MT1463) | 4 | required |
+| 1 | Integration and Skills 2 (MT1466-26) | 4 | required |
+| 2 | Mathematics 3 (WBMT2048) | 6 | required |
+| 2 | Mathematics 4 (WBMT2049) | 6 | required |
+| 2 | Advanced Mechanics (WB2630) | 6 | required |
+| 2 | Systems and Control Engineering (WB3240-24) | 6 | required |
+| 2 | Hydromechanics (MT2461-25) | 6 | required |
+| 2 | Resistance, Propulsion and Drive 2 (MT2463) | 6 | required |
+| 2 | Mechanics of Marine Structures 2 (MT2464) | 6 | required |
+| 2 | Ship Design (MT2462) | 6 | required |
+| 2 | Integration and Skills 3 (MT2465) | 12 | required |
+| 3 | Minor | 30 | open-choice |
+| 3 | Dynamics of Marine Structures (MT3461) | 6 | required |
+| 3 | Electrical Drive and Conversion (MT3462) | 4 | required |
+| 3 | Ship Motions and Manoeuvring (MT3463) | 6 | required |
+| 3 | Bachelor Final Project (WBMT3BEP) | 14 | required |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Source-backed requirement reconstruction for later remediation; production unchanged and UCR fit unassessed.
+
+Choice and source-context rules:
+
+- Use current course weights; mathematical and mechanics subparts are embedded.
+- Integration 1/2/3 total 20; Ship Design is an additional required 6-credit project, not extra beyond the course list.
+- Minor 30 remains approved open choice; no optional minor invented.
+- BEP14, not older webpage 12; first-year completion and 54 second-year credits prerequisite.
+
+Result: incorrect; required action: reassess-exception.
+
+Incorrect applies only to the stated external allocation, narrative, choice, source context or normalized-language facts. No independent UCR conclusion or unsupported dated-change inference.
+
+Recommended follow-up: Use current formal course weights, final project 14 and current final-year names; replace six aggregates with explicit courses/projects, preserve minor 30 and embedded subparts.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/decisions/cp-000253.json`, fields: `sources`, `comparator.components tuples`, `comparator.academicYear`, `comparator.primarySource/additionalSources`, `comparator.sourceNotes`, `comparator.route and routeSelection where applicable`, `exception.curriculumContext`, `exception.reason external factual clauses`, `exception.checkedOn`. Use current formal course weights, final project 14 and current final-year names; replace six aggregates with explicit courses/projects, preserve minor 30 and embedded subparts. Apply in existing version 2 compact decision; update sources and source indexes consistently. Preserve existing UCR claims only as historical provenance.
+- `data/counselor/comparisons/cp-000253.json`, fields: `comparator.components`, `comparator.sourceNotes`, `comparator.academicYear`, `comparator.primarySourceUrl/additionalSourceUrls`, `comparator.routeSelection where applicable`, `exception.curriculumContext`, `exception.reason`, `exception.checkedOn`. Compile the amended compact decision using current normalized provider; canonical external facts must agree with case evidence and preserve precise choice/optional scope. Do not automatically change exception type or create a comparison.
+- `data/counselor/review-programmes.json and existing generated counselor artifacts`, fields: `affected metadata, curriculum, source and route summaries`. Regenerate affected outputs after targeted remediation; keep this audit evidence and immutable provenance.
+
+Dependencies:
+
+- Validate applicable current cohort and sources when implementing; no broad repeated research required for established facts.
+- Final UCR feasibility remains a separate stage-two dependency.
+
+Verification and closure checks:
+
+- Every included course counted once; total 180 from source-backed weights, with restricted choices instantiated and genuine open profiling explicit.
+- Required-versus-optional claims, route, source context and cohort agree across compact and canonical records.
+- Run applicable registry/exception compiler/schema validation and refresh generated summaries; close external fixes independently of UCR feasibility.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000254 — Bachelor Nanobiology
+
+Institution: Delft University of Technology and Erasmus University Rotterdam. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-03.
+
+Existing substantive reason: Nanobiology is an intentionally integrated quantitative life-science degree whose compulsory spine combines molecular and cellular biology with calculus, linear algebra, differential equations, Fourier methods, statistics, mechanics, optics, electricity and magnetism, molecular biophysics, soft matter, scientific programming, computational science, bioinformatics, electronic instrumentation, nanotechnology, two stages of imaging, two stages of laboratory techniques and a 20-EC laboratory research project. UCR offers substantial life science, mathematics, programming, data science and one introductory life-science laboratory course. It does not offer the required physics progression, nanoscale and biophysical integration, scientific instrumentation, experimental biophysics, advanced microscopy and imaging laboratory sequence, nanotechnology practical work, or a comparable 20-EC nanobiology laboratory project. A UCR pathway could study quantitative molecular life science, but it would not be a defensible Nanobiology comparator.
+
+Official instruction is English, while normalized language is NLD-only. The 180 aggregate weights are supported, but practical pairing is assigned and mixed, and bounded specialist choices must be instantiated using actual 2.5-credit formal units.
+
+Provenance: data/counselor/comparisons/cp-000254.json; source worksheet row(s) 267. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [Nanobiology degree facts](https://www.tudelft.nl/en/education/programmes/bachelors/nb/bsc-nanobiology) — Working language and joint institutional setting; Current official programme. Working language explicitly English, standard full-time three-year 180-EC joint TU Delft/Erasmus MC programme. Current normalized NLD-only language is incorrect; institutional participation is distinct from permanent normalized target identity.
+- [Nanobiology September 2026 curriculum](https://filelist.tudelft.nl/TUDelft/Onderwijs/Opleidingen/Bachelor/Nanobiology/02._Opleiding/2026_NB_DEF_web_pag2.pdf) — All year tables and specialist list; September 2026. First-year twelve positions 60, second-year fourteen positions 60, third minor 30 + laboratory BEP20 + electives 10. Practical positions display alternatives; current formal appendix controls the assigned mixed pair. Overview specialist list omits some formal options and does not print their individual weights; do not infer two 5-EC electives.
+- [Programme-specific Appendix Nanobiology TER 2026–2027](https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/TNW/Onderwijs/Opleidingsreglementen/2026-2027/BSc%20NB%20Appendix%20TER%202026-2027.pdf) — Articles 3–5 and 8; PDF pp.5–8; Current 2026–2027. Programme assigns either NB1430 Molecular Biology Techniques A + NB1445 Biophysics Techniques B, or NB1435 Biophysics Techniques A + NB1440 Molecular Biology Techniques B; 4 EC each. It is not an unconstrained or same-discipline A/B choice. Required first/second units match stored weights. Article 4 and current chart Nanotechnology NB2430 carry 3; outgoing-cohort transition Article 11.7 prints 4 for the same replacement code. Apply current requirement-table 3 for the new entrant; retain the transition discrepancy for any older-cohort reconstruction. Article 5.2 restricted elective table starts A Primer in Neuroscience NB3015, Advanced Math Topics NB3024, Biomolecular Ultrasound NB3026, Computational Neuroscience NB3014, all 2.5 EC: four distinct choices total 10. Other choices/outside courses require stated approval; capacity/prerequisites remain catalogue conditions. Year 3 minor 30 + electives 10 + BEP20. Tables visually inspected.
+
+External credit structure: Stored component arithmetic totals 180 EC. Official instruction is English, while normalized language is NLD-only. The 180 aggregate weights are supported, but practical pairing is assigned and mixed, and bounded specialist choices must be instantiated using actual 2.5-credit formal units.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Molecular Genetics (NB1310) | 5 | required |
+| 1 | Math 1 for Nanobiologists (NB1315) | 6 | required |
+| 1 | Introduction to Nanobiology (NB1410) | 4 | required |
+| 1 | Chemistry (NB1320) | 5 | required |
+| 1 | Mechanics and Optics (NB1325) | 5 | required |
+| 1 | Programming Foundations (NB1420) | 5 | required |
+| 1 | Biochemistry and Structural Biology (NB1330) | 6 | required |
+| 1 | Math 2 for Nanobiologists (NB1335) | 5 | required |
+| 1 | Molecular Biology Techniques A (NB1430) | 4 | assigned-pair; First formally listed permissible programme-assigned mixed pair; not a free student choice. |
+| 1 | Molecular Biophysics (NB1340) | 6 | required |
+| 1 | Math 3 for Nanobiologists (NB1345) | 5 | required |
+| 1 | Biophysics Techniques B (NB1445) | 4 | assigned-pair; Companion to NB1430; other assigned pair is NB1435+NB1440. |
+| 2 | Electricity and Magnetism (NB2310) | 5 | required |
+| 2 | Differential Equations and Fourier (NB2315) | 4 | required |
+| 2 | Computational Sciences (NB2410) | 5 | required |
+| 2 | Molecular Cellular Biology (NB2320) | 6 | required |
+| 2 | Statistics (NB2325) | 4 | required |
+| 2 | Electronic Instruments (NB2420) | 4 | required |
+| 2 | Science, Technology and Society 1 (NB2510) | 2 | required |
+| 2 | Evolutionary and Developmental Biology (NB2335) | 6 | required |
+| 2 | Imaging 1 (NB2330) | 5 | required |
+| 2 | Nanotechnology (NB2430) | 3 | required |
+| 2 | Bioinformatics (NB2340) | 6 | required |
+| 2 | Introduction to Soft Matter (NB2345) | 4 | required |
+| 2 | Imaging 2 (NB2440) | 4 | required |
+| 2 | Science, Technology and Society 2 (NB2520) | 2 | required |
+| 3 | Minor | 30 | open-choice |
+| 3 | Bachelor End Project | 20 | required |
+| 3 | A Primer in Neuroscience (NB3015) | 2.5 | restricted-choice; First four formal-table options; precise octal availability/capacity and catalogue prerequisites must be checked before an exact timetable. |
+| 3 | Advanced Math Topics (NB3024) | 2.5 | restricted-choice; First four formal-table options; precise octal availability/capacity and catalogue prerequisites must be checked before an exact timetable. |
+| 3 | Biomolecular Ultrasound (NB3026) | 2.5 | restricted-choice; First four formal-table options; precise octal availability/capacity and catalogue prerequisites must be checked before an exact timetable. |
+| 3 | Computational Neuroscience (NB3014) | 2.5 | restricted-choice; First four formal-table options; precise octal availability/capacity and catalogue prerequisites must be checked before an exact timetable. |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Source-backed requirement reconstruction for later remediation; production unchanged and UCR fit unassessed.
+
+Choice and source-context rules:
+
+- First permissible mixed practical assignment represented, not both assignments or a same-discipline A+B sequence.
+- Four first-listed distinct 2.5 electives instantiate 10 without UCR-fit selection; outside options require approval.
+- Course membership/credits verified; do not assert exact future elective timetable or individual programme assignment in advance.
+- Joint degree institutional participation retained; normalized language ENG.
+
+Result: incorrect; required action: correct-registry-and-reprocess.
+
+Incorrect applies only to the stated external allocation, narrative, choice, source context or normalized-language facts. No independent UCR conclusion or unsupported dated-change inference.
+
+Recommended follow-up: Correct normalized language to ENG with preserved rawNLD provenance. Choose the first formally permitted assigned practical pair as representative, explicitly qualified, and four first-listed 2.5 electives; retain joint institutional context.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `official_source_ids_json/official_source_urls_json`, `normalization_basis and decision_case_ids_json as required by correction workflow`. Set normalized languages_json=["ENG"] using the official language evidence. Preserve permanent ID, original source rows and immutable raw NLD offering language. Use the documented post-build registry correction workflow.
+- `data/registry/resolution_cases.csv, resolution_decisions.csv and resolution_sources.csv`, fields: `documented language correction and authority linkage`. Record auditable current language correction through repository-supported resolution workflow; keep raw/old language as provenance and retain correction across rebuilds. Do not duplicate or renumber target.
+- `data/counselor/decisions/cp-000254.json`, fields: `sources`, `comparator.components tuples`, `comparator.academicYear`, `comparator.primarySource/additionalSources`, `comparator.sourceNotes`, `comparator.route and routeSelection where applicable`, `exception.curriculumContext`, `exception.reason external factual clauses`, `exception.checkedOn`. Correct normalized language to ENG with preserved rawNLD provenance. Choose the first formally permitted assigned practical pair as representative, explicitly qualified, and four first-listed 2.5 electives; retain joint institutional context. Apply in existing version 2 compact decision; update sources and source indexes consistently. Preserve existing UCR claims only as historical provenance.
+- `data/counselor/comparisons/cp-000254.json`, fields: `comparator.components`, `comparator.sourceNotes`, `comparator.academicYear`, `comparator.primarySourceUrl/additionalSourceUrls`, `comparator.routeSelection where applicable`, `exception.curriculumContext`, `exception.reason`, `exception.checkedOn`. Compile the amended compact decision using current normalized provider; canonical external facts must agree with case evidence and preserve precise choice/optional scope. Do not automatically change exception type or create a comparison.
+- `data/counselor/review-programmes.json and existing generated counselor artifacts`, fields: `affected metadata, curriculum, source and route summaries`. Regenerate affected outputs after targeted remediation; keep this audit evidence and immutable provenance.
+
+Dependencies:
+
+- Validate applicable current cohort and sources when implementing; no broad repeated research required for established facts.
+- Final UCR feasibility remains a separate stage-two dependency.
+
+Verification and closure checks:
+
+- Every included course counted once; total 180 from source-backed weights, with restricted choices instantiated and genuine open profiling explicit.
+- Required-versus-optional claims, route, source context and cohort agree across compact and canonical records.
+- Run applicable registry/exception compiler/schema validation and refresh generated summaries; close external fixes independently of UCR feasibility.
+- Normalized/provider language ["ENG"]; raw offering NLD preserved. Source-row and offering-ID crosswalks still reconcile exactly.
+- Use representative mixed assignment NB1430+NB1445, not same-discipline A+B. Four distinct 2.5 electives=10; verify octal availability, capacity and formal catalogue prerequisites before asserting detailed scheduling.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000258 — Bachelor Applied Physics
+
+Institution: Delft University of Technology. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-03.
+
+Existing substantive reason: Applied Physics is a cumulative physics-and-engineering degree whose compulsory spine combines classical and advanced mechanics, thermodynamics, electromagnetism, waves, quantum mechanics, statistical physics, transport phenomena and solid-state physics with analysis, linear algebra, differential equations, Fourier methods, probability, computational science, systems and signals, circuits, electronics, instrumentation, three design courses, three laboratory courses and a 15-EC individual physics research project. UCR offers a useful mathematics and computational-modelling sequence and two broad sustainability gateways that touch on selected physical concepts. It does not offer the required university-level physics core, experimental-physics laboratory and measurement progression, electronic instrumentation, materials and quantum sequence, or comparable applied-physics research environment. A UCR pathway could study mathematical modelling and technology in an interdisciplinary way, but it would not be a defensible Applied Physics comparator.
+
+All 29 stored components and 180 credits match the current September 2026 entrant diagram. The formal outgoing-cohort year 3 schedule is explicitly different and does not invalidate this prospective entrant chart. No formal route is required.
+
+Provenance: data/counselor/comparisons/cp-000258.json; source worksheet row(s) 271. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [Applied Physics programme](https://filelist.tudelft.nl/TUDelft/Onderwijs/Opleidingen/Bachelor/Technische_Natuurkunde/02._Opleiding/TN_flyer_DEF_web_pag2.pdf) — Degree identity, core themes and laboratories; Current official programme. Dutch ordinary full-time degree. Mechanics, thermodynamics, electromagnetism and quantum mechanics are core themes; maths, laboratory work and design accompany the progression. Current prospectus links September 2026 chart; official proposed future curriculum material marked draft is excluded.
+- [Applied Physics September 2026 curriculum](https://www.tudelft.nl/onderwijs/opleidingen/bachelors/tn/bsc-technische-natuurkunde/over-de-opleiding/wat-ga-ik-leren) — Whole chart and footer; September 2026 entrant overview. Stored 29 components and every credit agree: twelve 5-EC first-year units, twelve 5-EC second-year units; third minor 30 + two elective slots 5 each + critical reflection 5 + BEP15. Chart supports prospective 2026 entrant outline. It does not publish a bounded list for the two profiling slots; preserve these genuine unspecified electives. Figure visually inspected.
+- [Applied Physics OER programme appendix 2026–2027](https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/TNW/Onderwijs/Opleidingsreglementen/2026-2027/BSc%20TN%20OER-bijlage%202026-2027.pdf) — Articles 3–4 and 7; PDF pp.5,7–8,12; Current 2026–2027. Article 3 first-year 2026 requirements agree. Article 4 explicitly applies year 2 to cohort 2025 and year 3 to cohort 2024; its older final-year table has BEP12, reflection 3, optics 3, quantum 3, solid-state 6 and stochastic signals 3, plus minor 30. This is not a same-cohort contradiction with prospective 2026 chart BEP15/reflection 5/electives 10. Individual minor requires approval, no overlap, max 10 first-year credits and max 3 language-course credits. Do not substitute outgoing year 3 or mix cohorts into the chart route.
+
+External credit structure: Stored component arithmetic totals 180 EC. All 29 stored components and 180 credits match the current September 2026 entrant diagram. The formal outgoing-cohort year 3 schedule is explicitly different and does not invalidate this prospective entrant chart. No formal route is required.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Mechanics | 5 | required |
+| 1 | Introduction to Analysis | 5 | required |
+| 1 | Introductory Laboratory 1 | 5 | required |
+| 1 | Thermodynamics | 5 | required |
+| 1 | Multivariable Analysis | 5 | required |
+| 1 | Introductory Laboratory 2 | 5 | required |
+| 1 | Electromagnetism | 5 | required |
+| 1 | Vector and Fourier Analysis | 5 | required |
+| 1 | Design Engineering for Physicists: Design | 5 | required |
+| 1 | Waves | 5 | required |
+| 1 | Linear Algebra 1 | 5 | required |
+| 1 | Design Engineering for Physicists: Engineering | 5 | required |
+| 2 | Advanced Mechanics | 5 | required |
+| 2 | Advanced Linear Algebra and Differential Equations | 5 | required |
+| 2 | Research Laboratory | 5 | required |
+| 2 | Quantum Mechanics | 5 | required |
+| 2 | Probability and Statistical Physics | 5 | required |
+| 2 | Computational Science | 5 | required |
+| 2 | Systems and Signals | 5 | required |
+| 2 | Circuits, Electronics and Instrumentation | 5 | required |
+| 2 | Design Engineering for Physicists: Physics | 5 | required |
+| 2 | Physical Transport Phenomena | 5 | required |
+| 2 | Solid-State Physics | 5 | required |
+| 2 | Technology Management | 5 | required |
+| 3 | Minor | 30 | open-choice |
+| 3 | Applied Physics Elective 1 | 5 | required |
+| 3 | Applied Physics Elective 2 | 5 | required |
+| 3 | Critical Reflection on Science and Argumentation | 5 | required |
+| 3 | Bachelor Final Project | 15 | required |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Source-backed requirement reconstruction for later remediation; production unchanged and UCR fit unassessed.
+
+Choice and source-context rules:
+
+- Keep accurate current components; open minor/profiling retains approval/no-overlap requirements.
+- Prospective September 2026 chart; older cohort 2024 third-year weights do not apply to this entrant outline.
+
+Result: confirmed; required action: none.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000259 — Bachelor Applied Mathematics
+
+Institution: Delft University of Technology. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-03.
+
+Existing substantive reason: TU Delft Applied Mathematics is a cumulative proof-based mathematics degree. Its compulsory spine includes two analysis courses followed by real and complex analysis, two linear-algebra courses, algebra, discrete mathematics, ordinary and partial differential equations, numerical methods, optimisation, probability, statistics and measure-theoretic probability, alongside four modelling courses, programming and proof techniques. Restricted upper-level mathematics electives and a 15-EC mathematics bachelor project complete that formation. UCR offers a useful applied mathematics, statistics, programming and data-science sequence, but it does not provide the proof-intensive real/complex analysis, measure theory, abstract algebra and PDE depth or the mathematics-specific capstone environment required to preserve this degree's academic identity. A 24-course UCR response would become an interdisciplinary quantitative and data-science pathway rather than Applied Mathematics.
+
+Stored 180 course weights are supported, but exactly one of the five electives must be non-mathematical. Generic restricted-elective blocks do not instantiate those choices and the narrative omits this requirement. Current cohort table supersedes older public course-list context.
+
+Provenance: data/counselor/comparisons/cp-000259.json; source worksheet row(s) 272. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [Applied Mathematics programme](https://www.tudelft.nl/onderwijs/opleidingen/bachelors/tw/bsc-technische-wiskunde/over-de-opleiding/wat-ga-ik-leren) — Mathematical identity and public named courses; Current official programme. Dutch three-year degree in analysis, stochastics, optimisation/discrete mathematics, numerical methods/differential equations and modelling. Broad public overview retains older AM codes and elective material; current EEMCS formal cohort 2024+ table controls names, restrictions and credits.
+- [Public current study-guide programme data](https://curriculum.tudelft.nl/publisher/api/v0/opleidingen/items/33234) — 2026–2027 record; cohort 2024+ description; Current 2026–2027. B-TW, CROHO56965, Dutch, full-time, three years 180. Cohort 2024+ first year twelve 5 units; second ten required 5 + two electives 5; third minor 30 + three electives 5 + project 15. Stored study-guide education URL returned 404; current public programme endpoint retrieved successfully. It does not negate the formal exact-one non-mathematical requirement.
+- [EEMCS OER 2026–2027: Applied Mathematics](https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/EWI/Studeren/Reglementen/Onderwijs-%20en%20Examenregeling%20EWI%202026-2027.pdf) — Article 14A/15; PDF pp.45–47; Current 2026–2027. Standard cohort 2024+ table supports stored taught-course weights, proof theory 3 + practical 2 counted once. Exactly one of five electives must be non-mathematical. First four mathematical choices TW-E01 Advanced Statistics, E02 Machine Learning, E03 Markov Processes, E04 Graph Theory are 5 each, Q3; first non-mathematical TW-E99 Algorithm Design 5 isQ4. Neutral annual placement: year 2 E01 + E99; year 3 E02 + E03 + E04 and project 15. Prerequisite knowledge must be considered; project requires first year and at least 40 major credits from years 2/3. Tables visually inspected; no minor/elective double counting.
+
+External credit structure: Stored component arithmetic totals 180 EC. Stored 180 course weights are supported, but exactly one of the five electives must be non-mathematical. Generic restricted-elective blocks do not instantiate those choices and the narrative omits this requirement. Current cohort table supersedes older public course-list context.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Proof Techniques (theory and practical) (TW1-11T/P) | 5 | required; Combined theory 3 + practical 2; code notation denotes two existing subparts, not a catalogue code. |
+| 1 | Calculus (TW1-12) | 5 | required |
+| 1 | Introduction to Programming (TW1-13) | 5 | required |
+| 1 | Modelling 1 (TW1-21) | 5 | required |
+| 1 | Analysis 1 (TW1-22) | 5 | required |
+| 1 | Linear Algebra 1 (TW1-23) | 5 | required |
+| 1 | Discrete Mathematics (TW1-31) | 5 | required |
+| 1 | Analysis 2 (TW1-32) | 5 | required |
+| 1 | Linear Algebra 2 (TW1-33) | 5 | required |
+| 1 | Modelling 2 (TW1-41) | 5 | required |
+| 1 | Ordinary Differential Equations (TW1-42) | 5 | required |
+| 1 | Introduction to Probability (TW1-43) | 5 | required |
+| 2 | Introduction to Statistics (TW2-11) | 5 | required |
+| 2 | Real Analysis (TW2-12) | 5 | required |
+| 2 | Optimisation (TW2-13) | 5 | required |
+| 2 | Modelling 3 (TW2-21) | 5 | required |
+| 2 | Complex Function Theory (TW2-22) | 5 | required |
+| 2 | Partial Differential Equations (TW2-23) | 5 | required |
+| 2 | Numerical Methods (TW2-31) | 5 | required |
+| 2 | Measure Theory and Probability (TW2-32) | 5 | required |
+| 2 | Modelling 4 (TW2-41) | 5 | required |
+| 2 | Algebra (TW2-42) | 5 | required |
+| 2 | Advanced Statistics (TW-E01) | 5 | restricted-choice; Q3 first-listed mathematics option. |
+| 2 | Algorithm Design (TW-E99) | 5 | restricted-choice; Q4 first-listed non-mathematical option; exactly one such choice overall. |
+| 3 | Minor | 30 | open-choice |
+| 3 | Machine Learning (TW-E02) | 5 | restricted-choice |
+| 3 | Markov Processes (TW-E03) | 5 | restricted-choice |
+| 3 | Graph Theory (TW-E04) | 5 | restricted-choice |
+| 3 | Bachelor Project (TW3-01) | 15 | required |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Source-backed requirement reconstruction for later remediation; production unchanged and UCR fit unassessed.
+
+Choice and source-context rules:
+
+- Exactly one non-mathematical plus four distinct mathematical choices; first formal options neutral.
+- Place E01Q3 and E99Q4 in year 2, remaining three mathematicalQ3 in year 3. Project may occupyQ4 under formal periods 3/4; do not assert exact future timeslots.
+- Required prior knowledge, project-entry threshold and minor no-overlap must be checked when implementing; no prerequisites invented.
+
+Result: incorrect; required action: reassess-exception.
+
+Incorrect applies only to the stated external allocation, narrative, choice, source context or normalized-language facts. No independent UCR conclusion or unsupported dated-change inference.
+
+Recommended follow-up: Instantiate four distinct first-listed mathematical options and one first-listed non-mathematical option; preserve current taught courses, proof 3+2 aggregate, minor 30 and project 15. Refresh accessible authority and source-year context.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/decisions/cp-000259.json`, fields: `sources`, `comparator.components tuples`, `comparator.academicYear`, `comparator.primarySource/additionalSources`, `comparator.sourceNotes`, `comparator.route and routeSelection where applicable`, `exception.curriculumContext`, `exception.reason external factual clauses`, `exception.checkedOn`. Instantiate four distinct first-listed mathematical options and one first-listed non-mathematical option; preserve current taught courses, proof 3+2 aggregate, minor 30 and project 15. Refresh accessible authority and source-year context. Apply in existing version 2 compact decision; update sources and source indexes consistently. Preserve existing UCR claims only as historical provenance.
+- `data/counselor/comparisons/cp-000259.json`, fields: `comparator.components`, `comparator.sourceNotes`, `comparator.academicYear`, `comparator.primarySourceUrl/additionalSourceUrls`, `comparator.routeSelection where applicable`, `exception.curriculumContext`, `exception.reason`, `exception.checkedOn`. Compile the amended compact decision using current normalized provider; canonical external facts must agree with case evidence and preserve precise choice/optional scope. Do not automatically change exception type or create a comparison.
+- `data/counselor/review-programmes.json and existing generated counselor artifacts`, fields: `affected metadata, curriculum, source and route summaries`. Regenerate affected outputs after targeted remediation; keep this audit evidence and immutable provenance.
+
+Dependencies:
+
+- Validate applicable current cohort and sources when implementing; no broad repeated research required for established facts.
+- Final UCR feasibility remains a separate stage-two dependency.
+
+Verification and closure checks:
+
+- Every included course counted once; total 180 from source-backed weights, with restricted choices instantiated and genuine open profiling explicit.
+- Required-versus-optional claims, route, source context and cohort agree across compact and canonical records.
+- Run applicable registry/exception compiler/schema validation and refresh generated summaries; close external fixes independently of UCR feasibility.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000260 — Bachelor Mechanical Engineering
+
+Institution: Delft University of Technology. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-03.
+
+Existing substantive reason: TU Delft Mechanical Engineering is an integrated engineering sequence in statics, mechanics of materials, dynamics, thermodynamics, advanced mechanics, materials science, fluid flow and heat transfer, process engineering, signals, systems and control, robotics and integrated mechanical systems. Four consecutive first-year design projects and three further second-year engineering projects culminate in a 14-EC mechanical-engineering final project. UCR offers useful mathematics, programming, product-design and sustainability courses, but it does not offer the mechanical-science core, engineering laboratory and workshop progression, or cumulative mechanical design and research sequence on which the degree depends. A 24-course response would be an applied mathematics, computing and sustainable-design programme, not Mechanical Engineering.
+
+All 25 stored components and credits are confirmed. The reason understates the formal second-year project group as three projects; it has four, including Process Engineering and Thermodynamics. Full-curriculum authority should be the accessible current OER, rather than an unavailable study-guide URL or an endpoint without a course table.
+
+Provenance: data/counselor/comparisons/cp-000260.json; source worksheet row(s) 273. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [OER BSc Mechanical Engineering and Marine Technology 2026–2027](https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/ME/Onderwijs/GERELATEERD/Reglementen/Archief%20Onderwijsreglementen/2026-2027/OER%20BSc%20WB-MT_DEFINITIEF.pdf) — Mechanical curriculum PDF p.25; Marine curriculum p.30; BEP conditions pp.26/31; Current 2026–2027. Mechanical: first and second years ten 6-EC units each; third minor 30, control 6, integrated systems 6, engineer/society 4 and final project 14. Four year-two units are formally grouped as projects, including Process Engineering and Thermodynamics. Marine: year 1 mathematics 12 + mechanics 24 + maritime theory 16 + integration 8=60; year 2 mathematics 12 + advanced mechanics 6 + control 6 + maritime theory 18 + ship-design project 6 + integration 12=60; year 3 minor 30 + dynamics maritime structures 6 + electric drive/conversion 4 + ship motions/manoeuvring 6 + BEP14=60. Mathematical/advanced-mechanics subparts are embedded, not additional courses. MT1466-26 supersedes MT1466. BEP requires all first year and at least 54 second-year credits. Tables visually inspected.
+- [Mechanical Engineering programme](https://www.tudelft.nl/onderwijs/opleidingen/bachelors/wb/bsc-werktuigbouwkunde) — Engineering projects and current identity; Current official programme. Dutch ordinary mechanical-engineering degree 180; stored 25 course/choice units and all weights agree with current formal OER. Exception reason says three later projects; formal project group has four, including Process Engineering/Thermodynamics. Correct that factual scope and refresh source evidence without rebuilding the accurate component list.
+- [Public current study-guide Mechanical Engineering entry](https://curriculum.tudelft.nl/publisher/api/v0/opleidingen/items/32108) — Degree facts and access limitation; Current 2026–2027. Current 2026–2027 B-WB entry, CROHO56966, Dutch, full-time, three years 180 retrieved. Stored education URL returned 404. This endpoint supplies programme facts/description, not the full course table in its returned payload; use accessible formal OER for full curriculum authority.
+
+External credit structure: Stored component arithmetic totals 180 EC. All 25 stored components and credits are confirmed. The reason understates the formal second-year project group as three projects; it has four, including Process Engineering and Thermodynamics. Full-curriculum authority should be the accessible current OER, rather than an unavailable study-guide URL or an endpoint without a course table.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Mathematics 1 | 6 | required |
+| 1 | Mathematics 2 | 6 | required |
+| 1 | Statics | 6 | required |
+| 1 | Mechanics of Materials | 6 | required |
+| 1 | Dynamics | 6 | required |
+| 1 | Thermodynamics | 6 | required |
+| 1 | Mechanical Engineering Design Project 1 | 6 | required |
+| 1 | Mechanical Engineering Design Project 2 | 6 | required |
+| 1 | Mechanical Engineering Design Project 3A | 6 | required |
+| 1 | Mechanical Engineering Design Project 3B | 6 | required |
+| 2 | Mathematics 3 | 6 | required |
+| 2 | Mathematics 4 | 6 | required |
+| 2 | Signals and Systems | 6 | required |
+| 2 | Materials Science | 6 | required |
+| 2 | Advanced Mechanics | 6 | required |
+| 2 | Fluid Flow and Heat | 6 | required |
+| 2 | Project Advanced Engineering Design | 6 | required |
+| 2 | Process Engineering and Thermodynamics | 6 | required |
+| 2 | Robotics Project | 6 | required |
+| 2 | Materials Science Project | 6 | required |
+| 3 | Minor | 30 | open-choice |
+| 3 | Systems and Control Engineering | 6 | required |
+| 3 | Integrated Mechanical Systems | 6 | required |
+| 3 | Engineer and Society | 4 | required |
+| 3 | Bachelor Final Project | 14 | required |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Source-backed requirement reconstruction for later remediation; production unchanged and UCR fit unassessed.
+
+Choice and source-context rules:
+
+- Keep accurate current components; open minor/profiling retains approval/no-overlap requirements.
+- Four formal second-year projects, including Process Engineering/Thermodynamics, are counted within existing ten 6-credit units.
+
+Result: incorrect; required action: reassess-exception.
+
+Incorrect applies only to the stated external allocation, narrative, choice, source context or normalized-language facts. No independent UCR conclusion or unsupported dated-change inference.
+
+Recommended follow-up: Retain accurate 180 components; correct project-status/count narrative to four year-two projects and refresh full-curriculum source support.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/decisions/cp-000260.json`, fields: `sources`, `comparator.components tuples`, `comparator.academicYear`, `comparator.primarySource/additionalSources`, `comparator.sourceNotes`, `comparator.route and routeSelection where applicable`, `exception.curriculumContext`, `exception.reason external factual clauses`, `exception.checkedOn`. Retain accurate 180 components; correct project-status/count narrative to four year-two projects and refresh full-curriculum source support. Apply in existing version 2 compact decision; update sources and source indexes consistently. Preserve existing UCR claims only as historical provenance.
+- `data/counselor/comparisons/cp-000260.json`, fields: `comparator.components`, `comparator.sourceNotes`, `comparator.academicYear`, `comparator.primarySourceUrl/additionalSourceUrls`, `comparator.routeSelection where applicable`, `exception.curriculumContext`, `exception.reason`, `exception.checkedOn`. Compile the amended compact decision using current normalized provider; canonical external facts must agree with case evidence and preserve precise choice/optional scope. Do not automatically change exception type or create a comparison.
+- `data/counselor/review-programmes.json and existing generated counselor artifacts`, fields: `affected metadata, curriculum, source and route summaries`. Regenerate affected outputs after targeted remediation; keep this audit evidence and immutable provenance.
+
+Dependencies:
+
+- Validate applicable current cohort and sources when implementing; no broad repeated research required for established facts.
+- Final UCR feasibility remains a separate stage-two dependency.
+
+Verification and closure checks:
+
+- Every included course counted once; total 180 from source-backed weights, with restricted choices instantiated and genuine open profiling explicit.
+- Required-versus-optional claims, route, source context and cohort agree across compact and canonical records.
+- Run applicable registry/exception compiler/schema validation and refresh generated summaries; close external fixes independently of UCR feasibility.
+- Keep all 25 correct components unchanged; count Process Engineering/Thermodynamics in the formal four-project year 2 group.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000261 — Bachelor Automotive Technology
+
+Institution: Eindhoven University of Technology. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-03.
+
+Existing substantive reason: Automotive Technology is an integrated electrical, mechanical, computational and control-engineering degree. Its compulsory formation moves from mathematics, computation, signals, systems, dynamics, electromagnetics, electronics and electromechanics into power electronics, sensing and actuation, electric and hybrid powertrain design, road-vehicle dynamics, vehicle networking, control systems, automotive software engineering, autonomous driving, automotive projects and a Bachelor Final Project. UCR offers useful mathematics, programming, data science, image processing, AI, robotics, linear systems, consumer-product design and sustainable-energy courses. It does not provide the required physics and electrical-engineering progression, vehicle mechanics and dynamics, electric-powertrain engineering, embedded and real-time automotive systems, vehicle communications, engineering laboratories, staged automotive design projects or an equivalent automotive capstone. A UCR pathway could address intelligent mobility, vehicle data and sustainable transport as an interdisciplinary theme, but it would not be a defensible Automotive Technology comparator.
+
+Current common-plus-AT curriculum yields 125 core/10 ITEC/45 electives, not 120/15/45. Full current course weights and 10 final project are available; autonomous-vehicle/design-project examples in the elective list are not universal compulsory requirements.
+
+Provenance: data/counselor/comparisons/cp-000261.json; source worksheet row(s) 274. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [Automotive Technology programme](https://studiegids.tue.nl/opleidingen/bachelor-college/majors/automotive-technology) — English degree and automotive identity; Current official programme. English full-time three-year bachelor 180. Overview describes integrated automotive/electrical/mechanical formation. Actual current compulsory-versus-optional status must be taken from current curriculum rows; thematic autonomous-vehicle examples are not universal requirements.
+- [EE and Automotive after-revision curriculum 2026–2027](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Content/Programs/Bachelor%20College/Major%20Electrical%20Engineering/Curriculum/Curriculum%202026-2027/Latest%20version%2020260702%20Bachelor%20curriculum%20EE%20and%20AT%20After%20Revision%202026-2027.pdf) — PDF pp.1–4; version 2 July 2026; Current 2026–2027. Common rows plus only the selected EE or AT rows yield major/core 125 including 10 final project, ITEC Ethics 5 + Society 5, and free electives 45. First year 60; second required major 40 + ITEC5 + electives 15=60; third major 25 + ITEC5 + electives 30=60. AT Propulsion Systems 4AUB10 is current name; Computer Architecture is AT year 2 / EE year 1. Autonomous Vehicles 5AID0 and Automotive Design Project 5XSC0 are optional. Semiconductor Technology 5XPG0 is optional. No stacking EE and AT alternatives. Tables visually inspected.
+
+External credit structure: Stored component arithmetic totals 180 EC. Current common-plus-AT curriculum yields 125 core/10 ITEC/45 electives, not 120/15/45. Full current course weights and 10 final project are available; autonomous-vehicle/design-project examples in the elective list are not universal compulsory requirements.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Calculus variant 2 (2WBB0) | 5 | required |
+| 1 | Programming Engineering Challenge (5EWC0) | 10 | required |
+| 1 | Circuits (5EPC0) | 5 | required |
+| 1 | Math 1 (5EZA0) | 5 | required |
+| 1 | Signals and Systems (5ESF0) | 5 | required |
+| 1 | Electronic Circuits 1 (5ECD0) | 5 | required |
+| 1 | Physics for AT (5EPE0) | 5 | required |
+| 1 | Spectrum of Automotive (5ATB0) | 5 | required |
+| 1 | Math 2 (5EZB0) | 5 | required |
+| 1 | Engineering Challenge for Venus (5EID0) | 5 | required |
+| 1 | Communication 1 (5ETC0) | 5 | required |
+| 2 | Road Vehicle Dynamics (4AUB20) | 5 | required |
+| 2 | Electric Circuits for Energy Conversion (5EWE0) | 5 | required |
+| 2 | Propulsion Systems (4AUB10) | 5 | required |
+| 2 | Computer Architecture (5EIC0) | 5 | required |
+| 2 | Sensing, Computing and Actuating (5AIB0) | 5 | required |
+| 2 | Electromagnetics 1 (5EPF0) | 5 | required |
+| 2 | Multidisciplinary CBL (4CBLW00) | 5 | required |
+| 2 | Control Systems (5ESH0) | 5 | required |
+| 2 | ITEC Ethics (0LVX30) | 5 | required-ITEC |
+| 2 | Free elective space | 15 | open-choice |
+| 3 | Electromechanics 1 (5EWF0) | 5 | required |
+| 3 | Power Electronics (5APB0) | 5 | required |
+| 3 | Vehicle Networking (5AIC0) | 5 | required |
+| 3 | Final Bachelor Project (5XEC0) | 10 | required |
+| 3 | ITEC Society (0LVX40) | 5 | required-ITEC |
+| 3 | Free elective space | 30 | open-choice |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Source-backed requirement reconstruction for later remediation; production unchanged and UCR fit unassessed.
+
+Choice and source-context rules:
+
+- Select common rows plus AT rows only; no EE/AT double counting.
+- Core 125 including BEP10, ITEC10, elective 45. Genuine free space stays generic under approval/level conditions.
+- Optional autonomous-vehicle/semiconductor/project examples are not universal required core.
+
+Result: incorrect; required action: reassess-exception.
+
+Incorrect applies only to the stated external allocation, narrative, choice, source context or normalized-language facts. No independent UCR conclusion or unsupported dated-change inference.
+
+Recommended follow-up: Reconstruct current AT rows only, correct ITEC/core allocation, current Propulsion Systems name, final project 10 and compulsory-versus-optional narrative; update academic-year/source context.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/decisions/cp-000261.json`, fields: `sources`, `comparator.components tuples`, `comparator.academicYear`, `comparator.primarySource/additionalSources`, `comparator.sourceNotes`, `comparator.route and routeSelection where applicable`, `exception.curriculumContext`, `exception.reason external factual clauses`, `exception.checkedOn`. Reconstruct current AT rows only, correct ITEC/core allocation, current Propulsion Systems name, final project 10 and compulsory-versus-optional narrative; update academic-year/source context. Apply in existing version 2 compact decision; update sources and source indexes consistently. Preserve existing UCR claims only as historical provenance.
+- `data/counselor/comparisons/cp-000261.json`, fields: `comparator.components`, `comparator.sourceNotes`, `comparator.academicYear`, `comparator.primarySourceUrl/additionalSourceUrls`, `comparator.routeSelection where applicable`, `exception.curriculumContext`, `exception.reason`, `exception.checkedOn`. Compile the amended compact decision using current normalized provider; canonical external facts must agree with case evidence and preserve precise choice/optional scope. Do not automatically change exception type or create a comparison.
+- `data/counselor/review-programmes.json and existing generated counselor artifacts`, fields: `affected metadata, curriculum, source and route summaries`. Regenerate affected outputs after targeted remediation; keep this audit evidence and immutable provenance.
+
+Dependencies:
+
+- Validate applicable current cohort and sources when implementing; no broad repeated research required for established facts.
+- Final UCR feasibility remains a separate stage-two dependency.
+
+Verification and closure checks:
+
+- Every included course counted once; total 180 from source-backed weights, with restricted choices instantiated and genuine open profiling explicit.
+- Required-versus-optional claims, route, source context and cohort agree across compact and canonical records.
+- Run applicable registry/exception compiler/schema validation and refresh generated summaries; close external fixes independently of UCR feasibility.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000262 — Bachelor Biomedical Engineering
+
+Institution: Eindhoven University of Technology. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-03.
+
+Existing substantive reason: Biomedical Engineering at TU/e is an integrated engineering-and-life-science degree. Its compulsory formation connects chemistry, cell biology, physiology and pathology with mathematics, physics, programming and biomedical data analysis, biomechanics and mechanobiology, biomedical imaging and measurement, biomaterials and tissue engineering, modelling, laboratory experimentation, challenge-based design and a 15-EC research project. UCR has substantial biomedical science, molecular and cellular biology, physiology, pathology, pharmacology, one life-science laboratory, mathematics, programming, data science, image processing and robotics. It does not offer the required mechanics and biomechanics progression, continuum and material modelling, biomaterials and tissue-engineering sequence, biomedical instrumentation and signal-acquisition laboratories, imaging physics, engineering-design and fabrication progression, staged biomedical laboratory programme or an equivalent 15-EC biomedical-engineering research project. A UCR pathway could form a strong quantitative biomedical-science curriculum, but it would not be a defensible Biomedical Engineering comparator.
+
+Normalized ENG-only language omits official Dutch instruction. Current formal BBT core 125 includes final project 15: taught/project core 110 plus ITEC10 and electives 45, not 105/15/15/45. Current cohort BBT core must be distinguished from MWT alternatives and elective recommendations.
+
+Provenance: data/counselor/comparisons/cp-000262.json; source worksheet row(s) 275. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [Biomedical Engineering degree facts and two core programmes](https://www.tue.nl/studeren/bachelor-college/bachelor-biomedische-technologie) — Language, standard degree and BMT/MWT alternatives; Current official programme. Official page explicitly states Nederlands en Engels, three years 180. BMT and MWT are separate alternative core programmes after common first year, not cumulative requirements. Current normalized ENG-only language omits Dutch. BMT target is retained; do not substitute the separately normalized MWT target.
+- [Biomedical Engineering PER after revision 2026–2027](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Biomedical%20Engineering/OER%20en%20ER/2026-2027/BSc%20OER%20BME%202026-2027%20AR.pdf) — Articles 3.3–3.5; Appendix 2, PDF pp.20–23,76–79; Current 2026–2027. Partially Dutch/partially English. Core 125 includes BEP15 and multidisciplinary CBL5; ITEC5+5; free 45, at least 30 level 2/3 including at least 15 level 3. First-year Skills Experience 8BA050 spans two 5-credit quarter positions and counts 10 once. BBT and MWT tables are alternatives. BBT year 2eight 5 required + electives 20; year 3three 5 taught + ITEC5 + BEP15 + electives 25. PPD embedded in existing core; MyFuture activities have no extra credits; ITEC requires five Studium Generale activities. BEP prerequisites include 120 total, first-year requirements, PPD and stated later core/CBL/elective completion. Table visually inspected. Formal 8BA020 title Engineering a Tissue differs from gen 26 diagram Organs on Chip; preserve code and check catalogue before asserting an exact renamed title.
+- [Biomedical Engineering generation 26 curriculum](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Biomedical%20Engineering/Bachelor/Programma%27s%20en%20curricula/Curriculum%20gen26.pdf) — Whole diagram; first column BBT versus second MWT; Generation 26; version 12 August 2026. Explicit cohort progression 26/27,27/28,28/29. BBT current codes agree with formal core table. Pink courses are recommendations in elective slots; MWT-specific Heart/Blood, Regenerative Engineering, Mechanobiology and Cancer Cell Biology are not all compulsory BBT. Materials Science remains compulsory BBT. Diagram names 8BA020 CBL: Organs on Chip versus formal Engineering a Tissue; code/role unchanged, exact title needs catalogue confirmation. Figure visually inspected.
+- [Biomedical Engineering elective space](https://studiegids.tue.nl/opleidingen/bachelor-college/majors/biomedische-technologie/curriculum/keuzeruimte) — Open study space, level requirements and approval; Current official programme. 45 EC free elective space permits multiple departments/other universities under applicable approval and level conditions. Preserve generic profiling rather than forcing the example biomedical recommendations. Current PER controls credit/level requirements.
+
+External credit structure: Stored component arithmetic totals 180 EC. Normalized ENG-only language omits official Dutch instruction. Current formal BBT core 125 includes final project 15: taught/project core 110 plus ITEC10 and electives 45, not 105/15/15/45. Current cohort BBT core must be distinguished from MWT alternatives and elective recommendations.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Calculus (2MCALCBM) | 5 | required |
+| 1 | Organic Chemistry (8BA010) | 5 | required |
+| 1 | First-year biomedical CBL project (8BA020) | 5 | required |
+| 1 | Physics for Biomedical Engineering (8BA030) | 5 | required |
+| 1 | Biochemistry (8BA040) | 5 | required |
+| 1 | Skills Experience (8BA050) | 10 | required |
+| 1 | Linear Algebra and Multivariable Calculus (8BA060) | 5 | required |
+| 1 | Molecular Cell Biology (8BA070) | 5 | required |
+| 1 | Programming and Data (8BA080) | 5 | required |
+| 1 | Biomechanics (8BA090) | 5 | required |
+| 1 | ITEC Engineering Ethics (0LVX10) | 5 | required-ITEC |
+| 2 | Dynamic Systems (8BB010) | 5 | required |
+| 2 | Introduction to Machine Learning (8BB020) | 5 | required |
+| 2 | Clinical Measurement (8BB030) | 5 | required |
+| 2 | Project Year 2 (8BA100) | 5 | required |
+| 2 | Thermodynamics and Kinetics (8BB040) | 5 | required |
+| 2 | Imaging (8BB050) | 5 | required |
+| 2 | Flow and Diffusion (8BB060) | 5 | required |
+| 2 | Interdisciplinary CBL (4CBLW00) | 5 | required |
+| 2 | Free elective space | 20 | open-choice |
+| 3 | NAC (8BB070) | 5 | required |
+| 3 | Materials Science (8BA110) | 5 | required |
+| 3 | Applied Biostatistical Models (2DBM90) | 5 | required |
+| 3 | ITEC Engineering for Society (0LVX20) | 5 | required-ITEC |
+| 3 | Bachelor Final Project (8FINAL) | 15 | required |
+| 3 | Free elective space | 25 | open-choice |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Source-backed requirement reconstruction for later remediation; production unchanged and UCR fit unassessed.
+
+Choice and source-context rules:
+
+- Core 125=110 taught/projects+15 BEP, ITEC10, free 45.
+- Skills Experience 10 occupies two quarter positions, counted once; PPD embedded, no extra credits.
+- BBT only; MWT core and pink recommended electives remain alternatives.
+- 8BA020 formal/current-cohort diagram titles conflict; generic source-backed descriptive name avoids claiming a verified catalogue rename. Verify current title before implementation.
+- Electives at least 30 level 2/3 including 15 level 3; mandatory noncredit MyFuture/StudiumGenerale preserved.
+
+Result: incorrect; required action: correct-registry-and-reprocess.
+
+Incorrect applies only to the stated external allocation, narrative, choice, source context or normalized-language facts. No independent UCR conclusion or unsupported dated-change inference.
+
+Recommended follow-up: Correct language to NLD+ENG with rawENG preserved; reconstruct generation 26 BBT current code/credit allocation and PPD embedded status; qualify title discrepancy and optional/MWT-only examples.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `official_source_ids_json/official_source_urls_json`, `normalization_basis and decision_case_ids_json as required by correction workflow`. Set normalized languages_json=["NLD", "ENG"] using the official language evidence. Preserve permanent ID, original source rows and immutable raw ENG offering language. Use the documented post-build registry correction workflow.
+- `data/registry/resolution_cases.csv, resolution_decisions.csv and resolution_sources.csv`, fields: `documented language correction and authority linkage`. Record auditable current language correction through repository-supported resolution workflow; keep raw/old language as provenance and retain correction across rebuilds. Do not duplicate or renumber target.
+- `data/counselor/decisions/cp-000262.json`, fields: `sources`, `comparator.components tuples`, `comparator.academicYear`, `comparator.primarySource/additionalSources`, `comparator.sourceNotes`, `comparator.route and routeSelection where applicable`, `exception.curriculumContext`, `exception.reason external factual clauses`, `exception.checkedOn`. Correct language to NLD+ENG with rawENG preserved; reconstruct generation 26 BBT current code/credit allocation and PPD embedded status; qualify title discrepancy and optional/MWT-only examples. Apply in existing version 2 compact decision; update sources and source indexes consistently. Preserve existing UCR claims only as historical provenance.
+- `data/counselor/comparisons/cp-000262.json`, fields: `comparator.components`, `comparator.sourceNotes`, `comparator.academicYear`, `comparator.primarySourceUrl/additionalSourceUrls`, `comparator.routeSelection where applicable`, `exception.curriculumContext`, `exception.reason`, `exception.checkedOn`. Compile the amended compact decision using current normalized provider; canonical external facts must agree with case evidence and preserve precise choice/optional scope. Do not automatically change exception type or create a comparison.
+- `data/counselor/review-programmes.json and existing generated counselor artifacts`, fields: `affected metadata, curriculum, source and route summaries`. Regenerate affected outputs after targeted remediation; keep this audit evidence and immutable provenance.
+
+Dependencies:
+
+- Validate applicable current cohort and sources when implementing; no broad repeated research required for established facts.
+- Final UCR feasibility remains a separate stage-two dependency.
+
+Verification and closure checks:
+
+- Every included course counted once; total 180 from source-backed weights, with restricted choices instantiated and genuine open profiling explicit.
+- Required-versus-optional claims, route, source context and cohort agree across compact and canonical records.
+- Run applicable registry/exception compiler/schema validation and refresh generated summaries; close external fixes independently of UCR feasibility.
+- Normalized/provider language ["NLD", "ENG"]; raw offering ENG preserved. Source-row and offering-ID crosswalks still reconcile exactly.
+- Confirm exact current 8BA020 title; retain core role 5. Skills Experience 10, final project 15, PPD embedded; free 45 level rules preserved.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000263 — Bachelor Architecture, Urbanism and Building Sciences
+
+Institution: Eindhoven University of Technology. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-03.
+
+Existing substantive reason: TU/e's AUBS bachelor is a project- and studio-intensive built-environment engineering degree. Its common first year integrates calculus, architecture and the city, urban systems, healthy and sustainable environments, structural statics, circularity and energy performance, and structure and architecture with four successive design or research projects. The later programme requires one of four coherent tracks and its project sequence: architectural and urban design, building physics and services, structural engineering and design, or urban systems and real estate. All routes culminate in multidisciplinary project work and a discipline-specific Bachelor End Project. UCR offers useful adjacent courses in spatial planning, GIS and earth observation, sustainable energy and life-cycle analysis, nature-based design, product design, heritage and quantitative methods. It has no architecture or urban-design studio sequence, building-physics and building-services sequence, structural statics and materials progression, construction-technology education, architectural drawing and modelmaking formation, or built-environment engineering capstone. A 24-course UCR programme would therefore replace the target's defining studio, technical and project spine with adjacent liberal-arts and sustainability study and would not be an academically defensible comparison.
+
+A compulsory main track is left unspecified, so generic 130-core does not identify a coherent required programme. AUDE can be selected neutrally. Current formal article/table 125 conflicts with appendix 40-electives and webpage 130; credit closure remains unresolved rather than silently adding five credits.
+
+Provenance: data/counselor/comparisons/cp-000263.json; source worksheet row(s) 276. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [Architecture, Urbanism and Building Sciences after-revision curriculum](https://educationguide.tue.nl/programs/bachelor-college/majors/architecture-urbanism-and-building-sciences/curriculum-start-year-20232024) — Current degree allocation, four main tracks and profiles; Current official programme. Current webpage states core 130, ITEC10, electives 40. A main track must be instantiated: AUDE is first in current formal order, with no evidenced broadest/default route. Binder/Climber/Digger are indicative profiles, not additional compulsory formal tracks. Formal document contains conflicting allocation text; webpage 130 is not sufficient to settle it.
+- [Built Environment Bachelor College Course Guide 2026–2027](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Content/Programs/Bachelor%20College/Major%20Architecture%2C%20Urbanism%20and%20Building%20Sciences/Curriculum/Built%20Environment%20Bachelor%20College%20CourseGuide%202026-2027.pdf) — Printed pp.52–59,64–65,74–77; PDF sheets 27–30,33,38–39; Current official programme. First-year core and four Q4 project alternatives, mandatory later track course/project lines. AUDE year 2 four subjects/four 5-credit projects + multidisciplinary CBL; year 3 Quantitative Methods, Architecture/Technology, Multidisciplinary Project and BEP10. Open profiling remains, with recommendations distinguishable from required bold courses. Spanning a pair of quarters does not itself establish 10 EC. Main track selected independently of UCR. Tables visually inspected.
+- [AUBS PER after revision 2026–2027](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Content/Programs/Bachelor%20College/Major%20Architecture%2C%20Urbanism%20and%20Building%20Sciences/Regulations/PER%20AUBS%20After%20Revision%202026-2027%20%28Curriculum%20start%20year%202023-2024%29.pdf) — Article 3.4, core tables and Appendix 2/3; PDF pp.21–24,81,87; Current 2026–2027. Article 3.4 says core 125 + ITEC10 + at least 45 elective; named AUDE table supports core 125 with Multidisciplinary Project 7P1B30 printed 5, BEP10. Appendix 2 instead says elective 40 (15 year 2/25 year 3), which produces 175 with those named weights; webpage says 130/10/40. Appendix 3 pilot changes level distribution, requiring 45 level 3 overall, at least 30 elective level 2/3, at least 5 elective level 3; it does not explain this five-credit allocation conflict. Do not silently change Multidisciplinary Project 5→10 or elective 40→45. Main trackAUDE first official list, Q4Architectural Design coherent; subjects/projects within track required. Tables visually inspected.
+
+External credit structure: Stored component arithmetic totals 180 EC. A compulsory main track is left unspecified, so generic 130-core does not identify a coherent required programme. AUDE can be selected neutrally. Current formal article/table 125 conflicts with appendix 40-electives and webpage 130; credit closure remains unresolved rather than silently adding five credits.
+
+Result: incorrect; required action: reassess-exception.
+
+Incorrect applies only to the stated external allocation, narrative, choice, source context or normalized-language facts. No independent UCR conclusion or unsupported dated-change inference.
+
+Secondary attribute finding(s):
+
+- Current formal degree credit reconciliation: still-unresolved; stored "130 core +10 ITEC +40 elective", verified "Article/table 125 core +10 ITEC +45 elective; Appendix 2 instead says 40 elective, with project 7P1B30 printed 5.". Separate closure: Track-selection and factual scope corrections can be prepared; full 180 closure needs official reconciliation.
+
+Recommended follow-up: Record exact AUDE track and selection basis; use its named required subjects/projects, distinguish indicative profiles, then reconcile formal project/elective credit conflict before claiming verified 180.
+
+Unresolved factual question / historical limitation: Does applicable AUDE Multidisciplinary Project 7P1B30 carry 5 or 10 EC, and is elective space 40 or 45? Current formal table/article and appendix do not reconcile; obtain corrected regulation/catalogue authority or official clarification.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/decisions/cp-000263.json`, fields: `sources`, `comparator.components tuples`, `comparator.academicYear`, `comparator.primarySource/additionalSources`, `comparator.sourceNotes`, `comparator.route and routeSelection where applicable`, `exception.curriculumContext`, `exception.reason external factual clauses`, `exception.checkedOn`. Record exact AUDE track and selection basis; use its named required subjects/projects, distinguish indicative profiles, then reconcile formal project/elective credit conflict before claiming verified 180. Apply in existing version 2 compact decision; update sources and source indexes consistently. Preserve existing UCR claims only as historical provenance.
+- `data/counselor/comparisons/cp-000263.json`, fields: `comparator.components`, `comparator.sourceNotes`, `comparator.academicYear`, `comparator.primarySourceUrl/additionalSourceUrls`, `comparator.routeSelection where applicable`, `exception.curriculumContext`, `exception.reason`, `exception.checkedOn`. Compile the amended compact decision using current normalized provider; canonical external facts must agree with case evidence and preserve precise choice/optional scope. Do not automatically change exception type or create a comparison.
+- `data/counselor/review-programmes.json and existing generated counselor artifacts`, fields: `affected metadata, curriculum, source and route summaries`. Regenerate affected outputs after targeted remediation; keep this audit evidence and immutable provenance.
+
+Dependencies:
+
+- Current corrected OER/course catalogue or official university clarification reconciling core 125/130, elective 40/45 and Multidisciplinary Project 5/10. Do not manufacture the missing five credits.
+- Track selection and optional-versus-required narrative can be corrected independently; complete credit closure must wait.
+- Final UCR feasibility remains separately pending.
+
+Verification and closure checks:
+
+- Every included course counted once; total 180 from source-backed weights, with restricted choices instantiated and genuine open profiling explicit.
+- Required-versus-optional claims, route, source context and cohort agree across compact and canonical records.
+- Run applicable registry/exception compiler/schema validation and refresh generated summaries; close external fixes independently of UCR feasibility.
+- AUDE exact name Architectural Urban Design and Engineering; first current formal track in absence of a representative/general route, independently of UCR fit. Preserve mandatory later subject/project line and one coherent first-year project.
+- Record controlling authority for any 5/10 project or 40/45 elective correction. Current pilot concerns levels, not an explained five-credit substitution; preserve its 45 level 3 overall /30 elective level 2/3 /5 elective level 3 qualifications.
+
+Research trigger: Applicable official clarification/corrected regulation or current 7P1B30 course entry that also reconciles the degree allocation.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000265 — Bachelor Electrical Engineering
+
+Institution: Eindhoven University of Technology. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-03.
+
+Existing substantive reason: Electrical Engineering at TU/e is a cumulative engineering degree built around electrical and electromagnetic theory, analogue and digital circuits, electronic devices, signal processing, communication, control, embedded systems, measurement, electrical-energy conversion and distribution, engineering laboratories and challenge-based hardware projects before a discipline-specific Bachelor Final Project. UCR offers relevant mathematics, programming, data science, AI, robotics, linear systems, renewable-energy systems and consumer-product design. It does not offer the compulsory electromagnetics, circuit and electronics sequence, semiconductor-device formation, measurement and instrumentation laboratories, communication-hardware sequence, electrical machines and power-electronics progression, embedded-hardware laboratories or integrated electrical-engineering project spine. A 24-course UCR response would be a mathematics-and-computing programme with energy and robotics applications, not a defensible Electrical Engineering comparator.
+
+Current common-plus-EE curriculum yields 125 core/10 ITEC/45 electives, not 120/15/45. Course weights and 10 final project are published; Semiconductor Technology is an optional course, not universal compulsory formation.
+
+Provenance: data/counselor/comparisons/cp-000265.json; source worksheet row(s) 279. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [Electrical Engineering programme](https://www.tue.nl/en/education/bachelor-college/bachelor-electrical-engineering) — English degree and integrated engineering identity; Current official programme. English full-time three-year 180 electrical-engineering bachelor. Current curriculum includes circuits, electronics, electromagnetism, signals, control, communication, energy and projects. Optional semiconductor and medical-instrumentation courses must not be universalised as compulsory.
+- [EE and Automotive after-revision curriculum 2026–2027](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Content/Programs/Bachelor%20College/Major%20Electrical%20Engineering/Curriculum/Curriculum%202026-2027/Latest%20version%2020260702%20Bachelor%20curriculum%20EE%20and%20AT%20After%20Revision%202026-2027.pdf) — PDF pp.1–4; version 2 July 2026; Current 2026–2027. Common rows plus only the selected EE or AT rows yield major/core 125 including 10 final project, ITEC Ethics 5 + Society 5, and free electives 45. First year 60; second required major 40 + ITEC5 + electives 15=60; third major 25 + ITEC5 + electives 30=60. AT Propulsion Systems 4AUB10 is current name; Computer Architecture is AT year 2 / EE year 1. Autonomous Vehicles 5AID0 and Automotive Design Project 5XSC0 are optional. Semiconductor Technology 5XPG0 is optional. No stacking EE and AT alternatives. Tables visually inspected.
+
+External credit structure: Stored component arithmetic totals 180 EC. Current common-plus-EE curriculum yields 125 core/10 ITEC/45 electives, not 120/15/45. Course weights and 10 final project are published; Semiconductor Technology is an optional course, not universal compulsory formation.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Calculus variant 2 (2WBB0) | 5 | required |
+| 1 | Programming Engineering Challenge (5EWC0) | 10 | required |
+| 1 | Circuits (5EPC0) | 5 | required |
+| 1 | Math 1 (5EZA0) | 5 | required |
+| 1 | Signals and Systems (5ESF0) | 5 | required |
+| 1 | Electronic Circuits 1 (5ECD0) | 5 | required |
+| 1 | Physics for EE (5EPD0) | 5 | required |
+| 1 | Computer Architecture (5EIC0) | 5 | required |
+| 1 | Math 2 (5EZB0) | 5 | required |
+| 1 | Engineering Challenge for Venus (5EID0) | 5 | required |
+| 1 | Communication 1 (5ETC0) | 5 | required |
+| 2 | Electronic Circuits 2 (5ECE0) | 5 | required |
+| 2 | Electrical Power Systems for EE (5EWD0) | 5 | required |
+| 2 | Introduction Photonics (5EPG0) | 5 | required |
+| 2 | Math 3 (5EZC0) | 5 | required |
+| 2 | Signal Processing (5ESG0) | 5 | required |
+| 2 | Electromagnetics 1 (5EPF0) | 5 | required |
+| 2 | Multidisciplinary CBL (4CBLW00) | 5 | required |
+| 2 | Control Systems (5ESH0) | 5 | required |
+| 2 | ITEC Ethics (0LVX30) | 5 | required-ITEC |
+| 2 | Free elective space | 15 | open-choice |
+| 3 | Electromechanics 1 (5EWF0) | 5 | required |
+| 3 | Electromagnetics 2 (5EPB0) | 5 | required |
+| 3 | Communication 2 (5ETD0) | 5 | required |
+| 3 | Final Bachelor Project (5XEC0) | 10 | required |
+| 3 | ITEC Society (0LVX40) | 5 | required-ITEC |
+| 3 | Free elective space | 30 | open-choice |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Source-backed requirement reconstruction for later remediation; production unchanged and UCR fit unassessed.
+
+Choice and source-context rules:
+
+- Select common rows plus EE rows only; no EE/AT double counting.
+- Core 125 including BEP10, ITEC10, elective 45. Genuine free space stays generic under approval/level conditions.
+- Optional autonomous-vehicle/semiconductor/project examples are not universal required core.
+
+Result: incorrect; required action: reassess-exception.
+
+Incorrect applies only to the stated external allocation, narrative, choice, source context or normalized-language facts. No independent UCR conclusion or unsupported dated-change inference.
+
+Recommended follow-up: Reconstruct only current common+EE rows and correct ITEC/core allocation, final project 10 and semiconductor/optional scope narrative.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/decisions/cp-000265.json`, fields: `sources`, `comparator.components tuples`, `comparator.academicYear`, `comparator.primarySource/additionalSources`, `comparator.sourceNotes`, `comparator.route and routeSelection where applicable`, `exception.curriculumContext`, `exception.reason external factual clauses`, `exception.checkedOn`. Reconstruct only current common+EE rows and correct ITEC/core allocation, final project 10 and semiconductor/optional scope narrative. Apply in existing version 2 compact decision; update sources and source indexes consistently. Preserve existing UCR claims only as historical provenance.
+- `data/counselor/comparisons/cp-000265.json`, fields: `comparator.components`, `comparator.sourceNotes`, `comparator.academicYear`, `comparator.primarySourceUrl/additionalSourceUrls`, `comparator.routeSelection where applicable`, `exception.curriculumContext`, `exception.reason`, `exception.checkedOn`. Compile the amended compact decision using current normalized provider; canonical external facts must agree with case evidence and preserve precise choice/optional scope. Do not automatically change exception type or create a comparison.
+- `data/counselor/review-programmes.json and existing generated counselor artifacts`, fields: `affected metadata, curriculum, source and route summaries`. Regenerate affected outputs after targeted remediation; keep this audit evidence and immutable provenance.
+
+Dependencies:
+
+- Validate applicable current cohort and sources when implementing; no broad repeated research required for established facts.
+- Final UCR feasibility remains a separate stage-two dependency.
+
+Verification and closure checks:
+
+- Every included course counted once; total 180 from source-backed weights, with restricted choices instantiated and genuine open profiling explicit.
+- Required-versus-optional claims, route, source context and cohort agree across compact and canonical records.
+- Run applicable registry/exception compiler/schema validation and refresh generated summaries; close external fixes independently of UCR feasibility.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000266 — Bachelor Industrial Design
+
+Institution: Eindhoven University of Technology. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-10-03.
+
+Existing substantive reason: TU/e Industrial Design is a cumulative studio- and project-based technology-design degree. Students repeatedly integrate user and society research, technology realisation, mathematics/data/computing, business and entrepreneurship, and creativity and aesthetics while building and testing intelligent interactive products, reflecting on competency growth and developing an individual designer identity before a Bachelor Final Project. UCR offers one substantive consumer-product-design course and useful adjacent study in entrepreneurship, consumer research, psychology, computing, data, AI, robotics, sustainability and creative communication. It does not offer the repeated industrial- and interaction-design studio spine, physical-computing and interactive-electronics sequence, sensor integration and digital-fabrication laboratories, interaction aesthetics and visualisation progression, iterative user-testing studios, coached design-competency portfolio or equivalent Industrial Design final project. A 24-course UCR response would be an interdisciplinary liberal-arts programme with one product-design experience and several adjacent subjects, not a defensible Industrial Design comparator.
+
+Current official overview prints exact component credits; its 180 diagram is supported, though formal core 125 versus Appendix 2 elective 50 creates a separate unresolved 185 aggregate. the claim that they are unavailable and three generic 60-year placeholders are inadequate. An old pre 2023 curriculum source is mixed into current context. Current course/project/PPD/ITEC/external-learning structure can be reconstructed.
+
+Provenance: data/counselor/comparisons/cp-000266.json; source worksheet row(s) 280. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 7 October 2026):
+
+- [Industrial Design programme](https://www.tue.nl/en/education/bachelor-college/bachelor-industrial-design) — Degree facts and integrated expertise areas; Current official programme. English three-year 180 design degree with five expertise areas, recurring design projects and professional/individual designer development. Genuine individual profiling is not a separately mandated formal specialisation.
+- [Industrial Design curriculum start 2023/2024 and after](https://studiegids.tue.nl/opleidingen/bachelor-college/majors/industrial-design/curriculum-start-year-20232024) — Current cohort diagram links and exception for 2025 starters; Current 2026–2027. Current programme page links 2627 ordinary after 2023 diagram and a distinct September 2025 variant. Stored /curriculum page is explicitly September 2022 and earlier; replace that source context with applicable current cohort. Do not combine cohort variants.
+- [Industrial Design 2627 Bachelor Program ID-BC2.0 overview](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Content/Programs/Bachelor%20College/Major%20Industrial%20Design/Forms%20and%20Files/2627%20Bachelor%20Program%20ID-BC%202.0%20Overview.pdf) — Whole one-page printed-credit diagram; Current 2026–2027. Year 1 six taught units 5, ITEC Ethics 5, two CBL projects 10 each, PPD5=60. Year 2 four taught units 5 + Project 3 ten + multidiscCBL5 + PPD5 + electives 20=60. Year 3 external learning 25 + ITEC Society 5 + elective 5 + final project 20 + PPD5=60. Required design projects 50 and separately credited PPD15; core 120, ITEC10, profiling 50. ELA is open approved internship/exchange/minor/elective space, not universal internship. Figure visually inspected.
+- [Industrial Design PER after revision 2026–2027](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Content/Programs/Bachelor%20College/Major%20Industrial%20Design/Forms%20and%20Files/ID%20BSc%20model%20OER%202026-2027%20AR.pdf) — Article 3.4 and Appendix 2; PDF pp.20–24,76–81; Current 2026–2027. Article 3.4 prints core 125 and ITEC10, while programme-specific Appendix 2 explicitly prescribes elective 50 (20 year 2/30 year 3). These sum 185 against statutory 180. Current printed-credit diagram instead supports core 120 + ITEC10 + profiling 50=180. Appendix 3 explicitly credits PPD learning line 5 and embeds MyFuture activities there rather than requiring separate MyFuture completion. The diagram 180 is evidence, but formal aggregate conflict remains unresolved; no silent five-credit adjustment. BEP20 and 120-credit start threshold, external-learning approval and prerequisites retained.
+
+External credit structure: Stored component arithmetic totals 180 EC. Current official overview prints exact component credits; its 180 diagram is supported, though formal core 125 versus Appendix 2 elective 50 creates a separate unresolved 185 aggregate. the claim that they are unavailable and three generic 60-year placeholders are inadequate. An old pre 2023 curriculum source is mixed into current context. Current course/project/PPD/ITEC/external-learning structure can be reconstructed.
+
+Result: incorrect; required action: reassess-exception.
+
+Incorrect applies only to the stated external allocation, narrative, choice, source context or normalized-language facts. No independent UCR conclusion or unsupported dated-change inference.
+
+Secondary attribute finding(s):
+
+- Industrial Design formal aggregate reconciliation: still-unresolved; stored "Three 60-year placeholders; no individual-credit evidence claimed", verified "Current diagram explicitly 180; formal core 125+ITEC10+Appendix 2 profiling 50 totals 185.". Separate closure: Known source/component-detail correction is established; formal aggregate needs official reconciliation.
+
+Recommended follow-up: Replace three aggregates with current taught courses,10+10+10+20 project sequence,15 separately credited PPD,10 ITEC and 50 profiling; use applicable ordinary 2026 after-revision diagram, not old 2022 or special 2025 variant.
+
+Unresolved factual question / historical limitation: How does applicable ID Article 3.4 core 125 reconcile with Appendix 2 profiling 50, ITEC10 and the printed-credit diagram core 120/ITEC10/profiling 50? Obtain corrected PER or official clarification; preserve every explicitly printed component credit.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/decisions/cp-000266.json`, fields: `sources`, `comparator.components tuples`, `comparator.academicYear`, `comparator.primarySource/additionalSources`, `comparator.sourceNotes`, `comparator.route and routeSelection where applicable`, `exception.curriculumContext`, `exception.reason external factual clauses`, `exception.checkedOn`. Replace three aggregates with current taught courses,10+10+10+20 project sequence,15 separately credited PPD,10 ITEC and 50 profiling; use applicable ordinary 2026 after-revision diagram, not old 2022 or special 2025 variant. Apply in existing version 2 compact decision; update sources and source indexes consistently. Preserve existing UCR claims only as historical provenance.
+- `data/counselor/comparisons/cp-000266.json`, fields: `comparator.components`, `comparator.sourceNotes`, `comparator.academicYear`, `comparator.primarySourceUrl/additionalSourceUrls`, `comparator.routeSelection where applicable`, `exception.curriculumContext`, `exception.reason`, `exception.checkedOn`. Compile the amended compact decision using current normalized provider; canonical external facts must agree with case evidence and preserve precise choice/optional scope. Do not automatically change exception type or create a comparison.
+- `data/counselor/review-programmes.json and existing generated counselor artifacts`, fields: `affected metadata, curriculum, source and route summaries`. Regenerate affected outputs after targeted remediation; keep this audit evidence and immutable provenance.
+
+Dependencies:
+
+- Corrected applicable PER or official clarification reconciling Article 3.4 core 125 with programme-specific 50 profiling and current diagram 120 core; retain diagram 180 as evidence without claiming the formal 185 aggregate is settled.
+- Known obsolete-source/unavailable-credit claim and component detail corrections can be prepared independently.
+- Final UCR feasibility remains independently pending.
+
+Verification and closure checks:
+
+- Every included course counted once; total 180 from source-backed weights, with restricted choices instantiated and genuine open profiling explicit.
+- Required-versus-optional claims, route, source context and cohort agree across compact and canonical records.
+- Run applicable registry/exception compiler/schema validation and refresh generated summaries; close external fixes independently of UCR feasibility.
+- Resolve five-credit formal aggregate discrepancy before complete external closure; do not change an explicitly printed diagram course or PPD weight merely to fit core 125.
+- Appendix 3 makes MyFuture embedded in creditedPI&V; do not import another degree’s separate MyFuture requirement.
+
+Research trigger: Corrected 2026–2027 ID PER or official explanation of core 125 versus diagram 120 with 50 profiling.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### CP266 diagram credit diagnostic — formal aggregate still unresolved
+
+This is the current printed-credit diagram, not a claim that the conflicting formal aggregate is reconciled.
+
+| Study year | Component | EC | Role |
+|---|---|---:|---|
+| 1 | Human-centred Design (DDB200) | 5 | required |
+| 1 | Calculus (2MCALCID) | 5 | required |
+| 1 | Foundations of Data Analytics (2IAB1) | 5 | required |
+| 1 | Design <> Research (DDB100) | 5 | required |
+| 1 | Creative Programming (DBB100) | 5 | required |
+| 1 | Making Sense of Sensors (DAB100) | 5 | required |
+| 1 | CBL Project1 (DPB110) | 10 | required |
+| 1 | CBL Project2 (DPB120) | 10 | required |
+| 1 | Professional and Personal Development learning line1 (DLB384) | 5 | required |
+| 1 | ITEC Ethics of Technology and Engineering (0LVX10) | 5 | required-ITEC |
+| 2 | Aesthetics of Interaction (DCB200) | 5 | required |
+| 2 | Physics for Engineers (3PHYS) | 5 | required |
+| 2 | Sustainability and Design (DEB100) | 5 | required |
+| 2 | Design Innovation Methods (DAB200) | 5 | required |
+| 2 | CBL Project3 (DPB240) | 10 | required |
+| 2 | Multidisciplinary CBL (4CBLW00) | 5 | required |
+| 2 | Professional and Personal Development learning line2 (DLB385) | 5 | required |
+| 2 | Free elective space | 20 | open-choice |
+| 3 | External Learning Activities | 25 | approved-profiling |
+| 3 | ITEC Engineering for Society (0LVX20) | 5 | required-ITEC |
+| 3 | Free elective space | 5 | open-choice |
+| 3 | CBL Final Bachelor Project (DPB390) | 20 | required |
+| 3 | Professional and Personal Development learning line3 (DLB386) | 5 | required |
+
+Diagram total 180; yearly 60+60+60. Formal aggregate 125+10+50=185 remains blocked on the stated clarification.
+
+### Batch 9 additional source and closure qualifications
+
+- CP254: programme-assigned mixed pairing is NB1430+NB1445 or NB1435+NB1440. First allowed pair is only a qualified representative assignment. Four first-listed formal electives carry 2.5 each; no 5-credit guess. Exact future octal availability, capacity and prerequisites require catalogue verification before detailed scheduling.
+- CP258: formal year 3 is explicitly cohort 2024; current prospective September 2026 chart has a different final-year structure. They are not combined or treated as a same-cohort contradiction.
+- CP262: formal article 3.3 and prospectus both state Dutch and English. RawENG offering provenance remains. Formal 8BA020 and gen 26 diagram differ in title, with same code and required role; current catalogue title must be checked during implementation.
+- CP266: current diagram is explicitly 180 with core 120/ITEC10/profiling 50 and separately creditedPPD15. Article 3.4 core 125 plus 10 ITEC and Appendix 2 profiling 50 totals 185. Component detail is supported; complete formal closure awaits the stated official clarification. Appendix 3 embeds MyFuture inPI&V, not separate extra credits.
+- CP263: named formal AUDE core 125 plus 10 ITEC plus appendix 40 elective=175, whereas article minimum 45 would yield 180. The pilot changes level requirements, not an explained five-credit course allocation. The audit keeps this diagnostic conflict and official clarification dependency rather than claiming one inferred allocation as verified.
+
 ## Remaining work and next batch
 
-All 19 scope exclusions are complete. Sixty-one of 140 exceptions have received the first-stage audit;79 remain pending. The next batch is: cp-000253, cp-000254, cp-000258, cp-000259, cp-000260, cp-000261, cp-000262, cp-000263, cp-000265, cp-000266.
+All19 exclusions are complete. Seventy-one of140 exceptions have received the first-stage audit;69 remain pending. Next batch: cp-000267, cp-000270, cp-000273, cp-000274, cp-000275, cp-000276, cp-000277, cp-000278, cp-000280, cp-000283.
 
-Completed and pending entries reconcile exactly to 159 cases by audit_population + counselor_programme_id:80 unique completed keys and 79 unique pending keys, with no overlap or omissions. All 70 earlier cases, prior sources and batch evidence sections are preserved. Pending entries have no audit finding. Secondary unresolved issues within completed cases do not change the pending inventory count. Production counts remain unchanged until later remediation.
+Completed/pending reconcile exactly to 159 composite case keys:90 completed,69 pending, no overlap or omissions. All 80 prior cases, source objects and batch evidence sections are preserved. Pending entries have no findings. Secondary unresolved attributes do not change pending case count; production populations and status counts remain unchanged.
 
-After the exhaustive audit, consolidate and execute targeted remediation from the action queue. Actionable batch8 entries include exact fields, proposed changes, dependencies and closure checks. Close known metadata/narrative corrections separately from blocked credit reconstruction and later UCR feasibility; CP250 requires official one-credit reconciliation before complete external closure. Earlier coordinated identity corrections remain as previously recorded.
-
-Stage two independently assesses UCR feasibility for current no-defensible-ucr-match records and resolved external cases requiring a fit decision. Confirmation here establishes external/registry facts only. The first-stage exhaustive audit remains in progress.
+After the exhaustive audit, consolidate and execute the targeted action queue. These nine actionable cases contain exact compact/canonical/registry targets, field corrections, dependencies and closure checks. Close established metadata/narrative corrections separately from research-blocked credit reconciliation and subsequent UCR feasibility. Stage two remains independent.
 
 ## Production-data boundary
 
-Only this report and data/counselor/qc/stage1-completeness-exceptions.json are changed. No normalized registry correction, compact academic decision, canonical comparator, comparison outcome, production summary, population or governing rule is implemented in this batch.
+Only this report and data/counselor/qc/stage1-completeness-exceptions.json are changed. No registry correction, compact decision, canonical record, production summary, governing rule or UCR comparison has been implemented.
