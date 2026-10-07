@@ -1,6 +1,6 @@
 # Counselor completeness and exceptions: first-stage audit
 
-Status: in progress. Batches 1–3 completed on 7 October 2026: all 19 scope exclusions and 11 exceptions audited within the first-stage scope. 129 exceptions remain pending.
+Status: in progress. Batches 1–4 completed on 7 October 2026: all 19 scope exclusions and 21 exceptions audited within the first-stage scope. 119 exceptions remain pending.
 
 ## Scope and method
 
@@ -17,16 +17,16 @@ The classification applies only to the stated audit scope. Resolving an external
 | Normalized registry targets | 460 | — | — |
 | In-scope targets with canonical records | 441 | — | — |
 | Completed comparisons | 301 | Outside this stage | — |
-| Completed exceptions | 140 | 11 | 129 |
+| Completed exceptions | 140 | 21 | 119 |
 | Excluded normalized targets | 19 | 19 | 0 |
-| First-stage audit cases | 159 | 30 | 129 |
+| First-stage audit cases | 159 | 40 | 119 |
 
 All 441 in-scope IDs have a canonical filename; there are no missing in-scope IDs, duplicate record filenames or out-of-scope canonical records. The review-index ID set matches both registry scope and canonical filenames. Status totals use that current generated index; all 140 indexed exceptions were additionally read directly to verify ID, exception status and formal type. Enumeration does not constitute a substantive exception audit.
 
 | Formal exception type | Corpus total | Substantively audited |
 |---|---:|---:|
 | external-programme-unresolved | 20 | 1 |
-| no-defensible-ucr-match | 117 | 10 |
+| no-defensible-ucr-match | 117 | 20 |
 | registry-exception | 3 | 0 |
 
 ## Batch 1 findings
@@ -849,11 +849,331 @@ Unresolved factual question / limitation: The historical availability of the sto
 
 UCR-side reassessment pending: **yes**. Existing UCR claims are preserved as provenance only. Stage-two UCR feasibility assessment remains pending.
 
+## Cumulative findings after batch 4
+
+| Finding | Count |
+|---|---:|
+| confirmed | 36 |
+| incorrect | 3 |
+| outdated | 0 |
+| still-unresolved | 1 |
+
+| Required action | Count |
+|---|---:|
+| none | 33 |
+| reprocess-as-comparison | 0 |
+| reassess-exception | 6 |
+| correct-registry-and-reprocess | 0 |
+| research-again-later | 1 |
+
+## Batch 4 findings
+
+Seven records are confirmed within the external-programme scope. CP070, CP076 and CP095 have incorrect current credit, choice or narrative descriptions and require reassessment. All ten defining subject cores remain supported. The three incorrect findings concern only the identified external descriptions; they do not establish that any ultimate UCR exception decision is incorrect. No comparison conversion is recommended. Historical evidence does not justify an outdated finding for CP070 or CP076.
+
+| ID | Programme | Formal type | Finding | Required action |
+|---|---|---|---|---|
+| cp-000063 | Pedagogical Sciences of Primary Education | no-defensible-ucr-match | confirmed | none |
+| cp-000068 | Religion, Politics and Society (Religie, Politiek en Samenleving) | no-defensible-ucr-match | confirmed | none |
+| cp-000070 | Chemistry (Scheikunde) | no-defensible-ucr-match | incorrect | reassess-exception |
+| cp-000072 | Spanish Language and Culture (Spaanse Taal en Cultuur) | no-defensible-ucr-match | confirmed | none |
+| cp-000073 | Linguistics (Taalwetenschap) | no-defensible-ucr-match | confirmed | none |
+| cp-000074 | Dentistry (Tandheelkunde) | no-defensible-ucr-match | confirmed | none |
+| cp-000075 | Theology (Theologie) | no-defensible-ucr-match | confirmed | none |
+| cp-000076 | Mathematics (Wiskunde) | no-defensible-ucr-match | incorrect | reassess-exception |
+| cp-000079 | Archaeology (Archeologie) | no-defensible-ucr-match | confirmed | none |
+| cp-000095 | Pharmaceutical Sciences (Farmaceutische Wetenschappen) | no-defensible-ucr-match | incorrect | reassess-exception |
+
+## Batch 4 evidence
+
+### cp-000063 — Pedagogical Sciences of Primary Education
+
+Institution: Radboud University. Audit scope: External-programme identity, defining compulsory curriculum, choice structure and source context only; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-25.
+
+Existing substantive reason: PWPO is an integrated academic primary-teacher-education degree that confers primary-school teaching qualification. The core includes 33 EC in four supervised classroom placements, direct instruction, classroom management and pedagogical practice, plus sustained subject didactics in early reading, handwriting, spelling, speaking and writing, reading comprehension and literature, mathematics, world orientation, art and multilingual learning. UCR offers an academic cluster in development, cognition, psychology, research and society, and one communication project with primary-school pupils, but no sequence in primary subject didactics, classroom management, sustained supervised teaching or teacher qualification. A coherent 24-course developmental-psychology programme could respond to some child-development interests, but would omit the defining teaching practice and profession-specific academic preparation of this named degree. It cannot be presented as its closest defensible UCR response.
+
+The exact PWPO standard route retains a required pedagogical/didactic core, primary-school teaching practice and teacher qualification. Its 33 EC of four placements and 16 EC total open choice are correctly separated from required university study and the thesis. Zero-credit support and the distinct ALPO route are not counted.
+
+Provenance: data/counselor/comparisons/cp-000063.json; source worksheet row(s) 66. Canonical provider, normalized registry, source-row and offering-ID sets agree; current standard target is in scope.
+
+Current official sources (checked 7 October 2026):
+
+- [Pedagogische Wetenschappen van Primair Onderwijs — jaar 1](https://www.ru.nl/opleidingen/bachelors/pedagogische-wetenschappen-van-primair-onderwijs/studieprogramma/studieprogramma-pwpo-jaar-1) — Year label; required-course, placement and choice tables; Provisional 2026–2027. 52 EC required university courses and 8 EC primary-school placement; subject didactics and classroom practice are compulsory.
+- [Pedagogische Wetenschappen van Primair Onderwijs — jaar 2](https://www.ru.nl/opleidingen/bachelors/pedagogische-wetenschappen-van-primair-onderwijs/studieprogramma/studieprogramma-pwpo-jaar-2) — Year label; required-course, placement and choice tables; Provisional 2026–2027. 48 EC required university courses, 8 EC placement and 4 EC open choice; Analyse 3 is one optional use of that space.
+- [Pedagogische Wetenschappen van Primair Onderwijs — jaar 3](https://www.ru.nl/opleidingen/bachelors/pedagogische-wetenschappen-van-primair-onderwijs/studieprogramma/studieprogramma-pwpo-jaar-3) — Year label; required-course, placement and choice tables; Provisional 2026–2027. 31 EC required university study including a 10-EC thesis, 7 EC placement, 10 EC final placement and 12 EC open choice. Optional method/skills units do not define all students.
+- [Pedagogische Wetenschappen van Primair Onderwijs](https://www.ru.nl/opleidingen/bachelors/pedagogische-wetenschappen-van-primair-onderwijs) — Programme facts and teaching qualification; Current programme facts. The ordinary full-time Dutch BSc is 180 EC, CROHO 59329, and combines pedagogical study with qualification to teach primary school. It is distinct from ALPO.
+
+External credit structure: Stored components total 180 EC; current sources support the required/choice structure described in this scoped audit.
+
+Result: confirmed; required action: none.
+
+No material factual question remains unresolved within the defining external-basis scope. Indicative future pages are not a guarantee of the entering cohort’s eventual timetable.
+
+UCR-side reassessment pending: **yes**. Existing UCR claims are preserved as provenance only. Stage-two UCR feasibility assessment remains pending.
+
+### cp-000068 — Religion, Politics and Society (Religie, Politiek en Samenleving)
+
+Institution: Radboud University. Audit scope: External-programme identity, defining compulsory curriculum, choice structure and source context only; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-25.
+
+Existing substantive reason: The defining curriculum is religious studies: a full first year studying Judaism, Islam, Christianity, Hinduism, Buddhism, sacred texts, religious practices, theology, sociology and anthropology of religion; a further 45 EC of second-year work in philosophy of religious studies, spirituality, religious identity, migration, ritual and religious media; at least two 15-EC religion-based thematic modules; and an independent religion-politics-society final work. Even with the 30 EC genuinely free minor space, 150 EC remains in religious-studies and religion-linked practice, methods, modules and thesis. UCR lacks a dedicated course in the study of religion, religious traditions, theology or religion-specific research methods, let alone a coherent 24-course religious-studies progression. A programme in politics, philosophy and sociology could study surrounding social questions but would omit the target’s defining religion curriculum and would misrepresent a nearest academic match.
+
+Current official pages corroborate the exact RPS Religious Studies specialisation, sustained religion/text/social-science methods and thesis. Required study is distinguished from two 15-EC thematic-module selections and 30 EC open space. Normalized full-time/part-time consolidation is consistent with the official identity.
+
+Provenance: data/counselor/comparisons/cp-000068.json; source worksheet row(s) 71. Canonical provider, normalized registry, source-row and offering-ID sets agree; current standard target is in scope.
+
+Normalization decision(s): rc-0009. Official identity supports the consolidated standard target and its delivery modes.
+
+Current official sources (checked 7 October 2026):
+
+- [Religie, Politiek en Samenleving — jaar 1](https://www.ru.nl/studieprogramma-bachelor-religie-politiek-en-samenleving-jaar-1) — Year label; required-course, placement and choice tables; Current undated year page. Eleven positive-credit required units total 60 EC, including a 10-EC questions/skills unit; world religions, sacred texts, religion/society and research methods are compulsory.
+- [Religie, Politiek en Samenleving — jaar 2](https://www.ru.nl/studieprogramma-bachelor-religie-politiek-en-samenleving-jaar-2) — Year label; required-course, placement and choice tables; Current undated year page. 45 EC required study and one 15-EC thematic module; Religion and Care is a permitted selection rather than the only required module.
+- [Religie, Politiek en Samenleving — jaar 3](https://www.ru.nl/studieprogramma-bachelor-religie-politiek-en-samenleving-jaar-3) — Year label; required-course, placement and choice tables; Current undated year page. 5 EC practice, 10 EC thesis, one 15-EC thematic module and 30 EC free space. Module alternatives and delivery variants must not be stacked.
+- [Religie, Politiek en Samenleving](https://www.ru.nl/opleidingen/bachelors/religie-politiek-en-samenleving) — Programme facts and Religious Studies specialisation; Current programme facts. RPS is the Religious Studies specialisation under CROHO 50902: 180 EC, Dutch, full-time or part-time. Delivery modes do not create two different curricula.
+
+External credit structure: Stored components total 180 EC; current sources support the required/choice structure described in this scoped audit.
+
+Result: confirmed; required action: none.
+
+No material factual question remains unresolved within the defining external-basis scope. Indicative future pages are not a guarantee of the entering cohort’s eventual timetable.
+
+UCR-side reassessment pending: **yes**. Existing UCR claims are preserved as provenance only. Stage-two UCR feasibility assessment remains pending.
+
+### cp-000070 — Chemistry (Scheikunde)
+
+Institution: Radboud University. Audit scope: External-programme identity, defining compulsory curriculum, choice structure and source context only; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-25.
+
+Existing substantive reason: The defining 120 EC in years one and two is chemistry and laboratory centred: analytical, organic and inorganic chemistry; molecular structure and bonding; thermodynamics, quantum mechanics and physics; successive chemical synthesis and analysis laboratories. In year three, at least 12 EC of chemistry electives and a 12-EC independent chemistry research internship/report remain required. Although 27 EC can be freely chosen, UCR lacks a chemistry gateway and any stand-alone introductory or advanced organic, inorganic, analytical, physical or synthetic chemistry sequence. A 24-course UCR route using biology, geoscience, statistics and programming would have too little chemistry and would misrepresent the programme’s academic core.
+
+The chemistry and laboratory core is supported, but the stored current credit/choice description is incorrect within this scope. It counts Academic Writing and an additional mandatory Writing about Science, although the latter can be a replacement. The adopted OER has 66 EC later required courses and 36 EC conditioned choice plus 6 EC genuinely free, not an unconditional 27-EC open block. Current year pages are all indicative 2027–2028.
+
+Provenance: data/counselor/comparisons/cp-000070.json; source worksheet row(s) 73. Canonical provider, normalized registry, source-row and offering-ID sets agree; current standard target is in scope.
+
+Current official sources (checked 7 October 2026):
+
+- [Chemistry — jaar 1](https://www.ru.nl/opleidingen/bachelors/scheikunde/studieprogramma/studieprogramma-bachelor-chemistry-jaar-1) — Year label; required-course, placement and choice tables; Indicative 2027–2028. Required first-year chemistry, physics, mathematics and laboratories total 60 EC.
+- [Chemistry — jaar 2](https://www.ru.nl/opleidingen/bachelors/scheikunde/studieprogramma/studieprogramma-bachelor-chemistry-jaar-2) — Year label; required-course, placement and choice tables; Indicative 2027–2028. The 60-EC table includes Academic Writing Molecular Sciences alongside organic/inorganic chemistry, quantum mechanics, synthesis and analytical work.
+- [Chemistry — jaar 3](https://www.ru.nl/opleidingen/bachelors/scheikunde/studieprogramma/studieprogramma-bachelor-chemistry-jaar-3) — Year label; required-course, placement and choice tables; Indicative 2027–2028. 6 EC taught requirements (Academic Skills and one philosophy unit), 12 EC research and 42 EC choice, including at least 12 EC Chemistry. Writing about Science is not an additional universal third-year requirement on this page.
+- [Bachelor OER 2026–2027 — Chemistry (Dutch)](https://www.ru.nl/ru-bestanden/oer-25-26-ba-chemistry-nl) — Articles 7.3–7.5, printed pp. 16–19; Adopted 2026–2027 as stated in document; URL slug says 25–26. 60 EC first year, 66 EC later compulsory courses, 36 EC conditioned choice (at least 12 EC BC1 Chemistry), 12 EC research and 6 EC genuinely free choice total 180 EC. Other conditioned courses normally belong to Science, with approved-minor rules.
+- [EER 2026–2027 — Bachelor Chemistry (English translation)](https://www.ru.nl/sites/default/files/2026-09/20260905-oer-26-27-ba-chemistry_eng-gb-juiste-tabellen.pdf) — Articles 7.4 and 8.1, later-course table and transitional provisions; Adopted 2026–2027 English translation; Dutch controls. Academic Writing is a single 3-EC requirement; Writing about Science can replace it under the transitional rule. It is not an additional universal requirement alongside Academic Writing.
+- [OER — Faculteit der Natuurwetenschappen, Wiskunde en Informatica](https://www.ru.nl/studenten/onderwijs-volgen/regels-en-richtlijnen/onderwijs-en-examenregelingen/natuurwetenschappen-wiskunde-en-informatica) — Current 2026–2027 regulations links; precedence notice; 2026–2027. Official index identifies the current Dutch Chemistry and Mathematics OERs. Dutch regulations prevail over translations, and regulations prevail over the catalogue in a conflict.
+
+External credit structure: Stored components sum to 180 EC but required/choice labels and the extra writing requirement are unsupported for the current ordinary route. Adopted structure: 60+66+36+12+6=180 EC; only the final 6 EC is unconditioned free choice.
+
+Result: incorrect; required action: reassess-exception.
+
+Incorrect applies only to the specified current external credit, choice or narrative description. The defining subject core is supported; the ultimate UCR exception decision was not assessed.
+
+Recommended follow-up: In a later production update, reconstruct the current applicable-cohort external allocation from the adopted Dutch OER: 60 first-year + 66 later required + 36 conditioned choice + 12 research + 6 open = 180 EC. Count the writing requirement once, apply Science/approved-minor and minimum Chemistry conditions, and refresh source/year context. Preserve the supported disciplinary core; independently reassess UCR feasibility in stage two.
+
+Unresolved factual question / limitation: Historical dated page evidence was not established. The finding identifies unsupported current descriptions; it does not determine whether the original page was erroneous or later changed. An outdated finding is not justified.
+
+UCR-side reassessment pending: **yes**. Existing UCR claims are preserved as provenance only. Stage-two UCR feasibility assessment remains pending.
+
+### cp-000072 — Spanish Language and Culture (Spaanse Taal en Cultuur)
+
+Institution: Radboud University. Audit scope: External-programme identity, defining compulsory curriculum, choice structure and source context only; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-25.
+
+Existing substantive reason: The programme is built around progressive Spanish-language proficiency (Español 1–6), Spanish-language study of literature, linguistic variation, media, culture and politics of Spain and Latin America, a credited 15-EC study period at a Spanish-speaking university, and an independent Hispanic studies thesis. Even after preserving 30 EC of third-year free space, there is no 24-course UCR curriculum with sustained Spanish language instruction and advanced Hispanic literature/culture/linguistics in the medium of Spanish. A general culture, communication or history programme would erase the defining language and regional specialisation.
+
+The exact Spanish specialisation retains required language progression, Hispanic literature/culture/linguistics, 15 EC study at a Spanish university and a specialist thesis. Two restricted Arts minors total 30 EC and later open space totals 30 EC. The selected supplementary minor courses are valid options, not universally mandatory requirements.
+
+Provenance: data/counselor/comparisons/cp-000072.json; source worksheet row(s) 75. Canonical provider, normalized registry, source-row and offering-ID sets agree; current standard target is in scope.
+
+Current official sources (checked 7 October 2026):
+
+- [Spaanse Taal en Cultuur — jaar 1](https://www.ru.nl/opleidingen/bachelors/spaanse-taal-en-cultuur/studieprogramma-spaanse-taal-en-cultuur-jaar-1) — Year label; required-course, placement and choice tables; Indicative 2027–2028. Twelve required 5-EC units include four Spanish proficiency courses and Hispanic culture, language and literature.
+- [Spaanse Taal en Cultuur — jaar 2](https://www.ru.nl/opleidingen/bachelors/spaanse-taal-en-cultuur/studieprogramma-spaanse-taal-en-cultuur-jaar-2) — Year label; required-course, placement and choice tables; Indicative 2028–2029. 30 EC core study including Spanish proficiency plus two restricted Faculty of Arts minors of 15 EC each. Supplementary Spanish minors are options.
+- [Spaanse Taal en Cultuur — jaar 3](https://www.ru.nl/opleidingen/bachelors/spaanse-taal-en-cultuur/studieprogramma-spaanse-taal-en-cultuur-jaar-3) — Year label; required-course, placement and choice tables; Indicative 2029–2030. 15 EC required study at a Spanish university, 5 EC Hispanofonia, a 10-EC Hispanic-field thesis and 30 EC free space.
+- [Spaanse Taal en Cultuur](https://www.ru.nl/opleidingen/bachelors/spaanse-taal-en-cultuur) — Programme facts and specialisation; Current programme facts. The Spanish route belongs to Romance Languages and Cultures, CROHO 56074; the standard bachelor is 180 EC.
+
+External credit structure: Stored components total 180 EC; current sources support the required/choice structure described in this scoped audit.
+
+Result: confirmed; required action: none.
+
+No material factual question remains unresolved within the defining external-basis scope. Indicative future pages are not a guarantee of the entering cohort’s eventual timetable.
+
+UCR-side reassessment pending: **yes**. Existing UCR claims are preserved as provenance only. Stage-two UCR feasibility assessment remains pending.
+
+### cp-000073 — Linguistics (Taalwetenschap)
+
+Institution: Radboud University. Audit scope: External-programme identity, defining compulsory curriculum, choice structure and source context only; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-25.
+
+Existing substantive reason: The bachelor requires 60 EC of first-year foundations in the structure, acquisition, processing and disorders of human language; another 30 EC of core corpus, phonetic, sociolinguistic, experimental, semantic and syntactic analysis in year two; and a 10-EC independent linguistics thesis. The selected two arts minors deepen speech/language disorders, language and thought, second-language teaching and linguistic methods for 30 EC. Even allowing a genuinely open 30 EC third year, UCR has no coherent foundational sequence in phonetics, phonology, morphology, syntax, semantic theory, corpus linguistics, sociolinguistics or language pathology. A 24-course response built mostly from communication, psychology, AI and data science would replace the subject with neighbouring fields.
+
+Current sources support sustained theoretical/experimental linguistics, phonetics, corpus work, syntax/meaning and a specialist thesis. The stored explanation correctly treats two misleading minor headings as 15 EC each, corroborated by the adopted 30-EC minor total. Its domestic future route is coherent and explicitly indicative; concurrent OER third-year subjects are not silently substituted.
+
+Provenance: data/counselor/comparisons/cp-000073.json; source worksheet row(s) 76. Canonical provider, normalized registry, source-row and offering-ID sets agree; current standard target is in scope.
+
+Current official sources (checked 7 October 2026):
+
+- [Taalwetenschap — jaar 1](https://www.ru.nl/opleidingen/bachelors/taalwetenschap/studieprogramma-taalwetenschap-jaar-1) — Year label; required-course, placement and choice tables; Indicative 2027–2028. Twelve required 5-EC units combine language structure, acquisition, phonetics, research, statistics and supporting AI.
+- [Taalwetenschap — jaar 2](https://www.ru.nl/opleidingen/bachelors/taalwetenschap/studieprogramma-taalwetenschap-jaar-2) — Year label; required-course, placement and choice tables; Indicative 2028–2029. 30 EC required corpus/experimental/phonetic/sociolinguistic/meaning/syntax study and two restricted Arts minors of 15 EC each. Two misleading 30-EC minor headings are contradicted by the page prose and formal total.
+- [Taalwetenschap — jaar 3](https://www.ru.nl/opleidingen/bachelors/taalwetenschap/studieprogramma-taalwetenschap-jaar-3) — Year label; required-course, placement and choice tables; Indicative 2029–2030. Domestic route: 5 EC language proficiency, 10 EC professional development, 5 EC language/norms, a 10-EC thesis and 30 EC free space. The abroad route is an alternative.
+- [Taalwetenschap — opleidingsspecifieke OER 2026–2027](https://www.ru.nl/sites/default/files/2026-06/opleidingsspecifiek-bachelor-tw.pdf) — Articles 3–5, printed pp. 5–8; Adopted 2026–2027. Formal language-field learning outcomes and 30 EC of second-year minor space corroborate the core and minor total. The concurrent OER third-year table differs from the future indicative page; it does not adopt the latter for a 2026 entrant.
+
+External credit structure: Stored components total 180 EC; current sources support the required/choice structure described in this scoped audit.
+
+Result: confirmed; required action: none.
+
+No material factual question remains unresolved within the defining external-basis scope. Indicative future pages are not a guarantee of the entering cohort’s eventual timetable.
+
+UCR-side reassessment pending: **yes**. Existing UCR claims are preserved as provenance only. Stage-two UCR feasibility assessment remains pending.
+
+### cp-000074 — Dentistry (Tandheelkunde)
+
+Institution: Radboud University. Audit scope: External-programme identity, defining compulsory curriculum, choice structure and source context only; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-25.
+
+Existing substantive reason: The defining curriculum is dental education with successive preclinical dentistry courses across all three years, dental knowledge and medical–dental interaction every year, supervised patient treatment beginning in year two (7 EC) and continuing in year three (11 EC), and dental research/professional formation. Of 180 EC, only a 3-EC year-two choice is unrestricted. UCR does not teach dentistry, dental simulation/preclinical procedures, restorative or oral clinical methods, or supervised treatment in a dental clinic. A 24-course programme in biomedical sciences, anatomy, psychology and health policy would omit the clinical and professional core.
+
+Current year tables support the compulsory clinical/preclinical dental core and supervised patient treatment, with 60, 57+3 and 60 EC across the three years. Scientific formation includes thesis work and is counted once. The isolated 3-EC free choice does not alter the defining dental-practice requirements.
+
+Provenance: data/counselor/comparisons/cp-000074.json; source worksheet row(s) 77. Canonical provider, normalized registry, source-row and offering-ID sets agree; current standard target is in scope.
+
+Current official sources (checked 7 October 2026):
+
+- [Tandheelkunde — jaar 1](https://www.ru.nl/opleidingen/bachelors/tandheelkunde/studieprogramma-van-tandheelkunde/studieprogramma-bachelor-tandheelkunde-jaar-1) — Year label; required-course, placement and choice tables; Current undated year page. 60 EC compulsory dental/medical knowledge, professional formation and preclinical practice.
+- [Tandheelkunde — jaar 2](https://www.ru.nl/opleidingen/bachelors/tandheelkunde/studieprogramma-van-tandheelkunde/studieprogramma-bachelor-tandheelkunde-jaar-2) — Year label; required-course, placement and choice tables; Current undated year page. 57 EC compulsory study and 3 EC open choice; the 7-EC clinical unit introduces supervised patient treatment in the second semester.
+- [Tandheelkunde — jaar 3](https://www.ru.nl/opleidingen/bachelors/tandheelkunde/studieprogramma-van-tandheelkunde/studieprogramma-bachelor-tandheelkunde-jaar-3) — Year label; required-course, placement and choice tables; Current undated year page. 60 EC compulsory study includes 11 EC clinical treatment, 4 EC preclinical practice and 10.5 EC scientific formation. Thesis work is embedded, not additional credit.
+
+External credit structure: Stored components total 180 EC; current sources support the required/choice structure described in this scoped audit.
+
+Result: confirmed; required action: none.
+
+No material factual question remains unresolved within the defining external-basis scope. Indicative future pages are not a guarantee of the entering cohort’s eventual timetable.
+
+UCR-side reassessment pending: **yes**. Existing UCR claims are preserved as provenance only. Stage-two UCR feasibility assessment remains pending.
+
+### cp-000075 — Theology (Theologie)
+
+Institution: Radboud University. Audit scope: External-programme identity, defining compulsory curriculum, choice structure and source context only; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-25.
+
+Existing substantive reason: The programme’s defining 150-EC major is explicitly Christian theology and related methods: biblical Hebrew and Greek, Old and New Testament interpretation, doctrinal and fundamental theology, pastoral and liturgical practice, church history and law, theology-specific ethics and spirituality, a required religion-based module and an independent theology final work. Only 30 EC is genuinely free. UCR offers philosophy, history, ethics, sociology, literature and cultural analysis but no sustained biblical-language, scriptural exegesis, theology, liturgy or pastoral sequence. A 24-course schedule in neighbouring humanities/social-science fields would erase this bachelor’s Christian theological identity.
+
+The adopted OER supports the ordinary 180-EC Theology route, required biblical languages/texts, doctrine, history/law, ethics, practice and thesis. The stored reconstruction correctly supplies the 5-EC Liturgiewetenschap missing from the public first-year table. One restricted 15-EC thematic module and 30 EC open choice remain distinct. Full-time/part-time consolidation matches the official identity.
+
+Provenance: data/counselor/comparisons/cp-000075.json; source worksheet row(s) 78. Canonical provider, normalized registry, source-row and offering-ID sets agree; current standard target is in scope.
+
+Normalization decision(s): rc-0010. Official identity supports the consolidated standard target and its delivery modes.
+
+Current official sources (checked 7 October 2026):
+
+- [OER Bachelor Theologie 2026–2027](https://www.ru.nl/sites/default/files/2026-07/oer-2026-2027-bachelor-theologie-def.pdf) — Articles 1 and 13; Annex II, printed pp. 24–25; Adopted 2026–2027. The standard 180-EC route comprises a 150-EC major including one 15-EC thematic module, plus 30 EC free space. Three 60-EC year tables include Liturgiewetenschap, Biblical Hebrew and Greek, exegesis, doctrine, church law/history, ethics, practice and thesis.
+- [Theologie — jaar 1](https://www.ru.nl/opleidingen/bachelors/theologie/studieprogramma-van-bachelor-theologie/studieprogramma-bachelor-theologie-jaar-1) — 60-EC heading and course table; Current undated year page. Positive-credit entries on the public first-year page total 55 EC; the adopted OER supplies the omitted 5-EC Liturgiewetenschap requirement. The stored reconstruction already applies that formal correction.
+- [Theologie](https://www.ru.nl/opleidingen/bachelors/theologie) — Programme facts; Current programme facts. The ordinary Dutch Theology bachelor is 180 EC, CROHO 56109, available full-time and part-time. The separate shortened route and delivery pacing do not redefine this standard target.
+
+External credit structure: Stored components total 180 EC; current sources support the required/choice structure described in this scoped audit.
+
+Result: confirmed; required action: none.
+
+No material factual question remains unresolved within the defining external-basis scope. Indicative future pages are not a guarantee of the entering cohort’s eventual timetable.
+
+UCR-side reassessment pending: **yes**. Existing UCR claims are preserved as provenance only. Stage-two UCR feasibility assessment remains pending.
+
+### cp-000076 — Mathematics (Wiskunde)
+
+Institution: Radboud University. Audit scope: External-programme identity, defining compulsory curriculum, choice structure and source context only; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-25.
+
+Existing substantive reason: This mathematics degree requires a broad proof-based progression: 51 EC in a dense first-year mathematical core, an additional required 6 EC multivariable analysis and 18 EC in differential equations, rings/fields and topology in the selected line, then 30 EC more upper mathematics (18 restricted line electives and 12 additional mathematics electives), plus a 12-EC independent mathematics thesis, seminar and modelling work. UCR offers introductory and applied mathematics, statistics, programming and data science but lacks sustained stand-alone real/complex analysis, abstract algebra and topology at the required depth. Substituting AI and data-science courses for the upper mathematical sequence would misrepresent the defining Mathematics identity, despite substantial overlap in applied computational methods.
+
+The mathematical/proof core remains supported, but the stored first-year 51+9 and later 48-EC line/36-EC free allocation does not describe the current ordinary route. Adopted regulations require 54+6 in year one and later 24 common + 36 line + 48 free + 12 thesis. The old 48-EC line is available under a dated cohort transition, while the public page still presents it generally. Current public year labels are all indicative 2027–2028.
+
+Provenance: data/counselor/comparisons/cp-000076.json; source worksheet row(s) 79. Canonical provider, normalized registry, source-row and offering-ID sets agree; current standard target is in scope.
+
+Current official sources (checked 7 October 2026):
+
+- [Bachelor OER 2026–2027 — Wiskunde](https://www.ru.nl/sites/default/files/2026-08/bachelor-oer-26-27-wiskunde_20260818.pdf) — Articles 7.3–7.4, printed pp. 15–18; Article 8.1, printed pp. 24–25; Adopted 2026–2027. Current ordinary route: first year 54 EC required and 6 EC free; later 24 EC common courses, 36 EC Mathematics line (18 specified and 18 restricted, including at least 6 EC third-year courses), 48 EC free and 12 EC thesis. The older 48-EC line remains a transitional option for entrants in 2024–2025 or earlier.
+- [OER — Faculteit der Natuurwetenschappen, Wiskunde en Informatica](https://www.ru.nl/studenten/onderwijs-volgen/regels-en-richtlijnen/onderwijs-en-examenregelingen/natuurwetenschappen-wiskunde-en-informatica) — Current 2026–2027 regulations links; precedence notice; 2026–2027. Official index identifies the current Dutch Chemistry and Mathematics OERs. Dutch regulations prevail over translations, and regulations prevail over the catalogue in a conflict.
+- [Wiskunde — jaar 1](https://www.ru.nl/opleidingen/bachelors/wiskunde/studieprogramma/studieprogramma-bachelor-wiskunde-jaar-1) — Indicative label, required table and free-space explanation; Indicative 2027–2028. The current table requires 54 EC, including Statistics and Wiskundepracticum, and permits 6 EC free choice. The 9-EC elective menu is not a 9-EC allowance.
+- [Wiskunde — jaar 2](https://www.ru.nl/opleidingen/bachelors/wiskunde/studieprogramma/studieprogramma-bachelor-wiskunde-jaar-2) — Indicative label and Mathematics-line explanation; Indicative 2027–2028. Public page still describes a 48-EC Mathematics line and 36 EC later free space. Adopted current regulations reduce the standard line to 36 EC; the old route is cohort-specific.
+- [Wiskunde — jaar 3](https://www.ru.nl/opleidingen/bachelors/wiskunde/studieprogramma/studieprogramma-bachelor-wiskunde-jaar-3) — Required table and thesis description; Indicative 2027–2028. Seminar, modelling practical, portfolio and mathematical thesis corroborate a sustained mathematical/proof/research core. Choice rules must be taken from the adopted applicable-cohort regulations.
+
+External credit structure: Stored components sum to 180 EC but mix an unsupported current first-year allocation with an older-cohort line. Current ordinary structure: 54+6+24+36+48+12=180 EC. Older-cohort transitional routes remain distinct.
+
+Result: incorrect; required action: reassess-exception.
+
+Incorrect applies only to the specified current external credit, choice or narrative description. The defining subject core is supported; the ultimate UCR exception decision was not assessed.
+
+Recommended follow-up: In a later production update, select and state the applicable cohort before rebuilding external components. For the current ordinary route use 54 required + 6 free in year one, then 24 common + 36 line + 48 free + 12 thesis. Apply the restricted-course and third-year minima; do not impose the additional 12 EC Mathematics as universal. Preserve documented older-cohort alternatives and refresh labels. UCR feasibility remains stage two.
+
+Unresolved factual question / limitation: Historical dated page evidence was not established. The finding identifies unsupported current descriptions; it does not determine whether the original page was erroneous or later changed. An outdated finding is not justified. The old line is valid for eligible older cohorts, not established as the default for a new entrant.
+
+UCR-side reassessment pending: **yes**. Existing UCR claims are preserved as provenance only. Stage-two UCR feasibility assessment remains pending.
+
+### cp-000079 — Archaeology (Archeologie)
+
+Institution: Vrije Universiteit Amsterdam. Audit scope: External-programme identity, defining compulsory curriculum, choice structure and source context only; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-25.
+
+Existing substantive reason: The external major devotes 138 specified EC to archaeological and ancient-world education before its separate 12-EC archaeology thesis, leaving 30 EC of free choice. Required study spans prehistoric, Roman, medieval and early-modern European material cultures, archaeological source and object analysis, scientific and digital archaeology, two credited field schools, excavation-to-publication training and disciplinary theory. UCR has a small, valuable archaeology and heritage group, including Introduction to World Archaeology, Greek Archaeology and Heritage & Ancient Democracy, but it has no excavation training sequence, archaeometric/materials laboratory sequence, European prehistoric-to-medieval archaeology sequence or archaeological thesis requirement. Filling 24 UCR courses with mostly modern history, art, cultural theory or generic research methods would present neighbouring subjects as an Archaeology bachelor. No defensible closest 24-course UCR programme can be formed.
+
+The adopted 2026–2027 Dutch Archaeology route supports required excavation/field-school, material, digital, archaeological-method and specialist thesis study. Required 150 EC and open 30 EC are correctly reconstructed. Dutch/English alternatives and optional later field schools are not stacked. A future joint-degree notice in official search extracts does not overturn the verified current route.
+
+Provenance: data/counselor/comparisons/cp-000079.json; source worksheet row(s) 82. Canonical provider, normalized registry, source-row and offering-ID sets agree; current standard target is in scope.
+
+Current official sources (checked 7 October 2026):
+
+- [OER Bachelor Archeologie 2026–2027](https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/90c42b68-c609-4b9d-9123-3968f1e856be/OER%2026-27%20BA%20Archeologie%20NL.pdf) — Articles 10.2, 10.4 and 11.1–11.4, printed pp. 20–22; Adopted 2026–2027. Dutch and English routes are distinct. The Dutch route totals 180 EC: 60 EC first year, 78 EC later required units, 12 EC thesis and 30 EC free space. Field Schools 1/2, material study, digital archaeology and excavation/publication are required; additional field-school options are not universal requirements.
+- [VU Studiegids — Archeologie](https://studiegids.vu.nl/nl/Bachelor/2026-2027/archeologie) — Programme facts and linked current OER; 2026–2027. Current guide identifies the 180-EC, three-year programme, Dutch/English routes and the adopted 2026–2027 OER.
+- [VU Archeologie — toelating](https://vu.nl/nl/onderwijs/bachelor/archeologie/Toelating) — Official-page search extracts versus full-page retrieval; Future 2027–2028 announcement in search extract; full-page notice unverified. Official search extracts announce a joint VU/UvA degree from 2027–2028; the retrieved full-page text did not reproduce the notice. This is future identity context with retrieval uncertainty, not a conflict in the adopted 2026–2027 route.
+
+External credit structure: Stored components total 180 EC; current sources support the required/choice structure described in this scoped audit.
+
+Result: confirmed; required action: none.
+
+Unresolved factual question / limitation: Search extracts announce a VU/UvA joint degree from 2027–2028, but full-page retrieval did not reproduce the notice. Verify that future identity at the next registry refresh; no current 2026–2027 identity conflict is established.
+
+UCR-side reassessment pending: **yes**. Existing UCR claims are preserved as provenance only. Stage-two UCR feasibility assessment remains pending.
+
+### cp-000095 — Pharmaceutical Sciences (Farmaceutische Wetenschappen)
+
+Institution: Vrije Universiteit Amsterdam. Audit scope: External-programme identity, defining compulsory curriculum, choice structure and source context only; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-26.
+
+Existing substantive reason: VU’s compulsory core centers on medicinal and organic chemistry, molecule design and synthesis, pharmacokinetics, bioanalysis, molecular pharmacology and toxicology laboratory work, followed by an 18-EC pharmaceutical research project. UCR offers relevant biology, biochemistry, pharmacology and disease courses, but no organic chemistry or synthesis sequence, pharmaceutical chemistry laboratory, ADME course, molecular toxicology practical or drug-design capstone. A 24-course biomedical path would represent a different field and obscure the chemical drug-discovery core of this target. The optional biology- or chemistry-focused minor does not remove that compulsory gap.
+
+The adopted OER corroborates the stored components and chemistry/pharmacology laboratory core. However, exception.curriculumContext incorrectly says a 180-EC compulsory major plus 30 EC open space. The required major is 150 EC including the 18-EC project; 30 EC open space brings the total to 180. This narrative also contradicts the record’s own correct components and source notes.
+
+Provenance: data/counselor/comparisons/cp-000095.json; source worksheet row(s) 101. Canonical provider, normalized registry, source-row and offering-ID sets agree; current standard target is in scope.
+
+Current official sources (checked 7 October 2026):
+
+- [OER Bachelor Farmaceutische Wetenschappen 2026–2027](https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/38be6b3d-dbda-46a0-8097-8bf01e72a7fe/B%20Farmaceutische%20Wetenschappen%20OER%202026-2027.pdf) — Articles 10.2, 11.3 and 12.1, printed pp. 16–18; Adopted 2026–2027. Required courses total 150 EC: 60 EC first year, 60 EC second year, 12 EC third-year taught courses and an 18-EC project. The 30-EC profiling space brings the degree to 180 EC. Chemistry, synthesis, identification, pharmacokinetics, molecular pharmacology and toxicology laboratories remain compulsory.
+- [VU Studiegids — Farmaceutische Wetenschappen](https://studiegids.vu.nl/nl/Bachelor/2026-2027/farmaceutische-wetenschappen) — Programme facts and linked current OER; 2026–2027. Guide confirms the 180-EC programme and links the adopted current regulations. Optional minors are not formal mandatory specialisations.
+
+External credit structure: Stored components correctly total 180 EC: required major 150 EC plus 30 EC open space. The 180+30 narrative is incorrect.
+
+Result: incorrect; required action: reassess-exception.
+
+Incorrect applies only to the specified current external credit, choice or narrative description. The defining subject core is supported; the ultimate UCR exception decision was not assessed.
+
+Recommended follow-up: In a later production update, correct exception.curriculumContext to 150 EC required major + 30 EC open profiling space = 180 EC. Retain the already correct component allocation and formal OER precedence for the modern-developments project. Preserve the supported subject core; reassess UCR feasibility independently in stage two.
+
+No material factual question remains unresolved within the defining external-basis scope. Indicative future pages are not a guarantee of the entering cohort’s eventual timetable.
+
+UCR-side reassessment pending: **yes**. Existing UCR claims are preserved as provenance only. Stage-two UCR feasibility assessment remains pending.
+
 ## Remaining work and next batch
 
-All 19 scope exclusions are complete. Eleven of 140 exceptions have received the first-stage audit; 129 remain pending. The next batch is: cp-000063, cp-000068, cp-000070, cp-000072, cp-000073, cp-000074, cp-000075, cp-000076, cp-000079, cp-000095.
+All 19 scope exclusions are complete. Twenty-one of 140 exceptions have received the first-stage audit; 119 remain pending. The next batch is: cp-000097, cp-000098, cp-000099, cp-000100, cp-000119, cp-000134, cp-000140, cp-000149, cp-000156, cp-000159.
 
-Completed and pending entries reconcile exactly to 159 cases by audit_population + counselor_programme_id: 30 unique completed keys and 129 unique pending keys, with no overlap or omissions. All 20 earlier case objects are preserved. Pending entries have no audit finding. An audited still-unresolved case is a completed research finding, not a pending inventory entry.
+Completed and pending entries reconcile exactly to 159 cases by audit_population + counselor_programme_id: 40 unique completed keys and 119 unique pending keys, with no overlap or omissions. All 30 earlier case objects and their source entries are preserved. Pending entries have no audit finding. An audited still-unresolved case is a completed research finding, not a pending inventory entry.
 
 Stage two will independently assess UCR feasibility for every current no-defensible-ucr-match record. Confirmation in this report establishes only the external-programme basis. The exhaustive first-stage audit remains in progress.
 
