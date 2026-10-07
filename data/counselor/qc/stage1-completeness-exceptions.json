@@ -1,0 +1,2349 @@
+{
+  "schema_version": "1.0",
+  "audit_id": "counselor-completeness-exceptions-stage1",
+  "repository": "solmyr1980/ucr-pathways",
+  "branch": "main",
+  "updated_on": "2026-10-07",
+  "status": "in-progress",
+  "completed_batches": [
+    {
+      "batch_number": 1,
+      "date": "2026-10-07",
+      "audited_case_ids": [
+        "cp-000007",
+        "cp-000012",
+        "cp-000015",
+        "cp-000120",
+        "cp-000147",
+        "cp-000157",
+        "cp-000164",
+        "cp-000169",
+        "cp-000177",
+        "cp-000186"
+      ]
+    }
+  ],
+  "protocol": {
+    "batch_size": 10,
+    "selection_order": "All scope exclusions by registry_order, then all exceptions by counselor_programme_id; resume by audit_population plus counselor_programme_id.",
+    "population_start": "Current normalized data/registry/programmes.csv; upstream DUO/RIO population is out of scope.",
+    "audit_only": true,
+    "allowed_write_paths": [
+      "docs/qc/counselor-completeness-exceptions-stage1.md",
+      "data/counselor/qc/stage1-completeness-exceptions.json"
+    ],
+    "confirmed_meaning": "Supports only the facts and decision within audit_scope. For no-defensible-ucr-match, confirmation applies only to external-programme basis; UCR reassessment remains pending.",
+    "outdated_rule": "Requires dated evidence establishing that the original decision was supportable and that a later change superseded it. Record temporal uncertainty explicitly when historical evidence cannot distinguish incorrect from outdated.",
+    "resolved_external_curriculum_action": "Normally reassess-exception: an externally reconstructable comparator alone does not establish UCR feasibility.",
+    "reprocess_as_comparison_rule": "Recommend only when comparison eligibility is independently established; do not infer it merely from resolved external evidence.",
+    "incomplete_batches": "Keep pending cases explicit without audit_finding; never count pending cases as audited.",
+    "final_reconciliation": "Every excluded target and every current exception must have exactly one completed audit entry per audit_population; report missing in-scope records separately."
+  },
+  "governing_documents": [
+    "docs/UCR_Pathways_Master_Specification.md",
+    "docs/UCR_Pathways_Production_Instructions.md"
+  ],
+  "reconciliation_evidence": {
+    "registry": "data/registry/programmes.csv",
+    "canonical_directory": "data/counselor/comparisons/",
+    "status_index": "data/counselor/review-programmes.json",
+    "exception_type_check": "Read all 140 exception canonical JSON records directly; verified their IDs and recordStatus and inventoried exception.type only. This is population enumeration, not exception research.",
+    "comparison_count_basis": "Current generated review index, with its complete ID set reconciled to both registry scope and canonical filenames; comparison contents were not audited."
+  },
+  "summary": {
+    "normalized_registry_targets": 460,
+    "in_scope_targets": 441,
+    "excluded_targets": 19,
+    "canonical_records": 441,
+    "completed_comparisons": 301,
+    "completed_exceptions": 140,
+    "missing_in_scope_ids": [],
+    "out_of_scope_record_ids": [],
+    "corpus_exception_type_counts": {
+      "no-defensible-ucr-match": 117,
+      "external-programme-unresolved": 20,
+      "registry-exception": 3
+    },
+    "audited_scope_exclusions": 10,
+    "audited_exceptions": 0,
+    "pending_scope_exclusions": 9,
+    "pending_exceptions": 140,
+    "audit_finding_counts": {
+      "confirmed": 10,
+      "incorrect": 0,
+      "outdated": 0,
+      "still-unresolved": 0
+    },
+    "required_action_counts": {
+      "none": 10,
+      "reprocess-as-comparison": 0,
+      "reassess-exception": 0,
+      "correct-registry-and-reprocess": 0,
+      "research-again-later": 0
+    },
+    "audited_formal_exception_type_counts": {
+      "external-programme-unresolved": 0,
+      "no-defensible-ucr-match": 0,
+      "registry-exception": 0
+    },
+    "case_ids_requiring_action": [],
+    "duplicate_audit_case_keys": [],
+    "total_case_populations": 159,
+    "total_audited_cases": 10
+  },
+  "official_sources": {
+    "eur_bsc2": {
+      "url": "https://www.eur.nl/en/bachelor/double-bachelor-bsc2-econometrics-and-economics/facts-figures",
+      "title": "Facts & Figures — Double bachelor BSc² in Econometrics and Economics",
+      "locator": "Programme facts: duration, study points and double degree",
+      "fact": "Four-year, 264-EC double degree.",
+      "academic_year": "Current programme-facing page; includes 2027–2028 application information",
+      "date_checked": "2026-10-07"
+    },
+    "eur_rasl": {
+      "url": "https://www.eur.nl/en/esphil/education/dual-degree-arts-and-philosophy",
+      "title": "Dual Degree with Arts and Philosophy",
+      "locator": "The Dual Degree — Philosophy with Arts",
+      "fact": "Philosophy and a WdKA bachelor are combined over five years.",
+      "academic_year": "Current undated programme page",
+      "date_checked": "2026-10-07"
+    },
+    "eur_rasl_facts": {
+      "url": "https://www.eur.nl/en/bachelor/dual-degree-arts-and-sciences/facts-figures",
+      "title": "Facts & Figures — Dual Degree in Arts and Sciences",
+      "locator": "Programme facts",
+      "fact": "RASL umbrella: five years, 300 EC and a double degree.",
+      "academic_year": "Current programme-facing page",
+      "date_checked": "2026-10-07"
+    },
+    "eur_rasl_admission": {
+      "url": "https://www.eur.nl/en/bachelor/dual-degree-arts-and-sciences/application",
+      "title": "Application — Dual Degree in Arts and Sciences",
+      "locator": "Application deadlines for academic year 2026–2027",
+      "fact": "Philosophy and WdKA remain participating admission routes.",
+      "academic_year": "2026–2027",
+      "date_checked": "2026-10-07"
+    },
+    "eur_tax": {
+      "url": "https://www.eur.nl/bachelor/fiscale-economie",
+      "title": "Bachelor Fiscale Economie",
+      "locator": "Bachelor Fiscale Economie stopt; Voor huidige studenten",
+      "fact": "New applications have ended; current students may finish through 2028–2029.",
+      "academic_year": "Teach-out through 2028–2029",
+      "date_checked": "2026-10-07"
+    },
+    "auc_degree": {
+      "url": "https://www.auc.nl/academic-programme/graduation-requirements/graduation-requirements.html",
+      "title": "Graduation requirements — Amsterdam University College",
+      "locator": "Opening paragraph and Academic Standards & Procedures link",
+      "fact": "Degree awarded jointly by UvA and VU; links current 2026–2027 standards.",
+      "academic_year": "2026–2027",
+      "date_checked": "2026-10-07"
+    },
+    "auc_facts": {
+      "url": "https://www.auc.nl/academic-programme/liberal-arts-and-sciences/liberal-arts--sciences.html",
+      "title": "Liberal Arts and Sciences Bachelor's programme — Amsterdam University College",
+      "locator": "Summary of the study programme",
+      "fact": "Three years, 180 ECTS, joint BA/BSc; CROHO 55002.",
+      "academic_year": "Current programme page; September 2027 applications",
+      "date_checked": "2026-10-07"
+    },
+    "um_current": {
+      "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/urban-sustainability-studies",
+      "title": "Urban Sustainability Studies — Maastricht University",
+      "locator": "Programme identity and The right programme for you",
+      "fact": "Current programme offers a joint BSc and is based in Heerlen.",
+      "academic_year": "Current programme-facing page",
+      "date_checked": "2026-10-07"
+    },
+    "um_award": {
+      "url": "https://www.maastrichtuniversity.nl/news/green-light-um-participation-unique-yufe-bachelor-programme",
+      "title": "Green light for UM participation in unique YUFE bachelor programme",
+      "locator": "Degree-awarding partners; final paragraph on Heerlen teaching",
+      "fact": "Seven universities award the degree; UM teaching in Heerlen starts in 2026–2027, distinct from the alliance launch in 2025.",
+      "academic_year": "Published 2025-07-04; UM start 2026–2027",
+      "date_checked": "2026-10-07"
+    },
+    "um_admissions": {
+      "url": "https://www.maastrichtuniversity.nl/nl/nieuws/open-applications-yufe%E2%80%99s-joint-bachelor-urban-sustainability-studies-20262027",
+      "title": "Open applications for YUFE's joint bachelor in Urban Sustainability Studies 2026/2027",
+      "locator": "Opening paragraphs and accreditation footnote",
+      "fact": "Joint three-year bachelor accepting applications for 2026–2027.",
+      "academic_year": "2026–2027; published 2025-11-11",
+      "date_checked": "2026-10-07"
+    },
+    "pthu_phaseout": {
+      "url": "https://www.pthu.nl/onderwijs/praktische-informatie/examencommissies.whlink/",
+      "title": "Examencommissies — Protestantse Theologische Universiteit",
+      "locator": "Examencommissie PThU; Examencommissie bachelor Theologie (joint degree, PThU/VU)",
+      "fact": "PThU explicitly describes the Amsterdam PThU/VU joint bachelor as being phased out.",
+      "academic_year": "Current examination-board page",
+      "date_checked": "2026-10-07"
+    },
+    "vu_phaseout": {
+      "url": "https://vu.nl/nl/onderwijs/meer-over/joint-degree",
+      "title": "Joint Degrees — Vrije Universiteit Amsterdam",
+      "locator": "Samenwerking VU-PThU",
+      "fact": "VU states that the Theology joint degree stops from 1 September 2025.",
+      "academic_year": "Closure effective 2025-09-01",
+      "date_checked": "2026-10-07"
+    },
+    "pthu_regulations": {
+      "url": "https://www.pthu.nl/over-pthu/organisatie/regelingen-en-rechtspositie/",
+      "title": "Regelingen en rechtspositie — PThU",
+      "locator": "OERen studiejaar 2026–2027, 2025–2026 and 2024–2025",
+      "fact": "Current Utrecht bachelor regulations are distinguished from archived PThU/VU joint-degree regulations.",
+      "academic_year": "2026–2027",
+      "date_checked": "2026-10-07"
+    },
+    "rug_degree": {
+      "url": "https://www.rug.nl/bachelors/philosophy-of-a-specific-discipline/?lang=en",
+      "title": "Philosophy of a specific discipline — University of Groningen",
+      "locator": "Programme introduction, components, Facts & Figures and registration",
+      "fact": "Combination bachelor awards two degrees; its 180-EC philosophy award incorporates 120 EC from the first bachelor and 60 EC philosophy. This is not a claim that the combined two-degree study load totals 180 EC.",
+      "academic_year": "Current page links 2026–2027 study guide",
+      "date_checked": "2026-10-07"
+    },
+    "rug_guide": {
+      "url": "https://www.rug.nl/filosofie/education/prospectus/study-guide-philosophy-studiegids-filosofie-2026-2027.pdf",
+      "title": "Study Guide Faculty of Philosophy 2026–2027",
+      "locator": "Section 7.4, printed pp. 50–53 (PDF pp. 50–53)",
+      "fact": "Lists the named bachelor tracks and the 120-plus-60-EC structure.",
+      "academic_year": "2026–2027",
+      "date_checked": "2026-10-07"
+    },
+    "rug_tracks": {
+      "url": "https://www.rug.nl/filosofie/education/prospectus/tracks-bachelor-fvew-2026-2027-def.pdf",
+      "title": "Tracks Bachelor Philosophy of a Specific Discipline 2026–2027",
+      "locator": "PDF pp. 1–3",
+      "fact": "Current track tables list Cognitive Sciences, Economic and Social Sciences, History, and Arts and Culture.",
+      "academic_year": "2026–2027",
+      "date_checked": "2026-10-07"
+    }
+  },
+  "shared_evidence": {
+    "groningen-psd-combination": {
+      "official_source_ids": [
+        "rug_degree",
+        "rug_guide"
+      ],
+      "basis": "Groningen describes a combination bachelor awarding two degrees. The philosophy award credits 120 EC from the primary bachelor alongside 60 EC philosophy. Its 180-EC award size therefore does not make these tracks standalone standard degrees.",
+      "judgment": "double-bachelor is consistent with the current registry presentation taxonomy; individual current track identities are checked in each case."
+    }
+  },
+  "cases": [
+    {
+      "counselor_programme_id": "cp-000007",
+      "programme_display_name": "Double bachelor BSc² in Econometrics and Economics",
+      "institution": "Erasmus University Rotterdam",
+      "participating_institutions": [
+        "Erasmus University Rotterdam"
+      ],
+      "audit_population": "scope-exclusion",
+      "existing_exclusion_reason": "programme_type='double-bachelor'",
+      "formal_exception_type": null,
+      "existing_substantive_exception_reason": null,
+      "audit_scope": "Programme type, double-degree identity and merged source provenance",
+      "audit_finding": "confirmed",
+      "required_action": "none",
+      "audit_basis": "Official evidence confirms the merged target is a 264-EC double bachelor. Its double-bachelor type correctly excludes it under the standard-only presentation rule.",
+      "official_source_urls": [
+        "https://www.eur.nl/en/bachelor/double-bachelor-bsc2-econometrics-and-economics/facts-figures"
+      ],
+      "official_source_ids": [
+        "eur_bsc2"
+      ],
+      "date_checked": "2026-10-07",
+      "recommended_fix": null,
+      "unresolved_factual_question": null,
+      "ucr_side_reassessment_pending": null,
+      "ucr_side_assessment_note": "Not assessed: this is a scope exclusion, not a no-match exception.",
+      "exclusion_should_remain": true,
+      "failed_scope_conditions": [
+        {
+          "attribute": "programme_type",
+          "actual_value": "double-bachelor",
+          "required_value": "standard"
+        }
+      ],
+      "governing_rule": "Master Specification §4.1; Production Instructions §4.1",
+      "registry_values": {
+        "registry_order": "7",
+        "production_order": "7",
+        "programme_type": "double-bachelor",
+        "current_status": "active",
+        "production_eligible": "true",
+        "study_load_ec": "264",
+        "duration_years": "4",
+        "canonical_name": "Double bachelor BSc² in Econometrics and Economics"
+      },
+      "provenance": {
+        "source_excel_rows": [
+          9,
+          10
+        ],
+        "offering_ids": [
+          "0bad61cb-025a-5d99-e063-6ff1ff0aab5f",
+          "0bac182b-82b1-5088-e063-6ff1ff0a75e4"
+        ],
+        "normalization_basis": "step2-resolved",
+        "decision_case_ids": [
+          "rc-0001",
+          "rc-0002"
+        ],
+        "resolution_decisions": [
+          {
+            "case_id": "rc-0001",
+            "institution": "Erasmus University Rotterdam",
+            "source_rows_json": "[9,10]",
+            "decision_action": "merge_to_single_target",
+            "provisional_target_group": "eur-bsc2-econometrics-economics",
+            "target_count": "1",
+            "canonical_target_names_json": "[\"Double bachelor BSc² in Econometrics and Economics\"]",
+            "current_status": "active",
+            "production_eligible": "True",
+            "corrected_attributes_json": "{\"duration_years\":4,\"study_load_ec\":264,\"languages\":[\"ENG\"],\"programme_type\":\"double-bachelor\"}",
+            "rationale": "Rows 9 and 10 are two registry-side representations of one current double bachelor. The official programme is a single four-year, 264-EC English double bachelor, so counselor production should create one comparison target with both source rows as provenance.",
+            "source_ids_json": "[\"src-eur-bsc2\"]",
+            "resolved_date": "2026-09-12",
+            "status": "resolved"
+          },
+          {
+            "case_id": "rc-0002",
+            "institution": "Erasmus University Rotterdam",
+            "source_rows_json": "[9,10]",
+            "decision_action": "merge_to_single_target",
+            "provisional_target_group": "eur-bsc2-econometrics-economics",
+            "target_count": "1",
+            "canonical_target_names_json": "[\"Double bachelor BSc² in Econometrics and Economics\"]",
+            "current_status": "active",
+            "production_eligible": "True",
+            "corrected_attributes_json": "{\"duration_years\":4,\"study_load_ec\":264,\"languages\":[\"ENG\"],\"programme_type\":\"double-bachelor\"}",
+            "rationale": "Same resolution as rc-0001: BSc2 Economics and BSc2 Econometrics are not separate current counselor targets; they jointly represent the single current BSc² double bachelor.",
+            "source_ids_json": "[\"src-eur-bsc2\"]",
+            "resolved_date": "2026-09-12",
+            "status": "resolved"
+          }
+        ],
+        "post_build_corrected_attributes": {
+          "duration_years": 4,
+          "study_load_ec": 264,
+          "languages": [
+            "ENG"
+          ],
+          "programme_type": "double-bachelor"
+        },
+        "crosswalk_check": "Source-row and offering-ID sets exactly agree with the normalized target.",
+        "repository_evidence_paths": [
+          "data/registry/programmes.csv",
+          "data/registry/programme_source_rows.csv",
+          "data/registry/programme_offerings.csv",
+          "data/registry/resolution_decisions.csv",
+          "data/registry/resolution_sources.csv"
+        ]
+      },
+      "evidence_details": [],
+      "batch_number": 1
+    },
+    {
+      "counselor_programme_id": "cp-000012",
+      "programme_display_name": "RASL Dual Degree Philosophy and WdKA",
+      "institution": "Erasmus University Rotterdam",
+      "participating_institutions": [
+        "Erasmus University Rotterdam",
+        "Willem de Kooning Academy"
+      ],
+      "audit_population": "scope-exclusion",
+      "existing_exclusion_reason": "programme_type='dual-degree-route'",
+      "formal_exception_type": null,
+      "existing_substantive_exception_reason": null,
+      "audit_scope": "Exact Philosophy/WdKA route, dual-degree structure and current admissions",
+      "audit_finding": "confirmed",
+      "required_action": "none",
+      "audit_basis": "The exact Philosophy/WdKA route remains a five-year combination of two bachelors. Its dual-degree-route classification correctly excludes it.",
+      "official_source_urls": [
+        "https://www.eur.nl/en/esphil/education/dual-degree-arts-and-philosophy",
+        "https://www.eur.nl/en/bachelor/dual-degree-arts-and-sciences/facts-figures",
+        "https://www.eur.nl/en/bachelor/dual-degree-arts-and-sciences/application"
+      ],
+      "official_source_ids": [
+        "eur_rasl",
+        "eur_rasl_facts",
+        "eur_rasl_admission"
+      ],
+      "date_checked": "2026-10-07",
+      "recommended_fix": null,
+      "unresolved_factual_question": null,
+      "ucr_side_reassessment_pending": null,
+      "ucr_side_assessment_note": "Not assessed: this is a scope exclusion, not a no-match exception.",
+      "exclusion_should_remain": true,
+      "failed_scope_conditions": [
+        {
+          "attribute": "programme_type",
+          "actual_value": "dual-degree-route",
+          "required_value": "standard"
+        }
+      ],
+      "governing_rule": "Master Specification §4.1; Production Instructions §4.1",
+      "registry_values": {
+        "registry_order": "12",
+        "production_order": "12",
+        "programme_type": "dual-degree-route",
+        "current_status": "active",
+        "production_eligible": "true",
+        "study_load_ec": "300",
+        "duration_years": "5",
+        "canonical_name": "RASL Dual Degree: Philosophy + Willem de Kooning Academy"
+      },
+      "provenance": {
+        "source_excel_rows": [
+          15
+        ],
+        "offering_ids": [
+          "585a2167-fabe-49d0-a8ca-5604f70d5fe1"
+        ],
+        "normalization_basis": "step2-resolved",
+        "decision_case_ids": [
+          "rc-0003"
+        ],
+        "resolution_decisions": [
+          {
+            "case_id": "rc-0003",
+            "institution": "Erasmus University Rotterdam",
+            "source_rows_json": "[15]",
+            "decision_action": "retain_special_route_target",
+            "provisional_target_group": "eur-rasl-philosophy-wdka",
+            "target_count": "1",
+            "canonical_target_names_json": "[\"RASL Dual Degree: Philosophy + Willem de Kooning Academy\"]",
+            "current_status": "active",
+            "production_eligible": "True",
+            "corrected_attributes_json": "{\"duration_years\":5,\"study_load_ec\":300,\"programme_type\":\"dual-degree-route\",\"awards\":\"two bachelor degrees\"}",
+            "rationale": "Retain as a counselor target because it is a real current student route, but classify it as a dual-degree route rather than a standard 180-EC bachelor. RASL combines two bachelor programmes and the Philosophy + WdKA combination is specifically supported.",
+            "source_ids_json": "[\"src-eur-rasl-philosophy\",\"src-eur-rasl-facts\",\"src-eur-rasl-oer\"]",
+            "resolved_date": "2026-09-12",
+            "status": "resolved"
+          }
+        ],
+        "post_build_corrected_attributes": {
+          "duration_years": 5,
+          "study_load_ec": 300,
+          "programme_type": "dual-degree-route",
+          "awards": "two bachelor degrees"
+        },
+        "crosswalk_check": "Source-row and offering-ID sets exactly agree with the normalized target.",
+        "repository_evidence_paths": [
+          "data/registry/programmes.csv",
+          "data/registry/programme_source_rows.csv",
+          "data/registry/programme_offerings.csv",
+          "data/registry/resolution_decisions.csv",
+          "data/registry/resolution_sources.csv"
+        ]
+      },
+      "evidence_details": [
+        {
+          "source_id": "eur_rasl_facts",
+          "locator": "Programme facts and CROHO names",
+          "fact": "Use this umbrella page for RASL scale only; exact Philosophy/WdKA identity comes from the dedicated Philosophy page and current admissions list."
+        }
+      ],
+      "batch_number": 1
+    },
+    {
+      "counselor_programme_id": "cp-000015",
+      "programme_display_name": "Economics and Taxation",
+      "institution": "Erasmus University Rotterdam",
+      "participating_institutions": [
+        "Erasmus University Rotterdam"
+      ],
+      "audit_population": "scope-exclusion",
+      "existing_exclusion_reason": "production_eligible='false'; production_order=''",
+      "formal_exception_type": null,
+      "existing_substantive_exception_reason": null,
+      "audit_scope": "Lifecycle, new enrolment and teach-out status",
+      "audit_finding": "confirmed",
+      "required_action": "none",
+      "audit_basis": "EUR explicitly ends new applications and permits completion through 2028–2029. Retaining this target as teach-out-only with no production eligibility or order is justified.",
+      "official_source_urls": [
+        "https://www.eur.nl/bachelor/fiscale-economie"
+      ],
+      "official_source_ids": [
+        "eur_tax"
+      ],
+      "date_checked": "2026-10-07",
+      "recommended_fix": null,
+      "unresolved_factual_question": null,
+      "ucr_side_reassessment_pending": null,
+      "ucr_side_assessment_note": "Not assessed: this is a scope exclusion, not a no-match exception.",
+      "exclusion_should_remain": true,
+      "failed_scope_conditions": [
+        {
+          "attribute": "production_eligible",
+          "actual_value": "false",
+          "required_value": "true"
+        },
+        {
+          "attribute": "production_order",
+          "actual_value": "",
+          "required_value": "nonblank"
+        }
+      ],
+      "governing_rule": "Master Specification §4.1; Production Instructions §4.1",
+      "registry_values": {
+        "registry_order": "15",
+        "production_order": "",
+        "programme_type": "standard",
+        "current_status": "teach-out-only",
+        "production_eligible": "false",
+        "study_load_ec": "180",
+        "duration_years": "",
+        "canonical_name": "Fiscale Economie"
+      },
+      "provenance": {
+        "source_excel_rows": [
+          18
+        ],
+        "offering_ids": [
+          "0bad51c1-b436-4e64-e063-6ff1ff0aea47"
+        ],
+        "normalization_basis": "step2-resolved",
+        "decision_case_ids": [
+          "rc-0004"
+        ],
+        "resolution_decisions": [
+          {
+            "case_id": "rc-0004",
+            "institution": "Erasmus University Rotterdam",
+            "source_rows_json": "[18]",
+            "decision_action": "retain_inactive_target",
+            "provisional_target_group": "eur-fiscale-economie",
+            "target_count": "1",
+            "canonical_target_names_json": "[\"Fiscale Economie\"]",
+            "current_status": "teach-out-only",
+            "production_eligible": "False",
+            "corrected_attributes_json": "{\"study_load_ec\":180,\"new_enrolment\":false,\"teach_out_through\":\"2028-2029\"}",
+            "rationale": "Preserve the programme in the normalized registry for provenance/history, but exclude it from the active counselor production queue because new students can no longer enrol.",
+            "source_ids_json": "[\"src-eur-fiscale\"]",
+            "resolved_date": "2026-09-12",
+            "status": "resolved"
+          }
+        ],
+        "post_build_corrected_attributes": {
+          "study_load_ec": 180,
+          "new_enrolment": false,
+          "teach_out_through": "2028-2029"
+        },
+        "crosswalk_check": "Source-row and offering-ID sets exactly agree with the normalized target.",
+        "repository_evidence_paths": [
+          "data/registry/programmes.csv",
+          "data/registry/programme_source_rows.csv",
+          "data/registry/programme_offerings.csv",
+          "data/registry/resolution_decisions.csv",
+          "data/registry/resolution_sources.csv"
+        ]
+      },
+      "evidence_details": [],
+      "batch_number": 1
+    },
+    {
+      "counselor_programme_id": "cp-000120",
+      "programme_display_name": "Liberal Arts and Sciences (joint degree)",
+      "institution": "University of Amsterdam",
+      "participating_institutions": [
+        "University of Amsterdam",
+        "VU Amsterdam"
+      ],
+      "audit_population": "scope-exclusion",
+      "existing_exclusion_reason": "programme_type='joint-degree'",
+      "formal_exception_type": null,
+      "existing_substantive_exception_reason": null,
+      "audit_scope": "Joint award, degree identity, institutional partners and study load",
+      "audit_finding": "confirmed",
+      "required_action": "none",
+      "audit_basis": "AUC awards its 180-ECTS bachelor jointly through UvA and VU. Exclusion follows the joint-degree rule despite its ordinary three-year study load.",
+      "official_source_urls": [
+        "https://www.auc.nl/academic-programme/graduation-requirements/graduation-requirements.html",
+        "https://www.auc.nl/academic-programme/liberal-arts-and-sciences/liberal-arts--sciences.html"
+      ],
+      "official_source_ids": [
+        "auc_degree",
+        "auc_facts"
+      ],
+      "date_checked": "2026-10-07",
+      "recommended_fix": null,
+      "unresolved_factual_question": null,
+      "ucr_side_reassessment_pending": null,
+      "ucr_side_assessment_note": "Not assessed: this is a scope exclusion, not a no-match exception.",
+      "exclusion_should_remain": true,
+      "failed_scope_conditions": [
+        {
+          "attribute": "programme_type",
+          "actual_value": "joint-degree",
+          "required_value": "standard"
+        }
+      ],
+      "governing_rule": "Master Specification §4.1; Production Instructions §4.1",
+      "registry_values": {
+        "registry_order": "120",
+        "production_order": "119",
+        "programme_type": "joint-degree",
+        "current_status": "active",
+        "production_eligible": "true",
+        "study_load_ec": "180",
+        "duration_years": "",
+        "canonical_name": "Liberal Arts and Sciences — Amsterdam University College"
+      },
+      "provenance": {
+        "source_excel_rows": [
+          128
+        ],
+        "offering_ids": [
+          "ce9c0cb0-77b0-4c5b-a50e-7774287eb2d5"
+        ],
+        "normalization_basis": "step2-resolved",
+        "decision_case_ids": [
+          "rc-0012"
+        ],
+        "resolution_decisions": [
+          {
+            "case_id": "rc-0012",
+            "institution": "University of Amsterdam",
+            "source_rows_json": "[128]",
+            "decision_action": "retain_joint_degree_target",
+            "provisional_target_group": "uva-vu-auc",
+            "target_count": "1",
+            "canonical_target_names_json": "[\"Liberal Arts and Sciences — Amsterdam University College\"]",
+            "current_status": "active",
+            "production_eligible": "True",
+            "corrected_attributes_json": "{\"study_load_ec\":180,\"programme_type\":\"joint-degree\",\"institutions\":[\"University of Amsterdam\",\"VU Amsterdam\"],\"languages\":[\"ENG\"],\"modes\":[\"VOLTIJD\"]}",
+            "rationale": "Amsterdam University College is a genuine current 180-ECTS joint Liberal Arts and Sciences degree. Retain one joint target.",
+            "source_ids_json": "[\"src-uva-auc\"]",
+            "resolved_date": "2026-09-12",
+            "status": "resolved"
+          }
+        ],
+        "post_build_corrected_attributes": {
+          "study_load_ec": 180,
+          "programme_type": "joint-degree",
+          "institutions": [
+            "University of Amsterdam",
+            "VU Amsterdam"
+          ],
+          "languages": [
+            "ENG"
+          ],
+          "modes": [
+            "VOLTIJD"
+          ]
+        },
+        "crosswalk_check": "Source-row and offering-ID sets exactly agree with the normalized target.",
+        "repository_evidence_paths": [
+          "data/registry/programmes.csv",
+          "data/registry/programme_source_rows.csv",
+          "data/registry/programme_offerings.csv",
+          "data/registry/resolution_decisions.csv",
+          "data/registry/resolution_sources.csv"
+        ]
+      },
+      "evidence_details": [],
+      "batch_number": 1
+    },
+    {
+      "counselor_programme_id": "cp-000147",
+      "programme_display_name": "Urban Sustainability Studies (joint degree)",
+      "institution": "Maastricht University",
+      "participating_institutions": [
+        "Maastricht University"
+      ],
+      "audit_population": "scope-exclusion",
+      "existing_exclusion_reason": "programme_type='joint-degree'",
+      "formal_exception_type": null,
+      "existing_substantive_exception_reason": null,
+      "audit_scope": "Joint award, current UM programme identity and local start-year context",
+      "audit_finding": "confirmed",
+      "required_action": "none",
+      "audit_basis": "UM remains a degree-awarding YUFE partner in this active joint bachelor. Its joint-degree exclusion is justified; the Heerlen start year differs from the alliance launch.",
+      "official_source_urls": [
+        "https://www.maastrichtuniversity.nl/education/bachelor/programmes/urban-sustainability-studies",
+        "https://www.maastrichtuniversity.nl/news/green-light-um-participation-unique-yufe-bachelor-programme",
+        "https://www.maastrichtuniversity.nl/nl/nieuws/open-applications-yufe%E2%80%99s-joint-bachelor-urban-sustainability-studies-20262027"
+      ],
+      "official_source_ids": [
+        "um_current",
+        "um_award",
+        "um_admissions"
+      ],
+      "date_checked": "2026-10-07",
+      "recommended_fix": null,
+      "unresolved_factual_question": null,
+      "ucr_side_reassessment_pending": null,
+      "ucr_side_assessment_note": "Not assessed: this is a scope exclusion, not a no-match exception.",
+      "exclusion_should_remain": true,
+      "failed_scope_conditions": [
+        {
+          "attribute": "programme_type",
+          "actual_value": "joint-degree",
+          "required_value": "standard"
+        }
+      ],
+      "governing_rule": "Master Specification §4.1; Production Instructions §4.1",
+      "registry_values": {
+        "registry_order": "147",
+        "production_order": "146",
+        "programme_type": "joint-degree",
+        "current_status": "active",
+        "production_eligible": "true",
+        "study_load_ec": "180",
+        "duration_years": "3",
+        "canonical_name": "Urban Sustainability Studies"
+      },
+      "provenance": {
+        "source_excel_rows": [
+          160
+        ],
+        "offering_ids": [
+          "1f54541f-c421-4c9a-9ee8-d3cd965530b9"
+        ],
+        "normalization_basis": "step2-resolved",
+        "decision_case_ids": [
+          "rc-0014"
+        ],
+        "resolution_decisions": [
+          {
+            "case_id": "rc-0014",
+            "institution": "Maastricht University",
+            "source_rows_json": "[160]",
+            "decision_action": "retain_joint_degree_target",
+            "provisional_target_group": "um-yufe-urban-sustainability-studies",
+            "target_count": "1",
+            "canonical_target_names_json": "[\"Urban Sustainability Studies\"]",
+            "current_status": "active",
+            "production_eligible": "True",
+            "corrected_attributes_json": "{\"duration_years\":3,\"study_load_ec\":180,\"languages\":[\"ENG\"],\"modes\":[\"VOLTIJD\"],\"location\":\"Heerlen\",\"programme_type\":\"joint-degree\",\"consortium\":\"YUFE\",\"first_academic_year\":\"2026-2027\"}",
+            "rationale": "This is a genuine current joint bachelor rather than a malformed registry row. Retain one target and mark its joint-degree/YUFE structure explicitly so later comparison production does not treat it as an ordinary single-institution bachelor.",
+            "source_ids_json": "[\"src-um-uss\",\"src-um-uss-news\"]",
+            "resolved_date": "2026-09-12",
+            "status": "resolved"
+          }
+        ],
+        "post_build_corrected_attributes": {
+          "duration_years": 3,
+          "study_load_ec": 180,
+          "languages": [
+            "ENG"
+          ],
+          "modes": [
+            "VOLTIJD"
+          ],
+          "location": "Heerlen",
+          "programme_type": "joint-degree",
+          "consortium": "YUFE",
+          "first_academic_year": "2026-2027"
+        },
+        "crosswalk_check": "Source-row and offering-ID sets exactly agree with the normalized target.",
+        "repository_evidence_paths": [
+          "data/registry/programmes.csv",
+          "data/registry/programme_source_rows.csv",
+          "data/registry/programme_offerings.csv",
+          "data/registry/resolution_decisions.csv",
+          "data/registry/resolution_sources.csv"
+        ]
+      },
+      "evidence_details": [
+        {
+          "source_id": "um_award",
+          "locator": "Opening and final substantive paragraphs",
+          "fact": "The alliance launch in 2025 and UM teaching start in 2026–2027 are distinct; the registry local start-year attribute is supported."
+        }
+      ],
+      "batch_number": 1
+    },
+    {
+      "counselor_programme_id": "cp-000157",
+      "programme_display_name": "Theology (joint degree)",
+      "institution": "Protestant Theological University",
+      "participating_institutions": [
+        "Protestant Theological University",
+        "VU Amsterdam"
+      ],
+      "audit_population": "scope-exclusion",
+      "existing_exclusion_reason": "programme_type='joint-degree'; production_eligible='false'; production_order=''",
+      "formal_exception_type": null,
+      "existing_substantive_exception_reason": null,
+      "audit_scope": "Joint-degree identity and phase-out versus replacement programme",
+      "audit_finding": "confirmed",
+      "required_action": "none",
+      "audit_basis": "PThU identifies its VU joint bachelor as in phase-out; VU confirms closure from September 2025. Both lifecycle and joint-degree grounds support exclusion.",
+      "official_source_urls": [
+        "https://www.pthu.nl/onderwijs/praktische-informatie/examencommissies.whlink/",
+        "https://vu.nl/nl/onderwijs/meer-over/joint-degree",
+        "https://www.pthu.nl/over-pthu/organisatie/regelingen-en-rechtspositie/"
+      ],
+      "official_source_ids": [
+        "pthu_phaseout",
+        "vu_phaseout",
+        "pthu_regulations"
+      ],
+      "date_checked": "2026-10-07",
+      "recommended_fix": null,
+      "unresolved_factual_question": null,
+      "ucr_side_reassessment_pending": null,
+      "ucr_side_assessment_note": "Not assessed: this is a scope exclusion, not a no-match exception.",
+      "exclusion_should_remain": true,
+      "failed_scope_conditions": [
+        {
+          "attribute": "programme_type",
+          "actual_value": "joint-degree",
+          "required_value": "standard"
+        },
+        {
+          "attribute": "production_eligible",
+          "actual_value": "false",
+          "required_value": "true"
+        },
+        {
+          "attribute": "production_order",
+          "actual_value": "",
+          "required_value": "nonblank"
+        }
+      ],
+      "governing_rule": "Master Specification §4.1; Production Instructions §4.1",
+      "registry_values": {
+        "registry_order": "157",
+        "production_order": "",
+        "programme_type": "joint-degree",
+        "current_status": "teach-out-only",
+        "production_eligible": "false",
+        "study_load_ec": "180",
+        "duration_years": "",
+        "canonical_name": "Theologie (joint degree PThU/VU)"
+      },
+      "provenance": {
+        "source_excel_rows": [
+          170
+        ],
+        "offering_ids": [
+          "7ec8283e-6bf0-481c-97ee-5902e80e485f",
+          "bd01dacc-7403-4f20-8f80-bc57d2b8e87c"
+        ],
+        "normalization_basis": "step2-resolved",
+        "decision_case_ids": [
+          "rc-0017",
+          "rc-0018",
+          "rc-0019"
+        ],
+        "resolution_decisions": [
+          {
+            "case_id": "rc-0017",
+            "institution": "Protestant Theological University",
+            "source_rows_json": "[170]",
+            "decision_action": "retain_inactive_joint_target",
+            "provisional_target_group": "pthu-vu-joint-theology",
+            "target_count": "1",
+            "canonical_target_names_json": "[\"Theologie (joint degree PThU/VU)\"]",
+            "current_status": "teach-out-only",
+            "production_eligible": "False",
+            "corrected_attributes_json": "{\"programme_type\":\"joint-degree\",\"institutions\":[\"Protestant Theological University\",\"VU Amsterdam\"],\"new_enrolment\":false,\"replacement\":\"PThU Bachelor Theologie, Utrecht\"}",
+            "rationale": "PThU explicitly marks the PThU/VU Joint Bachelor as being phased out, while current regulations list the new PThU Bachelor Theologie. Preserve the joint degree for provenance/teach-out but exclude it from the active queue.",
+            "source_ids_json": "[\"src-pthu-joint\",\"src-pthu-regulations\"]",
+            "resolved_date": "2026-09-12",
+            "status": "resolved"
+          },
+          {
+            "case_id": "rc-0018",
+            "institution": "Protestant Theological University",
+            "source_rows_json": "[170]",
+            "decision_action": "retain_inactive_joint_target",
+            "provisional_target_group": "pthu-vu-joint-theology",
+            "target_count": "1",
+            "canonical_target_names_json": "[\"Theologie (joint degree PThU/VU)\"]",
+            "current_status": "teach-out-only",
+            "production_eligible": "False",
+            "corrected_attributes_json": "{\"programme_type\":\"joint-degree\",\"institutions\":[\"Protestant Theological University\",\"VU Amsterdam\"],\"new_enrolment\":false,\"replacement\":\"PThU Bachelor Theologie, Utrecht\"}",
+            "rationale": "PThU explicitly marks the PThU/VU Joint Bachelor as being phased out, while current regulations list the new PThU Bachelor Theologie. Preserve the joint degree for provenance/teach-out but exclude it from the active queue.",
+            "source_ids_json": "[\"src-pthu-joint\",\"src-pthu-regulations\"]",
+            "resolved_date": "2026-09-12",
+            "status": "resolved"
+          },
+          {
+            "case_id": "rc-0019",
+            "institution": "Protestant Theological University",
+            "source_rows_json": "[170]",
+            "decision_action": "retain_inactive_joint_target",
+            "provisional_target_group": "pthu-vu-joint-theology",
+            "target_count": "1",
+            "canonical_target_names_json": "[\"Theologie (joint degree PThU/VU)\"]",
+            "current_status": "teach-out-only",
+            "production_eligible": "False",
+            "corrected_attributes_json": "{\"programme_type\":\"joint-degree\",\"institutions\":[\"Protestant Theological University\",\"VU Amsterdam\"],\"new_enrolment\":false,\"replacement\":\"PThU Bachelor Theologie, Utrecht\"}",
+            "rationale": "PThU explicitly marks the PThU/VU Joint Bachelor as being phased out, while current regulations list the new PThU Bachelor Theologie. Preserve the joint degree for provenance/teach-out but exclude it from the active queue.",
+            "source_ids_json": "[\"src-pthu-joint\",\"src-pthu-regulations\"]",
+            "resolved_date": "2026-09-12",
+            "status": "resolved"
+          }
+        ],
+        "post_build_corrected_attributes": {
+          "programme_type": "joint-degree",
+          "institutions": [
+            "Protestant Theological University",
+            "VU Amsterdam"
+          ],
+          "new_enrolment": false,
+          "replacement": "PThU Bachelor Theologie, Utrecht"
+        },
+        "crosswalk_check": "Source-row and offering-ID sets exactly agree with the normalized target.",
+        "repository_evidence_paths": [
+          "data/registry/programmes.csv",
+          "data/registry/programme_source_rows.csv",
+          "data/registry/programme_offerings.csv",
+          "data/registry/resolution_decisions.csv",
+          "data/registry/resolution_sources.csv"
+        ]
+      },
+      "evidence_details": [],
+      "batch_number": 1
+    },
+    {
+      "counselor_programme_id": "cp-000164",
+      "programme_display_name": "Philosophy of a Specific Discipline — Cognitive Sciences track",
+      "institution": "University of Groningen",
+      "participating_institutions": [
+        "University of Groningen"
+      ],
+      "audit_population": "scope-exclusion",
+      "existing_exclusion_reason": "programme_type='double-bachelor'",
+      "formal_exception_type": null,
+      "existing_substantive_exception_reason": null,
+      "audit_scope": "Exact Cognitive Sciences bachelor-track identity and combination structure",
+      "audit_finding": "confirmed",
+      "required_action": "none",
+      "audit_basis": "Cognitive Sciences is a current track within the combination degree described in the shared Groningen evidence below. Its double-bachelor exclusion is justified.",
+      "official_source_urls": [
+        "https://www.rug.nl/bachelors/philosophy-of-a-specific-discipline/?lang=en",
+        "https://www.rug.nl/filosofie/education/prospectus/study-guide-philosophy-studiegids-filosofie-2026-2027.pdf",
+        "https://www.rug.nl/filosofie/education/prospectus/tracks-bachelor-fvew-2026-2027-def.pdf"
+      ],
+      "official_source_ids": [
+        "rug_degree",
+        "rug_guide",
+        "rug_tracks"
+      ],
+      "date_checked": "2026-10-07",
+      "recommended_fix": null,
+      "unresolved_factual_question": null,
+      "ucr_side_reassessment_pending": null,
+      "ucr_side_assessment_note": "Not assessed: this is a scope exclusion, not a no-match exception.",
+      "exclusion_should_remain": true,
+      "failed_scope_conditions": [
+        {
+          "attribute": "programme_type",
+          "actual_value": "double-bachelor",
+          "required_value": "standard"
+        }
+      ],
+      "governing_rule": "Master Specification §4.1; Production Instructions §4.1",
+      "registry_values": {
+        "registry_order": "164",
+        "production_order": "162",
+        "programme_type": "double-bachelor",
+        "current_status": "active",
+        "production_eligible": "true",
+        "study_load_ec": "180",
+        "duration_years": "",
+        "canonical_name": "Cognitiewetenschappen"
+      },
+      "provenance": {
+        "source_excel_rows": [
+          177
+        ],
+        "offering_ids": [
+          "904dec2c-bde4-407c-a49c-2392218523a3",
+          "dbaf18f3-6904-4181-b626-edcc1a2b1338"
+        ],
+        "normalization_basis": "step1-no-ambiguity",
+        "decision_case_ids": [],
+        "resolution_decisions": [],
+        "post_build_corrected_attributes": {
+          "programme_type": "double-bachelor",
+          "display_name_en": "Philosophy of a Specific Discipline — Cognitive Sciences track",
+          "evidence_url": "https://www.rug.nl/bachelors/philosophy-of-a-specific-discipline/?lang=en",
+          "evidence_year": "2026-2027",
+          "reason": "The official Groningen degree is a combination bachelor awarding two degrees and credits 120 EC from a separate first BA; the Cognitive Sciences designation is a track of the philosophy degree."
+        },
+        "crosswalk_check": "Source-row and offering-ID sets exactly agree with the normalized target. Variant-of code 57084 agrees with the official philosophy degree CROHO code; the original source label is retained.",
+        "repository_evidence_paths": [
+          "data/registry/programmes.csv",
+          "data/registry/programme_source_rows.csv",
+          "data/registry/programme_offerings.csv",
+          "data/registry/README.md"
+        ]
+      },
+      "evidence_details": [
+        {
+          "source_id": "rug_guide",
+          "locator": "Section 7.4, printed p. 52: registration-track list",
+          "fact": "Cognitive Sciences track explicitly listed."
+        },
+        {
+          "source_id": "rug_tracks",
+          "locator": "PDF p. 1, heading Cognitive Sciences",
+          "fact": "Current bachelor-track course table corroborates the identity."
+        }
+      ],
+      "batch_number": 1,
+      "shared_evidence_group": "groningen-psd-combination"
+    },
+    {
+      "counselor_programme_id": "cp-000169",
+      "programme_display_name": "Philosophy of a Specific Discipline — Economic and Social Sciences track",
+      "institution": "University of Groningen",
+      "participating_institutions": [
+        "University of Groningen"
+      ],
+      "audit_population": "scope-exclusion",
+      "existing_exclusion_reason": "programme_type='double-bachelor'",
+      "formal_exception_type": null,
+      "existing_substantive_exception_reason": null,
+      "audit_scope": "Exact Economic and Social Sciences bachelor-track identity and combination structure",
+      "audit_finding": "confirmed",
+      "required_action": "none",
+      "audit_basis": "Economic and Social Sciences is a current track within that combination degree. The record correctly excludes it as double-bachelor.",
+      "official_source_urls": [
+        "https://www.rug.nl/bachelors/philosophy-of-a-specific-discipline/?lang=en",
+        "https://www.rug.nl/filosofie/education/prospectus/study-guide-philosophy-studiegids-filosofie-2026-2027.pdf",
+        "https://www.rug.nl/filosofie/education/prospectus/tracks-bachelor-fvew-2026-2027-def.pdf"
+      ],
+      "official_source_ids": [
+        "rug_degree",
+        "rug_guide",
+        "rug_tracks"
+      ],
+      "date_checked": "2026-10-07",
+      "recommended_fix": null,
+      "unresolved_factual_question": null,
+      "ucr_side_reassessment_pending": null,
+      "ucr_side_assessment_note": "Not assessed: this is a scope exclusion, not a no-match exception.",
+      "exclusion_should_remain": true,
+      "failed_scope_conditions": [
+        {
+          "attribute": "programme_type",
+          "actual_value": "double-bachelor",
+          "required_value": "standard"
+        }
+      ],
+      "governing_rule": "Master Specification §4.1; Production Instructions §4.1",
+      "registry_values": {
+        "registry_order": "169",
+        "production_order": "167",
+        "programme_type": "double-bachelor",
+        "current_status": "active",
+        "production_eligible": "true",
+        "study_load_ec": "180",
+        "duration_years": "",
+        "canonical_name": "Economische en Sociale Wetenschappen"
+      },
+      "provenance": {
+        "source_excel_rows": [
+          182
+        ],
+        "offering_ids": [
+          "569ea016-9cbd-48bc-a8e1-0267c100a505",
+          "6e49dae8-7b6b-4507-99e0-3dbdc03dcfee"
+        ],
+        "normalization_basis": "step1-no-ambiguity",
+        "decision_case_ids": [],
+        "resolution_decisions": [],
+        "post_build_corrected_attributes": {
+          "programme_type": "double-bachelor",
+          "display_name_en": "Philosophy of a Specific Discipline — Economic and Social Sciences track",
+          "evidence_url": "https://www.rug.nl/bachelors/philosophy-of-a-specific-discipline/?lang=en",
+          "evidence_year": "2026-2027",
+          "reason": "The official Groningen degree is a combination bachelor awarding two degrees and credits 120 EC from a separate first BA; the Economic and Social Sciences designation is a track of the philosophy degree."
+        },
+        "crosswalk_check": "Source-row and offering-ID sets exactly agree with the normalized target. Variant-of code 57084 agrees with the official philosophy degree CROHO code; the original source label is retained.",
+        "repository_evidence_paths": [
+          "data/registry/programmes.csv",
+          "data/registry/programme_source_rows.csv",
+          "data/registry/programme_offerings.csv",
+          "data/registry/README.md"
+        ]
+      },
+      "evidence_details": [
+        {
+          "source_id": "rug_guide",
+          "locator": "Section 7.4, printed p. 52: registration-track list",
+          "fact": "Economic and Social Sciences track explicitly listed."
+        },
+        {
+          "source_id": "rug_tracks",
+          "locator": "PDF p. 2, heading Economic and Social Sciences",
+          "fact": "Current bachelor-track course table corroborates the identity."
+        }
+      ],
+      "batch_number": 1,
+      "shared_evidence_group": "groningen-psd-combination"
+    },
+    {
+      "counselor_programme_id": "cp-000177",
+      "programme_display_name": "Philosophy of a Specific Discipline — History track",
+      "institution": "University of Groningen",
+      "participating_institutions": [
+        "University of Groningen"
+      ],
+      "audit_population": "scope-exclusion",
+      "existing_exclusion_reason": "programme_type='double-bachelor'",
+      "formal_exception_type": null,
+      "existing_substantive_exception_reason": null,
+      "audit_scope": "Exact History bachelor-track identity and combination structure",
+      "audit_finding": "confirmed",
+      "required_action": "none",
+      "audit_basis": "History is a current track within that combination degree. The record correctly excludes it as double-bachelor.",
+      "official_source_urls": [
+        "https://www.rug.nl/bachelors/philosophy-of-a-specific-discipline/?lang=en",
+        "https://www.rug.nl/filosofie/education/prospectus/study-guide-philosophy-studiegids-filosofie-2026-2027.pdf",
+        "https://www.rug.nl/filosofie/education/prospectus/tracks-bachelor-fvew-2026-2027-def.pdf"
+      ],
+      "official_source_ids": [
+        "rug_degree",
+        "rug_guide",
+        "rug_tracks"
+      ],
+      "date_checked": "2026-10-07",
+      "recommended_fix": null,
+      "unresolved_factual_question": null,
+      "ucr_side_reassessment_pending": null,
+      "ucr_side_assessment_note": "Not assessed: this is a scope exclusion, not a no-match exception.",
+      "exclusion_should_remain": true,
+      "failed_scope_conditions": [
+        {
+          "attribute": "programme_type",
+          "actual_value": "double-bachelor",
+          "required_value": "standard"
+        }
+      ],
+      "governing_rule": "Master Specification §4.1; Production Instructions §4.1",
+      "registry_values": {
+        "registry_order": "177",
+        "production_order": "175",
+        "programme_type": "double-bachelor",
+        "current_status": "active",
+        "production_eligible": "true",
+        "study_load_ec": "180",
+        "duration_years": "",
+        "canonical_name": "Geschiedwetenschap"
+      },
+      "provenance": {
+        "source_excel_rows": [
+          190
+        ],
+        "offering_ids": [
+          "4c1226da-29f8-45a7-abc4-5c7ab0913f97",
+          "9289061f-cb9e-4003-8fd4-e53b7ed6b88b"
+        ],
+        "normalization_basis": "step1-no-ambiguity",
+        "decision_case_ids": [],
+        "resolution_decisions": [],
+        "post_build_corrected_attributes": {
+          "programme_type": "double-bachelor",
+          "display_name_en": "Philosophy of a Specific Discipline — History track",
+          "evidence_url": "https://www.rug.nl/bachelors/philosophy-of-a-specific-discipline/?lang=en",
+          "evidence_year": "2026-2027",
+          "reason": "The official Groningen degree is a combination bachelor awarding two degrees and credits 120 EC from a separate first BA; the History designation is a track of the philosophy degree."
+        },
+        "crosswalk_check": "Source-row and offering-ID sets exactly agree with the normalized target. Variant-of code 57084 agrees with the official philosophy degree CROHO code; the original source label is retained.",
+        "repository_evidence_paths": [
+          "data/registry/programmes.csv",
+          "data/registry/programme_source_rows.csv",
+          "data/registry/programme_offerings.csv",
+          "data/registry/README.md"
+        ]
+      },
+      "evidence_details": [
+        {
+          "source_id": "rug_guide",
+          "locator": "Section 7.4, printed p. 52: registration-track list",
+          "fact": "History track explicitly listed."
+        },
+        {
+          "source_id": "rug_tracks",
+          "locator": "PDF p. 3, heading History",
+          "fact": "Current bachelor-track course table corroborates the identity."
+        }
+      ],
+      "batch_number": 1,
+      "shared_evidence_group": "groningen-psd-combination"
+    },
+    {
+      "counselor_programme_id": "cp-000186",
+      "programme_display_name": "Philosophy of a Specific Discipline — Art and Cultural Studies track",
+      "institution": "University of Groningen",
+      "participating_institutions": [
+        "University of Groningen"
+      ],
+      "audit_population": "scope-exclusion",
+      "existing_exclusion_reason": "programme_type='double-bachelor'",
+      "formal_exception_type": null,
+      "existing_substantive_exception_reason": null,
+      "audit_scope": "Exact Art and Cultural Studies bachelor-track identity and combination structure",
+      "audit_finding": "confirmed",
+      "required_action": "none",
+      "audit_basis": "Art and Cultural Studies is a current registration track within that combination degree. Its double-bachelor exclusion is justified.",
+      "official_source_urls": [
+        "https://www.rug.nl/bachelors/philosophy-of-a-specific-discipline/?lang=en",
+        "https://www.rug.nl/filosofie/education/prospectus/study-guide-philosophy-studiegids-filosofie-2026-2027.pdf",
+        "https://www.rug.nl/filosofie/education/prospectus/tracks-bachelor-fvew-2026-2027-def.pdf"
+      ],
+      "official_source_ids": [
+        "rug_degree",
+        "rug_guide",
+        "rug_tracks"
+      ],
+      "date_checked": "2026-10-07",
+      "recommended_fix": null,
+      "unresolved_factual_question": null,
+      "ucr_side_reassessment_pending": null,
+      "ucr_side_assessment_note": "Not assessed: this is a scope exclusion, not a no-match exception.",
+      "exclusion_should_remain": true,
+      "failed_scope_conditions": [
+        {
+          "attribute": "programme_type",
+          "actual_value": "double-bachelor",
+          "required_value": "standard"
+        }
+      ],
+      "governing_rule": "Master Specification §4.1; Production Instructions §4.1",
+      "registry_values": {
+        "registry_order": "186",
+        "production_order": "184",
+        "programme_type": "double-bachelor",
+        "current_status": "active",
+        "production_eligible": "true",
+        "study_load_ec": "180",
+        "duration_years": "",
+        "canonical_name": "Kunst- en Cultuurwetenschappen"
+      },
+      "provenance": {
+        "source_excel_rows": [
+          199
+        ],
+        "offering_ids": [
+          "612ec857-e93e-4a78-a707-b298d080a090",
+          "69eef1f8-8e97-460d-9012-67fdc09a0e88"
+        ],
+        "normalization_basis": "step1-no-ambiguity",
+        "decision_case_ids": [],
+        "resolution_decisions": [],
+        "post_build_corrected_attributes": {
+          "programme_type": "double-bachelor",
+          "display_name_en": "Philosophy of a Specific Discipline — Art and Cultural Studies track",
+          "evidence_url": "https://www.rug.nl/bachelors/philosophy-of-a-specific-discipline/?lang=en",
+          "evidence_year": "2026-2027",
+          "reason": "The official Groningen degree is a combination bachelor awarding two degrees and credits 120 EC from a separate first BA; the Art and Cultural Studies designation is a track of the philosophy degree."
+        },
+        "crosswalk_check": "Source-row and offering-ID sets exactly agree with the normalized target. Variant-of code 57084 agrees with the official philosophy degree CROHO code; the original source label is retained.",
+        "repository_evidence_paths": [
+          "data/registry/programmes.csv",
+          "data/registry/programme_source_rows.csv",
+          "data/registry/programme_offerings.csv",
+          "data/registry/README.md"
+        ]
+      },
+      "evidence_details": [
+        {
+          "source_id": "rug_guide",
+          "locator": "Section 7.4, printed p. 52: registration-track list",
+          "fact": "Art and Cultural Studies track explicitly listed."
+        },
+        {
+          "source_id": "rug_tracks",
+          "locator": "PDF p. 3, heading Arts and Culture",
+          "fact": "Current bachelor-track course table corroborates the identity."
+        },
+        {
+          "source_id": "rug_guide",
+          "locator": "Section 7.4, printed pp. 52 and 56–57",
+          "fact": "Registration label Art and Cultural Studies; curricular table uses Arts and Culture. This wording difference does not identify a different bachelor."
+        }
+      ],
+      "batch_number": 1,
+      "shared_evidence_group": "groningen-psd-combination"
+    }
+  ],
+  "pending_cases": [
+    {
+      "counselor_programme_id": "cp-000190",
+      "programme_display_name": "Philosophy of a Specific Discipline — Life Sciences track",
+      "audit_population": "scope-exclusion",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000195",
+      "programme_display_name": "Minorities & Multilingualism",
+      "audit_population": "scope-exclusion",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000197",
+      "programme_display_name": "Philosophy of a Specific Discipline — Natural Sciences track",
+      "audit_population": "scope-exclusion",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000202",
+      "programme_display_name": "Philosophy of a Specific Discipline — Political Science track",
+      "audit_population": "scope-exclusion",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000234",
+      "programme_display_name": "Data Science (joint degree Tilburg University + TU/e)",
+      "audit_population": "scope-exclusion",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000307",
+      "programme_display_name": "Molecular Science and Technology (joint degree)",
+      "audit_population": "scope-exclusion",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000417",
+      "programme_display_name": "Physics and Astronomy (joint degree)",
+      "audit_population": "scope-exclusion",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000430",
+      "programme_display_name": "Chemistry (joint degree)",
+      "audit_population": "scope-exclusion",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000460",
+      "programme_display_name": "Tourism (joint degree)",
+      "audit_population": "scope-exclusion",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000040",
+      "programme_display_name": "German Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000043",
+      "programme_display_name": "English Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000046",
+      "programme_display_name": "French Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000050",
+      "programme_display_name": "Classics",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000051",
+      "programme_display_name": "Human Neuroscience",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000055",
+      "programme_display_name": "Islam, Politics and Society",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000057",
+      "programme_display_name": "Molecular Life Sciences",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000058",
+      "programme_display_name": "Natural Sciences",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000059",
+      "programme_display_name": "Physics and Astronomy",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000060",
+      "programme_display_name": "Dutch Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000061",
+      "programme_display_name": "Notarial Law",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000063",
+      "programme_display_name": "Pedagogical Sciences of Primary Education",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000068",
+      "programme_display_name": "Religion, Politics and Society",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000070",
+      "programme_display_name": "Chemistry",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000072",
+      "programme_display_name": "Spanish Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000073",
+      "programme_display_name": "Linguistics",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000074",
+      "programme_display_name": "Dentistry",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000075",
+      "programme_display_name": "Theology",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000076",
+      "programme_display_name": "Mathematics",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000079",
+      "programme_display_name": "Archaeology",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000095",
+      "programme_display_name": "Pharmaceutical Sciences",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000097",
+      "programme_display_name": "Medicine",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000098",
+      "programme_display_name": "History",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000099",
+      "programme_display_name": "Health and Life Sciences",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000100",
+      "programme_display_name": "Health Sciences",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000119",
+      "programme_display_name": "Theology and Religious Studies",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000134",
+      "programme_display_name": "Fiscal Economics",
+      "audit_population": "exception",
+      "formal_exception_type": "registry-exception",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000140",
+      "programme_display_name": "Circular Engineering",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000149",
+      "programme_display_name": "Cultural Studies",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000156",
+      "programme_display_name": "Theology",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000159",
+      "programme_display_name": "Archaeology",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000171",
+      "programme_display_name": "European Languages and Cultures",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000172",
+      "programme_display_name": "Pharmacy",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000174",
+      "programme_display_name": "Frisian Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000175",
+      "programme_display_name": "Medicine",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000179",
+      "programme_display_name": "Classics",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000192",
+      "programme_display_name": "Life Science and Technology",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000194",
+      "programme_display_name": "Middle Eastern Studies",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000196",
+      "programme_display_name": "Physics",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000198",
+      "programme_display_name": "Dutch Languages and Cultures — Dutch Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000199",
+      "programme_display_name": "Dutch Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "registry-exception",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000200",
+      "programme_display_name": "Dutch Languages and Cultures",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000205",
+      "programme_display_name": "Religious Studies",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000206",
+      "programme_display_name": "Chemistry",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000207",
+      "programme_display_name": "Chemical Engineering",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000210",
+      "programme_display_name": "Astronomy",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000211",
+      "programme_display_name": "Linguistics",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000212",
+      "programme_display_name": "Dentistry",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000213",
+      "programme_display_name": "Industrial Engineering & Management",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000214",
+      "programme_display_name": "Applied Physics",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000215",
+      "programme_display_name": "Applied Mathematics",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000216",
+      "programme_display_name": "Theology",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000217",
+      "programme_display_name": "Mathematics",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000244",
+      "programme_display_name": "Theology",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000246",
+      "programme_display_name": "Bachelor Architecture, Urbanism and Building Sciences",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000247",
+      "programme_display_name": "Bachelor Civil Engineering",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000248",
+      "programme_display_name": "Bachelor Electrical Engineering",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000249",
+      "programme_display_name": "Bachelor Industrial Design",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000250",
+      "programme_display_name": "Bachelor Clinical Technology",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000251",
+      "programme_display_name": "Bachelor Life Science and Technology",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000252",
+      "programme_display_name": "Bachelor Aerospace Engineering",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000253",
+      "programme_display_name": "Bachelor Marine Technology",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000254",
+      "programme_display_name": "Bachelor Nanobiology",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000258",
+      "programme_display_name": "Bachelor Applied Physics",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000259",
+      "programme_display_name": "Bachelor Applied Mathematics",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000260",
+      "programme_display_name": "Bachelor Mechanical Engineering",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000261",
+      "programme_display_name": "Automotive Technology",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000262",
+      "programme_display_name": "Biomedical Engineering",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000263",
+      "programme_display_name": "Architecture, Urbanism and Building Sciences",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000265",
+      "programme_display_name": "Electrical Engineering",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000266",
+      "programme_display_name": "Industrial Design",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000267",
+      "programme_display_name": "Mechanical Engineering",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000270",
+      "programme_display_name": "Chemical Engineering and Chemistry",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000273",
+      "programme_display_name": "Applied Physics",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000274",
+      "programme_display_name": "Applied Mathematics",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000275",
+      "programme_display_name": "Theology",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000276",
+      "programme_display_name": "Theology",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000277",
+      "programme_display_name": "African Studies",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000278",
+      "programme_display_name": "Archaeology",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000280",
+      "programme_display_name": "Bio-Pharmaceutical Sciences",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000283",
+      "programme_display_name": "Chinese Studies",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000284",
+      "programme_display_name": "Criminology",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000286",
+      "programme_display_name": "Cybersecurity & Cybercrime",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000288",
+      "programme_display_name": "German Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000289",
+      "programme_display_name": "Economics & Society",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000290",
+      "programme_display_name": "English Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000293",
+      "programme_display_name": "Tax Law",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000294",
+      "programme_display_name": "French Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000295",
+      "programme_display_name": "Medicine",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000297",
+      "programme_display_name": "Classics",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000299",
+      "programme_display_name": "International Studies",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000300",
+      "programme_display_name": "Italian Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000301",
+      "programme_display_name": "Japanese Studies",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000302",
+      "programme_display_name": "Korean Studies",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000304",
+      "programme_display_name": "Latin American Studies",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000306",
+      "programme_display_name": "Middle Eastern Studies",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000308",
+      "programme_display_name": "Physics",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000309",
+      "programme_display_name": "Dutch Studies",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000310",
+      "programme_display_name": "Dutch Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000311",
+      "programme_display_name": "Notarial Law",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000312",
+      "programme_display_name": "Ancient Near Eastern Studies",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000314",
+      "programme_display_name": "Political Science",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000317",
+      "programme_display_name": "Law",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000318",
+      "programme_display_name": "Religious Studies",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000319",
+      "programme_display_name": "Russian Studies",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000322",
+      "programme_display_name": "South and Southeast Asian Studies",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000323",
+      "programme_display_name": "Astronomy",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000324",
+      "programme_display_name": "Linguistics",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000326",
+      "programme_display_name": "Mathematics",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000327",
+      "programme_display_name": "Bachelor Civil Engineering",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000330",
+      "programme_display_name": "Bachelor Mechanical Engineering",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000331",
+      "programme_display_name": "Bachelor Mechanical Engineering - Amsterdam (VU-UT)",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000333",
+      "programme_display_name": "Academic Primary Teacher Education",
+      "audit_population": "exception",
+      "formal_exception_type": "registry-exception",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000339",
+      "programme_display_name": "Veterinary Medicine",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000342",
+      "programme_display_name": "Pharmacy",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000344",
+      "programme_display_name": "Medicine",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000357",
+      "programme_display_name": "Musicology",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000358",
+      "programme_display_name": "Physics & Astronomy",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000364",
+      "programme_display_name": "Politics, Culture and Religion",
+      "audit_population": "exception",
+      "formal_exception_type": "external-programme-unresolved",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000367",
+      "programme_display_name": "Chemistry",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000370",
+      "programme_display_name": "Spanish Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000375",
+      "programme_display_name": "Mathematics",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000378",
+      "programme_display_name": "Arabic Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000379",
+      "programme_display_name": "Archaeology",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000390",
+      "programme_display_name": "German Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000398",
+      "programme_display_name": "French Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000400",
+      "programme_display_name": "Medicine",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000403",
+      "programme_display_name": "Greek and Latin Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000404",
+      "programme_display_name": "Hebrew Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000408",
+      "programme_display_name": "Italian Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000411",
+      "programme_display_name": "Linguistics",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000416",
+      "programme_display_name": "Musicology",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000419",
+      "programme_display_name": "Modern Greek Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000428",
+      "programme_display_name": "Religious Studies",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000429",
+      "programme_display_name": "Scandinavian Languages and Cultures",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000432",
+      "programme_display_name": "Slavonic Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000435",
+      "programme_display_name": "Spanish Language and Culture",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000436",
+      "programme_display_name": "Dentistry",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000437",
+      "programme_display_name": "Theatre Studies",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    },
+    {
+      "counselor_programme_id": "cp-000459",
+      "programme_display_name": "Food Technology",
+      "audit_population": "exception",
+      "formal_exception_type": "no-defensible-ucr-match",
+      "audit_status": "pending"
+    }
+  ],
+  "next_batch_case_keys": [
+    {
+      "audit_population": "scope-exclusion",
+      "counselor_programme_id": "cp-000190"
+    },
+    {
+      "audit_population": "scope-exclusion",
+      "counselor_programme_id": "cp-000195"
+    },
+    {
+      "audit_population": "scope-exclusion",
+      "counselor_programme_id": "cp-000197"
+    },
+    {
+      "audit_population": "scope-exclusion",
+      "counselor_programme_id": "cp-000202"
+    },
+    {
+      "audit_population": "scope-exclusion",
+      "counselor_programme_id": "cp-000234"
+    },
+    {
+      "audit_population": "scope-exclusion",
+      "counselor_programme_id": "cp-000307"
+    },
+    {
+      "audit_population": "scope-exclusion",
+      "counselor_programme_id": "cp-000417"
+    },
+    {
+      "audit_population": "scope-exclusion",
+      "counselor_programme_id": "cp-000430"
+    },
+    {
+      "audit_population": "scope-exclusion",
+      "counselor_programme_id": "cp-000460"
+    },
+    {
+      "audit_population": "exception",
+      "counselor_programme_id": "cp-000040"
+    }
+  ]
+}
