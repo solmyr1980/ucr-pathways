@@ -2,7 +2,7 @@
 
 **Status:** Future idea
 
-**Current decision:** Preserve this as a future methodological and implementation plan. Do not treat it as a current production requirement until explicitly activated.
+**Current decision:** Preserve this as a future methodological and implementation plan. Do not treat it as a current production requirement until explicitly activated.\n\n**Settled architecture:** Microsoft CoWork builds the canonical course database from local source files; ChatGPT applies a validated LLM rubric to all unique course pairs to create the full reusable course-pair proximity matrix; deterministic GitHub code uses that matrix to retrieve the nearest historical alumni curricula; the LLM then makes the final master's-selection judgment.
 
 ## Purpose
 
@@ -74,7 +74,7 @@ Administrative material, assessment logistics, attendance rules and similar non-
 
 ### Primary proximity method
 
-The current preferred approach is to use an LLM to assign a standardized academic proximity score to each unique pair of courses under a fixed rubric.
+The settled production approach is to use an LLM to assign a standardized academic proximity score to each unique pair of courses under a fixed rubric.
 
 With roughly 600 distinct courses, this implies approximately 179,700 unique course pairs, which is computationally feasible as a one-off or infrequently repeated production step.
 
@@ -88,7 +88,7 @@ The embedding measure and the LLM measure should initially remain separate rathe
 
 ## Production workflow for course proximity
 
-The likely development workflow is:
+The agreed development workflow is:
 
 1. Microsoft CoWork builds the comprehensive canonical course database from the local course outlines and metadata;
 2. a deliberately diverse sample of that database is brought into ChatGPT;
@@ -204,7 +204,7 @@ Any future claim about current eligibility requires a separate admissions-requir
 - Build course-level proximity from substantive course content.
 - Use one canonical course profile per course initially rather than semester-specific profiles.
 - Use Microsoft CoWork to build the comprehensive canonical course database from local course outlines and metadata.
-- Use an LLM-based course-pair proximity measure as the primary candidate.
+- Use an LLM-based course-pair proximity measure as the primary course-pair measure.
 - Use ChatGPT, not Microsoft CoWork, to apply the validated course-pair rubric and produce the full course-pair proximity matrix.
 - Consider embedding similarity as an independent robustness measure.
 - Generate and reuse a full course-pair proximity matrix rather than asking the LLM to re-evaluate course pairs during each record.
