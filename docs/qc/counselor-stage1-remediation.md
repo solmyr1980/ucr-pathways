@@ -499,7 +499,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 | cp-000263 — Bachelor Architecture, Urbanism and Building Sciences | Instantiated one coherent AUDE route using formal ordering independently of UCR fit; Replaced generic 130-EC core with 28 named requirement/open-space positions; preserved printed 5-EC multidisciplinary project; Recorded the 175-EC diagnostic and conflict between Article 3.4, Appendix 2 and webpage aggregates | Official reconciliation of AUDE core/project credits and elective volume: printed named core125 + ITEC10 + Appendix2 electives40 = 175, versus Article3.4 electives45 and webpage core130/electives40. |
 | cp-000265 — Bachelor Electrical Engineering | Reconstructed 27 current common/EE course and open-space positions totaling 180 EC; Corrected core 125 including project 10, ITEC 10 and electives 45; counted 5EWC0 once at 10; Removed optional semiconductor/alternative-programme courses from universal compulsory formation | None within this correction. |
 | cp-000266 — Bachelor Industrial Design | Replaced generic annual 60 blocks with all 23 source-printed positions; diagram total 180 EC; Preserved separately credited PPD15, design projects 50, multidisciplinary CBL5 and approved ELA25 alternatives; Recorded unresolved formal 185 versus diagram 180 conflict without altering printed weights | Official reconciliation of current PER core 125 + ITEC 10 + profiling 50 =185 versus ordinary current diagram core 120 + ITEC 10 + profiling 50 =180. |
-| cp-000267 | Pending | Pending |
+| cp-000267 — Bachelor Mechanical Engineering | Corrected normalized instruction language to ENG while preserving raw NLD provenance; Reconstructed 28 current positions totaling 180: core 125 including project 10, ITEC10, electives 45; Instantiated two restricted core choices by formal quarter-group order; kept optional summer precision course distinct | None within this correction. |
 | cp-000270 | Pending | Pending |
 
 ### cp-000263
@@ -531,3 +531,12 @@ The external correction is complete. UCR fit awaits separate assessment; the sup
 Verification: Fresh current official requirement tables inspected, including visual PDF checks. Each component counted once; verified 23 positions totaling180 EC. Deterministic compilation, all three target validators and generated-index checks passed.
 
 The diagram reconstruction and required formation are corrected. The current formal aggregate remains inconsistent with it, so external-programme-unresolved is retained until an authoritative reconciliation is available. No recurring monitoring is scheduled.
+
+### cp-000267
+
+- [Mechanical Engineering programme](https://www.tue.nl/en/education/bachelor-college/bachelor-mechanical-engineering) — Degree facts and language. Evidence preserved from the completed first-stage audit; this source was not freshly retrieved: <urlopen error timed out>
+- [Mechanical Engineering PER after revision 2026–2027](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Mechanical%20Engineering/Bachelor%20College/2026-2027/BSc%20PER%20AR%202026-2027.pdf) — Articles 3.3–3.4; Appendix 2, PDF pp.72–77. Checked 8 October 2026. SHA-256: `737d0f3e9549d25f973bfc4a44ef8ea00114d159cde906777f4a56eb4364a919`.
+
+Verification: Fresh current official requirement tables inspected, including visual PDF checks. Each component counted once; verified 28 positions totaling180 EC. Deterministic compilation, all three target validators and generated-index checks passed.
+
+The external correction is complete. UCR fit awaits separate assessment; the superseded judgment is preserved in this register. No recurring monitoring is scheduled.
