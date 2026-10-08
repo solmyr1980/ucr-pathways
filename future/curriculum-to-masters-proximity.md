@@ -90,14 +90,14 @@ The embedding measure and the LLM measure should initially remain separate rathe
 
 The likely development workflow is:
 
-1. build a deliberately diverse sample of course profiles;
-2. test the LLM rubric on that sample;
-3. inspect difficult and borderline cases;
-4. revise the rubric;
-5. repeat quality-control checks until judgments are sufficiently stable;
-6. apply the finalized method to the full local course corpus.
+1. Microsoft CoWork builds the comprehensive canonical course database from the local course outlines and metadata;
+2. a deliberately diverse sample of that database is brought into ChatGPT;
+3. the LLM course-pair proximity rubric is designed and tested on the sample;
+4. difficult and borderline cases are inspected and the rubric is revised;
+5. quality-control checks are repeated until judgments are sufficiently stable;
+6. ChatGPT applies the finalized rubric to all unique course pairs, in manageable batches, to produce the complete course-pair proximity matrix.
 
-Because the full course database is large and stored locally, methodological development can use a representative sample in ChatGPT. Full production may then be executed against the local files using Microsoft CoWork or another suitable local-access workflow, subject to confirming that the required files are accessible in that environment.
+Microsoft CoWork's role in this stage is **data extraction and structuring from local files**, not substantive course-pair scoring.
 
 The resulting course-pair proximity matrix is a reusable research asset. It should be generated once and refreshed only when the underlying course corpus or proximity method changes materially.
 
@@ -141,6 +141,8 @@ The implementation should accommodate alumni who completed fewer or more courses
 
 Personal identities are not required for matching and should not be included in the production matching bundle.
 
+Microsoft CoWork may be used to extract and structure this anonymized alumni curriculum dataset from the full local alumni records. It should not determine curriculum proximity or master's relevance.
+
 ## Technical integration with existing UCR Pathways workflows
 
 The implementation should follow the existing separation between version-controlled code and private operational data.
@@ -149,8 +151,8 @@ The implementation should follow the existing separation between version-control
 
 GitHub should contain the reproducible machinery, for example:
 
-- a script that builds the compact alumni-matching bundle from local source data;
 - a script or module that calculates curriculum proximity and retrieves the nearest historical curricula;
+- any helper script needed to assemble a compact production matching bundle from already-structured inputs;
 - tests and validation fixtures;
 - documentation of the matching method.
 
@@ -160,16 +162,16 @@ The raw alumni histories should **not** be stored in the public repository.
 
 A compact private bundle should contain only the information required during production, such as:
 
-- the course-to-course proximity matrix;
-- anonymized alumni curriculum records;
+- the course-to-course proximity matrix generated through the validated ChatGPT scoring workflow;
+- anonymized alumni curriculum records prepared from the local alumni database;
 - observed master's destinations;
 - any minimal metadata required by the matching algorithm.
 
 A columnar format such as Parquet is likely appropriate because the data are structured and should compress efficiently.
 
-The matching bundle can be built from the full local database and then stored as a private UCR Pathways Project Source or another private source accessible to the production workflow. It should be replaced only when the underlying alumni data, course corpus or proximity method changes materially.
+The compact bundle should be assembled from these prepared inputs and stored as a private UCR Pathways Project Source or another private source accessible to the production workflow. It should be replaced only when the underlying alumni data, course corpus or proximity method changes materially.
 
-The detailed course outlines used to build course-pair proximities do not need to be loaded during each student or counselor production run once the reusable proximity matrix has been created.
+The detailed course outlines used to build the canonical course database do not need to be loaded during each student or counselor production run once the reusable proximity matrix has been created.
 
 ### Per-record production flow
 
@@ -201,7 +203,9 @@ Any future claim about current eligibility requires a separate admissions-requir
 - Compare proposed UCR curricula with historical UCR curricula.
 - Build course-level proximity from substantive course content.
 - Use one canonical course profile per course initially rather than semester-specific profiles.
+- Use Microsoft CoWork to build the comprehensive canonical course database from local course outlines and metadata.
 - Use an LLM-based course-pair proximity measure as the primary candidate.
+- Use ChatGPT, not Microsoft CoWork, to apply the validated course-pair rubric and produce the full course-pair proximity matrix.
 - Consider embedding similarity as an independent robustness measure.
 - Generate and reuse a full course-pair proximity matrix rather than asking the LLM to re-evaluate course pairs during each record.
 - Treat curricula as distributions of academic content.
