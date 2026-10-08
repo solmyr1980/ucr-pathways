@@ -497,7 +497,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 | Target | First-stage outcome | Remaining external question |
 |---|---|---|
 | cp-000263 — Bachelor Architecture, Urbanism and Building Sciences | Instantiated one coherent AUDE route using formal ordering independently of UCR fit; Replaced generic 130-EC core with 28 named requirement/open-space positions; preserved printed 5-EC multidisciplinary project; Recorded the 175-EC diagnostic and conflict between Article 3.4, Appendix 2 and webpage aggregates | Official reconciliation of AUDE core/project credits and elective volume: printed named core125 + ITEC10 + Appendix2 electives40 = 175, versus Article3.4 electives45 and webpage core130/electives40. |
-| cp-000265 | Pending | Pending |
+| cp-000265 — Bachelor Electrical Engineering | Reconstructed 27 current common/EE course and open-space positions totaling 180 EC; Corrected core 125 including project 10, ITEC 10 and electives 45; counted 5EWC0 once at 10; Removed optional semiconductor/alternative-programme courses from universal compulsory formation | None within this correction. |
 | cp-000266 | Pending | Pending |
 | cp-000267 | Pending | Pending |
 | cp-000270 | Pending | Pending |
@@ -511,3 +511,12 @@ Status: in-progress. Independent UCR assessment remains separate.
 Verification: Fresh current official requirement tables inspected, including visual PDF checks. Each component counted once; verified 28 positions totaling175 EC. Deterministic compilation, all three target validators and generated-index checks passed.
 
 The established route and course corrections are published. Conflicting current official credit requirements prevent a verified 180-EC closure. The 175-EC diagnostic is deliberate; no missing credit is invented. No recurring monitoring is scheduled.
+
+### cp-000265
+
+- [Electrical Engineering programme](https://www.tue.nl/en/education/bachelor-college/bachelor-electrical-engineering) — English degree and integrated engineering identity. Evidence preserved from the completed first-stage audit; this source was not freshly retrieved: <urlopen error timed out>
+- [EE and Automotive after-revision curriculum 2026–2027](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Content/Programs/Bachelor%20College/Major%20Electrical%20Engineering/Curriculum/Curriculum%202026-2027/Latest%20version%2020260702%20Bachelor%20curriculum%20EE%20and%20AT%20After%20Revision%202026-2027.pdf) — PDF pp.1–4; version 2 July 2026. Checked 8 October 2026. SHA-256: `196b4664ac03682725b0b386f1695282f6f8f5f66c4b5cfbf17462097952c009`.
+
+Verification: Fresh current official requirement tables inspected, including visual PDF checks. Each component counted once; verified 27 positions totaling180 EC. Deterministic compilation, all three target validators and generated-index checks passed.
+
+The external correction is complete. UCR fit awaits separate assessment; the superseded judgment is preserved in this register. No recurring monitoring is scheduled.
