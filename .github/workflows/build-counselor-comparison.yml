@@ -90,6 +90,14 @@ jobs:
           comparison_path="data/counselor/comparisons/${comparison_id}.json"
 
           if [[ "$change_status" == "A" ]]; then
+            # A remediation handoff must not bypass new-production assessment.
+            git show "$GITHUB_SHA:$decision_path" | node --input-type=module -e '
+              import fs from "node:fs";
+              const decision = JSON.parse(fs.readFileSync(0, "utf8"));
+              if (decision.exception?.type === "ucr-assessment-pending") {
+                throw new Error("ucr-assessment-pending is reserved for repairs of existing production records");
+              }
+            '
             echo "mode=production" >> "$GITHUB_OUTPUT"
           elif [[ "$change_status" == "M" ]]; then
             if ! git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" | grep -Fxq "$comparison_path"; then

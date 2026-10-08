@@ -146,15 +146,15 @@ The compiler and app regression tests now use frozen historical exception fixtur
 
 ## Batch 3 — next five cases in audit order
 
-Status: in-progress. Independent UCR assessment remains separate.
+Status: completed. Independent UCR assessment remains separate.
 
 | Target | First-stage outcome | Remaining external question |
 |---|---|---|
 | cp-000076 — Mathematics (Wiskunde) | Rebuilt current ordinary OER pathway at 180 EC with 54+6+24+36+48+12 allocation; Instantiated restricted choices with 6 EC from year three; removed old-cohort and universal supplementary-mathematics assumptions; Corrected source labels and marked separate UCR assessment pending | None; UCR assessment remains separate. |
 | cp-000097 — Medicine (Geneeskunde) | Replaced empty external reconstruction with adopted 180-EC Compas curriculum; Verified minor 24 EC and thesis 6 EC; embedded clinical/research activities counted once; Removed unsupported external inaccessibility claim and recorded UCR assessment pending | None; UCR assessment remains separate. |
 | cp-000098 — History (Geschiedenis) | Expanded supported 60-EC subset into complete adopted Dutch general 180-EC pathway; Instantiated two year-two choices and one additional research seminar without stacking alternatives; Closed external evidence gap and marked UCR assessment pending | None; UCR assessment remains separate. |
-| cp-000099 | Pending | Pending |
-| cp-000100 | Pending | Pending |
+| cp-000099 — Health and Life Sciences (Gezondheid en Leven) | Corrected normalized language ENG to NLD from formal OER and current study guide; Preserved raw ENG provenance and the supported 90-EC subset | Applicable 2026-entry year-two/year-three course EC and complete restricted-choice/research allocation remain unpublished in the checked sources. |
+| cp-000100 — Health Sciences (Gezondheidswetenschappen) | Rechecked current formal evidence and confirmed existing supported 150-EC subset and exception require no correction | Applicable new-cohort third-year Methodologie 5, professional preparation and placement/thesis EC and choice rules remain unspecified in the checked sources. |
 
 The explicit `ucr-assessment-pending` handoff requires a verified complete 180-EC external reconstruction and shows that UCR assessment has not yet been completed. It prevents resolved external evidence gaps from being presented as unresolved, or superseded UCR judgments from appearing current. Existing no-match requirements remain unchanged. This state is for authorized remediation, not a shortcut for new production.
 
@@ -188,3 +188,31 @@ Minor selection is subject to university admission/capacity; current listing is 
 Verification: Adopted Dutch annual plans pp. 22–23 reread; general year-three table visually checked. 60 first + 48 required second + 12 selected second + 30 profiling + 9 research + 9 selected seminar + 3 colloquium + 9 thesis = 180 EC. Target validation and deterministic compiler regeneration passed.
 
 UCR History plausibility in the historical record is not a completed feasibility assessment. No UCR schedule or comparison is generated in this first-stage correction.
+
+### cp-000099
+
+- [vu_health_life_guide_b5](https://studiegids.vu.nl/nl/Bachelor/2026-2027/gezondheid-en-leven) — Programme facts and curriculum change notice. Checked 8 October 2026. SHA-256: `d1f30392babe1005d82df4738431ca4b22381d38215bc97f0ca32459add9cd54`.
+- [vu_health_life_oer_b5](https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/ede76ee3-4e16-41c8-8ccc-ce484951eac1/B%20Gezondheid%20en%20Leven%20OER%202026-2027.pdf) — Articles 10.2/10.4, PDF pp. 15/18; 11.3, pp. 19–22; 12.1, pp. 22–23. Checked 8 October 2026. SHA-256: `65a1bc9b2119af5da6b34e408b57dd13254910c644b5992d38006b0a15ea05a4`.
+- [vu_health_life_revision_b5](https://assets-eu-01.kc-usercontent.com/ff31ad68-341e-015e-fb52-24df7a00ecea/f4d7310d-6aba-45d8-aa25-ab026e822f74/Toelichting%20Curriculumherziening%20website%20G_L.pdf) — PDF pp. 1–2 and 4–6; year diagram visually checked. Checked 8 October 2026. SHA-256: `14085ef69beb61154eb7dfdaa9528aa5d02a9bbfe01d81951ef8f074fdc1186f`.
+
+Verification: Formal OER article 10.4.1 explicitly says instruction is Dutch. Current first-year ten 6-EC units and minimum minor 30 unchanged; no outgoing thesis weights imported. Guarded registry replay, metadata regeneration and target validation passed.
+
+No regular monitoring is scheduled; this correction pass is complete with a specific unresolved external question.
+
+### cp-000100
+
+- [vu_health_sciences_guide_b5](https://studiegids.vu.nl/nl/Bachelor/2026-2027/gezondheidswetenschappen) — Programme facts and linked current OER. Checked 8 October 2026. SHA-256: `fbfa908ef79af381b23d15fca1bb560be8f8d549e39bf9f5678d55c2f112eeb5`.
+- [vu_health_sciences_oer_b5](https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/4d43408f-790d-4f02-94d4-8aa29ae358d5/B%20Gezondheidswetenschappen%20OER%202026-2027.pdf) — Article 9.1, PDF p. 13; Articles 11.3–12.1, pp. 19–22; Article 15.2, p. 22. Checked 8 October 2026. SHA-256: `9cb56edc7a48cbadfd4a9a4c7ec42ea1293e2a7e976fa22b4fecd4289083b233`.
+- [vu_health_sciences_prospectus_b5](https://vu.nl/nl/onderwijs/bachelor/gezondheidswetenschappen/inhoud) — Third-year description. Checked 8 October 2026. SHA-256: `d583b11eb34ed2fa2936062e46e016acf489a6465c0cadf45c6aa0eea248e1f7`.
+
+Verification: Fresh 2026–2027 OER and current prospectus checked against the existing decision. Existing decision and canonical comparison retained byte-for-byte; 120 EC years one/two plus 30-EC minor remains supported. No unknown weights inferred by subtraction and no outgoing-cohort units imported.
+
+This is a completed no-change verification within batch 3, not an instruction for ongoing monitoring.
+
+### Batch 3 validation
+
+Five cases processed: three external findings resolved; two retain specific external factual questions. Health Sciences required no academic change. Mathematics, Medicine and History have complete 180-EC external reconstructions and explicitly await separate UCR assessment. No recurring monitoring was created.
+
+Target validators, deterministic compiler comparisons, guarded registry replay, generated-index checks, compiler regressions and full-corpus validation passed. GitHub build, review and Shiny results are verified after publication. The original audit remains unchanged.
+
+The live corpus contains 440 in-scope records: 301 comparisons and 139 exceptions. Exception types: 20 external-programme-unresolved, 114 no-defensible-ucr-match, 2 registry-exception, 3 ucr-assessment-pending. The normalized Health and Life Sciences language is NLD; its raw ENG provenance remains unchanged. No identity or production-scope change.
