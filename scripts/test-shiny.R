@@ -51,14 +51,24 @@ if (counselor$IS_REVIEW_DATA) {
   stopifnot(any(vapply(german_results, function(x) identical(x$programme$programmeProviderId, "cp-000040"), logical(1))))
   german_interest_results <- counselor$search_programmes(counselor$COUNSELOR_DATA, query = "German linguistics")
   stopifnot(any(vapply(german_interest_results, function(x) identical(x$programme$programmeProviderId, "cp-000040"), logical(1))))
-  german <- jsonlite::fromJSON(counselor$comparison_path("cp-000040"), simplifyVector = FALSE)
+  # Render fixed exception examples independently of later live-record corrections.
+  german <- jsonlite::fromJSON("data/test-fixtures/counselor-exception-no-match.json", simplifyVector = FALSE)
   exception_html <- as.character(counselor$render_comparison(german))
   stopifnot(grepl("cannot construct a sufficiently close programme", exception_html, fixed = TRUE))
   stopifnot(grepl("Linguistik im Fokus", exception_html, fixed = TRUE))
   stopifnot(grepl("Official programme source", exception_html, fixed = TRUE))
   stopifnot(!grepl("UCR courses", exception_html, fixed = TRUE))
-  exception_result <- counselor$render_result_cards(german_results[which(vapply(german_results, function(x) identical(x$programme$programmeProviderId, "cp-000040"), logical(1)))])
-  stopifnot(grepl("View programme", as.character(exception_result), fixed = TRUE))
+  unresolved <- german
+  unresolved$exception$type <- "external-programme-unresolved"
+  unresolved_html <- as.character(counselor$render_comparison(unresolved))
+  stopifnot(grepl("A reliable curriculum comparison is currently unavailable", unresolved_html, fixed = TRUE))
+  stopifnot(!grepl("cannot construct a sufficiently close programme", unresolved_html, fixed = TRUE))
+  stopifnot(grepl("Linguistik im Fokus", unresolved_html, fixed = TRUE))
+  stopifnot(!grepl("UCR courses", unresolved_html, fixed = TRUE))
+  german_result <- german_results[which(vapply(german_results, function(x) identical(x$programme$programmeProviderId, "cp-000040"), logical(1)))]
+  exception_result <- counselor$render_result_cards(german_result)
+  expected_button <- if (identical(german_result[[1]]$programme$recordStatus, "exception")) "View programme" else "Compare with UCR"
+  stopifnot(grepl(expected_button, as.character(exception_result), fixed = TRUE))
 }
 
 first_programme <- counselor$COUNSELOR_DATA$programmes[[1]]

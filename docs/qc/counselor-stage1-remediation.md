@@ -78,7 +78,7 @@ Status: in-progress. Independent UCR reassessment remains separate.
 |---|---|---|
 | cp-000040 — German Language and Culture | Corrected prospective academic-year labels and current formal authority; Restored year-two genuine free30 and formal restrictions; Removed unverified duplicated third-year15; published explicit external-programme-unresolved outcome | Obtain a current ordinary-route single-cohort repeat/replacement rule for LET-DTCB229, LET-DTCB225 and LET-DTCB235, or verify an applicable approved Article6 alternative. |
 | cp-000050 — Classics (Greek and Latin Language and Culture) | Updated year-three label to2029–2030 and stated the prospective2027-entry sequence; Retained the supported180-EC domestic pathway and prospective-cohort qualification | None within this correction; UCR reassessment remains separate. |
-| cp-000051 | Pending implementation | Pending |
+| cp-000051 — Human Neuroscience | Removed the unsupported current 66-EC prospectus claim; Refreshed the unresolved rationale to the present development notice and adopted OER | Obtain the remaining 16 EC third-year requirements and final applicable second-/third-year allocation when officially published. |
 | cp-000061 | Pending implementation | Pending |
 | cp-000070 | Pending implementation | Pending |
 
@@ -103,3 +103,13 @@ The original audit confirmed the prospectus field basis, not an independently ve
 Verification: Fresh current year-page downloads show2027–2028/2028–2029/2029–2030. All25 credited components, domestic selection and existing UCR assessment retained unchanged. Deterministic regeneration, target validators and generated-index check passed.
 
 This closes the source-context finding. No historical page archive establishes when the label changed, so the correction does not retrospectively classify the original production as outdated or erroneous.
+
+### cp-000051
+
+- [Humane Neurowetenschappen — OER Bachelor 2026–2027](https://www.ru.nl/ru-bestanden/fsw-oer-2026-2027-hnw-bachelor) — Articles 9.4–9.6, printed pp. 16–18. Checked 8 October 2026.
+- [Studieprogramma bachelor Humane Neurowetenschappen jaar 2](https://www.ru.nl/opleidingen/bachelors/humane-neurowetenschappen/studieprogramma-van-deze-opleiding/studieprogramma-bachelor-humane-neurowetenschappen-jaar-2) — Development caveat and required-course table. Checked 8 October 2026.
+- [Studieprogramma bachelor Humane Neurowetenschappen jaar 3](https://www.ru.nl/opleidingen/bachelors/humane-neurowetenschappen/studieprogramma-van-deze-opleiding/studieprogramma-bachelor-humane-neurowetenschappen-jaar-3) — Over dit studieprogramma and total EC. Checked 8 October 2026.
+
+Verification: Fresh OER download and current year-two/year-three pages. Visually inspected OER p.18: research 18 and genuine free 26; supported 60 + 60 + 44 = 164. All 23 component weights preserved; provisional learning lines remain explicit. Deterministic regeneration, target validators and generated-index check passed.
+
+The revised current rationale closes the stale-source claim; it does not resolve the university’s unpublished third-year allocation. The historical 66-EC calculation remains provenance only.
