@@ -293,7 +293,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 | cp-000198 — Dutch Languages and Cultures — Dutch Language and Culture | Corrected the formal route count to two; preserved the named Dutch pathway and all 180 EC; Consolidated duplicate CP199 source/interest ownership under CP198 while retaining raw evidence and permanent IDs | None within this correction. |
 | cp-000199 — Dutch Language and Culture — track within Dutch Languages and Cultures | Retained CP199 permanently as an ineligible alias of CP198; Archived its original decision/comparison unchanged and redirected current crosswalk and interest ownership | None within this correction. |
 | cp-000205 — Religious Studies | Replaced the unqualified 30-EC open minor with the ordinary 15-EC minor and two restricted 7.5-EC faculty choices; Retained the selected specialisation and research/communication credits; verified a complete 180-EC ordinary pathway; Updated the formal authority and source/cohort qualifications; handed the corrected external basis to separate UCR assessment | None within this correction. |
-| cp-000246 | Pending | Pending |
+| cp-000246 — Bachelor Architecture, Urbanism and Building Sciences | Replaced three year-total placeholders with 24 required coded modules and the 30-EC minor; Verified 150 required + 30 minor = 180; kept the four-part final project inside existing credits; Recorded current source context and retrieval qualification; handed the explicit external reconstruction to separate UCR assessment | None within this correction. |
 | cp-000247 | Pending | Pending |
 
 ### cp-000198
@@ -322,3 +322,12 @@ Resolving the duplicate does not assert a UCR match. There is one active named D
 Verification: Fresh adopted TER retrieved; Article 7.1 visually inspected, including alternatives and approval conditions. Independent ordinary-route arithmetic closes 60+60+60; no third faculty option or Arabic alternative is added. Deterministic compiler, target validators and generated-index checks passed.
 
 The current official source resolves external allocation. This first-stage correction makes no new UCR fit judgment.
+
+### cp-000246
+
+- [Bouwkunde: what will I learn?](https://www.tudelft.nl/onderwijs/opleidingen/bachelors/bk/bsc-bouwkunde/over-de-opleiding/wat-ga-ik-leren) — Programme structure, modules and final-year work. Checked 8 October 2026. SHA-256: `4bbbdff75762012c6507465ec3b43dc2c8f131fa8f636f06da98dcaf565714d7`.
+- [Onderwijsregelgeving Bacheloropleiding Bouwkunde 2026–2027](https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/Bouwkunde/Onderwijs/Regulations/Onderwijsregelgeving%20Bachelor%202026-2027.pdf) — Articles 1.8–1.10, 2.24–2.28; Appendix II printed pp. 40–41. Adopted 2026–2027 source content and visual verification are preserved in the completed 7 October audit. Fresh retrieval on 8 October returned HTTP Error 502: Bad Gateway; no new PDF retrieval or hash is claimed.
+
+Verification: Fresh programme page corroborates module counts and weights: 60+30+25+20+15 required EC. The completed audit supplies the adopted formal module placement; independent year totals each equal 60. Final project is IOP1 10 + IOP2 10 + TE5 5 + WV6 5, counted once. Deterministic compiler, target validators and generated-index checks passed.
+
+The prior audit is substantive current-year evidence, not a new download. Current programme-page corroboration does not substitute for a newly inspected formal PDF. No UCR feasibility assessment is performed.
