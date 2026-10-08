@@ -418,3 +418,25 @@ Five cases processed: four first-stage findings resolved; Clinical Technology re
 Target validators, deterministic compiler comparisons, guarded registry replay, generated-index checks, compiler regressions and full-corpus validation passed. GitHub checks are verified after each publication. The original audit, raw provenance and earlier batch histories remain unchanged.
 
 Live corpus: 438 in-scope records, 301 comparisons and 137 exceptions; 22 excluded permanent targets. Exception types: 20 external-programme-unresolved, 108 no-defensible-ucr-match, 9 ucr-assessment-pending. No in-scope record is missing.
+
+## Batch 7 — next five cases in audit order
+
+Status: in-progress. Independent UCR assessment remains separate.
+
+| Target | First-stage outcome | Remaining external question |
+|---|---|---|
+| cp-000254 — Bachelor Nanobiology | Corrected normalized instruction language to ENG while preserving raw NLD provenance; Replaced ambiguous practical alternatives with one formal assigned mixed pair; Instantiated four first-listed 2.5-EC specialist electives and verified 32 components totaling 180 EC | None within this correction. |
+| cp-000259 | Pending | Pending |
+| cp-000260 | Pending | Pending |
+| cp-000261 | Pending | Pending |
+| cp-000262 | Pending | Pending |
+
+### cp-000254
+
+- [Nanobiology degree facts](https://www.tudelft.nl/en/education/programmes/bachelors/nb/bsc-nanobiology) — Working language and joint institutional setting. Checked 8 October 2026. SHA-256: `6f7ac1d5440e2f0e4c277e61014a10513c0fb99c6356f4f7d2ef918aee505ea4`.
+- [Nanobiology September 2026 curriculum](https://filelist.tudelft.nl/TUDelft/Onderwijs/Opleidingen/Bachelor/Nanobiology/02._Opleiding/2026_NB_DEF_web_pag2.pdf) — All year tables and specialist list. Checked 8 October 2026. SHA-256: `c0d494119a5dd7dde9f29f93ba061bc1f71cb3e34ca5c63a037f5c4c65a6bd0b`.
+- [Programme-specific Appendix Nanobiology TER 2026–2027](https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/TNW/Onderwijs/Opleidingsreglementen/2026-2027/BSc%20NB%20Appendix%20TER%202026-2027.pdf) — Articles 3–5 and 8; PDF pp.5–8. Checked 8 October 2026. SHA-256: `e7e206d4aa61466c9e04081966de803c3be8eabf33912c009643518af48b3ab1`.
+
+Verification: Fresh current official requirement tables inspected, including visual PDF checks. Each component counted once; independently verified year totals 60+60+60=180 EC. Deterministic compilation, all three target validators and generated-index checks passed.
+
+The external correction is complete. UCR fit awaits separate assessment; the superseded judgment is preserved in this register. No recurring monitoring is scheduled.
