@@ -226,7 +226,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 | cp-000119 — Bachelor Theologie en Religiewetenschappen | Reconstructed 26 official components totaling 180 EC with neutral restricted choices and 30 EC profiling; Corrected route, adopted-year context and six-year part-time pacing; Supplemented normalized instruction languages; replaced obsolete source-access exception with UCR-assessment-pending | None within this correction. |
 | cp-000134 — Bachelor Fiscal Economics | Corrected lifecycle to teach-out-only and removed active eligibility/production order; Archived prior decision and canonical record unchanged with SHA-256 hashes; Corrected normalized instructional languages to Dutch and English; preserved permanent identity and raw provenance | None within this correction. |
 | cp-000149 — General Cultural Studies (Algemene Cultuurwetenschappen) | Added the dated programme-specific OER and corrected the claim that only general regulations exist; Reconfirmed the current guide conflict; narrowed the unresolved reason to current-cohort applicability | Obtain the controlling 2026–2027 programme-specific OER/implementation rules or university clarification reconciling the current diagram and course roster. |
-| cp-000156 | Pending | Pending |
+| cp-000156 — Theologie | Scoped language/exegesis requirements to the selected language pathway and predikantsmaster exit profile; Documented the mutually exclusive language-free replacements; preserved selected Systematische Theologie route and all 180 EC | None within this correction. |
 | cp-000175 | Pending | Pending |
 
 ### cp-000119
@@ -257,3 +257,12 @@ A historical 180-EC award does not supply a current intake pathway. No UCR asses
 Verification: Fresh current degree page and study guide retrieved; diagram arithmetic is 50+135=185 against 180 stated. Older allocation retained as dated audit evidence; fresh older-PDF retrieval failure is recorded honestly. Empty component list retained; deterministic compiler, target validators and generated-index checks passed.
 
 The older coherent allocation is not used to invent a current restricted-choice block or override changed course membership. This finite source check is complete; no monitoring is scheduled.
+
+### cp-000156
+
+- [PThU Bachelor Theology OER 2026–2027](https://www.pthu.nl/over-pthu/organisatie/regelingen-en-rechtspositie/oer-bachelor-theologie-2026-2027.pdf) — Article 8.1 and Annex 2, printed pp.45–46. Checked 8 October 2026. SHA-256: `2ac1be172c9b8373181a99d239d173f849fd5290c3bb1f1ede81e2b97acd3e76`.
+- [PThU current Utrecht Theology bachelor](https://www.pthu.nl/onderwijs/bachelor/theologie-utrecht/) — Programme identity and language options. Checked 8 October 2026. SHA-256: `fb3cf94c117edfa950267cd4ac942e7dfaec9d9a465e5bec2e8eeaa09904c631`.
+
+Verification: Fresh adopted OER retrieved; replacement footnotes visually inspected. All component IDs, titles, weights and selected route are unchanged. Original UCR evidence and assessment date retained; target validators, deterministic compiler and index checks passed.
+
+This closes the external overgeneralization only. The existing UCR no-match reason is scoped to the unchanged selected pathway, not asserted for every alternative; its substantive correctness remains for separate UCR reassessment.
