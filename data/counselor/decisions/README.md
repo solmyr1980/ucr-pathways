@@ -79,3 +79,5 @@ Decision schema v1 remains available temporarily for regression and manual recov
 - test: `npm run test:counselor-compiler:v1`.
 
 V1 is not accepted for new production through the active workflow. Retain it until at least the first new v2 production target has completed successfully.
+
+An authorized coordinated alias correction may modify one retained owner decision and withdraw duplicate root decisions together with their canonical records. The workflow still recompiles exactly one repaired owner, verifies canonical byte identity and rejects unmatched withdrawals or a new production input combined with withdrawals. Retained aliases and archived history are governed by the guarded registry ledger.

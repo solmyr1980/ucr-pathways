@@ -283,3 +283,33 @@ Five cases processed: four first-stage findings resolved; OU retains one current
 Target validators, deterministic compiler comparisons, guarded registry replay, generated-index checks, compiler regressions and full-corpus validation passed. Publication checks are verified separately after each commit. The original audit and raw provenance remain unchanged.
 
 Live corpus: 439 in-scope records, 301 comparisons and 138 exceptions; 21 excluded permanent targets. Exception types: 19 external-programme-unresolved, 114 no-defensible-ucr-match, 1 registry-exception, 4 ucr-assessment-pending. No in-scope record is missing.
+
+## Batch 5 — next five cases in audit order
+
+Status: in-progress. Independent UCR assessment remains separate.
+
+| Target | First-stage outcome | Remaining external question |
+|---|---|---|
+| cp-000198 — Dutch Languages and Cultures — Dutch Language and Culture | Corrected the formal route count to two; preserved the named Dutch pathway and all 180 EC; Consolidated duplicate CP199 source/interest ownership under CP198 while retaining raw evidence and permanent IDs | None within this correction. |
+| cp-000199 — Dutch Language and Culture — track within Dutch Languages and Cultures | Retained CP199 permanently as an ineligible alias of CP198; Archived its original decision/comparison unchanged and redirected current crosswalk and interest ownership | None within this correction. |
+| cp-000205 | Pending | Pending |
+| cp-000246 | Pending | Pending |
+| cp-000247 | Pending | Pending |
+
+### cp-000198
+
+- [Groningen Dutch Languages and Cultures OER 2026–2027](https://www.rug.nl/let/onze-faculteit/organisatie/diensten-en-voorzieningen/onderwijsinstituut/oeren/2026-2027/bacheloropleidingen/delen-b/ba-oer-ntc-2627.pdf) — Cover; Articles 2.5, 4.1, 5.1 and 8.3. Checked 8 October 2026. SHA-256: `795ccb578b52ad30eead0b6ce5e9dd0659addafc1fb17010f9a75c6878ff0037`.
+- [Groningen current Dutch Language and Culture programme](https://www.rug.nl/bachelors/dutch-language-and-culture/) — Degree title, CROHO, language and named route. Checked 8 October 2026. SHA-256: `64842d4bffc08de3868a31e35ca166fd11a4718cbf1e82de4d762603c2094711`.
+
+Verification: Fresh adopted OER cover and degree identity verified; two-track cover visually inspected. Selected components and original UCR exception/date/evidence are unchanged. Guarded alias replay, conflict regressions, deterministic owner reconstruction, corpus validators and generated-index checks passed.
+
+The identity correction is limited to the two specifically named Dutch-track registrations. CP200 remains the broader generic umbrella. No UCR feasibility conclusion is updated.
+
+### cp-000199
+
+- [Groningen Dutch Languages and Cultures OER 2026–2027](https://www.rug.nl/let/onze-faculteit/organisatie/diensten-en-voorzieningen/onderwijsinstituut/oeren/2026-2027/bacheloropleidingen/delen-b/ba-oer-ntc-2627.pdf) — Cover; Articles 2.5, 4.1, 5.1 and 8.3. Checked 8 October 2026. SHA-256: `795ccb578b52ad30eead0b6ce5e9dd0659addafc1fb17010f9a75c6878ff0037`.
+- [Groningen current Dutch Language and Culture programme](https://www.rug.nl/bachelors/dutch-language-and-culture/) — Degree title, CROHO, language and named route. Checked 8 October 2026. SHA-256: `64842d4bffc08de3868a31e35ca166fd11a4718cbf1e82de4d762603c2094711`.
+
+Verification: Historical archive hashes and byte identity to the pre-correction commit verified. All source/interest records and raw fields are retained; stable token row order is unchanged. All 460 permanent IDs remain; guarded alias replay and exact-scope validation passed.
+
+Resolving the duplicate does not assert a UCR match. There is one active named Dutch track, while CP200 keeps its broader identity.

@@ -62,20 +62,27 @@ jobs:
             echo "mode=dry-run" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          # A withdrawal deletes decisions together with their published records.
-          # It creates no new production input; still run the compiler regressions.
-          all_withdrawn=true
+          # A coordinated alias correction can repair one owner and withdraw
+          # duplicate decisions. Every withdrawal must delete its canonical pair.
+          active_decisions=()
+          withdrawn_count=0
           for decision_path in "${changed_decisions[@]}"; do
             comparison_id="$(basename "$decision_path" .json)"
             comparison_path="data/counselor/comparisons/${comparison_id}.json"
             decision_status="$(git diff-tree --no-commit-id --name-status -r "$GITHUB_SHA" -- "$decision_path" | awk '{print $1}')"
             comparison_status="$(git diff-tree --no-commit-id --name-status -r "$GITHUB_SHA" -- "$comparison_path" | awk '{print $1}')"
-            if [[ "$decision_status" != "D" || "$comparison_status" != "D" ]]; then
-              all_withdrawn=false
-              break
+            if [[ "$decision_status" == "D" ]]; then
+              if [[ "$comparison_status" != "D" ]]; then
+                echo "Withdrawal must delete its canonical comparison." >&2
+                exit 1
+              fi
+              withdrawn_count=$((withdrawn_count + 1))
+            else
+              active_decisions+=("$decision_path")
             fi
           done
-          if [[ "$all_withdrawn" == true ]]; then
+          changed_decisions=("${active_decisions[@]}")
+          if [[ "${#changed_decisions[@]}" -eq 0 ]]; then
             echo "mode=dry-run" >> "$GITHUB_OUTPUT"
             exit 0
           fi
@@ -90,6 +97,10 @@ jobs:
           comparison_path="data/counselor/comparisons/${comparison_id}.json"
 
           if [[ "$change_status" == "A" ]]; then
+            if [[ "$withdrawn_count" -ne 0 ]]; then
+              echo "New production must not be combined with withdrawals." >&2
+              exit 1
+            fi
             # A remediation handoff must not bypass new-production assessment.
             git show "$GITHUB_SHA:$decision_path" | node --input-type=module -e '
               import fs from "node:fs";
@@ -114,7 +125,10 @@ jobs:
           echo "comparison_id=$comparison_id" >> "$GITHUB_OUTPUT"
 
       - name: Run compiler regressions in temporary storage
-        run: npm run test:counselor-compiler
+        run: |
+          npm run test:counselor-compiler
+          python scripts/test-registry-corrections.py
+          python scripts/apply-registry-corrections.py --check
 
       - name: Build proposed canonical comparison
         if: steps.mode.outputs.mode == 'production'
