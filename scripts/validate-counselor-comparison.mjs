@@ -234,7 +234,7 @@ function validateAlternativeRationales(record, rationale, mapLabels, fail) {
 function validateException(record, fail) {
   const value = record.exception;
   if (!value || typeof value !== 'object' || Array.isArray(value)) { fail('exception decision is required'); return; }
-  const types = ['no-defensible-ucr-match', 'external-programme-unresolved', 'registry-exception'];
+  const types = ['no-defensible-ucr-match', 'external-programme-unresolved', 'registry-exception', 'ucr-assessment-pending'];
   if (!types.includes(value.type)) fail('exception.type is not an approved type');
   for (const field of ['reason', 'curriculumContext']) {
     if (typeof value[field] !== 'string' || !value[field].trim()) fail(`exception.${field} is required`);
@@ -259,7 +259,7 @@ function validateException(record, fail) {
       if (ids.has(item?.id)) fail(`duplicate comparator component ${item.id}`);
       ids.add(item?.id);
     }
-    if (value.type === 'no-defensible-ucr-match' && (!components.length || Math.abs(components.reduce((sum, item) => sum + (Number(item?.credits) || 0), 0) - 180) > 0.001)) fail('no-defensible-ucr-match requires a complete 180-EC external curriculum');
+    if (['no-defensible-ucr-match', 'ucr-assessment-pending'].includes(value.type) && (!components.length || Math.abs(components.reduce((sum, item) => sum + (Number(item?.credits) || 0), 0) - 180) > 0.001)) fail(`${value.type} requires a complete 180-EC external curriculum`);
   }
   if (value.type === 'no-defensible-ucr-match' && (typeof value.ucrCourseEvidence !== 'string' || !value.ucrCourseEvidence.trim())) fail('exception.ucrCourseEvidence must explain the current UCR course-database assessment');
   if (!Array.isArray(record.programmes) || record.programmes.length !== 1 || record.programmes[0]?.id !== 'comparator' || record.programmes[0]?.role !== 'comparator') fail('exception must contain only the external comparator programme');

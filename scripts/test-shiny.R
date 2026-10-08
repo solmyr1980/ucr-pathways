@@ -65,6 +65,14 @@ if (counselor$IS_REVIEW_DATA) {
   stopifnot(!grepl("cannot construct a sufficiently close programme", unresolved_html, fixed = TRUE))
   stopifnot(grepl("Linguistik im Fokus", unresolved_html, fixed = TRUE))
   stopifnot(!grepl("UCR courses", unresolved_html, fixed = TRUE))
+  pending <- german
+  pending$exception$type <- "ucr-assessment-pending"
+  pending_html <- as.character(counselor$render_comparison(pending))
+  stopifnot(grepl("The university curriculum has been verified", pending_html, fixed = TRUE))
+  stopifnot(grepl("awaiting assessment", pending_html, fixed = TRUE))
+  stopifnot(!grepl("cannot construct a sufficiently close programme", pending_html, fixed = TRUE))
+  stopifnot(!grepl("A reliable curriculum comparison is currently unavailable", pending_html, fixed = TRUE))
+  stopifnot(!grepl("UCR courses", pending_html, fixed = TRUE))
   german_result <- german_results[which(vapply(german_results, function(x) identical(x$programme$programmeProviderId, "cp-000040"), logical(1)))]
   exception_result <- counselor$render_result_cards(german_result)
   expected_button <- if (identical(german_result[[1]]$programme$recordStatus, "exception")) "View programme" else "Compare with UCR"

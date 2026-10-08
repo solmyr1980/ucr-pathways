@@ -143,3 +143,29 @@ All five corrections are implemented. 3 findings are resolved; 2 cases retain ex
 The live corpus still contains 440 in-scope records: 301 comparisons and 139 exceptions. Exception types: 22 external-programme-unresolved, 115 no-defensible-ucr-match, 2 registry-exception. No registry identities, scope or permanent IDs changed in batch 2.
 
 The compiler and app regression tests now use frozen historical exception fixtures. Their checks still reject incomplete no-match curricula and verify both no-match and unresolved app messages. Production validators were not changed.
+
+## Batch 3 — next five cases in audit order
+
+Status: in-progress. Independent UCR assessment remains separate.
+
+| Target | First-stage outcome | Remaining external question |
+|---|---|---|
+| cp-000076 — Mathematics (Wiskunde) | Rebuilt current ordinary OER pathway at 180 EC with 54+6+24+36+48+12 allocation; Instantiated restricted choices with 6 EC from year three; removed old-cohort and universal supplementary-mathematics assumptions; Corrected source labels and marked separate UCR assessment pending | None; UCR assessment remains separate. |
+| cp-000097 | Pending | Pending |
+| cp-000098 | Pending | Pending |
+| cp-000099 | Pending | Pending |
+| cp-000100 | Pending | Pending |
+
+The explicit `ucr-assessment-pending` handoff requires a verified complete 180-EC external reconstruction and shows that UCR assessment has not yet been completed. It prevents resolved external evidence gaps from being presented as unresolved, or superseded UCR judgments from appearing current. Existing no-match requirements remain unchanged. This state is for authorized remediation, not a shortcut for new production.
+
+### cp-000076
+
+- [radboud_mathematics_dutch_oer_b4](https://www.ru.nl/sites/default/files/2026-08/bachelor-oer-26-27-wiskunde_20260818.pdf) — Articles 7.3–7.4, printed pp. 15–18; Article 8.1, printed pp. 24–25. Checked 8 October 2026. SHA-256: `0a67c12172a8fe40e0ef9197694c1aa7887cfc1d2b3f56d6817f1fc763e818bd`.
+- [radboud_science_dutch_index_b4](https://www.ru.nl/studenten/onderwijs-volgen/regels-en-richtlijnen/onderwijs-en-examenregelingen/natuurwetenschappen-wiskunde-en-informatica) — Current 2026–2027 regulations links; precedence notice. Checked 8 October 2026. SHA-256: `91467f69162719dee523e7d270420d593a6eb591b46cacb0357bb1e2672e697a`.
+- [radboud_mathematics_y1_b4](https://www.ru.nl/opleidingen/bachelors/wiskunde/studieprogramma/studieprogramma-bachelor-wiskunde-jaar-1) — Indicative label, required table and free-space explanation. Checked 8 October 2026. SHA-256: `b9da3f65e0444fcad133f8808ed6b4e1d0a0f2ca7129dd78a1d19457ca0c8def`.
+- [radboud_mathematics_y2_b4](https://www.ru.nl/opleidingen/bachelors/wiskunde/studieprogramma/studieprogramma-bachelor-wiskunde-jaar-2) — Indicative label and Mathematics-line explanation. Checked 8 October 2026. SHA-256: `f555ae312337e88503e7bd730faf3d45115c40385e519165ca4c6c04ec26adc1`.
+- [radboud_mathematics_y3_b4](https://www.ru.nl/opleidingen/bachelors/wiskunde/studieprogramma/studieprogramma-bachelor-wiskunde-jaar-3) — Required table and thesis description. Checked 8 October 2026. SHA-256: `e9cfeb1b22fefe987b816bdef0928873d5f84d4559fe8d83a28ae490ebed4254`.
+
+Verification: Formal OER articles 7.3–7.5 and 8.1 reread; restricted table visually checked. All credited components total 180 EC; zero-credit RADAr excluded from the credit total. Target validation and deterministic compiler regeneration passed.
+
+Current OER governs formal requirements. Indicative public offerings do not guarantee the timetable of a 2026 entrant; the original UCR conclusion is preserved as superseded provenance.

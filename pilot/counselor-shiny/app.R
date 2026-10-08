@@ -367,6 +367,8 @@ render_exception <- function(record) {
       tags$h2("About this programme"),
       tags$p(if (identical(safe_text(record$exception$type), "no-defensible-ucr-match"))
         "UCR currently cannot construct a sufficiently close programme for a meaningful curriculum comparison."
+        else if (identical(safe_text(record$exception$type), "ucr-assessment-pending"))
+        "The university curriculum has been verified. Its comparison with UCR is awaiting assessment."
         else "A reliable curriculum comparison is currently unavailable for this programme."),
       tags$p(safe_text(record$exception$reason)),
       if (nzchar(safe_text(meta$route))) div(class = "route-note", tags$strong("External pathway: "), safe_text(meta$route)),

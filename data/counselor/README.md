@@ -120,6 +120,8 @@ The authoritative academic production rules are in `docs/UCR_Pathways_Production
 
 ## First-stage correction tracking
 
+When first-stage corrections establish a complete 180-EC external pathway but UCR assessment remains separate, the explicit `ucr-assessment-pending` exception state distinguishes that handoff from an external evidence gap or a concluded no-match. It is not a completed UCR comparison assessment.
+
 `qc/stage1-completeness-exceptions.json` and its Markdown report preserve the completed audit's original populations, findings and proposed actions. `qc/stage1-remediation.json` records implementation and remaining factual questions; `docs/qc/counselor-stage1-remediation.md` summarises completed batches. Resolve factual corrections separately from independent UCR reassessment.
 
 When a supported registry correction places a target outside the existing production scope, preserve its original decision and canonical record under `withdrawn/<id>/`, with a withdrawal explanation and source hashes, and remove both root production files in the same correction commit. Withdrawn records are historical evidence, excluded from compilation, validation and review indexes. The permanent registry target remains. No special exemption from the production-scope validators is introduced.

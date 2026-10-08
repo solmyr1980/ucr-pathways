@@ -16,6 +16,8 @@ Decision files and expected outputs under `_regression/` are test fixtures. They
 
 ## Academic responsibility
 
+Authorized first-stage corrections may use `ucr-assessment-pending` for a verified complete 180-EC external pathway awaiting the separate UCR assessment. The compiler and validator require 180 EC for this state. It records a remediation handoff, not a final UCR outcome; original judgments remain in the remediation register. See Production Instructions §4.4.
+
 The v2 decision file must state every academic choice explicitly:
 
 - comparator route, complete components, credits and official sources;

@@ -6,7 +6,7 @@ const SCHEMA = '2.0';
 const RECORD_SCHEMA = '2.0';
 const CP_PATTERN = /^cp-[0-9]{6}$/;
 const KINDS = new Set(['closest-match', 'related-direction', 'question-led', 'other-defensible']);
-const EXCEPTION_TYPES = new Set(['no-defensible-ucr-match', 'external-programme-unresolved', 'registry-exception']);
+const EXCEPTION_TYPES = new Set(['no-defensible-ucr-match', 'external-programme-unresolved', 'registry-exception', 'ucr-assessment-pending']);
 const SEMESTERS = [
   ['Year 1 · Semester 1', '2026h2'], ['Year 1 · Semester 2', '2027h1'],
   ['Year 2 · Semester 1', '2027h2'], ['Year 2 · Semester 2', '2028h1'],
@@ -122,8 +122,10 @@ export function compileV2(decision, repositoryRoot) {
       return { id: tuple[0], name: tuple[1], credits: tuple[2], ...(tuple[3] ? { note: tuple[3] } : {}) };
     });
     requireCondition(new Set(components.map(item => item.id)).size === components.length, 'exception comparator component IDs must be unique');
+    if (['no-defensible-ucr-match', 'ucr-assessment-pending'].includes(exception.type)) {
+      requireCondition(components.length > 0 && Math.abs(components.reduce((sum, item) => sum + item.credits, 0) - 180) < 0.001, `${exception.type} requires a complete 180-EC comparator`);
+    }
     if (exception.type === 'no-defensible-ucr-match') {
-      requireCondition(components.length > 0 && Math.abs(components.reduce((sum, item) => sum + item.credits, 0) - 180) < 0.001, 'no-defensible-ucr-match requires a complete 180-EC comparator');
       requireCondition(text(exception.ucrCourseEvidence), 'no-defensible-ucr-match requires a substantive assessment against the current UCR course database');
     }
     const comparator = {

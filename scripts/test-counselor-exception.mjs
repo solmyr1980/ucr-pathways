@@ -25,6 +25,16 @@ rejectDecision(value => { value.exception.ucrCourseEvidence = ''; }, /substantiv
 rejectDecision(value => { value.alternatives = []; }, /fabricated UCR alternative/);
 rejectDecision(value => { value.exception.type = 'invented'; }, /approved type/);
 
+const pendingDecision = structuredClone(decision);
+pendingDecision.exception.type = 'ucr-assessment-pending';
+delete pendingDecision.exception.ucrCourseEvidence;
+const pendingRecord = buildProductionRecord(pendingDecision, root);
+assert.equal(pendingRecord.exception.type, 'ucr-assessment-pending');
+assert.equal(pendingRecord.programmes.length, 1);
+const incompletePending = structuredClone(pendingDecision);
+incompletePending.comparator.components.pop();
+assert.throws(() => buildProductionRecord(incompletePending, root), /complete 180-EC comparator/);
+
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'ucr-counselor-exception-'));
 const comparisonDir = path.join(temp, 'data/counselor/comparisons');
 const registryDir = path.join(temp, 'data/registry');
@@ -44,6 +54,10 @@ function rejectRecord(mutator, pattern) {
 }
 try {
   assert.match(validate(record), /Valid counselor production exception/);
+  assert.match(validate(pendingRecord), /Valid counselor production exception/);
+  const incompletePendingRecord = structuredClone(pendingRecord);
+  incompletePendingRecord.comparator.components.pop();
+  assert.throws(() => validate(incompletePendingRecord), error => /complete 180-EC external curriculum/.test(String(error.stderr)));
   rejectRecord(value => { value.exception.reason = ''; }, /exception.reason is required/);
   rejectRecord(value => { value.comparator.components.pop(); }, /complete 180-EC external curriculum/);
   rejectRecord(value => { value.programmes.push({ id: 'ucr-1', family: 'ucr', role: 'ucr-alternative' }); }, /only the external comparator/);
