@@ -421,7 +421,7 @@ Live corpus: 438 in-scope records, 301 comparisons and 137 exceptions; 22 exclud
 
 ## Batch 7 — next five cases in audit order
 
-Status: in-progress. Independent UCR assessment remains separate.
+Status: completed. Independent UCR assessment remains separate.
 
 | Target | First-stage outcome | Remaining external question |
 |---|---|---|
@@ -429,7 +429,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 | cp-000259 — Bachelor Applied Mathematics | Instantiated four mathematical and exactly one non-mathematical elective using neutral formal ordering; Preserved 30-EC minor, 15-EC project and combined 3+2-EC Proof Techniques unit; Verified 29 components totaling 180 EC and current project-entry rules | None within this correction. |
 | cp-000260 — Bachelor Mechanical Engineering | Corrected the second-year narrative from three to four formal projects, including Process Engineering and Thermodynamics; Made the adopted OER the curriculum authority and preserved all 25 accurate component weights | None within this correction. |
 | cp-000261 — Bachelor Automotive Technology | Replaced older aggregates with 27 current common/AT course and open-space positions; Corrected allocation to core 125 including project 10, ITEC 10 and electives 45; Removed optional autonomous-vehicle/design-project claims from compulsory formation; updated Propulsion Systems title | None within this correction. |
-| cp-000262 | Pending | Pending |
+| cp-000262 — Bachelor Biomedical Engineering | Corrected normalized language to NLD and ENG while preserving raw ENG provenance; Reconstructed 26 current BBT positions: core 125 including project 15, ITEC 10, electives 45; Counted Skills Experience once at 10 EC; preserved embedded PPD and elective level rules; Documented 8BA020 title variation using the current cohort chart and official course profile | None within this correction. |
 
 ### cp-000254
 
@@ -469,3 +469,23 @@ This is a narrow external narrative/source correction. All component allocations
 Verification: Fresh current official requirement tables inspected, including visual PDF checks. Each component counted once; independently verified year totals 60+60+60=180 EC. Deterministic compilation, all three target validators and generated-index checks passed.
 
 The external correction is complete. UCR fit awaits separate assessment; the superseded judgment is preserved in this register. No recurring monitoring is scheduled.
+
+### cp-000262
+
+- [Biomedical Engineering degree facts and two core programmes](https://www.tue.nl/studeren/bachelor-college/bachelor-biomedische-technologie) — Language, standard degree and BMT/MWT alternatives. Checked 8 October 2026. SHA-256: `f36e4620e41375113a4e99f6b18be8b830882d729b939d9c7cceee3b43a5d7b1`.
+- [Biomedical Engineering PER after revision 2026–2027](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Biomedical%20Engineering/OER%20en%20ER/2026-2027/BSc%20OER%20BME%202026-2027%20AR.pdf) — Articles 3.3–3.5; Appendix 2, PDF pp.20–23,76–79. Checked 8 October 2026. SHA-256: `4b5925c19a89ce4ab3afc9957212a12214532ef5a085bf54a4f93b2c025a8860`.
+- [Biomedical Engineering generation 26 curriculum](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Biomedical%20Engineering/Bachelor/Programma%27s%20en%20curricula/Curriculum%20gen26.pdf) — Whole diagram; first column BBT versus second MWT. Checked 8 October 2026. SHA-256: `e9d657132339a28666126c1ae5a5340abf43e1080ef19880d1354787eaf8ace0`.
+- [Biomedical Engineering elective space](https://studiegids.tue.nl/opleidingen/bachelor-college/majors/biomedische-technologie/curriculum/keuzeruimte) — Open study space, level requirements and approval. Checked 8 October 2026. SHA-256: `b754e0e214ed7ec45ad8b28c3cc849813821828448108d699cbde2d49eb99d24`.
+- [TU/e official course profile: Engineering organs on a chip](https://research.tue.nl/nl/courses/engineering-organs-on-a-chip/) — Title, course code 8BA020 study-guide link and course period. Checked 8 October 2026. SHA-256: `f027df0c2f854fa3533e5b1c248bb787578b5b8718563df902aa37efcb817c8e`.
+
+Verification: Fresh current official requirement tables inspected, including visual PDF checks. Each component counted once; independently verified year totals 60+60+60=180 EC. Deterministic compilation, all three target validators and generated-index checks passed.
+
+The external correction is complete. UCR fit awaits separate assessment; the superseded judgment is preserved in this register. No recurring monitoring is scheduled.
+
+### Batch 7 validation
+
+Five first-stage cases resolved. Nanobiology, Applied Mathematics, Automotive Technology and Biomedical Engineering have corrected external reconstructions and await separate UCR assessment. Mechanical Engineering retains all previously verified component allocations and its historical UCR assessment date/evidence; only external narrative and source context changed. No recurring monitoring was created.
+
+Target validators, deterministic compiler comparisons, guarded registry replay, generated-index checks, full-corpus validation and CI compiler regressions passed. GitHub checks are verified after each publication. The original audit, raw provenance and earlier batch histories remain unchanged.
+
+Live corpus: 438 in-scope records, 301 comparisons and 137 exceptions; 22 excluded permanent targets. Exception types: 20 external-programme-unresolved, 104 no-defensible-ucr-match, 13 ucr-assessment-pending. No in-scope record is missing.
