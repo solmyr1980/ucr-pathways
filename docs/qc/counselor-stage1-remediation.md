@@ -292,7 +292,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 |---|---|---|
 | cp-000198 — Dutch Languages and Cultures — Dutch Language and Culture | Corrected the formal route count to two; preserved the named Dutch pathway and all 180 EC; Consolidated duplicate CP199 source/interest ownership under CP198 while retaining raw evidence and permanent IDs | None within this correction. |
 | cp-000199 — Dutch Language and Culture — track within Dutch Languages and Cultures | Retained CP199 permanently as an ineligible alias of CP198; Archived its original decision/comparison unchanged and redirected current crosswalk and interest ownership | None within this correction. |
-| cp-000205 | Pending | Pending |
+| cp-000205 — Religious Studies | Replaced the unqualified 30-EC open minor with the ordinary 15-EC minor and two restricted 7.5-EC faculty choices; Retained the selected specialisation and research/communication credits; verified a complete 180-EC ordinary pathway; Updated the formal authority and source/cohort qualifications; handed the corrected external basis to separate UCR assessment | None within this correction. |
 | cp-000246 | Pending | Pending |
 | cp-000247 | Pending | Pending |
 
@@ -313,3 +313,12 @@ The identity correction is limited to the two specifically named Dutch-track reg
 Verification: Historical archive hashes and byte identity to the pre-correction commit verified. All source/interest records and raw fields are retained; stable token row order is unchanged. All 460 permanent IDs remain; guarded alias replay and exact-scope validation passed.
 
 Resolving the duplicate does not assert a UCR match. There is one active named Dutch track, while CP200 keeps its broader identity.
+
+### cp-000205
+
+- [Religious Studies](https://www.rug.nl/bachelors/religious-studies/?lang=en) — Identity, years one/two and third-year alternatives, thesis and science communication. Checked 8 October 2026. SHA-256: `3056bcd9cd7048427de42bb7c932a1dc23a9becd301d598997f8908ec5a30ba7`.
+- [TER BA Religious Studies 2026–2027](https://www.rug.nl/rcs/education/studyguide/oer-26-27/ter-ba-rs-26-27.pdf) — Articles 3.5/3.6, 4.1 and 7.1.1–7.1.6; PDF pp. 2, 9–10, 14–15. Checked 8 October 2026. SHA-256: `81fed04224de39e749ee986a83abef1afe8cc9745f30a837dd474ba1be520fec`.
+
+Verification: Fresh adopted TER retrieved; Article 7.1 visually inspected, including alternatives and approval conditions. Independent ordinary-route arithmetic closes 60+60+60; no third faculty option or Arabic alternative is added. Deterministic compiler, target validators and generated-index checks passed.
+
+The current official source resolves external allocation. This first-stage correction makes no new UCR fit judgment.
