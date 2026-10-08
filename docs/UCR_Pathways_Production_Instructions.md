@@ -169,11 +169,17 @@ Three is the maximum, not the target. The stopping decision must be auditable in
 
 Receive the actual `interest_statement`, a stable internal delivery identifier where needed, and relevant cohort/starting-semester context.
 
-Preserve the student's original wording exactly and store the academic interpretation separately. Do not collect unnecessary personal information in the academic record or assume that the first-mentioned interest is more important.
+Preserve the student's original statement exactly and store the academic interpretation separately. Do not collect unnecessary personal information in the academic record.
 
-Interpret the statement in terms of relevant disciplines, questions, phenomena/problems, practical interests/skills and meaningful connections. For one stated interest, broaden through genuine subfields, questions and neighbouring perspectives rather than inventing a second interest.
+Interpret the student's statement to identify the academic fields, substantive interests and potential connections that could meaningfully inform the construction of their UCR programmes.
 
-The student's complete submitted statement is valid evidence. If the student supplies several interests, alternatives may legitimately vary their relative emphasis, combine them differently or organise them around an evidenced question. Do not add an interest the student did not supply merely to make alternatives more different.
+Exercise academic judgment rather than mechanically translating individual words into disciplinary labels. Distinguish explicit interests from plausible inferences, and use personal activities and experiences as contextual evidence where relevant.
+
+Choose a level of abstraction that makes the student's interests academically meaningful without losing important distinctions. Group related interests when doing so clarifies their academic significance, but do not force unrelated interests into a common theme.
+
+Do not invent interests, motivations, career aspirations or intellectual questions that the statement does not support. Do not privilege interests merely because they appear first.
+
+Write a concise, natural interpretation that adds insight rather than paraphrasing or cataloguing the original statement. Retain the full original statement as evidence when subsequently constructing UCR programmes. Where a student supplies several interests, programmes may legitimately vary their relative emphasis or organise them differently; do not manufacture additional interests to differentiate alternatives.
 
 ## 3.2 Student programme and comparison sequence
 
@@ -563,6 +569,8 @@ Similarity between genuinely related programmes is not itself a defect. Do not c
 If the same debatable judgment recurs across otherwise valid records, improve the governing rule for future production rather than repeatedly revising completed records. Reopen an existing record only when its own issue meets the hard-rule or material-error threshold above.
 
 ## 9.3 Student completion
+
+Evaluate the academic interpretation independently: does it identify academically meaningful possibilities grounded in the student's interests, without simply repeating those interests, arbitrarily narrowing them or inventing connections? Revise the interpretation if it fails this test.
 
 Confirm the student input is preserved verbatim, interpretation stored separately, the UCR programmes were generated and named directly from that interpreted input before comparator selection, the number of alternatives follows the sequential evidence/coherence/distinctness/feasibility rule, every pair of included UCR alternatives passes the **30 EC / 4-course distinctness floor**, every included UCR schedule satisfies the mechanical constraints and has considered advisory progression where feasible, every non-PPD course has a concrete substantive relationship to the evidenced programme concept, every comparison column accounts for the complete 180 EC without duplication or omission, comparison alignment is fair, and privacy/publication boundaries are respected.
 
