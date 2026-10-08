@@ -428,7 +428,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 | cp-000254 — Bachelor Nanobiology | Corrected normalized instruction language to ENG while preserving raw NLD provenance; Replaced ambiguous practical alternatives with one formal assigned mixed pair; Instantiated four first-listed 2.5-EC specialist electives and verified 32 components totaling 180 EC | None within this correction. |
 | cp-000259 — Bachelor Applied Mathematics | Instantiated four mathematical and exactly one non-mathematical elective using neutral formal ordering; Preserved 30-EC minor, 15-EC project and combined 3+2-EC Proof Techniques unit; Verified 29 components totaling 180 EC and current project-entry rules | None within this correction. |
 | cp-000260 — Bachelor Mechanical Engineering | Corrected the second-year narrative from three to four formal projects, including Process Engineering and Thermodynamics; Made the adopted OER the curriculum authority and preserved all 25 accurate component weights | None within this correction. |
-| cp-000261 | Pending | Pending |
+| cp-000261 — Bachelor Automotive Technology | Replaced older aggregates with 27 current common/AT course and open-space positions; Corrected allocation to core 125 including project 10, ITEC 10 and electives 45; Removed optional autonomous-vehicle/design-project claims from compulsory formation; updated Propulsion Systems title | None within this correction. |
 | cp-000262 | Pending | Pending |
 
 ### cp-000254
@@ -460,3 +460,12 @@ The external correction is complete. UCR fit awaits separate assessment; the sup
 Verification: Fresh current official requirement tables inspected, including visual PDF checks. Each component counted once; independently verified year totals 60+60+60=180 EC. All 25 components are byte-equivalent as data; historical checkedOn and ucrCourseEvidence remain unchanged. Deterministic compilation, all three target validators and generated-index checks passed.
 
 This is a narrow external narrative/source correction. All component allocations and historical UCR assessment date/evidence remain unchanged; no new UCR judgment is made.
+
+### cp-000261
+
+- [Automotive Technology programme](https://studiegids.tue.nl/opleidingen/bachelor-college/majors/automotive-technology) — English degree and automotive identity. Checked 8 October 2026. SHA-256: `5f459e81f478966dfd5e8e41a52f159a000badf426f1be1f1860bb3683b44c05`.
+- [EE and Automotive after-revision curriculum 2026–2027](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Content/Programs/Bachelor%20College/Major%20Electrical%20Engineering/Curriculum/Curriculum%202026-2027/Latest%20version%2020260702%20Bachelor%20curriculum%20EE%20and%20AT%20After%20Revision%202026-2027.pdf) — PDF pp.1–4; version 2 July 2026. Checked 8 October 2026. SHA-256: `196b4664ac03682725b0b386f1695282f6f8f5f66c4b5cfbf17462097952c009`.
+
+Verification: Fresh current official requirement tables inspected, including visual PDF checks. Each component counted once; independently verified year totals 60+60+60=180 EC. Deterministic compilation, all three target validators and generated-index checks passed.
+
+The external correction is complete. UCR fit awaits separate assessment; the superseded judgment is preserved in this register. No recurring monitoring is scheduled.
