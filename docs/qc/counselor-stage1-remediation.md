@@ -358,7 +358,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 |---|---|---|
 | cp-000248 — Bachelor Electrical Engineering | Replaced quarter aggregates with 28 course/choice components and exact current weights; Instantiated two distinct restricted EEX choices; retained the 30-EC minor; Corrected current prerequisite, language and period-conflict context; verified 180 EC | None within this correction. |
 | cp-000249 — Bachelor Industrial Design Engineering | Corrected the compulsory-study narrative to 115 required EC and 65 EC of profiling/choice; Preserved all 25 accurate components, four distinct category slots, 30-EC minor and 15-EC final project | None within this correction. |
-| cp-000250 | Pending | Pending |
+| cp-000250 — Bachelor Clinical Technology | Corrected minor from 15 to 30 EC and removed three duplicated third-year courses and the unsupported AV3/essay entry; Updated current heart/lung titles and the printed placement weight; recorded 27 unique components; Replaced unsupported no-match closure with an explicit external credit-conflict exception | Obtain authoritative clarification of KT2755 or another current credit/credit-sharing rule reconciling the printed 60+61+60 requirements with the 180-EC degree. |
 | cp-000252 | Pending | Pending |
 | cp-000253 | Pending | Pending |
 
@@ -380,3 +380,13 @@ The formal yearly requirement structure is resolved. No exact quarter timetable 
 Verification: Fresh 2026–2027 curriculum image visually inspected; all components and credit weights match. Independent allocation is 60 + (40 required + 20 categorized choices) + (30 minor + 15 electives + 15 project) = 180. The stored curriculum and historical UCR assessment date/evidence remain unchanged. Deterministic compilation, target validators and generated-index checks passed.
 
 This correction changes the external compulsory/choice narrative only. It does not revalidate the historical UCR no-match judgment.
+
+### cp-000250
+
+- [Clinical Technology programme](https://www.tudelft.nl/onderwijs/opleidingen/bachelors/klinische-technologie/bsc-klinische-technologie/over-de-opleiding) — Joint degree, credits, instruction and placement. Checked 8 October 2026. SHA-256: `6dd4ee5f3ad4c9e22a637db21fb3685a1e6672e1ea058ac04664a7aa75612109`.
+- [Clinical Technology module map 2024–2025](https://filelist.tudelft.nl/me/Onderwijs/Bacheloropleidingen/KT/Modulekaart-Bsc-KT%202024-2025.pdf) — Second/third-year duplicate codes and minor. Checked 8 October 2026. SHA-256: `b8bcee01f7f5a64bf358c94c57a3340c4f7d43d2a94370a51bd4591c39b0e1ef`.
+- [OER BSc Klinische Technologie 2026–2027](https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/ME/Onderwijs/GERELATEERD/Reglementen/Archief%20Onderwijsreglementen/2026-2027/OER%20BSc%20KT%202026-2027_DEFINITIEF.pdf) — Articles 7, 32, Appendix 3; PDF pp. 6, 25–27. Checked 8 October 2026. SHA-256: `97cfb84ca74a1c735b1b98cbc86c955134e875f8db5b5c2c410461502cc6933d`.
+
+Verification: Fresh adopted OER tables visually inspected; placement is printed 4.5 EC and final-year major is exactly four units totaling 30. Independent printed year totals are 60, 61 and 60; all 27 component identifiers are unique. No duplicate alternatives, inferred weight adjustment or extra thesis/skills credit is used. Deterministic compilation, target validators and generated-index checks passed.
+
+Known factual errors are corrected. The published one-credit contradiction remains an external question; the diagnostic component total is explicitly 181, not asserted as a valid pathway. This finite check is complete; no monitoring is scheduled.
