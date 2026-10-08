@@ -225,7 +225,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 |---|---|---|
 | cp-000119 — Bachelor Theologie en Religiewetenschappen | Reconstructed 26 official components totaling 180 EC with neutral restricted choices and 30 EC profiling; Corrected route, adopted-year context and six-year part-time pacing; Supplemented normalized instruction languages; replaced obsolete source-access exception with UCR-assessment-pending | None within this correction. |
 | cp-000134 — Bachelor Fiscal Economics | Corrected lifecycle to teach-out-only and removed active eligibility/production order; Archived prior decision and canonical record unchanged with SHA-256 hashes; Corrected normalized instructional languages to Dutch and English; preserved permanent identity and raw provenance | None within this correction. |
-| cp-000149 | Pending | Pending |
+| cp-000149 — General Cultural Studies (Algemene Cultuurwetenschappen) | Added the dated programme-specific OER and corrected the claim that only general regulations exist; Reconfirmed the current guide conflict; narrowed the unresolved reason to current-cohort applicability | Obtain the controlling 2026–2027 programme-specific OER/implementation rules or university clarification reconciling the current diagram and course roster. |
 | cp-000156 | Pending | Pending |
 | cp-000175 | Pending | Pending |
 
@@ -246,3 +246,14 @@ Original access report is historical evidence, not a claim about present retriev
 Verification: Fresh adopted EER confirms lifecycle, deadlines and languages. Archived files are byte-identical to their pre-correction versions. Guarded registry replay, scope reconciliation, full-corpus validation and generated-index checks passed.
 
 A historical 180-EC award does not supply a current intake pathway. No UCR assessment is needed under active-production exclusion.
+
+### cp-000149
+
+- [OU General Cultural Studies 2026–2027 programme](https://www.ou.nl/en/-/bcw-2026-2027_bachelor-algemene-cultuurwetenschappen) — Degree facts and themes. Checked 8 October 2026. SHA-256: `e42645257af0c579c5a3e05ae66ff2b43ee875700afef2252ae6c326ecb5e48f`.
+- [OU General Cultural Studies study guide 2026–2027](https://www.ou.nl/digitaldownloads/BD476.pdf) — Curriculum diagram, physical PDF p.7; annual roster and regulations notice. Checked 8 October 2026. SHA-256: `ac4f2b76ed5462800fe4a66e3257a7d48479c115c14a720c58669ef7b71d90ea`.
+- [OU official documents page](https://www.ou.nl/documenten) — Redirect to official regulations FAQ. Checked 8 October 2026. SHA-256: `d2d20431824986eda623080329ed22605adf8cc358a750b64cd4c18bf8b0e2fd`.
+- [OU programme-specific General Cultural Studies OER 2025–2026](https://vraagenantwoord.ou.nl/privatedata/docs/OER_WO_bacheloropleiding_Algemene_cultuurwetenschappen.pdf) — Two-page programme-specific curriculum allocation recorded by the original audit. Content/dated allocation preserved from the 7 October audit. Current direct retrieval returned HTTP 502 and web retrieval timed out; no fresh local PDF or hash is claimed.
+
+Verification: Fresh current degree page and study guide retrieved; diagram arithmetic is 50+135=185 against 180 stated. Older allocation retained as dated audit evidence; fresh older-PDF retrieval failure is recorded honestly. Empty component list retained; deterministic compiler, target validators and generated-index checks passed.
+
+The older coherent allocation is not used to invent a current restricted-choice block or override changed course membership. This finite source check is complete; no monitoring is scheduled.
