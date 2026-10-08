@@ -152,7 +152,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 |---|---|---|
 | cp-000076 — Mathematics (Wiskunde) | Rebuilt current ordinary OER pathway at 180 EC with 54+6+24+36+48+12 allocation; Instantiated restricted choices with 6 EC from year three; removed old-cohort and universal supplementary-mathematics assumptions; Corrected source labels and marked separate UCR assessment pending | None; UCR assessment remains separate. |
 | cp-000097 — Medicine (Geneeskunde) | Replaced empty external reconstruction with adopted 180-EC Compas curriculum; Verified minor 24 EC and thesis 6 EC; embedded clinical/research activities counted once; Removed unsupported external inaccessibility claim and recorded UCR assessment pending | None; UCR assessment remains separate. |
-| cp-000098 | Pending | Pending |
+| cp-000098 — History (Geschiedenis) | Expanded supported 60-EC subset into complete adopted Dutch general 180-EC pathway; Instantiated two year-two choices and one additional research seminar without stacking alternatives; Closed external evidence gap and marked UCR assessment pending | None; UCR assessment remains separate. |
 | cp-000099 | Pending | Pending |
 | cp-000100 | Pending | Pending |
 
@@ -179,3 +179,12 @@ Current OER governs formal requirements. Indicative public offerings do not guar
 Verification: Current OER tables articles 11.3–12.3 independently read; first-year table visually checked. Twenty-six major units at 6 EC plus 24-EC minor total 180 EC. Current transition rules confirm the Fall 2026 Compas sequence. Target validation and deterministic compiler regeneration passed.
 
 Minor selection is subject to university admission/capacity; current listing is not a guaranteed future enrolment offer. No independent clinical/UCR reassessment performed.
+
+### cp-000098
+
+- [vu_history_guide_b5](https://studiegids.vu.nl/nl/Bachelor/2026-2027/geschiedenis) — Programme facts and linked current regulations. Checked 8 October 2026. SHA-256: `6a1be9e568f767a104b0ccbcaa161d93d587e0fc31073bdcbe1bf168c5182195`.
+- [vu_history_oer_b5](https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/60718e0d-72f7-4581-85a0-a015b1d5063f/OER%2026-27%20BA%20Geschiedenis%20NL%2027.08.2026.pdf) — Annex, PDF pp. 22–23: Dutch trajectory and Algemeen third year; adoption statement p. 19. Checked 8 October 2026. SHA-256: `1dddd595135db458ac58a6d02c809b6ad0bfb009b0c52e26f733bad692795251`.
+
+Verification: Adopted Dutch annual plans pp. 22–23 reread; general year-three table visually checked. 60 first + 48 required second + 12 selected second + 30 profiling + 9 research + 9 selected seminar + 3 colloquium + 9 thesis = 180 EC. Target validation and deterministic compiler regeneration passed.
+
+UCR History plausibility in the historical record is not a completed feasibility assessment. No UCR schedule or comparison is generated in this first-stage correction.
