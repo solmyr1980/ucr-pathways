@@ -69,3 +69,27 @@ The explicitly dated cohort appendix takes precedence over the general webpage's
 All five cases are processed. Three first-stage findings are resolved; ALPO retains a current credit-sharing question, and Tax Law awaits its revised third year. Full-corpus validation and generated-index checks passed. Registry overrides replay from the initial correction baseline and preserve all other targets and raw provenance. Each repaired active decision deterministically regenerates its committed canonical record.
 
 The live registry retains 460 permanent targets: 440 are in scope and have canonical records (301 comparisons and 139 exceptions); 20 are outside scope. Exception types: 116 no-defensible-ucr-match, 21 external-programme-unresolved and 2 registry-exception. No in-scope record is missing. Original audit population counts remain historical. Independent UCR reassessment remains pending.
+
+## Batch 2 — next five cases in audit order
+
+Status: in-progress. Independent UCR reassessment remains separate.
+
+| Target | Implemented correction | Remaining work |
+|---|---|---|
+| cp-000040 — German Language and Culture | Corrected prospective academic-year labels and current formal authority; Restored year-two genuine free30 and formal restrictions; Removed unverified duplicated third-year15; published explicit external-programme-unresolved outcome | Obtain a current ordinary-route single-cohort repeat/replacement rule for LET-DTCB229, LET-DTCB225 and LET-DTCB235, or verify an applicable approved Article6 alternative. |
+| cp-000050 | Pending implementation | Pending |
+| cp-000051 | Pending implementation | Pending |
+| cp-000061 | Pending implementation | Pending |
+| cp-000070 | Pending implementation | Pending |
+
+### cp-000040
+
+- [Studieprogramma Duitse Taal en Cultuur jaar 1](https://www.ru.nl/opleidingen/bachelors/duitse-taal-en-cultuur/studieprogramma-duitse-taal-en-cultuur-jaar-1) — Indicative year label and required-course table. Checked 8 October 2026.
+- [Studieprogramma Duitse Taal en Cultuur jaar 2](https://www.ru.nl/opleidingen/bachelors/duitse-taal-en-cultuur/studieprogramma-duitse-taal-en-cultuur-jaar-2) — Required courses, Studeren in het buitenland and Vrije ruimte. Checked 8 October 2026.
+- [Studieprogramma Duitse Taal en Cultuur jaar 3](https://www.ru.nl/opleidingen/bachelors/duitse-taal-en-cultuur/studieprogramma-duitse-taal-en-cultuur-jaar-3) — Required-course and minor tables. Checked 8 October 2026.
+- [German Language and Culture programme-specific OER 2026–2027](https://www.ru.nl/ru-bestanden/oerbdtc2627) — Articles 5–7 and 10, pp.6–9. Checked 8 October 2026.
+- [Faculty of Arts general bachelor OER 2026–2027](https://www.ru.nl/ru-bestanden/oeralgemeenbachelor2627) — Article10, pp.8–9. Checked 8 October 2026.
+
+Verification: Fresh downloads of current prospectus pages and both adopted OERs. Visually inspected OER p.7: three identical codes repeat in B2 and B3; 60+60+45=165 without counting them twice. Target validators, deterministic regeneration and generated-index check passed.
+
+The original audit confirmed the prospectus field basis, not an independently verified current formal pathway. The newly retrieved 2026–2027 OER exposes a separate cohort/repeat question; a future prospectus or conditional alternative is not substituted silently.

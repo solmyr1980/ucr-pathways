@@ -15,6 +15,18 @@
         "cp-000244"
       ],
       "status": "completed"
+    },
+    {
+      "batch_number": 2,
+      "case_ids": [
+        "cp-000040",
+        "cp-000050",
+        "cp-000051",
+        "cp-000061",
+        "cp-000070"
+      ],
+      "status": "in-progress",
+      "selection_basis": "Next five actionable first-stage cases in original audit order after the representative pilot; UCR reassessment excluded."
     }
   ],
   "cases": [
@@ -274,12 +286,81 @@
           "retrieved_pdf_sha256": "542ccf4f72096d8fdccb3299b4fbb4d235ad3a2ab9fa0008003d3090fc0cd1cf"
         }
       ]
+    },
+    {
+      "counselor_programme_id": "cp-000040",
+      "programme": "German Language and Culture",
+      "batch_number": 2,
+      "status": "corrected-research-pending",
+      "completed_on": "2026-10-08",
+      "closed_findings": [
+        "Corrected prospective academic-year labels and current formal authority",
+        "Restored year-two genuine free30 and formal restrictions",
+        "Removed unverified duplicated third-year15; published explicit external-programme-unresolved outcome"
+      ],
+      "remaining_work": [
+        "Obtain a current ordinary-route single-cohort repeat/replacement rule for LET-DTCB229, LET-DTCB225 and LET-DTCB235, or verify an applicable approved Article6 alternative."
+      ],
+      "ucr_reassessment": "Deferred; current external curriculum unresolved. Prior no-match assessment is historical evidence only.",
+      "prior_exception": {
+        "type": "no-defensible-ucr-match",
+        "reason": "German-language proficiency, German linguistics and literature, German-speaking-country immersion and Dutch–German cultural exchange form the core of this bachelor. UCR currently offers no German-language course or specialist German-studies sequence. Related courses in general literature, history, communication and European politics cannot form a credible 24-course closest-match programme without treating them as substitutes for missing German-language study.",
+        "checkedOn": "2026-09-25",
+        "curriculumContext": "Radboud’s currently published year-specific prospectus pages are indicative; the year-three page is labelled 2029–2030, and the precise future curriculum for a Fall 2026 entrant is not guaranteed.",
+        "ucrCourseEvidence": "Checked data/reference/ucr_courses_enriched.xlsx on GitHub main (151 UCR course rows), including course names, descriptions, profiles, planned semesters and prerequisites. It contains general literature, linguistics via Psycholinguistics, history, communication and European politics, but no German-language course, German-specific literature or linguistics sequence, or German-speaking-country immersion. Those related courses cannot support a defensible 24-course closest match."
+      },
+      "sources": [
+        {
+          "url": "https://www.ru.nl/opleidingen/bachelors/duitse-taal-en-cultuur/studieprogramma-duitse-taal-en-cultuur-jaar-1",
+          "title": "Studieprogramma Duitse Taal en Cultuur jaar 1",
+          "locator": "Indicative year label and required-course table",
+          "fact": "Twelve compulsory 5-EC courses (60 EC), including German-context language study, literature, linguistics and Euregion work; zero-credit support is additional.",
+          "academic_year": "Indicative 2027–2028, not a guaranteed Fall 2026 cohort curriculum",
+          "date_checked": "2026-10-08"
+        },
+        {
+          "url": "https://www.ru.nl/opleidingen/bachelors/duitse-taal-en-cultuur/studieprogramma-duitse-taal-en-cultuur-jaar-2",
+          "title": "Studieprogramma Duitse Taal en Cultuur jaar 2",
+          "locator": "Required courses, Studeren in het buitenland and Vrije ruimte",
+          "fact": "Three compulsory 5-EC courses plus a required 15-EC German-speaking-country stay; 30 EC free space allows other programmes, extra study abroad or an internship.",
+          "academic_year": "Indicative 2028–2029",
+          "date_checked": "2026-10-08"
+        },
+        {
+          "url": "https://www.ru.nl/opleidingen/bachelors/duitse-taal-en-cultuur/studieprogramma-duitse-taal-en-cultuur-jaar-3",
+          "title": "Studieprogramma Duitse Taal en Cultuur jaar 3",
+          "locator": "Required-course and minor tables",
+          "fact": "Four compulsory 5-EC courses, 10-EC thesis/tutorial and 30-EC minor space. The page describes two 15-EC Humanities minors or the optional educational minor.",
+          "academic_year": "Indicative 2029–2030",
+          "date_checked": "2026-10-08"
+        },
+        {
+          "url": "https://www.ru.nl/ru-bestanden/oerbdtc2627",
+          "title": "German Language and Culture programme-specific OER 2026–2027",
+          "locator": "Articles 5–7 and 10, pp.6–9",
+          "date_checked": "2026-10-08",
+          "fact": "Year-two free space30; ordinary B2/B3 duplicate15; conditional Article6 replacements; thesis entry gate."
+        },
+        {
+          "url": "https://www.ru.nl/ru-bestanden/oeralgemeenbachelor2627",
+          "title": "Faculty of Arts general bachelor OER 2026–2027",
+          "locator": "Article10, pp.8–9",
+          "date_checked": "2026-10-08",
+          "fact": "Restricted Faculty of Arts minor30 and genuine free broadening30; bachelor-level, own-programme exclusion and prior foreign-course approval."
+        }
+      ],
+      "verification": [
+        "Fresh downloads of current prospectus pages and both adopted OERs.",
+        "Visually inspected OER p.7: three identical codes repeat in B2 and B3; 60+60+45=165 without counting them twice.",
+        "Target validators, deterministic regeneration and generated-index check passed."
+      ],
+      "qualification": "The original audit confirmed the prospectus field basis, not an independently verified current formal pathway. The newly retrieved 2026–2027 OER exposes a separate cohort/repeat question; a future prospectus or conditional alternative is not substituted silently."
     }
   ],
   "summary": {
-    "processed_cases": 5,
+    "processed_cases": 6,
     "fully_resolved_first_stage_findings": 3,
-    "cases_with_remaining_external_research": 2
+    "cases_with_remaining_external_research": 3
   },
   "live_corpus": {
     "normalized_targets": 460,
@@ -288,8 +369,8 @@
     "comparisons": 301,
     "exceptions": 139,
     "exception_types": {
-      "no-defensible-ucr-match": 116,
-      "external-programme-unresolved": 21,
+      "external-programme-unresolved": 22,
+      "no-defensible-ucr-match": 115,
       "registry-exception": 2
     },
     "missing_in_scope_ids": []
