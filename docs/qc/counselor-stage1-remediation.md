@@ -64,11 +64,11 @@ Verification: Downloaded and visually inspected the formal September 2026 cohort
 
 The explicitly dated cohort appendix takes precedence over the general webpage's 3-EC course label. The general published reader's stale effective-date clause remains documented. External correction closure does not validate the retained UCR no-match conclusion.
 
-## Batch validation and live population
+## Batch 1 validation and population at completion
 
 All five cases are processed. Three first-stage findings are resolved; ALPO retains a current credit-sharing question, and Tax Law awaits its revised third year. Full-corpus validation and generated-index checks passed. Registry overrides replay from the initial correction baseline and preserve all other targets and raw provenance. Each repaired active decision deterministically regenerates its committed canonical record.
 
-The live registry retains 460 permanent targets: 440 are in scope and have canonical records (301 comparisons and 139 exceptions); 20 are outside scope. Exception types: 116 no-defensible-ucr-match, 21 external-programme-unresolved and 2 registry-exception. No in-scope record is missing. Original audit population counts remain historical. Independent UCR reassessment remains pending.
+At the completion of batch 1, the registry retained 460 permanent targets: 440 are in scope and have canonical records (301 comparisons and 139 exceptions); 20 are outside scope. Exception types: 116 no-defensible-ucr-match, 21 external-programme-unresolved and 2 registry-exception. No in-scope record is missing. Original audit population counts remain historical. Independent UCR reassessment remains pending.
 
 ## Batch 2 — next five cases in audit order
 
@@ -79,7 +79,7 @@ Status: in-progress. Independent UCR reassessment remains separate.
 | cp-000040 — German Language and Culture | Corrected prospective academic-year labels and current formal authority; Restored year-two genuine free30 and formal restrictions; Removed unverified duplicated third-year15; published explicit external-programme-unresolved outcome | Obtain a current ordinary-route single-cohort repeat/replacement rule for LET-DTCB229, LET-DTCB225 and LET-DTCB235, or verify an applicable approved Article6 alternative. |
 | cp-000050 — Classics (Greek and Latin Language and Culture) | Updated year-three label to2029–2030 and stated the prospective2027-entry sequence; Retained the supported180-EC domestic pathway and prospective-cohort qualification | None within this correction; UCR reassessment remains separate. |
 | cp-000051 — Human Neuroscience | Removed the unsupported current 66-EC prospectus claim; Refreshed the unresolved rationale to the present development notice and adopted OER | Obtain the remaining 16 EC third-year requirements and final applicable second-/third-year allocation when officially published. |
-| cp-000061 | Pending implementation | Pending |
+| cp-000061 — Notarial Law | Replaced broken English EER reference with accessible adopted Dutch 2026–2027 OER and index; Made current formal source primary and distinguished prospective pages | None within this correction; UCR reassessment remains separate. |
 | cp-000070 | Pending implementation | Pending |
 
 ### cp-000040
@@ -113,3 +113,12 @@ This closes the source-context finding. No historical page archive establishes w
 Verification: Fresh OER download and current year-two/year-three pages. Visually inspected OER p.18: research 18 and genuine free 26; supported 60 + 60 + 44 = 164. All 23 component weights preserved; provisional learning lines remain explicit. Deterministic regeneration, target validators and generated-index check passed.
 
 The revised current rationale closes the stale-source claim; it does not resolve the university’s unpublished third-year allocation. The historical 66-EC calculation remains provenance only.
+
+### cp-000061
+
+- [OER Faculteit der Rechtsgeleerdheid 2026–2027](https://www.ru.nl/sites/default/files/2026-09/oer_2026-2027-fdr.pdf) — Annex VI, Article 4, printed pp. 56–57. Checked 8 October 2026.
+- [OER Faculteit der Rechtsgeleerdheid](https://www.ru.nl/studenten/onderwijs-volgen/regels-en-richtlijnen/onderwijs-en-examenregelingen/rechtsgeleerdheid) — Current-year OER link and annual-regulation notice. Checked 8 October 2026.
+
+Verification: Fresh current Dutch OER and official index downloads. Inspected formal Annex VI Article 4, printed pp.56–57; 60 + 60 + 55 + 5 = 180 matches all 32 retained component weights. No courses, choice instantiation, route or UCR assessment changed. Deterministic regeneration, target validators and generated-index check passed.
+
+The historical availability of the replaced English URL remains unverified. Its former access failure does not establish a substantive curriculum error.
