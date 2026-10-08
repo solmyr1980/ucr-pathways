@@ -489,3 +489,25 @@ Five first-stage cases resolved. Nanobiology, Applied Mathematics, Automotive Te
 Target validators, deterministic compiler comparisons, guarded registry replay, generated-index checks, full-corpus validation and CI compiler regressions passed. GitHub checks are verified after each publication. The original audit, raw provenance and earlier batch histories remain unchanged.
 
 Live corpus: 438 in-scope records, 301 comparisons and 137 exceptions; 22 excluded permanent targets. Exception types: 20 external-programme-unresolved, 104 no-defensible-ucr-match, 13 ucr-assessment-pending. No in-scope record is missing.
+
+## Batch 8 — next five cases in audit order
+
+Status: in-progress. Independent UCR assessment remains separate.
+
+| Target | First-stage outcome | Remaining external question |
+|---|---|---|
+| cp-000263 — Bachelor Architecture, Urbanism and Building Sciences | Instantiated one coherent AUDE route using formal ordering independently of UCR fit; Replaced generic 130-EC core with 28 named requirement/open-space positions; preserved printed 5-EC multidisciplinary project; Recorded the 175-EC diagnostic and conflict between Article 3.4, Appendix 2 and webpage aggregates | Official reconciliation of AUDE core/project credits and elective volume: printed named core125 + ITEC10 + Appendix2 electives40 = 175, versus Article3.4 electives45 and webpage core130/electives40. |
+| cp-000265 | Pending | Pending |
+| cp-000266 | Pending | Pending |
+| cp-000267 | Pending | Pending |
+| cp-000270 | Pending | Pending |
+
+### cp-000263
+
+- [Architecture, Urbanism and Building Sciences after-revision curriculum](https://educationguide.tue.nl/programs/bachelor-college/majors/architecture-urbanism-and-building-sciences/curriculum-start-year-20232024) — Current degree allocation, four main tracks and profiles. Checked 8 October 2026. SHA-256: `bd3e09e4b94fce5c415c27be325ed1b710c5a7fed5f3fef0a6d167cb06fd4e78`.
+- [Built Environment Bachelor College Course Guide 2026–2027](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Content/Programs/Bachelor%20College/Major%20Architecture%2C%20Urbanism%20and%20Building%20Sciences/Curriculum/Built%20Environment%20Bachelor%20College%20CourseGuide%202026-2027.pdf) — Printed pp.52–59,64–65,74–77; PDF sheets 27–30,33,38–39. Checked 8 October 2026. SHA-256: `5e86dcccd968361bf72be93e13ccf1a1dbee5b923b04d360bf5e736396417296`.
+- [AUBS PER after revision 2026–2027](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Content/Programs/Bachelor%20College/Major%20Architecture%2C%20Urbanism%20and%20Building%20Sciences/Regulations/PER%20AUBS%20After%20Revision%202026-2027%20%28Curriculum%20start%20year%202023-2024%29.pdf) — Article 3.4, core tables and Appendix 2/3; PDF pp.21–24,81,87. Checked 8 October 2026. SHA-256: `ab3dfb922261d67e6f69008e9404b563f6b6ee7b2321bed349ca640101bfd753`.
+
+Verification: Fresh current official requirement tables inspected, including visual PDF checks. Each component counted once; verified 28 positions totaling175 EC. Deterministic compilation, all three target validators and generated-index checks passed.
+
+The established route and course corrections are published. Conflicting current official credit requirements prevent a verified 180-EC closure. The 175-EC diagnostic is deliberate; no missing credit is invented. No recurring monitoring is scheduled.
