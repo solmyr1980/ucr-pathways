@@ -224,7 +224,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 | Target | First-stage outcome | Remaining external question |
 |---|---|---|
 | cp-000119 — Bachelor Theologie en Religiewetenschappen | Reconstructed 26 official components totaling 180 EC with neutral restricted choices and 30 EC profiling; Corrected route, adopted-year context and six-year part-time pacing; Supplemented normalized instruction languages; replaced obsolete source-access exception with UCR-assessment-pending | None within this correction. |
-| cp-000134 | Pending | Pending |
+| cp-000134 — Bachelor Fiscal Economics | Corrected lifecycle to teach-out-only and removed active eligibility/production order; Archived prior decision and canonical record unchanged with SHA-256 hashes; Corrected normalized instructional languages to Dutch and English; preserved permanent identity and raw provenance | None within this correction. |
 | cp-000149 | Pending | Pending |
 | cp-000156 | Pending | Pending |
 | cp-000175 | Pending | Pending |
@@ -238,3 +238,11 @@ Status: in-progress. Independent UCR assessment remains separate.
 Verification: Fresh current OER retrieved and Annex 1 visually inspected. Independent component arithmetic closes 60+60+60; part-time pacing closes 36+24 across each pair. Deterministic compiler, target validators, generated-index checks and guarded registry replay passed.
 
 Original access report is historical evidence, not a claim about present retrieval. The corrected external pathway is not independently assessed against UCR.
+
+### cp-000134
+
+- [Maastricht SBE Bachelor EER 2026–2027](https://www.maastrichtuniversity.nl/file/sbe-bsc-eer-2026-2027pdf) — Article 16.8, printed pp.60–61; Appendix I Article 17, printed pp.100–102. Checked 8 October 2026. SHA-256: `8ba56bbf673871af380c3436f2d409807628b17369ec1e55f56271e42d244c95`.
+
+Verification: Fresh adopted EER confirms lifecycle, deadlines and languages. Archived files are byte-identical to their pre-correction versions. Guarded registry replay, scope reconciliation, full-corpus validation and generated-index checks passed.
+
+A historical 180-EC award does not supply a current intake pathway. No UCR assessment is needed under active-production exclusion.

@@ -19,14 +19,14 @@ The original programme workbook and DUO/RIO CSV remain unchanged.
 ## Final normalized scope
 
 - Normalized programme targets: **460** (`478 - 1 excluded - 18 net merge consolidation + 1 genuine one-to-many split`)
-- Registry production-eligible/current targets: **457**
-- Retained registry non-production targets (teach-out/inactive): **3**
+- Registry production-eligible/current targets: **456**
+- Retained registry non-production targets (teach-out/inactive): **4**
 - Explicitly excluded source identities with no current target: **1** (`Academische Pabo`, source row 2)
-- Normalized institutions: **20**
+- Normalized institutions: **21**
 - Original programme-interest records preserved: **22227**
 - Normalized programme-interest rows after target mapping: **22259**
 
-Registry eligibility is deliberately distinct from the current counselor comparison presentation scope. Under the current Master Specification and Production Instructions, counselor comparison production is temporarily limited to `programme_type=standard`. Of the 457 registry-eligible/current targets, **440** are currently in counselor production scope. The other **17 registry-eligible targets** are non-standard structures (7 joint degrees, 9 double bachelors and 1 dual-degree route) that remain valid/current registry targets but are temporarily excluded from comparison production until an approved presentation method exists. One additional joint-degree target is already outside registry production eligibility because it is teach-out-only.
+Registry eligibility is deliberately distinct from the current counselor comparison presentation scope. Under the current Master Specification and Production Instructions, counselor comparison production is temporarily limited to `programme_type=standard`. Of the 456 registry-eligible/current targets, **439** are currently in counselor production scope. The other **17 registry-eligible targets** are non-standard structures (7 joint degrees, 9 double bachelors and 1 dual-degree route) that remain valid/current registry targets but are temporarily excluded from comparison production until an approved presentation method exists. One additional joint-degree target is already outside registry production eligibility because it is teach-out-only.
 
 **Post-build academic correction (2026-09-28):** `cp-000202`, originally imported as the standard programme “Politieke Wetenschappen,” is the Political Science track of Groningen's *Philosophy of a Specific Discipline*. The current official degree page identifies a combination bachelor awarding two degrees and crediting 120 EC from a separate first BA. Its `programme_type` is therefore corrected to `double-bachelor`, with a clarifying English display name and source recorded in `corrected_attributes_json`. The permanent ID, source name, provenance, eligibility and production order are preserved. The Step 1–3 reports below remain historical build snapshots; their original type counts predate this correction.
 
@@ -107,3 +107,5 @@ This registry layer defines normalized programme identity, provenance, lifecycle
 **Post-build instruction correction (2026-10-08):** `cp-000301` retains Dutch as its formal main-programme classification and raw RIO language. Its normalized instruction metadata additionally records ENG because four required first-year modules explicitly use English. NLD + ENG describes documented teaching across the curriculum, not universal English teaching or Japanese-medium instruction. The permanent identity, source rows, offerings and modes are unchanged; the separate ledger makes this override reproducible.
 
 **Post-build instruction correction (2026-10-08):** `cp-000119` retains its Dutch part-time identity. Adopted OER Article 10.4 gives Dutch initial instruction, some English units and English third-stage instruction for Religie en Levensbeschouwing. Normalized instructional metadata now includes NLD and ENG; raw NLD provenance remains unchanged.
+
+**Post-build lifecycle correction (2026-10-08):** `cp-000134` Fiscal Economics is teach-out-only under the adopted 2026–2027 SBE EER. Registry eligibility is false and production order is blank, following the existing teach-out convention. The permanent identity and historical 180-EC award remain, and the former active decision/comparison are archived unchanged. Normalized instructional languages include NLD and ENG; raw ENG provenance is retained. Final third-year repeat education is 2026–2027, examinations continue through 2027–2028, and last graduation is 31 October 2028. This changes the live scope to 439 records and 21 excluded targets; historical build reports below retain their original counts.
