@@ -1,6 +1,6 @@
 # Counselor completeness and exceptions: first-stage audit
 
-Status: in progress. Batches 1–16 completed through 8 October 2026: all 19 scope exclusions and 140 exceptions audited within the first-stage scope. No audit cases remain pending.
+Status: first-stage audit complete. Batches 1–16 completed through 8 October 2026: all 19 scope exclusions and 140 exceptions audited within the first-stage scope. No audit cases remain pending.
 
 ## Scope and method
 
