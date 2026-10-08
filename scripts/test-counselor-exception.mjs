@@ -6,7 +6,8 @@ import { execFileSync } from 'node:child_process';
 import { buildProductionRecord } from './build-counselor-production.mjs';
 
 const root = process.cwd();
-const decision = JSON.parse(fs.readFileSync('data/counselor/decisions/cp-000040.json', 'utf8'));
+// A fixed no-match fixture must not change when the live programme is corrected.
+const decision = JSON.parse(fs.readFileSync('data/counselor/decisions/_regression/exceptions/cp-000040-no-match.json', 'utf8'));
 const record = buildProductionRecord(decision, root);
 assert.equal(record.recordStatus, 'exception');
 assert.equal(record.programmes.length, 1);
