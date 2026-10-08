@@ -11,6 +11,7 @@ Status: in-progress.
 | cp-000333 — Academic Primary Teacher Education (ALPO) | double-bachelor classification; UU and HU participant identities; four-year full-time entry; withdrawal from standard-only counselor scope with evidence preserved | Verify current combined study load and credit sharing before replacing the embedded 180-EC study_load_ec field. |
 | cp-000095 — Pharmaceutical Sciences (Farmaceutische Wetenschappen) | Corrected narrative to 150 EC required major + 30 EC profiling = 180 EC | None within this correction; UCR reassessment remains separate. |
 | cp-000293 — Tax Law | Removed outgoing third year from revised curriculum; Replaced unsupported no-match outcome with external-programme-unresolved; Retained independently verified 120 EC without inferred filler | Obtain the revised third-year requirements and applicable cohort/delivery sequence when officially published. |
+| cp-000301 — Japanese Studies (Japanstudies) | Normalized instruction metadata now includes documented ENG alongside NLD; Preserved the complete 180-EC Japanese pathway and raw Dutch offering metadata | None within this correction; UCR reassessment remains separate. |
 
 ## cp-000333
 
@@ -38,3 +39,16 @@ The first-stage narrative defect is closed. This does not establish that the ret
 Verification: Re-read explicit cohort notices in the current official BA-FIS product. Fetched each of the 24 positive-credit revised modules: every unit is 5 EC, closing 60 + 60 = 120 EC. Regenerated canonical exception through the unchanged compiler; all three record validators and generated-index check passed.
 
 The unsupported claim of a complete current 180-EC curriculum is corrected. Complete external reconstruction remains blocked by the university's unpublished revised third year; the old UCR no-match conclusion is no longer the active exception outcome.
+
+## cp-000301
+
+- [Japanese Studies current study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-JAP&type=STUDY&year=2261&language=en) — Year 2261; programme, annual/group rules, membership and choices. Checked 8 October 2026.
+- [japanstudies OER2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-japanstudies-2026-2027.pdf) — Articles2.2/2.9/4.2; pp.2,4–7. Checked 8 October 2026.
+- [Japan in the 21st Century: Sociological Perspectives current module](https://studiegids.universiteitleiden.nl/api/product?code=5691VGMY&type=MODULE&year=2261&language=en) — Credit and EDUCATION_LANGUAGE; required programme membership. Checked 8 October 2026.
+- [Arts and Material Culture of Japan current module](https://studiegids.universiteitleiden.nl/api/product?code=5691ITAMY&type=MODULE&year=2261&language=en) — Credit and EDUCATION_LANGUAGE; required programme membership. Checked 8 October 2026.
+- [Introduction to Modern Japanese History current module](https://studiegids.universiteitleiden.nl/api/product?code=5691VMGS1Y&type=MODULE&year=2261&language=en) — Credit and EDUCATION_LANGUAGE; required programme membership. Checked 8 October 2026.
+- [Power, Development and Conflict in Asia current module](https://studiegids.universiteitleiden.nl/api/product?code=5691VPDCAY&type=MODULE&year=2261&language=en) — Credit and EDUCATION_LANGUAGE; required programme membership. Checked 8 October 2026.
+
+Verification: Four required first-year MODULE records explicitly specify EDUCATION_LANGUAGE = ENG; no inference from course title or studied language. Permanent ID, source row, offering ID, delivery modes and all 24 comparator components are unchanged. Both registry corrections replay from the pre-correction baseline; other 458 targets and raw offerings are unchanged. Deterministic canonical regeneration, all record validators, registry replay check and generated review-index check passed.
+
+NLD remains the formal main programme classification. NLD + ENG represents documented instruction across required courses, not universal English teaching or Japanese-medium instruction. The adopted OER remains audited provenance; direct fresh PDF retrieval returned an HTML verification wall.

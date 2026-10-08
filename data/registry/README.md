@@ -103,3 +103,5 @@ Records linked to the excluded Academische Pabo source row remain in the file wi
 ## Production boundary
 
 This registry layer defines normalized programme identity, provenance, lifecycle eligibility and stable ordering. It does **not** by itself define the temporary counselor presentation scope, reconstruct curricula, create UCR alternatives, or publish comparisons. Current counselor production scope and academic generation remain governed by the Master Specification, Production Instructions and Counselor Batch Assignment.
+
+**Post-build instruction correction (2026-10-08):** `cp-000301` retains Dutch as its formal main-programme classification and raw RIO language. Its normalized instruction metadata additionally records ENG because four required first-year modules explicitly use English. NLD + ENG describes documented teaching across the curriculum, not universal English teaching or Japanese-medium instruction. The permanent identity, source rows, offerings and modes are unchanged; the separate ledger makes this override reproducible.
