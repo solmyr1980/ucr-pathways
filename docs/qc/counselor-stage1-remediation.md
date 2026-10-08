@@ -216,3 +216,25 @@ Five cases processed: three external findings resolved; two retain specific exte
 Target validators, deterministic compiler comparisons, guarded registry replay, generated-index checks, compiler regressions and full-corpus validation passed. GitHub build, review and Shiny results are verified after publication. The original audit remains unchanged.
 
 The live corpus contains 440 in-scope records: 301 comparisons and 139 exceptions. Exception types: 20 external-programme-unresolved, 114 no-defensible-ucr-match, 2 registry-exception, 3 ucr-assessment-pending. The normalized Health and Life Sciences language is NLD; its raw ENG provenance remains unchanged. No identity or production-scope change.
+
+## Batch 4 — next five cases in audit order
+
+Status: in-progress. Independent UCR assessment remains separate.
+
+| Target | First-stage outcome | Remaining external question |
+|---|---|---|
+| cp-000119 — Bachelor Theologie en Religiewetenschappen | Reconstructed 26 official components totaling 180 EC with neutral restricted choices and 30 EC profiling; Corrected route, adopted-year context and six-year part-time pacing; Supplemented normalized instruction languages; replaced obsolete source-access exception with UCR-assessment-pending | None within this correction. |
+| cp-000134 | Pending | Pending |
+| cp-000149 | Pending | Pending |
+| cp-000156 | Pending | Pending |
+| cp-000175 | Pending | Pending |
+
+### cp-000119
+
+- [VU current Theology and Religious Studies study guide](https://studiegids.vu.nl/nl/Bachelor/2026-2027/theologie-en-religiewetenschappen) — Programme facts and linked adopted OER. Checked 8 October 2026. SHA-256: `281fbc95c85eadff7932d93eb2e5953a9c2d4006b0e6988f6c831e6e461c4741`.
+- [VU Theology and Religious Studies OER 2026–2027](https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/110b4a0f-1fe1-40b1-a797-60a6aab14bd4/OER%2026-27%20B%20TRS%20NL.pdf) — Article 10.4, 11–12 and Annex 1, physical PDF p.26 (appendix 5/34). Checked 8 October 2026. SHA-256: `7a22c65e3c53237a0abed4575d8a26b25afcbf98fbf963fca4c91425edf11694`.
+- [VU future Zingeving, geestelijke verzorging en samenleving track](https://vu.nl/nl/onderwijs/bachelor/theologie-en-religiewetenschappen/traject/zingeving-geestelijke-verzorging-en-samenleving/inhoud) — Programme starting in 2027 label. Checked 8 October 2026. SHA-256: `dfa5fdb88a340c0c1d36be01919423067131af2350fe081da87d7cb6e7001723`.
+
+Verification: Fresh current OER retrieved and Annex 1 visually inspected. Independent component arithmetic closes 60+60+60; part-time pacing closes 36+24 across each pair. Deterministic compiler, target validators, generated-index checks and guarded registry replay passed.
+
+Original access report is historical evidence, not a claim about present retrieval. The corrected external pathway is not independently assessed against UCR.

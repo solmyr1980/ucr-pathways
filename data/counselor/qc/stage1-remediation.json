@@ -39,6 +39,18 @@
       ],
       "status": "completed",
       "selection_basis": "Next five actionable first-stage cases in original audit order; independent UCR reassessment excluded."
+    },
+    {
+      "batch_number": 4,
+      "case_ids": [
+        "cp-000119",
+        "cp-000134",
+        "cp-000149",
+        "cp-000156",
+        "cp-000175"
+      ],
+      "status": "in-progress",
+      "selection_basis": "Next five actionable first-stage cases in original audit order; independent UCR reassessment excluded."
     }
   ],
   "cases": [
@@ -892,11 +904,66 @@
         "No unknown weights inferred by subtraction and no outgoing-cohort units imported."
       ],
       "qualification": "This is a completed no-change verification within batch 3, not an instruction for ongoing monitoring."
+    },
+    {
+      "counselor_programme_id": "cp-000119",
+      "programme": "Bachelor Theologie en Religiewetenschappen",
+      "batch_number": 4,
+      "status": "resolved",
+      "completed_on": "2026-10-08",
+      "closed_findings": [
+        "Reconstructed 26 official components totaling 180 EC with neutral restricted choices and 30 EC profiling",
+        "Corrected route, adopted-year context and six-year part-time pacing",
+        "Supplemented normalized instruction languages; replaced obsolete source-access exception with UCR-assessment-pending"
+      ],
+      "remaining_work": [],
+      "ucr_reassessment": "Pending separate assessment of the verified external pathway.",
+      "prior_exception": {
+        "type": "external-programme-unresolved",
+        "reason": "The exact EC weights and compulsory-versus-elective status of every curriculum component in the selected Religie en Levensbeschouwing route cannot be verified from any source accessible to available tools. VU's own current regulations page states the formal OER/TER is published only inside the dynamic studiegids.vu.nl study-guide application, which returned no extractable curriculum content to available retrieval tools, and the only standalone official OER document discoverable through reasonable search (2017-2018) predates the current three-route structure -- it still treats Islam as an elective minor rather than a parallel afstudeerrichting -- and does not reliably describe the current curriculum. A complete 180-EC comparator would require inventing credit weights and compulsory/elective status that no current or formally adopted source supports, so a canonical comparison cannot be made yet.",
+        "checkedOn": "2026-09-27",
+        "curriculumContext": "VU's current official pages (checked 2026-09-27) confirm a 180-EC, three-year Bachelor Theologie en Religiewetenschappen offered voltijd and deeltijd, with three co-equal afstudeerrichtingen selected from year 1 (Theologie, Islam, and the selected Religie en Levensbeschouwing/Zingeving route); the deeltijd variant carries the identical 180-EC curriculum at a reduced pace rather than a distinct credit structure. The selected route's own page names its year-by-year course themes -- the origin of religious traditions, world religions and conflict/peacebuilding in year 1; meaning-making/mental health and religion and trauma in year 2; a flexible-location minor plus a scriptieseminar-and-bachelorscriptie and electives such as philosophy of religion in year 3 -- but supplies no EC, compulsory-status or credit-table information for any of them. Resolve the applicable current OER/study-guide credit structure for this exact merged three-route programme, or obtain a current standalone OER document that supersedes the 2017-2018 minor-based structure, before revisiting this comparator."
+      },
+      "sources": [
+        {
+          "url": "https://studiegids.vu.nl/nl/Bachelor/2026-2027/theologie-en-religiewetenschappen",
+          "title": "VU current Theology and Religious Studies study guide",
+          "locator": "Programme facts and linked adopted OER",
+          "fact": "180 EC; Dutch part-time target, current formal directions.",
+          "academic_year": "2026–2027; checked 2026-10-08",
+          "date_checked": "2026-10-08",
+          "sha256": "281fbc95c85eadff7932d93eb2e5953a9c2d4006b0e6988f6c831e6e461c4741"
+        },
+        {
+          "url": "https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/110b4a0f-1fe1-40b1-a797-60a6aab14bd4/OER%2026-27%20B%20TRS%20NL.pdf",
+          "title": "VU Theology and Religious Studies OER 2026–2027",
+          "locator": "Article 10.4, 11–12 and Annex 1, physical PDF p.26 (appendix 5/34)",
+          "fact": "Selected Religie en Levensbeschouwing pathway is 60+60+60 EC; six-year part-time pacing, 36/24 EC across each pair of years. Required course units, restricted alternatives, 30-EC profiling and research/thesis progression are explicit. Third academic stage is English-taught.",
+          "academic_year": "2026–2027; checked 2026-10-08",
+          "date_checked": "2026-10-08",
+          "sha256": "7a22c65e3c53237a0abed4575d8a26b25afcbf98fbf963fca4c91425edf11694"
+        },
+        {
+          "url": "https://vu.nl/nl/onderwijs/bachelor/theologie-en-religiewetenschappen/traject/zingeving-geestelijke-verzorging-en-samenleving/inhoud",
+          "title": "VU future Zingeving, geestelijke verzorging en samenleving track",
+          "locator": "Programme starting in 2027 label",
+          "fact": "Qualitative future course lists are not the controlling adopted 2026–2027 curriculum.",
+          "academic_year": "2026–2027; checked 2026-10-08",
+          "date_checked": "2026-10-08",
+          "sha256": "dfa5fdb88a340c0c1d36be01919423067131af2350fe081da87d7cb6e7001723"
+        }
+      ],
+      "verification": [
+        "Fresh current OER retrieved and Annex 1 visually inspected.",
+        "Independent component arithmetic closes 60+60+60; part-time pacing closes 36+24 across each pair.",
+        "Deterministic compiler, target validators, generated-index checks and guarded registry replay passed."
+      ],
+      "qualification": "Original access report is historical evidence, not a claim about present retrieval. The corrected external pathway is not independently assessed against UCR."
     }
   ],
   "summary": {
-    "processed_cases": 15,
-    "fully_resolved_first_stage_findings": 9,
+    "processed_cases": 16,
+    "fully_resolved_first_stage_findings": 10,
     "cases_with_remaining_external_research": 6
   },
   "live_corpus": {
@@ -906,10 +973,10 @@
     "comparisons": 301,
     "exceptions": 139,
     "exception_types": {
-      "external-programme-unresolved": 20,
+      "external-programme-unresolved": 19,
       "no-defensible-ucr-match": 114,
       "registry-exception": 2,
-      "ucr-assessment-pending": 3
+      "ucr-assessment-pending": 4
     },
     "missing_in_scope_ids": []
   }
