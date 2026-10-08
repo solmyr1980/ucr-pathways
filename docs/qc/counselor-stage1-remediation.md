@@ -151,7 +151,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 | Target | First-stage outcome | Remaining external question |
 |---|---|---|
 | cp-000076 — Mathematics (Wiskunde) | Rebuilt current ordinary OER pathway at 180 EC with 54+6+24+36+48+12 allocation; Instantiated restricted choices with 6 EC from year three; removed old-cohort and universal supplementary-mathematics assumptions; Corrected source labels and marked separate UCR assessment pending | None; UCR assessment remains separate. |
-| cp-000097 | Pending | Pending |
+| cp-000097 — Medicine (Geneeskunde) | Replaced empty external reconstruction with adopted 180-EC Compas curriculum; Verified minor 24 EC and thesis 6 EC; embedded clinical/research activities counted once; Removed unsupported external inaccessibility claim and recorded UCR assessment pending | None; UCR assessment remains separate. |
 | cp-000098 | Pending | Pending |
 | cp-000099 | Pending | Pending |
 | cp-000100 | Pending | Pending |
@@ -169,3 +169,13 @@ The explicit `ucr-assessment-pending` handoff requires a verified complete 180-E
 Verification: Formal OER articles 7.3–7.5 and 8.1 reread; restricted table visually checked. All credited components total 180 EC; zero-credit RADAr excluded from the credit total. Target validation and deterministic compiler regeneration passed.
 
 Current OER governs formal requirements. Indicative public offerings do not guarantee the timetable of a 2026 entrant; the original UCR conclusion is preserved as superseded provenance.
+
+### cp-000097
+
+- [vu_medicine_guide_b5](https://studiegids.vu.nl/nl/Bachelor/2026-2027/geneeskunde) — Programme facts, current OER link and embedded-stage descriptions. Checked 8 October 2026. SHA-256: `ac0eb385b8ffee3792d10e1478f178327e052ae29d9141f2d5a443d198b146e5`.
+- [vu_medicine_oer_b5](https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/151c0dc2-797e-46fb-b61c-ac16761ceb04/1%20OER%20Ba%20VUmc-compas%202026-2027%20DEF.pdf) — Articles 11.1–11.5, PDF pp. 15–18; Articles 12.1–12.3, PDF pp. 21–23 (repeated printed footer numbering). Checked 8 October 2026. SHA-256: `104096617472d5d1f9e7391e7df1bd4ed5f921b658a701e0b15a2dd8434b4d11`.
+- [vu_medicine_transition_b5](https://vu.nl/nl/student/studenten-bachelor-geneeskunde/overgangsregeling-vumed360) — Publication update 26 August 2026; final teaching and validity dates. Checked 8 October 2026. SHA-256: `3f0b5d55e55676eb3ab3f11ba1ac152e7553406dc1805db320940a04d47fabb6`.
+
+Verification: Current OER tables articles 11.3–12.3 independently read; first-year table visually checked. Twenty-six major units at 6 EC plus 24-EC minor total 180 EC. Current transition rules confirm the Fall 2026 Compas sequence. Target validation and deterministic compiler regeneration passed.
+
+Minor selection is subject to university admission/capacity; current listing is not a guaranteed future enrolment offer. No independent clinical/UCR reassessment performed.
