@@ -498,7 +498,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 |---|---|---|
 | cp-000263 — Bachelor Architecture, Urbanism and Building Sciences | Instantiated one coherent AUDE route using formal ordering independently of UCR fit; Replaced generic 130-EC core with 28 named requirement/open-space positions; preserved printed 5-EC multidisciplinary project; Recorded the 175-EC diagnostic and conflict between Article 3.4, Appendix 2 and webpage aggregates | Official reconciliation of AUDE core/project credits and elective volume: printed named core125 + ITEC10 + Appendix2 electives40 = 175, versus Article3.4 electives45 and webpage core130/electives40. |
 | cp-000265 — Bachelor Electrical Engineering | Reconstructed 27 current common/EE course and open-space positions totaling 180 EC; Corrected core 125 including project 10, ITEC 10 and electives 45; counted 5EWC0 once at 10; Removed optional semiconductor/alternative-programme courses from universal compulsory formation | None within this correction. |
-| cp-000266 | Pending | Pending |
+| cp-000266 — Bachelor Industrial Design | Replaced generic annual 60 blocks with all 23 source-printed positions; diagram total 180 EC; Preserved separately credited PPD15, design projects 50, multidisciplinary CBL5 and approved ELA25 alternatives; Recorded unresolved formal 185 versus diagram 180 conflict without altering printed weights | Official reconciliation of current PER core 125 + ITEC 10 + profiling 50 =185 versus ordinary current diagram core 120 + ITEC 10 + profiling 50 =180. |
 | cp-000267 | Pending | Pending |
 | cp-000270 | Pending | Pending |
 
@@ -520,3 +520,14 @@ The established route and course corrections are published. Conflicting current 
 Verification: Fresh current official requirement tables inspected, including visual PDF checks. Each component counted once; verified 27 positions totaling180 EC. Deterministic compilation, all three target validators and generated-index checks passed.
 
 The external correction is complete. UCR fit awaits separate assessment; the superseded judgment is preserved in this register. No recurring monitoring is scheduled.
+
+### cp-000266
+
+- [Industrial Design programme](https://www.tue.nl/en/education/bachelor-college/bachelor-industrial-design) — Degree facts and integrated expertise areas. Evidence preserved from the completed first-stage audit; this source was not freshly retrieved: <urlopen error timed out>
+- [Industrial Design curriculum start 2023/2024 and after](https://studiegids.tue.nl/opleidingen/bachelor-college/majors/industrial-design/curriculum-start-year-20232024) — Current cohort diagram links and exception for 2025 starters. Checked 8 October 2026. SHA-256: `0d84c38e1f6b639c5a95bfebb092a435a468c367b860ba778516e1db25169a08`.
+- [Industrial Design 2627 Bachelor Program ID-BC2.0 overview](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Content/Programs/Bachelor%20College/Major%20Industrial%20Design/Forms%20and%20Files/2627%20Bachelor%20Program%20ID-BC%202.0%20Overview.pdf) — Whole one-page printed-credit diagram. Checked 8 October 2026. SHA-256: `64d59d953786b8924cd5f77046234a7d6201d86a853acc0d06a5593f69c8473a`.
+- [Industrial Design PER after revision 2026–2027](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Content/Programs/Bachelor%20College/Major%20Industrial%20Design/Forms%20and%20Files/ID%20BSc%20model%20OER%202026-2027%20AR.pdf) — Article 3.4 and Appendix 2; PDF pp.20–24,76–81. Checked 8 October 2026. SHA-256: `2696c05f3080fcff3717ac517c0dbf6da6c4d752f770c3ff06687d0a77d51a06`.
+
+Verification: Fresh current official requirement tables inspected, including visual PDF checks. Each component counted once; verified 23 positions totaling180 EC. Deterministic compilation, all three target validators and generated-index checks passed.
+
+The diagram reconstruction and required formation are corrected. The current formal aggregate remains inconsistent with it, so external-programme-unresolved is retained until an authoritative reconciliation is available. No recurring monitoring is scheduled.
