@@ -349,3 +349,25 @@ Five cases processed and all first-stage findings resolved. CP198 owns the Dutch
 Target validators, deterministic compiler comparisons, guarded registry/alias replay, generated-index checks, meaningful alias conflict regressions, compiler regressions and full-corpus validation passed. Final GitHub publication checks are verified after publication. The original audit, upstream source evidence and earlier batch histories remain unchanged.
 
 Live corpus: 438 in-scope records, 301 comparisons and 137 exceptions; 22 excluded permanent targets. Exception types: 19 external-programme-unresolved, 111 no-defensible-ucr-match, 7 ucr-assessment-pending. No in-scope record is missing.
+
+## Batch 6 — next five cases in audit order
+
+Status: in-progress. Independent UCR assessment remains separate.
+
+| Target | First-stage outcome | Remaining external question |
+|---|---|---|
+| cp-000248 — Bachelor Electrical Engineering | Replaced quarter aggregates with 28 course/choice components and exact current weights; Instantiated two distinct restricted EEX choices; retained the 30-EC minor; Corrected current prerequisite, language and period-conflict context; verified 180 EC | None within this correction. |
+| cp-000249 | Pending | Pending |
+| cp-000250 | Pending | Pending |
+| cp-000252 | Pending | Pending |
+| cp-000253 | Pending | Pending |
+
+### cp-000248
+
+- [Electrical Engineering programme](https://www.tudelft.nl/onderwijs/opleidingen/bachelors/ee/bsc-electrical-engineering) — Degree facts, language requirement and defining content. Checked 8 October 2026. SHA-256: `f8b65a4971171bab8ee096f6f2ec9e697805e534d304717fa9948f17219d6ac4`.
+- [Electrical Engineering curriculum chart 2025–2026](https://filelist.tudelft.nl/EWI/Studeren/Bacheloropleidingen/modulekaarten/BSc%20EE%20modulekaart%202025-2026%20inclusief%20kalender.pdf) — Credit axis, elective footnote, entry requirements. Checked 8 October 2026. SHA-256: `1eaff147630c94b2d565cf3ce4c056c44952e5fe38716440f66c78a0badf4a06`.
+- [EEMCS bachelor OER 2026–2027: Electrical Engineering](https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/EWI/Studeren/Reglementen/Onderwijs-%20en%20Examenregeling%20EWI%202026-2027.pdf) — Electrical Engineering articles 6–7; PDF pp. 25–29. Checked 8 October 2026. SHA-256: `c592f1a06ce7315d9492d93475981c15dee6d3d74e337788084a55d8682ade47`.
+
+Verification: Fresh current OER tables and articles 6–7 visually inspected. Independent year totals are 60+60+60; selected electives count once and remain distinct. Deterministic compilation, target validators and generated-index checks passed.
+
+The formal yearly requirement structure is resolved. No exact quarter timetable is asserted; the old-chart/current-table discrepancy remains explicitly qualified. No new UCR judgment is made.
