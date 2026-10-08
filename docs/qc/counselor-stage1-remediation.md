@@ -72,15 +72,15 @@ At the completion of batch 1, the registry retained 460 permanent targets: 440 a
 
 ## Batch 2 — next five cases in audit order
 
-Status: in-progress. Independent UCR reassessment remains separate.
+Status: completed. Independent UCR reassessment remains separate.
 
 | Target | Implemented correction | Remaining work |
 |---|---|---|
-| cp-000040 — German Language and Culture | Corrected prospective academic-year labels and current formal authority; Restored year-two genuine free30 and formal restrictions; Removed unverified duplicated third-year15; published explicit external-programme-unresolved outcome | Obtain a current ordinary-route single-cohort repeat/replacement rule for LET-DTCB229, LET-DTCB225 and LET-DTCB235, or verify an applicable approved Article6 alternative. |
-| cp-000050 — Classics (Greek and Latin Language and Culture) | Updated year-three label to2029–2030 and stated the prospective2027-entry sequence; Retained the supported180-EC domestic pathway and prospective-cohort qualification | None within this correction; UCR reassessment remains separate. |
+| cp-000040 — German Language and Culture | Corrected prospective academic-year labels and current formal authority; Restored year-two genuine free 30 and formal restrictions; Removed unverified duplicated third-year 15; published explicit external-programme-unresolved outcome | Obtain a current ordinary-route single-cohort repeat/replacement rule for LET-DTCB229, LET-DTCB225 and LET-DTCB235, or verify an applicable approved Article6 alternative. |
+| cp-000050 — Classics (Greek and Latin Language and Culture) | Updated year-three label to 2029–2030 and stated the prospective 2027-entry sequence; Retained the supported 180-EC domestic pathway and prospective-cohort qualification | None within this correction; UCR reassessment remains separate. |
 | cp-000051 — Human Neuroscience | Removed the unsupported current 66-EC prospectus claim; Refreshed the unresolved rationale to the present development notice and adopted OER | Obtain the remaining 16 EC third-year requirements and final applicable second-/third-year allocation when officially published. |
 | cp-000061 — Notarial Law | Replaced broken English EER reference with accessible adopted Dutch 2026–2027 OER and index; Made current formal source primary and distinguished prospective pages | None within this correction; UCR reassessment remains separate. |
-| cp-000070 | Pending implementation | Pending |
+| cp-000070 — Chemistry (Scheikunde) | Reconstructed current ordinary formal allocation: 126 required + 36 conditioned choice + 12 research + 6 genuinely free EC; Removed extra compulsory Writing about Science and retained one 3-EC writing requirement; Instantiated the 36-EC restricted choice, preserving two valid prior selections and adding 24 EC by formal list order; Corrected prospective-year context and removed an unsupported formal-route label | None within this correction; UCR reassessment remains separate. |
 
 ### cp-000040
 
@@ -90,7 +90,7 @@ Status: in-progress. Independent UCR reassessment remains separate.
 - [German Language and Culture programme-specific OER 2026–2027](https://www.ru.nl/ru-bestanden/oerbdtc2627) — Articles 5–7 and 10, pp.6–9. Checked 8 October 2026.
 - [Faculty of Arts general bachelor OER 2026–2027](https://www.ru.nl/ru-bestanden/oeralgemeenbachelor2627) — Article10, pp.8–9. Checked 8 October 2026.
 
-Verification: Fresh downloads of current prospectus pages and both adopted OERs. Visually inspected OER p.7: three identical codes repeat in B2 and B3; 60+60+45=165 without counting them twice. Target validators, deterministic regeneration and generated-index check passed.
+Verification: Fresh downloads of current prospectus pages and both adopted OERs. Visually inspected OER p.7: three identical codes repeat in B2 and B3; 60 + 60 + 45 = 165 without counting them twice. Target validators, deterministic regeneration and generated-index check passed.
 
 The original audit confirmed the prospectus field basis, not an independently verified current formal pathway. The newly retrieved 2026–2027 OER exposes a separate cohort/repeat question; a future prospectus or conditional alternative is not substituted silently.
 
@@ -100,7 +100,7 @@ The original audit confirmed the prospectus field basis, not an independently ve
 - [Studieprogramma Griekse en Latijnse Taal en Cultuur jaar 2](https://www.ru.nl/opleidingen/bachelors/griekse-en-latijnse-taal-en-cultuur/studieprogramma-griekse-en-latijnse-taal-en-cultuur-jaar-2) — Indicative year label; compulsory-course and minor/free-space tables. Checked 8 October 2026.
 - [Studieprogramma Griekse en Latijnse Taal en Cultuur jaar 3](https://www.ru.nl/opleidingen/bachelors/griekse-en-latijnse-taal-en-cultuur/studieprogramma-griekse-en-latijnse-taal-en-cultuur-jaar-3) — Indicative year label; compulsory-course and minor/free-space tables. Checked 8 October 2026.
 
-Verification: Fresh current year-page downloads show2027–2028/2028–2029/2029–2030. All25 credited components, domestic selection and existing UCR assessment retained unchanged. Deterministic regeneration, target validators and generated-index check passed.
+Verification: Fresh current year-page downloads show 2027–2028/2028–2029/2029–2030. All 25 credited components, domestic selection and existing UCR assessment retained unchanged. Deterministic regeneration, target validators and generated-index check passed.
 
 This closes the source-context finding. No historical page archive establishes when the label changed, so the correction does not retrospectively classify the original production as outdated or erroneous.
 
@@ -122,3 +122,24 @@ The revised current rationale closes the stale-source claim; it does not resolve
 Verification: Fresh current Dutch OER and official index downloads. Inspected formal Annex VI Article 4, printed pp.56–57; 60 + 60 + 55 + 5 = 180 matches all 32 retained component weights. No courses, choice instantiation, route or UCR assessment changed. Deterministic regeneration, target validators and generated-index check passed.
 
 The historical availability of the replaced English URL remains unverified. Its former access failure does not establish a substantive curriculum error.
+
+### cp-000070
+
+- [Bachelor OER 2026–2027 — Chemistry (Dutch)](https://www.ru.nl/ru-bestanden/oer-25-26-ba-chemistry-nl) — Articles 7.3–7.5, printed pp. 16–19. Checked 8 October 2026.
+- [EER 2026–2027 — Bachelor Chemistry (English translation)](https://www.ru.nl/sites/default/files/2026-09/20260905-oer-26-27-ba-chemistry_eng-gb-juiste-tabellen.pdf) — Articles 7.4 and 8.1, later-course table and transitional provisions. Checked 8 October 2026.
+- [OER — Faculteit der Natuurwetenschappen, Wiskunde en Informatica](https://www.ru.nl/studenten/onderwijs-volgen/regels-en-richtlijnen/onderwijs-en-examenregelingen/natuurwetenschappen-wiskunde-en-informatica) — Current 2026–2027 regulations links; precedence notice. Checked 8 October 2026.
+- [Chemistry — jaar 1](https://www.ru.nl/opleidingen/bachelors/scheikunde/studieprogramma/studieprogramma-bachelor-chemistry-jaar-1) — Year label; required-course, placement and choice tables. Checked 8 October 2026.
+- [Chemistry — jaar 2](https://www.ru.nl/opleidingen/bachelors/scheikunde/studieprogramma/studieprogramma-bachelor-chemistry-jaar-2) — Year label; required-course, placement and choice tables. Checked 8 October 2026.
+- [Chemistry — jaar 3](https://www.ru.nl/opleidingen/bachelors/scheikunde/studieprogramma/studieprogramma-bachelor-chemistry-jaar-3) — Year label; required-course, placement and choice tables. Checked 8 October 2026.
+
+Verification: Fresh adopted Dutch/English OER and current index downloads; Dutch index confirms precedence. Visually inspected formal p.17 and re-read Articles 7.3–7.5: 60 + 66 + 36 + 12 + 6 = 180. All first-/second-year weights retained; duplicate mandatory writing 3 removed, free 27 corrected to 6, and six BC1 selections add 24. All eight selected BC1 options are distinct; alternate magnetic-resonance and philosophy units are not stacked. Deterministic regeneration, target validators, generated-index checks, compiler regression tests and full-corpus validation passed.
+
+The formal degree allocation and one neutral credited choice example are verified. The BC1 annual-offering caveat remains explicit; no enrolment or timetable guarantee is claimed. Closure of the external defect does not validate the retained UCR no-match judgment.
+
+### Batch 2 validation
+
+All five corrections are implemented. 3 findings are resolved; 2 cases retain explicit external research questions. Target validators, deterministic compiler comparisons, generated-index checks, compiler regression tests and full-corpus validation passed. The original audit evidence and batch 1 decisions remain preserved.
+
+The live corpus still contains 440 in-scope records: 301 comparisons and 139 exceptions. Exception types: 22 external-programme-unresolved, 115 no-defensible-ucr-match, 2 registry-exception. No registry identities, scope or permanent IDs changed in batch 2.
+
+The compiler and app regression tests now use frozen historical exception fixtures. Their checks still reject incomplete no-match curricula and verify both no-match and unresolved app messages. Production validators were not changed.
