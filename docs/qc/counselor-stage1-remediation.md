@@ -4,7 +4,7 @@ The completed audit remains the evidence baseline. This report records implement
 
 ## Batch 1 — five representative cases
 
-Status: in-progress.
+Status: completed.
 
 | Target | Implemented correction | Remaining work |
 |---|---|---|
@@ -12,6 +12,7 @@ Status: in-progress.
 | cp-000095 — Pharmaceutical Sciences (Farmaceutische Wetenschappen) | Corrected narrative to 150 EC required major + 30 EC profiling = 180 EC | None within this correction; UCR reassessment remains separate. |
 | cp-000293 — Tax Law | Removed outgoing third year from revised curriculum; Replaced unsupported no-match outcome with external-programme-unresolved; Retained independently verified 120 EC without inferred filler | Obtain the revised third-year requirements and applicable cohort/delivery sequence when officially published. |
 | cp-000301 — Japanese Studies (Japanstudies) | Normalized instruction metadata now includes documented ENG alongside NLD; Preserved the complete 180-EC Japanese pathway and raw Dutch offering metadata | None within this correction; UCR reassessment remains separate. |
+| cp-000244 — Theology | Replaced semester placeholders with individual official course units; Resolved the alleged credit gap using Torah and Prophetic Literature at 6 EC; Corrected neutral delivery selection and conditional language-replacement context | None within this correction; UCR reassessment remains separate. |
 
 ## cp-000333
 
@@ -52,3 +53,19 @@ The unsupported claim of a complete current 180-EC curriculum is corrected. Comp
 Verification: Four required first-year MODULE records explicitly specify EDUCATION_LANGUAGE = ENG; no inference from course title or studied language. Permanent ID, source row, offering ID, delivery modes and all 24 comparator components are unchanged. Both registry corrections replay from the pre-correction baseline; other 458 targets and raw offerings are unchanged. Deterministic canonical regeneration, all record validators, registry replay check and generated review-index check passed.
 
 NLD remains the formal main programme classification. NLD + ENG represents documented instruction across required courses, not universal English teaching or Japanese-medium instruction. The adopted OER remains audited provenance; direct fresh PDF retrieval returned an HTML verification wall.
+
+## cp-000244
+
+- [Theology programme and courses](https://www.tilburguniversity.edu/education/bachelors-programs/theology/program-and-courses) — 2026 entrant tables and delivery facts. Checked 8 October 2026.
+- [Published TST Education and Examination Regulations 2026–2027](https://oer.tilburguniversity.edu/183b1eaf-bb6b-4ff0-bee5-e9b4e5a536e9/) — Public university reader; published version 14 September 2026 and degree-specific Appendix I §11. Checked 8 October 2026.
+- [Appendix I: programme-specific Theology requirements 2026–2027](https://api.docfield.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6IjNmNjY5NTUwLTViNjQtNDkwNy1iZGIyLTFhNGU3ZTdhMjJhYSIsInB1ciI6ImJsb2JfaWQifX0=--371a54676e9e4f62ebdd3edf5837e2b96baf014d/Appendix%20I%202026-2027.pdf) — §§3–5, 10–11; appendix PDF pp. 12–16, printed pp. 55–59. Checked 8 October 2026.
+
+Verification: Downloaded and visually inspected the formal September 2026 cohort table and mandatory/rotating-course legend, printed pages 58–59. Individual course weights close 60 + 60 + 60 = 180 EC, with 30 EC genuine mobility/minor space and thesis 9 counted once. All 12 EC of embedded skills remain within credited courses; no inferred missing unit or duplicated parent block. Deterministic canonical regeneration, all record validators, full 440-record counselor validation and generated-index checks passed.
+
+The explicitly dated cohort appendix takes precedence over the general webpage's 3-EC course label. The general published reader's stale effective-date clause remains documented. External correction closure does not validate the retained UCR no-match conclusion.
+
+## Batch validation and live population
+
+All five cases are processed. Three first-stage findings are resolved; ALPO retains a current credit-sharing question, and Tax Law awaits its revised third year. Full-corpus validation and generated-index checks passed. Registry overrides replay from the initial correction baseline and preserve all other targets and raw provenance. Each repaired active decision deterministically regenerates its committed canonical record.
+
+The live registry retains 460 permanent targets: 440 are in scope and have canonical records (301 comparisons and 139 exceptions); 20 are outside scope. Exception types: 116 no-defensible-ucr-match, 21 external-programme-unresolved and 2 registry-exception. No in-scope record is missing. Original audit population counts remain historical. Independent UCR reassessment remains pending.
