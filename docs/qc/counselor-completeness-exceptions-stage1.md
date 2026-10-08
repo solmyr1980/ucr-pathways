@@ -1,6 +1,6 @@
 # Counselor completeness and exceptions: first-stage audit
 
-Status: in progress. Batches 1–13 completed through 8 October 2026: all 19 scope exclusions and 111 exceptions audited within the first-stage scope. 29 exceptions remain pending.
+Status: in progress. Batches 1–14 completed through 8 October 2026: all 19 scope exclusions and 121 exceptions audited within the first-stage scope. 19 exceptions remain pending.
 
 ## Scope and method
 
@@ -17,17 +17,17 @@ The classification applies only to the stated audit scope. Resolving an external
 | Normalized registry targets | 460 | — | — |
 | In-scope targets with canonical records | 441 | — | — |
 | Completed comparisons | 301 | Outside this stage | — |
-| Completed exceptions | 140 | 111 | 29 |
+| Completed exceptions | 140 | 121 | 19 |
 | Excluded normalized targets | 19 | 19 | 0 |
-| First-stage audit cases | 159 | 130 | 29 |
+| First-stage audit cases | 159 | 140 | 19 |
 
 All 441 in-scope IDs have a canonical filename; there are no missing in-scope IDs, duplicate record filenames or out-of-scope canonical records. The review-index ID set matches both registry scope and canonical filenames. Status totals use that current generated index; all 140 indexed exceptions were additionally read directly to verify ID, exception status and formal type. Enumeration does not constitute a substantive exception audit.
 
 | Formal exception type | Corpus total | Substantively audited |
 |---|---:|---:|
-| external-programme-unresolved | 20 | 19 |
-| no-defensible-ucr-match | 117 | 90 |
-| registry-exception | 3 | 2 |
+| external-programme-unresolved | 20 | 20 |
+| no-defensible-ucr-match | 117 | 98 |
+| registry-exception | 3 | 3 |
 
 ## Batch 1 findings
 
@@ -7063,13 +7063,913 @@ SSEAS Buddhist Art has no entry requirement; Tantric Buddhism recommends prior B
 
 Astronomy’s30 permits approved minor/free/exchange alternatives and stays generic; project22=18+1+3. Mathematics retains first eligible nonrepeated choices with prior-study requirements met. Civil Engineering’s43stored study units remain supported. Mechanical Engineering has45separately credited compulsory units150 plus two generic15minor slots; real integrated project/skills units are not artificially split, and compulsory parents are never stacked with children.
 
+## Cumulative findings after batch 14
+
+| Finding | Count |
+|---|---:|
+| confirmed | 65 |
+| incorrect | 56 |
+| outdated | 0 |
+| still-unresolved | 19 |
+
+| Required action | Count |
+|---|---:|
+| none | 59 |
+| reprocess-as-comparison | 0 |
+| reassess-exception | 37 |
+| correct-registry-and-reprocess | 33 |
+| research-again-later | 11 |
+
+## Batch 14 findings
+
+Two findings are confirmed within their stated scope, seven contain factual errors and one remains externally unresolved. Amsterdam Mechanical Engineering and Veterinary Medicine need credited-unit granularity. Medicine’s DNUA structure is supported. Pharmacy, Musicology, Physics/Astronomy, Chemistry, Spanish Language/Culture and Politics/Culture/Religion need declared instruction-language corrections, with actual module languages kept distinct. Physics/Chemistry need restricted choice and free-space correction; Chemistry also has a changed controlling compulsory/category table and inconsistent level-minimum prose. Spanish retains a valid methods option and the formally published odd-year prospective package, while adding compulsory zero-credit grammar formation.
+
+ALPO’s registry exception is confirmed: whole named route awards two degrees; current four-year/full-time identity differs from a lone ordinary UU180 target. The dated accreditation report explains240=180sharedwo+60additionalhbo. Current quantitative-guide access remains incomplete, so known type/participant/mode correction closes separately from current credit sharing. PCR retains supported new-cohort named67.5 and formal180 allocation, but an unnamed disciplinary7.5 and the selected Politics/Religion depth membership remain unresolved. No outgoing-cohort substitution or more specialized route is used to invent completeness.
+
+Seven registry correction plans, two external exception reassessment plans and one no-action result are queued. All plans remain unimplemented. No case is classified as outdated; no independent UCR feasibility result is drawn. Relevant formal PDFs were downloaded and credit tables rendered/visually checked; course catalogue entries were checked for background, gates and actual teaching language.
+
+| ID | Programme | Formal type | Finding | Required action |
+|---|---|---|---|---|
+| cp-000331 | Bachelor Mechanical Engineering - Amsterdam (VU-UT) | no-defensible-ucr-match | incorrect | reassess-exception |
+| cp-000333 | Academische lerarenopleiding primair onderwijs | registry-exception | confirmed | correct-registry-and-reprocess |
+| cp-000339 | Diergeneeskunde | no-defensible-ucr-match | incorrect | reassess-exception |
+| cp-000342 | Pharmacy (Farmacie) | no-defensible-ucr-match | incorrect | correct-registry-and-reprocess |
+| cp-000344 | Medicine (Geneeskunde) | no-defensible-ucr-match | confirmed | none |
+| cp-000357 | Muziekwetenschap | no-defensible-ucr-match | incorrect | correct-registry-and-reprocess |
+| cp-000358 | Natuur- en Sterrenkunde | no-defensible-ucr-match | incorrect | correct-registry-and-reprocess |
+| cp-000364 | Politiek, cultuur en religie | external-programme-unresolved | still-unresolved | correct-registry-and-reprocess |
+| cp-000367 | Scheikunde | no-defensible-ucr-match | incorrect | correct-registry-and-reprocess |
+| cp-000370 | Bachelor Spaanse taal en cultuur | no-defensible-ucr-match | incorrect | correct-registry-and-reprocess |
+
+## Batch 14 evidence and implementation plans
+
+### cp-000331 — Bachelor Mechanical Engineering - Amsterdam (VU-UT)
+
+Institution: University of Twente / Vrije Universiteit Amsterdam. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-27.
+
+Existing substantive reason: The Amsterdam VU-UT Mechanical Engineering bachelor builds four compulsory semesters around mechanics of materials, manufacturing and metals; thermodynamics and renewable-energy engineering; mass manufacturing, polymers, tribology, dynamics and vibrations; and systems, signal, control, precision and finite-element engineering. Its final compulsory semester then adds fluid mechanics, heat transfer, aerodynamic wind-tunnel work and an individual mechanical-engineering research assignment. UCR offers adjacent mathematics, computing, product-design and sustainability courses, but not this mechanical-science core or its laboratory, workshop, prototype, manufacturing and engineering-research progression. A 24-course response would not preserve the programme's academic identity as Mechanical Engineering.
+
+The Amsterdam target remains an active English, full-time UT-awarded bachelor delivered with VU. Its own current EER tables4–6 establish41 separately credited compulsory study units150 plus generic minor30. Six semester parents conceal those weights, including Research Skills5 and BSc Assignment12. The stored inability-to-find-child-credits claim is now contradicted by available controlling evidence.
+
+Provenance: data/counselor/comparisons/cp-000331.json; source worksheet row(s) 344. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 8 October 2026):
+
+- [Bachelor Mechanical Engineering - Amsterdam (VU-UT) current official programme](https://vu.nl/en/education/bachelor/mechanical-engineering/curriculum) — Current identity, curriculum overview and cohort/choice context; 2026-2027; reread2026-10-08. Current Amsterdam overview names six semester themes and their constituent courses, including individual design, skills and graduation study. Semester5 is open minor space. The overview does not give individual course EC; Amsterdam-specific weights come from the separate current EER, not the Enschede table.
+- [Mechanical Engineering current EER, Amsterdam tables](https://www.utwente.nl/en/bscme/rules-procedures/eer-2026-2027-b-me-ut-ut-vu-final.pdf) — B2.3–B2.7; Tables4–6, PDF pp.25–27; 2026–2027. Amsterdam-specific tables prescribe41 compulsory credited study units totaling150 and a generic minor30. Semester parents30 are allocation labels. Minor entry requires90 including52 first-year EC; research skills requires completedB1, semester3≥26 and semester4≥20. Assignment12 follows a passed proposal. Projects/academic skills remain integrated units, with annually limited partial-grade validity. English, full-time, UT-awarded degree.
+- [UT Mechanical Engineering programme](https://www.utwente.nl/en/education/bachelor/programmes/mechanical-engineering/) — Enschede/Amsterdam availability and award statement; Current undated page checked2026-10-08. VU/UT lecturers deliver Amsterdam programme; graduate receives a UT diploma. Partnership does not establish a double or joint award.
+
+External credit structure: Stored component arithmetic 180 EC. The Amsterdam target remains an active English, full-time UT-awarded bachelor delivered with VU. Its own current EER tables4–6 establish41 separately credited compulsory study units150 plus generic minor30. Six semester parents conceal those weights, including Research Skills5 and BSc Assignment12. The stored inability-to-find-child-credits claim is now contradicted by available controlling evidence.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Statics (201900010) | 4.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 1 | Mechanics of Materials (201900011) | 4.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 1 | Mathematics: Linear Algebra & Calculus 1 (202400445) | 4.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 1 | Project & Academic Skills 1: Design of Structures and Machines (202500210) | 7.5 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 1 | Intro to Mechanical Engineering (201900014) | 1.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 1 | Manufacturing (202500211) | 5.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 1 | Materials Science: Metals and Alloys (201900012) | 4.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 1 | Continuous Assessment 1 (201900016) | 0.5 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 1 | Thermodynamics (201900020) | 7.5 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 1 | Mathematics: Linear Algebra & Calculus 2 (202400447) | 4.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 1 | Project & Academic Skills 2: Energy Transition & Sustainability (201900019) | 9.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 1 | Design Engineering (201900022) | 1.5 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 1 | Life Cycle Analysis (201900024) | 3.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 1 | Manufacturing Systems (201900023) | 2.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 1 | Renewable Energy Technology (201900021) | 2.5 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 1 | Continuous Assessment 2 (201900025) | 0.5 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 2 | Dynamics (202000008) | 3.5 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 2 | Mechanical Vibrations (202000009) | 3.5 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 2 | Mathematics: Diﬀerential Equations (202000007) | 4.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 2 | Project & Academic Skills 3: Smart Manufacturing Systems (202400449) | 8.5 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 2 | Mass Manufacturing (202500212) | 3.5 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 2 | Smart Industry (202000022) | 2.5 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 2 | Materials Science: Polymers (202000010) | 2.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 2 | Tribology (202000011) | 2.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 2 | Continuous Assessment 3 (202000015) | 0.5 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 2 | Elasticity Theory + FEM (202000021) | 3.5 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 2 | Mathematics: Vector Calculus (202100008) | 2.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 2 | Project & Academic Skills 4: Technology for Healthcare (202400450) | 11.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 2 | Precision Engineering (202000020) | 2.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 2 | Control Engineering (202000019) | 4.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 2 | System Analysis (202000018) | 3.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 2 | Signal Analysis (202000012) | 2.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 2 | Systems Engineering (202000023) | 2.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 2 | Continuous Assessment 4 (202000025) | 0.5 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 3 | Approved minor/free minor | 30 | open elective; Genuine30-EC approved package; minor admission90EC including52firstyear, sufficient level/nonoverlap and applicable approval rules. |
+| 3 | Fluid Mechanics (202100009) | 3.5 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 3 | Mathematics: Statistics & Probability (202000017) | 2.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 3 | Project & Academic Skills 5: Thermal & Fluid Engineering (202100011) | 3.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 3 | Heat Transfer (202100010) | 3.5 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 3 | BSc Assignment (202100012) | 12.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 3 | Research Skills (202100013) | 5.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+| 3 | Continuous Assessment 5 (202100014) | 1.0 | required credited study unit; Amsterdam-specific credited unit; its integrated project/skills content is retained where applicable. Semester parent is not additional credit. |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Current published weighted external requirement template; future course versions/availability need refresh at remediation. No independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- Five compulsory semester parents30 are context only;41 credited child units total150.
+- Research Skills5 precedes BSc Assignment12; B1 must be complete and semester3/4 minima met. A passed proposal is required before the assignment.
+- Minor30 stays generic and approved; completing the first120 satisfies its admission requirements.
+- The UT award and VU delivery partnership do not establish two degrees.
+
+Result: incorrect; required action: reassess-exception.
+
+Incorrect is confined to the specified external granularity/choice/formation or normalized metadata. No independent UCR result assessed; discovery alone does not establish a dated change from earlier correctness.
+
+Recommended follow-up: Replace semester-only components with the41 Amsterdam-specific credited units while retaining integrated project/academic-skills units, continuous assessment, generic minor30 and graduation progression. Keep semester themes as context without stacking their30-EC parent weights. Preserve UT as award provider and VU as delivery partner, not a second degree.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/decisions/cp-000331.json`, fields: `sources`, `comparator.components`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context/date`. Replace semester-only components with the41 Amsterdam-specific credited units while retaining integrated project/academic-skills units, continuous assessment, generic minor30 and graduation progression. Keep semester themes as context without stacking their30-EC parent weights. Preserve UT as award provider and VU as delivery partner, not a second degree. Refresh source indexes and preserve previous UCR claims as provenance.
+- `data/counselor/comparisons/cp-000331.json`, fields: `programmeProvider`, `comparator`, `exception external source/context/date`. Compile from the corrected compact decision and normalized identity; do not automatically convert to a comparison.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected identity/source/curriculum/choice/cohort summaries`. Regenerate affected outputs after targeted remediation; reconcile scope and counts.
+
+Dependencies:
+
+- Refresh applicable cohort and actual future offers at implementation. Independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Count every credited unit/line once, without stacking parents, embedded thesis, alternatives or zero-credit formation.
+- Preserve genuinely open profiling and instantiate restricted choice with actual EC, category/level, prior-study and nonoverlap rules.
+- Reconcile normalized, compact, canonical and generated outputs and run the relevant registry/schema/compiler validators.
+- Close supported factual/metadata changes separately from remaining external research and later UCR comparison.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000333 — Academische lerarenopleiding primair onderwijs
+
+Institution: Utrecht University / HU University of Applied Sciences Utrecht. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `registry-exception`; existing check date: 2026-09-27.
+
+Existing substantive reason: The normalized target is a 180-EC Utrecht University variant, while the current official programme with the same ALPO name is an integrated four-year Utrecht University/HU pathway leading to two diplomas and carrying a supported 240-EC workload. A counselor comparison cannot silently discard the fourth year, the HU teacher-qualification curriculum, the bachelor thesis or the graduation teaching placement, nor can it treat the complete joint pathway as a conventional 180-EC university bachelor. The target identity and study load must be corrected or explicitly scoped before a defensible UCR comparison can be produced.
+
+The existing identity conflict is confirmed: current UU/HU sources describe four-year ALPO leading to two awards, not one conventional UU180-EC degree. The official2023/2024 accreditation report explains the240-EC integrated curriculum as180 shared wo-level study plus60 additional hbo-level study and expressly distinguishes ALPO full-time from the regular Education Sciences part-time option. Current entry sources corroborate four years, two institutions and full-time entry; their qualitative2026–2027 timetable does not independently certify every current credit.
+
+Provenance: data/counselor/comparisons/cp-000333.json; source worksheet row(s) 346. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 8 October 2026):
+
+- [Academische lerarenopleiding primair onderwijs current official programme](https://www.uu.nl/bachelors/academische-lerarenopleiding-primair-onderwijs/studieprogramma) — Current identity, curriculum overview and cohort/choice context; Current programme checked 2026-09-27; reread2026-10-08. Current UU programme describes a four-year integrated academic teacher-training curriculum, placement from the first year, roughly25% practice, research and a fourth-year thesis and graduation placement. It does not publish individual EC. Two-degree/provider and mode facts are separately corroborated by current HU/UU entry pages.
+- [HU ALPO current entry](https://www.hu.nl/voltijd-opleidingen/academische-lerarenopleiding-primair-onderwijs) — Duration, award/provider and mode facts; Current undated entry pages. Full-time, four years, UU BSc plus HU BEd. Current UU main also gives50003 and34808; normalized variant50003 refers to embedded academic credential, not proof that complete namedALPO is single180.
+- [Official accreditation report BSc Onderwijswetenschappen](https://publicaties.nvao.net/prd/AV-2153_20240415_Rapport_2023%20Rapport%20FSW_%20BSc%20Onderwijswetenschappen_incl%20aanvulling%20v09042024.pdf) — PDF pp.8–9 and12; submitted2023, supplementary report2024; 2023 assessment with2024 supplement; historical quantitative authority. The dated report distinguishes the ordinary180-EC Education Sciences award from integrated ALPO240 over four years:180 shared academic-level EC plus60 additional hbo-level EC. UU and HU issue separate diplomas. The ordinary degree permits part-time; ALPO does not. Current dual-award/four-year/full-time sources corroborate identity, but this is not a2026 course-credit table.
+- [ALPO current student programme](https://students.uu.nl/fsw/alpo/mijn-studie/studieprogramma-0) — Integration/award statements and linked2026–2027 timetable; Current2026–2027 link; unweighted timetable. Four-year integrated route, two awards and inter-degree profiling. Completing all Education Sciences before remaining teaching curriculum is not generally permitted. Current linked qualitative timetable has noEC; current HU guide is a client shell and current UU OER retrieval hit security verification.
+- [ALPO current qualitative curriculum](https://students.uu.nl/sites/default/files/fsw-alpo-curriculum_0.pdf) — Two-page four-year table linked as2026–2027; Linked2026–2027; PDF itself undated. The qualitative table names fourth-year thesis preparation/thesis, school organization, final assessment and graduation placement. It gives no EC. It supports the route identity and formation, not an independently verified current4x60 credit structure.
+
+External credit structure: Stored component arithmetic 240 EC. The existing identity conflict is confirmed: current UU/HU sources describe four-year ALPO leading to two awards, not one conventional UU180-EC degree. The official2023/2024 accreditation report explains the240-EC integrated curriculum as180 shared wo-level study plus60 additional hbo-level study and expressly distinguishes ALPO full-time from the regular Education Sciences part-time option. Current entry sources corroborate four years, two institutions and full-time entry; their qualitative2026–2027 timetable does not independently certify every current credit.
+
+Result: confirmed; required action: correct-registry-and-reprocess.
+
+Recommended follow-up: Represent the named whole ALPO target as double-bachelor with UU and HU participants, duration4 and current-entry VOLTIJD; retain active lifecycle. Record the240 combined load with dated accreditation evidence and refresh it against the current guide before finalizing its override. Preserve the raw180 embedded UU credential, variant50003, both raw mode offerings, permanent ID and source row346. Recompute counselor scope/order under the existing nonstandard-type filter; do not silently convert this target to generic Onderwijswetenschappen or erase its existing evidence.
+
+Unresolved factual question / historical limitation: Reconcile the current HU/UU credited degree tables and credit sharing with the combined240 and embedded180 before closing the load override. Current UU OER was blocked by a security wall and HU guide was a client shell; type/participant/mode correction can close separately.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `programme_type`, `institution_ids_json`, `duration_years`, `modes_json`, `study_load_ec`, `production_order`, `corrected_attributes_json`, `source evidence linkage`. Propose double-bachelor, participants UU+HU, duration4 and current-entry VOLTIJD. Preserve the active lifecycle and raw180 embedded UU credential/full+part-time offerings. Document combined240 using the dated accreditation report and corroborate current credit sharing before closing the load override. Recompute counselor scope/order through the existing standard-type filter; do not mark the programme closed or remove legitimate registry provenance.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `reproducible researched type/participant/load/mode correction`. Record supported researched post-build overrides and official sources so registry rebuilds preserve the correction. Do not invent ambiguity cases or rewrite immutable source provenance.
+- `data/counselor/decisions/cp-000333.json`, fields: `sources`, `comparator.components`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context/date`. Represent the named whole ALPO target as double-bachelor with UU and HU participants, duration4 and current-entry VOLTIJD; retain active lifecycle. Record the240 combined load with dated accreditation evidence and refresh it against the current guide before finalizing its override. Preserve the raw180 embedded UU credential, variant50003, both raw mode offerings, permanent ID and source row346. Recompute counselor scope/order under the existing nonstandard-type filter; do not silently convert this target to generic Onderwijswetenschappen or erase its existing evidence. Refresh source indexes and preserve previous UCR claims as provenance.
+- `data/counselor/comparisons/cp-000333.json`, fields: `programmeProvider`, `comparator`, `exception external source/context/date`. Compile from the corrected compact decision and normalized identity; do not automatically convert to a comparison.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected identity/source/curriculum/choice/cohort summaries`. Regenerate affected outputs after targeted remediation; reconcile scope and counts.
+
+Dependencies:
+
+- Reconcile the current HU/UU credited degree tables and credit sharing with the combined240 and embedded180 before closing the load override. Current UU OER was blocked by a security wall and HU guide was a client shell; type/participant/mode correction can close separately.
+- Refresh applicable cohort and actual future offers at implementation. Independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Count every credited unit/line once, without stacking parents, embedded thesis, alternatives or zero-credit formation.
+- Preserve genuinely open profiling and instantiate restricted choice with actual EC, category/level, prior-study and nonoverlap rules.
+- Reconcile normalized, compact, canonical and generated outputs and run the relevant registry/schema/compiler validators.
+- Close supported factual/metadata changes separately from remaining external research and later UCR comparison.
+- Preserve the explicit diagnostic. Degree allocations and placeholders do not certify a complete applicable course-level pathway.
+- Two separate awards support double-bachelor rather than one joint diploma. Preserve the legitimate registry target and historical canonical evidence when applying the nonstandard production filter.
+
+Research trigger: Reconcile the current HU/UU credited degree tables and credit sharing with the combined240 and embedded180 before closing the load override. Current UU OER was blocked by a security wall and HU guide was a client shell; type/participant/mode correction can close separately.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000339 — Diergeneeskunde
+
+Institution: Utrecht University. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-27.
+
+Existing substantive reason: Utrecht's Veterinary Medicine bachelor is a tightly integrated professional sequence in species-specific anatomy, embryology, physiology, pharmacology, infection and immunity, organ-system disease, animal nutrition, reproduction and obstetrics, veterinary public health, clinical diagnostics, anaesthesiology, surgery and animal-population epidemiology. Two longitudinal lines progressively develop veterinary clinical reasoning, practical skills and professional judgement, including practical work with living and dead animals, tissues and anatomical models. UCR offers valuable general biomedical, life-science, ecology, ethics and public-health courses, but it does not provide the species-specific veterinary science, clinical animal examination and treatment, surgery, reproduction, nutrition, animal-patient practicals or longitudinal veterinary clinician training on which the degree depends. A 24-course response would be a human-biomedical and ecology programme with animal-related context, not Veterinary Medicine.
+
+Current adopted Veterinary Medicine regulations provide named course and longitudinal-line weights closing60/60/60. Stored annual60 bundles and an unavailable-individual-EC claim omit a publicly accessible unit-level basis. The third-year professional line10.5 already includes thesis7.5; profiling30 in Article3.8 includes that same thesis and only22.5 additional free courses, not another30 on top.
+
+Provenance: data/counselor/comparisons/cp-000339.json; source worksheet row(s) 352. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 8 October 2026):
+
+- [Diergeneeskunde current official programme](https://www.uu.nl/bachelors/diergeneeskunde/studieprogramma) — Current identity, curriculum overview and cohort/choice context; Current curriculum; checked 2026-09-27; reread2026-10-08. Current prospective curriculum names first-, second- and third-year subjects, longitudinal veterinary formation, thesis and elective space. It is an overview, not the controlling detailed credit table; the current programme-specific OER supplies actual course/line EC.
+- [Bachelor Diergeneeskunde OER](https://students.uu.nl/sites/default/files/OER%20B-DGK%20%202026-2027%20-%20def.pdf) — Articles3.3,3.6–3.8,6.1; pp.8–11,22; 2026–2027. Named annual courses/lines close60/60/60. Required157.5 already includes professional-line thesis7.5; additional open22.5 is15+7.5. Article3.8 profile30 includes the same thesis7.5, not an extra30. Graduation requires≥7.5 outsidefaculty. Dutch programme; optional English exercises/literature not automatically compulsory instruction.
+
+External credit structure: Stored component arithmetic 180 EC. Current adopted Veterinary Medicine regulations provide named course and longitudinal-line weights closing60/60/60. Stored annual60 bundles and an unavailable-individual-EC claim omit a publicly accessible unit-level basis. The third-year professional line10.5 already includes thesis7.5; profiling30 in Article3.8 includes that same thesis and only22.5 additional free courses, not another30 on top.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Organisme tot weefsel (vet-y1-1) | 5.5 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 1 | Cel tot molecuul (vet-y1-2) | 6 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 1 | Genoom tot populatie (vet-y1-3) | 5.5 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 1 | Cel tot weefsel (vet-y1-4) | 6 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 1 | Fysiologie en farmacologie (vet-y1-5) | 4 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 1 | Infectie en afweer (vet-y1-6) | 7 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 1 | Circulatie en respiratie (vet-y1-7) | 8 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 1 | Bloed en bloedvormende organen (vet-y1-8) | 6.5 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 1 | Leerlijn Veterinaire clinicus1 (vet-y1-9) | 7 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 1 | Leerlijn Veterinaire professional1 (vet-y1-10) | 4.5 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 2 | Digestie1 (vet-y2-1) | 6 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 2 | Nieren en urinewegen (vet-y2-2) | 5 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 2 | Digestie2 (vet-y2-3) | 6 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 2 | Stofwisseling en endocrinologie (vet-y2-4) | 5.5 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 2 | Voeding (vet-y2-5) | 1.5 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 2 | Huid en huidderivaten (vet-y2-6) | 3.5 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 2 | Neurologie/zintuigen/anesthesie (vet-y2-7) | 5 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 2 | Adaptatie en welzijn (vet-y2-8) | 4 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 2 | Leerlijn Veterinaire clinicus2 (vet-y2-9) | 3 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 2 | Leerlijn Veterinaire professional2 (vet-y2-10) | 5.5 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 2 | Approved free profiling space | 15 | open elective; Genuine profiling; approved subject matter remains generic, with applicable level, nonoverlap and approval conditions. |
+| 3 | Voortplanting (vet-y3-1) | 8 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 3 | Veterinaire volksgezondheid (vet-y3-2) | 5.5 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 3 | Locomotie (vet-y3-3) | 6.5 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 3 | Epidemiologie en economie (vet-y3-4) | 4.5 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 3 | Orgaanoverschrijdende aandoeningen (vet-y3-5) | 6.5 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 3 | Heelkunde (vet-y3-6) | 2.5 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 3 | Leerlijn Veterinaire clinicus3 (vet-y3-7) | 8.5 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 3 | Leerlijn Veterinaire professional3 inclusief thesis7.5 (vet-y3-8) | 10.5 | required credited course/line; Weighted course or longitudinal line from the current OER. The year3 professional line includes thesis7.5. |
+| 3 | Approved free profiling space | 7.5 | open elective; Genuine profiling; approved subject matter remains generic, with applicable level, nonoverlap and approval conditions. |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Current published weighted external requirement template; future course versions/availability need refresh at remediation. No independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- Thesis7.5 is contained in professional line10.5 and is never added again.
+- Required regular study157.5 plus additional free22.5 gives180. Article3.8 profile30 includes the already-counted thesis7.5.
+- At least7.5 must be outside the faculty; approval, level and nonoverlap rules apply.
+
+Result: incorrect; required action: reassess-exception.
+
+Incorrect is confined to the specified external granularity/choice/formation or normalized metadata. No independent UCR result assessed; discovery alone does not establish a dated change from earlier correctness.
+
+Recommended follow-up: Expand annual parents into the controlling weighted courses and longitudinal clinician/professional lines. Preserve generic free15 in year2 and7.5 in year3; count professional line10.5 including thesis7.5 once, or split it into professional3 and thesis7.5 with source authority. Retain embedded formation and the required minimum7.5 outside the Veterinary faculty.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/decisions/cp-000339.json`, fields: `sources`, `comparator.components`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context/date`. Expand annual parents into the controlling weighted courses and longitudinal clinician/professional lines. Preserve generic free15 in year2 and7.5 in year3; count professional line10.5 including thesis7.5 once, or split it into professional3 and thesis7.5 with source authority. Retain embedded formation and the required minimum7.5 outside the Veterinary faculty. Refresh source indexes and preserve previous UCR claims as provenance.
+- `data/counselor/comparisons/cp-000339.json`, fields: `programmeProvider`, `comparator`, `exception external source/context/date`. Compile from the corrected compact decision and normalized identity; do not automatically convert to a comparison.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected identity/source/curriculum/choice/cohort summaries`. Regenerate affected outputs after targeted remediation; reconcile scope and counts.
+
+Dependencies:
+
+- Refresh applicable cohort and actual future offers at implementation. Independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Count every credited unit/line once, without stacking parents, embedded thesis, alternatives or zero-credit formation.
+- Preserve genuinely open profiling and instantiate restricted choice with actual EC, category/level, prior-study and nonoverlap rules.
+- Reconcile normalized, compact, canonical and generated outputs and run the relevant registry/schema/compiler validators.
+- Close supported factual/metadata changes separately from remaining external research and later UCR comparison.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000342 — Pharmacy (Farmacie)
+
+Institution: Utrecht University. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-28.
+
+Existing substantive reason: Utrecht's Pharmacy bachelor is a cumulative medicines-specific programme spanning pharmaceutical chemistry, dosage forms and administration, pharmacodynamics, pharmacokinetics, pharmacotherapy, drug research, product care, biological medicines and applied treatment across infection, neurology, hormonal disease, dermatology, psychiatry, cardiovascular disease, autoimmunity and oncology. Its longitudinal academic-skills requirements and bachelor thesis are developed within this pharmaceutical sequence. UCR offers a valuable general biomedical pathway and one dedicated Pharmacology course, but it does not offer pharmaceutical chemistry, drug formulation and product care, pharmacokinetics, dosage calculation and administration, clinical medication use and safety, or a sustained disease-specific pharmacotherapy sequence. A 24-course UCR response would therefore be a biomedical-sciences programme with one pharmacology course, not Pharmacy.
+
+The selected Farmacie pathway with7.5 thesis and135 major+45 free remains supported. Current programme-specific OER explicitly declares Dutch plus English instruction, unlike NLD-only normalized programme metadata. This programme-level language statement is not evidence that each required module teaches in English: all18 selected positive-credit current catalogue entries list Dutch. The same OER permits thesis15 with142.5 major+37.5 free, so135/45 is the chosen pathway, not the only permitted allocation.
+
+Provenance: data/counselor/comparisons/cp-000342.json; source worksheet row(s) 355. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 8 October 2026):
+
+- [Pharmacy (Farmacie) current official programme](https://students.uu.nl/beta/farmacie-b/onderwijs/studieprogramma) — Current identity, curriculum overview and cohort/choice context; Current 2026-2027 curriculum; checked 2026-09-28; reread2026-10-08. Current student curriculum distinguishes Farmacie from Farmaceutische Wetenschappen, presents the baseline135-EC major and45-EC profiling allocation, academic skills and short/long thesis alternatives. Exact alternative allocation and credit-release footnotes are verified in the current programme-specific OER.
+- [Science OER2026–2027 programme-specific annex B Pharmacy](https://students.uu.nl/sites/default/files/Onderwijs%20en%20Examenregeling-Undergraduate%20School%202026-2027-%20opleidingsspecifieke%20bijlagen.pdf) — Art3.3/3.6; Overview1/table1.2 and footnotes, printed pp.65–70; PDF pp.23–28; 2026–2027. The selected7.5-EC thesis gives135 major plus45 profiling. A15-EC thesis is expressly authorized with142.5 major and37.5 profiling. Research107 credit release depends on passing zero-credit academic skills10017. Formal programme instruction is NLD(+ENG), at most one third English; all18 checked selected course snapshots list Dutch.
+- [FA-BA10117 current official catalogue](https://cursusplanner.uu.nl/course/FA-BA10117) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Dutch instruction snapshot; does not cancel formal NLD+ENG programme policy.
+- [FA-BA102 current official catalogue](https://cursusplanner.uu.nl/course/FA-BA102) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Dutch instruction snapshot; does not cancel formal NLD+ENG programme policy.
+- [FA-BA103 current official catalogue](https://cursusplanner.uu.nl/course/FA-BA103) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Dutch instruction snapshot; does not cancel formal NLD+ENG programme policy.
+- [FA-BA104 current official catalogue](https://cursusplanner.uu.nl/course/FA-BA104) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Dutch instruction snapshot; does not cancel formal NLD+ENG programme policy.
+- [FA-BA105 current official catalogue](https://cursusplanner.uu.nl/course/FA-BA105) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Dutch instruction snapshot; does not cancel formal NLD+ENG programme policy.
+- [FA-BA106 current official catalogue](https://cursusplanner.uu.nl/course/FA-BA106) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Dutch instruction snapshot; does not cancel formal NLD+ENG programme policy.
+- [FA-BA107 current official catalogue](https://cursusplanner.uu.nl/course/FA-BA107) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Dutch instruction snapshot; does not cancel formal NLD+ENG programme policy.
+- [FA-BA201 current official catalogue](https://cursusplanner.uu.nl/course/FA-BA201) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Dutch instruction snapshot; does not cancel formal NLD+ENG programme policy.
+- [FA-BA202 current official catalogue](https://cursusplanner.uu.nl/course/FA-BA202) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Dutch instruction snapshot; does not cancel formal NLD+ENG programme policy.
+- [FA-BA203 current official catalogue](https://cursusplanner.uu.nl/course/FA-BA203) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Dutch instruction snapshot; does not cancel formal NLD+ENG programme policy.
+- [FA-BA204 current official catalogue](https://cursusplanner.uu.nl/course/FA-BA204) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Dutch instruction snapshot; does not cancel formal NLD+ENG programme policy.
+- [FA-BA205 current official catalogue](https://cursusplanner.uu.nl/course/FA-BA205) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Dutch instruction snapshot; does not cancel formal NLD+ENG programme policy.
+- [FA-BA301 current official catalogue](https://cursusplanner.uu.nl/course/FA-BA301) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Dutch instruction snapshot; does not cancel formal NLD+ENG programme policy.
+- [FA-BA302 current official catalogue](https://cursusplanner.uu.nl/course/FA-BA302) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Dutch instruction snapshot; does not cancel formal NLD+ENG programme policy.
+- [FA-BA303 current official catalogue](https://cursusplanner.uu.nl/course/FA-BA303) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Dutch instruction snapshot; does not cancel formal NLD+ENG programme policy.
+- [FA-BA304 current official catalogue](https://cursusplanner.uu.nl/course/FA-BA304) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Dutch instruction snapshot; does not cancel formal NLD+ENG programme policy.
+- [FA-BA305 current official catalogue](https://cursusplanner.uu.nl/course/FA-BA305) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Dutch instruction snapshot; does not cancel formal NLD+ENG programme policy.
+- [FA-BA380 current official catalogue](https://cursusplanner.uu.nl/course/FA-BA380) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Dutch instruction snapshot; does not cancel formal NLD+ENG programme policy.
+
+External credit structure: Stored component arithmetic 180.0 EC. The selected Farmacie pathway with7.5 thesis and135 major+45 free remains supported. Current programme-specific OER explicitly declares Dutch plus English instruction, unlike NLD-only normalized programme metadata. This programme-level language statement is not evidence that each required module teaches in English: all18 selected positive-credit current catalogue entries list Dutch. The same OER permits thesis15 with142.5 major+37.5 free, so135/45 is the chosen pathway, not the only permitted allocation.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Inleiding in de Farmacie (pha-y1-intro) | 7.5 | required |
+| 1 | Chemie van geneesmiddelen (pha-y1-chemistry) | 7.5 | required |
+| 1 | Toedienen van geneesmiddelen (pha-y1-administration) | 7.5 | required |
+| 1 | Werking van geneesmiddelen (pha-y1-action) | 7.5 | required |
+| 1 | Kinetiek van geneesmiddelen (pha-y1-kinetics) | 7.5 | required |
+| 1 | Therapie met geneesmiddelen (pha-y1-therapy) | 7.5 | required |
+| 1 | Onderzoek naar geneesmiddelen (pha-y1-research) | 7.5 | required |
+| 1 | Approved free profiling space | 7.5 | open elective; Genuine profiling; approved subject matter remains generic, with applicable level, nonoverlap and approval conditions. |
+| 2 | Infectie en afweer (pha-y23-infection) | 7.5 | required |
+| 2 | Productzorg (pha-y23-product-care) | 7.5 | required |
+| 2 | Neurologie (pha-y23-neurology) | 7.5 | required |
+| 2 | Biologische geneesmiddelen (pha-y23-biologics) | 7.5 | required |
+| 2 | Hormonale aandoeningen (pha-y23-hormonal) | 7.5 | required |
+| 2 | Approved free profiling space | 22.5 | open elective; Genuine profiling; approved subject matter remains generic, with applicable level, nonoverlap and approval conditions. |
+| 3 | Huidaandoeningen (pha-y23-skin) | 7.5 | required |
+| 3 | Psychofarmacologie (pha-y23-psychopharmacology) | 7.5 | required |
+| 3 | Cardiovasculair systeem (pha-y23-cardiovascular) | 7.5 | required |
+| 3 | Autoimmuniteit (pha-y23-autoimmunity) | 7.5 | required |
+| 3 | Oncologie (pha-y23-oncology) | 7.5 | required |
+| 3 | Bachelorwerkstuk (pha-thesis) | 7.5 | required; The 7.5-EC option is used to preserve the published 135-EC major total. |
+| 3 | Approved free profiling space | 15 | open elective; Genuine profiling; approved subject matter remains generic, with applicable level, nonoverlap and approval conditions. |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Current published weighted external requirement template; future course versions/availability need refresh at remediation. No independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- Select the exact Farmacie target, keeping Pharmaceutical Sciences/CPS separate.
+- Zero-credit Academic Skills10017/200/300 are required;107 credit release follows passing10017.
+- Selected thesis7.5 gives135/45; authorized thesis15 gives142.5/37.5. Alternatives are not stacked.
+- Formal programme language is NLD+ENG, while all18 checked selected course snapshots list NLD.
+
+Result: incorrect; required action: correct-registry-and-reprocess.
+
+Incorrect is confined to the specified external granularity/choice/formation or normalized metadata. No independent UCR result assessed; discovery alone does not establish a dated change from earlier correctness.
+
+Secondary attribute finding(s):
+
+- normalized instruction language: incorrect; stored ["NLD"], verified ["NLD", "ENG"]. Separate closure: Externalcurriculum/cohortandindependentUCRoutcome.
+
+Recommended follow-up: Correct declared normalized programme instruction to NLD + ENG, preserving rawNLD and distinguishing the formal programme language envelope from Dutch instruction in all18 checked selected courses. Retain the valid7.5 thesis choice and135/45 allocation, qualify15 thesis as an authorized142.5/37.5 alternative, and preserve zero-credit academic-skills requirements and the Research107 credit-release gate.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `official evidence linkage`. Persist instruction languages ["NLD", "ENG"] with documented official evidence. Preserve rawNLD, permanent ID and source/offering crosswalks. Distinguish the formal programme envelope from actual course languages.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `supported researched post-build override/evidence workflow`. Record supported researched post-build overrides and official sources so registry rebuilds preserve the correction. Do not invent ambiguity cases or rewrite immutable source provenance.
+- `data/counselor/decisions/cp-000342.json`, fields: `sources`, `comparator.components`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context/date`. Correct declared normalized programme instruction to NLD + ENG, preserving rawNLD and distinguishing the formal programme language envelope from Dutch instruction in all18 checked selected courses. Retain the valid7.5 thesis choice and135/45 allocation, qualify15 thesis as an authorized142.5/37.5 alternative, and preserve zero-credit academic-skills requirements and the Research107 credit-release gate. Refresh source indexes and preserve previous UCR claims as provenance.
+- `data/counselor/comparisons/cp-000342.json`, fields: `programmeProvider`, `comparator`, `exception external source/context/date`. Compile from the corrected compact decision and normalized identity; do not automatically convert to a comparison.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected identity/source/curriculum/choice/cohort summaries`. Regenerate affected outputs after targeted remediation; reconcile scope and counts.
+
+Dependencies:
+
+- Refresh applicable cohort and actual future offers at implementation. Independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Count every credited unit/line once, without stacking parents, embedded thesis, alternatives or zero-credit formation.
+- Preserve genuinely open profiling and instantiate restricted choice with actual EC, category/level, prior-study and nonoverlap rules.
+- Reconcile normalized, compact, canonical and generated outputs and run the relevant registry/schema/compiler validators.
+- Close supported factual/metadata changes separately from remaining external research and later UCR comparison.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000344 — Medicine (Geneeskunde)
+
+Institution: Utrecht University. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-28.
+
+Existing substantive reason: Utrecht's Medicine bachelor integrates organ-system biomedical science with compulsory clinical reasoning, practical clinical skills, workplace learning, patient and community experience, professional behaviour, complex-care challenges, pharmacotherapy, longitudinal interdisciplinary formation and a medical research thesis. UCR can build a strong biomedical and health-sciences programme, but it does not offer patient interviewing and physical examination, clinical skills assessment, supervised workplace learning in health-care settings, integrated diagnostic reasoning, longitudinal medical-professional formation or organ-system clinical teaching across circulation, respiration, neurology, psychiatry, digestion, urogenital and hormonal medicine, movement, lifespan care, haematology and oncology. A 24-course UCR response would therefore be biomedical science with psychology and public health, not a defensible Medicine curriculum.
+
+The adopted DNUA OER confirms165 major+15 genuine profile and the stored unequal course/line weights, including Movement10 and Lifespan10. Four3-EC carousel units are all required, with three in year1 and one in year2. Clinical workplace learning9, science/thesis13 and the other third-year units close60. DNUA is the2026-entry curriculum version rather than a discretionary graduation specialization; predecessor CRU+ is outgoing.
+
+Provenance: data/counselor/comparisons/cp-000344.json; source worksheet row(s) 357. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 8 October 2026):
+
+- [Medicine (Geneeskunde) current official programme](https://students.uu.nl/sites/default/files/OER%20GNK%20bachelor%202026-2027.pdf) — Current identity, curriculum overview and cohort/choice context; 2026–27 entry curriculum; checked 2026-09-28; reread2026-10-08. Current adopted regulations establish DNUA for2026 entrants,165-EC major and15-EC profiling, named unequal-weight courses and clinical/research/academic formation. The carousel has four compulsory3-EC units with timing across years1/2; the predecessor CRU+ is separately outgoing.
+- [Geneeskunde current adopted OER](https://students.uu.nl/sites/default/files/OER%20GNK%20bachelor%202026-2027.pdf) — Art3.3–3.6,4.2b,8.3; Appendix1b, PDF p.32; 2026–2027. DNUA new2026 entrants;165+15. Unequal compulsory units supported, carousel4x3allrequired withthreefirstyear/one second; Movement/Lifespan10each. Clinical research/thesis and practice progression; outgoingCRU+ notspliced. Dutch instruction with optional English exercises.
+
+External credit structure: Stored component arithmetic 180.0 EC. The adopted DNUA OER confirms165 major+15 genuine profile and the stored unequal course/line weights, including Movement10 and Lifespan10. Four3-EC carousel units are all required, with three in year1 and one in year2. Clinical workplace learning9, science/thesis13 and the other third-year units close60. DNUA is the2026-entry curriculum version rather than a discretionary graduation specialization; predecessor CRU+ is outgoing.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Basis van gezondheid en ziekte (med-bvgz) | 10 | required |
+| 1 | Circulatie & Respiratie (med-circulation) | 9.5 | required |
+| 1 | Zenuwstelsel & Psyche (med-neuropsych) | 9.5 | required |
+| 1 | Metabolisme & Spijsvertering (med-metabolism) | 9.5 | required |
+| 1 | Biomedische Innovatie (med-biomedical-innovation) | 3 | required; Compulsory carousel course taken in Year 1 or Year 2. |
+| 1 | Health Challenge (med-health-challenge) | 3 | required; Compulsory carousel course taken in Year 1 or Year 2. |
+| 1 | Zorg en Samenleving (med-care-society) | 3 | required; Compulsory carousel course taken in Year 1 or Year 2. |
+| 1 | Discipline Overstijgend Onderwijs Ba1 (med-doo1) | 6 | required |
+| 1 | Praktisch Lijnonderwijs Ba1 (med-plo1) | 4.5 | required |
+| 1 | Klinisch Redeneren Ba1 (med-clinical-reasoning1) | 2 | required |
+| 2 | Community Experience (med-community) | 3 | required; Compulsory carousel course taken in Year 1 or Year 2. |
+| 2 | Urogenitaal & Hormonaal Systeem (med-urogenital) | 10 | required |
+| 2 | Bewegen & Waarnemen (med-movement) | 10 | required; Adopted EER credit value. |
+| 2 | Levensloop (med-lifespan) | 10 | required; Adopted EER credit value. |
+| 2 | Discipline Overstijgend Onderwijs Ba2 (med-doo2) | 6 | required |
+| 2 | Praktisch Lijnonderwijs Ba2 (med-plo2) | 4.5 | required |
+| 2 | Klinisch Redeneren Ba2 (med-clinical-reasoning2) | 1.5 | required |
+| 2 | Profileringsruimte (med-profile) | 15 | open elective; Genuine approved profile space in Year 2, preserved without inventing elective content. |
+| 3 | Blok Leren Coschap Lopen (med-clerkship-block) | 2 | required |
+| 3 | Leren Coschap Lopen (med-workplace) | 9 | required; Compulsory workplace-learning course. |
+| 3 | Wetenschap & Bacheloreindwerk (med-science-thesis) | 13 | required; Compulsory scientific research and bachelor-thesis component. |
+| 3 | Klinische Uitdagingen & Complexe Zorg (med-complex-care) | 13 | required |
+| 3 | Health Humanities (med-humanities) | 6 | required |
+| 3 | Hematologie & Oncologie (med-haem-oncology) | 6 | required |
+| 3 | Discipline Overstijgend Onderwijs Ba3 (med-doo3) | 6 | required |
+| 3 | Praktisch Lijnonderwijs Ba3 (med-plo3) | 3 | required |
+| 3 | Farmacologie & Farmacotherapie Bachelor (med-pharmacotherapy) | 1 | required |
+| 3 | Interuniversitaire VoortgangsToets Geneeskunde (iVTG) (med-ivtg) | 1 | required |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Current published weighted external requirement template; future course versions/availability need refresh at remediation. No independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- All four carousel3 units are required. Three in year1 and one in year2 is permitted illustrative timing, not different content routes.
+- DNUA is the2026-entry curriculum version; CRU+ remains outgoing.
+- Year2 profile15 is generic and approved; formal Movement/Lifespan weights are10 each.
+- Clinical/research gates apply and science/thesis13 is counted once.
+
+Result: confirmed; required action: none.
+
+Recommended follow-up: Retain the complete DNUA requirement template and Dutch programme instruction. Keep optional English assignments/reading distinct from mandatory teaching language; apply carousel timing and formal clinical, research and thesis progression without mixing CRU+ cohorts.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000357 — Muziekwetenschap
+
+Institution: Utrecht University. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-28.
+
+Existing substantive reason: Utrecht's 180-EC Musicology pathway is defined by a compulsory sequence in notation and aural skills, harmony and form, music history before 1600, music from 1600 to 1900 and music from 1900 to the present, popular-music analysis and critical listening, music in screen media, advanced music analysis and criticism, music-theatre study and dedicated musicological research culminating in a Musicology thesis. UCR offers no course in music, music theory, aural skills, music history, music analysis or musicology. Its film, media, communication, literature, art, history and cultural-analysis courses can illuminate isolated social or media contexts around music, but they cannot make 23 non-PPD courses contribute concretely to a Musicology concept or reproduce the programme's defining disciplinary sequence. A 24-course UCR response would therefore be a media-and-culture degree with occasional musical examples, not a defensible Musicology curriculum.
+
+The Music and Society package and weighted120 major+60 profile remain supported, including the first-listed bound context choice and thesis preparation. Current OER expressly specifies Dutch plus English and identifies compulsory English courses within either selectable depth package; NLD-only normalized instruction is incomplete.
+
+Provenance: data/counselor/comparisons/cp-000357.json; source worksheet row(s) 370. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 8 October 2026):
+
+- [Muziekwetenschap current official programme](https://students.uu.nl/sites/default/files/GW-OER-BA-2026-2027-Muziekwetenschap.pdf) — Current identity, curriculum overview and cohort/choice context; 2026-2027; reread2026-10-08. Current Musicology regulations prescribe120 major plus60 profiling, eight foundations, compulsory context/preparation/thesis, one30-EC depth package and a7.5-EC context choice. The selected Music/Society package is listed first. Programme instruction is Dutch plus English; both depth packages contain English courses.
+- [Musicology OER2026–2027](https://students.uu.nl/sites/default/files/GW-OER-BA-2026-2027-Muziekwetenschap.pdf) — Art3.3/3.5; Appendices1–3/7, PDF pp.2–5,9; 2026–2027. Major120 plus profiling60: foundations60, compulsory context7.5, preparation7.5, thesis7.5, selected depth30 and bound context7.5. First-listed depth is Music/Society; approved profiling package30 and remaining free30 stay generic. Formal Dutch plus English; either depth contains two or three English courses. A15 thesis reduces free profiling7.5; the valid selected7.5 is retained.
+
+External credit structure: Stored component arithmetic 180.0 EC. The Music and Society package and weighted120 major+60 profile remain supported, including the first-listed bound context choice and thesis preparation. Current OER expressly specifies Dutch plus English and identifies compulsory English courses within either selectable depth package; NLD-only normalized instruction is incomplete.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Inleiding in de muziekwetenschap (mus-introduction) | 7.5 | required |
+| 1 | Algemene muziekleer (mus-theory-basics) | 7.5 | required |
+| 1 | Harmonie- en vormleer (mus-harmony-form) | 7.5 | required |
+| 1 | Muziek tot 1600 (mus-before-1600) | 7.5 | required |
+| 1 | Populaire muziek en kritisch luisteren (mus-popular-listening) | 7.5 | required |
+| 1 | Muziek van 1600 tot 1900 (mus-1600-1900) | 7.5 | required |
+| 1 | Muziek en schermmedia (mus-screen-media) | 7.5 | required |
+| 1 | Muziek van 1900 tot heden (mus-1900-present) | 7.5 | required |
+| 2 | Wetenschapsfilosofie (mus-philosophy-science) | 7.5 | required |
+| 2 | Music and Theatre (mus-society-theatre) | 7.5 | required; First course in the selected Music and Society depth package. |
+| 2 | Music Analysis and Criticism (mus-society-analysis) | 7.5 | required; Second course in the selected Music and Society depth package. |
+| 2 | Music and Nature (mus-society-nature) | 7.5 | required; Third course in the selected Music and Society depth package. |
+| 2 | Nederlandse muziekculturen (mus-society-dutch) | 7.5 | required; Fourth course in the selected Music and Society depth package. |
+| 2 | Kunst, cultuur en maatschappij (mus-restricted-choice) | 7.5 | required; First-listed course selected from the compulsory 7.5-EC choice between this course and Gender en cultuurkritiek. |
+| 2 | Approved free profiling space | 15 | open elective; Genuine profiling; approved subject matter remains generic, with applicable level, nonoverlap and approval conditions. |
+| 3 | Onderzoeksseminar Muziekwetenschap (mus-research-seminar) | 7.5 | required; Compulsory advanced preparation for the bachelor thesis. |
+| 3 | Eindwerkstuk BA Muziekwetenschap (mus-thesis) | 7.5 | required; Compulsory advanced bachelor thesis. |
+| 3 | Approved coherent profiling package | 30 | open elective; Genuine profiling; approved subject matter remains generic, with applicable level, nonoverlap and approval conditions. |
+| 3 | Approved free profiling space | 15 | open elective; Genuine profiling; approved subject matter remains generic, with applicable level, nonoverlap and approval conditions. |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Current published weighted external requirement template; future course versions/availability need refresh at remediation. No independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- Music/Society is an internal depth package, not a separate formal degree.
+- Keep the valid first-listed package30 and context7.5 choices.
+- Preparation7.5 precedes thesis7.5; approved profile package30 and remaining free30 stay generic.
+- English courses in the selected depth support declared NLD+ENG.
+
+Result: incorrect; required action: correct-registry-and-reprocess.
+
+Incorrect is confined to the specified external granularity/choice/formation or normalized metadata. No independent UCR result assessed; discovery alone does not establish a dated change from earlier correctness.
+
+Secondary attribute finding(s):
+
+- normalized instruction language: incorrect; stored ["NLD"], verified ["NLD", "ENG"]. Separate closure: Externalcurriculum/cohortandindependentUCRoutcome.
+
+Recommended follow-up: Retain the valid Music and Society internal depth package, restricted Art/Culture/Society choice,7.5 preparation then7.5 thesis and generic approved package30+free30. Correct NLD + ENG instruction; a valid alternate depth package or15 thesis option is not a reason to reopen the selected pathway.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `official evidence linkage`. Persist instruction languages ["NLD", "ENG"] with documented official evidence. Preserve rawNLD, permanent ID and source/offering crosswalks. Distinguish the formal programme envelope from actual course languages.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `supported researched post-build override/evidence workflow`. Record supported researched post-build overrides and official sources so registry rebuilds preserve the correction. Do not invent ambiguity cases or rewrite immutable source provenance.
+- `data/counselor/decisions/cp-000357.json`, fields: `sources`, `comparator.components`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context/date`. Retain the valid Music and Society internal depth package, restricted Art/Culture/Society choice,7.5 preparation then7.5 thesis and generic approved package30+free30. Correct NLD + ENG instruction; a valid alternate depth package or15 thesis option is not a reason to reopen the selected pathway. Refresh source indexes and preserve previous UCR claims as provenance.
+- `data/counselor/comparisons/cp-000357.json`, fields: `programmeProvider`, `comparator`, `exception external source/context/date`. Compile from the corrected compact decision and normalized identity; do not automatically convert to a comparison.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected identity/source/curriculum/choice/cohort summaries`. Regenerate affected outputs after targeted remediation; reconcile scope and counts.
+
+Dependencies:
+
+- Refresh applicable cohort and actual future offers at implementation. Independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Count every credited unit/line once, without stacking parents, embedded thesis, alternatives or zero-credit formation.
+- Preserve genuinely open profiling and instantiate restricted choice with actual EC, category/level, prior-study and nonoverlap rules.
+- Reconcile normalized, compact, canonical and generated outputs and run the relevant registry/schema/compiler validators.
+- Close supported factual/metadata changes separately from remaining external research and later UCR comparison.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000358 — Natuur- en Sterrenkunde
+
+Institution: Utrecht University. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-28.
+
+Existing substantive reason: Utrecht's 180-EC Physics and Astronomy bachelor is defined by compulsory relativistic and classical mechanics, electromagnetism, astronomy and optics, quantum mechanics, statistical physics, three successive mathematical-techniques courses, experimental data acquisition, an experimental research project, advanced physics electives and a 15-EC physics research thesis. UCR offers useful supporting study in mathematics, programming, data science, Earth systems, climate and energy, but no course whose disciplinary object is physics or astronomy and no mechanics, electromagnetism, optics, quantum physics, statistical physics, thermodynamics or experimental-physics laboratory sequence. A 24-course UCR response would therefore be a mathematics/data/Earth-science programme adjacent to some physics applications, not a defensible Physics and Astronomy curriculum.
+
+Current Physics/Astronomy OER defines90 compulsory including thesis15, bound7.5 choice1of2, further bound37.5 with30 at level3, and genuinely free45. Stored generic physics-choice90 both leaves restricted options uninstantiated and hides the free45. The LAS major is a different degree context and cannot control the Physics degree. Formal Dutch/English progression and checked upper-level English choices contradict NLD-only programme metadata.
+
+Provenance: data/counselor/comparisons/cp-000358.json; source worksheet row(s) 371. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 8 October 2026):
+
+- [Natuur- en Sterrenkunde current official programme](https://www.uu.nl/bachelors/natuur-en-sterrenkunde/studieprogramma) — Current identity, curriculum overview and cohort/choice context; 2026-2027 curriculum; checked 2026-09-28; reread2026-10-08. Current prospective Physics/Astronomy page names required foundations, experimental research, third-year bachelor research and the elective menu. It explicitly describes Dutch first-year lectures with gradually increasing English. The degree-specific OER, rather than a LAS major PDF, controls credit/category allocations.
+- [Science OER2026–2027 programme-specific annex F Physics/Astronomy](https://students.uu.nl/sites/default/files/Onderwijs%20en%20Examenregeling-Undergraduate%20School%202026-2027-%20opleidingsspecifieke%20bijlagen.pdf) — Art3.3/3.6 and Overview1/tables1.1–1.4; PDF pp.65–66,73–74; 2026–2027. Required90 includes bachelor research15. A7.5-EC choice is1of265/266, another37.5 is bound to the menu with30 at level3, and45 is free profiling. Withdrawn267 is excluded. Programme teaching progresses from Dutch towards English. Catalogue310 currently lists Dutch, so thesis instruction is not claimed uniformly English. LAS is not controlling degree authority.
+- [NS-157B current official catalogue](https://cursusplanner.uu.nl/course/NS-157B) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [NS-265B current official catalogue](https://cursusplanner.uu.nl/course/NS-265B) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [NS-350B current official catalogue](https://cursusplanner.uu.nl/course/NS-350B) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [NS-353B current official catalogue](https://cursusplanner.uu.nl/course/NS-353B) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [NS-375B current official catalogue](https://cursusplanner.uu.nl/course/NS-375B) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [NS-376B current official catalogue](https://cursusplanner.uu.nl/course/NS-376B) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [NS-310B current official catalogue](https://cursusplanner.uu.nl/course/NS-310B) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+
+External credit structure: Stored component arithmetic 180.0 EC. Current Physics/Astronomy OER defines90 compulsory including thesis15, bound7.5 choice1of2, further bound37.5 with30 at level3, and genuinely free45. Stored generic physics-choice90 both leaves restricted options uninstantiated and hides the free45. The LAS major is a different degree context and cannot control the Physics degree. Formal Dutch/English progression and checked upper-level English choices contradict NLD-only programme metadata.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Relativistic and classical mechanics (NS-106B) | 7.5 | required; Current formal course weight. Selected options remain conditional and follow the prior-study rules below. |
+| 1 | Data acquisition and applied analysis (NS-109B) | 7.5 | required; Current formal course weight. Selected options remain conditional and follow the prior-study rules below. |
+| 1 | Electromagnetism (NS-112B) | 7.5 | required; Current formal course weight. Selected options remain conditional and follow the prior-study rules below. |
+| 1 | Astronomy and optics (NS-114B) | 7.5 | required; Current formal course weight. Selected options remain conditional and follow the prior-study rules below. |
+| 1 | Mathematical techniques1 (NS-120B) | 7.5 | required; Current formal course weight. Selected options remain conditional and follow the prior-study rules below. |
+| 1 | Mathematical techniques2 (NS-121B) | 7.5 | required; Current formal course weight. Selected options remain conditional and follow the prior-study rules below. |
+| 1 | Approved free profiling space | 15 | open elective; Genuine profiling; approved subject matter remains generic, with applicable level, nonoverlap and approval conditions. |
+| 2 | Quantum mechanics (NS-202B) | 7.5 | required; Current formal course weight. Selected options remain conditional and follow the prior-study rules below. |
+| 2 | Statistical physics (NS-204B) | 7.5 | required; Current formal course weight. Selected options remain conditional and follow the prior-study rules below. |
+| 2 | Experimental research project (NS-205B) | 7.5 | required; Current formal course weight. Selected options remain conditional and follow the prior-study rules below. |
+| 2 | Mathematical techniques3 (NS-220B) | 7.5 | required; Current formal course weight. Selected options remain conditional and follow the prior-study rules below. |
+| 2 | Fluid mechanics and transport (NS-265B) | 7.5 | selected restricted option; Current formal course weight. Selected options remain conditional and follow the prior-study rules below. |
+| 2 | Atmosphere/ocean dynamics (NS-157B) | 7.5 | selected restricted option; Current formal course weight. Selected options remain conditional and follow the prior-study rules below. |
+| 2 | Approved free profiling space | 15 | open elective; Genuine profiling; approved subject matter remains generic, with applicable level, nonoverlap and approval conditions. |
+| 3 | Advanced mechanics (NS-350B) | 7.5 | selected restricted option; Current formal course weight. Selected options remain conditional and follow the prior-study rules below. |
+| 3 | Geophysical fluid dynamics (NS-353B) | 7.5 | selected restricted option; Current formal course weight. Selected options remain conditional and follow the prior-study rules below. |
+| 3 | Advanced quantum mechanics (NS-375B) | 7.5 | selected restricted option; Current formal course weight. Selected options remain conditional and follow the prior-study rules below. |
+| 3 | Turbulence in fluids (NS-376B) | 7.5 | selected restricted option; Current formal course weight. Selected options remain conditional and follow the prior-study rules below. |
+| 3 | Bachelor research (NS-310B) | 15 | required; Current formal course weight. Selected options remain conditional and follow the prior-study rules below. |
+| 3 | Approved free profiling space | 15 | open elective; Genuine profiling; approved subject matter remains generic, with applicable level, nonoverlap and approval conditions. |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Current published weighted external requirement template; future course versions/availability need refresh at remediation. No independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- Required90 plus bound7.5 and37.5 plus genuinely free45 gives180.
+- The five additional7.5 menu choices include four level3 courses totaling30; withdrawn267 is excluded.
+- Required math, mechanics, quantum and statistical physics plus selected265 prepare advanced350/353/375/376.
+- Current350/375 share period2 with different slotsD/B;353 is period1A and376 period3A. Future timetable refresh remains required.
+- Formal programme and selected upper-course evidence support NLD+ENG; free45 stays generic.
+
+Result: incorrect; required action: correct-registry-and-reprocess.
+
+Incorrect is confined to the specified external granularity/choice/formation or normalized metadata. No independent UCR result assessed; discovery alone does not establish a dated change from earlier correctness.
+
+Secondary attribute finding(s):
+
+- normalized instruction language: incorrect; stored ["NLD"], verified ["NLD", "ENG"]. Separate closure: Externalcurriculum/cohortandindependentUCRoutcome.
+
+Recommended follow-up: Use programme-specific Physics authority, instantiate the45 restricted choice while restoring generic free45. Keep all required90 and thesis15. Correct NLD + ENG; distinguish actual catalogue language per course from formal programme policy. Selected Stromingsleer7.5 precedes advanced fluid courses; required math/quantum/statistical foundations precede upper options.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `official evidence linkage`. Persist instruction languages ["NLD", "ENG"] with documented official evidence. Preserve rawNLD, permanent ID and source/offering crosswalks. Distinguish the formal programme envelope from actual course languages.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `supported researched post-build override/evidence workflow`. Record supported researched post-build overrides and official sources so registry rebuilds preserve the correction. Do not invent ambiguity cases or rewrite immutable source provenance.
+- `data/counselor/decisions/cp-000358.json`, fields: `sources`, `comparator.components`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context/date`. Use programme-specific Physics authority, instantiate the45 restricted choice while restoring generic free45. Keep all required90 and thesis15. Correct NLD + ENG; distinguish actual catalogue language per course from formal programme policy. Selected Stromingsleer7.5 precedes advanced fluid courses; required math/quantum/statistical foundations precede upper options. Refresh source indexes and preserve previous UCR claims as provenance.
+- `data/counselor/comparisons/cp-000358.json`, fields: `programmeProvider`, `comparator`, `exception external source/context/date`. Compile from the corrected compact decision and normalized identity; do not automatically convert to a comparison.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected identity/source/curriculum/choice/cohort summaries`. Regenerate affected outputs after targeted remediation; reconcile scope and counts.
+
+Dependencies:
+
+- Refresh applicable cohort and actual future offers at implementation. Independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Count every credited unit/line once, without stacking parents, embedded thesis, alternatives or zero-credit formation.
+- Preserve genuinely open profiling and instantiate restricted choice with actual EC, category/level, prior-study and nonoverlap rules.
+- Reconcile normalized, compact, canonical and generated outputs and run the relevant registry/schema/compiler validators.
+- Close supported factual/metadata changes separately from remaining external research and later UCR comparison.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000364 — Politiek, cultuur en religie
+
+Institution: Utrecht University. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `external-programme-unresolved`; existing check date: 2026-09-28.
+
+Existing substantive reason: Utrecht's current official page says the renamed programme's course package is still being developed and contains missing content. It establishes the eight-course first year, the depth-package choices, research seminar, final project and 60 EC of free-choice space, but does not identify the two compulsory courses that account for the remaining 15 EC of the 120-EC major. The first-listed Politics and Religion package is also internally listed with five course items for a four-course package, including two Block 3 entries. A complete current 180-EC pathway cannot therefore be certified without either importing unconfirmed predecessor requirements or arbitrarily deciding which published package item applies.
+
+Current PCR OER corroborates new2026-entry foundation60 and major120+profile60, adds named compulsory Mohammed in the Present and Past7.5, but leaves the other disciplinary7.5, selected Politics/Religion depth30 membership, preparation title/code and capstone code unresolved. Its duplicated depth-package heading and the public page’s five items/two Block3 items do not establish a coherent four-course30. Formal Dutch-plus-English programme metadata separately contradict NLD-only normalization; this does not make every selected PCR core course English.
+
+Provenance: data/counselor/comparisons/cp-000364.json; source worksheet row(s) 377. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 8 October 2026):
+
+- [Politiek, cultuur en religie current official programme](https://www.uu.nl/bachelors/politiek-cultuur-en-religie/studieprogramma) — Current identity, curriculum overview and cohort/choice context; Current entrant curriculum, checked 2026-09-28; reread2026-10-08. Current prospective PCR page names eight first-year courses, a Politics/Religion package with five items and two Block3 labels, a separate Culture/Religion package and an English Middle East package. Some future content remains unpublished. It does not resolve the selected Politics/Religion four-course membership.
+- [PCR/Religiewetenschappen current OER](https://students.uu.nl/sites/default/files/GW-OER-BA-2026-2027-Religiewetenschappen%20PCR%20260420.pdf) — 2026 entrant art3.3/3.5; Appendices1–3, PDF pp.2–4; 2026–2027. Required90 includes foundations60, disciplinary15, preparation7.5 and thesis7.5; selected depth30 and profile60 give the180 allocation. Mohammed7.5 is named, but the other disciplinary7.5 is n.n.b. The selected depth titles/codes await publication, with a duplicated Politics/Religion heading. The named specialized Middle East package does not fill the chosen broad package. Formal Dutch plus English; outgoing cohorts are separate.
+- [PC1V26001 current official catalogue](https://cursusplanner.uu.nl/course/PC1V26001) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [IA2V17001 current official catalogue](https://cursusplanner.uu.nl/course/IA2V17001) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+
+External credit structure: Stored component arithmetic 165.0 EC. Current PCR OER corroborates new2026-entry foundation60 and major120+profile60, adds named compulsory Mohammed in the Present and Past7.5, but leaves the other disciplinary7.5, selected Politics/Religion depth30 membership, preparation title/code and capstone code unresolved. Its duplicated depth-package heading and the public page’s five items/two Block3 items do not establish a coherent four-course30. Formal Dutch-plus-English programme metadata separately contradict NLD-only normalization; this does not make every selected PCR core course English.
+
+Result: still-unresolved; required action: correct-registry-and-reprocess.
+
+Secondary attribute finding(s):
+
+- normalized instruction language: incorrect; stored ["NLD"], verified ["NLD", "ENG"]. Separate closure: Externalcurriculum/cohortandindependentUCRoutcome.
+- complete applicable current-entry external pathway: still-unresolved; stored "Utrecht presents Politics, Culture and Religion as the continuation under a new name of Religious Studies. The current prospective-student curriculum identifies eight named first-year courses arranged as two four-course foundation packages, three named depth-package options, one-third free-choice space, a research seminar and a final project. The current student curriculum for the 2025-entry predecessor confirms the architecture of 60 EC in two foundation packages, a 30-EC depth package, 15 EC in two compulsory courses, 15 EC for the research seminar and final project, and 60 EC of profiling space. However, Utrecht explicitly states that it is still developing the course package for the renamed programme and that content is missing. The current page does not identify the two compulsory 15-EC major courses for new entrants, does not provide a complete credit-bearing 180-EC curriculum, and lists five items under the four-course Politics and Religion package, including two items both labelled Block 3. Combining the predecessor's unnamed requirements with the incomplete new page would therefore require guessing. The supported components below retain only the architecture and named current elements that can be established without inventing the missing 15 EC.", verified "Named foundation60 plus Mohammed7.5; formal180 allocation, but disciplinary7.5 and selected depth membership remain unresolved.". Separate closure: Declaredprogramme-languagecorrection.
+
+Recommended follow-up: Add current formal source, named compulsory Mohammed7.5 and distinct7.5 preparation/7.5 capstone allocations, while retaining the explicit unnamed disciplinary7.5 and unresolved selected depth membership. Correct declared programme language to NLD + ENG, preserving rawNLD and distinguishing available English depth offerings from Dutch checked foundations. Retain the selected broad Politics/Religion package without substituting a more specialized complete Middle East package to manufacture completeness.
+
+Unresolved factual question / historical limitation: Obtain the finalized2026-entry disciplinary/context7.5 and selected Politics/Religion four-course30, resolve the duplicated formal heading and five-item/two-Block3 public list, and obtain preparation/capstone version codes. Do not borrow outgoing Religiewetenschappen requirements or certify180 from allocations/placeholders.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `official evidence linkage`. Persist instruction languages ["NLD", "ENG"] with documented official evidence. Preserve rawNLD, permanent ID and source/offering crosswalks. Distinguish the formal programme envelope from actual course languages.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `supported researched post-build override/evidence workflow`. Record supported researched post-build overrides and official sources so registry rebuilds preserve the correction. Do not invent ambiguity cases or rewrite immutable source provenance.
+- `data/counselor/decisions/cp-000364.json`, fields: `sources`, `comparator.components`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context/date`. Add current formal source, named compulsory Mohammed7.5 and distinct7.5 preparation/7.5 capstone allocations, while retaining the explicit unnamed disciplinary7.5 and unresolved selected depth membership. Correct declared programme language to NLD + ENG, preserving rawNLD and distinguishing available English depth offerings from Dutch checked foundations. Retain the selected broad Politics/Religion package without substituting a more specialized complete Middle East package to manufacture completeness. Refresh source indexes and preserve previous UCR claims as provenance.
+- `data/counselor/comparisons/cp-000364.json`, fields: `programmeProvider`, `comparator`, `exception external source/context/date`. Compile from the corrected compact decision and normalized identity; do not automatically convert to a comparison.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected identity/source/curriculum/choice/cohort summaries`. Regenerate affected outputs after targeted remediation; reconcile scope and counts.
+
+Dependencies:
+
+- Obtain the finalized2026-entry disciplinary/context7.5 and selected Politics/Religion four-course30, resolve the duplicated formal heading and five-item/two-Block3 public list, and obtain preparation/capstone version codes. Do not borrow outgoing Religiewetenschappen requirements or certify180 from allocations/placeholders.
+- Refresh applicable cohort and actual future offers at implementation. Independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Count every credited unit/line once, without stacking parents, embedded thesis, alternatives or zero-credit formation.
+- Preserve genuinely open profiling and instantiate restricted choice with actual EC, category/level, prior-study and nonoverlap rules.
+- Reconcile normalized, compact, canonical and generated outputs and run the relevant registry/schema/compiler validators.
+- Close supported factual/metadata changes separately from remaining external research and later UCR comparison.
+- Preserve the explicit diagnostic. Degree allocations and placeholders do not certify a complete applicable course-level pathway.
+
+Research trigger: Obtain the finalized2026-entry disciplinary/context7.5 and selected Politics/Religion four-course30, resolve the duplicated formal heading and five-item/two-Block3 public list, and obtain preparation/capstone version codes. Do not borrow outgoing Religiewetenschappen requirements or certify180 from allocations/placeholders.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000367 — Scheikunde
+
+Institution: Utrecht University. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-28.
+
+Existing substantive reason: Utrecht Chemistry is defined by a compulsory first-year sequence in organic chemistry and spectroscopy, physical and inorganic chemistry, analytical chemistry, biochemistry, quantum chemistry, mathematics and physics, with extensive laboratory work. The selected Molecules and Materials pathway continues through physical, inorganic, solid-state, electrochemical, structural, spectroscopic, catalytic, organometallic, polymer, nano- and surface chemistry and ends in an individual chemistry research project. UCR has no chemistry gateway and no stand-alone progression in organic, inorganic, analytical, physical, quantum or synthetic chemistry. A 24-course UCR programme could combine biochemistry, environmental science, sustainability, mathematics and programming, but it would omit the target’s defining chemistry theory and multi-laboratory spine and would therefore misrepresent the degree.
+
+Current Chemistry OER specifies compulsory82.5 including Biochemical Methods/Academic Formation2 rather than universally compulsory Inorganic/Solid-State Chemistry; restricted52.5 and free45. The stored pathway omits the mandatory Category2 Chemical Biology-or-Biochemistry2 choice and uses all180 for chemistry selections, hiding the genuine free45. Current formal level3 teaching and required Methods/thesis catalogues establish English, omitted by NLD-only metadata. The formal table has stronger level minima than the formal prose; the proposed choice satisfies both. The student page expressly applies to2025 entrants and has different minima, so it is not silently substituted for the2026 formal table.
+
+Provenance: data/counselor/comparisons/cp-000367.json; source worksheet row(s) 380. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 8 October 2026):
+
+- [Scheikunde current official programme](https://www.uu.nl/bachelors/scheikunde/studieprogramma) — Current identity, curriculum overview and cohort/choice context; Current public curriculum checked 2026-09-28; linked visual schedule labelled 2025–2026; reread2026-10-08. Current indicative prospective Chemistry page describes materials and life subject choices and lists example courses. Its linked visual schedule is2025–2026. The current formal2026–2027 OER is required to determine compulsory BMAV, category choices and free profiling; indicative choices are not universal requirements.
+- [Science OER2026–2027 programme-specific annex G Chemistry](https://students.uu.nl/sites/default/files/Onderwijs%20en%20Examenregeling-Undergraduate%20School%202026-2027-%20opleidingsspecifieke%20bijlagen.pdf) — Art3.3/3.6 and Overview1/tables1.1–1.3; PDF pp.83–85,102–103; 2026–2027. Required82.5 is first-year60 plus BMAV7.5 and thesis15; restricted choice52.5 and generic profiling45. Category2 requires CHBI or BIO2 and is absent from the stored set. ANV is an option. The formal table requires37.5 level2 choices and15 level3; the article prose is weaker. The proposed set meets both formal formulations. The expressly2025-entry student page has different minima and cannot silently control2026 entrants. Required BMAV/thesis and level3 instruction establish English.
+- [Chemistry current student page](https://students.uu.nl/beta/scheikunde/mijn-studie/studieprogrammas/scheikunde) — Explicit2025-entry applicability and requirements; 2026–2027. The82.5/52.5/45 allocation matches the formal degree. This page expressly applies to2025 entrants. Its ANV compulsory claim and level minima differ from the current formal BMAV table. Preserve that applicability/conflict rather than overriding the2026 table. Extra chemistry can optionally occupy profiling; it is not universal.
+- [SK-B2SRE current official catalogue](https://cursusplanner.uu.nl/course/SK-B2SRE) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [SK-B2CHBI current official catalogue](https://cursusplanner.uu.nl/course/SK-B2CHBI) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [SK-B2BIO current official catalogue](https://cursusplanner.uu.nl/course/SK-B2BIO) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [SK-BFYCH current official catalogue](https://cursusplanner.uu.nl/course/SK-BFYCH) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [SK-B2SPEC2 current official catalogue](https://cursusplanner.uu.nl/course/SK-B2SPEC2) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [SK-B2WDMM current official catalogue](https://cursusplanner.uu.nl/course/SK-B2WDMM) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [SK-B2BMAV current official catalogue](https://cursusplanner.uu.nl/course/SK-B2BMAV) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [SK-BANV13 current official catalogue](https://cursusplanner.uu.nl/course/SK-BANV13) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [SK-B3OMC current official catalogue](https://cursusplanner.uu.nl/course/SK-B3OMC) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [SK-BFYC3 current official catalogue](https://cursusplanner.uu.nl/course/SK-BFYC3) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [SK-BVAOP current official catalogue](https://cursusplanner.uu.nl/course/SK-BVAOP) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [SK-BTHESIS current official catalogue](https://cursusplanner.uu.nl/course/SK-BTHESIS) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+
+External credit structure: Stored component arithmetic 180.0 EC. Current Chemistry OER specifies compulsory82.5 including Biochemical Methods/Academic Formation2 rather than universally compulsory Inorganic/Solid-State Chemistry; restricted52.5 and free45. The stored pathway omits the mandatory Category2 Chemical Biology-or-Biochemistry2 choice and uses all180 for chemistry selections, hiding the genuine free45. Current formal level3 teaching and required Methods/thesis catalogues establish English, omitted by NLD-only metadata. Formal prose, formal table and the2025-entry student page differ in level minima; a conservative selection can satisfy their stronger common requirements without pretending the texts agree.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Organic chemistry and spectroscopy (SK-BORSP) | 7.5 | required; Current formal course weight and required/selected status; prerequisites and level/category rules below govern use. |
+| 1 | Physical and inorganic chemistry (SK-BFYAN13) | 7.5 | required; Current formal course weight and required/selected status; prerequisites and level/category rules below govern use. |
+| 1 | Quantum and inorganic chemistry (SK-BKWAN) | 7.5 | required; Current formal course weight and required/selected status; prerequisites and level/category rules below govern use. |
+| 1 | Analytical chemistry/academic formation1 (SK-B1ACAV) | 7.5 | required; Current formal course weight and required/selected status; prerequisites and level/category rules below govern use. |
+| 1 | Data analysis and spectroscopy (SK-B1DASP) | 7.5 | required; Current formal course weight and required/selected status; prerequisites and level/category rules below govern use. |
+| 1 | Biochemistry1 (SK-B1BIO) | 7.5 | required; Current formal course weight and required/selected status; prerequisites and level/category rules below govern use. |
+| 1 | Mathematics/physics1 (SK-BWSNK1) | 7.5 | required; Current formal course weight and required/selected status; prerequisites and level/category rules below govern use. |
+| 1 | Mathematics/physics2 (SK-BWSNK2) | 7.5 | required; Current formal course weight and required/selected status; prerequisites and level/category rules below govern use. |
+| 2 | Biochemical methods/academic formation2 (SK-B2BMAV) | 7.5 | required; Current formal course weight and required/selected status; prerequisites and level/category rules below govern use. |
+| 2 | Mathematics/data/molecular modelling (SK-B2WDMM) | 7.5 | selected restricted option; Current formal course weight and required/selected status; prerequisites and level/category rules below govern use. |
+| 2 | Physical chemistry2 (SK-BFYCH) | 7.5 | selected restricted option; Current formal course weight and required/selected status; prerequisites and level/category rules below govern use. |
+| 2 | Inorganic/solid-state chemistry (SK-BANV13) | 7.5 | selected restricted option; Current formal course weight and required/selected status; prerequisites and level/category rules below govern use. |
+| 2 | Biochemistry2 (SK-B2BIO) | 7.5 | selected restricted option; Current formal course weight and required/selected status; prerequisites and level/category rules below govern use. |
+| 2 | Approved free profiling space | 22.5 | open elective; Genuine profiling; approved subject matter remains generic, with applicable level, nonoverlap and approval conditions. |
+| 3 | X-ray/electron structure determination (SK-B2SRE) | 7.5 | selected restricted option; Current formal course weight and required/selected status; prerequisites and level/category rules below govern use. |
+| 3 | Advanced physical chemistry (SK-BFYC3) | 7.5 | selected restricted option; Current formal course weight and required/selected status; prerequisites and level/category rules below govern use. |
+| 3 | Solids and surfaces (SK-BVAOP) | 7.5 | selected restricted option; Current formal course weight and required/selected status; prerequisites and level/category rules below govern use. |
+| 3 | Bachelor thesis (SK-BTHESIS) | 15 | required; Current formal course weight and required/selected status; prerequisites and level/category rules below govern use. |
+| 3 | Approved free profiling space | 22.5 | open elective; Genuine profiling; approved subject matter remains generic, with applicable level, nonoverlap and approval conditions. |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Current published weighted external requirement template; future course versions/availability need refresh at remediation. No independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- Required82.5 includes BMAV7.5 and thesis15; ANV is a selected option.
+- Bound52.5 comprises five level2 courses37.5 plus two level3 courses15, satisfying the stronger formal table and weaker formal prose. The dated2025-entry student page has different minima and is not silently assigned to2026 entrants.
+- Three categories are filled by SRE, BIO2 and FYCH. BIO2 has no listed gate/background; equivalence of CHBI’s named Biomolecular Chemistry background with the first-year table is not assumed.
+- The major has30 level3 including thesis. At least15 of generic profiling45 must therefore be level3 to meet the overall45 minimum; profiling also requires at least15 at level2 or3.
+- Materials is an internal emphasis, not a separate formal graduation track. Extra chemistry selections are optional profiling examples.
+- Refresh applicable cohort, timetable and the remaining source discrepancies at implementation.
+
+Result: incorrect; required action: correct-registry-and-reprocess.
+
+Incorrect is confined to the specified external granularity/choice/formation or normalized metadata. No independent UCR result assessed; discovery alone does not establish a dated change from earlier correctness.
+
+Secondary attribute finding(s):
+
+- normalized instruction language: incorrect; stored ["NLD"], verified ["NLD", "ENG"]. Separate closure: Externalcurriculum/cohortandindependentUCRoutcome.
+
+Recommended follow-up: Prioritize current formal Chemistry requirements and identify the dated indicative2025–2026 schedule as context only. Retain the valid materials emphasis as an internal choice, not a formal graduation route. Make BMAV7.5 compulsory and Inorganic/Solid-State7.5 selected; add a Category2 option, limit restricted major selections to52.5 and restore generic free45 with appropriate level conditions. Correct NLD + ENG. Preserve valid prerequisite-satisfied selected content where possible; replace Organometallic if its required organic/inorganic level2 formation is not retained.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `official evidence linkage`. Persist instruction languages ["NLD", "ENG"] with documented official evidence. Preserve rawNLD, permanent ID and source/offering crosswalks. Distinguish the formal programme envelope from actual course languages.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `supported researched post-build override/evidence workflow`. Record supported researched post-build overrides and official sources so registry rebuilds preserve the correction. Do not invent ambiguity cases or rewrite immutable source provenance.
+- `data/counselor/decisions/cp-000367.json`, fields: `sources`, `comparator.components`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context/date`. Prioritize current formal Chemistry requirements and identify the dated indicative2025–2026 schedule as context only. Retain the valid materials emphasis as an internal choice, not a formal graduation route. Make BMAV7.5 compulsory and Inorganic/Solid-State7.5 selected; add a Category2 option, limit restricted major selections to52.5 and restore generic free45 with appropriate level conditions. Correct NLD + ENG. Preserve valid prerequisite-satisfied selected content where possible; replace Organometallic if its required organic/inorganic level2 formation is not retained. Refresh source indexes and preserve previous UCR claims as provenance.
+- `data/counselor/comparisons/cp-000367.json`, fields: `programmeProvider`, `comparator`, `exception external source/context/date`. Compile from the corrected compact decision and normalized identity; do not automatically convert to a comparison.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected identity/source/curriculum/choice/cohort summaries`. Regenerate affected outputs after targeted remediation; reconcile scope and counts.
+
+Dependencies:
+
+- Refresh applicable cohort and actual future offers at implementation. Independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Count every credited unit/line once, without stacking parents, embedded thesis, alternatives or zero-credit formation.
+- Preserve genuinely open profiling and instantiate restricted choice with actual EC, category/level, prior-study and nonoverlap rules.
+- Reconcile normalized, compact, canonical and generated outputs and run the relevant registry/schema/compiler validators.
+- Close supported factual/metadata changes separately from remaining external research and later UCR comparison.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000370 — Bachelor Spaanse taal en cultuur
+
+Institution: Utrecht University. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-28.
+
+Existing substantive reason: Utrecht's programme is defined by a compulsory four-course Spanish-language acquisition sequence progressing from CEFR A1 to B2, followed by Spanish-medium and Spanish-specific study of sociolinguistics, morphosyntax, language change, intercultural communication, Spanish and Latin American literature, theatre, film, migration, colonial chronicles, cultural identity and historical memory. UCR's current curriculum contains no Spanish-language course and no course whose disciplinary object is Spanish language, Hispanic linguistics, Spanish or Latin American literature, or the cultures of Spain and Latin America. UCR literature, media, history, sociology and communication courses can illuminate isolated comparative themes, but they cannot supply the language competence on which the comparator's advanced courses and thesis depend. A 24-course UCR response would therefore be a broad literature, media and cultural-studies programme without Spanish, not a defensible closest match to Spanish Language and Culture.
+
+The standard language-specific Spanish pathway closes127.5+52.5 and the current formal OER explicitly publishes the odd-year2027–2028 package titles/weights even while codes are n.n.b. The valid Research Methods Intercultural Communication choice accepts Spanish foundations and is retained, but current formal order lists Methods/Statistics1 first; the older first-listed claim needs qualification. Required zero-credit grammar test is missing from stored formation. Formal Spanish instruction plus English alternatives and shared-course languages contradict NLD-only normalization.
+
+Provenance: data/counselor/comparisons/cp-000370.json; source worksheet row(s) 383. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 8 October 2026):
+
+- [Bachelor Spaanse taal en cultuur current official programme](https://students.uu.nl/gw/spaanse-taal-en-cultuur/mijn-studie/studieprogramma) — Current identity, curriculum overview and cohort/choice context; 2026-2027 curriculum for students starting in 2026; reread2026-10-08. Current2026-entry student curriculum gives language-specific major127.5 and profiling52.5, foundations60, depth45, methods7.5, writing preparation7.5 and thesis7.5. It describes alternating depth offerings and an optional Crossing Borders track. The current OER provides the formal prospective odd-year titles/weights and compulsory grammar test.
+- [Spanish Language/Culture OER2026–2027](https://students.uu.nl/sites/default/files/GW-OER-BA-2026-2027-Spaans.pdf) — Art3.3/3.5; Appendices1–3, PDF pp.2–6; 2026–2027. The language-specific track has127.5 major plus52.5 profiling; Crossing Borders has135/45. Grammar0 is required and thesis is in Spanish. The odd2027–2028 four-course package has published titles/7.5 weights with pending codes. Methods/Statistics1 is first in the formal list, but the retained RMIC choice is eligible. Formal Spanish/English; approved profile package30 plus remaining22.5.
+- [TL3V20001 current official catalogue](https://cursusplanner.uu.nl/course/TL3V20001) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [TL2V23004 current official catalogue](https://cursusplanner.uu.nl/course/TL2V23004) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [TL1V26001 current official catalogue](https://cursusplanner.uu.nl/course/TL1V26001) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+- [TL2V26001 current official catalogue](https://cursusplanner.uu.nl/course/TL2V26001) — 2026–2027 offering, entry/background and actual instruction language; 2026–2027. Current course evidence retained in verified_module_credit_evidence; applies with programme/cohort and choice rules. Course prerequisites/background and actual language inspected independently of names.
+
+External credit structure: Stored component arithmetic 180.0 EC. The standard language-specific Spanish pathway closes127.5+52.5 and the current formal OER explicitly publishes the odd-year2027–2028 package titles/weights even while codes are n.n.b. The valid Research Methods Intercultural Communication choice accepts Spanish foundations and is retained, but current formal order lists Methods/Statistics1 first; the older first-listed claim needs qualification. Required zero-credit grammar test is missing from stored formation. Formal Spanish instruction plus English alternatives and shared-course languages contradict NLD-only normalization.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Español 1 (y1-espanol-1) | 7.5 | required; Compulsory Spanish-language acquisition to CEFR A1. |
+| 1 | Introduction to Literary Studies (y1-literary-studies) | 7.5 | required |
+| 1 | Español 2 (y1-espanol-2) | 7.5 | required; Compulsory Spanish-language acquisition to CEFR A2. |
+| 1 | Comparative Morphosyntax (y1-morphosyntax) | 7.5 | required |
+| 1 | Español 3 (y1-espanol-3) | 7.5 | required; Compulsory Spanish-language acquisition to CEFR B1. |
+| 1 | Teatro, cine e intermedialidad: España y América Latina (y1-theatre-film) | 7.5 | required |
+| 1 | Español 4 (y1-espanol-4) | 7.5 | required; Compulsory Spanish-language acquisition to CEFR B2. |
+| 1 | Sociolingüística del español: España y América Latina (y1-sociolinguistics) | 7.5 | required |
+| 2 | Competencias de lectura y conciencia cultural: España y América Latina (y2-literacy-culture) | 7.5 | required; First course in the odd-year Trans-Atlantic Perspectives depth package. |
+| 2 | Migration and Diaspora (y2-migration-diaspora) | 7.5 | required; Second course in the odd-year Trans-Atlantic Perspectives depth package. |
+| 2 | Testimonios, crónicas, representaciones: España y América Latina (y2-chronicles-images) | 7.5 | required; Formal odd2027–2028 title and7.5 weight are published; course code is pending. |
+| 2 | Variation and Change in Language (y2-variation-change) | 7.5 | required; Fourth course in the odd-year Trans-Atlantic Perspectives depth package. |
+| 2 | Research Methods Intercultural Communication (methods-intercultural) | 7.5 | required; First-listed eligible choice from the compulsory methods-course group. |
+| 2 | Approved free profiling space | 22.5 | open elective; Genuine profiling; approved subject matter remains generic, with applicable level, nonoverlap and approval conditions. |
+| 3 | Lengua, cultura e identidad: España y América Latina (y3-language-culture-identity) | 7.5 | required; First officially listed course selected from the even-year package for the two additional depth courses in Year 3. |
+| 3 | Contesting the Past (y3-contesting-past) | 7.5 | required; Second officially listed course selected from the even-year package for the two additional depth courses in Year 3. |
+| 3 | Taller de escritura profesional, creativa y académica (y3-writing) | 7.5 | required; Compulsory preparation for professional writing and the bachelor thesis. |
+| 3 | Eindwerkstuk BA Spaanse taal en cultuur (y3-thesis) | 7.5 | required; Compulsory independent bachelor thesis. |
+| 3 | Approved coherent profiling package | 30 | open elective; Genuine profiling; approved subject matter remains generic, with applicable level, nonoverlap and approval conditions. |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Current published weighted external requirement template; future course versions/availability need refresh at remediation. No independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- Keep the standard language-specific major127.5 and profiling52.5 separate from Crossing Borders.
+- Grammar test MT1V11002 is compulsory zero-credit formation.
+- For2026 entrants, year2 uses the published odd2027–2028 four-course package with pending codes; year3 uses two even2028–2029 choices. Refresh actual future offers.
+- Retain eligible RMIC: the catalogue accepts Spanish foundation packages. Methods/Statistics1 now being first does not invalidate a valid alternative.
+- Writing7.5 prepares the Spanish thesis7.5; profile package30 plus free22.5 stay generic.
+
+Result: incorrect; required action: correct-registry-and-reprocess.
+
+Incorrect is confined to the specified external granularity/choice/formation or normalized metadata. No independent UCR result assessed; discovery alone does not establish a dated change from earlier correctness.
+
+Secondary attribute finding(s):
+
+- normalized instruction language: incorrect; stored ["NLD"], verified ["SPA", "ENG", "NLD"]. Separate closure: Externalcurriculum/cohortandindependentUCRoutcome.
+
+Recommended follow-up: Correct normalized instruction to SPA + ENG + NLD with source-qualified formal Spanish/English and shared-course Dutch instruction. Preserve the standard language-specific track, current valid methods option and odd2027/even2028 cycle. Add mandatory grammar test0 as a noncredit requirement, retain Spanish thesis and writing preparation, and use the formal prospective title representaciones rather than the older imágenes label. Keep profile52.5 generic with approved coherent package30 and remaining22.5.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `official evidence linkage`. Persist instruction languages ["SPA", "ENG", "NLD"] with documented official evidence. Preserve rawNLD, permanent ID and source/offering crosswalks. Distinguish the formal programme envelope from actual course languages.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `supported researched post-build override/evidence workflow`. Record supported researched post-build overrides and official sources so registry rebuilds preserve the correction. Do not invent ambiguity cases or rewrite immutable source provenance.
+- `data/counselor/decisions/cp-000370.json`, fields: `sources`, `comparator.components`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context/date`. Correct normalized instruction to SPA + ENG + NLD with source-qualified formal Spanish/English and shared-course Dutch instruction. Preserve the standard language-specific track, current valid methods option and odd2027/even2028 cycle. Add mandatory grammar test0 as a noncredit requirement, retain Spanish thesis and writing preparation, and use the formal prospective title representaciones rather than the older imágenes label. Keep profile52.5 generic with approved coherent package30 and remaining22.5. Refresh source indexes and preserve previous UCR claims as provenance.
+- `data/counselor/comparisons/cp-000370.json`, fields: `programmeProvider`, `comparator`, `exception external source/context/date`. Compile from the corrected compact decision and normalized identity; do not automatically convert to a comparison.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected identity/source/curriculum/choice/cohort summaries`. Regenerate affected outputs after targeted remediation; reconcile scope and counts.
+
+Dependencies:
+
+- Refresh applicable cohort and actual future offers at implementation. Independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Count every credited unit/line once, without stacking parents, embedded thesis, alternatives or zero-credit formation.
+- Preserve genuinely open profiling and instantiate restricted choice with actual EC, category/level, prior-study and nonoverlap rules.
+- Reconcile normalized, compact, canonical and generated outputs and run the relevant registry/schema/compiler validators.
+- Close supported factual/metadata changes separately from remaining external research and later UCR comparison.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### Batch 14 reconstruction and source diagnostics
+
+Amsterdam:41 credited compulsory units150 plus generic minor30. Integrated project/skills units stay intact; Research Skills5 precedes assignment12. Veterinary Medicine: professional line10.5 includes thesis7.5; only the extra free15+7.5 is added. DNUA retains its unequal formal weights and all four carousel units, with CRU+ kept as the outgoing curriculum.
+
+Pharmacy retains the valid7.5 thesis and135/45 allocation; the authorized15 thesis uses142.5/37.5. Academic skills0 remain required formation and107 has its credit-release gate. All18 selected current catalogue entries list Dutch, while the formal programme language is NLD(+ENG). The language correction reflects that envelope without inventing required English courses. Musicology also declares NLD+ENG and has English courses within either required depth package.
+
+Physics restores generic45 and instantiates restricted45 using265,157,350,353,375 and376 after the required mathematical and physical formation. Chemistry uses compulsory BMAV, restricted WDMM/FYCH/ANV/BIO2/SRE, Advanced Physical Chemistry, Solids/Surfaces and thesis. Its five level2 choices37.5 and two level3 choices15 meet the stronger formal table and weaker formal prose. The dated2025-entry student page differs and does not silently control2026 entrants. At least15 of the generic profile45 must be level3 for the overall45 level3 minimum. Refresh actual future course offers and pacing at implementation.
+
+Spanish retains eligible RMIC despite a different first-listed formal option. Its odd2027–2028 package has published titles/weights with pending codes; grammar0 is mandatory formation. Profile52.5 includes an approved coherent package30 and free22.5. The standard language-specific track remains separate from Crossing Borders.
+
+PCR has named foundation60 plus Mohammed7.5 and a formal180 allocation, but the other disciplinary7.5 and selected depth membership remain unresolved. Preparation/capstone allocations are7.5 each with version codes pending. The duplicated formal heading and five-item/two-Block3 public list are recorded rather than repaired by guesswork. ALPO separates current dual-award identity, dated240 evidence and raw embeddedUU180; current course-level240 is not certified.
+
+Course catalogue assessment components are summed across the complete 100% assessment set. Split assessments are not separate course loads. The repeated 100% final-result line for NS-375B is counted once; formal programme weights remain controlling.
+
 ## Remaining work and next batch
 
-All19 exclusions are complete.111of140 exceptions have received the first-stage audit;29 remain pending. Next batch: cp-000331, cp-000333, cp-000339, cp-000342, cp-000344, cp-000357, cp-000358, cp-000364, cp-000367, cp-000370.
+All19 scope exclusions are complete.121 of140 exceptions have received the first-stage audit;19 remain pending. All20 external-unresolved and all3 registry-exception cases have been audited within this stage. The19 remaining cases are no-match exceptions. Next batch: cp-000375, cp-000378, cp-000379, cp-000390, cp-000398, cp-000400, cp-000403, cp-000404, cp-000408, cp-000411.
 
-Completed/pending reconcile exactly to159 unique composite keys:130 completed and29 pending, with no overlap or omissions. All120 earlier cases, their source objects and completed-batch evidence are preserved. Pending entries carry no findings. Secondary attributes do not add cases or change production statuses.
+The frozen159-case population reconciles to140 completed and19 pending unique composite keys, without overlap or omission. All130 earlier cases, source objects and thirteen completed-batch evidence blocks are preserved. Pending entries carry no finding. Queued future scope changes do not rewrite this audit population.
 
-After the exhaustive audit, consolidate and execute the targeted action plans. Close supported metadata/course/choice/cohort corrections independently of unresolved external requirements and later UCR feasibility. Resume research on recorded publication/clarification triggers. No automatic comparison conversion.
+After the exhaustive audit, consolidate and execute the concrete action plans. Close supported factual/metadata corrections independently of unresolved external requirements and later UCR feasibility. Research resumes on recorded clarification/publication triggers. There is no automatic conversion to a comparison.
 
 ## Production-data boundary
 
