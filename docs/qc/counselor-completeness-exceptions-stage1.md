@@ -2,6 +2,8 @@
 
 Status: first-stage audit complete. Batches 1–16 completed through 8 October 2026: all 19 scope exclusions and 140 exceptions audited within the first-stage scope. No audit cases remain pending.
 
+Implementation is tracked separately in [the remediation report](counselor-stage1-remediation.md) and `data/counselor/qc/stage1-remediation.json`. Population counts below describe the completed audit baseline before corrections; they are not live corpus totals.
+
 ## Scope and method
 
 This audit follows the current Master Specification §4.1 and Production Instructions §§4.1 and 4.4. A target belongs to counselor production only when production_eligible=true, production_order is nonblank, and programme_type=standard. Non-standard degree structures remain legitimate registry targets. The audit tests the factual attributes behind exclusion without reconsidering the presentation policy itself.

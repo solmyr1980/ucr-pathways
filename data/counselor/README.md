@@ -117,3 +117,9 @@ GitHub remains the version-controlled source of truth. A deployed counselor app 
 At runtime, discovery indexes should be loaded and prepared once per application process. Individual comparison records should be read locally on demand. This keeps the app independent of GitHub latency or availability and ensures that code and data belong to the same release.
 
 The authoritative academic production rules are in `docs/UCR_Pathways_Production_Instructions.md` and the reusable batch procedure is in `docs/Counselor_Batch_Assignment.md`. Exact renderer/search implementation remains repository implementation detail under the Master Specification's implementation boundary.
+
+## First-stage correction tracking
+
+`qc/stage1-completeness-exceptions.json` and its Markdown report preserve the completed audit's original populations, findings and proposed actions. `qc/stage1-remediation.json` records implementation and remaining factual questions; `docs/qc/counselor-stage1-remediation.md` summarises completed batches. Resolve factual corrections separately from independent UCR reassessment.
+
+When a supported registry correction places a target outside the existing production scope, preserve its original decision and canonical record under `withdrawn/<id>/`, with a withdrawal explanation and source hashes, and remove both root production files in the same correction commit. Withdrawn records are historical evidence, excluded from compilation, validation and review indexes. The permanent registry target remains. No special exemption from the production-scope validators is introduced.

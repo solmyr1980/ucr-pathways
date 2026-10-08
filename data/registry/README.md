@@ -26,7 +26,7 @@ The original programme workbook and DUO/RIO CSV remain unchanged.
 - Original programme-interest records preserved: **22227**
 - Normalized programme-interest rows after target mapping: **22259**
 
-Registry eligibility is deliberately distinct from the current counselor comparison presentation scope. Under the current Master Specification and Production Instructions, counselor comparison production is temporarily limited to `programme_type=standard`. Of the 457 registry-eligible/current targets, **441** are currently in counselor production scope. The other **16 registry-eligible targets** are non-standard structures (7 joint degrees, 8 double bachelors and 1 dual-degree route) that remain valid/current registry targets but are temporarily excluded from comparison production until an approved presentation method exists. One additional joint-degree target is already outside registry production eligibility because it is teach-out-only.
+Registry eligibility is deliberately distinct from the current counselor comparison presentation scope. Under the current Master Specification and Production Instructions, counselor comparison production is temporarily limited to `programme_type=standard`. Of the 457 registry-eligible/current targets, **440** are currently in counselor production scope. The other **17 registry-eligible targets** are non-standard structures (7 joint degrees, 9 double bachelors and 1 dual-degree route) that remain valid/current registry targets but are temporarily excluded from comparison production until an approved presentation method exists. One additional joint-degree target is already outside registry production eligibility because it is teach-out-only.
 
 **Post-build academic correction (2026-09-28):** `cp-000202`, originally imported as the standard programme “Politieke Wetenschappen,” is the Political Science track of Groningen's *Philosophy of a Specific Discipline*. The current official degree page identifies a combination bachelor awarding two degrees and crediting 120 EC from a separate first BA. Its `programme_type` is therefore corrected to `double-bachelor`, with a clarifying English display name and source recorded in `corrected_attributes_json`. The permanent ID, source name, provenance, eligibility and production order are preserved. The Step 1–3 reports below remain historical build snapshots; their original type counts predate this correction.
 
@@ -61,6 +61,12 @@ The production corpus must use `counselor_programme_id`, not source worksheet ro
 - `build_report.json` — Step 1 reconciliation and validation.
 - `step2_report.json` — Step 2 research-resolution summary and validation.
 - `step3_report.json` — Step 3 normalized-registry reconciliation and validation.
+
+## Replaying post-build corrections
+
+`post-build-corrections.json` records researched overrides separately from the immutable source, offering and ambiguity baselines. After regenerating `programmes.csv`, run `python scripts/apply-registry-corrections.py`, then `python scripts/apply-registry-corrections.py --check`. The command preserves permanent IDs and raw provenance, rejects conflicting refreshed values, and changes only the explicitly recorded fields. Do not fabricate a Step 2 ambiguity case for a later correction. Earlier inline corrections remain in `corrected_attributes_json`; this ledger does not migrate or replace them.
+
+**Post-build correction (2026-10-08):** `cp-000333` ALPO is a four-year full-time double bachelor awarding separate UU and HU diplomas. Its degree type, participating institutions, duration and normalized entry mode are corrected, with HU added to the institution table (21 current institutions; 20 at the original build). The active lifecycle, eligibility and production order remain unchanged. Its former exception is withdrawn from the active corpus and preserved under `data/counselor/withdrawn/cp-000333/`. The combined 240-EC structure is documented in the 2023/2024 accreditation report; current course-level credit sharing remains unverified. Until that is resolved, `study_load_ec=180` retains the embedded UU credential's source value and must not be interpreted as the complete ALPO load. See the separate remediation register for closure status.
 
 ## Permanent target identity
 

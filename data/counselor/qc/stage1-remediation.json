@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "audit_id": "counselor-completeness-exceptions-stage1",
+  "baseline_commit": "e5ee58bd7bc15f7e70be9c4f4a6ecc655a7e51dd",
+  "scope": "Implementation of external factual and registry findings; independent UCR reassessment excluded. Original first-stage audit remains an immutable evidence snapshot.",
+  "updated_on": "2026-10-08",
+  "batches": [
+    {
+      "batch_number": 1,
+      "case_ids": [
+        "cp-000333",
+        "cp-000095",
+        "cp-000293",
+        "cp-000301",
+        "cp-000244"
+      ],
+      "status": "in-progress"
+    }
+  ],
+  "cases": [
+    {
+      "counselor_programme_id": "cp-000333",
+      "programme": "Academic Primary Teacher Education (ALPO)",
+      "batch_number": 1,
+      "status": "partially-resolved",
+      "completed_on": "2026-10-08",
+      "closed_findings": [
+        "double-bachelor classification",
+        "UU and HU participant identities",
+        "four-year full-time entry",
+        "withdrawal from standard-only counselor scope with evidence preserved"
+      ],
+      "remaining_work": [
+        "Verify current combined study load and credit sharing before replacing the embedded 180-EC study_load_ec field."
+      ],
+      "ucr_reassessment": "Not applicable under current nonstandard-degree scope.",
+      "sources": [
+        {
+          "url": "https://www.uu.nl/bachelors/academische-lerarenopleiding-primair-onderwijs/studieprogramma",
+          "title": "Academische lerarenopleiding primair onderwijs current official programme",
+          "locator": "Current identity, curriculum overview and cohort/choice context",
+          "fact": "Current UU programme describes a four-year integrated academic teacher-training curriculum, placement from the first year, roughly25% practice, research and a fourth-year thesis and graduation placement. It does not publish individual EC. Two-degree/provider and mode facts are separately corroborated by current HU/UU entry pages.",
+          "academic_year": "Current programme checked 2026-09-27; reread2026-10-08",
+          "date_checked": "2026-10-08",
+          "source_id": "b14_primary_333"
+        },
+        {
+          "url": "https://www.hu.nl/voltijd-opleidingen/academische-lerarenopleiding-primair-onderwijs",
+          "title": "HU ALPO current entry",
+          "locator": "Duration, award/provider and mode facts",
+          "fact": "Full-time, four years, UU BSc plus HU BEd. Current UU main also gives50003 and34808; normalized variant50003 refers to embedded academic credential, not proof that complete namedALPO is single180.",
+          "academic_year": "Current undated entry pages",
+          "date_checked": "2026-10-08",
+          "source_id": "b14_alpo_hu"
+        },
+        {
+          "url": "https://publicaties.nvao.net/prd/AV-2153_20240415_Rapport_2023%20Rapport%20FSW_%20BSc%20Onderwijswetenschappen_incl%20aanvulling%20v09042024.pdf",
+          "title": "Official accreditation report BSc Onderwijswetenschappen",
+          "locator": "PDF pp.8–9 and12; submitted2023, supplementary report2024",
+          "fact": "The dated report distinguishes the ordinary180-EC Education Sciences award from integrated ALPO240 over four years:180 shared academic-level EC plus60 additional hbo-level EC. UU and HU issue separate diplomas. The ordinary degree permits part-time; ALPO does not. Current dual-award/four-year/full-time sources corroborate identity, but this is not a2026 course-credit table.",
+          "academic_year": "2023 assessment with2024 supplement; historical quantitative authority",
+          "date_checked": "2026-10-08",
+          "source_id": "b14_alpo_nvao"
+        },
+        {
+          "url": "https://students.uu.nl/fsw/alpo/mijn-studie/studieprogramma-0",
+          "title": "ALPO current student programme",
+          "locator": "Integration/award statements and linked2026–2027 timetable",
+          "fact": "Four-year integrated route, two awards and inter-degree profiling. Completing all Education Sciences before remaining teaching curriculum is not generally permitted. Current linked qualitative timetable has noEC; current HU guide is a client shell and current UU OER retrieval hit security verification.",
+          "academic_year": "Current2026–2027 link; unweighted timetable",
+          "date_checked": "2026-10-08",
+          "source_id": "b14_alpo_current_student"
+        },
+        {
+          "url": "https://students.uu.nl/sites/default/files/fsw-alpo-curriculum_0.pdf",
+          "title": "ALPO current qualitative curriculum",
+          "locator": "Two-page four-year table linked as2026–2027",
+          "fact": "The qualitative table names fourth-year thesis preparation/thesis, school organization, final assessment and graduation placement. It gives no EC. It supports the route identity and formation, not an independently verified current4x60 credit structure.",
+          "academic_year": "Linked2026–2027; PDF itself undated",
+          "date_checked": "2026-10-08",
+          "source_id": "b14_alpo_curriculum"
+        }
+      ],
+      "verification": [
+        "Current UU/HU entry pages independently confirm two awards, four years and full-time delivery.",
+        "Raw offerings, source rows, permanent IDs and production order preserved.",
+        "Archived decision and comparison retain their original SHA-256 hashes.",
+        "Full 440-record counselor validation and generated-index checks passed.",
+        "Replay from the baseline registry reproduced the corrected CSV; other 459 targets remained identical. Conflicting refreshed values and changed provenance were rejected."
+      ]
+    }
+  ]
+}
