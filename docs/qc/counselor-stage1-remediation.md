@@ -10,6 +10,7 @@ Status: in-progress.
 |---|---|---|
 | cp-000333 — Academic Primary Teacher Education (ALPO) | double-bachelor classification; UU and HU participant identities; four-year full-time entry; withdrawal from standard-only counselor scope with evidence preserved | Verify current combined study load and credit sharing before replacing the embedded 180-EC study_load_ec field. |
 | cp-000095 — Pharmaceutical Sciences (Farmaceutische Wetenschappen) | Corrected narrative to 150 EC required major + 30 EC profiling = 180 EC | None within this correction; UCR reassessment remains separate. |
+| cp-000293 — Tax Law | Removed outgoing third year from revised curriculum; Replaced unsupported no-match outcome with external-programme-unresolved; Retained independently verified 120 EC without inferred filler | Obtain the revised third-year requirements and applicable cohort/delivery sequence when officially published. |
 
 ## cp-000333
 
@@ -29,3 +30,11 @@ Verification: Current UU/HU entry pages independently confirm two awards, four y
 Verification: Re-read formal OER Articles 11.3 and 12.1; required course weights total 60 + 60 + 30 = 150 EC. Existing components, choices and original UCR assessment remain unchanged. Deterministic canonical regeneration and full counselor validation passed.
 
 The first-stage narrative defect is closed. This does not establish that the retained UCR no-match judgment is correct.
+
+## cp-000293
+
+- [Tax Law current study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-FIS&type=STUDY&year=2261&language=en) — Year 2261; degree description, annual group rules and module membership. Checked 8 October 2026.
+
+Verification: Re-read explicit cohort notices in the current official BA-FIS product. Fetched each of the 24 positive-credit revised modules: every unit is 5 EC, closing 60 + 60 = 120 EC. Regenerated canonical exception through the unchanged compiler; all three record validators and generated-index check passed.
+
+The unsupported claim of a complete current 180-EC curriculum is corrected. Complete external reconstruction remains blocked by the university's unpublished revised third year; the old UCR no-match conclusion is no longer the active exception outcome.
