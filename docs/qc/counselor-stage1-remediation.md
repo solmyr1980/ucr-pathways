@@ -492,7 +492,7 @@ Live corpus: 438 in-scope records, 301 comparisons and 137 exceptions; 22 exclud
 
 ## Batch 8 — next five cases in audit order
 
-Status: in-progress. Independent UCR assessment remains separate.
+Status: completed. Independent UCR assessment remains separate.
 
 | Target | First-stage outcome | Remaining external question |
 |---|---|---|
@@ -500,7 +500,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 | cp-000265 — Bachelor Electrical Engineering | Reconstructed 27 current common/EE course and open-space positions totaling 180 EC; Corrected core 125 including project 10, ITEC 10 and electives 45; counted 5EWC0 once at 10; Removed optional semiconductor/alternative-programme courses from universal compulsory formation | None within this correction. |
 | cp-000266 — Bachelor Industrial Design | Replaced generic annual 60 blocks with all 23 source-printed positions; diagram total 180 EC; Preserved separately credited PPD15, design projects 50, multidisciplinary CBL5 and approved ELA25 alternatives; Recorded unresolved formal 185 versus diagram 180 conflict without altering printed weights | Official reconciliation of current PER core 125 + ITEC 10 + profiling 50 =185 versus ordinary current diagram core 120 + ITEC 10 + profiling 50 =180. |
 | cp-000267 — Bachelor Mechanical Engineering | Corrected normalized instruction language to ENG while preserving raw NLD provenance; Reconstructed 28 current positions totaling 180: core 125 including project 10, ITEC10, electives 45; Instantiated two restricted core choices by formal quarter-group order; kept optional summer precision course distinct | None within this correction. |
-| cp-000270 | Pending | Pending |
+| cp-000270 — Bachelor Chemical Engineering and Chemistry | Reconstructed 27 current positions totaling 180: core 125 including project 15, ITEC10, electives 45; Updated current calculus and compulsory CBL Process Technology; kept optional examples outside universal core; Recorded precise 120-total/40-post-propaedeutic-core BEP entry rules and current English cohort | None within this correction. |
 
 ### cp-000263
 
@@ -540,3 +540,20 @@ The diagram reconstruction and required formation are corrected. The current for
 Verification: Fresh current official requirement tables inspected, including visual PDF checks. Each component counted once; verified 28 positions totaling180 EC. Deterministic compilation, all three target validators and generated-index checks passed.
 
 The external correction is complete. UCR fit awaits separate assessment; the superseded judgment is preserved in this register. No recurring monitoring is scheduled.
+
+### cp-000270
+
+- [Chemical Engineering and Chemistry programme](https://www.tue.nl/en/education/bachelor-college/bachelor-chemical-engineering-and-chemistry) — Present degree identity and future language notice. Evidence preserved from the completed first-stage audit; this source was not freshly retrieved: <urlopen error timed out>
+- [Chemical Engineering and Chemistry PER after revision 2026–2027](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Chemical%20Engineering%20and%20Chemistry/Regulations/BSc%20OER%202026-2027%20AR.pdf) — Article 3.4; Appendix 2, PDF pp.72–76; Appendix 3 pilot. Checked 8 October 2026. SHA-256: `2f590b1d796f43fb11ab5bf0f25cd13a4e83b4e714f551b919a6b0e5ce56aa88`.
+
+Verification: Fresh current official requirement tables inspected, including visual PDF checks. Each component counted once; verified 27 positions totaling180 EC. Deterministic compilation, all three target validators and generated-index checks passed.
+
+The external correction is complete. UCR fit awaits separate assessment; the superseded judgment is preserved in this register. No recurring monitoring is scheduled.
+
+### Batch 8 validation
+
+Five cases processed: three external reconstructions resolved; Architecture and Industrial Design retain documented conflicts between current official credit requirements. Electrical Engineering, Mechanical Engineering and Chemical Engineering and Chemistry await separate UCR assessment of their corrected 180-EC curricula. No recurring monitoring was created.
+
+Target validators, deterministic compiler comparisons, guarded registry replay, generated-index checks, full-corpus validation and CI compiler regressions passed. GitHub checks are verified after each publication. The original audit, raw provenance and earlier batch histories remain unchanged.
+
+Live corpus: 438 in-scope records, 301 comparisons and 137 exceptions; 22 excluded permanent targets. Exception types: 22 external-programme-unresolved, 99 no-defensible-ucr-match, 16 ucr-assessment-pending. No in-scope record is missing.
