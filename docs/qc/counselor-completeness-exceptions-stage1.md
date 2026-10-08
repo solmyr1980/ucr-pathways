@@ -1,6 +1,6 @@
 # Counselor completeness and exceptions: first-stage audit
 
-Status: in progress. Batches 1–12 completed through 8 October 2026: all 19 scope exclusions and 101 exceptions audited within the first-stage scope. 39 exceptions remain pending.
+Status: in progress. Batches 1–13 completed through 8 October 2026: all 19 scope exclusions and 111 exceptions audited within the first-stage scope. 29 exceptions remain pending.
 
 ## Scope and method
 
@@ -17,16 +17,16 @@ The classification applies only to the stated audit scope. Resolving an external
 | Normalized registry targets | 460 | — | — |
 | In-scope targets with canonical records | 441 | — | — |
 | Completed comparisons | 301 | Outside this stage | — |
-| Completed exceptions | 140 | 101 | 39 |
+| Completed exceptions | 140 | 111 | 29 |
 | Excluded normalized targets | 19 | 19 | 0 |
-| First-stage audit cases | 159 | 120 | 39 |
+| First-stage audit cases | 159 | 130 | 29 |
 
 All 441 in-scope IDs have a canonical filename; there are no missing in-scope IDs, duplicate record filenames or out-of-scope canonical records. The review-index ID set matches both registry scope and canonical filenames. Status totals use that current generated index; all 140 indexed exceptions were additionally read directly to verify ID, exception status and formal type. Enumeration does not constitute a substantive exception audit.
 
 | Formal exception type | Corpus total | Substantively audited |
 |---|---:|---:|
-| external-programme-unresolved | 20 | 16 |
-| no-defensible-ucr-match | 117 | 83 |
+| external-programme-unresolved | 20 | 19 |
+| no-defensible-ucr-match | 117 | 90 |
 | registry-exception | 3 | 2 |
 
 ## Batch 1 findings
@@ -6259,13 +6259,817 @@ Japanese Leiden15 consists of Modern Japanese 2c 10 plus an additional allowed s
 
 Dutch Studies explicit year 2 replacement resolves the missing-five premise at requirement level without fabricating an exact code. The displayed linguistics rule needs one course each semester; Language Policy/Multilingualism supplies the supported second-semester alternative. Revised year 3 notices still disagree about open-space timing and in-depth-course placement, so no coherent future cohort timetable is certified. Notarial Law revised third year resumes on the2027–2028 publication trigger.
 
+## Cumulative findings after batch 13
+
+| Finding | Count |
+|---|---:|
+| confirmed | 63 |
+| incorrect | 49 |
+| outdated | 0 |
+| still-unresolved | 18 |
+
+| Required action | Count |
+|---|---:|
+| none | 58 |
+| reprocess-as-comparison | 0 |
+| reassess-exception | 35 |
+| correct-registry-and-reprocess | 26 |
+| research-again-later | 11 |
+
+## Batch 13 findings
+
+One external basis is confirmed, five cases contain material factual errors and four remain externally unresolved. Political Science/NIP and Religious Studies retain supported revised first-year60 only. Law now has named revised120 and formal150/30 allocation, but its revised third year remains unpublished. Russian Studies and Mathematics preserve valid current weighted choices but require documented English instruction metadata. Astronomy restores genuinely open30 rather than a universal restricted astronomy package. Linguistics needs concrete bound choices and a nonrepeated third-year replacement; its175 unique-credit diagnostic is not a complete180. South and Southeast Asian Studies retains valid menu arithmetic but has an unresolved mandatory Reading prerequisite and shared Philosophy instruction-language conflict. Civil Engineering remains confirmed at credited-unit level. Mechanical Engineering must expose official separate credited study units while retaining real integrated project/skills units.
+
+Six instruction-language corrections are queued. Law additionally needs current-entry full-time presentation under current OER/admissions, preserving historical/raw part-time offering evidence and active-target rc-0044 context. Supported corrections can close separately from unresolved external reconstruction and UCR feasibility. No outdated classification inferred from discovery alone.
+
+Current study/module APIs, official programme pages and applicable formal OER text were inspected. Mechanical Engineering’s official single-page2026–2027 PDF was downloaded, extracted, rendered and visually checked. Organisation-guide PDFs were read through web text; no visual-table claim is made for those documents.
+
+| ID | Programme | Formal type | Finding | Required action |
+|---|---|---|---|---|
+| cp-000314 | Political Science | external-programme-unresolved | still-unresolved | research-again-later |
+| cp-000317 | Law | external-programme-unresolved | still-unresolved | correct-registry-and-reprocess |
+| cp-000318 | Religious Studies | external-programme-unresolved | still-unresolved | correct-registry-and-reprocess |
+| cp-000319 | Russian Studies (Russische studies) | no-defensible-ucr-match | incorrect | correct-registry-and-reprocess |
+| cp-000322 | South and Southeast Asian Studies | no-defensible-ucr-match | still-unresolved | research-again-later |
+| cp-000323 | Astronomy (Sterrenkunde) | no-defensible-ucr-match | incorrect | correct-registry-and-reprocess |
+| cp-000324 | Linguistics (Taalwetenschap) | no-defensible-ucr-match | incorrect | correct-registry-and-reprocess |
+| cp-000326 | Mathematics (Wiskunde) | no-defensible-ucr-match | incorrect | correct-registry-and-reprocess |
+| cp-000327 | Bachelor Civil Engineering | no-defensible-ucr-match | confirmed | none |
+| cp-000330 | Bachelor Mechanical Engineering | no-defensible-ucr-match | incorrect | reassess-exception |
+
+## Batch 13 evidence and implementation plans
+
+### cp-000314 — Political Science
+
+Institution: Leiden University. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `external-programme-unresolved`; existing check date: 2026-09-26.
+
+Existing substantive reason: Current official 2026–27 sources establish the complete 60-EC first year of the new National and International Politics route but do not publish its second- or third-year curriculum. The regulations explicitly restrict the displayed later-year Political Science and International Politics curricula to legacy cohorts admitted by 2025–26. A coherent 180-EC current-entrant comparator cannot therefore be certified without guessing how the new route will continue.
+
+The revised National and International Politics target remains distinct from English IRO in The Hague. Its ten required current courses close 60 EC and teach in Dutch. The current formal annex publishes years 2/3 only for outgoing Political Science or International Politics entrants admitted by 2025–2026; it does not establish the new NIP continuation.
+
+Provenance: data/counselor/comparisons/cp-000314.json; source worksheet row(s) 328. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+rc-0043 separates Dutch Leiden Political Science from English Hague IRO. NIP current Dutch modules/formal first-year identity corroborate the distinction; IRO cannot cure the missing NIP continuation.
+
+Current official sources (checked 8 October 2026):
+
+- [National and International Politics current study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-POWE-NIP&type=STUDY&year=2261&language=en) — Year2261; current programme identity, cohort, requirements, choices and membership; 2026–2027. Ten current required NIP courses sum60, all checked positive-credit modules specify NED. No current NIP years2/3; the180 product allocation is not a complete course-level degree pathway. Zero-credit/noncurricular material excluded.
+- [Political Science formal annex](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/sociale-wetenschappen/politieke-wetenschap/reglementen/oeren-2026-2027/2026-2027-oer-powe-bsc-annex-eng.pdf) — Appendix1 vs Appendices3/4, pp.1,5–10; 2026–2027. NIP new-route60 only. Outgoing Political Science/International Politics admit no new students from2026–2027; their later-year tables are legacy curricula. English IRO is a separate current target, not a substitute for NIP. Formal PDF web text inspected; direct organisation-guide download blocked, no visual table certification claimed.
+
+External credit structure: Stored component arithmetic 60 EC. The revised National and International Politics target remains distinct from English IRO in The Hague. Its ten required current courses close 60 EC and teach in Dutch. The current formal annex publishes years 2/3 only for outgoing Political Science or International Politics entrants admitted by 2025–2026; it does not establish the new NIP continuation.
+
+Result: still-unresolved; required action: research-again-later.
+
+Recommended follow-up: Retain the published NIP first-year 60, the active Dutch/Leiden identity and the unresolved complete entrant pathway. Preserve the separate IRO target and outgoing POL/IP material only as context, without substitution or cohort splicing.
+
+Unresolved factual question / historical limitation: Obtain the applicable NIP second- and third-year curricula when published in subsequent guides/formal annexes. Require one coherent new-route 180-EC sequence, not an outgoing POL/IP continuation.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/decisions/cp-000314.json`, fields: `sources`, `comparator.components tuples`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context`, `exception.checkedOn`. Retain the published NIP first-year 60, the active Dutch/Leiden identity and the unresolved complete entrant pathway. Preserve the separate IRO target and outgoing POL/IP material only as context, without substitution or cohort splicing. Refresh version2 source indexes; retain old UCR claims as provenance.
+- `data/counselor/comparisons/cp-000314.json`, fields: `programmeProvider`, `comparator`, `exception external source/context/date`. Compile from corrected compact record and normalized metadata; no automatic comparison conversion.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected metadata/curriculum/choice/cohort/source summaries`. Regenerate affected outputs after targeted remediation.
+
+Dependencies:
+
+- Obtain the applicable NIP second- and third-year curricula when published in subsequent guides/formal annexes. Require one coherent new-route 180-EC sequence, not an outgoing POL/IP continuation.
+- Reconfirm applicable source/cohort at remediation; independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Every credited study unit counted once; no parent/child, repeated course or alternative stacking.
+- Retain genuine open space; instantiate restricted selections with actual EC, semester, prior-study and nonoverlap rules.
+- Current route/cohort/source/language/mode facts agree across normalized, compact, canonical and affected generated outputs; run relevant schema/compiler/registry validators.
+- Close supported factual/metadata corrections independently of unresolved external research and later UCR comparison.
+- Do not certify a complete applicable180 from a partial or contradictory allocation. Preserve the explicit diagnostic and closure trigger.
+
+Research trigger: Obtain the applicable NIP second- and third-year curricula when published in subsequent guides/formal annexes. Require one coherent new-route 180-EC sequence, not an outgoing POL/IP continuation.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000317 — Law
+
+Institution: Leiden University. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `external-programme-unresolved`; existing check date: 2026-09-26.
+
+Existing substantive reason: The Law bachelor is being introduced cohort by cohort. Current official sources support the degree's 180-EC architecture and the revised curriculum published so far, but the complete three-year course-level sequence for a 2026 entrant is not yet available. Combining revised first- and second-year material with the outgoing third-year curriculum would create an unconfirmed pathway, so a fair normal comparison cannot yet be certified.
+
+The current BA-RGH product verifies revised years 1/2 at 60 each, but expressly reserves its third year for entrants in 2024 or earlier and defers revised year 3 to the 2027–2028 guide. Current regulations retain 150 compulsory/bound +30 genuinely free; these aggregates do not establish missing course-level year 3. Separately, formal/current entry sources specify Dutch/English instruction and full-time delivery, conflicting with NLD-only and unqualified full/part-time normalized presentation.
+
+Provenance: data/counselor/comparisons/cp-000317.json; source worksheet row(s) 330. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+rc-0044 correctly retains an active180-EC degree and treats future part-time offering end as delivery lifecycle, not degree closure. Current OER2.4 and intake page are explicitly full-time; old DEELTIJD provenance is not current-entry authority. Preserve active identity and raw offering IDs while qualifying/correcting current-entry modes.
+
+Current official sources (checked 8 October 2026):
+
+- [Law current study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-RGH&type=STUDY&year=2261&language=en) — Year2261; current programme identity, cohort, requirements, choices and membership; 2026–2027. New first year twelvefives=60. New second year eleven compulsoryfives55 plus one5-EC technology/law choice=60; Philosophy of Technology and Law is first listed eligible. Third-year outgoing35+bound5+open15+thesis5 applies only to entrants2024 or earlier and is not appended to revised120. New third year publication explicitly2027–2028.
+- [Law current OER](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/rechtsgeleerdheid/reglementen/oeren/2026-2027/oer-bachelor-nl-rgl.pdf) — Articles2.2/2.4/2.5/2.9/3.1/3.2, pp.6,9–13; 2026–2027. Current entry has no formal graduation directions; delivery full-time,180EC, Dutch/sometimes English.150 compulsory/bound plus30 genuinely free. Older-cohort15 free is explicitly distinct; current aggregate degree allocation is not a published revised course-level third year. Formal PDF web text inspected; direct organisation-guide download blocked, no visual table certification claimed.
+- [Law current entry programme](https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/rechtsgeleerdheid) — Facts & Figures; Current entry page checked8October2026. Current ordinary entry advertises Leiden,50700,three years, full-time and Nederlands/Engels; independently corroborates current OER delivery/language. Historic/raw part-time offering dates are not proof of present intake availability.
+
+External credit structure: Stored component arithmetic 180 EC. The current BA-RGH product verifies revised years 1/2 at 60 each, but expressly reserves its third year for entrants in 2024 or earlier and defers revised year 3 to the 2027–2028 guide. Current regulations retain 150 compulsory/bound +30 genuinely free; these aggregates do not establish missing course-level year 3. Separately, formal/current entry sources specify Dutch/English instruction and full-time delivery, conflicting with NLD-only and unqualified full/part-time normalized presentation.
+
+Result: still-unresolved; required action: correct-registry-and-reprocess.
+
+Secondary attribute finding(s):
+
+- normalized instruction language: incorrect; stored ["NLD"], verified ["NLD", "ENG"]. Separate closure: Complete external cohort/pathway and independent UCR outcome.
+- complete applicable external pathway: still-unresolved; stored "Leiden began a cohort-by-cohort revision of the Law bachelor in 2025\u20132026. The transition guide states that only the new first year was introduced for that cohort, while later years continued under the outgoing structure. For 2026\u20132027 the revised programme is still being phased in: current sources establish the 180-EC degree, the 150-EC compulsory/30-EC free-choice architecture, its Dutch-law learning outcomes and the published current-year course offer, but they do not provide a complete course-level three-year pathway for a student entering in 2026 without combining revised-cohort and outgoing-cohort curricula. The aggregate components below retain only the credit structure directly supported by the regulations.", verified "See current partial/overlap diagnostic and research trigger.". Separate closure: Known metadata/source/choice corrections.
+- current-entry delivery modes: incorrect; stored ["VOLTIJD", "DEELTIJD"], verified ["VOLTIJD"]. Separate closure: Raw/historical part-time offerings and active degree lifecycle.
+
+Recommended follow-up: Replace the archived primary authority with BA-RGH and current 2026–2027 OER. Retain aggregate150/30 as allocation only and add named revised120 including the first eligible technology/law bound5. Correct normalized instruction to NLD + ENG. Present the revised current-entry programme as VOLTIJD, preserving raw DEELTIJD offering/lifecycle evidence and any verified outgoing continuation separately. The active target remains active under rc-0044.
+
+Unresolved factual question / historical limitation: Obtain revised third year from the 2027–2028 guide; reconcile any outgoing part-time continuation with current full-time-only OER and admissions before displaying historical delivery modes as currently available.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `source evidence linkage`, `modes_json`. Persist NLD + ENG instruction languages; preserve rawNLD, permanent ID, source rows and offering IDs. Correct current-entry modes_json to VOLTIJD under current OER/admissions, preserving raw DEELTIJD and documenting outgoing continuation separately.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `supported researched post-build correction workflow`. Record evidence/corrections so rebuilds retain overrides. Preserve prior active-target decisions; do not invent ambiguity cases or erase upstream offering provenance.
+- `data/counselor/decisions/cp-000317.json`, fields: `sources`, `comparator.components tuples`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context`, `exception.checkedOn`. Replace the archived primary authority with BA-RGH and current 2026–2027 OER. Retain aggregate150/30 as allocation only and add named revised120 including the first eligible technology/law bound5. Correct normalized instruction to NLD + ENG. Present the revised current-entry programme as VOLTIJD, preserving raw DEELTIJD offering/lifecycle evidence and any verified outgoing continuation separately. The active target remains active under rc-0044. Refresh version2 source indexes; retain old UCR claims as provenance.
+- `data/counselor/comparisons/cp-000317.json`, fields: `programmeProvider`, `comparator`, `exception external source/context/date`. Compile from corrected compact record and normalized metadata; no automatic comparison conversion.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected metadata/curriculum/choice/cohort/source summaries`. Regenerate affected outputs after targeted remediation.
+
+Dependencies:
+
+- Obtain revised third year from the 2027–2028 guide; reconcile any outgoing part-time continuation with current full-time-only OER and admissions before displaying historical delivery modes as currently available.
+- Reconfirm applicable source/cohort at remediation; independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Every credited study unit counted once; no parent/child, repeated course or alternative stacking.
+- Retain genuine open space; instantiate restricted selections with actual EC, semester, prior-study and nonoverlap rules.
+- Current route/cohort/source/language/mode facts agree across normalized, compact, canonical and affected generated outputs; run relevant schema/compiler/registry validators.
+- Close supported factual/metadata corrections independently of unresolved external research and later UCR comparison.
+- Do not certify a complete applicable180 from a partial or contradictory allocation. Preserve the explicit diagnostic and closure trigger.
+
+Research trigger: Obtain revised third year from the 2027–2028 guide; reconcile any outgoing part-time continuation with current full-time-only OER and admissions before displaying historical delivery modes as currently available.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000318 — Religious Studies
+
+Institution: Leiden University. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `external-programme-unresolved`; existing check date: 2026-09-27.
+
+Existing substantive reason: Current official 2026-2027 sources establish the complete revised 60-EC first year for a new Religious Studies entrant but do not publish that cohort's second- or third-year curriculum. The later-year material currently displayed is identified for transition cohorts. A coherent 180-EC current-entry comparator cannot therefore be certified without mixing different curriculum generations.
+
+The stored revised first-year 60 remains supported. Current year 2 is expressly a 2025–2026-or-earlier transition programme; combining it with new first-year 2026–2027 repeats Islam and digital-core study and invents later-cohort requirements. Required first-year Islam, Hindu religions, Religion in the World and qualitative methods specify English, omitted by NLD-only normalization.
+
+Provenance: data/counselor/comparisons/cp-000318.json; source worksheet row(s) 331. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 8 October 2026):
+
+- [Religious Studies current study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-REL&type=STUDY&year=2261&language=en) — Year2261; current programme identity, cohort, requirements, choices and membership; 2026–2027. Revised first year ten positive modules weighted5/5/10/5/5/5/5/5/5/10=60. Year2 transition text is for2025–2026 entrants; Islam and digital core recur, illustrating incompatible cohort sequences rather than valid extra credit. Later new-cohort courses unavailable.
+- [Religious Studies current OER](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-religiewetenschappen-2026-2027.pdf) — Articles2.2/2.9/4.2 and AppendixF, pp.2–4; 2026–2027. No formal directions; Dutch formal language classification. New curriculum begins1September2026; displayed second year is specifically for entrants2025–2026 or earlier. Qualitative methods requires first-year source-research; thesis requires first/second-year completion and seminar. Formal PDF web text inspected; direct organisation-guide download blocked, no visual table certification claimed.
+- [Introduction to the Study of Islam current module](https://studiegids.universiteitleiden.nl/api/product?code=5071VITSIY&type=MODULE&year=2261&language=en) — Required programme membership; credits and language field; 2026–2027. Required 5.0-EC unit specifies ["ENG"]. This supplies ordinary required English instruction alongside the formal main-programme classification; taught subject language is not inferred as teaching medium.
+- [Religion in the World current module](https://studiegids.universiteitleiden.nl/api/product?code=5071VRWY&type=MODULE&year=2261&language=en) — Required programme membership; credits and language field; 2026–2027. Required 5.0-EC unit specifies ["ENG"]. This supplies ordinary required English instruction alongside the formal main-programme classification; taught subject language is not inferred as teaching medium.
+- [Introduction to Hindu Religions current module](https://studiegids.universiteitleiden.nl/api/product?code=5481KIHRY&type=MODULE&year=2261&language=en) — Required programme membership; credits and language field; 2026–2027. Required 5.0-EC unit specifies ["ENG"]. This supplies ordinary required English instruction alongside the formal main-programme classification; taught subject language is not inferred as teaching medium.
+- [Methods and Techniques 2: Qualitative Research current module](https://studiegids.universiteitleiden.nl/api/product?code=5071VMT02Y&type=MODULE&year=2261&language=en) — Required programme membership; credits and language field; 2026–2027. Required 10.0-EC unit specifies ["ENG"]. This supplies ordinary required English instruction alongside the formal main-programme classification; taught subject language is not inferred as teaching medium.
+
+External credit structure: Stored component arithmetic 60 EC. The stored revised first-year 60 remains supported. Current year 2 is expressly a 2025–2026-or-earlier transition programme; combining it with new first-year 2026–2027 repeats Islam and digital-core study and invents later-cohort requirements. Required first-year Islam, Hindu religions, Religion in the World and qualitative methods specify English, omitted by NLD-only normalization.
+
+Result: still-unresolved; required action: correct-registry-and-reprocess.
+
+Secondary attribute finding(s):
+
+- normalized instruction language: incorrect; stored ["NLD"], verified ["NLD", "ENG"]. Separate closure: Complete external cohort/pathway and independent UCR outcome.
+- complete applicable external pathway: still-unresolved; stored "Leiden changed the Religious Studies curriculum from 1 September 2026. The current study guide and programme-specific regulations establish the revised 60-EC first year for students entering in 2026-2027. The displayed second year is explicitly for students who entered in 2025-2026, and the published third year belongs to the earlier curriculum sequence. The regulations' transitional provisions likewise specify a second-year programme for students who entered in 2025-2026 or earlier. Combining the new first year with those transition-cohort later years would invent an unconfirmed pathway. The supported current-entry components below therefore retain only the published revised first year.", verified "See current partial/overlap diagnostic and research trigger.". Separate closure: Known metadata/source/choice corrections.
+
+Recommended follow-up: Retain the new first-year60 and unresolved current-entry later years. Correct normalized instruction to NLD + ENG, distinguishing formal Dutch classification from required English modules. Preserve original full/part-time offering provenance; the ordinary study product alone is not authority to remove part-time delivery. No formal specialisation is invented.
+
+Unresolved factual question / historical limitation: Obtain applicable new-cohort second/third-year requirements and a current full/part-time pacing rule. Apply qualitative-methods progression from the required first-year source-research course; no outgoing later-year substitution without transition authority.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `source evidence linkage`. Persist NLD + ENG instruction languages; preserve rawNLD, permanent ID, source rows and offering IDs.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `supported researched post-build correction workflow`. Record evidence/corrections so rebuilds retain overrides. Preserve prior active-target decisions; do not invent ambiguity cases or erase upstream offering provenance.
+- `data/counselor/decisions/cp-000318.json`, fields: `sources`, `comparator.components tuples`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context`, `exception.checkedOn`. Retain the new first-year60 and unresolved current-entry later years. Correct normalized instruction to NLD + ENG, distinguishing formal Dutch classification from required English modules. Preserve original full/part-time offering provenance; the ordinary study product alone is not authority to remove part-time delivery. No formal specialisation is invented. Refresh version2 source indexes; retain old UCR claims as provenance.
+- `data/counselor/comparisons/cp-000318.json`, fields: `programmeProvider`, `comparator`, `exception external source/context/date`. Compile from corrected compact record and normalized metadata; no automatic comparison conversion.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected metadata/curriculum/choice/cohort/source summaries`. Regenerate affected outputs after targeted remediation.
+
+Dependencies:
+
+- Obtain applicable new-cohort second/third-year requirements and a current full/part-time pacing rule. Apply qualitative-methods progression from the required first-year source-research course; no outgoing later-year substitution without transition authority.
+- Reconfirm applicable source/cohort at remediation; independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Every credited study unit counted once; no parent/child, repeated course or alternative stacking.
+- Retain genuine open space; instantiate restricted selections with actual EC, semester, prior-study and nonoverlap rules.
+- Current route/cohort/source/language/mode facts agree across normalized, compact, canonical and affected generated outputs; run relevant schema/compiler/registry validators.
+- Close supported factual/metadata corrections independently of unresolved external research and later UCR comparison.
+- Do not certify a complete applicable180 from a partial or contradictory allocation. Preserve the explicit diagnostic and closure trigger.
+
+Research trigger: Obtain applicable new-cohort second/third-year requirements and a current full/part-time pacing rule. Apply qualitative-methods progression from the required first-year source-research course; no outgoing later-year substitution without transition authority.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000319 — Russian Studies (Russische studies)
+
+Institution: Leiden University. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-27.
+
+Existing substantive reason: Leiden’s 180-EC Russian Studies pathway combines a compulsory progressive Russian-language sequence with Russian history, literature, linguistics, politics and a study-abroad language component before advanced work in Soviet history, Russian politics, economics and foreign policy and a bachelor thesis. The selected pathway contains 70 EC of dedicated Russian-language acquisition, grammar, reading and linguistics. UCR offers no Russian-language course or Russia-focused disciplinary sequence. Its general history, politics, economics, literature and media courses can support comparative study, but they cannot implement a Russia-centred 24-course academic concept or the language-based source work central to the Leiden degree. A purported closest UCR Russian Studies alternative would rely on generic disciplinary neighbours and misrepresent the core.
+
+The selected formal Politiek, geschiedenis en economie route and weighted60/60/60 pathway remain coherent, including the required Daugavpils/language-abroad units, thesis10 and genuine open30. Required introductory Russian Studies teaches in English, and selected route seminars also use English, contradicting NLD-only normalized metadata. Russian language study is not automatically Russian-medium instruction.
+
+Provenance: data/counselor/comparisons/cp-000319.json; source worksheet row(s) 332. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 8 October 2026):
+
+- [Russian Studies current study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-RUS&type=STUDY&year=2261&language=en) — Year2261; current programme identity, cohort, requirements, choices and membership; 2026–2027. Common first60, second40 plus selected political/history20, third selected20+thesis10+genuine open30. Required language/grammar/read/linguistics formation70EC across first two years; abroad10+art-history5 are prescribed B4 units. Zero-credit thesis seminar not additional load.
+- [Russian Studies current OER](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-russische-studies-2026-2027.pdf) — Articles2.2/2.9/4.2, pp.2–4; 2026–2027. Two formal directions; Politics/history/economics first. Dutch formal classification; grammar/language/read progression and first-year completion before abroad. Formal thesis gate includes first-year and second-year subject seminars; module thesis/seminar asks complete years1/2, satisfied by the retained pathway. Formal PDF web text inspected; direct organisation-guide download blocked, no visual table certification claimed.
+- [Introduction to Russian Studies current module](https://studiegids.universiteitleiden.nl/api/product?code=5641V011Y&type=MODULE&year=2261&language=en) — Required programme membership; credits and language field; 2026–2027. Required 5.0-EC unit specifies ["ENG"]. This supplies ordinary required English instruction alongside the formal main-programme classification; taught subject language is not inferred as teaching medium.
+
+External credit structure: Stored component arithmetic 180 EC. The selected formal Politiek, geschiedenis en economie route and weighted60/60/60 pathway remain coherent, including the required Daugavpils/language-abroad units, thesis10 and genuine open30. Required introductory Russian Studies teaches in English, and selected route seminars also use English, contradicting NLD-only normalized metadata. Russian language study is not automatically Russian-medium instruction.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Core Curriculum: Humanities in a Digital World (5000VGDW1Y) | 5.0 | required |
+| 1 | Russian Grammar 1A (5641V001Y) | 10.0 | required |
+| 1 | Russian Language Acquisition 1A (5641V002Y) | 5.0 | required |
+| 1 | Introduction to Russian Literature (5641V004Y) | 5.0 | required |
+| 1 | History of Russia (5641V012Y) | 5.0 | required |
+| 1 | Russian Grammar 1B (5641V006Y) | 10.0 | required |
+| 1 | Russian Language Acquisition 1B (5641V007Y) | 10.0 | required |
+| 1 | Introduction to Russian Studies (5641V011Y) | 5.0 | required |
+| 1 | Linguistics of Russia (5641V013Y) | 5.0 | required |
+| 2 | Core Curriculum: Philosophy of Science (5000VWFY) | 5.0 | required |
+| 2 | Russian Reading Skills 2A (5642V003Y) | 5.0 | required |
+| 2 | Structure of the Russian Language (5642V024Y) | 5.0 | required |
+| 2 | Russian Reading Skills 2B (5642V021Y) | 5.0 | required |
+| 2 | Study Abroad: Russian Language Acquisition (5642V017Y) | 10.0 | required |
+| 2 | Kunstgeschiedenis in Daugavpils (5642V019Y) | 5.0 | required |
+| 2 | Russian Language Acquisition 2 (5642V023Y) | 5.0 | required |
+| 2 | Soviet History and Memory (5642V016Y) | 10.0 | required |
+| 2 | Russian Politics (5642V009Y) | 10.0 | required |
+| 3 | The Russian Economy (5643V008Y) | 10.0 | required |
+| 3 | Russian Foreign Policy (5643V004Y) | 10.0 | required |
+| 3 | BA-Thesis (5643V006Y) | 10.0 | required |
+| 3 | Approved free-choice space | 15 | open elective; Genuine profiling remains generic; applicable level, approval and nonoverlap rules apply. |
+| 3 | Approved free-choice space | 15 | open elective; Genuine profiling remains generic; applicable level, approval and nonoverlap rules apply. |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Current published weighted external requirement template. Future course versions/availability require refresh at remediation; no independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- Politics/history/economics remains the valid broad first formal route; language/culture is an alternative, not stacked.
+- Russian grammar/acquisition/read progression verified; required10+5 abroad in block4 follows first-year completion, not generic open space.
+- First/second-year complete before thesis/seminar and advanced Russian-source work. Seminar0 retained as formation, not extra credit.
+- Open15+15 remains approved generic space. Russian as a taught language is distinguished from documented Dutch/English instruction.
+
+Result: incorrect; required action: correct-registry-and-reprocess.
+
+Incorrect is confined to specified external requirement/choice/granularity or normalized metadata claims. No independent UCR result assessed; discovery alone does not establish a dated change from earlier correctness.
+
+Secondary attribute finding(s):
+
+- normalized instruction language: incorrect; stored ["NLD"], verified ["NLD", "ENG"]. Separate closure: Complete external cohort/pathway and independent UCR outcome.
+
+Recommended follow-up: Retain the broad first formal route and current language/source formation, study abroad, thesis10 and generic open30. Correct normalized instruction to NLD + ENG. Preserve grammar/acquisition/reading progression and distinguish required abroad study from open profiling.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `source evidence linkage`. Persist NLD + ENG instruction languages; preserve rawNLD, permanent ID, source rows and offering IDs.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `supported researched post-build correction workflow`. Record evidence/corrections so rebuilds retain overrides. Preserve prior active-target decisions; do not invent ambiguity cases or erase upstream offering provenance.
+- `data/counselor/decisions/cp-000319.json`, fields: `sources`, `comparator.components tuples`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context`, `exception.checkedOn`. Retain the broad first formal route and current language/source formation, study abroad, thesis10 and generic open30. Correct normalized instruction to NLD + ENG. Preserve grammar/acquisition/reading progression and distinguish required abroad study from open profiling. Refresh version2 source indexes; retain old UCR claims as provenance.
+- `data/counselor/comparisons/cp-000319.json`, fields: `programmeProvider`, `comparator`, `exception external source/context/date`. Compile from corrected compact record and normalized metadata; no automatic comparison conversion.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected metadata/curriculum/choice/cohort/source summaries`. Regenerate affected outputs after targeted remediation.
+
+Dependencies:
+
+- Reconfirm applicable source/cohort at remediation; independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Every credited study unit counted once; no parent/child, repeated course or alternative stacking.
+- Retain genuine open space; instantiate restricted selections with actual EC, semester, prior-study and nonoverlap rules.
+- Current route/cohort/source/language/mode facts agree across normalized, compact, canonical and affected generated outputs; run relevant schema/compiler/registry validators.
+- Close supported factual/metadata corrections independently of unresolved external research and later UCR comparison.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000322 — South and Southeast Asian Studies
+
+Institution: Leiden University. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-27.
+
+Existing substantive reason: Leiden's 180-EC South and Southeast Asian Studies pathway integrates 50 EC of progressive Hindi language and literature with regional history, cultures, religion, politics, economics, humanities methods, specialist seminars and a region-focused bachelor thesis. UCR offers no Hindi, Sanskrit, Tibetan or Indonesian language course and no South or Southeast Asian studies sequence. Its broadly comparative history, politics, philosophy, religion and literature courses could support occasional perspectives on the region, but they cannot make 23 non-PPD courses contribute concretely to a South and Southeast Asia-centred academic concept or reproduce the language-based cultural and source work that defines the Leiden degree.
+
+The Hindi/Modern South and Southeast Asia/Leiden selection closes60/60/60 by credits, and Buddhist Art/Tantric Buddhism do not require an uncompleted Buddhism introduction. However, required Reading South and Southeast Asia explicitly requires the prior faculty Area Studies core, which is absent from the current first-year requirements. No replacement or waiver is established. Formal OER calls specialisations not applicable and instruction English; the shared Philosophy module metadata instead say NED. These source conflicts prevent certifying a fully applicable pathway despite valid arithmetic.
+
+Provenance: data/counselor/comparisons/cp-000322.json; source worksheet row(s) 335. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 8 October 2026):
+
+- [South and Southeast Asian Studies current study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-ZZO&type=STUDY&year=2261&language=en) — Year2261; current programme identity, cohort, requirements, choices and membership; 2026–2027. First common30+religion5+Hindi20+Classics5=60; year2 common15+Hindi20+modern-theme20+separate nonduplicated Buddhist Art5=60; year3 seminar5+Tantric5+Hindi Literature10+thesis10+open15+15=60. Weighted allocation does not resolve required Reading prerequisite to an absent first-year Area Studies core.
+- [South and Southeast Asian Studies current OER](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-south-and-southeast-asian--studies-2026-2027.pdf) — Articles2.2/2.3/2.9/4.2, pp.2–5; 2026–2027. No formal graduation specialisations; two internal study areas and minimum40EC language acquisition. Formal instruction English. Hindi sequence and seminar/thesis progression supported. Guide governs course sequence; formal list supplies no replacement/waiver for Reading prerequisite to Area Studies. Formal PDF web text inspected; direct organisation-guide download blocked, no visual table certification claimed.
+- [Reading South and Southeast Asia](https://studiegids.universiteitleiden.nl/api/product?code=5482V000Y&type=MODULE&year=2261&language=en) — Admission requirements; semester1; 2026–2027. Required5-EC year2 course explicitly requires previous successful faculty Area Studies core. Current year1 has no such core or explicit replacement. Preserve a prerequisite/cohort question rather than deem arithmetic a valid eligible path.
+- [Shared Philosophy of Science](https://studiegids.universiteitleiden.nl/api/product?code=5000VPHSCY&type=MODULE&year=2261&language=en) — Credit/offering/language field vs SSEAS OER2.9; 2026–2027. Required5-EC semester2 member is marked NED in shared module metadata, conflicting with formal English SSEAS instruction. An English programme-specific version/actual offering must be established; no automatic normalized NLD addition.
+- [Tantric Buddhism current module](https://studiegids.universiteitleiden.nl/api/product?code=5482KTB1Y&type=MODULE&year=2261&language=en) — Admission requirements; compare Buddhist Art5482K1B05Y; 2026–2027. Tantric Buddhism5 semester1 treats Buddhist background as advantageous and offers readings for students without it, not a hard Introduction-to-Buddhism requirement. Buddhist Art5 has no entry requirement. Existing selections are retained; no unnecessary alternative choice change.
+
+External credit structure: Stored component arithmetic 180 EC. The Hindi/Modern South and Southeast Asia/Leiden selection closes60/60/60 by credits, and Buddhist Art/Tantric Buddhism do not require an uncompleted Buddhism introduction. However, required Reading South and Southeast Asia explicitly requires the prior faculty Area Studies core, which is absent from the current first-year requirements. No replacement or waiver is established. Formal OER calls specialisations not applicable and instruction English; the shared Philosophy module metadata instead say NED. These source conflicts prevent certifying a fully applicable pathway despite valid arithmetic.
+
+Result: still-unresolved; required action: research-again-later.
+
+Recommended follow-up: Keep the named Hindi sequence and modern thematic package as internal choices, not formal graduation routes. Preserve open15+15 and the valid nonoverlapping Buddhist Art/Tantric selection. Qualify180 as a weighted allocation pending the Reading prerequisite and Philosophy language discrepancy; retain ENG normalization under the current formal OER rather than silently adding Dutch from a conflicting shared-module field.
+
+Unresolved factual question / historical limitation: Obtain an applicable replacement/waiver rule for Reading5482V000Y prerequisite Area Studies, and the actual SSEAS English-medium version/offer of Philosophy5000VPHSCY. Verify cohort authority without adding an uncredited prerequisite to180 or treating recommended Buddhist background as a hard gate.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/decisions/cp-000322.json`, fields: `sources`, `comparator.components tuples`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context`, `exception.checkedOn`. Keep the named Hindi sequence and modern thematic package as internal choices, not formal graduation routes. Preserve open15+15 and the valid nonoverlapping Buddhist Art/Tantric selection. Qualify180 as a weighted allocation pending the Reading prerequisite and Philosophy language discrepancy; retain ENG normalization under the current formal OER rather than silently adding Dutch from a conflicting shared-module field. Refresh version2 source indexes; retain old UCR claims as provenance.
+- `data/counselor/comparisons/cp-000322.json`, fields: `programmeProvider`, `comparator`, `exception external source/context/date`. Compile from corrected compact record and normalized metadata; no automatic comparison conversion.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected metadata/curriculum/choice/cohort/source summaries`. Regenerate affected outputs after targeted remediation.
+
+Dependencies:
+
+- Obtain an applicable replacement/waiver rule for Reading5482V000Y prerequisite Area Studies, and the actual SSEAS English-medium version/offer of Philosophy5000VPHSCY. Verify cohort authority without adding an uncredited prerequisite to180 or treating recommended Buddhist background as a hard gate.
+- Reconfirm applicable source/cohort at remediation; independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Every credited study unit counted once; no parent/child, repeated course or alternative stacking.
+- Retain genuine open space; instantiate restricted selections with actual EC, semester, prior-study and nonoverlap rules.
+- Current route/cohort/source/language/mode facts agree across normalized, compact, canonical and affected generated outputs; run relevant schema/compiler/registry validators.
+- Close supported factual/metadata corrections independently of unresolved external research and later UCR comparison.
+- Do not certify a complete applicable180 from a partial or contradictory allocation. Preserve the explicit diagnostic and closure trigger.
+
+Research trigger: Obtain an applicable replacement/waiver rule for Reading5482V000Y prerequisite Area Studies, and the actual SSEAS English-medium version/offer of Philosophy5000VPHSCY. Verify cohort authority without adding an uncredited prerequisite to180 or treating recommended Buddhist background as a hard gate.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000323 — Astronomy (Sterrenkunde)
+
+Institution: Leiden University. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-27.
+
+Existing substantive reason: Leiden's Astronomy bachelor requires a continuous mathematical and physical foundation, dedicated astrophysics and planetary-systems study, practical observing and laboratory work, quantum mechanics, electrodynamics, stellar and galactic astrophysics, cosmology, specialist astronomy electives and a 22-EC independent astronomy research project. UCR offers useful mathematics, programming and data-science courses, but no astronomy or astrophysics course, no classical or quantum physics sequence, no astronomical observing course and no physics or astronomy laboratory. A 24-course response assembled from mathematics, computing, earth science and general natural science would replace Astronomy with adjacent tools and topics rather than implement its academic core.
+
+The required degree structure is60+60+(8+22+30), but current year-3 prose permits a relevant elective package, an approved minor, or approved free/exchange study. The stored seven-course selection falsely presents the whole30 as restricted astronomy study. Required upper-year courses specify English, omitted by NLD-only normalization.
+
+Provenance: data/counselor/comparisons/cp-000323.json; source worksheet row(s) 336. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 8 October 2026):
+
+- [Astronomy current study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-STK&type=STUDY&year=2261&language=en) — Year2261; current programme identity, cohort, requirements, choices and membership; 2026–2027. First/second required60 each; year3 required8, project18+presentation1+thesis3=22, and30 discretionary space. Rule permits approved minor, free-choice/exchange or relevant table package; no universal restricted astronomy30. Current parent/group credit counted through positive-credit children only.
+- [Classical Mechanics b current module](https://studiegids.universiteitleiden.nl/api/product?code=4062CLMB3Y&type=MODULE&year=2261&language=en) — Required programme membership; credits and language field; 2026–2027. Required 3.0-EC unit specifies ["ENG"]. This supplies ordinary required English instruction alongside the formal main-programme classification; taught subject language is not inferred as teaching medium.
+- [Analysis 3 NA current module](https://studiegids.universiteitleiden.nl/api/product?code=4082AN3NAY&type=MODULE&year=2261&language=en) — Required programme membership; credits and language field; 2026–2027. Required 6.0-EC unit specifies ["ENG"]. This supplies ordinary required English instruction alongside the formal main-programme classification; taught subject language is not inferred as teaching medium.
+- [Stars current module](https://studiegids.universiteitleiden.nl/api/product?code=4072STAR5Y&type=MODULE&year=2261&language=en) — Required programme membership; credits and language field; 2026–2027. Required 5.0-EC unit specifies ["ENG"]. This supplies ordinary required English instruction alongside the formal main-programme classification; taught subject language is not inferred as teaching medium.
+
+External credit structure: Stored component arithmetic 180 EC. The required degree structure is60+60+(8+22+30), but current year-3 prose permits a relevant elective package, an approved minor, or approved free/exchange study. The stored seven-course selection falsely presents the whole30 as restricted astronomy study. Required upper-year courses specify English, omitted by NLD-only normalization.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Experimental Physics I (4061EXNA3Y) | 3.0 | required |
+| 1 | Programming Methodologies (4031PRGX4Y) | 4.0 | required |
+| 1 | Introduction Modern Physics (4061IMN06Y) | 6.0 | required |
+| 1 | Introduction to Astrophysics (4071ASTROY) | 4.0 | required |
+| 1 | Analysis 1NA (4081AN1NAY) | 6.0 | required |
+| 1 | Linear Algebra 1NA (4081LA1NAY) | 6.0 | required |
+| 1 | Electric and Magnetic Fields (4061ELMGVY) | 5.0 | required |
+| 1 | Classical Mechanics a (4061KLASAY) | 5.0 | required |
+| 1 | Planetary Systems (4071PLST3Y) | 3.0 | required |
+| 1 | Practical Astronomy (4071PRSTXY) | 6.0 | required |
+| 1 | Analysis 2NA (4081AN2NAY) | 6.0 | required |
+| 1 | Presentation and Communication (4601PC11CY) | 1.0 | required |
+| 1 | Optics (4061OPTCXY) | 5.0 | required |
+| 2 | Astronomy Lab and Observing Project (4072STRPRY) | 5.0 | required |
+| 2 | Classical Mechanics b (4062CLMB3Y) | 3.0 | required |
+| 2 | Statistical Physics 1 (4062STAF1Y) | 6.0 | required |
+| 2 | Stars (4072STAR5Y) | 5.0 | required |
+| 2 | Analysis 3 NA (4082AN3NAY) | 6.0 | required |
+| 2 | Linear Algebra 2NA (4082LA2NAY) | 6.0 | required |
+| 2 | Classical Electrodynamics (4062KLSELY) | 4.0 | required |
+| 2 | Modern Astronomical and  Physics Research (4062MAPR1Y) | 1.0 | required |
+| 2 | Quantum Mechanics 2 (4062QUME2Y) | 5.0 | required |
+| 2 | Astronomical Observing Techniques (4072ASOT5Y) | 5.0 | required |
+| 2 | Galaxies and Cosmology (4072GALC5Y) | 5.0 | required |
+| 2 | Modern Astronomical Research (4072MARC1Y) | 1.0 | required |
+| 2 | Statistics and Data Analysis (4072STADAY) | 2.0 | required |
+| 2 | Quantum Mechanics 1 (4062QUM16Y) | 6.0 | required |
+| 3 | Approved free-choice space | 30 | open elective; Genuine profiling remains generic; applicable level, approval and nonoverlap rules apply. |
+| 3 | Radiative Processes (4072RAP63Y) | 6.0 | required |
+| 3 | Research Skills & Scientific Integrity (4072RSSI2Y) | 2.0 | required |
+| 3 | Bachelor's Astronomy Research Project (4072BRP18Y) | 18.0 | required |
+| 3 | Bachelor's Astronomy Research Project - Oral Presentation (4072BPRP1Y) | 1.0 | required |
+| 3 | Bachelor's Astronomy Research Project  - Thesis (4072BPRT3Y) | 3.0 | required |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Current published weighted external requirement template. Future course versions/availability require refresh at remediation; no independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- Year3 firstsemester30 permits adviser-consulted minor/free-choice/exchange or relevant elective package; leave generic.
+- Required8 +research22 remains separate; research22=project18+presentation1+thesis3, counted once.
+- Required upper-year physics/maths/astronomy preparation retained. Former seven-course choice is optional, not universal curriculum.
+
+Result: incorrect; required action: correct-registry-and-reprocess.
+
+Incorrect is confined to specified external requirement/choice/granularity or normalized metadata claims. No independent UCR result assessed; discovery alone does not establish a dated change from earlier correctness.
+
+Secondary attribute finding(s):
+
+- normalized instruction language: incorrect; stored ["NLD"], verified ["NLD", "ENG"]. Separate closure: Complete external cohort/pathway and independent UCR outcome.
+
+Recommended follow-up: Restore generic approved free-choice30, retaining its level/nonoverlap/adviser rules. Retain required Astronomy8 and research22 as18 project+1 presentation+3 thesis, without stacking the parent. Correct normalized NLD + ENG. The former optional seven-course menu is an example rather than a universal requirement.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `source evidence linkage`. Persist NLD + ENG instruction languages; preserve rawNLD, permanent ID, source rows and offering IDs.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `supported researched post-build correction workflow`. Record evidence/corrections so rebuilds retain overrides. Preserve prior active-target decisions; do not invent ambiguity cases or erase upstream offering provenance.
+- `data/counselor/decisions/cp-000323.json`, fields: `sources`, `comparator.components tuples`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context`, `exception.checkedOn`. Restore generic approved free-choice30, retaining its level/nonoverlap/adviser rules. Retain required Astronomy8 and research22 as18 project+1 presentation+3 thesis, without stacking the parent. Correct normalized NLD + ENG. The former optional seven-course menu is an example rather than a universal requirement. Refresh version2 source indexes; retain old UCR claims as provenance.
+- `data/counselor/comparisons/cp-000323.json`, fields: `programmeProvider`, `comparator`, `exception external source/context/date`. Compile from corrected compact record and normalized metadata; no automatic comparison conversion.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected metadata/curriculum/choice/cohort/source summaries`. Regenerate affected outputs after targeted remediation.
+
+Dependencies:
+
+- Reconfirm applicable source/cohort at remediation; independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Every credited study unit counted once; no parent/child, repeated course or alternative stacking.
+- Retain genuine open space; instantiate restricted selections with actual EC, semester, prior-study and nonoverlap rules.
+- Current route/cohort/source/language/mode facts agree across normalized, compact, canonical and affected generated outputs; run relevant schema/compiler/registry validators.
+- Close supported factual/metadata corrections independently of unresolved external research and later UCR comparison.
+- Free30 remains generic under the express approved minor/free/exchange rule; astronomy elective table is an optional example. Research18+1+3=22 counted once.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000324 — Linguistics (Taalwetenschap)
+
+Institution: Leiden University. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-27.
+
+Existing substantive reason: Leiden's Linguistics bachelor requires a cumulative scientific language sequence in phonetics and speech sounds, phonology, syntax, morphology, sociolinguistics, historical linguistics, language typology, sign and gesture studies, fieldwork, grammatical description and language documentation, followed by specialised study and an independent linguistics thesis. UCR offers one dedicated Psycholinguistics course and several useful courses in rhetoric, communication, cognition, sociology, programming and data science, but it does not offer the structural-linguistics foundations or the descriptive and documentary sequence needed to organise 23 non-PPD courses around Linguistics. A 24-course response would replace the field's disciplinary core with adjacent communication, psychology and computing subjects.
+
+Descriptive Linguistics remains an available formal route and its current first/second-year requirements are60 each, but stored generic restricted15/20 conceal actual choices and overlap. The third-year menu repeats Berber5512VEBE2Y already required in year2; after adding the stated separate bound5, unique supported study closes60/60/55=175, not180. Formal OER and product specify Dutch/English, with this postpropedeutic route English, contradicting NLD-only normalization.
+
+Provenance: data/counselor/comparisons/cp-000324.json; source worksheet row(s) 337. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 8 October 2026):
+
+- [Linguistics current study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-TWS&type=STUDY&year=2261&language=en) — Year2261; current programme identity, cohort, requirements, choices and membership; 2026–2027. Year1 common25+English set25+Descriptive prep10=60. Year2 required45+bound15 semester1=60. Year3 displayed20 contains Philosophy5, repeated Berber5, Anthropology5 and seminar0, plus stated separate bound5. Removing repeated Berber produces distinct year3 requirement10+bound5+thesis10+open30=55. Exact-code unique total175; replacement not supplied.
+- [Linguistics current OER](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-taalwetenschap-2026-2027.pdf) — Articles2.2/2.9/3.2, pp.2,4–5; 2026–2027. Four formal directions including Descriptive Linguistics. Dutch and English programme instruction; Descriptive postpropedeutic teaching English. Overlapping minor units need approved replacement. First formal listing differs from prospectus ordering; a valid selected route is not changed merely because another eligible route is listed elsewhere first. PDF web text read, no visual-table claim.
+- [Digital Text and Data Analysis](https://studiegids.universiteitleiden.nl/api/product?code=5170V10Y&type=MODULE&year=2261&language=en) — Semester2 offering and admission; BA-TWS-2-A3-K vs3-A3 rules; 2026–2027. First own-track choice5 is semester2, so cannot fill required year2 bound15 in semester1. Year2 chooses Vedic Sanskrit10 +Language and Logic5 from permitted other tracks; prior required Indo-European core explicitly teaches basic reconstruction. Digital Text5 fills the separate third-year bound5 in semester2.
+- [Description of a Non-western Language II: Berber](https://studiegids.universiteitleiden.nl/api/product?code=5512VEBE2Y&type=MODULE&year=2261&language=en) — Five-credit module and membership in BA-TWS-2-A3-V and BA-TWS-3-A3; 2026–2027. The identical5-EC Berber module occurs in both mandatory annual groups. Third-year seminar5513VTB03Y explicitly carries0EC and serves thesis formation; it cannot replace missing credit. Distinct third-year positive requirements10 plus bound5, thesis10 and open30 total55.
+- [Language and Culture of the Indo-Europeans](https://studiegids.universiteitleiden.nl/api/product?code=5511VE004Y&type=MODULE&year=2261&language=en) — First-year compulsory learning objectives; 2026–2027. Required first-year course explicitly teaches basics of comparative linguistics and linguistic reconstruction, supporting the basic linguistic/Indo-European preparation expected by first eligible listed Vedic Sanskrit10. Language and Logic5 has no entry requirement; both chosen electives offer semester1.
+
+External credit structure: Stored component arithmetic 180 EC. Descriptive Linguistics remains an available formal route and its current first/second-year requirements are60 each, but stored generic restricted15/20 conceal actual choices and overlap. The third-year menu repeats Berber5512VEBE2Y already required in year2; after adding the stated separate bound5, unique supported study closes60/60/55=175, not180. Formal OER and product specify Dutch/English, with this postpropedeutic route English, contradicting NLD-only normalization.
+
+Result: incorrect; required action: correct-registry-and-reprocess.
+
+Incorrect is confined to specified external requirement/choice/granularity or normalized metadata claims. No independent UCR result assessed; discovery alone does not establish a dated change from earlier correctness.
+
+Secondary attribute finding(s):
+
+- normalized instruction language: incorrect; stored ["NLD"], verified ["NLD", "ENG"]. Separate closure: Complete external cohort/pathway and independent UCR outcome.
+- complete applicable external pathway: still-unresolved; stored "The current 2026-27 Leiden Study Guide and public product API define 60 EC in each year. The generic Linguistics target requires one of four formal specialisations from year two. Descriptive Linguistics is the first specialisation listed on the current official programme page and is therefore selected as the neutral official-order tie-break, independently of UCR fit. Year one combines 25 EC compulsory study, the complete 25-EC English-language course set and the 10-EC Descriptive Linguistics preparation package. Year two contains the published 45-EC Descriptive Linguistics compulsory sequence plus 15 EC of restricted track electives. Year three preserves the official 20-EC Descriptive Linguistics specialisation requirement, the 10-EC bachelor thesis and 30 EC of genuine elective space. The components account for exactly 180 EC.", verified "See current partial/overlap diagnostic and research trigger.". Separate closure: Known metadata/source/choice corrections.
+
+Recommended follow-up: Retain the valid selected route and complete English first-year set, instantiate the known year2 restricted15 with eligible semester1 options, and instantiate the separate year3 bound5. Keep first/second-year60 and a supported unique third-year55 diagnostic; do not count Berber twice or invent a replacement. Correct normalized NLD + ENG; preserve open30 and the ten-credit thesis group, with zero-credit seminar as formation.
+
+Unresolved factual question / historical limitation: Obtain the applicable distinct third-year5-EC replacement or authoritative rule explaining Berber in both compulsory annual groups. Reconcile the20-EC third-year allocation with actual positive-credit members plus its separate bound5, without silently counting a seminar or parent.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `source evidence linkage`. Persist NLD + ENG instruction languages; preserve rawNLD, permanent ID, source rows and offering IDs.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `supported researched post-build correction workflow`. Record evidence/corrections so rebuilds retain overrides. Preserve prior active-target decisions; do not invent ambiguity cases or erase upstream offering provenance.
+- `data/counselor/decisions/cp-000324.json`, fields: `sources`, `comparator.components tuples`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context`, `exception.checkedOn`. Retain the valid selected route and complete English first-year set, instantiate the known year2 restricted15 with eligible semester1 options, and instantiate the separate year3 bound5. Keep first/second-year60 and a supported unique third-year55 diagnostic; do not count Berber twice or invent a replacement. Correct normalized NLD + ENG; preserve open30 and the ten-credit thesis group, with zero-credit seminar as formation. Refresh version2 source indexes; retain old UCR claims as provenance.
+- `data/counselor/comparisons/cp-000324.json`, fields: `programmeProvider`, `comparator`, `exception external source/context/date`. Compile from corrected compact record and normalized metadata; no automatic comparison conversion.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected metadata/curriculum/choice/cohort/source summaries`. Regenerate affected outputs after targeted remediation.
+
+Dependencies:
+
+- Obtain the applicable distinct third-year5-EC replacement or authoritative rule explaining Berber in both compulsory annual groups. Reconcile the20-EC third-year allocation with actual positive-credit members plus its separate bound5, without silently counting a seminar or parent.
+- Reconfirm applicable source/cohort at remediation; independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Every credited study unit counted once; no parent/child, repeated course or alternative stacking.
+- Retain genuine open space; instantiate restricted selections with actual EC, semester, prior-study and nonoverlap rules.
+- Current route/cohort/source/language/mode facts agree across normalized, compact, canonical and affected generated outputs; run relevant schema/compiler/registry validators.
+- Close supported factual/metadata corrections independently of unresolved external research and later UCR comparison.
+- Do not certify a complete applicable180 from a partial or contradictory allocation. Preserve the explicit diagnostic and closure trigger.
+
+Research trigger: Obtain the applicable distinct third-year5-EC replacement or authoritative rule explaining Berber in both compulsory annual groups. Reconcile the20-EC third-year allocation with actual positive-credit members plus its separate bound5, without silently counting a seminar or parent.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000326 — Mathematics (Wiskunde)
+
+Institution: Leiden University. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-27.
+
+Existing substantive reason: Leiden's Mathematics bachelor requires a cumulative proof-based sequence in mathematical structures, two courses each in analysis, linear algebra and algebra, followed by topology, complex function theory, measure theory, differential equations, probability and mathematical statistics, numerical mathematics, restricted advanced mathematics and an 18-EC independent mathematics project. UCR offers a useful but small applied mathematics and computing set. It has no course sequence in proof-based real analysis, abstract algebra, topology, measure theory, complex function theory or geometry and no independent mathematics research project. A 24-course response would therefore replace most of the degree's disciplinary core with computing, data science and adjacent applications.
+
+The stored mathematics54+6,48+12,12+18+30 structure remains valid. Algebra2/Discrete Operations Research meet first-year preparation, and subsequent Algebraic Curves/Applied and Industrial Mathematics Seminar meet the relevant prior study. Required Introduction to Measure Theory explicitly specifies English, omitted by NLD-only normalization.
+
+Provenance: data/counselor/comparisons/cp-000326.json; source worksheet row(s) 339. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 8 October 2026):
+
+- [Mathematics current study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-WSK&type=STUDY&year=2261&language=en) — Year2261; current programme identity, cohort, requirements, choices and membership; 2026–2027. Year1 compulsory54+genuine open6; year2 required48+bound12; year3 bound12+project18+genuine open30. Chosen Algebra2/Discrete OR then Algebraic Curves/Applied Industrial Seminar are nonrepeated6-EC units with verified prior-course preparation. Required Measure Theory3 uses English.
+- [Introduction to Measure Theory current module](https://studiegids.universiteitleiden.nl/api/product?code=4082INMTXY&type=MODULE&year=2261&language=en) — Required programme membership; credits and language field; 2026–2027. Required 3.0-EC unit specifies ["ENG"]. This supplies ordinary required English instruction alongside the formal main-programme classification; taught subject language is not inferred as teaching medium.
+- [Applied and Industrial Mathematics Seminar](https://studiegids.universiteitleiden.nl/api/product?code=4082APIMSY&type=MODULE&year=2261&language=en) — Credit/admission and selected nonrepeated options; 2026–2027. Six-credit semester1 option requires basic probability/statistics and programming already in the first two years. Algebraic Curves6 requires Algebra2, selected in year2; Discrete OR requires first-year Combinatorics and Optimisation. Existing first-eligible neutral choices are retained.
+
+External credit structure: Stored component arithmetic 180 EC. The stored mathematics54+6,48+12,12+18+30 structure remains valid. Algebra2/Discrete Operations Research meet first-year preparation, and subsequent Algebraic Curves/Applied and Industrial Mathematics Seminar meet the relevant prior study. Required Introduction to Measure Theory explicitly specifies English, omitted by NLD-only normalization.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Programming Methodologies (4031PRGX6Y) | 6.0 | required |
+| 1 | Analysis 1 (4081ANL1XY) | 6.0 | required |
+| 1 | Kaleidoscope (4081CALSXY) | 6.0 | required |
+| 1 | Linear Algebra 1 (4081LAN1XY) | 6.0 | required |
+| 1 | Mathematical Structures (4081WISTXY) | 6.0 | required |
+| 1 | Algebra 1 (4081ALG1XY) | 6.0 | required |
+| 1 | Analysis 2 (4081ANL2XY) | 6.0 | required |
+| 1 | Combinatorics and Optimisation (4081COOPXY) | 6.0 | required |
+| 1 | Introduction to Probability (4081INLKXY) | 6.0 | required |
+| 1 | Approved free-choice space | 6 | open elective; Genuine profiling remains generic; applicable level, approval and nonoverlap rules apply. |
+| 2 | Seminar Presentation and Communication (4082SEMPCY) | 3.0 | required |
+| 2 | Ordinary Differential Equations (4082GWDIFY) | 6.0 | required |
+| 2 | Introduction Mathematical Statistics (4082INMSXY) | 6.0 | required |
+| 2 | Linear Algebra 2 (4082LAN2XY) | 6.0 | required |
+| 2 | Topology (4082TOPOXY) | 6.0 | required |
+| 2 | Complex Function Theory (4082CFTHXY) | 6.0 | required |
+| 2 | Introduction to Measure Theory (4082INMTXY) | 3.0 | required |
+| 2 | Modeling with Differential Equations (4082MODDVY) | 3.0 | required |
+| 2 | Statistical Modeling (4082MODSTY) | 3.0 | required |
+| 2 | Numerical Mathematics (4082NUWIXY) | 6.0 | required |
+| 2 | Algebra 2 (4082ALG2XY) | 6.0 | selected restricted option; Published restricted choice; selected course is not universal. |
+| 2 | Discrete Operations Research (4082DSBKXY) | 6.0 | selected restricted option; Published restricted choice; selected course is not universal. |
+| 3 | Algebraic Curves (4082ALGCVY) | 6.0 | selected restricted option; Published restricted choice; selected course is not universal. |
+| 3 | Applied & Industrial Mathematics Seminar (4082APIMSY) | 6.0 | selected restricted option; Published restricted choice; selected course is not universal. |
+| 3 | Bachelor Project (4082BSD18Y) | 18.0 | required |
+| 3 | Approved free-choice space | 30 | open elective; Genuine profiling remains generic; applicable level, approval and nonoverlap rules apply. |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Current published weighted external requirement template. Future course versions/availability require refresh at remediation; no independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- Preserve first two eligible official-order year2 sixes; Algebra1 and Combinatorics/Optimisation completed in year1.
+- Year3 skip already-used Algebra2/DiscreteOR; first nonrepeated eligible Algebraic Curves6 and Applied/Industrial Seminar6 have prior study fulfilled.
+- Project18 requires presentation seminar plus30 qualifying year2+math credits, met by retained year2. Specific research-theme requirements refreshed when theme selected.
+- Genuine open6+30 stays generic; no elective code or alternative stacked. Ordinary annual template does not certify unverified part-time pacing.
+
+Result: incorrect; required action: correct-registry-and-reprocess.
+
+Incorrect is confined to specified external requirement/choice/granularity or normalized metadata claims. No independent UCR result assessed; discovery alone does not establish a dated change from earlier correctness.
+
+Secondary attribute finding(s):
+
+- normalized instruction language: incorrect; stored ["NLD"], verified ["NLD", "ENG"]. Separate closure: Complete external cohort/pathway and independent UCR outcome.
+
+Recommended follow-up: Retain the existing neutral nonrepeated choices, project18 and generic open6+30. Correct normalized instruction to NLD + ENG on required-module evidence; retain raw Dutch identity and full/part-time provenance without asserting unverified part-time pacing.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `source evidence linkage`. Persist NLD + ENG instruction languages; preserve rawNLD, permanent ID, source rows and offering IDs.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `supported researched post-build correction workflow`. Record evidence/corrections so rebuilds retain overrides. Preserve prior active-target decisions; do not invent ambiguity cases or erase upstream offering provenance.
+- `data/counselor/decisions/cp-000326.json`, fields: `sources`, `comparator.components tuples`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context`, `exception.checkedOn`. Retain the existing neutral nonrepeated choices, project18 and generic open6+30. Correct normalized instruction to NLD + ENG on required-module evidence; retain raw Dutch identity and full/part-time provenance without asserting unverified part-time pacing. Refresh version2 source indexes; retain old UCR claims as provenance.
+- `data/counselor/comparisons/cp-000326.json`, fields: `programmeProvider`, `comparator`, `exception external source/context/date`. Compile from corrected compact record and normalized metadata; no automatic comparison conversion.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected metadata/curriculum/choice/cohort/source summaries`. Regenerate affected outputs after targeted remediation.
+
+Dependencies:
+
+- Reconfirm applicable source/cohort at remediation; independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Every credited study unit counted once; no parent/child, repeated course or alternative stacking.
+- Retain genuine open space; instantiate restricted selections with actual EC, semester, prior-study and nonoverlap rules.
+- Current route/cohort/source/language/mode facts agree across normalized, compact, canonical and affected generated outputs; run relevant schema/compiler/registry validators.
+- Close supported factual/metadata corrections independently of unresolved external research and later UCR comparison.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000327 — Bachelor Civil Engineering
+
+Institution: University of Twente. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-27.
+
+Existing substantive reason: Twente's Civil Engineering bachelor integrates calculus and programming with three successive structural-mechanics courses, two fluid-mechanics courses, soil mechanics, fluid measurements, construction design, water systems, transport engineering, spatial development, civil-engineering simulation and large domain projects before a 30-EC civil-engineering graduation phase. UCR offers strong environmental-sustainability, water, earth-science and spatial-planning courses and several useful mathematical and computational tools, but it does not offer the structural, materials, geotechnical, hydraulic, transport or construction-engineering sequence on which the degree's projects depend. A 24-course response would be an environmental studies or sustainable-delta programme with some quantitative tools, not Civil Engineering.
+
+The current 2026–2027 Civil Engineering table corroborates all stored positive-credit study units and60+60+60=180, including the0.5-EC Python unit, integrated9-EC simulation project, generic minor30 and5+10+15 graduation semester. The rc-0045 correction to180 EC/three years remains supported.
+
+Provenance: data/counselor/comparisons/cp-000327.json; source worksheet row(s) 340. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+rc-0045 fills180EC/three years. Current unit-level table independently corroborates the existing correction and active ordinary Civil Engineering target.
+
+Current official sources (checked 8 October 2026):
+
+- [Civil Engineering current unit table](https://www.utwente.nl/en/ce/bachelor-ce/) — 2026–2027 course-code/study-unit table; all three years; 2026–2027. Current page explicitly defines180EC/three years and separately graded coherent study units. Stored43components match weights; year1/2 each60, year3 minor30+Production of Knowledge5+Preparation10+Thesis/Evaluation15. Module parents are context, not extra credit.
+- [Civil Engineering programme structure](https://www.utwente.nl/en/education/bachelor/programmes/civil-engineering/study-programme/) — Core themes, minor, graduation semester; Current official page checked8October2026. Current active English programme combines building, water and transport, integrated second-year domains, third-year minor and required graduation preparation/project. No specific minor is assumed.
+
+External credit structure: Stored component arithmetic 180.0 EC. The current 2026–2027 Civil Engineering table corroborates all stored positive-credit study units and60+60+60=180, including the0.5-EC Python unit, integrated9-EC simulation project, generic minor30 and5+10+15 graduation semester. The rc-0045 correction to180 EC/three years remains supported.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Introduction to Mathematics + Calculus 1A (202001189) | 4 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 1 | Fundamentals of Civil Engineering (202000042) | 2 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 1 | Structural Mechanics 1 (202400639) | 4 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 1 | Project Civil Engineering Design (202000044) | 5 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 1 | Calculus 1B (2020001196) | 3 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 1 | Fluid Mechanics 1 (202000049) | 2 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 1 | Measurements in Fluid Mechanics (202000050) | 1 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 1 | Introduction to Water Systems (202000051) | 2.5 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 1 | Dealing with Multi-Stakeholder Problems (202600423) | 1.5 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 1 | Introduction to Programming in Engineering using Python 1 (202000055) | 1 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 1 | Project Blue Nile (202000054) | 4 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 1 | Linear Algebra (202001204) | 3 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 1 | Transport Modelling & Data Analysis (202600378) | 3.5 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 1 | Transport Systems & Policy (202600377) | 1.5 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 1 | Project Traffic and Transport (202000058) | 7 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 1 | Calculus 2 (202001220) | 3 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 1 | Structural Mechanics 2 (202400790) | 3 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 1 | Introduction Project Disciplines (202000062) | 4.5 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 1 | Design of Constructions Project (202000063) | 4.5 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Vector Calculus (202001226) | 2 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Introduction to Programming in Engineering using Python 2 (202200069) | 0.5 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Soil Mechanics (202000065) | 2 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Fluid Mechanics 2 (202000066) | 2 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Watermanagement (202000067) | 2.5 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Project Flood Risk (202000068) | 6 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Design Strategy (202400663) | 2 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Structural Mechanics 3 (202400589) | 2 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Environmental and Economic Sustainability (202400664) | 2 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Social Sustainability (202400665) | 2 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Energy Use in the Built Environment (202400666) | 2 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Design Strategy & Sustainable CE Project (202400668) | 5 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Practical GIS (202000073) | 2 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Economic Assessment (202000074) | 2 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Spatial Policy and Law (202000075) | 2 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Stakeholder Management (202000076) | 2 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Project Area Development (202000077) | 7 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Traffic Flows (202200230) | 3 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Process Simulation in Construction (202200231) | 3 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 2 | Simulation and Stochastic Modelling in Civil Engineering Project (202200232) | 9 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 3 | Minor Space | 30 | open elective; Generic approved minor30; no specific package assumed. |
+| 3 | Production of Knowledge (202500524) | 5 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 3 | Preparation BSc-thesis (202500525) | 10 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+| 3 | BSc-thesis and Evaluation (202000090) | 15 | required credited study unit; Official current2026–2027 unit weight; module parent not separately counted. |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Current published weighted external requirement template. Future course versions/availability require refresh at remediation; no independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- Current unit table directly checks all43stored component weights; year1/2 moduleparents15 not added.
+- Graduation semester has separately credited5+10+15, not extra thesis atop30.
+- English ordinary programme and180/three-year rc-0045 correction supported; generic minor30 retained.
+
+Result: confirmed; required action: none.
+
+Recommended follow-up: Retain the coherent unit-level external reconstruction, English instruction and current active ordinary target. Keep module parents as context only; their individually credited child units supply the load. Retain the generic minor and required graduation sequence.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000330 — Bachelor Mechanical Engineering
+
+Institution: University of Twente. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-27.
+
+Existing substantive reason: Twente's Mechanical Engineering bachelor is an integrated engineering sequence in statics, mechanics of materials, thermodynamics, materials science, manufacturing, machine elements, dynamics, elasticity, tribology, fluid mechanics, heat transfer, control engineering, mechatronics, finite-element methods and production systems. These subjects support eight consecutive design, analysis and manufacturing projects before a mechanical-engineering research assignment. UCR offers useful mathematics, programming, product-design and sustainability courses, but it does not offer the mechanical-science core, engineering laboratory and workshop sequence, or progressive mechanical design and research sequence on which the degree depends. A 24-course response would be an applied mathematics, computing and sustainable-design programme, not Mechanical Engineering.
+
+The180-EC module allocation and open minor30 are supported, but the stored claim that splitting integrated modules would invent artificial alternatives is contradicted by the current official table and PDF: they specify45 separately credited compulsory study units. Ten15-EC parent labels conceal these weights, including final research12 plus societal embedding3. This is a material external-component granularity error, not a conclusion about UCR relevance.
+
+Provenance: data/counselor/comparisons/cp-000330.json; source worksheet row(s) 343. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+Current official sources (checked 8 October 2026):
+
+- [Mechanical Engineering current unit table](https://www.utwente.nl/en/bscme/curriculum/curriculum/) — 2026–2027 module and separately credited study units; 2026–2027. Three years180EC, four thematic modules/year; third-year firstsemester minor30. The table specifies45 separate positive-credit compulsory units totaling150, including genuine integrated project/skills units. Ten compulsory module parents15 each must not conceal known child weights or be counted atop them.
+- [Mechanical Engineering 2026–2027 official unit overview](https://www.utwente.nl/en/bscme/curriculum/me-curriculum-2026-2027.pdf) — Single-page table, version10July2026; text and rendered visual inspection; 2026–2027. Visual table corroborates24 first-year units60,15 second-year units60 and six third-year units30, with minor15+15. Mechanical-tool project has distinct codes2023000534EC and2020001121EC in different quarters; neither is an exact-code duplicate. Graduation12EC research +3EC societal embedding. Real project/skills units remain integrated.
+
+External credit structure: Stored component arithmetic 180 EC. The180-EC module allocation and open minor30 are supported, but the stored claim that splitting integrated modules would invent artificial alternatives is contradicted by the current official table and PDF: they specify45 separately credited compulsory study units. Ten15-EC parent labels conceal these weights, including final research12 plus societal embedding3. This is a material external-component granularity error, not a conclusion about UCR relevance.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Calculus 1A (202300055) | 2.5 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | TIME (202300054) | 1.5 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Statics (202300049) | 2.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Modelling and Programming 1 (202300050) | 1.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Manufacturing Systems (202300052) | 2.5 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Technical Product Definition (202300051) | 1.5 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Project Design of a Mechanical Tool & Academic Skills 1 (202300053) | 4.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Calculus 1B (202001201) | 3.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Engineering Thermodynamics 1 (202300056) | 3.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Modelling and Programming 2 (202300057) | 1.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Materials Science (202000110) | 3.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Project Design of a Mechanical Tool & Academic Skills 1 (202000112) | 1.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Project Analysis of an Energy System & Academic Skills 2 (202000111) | 4.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Calculus 2 (202001218) | 3.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Engineering Thermodynamics 2 (202300058) | 1.5 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Modelling and Programming 3 (202300059) | 1.5 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Materials Science 2 (202000116) | 2.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Introduction to LCA (202000117) | 2.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Project Design of an Energy System & Academic Skills 3 (202000119) | 5.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Linear Algebra (202001210) | 3.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Mechanics of Materials (202300060) | 3.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Modelling and Programming 4 (202300061) | 1.5 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Machine Elements (202300282) | 3.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 1 | Project Design of a Construction & Academic Skills 4 (202300283) | 4.5 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 2 | Dynamics 1 (202000127) | 4.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 2 | System Analysis (202000128) | 4.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 2 | Vector Calculus (202001228) | 2.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 2 | Design Principles for Precision Mechanisms 1 (202500031) | 2.5 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 2 | Project Design Principles & Academic Skills 5 (202500032) | 2.5 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 2 | Processing and Properties of Polymers (202000132) | 3.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 2 | Elasticity Theory (202000133) | 2.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 2 | Tribology (202000134) | 2.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 2 | Project Product Design & Academic Skills 6 (202000135) | 8.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 2 | Fluid Mechanics 1 (202000138) | 3.5 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 2 | Heat Transfer (202000139) | 3.5 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 2 | Project Fluids Engineering & Academic Skills 7 (202000140) | 8.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 2 | Dynamics 2 (202000143) | 4.5 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 2 | System and Control Engineering (202000144) | 4.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 2 | Project Mechatronics & Academic Skills 8 (202000145) | 6.5 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 3 | Approved free-choice space | 15 | open elective; Genuine profiling remains generic; applicable level, approval and nonoverlap rules apply. |
+| 3 | Approved free-choice space | 15 | open elective; Genuine profiling remains generic; applicable level, approval and nonoverlap rules apply. |
+| 3 | Statistics (202000148) | 2.5 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 3 | Introduction to Finite Element Method (202000149) | 3.5 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 3 | Academic Research & Skills (202000150) | 3.5 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 3 | Project Production Systems Engineering (202000151) | 5.5 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 3 | ME BSc Research Assignment (202000154) | 12.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+| 3 | ME BSc Societal Embedding Assignment (202000155) | 3.0 | required credited study unit; Official separate unit; actual integrated project/academic-skills unit preserved. |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Current published weighted external requirement template. Future course versions/availability require refresh at remediation; no independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- 45 positive-credit compulsory units totaling150, not10opaque15-EC parent components; child unit and parent never counted together.
+- Real project/skills units remain integrated; different mechanical-tool codes/quarter weights4+1 are distinct official study units.
+- Last module research12 and societal embedding3 are separate compulsory outcomes. Production Systems Engineering has2.5+3.5+3.5+5.5.
+- Minor15+15 remains genuine generic choice; curriculum granularity correction does not establish a UCR fit outcome.
+
+Result: incorrect; required action: reassess-exception.
+
+Incorrect is confined to specified external requirement/choice/granularity or normalized metadata claims. No independent UCR result assessed; discovery alone does not establish a dated change from earlier correctness.
+
+Recommended follow-up: Expand the compulsory module parents into their official positive-credit study units while keeping real integrated project/academic-skills units intact. Preserve two generic15-EC minor slots. Use the actual separately credited45-unit150-EC compulsory structure and independently reassess the exception after correction. Do not count both parents and children.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/counselor/decisions/cp-000330.json`, fields: `sources`, `comparator.components tuples`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context`, `exception.checkedOn`. Expand the compulsory module parents into their official positive-credit study units while keeping real integrated project/academic-skills units intact. Preserve two generic15-EC minor slots. Use the actual separately credited45-unit150-EC compulsory structure and independently reassess the exception after correction. Do not count both parents and children. Refresh version2 source indexes; retain old UCR claims as provenance.
+- `data/counselor/comparisons/cp-000330.json`, fields: `programmeProvider`, `comparator`, `exception external source/context/date`. Compile from corrected compact record and normalized metadata; no automatic comparison conversion.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected metadata/curriculum/choice/cohort/source summaries`. Regenerate affected outputs after targeted remediation.
+
+Dependencies:
+
+- Reconfirm applicable source/cohort at remediation; independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Every credited study unit counted once; no parent/child, repeated course or alternative stacking.
+- Retain genuine open space; instantiate restricted selections with actual EC, semester, prior-study and nonoverlap rules.
+- Current route/cohort/source/language/mode facts agree across normalized, compact, canonical and affected generated outputs; run relevant schema/compiler/registry validators.
+- Close supported factual/metadata corrections independently of unresolved external research and later UCR comparison.
+- Use45 credited compulsory child units totaling150 +generic minor30; research12/societal3 and real integrated project units retain official weights. Ten15-EC compulsory parents are context only.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### Batch 13 reconstruction diagnostics
+
+JSON retains named NIP/Religious Studies first-year60, Law revised60+60 and degree150/30 allocation, SSEAS weighted60+60+60 with an unresolved Reading gate and Philosophy language conflict, and Linguistics unique60+60+55. Neither repeated Berber5 nor a zero-credit thesis seminar closes Linguistics180. Digital Text/Data Analysis S2 cannot fill year2 bound15 S1; permitted Vedic Sanskrit10 and Language/Logic5 supply that slot after verified first-year basic reconstruction. The separate third-year bound5 is concretely Digital Text.
+
+SSEAS Buddhist Art has no entry requirement; Tantric Buddhism recommends prior Buddhist background and supplies readings for students without it. Those valid choices are retained. Formal OER does not make its modern/classical thematic packages formal graduation directions and specifies English; a conflicting shared-moduleNED field is a research question, not an automatic Dutch registry correction. Required Reading still demands an absent Area Studies core, so allocation180 is not certified as a prerequisite-satisfied current pathway.
+
+Astronomy’s30 permits approved minor/free/exchange alternatives and stays generic; project22=18+1+3. Mathematics retains first eligible nonrepeated choices with prior-study requirements met. Civil Engineering’s43stored study units remain supported. Mechanical Engineering has45separately credited compulsory units150 plus two generic15minor slots; real integrated project/skills units are not artificially split, and compulsory parents are never stacked with children.
+
 ## Remaining work and next batch
 
-All 19 exclusions are complete. One hundred and one of140 exceptions have received the first-stage audit;39 remain pending. Next batch: cp-000314, cp-000317, cp-000318, cp-000319, cp-000322, cp-000323, cp-000324, cp-000326, cp-000327, cp-000330.
+All19 exclusions are complete.111of140 exceptions have received the first-stage audit;29 remain pending. Next batch: cp-000331, cp-000333, cp-000339, cp-000342, cp-000344, cp-000357, cp-000358, cp-000364, cp-000367, cp-000370.
 
-Completed/pending reconcile exactly to159 unique composite keys:120 completed and39 pending, with no overlap or omissions. All110 earlier cases, their source objects and batch evidence are preserved. Pending entries carry no findings. Secondary attributes do not create extra cases or change production statuses.
+Completed/pending reconcile exactly to159 unique composite keys:130 completed and29 pending, with no overlap or omissions. All120 earlier cases, their source objects and completed-batch evidence are preserved. Pending entries carry no findings. Secondary attributes do not add cases or change production statuses.
 
-After the exhaustive audit, consolidate and execute the targeted action plans. Close supported registry/course/choice/cohort corrections independently of unresolved external reconstruction and later UCR feasibility. Resume research on recorded publication/clarification triggers. No automatic comparison conversion.
+After the exhaustive audit, consolidate and execute the targeted action plans. Close supported metadata/course/choice/cohort corrections independently of unresolved external requirements and later UCR feasibility. Resume research on recorded publication/clarification triggers. No automatic comparison conversion.
 
 ## Production-data boundary
 
