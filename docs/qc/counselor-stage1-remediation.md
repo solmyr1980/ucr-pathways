@@ -357,7 +357,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 | Target | First-stage outcome | Remaining external question |
 |---|---|---|
 | cp-000248 — Bachelor Electrical Engineering | Replaced quarter aggregates with 28 course/choice components and exact current weights; Instantiated two distinct restricted EEX choices; retained the 30-EC minor; Corrected current prerequisite, language and period-conflict context; verified 180 EC | None within this correction. |
-| cp-000249 | Pending | Pending |
+| cp-000249 — Bachelor Industrial Design Engineering | Corrected the compulsory-study narrative to 115 required EC and 65 EC of profiling/choice; Preserved all 25 accurate components, four distinct category slots, 30-EC minor and 15-EC final project | None within this correction. |
 | cp-000250 | Pending | Pending |
 | cp-000252 | Pending | Pending |
 | cp-000253 | Pending | Pending |
@@ -371,3 +371,12 @@ Status: in-progress. Independent UCR assessment remains separate.
 Verification: Fresh current OER tables and articles 6–7 visually inspected. Independent year totals are 60+60+60; selected electives count once and remain distinct. Deterministic compilation, target validators and generated-index checks passed.
 
 The formal yearly requirement structure is resolved. No exact quarter timetable is asserted; the old-chart/current-table discrepancy remains explicitly qualified. No new UCR judgment is made.
+
+### cp-000249
+
+- [Industrial Design: what will I learn?](https://www.tudelft.nl/onderwijs/opleidingen/bachelors/industrieel-ontwerpen/bsc-industrieel-ontwerpen/over-de-opleiding/wat-ga-ik-leren) — People, organisations, technology; electives and programme chart. Checked 8 October 2026. SHA-256: `ee1fc71293ace12fd938043c0a2638950b8b0762fc8b5bfe958c1101c5db2735`.
+- [Industrial Design Engineering curriculum 2026–2027](https://filelist.tudelft.nl/IO/Studeren/Bacheloropleiding/BSc%20Curriculum_2026_2027_met%20code%20en%20slots.png?hash=37c0a865d7) — All semester blocks and credits. Checked 8 October 2026. SHA-256: `5d84fd787250dceb77de86eeeb8e6590a4375138aa18d21b136387dc5960d0f9`.
+
+Verification: Fresh 2026–2027 curriculum image visually inspected; all components and credit weights match. Independent allocation is 60 + (40 required + 20 categorized choices) + (30 minor + 15 electives + 15 project) = 180. The stored curriculum and historical UCR assessment date/evidence remain unchanged. Deterministic compilation, target validators and generated-index checks passed.
+
+This correction changes the external compulsory/choice narrative only. It does not revalidate the historical UCR no-match judgment.
