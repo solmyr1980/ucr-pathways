@@ -1,6 +1,6 @@
 # Counselor completeness and exceptions: first-stage audit
 
-Status: in progress. Batches 1–15 completed through 8 October 2026: all 19 scope exclusions and 131 exceptions audited within the first-stage scope. 9 exceptions remain pending.
+Status: in progress. Batches 1–16 completed through 8 October 2026: all 19 scope exclusions and 140 exceptions audited within the first-stage scope. No audit cases remain pending.
 
 ## Scope and method
 
@@ -17,16 +17,16 @@ The classification applies only to the stated audit scope. Resolving an external
 | Normalized registry targets | 460 | — | — |
 | In-scope targets with canonical records | 441 | — | — |
 | Completed comparisons | 301 | Outside this stage | — |
-| Completed exceptions | 140 | 131 | 9 |
+| Completed exceptions | 140 | 140 | 0 |
 | Excluded normalized targets | 19 | 19 | 0 |
-| First-stage audit cases | 159 | 150 | 9 |
+| First-stage audit cases | 159 | 159 | 0 |
 
 All 441 in-scope IDs have a canonical filename; there are no missing in-scope IDs, duplicate record filenames or out-of-scope canonical records. The review-index ID set matches both registry scope and canonical filenames. Status totals use that current generated index; all 140 indexed exceptions were additionally read directly to verify ID, exception status and formal type. Enumeration does not constitute a substantive exception audit.
 
 | Formal exception type | Corpus total | Substantively audited |
 |---|---:|---:|
 | external-programme-unresolved | 20 | 20 |
-| no-defensible-ucr-match | 117 | 108 |
+| no-defensible-ucr-match | 117 | 117 |
 | registry-exception | 3 | 3 |
 
 ## Batch 1 findings
@@ -8981,13 +8981,977 @@ Verification and closure checks:
 
 UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
 
-## Remaining work and next batch
+## Cumulative findings after batch 16
 
-All 19 scope exclusions are complete. 131 of 140 exceptions have received the first-stage audit; 9 remain pending. All external-unresolved and registry-exception cases have received this stage’s audit. The final batch contains the remaining nine no-match cases: cp-000416, cp-000419, cp-000428, cp-000429, cp-000432, cp-000435, cp-000436, cp-000437, cp-000459.
+| Finding | Count |
+|---|---:|
+| confirmed | 68 |
+| incorrect | 70 |
+| outdated | 0 |
+| still-unresolved | 21 |
 
-Completed/pending reconcile exactly to 159 unique composite keys: 150 completed and 9 pending without overlap or omission. All 140 earlier case objects, source entries and fourteen batch evidence blocks are preserved. Pending entries carry no findings; unresolved completed research is not pending inventory. The frozen audit population is retained even when queued remediation may later change production scope.
+| Required action | Count |
+|---|---:|
+| none | 62 |
+| reprocess-as-comparison | 0 |
+| reassess-exception | 39 |
+| correct-registry-and-reprocess | 47 |
+| research-again-later | 11 |
 
-After the final batch, consolidate and execute the recorded actions, separating supported current corrections, effective future-cohort changes and research-dependent blockers. Close external/registry corrections independently of the later UCR feasibility stage. Do not automatically convert an exception into a comparison.
+## Batch 16 findings
+
+The final batch contains nine cases: two confirmed, six incorrect within the external/metadata scope and one still unresolved. Dentistry’s 33-unit credit table and Food Technology’s 123 + 3 + 24 common part plus 30 free are supported. Seven UvA humanities cases require source-qualified language and zero-credit formation corrections. Religious Studies and Theatre Studies also require concrete restricted choices. Existing valid Danish, Russian and cognitive/computational routes are retained.
+
+Musicology’s current catalogue repeats the same 6-EC Musical Celebrities course in years two and three. The nominal 180 allocation contains only 174 distinct EC including free 36. Its dated 2026 transition rules and prospective older 3-EC methods cannot be silently blended. Known language and formation corrections can close separately while the applicable-cohort curriculum remains unresolved.
+
+Seven registry-correction plans and two no-action results are recorded; none is implemented. No case is classified outdated and no independent UCR feasibility is assessed. Current UvA weighted programme/course data and WUR public programme/course data were read through the read-only APIs used by their public clients. ACTA formal credit tables were rendered and visually checked.
+
+| ID | Programme | Formal type | Finding | Required action |
+|---|---|---|---|
+| cp-000416 | Musicology (Muziekwetenschap) | no-defensible-ucr-match | still-unresolved | correct-registry-and-reprocess |
+| cp-000419 | Modern Greek Language and Culture (Nieuwgriekse taal en cultuur) | no-defensible-ucr-match | incorrect | correct-registry-and-reprocess |
+| cp-000428 | Religiewetenschappen | no-defensible-ucr-match | incorrect | correct-registry-and-reprocess |
+| cp-000429 | Scandinavian Languages and Cultures (Scandinavia Studies) | no-defensible-ucr-match | incorrect | correct-registry-and-reprocess |
+| cp-000432 | Slavonic Language and Culture (Slavische talen en culturen) | no-defensible-ucr-match | incorrect | correct-registry-and-reprocess |
+| cp-000435 | Spanish Language and Culture (Spaanse Taal en Cultuur; current programme title: Spaanse en Latijns-Amerikaanse studies) | no-defensible-ucr-match | incorrect | correct-registry-and-reprocess |
+| cp-000436 | Dentistry (Tandheelkunde) | no-defensible-ucr-match | confirmed | none |
+| cp-000437 | Theatre Studies (Theaterwetenschap) | no-defensible-ucr-match | incorrect | correct-registry-and-reprocess |
+| cp-000459 | Food Technology | no-defensible-ucr-match | confirmed | none |
+
+## Batch 16 evidence and implementation plans
+
+### cp-000416 — Musicology (Muziekwetenschap)
+
+Institution: University of Amsterdam. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-27.
+
+Existing substantive reason: The defining curriculum begins with compulsory general music theory, two successive solfège and harmony/analysis courses, score reading and analysis, four chronological Western music-history courses, cultural musicology, music cognition and academic study of musical cultures. It then requires music ethnography, popular-music studies, quantitative musicology, philosophy and research projects, specialization work in computational and cognitive musicology and rhythm, and an independent musicology thesis. The current UCR catalogue has no course in music theory, solfège, harmony, score analysis, music history, ethnomusicology or musicology research methods, and no sustained music-cognition sequence. A 24-course programme assembled from general film, media, literature, art history, cognition, sociology and computing would replace the target’s central object of study and disciplinary progression rather than provide a defensible closest match. Even the 42 EC of genuinely open choice cannot compensate for the absent compulsory musicological core.
+
+The retained Cognitive and Computational Musicology route has a nominal current guide allocation of 60/60/60, but Musical Celebrities (115221386Y, 6 EC) appears in both years two and three: the distinct credited units total only 174. Current 2026 transition rules replace earlier 3-EC methods with 6-EC methods and make Musical Celebrities a replacement for older project/portfolio requirements. The prospective table still shows the older 3-EC methods and generic 6-EC second-year space. These cannot be combined into a certified new-entry 180-EC path. The stored common aggregate conceals membership, and the exception’s 42-EC genuinely open claim conflicts with its stored free 36. Independently, English-taught compulsory/selected courses and omitted zero-credit diagnostic/tutoring formation establish current corrections.
+
+Provenance: data/counselor/comparisons/cp-000416.json; source worksheet row(s) 431. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+No decision_case_ids are attached; registry metadata, raw offering IDs and source-row sets reconciled.
+
+Current official sources (checked 8 October 2026):
+
+- [Musicology (Muziekwetenschap) official curriculum/regulations](https://www.uva.nl/programmas/bachelors/muziekwetenschap/studieprogramma/studieprogramma.html) — Programme identity, language, curriculum and selected route context; Current page checked 2026-10-08. Published musicology overview shows older 3-EC methods and generic second-year profiling; current weighted guide and transition rules require separate cohort reconciliation.
+- [Musicology (Muziekwetenschap) official programme context](https://www.uva.nl/programmas/bachelors/muziekwetenschap/muziekwetenschap.html) — Programme identity, language, curriculum and selected route context; Current page checked 2026-10-08. Current identity and source context qualified by weighted catalogue/course records below.
+- [UvA 2026–2027 weighted Musicology (Muziekwetenschap) curriculum](https://studiegids.uva.nl/nl/opleidingen/2026/1/5748/39791) — Published curriculum nodes and course weights via official public catalogue API used by its client; one selected study path; 2026–2027. The retained Cognitive and Computational Musicology route has a nominal current guide allocation of 60/60/60, but Musical Celebrities (115221386Y, 6 EC) appears in both years two and three: the distinct credited units total only 174. Current 2026 transition rules replace earlier 3-EC methods with 6-EC methods and make Musical Celebrities a replacement for older project/portfolio requirements. The prospective table still shows the older 3-EC methods and generic 6-EC second-year space. These cannot be combined into a certified new-entry 180-EC path. The stored common aggregate conceals membership, and the exception’s 42-EC genuinely open claim conflicts with its stored free 36. Independently, English-taught compulsory/selected courses and omitted zero-credit diagnostic/tutoring formation establish current corrections.
+- [UvA current guide introduction](https://studiegids.uva.nl/nl/opleidingen/2026/1/5748/39790) — Current route, mobility and study-year descriptions; 2026–2027. Current programme has cognitive/computational, cultural and historical approaches; retain valid cognitive/computational selection.
+- [Musicology current transition rules](https://studiegids.uva.nl/nl/opleidingen/2026/1/5748/39793) — 2025→2026 transition table effective1September2026; 2026–2027. Methods expand from 3 to 6 EC. Project I need not be replaced when both expanded methods are followed; otherwise it is replaced by Musical Celebrities. Project II becomes the research project; Portfolio Applied Musicology also maps to Musical Celebrities. These cohort replacement rules do not authorize counting a repeated course twice.
+- [Musicology current free-choice rules](https://studiegids.uva.nl/nl/opleidingen/2026/1/5748/39792) — Optional repertoire/AMMA choices and general level/approval restrictions; 2026–2027. Free options remain generic: maximum 12 EC at level one, or 24 under the recognized minor or same-language exception. External courses and mobility need approval; AMMA special tracks can require an entry test. This page does not resolve the duplicated 6 EC or applicable total free weight.
+- [UvA current course: How Rhythm Works](https://studiegids.uva.nl/nl/vakken/2026/1/59447) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Selected How Rhythm Works 6, English.
+- [UvA current course: An Introduction to Cultural Musicology](https://studiegids.uva.nl/nl/vakken/2026/1/59592) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Compulsory first-year cultural musicology 6 is explicitly English-taught.
+- [UvA current course: Computational Musicology](https://studiegids.uva.nl/nl/vakken/2026/1/59593) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Selected Computational Musicology 6, English.
+- [UvA current course: Cognitive Musicology](https://studiegids.uva.nl/nl/vakken/2026/1/61392) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Selected Cognitive Musicology 6, English.
+- [UvA current course: Music and AI](https://studiegids.uva.nl/nl/vakken/2026/1/61567) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Current Music and AI 6 replaces Music Lab and is explicitly English-taught.
+- [UvA current course: Kwantitatieve methoden in de muziekwetenschap (Quantitative Methods in Music Studies)](https://studiegids.uva.nl/nl/vakken/2026/1/61571) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Current Quantitative Methods 6, Dutch; apply the cohort transition to the older 3-EC version.
+- [UvA current course: Musical Celebrities: Stardom, Fandom and the Music Industry](https://studiegids.uva.nl/nl/vakken/2026/1/61572) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Musical Celebrities 6, English; same code 115221386Y repeated in years two and three of the guide.
+- [UvA current course: Muzieketnografie (Ethnographic Methods in Music Studies)](https://studiegids.uva.nl/nl/vakken/2026/1/61657) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Current Ethnographic Methods 6, Dutch; apply the cohort transition to the older 3-EC version.
+- [UvA current course: Bachelorscriptie Muziekwetenschap](https://studiegids.uva.nl/nl/vakken/2026/1/62175) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Thesis 12, Dutch summary; entry requires 150 completed EC.
+
+External credit structure: Stored arithmetic 180 EC. The retained Cognitive and Computational Musicology route has a nominal current guide allocation of 60/60/60, but Musical Celebrities (115221386Y, 6 EC) appears in both years two and three: the distinct credited units total only 174. Current 2026 transition rules replace earlier 3-EC methods with 6-EC methods and make Musical Celebrities a replacement for older project/portfolio requirements. The prospective table still shows the older 3-EC methods and generic 6-EC second-year space. These cannot be combined into a certified new-entry 180-EC path. The stored common aggregate conceals membership, and the exception’s 42-EC genuinely open claim conflicts with its stored free 36. Independently, English-taught compulsory/selected courses and omitted zero-credit diagnostic/tutoring formation establish current corrections.
+
+Compulsory zero-credit formation, without adding EC:
+
+| Code | Requirement | Study years | EC |
+|---|---|---|---:|
+| 109121025Y | Diagnostische toets taalvaardigheid | 1 | 0 |
+| 11502A025Y | Tutoraat en studiebegeleiding bachelor Muziekwetenschap | 1, 2, 3 | 0 |
+
+Unresolved current-path diagnostic — nominal allocation, not a certified coherent pathway:
+
+| Study year | Published component | Allocated EC |
+|---|---|---:|
+| 1 | Algemene muziekleer (115121115Y) | 3 |
+| 1 | Inleiding muziekwetenschap (115121105Y) | 3 |
+| 1 | Westerse muziekgeschiedenis van de Oudheid tot de Renaissance (115121125Y) | 3 |
+| 1 | Solfège en harmonieleer/-analyse I (115115106Y) | 6 |
+| 1 | An Introduction to Cultural Musicology (115121006Y) | 6 |
+| 1 | Westerse muziekgeschiedenis van de zeventiende en achttiende eeuw (115121135Y) | 3 |
+| 1 | Muziekculturen, academisch benaderd (115121086Y) | 6 |
+| 1 | Music and Cognition: An Introduction (115121076Y) | 6 |
+| 1 | Westerse muziekgeschiedenis van de negentiende eeuw (115121145Y) | 3 |
+| 1 | Solfège en harmonieleer/-analyse II (115115116Y) | 6 |
+| 1 | Kunst - cultuur - samenleving (114121086Y) | 6 |
+| 1 | Westerse muziekgeschiedenis van de twintigste eeuw tot heden (115121155Y) | 3 |
+| 1 | Music and AI (115121166Y) | 6 |
+| 2 | Popular Music Studies (115221086Y) | 6 |
+| 2 | Muzieketnografie (Ethnographic Methods in Music Studies) (115221416Y) | 6 |
+| 2 | Partituuranalyse (115221176Y) | 6 |
+| 2 | Kwantitatieve methoden in de muziekwetenschap (Quantitative Methods in Music Studies) (115221376Y) | 6 |
+| 2 | Musical Celebrities: Stardom, Fandom and the Music Industry (115221386Y) | 6 |
+| 2 | Wetenschapsfilosofie (Kunst- en cultuurwetenschappen) (109216066Y) | 6 |
+| 2 | Muziek en filosofie (115221336Y) | 6 |
+| 2 | Onderzoeksproject Muziekwetenschap (115221076Y) | 6 |
+| 2 | Computational Musicology (115215146Y) | 6 |
+| 2 | Cognitive Musicology (115215496Y) | 6 |
+| 3 | Musical Celebrities: Stardom, Fandom and the Music Industry (115221386Y) | 6 |
+| 3 | How Rhythm Works (115221066Y) | 6 |
+| 3 | Approved free profiling space | 36 |
+| 3 | Bachelorscriptie Muziekwetenschap (115219002Y) | 12 |
+
+Nominal 60 + 60 + 60 = 180 includes Musical Celebrities (115221386Y, 6 EC) twice. Distinct positive units plus free 36 total 174. The 1 September 2026 transition explains expanded methods and project replacements but does not authorize duplicated earned credit or an invented free 6. Stored free 36 and exception free 42 also disagree. Obtain controlling applicable-cohort allocation before closure.
+
+Choice and source-context rules:
+
+- Retain the current valid cognitive/computational specialization; do not stack cultural or historical alternatives.
+- Do not count the repeated Musical Celebrities 6 twice or repair it by subtraction; obtain applicable-cohort authority.
+- Thesis requires 150 completed EC; transition replacement rules must be cohort-specific.
+- Free space maximum level-one 12, or 24 under the stated recognized-minor/same-language exception; external options require approval.
+
+Result: still-unresolved; required action: correct-registry-and-reprocess.
+
+Secondary attribute finding(s):
+
+- normalized instruction language: incorrect; stored ["NLD"], verified ["NLD", "ENG"]. Separate closure: External cohort clarification where unresolved; later independent UCR outcome.
+
+Recommended follow-up: Correct normalized NLD + ENG and add diagnostic/tutoring at zero EC. Retain the valid cognitive/computational route. Expand common membership only with applicable-cohort authority; qualify the duplicated 6-EC course, distinguish the 2026 transition from the prospective table and reconcile genuine free space. Do not count Musical Celebrities twice, silently replace it with free 6, or certify an allocation as a coherent 180-EC path.
+
+Unresolved factual question / historical limitation: Obtain the controlling 2026-entry OER or an authorized cohort-specific curriculum clarification resolving the duplicated Musical Celebrities, the two expanded methods, project replacements and genuine free-space weight. Establish each distinct credited unit exactly once and meet the thesis entry threshold before certifying 180.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `official evidence linkage`. Persist source-qualified instruction ["NLD", "ENG"], preserving raw NLD, permanent ID, offerings and source crosswalks. Teaching media, required foreign-language work and studied languages remain distinguished.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `reproducible researched override and supporting evidence`. Use documented correction workflow without rewriting raw provenance or inventing ambiguity cases.
+- `data/counselor/decisions/cp-000416.json`, fields: `sources`, `comparator.components`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context/date`. Correct normalized NLD + ENG and add diagnostic/tutoring at zero EC. Retain the valid cognitive/computational route. Expand common membership only with applicable-cohort authority; qualify the duplicated 6-EC course, distinguish the 2026 transition from the prospective table and reconcile genuine free space. Do not count Musical Celebrities twice, silently replace it with free 6, or certify an allocation as a coherent 180-EC path. Preserve UCR reasons/evidence as provenance until later independent assessment.
+- `data/counselor/comparisons/cp-000416.json`, fields: `programmeProvider`, `comparator`, `exception source/context/date`. Compile affected canonical record from corrected registry and compact decision; reassess exception without automatic comparison conversion.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected curriculum/metadata/source/choice/cohort summaries`. Regenerate affected artifacts and reconcile counts after supported remediation.
+
+Dependencies:
+
+- Obtain the controlling 2026-entry OER or an authorized cohort-specific curriculum clarification resolving the duplicated Musical Celebrities, the two expanded methods, project replacements and genuine free-space weight. Establish each distinct credited unit exactly once and meet the thesis entry threshold before certifying 180.
+- Reconfirm applicable cohort, future course availability and all source-qualified fields at remediation; independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Count each distinct positive-credit unit once; no stacking of alternatives, parent allocations, zero-credit formation or embedded activities.
+- Keep genuine free space generic; restricted choices need actual course weights and hard prerequisite sequence. Advisory background remains separate.
+- Preserve raw source and identity provenance; normalized, compact, canonical and generated outputs must agree after relevant validators.
+- Close known registry/formation corrections independently of research blockers and later UCR fit.
+- Do not certify a coherent 180 until cohort authority resolves the duplicated 6 and free-space allocation. Known language and formation corrections can close first.
+
+Research trigger: Obtain the controlling 2026-entry OER or an authorized cohort-specific curriculum clarification resolving the duplicated Musical Celebrities, the two expanded methods, project replacements and genuine free-space weight. Establish each distinct credited unit exactly once and meet the thesis entry threshold before certifying 180.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000419 — Modern Greek Language and Culture (Nieuwgriekse taal en cultuur)
+
+Institution: University of Amsterdam. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-27.
+
+Existing substantive reason: The defining curriculum requires four successive Modern Greek language-acquisition courses in year 1, two advanced Modern Greek language-and-literature courses in year 2, further Greek-language acquisition during a required semester in Greece or Cyprus, Greek-language source use, and a Modern Greek subject thesis. This language progression is integrated with Byzantine legacies, modern Greek and Cypriot history, Greece-Turkey-Cyprus conflict and memory, Greek-European relations and contemporary Mediterranean culture. The current UCR catalogue has no Modern Greek language instruction, Greek grammar or translation, or advanced Greek-language reading and writing sequence. A 24-course programme assembled from ancient Greek archaeology, general literature, history, politics, philosophy and Mediterranean art would replace the programme's compulsory modern-language and area-studies core rather than provide a defensible closest match. The 30 EC of genuine open choice cannot compensate for the missing compulsory Modern Greek sequence and country-specific progression.
+
+The current weighted Greek programme closes at 60/60/60, including abroad 30 and thesis 12; it resolves the misleading 6-EC abroad label in the prospective table. Compulsory diagnostic/tutoring formation at zero EC is omitted. Current course offerings establish English and Modern Greek teaching alongside Dutch, so NLD-only normalization is incomplete. The introduction explicitly allows an adapted home programme for students who cannot or do not wish to go abroad; mobility is not universal across every permitted path.
+
+Provenance: data/counselor/comparisons/cp-000419.json; source worksheet row(s) 435. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+No decision_case_ids are attached; registry metadata, raw offering IDs and source-row sets reconciled.
+
+Current official sources (checked 8 October 2026):
+
+- [Modern Greek Language and Culture (Nieuwgriekse taal en cultuur) official curriculum/regulations](https://www.uva.nl/programmas/bachelors/nieuwgriekse-taal-en-cultuur/studieprogramma/studieprogramma.html) — Programme identity, language, curriculum and selected route context; Current page checked 2026-10-08. Published programme describes the three-year Greek language and regional-studies curriculum and second-year mobility. Its displayed abroad 6 is qualified by current catalogue 30.
+- [Modern Greek Language and Culture (Nieuwgriekse taal en cultuur) official programme context](https://www.uva.nl/programmas/bachelors/nieuwgriekse-taal-en-cultuur/nieuwgriekse-taal-en-cultuur.html) — Programme identity, language, curriculum and selected route context; Current page checked 2026-10-08. Current identity and source context qualified by weighted catalogue/course records below.
+- [UvA 2026–2027 weighted Modern Greek Language and Culture (Nieuwgriekse taal en cultuur) curriculum](https://studiegids.uva.nl/nl/opleidingen/2026/1/5734/39685) — Published curriculum nodes and course weights via official public catalogue API used by its client; one selected study path; 2026–2027. The current weighted Greek programme closes at 60/60/60, including abroad 30 and thesis 12; it resolves the misleading 6-EC abroad label in the prospective table. Compulsory diagnostic/tutoring formation at zero EC is omitted. Current course offerings establish English and Modern Greek teaching alongside Dutch, so NLD-only normalization is incomplete. The introduction explicitly allows an adapted home programme for students who cannot or do not wish to go abroad; mobility is not universal across every permitted path.
+- [UvA current guide introduction](https://studiegids.uva.nl/nl/opleidingen/2026/1/5734/39684) — Current route, mobility and study-year descriptions; 2026–2027. Greek explicitly permits an adapted home route; Scandinavia and Slavonic introductions describe selected second-year exchange; Spanish optional wording is distinguished from its weighted abroad requirement. Musicology describes three specialization approaches.
+- [UvA current course: Bachelorscriptie Nieuwgriekse taal en cultuur](https://studiegids.uva.nl/nl/vakken/2026/1/57515) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Greek thesis 12, Dutch; first year and second year must be passed.
+- [UvA current course: The Mediterranean and Europe: Contacts, Conflicts, Confluences](https://studiegids.uva.nl/nl/vakken/2026/1/57562) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Required Mediterranean and Europe course 6, English.
+- [UvA current course: Buitenlandverblijf Nieuwgriekse taal en cultuur](https://studiegids.uva.nl/nl/vakken/2026/1/57916) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Abroad 30, Modern Greek instruction. First-year 54 EC and semester-one attendance are recommended background; part-time exchange begins no earlier than year three.
+- [UvA current course: Modern Greek Language and Literature 1](https://studiegids.uva.nl/nl/vakken/2026/1/57917) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Current course weight, instruction language and source-controlled identity checked.
+- [UvA current course: Modern Greek Language Acquisition 1](https://studiegids.uva.nl/nl/vakken/2026/1/57942) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Greek Language Acquisition 1, 6 EC, explicitly English-taught.
+- [UvA current course: Rome’s successor: 1000 years of Byzantine Empire](https://studiegids.uva.nl/nl/vakken/2026/1/61404) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Required Byzantium course 6, English.
+- [UvA current course: Venice, Byzantium and the Greek World](https://studiegids.uva.nl/nl/vakken/2026/1/61737) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Required Venice and Byzantium course 6, English.
+
+External credit structure: Stored arithmetic 180 EC. The current weighted Greek programme closes at 60/60/60, including abroad 30 and thesis 12; it resolves the misleading 6-EC abroad label in the prospective table. Compulsory diagnostic/tutoring formation at zero EC is omitted. Current course offerings establish English and Modern Greek teaching alongside Dutch, so NLD-only normalization is incomplete. The introduction explicitly allows an adapted home programme for students who cannot or do not wish to go abroad; mobility is not universal across every permitted path.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Modern Greek Language Acquisition 1 (130120116Y) | 6 | required |
+| 1 | Rome’s successor: 1000 years of Byzantine Empire (130120156Y) | 6 | required |
+| 1 | Modern Greek Language Acquisition 2 (130120126Y) | 6 | required |
+| 1 | De wereld van de mens: Inleiding in de geesteswetenschappen (121111302Y) | 12 | required |
+| 1 | De wereld in delen: Inleiding regiostudies (121111316Y) | 6 | required |
+| 1 | Modern Greek Language Acquisition 3 (130120136Y) | 6 | required |
+| 1 | Griekenland en Cyprus: van de Ottomaanse tijd tot heden (130120016Y) | 6 | required |
+| 1 | Modern Greek Language Acquisition 4 (130120146Y) | 6 | required |
+| 1 | Project Athens (130120026Y) | 6 | required |
+| 2 | Modern Greek Language and Literature 1 (130221106Y) | 6 | required |
+| 2 | Wetenschapsfilosofie (Nationale identiteit, grenzen, territorialiteit) (109216026Y) | 6 | required |
+| 2 | Memory and Conflict: Greece, Turkey and Cyprus (130221076Y) | 6 | required |
+| 2 | Modern Greek Language and Literature 2 (130221116Y) | 6 | required |
+| 2 | Venice, Byzantium and the Greek World (130221036Y) | 6 | required |
+| 2 | Buitenlandverblijf Nieuwgriekse taal en cultuur (130221008Y) | 30 | required |
+| 3 | The Mediterranean and Europe: Contacts, Conflicts, Confluences (111212556Y) | 6 | required |
+| 3 | Griekenland, Cyprus en Europa (130221086Y) | 6 | required |
+| 3 | Travel, Nostalgia and Cultures of Resistance in the Mediterranean (121222106Y) | 6 | required |
+| 3 | Approved free profiling space | 30 | open elective; Genuine approved profiling remains generic; apply level, nonoverlap and approval conditions. |
+| 3 | Bachelorscriptie Nieuwgriekse taal en cultuur (130219002Y) | 12 | required |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Published 2026–2027 weighted external requirement template. Future offerings and pacing must be refreshed at implementation; no independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- Selected abroad 30 is Greek-taught, distinct from free 30; adapted home route is explicitly permitted but must be approved and weighted separately.
+- Abroad course lists recommended first-year minimum 54 EC and second-year semester-one attendance, not a hard entry field. Part-time earliest abroad is year three.
+- Thesis entry requires passed first year and second year. Do not retain a misleading prospective abroad 6.
+
+Compulsory zero-credit formation, without adding EC:
+
+| Code | Requirement | Study years | EC |
+|---|---|---|---:|
+| 109121025Y | Diagnostische toets taalvaardigheid | 1 | 0 |
+| 13002A025Y | Tutoraat en studiebegeleiding bachelor Nieuwgriekse taal en cultuur | 1, 2, 3 | 0 |
+
+Result: incorrect; required action: correct-registry-and-reprocess.
+
+Incorrect concerns specified external formation, restricted choices or normalized instruction facts. No independent UCR finding; current discovery alone does not prove a dated change from earlier correctness.
+
+Secondary attribute finding(s):
+
+- normalized instruction language: incorrect; stored ["NLD"], verified ["NLD", "ENG", "ELL"]. Separate closure: External cohort clarification where unresolved; later independent UCR outcome.
+
+Recommended follow-up: Correct NLD + ENG + ELL with course-level qualifications and add zero-credit formation. Retain the selected 30-EC abroad path and generic free 30. Qualify its mobility as the selected path, not a universal degree requirement; any home replacement must be separately approved and weighted. Keep catalogue abroad 30 rather than the prospective table’s administrative 6.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `official evidence linkage`. Persist source-qualified instruction ["NLD", "ENG", "ELL"], preserving raw NLD, permanent ID, offerings and source crosswalks. Teaching media, required foreign-language work and studied languages remain distinguished.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `reproducible researched override and supporting evidence`. Use documented correction workflow without rewriting raw provenance or inventing ambiguity cases.
+- `data/counselor/decisions/cp-000419.json`, fields: `sources`, `comparator.components`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context/date`. Correct NLD + ENG + ELL with course-level qualifications and add zero-credit formation. Retain the selected 30-EC abroad path and generic free 30. Qualify its mobility as the selected path, not a universal degree requirement; any home replacement must be separately approved and weighted. Keep catalogue abroad 30 rather than the prospective table’s administrative 6. Preserve UCR reasons/evidence as provenance until later independent assessment.
+- `data/counselor/comparisons/cp-000419.json`, fields: `programmeProvider`, `comparator`, `exception source/context/date`. Compile affected canonical record from corrected registry and compact decision; reassess exception without automatic comparison conversion.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected curriculum/metadata/source/choice/cohort summaries`. Regenerate affected artifacts and reconcile counts after supported remediation.
+
+Dependencies:
+
+- Reconfirm applicable cohort, future course availability and all source-qualified fields at remediation; independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Count each distinct positive-credit unit once; no stacking of alternatives, parent allocations, zero-credit formation or embedded activities.
+- Keep genuine free space generic; restricted choices need actual course weights and hard prerequisite sequence. Advisory background remains separate.
+- Preserve raw source and identity provenance; normalized, compact, canonical and generated outputs must agree after relevant validators.
+- Close known registry/formation corrections independently of research blockers and later UCR fit.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000428 — Religiewetenschappen
+
+Institution: University of Amsterdam. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-27.
+
+Existing substantive reason: The UvA bachelor is defined by sustained disciplinary study of Judaism, Christianity, Islam, Hinduism and Buddhism; sacred-text interpretation; lived religion; Western esotericism; religion and spirituality in the Netherlands; religious art, myth and popular culture; disciplinary history and philosophy; and two dedicated Religious Studies research projects culminating in a thesis. UCR has relevant courses in philosophy, sociology, politics, history, archaeology, literature and cultural analysis, but no course or sequence in Religious Studies, theology, comparative religion, sacred texts, lived religion or the history of religious traditions. A 24-course UCR programme could examine culture, ideas and institutions around religion, yet most courses would treat religion only incidentally and would omit the target’s defining disciplinary core. Publishing it as a closest match would therefore misstate what UCR teaches.
+
+The full 180-EC Religious Studies curriculum is supported, but the compulsory first-year restricted disciplinary package of 24 EC has no concrete stored selection. Anthropology is the first complete package in current catalogue order: Introduction to Anthropology 12 plus Current Debates 1: Connecting Worlds 12. This is a first-year choice package, not a separately invented graduation track. Its English-taught courses and compulsory English Secrets of the West establish ENG alongside NLD. Diagnostic/tutoring zero-credit formation is omitted.
+
+Provenance: data/counselor/comparisons/cp-000428.json; source worksheet row(s) 445. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+No decision_case_ids are attached; registry metadata, raw offering IDs and source-row sets reconciled.
+
+Current official sources (checked 8 October 2026):
+
+- [Religiewetenschappen official curriculum/regulations](https://www.uva.nl/programmas/bachelors/religiewetenschappen/studieprogramma/studieprogramma.html) — Programme identity, language, curriculum and selected route context; Current page checked 2026-10-08. Published full Religious Studies programme includes first-year 24-EC disciplinary choice, religious traditions, research preparation and thesis; weighted catalogue controls exact course selection.
+- [Religiewetenschappen official programme context](https://www.uva.nl/programmas/bachelors/religiewetenschappen/religiewetenschappen.html) — Programme identity, language, curriculum and selected route context; Current page checked 2026-10-08. Current identity and source context qualified by weighted catalogue/course records below.
+- [UvA 2026–2027 weighted Religiewetenschappen curriculum](https://studiegids.uva.nl/nl/opleidingen/2026/1/5741/39735) — Published curriculum nodes and course weights via official public catalogue API used by its client; one selected study path; 2026–2027. The full 180-EC Religious Studies curriculum is supported, but the compulsory first-year restricted disciplinary package of 24 EC has no concrete stored selection. Anthropology is the first complete package in current catalogue order: Introduction to Anthropology 12 plus Current Debates 1: Connecting Worlds 12. This is a first-year choice package, not a separately invented graduation track. Its English-taught courses and compulsory English Secrets of the West establish ENG alongside NLD. Diagnostic/tutoring zero-credit formation is omitted.
+- [UvA current course: Secrets of the West 1: Culture and Counterculture before Modernity](https://studiegids.uva.nl/nl/vakken/2026/1/58048) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Compulsory Secrets of the West 1, 6 EC, English.
+- [UvA current course: Onderzoeksproject Bachelorscriptie Religiewetenschappen](https://studiegids.uva.nl/nl/vakken/2026/1/58174) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Thesis preparation 6; same entry conditions as the linked thesis.
+- [UvA current course: Bachelorscriptie Religiewetenschappen](https://studiegids.uva.nl/nl/vakken/2026/1/58218) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Religious Studies thesis 12; propedeuse and required second-year courses passed.
+- [UvA current course: Current Debates 1: Connecting Worlds](https://studiegids.uva.nl/nl/vakken/2026/1/59906) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Selected Anthropology Current Debates 12, English.
+- [UvA current course: Introduction to Anthropology](https://studiegids.uva.nl/nl/vakken/2026/1/60176) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Selected first-year Introduction to Anthropology 12, English.
+
+External credit structure: Stored arithmetic 180 EC. The full 180-EC Religious Studies curriculum is supported, but the compulsory first-year restricted disciplinary package of 24 EC has no concrete stored selection. Anthropology is the first complete package in current catalogue order: Introduction to Anthropology 12 plus Current Debates 1: Connecting Worlds 12. This is a first-year choice package, not a separately invented graduation track. Its English-taught courses and compulsory English Secrets of the West establish ENG alongside NLD. Diagnostic/tutoring zero-credit formation is omitted.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Jodendom (116116156Y) | 6 | required |
+| 1 | Christendom (116116136Y) | 6 | required |
+| 1 | Grote vragen Religiewetenschappen 1: analyse van teksten (116121006Y) | 6 | required |
+| 1 | Islam (116116146Y) | 6 | required |
+| 1 | Hindoeïsme/Boeddhisme (116116196Y) | 6 | required |
+| 1 | Grote vragen Religiewetenschappen 2: geleefde religie (116121016Y) | 6 | required |
+| 1 | Introduction to Anthropology (7311C0010Y) | 12 | selected restricted option |
+| 1 | Current Debates 1: Connecting Worlds (7311C0020Y) | 12 | selected restricted option |
+| 2 | Religie, Kunst en Cultuur 1: Mythologie en verhaalcultuur (116221086Y) | 6 | required |
+| 2 | Secrets of the West 1: Culture and Counterculture before Modernity (116221056Y) | 6 | required |
+| 2 | Religiewetenschappen: geschiedenis en filosofie (116221136Y) | 6 | required |
+| 2 | Secrets of the West 2: Culture and Counterculture in the Modern Period (116221066Y) | 6 | required |
+| 2 | Secrets of the West 3: Culture and Counterculture Research Project (116221076Y) | 6 | required |
+| 2 | Religie en spiritualiteit in Nederland 1: concepten en theorieën (116221106Y) | 6 | required |
+| 2 | Wetenschapsfilosofie (Historische wetenschappen) (109216036Y) | 6 | required |
+| 2 | Religie en spiritualiteit in Nederland 2: geleefde religie (116221116Y) | 6 | required |
+| 2 | Religie, Kunst en Cultuur 2: Heilige verhalen in woord en beeld (116221096Y) | 6 | required |
+| 2 | Religie en spiritualiteit in Nederland 3: onderzoeksproject (116221126Y) | 6 | required |
+| 3 | Utopia’s en toekomstvisies (116221206Y) | 6 | required |
+| 3 | Religie en populaire cultuur (116217166Y) | 6 | required |
+| 3 | Onderzoeksproject Bachelorscriptie Religiewetenschappen (116221216Y) | 6 | required |
+| 3 | Approved free profiling space | 30 | open elective; Genuine approved profiling remains generic; apply level, nonoverlap and approval conditions. |
+| 3 | Bachelorscriptie Religiewetenschappen (116219012Y) | 12 | required |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Published 2026–2027 weighted external requirement template. Future offerings and pacing must be refreshed at implementation; no independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- Full bachelor 180, not the separately listed shortened 120.
+- First complete first-year 24-EC package: Anthropology, two actual 12-EC courses; not an invented formal graduation specialization.
+- Generic free 30 permits optional esotericism courses, not compulsory stacking of its whole menu.
+- Thesis preparation and thesis both require propedeuse and compulsory second-year courses completed.
+
+Compulsory zero-credit formation, without adding EC:
+
+| Code | Requirement | Study years | EC |
+|---|---|---|---:|
+| 109121025Y | Diagnostische toets taalvaardigheid | 1 | 0 |
+| 11602A025Y | Tutoraat en studiebegeleiding bachelor Religiewetenschappen | 1, 2, 3 | 0 |
+
+Result: incorrect; required action: correct-registry-and-reprocess.
+
+Incorrect concerns specified external formation, restricted choices or normalized instruction facts. No independent UCR finding; current discovery alone does not prove a dated change from earlier correctness.
+
+Secondary attribute finding(s):
+
+- normalized instruction language: incorrect; stored ["NLD"], verified ["NLD", "ENG"]. Separate closure: External cohort clarification where unresolved; later independent UCR outcome.
+
+Recommended follow-up: Instantiate the Anthropology package as its two actual 12-EC units, correct NLD + ENG and add zero-credit formation. Retain the full programme, not the separate shortened 120-EC curriculum. Keep free 30 generic; catalogue esotericism options in that space are not all mandatory. Apply the completed first-year and compulsory second-year gate to both thesis preparation and thesis.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `official evidence linkage`. Persist source-qualified instruction ["NLD", "ENG"], preserving raw NLD, permanent ID, offerings and source crosswalks. Teaching media, required foreign-language work and studied languages remain distinguished.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `reproducible researched override and supporting evidence`. Use documented correction workflow without rewriting raw provenance or inventing ambiguity cases.
+- `data/counselor/decisions/cp-000428.json`, fields: `sources`, `comparator.components`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context/date`. Instantiate the Anthropology package as its two actual 12-EC units, correct NLD + ENG and add zero-credit formation. Retain the full programme, not the separate shortened 120-EC curriculum. Keep free 30 generic; catalogue esotericism options in that space are not all mandatory. Apply the completed first-year and compulsory second-year gate to both thesis preparation and thesis. Preserve UCR reasons/evidence as provenance until later independent assessment.
+- `data/counselor/comparisons/cp-000428.json`, fields: `programmeProvider`, `comparator`, `exception source/context/date`. Compile affected canonical record from corrected registry and compact decision; reassess exception without automatic comparison conversion.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected curriculum/metadata/source/choice/cohort summaries`. Regenerate affected artifacts and reconcile counts after supported remediation.
+
+Dependencies:
+
+- Reconfirm applicable cohort, future course availability and all source-qualified fields at remediation; independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Count each distinct positive-credit unit once; no stacking of alternatives, parent allocations, zero-credit formation or embedded activities.
+- Keep genuine free space generic; restricted choices need actual course weights and hard prerequisite sequence. Advisory background remains separate.
+- Preserve raw source and identity provenance; normalized, compact, canonical and generated outputs must agree after relevant validators.
+- Close known registry/formation corrections independently of research blockers and later UCR fit.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000429 — Scandinavian Languages and Cultures (Scandinavia Studies)
+
+Institution: University of Amsterdam. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-27.
+
+Existing substantive reason: The defining curriculum requires five successive main-language proficiency courses, main-language-specific literature and translation, passive proficiency in the other two Scandinavian languages, and a sustained Scandinavian languages, literature, history, identity and sociolinguistics sequence. The current UCR catalogue offers no Danish, Norwegian or Swedish language instruction and no Scandinavian-language reading, writing, speaking or translation sequence. A 24-course programme assembled from general literature, communication, politics, history and cultural study would replace the compulsory language-acquisition and Scandinavian area-studies core rather than provide a defensible closest UCR match. The 30 EC of genuine open choice cannot compensate for the missing compulsory language progression.
+
+The retained Danish route’s positive-credit requirements close 60/60/60, including required selected abroad 30, translation 6 and graduation project 12. Diagnostic/tutoring at zero EC is missing. Danish 1 is explicitly Danish-taught while several later shared/course summaries remain Dutch; the programme language statement also includes the language of the degree. NLD-only normalized instruction is incomplete. The graduation project normally uses a continental Scandinavian language at sufficient B2/C1 written level, with a Dutch alternative when the stated level is not met.
+
+Provenance: data/counselor/comparisons/cp-000429.json; source worksheet row(s) 446. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+No decision_case_ids are attached; registry metadata, raw offering IDs and source-row sets reconciled.
+
+Current official sources (checked 8 October 2026):
+
+- [Scandinavian Languages and Cultures (Scandinavia Studies) official curriculum/regulations](https://www.uva.nl/programmas/bachelors/scandinavische-talen-en-culturen/studieprogramma/studieprogramma.html) — Programme identity, language, curriculum and selected route context; Current page checked 2026-10-08. Published programme describes Danish, Norwegian and Swedish options and regional study. Current weighted selected Danish path controls exact course weights and mobility requirements.
+- [Scandinavian Languages and Cultures (Scandinavia Studies) official programme context](https://www.uva.nl/programmas/bachelors/scandinavische-talen-en-culturen/scandinavie-studies.html) — Programme identity, language, curriculum and selected route context; Current page checked 2026-10-08. Current identity and source context qualified by weighted catalogue/course records below.
+- [UvA 2026–2027 weighted Scandinavian Languages and Cultures (Scandinavia Studies) curriculum](https://studiegids.uva.nl/nl/opleidingen/2026/1/5935/40883) — Published curriculum nodes and course weights via official public catalogue API used by its client; one selected study path; 2026–2027. The retained Danish route’s positive-credit requirements close 60/60/60, including required selected abroad 30, translation 6 and graduation project 12. Diagnostic/tutoring at zero EC is missing. Danish 1 is explicitly Danish-taught while several later shared/course summaries remain Dutch; the programme language statement also includes the language of the degree. NLD-only normalized instruction is incomplete. The graduation project normally uses a continental Scandinavian language at sufficient B2/C1 written level, with a Dutch alternative when the stated level is not met.
+- [UvA current guide introduction](https://studiegids.uva.nl/nl/opleidingen/2026/1/5935/40881) — Current route, mobility and study-year descriptions; 2026–2027. Greek explicitly permits an adapted home route; Scandinavia and Slavonic introductions describe selected second-year exchange; Spanish optional wording is distinguished from its weighted abroad requirement. Musicology describes three specialization approaches.
+- [UvA current course: Taalvaardigheid Deens 1 & cultuur en samenleving van het moderne Denemarken](https://studiegids.uva.nl/nl/vakken/2026/1/57826) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Selected Danish 1, 6 EC, explicitly Danish-taught.
+- [UvA current course: Buitenlandverblijf Scandinavië studies](https://studiegids.uva.nl/nl/vakken/2026/1/57868) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Selected abroad 30, Dutch summary; 54 first-year EC and attended second-year semester one required. Approved home alternative exists.
+- [UvA current course: Afstudeerproject Scandinavië studies](https://studiegids.uva.nl/nl/vakken/2026/1/57897) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Graduation project 12, Dutch summary; first year plus 54 second-year EC entry. Scandinavian-language thesis at sufficient B2/C1 written level, otherwise Dutch.
+- [UvA current course: Rewriting the North](https://studiegids.uva.nl/nl/vakken/2026/1/57998) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Rewriting the North 6, Dutch instruction.
+- [UvA current course: Taalvaardigheid Deens 5 & receptieve taalvaardigheid Noors en Zweeds](https://studiegids.uva.nl/nl/vakken/2026/1/58331) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Danish 5, 6 EC, Dutch summary; receptive Norwegian and Swedish skills are separate from instruction-language evidence.
+
+External credit structure: Stored arithmetic 180 EC. The retained Danish route’s positive-credit requirements close 60/60/60, including required selected abroad 30, translation 6 and graduation project 12. Diagnostic/tutoring at zero EC is missing. Danish 1 is explicitly Danish-taught while several later shared/course summaries remain Dutch; the programme language statement also includes the language of the degree. NLD-only normalized instruction is incomplete. The graduation project normally uses a continental Scandinavian language at sufficient B2/C1 written level, with a Dutch alternative when the stated level is not met.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Het moderne Scandinavië (132110286Y) | 6 | required |
+| 1 | De wereld van de mens: Inleiding in de geesteswetenschappen (121111302Y) | 12 | required |
+| 1 | De wereld in delen: Inleiding regiostudies (121111316Y) | 6 | required |
+| 1 | Van Yggdrasil tot urban slang: De talen van het Noorden (132110296Y) | 6 | required |
+| 1 | De wereld van de Vikingen (132121096Y) | 6 | required |
+| 1 | Taalvaardigheid Deens 1 & cultuur en samenleving van het moderne Denemarken (132111046Y) | 6 | required |
+| 1 | Taalvaardigheid Deens 2 & cultuur en samenleving van het moderne Denemarken (132111056Y) | 6 | required |
+| 1 | Taalvaardigheid Deens 3 & Deense cultuur, geschiedenis en samenleving A (132111066Y) | 6 | required |
+| 1 | Taalvaardigheid Deens 4 & Deense cultuur, geschiedenis en samenleving B (132111076Y) | 6 | required |
+| 2 | Literatuur Deens (132215026Y) | 6 | required |
+| 2 | Taalvaardigheid Deens 5 & receptieve taalvaardigheid Noors en Zweeds (132221086Y) | 6 | required |
+| 2 | Wetenschapsfilosofie (Nationale identiteit, grenzen, territorialiteit) (109216026Y) | 6 | required |
+| 2 | Europese literaire klassieken (132221066Y) | 6 | required |
+| 2 | Buitenlandverblijf Scandinavië studies (132221008Y) | 30 | required |
+| 2 | Onderzoeksproject sociolinguïstiek (132221126Y) | 6 | required |
+| 3 | Vertalen Deens - Nederlands (132221036Y) | 6 | required |
+| 3 | Rewriting the North (132221206Y) | 6 | required |
+| 3 | Nationale identiteiten in Europa (127211376Y) | 6 | required |
+| 3 | Approved free profiling space | 30 | open elective; Genuine approved profiling remains generic; apply level, nonoverlap and approval conditions. |
+| 3 | Afstudeerproject Scandinavië studies (132229002Y) | 12 | required |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Published 2026–2027 weighted external requirement template. Future offerings and pacing must be refreshed at implementation; no independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- Retain valid Danish selection; receptive study of Norwegian and Swedish is separate from instruction-language evidence.
+- Abroad 30 requires at least 54 first-year EC and attended second-year semester one. A home alternative needs board permission and a weighted approved programme.
+- Graduation project requires completed propedeuse plus 54 second-year EC. Danish thesis at sufficient B2/C1 written level, otherwise Dutch under the course rule.
+- Positive-credit units total 150 required plus 30 genuinely free.
+
+Compulsory zero-credit formation, without adding EC:
+
+| Code | Requirement | Study years | EC |
+|---|---|---|---:|
+| 109121025Y | Diagnostische toets taalvaardigheid | 1 | 0 |
+| 13202A025Y | Tutoraat en studiebegeleiding bachelor Scandinavië studies | 1, 2, 3 | 0 |
+
+Result: incorrect; required action: correct-registry-and-reprocess.
+
+Incorrect concerns specified external formation, restricted choices or normalized instruction facts. No independent UCR finding; current discovery alone does not prove a dated change from earlier correctness.
+
+Secondary attribute finding(s):
+
+- normalized instruction language: incorrect; stored ["NLD"], verified ["NLD", "DAN"]. Separate closure: External cohort clarification where unresolved; later independent UCR outcome.
+
+Recommended follow-up: Correct NLD + DAN with actual offering/thesis-language qualifications; do not add Norwegian or Swedish merely because passive receptive skills are studied. Add zero-credit formation, retain Danish and free 30, record the minimum 54 first-year EC and attended second-year semester-one abroad gate and the graduation project’s first-year plus 54 second-year EC entry gate. A home alternative requires examination-board approval and a separately weighted programme.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `official evidence linkage`. Persist source-qualified instruction ["NLD", "DAN"], preserving raw NLD, permanent ID, offerings and source crosswalks. Teaching media, required foreign-language work and studied languages remain distinguished.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `reproducible researched override and supporting evidence`. Use documented correction workflow without rewriting raw provenance or inventing ambiguity cases.
+- `data/counselor/decisions/cp-000429.json`, fields: `sources`, `comparator.components`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context/date`. Correct NLD + DAN with actual offering/thesis-language qualifications; do not add Norwegian or Swedish merely because passive receptive skills are studied. Add zero-credit formation, retain Danish and free 30, record the minimum 54 first-year EC and attended second-year semester-one abroad gate and the graduation project’s first-year plus 54 second-year EC entry gate. A home alternative requires examination-board approval and a separately weighted programme. Preserve UCR reasons/evidence as provenance until later independent assessment.
+- `data/counselor/comparisons/cp-000429.json`, fields: `programmeProvider`, `comparator`, `exception source/context/date`. Compile affected canonical record from corrected registry and compact decision; reassess exception without automatic comparison conversion.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected curriculum/metadata/source/choice/cohort summaries`. Regenerate affected artifacts and reconcile counts after supported remediation.
+
+Dependencies:
+
+- Reconfirm applicable cohort, future course availability and all source-qualified fields at remediation; independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Count each distinct positive-credit unit once; no stacking of alternatives, parent allocations, zero-credit formation or embedded activities.
+- Keep genuine free space generic; restricted choices need actual course weights and hard prerequisite sequence. Advisory background remains separate.
+- Preserve raw source and identity provenance; normalized, compact, canonical and generated outputs must agree after relevant validators.
+- Close known registry/formation corrections independently of research blockers and later UCR fit.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000432 — Slavonic Language and Culture (Slavische talen en culturen)
+
+Institution: University of Amsterdam. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-27.
+
+Existing substantive reason: The defining curriculum requires six successive Russian language-proficiency courses, Russian-language source use, Slavonic language history and advanced linguistics, Russian and East European literature, a compulsory main-language-region semester, and a Slavonic-studies research and thesis trajectory. The current UCR catalogue offers no Russian, Polish, Bosnian-Croatian-Serbian or Czech language instruction and no advanced Slavic-language reading, writing, speaking or translation sequence. A 24-course programme assembled from general literature, history, politics, conflict studies, communication and research methods would replace the compulsory language-acquisition and region-specific disciplinary core rather than provide a defensible closest UCR match. The 30 EC of genuine open choice cannot compensate for the missing compulsory language progression.
+
+The existing Russian main-language route remains valid and closes at 60/60/60, with required abroad 30, research lab 6, thesis 12 and free 30. It should be retained although the current weighted table lists Bosnian/Croatian/Serbian and Polish before Russian; the old first-listed claim is not a current selection rationale. Russian 5 is explicitly Russian-taught, supporting RUS alongside NLD; studied alternative languages are not all instruction media. Compulsory zero-credit diagnostic/tutoring formation is omitted.
+
+Provenance: data/counselor/comparisons/cp-000432.json; source worksheet row(s) 450. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+No decision_case_ids are attached; registry metadata, raw offering IDs and source-row sets reconciled.
+
+Current official sources (checked 8 October 2026):
+
+- [Slavonic Language and Culture (Slavische talen en culturen) official curriculum/regulations](https://www.uva.nl/programmas/bachelors/slavische-talen-en-culturen/studieprogramma/studieprogramma.html) — Programme identity, language, curriculum and selected route context; Current page checked 2026-10-08. Published programme names four main-language alternatives and Slavonic regional curriculum. The existing valid Russian route is retained; catalogue order is qualified separately.
+- [Slavonic Language and Culture (Slavische talen en culturen) official programme context](https://www.uva.nl/programmas/bachelors/slavische-talen-en-culturen/russische-en-slavische-studies.html) — Programme identity, language, curriculum and selected route context; Current page checked 2026-10-08. Current identity and source context qualified by weighted catalogue/course records below.
+- [UvA 2026–2027 weighted Slavonic Language and Culture (Slavische talen en culturen) curriculum](https://studiegids.uva.nl/nl/opleidingen/2026/1/5896/40631) — Published curriculum nodes and course weights via official public catalogue API used by its client; one selected study path; 2026–2027. The existing Russian main-language route remains valid and closes at 60/60/60, with required abroad 30, research lab 6, thesis 12 and free 30. It should be retained although the current weighted table lists Bosnian/Croatian/Serbian and Polish before Russian; the old first-listed claim is not a current selection rationale. Russian 5 is explicitly Russian-taught, supporting RUS alongside NLD; studied alternative languages are not all instruction media. Compulsory zero-credit diagnostic/tutoring formation is omitted.
+- [UvA current guide introduction](https://studiegids.uva.nl/nl/opleidingen/2026/1/5896/40630) — Current route, mobility and study-year descriptions; 2026–2027. Greek explicitly permits an adapted home route; Scandinavia and Slavonic introductions describe selected second-year exchange; Spanish optional wording is distinguished from its weighted abroad requirement. Musicology describes three specialization approaches.
+- [UvA current course: Bachelorscriptie Slavische talen en culturen](https://studiegids.uva.nl/nl/vakken/2026/1/57683) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Slavonic thesis 12, Dutch summary.
+- [UvA current course: Language Contact](https://studiegids.uva.nl/nl/vakken/2026/1/57860) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Language Contact 6, Dutch instruction.
+- [UvA current course: Slavisch onderzoekslab](https://studiegids.uva.nl/nl/vakken/2026/1/57994) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Slavonic research lab 6, Dutch.
+- [UvA current course: Buitenlandverblijf Slavische talen en culturen](https://studiegids.uva.nl/nl/vakken/2026/1/58076) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Selected abroad 30; Russian route requires 54 first-year EC and 18 year-two semester-one EC including Russian 5 and 6 passed. Part-time exchange begins no earlier than year three.
+- [UvA current course: Taalvaardigheid Russisch 5](https://studiegids.uva.nl/nl/vakken/2026/1/58307) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Russian 5, 6 EC, explicitly Russian-taught.
+- [UvA current course: Taalvaardigheid Russisch 1](https://studiegids.uva.nl/nl/vakken/2026/1/58378) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Russian 1, 6 EC, Dutch summary.
+
+External credit structure: Stored arithmetic 180 EC. The existing Russian main-language route remains valid and closes at 60/60/60, with required abroad 30, research lab 6, thesis 12 and free 30. It should be retained although the current weighted table lists Bosnian/Croatian/Serbian and Polish before Russian; the old first-listed claim is not a current selection rationale. Russian 5 is explicitly Russian-taught, supporting RUS alongside NLD; studied alternative languages are not all instruction media. Compulsory zero-credit diagnostic/tutoring formation is omitted.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Russische en Oost-Europese cultuurgeschiedenis (133121026Y) | 6 | required |
+| 1 | De wereld van de mens: Inleiding in de geesteswetenschappen (121111302Y) | 12 | required |
+| 1 | De wereld in delen: Inleiding regiostudies (121111316Y) | 6 | required |
+| 1 | De geschiedenis van het Slavisch (133110286Y) | 6 | required |
+| 1 | Slavisch modernisme: cultuur als politiek, 1900-1950 (133121017Y) | 6 | required |
+| 1 | Taalvaardigheid Russisch 1 (133112016Y) | 6 | required |
+| 1 | Taalvaardigheid Russisch 2 (133112026Y) | 6 | required |
+| 1 | Taalvaardigheid Russisch 3 (133112036Y) | 6 | required |
+| 1 | Taalvaardigheid Russisch 4 (133112046Y) | 6 | required |
+| 2 | Taalvaardigheid Russisch 5 (133221056Y) | 6 | required |
+| 2 | Taalvaardigheid Russisch 6 (133221066Y) | 6 | required |
+| 2 | Wetenschapsfilosofie (Nationale identiteit, grenzen, territorialiteit) (109216026Y) | 6 | required |
+| 2 | Russian & East European Literatures: The Classics (133221096Y) | 6 | required |
+| 2 | Language Contact (133221146Y) | 6 | required |
+| 2 | Buitenlandverblijf Slavische talen en culturen (133221018Y) | 30 | required |
+| 3 | Making Sense of Aspect in Time and Space (133221206Y) | 6 | required |
+| 3 | Russische en Oost-Europese literatuur 20ste-21ste eeuw (na 1950) (133221316Y) | 6 | required |
+| 3 | Slavisch onderzoekslab (133219026Y) | 6 | required |
+| 3 | Approved free profiling space | 30 | open elective; Genuine approved profiling remains generic; apply level, nonoverlap and approval conditions. |
+| 3 | Bachelorscriptie Slavische talen en culturen (133219002Y) | 12 | required |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Published 2026–2027 weighted external requirement template. Future offerings and pacing must be refreshed at implementation; no independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- Retain existing valid Russian route despite current list order; do not continue claiming Russian is currently first listed.
+- Russian abroad gate: 54 first-year EC and 18 year-two first-semester EC, including Russian 5 and 6 passed. Part-time exchange begins no earlier than year three.
+- Host narrative is current partner study, including Riga; do not borrow older Russia-only mobility assumptions.
+- Optional internships of 6 or 12 EC stay within genuine free 30. Alternative studied languages are not automatically instruction languages.
+
+Compulsory zero-credit formation, without adding EC:
+
+| Code | Requirement | Study years | EC |
+|---|---|---|---:|
+| 109121025Y | Diagnostische toets taalvaardigheid | 1 | 0 |
+| 13302A055Y | Tutoraat en studiebegeleiding bachelor Slavische talen en culturen | 1, 2, 3 | 0 |
+
+Result: incorrect; required action: correct-registry-and-reprocess.
+
+Incorrect concerns specified external formation, restricted choices or normalized instruction facts. No independent UCR finding; current discovery alone does not prove a dated change from earlier correctness.
+
+Secondary attribute finding(s):
+
+- normalized instruction language: incorrect; stored ["NLD"], verified ["NLD", "RUS"]. Separate closure: External cohort clarification where unresolved; later independent UCR outcome.
+
+Recommended follow-up: Correct NLD + RUS, add zero-credit formation and retain the already valid Russian route without rerunning neutral selection solely because catalogue order changed. Refresh the selection rationale and current course codes. Before selected abroad require at least 54 first-year EC and 18 second-year semester-one EC including Russian 5 and 6; preserve genuine free 30 and do not infer a compulsory placement from optional internship publicity.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `official evidence linkage`. Persist source-qualified instruction ["NLD", "RUS"], preserving raw NLD, permanent ID, offerings and source crosswalks. Teaching media, required foreign-language work and studied languages remain distinguished.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `reproducible researched override and supporting evidence`. Use documented correction workflow without rewriting raw provenance or inventing ambiguity cases.
+- `data/counselor/decisions/cp-000432.json`, fields: `sources`, `comparator.components`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context/date`. Correct NLD + RUS, add zero-credit formation and retain the already valid Russian route without rerunning neutral selection solely because catalogue order changed. Refresh the selection rationale and current course codes. Before selected abroad require at least 54 first-year EC and 18 second-year semester-one EC including Russian 5 and 6; preserve genuine free 30 and do not infer a compulsory placement from optional internship publicity. Preserve UCR reasons/evidence as provenance until later independent assessment.
+- `data/counselor/comparisons/cp-000432.json`, fields: `programmeProvider`, `comparator`, `exception source/context/date`. Compile affected canonical record from corrected registry and compact decision; reassess exception without automatic comparison conversion.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected curriculum/metadata/source/choice/cohort summaries`. Regenerate affected artifacts and reconcile counts after supported remediation.
+
+Dependencies:
+
+- Reconfirm applicable cohort, future course availability and all source-qualified fields at remediation; independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Count each distinct positive-credit unit once; no stacking of alternatives, parent allocations, zero-credit formation or embedded activities.
+- Keep genuine free space generic; restricted choices need actual course weights and hard prerequisite sequence. Advisory background remains separate.
+- Preserve raw source and identity provenance; normalized, compact, canonical and generated outputs must agree after relevant validators.
+- Close known registry/formation corrections independently of research blockers and later UCR fit.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000435 — Spanish Language and Culture (Spaanse Taal en Cultuur; current programme title: Spaanse en Latijns-Amerikaanse studies)
+
+Institution: University of Amsterdam. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-27.
+
+Existing substantive reason: The defining curriculum requires six successive Spanish-proficiency courses, advanced subject teaching conducted almost entirely in Spanish, Spanish-language literary and sociolinguistic analysis, translation, a compulsory semester in Spain or Latin America, and a bachelor thesis written in Spanish. The current UCR catalogue contains no Spanish-language course and no staged Spanish reading, writing, speaking or translation sequence. A 24-course programme assembled from general literature, communication, psycholinguistics, history and social science would replace the compulsory language-acquisition and Spanish/Latin American disciplinary core rather than provide a defensible closest UCR match. The 30 EC of genuine open choice cannot compensate for the missing 150-EC compulsory core.
+
+The Spanish/Latin American positive-credit template remains supported at 60/60/60, with selected abroad 30, free 30 and thesis 12. Compulsory diagnostic/tutoring at zero EC is missing. Spanish 5 is Spanish-taught, Latin America in the 21st Century is English-taught and the thesis description specifies Spanish work despite Dutch summary labels; NLD-only normalization is incomplete. Introductory optional-mobility wording and the weighted required abroad course must remain distinguished.
+
+Provenance: data/counselor/comparisons/cp-000435.json; source worksheet row(s) 453. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+No decision_case_ids are attached; registry metadata, raw offering IDs and source-row sets reconciled.
+
+Current official sources (checked 8 October 2026):
+
+- [Spanish Language and Culture (Spaanse Taal en Cultuur; current programme title: Spaanse en Latijns-Amerikaanse studies) official curriculum/regulations](https://www.uva.nl/programmas/bachelors/spaanse-en-latijns-amerikaanse-studies/studieprogramma/studieprogramma.html) — Programme identity, language, curriculum and selected route context; Current page checked 2026-10-08. Published programme describes six Spanish language courses, advanced Spanish study, mobility, free profiling and thesis; actual course offerings qualify instruction and entry gates.
+- [Spanish Language and Culture (Spaanse Taal en Cultuur; current programme title: Spaanse en Latijns-Amerikaanse studies) official programme context](https://www.uva.nl/programmas/bachelors/spaanse-en-latijns-amerikaanse-studies/spaanse-en-latijns-amerikaanse-studies.html) — Programme identity, language, curriculum and selected route context; Current page checked 2026-10-08. Current identity and source context qualified by weighted catalogue/course records below.
+- [UvA 2026–2027 weighted Spanish Language and Culture (Spaanse Taal en Cultuur; current programme title: Spaanse en Latijns-Amerikaanse studies) curriculum](https://studiegids.uva.nl/nl/opleidingen/2026/1/5936/40891) — Published curriculum nodes and course weights via official public catalogue API used by its client; one selected study path; 2026–2027. The Spanish/Latin American positive-credit template remains supported at 60/60/60, with selected abroad 30, free 30 and thesis 12. Compulsory diagnostic/tutoring at zero EC is missing. Spanish 5 is Spanish-taught, Latin America in the 21st Century is English-taught and the thesis description specifies Spanish work despite Dutch summary labels; NLD-only normalization is incomplete. Introductory optional-mobility wording and the weighted required abroad course must remain distinguished.
+- [UvA current guide introduction](https://studiegids.uva.nl/nl/opleidingen/2026/1/5936/40889) — Current route, mobility and study-year descriptions; 2026–2027. Greek explicitly permits an adapted home route; Scandinavia and Slavonic introductions describe selected second-year exchange; Spanish optional wording is distinguished from its weighted abroad requirement. Musicology describes three specialization approaches.
+- [UvA current course: Español 1](https://studiegids.uva.nl/nl/vakken/2026/1/57589) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Spanish 1, 6 EC, Dutch summary.
+- [UvA current course: Bachelorscriptie Spaanse en Latijns-Amerikaanse studies](https://studiegids.uva.nl/nl/vakken/2026/1/57975) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Spanish thesis 12, Dutch summary but Spanish research and writing prose; positive BSA or exemption required.
+- [UvA current course: Español 5](https://studiegids.uva.nl/nl/vakken/2026/1/58197) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Spanish 5, 6 EC, explicitly Spanish-taught.
+- [UvA current course: Latin America in the 21st Century](https://studiegids.uva.nl/nl/vakken/2026/1/61119) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Required Latin America in the 21st Century 6, English.
+- [UvA current course: Buitenlandverblijf Spaanse en Latijns-Amerikaanse studies](https://studiegids.uva.nl/nl/vakken/2026/1/61743) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Selected abroad 30, Dutch summary with Spanish academic activities. Entry requires 54 first-year EC and attended year-two semester one; part-time exchange begins no earlier than year three.
+
+External credit structure: Stored arithmetic 180 EC. The Spanish/Latin American positive-credit template remains supported at 60/60/60, with selected abroad 30, free 30 and thesis 12. Compulsory diagnostic/tutoring at zero EC is missing. Spanish 5 is Spanish-taught, Latin America in the 21st Century is English-taught and the thesis description specifies Spanish work despite Dutch summary labels; NLD-only normalization is incomplete. Introductory optional-mobility wording and the weighted required abroad course must remain distinguished.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | De Spaanstalige wereld: historisch perspectief (134121036Y) | 6 | required |
+| 1 | Español 1 (134121296Y) | 6 | required |
+| 1 | Español 2 (134121306Y) | 6 | required |
+| 1 | De wereld van de mens: Inleiding in de geesteswetenschappen (121111302Y) | 12 | required |
+| 1 | De wereld van taal en spraak: inleiding taalwetenschap (124121056Y) | 6 | required |
+| 1 | Español 3 (134121316Y) | 6 | required |
+| 1 | De wereld van de verbeelding: het verhaal van de literatuur (124111286Y) | 6 | required |
+| 1 | Español 4 (134121336Y) | 6 | required |
+| 1 | El mundo en un idioma, un idioma en el mundo: perspectiva lingüística (134121346Y) | 6 | required |
+| 2 | Español 5 (134221246Y) | 6 | required |
+| 2 | Wetenschapsfilosofie (Nationale identiteit, grenzen, territorialiteit) (109216026Y) | 6 | required |
+| 2 | Español 6 (134221256Y) | 6 | required |
+| 2 | Latin America in the 21st Century (134221366Y) | 6 | required |
+| 2 | El mundo en un idioma, un idioma en el mundo: perspectiva literaria (134221356Y) | 6 | required |
+| 2 | Buitenlandverblijf Spaanse en Latijns-Amerikaanse studies (134221008Y) | 30 | required |
+| 3 | Traducción e interculturalidad (134221296Y) | 6 | required |
+| 3 | Identidad y otredad: creaciones literarias y culturales (134221306Y) | 6 | required |
+| 3 | El español, lengua viva: multilingüismo y diversidad (134221316Y) | 6 | required |
+| 3 | Approved free profiling space | 30 | open elective; Genuine approved profiling remains generic; apply level, nonoverlap and approval conditions. |
+| 3 | Bachelorscriptie Spaanse en Latijns-Amerikaanse studies (134229012Y) | 12 | required |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Published 2026–2027 weighted external requirement template. Future offerings and pacing must be refreshed at implementation; no independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- Retain selected abroad 30; introductory optional wording does not by itself establish a weighted home alternative.
+- Abroad entry: first-year minimum 54 EC and attended second-year semester one; part-time exchange begins no earlier than year three.
+- Thesis 12 requires positive BSA or exemption; Spanish work is specified despite the Dutch catalogue summary.
+- Keep genuine free 30 separate from selected required mobility.
+
+Compulsory zero-credit formation, without adding EC:
+
+| Code | Requirement | Study years | EC |
+|---|---|---|---:|
+| 109121025Y | Diagnostische toets taalvaardigheid | 1 | 0 |
+| 13402A025Y | Tutoraat en studiebegeleiding bachelor Spaanse en Latijns-Amerikaanse studies | 1, 2, 3 | 0 |
+
+Result: incorrect; required action: correct-registry-and-reprocess.
+
+Incorrect concerns specified external formation, restricted choices or normalized instruction facts. No independent UCR finding; current discovery alone does not prove a dated change from earlier correctness.
+
+Secondary attribute finding(s):
+
+- normalized instruction language: incorrect; stored ["NLD"], verified ["NLD", "SPA", "ENG"]. Separate closure: External cohort clarification where unresolved; later independent UCR outcome.
+
+Recommended follow-up: Correct NLD + SPA + ENG with actual course/prose qualifications and add zero-credit formation. Preserve selected approved abroad 30 and its first-year minimum 54 EC plus attended year-two semester-one entry gate, with part-time exchange no earlier than year three. Do not silently substitute an unweighted home alternative or stack mobility on free 30. Preserve thesis 12 and its positive-BSA or exemption gate.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `official evidence linkage`. Persist source-qualified instruction ["NLD", "SPA", "ENG"], preserving raw NLD, permanent ID, offerings and source crosswalks. Teaching media, required foreign-language work and studied languages remain distinguished.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `reproducible researched override and supporting evidence`. Use documented correction workflow without rewriting raw provenance or inventing ambiguity cases.
+- `data/counselor/decisions/cp-000435.json`, fields: `sources`, `comparator.components`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context/date`. Correct NLD + SPA + ENG with actual course/prose qualifications and add zero-credit formation. Preserve selected approved abroad 30 and its first-year minimum 54 EC plus attended year-two semester-one entry gate, with part-time exchange no earlier than year three. Do not silently substitute an unweighted home alternative or stack mobility on free 30. Preserve thesis 12 and its positive-BSA or exemption gate. Preserve UCR reasons/evidence as provenance until later independent assessment.
+- `data/counselor/comparisons/cp-000435.json`, fields: `programmeProvider`, `comparator`, `exception source/context/date`. Compile affected canonical record from corrected registry and compact decision; reassess exception without automatic comparison conversion.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected curriculum/metadata/source/choice/cohort summaries`. Regenerate affected artifacts and reconcile counts after supported remediation.
+
+Dependencies:
+
+- Reconfirm applicable cohort, future course availability and all source-qualified fields at remediation; independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Count each distinct positive-credit unit once; no stacking of alternatives, parent allocations, zero-credit formation or embedded activities.
+- Keep genuine free space generic; restricted choices need actual course weights and hard prerequisite sequence. Advisory background remains separate.
+- Preserve raw source and identity provenance; normalized, compact, canonical and generated outputs must agree after relevant validators.
+- Close known registry/formation corrections independently of research blockers and later UCR fit.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000436 — Dentistry (Tandheelkunde)
+
+Institution: University of Amsterdam through the Academic Centre for Dentistry Amsterdam (ACTA, a UvA-VU collaboration). Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-27.
+
+Existing substantive reason: The defining 180-EC curriculum is entirely compulsory and integrates oral biology, cariology, periodontology, restorative dentistry, endodontology, dental radiology, preventive oral care, clinical care planning, preclinical manual skills and supervised treatment of patients. The current UCR catalogue provides relevant biomedical science, psychology, public health and research methods, but no dentistry, oral biology, dental materials, cariology, periodontology, restorative procedures, endodontology, dental radiology, preclinical simulation or supervised clinical dental care. A 24-course UCR programme could reproduce parts of the biomedical and behavioural context but would omit the profession-defining dental science and clinical skills. It would therefore not be a defensible closest match.
+
+The formal ACTA 2026–2027 OER corroborates all 33 stored positive-credit units and unequal weights, closing 60/60/60 without elective space. Scientific placement 14, preparatory scientific stage 1, clinical/preclinical skills lines and professional/academic formation are separately weighted once. Explicit progression and patient-treatment/practical attendance gates remain supported. Active Dutch full-time bachelor identity is supported. ACTA collaboration between UvA and VU does not, by itself or by the OER’s generic joint-degree definition, establish a joint award or require changing this UvA registry target.
+
+Provenance: data/counselor/comparisons/cp-000436.json; source worksheet row(s) 454. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+No decision_case_ids are attached; registry metadata, raw offering IDs and source-row sets reconciled.
+
+Current official sources (checked 8 October 2026):
+
+- [Dentistry (Tandheelkunde) official curriculum/regulations](https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/796c63de-a058-4154-81a6-153f0ea0c709/OER%20Bachelor%202026-2027%20DEF.pdf) — ACTA OER 11.3, printed pp.24–25 (physical26–27), visually checked; 9.1/11.2/11.4 progression; 2026–2027. The formal ACTA 2026–2027 OER corroborates all 33 stored positive-credit units and unequal weights, closing 60/60/60 without elective space. Scientific placement 14, preparatory scientific stage 1, clinical/preclinical skills lines and professional/academic formation are separately weighted once. Explicit progression and patient-treatment/practical attendance gates remain supported. Active Dutch full-time bachelor identity is supported. ACTA collaboration between UvA and VU does not, by itself or by the OER’s generic joint-degree definition, establish a joint award or require changing this UvA registry target.
+- [Dentistry (Tandheelkunde) official programme context](https://studiegids.vu.nl/nl/Bachelor/2026-2027/tandheelkunde) — Programme identity, language, curriculum and selected route context; 2026–2027. ACTA is UvA/VU collaboration; collaboration alone is not joint-award evidence.
+- [Dentistry (Tandheelkunde) official programme context](https://acta.nl/nl/onderwijs/bachelor-tandheelkunde) — Programme identity, language, curriculum and selected route context; Current page checked 2026-10-08. ACTA is UvA/VU collaboration; collaboration alone is not joint-award evidence.
+- [Dentistry (Tandheelkunde) official programme context](https://acta.nl/nl/onderwijs/bachelor-tandheelkunde/inhoud) — Programme identity, language, curriculum and selected route context; Current page checked 2026-10-08. ACTA is UvA/VU collaboration; collaboration alone is not joint-award evidence.
+
+External credit structure: Stored arithmetic 180 EC. The formal ACTA 2026–2027 OER corroborates all 33 stored positive-credit units and unequal weights, closing 60/60/60 without elective space. Scientific placement 14, preparatory scientific stage 1, clinical/preclinical skills lines and professional/academic formation are separately weighted once. Explicit progression and patient-treatment/practical attendance gates remain supported. Active Dutch full-time bachelor identity is supported. ACTA collaboration between UvA and VU does not, by itself or by the OER’s generic joint-degree definition, establish a joint award or require changing this UvA registry target.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Cellen en Weefsels (T_CELWEEF) | 4 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 1 | Orale Biologie en Cariologie (T_B1BIOCARIO) | 8 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 1 | Directe Restauraties (T_B1DIRREST) | 7 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 1 | Introductie (T_B1INTRO) | 4 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 1 | Onderzoeksmethoden en Statistiek (T_B1ONDZSTAT) | 5 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 1 | Microbiologie in de Tandheelkunde (T_B1MICROBIO) | 4 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 1 | Orgaansystemen (T_ORGAAN) | 8 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 1 | Lijn Professionele Ontwikkeling en Academische Vorming 1 (T_B1LPROFAC) | 2 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 1 | Lijn Tandheelkundige Vaardigheden 1A (T_B1LTV1A) | 9 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 1 | Lijn Tandheelkundige Vaardigheden 1B (T_B1LTV1B) | 9 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 2 | Preventie (T_B2PREV) | 4 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 2 | Zorgplanning I (T_B2ZORG) | 4 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 2 | Immunologie en Pathologie (T_B2IMMUPATH) | 4 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 2 | Lijn Tandheelkundige Vaardigheden 2A (T_B2LTV2A) | 8 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 2 | Lijn Tandheelkundige Vaardigheden 2B (T_B2LTV2B) | 8 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 2 | Lijn Professionele Ontwikkeling en Academische Vorming 2 (T_B2LPROFAC2) | 3 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 2 | Verdieping Cariologie en Parodontologie (T_B2CARIOPAR) | 4 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 2 | Voorbereiding Wetenschappelijke Stage (T_B2VWS) | 1 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 2 | Functieherstel met kronen (T_FUNCTIEKR) | 7 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 2 | Lijn tandheelkundige preventie (T_LTANDPREV) | 6 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 2 | Parodontitis I (T_PAROI) | 4 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 2 | De Medisch Complexe Patiënt 1 (T_B2MEDPAT) | 7 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 3 | Functieherstel met bruggen (T_FUNCTIEBRG) | 4 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 3 | Orale Biologie en parodontologie (T_B3OBIOPARO) | 4 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 3 | Medisch complexe patiënt 2 (T_B3MCPAT2) | 6 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 3 | Evidence-based tandheelkunde (T_B3EBTHK) | 4 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 3 | Wetenschappelijke stage (T_B3WSTAGE) | 14 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 3 | Introductie in de endodontologie (T_B3INTRENDO) | 4 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 3 | Lijn Preventie & behandeling (T_B3LPREVBEH) | 10 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 3 | Lijn Preventie en behandeling, Radiologie (T_LPBRADIO) | 2 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 3 | Lijn Indirecte restauratie (T_B3LINDREST) | 10 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 3 | Lijn professionele ontwikkeling en academische vorming 3 (T_B3LPROFAC3) | 1 | required; Separately weighted formal unit; embedded activities are not added again. |
+| 3 | Professioneel gedrag (T_PG) | 1 | required; Separately weighted formal unit; embedded activities are not added again. |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Published 2026–2027 weighted external requirement template. Future offerings and pacing must be refreshed at implementation; no independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- No free elective or route-selection allowance in the formal 180-EC table.
+- Scientific placement 14 requires passed first-year Research Methods and Statistics and second-year Preparation Scientific Stage 1.
+- Year-two clinical skills and prevention require specified year-one biology, restoration and skills prerequisites. Year-three Prevention and Treatment requires passed year-two Prevention, Zorgplanning, Parodontitis I and both skills lines.
+- Patient treatment requires sufficient preclinical results; practicum attendance is at least 90%, subject to an authorized exception.
+- Professional conduct 1 EC is released after the other 179 EC under OER 3.11; this is a required final formation unit.
+- ACTA collaboration alone does not establish a joint award; retain the current UvA target and Dutch full-time identity.
+
+Result: confirmed; required action: none.
+
+Recommended follow-up: Retain the current external structure and embedded/credited clinical formation. Preserve the distinct ACTA collaboration and UvA registry target. Bachelor completion is separate from the later master/dentist qualification; no independent UCR conclusion was checked.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000437 — Theatre Studies (Theaterwetenschap)
+
+Institution: University of Amsterdam. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-28.
+
+Existing substantive reason: The defining curriculum requires substantial staged study in dramaturgy, theatre and performance history, Theatre Studies theory and methods, live-performance analysis, theatre-text analysis, the movement from text to performance, Dutch theatre history, performance philosophy and an independent Theatre Studies thesis. Even allowing all 42 EC of genuine free choice and both 6-EC restricted choices, the current UCR catalogue has no Theatre Studies course, no dramaturgy course, no theatre-history sequence and no live-performance-analysis sequence. A 24-course programme assembled from literature, media, communication, art history and cultural studies would replace the discipline with adjacent fields rather than provide a defensible closest UCR match.
+
+The Theatre Studies curriculum totals 126 required + 12 restricted choice + 42 genuinely free = 180, but both 6-EC restricted slots remain uninstantiated. Current order selects Focus on Women 6 in year two and Art Education 6 in year three: skip the intervening Dance Developments course because it carries 12, not an eligible 6 for the remaining slot. The first choice’s hard gate is the propedeuse; second-year history is recommended background, not a new hard failure. Compulsory Global Performance Histories is English-taught, contradicting NLD-only metadata. Zero-credit diagnostic/tutoring formation is missing.
+
+Provenance: data/counselor/comparisons/cp-000437.json; source worksheet row(s) 455. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+No decision_case_ids are attached; registry metadata, raw offering IDs and source-row sets reconciled.
+
+Current official sources (checked 8 October 2026):
+
+- [Theatre Studies (Theaterwetenschap) official curriculum/regulations](https://www.uva.nl/programmas/bachelors/theaterwetenschap/studieprogramma/studieprogramma.html) — Programme identity, language, curriculum and selected route context; Current page checked 2026-10-08. Published Theatre Studies curriculum contains required disciplinary study, restricted choice 12 and genuine free 42; current weighted catalogue supplies concrete restricted selections.
+- [Theatre Studies (Theaterwetenschap) official programme context](https://www.uva.nl/programmas/bachelors/theaterwetenschap/theaterwetenschap.html) — Programme identity, language, curriculum and selected route context; Current page checked 2026-10-08. Current identity and source context qualified by weighted catalogue/course records below.
+- [UvA 2026–2027 weighted Theatre Studies (Theaterwetenschap) curriculum](https://studiegids.uva.nl/nl/opleidingen/2026/1/5718/39579) — Published curriculum nodes and course weights via official public catalogue API used by its client; one selected study path; 2026–2027. The Theatre Studies curriculum totals 126 required + 12 restricted choice + 42 genuinely free = 180, but both 6-EC restricted slots remain uninstantiated. Current order selects Focus on Women 6 in year two and Art Education 6 in year three: skip the intervening Dance Developments course because it carries 12, not an eligible 6 for the remaining slot. The first choice’s hard gate is the propedeuse; second-year history is recommended background, not a new hard failure. Compulsory Global Performance Histories is English-taught, contradicting NLD-only metadata. Zero-credit diagnostic/tutoring formation is missing.
+- [UvA current course: Bachelorscriptie Theaterwetenschap](https://studiegids.uva.nl/nl/vakken/2026/1/57672) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Theatre thesis 12, Dutch; passed first year and compulsory second-year courses required.
+- [UvA current course: Kunsteducatie](https://studiegids.uva.nl/nl/vakken/2026/1/58389) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Selected Art Education 6, Dutch; positive BSA is the hard gate.
+- [UvA current course: Global Performance Histories and Practices](https://studiegids.uva.nl/nl/vakken/2026/1/61344) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Compulsory Global Performance Histories 6, English.
+- [UvA current course: Focus op vrouwen: nieuwe perspectieven op de Nederlandse theatergeschiedenis](https://studiegids.uva.nl/nl/vakken/2026/1/61876) — Actual current offering language, credits and progression fields; Dutch catalogue publication is separate from instruction; 2026–2027. Selected Focus on Women 6, Dutch, period one. Propedeuse is the hard gate; first- and second-year history is recommended background.
+
+External credit structure: Stored arithmetic 180 EC. The Theatre Studies curriculum totals 126 required + 12 restricted choice + 42 genuinely free = 180, but both 6-EC restricted slots remain uninstantiated. Current order selects Focus on Women 6 in year two and Art Education 6 in year three: skip the intervening Dance Developments course because it carries 12, not an eligible 6 for the remaining slot. The first choice’s hard gate is the propedeuse; second-year history is recommended background, not a new hard failure. Compulsory Global Performance Histories is English-taught, contradicting NLD-only metadata. Zero-credit diagnostic/tutoring formation is missing.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Inleiding in de theaterwetenschap: concepten (117121016Y) | 6 | required |
+| 1 | Dramaturgie (117117062Y) | 12 | required |
+| 1 | Een cultuurgeschiedenis van het Europese theater: van de oudheid tot de vroegmoderne tijd (117121066Y) | 6 | required |
+| 1 | Academische vaardigheden Theaterwetenschap (117121046Y) | 6 | required |
+| 1 | Global Performance Histories and Practices (117121056Y) | 6 | required |
+| 1 | Inleiding in de theaterwetenschap: theorieën en methoden (117121026Y) | 6 | required |
+| 1 | Kunst - cultuur - samenleving (114121086Y) | 6 | required |
+| 1 | Performance Analyse (117117082Y) | 12 | required |
+| 2 | Theatertekstanalyse (117217396Y) | 6 | required |
+| 2 | Van tekst naar voorstelling (117217012Y) | 12 | required |
+| 2 | Wetenschapsfilosofie (Kunst- en cultuurwetenschappen) (109216066Y) | 6 | required |
+| 2 | Kaskrakers en andere stukken. Nederlandse theatergeschiedenis vanaf 1638, in een Europese context (117221102Y) | 12 | required |
+| 2 | Wetenschapsfilosofie Theaterwetenschap (117216816Y) | 6 | required |
+| 2 | Studiereis Theaterwetenschap (117217246Y) | 6 | required |
+| 2 | Focus op vrouwen: nieuwe perspectieven op de Nederlandse theatergeschiedenis (117221436Y) | 6 | selected restricted option; First eligible nonrepeated 6-EC selection in official order; hard gates distinguished from recommended background. |
+| 2 | Approved free profiling space | 6 | open elective; Genuine approved profiling remains generic; apply level, nonoverlap and approval conditions. |
+| 3 | Performing Ecokritiek: Theater, theorie en het actuele klimaatdiscours (117221116Y) | 6 | required |
+| 3 | Kunsteducatie (117210006Y) | 6 | selected restricted option; First eligible nonrepeated 6-EC selection in official order; hard gates distinguished from recommended background. |
+| 3 | Approved free profiling space | 36 | open elective; Genuine approved profiling remains generic; apply level, nonoverlap and approval conditions. |
+| 3 | Bachelorscriptie Theaterwetenschap (117219002Y) | 12 | required |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Published 2026–2027 weighted external requirement template. Future offerings and pacing must be refreshed at implementation; no independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- First eligible 6-EC choice in current order: Focus on Women in year two. First remaining eligible 6-EC choice: Art Education in year three. Dance Developments has 12 EC and is not cut in half.
+- Focus requires the propedeuse. Year-two theatre history is recommended background, separate from the hard gate. Art Education requires positive BSA.
+- Thesis requires propedeuse and compulsory year-two courses completed. Refresh scheduling and advisory preparation at remediation.
+- Genuine free 42 = 6 in year two + 36 in year three. Optional internship stays within this space.
+
+Compulsory zero-credit formation, without adding EC:
+
+| Code | Requirement | Study years | EC |
+|---|---|---|---:|
+| 109121025Y | Diagnostische toets taalvaardigheid | 1 | 0 |
+| 11702A025Y | Tutoraat en studiebegeleiding bachelor Theaterwetenschap | 1, 2, 3 | 0 |
+
+Result: incorrect; required action: correct-registry-and-reprocess.
+
+Incorrect concerns specified external formation, restricted choices or normalized instruction facts. No independent UCR finding; current discovery alone does not prove a dated change from earlier correctness.
+
+Secondary attribute finding(s):
+
+- normalized instruction language: incorrect; stored ["NLD"], verified ["NLD", "ENG"]. Separate closure: External cohort clarification where unresolved; later independent UCR outcome.
+
+Recommended follow-up: Instantiate the two eligible 6-EC restricted courses without repetition or cutting a 12-EC course in half. Correct NLD + ENG and add zero-credit formation. Preserve genuinely free 6 + 36, with internship an option within that space. Apply Focus’s propedeuse gate, Art Education’s positive BSA and the thesis’s passed first-year/compulsory second-year gate; refresh future offerings and advisory preparation at implementation.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+Implementation plan — **not implemented; audit only**:
+
+- `data/registry/programmes.csv`, fields: `languages_json`, `corrected_attributes_json`, `official evidence linkage`. Persist source-qualified instruction ["NLD", "ENG"], preserving raw NLD, permanent ID, offerings and source crosswalks. Teaching media, required foreign-language work and studied languages remain distinguished.
+- `data/registry/resolution_decisions.csv and resolution_sources.csv`, fields: `reproducible researched override and supporting evidence`. Use documented correction workflow without rewriting raw provenance or inventing ambiguity cases.
+- `data/counselor/decisions/cp-000437.json`, fields: `sources`, `comparator.components`, `comparator.route/routeSelection`, `comparator.academicYear/sourceNotes`, `exception external reason/context/date`. Instantiate the two eligible 6-EC restricted courses without repetition or cutting a 12-EC course in half. Correct NLD + ENG and add zero-credit formation. Preserve genuinely free 6 + 36, with internship an option within that space. Apply Focus’s propedeuse gate, Art Education’s positive BSA and the thesis’s passed first-year/compulsory second-year gate; refresh future offerings and advisory preparation at implementation. Preserve UCR reasons/evidence as provenance until later independent assessment.
+- `data/counselor/comparisons/cp-000437.json`, fields: `programmeProvider`, `comparator`, `exception source/context/date`. Compile affected canonical record from corrected registry and compact decision; reassess exception without automatic comparison conversion.
+- `data/counselor/review-programmes.json and affected generated artifacts`, fields: `affected curriculum/metadata/source/choice/cohort summaries`. Regenerate affected artifacts and reconcile counts after supported remediation.
+
+Dependencies:
+
+- Reconfirm applicable cohort, future course availability and all source-qualified fields at remediation; independent UCR feasibility remains pending.
+
+Verification and closure checks:
+
+- Count each distinct positive-credit unit once; no stacking of alternatives, parent allocations, zero-credit formation or embedded activities.
+- Keep genuine free space generic; restricted choices need actual course weights and hard prerequisite sequence. Advisory background remains separate.
+- Preserve raw source and identity provenance; normalized, compact, canonical and generated outputs must agree after relevant validators.
+- Close known registry/formation corrections independently of research blockers and later UCR fit.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+### cp-000459 — Food Technology
+
+Institution: Wageningen University & Research. Audit scope: External-programme identity, defining curriculum, credit/choice reconstruction and source context; no independent UCR feasibility assessment.
+
+Existing formal type: `no-defensible-ucr-match`; existing check date: 2026-09-28.
+
+Existing substantive reason: The defining common curriculum is a specialist food-science and engineering sequence: two levels of organic and general chemistry, food microbiology and chemistry, food physics and engineering, preservation, hazards, packaging, quality systems, integrated product properties and a 24-EC food-science thesis. UCR offers adjacent life-science, sustainability and general product-design courses but no food-technology, chemistry, microbiology, process-engineering, preservation, packaging or food-quality sequence. Constructing a 24-course path would therefore require extensive padding with unrelated health, business or environmental courses and would produce a different degree. The 30-EC free-choice space cannot repair the missing 150-EC common core.
+
+The current public WUR handbook and all relevant course records corroborate the 123-EC compulsory cluster, one 3-EC mathematics option and 24-EC thesis, totalling common 150 plus genuine elective 30. The selected Mathematics Applied: Introduction is the first listed admissible option subject to prior education and study-adviser consultation; Statistics 1 is its alternative, not extra credit. General Safety and Laboratory Safety are mandatory zero-EC course descriptions despite false required flags in the programme table; the stored source notes already acknowledge both. Thesis entry is at least 102 compulsory/restricted EC including all first-year 60. English full-time 180-EC identity is supported; shared mathematics EN/NL course variants do not invalidate the English programme.
+
+Provenance: data/counselor/comparisons/cp-000459.json; source worksheet row(s) 478. Canonical provider, normalized registry, source-row and offering-ID sets agree; the current stored target is in scope. This set reconciliation does not itself verify its lifecycle/language attributes.
+
+No decision_case_ids are attached; registry metadata, raw offering IDs and source-row sets reconciled.
+
+Current official sources (checked 8 October 2026):
+
+- [Food Technology official curriculum/regulations](https://www.wur.nl/en/education/bachelor/bachelors-food-technology) — Programme identity, language, curriculum and selected route context; Current page checked 2026-10-08. Official programme identifies an English full-time three-year Food Technology bachelor. Exact cluster weights and course prerequisites are controlled by the current handbook.
+- [Food Technology official programme context](https://studyhandbook.wur.nl/studies/BFT?type=bachelor&year=2026) — Programme identity, language, curriculum and selected route context; Current page checked 2026-10-08. Current identity and source context qualified by weighted catalogue/course records below.
+- [WUR current course: Introduction to Cell Biology](https://studyhandbook.wur.nl/courses/CBI10806?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Introduction to Food Technology](https://studyhandbook.wur.nl/courses/FQD10806?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: General Safety](https://studyhandbook.wur.nl/courses/ZSS06000?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Mandatory safety requirement established by course prose, despite programme table required=false; already acknowledged in stored source notes.
+- [WUR current course: Laboratory Safety](https://studyhandbook.wur.nl/courses/ZSS06100?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Mandatory safety requirement established by course prose, despite programme table required=false; already acknowledged in stored source notes.
+- [WUR current course: Organic Chemistry 1](https://studyhandbook.wur.nl/courses/ORC12803?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: General Chemistry 1](https://studyhandbook.wur.nl/courses/PCC12303?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: General Chemistry 2](https://studyhandbook.wur.nl/courses/PCC12403?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Statistics 2](https://studyhandbook.wur.nl/courses/MAT15403?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Organic Chemistry 2](https://studyhandbook.wur.nl/courses/ORC12903?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Nutritional Aspects of Foods](https://studyhandbook.wur.nl/courses/FCH11306?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Mathematics Applied: Analysis](https://studyhandbook.wur.nl/courses/MAT15103?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Mathematics Applied: Linear Algebra](https://studyhandbook.wur.nl/courses/MAT15203?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Microbiology & Toxicology](https://studyhandbook.wur.nl/courses/MIB11806?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Presentation Skills (BSc)](https://studyhandbook.wur.nl/courses/ELS10301?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Food Production Chains](https://studyhandbook.wur.nl/courses/FPE10808?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Physical Chemistry for Food Scientists](https://studyhandbook.wur.nl/courses/FPH10803?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Food Microbiology](https://studyhandbook.wur.nl/courses/FHM20306?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Mathematical Concepts for Food Technology](https://studyhandbook.wur.nl/courses/FPE20806?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Food Chemistry](https://studyhandbook.wur.nl/courses/FCH20806?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Food Preservation Processes](https://studyhandbook.wur.nl/courses/FPE21306?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Food Physics](https://studyhandbook.wur.nl/courses/FPH20306?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Food Engineering](https://studyhandbook.wur.nl/courses/FPE20306?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Food Hazards](https://studyhandbook.wur.nl/courses/FHM22806?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Food Packaging and Design](https://studyhandbook.wur.nl/courses/FQD21306?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Discipline Integrating Properties of Foods](https://studyhandbook.wur.nl/courses/FCH22308?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Quality Systems Operations](https://studyhandbook.wur.nl/courses/FQD20804?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Case Studies Product Quality](https://studyhandbook.wur.nl/courses/FQD24306?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Each unit counted once.
+- [WUR current course: Mathematics Applied: Introduction](https://studyhandbook.wur.nl/courses/MAT14803?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. English-compatible mathematics offering selected; shared EN/NL course variants do not change English degree identity.
+- [WUR current course: BSc Thesis Food Science and Technology](https://studyhandbook.wur.nl/courses/YFS80824?year=2026) — Public handbook MODULE record for2026; courseweightanddescription checked; 2026–2027. Current individual course EC agrees with weighted programme cluster. Thesis programme entry requires 102 compulsory or restricted EC, including first-year 60; second-year courses are assumed background.
+- [WUR Food Technology current weighted handbook](https://studyhandbook.wur.nl/studies/BFT?type=bachelor&year=2026) — Official public client GET /api/product?code=BFT&year=2026&type=STUDY, nested common/elective clusters and phase labels; 2026–2027. Current common 150 = 123 compulsory + 3 mathematics option + 24 thesis. Positive courses close 60/60/60 by phase, including free 30. The optional cluster with minimum zero and the internship remain within profiling. Thesis entry is 102 including first-year 60. Mandatory safety course descriptions control over false programme flags.
+
+External credit structure: Stored arithmetic 180 EC. The current public WUR handbook and all relevant course records corroborate the 123-EC compulsory cluster, one 3-EC mathematics option and 24-EC thesis, totalling common 150 plus genuine elective 30. The selected Mathematics Applied: Introduction is the first listed admissible option subject to prior education and study-adviser consultation; Statistics 1 is its alternative, not extra credit. General Safety and Laboratory Safety are mandatory zero-EC course descriptions despite false required flags in the programme table; the stored source notes already acknowledge both. Thesis entry is at least 102 compulsory/restricted EC including all first-year 60. English full-time 180-EC identity is supported; shared mathematics EN/NL course variants do not invalidate the English programme.
+
+Verified reconstruction for later external remediation (audit evidence only):
+
+| Study year | Component | EC | Status / qualification |
+|---|---|---:|---|
+| 1 | Introduction to Cell Biology (CBI10806) | 6.0 | required |
+| 1 | Introduction to Food Technology (FQD10806) | 6.0 | required |
+| 1 | Organic Chemistry 1 (ORC12803) | 3.0 | required |
+| 1 | General Chemistry 1 (PCC12303) | 3.0 | required |
+| 1 | General Chemistry 2 (PCC12403) | 3.0 | required |
+| 1 | Statistics 2 (MAT15403) | 3.0 | required |
+| 1 | Organic Chemistry 2 (ORC12903) | 3.0 | required |
+| 1 | Nutritional Aspects of Foods (FCH11306) | 6.0 | required |
+| 1 | Mathematics Applied: Analysis (MAT15103) | 3.0 | required |
+| 1 | Mathematics Applied: Linear Algebra (MAT15203) | 3.0 | required |
+| 1 | Microbiology & Toxicology (MIB11806) | 6.0 | required |
+| 1 | Presentation Skills (BSc) (ELS10301) | 1.0 | required |
+| 1 | Food Production Chains (FPE10808) | 8.0 | required |
+| 1 | Physical Chemistry for Food Scientists (FPH10803) | 3.0 | required |
+| 1 | Mathematics Applied: Introduction (MAT14803) | 3.0 | selected restricted option; Mathematics option depends on prior education and adviser agreement; retain existing firstlisted admissible candidate. |
+| 2 | Food Microbiology (FHM20306) | 6.0 | required |
+| 2 | Mathematical Concepts for Food Technology (FPE20806) | 6.0 | required |
+| 2 | Food Chemistry (FCH20806) | 6.0 | required |
+| 2 | Food Preservation Processes (FPE21306) | 6.0 | required |
+| 2 | Food Physics (FPH20306) | 6.0 | required |
+| 2 | Food Engineering (FPE20306) | 6.0 | required |
+| 2 | Food Hazards (FHM22806) | 6.0 | required |
+| 2 | Food Packaging and Design (FQD21306) | 6.0 | required |
+| 2 | Discipline Integrating Properties of Foods (FCH22308) | 8.0 | required |
+| 2 | Quality Systems Operations (FQD20804) | 4.0 | required |
+| 3 | Case Studies Product Quality (FQD24306) | 6.0 | required |
+| 3 | BSc Thesis Food Science and Technology (YFS80824) | 24.0 | required |
+| 3 | Approved free profiling space | 30 | open elective; Genuine approved profiling remains generic; apply level, nonoverlap and approval conditions. |
+
+Total: **180 EC**; study-year totals **60 + 60 + 60**. Published 2026–2027 weighted external requirement template. Future offerings and pacing must be refreshed at implementation; no independent UCR feasibility assessed.
+
+Choice and source-context rules:
+
+- Compulsory cluster 123 + one restricted mathematics option 3 + thesis 24 = common 150; genuine elective 30 completes 180.
+- Retain MAT14803 as the selected option. Statistics 1 (MAT15303) is its alternative; choose according to prior education in consultation with the adviser.
+- The optional restricted cluster has minimum zero. Internship 12 replaces part of electives.
+- Thesis start requires at least 102 compulsory or restricted EC, including all first-year 60. Second-year courses are listed as assumed background.
+- General Safety and Laboratory Safety are mandatory 0 EC under individual course descriptions, despite false programme required flags. Stored notes already acknowledge both.
+- Select an English-compatible mathematics section; shared EN/NL course variants do not mandate Dutch for the English degree.
+
+Compulsory zero-credit formation, without adding EC:
+
+| Code | Requirement | Study years | EC |
+|---|---|---|---:|
+| ZSS06000 | General Safety | 1 | 0 |
+| ZSS06100 | Laboratory Safety | 1 | 0 |
+
+Both safety requirements are already recognized in stored source notes. Current individual course descriptions establish their mandatory status despite false required flags in the programme table; this is not classified as a newly omitted requirement.
+
+Result: confirmed; required action: none.
+
+Recommended follow-up: Retain the current positive-credit structure and recognized zero-credit safety formation. Keep mathematics selection conditional on prior preparation/adviser agreement, use the English-compatible offering, keep optional restricted cluster with minimum zero and internship within genuine electives, and retain thesis entry 102 including first-year 60. Do not stack all optional courses or add safety credits.
+
+No material external factual question remains within this scope. Final registry/currentness reconciliation and UCR decisions remain subject to the dependencies below where applicable.
+
+UCR-side assessment pending: **yes**. Existing UCR claims are preserved as provenance only; no independent UCR fit conclusion is drawn. Registry/current-cohort prerequisites must be resolved before any later UCR comparison.
+
+## First-stage completion and next step
+
+All 159 frozen audit cases are complete: 19 scope exclusions and 140 production exceptions across 16 batches. No pending cases or next batch remain. All 20 external-unresolved, 117 no-match and 3 registry-exception cases have received this audit. Completed unresolved findings remain research-dependent follow-up work.
+
+All 150 earlier case objects, prior sources and fifteen batch evidence blocks are preserved. Registry, compact/canonical records, generated artifacts and governing rules remain unchanged. The frozen population stays fixed even if later remediation changes production scope.
+
+The next step is to consolidate and execute the recorded actions. Current actionable corrections should proceed separately from future-cohort changes and research-dependent blockers. The queue contains 39 exception reassessments, 47 registry-correction/reprocessing actions and 11 research-later actions; 62 cases need no action in this scope. Reassess an exception after its external facts are corrected. Conversion into a comparison requires a later supported UCR decision.
+
+For implementation, use each case’s exact target paths, field changes, dependencies, verification/closure checks and research trigger. Preserve raw provenance and permanent IDs, regenerate affected outputs, run applicable validators, and close supported external/registry corrections separately from remaining research and later UCR comparability. Consolidation/remediation and independent UCR assessment have not been executed by this final audit batch.
 
 ## Production-data boundary
 
