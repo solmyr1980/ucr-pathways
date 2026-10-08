@@ -359,7 +359,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 | cp-000248 — Bachelor Electrical Engineering | Replaced quarter aggregates with 28 course/choice components and exact current weights; Instantiated two distinct restricted EEX choices; retained the 30-EC minor; Corrected current prerequisite, language and period-conflict context; verified 180 EC | None within this correction. |
 | cp-000249 — Bachelor Industrial Design Engineering | Corrected the compulsory-study narrative to 115 required EC and 65 EC of profiling/choice; Preserved all 25 accurate components, four distinct category slots, 30-EC minor and 15-EC final project | None within this correction. |
 | cp-000250 — Bachelor Clinical Technology | Corrected minor from 15 to 30 EC and removed three duplicated third-year courses and the unsupported AV3/essay entry; Updated current heart/lung titles and the printed placement weight; recorded 27 unique components; Replaced unsupported no-match closure with an explicit external credit-conflict exception | Obtain authoritative clarification of KT2755 or another current credit/credit-sharing rule reconciling the printed 60+61+60 requirements with the 180-EC degree. |
-| cp-000252 | Pending | Pending |
+| cp-000252 — Bachelor Aerospace Engineering | Added ENG to normalized instruction metadata while retaining currently advertised Dutch–English delivery; Preserved raw NLD offering, permanent identity and the 22-component 180-EC pre-2027 curriculum; Recompiled canonical provider metadata and generated summaries | None within this correction. |
 | cp-000253 | Pending | Pending |
 
 ### cp-000248
@@ -390,3 +390,14 @@ This correction changes the external compulsory/choice narrative only. It does n
 Verification: Fresh adopted OER tables visually inspected; placement is printed 4.5 EC and final-year major is exactly four units totaling 30. Independent printed year totals are 60, 61 and 60; all 27 component identifiers are unique. No duplicate alternatives, inferred weight adjustment or extra thesis/skills credit is used. Deterministic compilation, target validators and generated-index checks passed.
 
 Known factual errors are corrected. The published one-credit contradiction remains an external question; the diagnostic component total is explicitly 181, not asserted as a valid pathway. This finite check is complete; no monitoring is scheduled.
+
+### cp-000252
+
+- [Aerospace Engineering programme](https://www.tudelft.nl/onderwijs/opleidingen/bachelors/ae/bsc-aerospace-engineering) — Degree facts and language. Checked 8 October 2026. SHA-256: `96a23e41ba788fdd0400a1f88b28ca3146fb5014a50677655b9eaf93cfae3c5a`.
+- [Aerospace Engineering Implementation Regulations 2026–2027](https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/LR/Onderwijs/Education/AE%20IR%202026-2027%20final.pdf) — Articles 1–2; PDF p. 3. Checked 8 October 2026. SHA-256: `e865d9f6352ecdb1d598a496b95497821f98a7c028bfe0a7fd24f7901a1d1260`.
+- [Aerospace Engineering BSc modules and courses](https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/LR/Onderwijs/BSc%20Curriculum%202022-2023.pdf) — Whole chart, July 2022 footer, thick module versus subcomponent boundaries. Checked 8 October 2026. SHA-256: `c0f87f8733c73b703c1a564fdabb9e5611b3c075b50cae7c6b9ef8424a93c1f0`.
+- [Aerospace Engineering current English programme page](https://www.tudelft.nl/en/onderwijs/opleidingen/bachelors/ae/bsc-aerospace-engineering) — Language facts panel; admission deadline 15 January 2027. Checked 8 October 2026. SHA-256: `d38d5df1958a4fb742dd0131eb8f204142f5e735ecab5ceea0abd678ef520275`.
+
+Verification: Fresh Dutch and English official programme pages both state English or Dutch–English; bilingual context explicitly recorded. Current IR and linked module chart retrieved; degree allocation remains 60+60+30+15+15 = 180. Guarded registry replay reproduces the language correction; raw offerings/source rows are unchanged. Deterministic compilation, target validators and generated-index checks passed.
+
+Fresh evidence narrows the correction to adding ENG, rather than removing NLD as the prior audit proposed. Current prospectus delivery options are not used to alter the selected 2026-cohort curriculum. The original audit remains immutable.

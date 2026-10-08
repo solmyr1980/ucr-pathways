@@ -249,6 +249,66 @@
         }
       ],
       "unresolved_fields": []
+    },
+    {
+      "correction_id": "stage1-remediation-cp-000252",
+      "counselor_programme_id": "cp-000252",
+      "checked_on": "2026-10-08",
+      "identity_guard": {
+        "canonical_name": "Bachelor Luchtvaart- en Ruimtevaarttechniek",
+        "source_excel_rows_json": "[265]",
+        "offering_ids_json": "[\"147a30cb-edf7-0336-e063-63beb483d396\"]",
+        "recognized_programme_codes_json": "[]"
+      },
+      "before": {
+        "languages_json": "[\"NLD\"]"
+      },
+      "overrides": {
+        "languages_json": "[\"ENG\", \"NLD\"]"
+      },
+      "reason": "Correct NLD-only normalized instruction metadata using current official English/Dutch prospectus evidence. Fresh source states English or Dutch–English, so retain NLD rather than apply the earlier audit ENG-only proposal. Raw offering language and permanent identity and raw provenance fields are unchanged; the correction trace is updated. The selected 2026 pre-2027 curriculum is retained.",
+      "sources": [
+        {
+          "url": "https://www.tudelft.nl/onderwijs/opleidingen/bachelors/ae/bsc-aerospace-engineering",
+          "title": "Aerospace Engineering programme",
+          "locator": "Degree facts and language",
+          "fact": "Fresh current public prospectus states Engels of Nederlands–Engels and explicitly mentions a bilingual track; the prior audit English-only proposal is too narrow for the currently advertised programme. ENG must be added; NLD remains supported by current official content as well as raw provenance.",
+          "academic_year": "Current official prospectus",
+          "date_checked": "2026-10-08",
+          "sha256": "96a23e41ba788fdd0400a1f88b28ca3146fb5014a50677655b9eaf93cfae3c5a",
+          "retrieval_qualification": "Freshly retrieved during this correction batch; source content inspected."
+        },
+        {
+          "url": "https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/LR/Onderwijs/Education/AE%20IR%202026-2027%20final.pdf",
+          "title": "Aerospace Engineering Implementation Regulations 2026–2027",
+          "locator": "Articles 1–2; PDF p. 3",
+          "fact": "Bachelor 180: first 60, second 60, minor 30, final major 15, Design Synthesis Exercise 15. Current student overview links the older module chart; revised public curriculum is explicitly September 2027 onward, so is excluded for 2026 entrant. Existing selected pre-2027 180 structure is supported.",
+          "academic_year": "Current 2026–2027",
+          "date_checked": "2026-10-08",
+          "sha256": "e865d9f6352ecdb1d598a496b95497821f98a7c028bfe0a7fd24f7901a1d1260",
+          "retrieval_qualification": "Freshly retrieved during this correction batch; source content inspected."
+        },
+        {
+          "url": "https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/LR/Onderwijs/BSc%20Curriculum%202022-2023.pdf",
+          "title": "Aerospace Engineering BSc modules and courses",
+          "locator": "Whole chart, July 2022 footer, thick module versus subcomponent boundaries",
+          "fact": "Official chart still linked by live student overview. Twenty-two stored modules total 60+60+60. Wind-tunnel 1 is inside Aerodynamics 7; AI3 inside Test/Analysis/Simulation 8; zero-credit English/reporting skills do not add credits. Research/design/test progression and DSE15 preserved without duplication. Chart visually inspected.",
+          "academic_year": "July 2022 chart; current pre-2027 applicability corroborated",
+          "date_checked": "2026-10-08",
+          "sha256": "c0f87f8733c73b703c1a564fdabb9e5611b3c075b50cae7c6b9ef8424a93c1f0",
+          "retrieval_qualification": "Freshly retrieved during this correction batch; source content inspected."
+        },
+        {
+          "url": "https://www.tudelft.nl/en/onderwijs/opleidingen/bachelors/ae/bsc-aerospace-engineering",
+          "title": "Aerospace Engineering current English programme page",
+          "locator": "Language facts panel; admission deadline 15 January 2027",
+          "fact": "Current public prospectus states English or Dutch–English; the Dutch page also explicitly describes a bilingual track. Both support adding ENG while retaining NLD. This prospectus language statement does not establish a new 2026-cohort curriculum.",
+          "academic_year": "Current prospectus; distinguishes pre-2027 curriculum from prospective intake",
+          "date_checked": "2026-10-08",
+          "sha256": "d38d5df1958a4fb742dd0131eb8f204142f5e735ecab5ceea0abd678ef520275"
+        }
+      ],
+      "unresolved_fields": []
     }
   ],
   "target_aliases": [
