@@ -77,7 +77,7 @@ Status: in-progress. Independent UCR reassessment remains separate.
 | Target | Implemented correction | Remaining work |
 |---|---|---|
 | cp-000040 — German Language and Culture | Corrected prospective academic-year labels and current formal authority; Restored year-two genuine free30 and formal restrictions; Removed unverified duplicated third-year15; published explicit external-programme-unresolved outcome | Obtain a current ordinary-route single-cohort repeat/replacement rule for LET-DTCB229, LET-DTCB225 and LET-DTCB235, or verify an applicable approved Article6 alternative. |
-| cp-000050 | Pending implementation | Pending |
+| cp-000050 — Classics (Greek and Latin Language and Culture) | Updated year-three label to2029–2030 and stated the prospective2027-entry sequence; Retained the supported180-EC domestic pathway and prospective-cohort qualification | None within this correction; UCR reassessment remains separate. |
 | cp-000051 | Pending implementation | Pending |
 | cp-000061 | Pending implementation | Pending |
 | cp-000070 | Pending implementation | Pending |
@@ -93,3 +93,13 @@ Status: in-progress. Independent UCR reassessment remains separate.
 Verification: Fresh downloads of current prospectus pages and both adopted OERs. Visually inspected OER p.7: three identical codes repeat in B2 and B3; 60+60+45=165 without counting them twice. Target validators, deterministic regeneration and generated-index check passed.
 
 The original audit confirmed the prospectus field basis, not an independently verified current formal pathway. The newly retrieved 2026–2027 OER exposes a separate cohort/repeat question; a future prospectus or conditional alternative is not substituted silently.
+
+### cp-000050
+
+- [Studieprogramma Griekse en Latijnse Taal en Cultuur jaar 1](https://www.ru.nl/opleidingen/bachelors/griekse-en-latijnse-taal-en-cultuur/studieprogramma-griekse-en-latijnse-taal-en-cultuur-jaar-1) — Indicative year label; compulsory-course and minor/free-space tables. Checked 8 October 2026.
+- [Studieprogramma Griekse en Latijnse Taal en Cultuur jaar 2](https://www.ru.nl/opleidingen/bachelors/griekse-en-latijnse-taal-en-cultuur/studieprogramma-griekse-en-latijnse-taal-en-cultuur-jaar-2) — Indicative year label; compulsory-course and minor/free-space tables. Checked 8 October 2026.
+- [Studieprogramma Griekse en Latijnse Taal en Cultuur jaar 3](https://www.ru.nl/opleidingen/bachelors/griekse-en-latijnse-taal-en-cultuur/studieprogramma-griekse-en-latijnse-taal-en-cultuur-jaar-3) — Indicative year label; compulsory-course and minor/free-space tables. Checked 8 October 2026.
+
+Verification: Fresh current year-page downloads show2027–2028/2028–2029/2029–2030. All25 credited components, domestic selection and existing UCR assessment retained unchanged. Deterministic regeneration, target validators and generated-index check passed.
+
+This closes the source-context finding. No historical page archive establishes when the label changed, so the correction does not retrospectively classify the original production as outdated or erroneous.
