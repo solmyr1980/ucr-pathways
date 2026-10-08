@@ -286,7 +286,7 @@ Live corpus: 439 in-scope records, 301 comparisons and 138 exceptions; 21 exclud
 
 ## Batch 5 — next five cases in audit order
 
-Status: in-progress. Independent UCR assessment remains separate.
+Status: completed. Independent UCR assessment remains separate.
 
 | Target | First-stage outcome | Remaining external question |
 |---|---|---|
@@ -294,7 +294,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 | cp-000199 — Dutch Language and Culture — track within Dutch Languages and Cultures | Retained CP199 permanently as an ineligible alias of CP198; Archived its original decision/comparison unchanged and redirected current crosswalk and interest ownership | None within this correction. |
 | cp-000205 — Religious Studies | Replaced the unqualified 30-EC open minor with the ordinary 15-EC minor and two restricted 7.5-EC faculty choices; Retained the selected specialisation and research/communication credits; verified a complete 180-EC ordinary pathway; Updated the formal authority and source/cohort qualifications; handed the corrected external basis to separate UCR assessment | None within this correction. |
 | cp-000246 — Bachelor Architecture, Urbanism and Building Sciences | Replaced three year-total placeholders with 24 required coded modules and the 30-EC minor; Verified 150 required + 30 minor = 180; kept the four-part final project inside existing credits; Recorded current source context and retrieval qualification; handed the explicit external reconstruction to separate UCR assessment | None within this correction. |
-| cp-000247 | Pending | Pending |
+| cp-000247 — Bachelor Civil Engineering | Corrected current Water en Techniek and formal Transport/Planning code context; Replaced the unrestricted 12-EC block/old Road and Railway unit with three fixed 4-EC units and two categorized 4-EC choices; Retained 30-EC minor and 10-EC project; verified 180 EC and handed the corrected external basis to separate UCR assessment | None within this correction. |
 
 ### cp-000198
 
@@ -331,3 +331,21 @@ The current official source resolves external allocation. This first-stage corre
 Verification: Fresh programme page corroborates module counts and weights: 60+30+25+20+15 required EC. The completed audit supplies the adopted formal module placement; independent year totals each equal 60. Final project is IOP1 10 + IOP2 10 + TE5 5 + WV6 5, counted once. Deterministic compiler, target validators and generated-index checks passed.
 
 The prior audit is substantive current-year evidence, not a new download. Current programme-page corroboration does not substitute for a newly inspected formal PDF. No UCR feasibility assessment is performed.
+
+### cp-000247
+
+- [Civil Engineering prospectus](https://www.tudelft.nl/onderwijs/opleidingen/bachelors/civiele-techniek/bsc-civiele-techniek) — Language, three years and construction/water/transport identity. Checked 8 October 2026. SHA-256: `beb4eeadfd813afde799f03a91bb6a444613eee705c8746ebad3ff65a935571e`.
+- [OER and Annex BSc Civiele Techniek 2026–2027](https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/CiTG/Onderwijs/OER%20regels%20en%20richtlijnen%20CiTG/BSC/2026-2027%20TER%20Annex_BoE/OER_Annex%20BSc%20CT%202026-2027.pdf) — Cohort 2026–2027 Annex articles 2–4, 12; PDF pp. 20–21, 23–26. Adopted 2026–2027 source content and visual verification are preserved in the completed 7 October audit. Fresh retrieval on 8 October returned HTTP Error 502: Bad Gateway; no new PDF retrieval or hash is claimed.
+- [Bachelor Civiele Techniek September 2026 chart](https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/CiTG/Onderwijs/Curriculumkaarten/2026-2027/TU%20Delft-20715-07-07-Flyers%20CT-V02.pdf) — Year tables, footer September 2026. Adopted 2026–2027 source content and visual verification are preserved in the completed 7 October audit. Fresh retrieval on 8 October returned HTTP Error 502: Bad Gateway; no new PDF retrieval or hash is claimed.
+
+Verification: Fresh programme page confirms disciplinary identity; adopted current Annex/chart details are retained from the completed audit. Current formal code takes precedence over the stale chart; Bouwplaats credit aggregation is preserved. Neutral Q3 and Q4 choices plus three fixed units, minor and project close the third year at 60 EC. Deterministic compiler, target validators and generated-index checks passed.
+
+Dated adopted-current-year evidence establishes the corrected structure despite present retrieval failures. No unsupported current course or filler is supplied, and no independent UCR judgment is drawn.
+
+### Batch 5 validation
+
+Five cases processed and all first-stage findings resolved. CP198 owns the Dutch track; CP199 is a retained permanent alias with unchanged archived records and consolidated active crosswalk/interest ownership. The generic CP200 umbrella remains distinct. Religious Studies, Architecture and Civil Engineering now contain explicit current 180-EC external reconstructions and await separate UCR assessment. No recurring monitoring was created.
+
+Target validators, deterministic compiler comparisons, guarded registry/alias replay, generated-index checks, meaningful alias conflict regressions, compiler regressions and full-corpus validation passed. Final GitHub publication checks are verified after publication. The original audit, upstream source evidence and earlier batch histories remain unchanged.
+
+Live corpus: 438 in-scope records, 301 comparisons and 137 exceptions; 22 excluded permanent targets. Exception types: 19 external-programme-unresolved, 111 no-defensible-ucr-match, 7 ucr-assessment-pending. No in-scope record is missing.
