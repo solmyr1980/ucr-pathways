@@ -2,7 +2,7 @@
 
 **Status:** Future idea
 
-**Current decision:** Preserve this as a future methodological plan. Do not treat it as a current production requirement until explicitly activated.
+**Current decision:** Preserve this as a future methodological and implementation plan. Do not treat it as a current production requirement until explicitly activated.
 
 ## Purpose
 
@@ -10,13 +10,13 @@ Answer the student-facing question:
 
 > Given this suggested UCR curriculum, what kinds of master's programmes have students with academically similar UCR curricula subsequently entered?
 
-The proposed method does not begin by building a complete master's-programme database. Instead, it uses observed UCR alumni trajectories as the empirical bridge between a proposed UCR curriculum and actual postgraduate destinations.
+The method does not begin by building a complete master's-programme database. Instead, it uses observed UCR alumni trajectories as the empirical bridge between a proposed UCR curriculum and actual postgraduate destinations.
 
 ## Core architecture
 
 The method uses three objects:
 
-1. **Proposed UCR curriculum** — the 24-course curriculum generated in a counselor comparison.
+1. **Proposed UCR curriculum** — the curriculum generated for a counselor comparison or student record.
 2. **Historical UCR curriculum** — the actual set of UCR courses completed by an alumnus.
 3. **Observed master's destination** — the master's programme subsequently entered by that alumnus.
 
@@ -27,6 +27,26 @@ The main methodological task is therefore to measure proximity between objects 1
 `proposed UCR curriculum -> proximity to historical UCR curriculum -> observed master's programme`
 
 This avoids requiring complete coverage of the international master's-programme universe and uses actual UCR trajectories as evidence.
+
+## Role of deterministic matching and the LLM
+
+The intended production architecture is **hybrid**, not fully deterministic.
+
+The deterministic component should not itself decide which master's programmes to recommend. Its main role is to retrieve a manageable set of historically similar alumni curricula from the full alumni corpus.
+
+For each counselor comparison or student record:
+
+1. the LLM constructs the proposed UCR curriculum using the enriched UCR course database under the existing production workflow;
+2. deterministic code compares that curriculum with the historical alumni curricula;
+3. the code returns a shortlist of the closest historical curricula, with their proximity scores and observed master's destinations;
+4. the LLM inspects that shortlist and makes the final substantive judgment about which master's destinations are genuinely informative for the proposed curriculum;
+5. the record is completed under the normal one-by-one production workflow.
+
+This preserves the existing UCR Pathways principle that the LLM makes the final academic judgment for each record while using deterministic retrieval to avoid asking the model to search exhaustively through thousands of alumni trajectories.
+
+With roughly 3,000 alumni and about 24 UCR courses per alumnus, the full corpus contains around 72,000 historical alumni-course observations. This is feasible for deterministic retrieval but should not be supplied wholesale to the LLM for every individual production task.
+
+The size of the final shortlist remains to be tested. A working starting range might be approximately 20–50 historical curricula.
 
 ## Course-level proximity
 
@@ -56,7 +76,7 @@ Administrative material, assessment logistics, attendance rules and similar non-
 
 The current preferred approach is to use an LLM to assign a standardized academic proximity score to each unique pair of courses under a fixed rubric.
 
-With roughly 600 distinct courses, this implies approximately 180,000 unique course pairs, which is computationally feasible.
+With roughly 600 distinct courses, this implies approximately 179,700 unique course pairs, which is computationally feasible as a one-off or infrequently repeated production step.
 
 The rubric still needs to be designed and validated. It should judge substantive academic proximity rather than superficial wording overlap.
 
@@ -79,6 +99,8 @@ The likely development workflow is:
 
 Because the full course database is large and stored locally, methodological development can use a representative sample in ChatGPT. Full production may then be executed against the local files using Microsoft CoWork or another suitable local-access workflow, subject to confirming that the required files are accessible in that environment.
 
+The resulting course-pair proximity matrix is a reusable research asset. It should be generated once and refreshed only when the underlying course corpus or proximity method changes materially.
+
 ## Curriculum-level proximity
 
 Once the course-pair proximity matrix exists, compare a proposed curriculum with each historical alumni curriculum.
@@ -87,17 +109,23 @@ The raw comparison between two 24-course curricula is a 24 x 24 matrix of 576 co
 
 Do **not** average all pairwise proximities. That would incorrectly ask whether every course in one curriculum resembles every course in the other.
 
-### Current preferred aggregation: optimal transport
+### Current preferred family of methods: optimal transport
 
 Treat each curriculum as a distribution of academic content.
 
-Optimal transport assigns the academic "mass" of courses in one curriculum across academically related courses in the other curriculum while minimizing total distance, where distance is derived from the course-pair proximity measure.
+An optimal-transport-style method assigns the academic "mass" of courses in one curriculum across academically related courses in the other curriculum while minimizing total distance, where distance is derived from the course-pair proximity measure.
 
-This allows one course to relate partly to several courses in the other curriculum. It therefore reflects similarity between the overall distributions of academic content rather than forcing one-to-one course correspondences.
+The conceptual attraction is that curriculum similarity should compare two distributions of academic content rather than force a simple course-by-course correspondence.
 
-The optimal-transport calculation can be implemented deterministically once the course-pair proximity matrix is available. No LLM is required at this stage.
+The calculation can be implemented deterministically once the course-pair proximity matrix is available. No LLM is required at this stage.
 
-This is the current preferred curriculum-level proximity measure, subject to later robustness checks against plausible alternatives.
+### Important unresolved technical point
+
+The exact transport formulation is **not yet settled**.
+
+With two curricula containing the same number of equally weighted courses, classical balanced optimal transport can reduce to an optimal one-to-one assignment. If the intended interpretation genuinely requires academic content from one course to distribute across several courses in the other curriculum, the implementation may require a different formulation, for example a regularized, unbalanced or otherwise modified transport model.
+
+The final formulation should therefore be tested against the conceptual objective rather than adopting classical balanced optimal transport mechanically.
 
 ## Historical curriculum data
 
@@ -110,6 +138,53 @@ Conceptually:
 `alumnus ID | completed UCR courses | master's programme`
 
 The implementation should accommodate alumni who completed fewer or more courses than the standard 24-course curriculum.
+
+Personal identities are not required for matching and should not be included in the production matching bundle.
+
+## Technical integration with existing UCR Pathways workflows
+
+The implementation should follow the existing separation between version-controlled code and private operational data.
+
+### Public GitHub repository
+
+GitHub should contain the reproducible machinery, for example:
+
+- a script that builds the compact alumni-matching bundle from local source data;
+- a script or module that calculates curriculum proximity and retrieves the nearest historical curricula;
+- tests and validation fixtures;
+- documentation of the matching method.
+
+The raw alumni histories should **not** be stored in the public repository.
+
+### Private matching bundle
+
+A compact private bundle should contain only the information required during production, such as:
+
+- the course-to-course proximity matrix;
+- anonymized alumni curriculum records;
+- observed master's destinations;
+- any minimal metadata required by the matching algorithm.
+
+A columnar format such as Parquet is likely appropriate because the data are structured and should compress efficiently.
+
+The matching bundle can be built from the full local database and then stored as a private UCR Pathways Project Source or another private source accessible to the production workflow. It should be replaced only when the underlying alumni data, course corpus or proximity method changes materially.
+
+The detailed course outlines used to build course-pair proximities do not need to be loaded during each student or counselor production run once the reusable proximity matrix has been created.
+
+### Per-record production flow
+
+From the operator's perspective, the workflow should remain essentially unchanged.
+
+For a new counselor comparison or student record:
+
+1. produce the UCR curriculum using the existing enriched course database and current production rules;
+2. load the private matching bundle;
+3. run the deterministic retrieval code against the proposed curriculum;
+4. return the closest historical alumni curricula and associated master's destinations;
+5. let the LLM make the final academic selection and explanation;
+6. continue the ordinary validation and publication workflow.
+
+The retrieval step should therefore be an internal production component, not a separate manual task for the operator.
 
 ## Relationship to the alumni outcomes layer
 
@@ -128,12 +203,16 @@ Any future claim about current eligibility requires a separate admissions-requir
 - Use one canonical course profile per course initially rather than semester-specific profiles.
 - Use an LLM-based course-pair proximity measure as the primary candidate.
 - Consider embedding similarity as an independent robustness measure.
-- Use the full course-pair matrix when comparing curricula.
+- Generate and reuse a full course-pair proximity matrix rather than asking the LLM to re-evaluate course pairs during each record.
 - Treat curricula as distributions of academic content.
-- Use optimal transport as the current preferred curriculum-level aggregation method.
+- Use an optimal-transport-style method as the current preferred family of curriculum-level aggregation methods, while leaving the exact formulation open.
+- Use deterministic curriculum matching primarily as a **retrieval mechanism**, not as the final master's recommendation.
+- Let the LLM make the final academic judgment over a short list of historically similar alumni curricula.
+- Keep the existing one-record-at-a-time counselor and student production workflows.
+- Keep code in GitHub and private alumni matching data outside the public repository.
 - Keep the curriculum-matching procedure separate from any claim about current master's admissions eligibility.
 
-## Outstanding methodological decisions
+## Outstanding methodological and implementation decisions
 
 The following issues remain open:
 
@@ -148,9 +227,10 @@ The following issues remain open:
    - rules for combining multiple source documents;
    - treatment of sparse metadata.
 
-3. **Course weights in optimal transport**
-   - equal weight per course;
-   - ECTS weighting;
+3. **Curriculum transport formulation and course weights**
+   - classical balanced versus modified transport;
+   - equal weight per course versus ECTS weighting;
+   - whether genuinely many-to-many content allocation is required;
    - possible alternative weighting for academically central or advanced courses.
 
 4. **Unequal curriculum sizes**
@@ -163,16 +243,22 @@ The following issues remain open:
    - exchange or externally completed courses;
    - other courses with weak or incomparable content descriptions.
 
-6. **Validation and robustness**
+6. **Retrieval design**
+   - number of historical curricula returned to the LLM;
+   - whether to use a fixed top-N list, a proximity threshold, or both;
+   - how to avoid near-duplicate historical curricula overwhelming the shortlist.
+
+7. **Validation and robustness**
    - deliberately chosen course pairs for rubric validation;
    - curriculum pairs with known substantive similarity or difference;
    - comparison of LLM and embedding proximity;
-   - comparison of optimal transport with at least one simpler aggregation benchmark.
+   - comparison of the chosen transport method with simpler aggregation benchmarks;
+   - checks that the deterministic shortlist contains the alumni analogues an expert would expect.
 
-7. **Master's-level presentation**
-   - threshold for considering an alumni curriculum sufficiently similar;
+8. **LLM master's-selection rule**
+   - criteria for selecting master's destinations from the retrieved alumni analogues;
    - how to combine several alumni observations leading to the same master's;
    - how many master's destinations to show;
-   - how to communicate proximity and uncertainty.
+   - how to communicate proximity, historical evidence and uncertainty without implying current admissions eligibility.
 
-The master's-presentation layer should be designed only after the course-level and curriculum-level proximity measures have been validated.
+The master's-presentation layer should be finalized only after the course-level proximity, curriculum-level retrieval and LLM selection stages have been validated together.
