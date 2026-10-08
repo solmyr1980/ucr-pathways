@@ -219,7 +219,7 @@ The live corpus contains 440 in-scope records: 301 comparisons and 139 exception
 
 ## Batch 4 — next five cases in audit order
 
-Status: in-progress. Independent UCR assessment remains separate.
+Status: completed. Independent UCR assessment remains separate.
 
 | Target | First-stage outcome | Remaining external question |
 |---|---|---|
@@ -227,7 +227,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 | cp-000134 — Bachelor Fiscal Economics | Corrected lifecycle to teach-out-only and removed active eligibility/production order; Archived prior decision and canonical record unchanged with SHA-256 hashes; Corrected normalized instructional languages to Dutch and English; preserved permanent identity and raw provenance | None within this correction. |
 | cp-000149 — General Cultural Studies (Algemene Cultuurwetenschappen) | Added the dated programme-specific OER and corrected the claim that only general regulations exist; Reconfirmed the current guide conflict; narrowed the unresolved reason to current-cohort applicability | Obtain the controlling 2026–2027 programme-specific OER/implementation rules or university clarification reconciling the current diagram and course roster. |
 | cp-000156 — Theologie | Scoped language/exegesis requirements to the selected language pathway and predikantsmaster exit profile; Documented the mutually exclusive language-free replacements; preserved selected Systematische Theologie route and all 180 EC | None within this correction. |
-| cp-000175 | Pending | Pending |
+| cp-000175 — Medicine | Moved Bachelor Project execution/thesis context to Competency Development 3.2 and retained preparation/proposal in 3.1; Preserved the 10/20-EC competency split, complete 180 EC and selected community; no extra thesis credit | None within this correction. |
 
 ### cp-000119
 
@@ -266,3 +266,20 @@ The older coherent allocation is not used to invent a current restricted-choice 
 Verification: Fresh adopted OER retrieved; replacement footnotes visually inspected. All component IDs, titles, weights and selected route are unchanged. Original UCR evidence and assessment date retained; target validators, deterministic compiler and index checks passed.
 
 This closes the external overgeneralization only. The existing UCR no-match reason is scoped to the unchanged selected pathway, not asserted for every alternative; its substantive correctness remains for separate UCR reassessment.
+
+### cp-000175
+
+- [Groningen Bachelor Medicine TER 2026–2027](https://www.rug.nl/umcg/education/geneeskunde/belangrijkedocumentengnk/documentenbachelor/terbachelormedicine2627.pdf) — Required annual curriculum and Learning Community tables. Checked 8 October 2026. SHA-256: `7f78d61fd5dbd83dad5b8d679424c72805daee04f22579d4e7fd029b2292a736`.
+- [Groningen Bachelor Medicine study guide 2026–2027](https://www.rug.nl/umcg/education/geneeskunde/belangrijkedocumentengnk/documentenbachelor/studyguidebachelorgnk2627.pdf) — Bachelor Project, physical PDF p.36. Checked 8 October 2026. SHA-256: `fedee668fd7e1da9c29f47c6c15af4d2d0b06fb52af21d2fd5fbabfeb1b0336a`.
+
+Verification: Fresh TER and guide retrieved; project page visually inspected. All component identities/weights and original UCR reason, evidence and assessment date remain unchanged. Target validators, deterministic compiler, index checks, compiler regressions and full-corpus validation passed.
+
+This is an embedded-project sequencing correction, not a change to the medical curriculum credit totals or an independent UCR assessment.
+
+### Batch 4 validation
+
+Five cases processed: four first-stage findings resolved; OU retains one current curriculum question. VU has a complete 180-EC external reconstruction and awaits separate UCR assessment. Maastricht Fiscal Economics is archived outside active production scope. PThU and Groningen retain their selected 180-EC routes and original UCR assessment dates/evidence; those UCR judgments were not independently reassessed. No recurring monitoring was created.
+
+Target validators, deterministic compiler comparisons, guarded registry replay, generated-index checks, compiler regressions and full-corpus validation passed. Publication checks are verified separately after each commit. The original audit and raw provenance remain unchanged.
+
+Live corpus: 439 in-scope records, 301 comparisons and 138 exceptions; 21 excluded permanent targets. Exception types: 19 external-programme-unresolved, 114 no-defensible-ucr-match, 1 registry-exception, 4 ucr-assessment-pending. No in-scope record is missing.
