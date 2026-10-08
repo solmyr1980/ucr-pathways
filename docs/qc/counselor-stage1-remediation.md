@@ -427,7 +427,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 |---|---|---|
 | cp-000254 — Bachelor Nanobiology | Corrected normalized instruction language to ENG while preserving raw NLD provenance; Replaced ambiguous practical alternatives with one formal assigned mixed pair; Instantiated four first-listed 2.5-EC specialist electives and verified 32 components totaling 180 EC | None within this correction. |
 | cp-000259 — Bachelor Applied Mathematics | Instantiated four mathematical and exactly one non-mathematical elective using neutral formal ordering; Preserved 30-EC minor, 15-EC project and combined 3+2-EC Proof Techniques unit; Verified 29 components totaling 180 EC and current project-entry rules | None within this correction. |
-| cp-000260 | Pending | Pending |
+| cp-000260 — Bachelor Mechanical Engineering | Corrected the second-year narrative from three to four formal projects, including Process Engineering and Thermodynamics; Made the adopted OER the curriculum authority and preserved all 25 accurate component weights | None within this correction. |
 | cp-000261 | Pending | Pending |
 | cp-000262 | Pending | Pending |
 
@@ -450,3 +450,13 @@ The external correction is complete. UCR fit awaits separate assessment; the sup
 Verification: Fresh current official requirement tables inspected, including visual PDF checks. Each component counted once; independently verified year totals 60+60+60=180 EC. Deterministic compilation, all three target validators and generated-index checks passed.
 
 The external correction is complete. UCR fit awaits separate assessment; the superseded judgment is preserved in this register. No recurring monitoring is scheduled.
+
+### cp-000260
+
+- [OER BSc Mechanical Engineering and Marine Technology 2026–2027](https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/ME/Onderwijs/GERELATEERD/Reglementen/Archief%20Onderwijsreglementen/2026-2027/OER%20BSc%20WB-MT_DEFINITIEF.pdf) — Mechanical curriculum PDF p.25; Marine curriculum p.30; BEP conditions pp.26/31. Checked 8 October 2026. SHA-256: `8289710a9241a02af7d4ff65b899a5488a9d2582c49d0eb8fbb4d909ec8d7053`.
+- [Mechanical Engineering programme](https://www.tudelft.nl/onderwijs/opleidingen/bachelors/wb/bsc-werktuigbouwkunde) — Engineering projects and current identity. Checked 8 October 2026. SHA-256: `4573d5ca35e2b30b36a564f84c046dddef5f21dc90628f79bd2302c240b56a01`.
+- [Public current study-guide Mechanical Engineering entry](https://curriculum.tudelft.nl/publisher/api/v0/opleidingen/items/32108) — Degree facts and access limitation. Checked 8 October 2026. SHA-256: `a1b0715e923d83fbeb4579dfca481ebe352df96f62c9766981b6a5936ad41241`.
+
+Verification: Fresh current official requirement tables inspected, including visual PDF checks. Each component counted once; independently verified year totals 60+60+60=180 EC. All 25 components are byte-equivalent as data; historical checkedOn and ucrCourseEvidence remain unchanged. Deterministic compilation, all three target validators and generated-index checks passed.
+
+This is a narrow external narrative/source correction. All component allocations and historical UCR assessment date/evidence remain unchanged; no new UCR judgment is made.
