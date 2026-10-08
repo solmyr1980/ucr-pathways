@@ -352,7 +352,7 @@ Live corpus: 438 in-scope records, 301 comparisons and 137 exceptions; 22 exclud
 
 ## Batch 6 — next five cases in audit order
 
-Status: in-progress. Independent UCR assessment remains separate.
+Status: completed. Independent UCR assessment remains separate.
 
 | Target | First-stage outcome | Remaining external question |
 |---|---|---|
@@ -360,7 +360,7 @@ Status: in-progress. Independent UCR assessment remains separate.
 | cp-000249 — Bachelor Industrial Design Engineering | Corrected the compulsory-study narrative to 115 required EC and 65 EC of profiling/choice; Preserved all 25 accurate components, four distinct category slots, 30-EC minor and 15-EC final project | None within this correction. |
 | cp-000250 — Bachelor Clinical Technology | Corrected minor from 15 to 30 EC and removed three duplicated third-year courses and the unsupported AV3/essay entry; Updated current heart/lung titles and the printed placement weight; recorded 27 unique components; Replaced unsupported no-match closure with an explicit external credit-conflict exception | Obtain authoritative clarification of KT2755 or another current credit/credit-sharing rule reconciling the printed 60+61+60 requirements with the 180-EC degree. |
 | cp-000252 — Bachelor Aerospace Engineering | Added ENG to normalized instruction metadata while retaining currently advertised Dutch–English delivery; Preserved raw NLD offering, permanent identity and the 22-component 180-EC pre-2027 curriculum; Recompiled canonical provider metadata and generated summaries | None within this correction. |
-| cp-000253 | Pending | Pending |
+| cp-000253 — Bachelor Marine Technology | Replaced six older aggregates with 26 current course/project/minor components; Corrected final project from 12 to 14 EC and current final-year course names; Preserved 30-EC minor and embedded subparts; verified 180 EC | None within this correction. |
 
 ### cp-000248
 
@@ -401,3 +401,20 @@ Known factual errors are corrected. The published one-credit contradiction remai
 Verification: Fresh Dutch and English official programme pages both state English or Dutch–English; bilingual context explicitly recorded. Current IR and linked module chart retrieved; degree allocation remains 60+60+30+15+15 = 180. Guarded registry replay reproduces the language correction; raw offerings/source rows are unchanged. Deterministic compilation, target validators and generated-index checks passed.
 
 Fresh evidence narrows the correction to adding ENG, rather than removing NLD as the prior audit proposed. Current prospectus delivery options are not used to alter the selected 2026-cohort curriculum. The original audit remains immutable.
+
+### cp-000253
+
+- [Marine Technology: what will I learn?](https://www.tudelft.nl/onderwijs/opleidingen/bachelors/maritieme-techniek/bsc-maritieme-techniek/over-de-opleiding/wat-ga-ik-leren) — Degree structure and linked older diagram. Checked 8 October 2026. SHA-256: `11f996f25ec8812083adb606402844d30fe49309e7edd519aae62a607bd29fb1`.
+- [OER BSc Mechanical Engineering and Marine Technology 2026–2027](https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/ME/Onderwijs/GERELATEERD/Reglementen/Archief%20Onderwijsreglementen/2026-2027/OER%20BSc%20WB-MT_DEFINITIEF.pdf) — Mechanical curriculum PDF p.25; Marine curriculum p.30; BEP conditions pp.26/31. Checked 8 October 2026. SHA-256: `8289710a9241a02af7d4ff65b899a5488a9d2582c49d0eb8fbb4d909ec8d7053`.
+
+Verification: Fresh current formal curriculum table and final-project rules visually inspected. Independent course weights total 60+60+60; integration projects total 20 and Ship Design is counted once. Current final project 14 EC and first-year/54-second-year-credit entry condition verified. Deterministic compilation, target validators and generated-index checks passed.
+
+Current adopted requirements resolve the external reconstruction. The older webpage allocation is retained only as discrepancy context. No new UCR fit judgment is made.
+
+### Batch 6 validation
+
+Five cases processed: four first-stage findings resolved; Clinical Technology retains the published 181-versus-180 credit conflict. Electrical Engineering and Marine Technology have corrected course-level external reconstructions and await separate UCR assessment. Industrial Design and Aerospace retain their previously verified component allocations and historical UCR assessment dates/evidence. No recurring monitoring was created.
+
+Target validators, deterministic compiler comparisons, guarded registry replay, generated-index checks, compiler regressions and full-corpus validation passed. GitHub checks are verified after each publication. The original audit, raw provenance and earlier batch histories remain unchanged.
+
+Live corpus: 438 in-scope records, 301 comparisons and 137 exceptions; 22 excluded permanent targets. Exception types: 20 external-programme-unresolved, 108 no-defensible-ucr-match, 9 ucr-assessment-pending. No in-scope record is missing.
