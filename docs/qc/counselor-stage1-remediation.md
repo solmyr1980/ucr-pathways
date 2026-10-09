@@ -887,3 +887,20 @@ Remaining external questions: Obtain the applicable NIP second- and third-year c
 Five cases processed. Physics is externally resolved; Dutch Studies, Notarial Law, Ancient Near Eastern Studies and Political Science retain precise current-source or new-cohort publication questions. Deterministic regeneration matched all five canonical records; target validators, compiler suites, guarded registry replay, generated-index checks, registry-interest checks and final 438-record full-corpus validation passed. The original audit, permanent IDs, raw provenance, unrelated records and prior remediation history were preserved. No UCR reassessment or recurring research was performed.
 
 Current totals: 65 processed cases; 39 fully resolved first-stage findings; 26 cases retaining external research questions. The live corpus contains 460 normalized targets, 438 in-scope records, 301 comparisons and 137 exceptions (28 external-programme-unresolved, 84 no-defensible-ucr-match and 25 ucr-assessment-pending), with no missing in-scope IDs. There are 32 unprocessed actionable first-stage cases.
+
+
+## Batch 14 — next five cases in audit order
+
+Status: in progress. Independent UCR reassessment remains separate.
+
+### cp-000317 — Law
+
+- [BA-RGH current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-RGH&type=STUDY&year=2261&language=en) — The current product publishes the revised first and second years only: twelve 5-EC first-year requirements and eleven 5-EC second-year requirements plus the first-listed 5-EC technology/law choice. Its displayed third year is expressly restricted to entrants in 2024 or earlier; the revised third year is deferred to the 2027–2028 guide. Checked 9 October 2026.
+- [Law bachelor OER 2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/rechtsgeleerdheid/reglementen/oeren/2026-2027/oer-bachelor-nl-rgl.pdf) — Formal current entry is full-time, 180 EC, Dutch with some English, and allocated as 150 EC compulsory/bound plus 30 EC free choice; those aggregates do not supply the missing revised course-level third year. Checked 9 October 2026.
+- [Law bachelor current entry page](https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/rechtsgeleerdheid) — Current ordinary entry independently lists the three-year full-time programme and Dutch/English instruction. Checked 9 October 2026.
+
+Verification: Counted comparator components total 120 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
+
+Current official sources support the revised entrant curriculum only through 120 EC. The outgoing third year cannot be combined with it, and the formal aggregate 150/30 allocation is not a course-level substitute.
+
+Remaining external questions: Obtain revised third year from the 2027–2028 guide; reconcile any outgoing part-time continuation with current full-time-only OER and admissions before displaying historical delivery modes as currently available.
