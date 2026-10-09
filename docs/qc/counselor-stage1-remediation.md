@@ -584,3 +584,16 @@ Implemented: Replaced aggregate core with 28 named requirement/project/open-spac
 Verification: Fresh current PER downloaded; Applied Mathematics p.78 requirement grid visually inspected. Every counted course or project occurs once; required totals independently close 60+60+60. Deterministic canonical regeneration, all target validators and generated-index checks passed.
 
 External correction complete; separate UCR assessment pending. The prior no-match judgment remains historical provenance. No recurring monitoring is scheduled.
+
+### cp-000275 — Bachelor Theology
+
+Implemented: Replaced unsupported annual aggregates with ten source-backed first-year rows totaling 60 EC; Separated the published second-year 60 from a certified single-cohort pathway and documented Greek4 overlap; Removed outgoing thesis10/minor27.5 from current-entrant claims and clarified minor replacement/PPV treatment.
+
+- [Apeldoorn Bachelor Theology](https://www.tua.nl/nl/onderwijs/o/bachelor-theologie) — Degree facts and optional Bible Translation route. Checked 9 October 2026. Fresh official source retrieved and inspected during this correction.
+- [Apeldoorn Bachelor/Master study guide 2026–2027](https://www.tua.nl/media/studiegids-2026-2027/documents/studiegids_20262027_extern.pdf) — Printed pp.29–36,55,77; PDF pp.9–16,35,57. Checked 9 October 2026. Fresh official source retrieved and inspected during this correction.
+
+Verification: Fresh study guide retrieved; printed pp.33,36,37,55,77 independently inspected, with visual overview and second-year checks. First-year positive rows total60; second-year table is documented separately and not added to the counted subset. Deterministic canonical regeneration, all target validators and generated-index checks passed.
+
+Known cohort and compulsory-versus-replaceable claims are corrected. External-programme-unresolved records the precise new-cohort questions; no 180-EC total or missing credits are invented. Prior UCR judgment is historical only. No recurring monitoring is scheduled.
+
+Remaining external questions: Clarify applicable new-cohort second-year sequence/caption and Greek4 overlap before counting it with the first-year 60 EC. Provide the new-cohort third-year course weights, thesis and PPV allocation, and exact requirements replaced by the 30-EC minor; outgoing cohort2024 rules cannot establish these.
