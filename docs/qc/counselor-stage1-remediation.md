@@ -1042,3 +1042,14 @@ The corrected external curriculum is complete at 180 EC. The superseded UCR no-m
 Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
 
 The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### cp-000364 — Politiek, cultuur en religie
+
+- [Politics, Culture and Religion current curriculum](https://www.uu.nl/bachelors/politiek-cultuur-en-religie/studieprogramma) — Names the eight-course first year and depth-package options but lists five items for the selected four-course Politics and Religion package, including two Block 3 items. Checked 9 October 2026.
+- [Politics, Culture and Religion programme-specific regulations 2026-2027](https://students.uu.nl/sites/default/files/GW-OER-BA-2026-2027-Religiewetenschappen%20PCR%20260420.pdf) — Confirms the 60-EC foundation, named Mohammed course, one still-unnamed disciplinary course, separate thesis preparation and thesis allocations, 30-EC depth package, 60-EC profiling space and Dutch plus English instruction. Checked 9 October 2026.
+
+Verification: Counted comparator components total 172.5 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+Current official sources support a 172.5-EC diagnostic reconstruction. A second disciplinary course remains unnamed, the selected Politics and Religion package has conflicting membership, and final preparation/capstone codes remain unpublished; no 180-EC pathway is certified.
+
+Remaining external questions: Obtain the finalized2026-entry disciplinary/context7.5 and selected Politics/Religion four-course30, resolve the duplicated formal heading and five-item/two-Block3 public list, and obtain preparation/capstone version codes. Do not borrow outgoing Religiewetenschappen requirements or certify180 from allocations/placeholders.
