@@ -829,7 +829,7 @@ Current totals: 60 processed cases; 38 fully resolved first-stage findings; 22 c
 
 ## Batch 13 — next five cases in audit order
 
-Status: in progress. Independent UCR reassessment remains separate.
+Status: completed. Independent UCR reassessment remains separate.
 
 ### cp-000308 — Physics
 
@@ -870,3 +870,20 @@ Verification: Counted comparator components total 155 EC; alternatives, repeated
 Only 155 EC of distinct current content are supported after repeated module codes and the duplicate-content Philosophy versions are counted once. A single-cohort replacement/choice table is still missing.
 
 Remaining external questions: Obtain a single-cohort replacement/choice table for repeated 5532VGONOY, 5531VATY, 5531VMCEY and 5851VHMMEY, and establish whether 5000VWF2Y/5000VWFY are alternative semester/cohort versions. Resolve the Ancient History workshop prerequisite to the relevant Themacollege when instantiating the current route.
+
+### cp-000314 — Political Science
+
+- [BA-POWE-NIP current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-POWE-NIP&type=STUDY&year=2261&language=en) — The new Dutch-taught Leiden route National and International Politics has ten current first-year requirements totaling60 EC. The formal annex publishes later years for IRO and for the outgoing Political Science/International Politics routes, whose intake ended with 2025–2026; those curricula are not substituted for the new route. Applicable Years2 and3 remain unpublished. Checked 9 October 2026.
+- [Political Science bachelor annex 2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/sociale-wetenschappen/politieke-wetenschap/reglementen/oeren-2026-2027/2026-2027-oer-powe-bsc-annex-eng.pdf) — Formal NIP first-year table totals60 EC. Separate later-year tables apply to IRO or phased-out POL/IP cohorts admitted by 2025–2026. Checked 9 October 2026.
+
+Verification: Counted comparator components total 60 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
+
+Only the applicable new-route first year of 60 EC is published. Outgoing POL/IP later years and the distinct English IRO programme cannot be spliced into the NIP pathway.
+
+Remaining external questions: Obtain the applicable NIP second- and third-year curricula when published in subsequent guides/formal annexes. Require one coherent new-route 180-EC sequence, not an outgoing POL/IP continuation.
+
+### Batch 13 completion
+
+Five cases processed. Physics is externally resolved; Dutch Studies, Notarial Law, Ancient Near Eastern Studies and Political Science retain precise current-source or new-cohort publication questions. Deterministic regeneration matched all five canonical records; target validators, compiler suites, guarded registry replay, generated-index checks, registry-interest checks and final 438-record full-corpus validation passed. The original audit, permanent IDs, raw provenance, unrelated records and prior remediation history were preserved. No UCR reassessment or recurring research was performed.
+
+Current totals: 65 processed cases; 39 fully resolved first-stage findings; 26 cases retaining external research questions. The live corpus contains 460 normalized targets, 438 in-scope records, 301 comparisons and 137 exceptions (28 external-programme-unresolved, 84 no-defensible-ucr-match and 25 ucr-assessment-pending), with no missing in-scope IDs. There are 32 unprocessed actionable first-stage cases.
