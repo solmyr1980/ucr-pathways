@@ -721,7 +721,7 @@ Current totals: {'processed_cases': 50, 'fully_resolved_first_stage_findings': 3
 
 ## Batch 11 — next five cases in audit order
 
-Status: in progress. Independent UCR reassessment remains separate.
+Status: completed. Independent UCR reassessment remains separate.
 
 ### cp-000289 — Economics & Society
 
@@ -755,3 +755,19 @@ The external curriculum and bound choices are now complete at 180 EC, but the pr
 Verification: Counted comparator components total 120 EC with alternatives, parent/submodule overlaps and zero-credit items excluded. Deterministic canonical regeneration and target validation passed.
 
 The current guide labels Years 1 and 2 provisional and states that the revised third year will follow. The publicly linked adopted regulations remain 2025–2026. A complete new-cohort 180-EC pathway cannot be certified from the historical third year.
+
+### cp-000297 — Classics
+
+- [Classics programme-specific OER 2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-griekse-en-latijnse-taal-en-cultuur-2026-2027.pdf) — Four formal specialisations in order: Antieke wijsbegeerte, Grieks, Latijn and Oude geschiedenis; Dutch instruction; route and Greek/Latin workshop/read-list prerequisites. Checked 9 October 2026.
+- [BA-GRL current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-GRL&type=STUDY&year=2261&language=en) — Current 180-EC Classics is reconstructed as 60+60+60. The formal first-listed specialisation Antieke wijsbegeerte is selected independently of UCR fit. The representative admitted profile uses Greek A and Latin B placement (no Greek school exam, Latin at school-exam level), not stacked placement levels. Year2 selects the Stoa philosophy workshop and current Greek language seminar. Year3 selects Greek Reading List and Latin Silius Italicus workshop, preserving both languages, followed by a philosophy-aligned thesis and genuine open30. Zero-credit thesis seminar and alternative options are excluded. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC with alternatives, parent/submodule overlaps and zero-credit items excluded. Deterministic canonical regeneration and target validation passed.
+
+The external programme and formal route are now complete at 180 EC, but the prior UCR no-match judgment was based on an outdated route/course reconstruction and requires the separately excluded UCR reassessment.
+
+
+### Batch 11 completion
+
+Five cases processed. Deterministic regeneration matched all five committed canonical records; target validators, compiler suites, guarded registry replay, generated-index checks, registry-interest checks and final 438-record full-corpus validation passed. The original audit, permanent IDs, raw provenance, unrelated records and prior remediation history were preserved. No UCR reassessment or recurring research was performed.
+
+Current totals: 55 processed cases; 35 fully resolved first-stage findings; 20 cases retaining external research questions. The live corpus contains 460 normalized targets, 438 in-scope records, 301 comparisons and 137 exceptions (26 external-programme-unresolved, 90 no-defensible-ucr-match and 21 ucr-assessment-pending), with no missing in-scope IDs. There are 42 unprocessed actionable first-stage cases.
