@@ -597,3 +597,19 @@ Verification: Fresh study guide retrieved; printed pp.33,36,37,55,77 independent
 Known cohort and compulsory-versus-replaceable claims are corrected. External-programme-unresolved records the precise new-cohort questions; no 180-EC total or missing credits are invented. Prior UCR judgment is historical only. No recurring monitoring is scheduled.
 
 Remaining external questions: Clarify applicable new-cohort second-year sequence/caption and Greek4 overlap before counting it with the first-year 60 EC. Provide the new-cohort third-year course weights, thesis and PPV allocation, and exact requirements replaced by the 30-EC minor; outgoing cohort2024 rules cannot establish these.
+
+### cp-000277 — African Studies
+
+Implemented: Resolved duplicated SwahiliII counting through adopted cohort transition rules; outgoing second entry excluded; Confirmed no formal specialisations and corrected new SwahiliIII/third-year placement and requirements; Preserved open30 and thesis10; published explicit175-EC named-subset diagnostic with T.B.A.5 unresolved.
+
+- [Leiden African Studies current study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-AFR&type=STUDY) — BA-AFR, year 2261; all annual groups. Checked 9 October 2026. Fresh official source retrieved and inspected during this correction.
+- [Swahili II current module 5731V015Y](https://studiegids.universiteitleiden.nl/api/product?code=5731V015Y&type=MODULE&year=2261&language=en) — Credits, admission requirement, objectives and level. Checked 9 October 2026. Fresh official source retrieved and inspected during this correction.
+- [Swahili II current module 5733V005Y](https://studiegids.universiteitleiden.nl/api/product?code=5733V005Y&type=MODULE&year=2261&language=en) — Credits, admission requirement, objectives and level. Checked 9 October 2026. Fresh official source retrieved and inspected during this correction.
+- [African Studies programme-specific OER 2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-african-studies-2026-2027.pdf) — Articles2.2/4.2 and Appendix F, PDF pp.2,4–7. Checked 9 October 2026. Fresh official PDF retrieved from current regulatory index; transition tables visually inspected.
+- [African Studies current regulatory index](https://www.organisatiegids.universiteitleiden.nl/en/regulations/humanities/oer/african-studies-ba) — Current2026–2027 OER link. Checked 9 October 2026. Fresh official index retrieved.
+
+Verification: Fresh programme API and all22 linked module records checked; both SwahiliII descriptions/admission/outcomes match exactly. Fresh current programme-specific OER found through official index; AppendixF pp.6–7 visually inspected. Named current-cohort requirements close60+55+60=175; omitted T.B.A.5 is explicit, and no repeated Swahili credits are counted. Deterministic canonical regeneration, all target validators and generated-index checks passed.
+
+The original Swahili and route ambiguities are resolved by freshly obtained formal authority. Full external closure remains blocked by T.B.A.5 and mixed-cohort catalogue reconciliation; no speculative course is supplied. Prior UCR judgment remains historical only. No recurring monitoring is scheduled.
+
+Remaining external questions: Identify the exact new-cohort second-year T.B.A.5-EC course and applicable course conditions; it is not genuine open elective space. Reconcile the current API mixed-cohort Swahili and third-year choice membership with the adopted new-programme AppendixF; confirm applicable future module codes/delivery before complete180-EC certification.
