@@ -1015,7 +1015,7 @@ The corrected external curriculum is complete at 180 EC. The superseded UCR no-m
 
 ## Batch 16 — next five cases in audit order
 
-Status: in progress. Independent UCR reassessment remains separate.
+Status: completed. Independent UCR reassessment remains separate.
 
 ### cp-000342 — Pharmacy (Farmacie)
 
@@ -1053,3 +1053,17 @@ Verification: Counted comparator components total 172.5 EC; alternatives, duplic
 Current official sources support a 172.5-EC diagnostic reconstruction. A second disciplinary course remains unnamed, the selected Politics and Religion package has conflicting membership, and final preparation/capstone codes remain unpublished; no 180-EC pathway is certified.
 
 Remaining external questions: Obtain the finalized2026-entry disciplinary/context7.5 and selected Politics/Religion four-course30, resolve the duplicated formal heading and five-item/two-Block3 public list, and obtain preparation/capstone version codes. Do not borrow outgoing Religiewetenschappen requirements or certify180 from allocations/placeholders.
+
+### cp-000367 — Scheikunde
+
+- [Chemistry current curriculum](https://www.uu.nl/bachelors/scheikunde/studieprogramma) — Provides current programme context and indicative chemistry choices; the linked student schedule is cohort-specific and does not override the formal table. Checked 9 October 2026.
+- [Science bachelor programme-specific regulations 2026-2027 - Chemistry](https://students.uu.nl/sites/default/files/Onderwijs%20en%20Examenregeling-Undergraduate%20School%202026-2027-%20opleidingsspecifieke%20bijlagen.pdf) — Defines 82.5 EC compulsory study, 52.5 EC restricted choice and 45 EC genuine profiling. It makes biochemical methods compulsory, requires a Category 2 choice and supports Dutch plus English instruction. Checked 9 October 2026.
+- [Chemistry student curriculum for 2025 entrants](https://students.uu.nl/beta/scheikunde/mijn-studie/studieprogrammas/scheikunde) — Its different compulsory/level minima are retained as dated cohort context rather than silently applied to 2026 entrants. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### Batch 16 completion
+
+Five cases processed. Four external findings are resolved; Politics, Culture and Religion retains a precise current-source question. Deterministic regeneration matched all five canonical records; target validators, compiler suites, guarded registry replay, generated-index checks, registry-interest checks and final full-corpus validation passed. The original audit, permanent IDs, raw provenance, unrelated records and prior remediation history were preserved. No UCR reassessment or recurring research was performed.
