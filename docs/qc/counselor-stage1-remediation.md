@@ -929,3 +929,17 @@ Remaining external questions: Obtain applicable new-cohort second/third-year req
 Verification: Counted comparator components total 180 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
 
 The corrected external curriculum is complete at 180 EC and normalized language metadata are corrected. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### cp-000322 — South and Southeast Asian Studies
+
+- [BA-ZZO current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-ZZO&type=STUDY&year=2261&language=en) — The Hindi/modern thematic/Leiden selection allocates 60+60+60, preserves genuine open 15+15 EC and nonoverlapping Buddhist options, but its required Reading course points to an absent first-year Area Studies prerequisite. Checked 9 October 2026.
+- [South and Southeast Asian Studies OER 2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-south-and-southeast-asian--studies-2026-2027.pdf) — The OER states that formal specialisations are not applicable, instruction is English, and at least 40 EC of language acquisition is required; it supplies no waiver or replacement for the Reading prerequisite. Checked 9 October 2026.
+- [Required Reading South and Southeast Asia module](https://studiegids.universiteitleiden.nl/api/product?code=5482V000Y&type=MODULE&year=2261&language=en) — The required 5-EC course explicitly requires prior completion of the faculty Area Studies core, which does not appear in the current first year. Checked 9 October 2026.
+- [Required Philosophy of Science module](https://studiegids.universiteitleiden.nl/api/product?code=5000VPHSCY&type=MODULE&year=2261&language=en) — The shared required module metadata specify Dutch, conflicting with the programme OER's English-only instruction rule. Checked 9 October 2026.
+- [Tantric Buddhism module](https://studiegids.universiteitleiden.nl/api/product?code=5482KTB1Y&type=MODULE&year=2261&language=en) — Prior Buddhist background is advantageous but not a hard admission gate; this option does not create the material conflict. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
+
+Current sources conflict on an applicable prerequisite and required-module language. The weighted 180-EC allocation is retained only as a diagnostic reconstruction; a coherent eligible pathway is not certified.
+
+Remaining external questions: Obtain an applicable replacement/waiver rule for Reading5482V000Y prerequisite Area Studies, and the actual SSEAS English-medium version/offer of Philosophy5000VPHSCY. Verify cohort authority without adding an uncredited prerequisite to180 or treating recommended Buddhist background as a hard gate.
