@@ -1121,3 +1121,17 @@ The corrected external curriculum is complete at 180 EC. The superseded UCR no-m
 ### Batch 17 completion
 
 Five cases processed and all five external findings resolved. Deterministic regeneration matched all five canonical records; target validators, compiler suites, guarded registry replay, generated-index checks, registry-interest checks and final full-corpus validation passed. The original audit, permanent IDs, raw provenance, unrelated records and prior remediation history were preserved. No UCR reassessment or recurring research was performed.
+
+
+## Batch 18 — next five cases in audit order
+
+Status: in progress. Independent UCR reassessment remains separate.
+
+### cp-000398 — Franse taal en cultuur
+
+- [French Language and Culture current curriculum](https://www.uva.nl/programmas/bachelors/franse-taal-en-cultuur/studieprogramma/studieprogramma.html) — Confirms the cumulative French-language sequence, required study abroad, final project and free profile. Checked 9 October 2026.
+- [French Language and Culture 2026-2027 course catalogue](https://studiegids.uva.nl/nl/opleidingen/2026/1/5922/40799) — The weighted template closes 60+60+60; required abroad and genuine free profiling are distinct, and zero-credit formation is separate. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
