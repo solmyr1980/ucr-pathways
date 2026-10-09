@@ -1125,7 +1125,7 @@ Five cases processed and all five external findings resolved. Deterministic rege
 
 ## Batch 18 — next five cases in audit order
 
-Status: in progress. Independent UCR reassessment remains separate.
+Status: completed. Independent UCR reassessment remains separate.
 
 ### cp-000398 — Franse taal en cultuur
 
@@ -1166,3 +1166,16 @@ Remaining external questions: Obtain the applicable 2026-entry abroad prerequisi
 Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
 
 The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### cp-000411 — Linguistics
+
+- [Linguistics current curriculum](https://www.uva.nl/en/programmes/bachelors/linguistics/study-programme/study-programme.html) — Confirms broad Linguistics as the representative route and the Language X, specialisation, thesis and profiling structure. Checked 9 October 2026.
+- [Linguistics 2026-2027 course catalogue](https://studiegids.uva.nl/nl/opleidingen/2026/1/5735/39692) — The selected broad route closes 60+60+60; Czech 1-4 is the first complete published eligible Language X sequence, and zero-credit formation is separate. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### Batch 18 completion
+
+Five cases processed. Four external findings are resolved; Hebrew Language and Culture retains the precise compulsory-abroad prerequisite and source-conflict question above. Deterministic regeneration matched all five canonical records; target validators, compiler suites, guarded registry replay, generated-index checks, registry-interest checks and final full-corpus validation passed. The original audit, permanent IDs, raw provenance, unrelated records and prior remediation history were preserved. No UCR reassessment or recurring research was performed.
