@@ -801,3 +801,12 @@ The current restricted-choice menu cannot supply15 distinct third-year EC withou
 Verification: Counted comparator components total 180 EC; alternatives, duplicate modules, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
 
 The external curriculum is complete at180 EC and instruction metadata are corrected, but the prior UCR judgment used incomplete metadata and is handed off for the separately excluded UCR reassessment.
+
+### cp-000304 — Latin American Studies
+
+- [BA-LAS current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-LAS&type=STUDY&year=2261&language=en) — Current Spanish pathway closes 60+60+60. Spanish is selected for the broad regional identity; Portuguese/Brazil is an alternative, not a universal requirement. Required approved Latin America study abroad30 remains an approved package without invented host units. Public Policies5 is the first bound choice, research methods precedes thesis10, and genuine open30 is preserved. Formal current rules specify Dutch, English, Spanish and Portuguese instruction. Checked 9 October 2026.
+- [Latin American Studies programme-specific OER 2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-latijns-amerikastudies-2026-2027.pdf) — No formal graduation directions; Dutch, English, Spanish and Portuguese instruction; abroad, research-methods and thesis progression rules. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate modules, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
+
+The selected external pathway is complete at180 EC and language metadata are corrected, but the prior UCR judgment requires the separately excluded reassessment against this corrected basis.
