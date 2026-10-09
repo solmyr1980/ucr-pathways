@@ -718,3 +718,15 @@ Remaining external questions: Identify the applicable new-cohort replacement or 
 Five cases processed. Deterministic compilation, all target validators, guarded registry replay, generated-index checks and final full-corpus validation passed. GitHub checks are verified after each publication. No UCR reassessment or recurring research was performed.
 
 Current totals: {'processed_cases': 50, 'fully_resolved_first_stage_findings': 33, 'cases_with_remaining_external_research': 17}; corpus {'normalized_targets': 460, 'in_scope_targets': 438, 'excluded_targets': 22, 'comparisons': 301, 'exceptions': 137, 'exception_types': {'external-programme-unresolved': 25, 'no-defensible-ucr-match': 93, 'ucr-assessment-pending': 19}, 'missing_in_scope_ids': []}; unprocessed actionable cases 47.
+
+## Batch 11 — next five cases in audit order
+
+Status: in progress. Independent UCR reassessment remains separate.
+
+### cp-000289 — Economics & Society
+
+- [BA-ECS current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-ECS&type=STUDY&year=2261&language=en) — Fresh current official product verifies twelve first-year and twelve selected second-year 5-EC units. The 10-EC Package A (European Law and Social Law) is instantiated by published order; Package B is excluded. The guide explicitly defers Year 3 to 2027–2028, so only 120 EC are retained and no advanced, elective or thesis credit is invented. Checked 9 October 2026.
+
+Verification: Counted comparator components total 120 EC with alternatives, parent/submodule overlaps and zero-credit items excluded. Deterministic canonical regeneration and target validation passed.
+
+The current guide publishes complete Years 1 and 2 but explicitly defers the applicable Year 3 to the 2027–2028 guide. The missing 60 EC cannot be reconstructed without inventing route, choice, elective or final-project requirements.
