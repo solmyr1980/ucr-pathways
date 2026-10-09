@@ -682,3 +682,16 @@ Verification: Fresh programme and all37 linked module records retrieved; each of
 Published partial record remains externally unresolved, with precise cohort questions and no invented180-EC completion. Prior exception preserved. No recurring monitoring is scheduled.
 
 Remaining external questions: Obtain an applicable revised-cohort third-year60-EC schedule with exact compulsory, bounded-choice, open-elective, research/thesis and progression requirements. Current university notice specifies the2027–2028 guide; no recurring monitoring is authorised.
+
+### cp-000286 — Cybersecurity & Cybercrime
+
+Implemented: Independently verified all22 first-/second-year units totaling120 EC; Restored explicitly published30-EC genuine third-year open elective space; supported partial total150; Kept missing compulsory third-year details explicit and removed future monitoring instructions.
+
+- [Cybersecurity & Cybercrime current official study guide](https://studiegids.universiteitleiden.nl/api/product?code=BA-BACC&type=STUDY&year=2261&language=en) — Year2261; programme notice and year1/2 groups. Checked 9 October 2026.
+- [Cybersecurity & Cybercrime current programme structure](https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/fgga-cybersecurity--cybercrime/over-de-opleiding/studieprogramma) — Published22June2026; keuzeruimte30 EC in jaar3; annual integration description. Checked 9 October 2026.
+
+Verification: Fresh programme and all22 linked module responses independently checked; required year totals60+60 match exactly. Fresh programme overview confirms open30; partial total150 preserves genuine space and excludes aggregate double counting or speculative modules. Deterministic canonical regeneration, all target validators and generated-index checks passed.
+
+Known open-space omission is corrected; full external reconstruction remains unresolved. Prior exception preserved. No recurring monitoring is scheduled.
+
+Remaining external questions: Establish the remaining30 EC compulsory third-year units, their credit/choice and progression rules, exact integration project and final assessment/thesis conditions from applicable official programme evidence. The guide specifies visibility fromJune2027; no recurring monitoring is authorised.
