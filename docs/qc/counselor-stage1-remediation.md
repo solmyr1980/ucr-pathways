@@ -792,3 +792,12 @@ The corrected external pathway is complete at 180 EC, but the prior no-match jud
 Verification: Counted comparator components total 170 EC; alternatives, duplicate modules, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
 
 The current restricted-choice menu cannot supply15 distinct third-year EC without repeating compulsory Year2 modules. Only170 nonduplicated EC are retained; no alternating-course or replacement rule is invented.
+
+### cp-000302 — Korean Studies
+
+- [BA-KOR current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-KOR&type=STUDY&year=2261&language=en) — Current weighted requirements close 60+60+60. Themes and Approaches counts10 because the current group and module agree despite prose saying5. Korean3 is the15-EC Leiden option; Business Korean is selected because its published prerequisites are met, whereas the earlier Academic Purposes option additionally requires thesis eligibility. Topical work and seminar precede the final paper10; genuine open30 is preserved. Required current courses document English instruction, supporting NLD+ENG while Korean remains the subject language. Checked 9 October 2026.
+- [Korean Studies programme-specific OER 2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-koreastudies-2026-2027.pdf) — No formal specialisations; Dutch formal classification; current Korean progression and final-paper prerequisites. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate modules, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
+
+The external curriculum is complete at180 EC and instruction metadata are corrected, but the prior UCR judgment used incomplete metadata and is handed off for the separately excluded UCR reassessment.
