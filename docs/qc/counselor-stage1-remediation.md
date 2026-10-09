@@ -1179,3 +1179,20 @@ The corrected external curriculum is complete at 180 EC. The superseded UCR no-m
 ### Batch 18 completion
 
 Five cases processed. Four external findings are resolved; Hebrew Language and Culture retains the precise compulsory-abroad prerequisite and source-conflict question above. Deterministic regeneration matched all five canonical records; target validators, compiler suites, guarded registry replay, generated-index checks, registry-interest checks and final full-corpus validation passed. The original audit, permanent IDs, raw provenance, unrelated records and prior remediation history were preserved. No UCR reassessment or recurring research was performed.
+
+
+## Batch 19 — next five cases in audit order
+
+Status: in progress. Independent UCR reassessment remains separate.
+
+### cp-000416 — Musicology (Muziekwetenschap)
+
+- [Musicology current curriculum](https://www.uva.nl/programmas/bachelors/muziekwetenschap/studieprogramma/studieprogramma.html) — The public table retains 3-EC methods, repeated research-project rows, 42 EC described as free space and Musical Celebrities in year three. Checked 9 October 2026.
+- [Musicology 2026-2027 course catalogue](https://studiegids.uva.nl/nl/opleidingen/2026/1/5748/39791) — The selected cognitive/computational allocation instead uses expanded 6-EC methods and repeats Musical Celebrities across years two and three, leaving only 174 distinct EC. Checked 9 October 2026.
+- [Musicology transition curriculum](https://studiegids.uva.nl/nl/opleidingen/2026/1/5748/39793) — Publishes cohort-transition replacements but does not establish one nonduplicative 180-EC pathway for the 2026 entrant. Checked 9 October 2026.
+
+Verification: Nominal listed comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+The retained Cognitive and Computational Musicology route has a nominal current guide allocation of 60/60/60, but Musical Celebrities (115221386Y, 6 EC) appears in both years two and three: the distinct credited units total only 174. Current 2026 transition rules replace earlier 3-EC methods with 6-EC methods and make Musical Celebrities a replacement for older project/portfolio requirements. The prospective table still shows the older 3-EC methods and generic 6-EC second-year space. These cannot be combined into a certified new-entry 180-EC path. The stored common aggregate conceals membership, and the exception’s 42-EC genuinely open claim conflicts with its stored free 36. Independently, English-taught compulsory/selected courses and omitted zero-credit diagnostic/tutoring formation establish current corrections. The nominal 180-EC display is retained only as a diagnostic; the repeated 6-EC course is not separately earned, so distinct supported credit totals 174 EC.
+
+Remaining external questions: Obtain the controlling 2026-entry OER or an authorized cohort-specific curriculum clarification resolving the duplicated Musical Celebrities, the two expanded methods, project replacements and genuine free-space weight. Establish each distinct credited unit exactly once and meet the thesis entry threshold before certifying 180.
