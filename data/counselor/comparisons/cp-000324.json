@@ -15,7 +15,8 @@
     "currentStatus": "active",
     "productionEligible": true,
     "languages": [
-      "NLD"
+      "NLD",
+      "ENG"
     ],
     "modes": [
       "VOLTIJD"
@@ -37,15 +38,16 @@
   "comparator": {
     "name": "Linguistics (Taalwetenschap)",
     "institution": "Leiden University",
-    "primarySourceUrl": "https://studiegids.universiteitleiden.nl/studies/BA-TWS?year=2261",
+    "primarySourceUrl": "https://studiegids.universiteitleiden.nl/api/product?code=BA-TWS&type=STUDY&year=2261&language=en",
     "academicYear": "2026-2027",
     "route": "Descriptive Linguistics specialisation",
     "additionalSourceUrls": [
-      "https://studiegids.universiteitleiden.nl/api/product?code=BA-TWS&year=2261&type=STUDY",
-      "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/linguistics",
-      "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/linguistics/about-the-programme/programme-structure"
+      "https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-taalwetenschap-2026-2027.pdf",
+      "https://studiegids.universiteitleiden.nl/api/product?code=5170V10Y&type=MODULE&year=2261&language=en",
+      "https://studiegids.universiteitleiden.nl/api/product?code=5512VEBE2Y&type=MODULE&year=2261&language=en",
+      "https://studiegids.universiteitleiden.nl/api/product?code=5511VE004Y&type=MODULE&year=2261&language=en"
     ],
-    "sourceNotes": "The current 2026-27 Leiden Study Guide and public product API define 60 EC in each year. The generic Linguistics target requires one of four formal specialisations from year two. Descriptive Linguistics is the first specialisation listed on the current official programme page and is therefore selected as the neutral official-order tie-break, independently of UCR fit. Year one combines 25 EC compulsory study, the complete 25-EC English-language course set and the 10-EC Descriptive Linguistics preparation package. Year two contains the published 45-EC Descriptive Linguistics compulsory sequence plus 15 EC of restricted track electives. Year three preserves the official 20-EC Descriptive Linguistics specialisation requirement, the 10-EC bachelor thesis and 30 EC of genuine elective space. The components account for exactly 180 EC.",
+    "sourceNotes": "The current Descriptive Linguistics pathway supports 60 EC in year one and 60 EC in year two after the 15-EC bound choice is instantiated with eligible nonoverlapping options. In year three, Philosophy of Science and Anthropological Linguistics contribute 10 distinct EC; Berber repeats the identical required year-two module and the thesis seminar carries 0 EC. Adding the separate 5-EC bound choice, 10-EC thesis and genuine open 30 EC yields a 55-EC diagnostic third year and 175 unique EC overall. No replacement is invented. Dutch and English instruction are both supported.",
     "components": [
       {
         "id": "ling-y1-sociolinguistics",
@@ -150,33 +152,52 @@
         "credits": 5
       },
       {
-        "id": "ling-y2-restricted-electives",
-        "name": "Descriptive Linguistics Restricted Electives",
-        "credits": 15,
-        "note": "Official restricted-choice space retained without inventing elective content."
+        "id": "ling-5512vev10y",
+        "name": "Vedic Sanskrit",
+        "credits": 10,
+        "note": "Selected 10-EC year-two bound option; first-year comparative-linguistics preparation is satisfied."
       },
       {
-        "id": "ling-y3-specialisation",
-        "name": "Descriptive Linguistics Year-Three Specialisation Requirements",
-        "credits": 20,
-        "note": "Official 20-EC specialisation group retained as a single curriculum component."
+        "id": "ling-5512vcg01y",
+        "name": "Language and Logic",
+        "credits": 5,
+        "note": "Selected 5-EC year-two bound option; no admission requirement and offered in semester one."
+      },
+      {
+        "id": "ling-5000vphscy",
+        "name": "Core Curriculum: Philosophy of Science",
+        "credits": 5,
+        "note": "Distinct positive-credit third-year route requirement."
+      },
+      {
+        "id": "ling-5733k2014y",
+        "name": "Anthropological Linguistics",
+        "credits": 5,
+        "note": "Distinct positive-credit third-year route requirement."
+      },
+      {
+        "id": "ling-5170v10y",
+        "name": "Digital Text and Data Analysis",
+        "credits": 5,
+        "note": "Separate eligible 5-EC third-year bound choice, selected independently of UCR fit."
       },
       {
         "id": "ling-y3-thesis",
         "name": "Bachelor Thesis in Linguistics",
-        "credits": 10
+        "credits": 10,
+        "note": "Ten-credit bachelor thesis; the associated route seminar carries 0 EC and is not counted."
       },
       {
-        "id": "ling-y3-elective-space",
-        "name": "Bachelor Elective Space",
+        "id": "ling-krb30s1",
+        "name": "Elective Space Bachelor 30 EC",
         "credits": 30,
-        "note": "Genuine open elective space preserved from the official curriculum."
+        "note": "Genuine open elective space; no subject is invented."
       }
     ],
     "routeSelection": {
       "route": "Descriptive Linguistics specialisation",
-      "selectionRule": "official-order-tiebreak",
-      "basis": "The normalized target is the generic Linguistics bachelor and the current programme offers four formal specialisations. No official evidence establishes one as uniquely broad or primary. Descriptive Linguistics appears first in the current official programme's specialisation list, so it is selected as the neutral order tie-break without reference to UCR fit."
+      "selectionRule": "retained-valid-neutral-selection",
+      "basis": "Descriptive Linguistics is a current formal route and the existing neutral selection remains valid. Differing route order across current official presentations is not used to change it, and UCR fit was not considered."
     }
   },
   "programmes": [
@@ -188,10 +209,9 @@
     }
   ],
   "exception": {
-    "type": "no-defensible-ucr-match",
-    "checkedOn": "2026-09-27",
-    "reason": "Leiden's Linguistics bachelor requires a cumulative scientific language sequence in phonetics and speech sounds, phonology, syntax, morphology, sociolinguistics, historical linguistics, language typology, sign and gesture studies, fieldwork, grammatical description and language documentation, followed by specialised study and an independent linguistics thesis. UCR offers one dedicated Psycholinguistics course and several useful courses in rhetoric, communication, cognition, sociology, programming and data science, but it does not offer the structural-linguistics foundations or the descriptive and documentary sequence needed to organise 23 non-PPD courses around Linguistics. A 24-course response would replace the field's disciplinary core with adjacent communication, psychology and computing subjects.",
-    "curriculumContext": "The official 2026-27 curriculum accounts for all 180 EC through a 60-EC first year, a 60-EC Descriptive Linguistics second year and a third year containing 20 EC of track requirements, a 10-EC bachelor thesis and 30 EC of open elective space. The selected route follows the neutral official-order rule and was reconstructed before considering UCR provision.",
-    "ucrCourseEvidence": "Reviewed all 151 current enriched UCR course rows, including descriptions, outline-derived profiles, topics, methods, prerequisites and planned semesters. HCBCOGN312 Psycholinguistics directly addresses language processing and cognition, while HCBGATE102 Introduction to Brain & Behavior and the cognitive-science sequence provide adjacent brain and behaviour study. MCCCOMM111 The Art of Rhetorical Communication, MCCCOMM211 Style & Meaning, MCCCOMM213 Rhetoric in Action, MCCCOMM311 Persuasive Communication and MCCCOMM312 Creative Communication Laboratory address rhetoric, discourse and communication rather than linguistic structure. MCCCOMM112 Dutch is practical language learning. Sociology, anthropology, programming, AI and data-science courses add adjacent social or computational tools, but the workbook contains no course sequence in phonetics, phonology, syntax, morphology, semantics, historical linguistics, typology, linguistic fieldwork, grammatical description or language documentation. These gaps prevent a defensible 24-course Linguistics programme rather than merely limiting a specialist elective."
+    "type": "external-programme-unresolved",
+    "checkedOn": "2026-10-09",
+    "reason": "Current official sources support 175 EC of distinct study. The identical Berber module appears in both compulsory annual groups, and no authoritative replacement for the missing 5 EC is published.",
+    "curriculumContext": "The current Descriptive Linguistics pathway supports 60 EC in year one and 60 EC in year two after the 15-EC bound choice is instantiated with eligible nonoverlapping options. In year three, Philosophy of Science and Anthropological Linguistics contribute 10 distinct EC; Berber repeats the identical required year-two module and the thesis seminar carries 0 EC. Adding the separate 5-EC bound choice, 10-EC thesis and genuine open 30 EC yields a 55-EC diagnostic third year and 175 unique EC overall. No replacement is invented. Dutch and English instruction are both supported."
   }
 }

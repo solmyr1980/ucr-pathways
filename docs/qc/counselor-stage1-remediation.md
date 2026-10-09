@@ -954,3 +954,22 @@ Remaining external questions: Obtain an applicable replacement/waiver rule for R
 Verification: Counted comparator components total 180 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
 
 The corrected external curriculum is complete at 180 EC, genuine open choice is restored and normalized language metadata are corrected. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+
+## Batch 15 — next five cases in audit order
+
+Status: in progress. Independent UCR reassessment remains separate.
+
+### cp-000324 — Linguistics (Taalwetenschap)
+
+- [BA-TWS current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-TWS&type=STUDY&year=2261&language=en) — The selected Descriptive Linguistics route has complete 60-EC first and second years. The displayed third-year group repeats required Berber from year two and contains a zero-credit thesis seminar; distinct positive-credit study closes at 175 EC after the separate bound choice, thesis and open space are counted once. Checked 9 October 2026.
+- [Linguistics programme-specific OER 2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-taalwetenschap-2026-2027.pdf) — The OER confirms four formal routes and Dutch/English instruction, with English in the post-propaedeutic Descriptive Linguistics route; it does not supply a replacement for the repeated third-year Berber unit. Checked 9 October 2026.
+- [Digital Text and Data Analysis module](https://studiegids.universiteitleiden.nl/api/product?code=5170V10Y&type=MODULE&year=2261&language=en) — This 5-EC semester-two module is the first eligible separate third-year bound choice and does not duplicate the selected route requirements. Checked 9 October 2026.
+- [Description of a Non-Western Language II: Berber](https://studiegids.universiteitleiden.nl/api/product?code=5512VEBE2Y&type=MODULE&year=2261&language=en) — The same 5-EC module code occurs in both compulsory annual groups and is counted once; the zero-credit thesis seminar cannot replace it. Checked 9 October 2026.
+- [Language and Culture of the Indo-Europeans](https://studiegids.universiteitleiden.nl/api/product?code=5511VE004Y&type=MODULE&year=2261&language=en) — Required first-year study supplies the basic comparative-linguistics and reconstruction preparation used by the selected Vedic Sanskrit option. Checked 9 October 2026.
+
+Verification: Counted comparator components total 175 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
+
+Current official sources support 175 EC of distinct study. The identical Berber module appears in both compulsory annual groups, and no authoritative replacement for the missing 5 EC is published.
+
+Remaining external questions: Obtain the applicable distinct third-year5-EC replacement or authoritative rule explaining Berber in both compulsory annual groups. Reconcile the20-EC third-year allocation with actual positive-credit members plus its separate bound5, without silently counting a seminar or parent.
