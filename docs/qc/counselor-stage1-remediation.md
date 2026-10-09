@@ -771,3 +771,15 @@ The external programme and formal route are now complete at 180 EC, but the prio
 Five cases processed. Deterministic regeneration matched all five committed canonical records; target validators, compiler suites, guarded registry replay, generated-index checks, registry-interest checks and final 438-record full-corpus validation passed. The original audit, permanent IDs, raw provenance, unrelated records and prior remediation history were preserved. No UCR reassessment or recurring research was performed.
 
 Current totals: 55 processed cases; 35 fully resolved first-stage findings; 20 cases retaining external research questions. The live corpus contains 460 normalized targets, 438 in-scope records, 301 comparisons and 137 exceptions (26 external-programme-unresolved, 90 no-defensible-ucr-match and 21 ucr-assessment-pending), with no missing in-scope IDs. There are 42 unprocessed actionable first-stage cases.
+
+## Batch 12 — next five cases in audit order
+
+Status: in progress. Independent UCR reassessment remains separate.
+
+### cp-000299 — International Studies
+
+- [BA-INT current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-INT&type=STUDY&year=2261&language=en) — Current official programme verifies a 60+60+60 Africa/Arabic pathway. The revised first year uses Introduction to International Studies10 and Humanities in a Digital World5; former Academic Literacy and Foundations of Political Economy are not added. Communicating Across Cultures is one selected bound option, not universal. Africa/Arabic, historical methods, Nomos–Paranomos, PRINS10, Language and Culture in Practice5, area thesis15 and genuine open30 are each counted once. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate modules, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
+
+The corrected external pathway is complete at 180 EC, but the prior no-match judgment was made against a superseded external reconstruction and requires the separately excluded UCR reassessment.
