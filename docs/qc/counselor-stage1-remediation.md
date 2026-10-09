@@ -730,3 +730,11 @@ Status: in progress. Independent UCR reassessment remains separate.
 Verification: Counted comparator components total 120 EC with alternatives, parent/submodule overlaps and zero-credit items excluded. Deterministic canonical regeneration and target validation passed.
 
 The current guide publishes complete Years 1 and 2 but explicitly defers the applicable Year 3 to the 2027–2028 guide. The missing 60 EC cannot be reconstructed without inventing route, choice, elective or final-project requirements.
+
+### cp-000290 — English Language and Culture
+
+- [BA-ENG current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-ENG&type=STUDY&year=2261&language=en) — Fresh current official product verifies nine first-year and eleven selected second-year units totaling 60+60 EC. The displayed-first British literature option is instantiated independently in each semester, and Early Modern Everyday English is selected by published order. Outgoing Language Acquisition 5/6 is explicitly last offered in 2026–2027 while the entrant third year changes significantly in 2027–2028; it is excluded. Checked 9 October 2026.
+
+Verification: Counted comparator components total 120 EC with alternatives, parent/submodule overlaps and zero-credit items excluded. Deterministic canonical regeneration and target validation passed.
+
+The current guide publishes complete Years 1 and 2, but states that the third year changes significantly in 2027–2028. Outgoing Language Acquisition 5/6 is last offered in 2026–2027 and cannot certify the Fall 2026 cohort's final 60 EC.
