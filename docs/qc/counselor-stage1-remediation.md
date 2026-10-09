@@ -958,7 +958,7 @@ The corrected external curriculum is complete at 180 EC, genuine open choice is 
 
 ## Batch 15 — next five cases in audit order
 
-Status: in progress. Independent UCR reassessment remains separate.
+Status: completed. Independent UCR reassessment remains separate.
 
 ### cp-000324 — Linguistics (Taalwetenschap)
 
@@ -998,6 +998,15 @@ The corrected external curriculum is complete at 180 EC. The superseded UCR no-m
 - [VU-UT Mechanical Engineering Amsterdam curriculum](https://vu.nl/en/education/bachelor/mechanical-engineering/curriculum) — The current Amsterdam overview identifies six semester themes and their constituent courses; semester five is approved minor space and semester six contains research skills and the BSc assignment. Checked 9 October 2026.
 - [Mechanical Engineering EER 2026–2027](https://www.utwente.nl/en/bscme/rules-procedures/eer-2026-2027-b-me-ut-ut-vu-final.pdf) — Amsterdam-specific Tables 4–6 prescribe 41 positive-credit compulsory units totaling 150 EC plus a genuine 30-EC minor. Research Skills 5 EC precedes the 12-EC BSc Assignment under stated progression rules. Checked 9 October 2026.
 - [University of Twente Mechanical Engineering programme](https://www.utwente.nl/en/education/bachelor/programmes/mechanical-engineering/) — The Amsterdam programme is delivered with VU and leads to a University of Twente diploma; the partnership is not a second degree. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### cp-000339 — Diergeneeskunde
+
+- [Veterinary Medicine current curriculum overview](https://www.uu.nl/bachelors/diergeneeskunde/studieprogramma) — The current overview names the three-year subject sequence, longitudinal veterinary formation, thesis and elective/profiling space. Checked 9 October 2026.
+- [Veterinary Medicine OER 2026–2027](https://students.uu.nl/sites/default/files/OER%20B-DGK%20%202026-2027%20-%20def.pdf) — The adopted OER publishes named course and longitudinal-line weights closing 60+60+60. Required study is 157.5 EC and added free profiling is 22.5 EC; the third-year professional line already includes the 7.5-EC thesis. Checked 9 October 2026.
 
 Verification: Counted comparator components total 180 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
 
