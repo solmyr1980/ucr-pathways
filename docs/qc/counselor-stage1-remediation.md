@@ -774,7 +774,7 @@ Current totals: 55 processed cases; 35 fully resolved first-stage findings; 20 c
 
 ## Batch 12 — next five cases in audit order
 
-Status: in progress. Independent UCR reassessment remains separate.
+Status: completed. Independent UCR reassessment remains separate.
 
 ### cp-000299 — International Studies
 
@@ -810,3 +810,18 @@ The external curriculum is complete at180 EC and instruction metadata are correc
 Verification: Counted comparator components total 180 EC; alternatives, duplicate modules, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
 
 The selected external pathway is complete at180 EC and language metadata are corrected, but the prior UCR judgment requires the separately excluded reassessment against this corrected basis.
+
+### cp-000306 — Middle Eastern Studies
+
+- [BA-MOS-MMO current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-MOS-MMO&type=STUDY&year=2261&language=en) — Current Modern Middle East Studies with Arabic retains 60+60+55=175 unique EC. The same 5852VCAAY History of Central Asia & Afghanistan course appears as compulsory in Year2 and again in the Year3 route; it is counted once and no historical replacement is imported. Comparative Literatures10, thesis seminar5, thesis10 and genuine open30 remain distinct. Current OER confirms Modern Middle East Studies as a formal direction and marks Islam Studies no intake. Required English-taught regional courses support normalized NLD+ENG. Checked 9 October 2026.
+- [Middle Eastern Studies programme-specific OER 2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-midden-oostenstudies-2026-2027.pdf) — Current directions include Modern Middle East Studies; Islam Studies has no intake. Dutch formal classification and thesis prerequisites; no replacement for duplicated5852VCAAY. Checked 9 October 2026.
+
+Verification: Counted comparator components total 175 EC; alternatives, duplicate modules, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
+
+The current guide repeats identical5-EC module5852VCAAY across Years2 and3. Counting once leaves175 EC; no distinct replacement or changed choice rule is currently established.
+
+### Batch 12 completion
+
+Five cases processed. Three first-stage external findings were resolved; Italian Language and Culture and Middle Eastern Studies retain precise external-programme questions. Deterministic regeneration matched all five canonical records; target validators, compiler suites, guarded registry replay, generated-index checks, registry-interest checks and final 438-record full-corpus validation passed. The original audit, permanent IDs, raw provenance, unrelated records and prior remediation history were preserved. No UCR reassessment or recurring research was performed.
+
+Current totals: 60 processed cases; 38 fully resolved first-stage findings; 22 cases retaining external research questions. The live corpus contains 460 normalized targets, 438 in-scope records, 301 comparisons and 137 exceptions (27 external-programme-unresolved, 86 no-defensible-ucr-match and 24 ucr-assessment-pending), with no missing in-scope IDs. There are 37 unprocessed actionable first-stage cases.
