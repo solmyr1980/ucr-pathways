@@ -1236,3 +1236,17 @@ The corrected external curriculum is complete at 180 EC. The superseded UCR no-m
 ### Batch 19 completion
 
 Five cases processed. Four external findings are resolved; Musicology retains the precise cohort, duplicated-credit, methods-transition and genuine-free-space question above. Deterministic regeneration matched all five canonical records; target validators, compiler suites, guarded registry replay, generated-index checks, registry-interest checks and final full-corpus validation passed. The original audit, permanent IDs, raw provenance, unrelated records and prior remediation history were preserved. No UCR reassessment or recurring research was performed.
+
+
+## Batch 20 — remaining two cases in audit order
+
+Status: in progress. Independent UCR reassessment remains separate.
+
+### cp-000435 — Spanish Language and Culture (Spaanse Taal en Cultuur; current programme title: Spaanse en Latijns-Amerikaanse studies)
+
+- [Spanish and Latin American Studies current curriculum](https://www.uva.nl/programmas/bachelors/spaanse-en-latijns-amerikaanse-studies/studieprogramma/studieprogramma.html) — Confirms the six-course Spanish sequence, required mobility, thesis and genuine free profiling. Checked 9 October 2026.
+- [Spanish Language and Culture 2026-2027 catalogue](https://studiegids.uva.nl/nl/opleidingen/2026/1/5936/40891) — The selected abroad pathway closes 60+60+60, while compulsory zero-credit formation remains separate. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
