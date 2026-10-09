@@ -859,3 +859,14 @@ Verification: Counted comparator components total 120 EC; alternatives, repeated
 The applicable new-cohort curriculum is verified only through 120 EC. The published third year belongs to entrants in 2024 or earlier, while the revised third year is deferred to the 2027–2028 guide.
 
 Remaining external questions: Obtain the revised third-year curriculum from the 2027–2028 guide. Verify current full/part-time pacing from applicable regulations without treating a future offering end date as current programme closure.
+
+### cp-000312 — Ancient Near Eastern Studies
+
+- [BA-ONO-NOP current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-ONO-NOP&type=STUDY&year=2261&language=en) — The formal broad route The Ancient Near Eastern World remains current. Four repeated module codes already reduce the catalogue allocation to160 nominal EC. The two Philosophy of Science codes carry identical core descriptions/objectives; counting that content once leaves155 supported unique-content EC. No replacement or distinct-credit rule is invented. Required current heritage and modern-regional history modules support normalized NLD+ENG. Checked 9 October 2026.
+- [Ancient Near Eastern Studies programme-specific OER 2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-oude-nabije-oosten-studies-2026-2027.pdf) — Formal routes include The Ancient Near Eastern World; Dutch is the formal programme language. The OER does not supply replacements for the repeated catalogue modules. Checked 9 October 2026.
+
+Verification: Counted comparator components total 155 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
+
+Only 155 EC of distinct current content are supported after repeated module codes and the duplicate-content Philosophy versions are counted once. A single-cohort replacement/choice table is still missing.
+
+Remaining external questions: Obtain a single-cohort replacement/choice table for repeated 5532VGONOY, 5531VATY, 5531VMCEY and 5851VHMMEY, and establish whether 5000VWF2Y/5000VWFY are alternative semester/cohort versions. Resolve the Ancient History workshop prerequisite to the relevant Themacollege when instantiating the current route.
