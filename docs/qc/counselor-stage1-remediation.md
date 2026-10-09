@@ -1183,7 +1183,7 @@ Five cases processed. Four external findings are resolved; Hebrew Language and C
 
 ## Batch 19 — next five cases in audit order
 
-Status: in progress. Independent UCR reassessment remains separate.
+Status: completed. Independent UCR reassessment remains separate.
 
 ### cp-000416 — Musicology (Muziekwetenschap)
 
@@ -1223,3 +1223,16 @@ The corrected external curriculum is complete at 180 EC. The superseded UCR no-m
 Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
 
 The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### cp-000432 — Slavonic Language and Culture (Slavische talen en culturen)
+
+- [Slavonic Languages and Cultures current curriculum](https://www.uva.nl/programmas/bachelors/slavische-talen-en-culturen/studieprogramma/studieprogramma.html) — Confirms the main-language major, required abroad semester, 18-EC graduation trajectory and free profile. Checked 9 October 2026.
+- [Slavonic Languages and Cultures 2026-2027 catalogue](https://studiegids.uva.nl/nl/opleidingen/2026/1/5896/40631) — The retained Russian route closes 60+60+60, with current prerequisites and zero-credit formation kept separate. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### Batch 19 completion
+
+Five cases processed. Four external findings are resolved; Musicology retains the precise cohort, duplicated-credit, methods-transition and genuine-free-space question above. Deterministic regeneration matched all five canonical records; target validators, compiler suites, guarded registry replay, generated-index checks, registry-interest checks and final full-corpus validation passed. The original audit, permanent IDs, raw provenance, unrelated records and prior remediation history were preserved. No UCR reassessment or recurring research was performed.
