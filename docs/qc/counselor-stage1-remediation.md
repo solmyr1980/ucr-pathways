@@ -573,3 +573,14 @@ Implemented: Replaced aggregate core with 27 source-backed course/project/open-s
 Verification: Fresh PER downloaded; requirement grid visually inspected and named course table independently checked. Credit arithmetic closes 60+60+60; all component identifiers are unique and no embedded/noncredit formation is added. Deterministic canonical regeneration, all three target validators and generated-index checks passed.
 
 External correction complete; separate UCR assessment pending. The prior no-match judgment remains historical provenance in the register. No recurring monitoring is scheduled.
+
+### cp-000274 — Bachelor Applied Mathematics
+
+Implemented: Replaced aggregate core with 28 named requirement/project/open-space positions totaling 180 EC; Specified ordinary BEP10 and distinguished optional Innovation Space project15; Preserved 45 EC genuine electives and embedded SCOP/e, PPD and CBL formation.
+
+- [Applied Mathematics programme](https://www.tue.nl/en/education/bachelor-college/bachelor-applied-mathematics) — Present degree facts. Checked 9 October 2026. Programme orientation retained from original audit; formal source independently freshly retrieved.
+- [Mathematics and Computer Science PER after revision 2026–2027](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Mathematics%20_%20Computer%20Science/Bachelor/MC_S%20-%20general%20bachelor/MCS%20PER%20Bachelor%20AR%202026-2027%20%28BC%202.0%29.pdf) — Article 3.4; Appendix 2, PDF pp.78,82–85; Appendix 3 p.90. Checked 9 October 2026. Fresh official source retrieved and inspected during this correction.
+
+Verification: Fresh current PER downloaded; Applied Mathematics p.78 requirement grid visually inspected. Every counted course or project occurs once; required totals independently close 60+60+60. Deterministic canonical regeneration, all target validators and generated-index checks passed.
+
+External correction complete; separate UCR assessment pending. The prior no-match judgment remains historical provenance. No recurring monitoring is scheduled.
