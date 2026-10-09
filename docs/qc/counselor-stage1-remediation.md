@@ -1135,3 +1135,13 @@ Status: in progress. Independent UCR reassessment remains separate.
 Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
 
 The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### cp-000403 — Greek and Latin Language and Culture (Griekse en Latijnse taal en cultuur)
+
+- [Greek and Latin Language and Culture current curriculum](https://www.uva.nl/programmas/bachelors/griekse-en-latijnse-taal-en-cultuur/studieprogramma/studieprogramma.html) — Confirms the regular Greek/Latin pathway, language preparation assumptions, thesis and free profile. Checked 9 October 2026.
+- [Greek and Latin Language and Culture 2026-2027 catalogue](https://studiegids.uva.nl/nl/opleidingen/2026/1/5838/40330) — The current ordinary weighted template closes 60+60+60 and separately requires diagnostic, orientation and tutoring formation. Checked 9 October 2026.
+- [VU Greek and Latin Language and Culture admissions](https://vu.nl/nl/onderwijs/bachelor/griekse-en-latijnse-taal-en-cultuur/toelating) — Dates the announced ACASA joint degree to 2027-2028, so the current 2026 award identity remains unchanged. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
