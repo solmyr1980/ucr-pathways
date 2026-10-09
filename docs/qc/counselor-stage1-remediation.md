@@ -1033,3 +1033,12 @@ The corrected external curriculum is complete at 180 EC. The superseded UCR no-m
 Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
 
 The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### cp-000358 — Natuur- en Sterrenkunde
+
+- [Physics and Astronomy current curriculum](https://www.uu.nl/bachelors/natuur-en-sterrenkunde/studieprogramma) — Confirms the current programme context and compulsory physics/mathematics progression. Checked 9 October 2026.
+- [Science bachelor programme-specific regulations 2026-2027 - Physics and Astronomy](https://students.uu.nl/sites/default/files/Onderwijs%20en%20Examenregeling-Undergraduate%20School%202026-2027-%20opleidingsspecifieke%20bijlagen.pdf) — Defines 90 EC compulsory study including the 15-EC thesis, 45 EC of bounded choice and 45 EC of genuine profiling space; formal and selected course evidence support Dutch plus English. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
