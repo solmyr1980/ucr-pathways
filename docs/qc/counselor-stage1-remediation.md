@@ -919,3 +919,13 @@ Verification: Counted comparator components total 60 EC; alternatives, repeated 
 Only the revised 60-EC first year is currently applicable to a 2026 entrant. Later-year transition material belongs to an earlier cohort, so a coherent current-entry 180-EC pathway cannot yet be certified.
 
 Remaining external questions: Obtain applicable new-cohort second/third-year requirements and a current full/part-time pacing rule. Apply qualitative-methods progression from the required first-year source-research course; no outgoing later-year substitution without transition authority.
+
+### cp-000319 — Russian Studies (Russische studies)
+
+- [BA-RUS current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-RUS&type=STUDY&year=2261&language=en) — The selected Politics, History and Economics route closes 60+60+60, preserves the prescribed language-abroad units, thesis and genuine open 30 EC, and does not count the zero-credit thesis seminar. Checked 9 October 2026.
+- [Russian Studies programme-specific OER 2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-russische-studies-2026-2027.pdf) — The OER confirms the two formal routes, language progression and thesis gates; Politics, History and Economics is the first-listed broad route. Checked 9 October 2026.
+- [Required Introduction to Russian Studies module](https://studiegids.universiteitleiden.nl/api/product?code=5641V011Y&type=MODULE&year=2261&language=en) — This required 5-EC module specifies English instruction, establishing required English alongside Dutch. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC and normalized language metadata are corrected. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
