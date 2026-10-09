@@ -652,3 +652,20 @@ Implemented: Removed falsely compulsory Pharmacy route and restored30 EC genuine
 Verification: Fresh programme and all54 linked module records checked; selected ordinary requirements independently total60+60+60=180 EC. All37 counted components are unique; project parent and optional Pharmacy modules excluded. Deterministic canonical regeneration, all target validators and generated-index checks passed.
 
 External first-stage finding resolved. Separate UCR assessment remains pending; no recurring monitoring is scheduled.
+
+### cp-000283 — Chinese Studies
+
+Implemented: Removed unsupported certified180-EC/no-match claim and published external-programme-unresolved; Preserved first120 EC, prerequisite-valid choices, open30 and thesis10; Instantiated both semester choice instructions as an explicit190-EC diagnostic and retained the conflicting numeric180 interpretation.
+
+- [Chinese Studies current official study guide](https://studiegids.universiteitleiden.nl/api/product?code=BA-CHI&type=STUDY&year=2261&language=en) — Year2261; year2 choices, year3 groups BA-CHI-3-K2/K3 and general narrative. Checked 9 October 2026.
+- [Chinese Studies programme-specific OER2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-chinastudies-2026-2027.pdf) — Articles2.2/4.2; pp.2,4–5; AppendixF. Checked 9 October 2026.
+- [Chinese Labor Migration in Historical Perspective](https://studiegids.universiteitleiden.nl/api/product?code=5683KCAHPY&type=MODULE&year=2261&language=en) — MODULE credit/admission conditions and programme semester membership. Checked 9 October 2026.
+- [China and the Global Political Economy](https://studiegids.universiteitleiden.nl/api/product?code=5683ICWEY&type=MODULE&year=2261&language=en) — MODULE credit/admission conditions and programme semester membership. Checked 9 October 2026.
+- [Reading Chinese News](https://studiegids.universiteitleiden.nl/api/product?code=5683VCKL1Y&type=MODULE&year=2261&language=en) — MODULE credit/admission conditions and programme semester membership. Checked 9 October 2026.
+- [Internet Chinese](https://studiegids.universiteitleiden.nl/api/product?code=5683VTICY&type=MODULE&year=2261&language=en) — MODULE credit/admission conditions and programme semester membership. Checked 9 October 2026.
+
+Verification: Fresh programme and all linked module records retrieved; current OER prerequisite/transition table visually inspected. Selected current module credits and semesters verified; diagnostic total60+60+70=190 and no duplication or invented credits. Deterministic canonical regeneration, all target validators and generated-index checks passed.
+
+Known source conflict is explicit; complete external reconstruction remains unresolved. Prior UCR judgment is historical only. No recurring monitoring is scheduled.
+
+Remaining external questions: Clarify whether year3 requires one content and one language option overall or one of each in each semester; reconcile numeric5+5 with textual10+10. If the semester instructions are intended, provide an authoritative changed allocation closing180 without an inferred reduction of open30.
