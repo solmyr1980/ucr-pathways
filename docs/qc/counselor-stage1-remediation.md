@@ -1240,7 +1240,7 @@ Five cases processed. Four external findings are resolved; Musicology retains th
 
 ## Batch 20 — remaining two cases in audit order
 
-Status: in progress. Independent UCR reassessment remains separate.
+Status: completed. Independent UCR reassessment remains separate.
 
 ### cp-000435 — Spanish Language and Culture (Spaanse Taal en Cultuur; current programme title: Spaanse en Latijns-Amerikaanse studies)
 
@@ -1250,3 +1250,16 @@ Status: in progress. Independent UCR reassessment remains separate.
 Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
 
 The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### cp-000437 — Theatre Studies (Theaterwetenschap)
+
+- [Theatre Studies current curriculum](https://www.uva.nl/programmas/bachelors/theaterwetenschap/studieprogramma/studieprogramma.html) — Confirms required disciplinary study, two restricted-choice slots and genuine free profiling. Checked 9 October 2026.
+- [Theatre Studies 2026-2027 catalogue](https://studiegids.uva.nl/nl/opleidingen/2026/1/5718/39579) — The two restricted slots are instantiated as distinct eligible 6-EC courses; required, restricted and genuinely free study total 180 EC. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### Batch 20 and first-stage queue completion
+
+Two cases processed and both external findings resolved. All 97 actionable first-stage cases are now recorded in the remediation register; 64 findings are fully resolved and 33 retain precise external research questions. No unprocessed actionable cases remain. Deterministic regeneration matched both canonical records; target validators, compiler suites, guarded registry replay, generated-index checks, registry-interest checks and final full-corpus validation passed. The original audit, permanent IDs, raw provenance, unrelated records and prior remediation history were preserved. No UCR reassessment or recurring research was performed.
