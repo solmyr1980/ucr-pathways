@@ -891,7 +891,7 @@ Current totals: 65 processed cases; 39 fully resolved first-stage findings; 26 c
 
 ## Batch 14 — next five cases in audit order
 
-Status: in progress. Independent UCR reassessment remains separate.
+Status: completed. Independent UCR reassessment remains separate.
 
 ### cp-000317 — Law
 
@@ -943,3 +943,14 @@ Verification: Counted comparator components total 180 EC; alternatives, repeated
 Current sources conflict on an applicable prerequisite and required-module language. The weighted 180-EC allocation is retained only as a diagnostic reconstruction; a coherent eligible pathway is not certified.
 
 Remaining external questions: Obtain an applicable replacement/waiver rule for Reading5482V000Y prerequisite Area Studies, and the actual SSEAS English-medium version/offer of Philosophy5000VPHSCY. Verify cohort authority without adding an uncredited prerequisite to180 or treating recommended Buddhist background as a hard gate.
+
+### cp-000323 — Astronomy (Sterrenkunde)
+
+- [BA-STK current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-STK&type=STUDY&year=2261&language=en) — The degree closes 60+60+(8 required +22 research +30 approved free-choice). The 30 EC may be an approved minor, free/exchange study or relevant elective package and is not universally restricted to seven astronomy options. Checked 9 October 2026.
+- [Required Astronomy module language evidence 1](https://studiegids.universiteitleiden.nl/api/product?code=4062CLMB3Y&type=MODULE&year=2261&language=en) — This required upper-year module specifies English instruction, establishing required English alongside Dutch. Checked 9 October 2026.
+- [Required Astronomy module language evidence 2](https://studiegids.universiteitleiden.nl/api/product?code=4082AN3NAY&type=MODULE&year=2261&language=en) — This required upper-year module specifies English instruction, establishing required English alongside Dutch. Checked 9 October 2026.
+- [Required Astronomy module language evidence 3](https://studiegids.universiteitleiden.nl/api/product?code=4072STAR5Y&type=MODULE&year=2261&language=en) — This required upper-year module specifies English instruction, establishing required English alongside Dutch. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC, genuine open choice is restored and normalized language metadata are corrected. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
