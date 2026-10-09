@@ -973,3 +973,13 @@ Verification: Counted comparator components total 175 EC; alternatives, repeated
 Current official sources support 175 EC of distinct study. The identical Berber module appears in both compulsory annual groups, and no authoritative replacement for the missing 5 EC is published.
 
 Remaining external questions: Obtain the applicable distinct third-year5-EC replacement or authoritative rule explaining Berber in both compulsory annual groups. Reconcile the20-EC third-year allocation with actual positive-credit members plus its separate bound5, without silently counting a seminar or parent.
+
+### cp-000326 — Mathematics (Wiskunde)
+
+- [BA-WSK current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-WSK&type=STUDY&year=2261&language=en) — The current 60+60+60 allocation retains compulsory mathematics, nonrepeated eligible restricted choices, an 18-EC bachelor project and genuine open 6+30 EC. Required modules establish both Dutch and English instruction. Checked 9 October 2026.
+- [Required Introduction to Measure Theory module](https://studiegids.universiteitleiden.nl/api/product?code=4082INMTXY&type=MODULE&year=2261&language=en) — This required 3-EC module specifies English instruction, establishing ordinary required English alongside Dutch. Checked 9 October 2026.
+- [Applied and Industrial Mathematics Seminar](https://studiegids.universiteitleiden.nl/api/product?code=4082APIMSY&type=MODULE&year=2261&language=en) — This selected 6-EC advanced option has the required quantitative preparation in the retained first two years. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
