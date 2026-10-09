@@ -983,3 +983,12 @@ Remaining external questions: Obtain the applicable distinct third-year5-EC repl
 Verification: Counted comparator components total 180 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
 
 The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### cp-000330 — Bachelor Mechanical Engineering
+
+- [Mechanical Engineering curriculum 2026–2027](https://www.utwente.nl/en/bscme/curriculum/curriculum/) — The current curriculum defines 150 EC of compulsory study plus two genuine 15-EC minor slots and publishes the separately credited compulsory study units within the thematic modules. Checked 9 October 2026.
+- [Mechanical Engineering curriculum table 2026–2027](https://www.utwente.nl/en/bscme/curriculum/me-curriculum-2026-2027.pdf) — The rendered one-page official table verifies 45 positive-credit compulsory units totaling 150 EC, including distinct integrated project/skills units and the final 12-EC research assignment plus 3-EC societal embedding. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
