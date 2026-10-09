@@ -1205,3 +1205,12 @@ Remaining external questions: Obtain the controlling 2026-entry OER or an author
 Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
 
 The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### cp-000428 — Religiewetenschappen
+
+- [Religious Studies current curriculum](https://www.uva.nl/programmas/bachelors/religiewetenschappen/studieprogramma/studieprogramma.html) — Confirms the ordinary 180-EC bachelor, first-year restricted disciplinary package, thesis trajectory and genuine free choice. Checked 9 October 2026.
+- [Religious Studies 2026-2027 catalogue](https://studiegids.uva.nl/nl/opleidingen/2026/1/5741/39735) — The first complete published restricted package is Anthropology: two distinct 12-EC units; the full route closes 60+60+60. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
