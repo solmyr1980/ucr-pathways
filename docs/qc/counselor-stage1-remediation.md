@@ -557,3 +557,19 @@ Five cases processed: three external reconstructions resolved; Architecture and 
 Target validators, deterministic compiler comparisons, guarded registry replay, generated-index checks, full-corpus validation and CI compiler regressions passed. GitHub checks are verified after each publication. The original audit, raw provenance and earlier batch histories remain unchanged.
 
 Live corpus: 438 in-scope records, 301 comparisons and 137 exceptions; 22 excluded permanent targets. Exception types: 22 external-programme-unresolved, 99 no-defensible-ucr-match, 16 ucr-assessment-pending. No in-scope record is missing.
+
+
+## Batch 9 — next five cases in audit order
+
+Corrections proceed individually; UCR comparability remains outside scope.
+
+### cp-000273 — Bachelor Applied Physics
+
+Implemented: Replaced aggregate core with 27 source-backed course/project/open-space positions totaling 180 EC; Replaced generic capstone range with exact 15 EC and current project/safety prerequisites; Preserved 45 EC genuine elective space, 125/10/45 allocation and embedded/noncredit formation.
+
+- [Applied Physics programme](https://www.tue.nl/en/education/bachelor-college/bachelor-applied-physics) — Present degree facts. Checked 9 October 2026. Programme orientation retained from original audit; formal source independently freshly retrieved.
+- [Applied Physics PER after revision 2026–2027 BC2.0](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Content/Programs/Bachelor%20College/Major%20Applied%20Physics/Regulations/OER%202026-2027%20BC2.0.pdf) — Article 3.4; Appendix 2, PDF pp.72–76; calculus pilot appendix. Checked 9 October 2026. Fresh official source retrieved and inspected during this correction.
+
+Verification: Fresh PER downloaded; requirement grid visually inspected and named course table independently checked. Credit arithmetic closes 60+60+60; all component identifiers are unique and no embedded/noncredit formation is added. Deterministic canonical regeneration, all three target validators and generated-index checks passed.
+
+External correction complete; separate UCR assessment pending. The prior no-match judgment remains historical provenance in the register. No recurring monitoring is scheduled.
