@@ -904,3 +904,18 @@ Verification: Counted comparator components total 120 EC; alternatives, repeated
 Current official sources support the revised entrant curriculum only through 120 EC. The outgoing third year cannot be combined with it, and the formal aggregate 150/30 allocation is not a course-level substitute.
 
 Remaining external questions: Obtain revised third year from the 2027–2028 guide; reconcile any outgoing part-time continuation with current full-time-only OER and admissions before displaying historical delivery modes as currently available.
+
+### cp-000318 — Religious Studies
+
+- [BA-REL current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-REL&type=STUDY&year=2261&language=en) — The revised current-entry first year contains ten positive-credit modules totaling 60 EC. The displayed second year and formal transition table apply to students who entered in 2025–2026 or earlier; no new-cohort later years are published. Checked 9 October 2026.
+- [Religious Studies programme-specific OER 2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-religiewetenschappen-2026-2027.pdf) — The new curriculum starts on 1 September 2026; its published second-year transition programme is expressly limited to 2025–2026-or-earlier entrants. Checked 9 October 2026.
+- [Required Islam module](https://studiegids.universiteitleiden.nl/api/product?code=5071VITSIY&type=MODULE&year=2261&language=en) — This required revised first-year module specifies English instruction, establishing ordinary required English alongside the formal Dutch programme classification. Checked 9 October 2026.
+- [Required Religion in the World module](https://studiegids.universiteitleiden.nl/api/product?code=5071VRWY&type=MODULE&year=2261&language=en) — This required revised first-year module specifies English instruction, establishing ordinary required English alongside the formal Dutch programme classification. Checked 9 October 2026.
+- [Required Hindu Religions module](https://studiegids.universiteitleiden.nl/api/product?code=5481KIHRY&type=MODULE&year=2261&language=en) — This required revised first-year module specifies English instruction, establishing ordinary required English alongside the formal Dutch programme classification. Checked 9 October 2026.
+- [Required Qualitative Research module](https://studiegids.universiteitleiden.nl/api/product?code=5071VMT02Y&type=MODULE&year=2261&language=en) — This required revised first-year module specifies English instruction, establishing ordinary required English alongside the formal Dutch programme classification. Checked 9 October 2026.
+
+Verification: Counted comparator components total 60 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
+
+Only the revised 60-EC first year is currently applicable to a 2026 entrant. Later-year transition material belongs to an earlier cohort, so a coherent current-entry 180-EC pathway cannot yet be certified.
+
+Remaining external questions: Obtain applicable new-cohort second/third-year requirements and a current full/part-time pacing rule. Apply qualitative-methods progression from the required first-year source-research course; no outgoing later-year substitution without transition authority.
