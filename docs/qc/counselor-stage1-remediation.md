@@ -825,3 +825,16 @@ The current guide repeats identical5-EC module5852VCAAY across Years2 and3. Coun
 Five cases processed. Three first-stage external findings were resolved; Italian Language and Culture and Middle Eastern Studies retain precise external-programme questions. Deterministic regeneration matched all five canonical records; target validators, compiler suites, guarded registry replay, generated-index checks, registry-interest checks and final 438-record full-corpus validation passed. The original audit, permanent IDs, raw provenance, unrelated records and prior remediation history were preserved. No UCR reassessment or recurring research was performed.
 
 Current totals: 60 processed cases; 38 fully resolved first-stage findings; 22 cases retaining external research questions. The live corpus contains 460 normalized targets, 438 in-scope records, 301 comparisons and 137 exceptions (27 external-programme-unresolved, 86 no-defensible-ucr-match and 24 ucr-assessment-pending), with no missing in-scope IDs. There are 37 unprocessed actionable first-stage cases.
+
+
+## Batch 13 — next five cases in audit order
+
+Status: in progress. Independent UCR reassessment remains separate.
+
+### cp-000308 — Physics
+
+- [BA-NTK current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-NTK&type=STUDY&year=2261&language=en) — Current requirements close 60+60+60. The second-year 9-EC restricted choice uses Experimental Projects6, whose team/lecturer preparation is retained, plus semester-2 Fluid Phenomena3; Astro-Particle Physics is excluded because its expected preparation includes compulsory courses taught later in the same year. Year3 preserves genuine open30, separate Relativistic Electrodynamics3 and the 27-EC research project split20+3+1+3. Required current upper-year modules support normalized NLD+ENG. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC and language metadata are corrected; the superseded UCR no-match judgment is handed off for the separately excluded UCR reassessment.
