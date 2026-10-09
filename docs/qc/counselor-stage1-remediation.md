@@ -1011,3 +1011,17 @@ The corrected external curriculum is complete at 180 EC. The superseded UCR no-m
 Verification: Counted comparator components total 180 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
 
 The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+
+## Batch 16 — next five cases in audit order
+
+Status: in progress. Independent UCR reassessment remains separate.
+
+### cp-000342 — Pharmacy (Farmacie)
+
+- [Pharmacy current curriculum](https://students.uu.nl/beta/farmacie-b/onderwijs/studieprogramma) — Confirms the Farmacie pathway, 135-EC major, 45-EC profiling space, academic-skills sequence and short/long thesis alternatives. Checked 9 October 2026.
+- [Science bachelor programme-specific regulations 2026-2027 - Pharmacy](https://students.uu.nl/sites/default/files/Onderwijs%20en%20Examenregeling-Undergraduate%20School%202026-2027-%20opleidingsspecifieke%20bijlagen.pdf) — The selected 7.5-EC thesis closes 135+45; the authorized 15-EC alternative closes 142.5+37.5. Zero-credit academic skills and the FA-BA107 release condition are preserved. Programme instruction is Dutch plus English. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
