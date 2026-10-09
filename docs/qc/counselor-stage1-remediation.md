@@ -1067,3 +1067,17 @@ The corrected external curriculum is complete at 180 EC. The superseded UCR no-m
 ### Batch 16 completion
 
 Five cases processed. Four external findings are resolved; Politics, Culture and Religion retains a precise current-source question. Deterministic regeneration matched all five canonical records; target validators, compiler suites, guarded registry replay, generated-index checks, registry-interest checks and final full-corpus validation passed. The original audit, permanent IDs, raw provenance, unrelated records and prior remediation history were preserved. No UCR reassessment or recurring research was performed.
+
+
+## Batch 17 — next five cases in audit order
+
+Status: in progress. Independent UCR reassessment remains separate.
+
+### cp-000370 — Bachelor Spaanse taal en cultuur
+
+- [Spanish Language and Culture current curriculum](https://students.uu.nl/gw/spaanse-taal-en-cultuur/mijn-studie/studieprogramma) — Confirms the standard language-specific pathway, alternating depth packages, writing preparation, thesis and profiling structure. Checked 9 October 2026.
+- [Spanish Language and Culture programme-specific regulations 2026-2027](https://students.uu.nl/sites/default/files/GW-OER-BA-2026-2027-Spaans.pdf) — Defines the 127.5-EC major plus 52.5-EC profiling space, compulsory zero-credit grammar test, Spanish thesis, eligible methods choices and prospective odd-year package titles. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
