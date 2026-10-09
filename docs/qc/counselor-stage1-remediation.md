@@ -783,3 +783,12 @@ Status: in progress. Independent UCR reassessment remains separate.
 Verification: Counted comparator components total 180 EC; alternatives, duplicate modules, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
 
 The corrected external pathway is complete at 180 EC, but the prior no-match judgment was made against a superseded external reconstruction and requires the separately excluded UCR reassessment.
+
+### cp-000300 — Italian Language and Culture
+
+- [BA-ITA current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-ITA&type=STUDY&year=2261&language=en) — Current Years 1 and 2 verify 60+60 EC. Year3 nominally requires Laboratorio Rinascimento5 + restricted15 + thesis10 + open30, but four of five restricted options duplicate compulsory Year2 modules; only Linguistica Italiana5 is distinct. The supported nonduplicated diagnostic is therefore170 EC, with10 EC unresolved. Italian and required English-taught core units support normalized NLD+ITA+ENG; raw NLD remains unchanged. Checked 9 October 2026.
+- [Italian Language and Culture programme-specific OER 2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-italiaanse-taal-en-cultuur-2026-2027.pdf) — No formal directions; Dutch/Italian instruction; transition and thesis rules. It does not authorize repeated credit or automatically replace discontinued upper-year courses. Checked 9 October 2026.
+
+Verification: Counted comparator components total 170 EC; alternatives, duplicate modules, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
+
+The current restricted-choice menu cannot supply15 distinct third-year EC without repeating compulsory Year2 modules. Only170 nonduplicated EC are retained; no alternating-course or replacement rule is invented.
