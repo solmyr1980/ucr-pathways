@@ -1025,3 +1025,11 @@ Status: in progress. Independent UCR reassessment remains separate.
 Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
 
 The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### cp-000357 — Muziekwetenschap
+
+- [Musicology programme-specific regulations 2026-2027](https://students.uu.nl/sites/default/files/GW-OER-BA-2026-2027-Muziekwetenschap.pdf) — Confirms a 120-EC major plus 60-EC profiling space, the selected Music and Society package, bounded context choice, thesis preparation and thesis, and Dutch plus English instruction. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
