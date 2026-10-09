@@ -1157,3 +1157,12 @@ Verification: Counted comparator components total 180 EC; alternatives, duplicat
 Allocation is not a certified coherent pathway; no approved prerequisite placement, waiver/equivalence or alternate route established. The 180-EC allocation is retained only as a diagnostic and is not certified as a coherent pathway.
 
 Remaining external questions: Obtain the applicable 2026-entry abroad prerequisites and an authorized placement, equivalence, waiver or alternative for Tekst, mens, God: geselecteerde Rabbijnse teksten. Reconcile current host/availability and the approved home alternative with the selected major and timing. Close language/formation corrections separately; do not add an unallocated course or borrow an older Israel route.
+
+### cp-000408 — Italian Studies (Italian Language and Culture)
+
+- [Italy Studies current curriculum](https://www.uva.nl/programmas/bachelors/italiaanse-taal-en-cultuur/studieprogramma/studieprogramma.html) — Confirms the sequential Italian-language pathway, required abroad semester, thesis and free profile. Checked 9 October 2026.
+- [Italian Language and Culture 2026-2027 catalogue](https://studiegids.uva.nl/nl/opleidingen/2026/1/5934/40875) — The weighted full-time template closes 60+60+60; required abroad, thesis and genuine free profiling remain distinct, with zero-credit formation separate. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
