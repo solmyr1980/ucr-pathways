@@ -747,3 +747,11 @@ The current guide publishes complete Years 1 and 2, but states that the third ye
 Verification: Counted comparator components total 180 EC with alternatives, parent/submodule overlaps and zero-credit items excluded. Deterministic canonical regeneration and target validation passed.
 
 The external curriculum and bound choices are now complete at 180 EC, but the prior UCR no-match judgment relied on superseded external facts and is not carried forward without the separately excluded UCR reassessment.
+
+### cp-000295 — Medicine
+
+- [BA-GEN current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-GEN&type=STUDY&year=2261&language=en) — Current provisional first and second years are retained as 60+60 EC. Parent packages are counted once; zero-credit submodules and the exchange-only AWV variant are not stacked. Required Mechanisms of Disease 1 and 2 are English-medium while Dutch remains the main programme language, supporting normalized NLD+ENG. The product says the new third-year programme will follow; outgoing third-year courses and the historical distributed endpoint are not attached to this cohort. Checked 9 October 2026.
+
+Verification: Counted comparator components total 120 EC with alternatives, parent/submodule overlaps and zero-credit items excluded. Deterministic canonical regeneration and target validation passed.
+
+The current guide labels Years 1 and 2 provisional and states that the revised third year will follow. The publicly linked adopted regulations remain 2025–2026. A complete new-cohort 180-EC pathway cannot be certified from the historical third year.
