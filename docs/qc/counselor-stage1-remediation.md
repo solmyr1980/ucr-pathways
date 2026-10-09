@@ -1196,3 +1196,12 @@ Verification: Nominal listed comparator components total 180 EC; alternatives, d
 The retained Cognitive and Computational Musicology route has a nominal current guide allocation of 60/60/60, but Musical Celebrities (115221386Y, 6 EC) appears in both years two and three: the distinct credited units total only 174. Current 2026 transition rules replace earlier 3-EC methods with 6-EC methods and make Musical Celebrities a replacement for older project/portfolio requirements. The prospective table still shows the older 3-EC methods and generic 6-EC second-year space. These cannot be combined into a certified new-entry 180-EC path. The stored common aggregate conceals membership, and the exception’s 42-EC genuinely open claim conflicts with its stored free 36. Independently, English-taught compulsory/selected courses and omitted zero-credit diagnostic/tutoring formation establish current corrections. The nominal 180-EC display is retained only as a diagnostic; the repeated 6-EC course is not separately earned, so distinct supported credit totals 174 EC.
 
 Remaining external questions: Obtain the controlling 2026-entry OER or an authorized cohort-specific curriculum clarification resolving the duplicated Musical Celebrities, the two expanded methods, project replacements and genuine free-space weight. Establish each distinct credited unit exactly once and meet the thesis entry threshold before certifying 180.
+
+### cp-000419 — Modern Greek Language and Culture (Nieuwgriekse taal en cultuur)
+
+- [Modern Greek Language and Culture current curriculum](https://www.uva.nl/programmas/bachelors/nieuwgriekse-taal-en-cultuur/studieprogramma/studieprogramma.html) — Confirms the progressive Greek-language pathway, recommended mobility, thesis and genuine free profiling. Checked 9 October 2026.
+- [Modern Greek Language and Culture 2026-2027 catalogue](https://studiegids.uva.nl/nl/opleidingen/2026/1/5734/39685) — The selected abroad pathway closes 60+60+60, while compulsory zero-credit formation remains separate. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
