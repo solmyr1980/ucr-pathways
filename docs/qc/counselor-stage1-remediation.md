@@ -635,3 +635,20 @@ Remaining external questions: Provide an applicable complete new-cohort weighted
 Five cases processed; two resolved external reconstructions and three with remaining external questions. No UCR reassessment or recurring research was performed. Deterministic compilation, all target validators, registry replay, generated-index checks and final full-corpus validation passed. GitHub checks are verified after each publication.
 
 Current totals: {'processed_cases': 45, 'fully_resolved_first_stage_findings': 32, 'cases_with_remaining_external_research': 13}; corpus {'normalized_targets': 460, 'in_scope_targets': 438, 'excluded_targets': 22, 'comparisons': 301, 'exceptions': 137, 'exception_types': {'external-programme-unresolved': 24, 'no-defensible-ucr-match': 95, 'ucr-assessment-pending': 18}, 'missing_in_scope_ids': []}; unprocessed actionable cases 52.
+
+## Batch 10 — next five cases in audit order
+
+Each case is published and verified before proceeding. Independent UCR reassessment remains separate.
+
+### cp-000280 — Bio-Pharmaceutical Sciences
+
+Implemented: Removed falsely compulsory Pharmacy route and restored30 EC genuine approved elective space; Preserved all120 common plus14 finalyear skills/drug-development and16 research credits counted once; Changed active outcome to ucr-assessment-pending and preserved superseded UCR judgment.
+
+- [Leiden Bio-Pharmaceutical Sciences current study guide](https://studiegids.universiteitleiden.nl/api/product?code=BA-BFW&type=STUDY&year=2261&language=en) — Year2261; required annual groups and year3 ordinary/Pharmacy distinction. Checked 9 October 2026.
+- [Bachelor research practical work](https://studiegids.universiteitleiden.nl/api/product?code=4012BOO12Y&type=MODULE&year=2261&language=en) — MODULE credits and admission requirements. Checked 9 October 2026.
+- [Bachelor research thesis](https://studiegids.universiteitleiden.nl/api/product?code=4012BTHESY&type=MODULE&year=2261&language=en) — MODULE credit field. Checked 9 October 2026.
+- [Bachelor research presentation](https://studiegids.universiteitleiden.nl/api/product?code=4012BMOPRY&type=MODULE&year=2261&language=en) — MODULE credit field. Checked 9 October 2026.
+
+Verification: Fresh programme and all54 linked module records checked; selected ordinary requirements independently total60+60+60=180 EC. All37 counted components are unique; project parent and optional Pharmacy modules excluded. Deterministic canonical regeneration, all target validators and generated-index checks passed.
+
+External first-stage finding resolved. Separate UCR assessment remains pending; no recurring monitoring is scheduled.
