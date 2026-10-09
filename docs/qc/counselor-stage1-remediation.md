@@ -1089,3 +1089,12 @@ The corrected external curriculum is complete at 180 EC. The superseded UCR no-m
 Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
 
 The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### cp-000378 — Arabische Taal en Cultuur
+
+- [Arabic Language and Culture current curriculum](https://www.uva.nl/programmas/bachelors/arabische-taal-en-cultuur/studieprogramma/studieprogramma.html) — Confirms the Arabic Studies specialisation as the representative language-specific route and its Cairo semester. Checked 9 October 2026.
+- [Arabic Language and Culture 2026-2027 course catalogue](https://studiegids.uva.nl/nl/opleidingen/2026/1/5714/39547?studyPath=TMES) — The selected Arabic Studies weighted template closes 60+60+60 and separately requires the zero-credit diagnostic test and recurring tutoring. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
