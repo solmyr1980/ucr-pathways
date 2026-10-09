@@ -695,3 +695,26 @@ Verification: Fresh programme and all22 linked module responses independently ch
 Known open-space omission is corrected; full external reconstruction remains unresolved. Prior exception preserved. No recurring monitoring is scheduled.
 
 Remaining external questions: Establish the remaining30 EC compulsory third-year units, their credit/choice and progression rules, exact integration project and final assessment/thesis conditions from applicable official programme evidence. The guide specifies visibility fromJune2027; no recurring monitoring is authorised.
+
+### cp-000288 — German Language and Culture
+
+Implemented: Corrected normalized instruction languages toNLD+DEU+ENG through guarded replay while preserving rawNLD; Instantiated20-EC bounded choices as distinct10-EC literature and linguistics courses with valid literature-thesis progression; Preserved abroad25, thesis10 and genuine open30; retained175 unique credits with no repeated course or alternative variant.
+
+- [German Language and Culture current study guide](https://studiegids.universiteitleiden.nl/api/product?code=BA-DUI&type=STUDY&year=2261&language=en) — Year2261; duplicate5631VB35Y and third-year20/10/30 rules. Checked 9 October 2026.
+- [German Language and Culture programme-specific OER2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-duitse-taal-en-cultuur-2026-2027.pdf) — Articles2.2/2.9/3.2.9/4.2; pp.2–4. Checked 9 October 2026.
+- [Alte Neue Welt —10-EC module](https://studiegids.universiteitleiden.nl/api/product?code=5633K003Y&type=MODULE&year=2261&language=en) — MODULE credits, content and assessment. Checked 9 October 2026.
+- [Sprachvariation und Ideologien —10-EC module](https://studiegids.universiteitleiden.nl/api/product?code=5633KSID1Y&type=MODULE&year=2261&language=en) — MODULE credits, content and assessment. Checked 9 October 2026.
+- [German Language and Culture thesis](https://studiegids.universiteitleiden.nl/api/product?code=5633VB21Y&type=MODULE&year=2261&language=en) — MODULE credits and admission. Checked 9 October 2026.
+- [Compulsory German-speaking study abroad](https://studiegids.universiteitleiden.nl/api/product?code=5632VBUITY&type=MODULE&year=2261&language=en) — MODULE credit and requirements. Checked 9 October 2026.
+
+Verification: Fresh current OER language/prerequisite pages visually inspected; all29 linked current module responses independently retrieved. Counted modules verified; totals60+55+60=175. Specific20-EC choices satisfy same-discipline10 condition and thesis paper progression; no alternative variants counted. Deterministic canonical regeneration, all target validators, registry idempotence and generated-index checks passed. Final438-record full-corpus validation and guarded baseline registry replay passed; other459 normalized targets, original audit, raw provenance, unrelated records and all prior remediation histories unchanged. Language/provenance conflicts rejected.
+
+Language and bounded-choice defects are closed. Full external reconstruction remains unresolved; no speculative5-EC replacement or UCR assessment is introduced. No recurring monitoring is scheduled.
+
+Remaining external questions: Identify the applicable new-cohort replacement or allocation rule supplying the missing5 EC when5631VB35Y is counted once. Provide a corrected official programme table or authoritative cohort rule; language and known third-year choice corrections do not close this gap.
+
+### Batch 10 completion
+
+Five cases processed. Deterministic compilation, all target validators, guarded registry replay, generated-index checks and final full-corpus validation passed. GitHub checks are verified after each publication. No UCR reassessment or recurring research was performed.
+
+Current totals: {'processed_cases': 50, 'fully_resolved_first_stage_findings': 33, 'cases_with_remaining_external_research': 17}; corpus {'normalized_targets': 460, 'in_scope_targets': 438, 'excluded_targets': 22, 'comparisons': 301, 'exceptions': 137, 'exception_types': {'external-programme-unresolved': 25, 'no-defensible-ucr-match': 93, 'ucr-assessment-pending': 19}, 'missing_in_scope_ids': []}; unprocessed actionable cases 47.
