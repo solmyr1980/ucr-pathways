@@ -1071,7 +1071,7 @@ Five cases processed. Four external findings are resolved; Politics, Culture and
 
 ## Batch 17 — next five cases in audit order
 
-Status: in progress. Independent UCR reassessment remains separate.
+Status: completed. Independent UCR reassessment remains separate.
 
 ### cp-000370 — Bachelor Spaanse taal en cultuur
 
@@ -1108,3 +1108,16 @@ The corrected external curriculum is complete at 180 EC. The superseded UCR no-m
 Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
 
 The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### cp-000390 — Duitslandstudies
+
+- [Germany Studies current curriculum](https://www.uva.nl/programmas/bachelors/duitslandstudies/studieprogramma/studieprogramma.html) — Confirms the required language/culture progression, abroad semester, thesis and free profile. Checked 9 October 2026.
+- [German Language and Culture 2026-2027 course catalogue](https://studiegids.uva.nl/nl/opleidingen/2026/1/5763/39880) — The weighted full-time template closes 60+60+60; required abroad and genuine free profiling are distinct, and zero-credit formation is separate. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### Batch 17 completion
+
+Five cases processed and all five external findings resolved. Deterministic regeneration matched all five canonical records; target validators, compiler suites, guarded registry replay, generated-index checks, registry-interest checks and final full-corpus validation passed. The original audit, permanent IDs, raw provenance, unrelated records and prior remediation history were preserved. No UCR reassessment or recurring research was performed.
