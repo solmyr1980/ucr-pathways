@@ -738,3 +738,12 @@ The current guide publishes complete Years 1 and 2 but explicitly defers the app
 Verification: Counted comparator components total 120 EC with alternatives, parent/submodule overlaps and zero-credit items excluded. Deterministic canonical regeneration and target validation passed.
 
 The current guide publishes complete Years 1 and 2, but states that the third year changes significantly in 2027–2028. Outgoing Language Acquisition 5/6 is last offered in 2026–2027 and cannot certify the Fall 2026 cohort's final 60 EC.
+
+### cp-000294 — French Language and Culture
+
+- [French Language and Culture programme-specific OER 2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-franse-taal-en-cultuur-2026-2027.pdf) — No formal specialisation; Dutch and French instruction/assessment; thesis prerequisites and cohort-specific three/five seminar rules. The transition table separates September 2026 replacements from universal entrant requirements. Checked 9 October 2026.
+- [BA-FRA current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-FRA&type=STUDY&year=2261&language=en) — Current allocation is reconstructed as first year60 + fixed upper-year35 + four alternating-cycle units30 + three concrete seminars15 + thesis10 + genuine open30 =180 EC. The selected legal-French practical seminar and two research seminars meet the current three-seminar/two-research rule. Alternants are counted once across the two-year cycle; Poetry and Theatre10 and Metamorphoses of the Novel5 are explicitly not offered in 2026–2027, so this is a degree allocation rather than a claim that all units run in one year. The adopted formal rules state no specialisation and Dutch/French instruction. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC with alternatives, parent/submodule overlaps and zero-credit items excluded. Deterministic canonical regeneration and target validation passed.
+
+The external curriculum and bound choices are now complete at 180 EC, but the prior UCR no-match judgment relied on superseded external facts and is not carried forward without the separately excluded UCR reassessment.
