@@ -1098,3 +1098,13 @@ The corrected external curriculum is complete at 180 EC. The superseded UCR no-m
 Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
 
 The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### cp-000379 — Archaeology
+
+- [Archaeology current curriculum](https://www.uva.nl/en/programmes/bachelors/archaeology/study-programme/study-programme.html) — Confirms the current English-language curriculum variant and three-year structure. Checked 9 October 2026.
+- [Archaeology 2026-2027 course catalogue](https://studiegids.uva.nl/en/programmes/2026/1/5839/40339) — The selected English template closes 60+60+60 and separately requires the literacy test, ACASA orientation and recurring tutoring. Checked 9 October 2026.
+- [VU Archaeology admissions](https://vu.nl/en/education/bachelor/archaeology/admissions) — Dates the announced joint UvA-VU bachelor to 2027-2028, so it does not replace the current 2026-entry award or permanent identifier. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
