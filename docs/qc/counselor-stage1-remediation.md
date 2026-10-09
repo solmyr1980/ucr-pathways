@@ -613,3 +613,25 @@ Verification: Fresh programme API and all22 linked module records checked; both 
 The original Swahili and route ambiguities are resolved by freshly obtained formal authority. Full external closure remains blocked by T.B.A.5 and mixed-cohort catalogue reconciliation; no speculative course is supplied. Prior UCR judgment remains historical only. No recurring monitoring is scheduled.
 
 Remaining external questions: Identify the exact new-cohort second-year T.B.A.5-EC course and applicable course conditions; it is not genuine open elective space. Reconcile the current API mixed-cohort Swahili and third-year choice membership with the adopted new-programme AppendixF; confirm applicable future module codes/delivery before complete180-EC certification.
+
+### cp-000278 — Archaeology
+
+Implemented: Corrected normalized instruction language toNLD+ENG while preserving rawNLD provenance; Freshly verified current adopted OER and first-year replacement codes; retained twelve5-EC first-year units; Preserved permitted30-EC genuine elective space, bringing the supported partial reconstruction to90 without outgoing specialisation credits.
+
+- [Leiden Archaeology current study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-ARCH&type=STUDY&year=2261&language=en) — Year 2261 first-year and outgoing specialisation groups. Checked 9 October 2026. Fresh official source retrieved and inspected during this correction.
+- [Leiden Archaeology current programme overview](https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/archeologie/over-de-opleiding) — Voertaal; degree structure. Checked 9 October 2026. Fresh official source retrieved and inspected during this correction.
+- [Leiden Archaeology programme structure](https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/archaeology/about-the-programme1/programme-structure) — Current degree outline and first-year table. Checked 9 October 2026. Fresh official source retrieved and inspected during this correction.
+- [Archaeology adopted Bachelor OER2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/archeologie/onderwijs--en-examenreglementen/2026-2027/oer-ba-en-2026-2027.pdf) — Adopted14July2026; Articles2.2,2.9,3.1–3.3; pp.6,9–11. Checked 9 October 2026. Fresh official PDF downloaded and visually inspected; prior audit retrieval limitation is resolved.
+- [Archaeology2026–2027 replacement table](https://www.student.universiteitleiden.nl/binaries/content/assets/archeologie/onderwijsgerelateerd/replacement-table-archaeology-26-27.pdf) — Bachelor old/new course-code table, PDFp.1. Checked 9 October 2026. Fresh official replacement table downloaded and text checked.
+
+Verification: Fresh current OER visually inspected at cohort/language clauses; all19 current first-year product/module entries independently checked. Twelve unique5-EC current units total60; zero/superseded items excluded; permitted elective30 counted once and unknown compulsory90 not filled. Deterministic canonical regeneration, all target validators, registry idempotence and generated-index checks passed.
+
+Language correction and source-access/cohort findings are closed. External-programme-unresolved remains for the missing generic later-year requirements. No recurring monitoring is scheduled.
+
+Remaining external questions: Provide an applicable complete new-cohort weighted second-/third-year generic curriculum, including bounded choices, internship and thesis requirements, accounting for the remaining90 compulsory EC without outgoing WA/HS blocks.
+
+### Batch 9 completion
+
+Five cases processed; two resolved external reconstructions and three with remaining external questions. No UCR reassessment or recurring research was performed. Deterministic compilation, all target validators, registry replay, generated-index checks and final full-corpus validation passed. GitHub checks are verified after each publication.
+
+Current totals: {'processed_cases': 45, 'fully_resolved_first_stage_findings': 32, 'cases_with_remaining_external_research': 13}; corpus {'normalized_targets': 460, 'in_scope_targets': 438, 'excluded_targets': 22, 'comparisons': 301, 'exceptions': 137, 'exception_types': {'external-programme-unresolved': 24, 'no-defensible-ucr-match': 95, 'ucr-assessment-pending': 18}, 'missing_in_scope_ids': []}; unprocessed actionable cases 52.
