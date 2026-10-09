@@ -669,3 +669,16 @@ Verification: Fresh programme and all linked module records retrieved; current O
 Known source conflict is explicit; complete external reconstruction remains unresolved. Prior UCR judgment is historical only. No recurring monitoring is scheduled.
 
 Remaining external questions: Clarify whether year3 requires one content and one language option overall or one of each in each semester; reconcile numeric5+5 with textual10+10. If the semester instructions are intended, provide an authoritative changed allocation closing180 without an inferred reduction of open30.
+
+### cp-000284 — Criminology
+
+Implemented: Retained and independently verified all24 revised first-/second-year5-EC modules; Made current cohort boundary explicit and excluded outgoing third-year35+15+10; Distinguished extracurricular30-EC minor from uncertified revised degree credits; removed future monitoring instructions.
+
+- [Criminology current official study guide](https://studiegids.universiteitleiden.nl/api/product?code=BA-CRIM&type=STUDY&year=2261&language=en) — Year2261; annual groups BA-CRIM-1/2/3 and cohort notices. Checked 9 October 2026.
+- [Criminology current programme overview](https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/criminologie/over-de-opleiding/studieprogramma) — Curriculum15 EC; explicitly extracurricular30-EC minor; study-guide link. Checked 9 October 2026.
+
+Verification: Fresh programme and all37 linked module records retrieved; each of the24 counted modules verifies5 EC. The supported sequence totals120 EC; outgoing year3 and zero-credit formation units are not counted. Deterministic canonical regeneration, all target validators and generated-index checks passed.
+
+Published partial record remains externally unresolved, with precise cohort questions and no invented180-EC completion. Prior exception preserved. No recurring monitoring is scheduled.
+
+Remaining external questions: Obtain an applicable revised-cohort third-year60-EC schedule with exact compulsory, bounded-choice, open-elective, research/thesis and progression requirements. Current university notice specifies the2027–2028 guide; no recurring monitoring is authorised.
