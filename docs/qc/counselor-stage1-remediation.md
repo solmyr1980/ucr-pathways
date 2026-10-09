@@ -849,3 +849,13 @@ Verification: Counted comparator components total 180 EC; alternatives, repeated
 Current official sources support a nominal 180-EC allocation but conflict on the Philosophy module identity and the revised third-year semester/choice structure; no exact module code or reconciled timetable is invented.
 
 Remaining external questions: Obtain the actual Dutch Studies Philosophy of Science module code/version and a reconciled applicable third-year timetable/choice allocation: one notice says first semester wholly open with a second-semester in-depth module, while the displayed choice rule still spans both semesters and Academic Reading/Writing is offered in semester 1.
+
+### cp-000311 — Notarial Law
+
+- [BA-NOT current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-NOT&type=STUDY&year=2261&language=en) — Current Years1 and2 close 60+60, including the first published technology/law restricted option and genuine10-EC notarial optional space. The displayed Year3 is expressly for entrants in 2024 or earlier; the revised entrant Year3 will appear in the 2027–2028 guide. Outgoing third-year courses are not attached to the current cohort. Checked 9 October 2026.
+
+Verification: Counted comparator components total 120 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
+
+The applicable new-cohort curriculum is verified only through 120 EC. The published third year belongs to entrants in 2024 or earlier, while the revised third year is deferred to the 2027–2028 guide.
+
+Remaining external questions: Obtain the revised third-year curriculum from the 2027–2028 guide. Verify current full/part-time pacing from applicable regulations without treating a future offering end date as current programme closure.
