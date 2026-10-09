@@ -1145,3 +1145,15 @@ The corrected external curriculum is complete at 180 EC. The superseded UCR no-m
 Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
 
 The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.
+
+### cp-000404 — Hebrew Language and Culture (Hebreeuwse taal en cultuur)
+
+- [Hebrew Language and Culture current curriculum](https://www.uva.nl/programmas/bachelors/hebreeuwse-taal-en-cultuur/studieprogramma/studieprogramma.html) — Presents the Jewish Studies and Hebrew path but conflicts with current catalogue evidence on the abroad host and applicable route. Checked 9 October 2026.
+- [Hebrew Language and Culture 2026-2027 catalogue](https://studiegids.uva.nl/nl/opleidingen/2026/1/5670/39356?studyPath=TMES) — Publishes a nominal 60+60+60 allocation, while the required abroad course has an unmet compulsory Rabbinic-text prerequisite absent from the selected pathway. Checked 9 October 2026.
+- [Hebrew abroad course 2026-2027](https://studiegids.uva.nl/en/courses/2026/1/58113) — Requires the missing Rabbinic Text/Mensch/God module and identifies Prague if possible plus a conditional home alternative; no waiver or replacement is established. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, duplicate requirements and zero-credit formation are not stacked. Deterministic regeneration and target validation passed.
+
+Allocation is not a certified coherent pathway; no approved prerequisite placement, waiver/equivalence or alternate route established. The 180-EC allocation is retained only as a diagnostic and is not certified as a coherent pathway.
+
+Remaining external questions: Obtain the applicable 2026-entry abroad prerequisites and an authorized placement, equivalence, waiver or alternative for Tekst, mens, God: geselecteerde Rabbijnse teksten. Reconcile current host/availability and the approved home alternative with the selected major and timing. Close language/formation corrections separately; do not add an unallocated course or borrow an older Israel route.
