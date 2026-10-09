@@ -838,3 +838,14 @@ Status: in progress. Independent UCR reassessment remains separate.
 Verification: Counted comparator components total 180 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
 
 The corrected external curriculum is complete at 180 EC and language metadata are corrected; the superseded UCR no-match judgment is handed off for the separately excluded UCR reassessment.
+
+### cp-000309 — Dutch Studies
+
+- [BA-DST current 2026–2027 study-guide product](https://studiegids.universiteitleiden.nl/api/product?code=BA-DST&type=STUDY&year=2261&language=en) — The current allocation is nominally 60+60+60 after adding the explicit second-year Philosophy of Science requirement and selecting one linguistics option in each semester. The applicable Philosophy module code is unresolved because programme prose, membership and the formal transition table conflict. The revised third-year notice says semester1 is entirely open, while the displayed membership places Academic Reading and Writing and split elective space there. Formal rules verify Dutch and English instruction. The 180-EC figure is an allocation diagnostic, not a certified coherent timetable. Checked 9 October 2026.
+- [Dutch Studies programme-specific OER effective 2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-dutch-studies-2025-2026.pdf) — Formal Dutch/English instruction and transition table; the table retains Humanities in a Digital World and does not resolve the current product conflict. Checked 9 October 2026.
+
+Verification: Counted comparator components total 180 EC; alternatives, repeated modules, duplicate content, parent/submodule overlaps and zero-credit items are excluded. Deterministic regeneration and target validation passed.
+
+Current official sources support a nominal 180-EC allocation but conflict on the Philosophy module identity and the revised third-year semester/choice structure; no exact module code or reconciled timetable is invented.
+
+Remaining external questions: Obtain the actual Dutch Studies Philosophy of Science module code/version and a reconciled applicable third-year timetable/choice allocation: one notice says first semester wholly open with a second-semester in-depth module, while the displayed choice rule still spans both semesters and Academic Reading/Writing is offered in semester 1.
