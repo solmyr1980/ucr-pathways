@@ -45,3 +45,23 @@ A comparative-religion, culture and meaning concept was assessed first against t
 Current formal source: [Vrije Universiteit Amsterdam adopted requirements](https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/110b4a0f-1fe1-40b1-a797-60a6aab14bd4/OER%2026-27%20B%20TRS%20NL.pdf), checked 10 October 2026. The corrected 180-EC component list and neutral route were preserved. The current enriched UCR workbook was reviewed independently of historical judgments.
 
 Verification: deterministic compilation, target validators, workbook-based feasibility and generated-index checks passed.
+
+### cp-000205 — Religious Studies
+
+Outcome: no-defensible-ucr-match; 0 UCR alternatives.
+
+A religion, cultural identity and political impact concept was tested against the selected broad specialisation. Several UCR courses illuminate religious myth, visual heritage, ancient identities, moral arguments and aspects of religious freedom or radicalisation. They do not supply a sustained inquiry into historical and lived Christianity, Judaism, Islam and South Asian traditions, religious experience and ritual, sacred texts and images, and religion-specific research methods. Replacing this 120-EC defining compulsory foundation with general political science, sociology, media analysis or psychology would leave the proposed curriculum centred on those general fields. The selected political-impact specialisation permits a focused related response, but it does not make incidental religious examples across unrelated courses a credible 24-course programme. Conflict/migration, environment, religious freedom, spiritual care and education directions were tested independently; none supplies the missing cumulative religion-centred study. This is an academic coherence decision, not a requirement to reproduce every external module or a professional qualification. The corrected ordinary 180-EC Groningen pathway retains 120 EC compulsory first-/second-year religion study, a 15-EC university/personal minor, two selected 7.5-EC faculty choices, the Cultural and Political Impact of Religion specialisation, thesis seminar, 10-EC thesis and 5-EC science communication. The 15-EC minor is not enlarged into 30 EC unrestricted choice, and optional education/spiritual-care routes are not stacked. Concrete course evidence and complete registry-row roles/candidate dispositions are preserved in the canonical exception. No UCR alternative is manufactured; this closes the pending UCR assessment without reopening external first-stage research.
+
+Current formal source: [University of Groningen adopted requirements](https://www.rug.nl/rcs/education/studyguide/oer-26-27/ter-ba-rs-26-27.pdf), checked 10 October 2026. The corrected 180-EC component list and neutral route were preserved. The current enriched UCR workbook was reviewed independently of historical judgments.
+
+Verification: deterministic compilation, target validators, workbook-based feasibility and generated-index checks passed.
+
+## Batch completion
+
+All five cases assessed and published individually. Full-corpus validation, compiler tests, generated-index checks and final GitHub checks passed. No unresolved external programme was reopened, no first-stage history was changed and no recurring task was created.
+
+Seven complete UCR curricula were accepted across three comparisons; two assessments concluded with substantive no-match exceptions. The corpus now contains 438 records: 304 comparisons and 134 exceptions (45 UCR assessments pending, 57 no-match judgments and 32 unresolved external programmes). The first-stage correction register and original audit are unchanged.
+
+Validation included both compiler versions, optional-research placement, exception compilation, all counselor production rules, generated-index replay, programme-interest validation, guarded registry-correction replay and its six regression tests, eight repository quality tests, public examples and whitespace checks. The existing public example `p-003` distinctness warning remains unchanged. All accepted UCR schedules were checked against the exact Fall 2026-start workbook terms, recorded hard prerequisites, course facts, credit totals and pairwise distinctness.
+
+The next five pending targets in production order are `cp-000246`, `cp-000247`, `cp-000248`, `cp-000253` and `cp-000254`. Continue only with separate UCR assessment; do not reopen processed external-source questions or resume the completed first-stage correction queue.
