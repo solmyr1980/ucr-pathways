@@ -65,3 +65,15 @@ Seven complete UCR curricula were accepted across three comparisons; two assessm
 Validation included both compiler versions, optional-research placement, exception compilation, all counselor production rules, generated-index replay, programme-interest validation, guarded registry-correction replay and its six regression tests, eight repository quality tests, public examples and whitespace checks. The existing public example `p-003` distinctness warning remains unchanged. All accepted UCR schedules were checked against the exact Fall 2026-start workbook terms, recorded hard prerequisites, course facts, credit totals and pairwise distinctness.
 
 The next five pending targets in production order are `cp-000246`, `cp-000247`, `cp-000248`, `cp-000253` and `cp-000254`. Continue only with separate UCR assessment; do not reopen processed external-source questions or resume the completed first-stage correction queue.
+
+## Batch 2
+
+Next five pending targets in production order: CP246, CP247, CP248, CP253 and CP254. Each is assessed and published separately; the first-stage register and prior batch remain preserved.
+
+### cp-000246 — Bachelor Architecture, Urbanism and Building Sciences
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-fields programmes were established around sustainable built environments and spatial/computational evidence, and around communities/economic development. Current formal programme outcomes and the official WV3/WV4 content support the computational and social methods; no course is presented as architectural studio or construction training. Both schedules pass all workbook constraints and differ by four substantive courses / 30 EC. The current workbook has no availability for Spatial Planning, so it was not used. Adaptive reuse does not support a third distinct curriculum; construction/scaled-design formation is separately infeasible. All original external modules, the 30-EC minor and the four-part BEP remain counted once. No unsupported module-level alignment was made from generic learning-line names.
+
+The [current formal requirements](https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/Bouwkunde/Onderwijs/Regulations/Onderwijsregelgeving%20Bachelor%202026-2027.pdf) were retrieved and checked on 10 October 2026. The complete corrected 180-EC component list and its genuine choice space remain preserved. Concrete current-workbook content, interest-row ownership and candidate decisions are recorded in the academic decision/canonical record. Deterministic compilation, relevant validators and generated-index checks passed before publication.
