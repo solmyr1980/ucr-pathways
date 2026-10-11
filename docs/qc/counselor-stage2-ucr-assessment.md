@@ -139,3 +139,17 @@ Each schedule has exactly 24 unique courses, four per semester, 180 EC and Year-
 The [current formal curriculum](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Content/Programs/Bachelor%20College/Major%20Electrical%20Engineering/Curriculum/Curriculum%202026-2027/Latest%20version%2020260702%20Bachelor%20curriculum%20EE%20and%20AT%20After%20Revision%202026-2027.pdf) was retrieved and visually checked on 8 October 2026 during the completed first-stage correction. Deterministic compilation, lossless comparison checks, full-corpus validators and generated-index checks passed before publication.
 
 Batch 3 completed. Both cases were published separately. The fixed baseline queue now has 2 completed cases and 38 remaining; the next cases are `cp-000262` and `cp-000265`. No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
+
+## Batch 4
+
+Next two pending targets in the fixed baseline queue: CP262 and CP265. Each is assessed and published separately; the first-stage history and completed QC work remain preserved.
+
+### cp-000262 — Bachelor Biomedical Engineering
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-fields responses are defensible. **Biomedical imaging, modelling & data systems** combines human biology and laboratory science with mathematical systems, programming, algorithms, medical-image analysis, machine learning, computational robotics and product design. **Human physiology, molecular disease & quantitative health** retains the common biological and quantitative spine while replacing five advanced computational courses with pharmacology, immunology, disease mechanisms, brain/behaviour foundations and evidence synthesis. The alternatives differ by five courses / 37.5 EC in each direction.
+
+Neither is presented as full Biomedical Engineering. UCR lacks the target's dedicated physics, biomechanics and tissue mechanics, flow/diffusion, biomaterials, tissue engineering, sensors, biomedical instrumentation, engineering laboratories and discipline-specific capstone. A device/biomechanics/tissue-engineering candidate was tested separately and rejected for those concrete content gaps. Each schedule has exactly 24 unique courses, four per semester, 180 EC, Year-1 PPD and six 300-level courses; exact availability and all recorded prerequisites pass against the current workbook. The corrected external curriculum and all 45 EC of genuine free choice remain unchanged.
+
+The [current formal requirements](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Biomedical%20Engineering/OER%20en%20ER/2026-2027/BSc%20OER%20BME%202026-2027%20AR.pdf) were retrieved and visually checked on 8 October 2026 during the completed first-stage correction. Deterministic compilation, lossless comparison checks and relevant validators passed before publication.
