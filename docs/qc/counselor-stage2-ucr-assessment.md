@@ -241,3 +241,29 @@ Neither is represented as French Language and Culture. UCR has no French-languag
 The [current official study-guide record](https://studiegids.universiteitleiden.nl/api/product?code=BA-FRA&type=STUDY&year=2261&language=en) and programme-specific OER were inspected on 9 October 2026 during the completed first-stage correction. Deterministic compilation, complete course traces, lossless comparison checks and relevant validators passed before publication.
 
 Batch 7 completed. Both cases were published separately. The fixed baseline queue now has 10 completed cases and 30 remaining; the next cases are `cp-000297` and `cp-000299`. The corpus contains 438 records: 319 comparisons and 119 exceptions (30 UCR assessments pending, 57 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
+
+## Batch 8
+
+Next two pending targets in the fixed baseline queue: CP297 and CP299. Each was assessed and published separately; the first-stage history and completed QC work remain preserved.
+
+### cp-000297 — Classics
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-fields responses are defensible. **Classical antiquity through literature, rhetoric, philosophy & archaeology** combines literature and myth in translation, rhetorical and stylistic analysis, ancient philosophy, Greek archaeology, imperial history, material culture and reception. **Antiquity, democracy & the politics of the present** reorganises the evidence around archaeology, empire, ancient political philosophy, law, comparative politics and historical research. The alternatives differ by twelve courses / 90 EC in each direction.
+
+Neither is represented as Classics. UCR has no ancient Greek or Latin acquisition sequence, classical linguistics, philology or sustained original-language reading. A Greek/Latin language-and-philology candidate was tested separately and rejected rather than treating English-medium literature or communication as a substitute. Each schedule has exactly 24 unique courses, four per semester, 180 EC, Year-1 PPD and seven 300-level courses. Exact availability and all recorded prerequisites pass against the current workbook. The corrected external curriculum, neutral Ancient Philosophy route, Greek A/Latin B profile and all 30 EC of genuine free choice remain unchanged.
+
+The [current official study-guide record](https://studiegids.universiteitleiden.nl/api/product?code=BA-GRL&type=STUDY&year=2261&language=en) and programme-specific OER were inspected on 9 October 2026 during the completed first-stage correction. Deterministic compilation, complete course traces, lossless comparison checks and relevant validators passed before publication. Published in [`cca8a3c`](https://github.com/solmyr1980/ucr-pathways/commit/cca8a3c92edc7e3328936e2a42a49853601c03dd).
+
+### cp-000299 — International Studies
+
+Outcome: comparison; 3 UCR alternatives.
+
+Three complete related-fields responses are defensible: **International politics, political economy & regional change**, **Global cultures, communication & regional histories**, and **International politics, conflict & global justice**. Every non-PPD course has a concrete content role. The alternatives differ pairwise by 10–19 courses / 75–142.5 EC, comfortably exceeding the 30-EC distinctness floor.
+
+None is represented as the Africa/Arabic pathway or comprehensive area studies. UCR has no Arabic course or cumulative regional-language sequence and cannot provide balanced four-perspective specialist coverage across all eight formal regions. A language-based regional-expertise candidate was tested separately and rejected. Each schedule has exactly 24 unique courses, four per semester, 180 EC and Year-1 PPD; the routes contain eight, nine and six 300-level courses. Exact availability and all recorded prerequisites pass against the current workbook. The corrected external curriculum, neutral Africa/Arabic route, bounded choices, PRINS, area thesis and all 30 EC of genuine free choice remain unchanged.
+
+The [current official study-guide record](https://studiegids.universiteitleiden.nl/api/product?code=BA-INT&type=STUDY&year=2261&language=en) was inspected on 9 October 2026 during the completed first-stage correction. Deterministic compilation, complete course traces, lossless comparison checks and relevant validators passed before publication. Published in [`59de1ce`](https://github.com/solmyr1980/ucr-pathways/commit/59de1ce739f46820e7972ec5bda09f21042fbee4).
+
+Batch 8 completed. Both cases were published separately and their canonical build workflows passed. The fixed baseline queue now has 12 completed cases and 28 remaining; the next cases are `cp-000302` and `cp-000304`. The corpus contains 438 records: 321 comparisons and 117 exceptions (28 UCR assessments pending, 57 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
