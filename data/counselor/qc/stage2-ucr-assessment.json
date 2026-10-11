@@ -1,6 +1,20 @@
 {
   "schema_version": "1.0",
   "scope": "Separate UCR comparability assessment of corrected, complete external curricula; first-stage history remains immutable.",
+  "baseline_pending_queue": {
+    "baseline_commit": "aec42fd1a72fc3b1e5ae76fa1f9995f5421dfda4",
+    "identified_on": "2026-10-11",
+    "selection": "Exactly the 40 canonical records whose baseline exception.type was ucr-assessment-pending, sorted in normalized production order. The ten earlier stage-2 assessments, pre-existing no-match-review work and unresolved external programmes are excluded.",
+    "case_ids": [
+      "cp-000259", "cp-000261", "cp-000262", "cp-000265", "cp-000267", "cp-000270",
+      "cp-000273", "cp-000274", "cp-000280", "cp-000294", "cp-000297", "cp-000299",
+      "cp-000302", "cp-000304", "cp-000308", "cp-000319", "cp-000323", "cp-000326",
+      "cp-000330", "cp-000331", "cp-000339", "cp-000342", "cp-000357", "cp-000358",
+      "cp-000367", "cp-000370", "cp-000375", "cp-000378", "cp-000379", "cp-000390",
+      "cp-000398", "cp-000403", "cp-000408", "cp-000411", "cp-000419", "cp-000428",
+      "cp-000429", "cp-000432", "cp-000435", "cp-000437"
+    ]
+  },
   "batches": [
     {
       "batch_number": 1,
@@ -25,6 +39,15 @@
       ],
       "selection_basis": "Next five ucr-assessment-pending targets in current normalized production order, after verified completion of Batch 1.",
       "status": "completed"
+    },
+    {
+      "batch_number": 3,
+      "case_ids": [
+        "cp-000259",
+        "cp-000261"
+      ],
+      "selection_basis": "First two not-yet-completed cases in the fixed 40-ID baseline queue, after checking their latest canonical records.",
+      "status": "in-progress"
     }
   ],
   "cases": [
@@ -327,19 +350,50 @@
         "Deterministic v2 regeneration matched canonical output.",
         "Relevant validators, generated-index checks and any accepted workbook schedules passed before publication."
       ]
+    },
+    {
+      "counselor_programme_id": "cp-000259",
+      "programme": "Bachelor Applied Mathematics",
+      "batch_number": 3,
+      "assessed_on": "2026-10-11",
+      "outcome": "comparison",
+      "included_alternatives": 1,
+      "prior_exception": {
+        "type": "ucr-assessment-pending",
+        "checkedOn": "2026-10-08",
+        "reason": "The corrected current external curriculum is reconstructed at 180 EC using source-backed course/project requirements and appropriately qualified choices. Its comparison with UCR awaits separate assessment.",
+        "curriculumContext": "The current EWI 2026–2027 OER Article 14A (2024-and-later ordinary Applied Mathematics examination programme) and Article 15 control the complete 180-EC reconstruction. The ordinary degree has twelve first-year 5-EC positions, ten second-year required 5-EC units plus two elective units, and a 30-EC minor, three 5-EC electives and TW3-01 Bachelor Project 15 EC in year three. Proof Techniques combines 3-EC theory and 2-EC practical and is counted once. Exactly one of five electives is non-mathematical; the stored neutral selection follows formal list order independently of UCR fit. Project-entry, prior-knowledge, minor approval and non-overlap conditions remain unchanged."
+      },
+      "academic_assessment": "One complete UCR programme supports applied mathematics through calculus, linear algebra, numerical methods, probability and linear systems, integrated with optimisation, algorithms, statistical learning and defined economic-system applications. Every non-PPD course has a specific content contribution. All 16 generator-eligible interests belong to this integrated direction; application examples do not justify an arbitrary second programme. The response is intentionally labelled as broad applied quantitative study and does not claim Delft's proof-intensive analysis, measure theory, abstract algebra, partial differential equations, specialist modelling sequence or mathematics project depth.",
+      "external_source_verification": {
+        "url": "https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/EWI/Studeren/Reglementen/Onderwijs-%20en%20Examenregeling%20EWI%202026-2027.pdf",
+        "checked_on": "2026-10-08",
+        "sha256": "c592f1a06ce7315d9492d93475981c15dee6d3d74e337788084a55d8682ade47",
+        "qualification": "Current adopted formal source was retrieved and visually inspected during the completed first-stage correction. This assessment preserved the settled 180-EC components, neutral selection and genuine choice space."
+      },
+      "ucr_database": {
+        "path": "data/reference/ucr_courses_enriched.xlsx",
+        "sha256": "7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879",
+        "course_count": 151
+      },
+      "verification": [
+        "Exactly 24 unique UCR courses, four in each semester, 180 EC, Year-1 PPD and seven 300-level courses.",
+        "All exact Fall 2026-start availability and recorded formal prerequisites passed against the current authoritative workbook.",
+        "Deterministic v2 regeneration, lossless comparison checks and relevant repository validators passed before publication."
+      ]
     }
   ],
   "summary": {
-    "assessed_cases": 10,
-    "comparisons": 7,
+    "assessed_cases": 11,
+    "comparisons": 8,
     "no_defensible_match": 3,
-    "included_ucr_curricula": 15,
-    "remaining_ucr_assessment_pending": 40,
+    "included_ucr_curricula": 16,
+    "remaining_ucr_assessment_pending": 39,
     "corpus_records": 438,
-    "corpus_comparisons": 308,
-    "corpus_exceptions": 130,
+    "corpus_comparisons": 309,
+    "corpus_exceptions": 129,
     "corpus_no_defensible_match": 58,
     "corpus_external_programme_unresolved": 32
   },
-  "updated_on": "2026-10-10"
+  "updated_on": "2026-10-11"
 }

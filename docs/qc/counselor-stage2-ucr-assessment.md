@@ -111,3 +111,17 @@ Two complete programmes support molecular/quantitative living systems and molecu
 The [current formal requirements](https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/TNW/Onderwijs/Opleidingsreglementen/2026-2027/BSc%20NB%20Appendix%20TER%202026-2027.pdf) were retrieved and checked on 10 October 2026. The complete corrected 180-EC component list and its genuine choice space remain preserved. Concrete current-workbook content, interest-row ownership and candidate decisions are recorded in the academic decision/canonical record. Deterministic compilation, relevant validators and generated-index checks passed before publication.
 
 Batch 2 completed. Final full-corpus validation, compiler/optional-research/exception tests, registry validation and guarded replay, generated-index checks, quality tests and final GitHub workflows passed. No first-stage case or earlier UCR assessment was reopened.
+
+## Batch 3
+
+This batch starts the fixed 40-case queue derived from baseline commit `aec42fd1a72fc3b1e5ae76fa1f9995f5421dfda4`. The exact normalized queue is persisted in the JSON register. The next two cases are CP259 and CP261; each is assessed and published separately.
+
+### cp-000259 — Bachelor Applied Mathematics
+
+Outcome: comparison; 1 UCR alternative.
+
+A complete applied mathematics, computation and quantitative-systems programme is defensible. It combines calculus, linear algebra, numerical methods, probability and linear systems with optimisation, algorithms, statistical learning and concrete economic-system applications. Every non-PPD course has a documented content contribution. The schedule contains exactly 24 unique courses, four per semester, Year-1 PPD and seven 300-level courses; exact Fall 2026-start availability and all recorded prerequisites pass against the current workbook.
+
+The programme is deliberately narrower in claim than the Delft degree. Proof-intensive real and complex analysis, measure theory, abstract algebra, partial differential equations, the cumulative specialist modelling sequence and the mathematics-specific project remain explicit gaps. All 16 generator-eligible interests describe the same integrated direction; isolated application examples do not justify an arbitrary second alternative. The corrected 180-EC external curriculum, neutral elective selection, genuine 30-EC minor and 15-EC project remain unchanged.
+
+The [current formal requirements](https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/EWI/Studeren/Reglementen/Onderwijs-%20en%20Examenregeling%20EWI%202026-2027.pdf) were retrieved and visually checked on 8 October 2026 during the completed first-stage correction. This assessment used the current enriched UCR workbook and did not reopen settled external research. Deterministic compilation, lossless comparison checks and relevant repository validators passed before publication.
