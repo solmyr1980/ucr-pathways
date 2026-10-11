@@ -167,3 +167,39 @@ Every schedule passes exact workbook availability, formal prerequisites in earli
 Academic coherence, individual course contribution and qualitative distinctness remain reasoned judgments; validators cannot prove them. Semester feasibility reflects planned workbook availability rather than guaranteed future delivery. No selected case is blocked.
 
 **Progress: 8 of 10 cases completed; 2 remain.** Next QC batch: cp-000253 and cp-000254.
+
+## Batch 5 — Marine Technology and Nanobiology, 11 October 2026
+
+Reviewed against the current Production Instructions, Master Specification, every target-linked programme-interest row, both current decision/canonical records and the current GitHub workbook. Workbook SHA-256: `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`. Existing rationales and successful compilation were not treated as proof of academic quality.
+
+### cp-000253 — Bachelor Marine Technology
+
+**Outcome: retained no-defensible-UCR-match; zero alternatives.** The closest vessel-design concept and the sustainable-shipping, offshore/dredging and maritime-operations directions were independently retested. UCR has substantial mathematics, numerical and linear-system methods, programming and optimisation, as well as genuine content in marine ecology, ports and reclamation, delta water management, climate, life-cycle assessment, renewable systems and economics.
+
+Those courses do not supply the vessel- and marine-system subjects that would organise the programme: mechanics, hydrostatics and hydromechanics, resistance and propulsion, floating stability, ship motions, marine structures, offshore loads, vessel production, operations and integrated ship/engine/propeller design. A 23-course non-PPD schedule assembled from the available material would be organised mainly around general environmental science, computing or economics. The target-specific sustainable-shipping rows make those fields relevant, but they do not turn general resource, soil/water, energy, governance or economic courses into vessel-performance study. Retaining the exception therefore does not depend on degree-title identity, professional qualification or exact module equivalence.
+
+All 55 target-linked interests and all 16 generator-eligible rows were reviewed. Each of the four candidate directions retains its own content-based rejection. The complete corrected external curriculum remains unchanged: 26 components, 180 EC, 30 EC of genuine minor space and a 14-EC final project. No weak comparison rows or schedule were manufactured.
+
+### cp-000254 — Bachelor Nanobiology
+
+**Outcome: both related-fields alternatives retained; progression and sequencing corrected.** **Molecular biology & quantitative living systems** remains coherent: molecular/cellular biology, laboratory work and neuroscience are combined with calculus, linear algebra, numerical and linear-system methods, probability, programming, algorithms, machine learning and image analysis. **Molecular disease mechanisms & quantitative biology** remains genuinely different, replacing four advanced computing courses with pharmacology, immunology, anatomy and mechanisms of disease. The alternatives differ by exactly four courses / 30 EC, and the change follows the evidenced medical-research direction.
+
+Neither programme is presented as full Nanobiology. Nanoscale physics, molecular/statistical biophysics, microscopy and acquisition, electronic measurement, soft matter, nanotechnology, nanofabrication and the Nanobiology project remain explicit gaps. The nanoscale biophysics/instrumentation candidate remains infeasible rather than being filled with general mathematics or image processing. All 54 linked interests and all 16 generator-eligible rows were reconsidered; the selected neuroscience electives strengthen the accepted programmes but do not justify an artificial third curriculum.
+
+The shared progression note was inaccurate because it referred to algorithm courses absent from the disease-focused programme and did not give the exact advanced-course counts. Each programme now has its own progression account. In the disease-focused schedule, Introduction to Brain & Behavior moves to semester 3 and Pharmacology to semester 5, allowing biochemistry and physiology to precede pharmacology while the brain gateway still precedes Perception & Action. The course sets, concepts, comparison alignments, candidate outcomes and stopping decision are unchanged.
+
+The 32 comparator components still sum to 180 EC. All 28 distinct scheduled UCR courses and every comparator component appear once in the shared comparison plan. Molecular biology, laboratory, mathematics, statistics, programming, neural-network and neuroscience relationships remain narrowly aligned; physical/instrumental formation, evolutionary/developmental depth, imaging acquisition, genomics and the project remain visible and unmatched. Optional 15-EC research remains comparison-only and excluded from scheduled credits.
+
+## Batch 5 checks and limits
+
+| Case | Alternative | Unique courses / EC | Advanced courses | Pairwise differences |
+|---|---:|---:|---:|---:|
+| cp-000253 | no-match | — | — | No programme passed the evidence/coherence gate |
+| cp-000254 | ucr-1 | 24 / 180 | 7 | — |
+| cp-000254 | ucr-2 | 24 / 180 | 6 | 4 courses / 30 EC from ucr-1 |
+
+Both Nanobiology schedules pass exact workbook availability, formal prerequisites in earlier semesters, four courses per semester, Year-1 PPD and the advanced-course minimum. The retained Marine Technology exception and corrected Nanobiology decision both compile deterministically to their canonical records. Full-corpus validators, compiler regressions, programme-interest validation, registry-correction replay, repository quality tests and regenerated review-index replay passed before publication.
+
+Academic coherence, individual course contribution and the no-match conclusion remain reasoned judgments; validators cannot prove them. Semester feasibility reflects planned workbook availability rather than guaranteed future delivery. No selected case is blocked.
+
+**QC complete: all 10 fixed-scope cases have completed quality control.** No pending case was created, no settled external curriculum or first-stage history was changed, and the separate pending-assessment register remains untouched.
