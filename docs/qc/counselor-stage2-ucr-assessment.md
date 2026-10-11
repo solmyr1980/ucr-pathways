@@ -164,3 +164,17 @@ Neither is represented as full Electrical Engineering. UCR lacks the target's cu
 The [current formal curriculum](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Content/Programs/Bachelor%20College/Major%20Electrical%20Engineering/Curriculum/Curriculum%202026-2027/Latest%20version%2020260702%20Bachelor%20curriculum%20EE%20and%20AT%20After%20Revision%202026-2027.pdf) was retrieved and visually checked on 8 October 2026 during the completed first-stage correction. Deterministic compilation, lossless comparison checks and relevant validators passed before publication.
 
 Batch 4 completed. Both cases were published separately. The fixed baseline queue now has 4 completed cases and 36 remaining; the next cases are `cp-000267` and `cp-000270`. No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
+
+## Batch 5
+
+Next two pending targets in the fixed baseline queue: CP267 and CP270. Each is assessed and published separately; the first-stage history and completed QC work remain preserved.
+
+### cp-000267 — Bachelor Mechanical Engineering
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-fields responses are defensible. **Mechanical-system modelling, robotics & intelligent control** combines mathematics, numerical methods, programming, algorithms, image-based perception, robotics, networks and product design. **Sustainable energy, product systems & intelligent automation** retains the quantitative and intelligent-systems spine while replacing five computing/ethics courses with sustainability foundations, lifecycle assessment, climate context, renewable-system design and material recovery. The alternatives differ by five courses / 37.5 EC in each direction.
+
+Neither is represented as full Mechanical Engineering. UCR lacks the target's cumulative mechanics, dynamics, thermodynamics, heat transfer, fluid mechanics, solid mechanics, materials science, manufacturing, precision engineering, mechanical laboratories and engineering capstone. A physical mechanics/thermofluids/materials candidate was tested separately and rejected on actual course content. Each schedule has exactly 24 unique courses, four per semester, 180 EC and Year-1 PPD; the routes contain eight and nine 300-level courses. Exact availability and all recorded prerequisites pass against the current workbook. The corrected external curriculum, neutral restricted choices and all 45 EC of genuine free choice remain unchanged.
+
+The [current formal requirements](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Mechanical%20Engineering/Bachelor%20College/2026-2027/BSc%20PER%20AR%202026-2027.pdf) were retrieved and visually checked on 8 October 2026 during the completed first-stage correction. Deterministic compilation, lossless comparison checks and relevant validators passed before publication.
