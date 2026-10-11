@@ -293,3 +293,31 @@ All eight generator-eligible interests are owned once across the three assessed 
 The [current official study-guide record](https://studiegids.universiteitleiden.nl/api/product?code=BA-LAS&type=STUDY&year=2261&language=en) was inspected on 9 October 2026 during the completed first-stage correction. The programme-specific OER URL remains formal provenance, but direct retrieval was unavailable then, so no PDF-content or PDF-hash claim is made. The current 151-row enriched workbook was reviewed course by course. Deterministic compilation and the targeted comparison, structural, final-rule and review-index checks passed; the canonical build workflow succeeded. Published in [`ca9807b`](https://github.com/solmyr1980/ucr-pathways/commit/ca9807b3f583ab88a74e811f2fb120c471a797b9).
 
 Batch 9 completed. Both pending exceptions were replaced by fully reasoned no-match exceptions and published separately. The fixed baseline queue now has 14 completed cases and 26 remaining; the next cases are `cp-000308` and `cp-000319`. The corpus contains 438 records: 321 comparisons and 117 exceptions (26 UCR assessments pending, 59 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
+
+## Batch 10
+
+Next two pending targets in the fixed baseline queue: CP308 and CP319. Each was assessed and published separately; the settled external curricula, first-stage history and completed QC work remain preserved.
+
+### cp-000308 — Physics
+
+Outcome: comparison; 1 UCR alternative.
+
+One complete related-fields response is defensible. **Mathematical modelling, Earth systems & energy technology** answers the target's mathematics-for-physical-phenomena, quantitative-problem and matter/energy interests through calculus, linear algebra, numerical methods, probability, programming, data methods, Earth-system analysis, environmental processes and renewable/resource technology.
+
+It is not represented as Physics. UCR lacks cumulative mechanics, electromagnetism, optics, quantum mechanics, thermodynamics, statistical and solid-state physics, particle/nuclear physics and relativity. It also lacks cumulative physics laboratories, instrumentation, experimental measurement and scheduled physics research. Those fundamental-physics and experimental/research candidates were tested separately and rejected. A second algorithmic route would reuse the same mathematical generators while moving further from the physical-science object, so it was not included.
+
+The schedule has exactly 24 unique courses, four per semester, 180 EC, Year-1 PPD and eight 300-level courses. Exact availability and every recorded prerequisite pass against the current workbook. The corrected external curriculum, second-year restricted choice, 27-EC research-project split and all 30 EC of genuine free choice remain unchanged.
+
+The [current official study-guide record](https://studiegids.universiteitleiden.nl/api/product?code=BA-NTK&type=STUDY&year=2261&language=en) was inspected on 9 October 2026 during the completed first-stage correction. Deterministic compilation, production validation, compiler and optional-research tests, review-index checks and repository tests passed; the canonical build workflow succeeded. Published in [`66db555`](https://github.com/solmyr1980/ucr-pathways/commit/66db555446dd091b72aeeb33dd1ba512321eaeff).
+
+### cp-000319 — Russian Studies
+
+Outcome: no defensible complete UCR match.
+
+Two complete-programme directions were tested separately: **Russian language, literature & cultural worlds** and **Russian history, politics, economy & international relations**. UCR offers transferable methods in literature, film, media, psycholinguistics, history, sociology, politics, international relations and economics, but no Russian-language course and no sustained Russia- or Eurasia-specific sequence. The isolated Dziga Vertov example in documentary study and limited Russian Revolution/Cold War material in a broad history survey do not establish a disciplinary spine. Filling 23 non-PPD places with generic methods would change the object of study.
+
+All ten generator-eligible interests are owned once across the two assessed directions. Support-only and search-only rows do not generate extra alternatives. Because academic feasibility failed before any 24-course set was accepted, no schedule, UCR-credit alignment or availability/prerequisite claim is encoded. The corrected 180-EC Politics, History and Economics route, progressive Russian-language sequence, required Daugavpils work, thesis and all 30 EC of genuine free choice remain unchanged.
+
+The [current official study-guide record](https://studiegids.universiteitleiden.nl/api/product?code=BA-RUS&type=STUDY&year=2261&language=en), programme-specific OER and Introduction to Russian Studies module were inspected on 9 October 2026 during the completed first-stage correction. The current 151-row enriched workbook was reviewed course by course. Deterministic compilation, production validation, compiler and exception tests, review-index checks and repository tests passed; the canonical build workflow succeeded. Published in [`55a56f1`](https://github.com/solmyr1980/ucr-pathways/commit/55a56f1161291eeabf832a0044cf31bcf0fbf6c3).
+
+Batch 10 completed. One related-fields UCR curriculum was accepted and one pending exception became a fully reasoned no-match exception. The fixed baseline queue now has 16 completed cases and 24 remaining; the next cases are `cp-000323` and `cp-000326`. The corpus contains 438 records: 322 comparisons and 116 exceptions (24 UCR assessments pending, 60 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
