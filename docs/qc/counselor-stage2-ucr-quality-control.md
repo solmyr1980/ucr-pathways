@@ -90,3 +90,41 @@ All History schedules pass exact workbook availability, formal prerequisites, fo
 Academic coherence, individual course contribution and the no-match conclusion remain reasoned judgments; validators cannot prove them. Semester feasibility reflects planned workbook availability rather than guaranteed future delivery. No selected case is blocked, and neither required a canonical-record correction.
 
 **Progress: 4 of 10 cases completed; 6 remain.** Next QC batch: cp-000205 and cp-000246.
+
+## Batch 3 — Religious Studies and Architecture, 11 October 2026
+
+Reviewed against the current Production Instructions, Master Specification, every target-linked programme-interest row, current decision/canonical records and the current GitHub workbook. Workbook SHA-256: `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`. Every selected non-PPD course was checked against its workbook description/profile, prerequisites and cohort availability. Existing rationales and successful compilation were not treated as proof of academic quality.
+
+### cp-000205 — Religious Studies (Religiewetenschappen)
+
+**Outcome: corrected; one defensible related-fields alternative replaces the no-match exception.** The earlier assessment imposed an overly strict condition: it required enough religion-specific courses to approximate Groningen's 120-EC disciplinary foundation before accepting any UCR response. The current contract instead permits a coherent related-fields response when every course has a concrete contribution and the missing disciplinary formation remains explicit.
+
+The [current official Groningen programme page](https://www.rug.nl/bachelors/religious-studies/?lang=en), checked 11 October 2026, describes Religious Studies as an interdisciplinary combination of history, anthropology, sociology, psychology, political science and philosophy. It foregrounds religion's relationship to conflict, radicalisation, migration, climate change, freedom, identity, politics, war and peace. That evidence supports a related-fields construction; it does not erase the programme's world-religions and religion-specific methods core.
+
+The new **Religion, cultural heritage & political conflict** alternative has three cumulative strands. World Myth & Literature, Great Literary Works, world archaeology, African religious art, Mediterranean exchange, ancient religion/democracy, art-history methods and museum interpretation study religion-related narratives and visual heritage. Western philosophy, ethics and philosophy of mind address God, meaning, moral reasoning and Buddhist accounts of self at their documented scope. Law, political philosophy, comparative politics, human rights, constitutional law, sociology, social psychology, qualitative research, civil society, extremism and peace/conflict examine religious freedom, identity, migration, radicalisation and public life through related disciplines.
+
+The label and note do not call this a Religious Studies degree. Christianity, Judaism, Islam, South Asian traditions, lived religion, ritual, sacred-text hermeneutics and religion-specific research methods remain explicit unmatched depth. Only five comparator components receive substantive UCR alignments; general sociology, psychology, media and methods courses remain separate rather than being used to fill gaps cosmetically. The corrected Groningen route, 15-EC genuine minor, faculty choices, thesis and all other external components are unchanged.
+
+All 51 target-linked interests were reviewed. Fourteen generator-eligible rows are owned by the closest programme. Religion/environmental sustainability fails as a second programme because UCR environmental courses do not supply religion-and-climate or sacred-space content. Spiritual care/sexual health still lacks religious meaning frameworks and care practice; religion education still lacks religion-teaching knowledge and didactics. The stopping state is therefore one accepted alternative, then `not-feasible`.
+
+### cp-000246 — Architecture, Urbanism and Building Sciences (Bouwkunde)
+
+**Outcome: retained; two defensible related-fields alternatives.** Both decisions and the canonical record remain unchanged. The first combines inhabited landscapes, climate adaptation, material and energy life cycles, historic settlements, GIS/data analysis, machine learning and constrained optimisation. Environmental geology, water, soil, resource-recovery and renewable-system courses have defined roles in settlement risk, material/resource cycles and energy systems; they are not represented as architectural design or construction engineering.
+
+The second makes a substantive 30-EC change toward user needs, collective decisions and public-economic development. Sociology, civil-society theory, introductory economics and public economics replace programming, data analysis, machine learning and optimisation. The different courses implement the evidenced stakeholder/management direction and are not arbitrary threshold substitutions. All 51 linked interests and 16 generator-eligible rows were reviewed. Construction technology/design across scales remains infeasible without architectural studio progression, applied structural mechanics, building physics and construction design. Adaptive reuse does not yield a separate coherent curriculum beyond the accepted material-life-cycle, settlement and architectural-history work.
+
+The Delft comparator remains a complete 180-EC representation: 150 EC of coded learning-line modules plus the genuine 30-EC minor. Only WV3 and WV4 retain sufficiently specific UCR alignments. All design studios, integrated design, technology and general foundation/society modules without a precise counterpart remain visible and unmatched. The final project is distributed across IOP1, IOP2, TE5 and WV6 rather than one independently credited component, so optional UCR research correctly uses the PPD-block fallback.
+
+## Batch 3 checks and limits
+
+| Case | Alternative | Unique courses / EC | Advanced courses | Pairwise differences |
+|---|---:|---:|---:|---:|
+| cp-000205 | ucr-1 | 24 / 180 | 7 | — |
+| cp-000246 | ucr-1 | 24 / 180 | 7 | — |
+| cp-000246 | ucr-2 | 24 / 180 | 8 | 4 courses / 30 EC from ucr-1 |
+
+Every schedule passes exact workbook availability, formal prerequisites in earlier semesters, four courses per semester, Year-1 PPD and the advanced-course minimum. Corrected Religious Studies compiles deterministically to its committed canonical record; Architecture compiler replay is byte-identical to the retained record. Full-corpus validators, compiler regressions, programme-interest validation, repository quality tests and regenerated review-index replay passed before publication.
+
+Academic coherence, individual course contribution and qualitative distinctness remain reasoned judgments; validators cannot prove them. Semester feasibility reflects planned workbook availability rather than guaranteed future delivery. No selected case is blocked.
+
+**Progress: 6 of 10 cases completed; 4 remain.** Next QC batch: cp-000247 and cp-000248.
