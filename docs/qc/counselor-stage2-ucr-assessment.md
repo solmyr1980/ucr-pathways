@@ -215,3 +215,29 @@ Neither is represented as full Applied Mathematics. UCR lacks the target's cumul
 The [current formal requirements](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Mathematics%20_%20Computer%20Science/Bachelor/MC_S%20-%20general%20bachelor/MCS%20PER%20Bachelor%20AR%202026-2027%20%28BC%202.0%29.pdf) were retrieved and visually checked on 9 October 2026 during the completed first-stage correction. Deterministic compilation, complete course traces, lossless comparison checks and relevant validators passed before publication.
 
 Batch 6 completed. Both cases were published separately. The fixed baseline queue now has 8 completed cases and 32 remaining; the next cases are `cp-000280` and `cp-000294`. No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
+
+## Batch 7
+
+Next two pending targets in the fixed baseline queue: CP280 and CP294. Each was assessed and published separately; the first-stage history and completed QC work remain preserved.
+
+### cp-000280 — Bachelor Bio-Pharmaceutical Sciences
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-fields responses are defensible. **Molecular pharmacology, disease & therapeutic research** integrates cell biology, physiology, biochemistry, pharmacology, disease mechanisms, laboratory work and quantitative research methods. **Quantitative pharmacology & data-driven therapeutics** retains the molecular and therapeutic spine while replacing four biological application courses with advanced calculus, linear systems, optimisation and neural networks. The alternatives differ by four courses / 30 EC in each direction.
+
+Neither is represented as full Bio-Pharmaceutical Sciences. UCR lacks the target's general, organic, medicinal and analytical chemistry; drug synthesis and molecular design; formulation and biopharmacy laboratories; and cumulative drug-development sequence. A medicinal-chemistry, molecular-design and targeted-delivery candidate was tested separately and rejected on actual course content. Each schedule has exactly 24 unique courses, four per semester, 180 EC and Year-1 PPD; the routes contain six and eight 300-level courses. A direct workbook check caught and corrected draft term placements that the corpus validators do not enforce. Exact availability and all recorded prerequisites then passed. The ordinary corrected external curriculum, 16-EC research split and all 30 EC of genuine free choice remain unchanged.
+
+The [current official study-guide record](https://studiegids.universiteitleiden.nl/api/product?code=BA-BFW&type=STUDY&year=2261&language=en) and research-module records were retrieved and inspected on 9 October 2026 during the completed first-stage correction. Deterministic compilation, complete course traces, lossless comparison checks and relevant validators passed before publication.
+
+### cp-000294 — Bachelor French Language and Culture
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-fields responses are defensible. **Colonial histories, global literature & cultural power** integrates comparative literature, history, sociology, media, heritage and decolonial cultural analysis. **Literature, media & language in cultural expression** concentrates on literature, rhetoric, stylistics, psycholinguistics, communication and mediated representation. The alternatives differ by five courses / 37.5 EC in each direction.
+
+Neither is represented as French Language and Culture. UCR has no French-language sequence, advanced French grammar, phonetics, composition or translation, French linguistics, or cumulative French/Francophone literary formation. A French-proficiency and linguistics candidate was tested separately and rejected rather than treating English-medium comparative study as a substitute. Each schedule has exactly 24 unique courses, four per semester, 180 EC and Year-1 PPD; the routes contain ten and eight 300-level courses. A direct workbook check caught and corrected draft Psycholinguistics placements that the corpus validators do not enforce. Exact availability and the formal prerequisite then passed. The corrected 180-EC external allocation, fixed Dutch/French instruction and all 30 EC of genuine free choice remain unchanged.
+
+The [current official study-guide record](https://studiegids.universiteitleiden.nl/api/product?code=BA-FRA&type=STUDY&year=2261&language=en) and programme-specific OER were inspected on 9 October 2026 during the completed first-stage correction. Deterministic compilation, complete course traces, lossless comparison checks and relevant validators passed before publication.
+
+Batch 7 completed. Both cases were published separately. The fixed baseline queue now has 10 completed cases and 30 remaining; the next cases are `cp-000297` and `cp-000299`. The corpus contains 438 records: 319 comparisons and 119 exceptions (30 UCR assessments pending, 57 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
