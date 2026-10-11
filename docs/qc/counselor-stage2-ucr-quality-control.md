@@ -128,3 +128,42 @@ Every schedule passes exact workbook availability, formal prerequisites in earli
 Academic coherence, individual course contribution and qualitative distinctness remain reasoned judgments; validators cannot prove them. Semester feasibility reflects planned workbook availability rather than guaranteed future delivery. No selected case is blocked.
 
 **Progress: 6 of 10 cases completed; 4 remain.** Next QC batch: cp-000247 and cp-000248.
+
+## Batch 4 — Civil Engineering and Electrical Engineering, 11 October 2026
+
+Reviewed against the current Production Instructions, Master Specification, every target-linked programme-interest row, both current decision/canonical records and the current GitHub workbook. Workbook SHA-256: `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`. Every selected non-PPD course was checked against its workbook content, prerequisites and Fall-2026-start availability; historical rationales and successful compilation were not treated as proof of academic quality.
+
+### cp-000247 — Bachelor Civil Engineering (Civiele Techniek)
+
+**Outcome: both related-fields alternatives retained; progression and trace accuracy corrected.** The water/environmental/modelling programme remains coherent: its mathematics, statistics, programming and data courses support explicit quantitative modelling, while the environmental courses address flood risk, water resources, soils/aquifers, climate adaptation, treatment, recovery and delta research. The stakeholder/public-infrastructure programme remains genuinely different, replacing five quantitative courses (37.5 EC) with sociology, qualitative research, economics and public economics while retaining the substantive water/environmental spine and life-cycle analysis.
+
+All 54 target-linked interest rows and all 16 generator-eligible rows were reviewed. Structural/ground/underground construction still lacks the defining mechanics, foundation, concrete/steel and construction-design sequences. Road, rail and waterway infrastructure still lacks transport engineering, flow theory and transport-design formation. General soil fieldwork, data analysis or optimisation would not make either a defensible third programme. Both accepted alternatives continue to state that they are related responses rather than full Civil Engineering formation.
+
+The existing shared progression note was inaccurate: it described the mathematical sequence of the first programme as though those courses also appeared in the stakeholder/public-economics programme, and it reported six rather than seven advanced courses for the second. Each programme now has a course-specific progression account. The Introduction to Data Science trace now uses the workbook's documented preparation, visualisation and manipulation content instead of undocumented “project analysis”. Curricula, candidate outcomes, stopping decision and comparison alignments are unchanged.
+
+The 31 comparator components still sum to 180 EC. All 29 distinct scheduled UCR courses and every comparator component appear once in the shared comparison plan. Specific water, mapping, aquifer, treatment, climate, life-cycle and mathematics alignments remain; structural, fluid, construction and transport gaps remain explicit. Optional 15-EC research remains paired with the final project and excluded from scheduled credits.
+
+### cp-000248 — Bachelor Electrical Engineering
+
+**Outcome: both related-fields alternatives retained; progression and trace accuracy corrected.** The closest programme remains a coherent quantitative/computational systems curriculum with linear systems, numerical methods, probability, networks, algorithms, machine learning, image processing, robotics and autonomous-agent methods, plus a four-course renewable-energy/climate strand. The second programme retains the same computational systems core and makes a substantive four-course (30 EC) change to brain/behaviour, neurobiology, higher cognitive functions and perception/action for the evidenced biological-signal direction.
+
+All 52 target-linked interest rows and all 15 generator-eligible rows were reviewed. The medical-electronics interest supports the biological-signal alternative without implying implants or device engineering. A third circuits/chips/electromagnetic-device programme remains infeasible because the workbook does not provide the defining electronic-circuit, semiconductor, electromagnetic, instrumentation and hardware-design progression. Both accepted programmes continue to expose those disciplinary gaps and are not labelled Electrical Engineering.
+
+The existing shared progression note incorrectly attributed both the energy sequence and the neuroscience sequence to each individual programme. It is now split into accurate programme-specific accounts, including the exact nine advanced courses in each. The Introduction to Data Science trace no longer claims undocumented measured system outputs; it is limited to the documented preparation, visualisation and manipulation methods and explicitly distinguishes those methods from electrical measurement. Curricula, candidate outcomes, stopping decision and comparison alignments are unchanged.
+
+The 28 comparator components still sum to 180 EC. All 28 distinct scheduled UCR courses and every comparator component appear once in the shared comparison plan. Calculus, linear algebra, linear systems, probability, networks and machine-learning alignments remain specific; circuits, electronics, electromagnetics, semiconductor, measurement and hardware-project gaps remain explicit. Optional 15-EC research remains paired with the graduation project and excluded from scheduled credits.
+
+## Batch 4 checks and limits
+
+| Case | Alternative | Unique courses / EC | Advanced courses | Pairwise differences |
+|---|---:|---:|---:|---:|
+| cp-000247 | ucr-1 | 24 / 180 | 6 | — |
+| cp-000247 | ucr-2 | 24 / 180 | 7 | 5 courses / 37.5 EC from ucr-1 |
+| cp-000248 | ucr-1 | 24 / 180 | 9 | — |
+| cp-000248 | ucr-2 | 24 / 180 | 9 | 4 courses / 30 EC from ucr-1 |
+
+Every schedule passes exact workbook availability, formal prerequisites in earlier semesters, four courses per semester, Year-1 PPD and the advanced-course minimum. Both corrected decisions compile deterministically to their canonical records. Full-corpus validators, compiler regressions, programme-interest validation, repository quality tests and regenerated review-index replay passed before publication.
+
+Academic coherence, individual course contribution and qualitative distinctness remain reasoned judgments; validators cannot prove them. Semester feasibility reflects planned workbook availability rather than guaranteed future delivery. No selected case is blocked.
+
+**Progress: 8 of 10 cases completed; 2 remain.** Next QC batch: cp-000253 and cp-000254.
