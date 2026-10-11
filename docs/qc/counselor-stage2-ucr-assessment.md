@@ -189,3 +189,29 @@ The programme is not presented as full Chemical Engineering and Chemistry. UCR l
 The [current formal requirements](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Chemical%20Engineering%20and%20Chemistry/Regulations/BSc%20OER%202026-2027%20AR.pdf) were retrieved and visually checked on 8 October 2026 during the completed first-stage correction. Deterministic compilation, lossless comparison checks and relevant validators passed before publication.
 
 Batch 5 completed. Both cases were published separately. The fixed baseline queue now has 6 completed cases and 34 remaining; the next cases are `cp-000273` and `cp-000274`. No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
+
+## Batch 6
+
+Next two pending targets in the fixed baseline queue: CP273 and CP274. Each is assessed and published separately; the first-stage history and completed QC work remain preserved.
+
+### cp-000273 — Bachelor Applied Physics
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-fields responses are defensible. **Mathematical systems, computation & intelligent technology** combines calculus, linear algebra, numerical methods, probability and linear systems with programming, algorithms, optimisation, data analysis, robotics and sustainable-technology context. **Mathematical modelling, Earth systems & sustainable technology** retains the quantitative core while replacing six specialist computing courses with Earth-system science, environmental laboratory and geospatial investigation, biogeochemistry, resource recovery and renewable-system assessment. The alternatives differ by six courses / 45 EC in each direction.
+
+Neither is represented as Applied Physics. UCR lacks the target's cumulative mechanics, electromagnetism, optics, thermodynamics, transport, quantum and condensed-matter physics, electronics, precision measurement, experimental laboratories and applied-physics project. Quantum/nanoscale and optics/instrumentation candidates were tested separately and rejected on actual course content. Each schedule has exactly 24 unique courses, four per semester, 180 EC and Year-1 PPD; the routes contain nine and eight 300-level courses. Exact availability and all recorded prerequisites pass against the current workbook. The corrected external curriculum, exact 15-EC final project and all 45 EC of genuine free choice remain unchanged.
+
+The [current formal requirements](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Content/Programs/Bachelor%20College/Major%20Applied%20Physics/Regulations/OER%202026-2027%20BC2.0.pdf) were retrieved and visually checked on 9 October 2026 during the completed first-stage correction. Deterministic compilation, complete course traces, lossless comparison checks and relevant validators passed before publication.
+
+### cp-000274 — Bachelor Applied Mathematics
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-fields responses are defensible. **Applied mathematics, algorithms & stochastic data models** combines calculus, linear algebra, numerical methods, probability and linear systems with programming, algorithms, optimisation, machine learning, advanced data analysis and empirical economic and behavioural applications. **Applied mathematics, computational systems & sustainable technology** retains the quantitative/computational spine while replacing four application courses with environmental and energy-system study. The alternatives differ by four courses / 30 EC in each direction.
+
+Neither is represented as full Applied Mathematics. UCR lacks the target's cumulative real analysis, advanced linear algebra, graph theory, abstract algebra, number theory, stochastic-process theory, measure theory, transforms, proof depth and mathematics-specific project. A proof-intensive analysis/algebra direction was tested separately and rejected rather than padded with adjacent computing courses. Each schedule has exactly 24 unique courses, four per semester, 180 EC, Year-1 PPD and nine 300-level courses. Exact availability and all recorded prerequisites pass against the current workbook. The corrected external curriculum, ordinary 10-EC final project and all 45 EC of genuine free choice remain unchanged.
+
+The [current formal requirements](https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Mathematics%20_%20Computer%20Science/Bachelor/MC_S%20-%20general%20bachelor/MCS%20PER%20Bachelor%20AR%202026-2027%20%28BC%202.0%29.pdf) were retrieved and visually checked on 9 October 2026 during the completed first-stage correction. Deterministic compilation, complete course traces, lossless comparison checks and relevant validators passed before publication.
+
+Batch 6 completed. Both cases were published separately. The fixed baseline queue now has 8 completed cases and 32 remaining; the next cases are `cp-000280` and `cp-000294`. No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
