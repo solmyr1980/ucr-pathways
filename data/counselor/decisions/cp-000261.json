@@ -1,7 +1,7 @@
 {
   "decisionSchemaVersion": "2.0",
   "id": "cp-000261",
-  "recordStatus": "exception",
+  "recordStatus": "comparison",
   "sources": [
     "https://studiegids.tue.nl/opleidingen/bachelor-college/majors/automotive-technology",
     "https://assets.w3.tue.nl/w/fileadmin/Education_Guide/Content/Programs/Bachelor%20College/Major%20Electrical%20Engineering/Curriculum/Curriculum%202026-2027/Latest%20version%2020260702%20Bachelor%20curriculum%20EE%20and%20AT%20After%20Revision%202026-2027.pdf"
@@ -182,10 +182,182 @@
     ]
   },
   "routeSelection": null,
-  "exception": {
-    "type": "ucr-assessment-pending",
-    "checkedOn": "2026-10-08",
-    "reason": "The corrected current external curriculum is reconstructed at 180 EC using source-backed course/project requirements and appropriately qualified choices. Its comparison with UCR awaits separate assessment.",
-    "curriculumContext": "The official after-revision EE/AT curriculum for 2026–2027, latest version 2 July 2026, was freshly retrieved and visually inspected on 8 October 2026. Only common and AT rows form this Automotive Technology reconstruction; EE-only rows are alternatives and are not stacked into the degree. Current core totals 125 EC, including 5XEC0 Final Bachelor Project 10, with ITEC Ethics 0LVX30 5 and ITEC Society 0LVX40 5 (10 total) and genuine free elective space 45. This replaces the older 120-core/15-USE-ITEC/45 allocation. Year one is 60 core EC; year two is 40 core + 5 ITEC + 15 free; year three is 25 core including project + 5 ITEC + 30 free. All 27 course/project/open-space positions total 180. Current 4AUB10 is Propulsion Systems, and is not relabelled as the older Electric and Hybrid Propulsion Systems. DBL Autonomous Vehicles Conquering the World 5AID0, DBL Automotive Design Project Electronic Differential 5XSC0 and Semiconductor Technology 5XPG0 appear among optional courses, not universal compulsory core; they are not added as required formation. Open electives retain university approval, overlap and applicable level conditions; no example optional course is forced into the free space. The curriculum table establishes required membership and credits, not a guarantee of exact future timetable or individual course admission. The project row uses ambiguous quarter/timeslot notation; no exact scheduling claim is inferred from it."
-  }
+  "basis": {
+    "core": [
+      ["quantitative", "Mathematics, signals, optimisation and system models", ["s0", "s1", 11243, 11248, 11253, 11255]],
+      ["autonomy", "Programming, algorithms, perception and autonomous decision systems", ["s0", "s1", 11242, 11243, 11244, 11249, 11251, 11253]],
+      ["product", "Integrated product design and complex-system decisions", ["s0", 11240, 11248, 11255]]
+    ],
+    "adjacent": [
+      ["sustainability", "Sustainable energy, lifecycle and resource systems for mobility", ["s0", 11241, 11245, 11250, 11254, 11256]]
+    ],
+    "questions": []
+  },
+  "courses": [
+    ["ACCPPDE101", "Personal & Professional Development", 1, 7.5],
+    ["BENENTR111", "Consumer Product Design", 1, 7.5],
+    ["DISARIN111", "AI Ethics", 1, 7.5],
+    ["DISARIN211", "Decision-making in AI", 2, 7.5],
+    ["DISARIN212", "Logic & Discrete Mathematics", 2, 7.5],
+    ["DISARIN311", "Optimization Methods in AI", 3, 7.5],
+    ["DISARIN312", "Reinforcement Learning", 3, 7.5],
+    ["DISCOMP211", "Networks & Operating Systems", 2, 7.5],
+    ["DISCOMP212", "Database Management Systems", 2, 7.5],
+    ["DISCOMP311", "Algorithms & Data Structures", 3, 7.5],
+    ["DISCOMP312", "Advanced Algorithms", 3, 7.5],
+    ["DISDATA111", "Introduction to Data Science", 1, 7.5],
+    ["DISDATA211", "Machine Learning", 2, 7.5],
+    ["DISDATA212", "Image Processing & Computer Vision", 2, 7.5],
+    ["DISDATA311", "Neural Networks & Deep Learning", 3, 7.5],
+    ["DISDATA312", "Robotics", 3, 7.5],
+    ["DISGATE101", "Introduction to Programming", 1, 7.5],
+    ["DISGATE102", "Mathematical Methods", 1, 7.5],
+    ["DISMATH211", "Linear Algebra", 2, 7.5],
+    ["DISMATH213", "Computational & Numerical Methods", 2, 7.5],
+    ["DISMATH214", "Advanced Calculus", 2, 7.5],
+    ["DISMATH312", "Linear Systems", 3, 7.5],
+    ["DISMATH314", "Probability & Statistics", 3, 7.5],
+    ["ENSDELT311", "R3: Recycling, Recovery, Remediation", 3, 7.5],
+    ["ENSGATE101", "Sustainability Essentials I", 1, 7.5],
+    ["ENSGATE201", "Sustainability Essentials II", 2, 7.5],
+    ["ENSSUST111", "Climate Change", 1, 7.5],
+    ["ENSSUST112", "Life Cycle Analysis & Circular Economy", 1, 7.5],
+    ["ENSSUST311", "Renewable System Design", 3, 7.5]
+  ],
+  "trace": [
+    ["BENENTR111", ["product"], "develops customer-led product concepts, fabrication methods, prototypes, quantitative models and sustainability/cost analysis in a team design process"],
+    ["DISARIN111", ["autonomy", "product"], "examines interpretability, bias, alignment and responsibility in AI systems used for autonomous decisions; it is not the full external technology-and-society sequence"],
+    ["DISARIN211", ["autonomy", "quantitative"], "models planning under uncertainty, partial observability and resource constraints for intelligent systems"],
+    ["DISARIN212", ["quantitative", "autonomy"], "supplies discrete logic and structures used in algorithm construction and system reasoning"],
+    ["DISARIN311", ["quantitative", "autonomy"], "implements search, adversarial reasoning and constraint satisfaction for complex-system optimisation"],
+    ["DISARIN312", ["autonomy"], "implements reinforcement-learning agents and neural-network control through trial and error"],
+    ["DISCOMP211", ["autonomy", "product"], "teaches internet communication and operating-system resource management as a general connected-systems foundation, not vehicle-specific networking"],
+    ["DISCOMP212", ["autonomy", "product"], "develops relational data models, authorisation, normalisation and query processing for data produced by connected systems"],
+    ["DISCOMP311", ["autonomy"], "develops algorithm and data-structure design with performance analysis"],
+    ["DISCOMP312", ["quantitative", "autonomy"], "extends mathematical and algebraic algorithms and optimisation for computational system problems"],
+    ["DISDATA111", ["autonomy", "quantitative"], "provides data cleaning, visualisation and spatial-data analysis for mobility and sensor datasets"],
+    ["DISDATA211", ["autonomy", "quantitative"], "applies regression, tree-based and other machine-learning methods to real data"],
+    ["DISDATA212", ["autonomy"], "directly studies image feature detection and tracking with documented self-driving, robotics and traffic-management applications"],
+    ["DISDATA311", ["autonomy"], "develops neural networks for computer vision and other perception tasks"],
+    ["DISDATA312", ["autonomy", "quantitative"], "studies kinematics, motion planning, collision avoidance and robotic manipulation as general computational autonomy rather than automotive hardware"],
+    ["DISGATE101", ["autonomy"], "supplies structured Python programming, testing and debugging for later algorithms and intelligent systems"],
+    ["DISGATE102", ["quantitative"], "introduces calculus, matrices, complex numbers and differential equations used in system models"],
+    ["DISMATH211", ["quantitative"], "develops vector spaces, matrices, transformations and eigenvalue methods"],
+    ["DISMATH213", ["quantitative", "autonomy"], "implements stable numerical solution methods for equations, interpolation, integration and differential equations"],
+    ["DISMATH214", ["quantitative"], "extends calculus to multiple dimensions, complex-valued functions and differential equations"],
+    ["DISMATH312", ["quantitative"], "directly studies engineering representations of linear systems, transfer functions, state space and signal processing"],
+    ["DISMATH314", ["quantitative"], "develops probability, distributions, estimation and simulation for uncertain systems"],
+    ["ENSDELT311", ["sustainability"], "examines recovery and remediation technologies, resource security and stewardship for circular material systems"],
+    ["ENSGATE101", ["sustainability"], "establishes physics, chemistry, materials and modelling foundations for sustainability assessment"],
+    ["ENSGATE201", ["sustainability"], "applies sustainability tools to a real-world case and supplies the formal foundation for advanced renewable-system and resource study"],
+    ["ENSSUST111", ["sustainability"], "examines climate impacts, mitigation, renewable energy and governance as the environmental context of transport systems"],
+    ["ENSSUST112", ["sustainability", "product"], "evaluates environmental impacts of products and processes across their lifecycle and develops circular-economy planning"],
+    ["ENSSUST311", ["sustainability", "quantitative"], "assesses energy-use patterns and technically and economically evaluates solar, wind and bioenergy system designs"]
+  ],
+  "alternatives": [
+    {
+      "kind": "closest-match",
+      "label": "Autonomous systems, sensing & connected mobility",
+      "concept": "Combine mathematical system models with programming, algorithms, computer vision, robotics, machine learning, networks, product design and lifecycle assessment to study sensing, autonomous decisions and connected mobility. This is a computational systems response, not a vehicle-engineering substitute.",
+      "basis": ["quantitative", "autonomy", "product", "sustainability"],
+      "evidence": ["s0", "s1", 11240, 11242, 11243, 11244, 11248, 11249, 11251, 11253, 11255],
+      "labelReviewed": true,
+      "labelReason": "The schedule contains a cumulative mathematical/computational sequence, documented self-driving and traffic-management computer-vision applications, robotics, networks, product design and lifecycle assessment; the label avoids claiming automotive mechanics or electronics.",
+      "semesters": [
+        ["ACCPPDE101", "DISGATE101", "DISARIN212", "BENENTR111"],
+        ["DISGATE102", "DISARIN311", "DISDATA212", "DISCOMP212"],
+        ["DISMATH211", "DISCOMP311", "ENSSUST112", "DISCOMP211"],
+        ["DISMATH213", "DISMATH312", "DISCOMP312", "DISDATA312"],
+        ["DISMATH314", "DISARIN211", "DISDATA111", "DISDATA211"],
+        ["DISMATH214", "DISARIN111", "DISARIN312", "DISDATA311"]
+      ],
+      "progression": ["passed", "All exact Fall 2026-start availability and recorded formal prerequisites pass. Programming precedes algorithms, networks, planning and reinforcement learning; Mathematical Methods precedes dependent mathematics, robotics and neural networks. Numerical Methods and Linear Systems occur in the sole available fourth semester, while Advanced Calculus follows when next offered."]
+    },
+    {
+      "kind": "related-direction",
+      "label": "Sustainable energy, product systems & intelligent mobility",
+      "concept": "Retain mathematical modelling, perception, robotics and intelligent decisions while adding lifecycle assessment, renewable-energy design, climate context and material recovery for lower-impact mobility and product systems.",
+      "basis": ["quantitative", "autonomy", "product", "sustainability"],
+      "evidence": ["s0", 11241, 11245, 11250, 11254, 11256],
+      "labelReviewed": true,
+      "labelReason": "Five sustainability courses provide a cumulative lifecycle, energy and resource strand alongside quantitative intelligent-system methods; the label does not imply battery, power-electronics or vehicle-design engineering.",
+      "semesters": [
+        ["ACCPPDE101", "DISGATE101", "ENSGATE101", "BENENTR111"],
+        ["DISGATE102", "DISARIN311", "DISDATA212", "ENSGATE201"],
+        ["DISMATH211", "DISCOMP311", "DISDATA211", "ENSSUST112"],
+        ["DISMATH213", "DISMATH312", "DISDATA312", "ENSSUST311"],
+        ["DISMATH314", "DISARIN211", "ENSSUST111", "ENSDELT311"],
+        ["DISMATH214", "DISDATA311", "DISARIN312", "DISDATA111"]
+      ],
+      "progression": ["passed", "All exact Fall 2026-start availability and recorded formal prerequisites pass. Sustainability Essentials I precedes II, which precedes Renewable System Design and resource recovery. Programming and Mathematical Methods precede their dependent advanced courses. Advanced Calculus follows Numerical Methods and Linear Systems because its next exact offering is the final spring."],
+      "distinctness": "Five courses / 37.5 EC differ: discrete logic, databases, networks, advanced algorithms and AI ethics are replaced by two sustainability foundations, climate change, renewable-system design and resource recovery. These changes implement the evidenced low-impact electric-mobility direction."
+    }
+  ],
+  "closestOwnedInterests": [11240, 11242, 11243, 11244, 11248, 11249, 11251, 11253, 11255],
+  "candidates": [
+    {
+      "label": "Sustainable electric mobility and product systems",
+      "basisType": "programme-interest-cluster",
+      "generating": [11241, 11245, 11250, 11254, 11256],
+      "supporting": [],
+      "outcome": "ucr-2"
+    },
+    {
+      "label": "Vehicle mechanics, propulsion and electromechanical integration",
+      "basisType": "programme-interest-cluster",
+      "generating": [11246, 11247, 11252],
+      "supporting": [],
+      "outcome": "not-feasible"
+    }
+  ],
+  "selection": {
+    "stoppingReason": "not-feasible",
+    "assessment": "Two related-fields responses pass the academic and mechanical gates and differ by five courses / 37.5 EC. A further vehicle-mechanics and propulsion direction cannot supply mechanics, thermodynamics, road-vehicle dynamics, circuits, electromagnetics, electromechanics, power electronics or powertrain laboratories. General calculus, linear systems, robotics and renewable-energy assessment cannot be relabelled as that physical-engineering formation. The 45 EC of genuine external free choice remains open and is not used to manufacture another target route."
+  },
+  "blocks": [
+    ["quantitative", "Mathematics, signals and computational systems", [
+      ["DISARIN211", null, null], ["DISARIN212", null, null], ["DISARIN311", null, null], ["DISARIN312", null, null],
+      ["DISCOMP311", null, null], ["DISCOMP312", null, null], ["DISDATA111", null, null], ["DISDATA211", null, null], ["DISDATA311", null, null],
+      ["DISGATE102", "2WBB0", "Both directly teach calculus used to formulate quantitative systems; UCR also covers broader mathematical methods."],
+      ["DISMATH211", null, null], ["DISMATH213", null, null], ["DISMATH214", null, null], ["DISMATH314", null, null],
+      ["DISMATH312", "5ESF0", "Both directly address signals and linear-system representations; UCR does not reproduce the surrounding electrical-engineering laboratories."],
+      [null, "5EZA0", "The generic Math 1 title does not establish a more specific content match beyond the separately aligned calculus component."],
+      [null, "5EZB0", "The generic Math 2 title does not establish a sufficiently specific course-level counterpart."]
+    ]],
+    ["autonomy", "Programming, sensing, autonomy and connected systems", [
+      ["DISGATE101", "5EWC0", "Both include programming and computational problem solving; the 10-EC external component also contains an engineering challenge that UCR programming does not reproduce."],
+      ["DISDATA212", null, null], ["DISDATA312", "5AIB0", "Both address sensing-informed computation and action; UCR Robotics is computational and does not reproduce embedded automotive sensing/actuation hardware."],
+      ["DISCOMP211", "5AIC0", "Both address communication networks; UCR covers general internet and operating systems rather than in-vehicle protocols and hardware."],
+      ["DISCOMP212", null, null], ["DISARIN111", "0LVX30", "Both examine ethical issues in technology; UCR focuses specifically on AI ethics and is not the complete external ITEC unit."]
+    ]],
+    ["sustainability", "Product, energy and lifecycle systems", [
+      ["BENENTR111", "4CBLW00", "Both use multidisciplinary team design and development; UCR concerns general consumer products rather than an automotive engineering integration project."],
+      ["ENSGATE101", null, null], ["ENSGATE201", null, null], ["ENSSUST111", null, null], ["ENSSUST112", null, null], ["ENSSUST311", null, null], ["ENSDELT311", null, null]
+    ]],
+    ["gaps", "Automotive physical engineering, project and open profile", [
+      ["ACCPPDE101", null, null],
+      [null, "5EPC0", "UCR has no staged electric-circuits course or electronics laboratory."],
+      [null, "5ECD0", "UCR has no electronic-circuits design sequence."],
+      [null, "5EPE0", "No scheduled UCR course supplies the required automotive physics foundation."],
+      [null, "5ATB0", "No UCR course provides the introductory survey of automotive subsystems."],
+      [null, "5EID0", "No scheduled UCR course reproduces this engineering challenge."],
+      [null, "5ETC0", "Academic development does not replace the external engineering communication component."],
+      [null, "4AUB20", "UCR has no mechanics and road-vehicle-dynamics sequence."],
+      [null, "5EWE0", "Renewable-system assessment is not electric-circuit engineering for energy conversion."],
+      [null, "4AUB10", "UCR has no thermodynamics and automotive propulsion-systems sequence."],
+      [null, "5EIC0", "General programming and operating systems do not replace computer-architecture hardware."],
+      [null, "5EPF0", "UCR has no electromagnetics course."],
+      [null, "5ESH0", "Linear Systems is relevant mathematical preparation but does not reproduce the complete engineering control-systems course."],
+      [null, "cp-000261-y2-open-9", "The genuine 15-EC free-elective space remains open and is not equated with scheduled UCR courses."],
+      [null, "5EWF0", "UCR has no electromechanics course."],
+      [null, "5APB0", "UCR has no power-electronics course."],
+      [null, "5XEC0", "The compulsory 10-EC automotive Final Bachelor Project is not a scheduled UCR course; optional UCR independent research is shown separately."],
+      [null, "0LVX40", "The external technology-and-society unit remains visible; no broad UCR sustainability course is asserted as its exact counterpart."],
+      [null, "cp-000261-y3-open-5", "The genuine 30-EC free-elective space remains open and is not equated with scheduled UCR courses."]
+    ]]
+  ],
+  "researchComponentId": "5XEC0",
+  "notes": [
+    {"type": "related-fields-not-full-discipline", "text": "Automotive Technology integrates mechanics, electronics, electromechanics, power conversion, embedded hardware, vehicle networks, propulsion, road-vehicle dynamics, laboratories and an automotive final project. The UCR curricula support computational autonomous systems or sustainable energy/product systems related to mobility; they do not reproduce that complete vehicle-engineering formation."}
+  ]
 }
