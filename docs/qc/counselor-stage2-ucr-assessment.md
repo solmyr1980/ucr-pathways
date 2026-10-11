@@ -267,3 +267,29 @@ None is represented as the Africa/Arabic pathway or comprehensive area studies. 
 The [current official study-guide record](https://studiegids.universiteitleiden.nl/api/product?code=BA-INT&type=STUDY&year=2261&language=en) was inspected on 9 October 2026 during the completed first-stage correction. Deterministic compilation, complete course traces, lossless comparison checks and relevant validators passed before publication. Published in [`59de1ce`](https://github.com/solmyr1980/ucr-pathways/commit/59de1ce739f46820e7972ec5bda09f21042fbee4).
 
 Batch 8 completed. Both cases were published separately and their canonical build workflows passed. The fixed baseline queue now has 12 completed cases and 28 remaining; the next cases are `cp-000302` and `cp-000304`. The corpus contains 438 records: 321 comparisons and 117 exceptions (28 UCR assessments pending, 57 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
+
+## Batch 9
+
+Next two pending targets in the fixed baseline queue: CP302 and CP304. Each was assessed and published separately; the settled external curricula, first-stage history and completed QC work remain preserved.
+
+### cp-000302 — Korean Studies
+
+Outcome: no defensible complete UCR match.
+
+Three complete-programme directions were tested separately: **Korean language, literature & cultural media**, **Korean history, society & the divided peninsula**, and **Korea in regional politics & economic development**. UCR provides useful methods in literature, media, heritage, history, sociology, politics, international relations and economics, but it has no Korean-language course and no Korea- or East Asia-centred content sequence. Generic disciplinary courses cannot honestly fill 23 non-PPD places while retaining Korea as the organising object.
+
+All nine generator-eligible interests are owned once across the three assessed directions. Every support-only and search-only row remains excluded from candidate generation. Because academic feasibility failed before any 24-course set was accepted, no schedule, UCR-credit alignment or availability/prerequisite claim is encoded. The corrected 180-EC external curriculum, Korean-language choices, capstone order and 30 EC of genuine free choice remain unchanged.
+
+The [current official study-guide record](https://studiegids.universiteitleiden.nl/api/product?code=BA-KOR&type=STUDY&year=2261&language=en) and programme-specific OER were inspected on 9 October 2026 during the completed first-stage correction. The current 151-row enriched workbook was reviewed course by course. Deterministic compilation and the targeted comparison, structural, final-rule and review-index checks passed; the canonical build workflow succeeded. Published in [`346913f`](https://github.com/solmyr1980/ucr-pathways/commit/346913f5fc2962ddfe350ae45ff3c59533059320).
+
+### cp-000304 — Latin American Studies
+
+Outcome: no defensible complete UCR match.
+
+Three complete-programme directions were tested separately: **Latin American histories, societies & political economy**, **Spanish/Portuguese language, migration & identity**, and **Latin American literature, film & popular culture**. UCR has strong generic methods and one limited Latin American civil-repair case in GOSSOCI311, but no sustained Latin America-specific sequence, no Spanish or Portuguese acquisition and insufficient regional cultural content. Recasting the available courses as global politics, colonial studies, cognitive-language or media programmes would change the object of study.
+
+All eight generator-eligible interests are owned once across the three assessed directions. Every support-only and search-only row remains excluded from candidate generation. Because academic feasibility failed before any 24-course set was accepted, no schedule, UCR-credit alignment or availability/prerequisite claim is encoded. The corrected 180-EC Spanish pathway, approved 30-EC Latin America study-abroad package and 30 EC of genuine free choice remain unchanged.
+
+The [current official study-guide record](https://studiegids.universiteitleiden.nl/api/product?code=BA-LAS&type=STUDY&year=2261&language=en) was inspected on 9 October 2026 during the completed first-stage correction. The programme-specific OER URL remains formal provenance, but direct retrieval was unavailable then, so no PDF-content or PDF-hash claim is made. The current 151-row enriched workbook was reviewed course by course. Deterministic compilation and the targeted comparison, structural, final-rule and review-index checks passed; the canonical build workflow succeeded. Published in [`ca9807b`](https://github.com/solmyr1980/ucr-pathways/commit/ca9807b3f583ab88a74e811f2fb120c471a797b9).
+
+Batch 9 completed. Both pending exceptions were replaced by fully reasoned no-match exceptions and published separately. The fixed baseline queue now has 14 completed cases and 26 remaining; the next cases are `cp-000308` and `cp-000319`. The corpus contains 438 records: 321 comparisons and 117 exceptions (26 UCR assessments pending, 59 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
