@@ -51,3 +51,42 @@ Academic coherence and comparative contribution remain reasoned review judgments
 Publication uses one atomic connector commit on the latest main, with message `QC first two UCR assessments: recover Mathematics biomedical alternative`. Its hash is resolved from this report/register's Git history and reported with the batch outcome. Shared review indexes were regenerated from the current 438-record corpus; their contents did not change because target identity and comparison/exception status did not change. The separate ongoing assessment register and first-stage files remain unchanged.
 
 **Progress: 2 of 10 cases completed; 8 remain.** Next QC batch: cp-000098 and cp-000119.
+
+## Batch 2 — History and Theology/Religious Studies, 11 October 2026
+
+Reviewed against the current Production Instructions, Master Specification, all target-linked programme-interest rows, current decision/canonical records and the current GitHub workbook. Workbook SHA-256: `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`. Existing explanations and successful compilation were not treated as evidence of academic quality.
+
+### cp-000098 — History (Geschiedenis)
+
+**Outcome: retained; three defensible alternatives.** The shared historical spine—Modern History, Histories of Gender, History of Empires, Western Way of War, Native American Histories and the History Research Seminar—provides chronological, thematic, source-based and independent-research formation. It is supplemented differently in each programme rather than being relabelled as a complete substitute for the VU curriculum.
+
+The first alternative has a genuine cultural-history, heritage and public-memory focus. Archaeology, art history, museum/curatorial study, literature, life writing, media archaeology, race/media and documentary study each contribute a defined form of historical evidence, memory or historiography. The second has a genuine migration and political-conflict focus: political thought, comparative institutions, international relations, rights, conflict transformation, civil society and environmental-justice movements support the stated direction. The third has a genuine political-economy and inequality focus: micro- and macroeconomics, public economics and econometrics supply explicit mechanisms and empirical methods, while sociology and environmental-justice study connect them to empire, modernity and distribution.
+
+All 41 target-linked interests were reviewed. The twelve generator-eligible rows are covered once across the closest concept and the two candidate directions. Three alternatives remain justified, so `maximum-reached` is the correct stopping decision. Pairwise differences are 11, 12 and 6 courses respectively; all substantially exceed the four-course floor and follow the concepts rather than arbitrary substitutions.
+
+All comparator alignments were independently checked. Modern European history, oral interviewing within gender history, world/imperial history, ancient material evidence, central Western philosophy, early-modern Mediterranean cultural exchange, public economics/inequality and statistical human-data analysis have sufficiently specific relationships to their paired components. The comparison continues to show the missing dedicated medieval/early-modern, Holocaust/genocide, digital-history and regional-research depth. The external 180-EC route and 30-EC approved academic profile remain unchanged.
+
+### cp-000119 — Bachelor Theologie en Religiewetenschappen
+
+**Outcome: retained no-defensible-UCR-match; zero alternatives.** The no-match was retested rather than inferred from the degree title or the earlier rationale. The workbook search found meaningful religion-related content in World Myth & Literature, Great Literary Works, world archaeology, African religious art, Mediterranean/Islamic artistic exchange, ancient Greek myth and religion, Western philosophy, Buddhist theories of self, ethics, natural law/human rights, comparative constitutional law, conflict/radicalisation and social inquiry into belief and communities.
+
+Those contributions remain discrete and mostly embedded within literature, archaeology, art, philosophy, law, politics or sociology. They do not provide a cumulative study of world religions, Christianity, Judaism, Islam and Hinduism; sacred-text hermeneutics; anthropology and psychology of religion; interreligious relations; or comparative religious ethics. Extending the set to 23 non-PPD courses would require general humanities and social-science courses whose documented content is adjacent rather than religion-centred.
+
+All 43 linked interests and four candidate directions were reconsidered. Comparative religious cultures lacks sustained traditions and sacred-text study. The political-conflict/sustainability direction has specific supporting courses but not enough religion-centred content for a complete programme. The Islamic direction lacks Qur'an/hadith, jurisprudence, Islamic theology and Arabic; the Christian direction lacks biblical, systematic and practical theology. These gaps concern substantive academic formation, not professional licensing. The selected comparative route itself does not require biblical languages, and their absence is not used against the closest concept.
+
+The corrected 180-EC Religie en Levensbeschouwing route, restricted choices, 30-EC profiling allowance, research labs and thesis remain unchanged. No timetable was manufactured after every candidate failed the academic content/coherence gate.
+
+## Batch 2 checks and limits
+
+| Case | Alternative | Unique courses / EC | Advanced courses | Pairwise differences |
+|---|---|---|---|---|
+| cp-000098 | ucr-1 | 24 / 180 | 7 | — |
+| cp-000098 | ucr-2 | 24 / 180 | 6 | 11 from ucr-1 |
+| cp-000098 | ucr-3 | 24 / 180 | 6 | 12 from ucr-1; 6 from ucr-2 |
+| cp-000119 | no-match | — | — | No programme passed the coherence gate |
+
+All History schedules pass exact workbook availability, formal prerequisites, four courses per semester, Year-1 PPD and the advanced-course minimum. Both compact decisions replay byte-identically to their canonical records. Full-corpus validators, compiler regressions, programme-interest validation, repository quality tests and review-index replay passed before publication.
+
+Academic coherence, individual course contribution and the no-match conclusion remain reasoned judgments; validators cannot prove them. Semester feasibility reflects planned workbook availability rather than guaranteed future delivery. No selected case is blocked, and neither required a canonical-record correction.
+
+**Progress: 4 of 10 cases completed; 6 remain.** Next QC batch: cp-000205 and cp-000246.

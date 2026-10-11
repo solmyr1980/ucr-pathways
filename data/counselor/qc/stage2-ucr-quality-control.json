@@ -41,6 +41,30 @@
         "commit_message": "QC first two UCR assessments: recover Mathematics biomedical alternative",
         "commit_resolution": "The atomic commit introducing this completed batch is discoverable in git history of this register; its hash is reported to the user. Subsequent runs may record that hash without changing the review outcome."
       }
+    },
+    {
+      "batch_number": 2,
+      "case_ids": [
+        "cp-000098",
+        "cp-000119"
+      ],
+      "reviewed_on": "2026-10-11",
+      "status": "completed",
+      "checks": [
+        "Independent workbook course-content review of every non-PPD course in all three History alternatives",
+        "Independent religion-relevant workbook search and complete candidate review for the Theology and Religious Studies no-match",
+        "Independent complete programme-interest roles and stopping review for both targets",
+        "History workbook course names, levels, credits, exact availability and prerequisites; 24 unique courses, four per semester, six or more advanced courses and Year-1 PPD",
+        "Pairwise substantive and mechanical distinctness review of all three History alternatives",
+        "Lossless 180-EC comparator representation and alignment review for both cases",
+        "Deterministic compiler replay unchanged for both records",
+        "Full-corpus counselor validation, compiler regressions, programme-interest validation, repository quality tests and review-index replay"
+      ],
+      "publication": {
+        "parent_commit": "81aeb3d9650786bd42cabef65d7c6c88ffc61411",
+        "commit_message": "QC History and Theology UCR assessments",
+        "commit_resolution": "The atomic commit introducing this completed batch is discoverable in git history of this register; its hash is reported to the user."
+      }
     }
   ],
   "cases": [
@@ -451,14 +475,125 @@
         "Future course delivery is based on the authoritative planned timetable, not a guarantee.",
         "Existing public example p-003 has an unrelated distinctness warning and was not changed."
       ]
+    },
+    {
+      "counselor_programme_id": "cp-000098",
+      "programme": "History (Geschiedenis)",
+      "batch_number": 2,
+      "reviewed_on": "2026-10-11",
+      "status": "completed",
+      "outcome": "retained",
+      "included_alternatives": 3,
+      "findings": [
+        {
+          "severity": "none",
+          "finding": "All three existing alternatives are coherent and content-supported. Their shared six-course History spine is substantial, while cultural heritage/public memory, migration/political conflict and political economy/global inequality produce genuinely different curricula rather than cosmetic substitutions.",
+          "correction": "None. Preserve decision and canonical record byte-for-byte."
+        }
+      ],
+      "ucr_database": {
+        "path": "data/reference/ucr_courses_enriched.xlsx",
+        "sha256": "7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879",
+        "retrieved_from_git_commit": "81aeb3d9650786bd42cabef65d7c6c88ffc61411"
+      },
+      "reviewed_courses_by_alternative": {
+        "ucr-1": [
+          "GOSHIST111", "MCCHEAM111", "GOSPHIL111", "MCCHEAM112", "MCCHEAM212", "MCCLITR112", "MCCLITR212", "GOSHIST211", "GOSHIST112", "GOSSOCI111", "MCCMEDI112", "GOSHIST213", "MCCHEAM211", "MCCHEAM213", "GOSHIST311", "MCCHEAM312", "MCCHEAM315", "GOSSOCI214", "MCCMEDI311", "GOSHIST312", "MCCHEAM316", "MCCMEDI312", "GOSSOCI212"
+        ],
+        "ucr-2": [
+          "GOSHIST111", "GOSPHIL111", "GOSPOLI111", "BENGATE102", "MCCHEAM112", "MCCLITR212", "GOSHIST112", "GOSHIST211", "GOSSOCI111", "HCBPSYC211", "GOSPOLI112", "GOSHIST213", "GOSHIST311", "GOSPOLI212", "MCCMEDI212", "MCCHEAM315", "GOSSOCI311", "GOSPOLI311", "GOSLAWJ111", "GOSHIST312", "GOSSOCI212", "GOSSOCI215", "GOSPOLI313"
+        ],
+        "ucr-3": [
+          "GOSHIST111", "GOSSOCI111", "GOSPOLI111", "BENGATE102", "MCCHEAM112", "GOSPOLI212", "MCCMEDI212", "GOSHIST211", "GOSHIST112", "BENECON111", "BENECON211", "GOSHIST213", "GOSHIST311", "BENECON311", "GOSSOCI212", "MCCHEAM315", "HCBPSYC211", "GOSSOCI214", "GOSSOCI311", "GOSHIST312", "BENECON212", "BENECON312", "GOSSOCI215"
+        ]
+      },
+      "programme_interest_review": {
+        "assessed_rows": [4565, 4566, 4567, 4568, 4569, 4570, 4571, 4572, 4573, 4574, 4575, 4576, 4577, 4578, 4579, 4580, 4581, 4582, 4583, 4584, 4585, 4586, 4587, 4588, 4589, 4590, 4591, 4592, 4593, 4594, 4595, 4596, 4597, 4598, 4599, 4600, 4601, 4602, 4603, 4604, 4605],
+        "generator_rows": [4565, 4566, 4567, 4568, 4569, 4570, 4571, 4572, 4573, 4574, 4575, 4576],
+        "all_target_rows_reviewed": true,
+        "all_generator_rows_owned_once": true,
+        "candidate_directions_reviewed": [
+          "Historical culture, heritage and public memory",
+          "Migration, war and political conflict in historical perspective",
+          "Globalisation, capitalism and inequality"
+        ],
+        "stopping_decision": "maximum-reached remains justified after three evidence-backed, coherent and pairwise distinct programmes."
+      },
+      "mechanical_checks": {
+        "schedules": [
+          {"programme_id": "ucr-1", "unique_courses": 24, "credits": 180, "advanced_courses": 7, "four_courses_per_semester": true, "formal_prerequisites": "passed", "availability": "passed", "year_1_ppd": true},
+          {"programme_id": "ucr-2", "unique_courses": 24, "credits": 180, "advanced_courses": 6, "four_courses_per_semester": true, "formal_prerequisites": "passed", "availability": "passed", "year_1_ppd": true},
+          {"programme_id": "ucr-3", "unique_courses": 24, "credits": 180, "advanced_courses": 6, "four_courses_per_semester": true, "formal_prerequisites": "passed", "availability": "passed", "year_1_ppd": true}
+        ],
+        "distinctness": [
+          {"pair": ["ucr-1", "ucr-2"], "different_courses_each": 11, "different_ec_each": 82.5},
+          {"pair": ["ucr-1", "ucr-3"], "different_courses_each": 12, "different_ec_each": 90.0},
+          {"pair": ["ucr-2", "ucr-3"], "different_courses_each": 6, "different_ec_each": 45.0}
+        ]
+      },
+      "external_components_and_route": "Preserved unchanged from the corrected first-stage reconstruction",
+      "comparison_review": "Complete 180-EC representation; exact UCR course-identity rows; explicit medieval/early-modern, Holocaust/genocide, digital-history and regional-depth gaps; optional 15-EC research excluded from scheduled credits. All comparator alignments reviewed and retained.",
+      "validation_limitations": [
+        "Content and coherence are reviewer judgments; mechanical checks do not prove them.",
+        "Future course delivery is based on the authoritative planned timetable, not a guarantee.",
+        "The six-course UCR History spine is broader and less period-specialized than the external degree."
+      ]
+    },
+    {
+      "counselor_programme_id": "cp-000119",
+      "programme": "Bachelor Theologie en Religiewetenschappen",
+      "batch_number": 2,
+      "reviewed_on": "2026-10-11",
+      "status": "completed",
+      "outcome": "retained-no-defensible-ucr-match",
+      "included_alternatives": 0,
+      "findings": [
+        {
+          "severity": "none",
+          "finding": "The no-match remains academically justified. UCR has discrete contributions in myth, religious visual culture, ancient religious identity, philosophy, natural law, conflict and belief-related social inquiry, but too few courses with religion as their substantive object to sustain 23 non-PPD courses in a coherent religion-centred programme.",
+          "correction": "None. Preserve decision and canonical exception byte-for-byte."
+        }
+      ],
+      "ucr_database": {
+        "path": "data/reference/ucr_courses_enriched.xlsx",
+        "sha256": "7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879",
+        "retrieved_from_git_commit": "81aeb3d9650786bd42cabef65d7c6c88ffc61411"
+      },
+      "reviewed_religion_relevant_courses": [
+        "MCCLITR211", "MCCLITR112", "MCCHEAM112", "MCCHEAM211", "MCCHEAM212", "MCCHEAM315", "GOSPHIL111", "GOSPHIL212", "GOSPHIL214", "GOSLAWJ111", "GOSLAWJ213", "GOSPOLI313", "HCBPSYC315", "GOSSOCI111", "GOSSOCI214", "GOSSOCI311", "HCBPSYC111", "GOSSOCI212"
+      ],
+      "programme_interest_review": {
+        "assessed_rows": [5388, 5389, 5390, 5391, 5392, 5393, 5394, 5395, 5396, 5397, 5398, 5399, 5400, 5401, 5402, 5403, 5404, 5405, 5406, 5407, 5408, 5409, 5410, 5411, 5412, 5413, 5414, 5415, 5416, 5417, 5418, 5419, 5420, 5421, 5422, 5423, 5424, 5425, 5426, 5427, 5428, 5429, 5430],
+        "generator_rows": [5388, 5389, 5390, 5391, 5392, 5393, 5394, 5395, 5396, 5397, 5398, 5399, 5400, 5401, 5404, 5405, 5407, 5408, 5409, 5410, 5411, 5412, 5413, 5414, 5415, 5416, 5417, 5418, 5419, 5425],
+        "all_target_rows_reviewed": true,
+        "all_generator_rows_owned_once": true,
+        "candidate_directions_reviewed": [
+          "Comparative religious cultures, sacred texts and meaning",
+          "Religion, political conflict and sustainability",
+          "Islam, theology, law and European society",
+          "Christian theology, lived faith and community leadership"
+        ],
+        "stopping_decision": "not-feasible remains justified at the academic-coherence gate; a mechanically valid timetable would not cure the missing cumulative religion-specific content."
+      },
+      "mechanical_checks": {
+        "accepted_schedules": 0,
+        "assessment": "No 24-course programme passed the academic content/coherence gate, so no artificial schedule was constructed. The exception compiler replay is byte-identical to the canonical record."
+      },
+      "external_components_and_route": "Preserved unchanged from the corrected first-stage reconstruction",
+      "comparison_review": "The canonical exception retains the complete 180-EC Religie en Levensbeschouwing route, including 30 EC of genuine profiling space, research labs and thesis. The absence of professional qualification or biblical languages is not used to justify the selected-route no-match.",
+      "validation_limitations": [
+        "The no-match is an academic coherence judgment rather than a validator output.",
+        "Individual UCR courses can illuminate religion without collectively constituting a complete religious-studies or theology programme.",
+        "Future course delivery is based on the authoritative planned timetable, not a guarantee."
+      ]
     }
   ],
   "progress": {
-    "completed": 2,
-    "remaining": 8,
+    "completed": 4,
+    "remaining": 6,
     "next_case_ids": [
-      "cp-000098",
-      "cp-000119"
+      "cp-000205",
+      "cp-000246"
     ]
   }
 }
