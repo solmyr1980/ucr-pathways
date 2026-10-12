@@ -345,3 +345,29 @@ Neither is represented as full Mathematics. UCR lacks cumulative proof-intensive
 The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, compiler/optional-research/exception tests, review-index replay, programme-interest validation, repository quality tests and whitespace checks passed.
 
 Batch 11 completed. One pending exception became a fully reasoned no-match exception and two related-fields UCR curricula were accepted for the other case. The fixed baseline queue now has 18 completed cases and 22 remaining; the next cases are `cp-000330` and `cp-000331`. The corpus contains 438 records: 323 comparisons and 115 exceptions (22 UCR assessments pending, 61 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
+
+## Batch 12 — 12 October 2026
+
+The next two fixed-queue cases were assessed independently against their corrected external curricula and the current UCR course evidence.
+
+### cp-000330 — Bachelor Mechanical Engineering
+
+Outcome: comparison; 1 UCR alternative.
+
+One complete related-fields response is defensible. **Computational systems, robotics & sustainable technology** combines calculus, linear algebra, numerical methods, probability, linear systems, algorithms, data and robotics with product design, life-cycle assessment, circular resource technology and renewable-energy analysis.
+
+It is not represented as Mechanical Engineering. UCR lacks the target's cumulative statics, mechanics of materials, dynamics, elasticity, machine elements, thermodynamics, fluid mechanics, heat transfer, tribology and manufacturing-process formation, as well as its repeated build-and-test engineering projects. A separate structural/mechanical-design and manufacturing direction was tested and rejected. An energy-only route would reuse the accepted strand while dropping the systems and design content that makes the response coherent, so it was not included.
+
+The schedule has exactly 24 unique courses, four per semester, 180 EC, Year-1 PPD and ten 300-level courses. Exact availability and every recorded prerequisite pass against the current workbook. The corrected 180-EC external curriculum, 45 separately credited compulsory units, two 15-EC minor slots and graduation assignments remain unchanged. Published in [`88a34f8`](https://github.com/solmyr1980/ucr-pathways/commit/88a34f8e6894e067ee126076628720424561bc3a).
+
+### cp-000331 — Bachelor Mechanical Engineering - Amsterdam (VU-UT)
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-fields responses are defensible. **Smart systems, robotics & sustainable technology** combines quantitative systems, algorithms, data, robotics and product design with energy-transition, life-cycle and resource technology. **Computational systems, robotics & human function** retains the quantitative, robotic and design spine while replacing four energy/circular-technology courses with brain, neurobiology, perception/action and higher-function study for the explicit healthcare-technology direction. The alternatives differ by four courses / 30 EC.
+
+Neither is represented as Mechanical Engineering. UCR lacks cumulative mechanics, thermodynamics, materials/manufacturing, thermal-fluid, precision-design, laboratory and repeated build-test formation. A full mechanical structures/materials/manufacturing direction was tested and rejected rather than filling it with general computation. Each schedule has exactly 24 unique courses, four per semester, 180 EC and Year-1 PPD; the alternatives contain ten and nine 300-level courses. Exact availability and every recorded prerequisite pass against the current workbook. The corrected 180-EC Amsterdam curriculum, 41 positive-credit compulsory units, 30-EC minor and graduation progression remain unchanged. Published in [`020abd4`](https://github.com/solmyr1980/ucr-pathways/commit/020abd47fb8ba460d26ca54022e33388198b2ad4).
+
+The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research tests, programme-interest validation, repository quality tests and whitespace checks passed.
+
+Batch 12 completed. Both pending exceptions became completed comparisons. The fixed baseline queue now has 20 completed cases and 20 remaining; the next cases are `cp-000339` and `cp-000342`. The corpus contains 438 records: 325 comparisons and 113 exceptions (20 UCR assessments pending, 61 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
