@@ -595,3 +595,27 @@ Extending broad European and global-humanities courses to a complete curriculum 
 The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research/exception tests, programme-interest validation, review-index replay, repository quality tests and whitespace checks passed.
 
 Batch 21 completed. Both pending exceptions became fully reasoned no-match exceptions. The fixed baseline queue now has 38 completed cases and 2 remaining; the next cases are `cp-000435` and `cp-000437`. The corpus contains 438 records: 336 comparisons and 102 exceptions (2 UCR assessments pending, 68 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
+
+## Batch 22 — 12 October 2026
+
+The final two fixed-queue cases were assessed independently against their corrected external curricula and the current UCR course evidence.
+
+### cp-000435 — Spanish Language and Culture / Spanish and Latin American Studies
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-field responses are defensible. **Colonial histories, global literature & cultural memory** combines literature, empire, migration, decolonial social theory, cultural memory, heritage, media and language/power. **Literature, media & language in cultural expression** combines literary analysis, rhetoric, stylistics, psycholinguistics, intercultural communication, film and multimodal production. The alternatives differ by five courses / 37.5 EC.
+
+Neither is represented as Spanish Language and Culture or Latin American Studies. UCR lacks Spanish proficiency progression, Spanish grammar and sociolinguistics, translation, Spanish-language academic work, a sustained Spain/Latin America sequence and the required semester abroad. A Spanish-proficiency, translation and source-language direction was tested and rejected. Each accepted schedule has exactly 24 unique courses, four per semester, 180 EC and Year-1 PPD; the alternatives contain ten and eight 300-level courses. Exact availability and every recorded formal prerequisite pass against the current workbook. The complete external curriculum, compulsory 30-EC Spanish/Latin American university semester, 12-EC Spanish-language thesis and all 30 EC of genuine profiling remain unchanged. Published in [`ed95009`](https://github.com/solmyr1980/ucr-pathways/commit/ed950097c9f39f653961259dcc3dc269d17840bc).
+
+### cp-000437 — Theatre Studies (Theaterwetenschap)
+
+Outcome: no defensible complete UCR match.
+
+Three directions were assessed separately: **theatre history, dramatic texts and dramaturgy**, **live performance, meaning and contemporary performance culture**, and **theatre, society, institutions and education**. UCR offers genuine literature, film/media, communication, sociology, art and heritage methods plus isolated engagement with drama, theatrical storytelling and poetic performance. It has no theatre-history sequence, dramaturgy, live-performance analysis, spectatorship, scenography, dance or musical-theatre studies, theatre institutions, arts education, performance documentation or theatre-specific research progression.
+
+Extending adjacent courses to 23 non-PPD places would change the object of study to literature, media, communication or general cultural studies. Academic feasibility therefore failed before a schedule was accepted. All 12 generator-eligible interests are owned exactly once across the three assessed directions, with all 30 curricular-topic rows retained only as supporting evidence. The complete 180-EC Theatre Studies curriculum, bounded restricted choices, 12-EC thesis and all 42 EC of genuine profiling remain unchanged. Published in [`16386b7`](https://github.com/solmyr1980/ucr-pathways/commit/16386b786a6916ce69505c9bcc2d8a1e1214203a).
+
+The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research/exception tests, programme-interest validation, regenerated review indexes, repository quality tests and whitespace checks passed.
+
+Batch 22 completed the fixed baseline queue. All 40 cases that were `ucr-assessment-pending` at baseline commit `aec42fd1a72fc3b1e5ae76fa1f9995f5421dfda4` now have completed comparisons or fully reasoned no-match exceptions. Across the full assessment register, 50 cases are completed: 35 comparisons containing 68 UCR curricula and 15 no-match outcomes. The corpus contains 438 records: 337 comparisons and 101 exceptions (0 UCR assessments pending, 69 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
