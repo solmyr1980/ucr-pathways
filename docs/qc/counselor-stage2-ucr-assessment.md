@@ -571,3 +571,27 @@ Extending adjacent disciplines to a complete curriculum would change the object 
 The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research/exception tests, programme-interest validation, regenerated review indexes, repository quality tests and whitespace checks passed.
 
 Batch 20 completed. Both pending exceptions became fully reasoned no-match exceptions. The fixed baseline queue now has 36 completed cases and 4 remaining; the next cases are `cp-000429` and `cp-000432`. The corpus contains 438 records: 336 comparisons and 102 exceptions (4 UCR assessments pending, 66 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
+
+## Batch 21 — 12 October 2026
+
+The next two fixed-queue cases were assessed independently against their corrected external curricula and the current UCR course evidence.
+
+### cp-000429 — Scandinavian Languages and Cultures (Scandinavia Studies)
+
+Outcome: no defensible complete UCR match.
+
+Three directions were assessed separately: **Scandinavian language, linguistics and culture**, **Scandinavian literature, cultural history and Nordic identity**, and **Nordic societies, politics and northern-European history**. UCR offers genuine transferable methods in literature, myth, media, history, sociology, politics and European studies, but its target-specific content is limited to an isolated Norse-myth strand and a brief Sweden example in comparative politics. It has no Danish, Norwegian or Swedish instruction, and it lacks a sustained Scandinavian literature, cultural-history, society, politics or regional-research sequence.
+
+Extending adjacent courses to 23 non-PPD places would change the object of study to general European studies or global humanities. Academic feasibility therefore failed before a schedule was accepted. All 15 generator-eligible interests are owned exactly once across the three assessed directions, with all 29 curricular-topic rows retained only as supporting evidence. The complete Danish-route 180-EC external curriculum, selected 30-EC Scandinavia semester, Danish translation, 12-EC graduation project and all 30 EC of genuine profiling remain unchanged. Published in [`a092fcf`](https://github.com/solmyr1980/ucr-pathways/commit/a092fcf47040d96220433ed7dfa8cec6818fe7ff).
+
+### cp-000432 — Slavonic Language and Culture (Slavische talen en culturen)
+
+Outcome: no defensible complete UCR match.
+
+Three directions were assessed separately: **Slavic language, linguistics and language-mediated culture**, **Eastern European literature, cultural history and intellectual life**, and **Russian and Eastern European history, politics, society and conflict**. UCR offers genuine transferable methods in literature, media, history, sociology, politics, international relations, conflict and European studies. Its target-specific content is limited to broad or isolated Russian Revolution, Eastern Europe and Polish references. It has no Slavic-language teaching and no sustained Russian, Central/Eastern-European or Balkan literature, cultural-history, society, politics or area-studies sequence.
+
+Extending broad European and global-humanities courses to a complete curriculum would overstate isolated references as Slavic or Eastern-European disciplinary coverage. Academic feasibility therefore failed before a schedule was accepted. All 16 generator-eligible interests are owned exactly once across the three assessed directions, with all 31 curricular-topic rows retained only as supporting evidence. The complete Russian-route 180-EC external curriculum, compulsory 30-EC abroad semester, research lab, 12-EC thesis and all 30 EC of genuine profiling remain unchanged. Published in [`2facd34`](https://github.com/solmyr1980/ucr-pathways/commit/2facd340c86585e3fb217b0dc952df0dcac3a19a).
+
+The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research/exception tests, programme-interest validation, review-index replay, repository quality tests and whitespace checks passed.
+
+Batch 21 completed. Both pending exceptions became fully reasoned no-match exceptions. The fixed baseline queue now has 38 completed cases and 2 remaining; the next cases are `cp-000435` and `cp-000437`. The corpus contains 438 records: 336 comparisons and 102 exceptions (2 UCR assessments pending, 68 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
