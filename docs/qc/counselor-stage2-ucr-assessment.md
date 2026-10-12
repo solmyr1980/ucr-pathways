@@ -446,3 +446,31 @@ Neither is represented as Spanish Language and Culture. UCR lacks Spanish acquis
 The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research/exception tests, programme-interest validation, regenerated review indexes, repository quality tests and whitespace checks passed.
 
 Batch 15 completed. Both pending exceptions became completed comparisons, with four related-field UCR curricula accepted in total. The fixed baseline queue now has 26 completed cases and 14 remaining; the next cases are `cp-000375` and `cp-000378`. The corpus contains 438 records: 330 comparisons and 108 exceptions (14 UCR assessments pending, 62 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
+
+## Batch 16 — 12 October 2026
+
+The next two fixed-queue cases were assessed independently against their corrected external curricula and the current UCR course evidence.
+
+### cp-000375 — Mathematics (Wiskunde)
+
+Outcome: comparison; 3 UCR alternatives.
+
+Three complete related-field responses are defensible. **Applied mathematics, algorithms & stochastic data models** combines calculus, linear algebra, numerical methods, probability and linear systems with programming, algorithms, optimisation, machine learning and empirical economic and behavioural models. **Mathematical modelling, Earth systems & scientific data** applies the quantitative spine to climate, water, hazards, resources, remote sensing and environmental research. **Mathematics, economics & quantitative decision models** applies it to micro- and macroeconomics, econometrics, finance, strategic interaction and institutional decisions.
+
+The first and second alternatives differ by ten courses / 75 EC, the first and third by five courses / 37.5 EC, and the second and third by fourteen courses / 105 EC. None is represented as proof-intensive Mathematics. UCR lacks the target's cumulative analysis, abstract algebra, topology, complex analysis, differentiable manifolds, mathematics laboratory and mathematics-specific thesis. The biological/life-science and history-of-mathematics directions were assessed sequentially but did not displace the three stronger complete choices.
+
+Each schedule has exactly 24 unique courses, four per semester, 180 EC and Year-1 PPD; the alternatives contain nine, eight and seven 300-level courses. Exact availability and every recorded formal prerequisite pass against the current workbook. The ordinary corrected 180-EC Mathematics curriculum, neutral selected choices, 45 EC of genuine profiling and 15-EC thesis remain unchanged. Published in [`fdab918`](https://github.com/solmyr1980/ucr-pathways/commit/fdab918597758be6421d774629cd866fb57ea8bf).
+
+### cp-000378 — Arabic Language and Culture (Arabische Taal en Cultuur)
+
+Outcome: no-defensible-match; 0 UCR alternatives.
+
+No complete UCR response is defensible. **Arabic language, literature and source-based cultural study**, **Middle Eastern history, society and culture**, and **Middle Eastern politics, contemporary debates and conflict** were assessed separately. UCR supplies genuine transferable methods in literature, media, psycholinguistics, history, sociology, archaeology, heritage, politics, law and conflict study. It has no Arabic instruction, Arabic reading or writing, Arabic-source research sequence, or sustained Arab-world, Middle East or Islam sequence. Filling 23 non-PPD places would therefore change the object of study to generic global humanities or international studies.
+
+All 18 generator-eligible interests are owned exactly once across the three assessed directions. The conclusion rests on concrete language and regional-content gaps, not programme title or professional qualification. The selected Arabic Studies major remains a complete 180-EC external curriculum with its compulsory 30-EC Cairo semester, 12-EC thesis, zero-credit formation requirements and all 30 EC of genuine profiling preserved. Published in [`0c6701c`](https://github.com/solmyr1980/ucr-pathways/commit/0c6701c43581aa00d2d468f96f778e4336cd6ca9).
+
+The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research/exception tests, programme-interest validation, regenerated review indexes, repository quality tests and whitespace checks passed.
+
+Pre-publication corpus validation found that Batch 15 had left the two generated canonical comparisons and the JSON assessment register unreadable. Those artifacts were deterministically regenerated from the valid decisions and the Batch 14 register, then the recorded Batch 15 state was restored in [`7fee92a`](https://github.com/solmyr1980/ucr-pathways/commit/7fee92a37e991b1164401e6b0a100912de519c1e). No assessment outcome or first-stage history changed.
+
+Batch 16 completed. One pending exception became a three-alternative comparison and one became a fully reasoned no-match exception. The fixed baseline queue now has 28 completed cases and 12 remaining; the next cases are `cp-000379` and `cp-000390`. The corpus contains 438 records: 331 comparisons and 107 exceptions (12 UCR assessments pending, 63 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
