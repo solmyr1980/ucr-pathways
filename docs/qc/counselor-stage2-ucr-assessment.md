@@ -498,3 +498,27 @@ Neither is represented as German Language and Culture. UCR lacks German proficie
 The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research/exception tests, programme-interest validation, repository quality tests and whitespace checks passed.
 
 Batch 17 completed. One pending exception became a fully reasoned no-match exception and one became a two-alternative related-fields comparison. The fixed baseline queue now has 30 completed cases and 10 remaining; the next cases are `cp-000398` and `cp-000403`. The corpus contains 438 records: 332 comparisons and 106 exceptions (10 UCR assessments pending, 64 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
+
+## Batch 18 — 12 October 2026
+
+The next two fixed-queue cases were assessed independently against their corrected external curricula and the current UCR course evidence.
+
+### cp-000398 — French Language and Culture (Franse Taal en Cultuur)
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-field responses are defensible. **Modern Europe, politics & social change** combines modern European history, comparative politics, international relations, EU institutions, migration, civil society, conflict, public debate and cultural expression. **Literature, media & cultural identity** combines literary analysis, rhetoric, stylistics, psycholinguistics, film, media and multimodal production. The alternatives differ by ten courses / 75 EC.
+
+Neither is represented as French Language and Culture. UCR lacks French proficiency progression, French linguistics, French-language academic work, a cumulative France/Francophone sequence and the required semester abroad. A French-proficiency and linguistics direction was tested and rejected. Each accepted schedule has exactly 24 unique courses, four per semester, 180 EC and Year-1 PPD; the alternatives contain ten and eight 300-level courses. Exact availability and every recorded formal prerequisite pass against the current workbook. The complete external curriculum, compulsory 30-EC abroad semester, 12-EC final project and all 30 EC of genuine profiling remain unchanged. Published in [`ecfb203`](https://github.com/solmyr1980/ucr-pathways/commit/ecfb2036d053b76793cc1bb48444ce7ba70e0d48).
+
+### cp-000403 — Greek and Latin Language and Culture (Griekse en Latijnse Taal en Cultuur)
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-field responses are defensible. **Classical antiquity through literature, rhetoric, philosophy & archaeology** combines translated classical literature and myth, rhetoric, ancient philosophy, Greek archaeology, imperial history, material culture and reception. **Antiquity, democracy & the politics of the present** connects ancient democracy, citizenship, empire and philosophy with comparative politics, law, conflict and historical research. The alternatives differ by twelve courses / 90 EC.
+
+Neither is represented as Greek and Latin Language and Culture. UCR lacks cumulative Greek and Latin acquisition, linguistics, translation and advanced original-text study. A language, philology and original-text direction was tested and rejected. Each accepted schedule has exactly 24 unique courses, four per semester, 180 EC, Year-1 PPD and seven 300-level courses. Exact availability and every recorded formal prerequisite pass against the current workbook. The complete regular-entry external curriculum, 30 EC of genuine profiling, 12-EC thesis and dated 2027-2028 joint-degree transition remain unchanged. Published in [`252a5ea`](https://github.com/solmyr1980/ucr-pathways/commit/252a5eab2a4ef05abaffee3241f5e4255b56707e).
+
+The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research/exception tests, programme-interest validation, regenerated review indexes, repository quality tests and whitespace checks passed.
+
+Batch 18 completed. Both pending exceptions became two-alternative related-fields comparisons. The fixed baseline queue now has 32 completed cases and 8 remaining; the next cases are `cp-000408` and `cp-000411`. The corpus contains 438 records: 334 comparisons and 104 exceptions (8 UCR assessments pending, 64 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
