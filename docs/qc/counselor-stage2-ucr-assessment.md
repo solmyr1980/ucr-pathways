@@ -422,3 +422,27 @@ The schedule has exactly 24 unique courses, four per semester, 180 EC, Year-1 PP
 The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research/exception tests, programme-interest validation, regenerated review indexes, repository quality tests and whitespace checks passed.
 
 Batch 14 completed. One pending exception became a fully reasoned no-match exception and one related-fields UCR curriculum was accepted for the other case. The fixed baseline queue now has 24 completed cases and 16 remaining; the next cases are `cp-000367` and `cp-000370`. The corpus contains 438 records: 328 comparisons and 110 exceptions (16 UCR assessments pending, 62 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
+
+## Batch 15 — 12 October 2026
+
+The next two fixed-queue cases were assessed independently against their corrected external curricula and the current UCR course evidence.
+
+### cp-000367 — Chemistry (Scheikunde)
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-field responses are defensible. **Biochemistry, materials & sustainable resource systems** combines biomolecular and laboratory science with environmental biogeochemistry, materials, resource recovery, lifecycle analysis, renewable systems and quantitative methods. **Molecular life science, disease & therapeutic research** combines proteins, cells and biochemistry with physiology, pharmacology, pathology, immunology, epidemiology and biomedical research. The alternatives differ by thirteen courses / 97.5 EC.
+
+Neither is represented as Chemistry. UCR lacks cumulative organic, inorganic, analytical, physical and quantum chemistry; synthesis, spectroscopy, structure determination, electrochemistry and solid-state chemistry; and chemistry-specific laboratory and thesis progression. A third specialist chemistry direction was tested and rejected. Each schedule has exactly 24 unique courses, four per semester, 180 EC and Year-1 PPD; the alternatives contain eight and six 300-level courses. Exact availability and every recorded formal prerequisite pass against the current workbook. The corrected 180-EC Moleculen en Materialen route, bounded choices and all 45 EC of genuine profiling remain unchanged. Published in [`da6ff88`](https://github.com/solmyr1980/ucr-pathways/commit/da6ff884cc88578ebc503f872c997ad6b13b9c78).
+
+### cp-000370 — Spanish Language and Culture (Spaanse taal en cultuur)
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-field responses are defensible. **Colonial histories, global literature & cultural memory** combines imperial, colonial, migration and decolonial history with world literature, life/travel writing, heritage, memory, film and qualitative research. **Literature, media & language in cultural expression** combines literary analysis, rhetoric, stylistics, psycholinguistics, media, documentary and creative communication. The alternatives differ by five courses / 37.5 EC.
+
+Neither is represented as Spanish Language and Culture. UCR lacks Spanish acquisition, advanced Spanish grammar and linguistics, translation, Spanish-language writing and a sustained Spain/Latin America literature-and-culture sequence. A third Spanish-proficiency and linguistics direction was tested and rejected. Each schedule has exactly 24 unique courses, four per semester, 180 EC and Year-1 PPD; the alternatives contain ten and eight 300-level courses. Exact availability and every recorded formal prerequisite pass against the current workbook. The corrected 180-EC Trans-Atlantic Perspectives route, Spanish-language thesis and all 52.5 EC of genuine profiling remain unchanged. Published in [`b49191b`](https://github.com/solmyr1980/ucr-pathways/commit/b49191bdef7f9a26835637cc8a3fa1e1f2f7e131).
+
+The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research/exception tests, programme-interest validation, regenerated review indexes, repository quality tests and whitespace checks passed.
+
+Batch 15 completed. Both pending exceptions became completed comparisons, with four related-field UCR curricula accepted in total. The fixed baseline queue now has 26 completed cases and 14 remaining; the next cases are `cp-000375` and `cp-000378`. The corpus contains 438 records: 330 comparisons and 108 exceptions (14 UCR assessments pending, 62 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
