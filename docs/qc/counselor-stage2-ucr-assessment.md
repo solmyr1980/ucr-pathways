@@ -321,3 +321,27 @@ All ten generator-eligible interests are owned once across the two assessed dire
 The [current official study-guide record](https://studiegids.universiteitleiden.nl/api/product?code=BA-RUS&type=STUDY&year=2261&language=en), programme-specific OER and Introduction to Russian Studies module were inspected on 9 October 2026 during the completed first-stage correction. The current 151-row enriched workbook was reviewed course by course. Deterministic compilation, production validation, compiler and exception tests, review-index checks and repository tests passed; the canonical build workflow succeeded. Published in [`55a56f1`](https://github.com/solmyr1980/ucr-pathways/commit/55a56f1161291eeabf832a0044cf31bcf0fbf6c3).
 
 Batch 10 completed. One related-fields UCR curriculum was accepted and one pending exception became a fully reasoned no-match exception. The fixed baseline queue now has 16 completed cases and 24 remaining; the next cases are `cp-000323` and `cp-000326`. The corpus contains 438 records: 322 comparisons and 116 exceptions (24 UCR assessments pending, 60 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
+
+## Batch 11 — 11 October 2026
+
+The next two fixed-queue cases were assessed independently against their corrected external curricula and the current UCR course evidence.
+
+### cp-000323 — Astronomy
+
+Outcome: no defensible complete UCR match.
+
+Three complete-programme directions were tested independently: **mathematical and computational astrophysics**, **planetary science and Earth-system comparison**, and **astronomical observation and instrumentation**. UCR provides real calculus, linear algebra, numerical, probability, programming, data, imaging, signal and Earth-system methods. It does not provide astronomy or astrophysics; cumulative mechanics, electromagnetism, optics, quantum/statistical physics; stellar, galactic or cosmological study; celestial mechanics or planetary formation; telescopes, astronomical detectors, spectroscopy/photometry, observing laboratories; or astronomy research. Completing 23 non-PPD places would therefore change the object of study to generic mathematics/data or terrestrial Earth science.
+
+All eight generator-eligible interests are owned once across the three directions. Support-only and search-only evidence does not generate alternatives. The settled 180-EC external curriculum, required physics/astronomy sequence, practical observing, 22-EC research-project split and 30 EC of genuine free choice remain unchanged. Published in [`01547a5`](https://github.com/solmyr1980/ucr-pathways/commit/01547a5c56351a9019919c72c977a520eabfb8a4).
+
+### cp-000326 — Mathematics
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-fields responses are defensible. **Applied mathematics, algorithms & stochastic data models** combines calculus, linear algebra, numerical methods, probability and linear systems with logic, algorithms, optimisation, statistical learning and empirical models. **Mathematical modelling, Earth systems & scientific data** uses the same quantitative foundations to model and analyse Earth, climate, water–mineral, resource and renewable-energy systems. The alternatives differ by ten courses / 75 EC.
+
+Neither is represented as full Mathematics. UCR lacks cumulative proof-intensive analysis, abstract algebra, topology, measure theory, number theory, dedicated complex analysis, specialist proof seminars and an 18-EC mathematics project. A pure-mathematics direction was tested separately and rejected. Each schedule has exactly 24 unique courses, four per semester, 180 EC and Year-1 PPD; the alternatives contain nine and eight 300-level courses. Exact availability and every recorded formal prerequisite pass against the current workbook. The corrected 180-EC external curriculum, bounded choices, bachelor project and all 36 EC of genuine free choice remain unchanged. Published in [`e7897c6`](https://github.com/solmyr1980/ucr-pathways/commit/e7897c63ba7b6046812e6f7b1ef15439d7a9f471).
+
+The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, compiler/optional-research/exception tests, review-index replay, programme-interest validation, repository quality tests and whitespace checks passed.
+
+Batch 11 completed. One pending exception became a fully reasoned no-match exception and two related-fields UCR curricula were accepted for the other case. The fixed baseline queue now has 18 completed cases and 22 remaining; the next cases are `cp-000330` and `cp-000331`. The corpus contains 438 records: 323 comparisons and 115 exceptions (22 UCR assessments pending, 61 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.

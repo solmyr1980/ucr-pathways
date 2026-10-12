@@ -156,6 +156,19 @@
         "cp-000308": "66db555446dd091b72aeeb33dd1ba512321eaeff",
         "cp-000319": "55a56f1161291eeabf832a0044cf31bcf0fbf6c3"
       }
+    },
+    {
+      "batch_number": 11,
+      "case_ids": [
+        "cp-000323",
+        "cp-000326"
+      ],
+      "selection_basis": "Next two not-yet-completed cases in the fixed 40-ID baseline queue, after checking their latest canonical records.",
+      "status": "completed",
+      "publication_commits": {
+        "cp-000323": "01547a5c56351a9019919c72c977a520eabfb8a4",
+        "cp-000326": "e7897c63ba7b6046812e6f7b1ef15439d7a9f471"
+      }
     }
   ],
   "cases": [
@@ -978,19 +991,83 @@
         "Academic feasibility failed before a 24-course programme could be accepted, so no schedule, UCR-credit alignment or availability/prerequisite claim was fabricated.",
         "Deterministic v2 regeneration, production validation, compiler and exception tests, review-index checks and repository quality tests passed; the main-branch build workflow succeeded."
       ]
+    },
+    {
+      "counselor_programme_id": "cp-000323",
+      "programme": "Astronomy (Sterrenkunde)",
+      "batch_number": 11,
+      "assessed_on": "2026-10-11",
+      "outcome": "no-defensible-ucr-match",
+      "included_alternatives": 0,
+      "prior_exception": {
+        "type": "ucr-assessment-pending",
+        "checkedOn": "2026-10-09",
+        "reason": "The corrected external curriculum is complete at 180 EC, genuine open choice is restored and normalized language metadata are corrected. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.",
+        "curriculumContext": "The current requirements close 60+60+60. Year 3 contains 8 EC of required astronomy/research-skills study, a 22-EC research project split into 18+1+3 EC children counted once, and 30 EC of genuinely approved free-choice space. That space may be an approved minor, free/exchange study or relevant elective package, so no universal astronomy subject package is invented. Required upper-year modules establish Dutch and English instruction."
+      },
+      "academic_assessment": "No coherent complete UCR response is defensible. Mathematical and computational astrophysics, planetary science and Earth-system comparison, and astronomical observation and instrumentation were assessed separately. UCR provides substantial mathematical, computational, data, image-processing and Earth-system methods, but it lacks astronomy and astrophysics; cumulative mechanics, electromagnetism, optics, quantum and statistical physics; stellar, galactic and cosmological study; planetary formation and celestial mechanics; astronomical instruments and observing laboratories; and astronomy research. Filling 23 non-PPD places would change the organising object to generic mathematics/data or terrestrial Earth science.",
+      "external_source_verification": {
+        "url": "https://studiegids.universiteitleiden.nl/api/product?code=BA-STK&type=STUDY&year=2261&language=en",
+        "checked_on": "2026-10-09",
+        "sha256": "d6186be1ffbd28b857a5f75935f7d9cc3f09ba0cc8fe7076e3a11fe236b0edc7",
+        "qualification": "The current official programme product and relevant module records were inspected during the completed first-stage correction. This assessment preserved the settled 180-EC curriculum, practical observing, the 22-EC research-project split and all 30 EC of genuine free choice."
+      },
+      "ucr_database": {
+        "path": "data/reference/ucr_courses_enriched.xlsx",
+        "sha256": "7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879",
+        "course_count": 151
+      },
+      "verification": [
+        "All 151 enriched workbook rows were reviewed for actual course content; mathematical, image-processing and Earth-system methods were not inflated into astronomy or cumulative physics sequences.",
+        "All eight generator-eligible interests were owned exactly once across three separately assessed candidate directions; support-only and search-only evidence were not used to create extra alternatives.",
+        "Academic feasibility failed before a 24-course programme could be accepted, so no schedule, UCR-credit alignment or availability/prerequisite claim was fabricated.",
+        "Deterministic v2 regeneration, production validation, compiler and exception tests, review-index checks, programme-interest validation and repository quality tests passed."
+      ]
+    },
+    {
+      "counselor_programme_id": "cp-000326",
+      "programme": "Mathematics (Wiskunde)",
+      "batch_number": 11,
+      "assessed_on": "2026-10-11",
+      "outcome": "comparison",
+      "included_alternatives": 2,
+      "prior_exception": {
+        "type": "ucr-assessment-pending",
+        "checkedOn": "2026-10-09",
+        "reason": "The corrected external curriculum is complete at 180 EC. The superseded UCR no-match judgment is preserved in remediation history for the separately excluded UCR reassessment.",
+        "curriculumContext": "The current pathway closes 60+60+60: year one has 54 EC compulsory mathematics and genuine open 6 EC; year two has 48 EC required plus eligible Algebra 2 and Discrete Operations Research; year three has nonrepeated eligible Algebraic Curves and Applied and Industrial Mathematics Seminar, the 18-EC bachelor project and genuine open 30 EC. Required study establishes Dutch and English instruction."
+      },
+      "academic_assessment": "Two complete related-fields responses are defensible. Applied mathematics, algorithms and stochastic data models combines calculus, linear algebra, numerical methods, probability and linear systems with logic, algorithms, optimisation, statistical learning and empirical models. Mathematical modelling, Earth systems and scientific data uses the same quantitative foundations to model and analyse Earth, climate, water-mineral, resource and renewable-energy systems. The alternatives differ by ten courses / 75 EC. Neither is represented as full Mathematics; proof-intensive analysis, abstract algebra, topology, measure theory, number theory, dedicated complex analysis, specialist proof seminars and the 18-EC mathematics project remain explicit gaps. A pure-mathematics direction was tested separately and rejected.",
+      "external_source_verification": {
+        "url": "https://studiegids.universiteitleiden.nl/api/product?code=BA-WSK&type=STUDY&year=2261&language=en",
+        "checked_on": "2026-10-09",
+        "sha256": "361ab8c05bd2743774730087cb49e1cd3e11888f4387184773f296fe71d6b951",
+        "qualification": "The current official programme product and relevant module records were inspected during the completed first-stage correction. This assessment preserved the settled 180-EC curriculum, bounded choices, 18-EC bachelor project and all 36 EC of genuine free choice."
+      },
+      "ucr_database": {
+        "path": "data/reference/ucr_courses_enriched.xlsx",
+        "sha256": "7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879",
+        "course_count": 151
+      },
+      "verification": [
+        "Each accepted programme has exactly 24 unique UCR courses, four in each semester, 180 EC, Year-1 PPD and eight or nine 300-level courses.",
+        "All exact Fall 2026-start availability and recorded formal prerequisites passed against the current authoritative workbook.",
+        "Every non-PPD course has a concrete target-linked content role; the alternatives differ by ten courses / 75 EC, and all specialist Mathematics gaps remain explicit.",
+        "Deterministic v2 regeneration, production validation, compiler and optional-research tests, review-index replay, programme-interest validation and repository quality tests passed."
+      ]
     }
   ],
   "summary": {
-    "assessed_cases": 26,
-    "comparisons": 20,
-    "no_defensible_match": 6,
-    "included_ucr_curricula": 39,
-    "remaining_ucr_assessment_pending": 24,
+    "assessed_cases": 28,
+    "comparisons": 21,
+    "no_defensible_match": 7,
+    "included_ucr_curricula": 41,
+    "remaining_ucr_assessment_pending": 22,
     "corpus_records": 438,
-    "corpus_comparisons": 322,
-    "corpus_exceptions": 116,
-    "corpus_no_defensible_match": 60,
+    "corpus_comparisons": 323,
+    "corpus_exceptions": 115,
+    "corpus_no_defensible_match": 61,
     "corpus_external_programme_unresolved": 32
   },
-  "updated_on": "2026-10-11"
+  "updated_on": "2026-10-12"
 }
