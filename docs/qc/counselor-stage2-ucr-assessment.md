@@ -396,3 +396,29 @@ Neither is represented as Pharmacy. UCR lacks pharmaceutical chemistry, formulat
 The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research/exception tests, programme-interest validation, regenerated review indexes, repository quality tests and whitespace checks passed.
 
 Batch 13 completed. Both pending exceptions became completed comparisons. The fixed baseline queue now has 22 completed cases and 18 remaining; the next cases are `cp-000357` and `cp-000358`. The corpus contains 438 records: 327 comparisons and 111 exceptions (18 UCR assessments pending, 61 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
+
+## Batch 14 — 12 October 2026
+
+The next two fixed-queue cases were assessed independently against their corrected external curricula and the current UCR course evidence.
+
+### cp-000357 — Musicology (Muziekwetenschap)
+
+Outcome: no defensible complete UCR match.
+
+Three complete-programme directions were tested independently: **historical, analytical & critical musicology**, **music, society, politics & cultural institutions**, and **music, screen media & digital culture**. UCR provides genuine adjacent courses in media, sociology, communication, art, heritage and qualitative research, but it has no music-specific theory, notation, harmony or form; aural study; historical music sequence; sustained musical analysis, listening or criticism; musicological research; or sustained study of screen music, popular music, recording or music software. Filling 23 non-PPD places would change the object of study.
+
+All 20 generator-eligible interests are owned exactly once across the three directions. Support-only and search-only evidence does not generate alternatives. Because academic feasibility failed before a 24-course set was accepted, no schedule, UCR-credit alignment or availability/prerequisite claim is encoded. The corrected 180-EC Music and Society route, neutral bounded choices and all 60 EC of genuine profiling remain unchanged. Published in [`47596eb`](https://github.com/solmyr1980/ucr-pathways/commit/47596eb7b179cc1ea07f8805ee418a2bb2132e18).
+
+### cp-000358 — Physics and Astronomy (Natuur- en Sterrenkunde)
+
+Outcome: comparison; 1 UCR alternative.
+
+One complete related-fields response is defensible. **Mathematical modelling, Earth systems & scientific data** combines calculus, linear algebra, numerical methods, probability, linear systems, programming, machine learning, imaging and remote sensing with Earth-system, climate, water, hazard, resource and environmental research.
+
+It is not represented as Physics and Astronomy. UCR lacks cumulative mechanics, electromagnetism, optics, quantum and statistical physics, astronomy, physics laboratories and independent physics research. Fundamental/theoretical physics, astronomy/astrophysics and experimental physics/instrumentation directions were tested separately and rejected rather than filled with adjacent mathematics, data or environmental courses.
+
+The schedule has exactly 24 unique courses, four per semester, 180 EC, Year-1 PPD and six 300-level courses. Exact availability and every recorded prerequisite pass against the current workbook. The corrected 180-EC external curriculum, restricted choices, selected mechanics/fluid/quantum progression, 15-EC bachelor research project and all 45 EC of genuine profiling remain unchanged. Published in [`9871c5f`](https://github.com/solmyr1980/ucr-pathways/commit/9871c5f25dca121138741409dab1aff69e9a9789).
+
+The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research/exception tests, programme-interest validation, regenerated review indexes, repository quality tests and whitespace checks passed.
+
+Batch 14 completed. One pending exception became a fully reasoned no-match exception and one related-fields UCR curriculum was accepted for the other case. The fixed baseline queue now has 24 completed cases and 16 remaining; the next cases are `cp-000367` and `cp-000370`. The corpus contains 438 records: 328 comparisons and 110 exceptions (16 UCR assessments pending, 62 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
