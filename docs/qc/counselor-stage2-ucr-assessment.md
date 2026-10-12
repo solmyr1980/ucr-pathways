@@ -474,3 +474,27 @@ The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7
 Pre-publication corpus validation found that Batch 15 had left the two generated canonical comparisons and the JSON assessment register unreadable. Those artifacts were deterministically regenerated from the valid decisions and the Batch 14 register, then the recorded Batch 15 state was restored in [`7fee92a`](https://github.com/solmyr1980/ucr-pathways/commit/7fee92a37e991b1164401e6b0a100912de519c1e). No assessment outcome or first-stage history changed.
 
 Batch 16 completed. One pending exception became a three-alternative comparison and one became a fully reasoned no-match exception. The fixed baseline queue now has 28 completed cases and 12 remaining; the next cases are `cp-000379` and `cp-000390`. The corpus contains 438 records: 331 comparisons and 107 exceptions (12 UCR assessments pending, 63 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
+
+## Batch 17 — 12 October 2026
+
+The next two fixed-queue cases were assessed independently against their corrected external curricula and the current UCR course evidence.
+
+### cp-000379 — Archaeology / Archeologie
+
+Outcome: no defensible complete UCR match.
+
+Three directions were assessed separately: **material culture & ancient societies**, **heritage, museums & public memory**, and **environment, landscape & digital analysis**. UCR offers three courses that substantially teach archaeology—Introduction to World Archaeology, Greek Archaeology, and Heritage & Ancient Democracy—and several genuine heritage and art-history courses. It does not offer excavation, survey and field recording; archaeological materials analysis; archaeometry; GIS or digital archaeology; environmental archaeology; a prehistoric-to-early-modern European sequence; or an archaeology thesis.
+
+The heritage direction could form a coherent neighbouring humanities programme, but it would not respond adequately to the target’s methods- and fieldwork-centred disciplinary identity. The material-culture and environment/digital directions cannot support 23 substantively relevant non-PPD courses. Academic feasibility therefore failed before a schedule was accepted. The complete 180-EC external trajectory, both field schools, archaeology thesis and 30 EC of genuine profiling remain unchanged. Published in [`9666853`](https://github.com/solmyr1980/ucr-pathways/commit/9666853b87ffeedef6d9bb3dc4a1d4d5b8c09e48).
+
+### cp-000390 — German Language and Culture (Duitse Taal en Cultuur)
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-field responses are defensible. **Modern Europe, politics & social change** combines modern European history, comparative politics, international relations, EU institutions, migration, civil society, conflict, environmental movements and public culture. **Literature, media & cultural identity** combines literary analysis, rhetoric, stylistics, psycholinguistics, film, media and multimodal production. The alternatives differ by ten courses / 75 EC.
+
+Neither is represented as German Language and Culture. UCR lacks German proficiency progression, German linguistics, German-language academic work, a cumulative Germany-specific cultural sequence and the required semester abroad. A third German-proficiency and linguistics direction was tested and rejected. Each accepted schedule has exactly 24 unique courses, four per semester, 180 EC and Year-1 PPD; the alternatives contain ten and eight 300-level courses. Exact availability and every recorded formal prerequisite pass against the current workbook. The complete external curriculum, compulsory 30-EC abroad semester, 12-EC thesis and all 30 EC of genuine profiling remain unchanged. Published in [`0cba0ed`](https://github.com/solmyr1980/ucr-pathways/commit/0cba0edde08cf72b75bf574993a8d0276e7587bb).
+
+The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research/exception tests, programme-interest validation, repository quality tests and whitespace checks passed.
+
+Batch 17 completed. One pending exception became a fully reasoned no-match exception and one became a two-alternative related-fields comparison. The fixed baseline queue now has 30 completed cases and 10 remaining; the next cases are `cp-000398` and `cp-000403`. The corpus contains 438 records: 332 comparisons and 106 exceptions (10 UCR assessments pending, 64 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
