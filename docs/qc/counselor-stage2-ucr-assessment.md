@@ -547,3 +547,27 @@ Neither is represented as full Linguistics. UCR lacks the comparator’s formal 
 The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research/exception tests, programme-interest validation, regenerated review indexes, repository quality tests and whitespace checks passed.
 
 Batch 19 completed. Both pending exceptions became two-alternative related-fields comparisons. The fixed baseline queue now has 34 completed cases and 6 remaining; the next cases are `cp-000419` and `cp-000428`. The corpus contains 438 records: 336 comparisons and 102 exceptions (6 UCR assessments pending, 64 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
+
+## Batch 20 — 12 October 2026
+
+The next two fixed-queue cases were assessed independently against their corrected external curricula and the current UCR course evidence.
+
+### cp-000419 — Modern Greek Language and Culture (Nieuwgriekse Taal en Cultuur)
+
+Outcome: no defensible complete UCR match.
+
+Three directions were assessed separately: **Modern Greek language, literature and source-based cultural study**, **modern Greek history, society and identity**, and **Greece in Europe, the eastern Mediterranean and contemporary politics**. UCR offers genuine transferable methods and isolated content in ancient Greece, the Renaissance Mediterranean, modern history, sociology, European politics, international relations, literature and media. It does not offer Modern Greek language acquisition or Greek-language source study, and it lacks a sustained sequence in modern Greece, Cyprus, Byzantine-to-modern Greek history or eastern-Mediterranean regional studies.
+
+Extending the adjacent courses to 23 non-PPD places would change the object of study to generic European studies or global humanities. Academic feasibility therefore failed before a schedule was accepted. All 12 generator-eligible interests are owned exactly once across the three assessed directions. The complete external curriculum, compulsory 30-EC Greece/Cyprus semester, 12-EC thesis and all 30 EC of genuine profiling remain unchanged. Published in [`467fb62`](https://github.com/solmyr1980/ucr-pathways/commit/467fb627c577f74e6ebac79c35954b1d603c01eb).
+
+### cp-000428 — Religious Studies (Religiewetenschappen)
+
+Outcome: no defensible complete UCR match.
+
+Three directions were assessed separately: **comparative religion, traditions, sacred texts and belief/practice**, **religion in society, identity, public life and conflict**, and **lived religion, spirituality, culture and contemporary change**. UCR offers genuine sociology, politics, law, philosophy, literature, myth, archaeology, art and media perspectives, but religious content appears only in isolated parts of individual courses. UCR lacks a comparative-religion survey, sustained study of major traditions, sacred-text methods, a lived-religion sequence, sociology or anthropology of religion, and religion-specific research progression.
+
+Extending adjacent disciplines to a complete curriculum would change the object of study away from religion. Academic feasibility therefore failed before a schedule was accepted. All 12 generator-eligible interests are owned exactly once across the three assessed directions. The complete external curriculum, bounded first-year restricted package, thesis project, 12-EC thesis and all 30 EC of genuine profiling remain unchanged. Published in [`a109f36`](https://github.com/solmyr1980/ucr-pathways/commit/a109f36c7f33c10fd94002ecee1bbe405f9233b8).
+
+The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research/exception tests, programme-interest validation, regenerated review indexes, repository quality tests and whitespace checks passed.
+
+Batch 20 completed. Both pending exceptions became fully reasoned no-match exceptions. The fixed baseline queue now has 36 completed cases and 4 remaining; the next cases are `cp-000429` and `cp-000432`. The corpus contains 438 records: 336 comparisons and 102 exceptions (4 UCR assessments pending, 66 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
