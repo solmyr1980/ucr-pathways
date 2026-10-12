@@ -371,3 +371,28 @@ Neither is represented as Mechanical Engineering. UCR lacks cumulative mechanics
 The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research tests, programme-interest validation, repository quality tests and whitespace checks passed.
 
 Batch 12 completed. Both pending exceptions became completed comparisons. The fixed baseline queue now has 20 completed cases and 20 remaining; the next cases are `cp-000339` and `cp-000342`. The corpus contains 438 records: 325 comparisons and 113 exceptions (20 UCR assessments pending, 61 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
+
+
+## Batch 13 — 12 October 2026
+
+The next two fixed-queue cases were assessed independently against their corrected external curricula and the current UCR course evidence.
+
+### cp-000339 — Diergeneeskunde
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-field responses are defensible. **Comparative biology, animal health & disease science** combines general and comparative biology, human biomedical mechanisms, infection, pharmacology, epidemiology, comparative neurobiology and research methods. **One Health, disease ecology & animal welfare** retains the health-science spine while replacing four biomedical/mathematical courses with conservation, marine ecology, climate and sustainability governance. The alternatives differ by four courses / 30 EC.
+
+Neither is represented as Veterinary Medicine. UCR lacks veterinary anatomy and physiology, species-specific pathology, clinical examination, diagnostics, animal nutrition and reproduction, anaesthesia, surgery, clinical placements and veterinary capstone work. A clinical veterinary-care route was tested and rejected rather than filling it with human biomedical or general ecology courses. Each schedule has exactly 24 unique courses, four per semester, 180 EC, Year-1 PPD and seven 300-level courses. Exact availability and every recorded prerequisite pass against the current workbook. The corrected 180-EC external curriculum, longitudinal clinician/professional lines, embedded thesis and all 22.5 EC of genuine profiling remain unchanged. Published in [`c2eb663`](https://github.com/solmyr1980/ucr-pathways/commit/c2eb663d3275bfaf5af6c474877f6769ff38026e).
+
+### cp-000342 — Pharmacy (Farmacie)
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-field responses are defensible. **Molecular pharmacology, disease & medicine research** combines molecular and cellular biology, physiology, pharmacology, anatomy, immunology, disease mechanisms, laboratory research, epidemiology, health psychology and ethics. **Quantitative pharmacology & data-driven treatment** retains the biological and pharmacological spine while replacing five courses with advanced calculus, linear algebra, linear systems, optimisation and neural networks. The alternatives differ by five courses / 37.5 EC.
+
+Neither is represented as Pharmacy. UCR lacks pharmaceutical chemistry, formulation, product care, dispensing, clinical pharmacy, patient counselling, pharmacy regulation and supervised pharmacist practice. A patient-facing pharmacy-practice route was tested and rejected. Each schedule has exactly 24 unique courses, four per semester, 180 EC and Year-1 PPD; the alternatives contain seven and eight 300-level courses. Exact availability and every recorded prerequisite pass against the current workbook. The corrected target-named Farmacie route, 135-EC major, selected 7.5-EC thesis and all 45 EC of genuine profiling remain unchanged. Published in [`e8da7d0`](https://github.com/solmyr1980/ucr-pathways/commit/e8da7d0e3e29be0dbdc1b11797398323d8707361).
+
+The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research/exception tests, programme-interest validation, regenerated review indexes, repository quality tests and whitespace checks passed.
+
+Batch 13 completed. Both pending exceptions became completed comparisons. The fixed baseline queue now has 22 completed cases and 18 remaining; the next cases are `cp-000357` and `cp-000358`. The corpus contains 438 records: 327 comparisons and 111 exceptions (18 UCR assessments pending, 61 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
