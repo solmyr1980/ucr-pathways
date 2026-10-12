@@ -522,3 +522,28 @@ Neither is represented as Greek and Latin Language and Culture. UCR lacks cumula
 The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research/exception tests, programme-interest validation, regenerated review indexes, repository quality tests and whitespace checks passed.
 
 Batch 18 completed. Both pending exceptions became two-alternative related-fields comparisons. The fixed baseline queue now has 32 completed cases and 8 remaining; the next cases are `cp-000408` and `cp-000411`. The corpus contains 438 records: 334 comparisons and 104 exceptions (8 UCR assessments pending, 64 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
+
+
+## Batch 19 — 12 October 2026
+
+The next two fixed-queue cases were assessed independently against their corrected external curricula and the current UCR course evidence.
+
+### cp-000408 — Italian Studies (Italian Language and Culture)
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-field responses are defensible. **Italy, Europe & the Mediterranean: history, politics & culture** combines modern European and Mediterranean history, comparative politics, international relations, sociology, national identity, Renaissance Italy, film and art-historical research. **Literature, media & cultural identity** combines literary analysis, rhetoric, stylistics, psycholinguistics, Renaissance Italy, film and media. The alternatives differ by ten courses / 75 EC.
+
+Neither is represented as Italian Language and Culture. UCR lacks Italian proficiency progression, Italian grammar and sociolinguistics, translation, Italian-language academic work and the compulsory Italy semester. An Italian-proficiency and linguistics direction was tested and rejected. Each accepted schedule has exactly 24 unique courses, four per semester, 180 EC and Year-1 PPD; the alternatives contain eleven and seven 300-level courses. Exact availability and every recorded formal prerequisite pass against the current workbook. The complete external curriculum, compulsory 30-EC Italy semester, 12-EC thesis and all 30 EC of genuine profiling remain unchanged. Published in [`c1f1a45`](https://github.com/solmyr1980/ucr-pathways/commit/c1f1a45135244ddae802976e2841f5709e2f84c6).
+
+### cp-000411 — Linguistics
+
+Outcome: comparison; 2 UCR alternatives.
+
+Two complete related-field responses are defensible. **Language, cognition & communication research** combines psycholinguistics, cognitive science, developmental and social psychology, research methods, data science, programming, algorithms, rhetoric and textual meaning. **Language, discourse & media in society** combines social language use, modern-language learning, stylistics, rhetoric, psycholinguistics, sociology, literature, film and media. The alternatives differ by thirteen courses / 97.5 EC.
+
+Neither is represented as full Linguistics. UCR lacks the comparator’s formal phonetics, transcription, phonology, morphology, syntax, typology, field-linguistics, language-documentation, clinical-linguistics and dedicated speech-processing sequence. A formal-structure and cross-linguistic direction was tested and rejected. Each accepted schedule has exactly 24 unique courses, four per semester, 180 EC, Year-1 PPD and eight 300-level courses. Exact availability and every recorded formal prerequisite pass against the current workbook. The broad external Linguistics pathway, Czech 1–4 instantiation, 30 EC of genuine profiling and 12-EC thesis remain unchanged. Published in [`66a1427`](https://github.com/solmyr1980/ucr-pathways/commit/66a142765dfb22e1eabd691b9ce6b720a57ced99).
+
+The current 151-row enriched workbook (SHA-256 7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879) was reviewed. Deterministic v2 regeneration, the full counselor production validator, structural/final methodology rules, compiler/optional-research/exception tests, programme-interest validation, regenerated review indexes, repository quality tests and whitespace checks passed.
+
+Batch 19 completed. Both pending exceptions became two-alternative related-fields comparisons. The fixed baseline queue now has 34 completed cases and 6 remaining; the next cases are `cp-000419` and `cp-000428`. The corpus contains 438 records: 336 comparisons and 102 exceptions (6 UCR assessments pending, 64 no-match judgments and 32 unresolved external programmes). No settled external curriculum, first-stage history, pre-existing no-match review or unrelated record was changed.
