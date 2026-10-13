@@ -318,3 +318,32 @@ Both alternatives contain 24 unique courses / 180 EC, four courses in every seme
 Deterministic compiler replay reproduced both canonical records. Full-corpus structural and final-methodology validators passed, as did registry-interest and repository tests. Both build workflows, both shared-index refreshes and both Shiny-validation workflows succeeded; the final shared-index deployment passed Pages. Earlier Pages runs were cancelled only because later publications superseded them. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
 
 **Progress: 16 of 55 completed; 39 remain.** All sixteen reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 353 comparisons and 85 exceptions (53 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000079 and cp-000095**.
+
+
+## Batch 9 — 13 October 2026
+
+The review reused the fixed 55-ID queue and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). Every selected course was checked against its description and outline-derived profile, formal prerequisites and exact planned semester. The settled 2026–27 VU curricula remain the controlling external evidence; no material source conflict arose.
+
+### cp-000079 — Archaeology, Vrije Universiteit Amsterdam
+
+**Outcome: replaced with two related-fields comparisons; publication and all required checks verified.**
+
+The historical judgment correctly identified the missing excavation, archaeometry, field-school and full European-period sequences, but treated those gaps as excluding every complete response. **Archaeology, ancient societies & material culture** combines world and Greek archaeology with ancient texts, empires, art and material culture, historical landscapes, GIS, soils, heritage and humanities research. Environmental and data courses are explicitly bounded contributions rather than substitutes for archaeological method.
+
+**Cultural heritage, museums & public memory** is a genuinely different route organised around museums, restitution, heritage ethics, public memory, community interpretation, documentary practice and communication. The programmes share seventeen courses and differ by seven courses / 52.5 EC in each direction. Excavation and archaeological science were assessed separately and rejected because UCR has no stratigraphy, finds processing, archaeological-materials laboratory, archaeometry or supervised excavation.
+
+Both alternatives contain 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces. The first has seven 300-level courses and the second eight. Exact planned availability and every formal prerequisite pass. Publication: [`eabe9c2`](https://github.com/solmyr1980/ucr-pathways/commit/eabe9c26342d0ec71eac3ebf99c11e30b8407bb9).
+
+### cp-000095 — Pharmaceutical Sciences, Vrije Universiteit Amsterdam
+
+**Outcome: replaced with one related-fields comparison; publication and all required checks verified.**
+
+The historical judgment correctly identified the absent medicinal-chemistry and synthesis spine, but applied a full-substitution threshold. **Molecular disease, pharmacology & biomedical research** studies molecular cell biology, biochemistry, physiology, neurobiology, pharmacology, immunity, pathology, laboratory work, statistics and data analysis. It addresses how drugs act on biological targets and how treatment evidence and toxicity are assessed without presenting a biomedical programme as pharmaceutical chemistry.
+
+The chemistry-focused direction was assessed next and rejected. UCR has no cumulative organic or medicinal chemistry, synthesis practicals, compound identification and optimisation, pharmacochemical molecular modelling, ADME laboratory sequence or pharmaceutical research capstone. The eligible biology-focused direction is already substantively covered by the first programme, so no cosmetic second alternative was created.
+
+The included programme contains 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD, eight 300-level courses and 23 non-PPD traces. Exact planned availability and every formal prerequisite pass. Publication: [`52f642f`](https://github.com/solmyr1980/ucr-pathways/commit/52f642fe6acedcc70d6b1ebe61907f4878d09e68).
+
+Deterministic compiler replay reproduced both canonical records. Full-corpus structural and final-methodology validators passed, as did compiler, optional-research and exception regressions, registry-interest validation, repository tests, shared-index refreshes, Shiny validation and the final Pages deployment. Earlier Pages runs were cancelled only because later publications superseded them. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
+
+**Progress: 18 of 55 completed; 37 remain.** All eighteen reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 355 comparisons and 83 exceptions (51 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000140 and cp-000156**.
