@@ -33,7 +33,7 @@ Comparison rows align only the introductory literary-analysis course, oral commu
 
 ### Checks and limitations
 
-English: 24 unique courses / 180 EC, four in each of six semesters, eight 300-level courses, Year-1 PPD and 23 non-PPD traceability entries. Every course passes exact workbook availability and prerequisites in earlier semesters. Foundations precede rhetoric practice, film adaptation/documentary, literary research and sociological continuation. Deterministic compilation succeeded. Corpus checks and publication verification are recorded in the register before completion is declared.
+English: 24 unique courses / 180 EC, four in each of six semesters, eight 300-level courses, Year-1 PPD and 23 non-PPD traceability entries. Every course passes exact workbook availability and prerequisites in earlier semesters. Foundations precede rhetoric practice, film adaptation/documentary, literary research and sociological continuation. Deterministic compilation succeeded. Full-corpus comparison, structural and final-methodology validators passed, as did registry-interest validation, both compiler versions, optional-research and exception regressions.
 
 Academic coherence remains a reasoned judgment; validators establish numerical and structural compliance. Planned course availability does not guarantee future delivery. External prospectus years do not certify an exact external timetable for the Fall 2026 UCR cohort.
 
@@ -41,7 +41,7 @@ English publication: [`879cd0f`](https://github.com/solmyr1980/ucr-pathways/comm
 
 ### cp-000046 — French Language and Culture, Radboud University
 
-**Substantive outcome: replace the exception with one related-fields comparison. Publication verification is pending.**
+**Outcome: replaced with one related-fields comparison; publication and all required GitHub checks verified.**
 
 The completed programme, **Literature, art & cultural history**, has five literature, three communication, three media and four art/heritage courses; three history, two sociology, one philosophy and two politics courses; and mandatory PPD. It offers an evidenced cultural direction rather than French formation. Its description gives the two institutional-politics courses and the single philosophy course their limited actual weight.
 
@@ -57,6 +57,10 @@ The current [official study overview](https://www.ru.nl/opleidingen/bachelors/fr
 
 Only the direct text-analysis/introductory-literary-analysis relationship is aligned. Broader methods and cultural contributions retain their own rows. A possible advanced literary-theory/contemporary-literary-field pairing was rejected because the external title did not establish adequate component-level overlap. French proficiency, linguistics, translation, region-specific subjects, professional projects and required immersion remain visible as unmatched components. The thesis is retained with the separate comparison-only UCR research opportunity.
 
-French: **24 unique courses / 180 EC**, four per semester, **nine 300-level courses**, Year-1 PPD and 23 non-PPD traces. Every formal prerequisite and exact planned term passes, including African Art's sole 2028h1 offering and the 2029h1 advanced literary/art-historiography offerings. Literary, rhetorical, film, art, social-inquiry and historical foundations precede their corresponding advanced work. Deterministic compilation, full-corpus validators and regenerated-index verification passed. Publication and GitHub checks must pass before this review is marked complete.
+French: **24 unique courses / 180 EC**, four per semester, **nine 300-level courses**, Year-1 PPD and 23 non-PPD traces. Every formal prerequisite and exact planned term passes, including African Art's sole 2028h1 offering and the 2029h1 advanced literary/art-historiography offerings. Literary, rhetorical, film, art, social-inquiry and historical foundations precede their corresponding advanced work. Deterministic compilation, full-corpus validators and regenerated-index verification passed. Build/repair compiler replay, corpus validators, both shared-index refreshes and Shiny validation passed. The original Pages run was superseded by the successful deployment of the refreshed index commit.
 
-**Progress: 1 of 55 completed; the French review awaits publication verification.**
+French publication: [`186c91d`](https://github.com/solmyr1980/ucr-pathways/commit/186c91dcf0cb6a15a7e7947902a370ce12570e98). Its refreshed shared index is published in `e36ffd5`.
+
+Final verification replayed each generated record against its decision, checked the exact fixed queue, confirmed every original comparator component/weight and normalized provider field, and verified that only the two case pairs, dedicated register/report and shared index changed. The earlier remediation, assessment and independent-QC histories remain unchanged.
+
+**Progress: 2 of 55 completed; 53 remain.** Both are now comparisons with one complete related-fields alternative each. The current 438-record corpus contains 339 comparisons and 99 exceptions (67 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000050 and cp-000055**.
