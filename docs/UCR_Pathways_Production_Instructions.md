@@ -578,4 +578,6 @@ Confirm the student input is preserved verbatim, interpretation stored separatel
 
 Before release, inspect all student-visible free text. It may contain only the student's submitted interests, their concise academic interpretation, the programme concepts, and any explanatory note justified under Section 6. It must not contain production reasoning, validation commentary, assumptions about unspecified information, statements about what was not inferred, or internal workflow terminology. Remove such material rather than explaining the production decision to the student.
 
+Check that each programme’s title and description reflect the actual content and relative emphasis of its selected courses; do not present an incidental course topic as a defining programme theme.
+
 Only then release the requested artifact or library record.
