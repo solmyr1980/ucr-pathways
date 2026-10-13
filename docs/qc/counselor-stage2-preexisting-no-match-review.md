@@ -256,3 +256,36 @@ Deterministic compiler replay reproduced both final canonical records. Full-corp
 
 **Progress: 12 of 55 completed; 43 remain.** All twelve reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 349 comparisons and 89 exceptions (57 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000072 and cp-000073**.
 
+
+
+## Batch 7 — 13 October 2026
+
+The review reused the fixed 55-ID queue and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). Every selected course was checked against its description and outline-derived profile, formal prerequisites and exact planned semester. Current official Radboud programme pages were rechecked on 13 October 2026 and continue to support both settled external curricula, so first-stage component weights and route choices remain unchanged.
+
+### cp-000072 — Spanish Language and Culture, Radboud University
+
+**Outcome: replaced with two related-fields comparisons; publication and all required checks verified.**
+
+The historical judgment correctly identified the absence of Spanish-language teaching and sustained Hispanic-area study at UCR, but treated that gap as excluding every complete related-fields response. The closest programme, **Literature, media & global cultural politics**, combines literature, film, documentary, visual culture and cultural memory with migration, colonial legacies, human rights, environmental justice and international conflict. The second, **Language, cognition & public communication**, studies psycholinguistics, cognition, rhetoric, stylistics, media, social interaction and empirical methods.
+
+The concepts and comparison note state that neither programme provides Spanish proficiency, Spanish-medium academic study, Hispanic linguistics or a regional sequence in Spain and Latin America. The programmes share eight courses and differ by sixteen courses / 120 EC in each direction. All generator-eligible rows are assigned to the cultural core or the distinct language-and-linguistics direction; the remaining curricular topics strengthen those routes but do not generate a third coherent programme.
+
+The current [programme page](https://www.ru.nl/opleidingen/bachelors/spaanse-taal-en-cultuur) and [study-programme overview](https://www.ru.nl/opleidingen/bachelors/spaanse-taal-en-cultuur/studieprogramma-spaanse-taal-en-cultuur) continue to confirm progressive Spanish-language acquisition, Spanish-medium teaching from the second semester, Hispanic linguistics, literature and cultural study, required study at a Spanish-speaking university and a Hispanic-studies thesis.
+
+Both UCR alternatives contain 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces. The first has eight 300-level courses and the second seven. Exact planned availability and every formal prerequisite pass. Publication: [`e15977a`](https://github.com/solmyr1980/ucr-pathways/commit/e15977a6760b069767812ac6f6a867ce969299a9).
+
+### cp-000073 — Linguistics, Radboud University
+
+**Outcome: replaced with two related-fields comparisons; publication and all required checks verified.**
+
+The historical judgment correctly identified the absent formal-linguistics sequence, but again applied a full-substitution threshold. The closest programme, **Language, cognition & communication**, combines Psycholinguistics, cognitive neuroscience, stylistics, rhetoric, media, sociology, experimental methods and data analysis. The second, **Data, AI & language applications**, builds a complete computing and quantitative sequence, then connects it to language through text data, text classification, large language models, Psycholinguistics and stylistic analysis.
+
+The second programme deliberately presents language as a bounded application of its broader computing curriculum. It does not claim computational linguistics, corpus linguistics, speech recognition or language-technology engineering. The independently evidenced language-and-health direction was tested and rejected: one Psycholinguistics course and general neuroscience and psychology cannot supply speech, hearing, clinical language-disorder, assessment and intervention training. The two included programmes share eight courses and differ by sixteen courses / 120 EC each.
+
+The current [programme page](https://www.ru.nl/opleidingen/bachelors/taalwetenschap) and [study-programme overview](https://www.ru.nl/opleidingen/bachelors/taalwetenschap/studieprogramma) continue to confirm four themes—multilingualism and society, language and cognition, language and technology, and language and health—alongside structured study of language acquisition, processing, variation, disorders, technology and independent research.
+
+Both UCR alternatives contain 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces. The first has seven 300-level courses and the second nine. Exact planned availability and every formal prerequisite pass. Publication: [`5f2f892`](https://github.com/solmyr1980/ucr-pathways/commit/5f2f89210dcbc43a1b827ff1e2db1d0a1c98b48d).
+
+Deterministic compiler replay reproduced both canonical records. Full-corpus comparison, structural and final-methodology validators passed, as did registry and shared-index checks. Both build workflows and both Shiny-validation workflows succeeded; the final shared-index commit [`f0b4a5a`](https://github.com/solmyr1980/ucr-pathways/commit/f0b4a5a3d12f43678ff84814abd7ad198aaae2e3) passed Pages deployment. Earlier Pages runs were cancelled only because later publications superseded them. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
+
+**Progress: 14 of 55 completed; 41 remain.** All fourteen reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 351 comparisons and 87 exceptions (55 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000074 and cp-000075**.
