@@ -289,3 +289,32 @@ Both UCR alternatives contain 24 unique courses / 180 EC, four courses in every 
 Deterministic compiler replay reproduced both canonical records. Full-corpus comparison, structural and final-methodology validators passed, as did registry and shared-index checks. Both build workflows and both Shiny-validation workflows succeeded; the final shared-index commit [`f0b4a5a`](https://github.com/solmyr1980/ucr-pathways/commit/f0b4a5a3d12f43678ff84814abd7ad198aaae2e3) passed Pages deployment. Earlier Pages runs were cancelled only because later publications superseded them. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
 
 **Progress: 14 of 55 completed; 41 remain.** All fourteen reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 351 comparisons and 87 exceptions (55 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000074 and cp-000075**.
+
+
+## Batch 8 — 13 October 2026
+
+The review reused the fixed 55-ID queue and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). Every selected course was checked against its description and outline-derived profile, formal prerequisites and exact planned semester. Current official Radboud pages and the adopted 2026–27 OERs were rechecked on 13 October 2026; they continue to support the settled external curricula.
+
+### cp-000074 — Dentistry, Radboud University
+
+**Outcome: replaced with two related-fields comparisons; publication and all required checks verified.**
+
+The historical judgment correctly identified the absence of dental procedures and patient treatment at UCR, but treated that gap as excluding every complete response. **Biomedical science, oral health & disease** builds a coherent programme from cell biology, biochemistry, physiology, anatomy, neurobiology, pharmacology, immunity, pathology, epidemiology, laboratory work and evidence synthesis. **Health psychology, communication & patient-centred care** instead centres health behaviour, patient experience, communication, teamwork, leadership, diversity, ethics and research methods.
+
+The alternatives share fourteen courses and differ by ten courses / 75 EC in each direction. The separately assessed clinical and preclinical direction remains infeasible: UCR has no dental anatomy, radiology, restorative-materials teaching, manual dental procedures, simulation or supervised dental clinic. The current [programme overview](https://www.ru.nl/opleidingen/bachelors/tandheelkunde/studieprogramma) and [2026–27 OER](https://www.ru.nl/sites/default/files/2026-06/oer-ba-thk-2627.pdf) confirm that these are defining Radboud components rather than optional professional add-ons.
+
+Both alternatives contain 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces. The first has nine 300-level courses and the second seven. Exact planned availability and every formal prerequisite pass. Publication: [`f910167`](https://github.com/solmyr1980/ucr-pathways/commit/f9101677ccfb7c2fc8dc7d8def47810251377c75).
+
+### cp-000075 — Theology, Radboud University
+
+**Outcome: replaced with two related-fields comparisons; publication and all required checks verified.**
+
+The historical judgment correctly identified the missing Christian-theology discipline, but again applied a full-substitution threshold. **Worldviews, meaning & public life** examines belief, meaning and the good life through philosophy, myth, literature, history, archaeology and visual heritage, then studies religious diversity, rights, institutions and political conflict. **Ethics, worldviews & environmental responsibility** uses the programme’s formal Worldviews, Climate and Nature direction to combine ethics and political philosophy with climate science, ecosystems, circularity, sustainability governance and renewable-system design.
+
+The alternatives share six courses and differ by eighteen courses / 135 EC in each direction. Religion and care was assessed as the next generator-backed direction and rejected: UCR can study health psychology and ethics but has no theology, pastoral formation, spirituality sequence or supervised spiritual-care practice. The current [programme overview](https://www.ru.nl/opleidingen/bachelors/theologie/studieprogramma) and [2026–27 OER index](https://www.ru.nl/studenten/onderwijs-volgen/regels-en-richtlijnen/onderwijs-en-examenregelingen/filosofie-theologie-en-religiewetenschappen) continue to confirm the theological, biblical-language, exegesis, liturgy, pastoral and thesis requirements.
+
+Both alternatives contain 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces. Both have seven 300-level courses. Exact planned availability and every formal prerequisite pass. Publication: [`0a25c31`](https://github.com/solmyr1980/ucr-pathways/commit/0a25c316ac8411825d09f9887bbab53c31144585).
+
+Deterministic compiler replay reproduced both canonical records. Full-corpus structural and final-methodology validators passed, as did registry-interest and repository tests. Both build workflows, both shared-index refreshes and both Shiny-validation workflows succeeded; the final shared-index deployment passed Pages. Earlier Pages runs were cancelled only because later publications superseded them. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
+
+**Progress: 16 of 55 completed; 39 remain.** All sixteen reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 353 comparisons and 85 exceptions (53 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000079 and cp-000095**.
