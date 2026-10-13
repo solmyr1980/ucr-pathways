@@ -380,3 +380,28 @@ The UCR alternative contains 24 unique courses / 180 EC, four courses in every s
 Deterministic compiler replay reproduced both canonical records. Workbook schedule audits, full-corpus structural and final-methodology validators, compiler, optional-research and exception regressions, programme-interest validation and repository tests passed. Both case build workflows, shared-index refreshes and Shiny-validation workflows succeeded. The case-level Pages runs were cancelled only because later publications superseded them. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
 
 **Progress: 20 of 55 completed; 35 remain.** All twenty reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 357 comparisons and 81 exceptions (49 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000159 and cp-000171**.
+
+
+## Batch 11 — 13 October 2026
+
+The review reused the fixed 55-ID queue and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). Every selected course was checked against its description and outline-derived profile, formal prerequisites and exact planned semester. The current Groningen programme pages and the adopted 2026–27 European Languages and Cultures curriculum were rechecked on 13 October 2026.
+
+### cp-000159 — Archaeology, University of Groningen
+
+**Outcome: replaced with two related-fields comparisons; publication verified.**
+
+The historical judgment correctly identified the missing excavation and archaeological-science spine but applied a full-substitution threshold. **Archaeology, ancient societies & material culture** combines UCR's three archaeology and ancient-heritage courses with historical, material, landscape, spatial-data and research perspectives. **Cultural heritage, museums & public memory** shifts the organising centre toward museums, restitution, ethics, public memory and communication.
+
+Neither route is presented as a full Archaeology degree. UCR has no excavation sequence, stratigraphy, finds processing, archaeometry, conservation laboratory, archaeobotany, zooarchaeology, osteoarchaeology or archaeology thesis. Both alternatives contain 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces. They have seven and eight 300-level courses, pass exact availability and prerequisites, and differ by seven courses / 52.5 EC in each direction. Publication: [`edc80b9`](https://github.com/solmyr1980/ucr-pathways/commit/edc80b9a7b267be6185662ab797c3565d0bc0e06).
+
+### cp-000171 — European Languages and Cultures, University of Groningen
+
+**Outcome: replaced with three related-fields comparisons; publication verified.**
+
+The historical judgment correctly identified the absent German-language progression but treated it as excluding every related-fields response. The three formal profiles support distinct UCR routes: **Language, culture & society in Europe**, **Literature, media & cultural identity**, and **Modern Europe, politics & social change**. The closest route includes introductory Dutch, stylistics and psycholinguistics but does not represent these as German proficiency.
+
+All three programmes contain 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces. They contain nine, eight and ten 300-level courses. Exact availability and prerequisites pass. The closest and culture routes differ by five courses / 37.5 EC in each direction; the other pairs differ by ten courses / 75 EC. UCR still lacks German, cumulative proficiency study in any European language, language-specific profile modules and a thesis in the major language. Publication: [`3ed67ff`](https://github.com/solmyr1980/ucr-pathways/commit/3ed67ff2a7b84f72021b4cf85af746502aa94223).
+
+Deterministic compiler replay reproduced both records. Workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
+
+**Progress: 22 of 55 completed; 33 remain.** All twenty-two reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 359 comparisons and 79 exceptions (47 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000172 and cp-000174**.
