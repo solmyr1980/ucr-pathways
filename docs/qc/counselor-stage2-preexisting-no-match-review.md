@@ -142,3 +142,43 @@ The first alternative contains six 300-level courses and the second eight; both 
 Full-corpus comparison, structural and final-methodology validators passed for both cases, as did deterministic compiler replay, programme-interest ownership, optional-research handling, shared-index refresh and Shiny validation. The refreshed index deployment supplies the successful final Pages state. Earlier remediation, assessment and independent-QC histories were not changed.
 
 **Progress: 6 of 55 completed; 49 remain.** All six reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 343 comparisons and 95 exceptions (63 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000059 and cp-000060**.
+
+## Batch 4 — 13 October 2026
+
+The review reused the fixed 55-ID queue and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). Every selected course was checked against its description/profile, formal prerequisite and exact planned semester. The current Radboud programme overview and year pages were rechecked for each target; the already settled external routes and component weights remain unchanged.
+
+### cp-000059 — Physics and Astronomy, Radboud University
+
+**Outcome: replaced with two related-fields comparisons; publication and all required checks verified.**
+
+The historical judgment correctly identified the absence of the cumulative physics spine, but incorrectly treated that as excluding every complete related-fields response. The strongest UCR programme, **Mathematics, data & physical Earth systems**, uses calculus, linear algebra, numerical methods, dynamic-systems analysis, probability, programming and data methods to study Earth systems, climate, natural hazards, materials, resources and energy. Its description does not claim to teach physics or astronomy.
+
+The second programme, **Neuroscience, perception & quantitative modelling**, develops the target's explicit Neurophysics direction through neurobiology, perception, cognition, physiology, cellular mechanisms and human development, supported by mathematics, programming, statistics, modelling, imaging and research synthesis. It is explicitly a neuroscience-and-modelling route, not a substitute for Radboud Neurophysics. The two programmes share ten courses and differ by fourteen courses / 105 EC in each direction.
+
+All target-linked interests were assessed. Astronomy and astrophysics cannot be built without astronomy, relativity and a physics sequence. Fundamental and experimental physics, atomic and molecular physics, high-energy physics, solid-state physics and physics education were also assessed individually and rejected because the relevant specialist sequences are absent. The teaching direction fails on academic physics content and didactics, not on professional qualification alone.
+
+The current [programme overview](https://www.ru.nl/opleidingen/bachelors/natuur-en-sterrenkunde), [study-programme overview](https://www.ru.nl/opleidingen/bachelors/natuur-en-sterrenkunde/studieprogramma) and year pages were rechecked on 13 October 2026. They continue to support the preserved standard 180-EC single bachelor: broad first-year mathematics, programming and physics; later astrophysics, Neurophysics, atomic/molecular, solid-state and high-energy themes; elective space; and the mandatory physics/astronomy research internship. The optional Advanced Astronomy minor and the separate Mathematics and Physics dual bachelor remain excluded from the neutral route.
+
+UCR still lacks mechanics, electromagnetism, optics, thermodynamics, quantum physics, relativity, astronomy and a cumulative experimental-physics laboratory sequence. Those gaps are explicit in the concepts, note and unmatched comparator components. The first programme contains seven 300-level courses and the second eight; both contain 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces. Exact planned availability and every formal prerequisite pass.
+
+Publication: [`7cf40ac`](https://github.com/solmyr1980/ucr-pathways/commit/7cf40acae91d98ce836e3d889d34dcfda6a72acc). Build/compiler replay, full-corpus validators, programme-interest validation, shared-index refresh, Shiny validation and Pages deployment passed. The refreshed index is published in `0122dee`.
+
+### cp-000060 — Dutch Language and Culture, Radboud University
+
+**Outcome: replaced with two related-fields comparisons; publication and all required checks verified.**
+
+The historical judgment correctly identified the missing advanced Dutch and Dutch-specific disciplinary sequence, but again applied a full-substitution threshold. The closest programme, **Literature, rhetoric & cultural interpretation**, studies literary form, theory and adaptation alongside rhetoric, stylistics, persuasion, media and the historical interpretation of culture, identity and power. Introductory Dutch and Psycholinguistics make limited contributions; neither is represented as advanced Dutch or a Dutch-language systems sequence.
+
+The second programme, **Language, cognition & public communication**, studies language as a cognitive, social and persuasive practice through Psycholinguistics, neurobiology, perception, development, stylistics, rhetoric, media, sociology and quantitative research. It addresses language and communication generally, not Dutch linguistics. The routes share sixteen courses and differ by eight courses / 60 EC in each direction.
+
+All target-linked interests were assessed. Creative writing, cultural heritage, arts and politics, and power and identity are substantively represented in the closest programme rather than relabelled as a third alternative. Historical Dutch language development is infeasible because UCR has no history-of-Dutch, historical-linguistics, Dutch-phonology or Dutch-syntax sequence. Dutch-language teaching is also infeasible because advanced Dutch, Dutch literature/linguistics preparation and Dutch subject didactics are absent; this is an academic-content judgment rather than rejection based only on qualification.
+
+The current [programme overview](https://www.ru.nl/opleidingen/bachelors/nederlandse-taal-en-cultuur), [first-year page](https://www.ru.nl/opleidingen/bachelors/nederlandse-taal-en-cultuur/studieprogramma/studieprogramma-bachelor-nederlandse-taal-en-cultuur-jaar-1), [second-year page](https://www.ru.nl/opleidingen/bachelors/nederlandse-taal-en-cultuur/studieprogramma/studieprogramma-bachelor-nederlandse-taal-en-cultuur-jaar-2) and [third-year page](https://www.ru.nl/opleidingen/bachelors/nederlandse-taal-en-cultuur/studieprogramma/studieprogramma-bachelor-nederlandse-taal-en-cultuur-jaar-3) were rechecked on 13 October 2026. They continue to support the preserved external curriculum: Dutch literature, language and communication in year one; deeper literary, linguistic, persuasion, psycholinguistic, sound-structure and research-method work in year two; and a 60-EC third year including a 10-EC thesis and 30 EC of free space.
+
+UCR provides only introductory everyday Dutch. It does not supply advanced academic Dutch, Dutch phonology and syntax, historical Dutch linguistics or a cumulative Dutch/Flemish literary-history sequence. Both alternatives contain 24 unique courses / 180 EC, four courses in every semester, seven 300-level courses, Year-1 PPD and 23 non-PPD traces. Exact planned availability and every formal prerequisite pass.
+
+Publication: [`53847df`](https://github.com/solmyr1980/ucr-pathways/commit/53847df594e2a9accca230de60ae0b9358c99789). Build/compiler replay, full-corpus validators, programme-interest validation, shared-index refresh, Shiny validation and Pages deployment passed. The refreshed index is published in `5b7b44b`.
+
+Final verification replayed both generated records against their decisions, confirmed the exact fixed queue and prior no-match exceptions, checked all comparator components and normalized provider fields, and verified that earlier remediation, the completed 50-case assessment and the independent-QC history remain unchanged.
+
+**Progress: 8 of 55 completed; 47 remain.** All eight reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 345 comparisons and 93 exceptions (61 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000061 and cp-000063**.
