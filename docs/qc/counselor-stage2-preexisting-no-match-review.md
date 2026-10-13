@@ -347,3 +347,36 @@ The included programme contains 24 unique courses / 180 EC, four courses in ever
 Deterministic compiler replay reproduced both canonical records. Full-corpus structural and final-methodology validators passed, as did compiler, optional-research and exception regressions, registry-interest validation, repository tests, shared-index refreshes, Shiny validation and the final Pages deployment. Earlier Pages runs were cancelled only because later publications superseded them. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
 
 **Progress: 18 of 55 completed; 37 remain.** All eighteen reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 355 comparisons and 83 exceptions (51 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000140 and cp-000156**.
+
+
+## Batch 10 — 13 October 2026
+
+The review reused the fixed 55-ID queue and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). Every selected course was checked against its description and outline-derived profile, formal prerequisites and exact planned semester. The adopted 2026–27 external curricula remain unchanged. Maastricht's current programme page and the current PThU Utrecht page were rechecked on 13 October 2026.
+
+### cp-000140 — Circular Engineering, Maastricht University
+
+**Outcome: replaced with two related-fields comparisons; publication verified.**
+
+The historical judgment correctly identified the missing engineering spine but applied a full-substitution threshold. **Circular materials, environmental systems & quantitative science** combines life-cycle analysis, circular-resource recovery, earth materials, geochemistry, soils, renewable systems and applied sustainability research with biochemistry, molecular-cell study, laboratory work, programming, calculus, linear algebra, probability and numerical methods. **Life science, ecology & circular production** follows the programme's formally evidenced Sustainable Biotechnology direction through molecular life science, biodiversity, conservation, sustainable farming, environmental biogeochemistry, resource recovery, spatial analysis, data science and AI.
+
+Neither route is presented as Circular Engineering. UCR has no sustained physics or chemistry sequence, thermodynamics, fluid mechanics, heat and mass transfer, reactor or separation engineering, process control, fabrication, unit operations or engineering-design thesis. The biotechnology route likewise lacks fermentation, enzyme engineering, bioreactors and industrial bioprocessing. The separately assessed mechanical/manufacturing direction remains infeasible because UCR lacks mechanics, electronics, sensors, manufacturing processes, materials engineering and design-studio progression.
+
+The current [courses and curriculum page](https://www.maastrichtuniversity.nl/education/bachelor/programmes/circular-engineering/courses-and-curriculum) continues to confirm the technical first-year foundation, elective and project structure, four third-year specialisations and engineering thesis. The adopted 2026–27 EER remains the formal authority for the exact selected Circular Chemical Engineering pathway and its 180-EC allocation.
+
+Both alternatives contain 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces. They have six and seven 300-level courses. Exact planned availability and every formal prerequisite pass. The programmes share sixteen courses and differ by eight courses / 60 EC in each direction. Publication: [`2d9257e`](https://github.com/solmyr1980/ucr-pathways/commit/2d9257ef56c9558a77acb918f011696578c7d9ab).
+
+### cp-000156 — Theologie, Protestantse Theologische Universiteit
+
+**Outcome: replaced with one related-fields comparison; publication verified.**
+
+The historical judgment correctly identified the absence of Christian theology, biblical languages, exegesis and pastoral formation, but again treated those gaps as excluding every complete related-fields response. **Worldviews, cultural traditions & public life** studies belief, meaning and the good life through philosophy, myth, literature, archaeology and visual heritage, then examines rights, institutions, group processes, public life and conflict through sociology, psychology, law and politics.
+
+Biblical languages, source-language exegesis and ancient religious texts were assessed separately and remain infeasible. Practical theology, ministry and spiritual care also remain infeasible because UCR offers no theology, pastoral formation, supervised spiritual-care practice or ministry curriculum. The current Utrecht programme and 2026–27 OER control the comparison; stale Groningen-specific programme-interest wording does not alter the target.
+
+The current [PThU bachelor page](https://www.pthu.nl/onderwijs/bachelor/theologie-utrecht/) confirms the flexible Utrecht programme, four specialisation directions, optional Greek and Hebrew, personal worldview formation, primary sources and practices, and final thesis. The [current OER index](https://www.pthu.nl/over-pthu/organisatie/regelingen-en-rechtspositie/) confirms the adopted 2026–27 Bachelor Theologie regulation used for the settled 180-EC pathway.
+
+The UCR alternative contains 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD, seven 300-level courses and 23 non-PPD traces. Exact planned availability and every formal prerequisite pass. Publication: [`5d0d4c9`](https://github.com/solmyr1980/ucr-pathways/commit/5d0d4c95c4e249cf895371280fc29d5bf2c07cfb).
+
+Deterministic compiler replay reproduced both canonical records. Workbook schedule audits, full-corpus structural and final-methodology validators, compiler, optional-research and exception regressions, programme-interest validation and repository tests passed. Both case build workflows, shared-index refreshes and Shiny-validation workflows succeeded. The case-level Pages runs were cancelled only because later publications superseded them. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
+
+**Progress: 20 of 55 completed; 35 remain.** All twenty reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 357 comparisons and 81 exceptions (49 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000159 and cp-000171**.
