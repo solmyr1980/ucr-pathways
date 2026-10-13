@@ -219,3 +219,40 @@ Publication: [`9c0031f`](https://github.com/solmyr1980/ucr-pathways/commit/9c003
 Final verification replayed both generated records against their decisions, confirmed the exact fixed queue and baseline exceptions, checked the complete comparator credits and normalized provider identities, regenerated the shared indexes without a diff, and verified that first-stage remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
 
 **Progress: 10 of 55 completed; 45 remain.** All ten reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 347 comparisons and 91 exceptions (59 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000068 and cp-000070**.
+
+## Batch 6 — 13 October 2026
+
+The review reused the fixed 55-ID queue and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). Every selected course was checked against its description and profile, formal prerequisites and exact planned semester. The current official Radboud study-programme pages were rechecked on 13 October 2026. They continue to support the settled external curricula, so first-stage history and external component weights remain unchanged.
+
+### cp-000068 — Religion, Politics and Society, Radboud University
+
+**Outcome: replaced with two related-fields comparisons; publication and all required checks verified.**
+
+The historical judgment correctly identified the absence of sustained Religious Studies at UCR, but incorrectly treated that gap as excluding every complete related-fields response. The closest programme, **Worldviews, public life & cultural heritage**, studies belief and meaning through philosophy, myth, literature, archaeology and visual heritage, then examines rights, migration, identity, public institutions and conflict through law, sociology, psychology and politics.
+
+The second programme, **Belief, media & public discourse**, develops the target’s direct interests in religion and media, popular culture, conspiracy beliefs and artificial intelligence through film and media studies, rhetoric, communication, misinformation, philosophy, sociology, social psychology and politics. It does not turn general media study into specialist study of religion. The programmes share eleven courses and differ by thirteen courses / 97.5 EC in each direction.
+
+All generator-eligible interests were assigned explicitly. A worldviews, climate and environmental-action direction was tested and rejected because UCR environmental courses lack enough religion- and worldview-specific content for a complete route. Religion, care and wellbeing was likewise rejected because health, ethics and psychology do not supply the religious-care, ritual and spiritual-support framing. UCR still lacks sustained study of religious traditions, theology, sacred texts, anthropology or sociology of religion and religion-specific empirical research. These gaps appear in both programme concepts, the comparison notes and unmatched external components.
+
+The current [study-programme overview](https://www.ru.nl/opleidingen/bachelors/religie-politiek-en-samenleving/studieprogramma) and [year-three page](https://www.ru.nl/studieprogramma-bachelor-religie-politiek-en-samenleving-jaar-3) continue to confirm a three-year Religious Studies curriculum covering specific traditions, religion-linked social and political processes, disciplinary approaches and methods, thematic modules, free minor space and final research work.
+
+Both UCR alternatives contain 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces. The first has seven 300-level courses and the second nine. Exact planned availability and every formal prerequisite pass. Publication: [`98c2a34`](https://github.com/solmyr1980/ucr-pathways/commit/98c2a34084c39fd3189e784472d166c90396275a). A follow-up corrected the independently verified pairwise count from fourteen to thirteen different courses: [`67ddbf9`](https://github.com/solmyr1980/ucr-pathways/commit/67ddbf9eab991f6cc6918d11d8b851f993783137).
+
+### cp-000070 — Chemistry, Radboud University
+
+**Outcome: replaced with two related-fields comparisons; publication and all required checks verified.**
+
+The historical judgment correctly identified the missing chemistry spine, but again applied a full-substitution threshold. The closest programme, **Molecular, cellular & biomedical life sciences**, studies molecular and cellular life through biochemistry, physiology, genetics, immunity, disease, laboratory work, pharmacology and quantitative analysis. It responds to molecular, medicinal, laboratory and data interests without claiming to teach Chemistry.
+
+The second programme, **Biochemistry, environmental materials & quantitative science**, combines biochemistry and molecular-cell study with environmental geochemistry, soils, resource recovery, material life cycles, Earth resources and renewable systems, using laboratory, mathematical, programming, statistical and modelling methods. It responds to sustainable-materials and environmental-chemistry interests. The programmes share nine courses and differ by fifteen courses / 112.5 EC in each direction.
+
+Synthetic and physical chemistry were assessed as the next candidate direction and rejected. UCR has no cumulative analytical, organic, inorganic, synthetic or physical chemistry, thermodynamics, quantum chemistry, spectroscopy, chemical bonding or specialist chemistry laboratories. Biochemistry and environmental geochemistry remain defined related contributions rather than substitutes for those missing sequences or the chemistry research internship.
+
+The current [study-programme overview](https://www.ru.nl/opleidingen/bachelors/scheikunde/studieprogramma) continues to confirm extensive first-year molecular foundations, mathematics, physics and laboratory work; compulsory second-year organic, inorganic, thermodynamic, quantum, spectroscopic and practical chemistry; and a choice-heavy third year. The adopted 2026–2027 OER remains the preserved formal authority for the exact 180-EC allocation.
+
+Both UCR alternatives contain 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces. The first has eight 300-level courses and the second six. Exact planned availability and every formal prerequisite pass. Publication: [`6f68168`](https://github.com/solmyr1980/ucr-pathways/commit/6f68168875e6248f987fb3c41263050d22f7e226).
+
+Deterministic compiler replay reproduced both final canonical records. Full-corpus comparison, structural and final-methodology validators passed, as did compiler, optional-research and exception regressions, registry checks, shared-index regeneration, Shiny validation and the final Pages deployment. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
+
+**Progress: 12 of 55 completed; 43 remain.** All twelve reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 349 comparisons and 89 exceptions (57 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000072 and cp-000073**.
+
