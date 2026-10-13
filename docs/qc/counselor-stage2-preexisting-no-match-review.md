@@ -405,3 +405,28 @@ All three programmes contain 24 unique courses / 180 EC, four courses in every s
 Deterministic compiler replay reproduced both records. Workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
 
 **Progress: 22 of 55 completed; 33 remain.** All twenty-two reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 359 comparisons and 79 exceptions (47 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000172 and cp-000174**.
+
+
+## Batch 12 — 13 October 2026
+
+The review reused the fixed 55-ID queue and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). Every selected course was checked against its description and outline-derived profile, formal prerequisites and exact planned semester. Current Groningen programme pages and the adopted 2026–27 curricula were rechecked on 13 October 2026.
+
+### cp-000172 — Pharmacy, University of Groningen
+
+**Outcome: replaced with two related-fields comparisons; publication verified.**
+
+**Molecular disease, pharmacology & biomedical research** combines molecular and cellular biology, physiology, biochemistry, pharmacology, epidemiology, laboratory work, quantitative analysis and evidence synthesis. **Medicine use, health behaviour & patient-centred care** instead centres on pharmacology and epidemiology together with health psychology, communication, behavioural decision-making, sociology, ethics and patient context.
+
+Neither route is represented as Pharmacy. UCR has no pharmaceutical-analysis, formulation, biopharmaceutics, pharmacokinetics, medicinal-chemistry, synthesis, dispensing or pharmacy-practice sequence. Both programmes contain 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces. They have eight and seven 300-level courses, pass exact availability and prerequisites, and differ by fourteen courses / 105 EC in each direction. Publication: [`9aac3d1`](https://github.com/solmyr1980/ucr-pathways/commit/9aac3d10f9b1b0d204f6feb4d08d46cb1ceacac7).
+
+### cp-000174 — Frisian Language and Culture, University of Groningen
+
+**Outcome: replaced with three related-fields comparisons; publication verified.**
+
+The evidence supports three distinct routes: **Language, multilingualism & society**, **Literature, media & cultural identity**, and **Regional politics, public culture & heritage**. All are explicitly bounded related-fields responses. UCR offers no Frisian course, cumulative proficiency sequence, Old Frisian, Frisian linguistics or literary-history sequence, field-based Frisian practice or Frisian-language thesis.
+
+All three programmes contain 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces. They contain nine, eight and eleven 300-level courses. Exact availability and prerequisites pass. The first two differ by five courses / 37.5 EC in each direction; the regional-politics route differs from the first by ten courses / 75 EC and from the second by eleven courses / 82.5 EC. Publication: [`878577e`](https://github.com/solmyr1980/ucr-pathways/commit/878577ee6eacda031992cd7853ab3ab1a6aa0c5c).
+
+Deterministic compiler replay reproduced both records. Workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
+
+**Progress: 24 of 55 completed; 31 remain.** All twenty-four reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 361 comparisons and 77 exceptions (45 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000175 and cp-000179**.
