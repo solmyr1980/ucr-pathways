@@ -10,7 +10,7 @@ Read the current AGENTS.md, Production Instructions and Master Specification; ex
 
 ### cp-000043 — English Language and Culture, Radboud University
 
-**Substantive outcome: replace the exception with one related-fields comparison. Publication verification is pending.**
+**Outcome: replaced with one related-fields comparison; publication and all GitHub checks verified.**
 
 The historical judgment correctly identified missing English proficiency, phonetics, phonology, syntax and historical-English teaching, but treated those gaps as sufficient to reject any complete response. The current contract allows a coherent programme in related fields with explicit disciplinary limitations. The completed programme, **Literature, rhetoric & cultural history**, has six literature courses, four communication courses, five media courses, five history courses, two sociology courses and Philosophy of Emotion, plus mandatory PPD. Its concept and label give these contributions their actual weight.
 
@@ -37,4 +37,26 @@ English: 24 unique courses / 180 EC, four in each of six semesters, eight 300-le
 
 Academic coherence remains a reasoned judgment; validators establish numerical and structural compliance. Planned course availability does not guarantee future delivery. External prospectus years do not certify an exact external timetable for the Fall 2026 UCR cohort.
 
-**Progress: no review is marked complete until its separate publication and GitHub checks are verified.**
+English publication: [`879cd0f`](https://github.com/solmyr1980/ucr-pathways/commit/879cd0f106dd06db560c528b6c04160f53bf5f15). Build/repair compiler replay, corpus validators, both index refreshes, Shiny validation and Pages deployment passed. The refreshed shared index is published in `783eff8`.
+
+### cp-000046 — French Language and Culture, Radboud University
+
+**Substantive outcome: replace the exception with one related-fields comparison. Publication verification is pending.**
+
+The completed programme, **Literature, art & cultural history**, has five literature, three communication, three media and four art/heritage courses; three history, two sociology, one philosophy and two politics courses; and mandatory PPD. It offers an evidenced cultural direction rather than French formation. Its description gives the two institutional-politics courses and the single philosophy course their limited actual weight.
+
+Literature, stylistics, creative expression, film and documentary supply specific interpretive methods and cultural forms supported by the target. Visual analysis, modern art/museums and art historiography supply a coherent art/heritage contribution. Writing Art's Histories includes documented French theorists Foucault and Derrida, but is not presented as a full French intellectual-history course. African Art & Heritage supplies specific study of artistic difference, colonial acquisition and repatriation, complementing the target's worldwide cultural scope; African art is not equated with francophone culture. These courses do not claim comprehensive French regional coverage.
+
+Modern History and History of Empires investigate defined processes of European transformation, decolonisation and power. The History Research Seminar actually studies the 1809 Walcheren expedition involving France, Britain and the Netherlands through primary sources. Sociology provides institutions/race/class/gender analysis; qualitative methods investigate socially situated meaning and power. Philosophy of Emotion studies responses to fiction/art. International Relations and EU Politics supply specific institutional contributions to the eligible France/Europe/international-organisations interest. Other general regional palettes, including American media/history, Greek archaeology and Renaissance Italy, are not added to fill the programme.
+
+All 48 linked interest rows were assessed: 12 generator-eligible, 13 support-only and 23 search-only. The closest cultural concept owns nine generator rows (2194–2197, 2199, 2201–2204), with its partial French-specific coverage explicit. French language/linguistics (2198, 2200) and legal/administrative translation (2205) were assessed individually as additional candidates. Psycholinguistics, brain/behaviour and stylistics do not supply a French acquisition/structural progression. Dutch and EU/public/private legal courses provide discrete contributions but no French or translation methods; expanding legal study would not implement the evidenced translation concept. Neither rejection rests on professional certification.
+
+Literature, art and cultural history are already substantively implemented. A new cultural label does not itself generate a different curriculum with four independently justified course changes. The institutional interest has concrete representation in two courses; it does not establish a second complete political curriculum from the available target evidence. The first additional linguistic direction fails, so production stops at one and does not attempt a third alternative. Search-only careers, individual regional examples and temporary minor topics do not generate extra programmes.
+
+The current [official study overview](https://www.ru.nl/opleidingen/bachelors/franse-taal-en-cultuur/studieprogramma) and all three year pages were checked on 13 October 2026. The overview confirms the French direction within Romance Languages and Cultures. The exact French pathway is now named **Frans**. The old year-three 2028–2029 metadata is corrected to the currently published **2029–2030** label. Every external component, weight, required status and genuine elective/minor allowance remains unchanged: the mandatory francophone-university study remains 15 EC, separate from 30 EC of free space, and the thesis remains 10 EC. There is no change to first-stage history.
+
+Only the direct text-analysis/introductory-literary-analysis relationship is aligned. Broader methods and cultural contributions retain their own rows. A possible advanced literary-theory/contemporary-literary-field pairing was rejected because the external title did not establish adequate component-level overlap. French proficiency, linguistics, translation, region-specific subjects, professional projects and required immersion remain visible as unmatched components. The thesis is retained with the separate comparison-only UCR research opportunity.
+
+French: **24 unique courses / 180 EC**, four per semester, **nine 300-level courses**, Year-1 PPD and 23 non-PPD traces. Every formal prerequisite and exact planned term passes, including African Art's sole 2028h1 offering and the 2029h1 advanced literary/art-historiography offerings. Literary, rhetorical, film, art, social-inquiry and historical foundations precede their corresponding advanced work. Deterministic compilation, full-corpus validators and regenerated-index verification passed. Publication and GitHub checks must pass before this review is marked complete.
+
+**Progress: 1 of 55 completed; the French review awaits publication verification.**
