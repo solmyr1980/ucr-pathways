@@ -430,3 +430,27 @@ All three programmes contain 24 unique courses / 180 EC, four courses in every s
 Deterministic compiler replay reproduced both records. Workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
 
 **Progress: 24 of 55 completed; 31 remain.** All twenty-four reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 361 comparisons and 77 exceptions (45 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000175 and cp-000179**.
+
+## Batch 13 — 13 October 2026
+
+The review reused the fixed 55-ID queue and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). Every selected course was checked against its description and outline-derived profile, formal prerequisites and exact planned semester. The current Groningen Medicine and Classical Studies pages and the adopted 2026–27 curricula were rechecked on 13 October 2026.
+
+### cp-000175 — Medicine, University of Groningen
+
+**Outcome: replaced with three related-fields comparisons; publication verified.**
+
+**Biomedical disease mechanisms & medical research** combines molecular and cellular biology, anatomy, physiology, biochemistry, pharmacology, immunity, pathology, epidemiology, laboratory work and quantitative evidence. **Patient health, behaviour & healthcare communication** instead centres on psychological, biological and social influences on health, patient experience, communication, decision-making, teamwork, ethics and research methods. **Public health, prevention & healthy ageing** shifts the organising level to population evidence, prevention, lifespan health, public economics, social determinants, rights and public communication.
+
+None is represented as Medicine. UCR has no supervised patient contact, medical examination, diagnosis and treatment practice, medical-consultation sequence, clinical placements, longitudinal physician competencies or whole-programme medical progress testing. Each programme contains 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces. They have nine, seven and eight 300-level courses. Exact planned availability and every formal prerequisite pass. Pairwise differences are ten courses / 75 EC, ten courses / 75 EC, and eight courses / 60 EC in each direction. Publication: [`53667ad`](https://github.com/solmyr1980/ucr-pathways/commit/53667ad3a3c5bead3046f9e9f54f1108ed685f82).
+
+### cp-000179 — Greek and Latin Language and Culture (Classics), University of Groningen
+
+**Outcome: replaced with two related-fields comparisons; publication verified.**
+
+**Classical antiquity through literature, rhetoric, philosophy & archaeology** studies ancient societies through classical literature in translation, myth, rhetoric, philosophy, archaeology, material culture, empire, art and reception. **Antiquity, democracy & political traditions** instead centres on ancient democracy, political philosophy, empire, war, law, institutional development and the afterlives of classical political ideas.
+
+Neither route is presented as a full Classics degree. UCR has no Ancient Greek or Latin instruction, original-language reading progression, classical linguistics, epigraphy, papyrology, advanced language seminars or field-specific Classics thesis. The separately assessed Greek-and-Latin language and philology direction therefore remains infeasible. Both programmes contain 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD, seven 300-level courses and 23 non-PPD traces. Exact planned availability and every formal prerequisite pass. They differ by twelve courses / 90 EC in each direction. Publication: [`cca761d`](https://github.com/solmyr1980/ucr-pathways/commit/cca761d89b31913125191f144f627b90c7ec3e89).
+
+Deterministic compiler replay reproduced both records. Workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. Both case build and shared-index refresh workflows succeeded; Shiny validation and the final Pages deployment were verified. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
+
+**Progress: 26 of 55 completed; 29 remain.** All twenty-six reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 363 comparisons and 75 exceptions (43 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000192 and cp-000194**.
