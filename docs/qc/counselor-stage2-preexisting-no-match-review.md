@@ -63,4 +63,53 @@ French publication: [`186c91d`](https://github.com/solmyr1980/ucr-pathways/commi
 
 Final verification replayed each generated record against its decision, checked the exact fixed queue, confirmed every original comparator component/weight and normalized provider field, and verified that only the two case pairs, dedicated register/report and shared index changed. The earlier remediation, assessment and independent-QC histories remain unchanged.
 
-**Progress: 2 of 55 completed; 53 remain.** Both are now comparisons with one complete related-fields alternative each. The current 438-record corpus contains 339 comparisons and 99 exceptions (67 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000050 and cp-000055**.
+**Progress after Batch 1: 2 of 55 completed; 53 remained.** Both became comparisons with one complete related-fields alternative each.
+
+## Batch 2 — 13 October 2026
+
+The review again used the fixed baseline queue, current decision/canonical records, all exact-target programme-interest rows and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). The current Radboud programme pages and formal route evidence were rechecked before the retained external curricula were used. Each alternative was defined from external and programme-interest evidence before courses were selected.
+
+### cp-000050 — Classics (Greek and Latin Language and Culture), Radboud University
+
+**Outcome: replaced with two related-fields comparisons; publication and all required GitHub checks verified.**
+
+The historical judgment correctly identified the absence of Greek and Latin language, translation, linguistics and original-text teaching. It incorrectly treated that gap as excluding every complete response. The target also explicitly supports ancient culture, mythology, history, archaeology, philosophy, rhetoric, art and architecture, and the later reception of antiquity. Those strands support a complete related-fields programme when the language and philology gap remains explicit.
+
+The closest programme, **Classical antiquity through literature, rhetoric, philosophy & archaeology**, contains translated literature and myth, classical rhetoric and stylistics, ancient philosophy, Greek and world archaeology, imperial and military history, art, material culture, reception and humanities research. The label and concept do not imply proficiency in Greek or Latin. Every non-PPD course has a specific contribution: for example, World Myth & Literature studies Homer, Virgil and later transmissions; Greek Archaeology and Heritage & Ancient Democracy provide direct ancient-Greek material; History of Empires includes Rome; Western Way of War begins with Greek hoplites and Roman legionnaires; and the communication sequence traces classical rhetoric into later persuasive and creative practice.
+
+The second programme, **Antiquity, democracy & the politics of the present**, follows the independently evidenced question of how the classical world shaped later society. It uses archaeology, ancient philosophy, empire and myth as its historical base, then concentrates on comparative politics, law, citizenship, conflict and source-based historical research. It differs from the closest programme by twelve courses / 90 EC in each direction. The changes follow from a different organising question rather than substitutions made to satisfy the numerical floor.
+
+All 42 linked interest rows were assessed: 13 generator-eligible, 14 support-only and 15 search-only. The closest concept owns the ancient-culture, mythology, history, archaeology, philosophy, art and rhetoric directions. The reception-of-antiquity rows generate the second programme. Two additional candidates remain infeasible:
+
+- Greek and Latin language, philology and original-text study cannot be built because UCR has no ancient-language acquisition, classical linguistics, translation or cumulative original-text sequence.
+- Teaching Greek and Latin lacks both the required language/subject preparation and classics didactics. The rejection rests on missing academic content, not on professional qualification alone.
+
+The current [official programme overview](https://www.ru.nl/opleidingen/bachelors/griekse-en-latijnse-taal-en-cultuur/studieprogramma) and its three year pages were rechecked on 13 October 2026. They continue to support the preserved 180-EC domestic route: 60 EC in each year, two restricted 15-EC Humanities minors in year two, four required 5-EC third-year components, a 10-EC thesis and 30 EC of genuine free space. The pages remain indicative 2027–2030 prospectus information.
+
+Both UCR programmes have 24 unique courses / 180 EC, four courses in every semester, seven 300-level courses and Year-1 PPD. Every course passes exact planned availability; the second route places Law, Society & Justice before all dependent law courses. Each programme has 23 non-PPD traceability entries. Comparison alignments are deliberately sparse: specialist language, linguistics and original-text components remain unmatched, while the thesis retains the separate comparison-only UCR research opportunity.
+
+Classics publication: [`8618ae5`](https://github.com/solmyr1980/ucr-pathways/commit/8618ae53b4ceabea4bfde49c3c704a7b18d38c80). The repair/compiler workflow, full-corpus validators, shared-index refreshes, Shiny validation and Pages deployment passed. The refreshed index is published in `9d4aa82`.
+
+### cp-000055 — Islam, Politics and Society, Radboud University
+
+**Outcome: replaced with one related-fields comparison; publication and all required GitHub checks verified.**
+
+The previous judgment correctly identified the missing Islam and Religious Studies core but again treated that gap as excluding any complete response. The independently quality-controlled Religious Studies case provides a defensible model only when adapted narrowly to this target. The completed programme, **Belief, cultural heritage & political conflict**, studies how myth, literature, philosophy and visual heritage address belief, meaning and religious expression. Law, sociology, psychology, politics and media then examine migration, identity, rights, institutions, radicalisation and political conflict. The curriculum contains two limited Islamic and Arabic-cultural encounters: Renaissance Italy & Global Mediterranean studies artistic exchange with Islamic courts, while World Myth & Literature includes Arabic narrative traditions. Neither course is presented as sustained study of Islam or Islamic sources.
+
+All 46 linked interest rows were assessed: 27 generator-eligible, 11 support-only and eight search-only. The closest concept owns the social and political study of religion, migration and identity; philosophical questions of belief; related cultural interpretation; and the exact target's Middle Eastern and European contexts only at their limited supported scope. Three coherent additional directions were assessed separately:
+
+- Arabic, Islamic sources and theology fails because UCR has no Arabic acquisition, Qur'anic or other Islamic source-language interpretation, Islamic intellectual-history sequence or Islamic theology.
+- Religion, climate and environmental justice fails because UCR's sustainability and environmental-justice courses do not supply religion-and-climate or spiritual-ecology content across a complete curriculum.
+- Religion and healthcare fails because ethics, psychology and public health do not supply religious meanings of care, ritual in healthcare or psychology of religion.
+
+The first additional direction fails feasibility, so production stops at one. The later candidates remain documented because every generator-eligible interest must receive an individual disposition; they do not become attempts to manufacture a second or third programme.
+
+The adopted 2026–2027 OER route remains unchanged: the no-Arabic specialization contains the complete required major, two restricted 15-EC thematic modules, 30 EC of genuine free minor space and a 10-EC final work. The selected Religion and Care and Worldviews, Nature and Climate modules remain neutral first-listed choices, not choices made to improve the UCR comparison. The current [programme overview](https://www.ru.nl/opleidingen/bachelors/islam-politiek-en-samenleving/studieprogramma) continues to identify Islam's sources, the Middle East, Europe and Islam's relation to society and other religions as the four core themes.
+
+The UCR programme has 24 unique courses / 180 EC, four courses in every semester, seven 300-level courses, Year-1 PPD and 23 non-PPD traceability entries. Its only formal prerequisite is satisfied three semesters earlier, and every course is offered in its assigned term. Most Islam-, theology-, sacred-text- and religion-specific components remain deliberately unmatched. The external thesis retains the separate optional UCR research element.
+
+Islam, Politics and Society publication: [`69738d8`](https://github.com/solmyr1980/ucr-pathways/commit/69738d857dc17cd5e192bc6910de0e1d341a66a8), followed by final claim-tightening commit [`d1dd3d9`](https://github.com/solmyr1980/ucr-pathways/commit/d1dd3d95177d988b67bf359d12469ef348183490). The latter removes a duplicated source note and narrows the label and programme description from broad religious-diversity language to the actual curriculum's treatment of belief, cultural heritage and political conflict. Both repair/compiler runs, the full-corpus validators, shared-index refreshes and Shiny validation passed. The initial Pages run was superseded by the successful refreshed-index deployment; the final claim-tightening Pages deployment also passed.
+
+Final verification replayed both generated records against their decisions, rechecked the fixed queue, confirmed complete comparator credits and original normalized provider identity, and verified that no earlier remediation, assessment or independent-QC history changed.
+
+**Progress: 4 of 55 completed; 51 remain.** All four reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 341 comparisons and 97 exceptions (65 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000057 and cp-000058**.
