@@ -113,3 +113,32 @@ Islam, Politics and Society publication: [`69738d8`](https://github.com/solmyr19
 Final verification replayed both generated records against their decisions, rechecked the fixed queue, confirmed complete comparator credits and original normalized provider identity, and verified that no earlier remediation, assessment or independent-QC history changed.
 
 **Progress: 4 of 55 completed; 51 remain.** All four reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 341 comparisons and 97 exceptions (65 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000057 and cp-000058**.
+
+
+## Batch 3 — 13 October 2026
+
+The review used the fixed queue, the preserved external curricula, all exact-target programme-interest rows and the authoritative 151-row UCR workbook. Both historical judgments identified genuine specialist gaps but applied a stricter full-disciplinary-substitution threshold than the current related-fields contract.
+
+### cp-000057 — Molecular Life Sciences, Radboud University
+
+**Outcome: replaced with two related-fields comparisons; publication and required checks verified.**
+
+The first programme, **Molecular, cellular & biomedical life sciences**, combines molecular-cell biology, biochemistry, physiology, genetics, immunity, disease, pharmacology, one broad life-science laboratory and quantitative analysis. The second, **Neurobiology, brain function & biological health**, develops the programme’s explicit Neurobiology direction through brain biology, perception, cognition, development, health and experimental research. The programmes share sixteen courses and differ by eight courses / 60 EC in each direction.
+
+The review did not treat Biochemistry or Life Science Laboratory as substitutes for Radboud’s chemistry sequence. UCR lacks sustained analytical, organic, inorganic and physical chemistry, synthesis, spectroscopy, crystallography and the multi-laboratory progression. These gaps appear in the concepts, note and unmatched comparison components. Functional genomics and human biology are already substantially covered by the closest programme and do not generate a distinct third curriculum. The chemistry-of-life and medicinal-chemistry direction was tested and rejected as infeasible.
+
+Each alternative contains 24 unique courses / 180 EC, four per semester, eight 300-level courses, Year-1 PPD and 23 non-PPD traces. Exact planned availability and every formal prerequisite pass. Publication: [`3351878`](https://github.com/solmyr1980/ucr-pathways/commit/335187860a45da0ff002c8728c81b4dfb37598f2). A subsequent count-only correction records the independently verified eight-course / 60-EC pairwise difference: [`b6d41fa`](https://github.com/solmyr1980/ucr-pathways/commit/b6d41fa258db40b6318c34e726baa3855dfc1b82).
+
+### cp-000058 — Natural Sciences, Radboud University
+
+**Outcome: replaced with two related-fields comparisons; publication and required checks verified.**
+
+The closest programme, **Life, environmental & quantitative sciences**, combines cellular and organismal biology, evolution, Earth systems, climate and environmental processes with mathematics, programming, statistics, modelling and data analysis. The second, **Molecular, cellular & biomedical biology**, develops the explicit Biological-Chemical direction through molecular biology, biochemistry, physiology, genetics, immunity, disease, laboratory work and quantitative analysis. The programmes share twelve courses and differ by twelve courses / 90 EC in each direction.
+
+Neither programme is presented as the full integrated physics–chemistry degree. The selected Radboud Physical Chemistry route requires chemistry and physics from the first year and continues through quantum mechanics, spectroscopy, chemical bonding, advanced mechanics and electromagnetism. UCR has no corresponding sequence. Biophysics and Physical Chemistry/Materials were assessed independently and rejected as infeasible; mathematics, Earth science, Environmental Biogeochemistry and Biochemistry provide defined related contributions but do not replace the missing disciplines.
+
+The first alternative contains six 300-level courses and the second eight; both contain 24 unique courses / 180 EC, four per semester, Year-1 PPD and 23 non-PPD traces. Exact planned availability and every formal prerequisite pass. Publication: [`b4e46a5`](https://github.com/solmyr1980/ucr-pathways/commit/b4e46a560b691bc92e386e22f977cc4ffecb0dc0). A subsequent count-only correction records the independently verified twelve-course / 90-EC pairwise difference: [`0ef7cd2`](https://github.com/solmyr1980/ucr-pathways/commit/0ef7cd206d16fb2cabd67c9e156f63f81c453907).
+
+Full-corpus comparison, structural and final-methodology validators passed for both cases, as did deterministic compiler replay, programme-interest ownership, optional-research handling, shared-index refresh and Shiny validation. The refreshed index deployment supplies the successful final Pages state. Earlier remediation, assessment and independent-QC histories were not changed.
+
+**Progress: 6 of 55 completed; 49 remain.** All six reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 343 comparisons and 95 exceptions (63 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000059 and cp-000060**.
