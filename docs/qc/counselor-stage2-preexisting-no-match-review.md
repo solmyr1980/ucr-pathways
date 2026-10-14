@@ -599,3 +599,35 @@ The UCR programme contains 24 unique courses / 180 EC, four courses in every sem
 Deterministic compiler replay reproduced both records. Authoritative-workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. Successful index-refresh commits [`8fc79b2`](https://github.com/solmyr1980/ucr-pathways/commit/8fc79b26a0aa31139b1cb468247ba3bcde27360f) and [`be43dae`](https://github.com/solmyr1980/ucr-pathways/commit/be43dae66f37a6f66de1cdd44b411f707b491b54) were verified; no legacy status contexts were exposed. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
 
 **Progress: 36 of 55 completed; 19 remain.** All thirty-six reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 373 comparisons and 65 exceptions (33 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000213 and cp-000214**.
+
+## Batch 19 — 14 October 2026
+
+The review reused the fixed 55-ID queue and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). Every selected course was checked against its description and outline-derived profile, formal prerequisites and exact planned semester. Current Groningen evidence was rechecked on 14 October 2026. Both settled 180-EC external curricula and neutral selections remain unchanged.
+
+### cp-000213 — Industrial Engineering and Management, University of Groningen
+
+**Outcome: replaced with two related-fields comparisons; publication verified.**
+
+**Industrial decisions, data & organisational systems** combines business economics, finance, organisations and innovation with programming, data, statistics, optimisation and product design. **Sustainable production, energy & circular resources** combines lifecycle analysis, circular resources, environmental systems, climate and renewable-energy design with mathematical modelling, data, business foundations and product development. The two routes differ by 14 courses / 105 EC in each direction.
+
+Neither programme is represented as Industrial Engineering. UCR lacks the target's cumulative mechanics, materials, transport, manufacturing, CAD, construction, workshop, physical-control, production-planning and industrial integration-project sequence. Technology entrepreneurship and product design were separately assessed and are already substantively represented by the first route rather than supporting a third distinct programme.
+
+The current [programme page](https://www.rug.nl/bachelors/industrial-engineering-and-management/?lang=en) still describes a 180-EC programme combining two-thirds technical science with one-third business and the two formal tracks. The [2026–27 programme appendix](https://www.rug.nl/fse/education/ter/ter-2627-bsc/10-ter-bsc-industrial-engineering-and-management-26-27.pdf) remains the formal authority for the preserved Production Technology and Logistics pathway, 30-EC open minor and 20-EC integration project.
+
+Each UCR programme contains 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces, with nine and seven 300-level courses respectively. Exact planned availability and every formal prerequisite pass. Publication: [`172f249`](https://github.com/solmyr1980/ucr-pathways/commit/172f24938201ad2fc1965a9cc1b12f011eeb0d35).
+
+### cp-000214 — Applied Physics, University of Groningen
+
+**Outcome: replaced with three related-fields comparisons; publication verified.**
+
+**Mathematical modelling, autonomous systems & energy technology** develops mathematics, programming, algorithms, imaging, optimisation, machine learning, robotics and renewable-energy assessment. **Mathematical modelling, Earth systems & sustainable technology** shifts six courses into Earth-system modelling, laboratory and geospatial investigation, water–mineral systems, resource recovery and advanced resource research. **Biomedical systems, imaging & quantitative modelling** combines molecular, physiological, neurobiological, laboratory and disease science with mathematics, programming, imaging and data modelling.
+
+The programmes are not represented as Applied Physics or Medical Physics. UCR lacks the cumulative mechanics, electromagnetism, optics, thermal and quantum physics, atomic and solid-state physics, electronics, materials/device physics, instrumentation, nanofabrication and experimental-laboratory sequence. Advanced materials and nanotechnology were separately assessed and remain infeasible for those concrete gaps.
+
+The current [programme page](https://www.rug.nl/bachelors/applied-physics/?lang=en) continues to confirm the broad 180-EC programme and its first-year physics, mathematics, computation and laboratory foundations. The [2026–27 programme appendix](https://www.rug.nl/fse/education/ter/ter-2627-bsc/2-ter-bsc-applied-physics-26-27.pdf) remains the formal authority for the preserved three-year curriculum, restricted Year-3 choices and 15-EC research project.
+
+Each UCR programme contains 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces, with nine, eight and seven 300-level courses respectively. Exact planned availability and every formal prerequisite pass. Pairwise differences are 6, 14 and 13 courses. Publication: [`5b24cc2`](https://github.com/solmyr1980/ucr-pathways/commit/5b24cc2e94d0d8d70c50d1a4808d382ea1f5c306).
+
+Deterministic compiler replay reproduced both records. Authoritative-workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. Successful index-refresh commits [`68889d7`](https://github.com/solmyr1980/ucr-pathways/commit/68889d7b6003a8ec56d7854ccded78779ad60150) and [`9d917d2`](https://github.com/solmyr1980/ucr-pathways/commit/9d917d2e881fa31bafcc5574d3350466939a9ade) were verified; no legacy status contexts were exposed. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
+
+**Progress: 38 of 55 completed; 17 remain.** All thirty-eight reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 375 comparisons and 63 exceptions (31 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000215 and cp-000216**.
