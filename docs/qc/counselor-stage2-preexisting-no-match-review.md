@@ -537,3 +537,32 @@ Both programmes contain 24 unique courses / 180 EC, four courses in every semest
 Deterministic compiler replay reproduced both records. Workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. The remote publications and successful index-refresh validation commits [`8037d07`](https://github.com/solmyr1980/ucr-pathways/commit/8037d072f334106bb51ba43dc980acdd4f1679b0) and [`da26f11`](https://github.com/solmyr1980/ucr-pathways/commit/da26f1180d60a5341cf315d7c67284b7e3b23618) were verified; the connector exposed no legacy status contexts. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
 
 **Progress: 32 of 55 completed; 23 remain.** All thirty-two reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 369 comparisons and 69 exceptions (37 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000207 and cp-000210**.
+
+
+## Batch 17 — 14 October 2026
+
+The review reused the fixed 55-ID queue and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). Every selected course was checked against its description and outline-derived profile, formal prerequisites and exact planned semester. Current Groningen evidence was rechecked on 14 October 2026. Both settled 180-EC external curricula remain unchanged.
+
+### cp-000207 — Chemical Engineering, University of Groningen
+
+**Outcome: replaced with one related-fields comparison; publication verified.**
+
+**Biochemistry, sustainable production & resource systems** combines molecular and laboratory life science with environmental biogeochemistry, lifecycle analysis, resource recovery, renewable systems, mathematics, programming, data and product design. It addresses sustainable production, carbon management, lower-impact materials, renewable fuels and cost/efficiency through actual course content.
+
+The programme is not represented as Chemical Engineering. UCR lacks organic, inorganic and physical chemistry, spectroscopy, synthesis, thermodynamics, transport phenomena, reactors, separations, process control, equipment, polymer engineering, chemical-engineering practicals and process design. A separately assessed process-engineering route therefore remains infeasible. The current [programme page](https://www.rug.nl/bachelors/chemical-engineering/?lang=en) and [2026–27 Ocasys curriculum](https://ocasys.rug.nl/2026-2027/catalog/programme/56960) confirm the preserved chemistry-and-process spine and research project.
+
+The UCR programme contains 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD, eight 300-level courses and 23 non-PPD traces. Exact planned availability and every formal prerequisite pass. Publication: [`4c8daee`](https://github.com/solmyr1980/ucr-pathways/commit/4c8daee1c3ee378fec9d29c9f5e096aa817e5393).
+
+### cp-000210 — Astronomy, University of Groningen
+
+**Outcome: replaced with one related-fields comparison; publication verified.**
+
+**Mathematical modelling, scientific data & autonomous systems** develops calculus, linear algebra, probability, numerical methods, programming, algorithms, databases, image analysis, machine learning, signals, satellite observation, robotics and computational autonomy. It is grounded in the target’s explicit modelling, computational-analysis, space-instrumentation and Instrumentation and Informatics directions.
+
+The programme is not represented as Astronomy or Astrophysics. UCR lacks mechanics, electromagnetism, waves and optics, quantum and thermal physics, astronomy, stellar and galactic physics, cosmology, planetary science, radiative processes, hydrodynamics, telescopes, radio instrumentation and experimental-physics laboratories. Astrophysics/cosmology and radio-astronomy/experimental-observation were assessed separately and remain infeasible. The current [programme page](https://www.rug.nl/bachelors/astronomy/?lang=en) confirms the physics foundation, observatory work, instrumentation/informatics option, 30-EC minor and research project.
+
+The UCR programme contains 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD, seven 300-level courses and 23 non-PPD traces. Exact planned availability and every formal prerequisite pass. Publication: [`983206c`](https://github.com/solmyr1980/ucr-pathways/commit/983206cfccd22832771b05c4c276e434ad1e5f97).
+
+Deterministic compiler replay reproduced both records. Workbook audits, full-corpus validators, compiler regressions, programme-interest validation, repository tests and review-index regeneration passed. Successful index-refresh commits [`f2d3956`](https://github.com/solmyr1980/ucr-pathways/commit/f2d3956e06838b50fd03add629ae561a3c64e206) and [`8059315`](https://github.com/solmyr1980/ucr-pathways/commit/8059315) were verified; no legacy status contexts were exposed. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
+
+**Progress: 34 of 55 completed; 21 remain.** All thirty-four reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 371 comparisons and 67 exceptions (35 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000211 and cp-000212**.
