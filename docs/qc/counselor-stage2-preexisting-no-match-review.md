@@ -454,3 +454,28 @@ Neither route is presented as a full Classics degree. UCR has no Ancient Greek o
 Deterministic compiler replay reproduced both records. Workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. Both case build and shared-index refresh workflows succeeded; Shiny validation and the final Pages deployment were verified. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
 
 **Progress: 26 of 55 completed; 29 remain.** All twenty-six reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 363 comparisons and 75 exceptions (43 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000192 and cp-000194**.
+
+
+## Batch 14 — 14 October 2026
+
+The review reused the fixed 55-ID queue and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). Every selected course was checked against its description and outline-derived profile, formal prerequisites and exact planned semester. The current Groningen programme pages and adopted 2026–27 curricula were rechecked on 14 October 2026.
+
+### cp-000192 — Life Science and Technology, University of Groningen
+
+**Outcome: replaced with two related-fields comparisons; publication verified.**
+
+**Molecular, cellular & biomedical life sciences** combines molecular-cell biology, biochemistry, physiology, genetics, pharmacology, immunity, pathology, introductory laboratory work and quantitative evidence. **Quantitative life science, biomedical data & imaging** instead integrates the biological spine with programming, calculus, linear algebra, numerical methods, signal systems, probability, machine learning and computational image analysis.
+
+Neither route is represented as the full Life Science and Technology discipline. UCR has no organic-chemistry sequence, bioinorganic chemistry, thermodynamics, optics, mechanics, spectroscopy, pharmaceutical analysis, staged specialist practicals or mandatory 15-EC experimental project. The two programmes contain 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD, eight 300-level courses and 23 non-PPD traces. Exact planned availability and all prerequisites pass. They differ by five courses / 37.5 EC in each direction. Molecular pharmacology was not independently distinct from the closest route; biotechnology and sustainable applications were not feasible as a complete programme. Publication: [`22c7e20`](https://github.com/solmyr1980/ucr-pathways/commit/22c7e20fc148aae66a28e5ea968f99f1cf8c5374), with source-note and advanced-count corrections in [`4923006`](https://github.com/solmyr1980/ucr-pathways/commit/4923006e59837ebd5c2c02d003f56752915ed6ba) and [`beefea0`](https://github.com/solmyr1980/ucr-pathways/commit/beefea0ddcf21b6545a1d0fd0d6cc0fb84aa6275).
+
+### cp-000194 — Middle Eastern Studies, University of Groningen
+
+**Outcome: replaced with two related-fields comparisons; publication verified.**
+
+**Global history, politics & Middle East–Europe relations** combines modern history, empire and colonialism, comparative politics, international relations, public international law, Europe, migration, conflict, civil society and public representation. **Culture, migration & public representation** instead centres cultural encounter, migration, archaeology and heritage, literature, media, museums, rhetoric and qualitative social inquiry.
+
+Neither route is represented as Middle Eastern Studies. UCR has no Arabic sequence, dedicated modern Middle Eastern history/politics progression, Islam and Judaism core, standard Cairo/Rabat semester or scheduled Middle Eastern Studies thesis. The two programmes contain 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD, ten and nine 300-level courses, respectively, and 23 non-PPD traces. Exact planned availability and all prerequisites pass. They differ by eleven courses / 82.5 EC in each direction. Arabic/immersion and religion-specific directions remain infeasible. The review also corrected the earlier claim that study abroad is unconditionally compulsory: the 2026–2027 curriculum retains a 30-EC Study Abroad Programme, while the current official page describes it as recommended and permits exceptional deviation. Publication: [`c514c83`](https://github.com/solmyr1980/ucr-pathways/commit/c514c83f1e465ee74a8a01f51f7148759d3f0f24), with the advanced-count correction in [`f49ecb8`](https://github.com/solmyr1980/ucr-pathways/commit/f49ecb84dfdfa90f4ec805154faf2ab986cea741).
+
+Deterministic compiler replay reproduced both records. Workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. The remote publications and successful index-refresh validation commit [`d3c5f85`](https://github.com/solmyr1980/ucr-pathways/commit/d3c5f85414d2d0db8f91ef2cabd54a802d37a555) were verified; the connector exposed no legacy status contexts. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
+
+**Progress: 28 of 55 completed; 27 remain.** All twenty-eight reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 365 comparisons and 73 exceptions (41 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000196 and cp-000198**.
