@@ -504,3 +504,36 @@ None is represented as a full Dutch Studies programme. UCR lacks advanced academ
 Deterministic compiler replay reproduced both records. Workbook schedule audits, full-corpus structural and final-methodology validators, compiler, optional-research and exception regressions, programme-interest validation, repository tests and review-index regeneration passed. The remote publications and successful index-refresh validation commits [`6074cb9`](https://github.com/solmyr1980/ucr-pathways/commit/6074cb968dc49fa5a5eed37851898de18ab43143) and [`d0cca42`](https://github.com/solmyr1980/ucr-pathways/commit/d0cca42014daf68595d69f61f155add65a866a54) were verified; the connector exposed no legacy status contexts. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
 
 **Progress: 30 of 55 completed; 25 remain.** All thirty reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 367 comparisons and 71 exceptions (39 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000200 and cp-000206**.
+
+
+## Batch 16 — 14 October 2026
+
+The review reused the fixed 55-ID queue and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). Every selected course was checked against its description and outline-derived profile, formal prerequisites and exact planned semester. The current Groningen programme pages and adopted 2026–27 curricula were rechecked on 14 October 2026. Both settled external reconstructions and neutral route choices remain unchanged.
+
+### cp-000200 — Dutch Languages and Cultures, University of Groningen
+
+**Outcome: replaced with three related-fields comparisons; publication verified.**
+
+The generic target's evidence supports **Literature, language & public communication**, **Language, identity & multilingual societies**, and **Literature, culture & heritage**. The first combines literary interpretation, rhetoric, stylistics, public communication, media, psycholinguistics, research methods and one introductory Dutch-language course. The second reorganises language processing and use, rhetoric, digital communication, sociology, identity, artificial intelligence and data methods around multilingual-society questions. The third centres literary interpretation, cultural memory, heritage, historical identity, media, museums and interpretive research.
+
+The current [programme page](https://www.rug.nl/bachelors/dutch-languages-and-cultures/) confirms the two formal specialisations, Dutch Language and Culture and Frisian Language and Culture. Neither is clearly broader or more representative, so the Dutch route remains selected by the adopted [2026–27 programme-specific regulations](https://www.rug.nl/let/onze-faculteit/organisatie/diensten-en-voorzieningen/onderwijsinstituut/oeren/2026-2027/bacheloropleidingen/delen-b/ba-oer-ntc-2627.pdf)' official order, independently of UCR fit. Its genuine 30-EC minor remains open.
+
+None of the UCR routes is represented as Dutch or Frisian Studies. UCR offers only introductory everyday Dutch and no Frisian. It lacks cumulative Dutch/Frisian proficiency, phonology and syntax, historical-language study, period-specific Dutch/Frisian literature and a compulsory language-and-culture thesis. The alternatives use adjacent literature, communication, media, cognition, sociology, history and research strengths with those gaps explicit.
+
+All three programmes contain 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces. They contain seven, eight and eight 300-level courses. Exact availability and every formal prerequisite pass. Pairwise differences are five, six and ten courses (37.5, 45 and 75 EC). Publication: [`ba82f45`](https://github.com/solmyr1980/ucr-pathways/commit/ba82f45884c8e7587a561623dfe8dc0f157fd4c9).
+
+### cp-000206 — Chemistry, University of Groningen
+
+**Outcome: replaced with two related-fields comparisons; publication verified.**
+
+**Molecular, cellular & biomedical life sciences** is the strongest complete related-fields response to the neutrally selected Chemistry of Life specialisation. It studies molecular and cellular life through biochemistry, physiology, genetics, immunity, disease, laboratory work, pharmacology and quantitative analysis. **Biochemistry, environmental materials & quantitative science** instead combines biochemistry and molecular-cell study with Earth materials, geochemistry, soils, remediation, material life cycles, resource recovery, renewable systems, laboratory and field research, mathematics, programming and modelling.
+
+The current [Chemistry programme page](https://www.rug.nl/bachelors/chemistry/?lang=en) confirms the broad first-year chemistry foundation and the Smart Materials, Chemistry of Life, and Sustainable Chemistry and Energy specialisations. The adopted [2026–27 Chemistry regulations](https://www.rug.nl/fse/education/ter/ter-2627-bsc/8-ter-bsc-chemistry-26-27.pdf) remain the formal authority for the complete 180-EC pathway: the Chemistry of Life specialisation stays selected by the neutral official-order tie-break, and the genuine 30-EC University Minor remains open.
+
+Neither UCR route is represented as Chemistry. UCR lacks general, organic, inorganic, analytical, physical and quantum chemistry, spectroscopy, transport phenomena, specialist molecular-materials chemistry, synthesis and chemical analysis, staged chemistry laboratories and the experimental Chemistry research project. Organic, inorganic and physical chemistry were therefore assessed as a third candidate direction and rejected as infeasible; this is a disciplinary course-sequence failure, not a professional-qualification argument.
+
+Both programmes contain 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces. They have eight and six 300-level courses, pass exact availability and all formal prerequisites, share nine courses and differ by fifteen courses / 112.5 EC in each direction. Publication: [`2c6fb1a`](https://github.com/solmyr1980/ucr-pathways/commit/2c6fb1a27c20d8a6dbd817ad91e627379a9847b1).
+
+Deterministic compiler replay reproduced both records. Workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. The remote publications and successful index-refresh validation commits [`8037d07`](https://github.com/solmyr1980/ucr-pathways/commit/8037d072f334106bb51ba43dc980acdd4f1679b0) and [`da26f11`](https://github.com/solmyr1980/ucr-pathways/commit/da26f1180d60a5341cf315d7c67284b7e3b23618) were verified; the connector exposed no legacy status contexts. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
+
+**Progress: 32 of 55 completed; 23 remain.** All thirty-two reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 369 comparisons and 69 exceptions (37 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000207 and cp-000210**.
