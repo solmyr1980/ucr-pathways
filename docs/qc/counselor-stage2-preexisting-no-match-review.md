@@ -479,3 +479,28 @@ Neither route is represented as Middle Eastern Studies. UCR has no Arabic sequen
 Deterministic compiler replay reproduced both records. Workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. The remote publications and successful index-refresh validation commit [`d3c5f85`](https://github.com/solmyr1980/ucr-pathways/commit/d3c5f85414d2d0db8f91ef2cabd54a802d37a555) were verified; the connector exposed no legacy status contexts. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
 
 **Progress: 28 of 55 completed; 27 remain.** All twenty-eight reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 365 comparisons and 73 exceptions (41 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000196 and cp-000198**.
+
+
+## Batch 15 — 14 October 2026
+
+The review reused the fixed 55-ID queue and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). Every selected course was checked against its description and outline-derived profile, formal prerequisites and exact planned semester. The current Groningen programme pages and adopted 2026–27 curricula were rechecked on 14 October 2026.
+
+### cp-000196 — Physics, University of Groningen
+
+**Outcome: replaced with two related-fields comparisons; publication verified.**
+
+**Mathematical modelling, Earth systems & energy technology** combines calculus, linear algebra, numerical methods, probability, programming, data and image analysis, robotics and system models with Earth science, climate and renewable-energy design. **Biomedical systems, imaging & quantitative modelling** instead combines living systems, physiology, neurobiology, laboratory work and disease mechanisms with mathematics, signals, programming, machine learning and image analysis.
+
+Neither route is represented as Physics or Medical Physics. UCR lacks mechanics, electromagnetism, quantum, thermal, particle, nuclear and nano physics, experimental-physics laboratories, instrumentation and a compulsory Physics research project. The programmes contain 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD, eight and seven 300-level courses, respectively, and 23 non-PPD traces. Exact availability and all prerequisites pass. They differ by thirteen courses / 97.5 EC in each direction. Publication: [`a8c7462`](https://github.com/solmyr1980/ucr-pathways/commit/a8c74625add85109df879d976be9fc1fe443342a).
+
+### cp-000198 — Dutch Languages and Cultures — Dutch Language and Culture, University of Groningen
+
+**Outcome: replaced with three related-fields comparisons; publication verified.**
+
+The evidence supports **Literature, language & public communication**, **Language, cognition & digital society**, and **Literature, culture & social questions**. These combine general literature, rhetoric, stylistics, media, psycholinguistics, history, research methods and one introductory Dutch-language course in three distinct ways.
+
+None is represented as a full Dutch Studies programme. UCR lacks advanced academic Dutch proficiency, Dutch phonology and syntax progression, historical Dutch, the period-specific Dutch literature sequence and a compulsory Dutch Studies thesis. Each programme contains 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces. They contain seven, eight and eight 300-level courses. Exact availability and all prerequisites pass. Pairwise differences are five, six and ten courses (37.5, 45 and 75 EC). Publication: [`c09f83e`](https://github.com/solmyr1980/ucr-pathways/commit/c09f83e25cc0a85166e5f9cb4aca12a3521b6d57).
+
+Deterministic compiler replay reproduced both records. Workbook schedule audits, full-corpus structural and final-methodology validators, compiler, optional-research and exception regressions, programme-interest validation, repository tests and review-index regeneration passed. The remote publications and successful index-refresh validation commits [`6074cb9`](https://github.com/solmyr1980/ucr-pathways/commit/6074cb968dc49fa5a5eed37851898de18ab43143) and [`d0cca42`](https://github.com/solmyr1980/ucr-pathways/commit/d0cca42014daf68595d69f61f155add65a866a54) were verified; the connector exposed no legacy status contexts. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
+
+**Progress: 30 of 55 completed; 25 remain.** All thirty reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 367 comparisons and 71 exceptions (39 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000200 and cp-000206**.
