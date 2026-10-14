@@ -1,7 +1,7 @@
 {
   "decisionSchemaVersion": "2.0",
   "id": "cp-000212",
-  "recordStatus": "exception",
+  "recordStatus": "comparison",
   "sources": [
     "https://www.rug.nl/bachelors/dentistry/",
     "https://www.rug.nl/umcg/education/tandheelkunde/belangrijkedocumententhk/documenten2627/oerthkbachelor2627.pdf",
@@ -12,11 +12,8 @@
     "institution": "University of Groningen",
     "primarySource": "s1",
     "academicYear": "2026-2027",
-    "additionalSources": [
-      "s0",
-      "s2"
-    ],
-    "sourceNotes": "The University of Groningen's current Dentistry documents page publishes the linked 2026-2027 Education and Examination Regulations (OER) as the governing bachelor regulation. Although the PDF's browser metadata title is 'concept', its running header identifies it throughout as the 2026-2027 Dentistry bachelor OER; the official documents page presents it as the current OER. Articles 3.6, 4.1 and 7.1 establish an ordinary three-year, 180-ECTS curriculum of 60 ECTS per year. All 29 listed components are compulsory and total 60+60+60=180 ECTS. Article 7.1 explicitly confirms that there are no tracks, no minor space and no electives, so the normalized generic Dentistry target has no route to select. The current programme page independently confirms a 36-month, 180-ECTS, Dutch-taught bachelor that integrates biomedical, behavioural and dental science with extensive technical-skills training and patient care. Practical procedures are first trained on artificial jaws and teeth; diagnosis and treatment begin in Years 2 and 3; the curriculum culminates in the Bachelor Clinic and scientific work.",
+    "additionalSources": ["s0", "s2"],
+    "sourceNotes": "The University of Groningen's current Dentistry documents page, rechecked on 14 October 2026 and last modified there on 21 September 2026, publishes the linked 2026-2027 Education and Examination Regulations (OER) as the governing bachelor regulation. Although the PDF's browser metadata title is 'concept', its running header identifies it throughout as the 2026-2027 Dentistry bachelor OER; the official documents page presents it as the current OER. Articles 3.6, 4.1 and 7.1 establish an ordinary three-year, 180-ECTS curriculum of 60 ECTS per year. All 29 listed components are compulsory and total 60+60+60=180 ECTS. Article 7.1 explicitly confirms that there are no tracks, no minor space and no electives, so the normalized generic Dentistry target has no route to select. The current programme page independently confirms a 36-month, 180-ECTS, Dutch-taught bachelor integrating biomedical, behavioural and dental science with extensive technical-skills training and patient care. Practical procedures are first trained on artificial jaws and teeth; diagnosis and treatment begin in Years 2 and 3; the curriculum culminates in the Bachelor Clinic and scientific work.",
     "components": [
       ["y1-01", "Gezondheid", 7, "Compulsory first-year theoretical-knowledge component."],
       ["y1-02", "De gezonde mens", 9, "Compulsory healthy-human science component."],
@@ -50,11 +47,151 @@
     ]
   },
   "routeSelection": null,
-  "exception": {
-    "type": "no-defensible-ucr-match",
-    "checkedOn": "2026-10-06",
-    "reason": "The defining 180-ECTS curriculum is entirely compulsory and integrates oral and general health science, oral diseases, radiation protection, dental diagnosis and treatment, progressive professional and technical skills, and supervised care of real patients in the 12-ECTS Bachelor Clinic. The current UCR catalogue provides relevant biomedical science, psychology, public health and research methods, but no dentistry, oral anatomy or biology, cariology, periodontology, dental materials, restorative procedures, endodontology, dental radiography, preclinical simulation, treatment planning or supervised clinical dental care. A 24-course UCR programme could reproduce parts of the biomedical and behavioural context but would omit the profession-defining dental science, manual skills and patient treatment. It would therefore not be a defensible closest match.",
-    "curriculumContext": "The formally published 2026-2027 Groningen curriculum totals exactly 180 ECTS: 60 ECTS in each of three years, with no tracks, minor space or electives. Its 29 compulsory components progress from healthy-human and healthy-mouth science, prevention and simulated professional skills through compromised oral health, oral diseases and further clinical skills to dental radiation protection, diagnosis and restoration, advanced professional skills and a 12-ECTS supervised Bachelor Clinic. The OER makes the skills sequence prerequisite-dependent and requires completion of both second-year professional-skills components, oral healthcare in context and most second-year theoretical components before entry to the Bachelor Clinic.",
-    "ucrCourseEvidence": "Reviewed all 151 rows of the current enriched UCR course workbook, including course names, descriptions, outline-derived profiles, prerequisites, planned availability, disciplines, topics and methods. HCBGATE101 Foundation of Life, Health & Biomedicine, HCBBIOM211 Functional Anatomy, HCBLIFE211 Molecular Cell Biology, HCBLIFE212 Human Physiology, HCBLIFE213 Biochemistry, HCBLIFE214 Life Science Laboratory, HCBBIOM312 Infection & Immunity, HCBBIOM313 Mechanisms of Disease and HCBLIFE311 Molecular Pathology & Genetics provide relevant biomedical foundations. HCBBIOM111 Epidemiology & Public Health, HCBPSYC211 Statistics & Experimental Methods, HCBPSYC311 Medical & Health Psychology and HCBPSYC313 Advanced Research Seminar provide public-health, behavioural and research perspectives. None of the 151 courses teaches oral anatomy or biology, cariology, periodontology, dental biomaterials, restorative technique, endodontology, dental radiology, dental care planning, preclinical operative skills or supervised treatment of dental patients. The workbook therefore provides no defensible basis for a scheduled 24-course UCR Dentistry programme."
-  }
+  "basis": {
+    "core": [
+      ["biomedical", "Human anatomy, physiology, biochemistry, cell biology, immunity, pharmacology and disease mechanisms", ["s0", "s1", 8767, 8773, 8779, 8780, 8782]],
+      ["prevention", "Epidemiology, public health, health behaviour and prevention", ["s0", 8766, 8776, 8784]],
+      ["behaviour", "Lifespan development, patient behaviour, psychological assessment and health communication", ["s0", 8772, 8795, 8799]],
+      ["research", "Experimental methods, statistics, evidence synthesis and evidence-based health research", ["s0", "s1", 8771, 8797, 8798]]
+    ],
+    "adjacent": [],
+    "questions": []
+  },
+  "courses": [
+    ["ACCPPDE101", "Personal & Professional Development", 1, 7.5],
+    ["HCBGATE101", "Foundation of Life, Health & Biomedicine", 1, 7.5],
+    ["HCBGATE102", "Introduction to Brain & Behavior", 1, 7.5],
+    ["HCBBIOM111", "Epidemiology & Public Health", 1, 7.5],
+    ["HCBBIOM211", "Functional Anatomy", 2, 7.5],
+    ["HCBLIFE211", "Molecular Cell Biology", 2, 7.5],
+    ["HCBCOGN112", "Neurobiology", 1, 7.5],
+    ["BENGATE102", "Research Methods & Statistics", 1, 7.5],
+    ["HCBBIOM311", "Pharmacology", 3, 7.5],
+    ["HCBLIFE212", "Human Physiology", 2, 7.5],
+    ["HCBLIFE213", "Biochemistry", 2, 7.5],
+    ["HCBPSYC211", "Statistics & Experimental Methods", 2, 7.5],
+    ["HCBBIOM312", "Infection & Immunity", 3, 7.5],
+    ["HCBBIOM313", "Mechanisms of Disease", 3, 7.5],
+    ["HCBLIFE214", "Life Science Laboratory", 2, 7.5],
+    ["HCBPSYC111", "Social Psychology", 1, 7.5],
+    ["HCBLIFE311", "Molecular Pathology & Genetics", 3, 7.5],
+    ["HCBPSYC311", "Medical & Health Psychology", 3, 7.5],
+    ["HCBCOGN311", "Higher Order Functions", 3, 7.5],
+    ["MCCCOMM311", "Persuasive Communication", 3, 7.5],
+    ["HCBPSYC312", "Psychodiagnostics & Psychotherapies", 3, 7.5],
+    ["HCBPSYC313", "Advanced Research Seminar", 3, 7.5],
+    ["HCBPSYC314", "Lifespan Developmental Psychology", 3, 7.5],
+    ["HCBCOGN212", "Perception & Action", 2, 7.5]
+  ],
+  "trace": [
+    ["BENGATE102", ["research"], "introduces research design, measurement, sampling, experiments, surveys and inferential statistics for empirical health questions"],
+    ["HCBBIOM111", ["prevention", "research"], "studies disease distribution, determinants, evidence appraisal and population-health decisions relevant to prevention, while not teaching oral epidemiology"],
+    ["HCBBIOM211", ["biomedical"], "uses dissection material, surface anatomy and imaging to connect human anatomical structure to function; it does not provide oral or dental anatomy"],
+    ["HCBBIOM311", ["biomedical"], "examines drug targets, physiological effects, therapeutic use and toxicity as a general treatment-science foundation rather than dental pharmacology"],
+    ["HCBBIOM312", ["biomedical"], "studies innate and adaptive immunity, host-pathogen interactions and tissue damage relevant to infectious disease generally, without an oral focus"],
+    ["HCBBIOM313", ["biomedical"], "analyses cellular and physiological disease mechanisms through clinical cases, providing general pathophysiology rather than dental diagnosis"],
+    ["HCBCOGN112", ["biomedical"], "provides neural anatomy, cellular neuroscience and laboratory observation for understanding nervous-system contributions to human health"],
+    ["HCBCOGN212", ["behaviour", "biomedical"], "studies perception, sensory processing, motor control and action as behavioural and neural functions; it does not teach oral function or dental technique"],
+    ["HCBCOGN311", ["behaviour"], "examines memory, attention, executive functions and cognitive control relevant to patient understanding and decision-making"],
+    ["HCBGATE101", ["biomedical"], "establishes biochemistry, macromolecules, cells, DNA and introductory biomedical laboratory foundations for later life-science courses"],
+    ["HCBGATE102", ["behaviour", "biomedical"], "introduces psychology, brain systems and behaviour and is the formal foundation for later cognition and health-psychology courses"],
+    ["HCBLIFE211", ["biomedical"], "studies eukaryotic and prokaryotic cell biology and modern life-science methods underlying health and disease mechanisms"],
+    ["HCBLIFE212", ["biomedical"], "studies normal human physiological systems and structure-function relations as a healthy-body foundation"],
+    ["HCBLIFE213", ["biomedical"], "covers proteins, sugars, lipids, nucleic acids, metabolism and biotechnology as biochemical foundations of health"],
+    ["HCBLIFE214", ["biomedical", "research"], "provides laboratory work with blood, proteins, bacteria, DNA and bioinformatics; it is not a preclinical dental-skills laboratory"],
+    ["HCBLIFE311", ["biomedical"], "studies molecular pathology, human genetics, inflammation, tissue injury and repair as mechanisms of disease without dental pathology"],
+    ["HCBPSYC111", ["behaviour"], "examines social cognition, attitudes, interpersonal behaviour and social influence relevant to patient interaction"],
+    ["HCBPSYC211", ["research"], "develops experimental design and multivariate statistics for behavioural and health research"],
+    ["HCBPSYC311", ["prevention", "behaviour"], "studies health behaviour, sociocultural influences, psychological intervention and communication in medical settings"],
+    ["HCBPSYC312", ["behaviour"], "teaches psychological assessment and psychotherapeutic approaches relevant to understanding patient needs, not clinical dental assessment"],
+    ["HCBPSYC313", ["research"], "develops systematic review, meta-analysis, effect-size calculation and evidence synthesis for evidence-based health decisions"],
+    ["HCBPSYC314", ["behaviour"], "studies cognitive and social development across the lifespan, providing context for age-sensitive health behaviour and communication"],
+    ["MCCCOMM311", ["behaviour", "prevention"], "examines persuasion, framing, nudging, cognitive shortcuts and ethics for health communication without training dental-patient consultation skills"]
+  ],
+  "alternatives": [
+    {
+      "kind": "closest-match",
+      "label": "Biomedical foundations, public health & health behaviour",
+      "concept": "Combine human anatomy and physiology, biochemistry, cell biology, infection, immunity, pharmacology and disease mechanisms with epidemiology, prevention, health psychology, patient behaviour, communication and evidence synthesis. This is a related-fields response to the target's medical-scientific, prevention and patient-context interests, not Dentistry, oral-health science or clinical dental training.",
+      "basis": ["biomedical", "prevention", "behaviour", "research"],
+      "evidence": ["s0", "s1", 8766, 8767, 8771, 8772, 8773, 8776],
+      "labelReviewed": true,
+      "labelReason": "The completed curriculum is dominated by biomedical science, public health, health behaviour, communication and research methods. The label deliberately does not claim oral biology, dentistry, diagnosis, restorative treatment or professional qualification.",
+      "semesters": [
+        ["ACCPPDE101", "HCBGATE101", "HCBGATE102", "HCBBIOM111"],
+        ["HCBBIOM211", "HCBLIFE211", "HCBCOGN112", "BENGATE102"],
+        ["HCBBIOM311", "HCBLIFE212", "HCBLIFE213", "HCBPSYC211"],
+        ["HCBBIOM312", "HCBBIOM313", "HCBLIFE214", "HCBPSYC111"],
+        ["HCBLIFE311", "HCBPSYC311", "HCBCOGN311", "MCCCOMM311"],
+        ["HCBPSYC312", "HCBPSYC313", "HCBPSYC314", "HCBCOGN212"]
+      ],
+      "progression": ["passed", "The schedule contains 24 unique courses, four per fixed semester, Personal & Professional Development in Year 1 and ten level-300 courses. Every formal prerequisite occurs earlier and every course is available in its assigned term. Foundation of Life, Health & Biomedicine precedes anatomy, cell biology, physiology, biochemistry, pharmacology, infection and immunity, disease mechanisms, laboratory work and molecular pathology; Introduction to Brain & Behavior precedes cognition and psychology courses."]
+    }
+  ],
+  "closestOwnedInterests": [8766, 8767, 8771, 8772, 8773, 8776],
+  "candidates": [
+    {
+      "label": "Oral science, dental diagnosis, restorative treatment and clinical practice",
+      "basisType": "programme-interest-cluster",
+      "generating": [8765, 8768, 8769, 8770, 8774, 8775, 8777],
+      "supporting": [8778, 8780, 8781, 8783, 8785, 8786, 8787, 8788, 8789, 8790, 8791, 8792, 8793, 8794, 8796],
+      "evidence": ["s0", "s1", "s2"],
+      "outcome": "not-feasible"
+    }
+  ],
+  "selection": {
+    "stoppingReason": "not-feasible",
+    "assessment": "One complete related-fields programme passes the evidence, relevance and mechanical gates. It responds to the target's medical and scientific foundations, prevention, the relationship between bodily and oral health, patient behaviour and evidence-based practice through actual anatomy, physiology, biochemistry, cell biology, infection, immunity, pharmacology, pathology, epidemiology, health psychology, communication and research content. It is explicitly not presented as Dentistry or oral-health formation. A direct oral-science and clinical-dentistry direction cannot supply oral anatomy or biology, cariology, periodontology, dental materials, dental radiography, treatment planning, restorative procedures, preclinical simulation, manual dental skills or supervised patient care. No padded second programme is produced."
+  },
+  "researchComponentId": "y3-07",
+  "blocks": [
+    ["biomedical", "Human biology and disease mechanisms", [
+      ["HCBGATE101", "y1-02", "Both establish healthy-human biomedical foundations; UCR covers cells, DNA, biochemistry and general health but not oral biology."],
+      ["HCBGATE102", null, null], ["HCBBIOM211", null, null], ["HCBCOGN112", null, null],
+      ["HCBLIFE211", null, null],
+      ["HCBLIFE212", "y1-01", "Both address normal human health and bodily function; UCR is a general physiology course and does not include dental health."],
+      ["HCBLIFE213", null, null], ["HCBLIFE214", null, null], ["HCBBIOM311", null, null],
+      ["HCBBIOM312", "y2-01", "Both examine compromised health through biological mechanisms; UCR focuses general immunity and infection and does not teach oral disease."],
+      ["HCBBIOM313", "y2-02", "Both examine mechanisms underlying compromised health; UCR provides general pathophysiology and clinical cases rather than dental diagnosis."],
+      ["HCBLIFE311", null, null]
+    ]],
+    ["prevention", "Public health, prevention and health behaviour", [
+      ["HCBBIOM111", "y1-04", "Both address maintaining health through prevention; UCR teaches epidemiology and population health rather than preventive dental care."],
+      ["HCBPSYC311", "y2-09", "Both consider health behaviour and care in social context; UCR focuses psychological expertise and intervention in general medical settings."],
+      ["MCCCOMM311", "y1-09", "Both include communication intended to influence health-related behaviour; UCR teaches general persuasion and framing rather than dental-patient consultation."]
+    ]],
+    ["behaviour", "Patient behaviour, development and cognition", [
+      ["HCBPSYC111", null, null], ["HCBPSYC312", null, null],
+      ["HCBPSYC314", "y2-03", "Both address development and behaviour across life stages; UCR is broad lifespan psychology rather than dental growth and development."],
+      ["HCBCOGN311", null, null], ["HCBCOGN212", null, null]
+    ]],
+    ["research", "Research, evidence and professional formation", [
+      ["BENGATE102", "y1-07", "Both introduce scientific skills; UCR teaches general research design and statistics rather than dentistry-specific inquiry."],
+      ["HCBPSYC211", "y2-07", "Both develop empirical and statistical methods; UCR focuses behavioural and health-science research."],
+      ["HCBPSYC313", "y3-07", "Both culminate in evidence synthesis and advanced scientific work; UCR teaches systematic review and meta-analysis rather than independent dental research."],
+      ["ACCPPDE101", "y1-08", "Both support professional and academic formation; UCR provides general ethical reflection, communication and independent-learning skills rather than dentist formation."]
+    ]],
+    ["gaps", "Oral science, dental technique and clinical-care gaps", [
+      [null, "y1-03", "UCR has no healthy-mouth, oral-anatomy or oral-biology course."],
+      [null, "y1-05", "UCR has no first-stage dental professional-skills training."],
+      [null, "y1-06", "UCR has no preclinical dental simulation or operative-skills sequence."],
+      [null, "y1-10", "UCR has no oral-healthcare-in-context component grounded in dental cases."],
+      [null, "y2-04", "UCR has no oral-diseases, cariology or periodontology course."],
+      [null, "y2-05", "UCR has no second-year dental professional-skills training."],
+      [null, "y2-06", "UCR has no advanced preclinical dental-skills sequence."],
+      [null, "y2-08", "UCR has no dentist-specific professional-formation component."],
+      [null, "y3-01", "UCR has no course on oral healthcare in its professional and societal setting."],
+      [null, "y3-02", "UCR has no dental radiation-protection or dental-radiography course."],
+      [null, "y3-03", "UCR has no oral healthcare across the lifespan course."],
+      [null, "y3-04", "UCR has no dental diagnosis, restoration or treatment course."],
+      [null, "y3-05", "UCR has no advanced dental treatment-planning and restoration course."],
+      [null, "y3-06", "UCR has no advanced professional dental-skills component."],
+      [null, "y3-08", "UCR has no advanced dentist-specific professional formation."],
+      [null, "y3-09", "UCR has no supervised dental clinic or patient-treatment component."],
+      [null, "y3-10", "UCR has no advanced oral-healthcare-in-context component."]
+    ]]
+  ],
+  "notes": [
+    {"type": "related-fields-not-full-discipline", "text": "The UCR programme combines human anatomy and physiology, biochemistry, cell biology, infection, immunity, pharmacology and disease mechanisms with epidemiology, health behaviour, communication and evidence synthesis. It does not reproduce oral anatomy or biology, oral disease science, dental materials and radiography, diagnosis and treatment planning, restorative procedures, preclinical technical skills, supervised patient care or dentist qualification."}
+  ]
 }
