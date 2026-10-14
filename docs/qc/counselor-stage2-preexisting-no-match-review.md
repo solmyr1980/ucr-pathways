@@ -696,3 +696,35 @@ Each UCR programme contains 24 unique courses / 180 EC, four courses in every se
 Deterministic compiler replay reproduced both records. Authoritative-workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. The shared index refresh [`1784e23`](https://github.com/solmyr1980/ucr-pathways/commit/1784e23ac272c5271a9079047e8137dd044c2d79) carries the exact locally generated blob. The connector exposed no legacy status contexts or workflow runs. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
 
 **Progress: 42 of 55 completed; 13 remain.** All forty-two reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 379 comparisons and 59 exceptions (27 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000249 and cp-000251**.
+
+## Batch 22 — 14 October 2026
+
+The review reused the fixed 55-ID queue and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). Every selected course was checked against its description and outline-derived profile, formal prerequisites and exact planned semester. Current TU Delft and Leiden evidence was rechecked on 14 October 2026. Both settled 180-EC external curricula, neutral choices and open curricular space remain unchanged.
+
+### cp-000249 — Industrial Design Engineering, Delft University of Technology
+
+**Outcome: replaced with two bounded related-fields comparisons; publication verified.**
+
+**Human-centred product innovation, digital systems & circular design** combines one substantial consumer-product-design project with user and market research, organisational innovation, software and data systems, robotics, creative communication, life-cycle assessment and ethics. **Circular product-service systems & sustainable transitions** retains product development, users, markets and organisations while shifting ten courses into environmental systems, materials, circularity, renewable-system design, governance, applied sustainability research and public communication. The programmes differ by 10 courses / 75 EC in each direction.
+
+Neither programme is represented as Industrial Design Engineering. UCR lacks the target's cumulative design studios, visualisation and form-giving, ergonomics and usability, materials and manufacturing, CAD and physical prototyping, interaction design and integrated product-engineering formation. A separate health-and-well-being design direction was assessed and rejected because UCR has no health-design, service-design, ergonomics, usability or medical-product studio sequence.
+
+The current [programme page](https://www.tudelft.nl/onderwijs/opleidingen/bachelors/industrieel-ontwerpen/bsc-industrieel-ontwerpen/over-de-opleiding/wat-ga-ik-leren) continues to organise the programme around people, organisations and technology. The linked [2026–2027 curriculum](https://filelist.tudelft.nl/IO/Studeren/Bacheloropleiding/BSc%20Curriculum_2026_2027_met%20code%20en%20slots.png?hash=37c0a865d7) retains five design projects, profiling slots, a 30-EC minor and a 15-EC final project.
+
+Each UCR programme contains 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces, with six and eight 300-level courses respectively. Exact planned availability and every formal prerequisite pass. Publication: [`a9e7b8a`](https://github.com/solmyr1980/ucr-pathways/commit/a9e7b8aac0eb94c7eb90fb1e096b284f48a12739).
+
+### cp-000251 — Life Science and Technology, Delft University of Technology and Leiden University
+
+**Outcome: replaced with one bounded related-fields comparison; publication verified.**
+
+**Molecular life science, laboratory methods & quantitative analysis** combines molecular cell biology, biochemistry, one broad life-science laboratory course, genetics, immunity, pharmacology and disease with research methods, calculus, linear algebra, numerical methods, probability, programming, data science and image analysis. Life-cycle assessment and ethics add limited sustainable and societal context.
+
+The programme is not represented as Life Science and Technology or bioprocess engineering. UCR lacks organic and chemical biology, structural biology, chemical thermodynamics, transport phenomena, microbial physiology, industrial microbial biotechnology, biocatalysis, bioprocess modelling, process design, an advanced microbial-biotechnology practicum and an equivalent 20-EC final project. A medical-and-sustainable-biotechnology candidate was assessed but is already covered by the closest route and cannot yield a genuinely different complete programme without repeating the same molecular and quantitative core.
+
+Current [TU Delft programme information](https://www.tudelft.nl/onderwijs/opleidingen/bachelors/lst/bsc-life-science-and-technology/over-de-opleiding) and the [joint curriculum](https://filelist.tudelft.nl/TUDelft/Onderwijs/Opleidingen/Bachelor/Life_Science_Technology/02._Opleiding/2026_LST_DEF_web_pag2.pdf) continue to show the integrated molecular-biology, chemistry, thermodynamics, microbial-biotechnology, laboratory and modelling spine. Leiden's [2025–2028 curriculum](https://www.universiteitleiden.nl/binaries/content/assets/science/education/oer/2025-2026/bacheloropleidingen/programma-lst-cohort-2025-2028.pdf) likewise confirms the joint sequence, 30-EC minor and 20-EC final project.
+
+The UCR programme contains 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD, 23 non-PPD traces and six 300-level courses. Exact planned availability and every formal prerequisite pass. Publication: [`2b315eb`](https://github.com/solmyr1980/ucr-pathways/commit/2b315eb8059bfde6fb60988911d34527be91b561).
+
+Deterministic compiler replay reproduced both records. Authoritative-workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. The shared index refreshes [`c010ebc`](https://github.com/solmyr1980/ucr-pathways/commit/c010ebcc75caa25b91d33f5959790ce1c735066b) and [`97ad3b3`](https://github.com/solmyr1980/ucr-pathways/commit/97ad3b3cf316dac9805d3111a4ffd3fcfa9a28d9) carry the exact locally generated blobs. The connector exposed no legacy status contexts or workflow runs. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
+
+**Progress: 44 of 55 completed; 11 remain.** All forty-four reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 381 comparisons and 57 exceptions (25 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000252 and cp-000258**.
