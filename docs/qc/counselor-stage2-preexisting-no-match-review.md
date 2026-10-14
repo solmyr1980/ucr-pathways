@@ -663,3 +663,36 @@ Each UCR programme contains 24 unique courses / 180 EC, four courses in every se
 Deterministic compiler replay reproduced both records. Authoritative-workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. Successful index-refresh commits [`5f8b02f`](https://github.com/solmyr1980/ucr-pathways/commit/5f8b02fe1ecd75a003aac7065d54fe9c9d254790) and [`eb3e9f4`](https://github.com/solmyr1980/ucr-pathways/commit/eb3e9f49bd028246dd76d48b51ccfddc009888b4) were verified; no legacy status contexts were exposed. A transport-truncated ledger blob in the first batch-record publication was immediately replaced in corrective commit [`e232f0e`](https://github.com/solmyr1980/ucr-pathways/commit/e232f0e8b4c7abcadd41f6fcbd240ef5583e6841), and the restored remote JSON was parsed and hash-verified. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
 
 **Progress: 40 of 55 completed; 15 remain.** All forty reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 377 comparisons and 61 exceptions (29 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000217 and cp-000244**.
+
+
+## Batch 21 — 14 October 2026
+
+The review reused the fixed 55-ID queue and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). Every selected course was checked against its description and outline-derived profile, formal prerequisites and exact planned semester. Current Groningen and Tilburg evidence was rechecked on 14 October 2026. Both settled 180-EC external curricula, neutral choices and open curricular space remain unchanged.
+
+### cp-000217 — Mathematics, University of Groningen
+
+**Outcome: replaced with two bounded related-fields comparisons; publication verified.**
+
+**Mathematical methods, algorithms & autonomous systems** develops calculus, linear algebra, numerical methods, probability, discrete structures, programming, algorithms, optimisation, machine learning, robotics and autonomous decision methods. **Probability, statistical modelling & computational research** shifts five courses into research design, software development, econometrics, multivariate statistics and meta-analysis. The programmes differ by 5 courses / 37.5 EC in each direction.
+
+Neither programme is represented as Mathematics. UCR lacks the target's cumulative proof-based real and functional analysis, topology, group theory, geometry, number theory and advanced algebra sequence and the 15-EC Mathematics research project. A separate pure proof-based direction was assessed and rejected for those concrete curriculum and supervision gaps.
+
+The current [programme page](https://www.rug.nl/bachelors/mathematics/?lang=en) continues to emphasise theoretical depth in algebra, topology, analysis and probability, proof, and later number theory, dynamical systems and cryptography. The [2026–27 programme appendix](https://www.rug.nl/fse/education/ter/ter-2627-bsc/12-ter-bsc-mathematics-26-27.pdf) remains the formal authority for the preserved 150-EC major, neutral restricted choices and 30-EC open minor; the current [Bachelor's Project Mathematics page](https://ocasys.rug.nl/current/catalog/course/WBMA902-15) confirms the 15-EC research project.
+
+Each UCR programme contains 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces, with eight and seven 300-level courses respectively. Exact planned availability and every formal prerequisite pass. Publication: [`bd8d31c`](https://github.com/solmyr1980/ucr-pathways/commit/bd8d31c54d912d1ad42d6f8dde9a9c5437a772c2).
+
+### cp-000244 — Theology, Tilburg University
+
+**Outcome: replaced with two bounded related-fields comparisons; publication verified.**
+
+**Belief, worldviews, cultural traditions & public life** combines philosophical study of belief and meaning with literature, myth, history, heritage, psychology, sociology, politics and public-law context. **Ethics, justice & social responsibility** combines moral philosophy, human rights, criminal, international, private and European law, political institutions, social theory, conflict, environmental justice and public communication. The programmes differ by 12 courses / 90 EC in each direction.
+
+Neither programme is represented as Theology, Catholic applied ethics or teacher formation. UCR lacks biblical Hebrew, Greek and Latin; scriptural exegesis; dogmatics; systematic and practical theology; spirituality; liturgy and sacraments; canon law; patristics; and a Theology thesis. The stable Religion and Worldviews education minor was separately assessed and rejected because UCR lacks a coherent pedagogy, curriculum-design and supervised-school-practice sequence.
+
+The current [programme page](https://www.tilburguniversity.edu/education/bachelors-programs/theology/program-and-courses) still confirms the September 2026 English Tilburg structure, source-language requirements and 9-EC thesis. Its Old Testament: Torah and Prophetic Literature display remains 3 EC, while the adopted 2026 cohort appendix gives U20074-B-6 as 6 EC; the settled formal 6-EC value and complete 180-EC reconstruction remain controlling.
+
+Each UCR programme contains 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces, with seven and eight 300-level courses respectively. Exact planned availability and every formal prerequisite pass. Publication: [`2fb3827`](https://github.com/solmyr1980/ucr-pathways/commit/2fb3827421b66b08f128ef144b3f0fea53afa4fa).
+
+Deterministic compiler replay reproduced both records. Authoritative-workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. The shared index refresh [`1784e23`](https://github.com/solmyr1980/ucr-pathways/commit/1784e23ac272c5271a9079047e8137dd044c2d79) carries the exact locally generated blob. The connector exposed no legacy status contexts or workflow runs. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
+
+**Progress: 42 of 55 completed; 13 remain.** All forty-two reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 379 comparisons and 59 exceptions (27 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000249 and cp-000251**.
