@@ -631,3 +631,35 @@ Each UCR programme contains 24 unique courses / 180 EC, four courses in every se
 Deterministic compiler replay reproduced both records. Authoritative-workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. Successful index-refresh commits [`68889d7`](https://github.com/solmyr1980/ucr-pathways/commit/68889d7b6003a8ec56d7854ccded78779ad60150) and [`9d917d2`](https://github.com/solmyr1980/ucr-pathways/commit/9d917d2e881fa31bafcc5574d3350466939a9ade) were verified; no legacy status contexts were exposed. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
 
 **Progress: 38 of 55 completed; 17 remain.** All thirty-eight reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 375 comparisons and 63 exceptions (31 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000215 and cp-000216**.
+
+## Batch 20 — 14 October 2026
+
+The review reused the fixed 55-ID queue and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). Every selected course was checked against its description and outline-derived profile, formal prerequisites and exact planned semester. Current Groningen evidence was rechecked on 14 October 2026. Both settled 180-EC external curricula and neutral route choices remain unchanged.
+
+### cp-000215 — Applied Mathematics, University of Groningen
+
+**Outcome: replaced with three related-fields comparisons; publication verified.**
+
+**Mathematical modelling, algorithms & autonomous systems** develops calculus, linear algebra, numerical methods, linear systems, probability, programming, algorithms, optimisation, machine learning, robotics and autonomous decision methods, with a smaller sustainable-technology application strand. **Mathematical modelling, Earth systems & sustainable technology** retains the quantitative core while shifting six courses into Earth-system modelling, laboratory and geospatial investigation, water–mineral systems, resource recovery and renewable-system assessment. **Quantitative bioscience, imaging & computational modelling** combines molecular, physiological, neurobiological, laboratory and disease science with mathematics, programming, imaging and data modelling.
+
+None is represented as Applied Mathematics. UCR lacks the target's sustained proof-based real, complex and functional analysis and topology sequence; full ordinary- and partial-differential-equations and advanced systems breadth; staged applied-mathematics projects; and 15-EC disciplinary research project. The allowed maximum of three alternatives was reached after the separately evidenced engineering/physical-systems and biological-modelling directions were included.
+
+The current [programme page](https://www.rug.nl/bachelors/applied-mathematics/?lang=en) continues to confirm the 180-EC degree, common first year, numerical-mathematics and systems/control directions, modelling and simulation emphasis, and final research project. The [2026–27 programme appendix](https://www.rug.nl/fse/education/ter/ter-2627-bsc/1-ter-bsc-applied-mathematics-26-27.pdf) remains the formal authority for the preserved 165-EC major, neutral restricted choices and 15-EC open minor.
+
+Each UCR programme contains 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces, with nine, nine and seven 300-level courses respectively. Exact planned availability and every formal prerequisite pass. Pairwise differences are 6, 13 and 13 courses. Publication: [`ca2bf96`](https://github.com/solmyr1980/ucr-pathways/commit/ca2bf9688b95049125a64e287f77e30f0f82f051).
+
+### cp-000216 — Theology, University of Groningen
+
+**Outcome: replaced with two related-fields comparisons; publication verified.**
+
+**Belief, cultural traditions & public life** combines philosophical study of belief and meaning with history, literature, heritage, social psychology, sociology, politics and public-law context. **Ethics of technology, health & planetary responsibility** combines moral philosophy and human-rights reasoning with explicit AI ethics, biomedical and genetic foundations, human physiology and disease, sustainability governance, circular economy and renewable-system design. The programmes differ by 18 courses / 135 EC in each direction.
+
+Neither programme is represented as Theology, theological ethics or ministry formation. UCR lacks biblical Hebrew and Koinè Greek, scriptural exegesis, dogmatics, biblical, systematic, practical, historical and intercultural theology, pastoral/ministry and supervised spiritual-care formation, and a Theology thesis. Biblical/exegetical and ministry/spiritual-care directions were assessed separately and rejected for these concrete gaps.
+
+The current [programme page](https://www.rug.nl/bachelors/theology/) continues to present four variants and identifies the PThU trajectory with Greek as the most commonly chosen. The adopted [2026–27 regulations](https://www.rug.nl/rcs/education/studyguide/oer-26-27/ter-ba-th-26-27.pdf) remain the formal authority for the preserved 180-EC PThU-with-Greek pathway, first-listed specialization, thesis seminar, science communication and 10-EC Theology thesis.
+
+Each UCR programme contains 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD and 23 non-PPD traces, with seven and nine 300-level courses respectively. Exact planned availability and every formal prerequisite pass. Publication: [`970d16f`](https://github.com/solmyr1980/ucr-pathways/commit/970d16f044ed52fc34fb7f8f5582f4077c1809c9).
+
+Deterministic compiler replay reproduced both records. Authoritative-workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. Successful index-refresh commits [`5f8b02f`](https://github.com/solmyr1980/ucr-pathways/commit/5f8b02fe1ecd75a003aac7065d54fe9c9d254790) and [`eb3e9f4`](https://github.com/solmyr1980/ucr-pathways/commit/eb3e9f49bd028246dd76d48b51ccfddc009888b4) were verified; no legacy status contexts were exposed. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
+
+**Progress: 40 of 55 completed; 15 remain.** All forty reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 377 comparisons and 61 exceptions (29 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000217 and cp-000244**.
