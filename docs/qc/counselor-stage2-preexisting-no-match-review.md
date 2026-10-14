@@ -566,3 +566,36 @@ The UCR programme contains 24 unique courses / 180 EC, four courses in every sem
 Deterministic compiler replay reproduced both records. Workbook audits, full-corpus validators, compiler regressions, programme-interest validation, repository tests and review-index regeneration passed. Successful index-refresh commits [`f2d3956`](https://github.com/solmyr1980/ucr-pathways/commit/f2d3956e06838b50fd03add629ae561a3c64e206) and [`8059315`](https://github.com/solmyr1980/ucr-pathways/commit/8059315) were verified; no legacy status contexts were exposed. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
 
 **Progress: 34 of 55 completed; 21 remain.** All thirty-four reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 371 comparisons and 67 exceptions (35 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000211 and cp-000212**.
+
+
+## Batch 18 — 14 October 2026
+
+The review reused the fixed 55-ID queue and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). Every selected course was checked against its description and outline-derived profile, formal prerequisites and exact planned semester. Current Groningen evidence was rechecked on 14 October 2026. Both settled 180-EC external curricula and neutral selections remain unchanged.
+
+### cp-000211 — Linguistics, University of Groningen
+
+**Outcome: replaced with one related-fields comparison; publication verified.**
+
+**Language processing, cognition & communication** combines psycholinguistics, neuroscience, cognitive and lifespan development, behavioural statistics and evidence synthesis with text data, neural-network language methods, rhetoric, stylistics, textual meaning and multimodal communication. It responds to the target's language-and-brain, language-learning/use, psychology-and-neuroscience and scientific-analysis interests through actual course content.
+
+The programme is not represented as Linguistics, Neurolinguistics or Clinical Linguistics. UCR lacks the cumulative phonology, syntax, morphology, formal semantics, pragmatics and language-change sequence; speech-language pathology, dyslexia, clinical language assessment and language neuroimaging; and specialist Linguistics graduation seminars. Structural/theoretical and clinical/neurolinguistics directions were separately assessed and remain infeasible for those concrete course-sequence reasons.
+
+The current [programme page](https://www.rug.nl/bachelors/linguistics/?lang=en) continues to confirm the language-and-brain, language-disorder and theoretical-linguistics structure. The cohort-specific [2026–27 programme regulations](https://www.rug.nl/let/onze-faculteit/organisatie/diensten-en-voorzieningen/onderwijsinstituut/oeren/2026-2027/bacheloropleidingen/delen-b/ba-taalwetenschap-deelb.pdf) remain the formal authority for the preserved 180-EC reconstruction.
+
+The UCR programme contains 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD, ten 300-level courses and 23 non-PPD traces. Exact planned availability and every formal prerequisite pass. Publication: [`29b2144`](https://github.com/solmyr1980/ucr-pathways/commit/29b214434fc15179ac37e486e0f6964167d64a4e).
+
+### cp-000212 — Dentistry, University of Groningen
+
+**Outcome: replaced with one related-fields comparison; publication verified.**
+
+**Biomedical foundations, public health & health behaviour** combines human anatomy and physiology, biochemistry, cell biology, infection, immunity, pharmacology and disease mechanisms with epidemiology, prevention, health psychology, patient behaviour, communication and evidence synthesis. It responds to the target's medical-scientific, prevention, bodily/oral-health relationship and patient-context interests without inventing oral content.
+
+The programme is not represented as Dentistry, oral-health professional formation or a route to dental qualification. UCR lacks oral anatomy and biology, cariology, periodontology, dental pathology, dental materials and radiography, diagnosis and treatment planning, restorative procedures, preclinical simulation, manual dental skills and supervised patient care. The direct oral-science and clinical-dentistry direction was separately assessed and remains infeasible.
+
+The current [programme page](https://www.rug.nl/bachelors/dentistry/) confirms the integration of bodily and oral health, prevention, patient communication, technical practice and patient care. The official [Dentistry documents page](https://www.rug.nl/umcg/education/tandheelkunde/belangrijkedocumententhk/), last modified 21 September 2026, still publishes the settled 2026–27 bachelor OER.
+
+The UCR programme contains 24 unique courses / 180 EC, four courses in every semester, Year-1 PPD, ten 300-level courses and 23 non-PPD traces. Exact planned availability and every formal prerequisite pass. Publication: [`e820b05`](https://github.com/solmyr1980/ucr-pathways/commit/e820b054ee25d6486f44c436b00d9eb817438159).
+
+Deterministic compiler replay reproduced both records. Authoritative-workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. Successful index-refresh commits [`8fc79b2`](https://github.com/solmyr1980/ucr-pathways/commit/8fc79b26a0aa31139b1cb468247ba3bcde27360f) and [`be43dae`](https://github.com/solmyr1980/ucr-pathways/commit/be43dae66f37a6f66de1cdd44b411f707b491b54) were verified; no legacy status contexts were exposed. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
+
+**Progress: 36 of 55 completed; 19 remain.** All thirty-six reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 373 comparisons and 65 exceptions (33 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000213 and cp-000214**.
