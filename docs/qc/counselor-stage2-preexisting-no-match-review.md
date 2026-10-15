@@ -760,3 +760,37 @@ Each UCR programme contains 24 unique courses / 180 EC, four courses in every se
 Deterministic compiler replay reproduced both records. Authoritative-workbook schedule audits, full-corpus structural and final-methodology validators, compiler and optional-research regressions, programme-interest validation, repository tests and review-index regeneration passed. The shared index refreshes [`e9664b3`](https://github.com/solmyr1980/ucr-pathways/commit/e9664b374fa0cbb1c2a813b8f1ab6fadc2d6a1db) and [`81c8ec5`](https://github.com/solmyr1980/ucr-pathways/commit/81c8ec5de16d377222cba5b73629db36cc3e3b03) carry the exact locally generated blobs. The connector exposed no legacy status contexts or workflow runs. Earlier remediation, the completed 50-case assessment and the ten-case independent-QC history remain unchanged.
 
 **Progress: 46 of 55 completed; 9 remain.** All forty-six reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 383 comparisons and 55 exceptions (23 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000260 and cp-000276**.
+
+## Batch 24 — 15 October 2026
+
+The review reused the fixed 55-ID queue, the current Master Specification and Production Instructions, all exact-target programme-interest rows and the authoritative 151-row UCR workbook (SHA-256 `7bf6c2ae9de0837086ec741c27bd94ed7e85dff2d25bde619ecd50cc4d685879`). Its content/profile cache was checked against every current workbook row. Both cases were compiled, reviewed and published separately on `main`; all uploaded decision and canonical blobs match their local Git hashes exactly.
+
+### cp-000260 — Mechanical Engineering, Delft University of Technology
+
+Outcome: replaced with two bounded related-fields comparisons.
+
+**Mathematical modelling & autonomous technology** concentrates on mathematics, programming, algorithms, data, perception, robotics and autonomous decisions, with bounded product-development and sustainability applications. **Quantitative models, renewable energy & circular resources** shifts seven courses (52.5 EC) into Earth-system investigation, soils/aquifers, climate, resource recovery, environmental biogeochemistry and advanced resource research.
+
+The programmes retain explicit gaps in mechanical science, thermodynamics, fluid flow/heat transfer, engineering materials/manufacturing, laboratories, hardware control and cumulative mechanical-design projects. Structural materials/manufacturing and thermal/fluid engineering were assessed independently and cannot support a third full programme. One consumer-product project and introductory sustainability materials are not treated as a cumulative engineering spine.
+
+The current [programme page](https://www.tudelft.nl/onderwijs/opleidingen/bachelors/wb/bsc-werktuigbouwkunde/over-de-opleiding/wat-ga-ik-leren) and adopted [2026–2027 OER](https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/ME/Onderwijs/GERELATEERD/Reglementen/Archief%20Onderwijsreglementen/2026-2027/OER%20BSc%20WB-MT_DEFINITIEF.pdf) were rechecked. The OER separately credits Projects 3A and 3B, which the public page groups under one third project. The existing 25-component, 180-EC comparator, 30-EC minor and 14-EC final project are preserved.
+
+Both programmes have 24 unique courses, four per semester, Year-1 PPD and 23 substantive non-PPD traces, with eight and seven 300-level courses respectively. Exact planned availability and all formal prerequisites pass. Publication: [`38255fa`](https://github.com/solmyr1980/ucr-pathways/commit/38255fa6005904b6c85ccecf402dac346b1c7829).
+
+### cp-000276 — Theology, Theological University Utrecht
+
+Outcome: replaced with two bounded related-fields comparisons.
+
+**Philosophy, cultural traditions & interpretation** combines philosophical inquiry, moral agency, literature/myth, art and archaeology, historical-source analysis, social theory and qualitative research. **Ethics, social justice & environmental responsibility** changes twelve courses (90 EC) toward public law, civil society, peacebuilding, civic communication, climate science, environmental justice, sustainability governance and community inquiry. The current official guide’s public-theology and ecological-ethics offerings establish these directions independently of the UCR catalogue.
+
+The comparison preserves the absence of Christian systematic theology, biblical languages, Old/New Testament study, theological exegesis, church-history progression, worship and pastoral formation. Historical and literary methods are labelled as related contributions rather than scriptural substitutes. Separate biblical-language/exegesis and practical/pastoral candidates fail for missing connected academic and practice sequences, not merely missing professional qualifications.
+
+The [current programme page](https://tuu.nl/opleidingen/bachelor-theologie/) links the [2026–2027 guide](https://tuu.nl/wp-content/uploads/2023/08/BT-studiegids-2026-2027.pdf) and [course overview](https://tuu.nl/wp-content/uploads/2023/08/Cursusoverzicht-bachelor-2026-2027.pdf). Both PDFs were retrieved again and match the earlier same-day copies byte for byte. The guide explicitly names the main route **Klassieke Theologie** (pp.10–11); the neutral selection now records that verified name while preserving the already chosen full-language curriculum. The guide also confirms that the old **Religie en Samenleving Track 2** became a Church and Society minor/variant from September 2026 (p.76). The historical interest row is therefore corroborated as a public-society direction, without carrying forward the superseded route name. The public page’s course examples are still labelled 2025–2026; the dated current guide and overview govern formal details.
+
+The former three year aggregates are expanded into 43 individually credited comparator components, preserving 60 EC per year, the 30-EC open minor and 10-EC thesis. Missiology is counted once across its two teaching periods, and year-long formation entries are not duplicated. The comparator minor remains open; an internal minor was not chosen to improve apparent UCR overlap.
+
+Both programmes have 24 unique courses, four per semester, Year-1 PPD and 23 substantive non-PPD traces, with six and seven 300-level courses respectively. Exact planned availability and every formal prerequisite pass. Publication: [`41a3a34`](https://github.com/solmyr1980/ucr-pathways/commit/41a3a3442f9544af6ce775a1d07dd703d556b2f0).
+
+Deterministic replay reproduces both canonical records. Current-workbook audits, full-corpus structural/final-methodology validation, programme-interest ownership and registry checks, compiler/optional-research/exception regressions, repository tests and regenerated review-index checks pass. Each UCR programme accounts for 180 EC once and separately displays the comparison-only 15-EC optional independent-research opportunity beside the external final project/thesis. The final remote workflow/index verification is recorded in the register.
+
+**Progress: 48 of 55 completed; 7 remain.** All forty-eight reviewed cases have been replaced by defensible comparisons. The current 438-record corpus contains 385 comparisons and 53 exceptions (21 no-match; 32 unresolved external programmes). Next fixed-queue batch: **cp-000301 and cp-000310**.
