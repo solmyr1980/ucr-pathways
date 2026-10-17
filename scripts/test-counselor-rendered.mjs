@@ -10,8 +10,8 @@ const out = path.resolve(process.env.UCR_RENDERED_EVIDENCE_DIR || '/tmp/ucr-coun
 fs.mkdirSync(out, {recursive:true});
 const results=[];
 const cases = {
-  actual: [['cp-000003','Pedagogical'],['cp-000001','Public Administration'],['cp-000019','Arts and Culture'],['cp-000330','Mechanical Engineering'],['cp-000119','Theology'],['cp-000277','African Studies']],
-  fixtures: [['cp-000004','Psychology'],['cp-000002','Management of International'],['cp-000005','Psychology'],['cp-000119','Theology'],['cp-000277','African Studies'],['cp-000019','Arts and Culture'],['cp-000330','Mechanical Engineering']]
+  actual: [['cp-000003','Pedagogical'],['cp-000001','Public Administration'],['cp-000019','Arts and Culture'],['cp-000330','Mechanical Engineering'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies']],
+  fixtures: [['cp-000004','Psychology'],['cp-000002','Management of International'],['cp-000005','Psychology'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000019','Arts and Culture'],['cp-000330','Mechanical Engineering']]
 };
 const browser = await chromium.launch({headless:true,args:['--no-sandbox']});
 try {
@@ -93,7 +93,8 @@ try {
       if(variant==='actual' && !JSON.parse(fs.readFileSync(`data/counselor/comparisons/${id}.json`)).audience?.curriculum) assert.equal(await page.locator('.external-curriculum').count(),0);
       else {assert.ok(body.includes('175 EC')&&body.includes('required 5 EC'));assert.ok(body.includes('Verified partial curriculum'));}
      }
-     if(id==='cp-000119')assert.ok(body.includes('cannot construct a sufficiently close programme'));
+     if(id==='cp-000428')assert.ok(body.includes('cannot construct a sufficiently close programme'));
+     if(id==='cp-000119' && variant==='actual')assert.ok(body.includes('Philosophy, myth & cultural meaning') && !body.includes('cannot construct a sufficiently close programme'));
      if(variant==='fixtures'&&id==='cp-000002'){assert.ok(body.includes('withheld from presentation'));assert.equal(await page.locator('.compare-view').count(),0);assert.ok(body.includes('Complete external curriculum'));}
      if(variant==='fixtures'&&id==='cp-000005'){assert.ok(body.includes('other content remains under review'));assert.ok(body.includes('Curriculum details are awaiting review'));}
      if(id==='cp-000330')assert.ok(body.includes('specialist subjects or forms of training may differ'));
