@@ -79,14 +79,14 @@ try {
        assert.ok(!text.includes('description is not currently available'));
        modals.push({code,text});
        await page.screenshot({path:path.join(out,`${variant}-${code}-${size}.png`)});
-       await page.locator('.modal.in button', {hasText:'Close'}).click();await page.locator('.modal').waitFor({state:'hidden'});
+       await page.locator('.modal.in button', {hasText:'Close'}).click();await page.locator('.modal').waitFor({state:'hidden'});await page.locator('.modal-backdrop').waitFor({state:'hidden'});
       }
      }
      if(id==='cp-000019') {
       await page.evaluate(()=>Shiny.setInputValue('course_click',{code:'MCCMISSING999',name:'Unavailable test course'},{priority:'event'}));
       await page.locator('.modal.in').waitFor();
       assert.ok((await page.locator('.modal.in').innerText()).includes('A course description is not currently available.'));
-      await page.locator('.modal.in button',{hasText:'Close'}).click();await page.locator('.modal').waitFor({state:'hidden'});
+      await page.locator('.modal.in button',{hasText:'Close'}).click();await page.locator('.modal').waitFor({state:'hidden'});await page.locator('.modal-backdrop').waitFor({state:'hidden'});
      }
      if(id==='cp-000277') {
       assert.ok(body.includes('no complete degree pathway is certified'));
