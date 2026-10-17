@@ -16,6 +16,7 @@ on:
       - 'scripts/test-optional-independent-research.mjs'
       - 'scripts/test-counselor-compiler.mjs'
       - 'scripts/test-counselor-compiler-v2.mjs'
+      - 'scripts/test-counselor-recovery.py'
       - 'scripts/test-counselor-exception.mjs'
       - 'scripts/validate-counselor-comparison.mjs'
       - 'scripts/validate-counselor-structural-rules.mjs'
@@ -103,6 +104,20 @@ jobs:
               echo "New production must not be combined with withdrawals." >&2
               exit 1
             fi
+            # A missing root decision can be recovered for an existing record.
+            # Replay its explicitly committed canonical pair; never regenerate
+            # over an existing record through the new-production publisher.
+            if git cat-file -e "$GITHUB_SHA^:$comparison_path" 2>/dev/null; then
+              comparison_status="$(git diff-tree --no-commit-id --name-status -r "$GITHUB_SHA" -- "$comparison_path" | awk '{print $1}')"
+              if [[ "$comparison_status" != "M" ]]; then
+                echo "A recovered decision must accompany its regenerated existing canonical comparison." >&2
+                exit 1
+              fi
+              echo "mode=repair" >> "$GITHUB_OUTPUT"
+              echo "decision_path=$decision_path" >> "$GITHUB_OUTPUT"
+              echo "comparison_id=$comparison_id" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
             # A remediation handoff must not bypass new-production assessment.
             git show "$GITHUB_SHA:$decision_path" | node --input-type=module -e '
               import fs from "node:fs";
@@ -129,6 +144,7 @@ jobs:
       - name: Run compiler regressions in temporary storage
         run: |
           npm run test:counselor-compiler
+          python scripts/test-counselor-recovery.py
           python scripts/test-registry-corrections.py
           python scripts/apply-registry-corrections.py --check
 
