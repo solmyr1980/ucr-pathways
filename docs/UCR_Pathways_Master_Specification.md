@@ -299,6 +299,8 @@ Canonical records contain semantic content, not renderer coordinates, CSS or pag
 
 User-facing explanations and internal research documentation serve different purposes. Preserve source investigations, cohort reconciliation, validation reasoning and technical evidence internally. Display only clear, academically accurate explanations relevant to prospective students and counselors, including material limitations. A field's presence in the canonical record does not by itself make it suitable for display. Review the rendered experience separately from academic and technical validity.
 
+When a comprehensive counselor re-audit is authorised, each case proceeds through review, necessary correction or reconstruction, reassessment of affected downstream decisions, independent verification and final disposition as one integrated process. Preserve all independently verified work. Approval requires implemented and verified corrections, source-based academic verification, mechanical validity and an acceptable actual rendered experience. Genuinely unavailable evidence remains explicit and cannot support academic or presentation approval. The Production Instructions govern execution; one final corpus release check does not create a second comprehensive academic re-audit.
+
 ---
 
 # 7. Public website

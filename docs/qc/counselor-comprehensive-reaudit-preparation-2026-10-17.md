@@ -2,7 +2,7 @@
 
 Date: 17 October 2026. Baseline: `bb2c4b5bd41e060b501448e057757f661ef22d4e` on `main`.
 
-Status: preparatory assignment completed. The first comprehensive pilot pair has subsequently been reviewed; see the dated findings appended below. No counselor comparison, decision, curriculum, programme description, schema, validator, application or presentation setting has been changed. The earlier alignment pilot is a separate historical exercise.
+Status: the initial preparation and first-pair review are complete; their dated findings remain below. The integrated-workflow preparation is appended at the end. Counselor academic records, programme-interest data, application code and presentation settings remain unchanged. The earlier alignment pilot is a separate historical exercise.
 
 Deliverables: [operational protocol](counselor-comprehensive-reaudit-protocol.md), this inventory and architecture diagnosis, the pilot below, and an initial [review register](../../data/counselor/qc/comprehensive-reaudit.json). Counts come from the baseline files, not historical report summaries. Inventory inspection is not stage approval.
 
@@ -172,7 +172,7 @@ These outcomes distinguish an academic structure needing reconstruction from def
 
 ### Evidence and limits of verification
 
-The review independently downloaded and inspected the applicable Leiden programme-specific regulations, Erasmus 2026–2027 TER, current programme/overview/career pages, Leiden's current BA-AFR response and 22 linked module records. The Leiden Appendix F table was also inspected visually. Retrieval metadata and hashes are in the existing register. Programme-level pages retrieved through web search were used where a direct request returned 502. The current-linked Leiden curriculum image is under a **2025–2026** path; it cannot resolve the September-2026 entrant's requirements.
+The review independently downloaded and inspected the applicable Leiden programme-specific regulations, Erasmus 2026–2027 TER, current programme/overview/career pages, Leiden's current BA-AFR response and 22 linked module records. The Leiden Appendix F table was also inspected visually. Retrieval metadata and hashes are preserved in the detailed [CP277](../../data/counselor/qc/comprehensive-reaudit/cp-000277.json) and [CP019](../../data/counselor/qc/comprehensive-reaudit/cp-000019.json) review files linked from the central register. Programme-level pages retrieved through web search were used where a direct request returned 502. The current-linked Leiden curriculum image is under a **2025–2026** path; it cannot resolve the September-2026 entrant's requirements.
 
 The complete enriched workbook was opened afresh in the current checkout. All 47 unique selected CP019 codes were read against profile/description evidence and their programme roles; all 72 scheduled placements were independently checked. This includes the description-only entry for Writing Art's Histories, not an invented missing outline. The former QC feasibility declarations were not the basis for these results.
 
@@ -217,7 +217,7 @@ Most selections contribute actual art/literary/media study, social inquiry or sp
 - The sociology sequence teaches general theory, modernity and civil society, not the comparator's specialist cultural-sociology sequence. Retain the courses and their partial relationships; change the specialist wording in concepts/rationales.
 - **MCCCOMM213 Rhetoric in Action** is a community education project in which students train primary-school children in speaking and debate, principally in Dutch. Its existing cultural-public-communication justification does not explain that specific contribution to this programme's organising purpose. Require a concrete academic justification within the existing concept, or replace this one course. Do not solve the issue by retrospectively inventing a new concept to accommodate it. Other alternatives do not depend on this course.
 
-The [47-code review in the register](../../data/counselor/qc/comprehensive-reaudit.json) records actual roles, qualifications and programme membership. It preserves specific complementary study without pretending that every course teaches cultural-sector applications. For example, EU institutions and public economics can contribute to the public-life composition while remaining separate from specialist cultural-policy/cultural-industry components. Leadership study is only a partial organisational counterpart: it does not reproduce cultural financing or the complete cultural-industries formation.
+The [47-code review in the CP019 case file](../../data/counselor/qc/comprehensive-reaudit/cp-000019.json#/stages/4/courseReview) records actual roles, qualifications and programme membership. It preserves specific complementary study without pretending that every course teaches cultural-sector applications. For example, EU institutions and public economics can contribute to the public-life composition while remaining separate from specialist cultural-policy/cultural-industry components. Leadership study is only a partial organisational counterpart: it does not reproduce cultural financing or the complete cultural-industries formation.
 
 Review of all **14 positive and 12 unmatched** decisions found no further confirmed material placement error. Retain meaningful partial correspondences and the recently corrected gaps for specialist cultural policy, advanced cultural economics, specialist management research and the mandatory thesis. Preserve the African heritage rematch: collection, museum acquisition and repatriation are directly evidenced. Keep the data-science/statistics relationship limited to actual data organisation/analysis/presentation, not a full SPSS or statistics syllabus. Detailed external syllabi remain unavailable; the more specific claims about cultural-organisation leadership should be narrowed rather than presented as full certification.
 
@@ -251,3 +251,31 @@ The first pair supports the proposed explicit audience boundary, with four refin
 4. Carry an explicit completeness/status signal when showing partial or diagnostic components. A list of supported courses is not necessarily a complete degree. Layout quality remains a separate requirement.
 
 No final presentation approval is granted. The register contains two reviewed-with-blockers cases and 436 unstarted cases; four selected pilot cases remain unstarted. Review these findings before any next pair, shared architecture implementation or proposed academic/content repairs.
+
+## Integrated workflow preparation — 17 October 2026
+
+This update records the approved continuation after the findings in `3435b8d`. The earlier sections remain the dated baseline and first-pair review, including their evidence limits and unimplemented actions. The current [protocol](counselor-comprehensive-reaudit-protocol.md#execution-sequence-and-coordination) supersedes the earlier diagnosis-first execution arrangement. No shared application fix, case correction, programme-interest change or presentation-setting change is implemented by this preparation, and no next pilot pair has started.
+
+The central register now holds progress and references; [CP277](../../data/counselor/qc/comprehensive-reaudit/cp-000277.json) and [CP019](../../data/counselor/qc/comprehensive-reaudit/cp-000019.json) hold the detailed reviews. Every original case field was copied unchanged. All 121 interest-row decisions, the 47-code course review, all 72 placement checks, 26 alignment decisions, browser observations, proposed corrections and final-review placeholders remain. All 14 source retrieval records, 22 Leiden module records, workbook/governing-document/renderer provenance and both screenshot records are preserved. Screenshot files and paths are unchanged. The four unstarted pilot entries retain their metadata; the fixed baseline remains 438 cases.
+
+The integrated procedure now finishes each case through review, repair, downstream reassessment, independent source-based academic and rendered verification, and final disposition within its normal batch of two. The independent final check must inspect the evidence and finished output, not endorse the repair account. Unavailable evidence remains a blocker; repairable work is not deferred into a second general correction cycle. One coordinated GitHub writer serializes repairs and register updates.
+
+The agreed execution order is:
+
+1. Implement and test the shared audience-content architecture, remove internal-documentation leakage, reconcile course modals and repair mobile comparison layout.
+2. Return to CP277 and CP019, implement the recorded corrections and independently verify the finished results, retaining any genuinely unresolved evidence blockers.
+3. Complete CP119 + CP001, then CP035 + CP330 with the integrated procedure.
+4. Evaluate pilot quality and throughput before processing the remaining corpus in pairs.
+5. After all case-level processing, perform one corpus-level release check; this does not repeat the comprehensive academic review.
+
+Both first-pair cases remain `reviewed-with-blockers`, with no academic or presentation approval and no implemented case corrections. Progress remains **0 approved, 0 in progress, 2 reviewed with blockers and 436 unstarted**. The next assignment is step 1 above. Practical dependencies remain CP277's unidentified required 5 EC and exact-target attribution evidence, CP019's bounded candidate/course/content corrections and external-syllabus evidence limits, the three shared application defects, and the lack of root decision files for CP001–CP005. These dependencies do not obstruct this register/documentation preparation.
+
+The new read-only stdlib check is `python scripts/validate-comprehensive-reaudit.py`. It checks register/detail projections, records and scope, progress counts, interest-row coverage, evidence-file references, screenshot hashes and approval prerequisites. Run it alongside the existing counselor and review-index validators. Mechanical consistency does not certify the academic findings or establish reviewer independence.
+
+Validation of this preparation passed:
+
+- `python scripts/validate-comprehensive-reaudit.py`: 438 baseline targets, two linked detailed reviews, consistent statuses/outcomes/counts, complete reviewed interest rows and valid screenshot hashes.
+- Behavioral checks against in-memory fixtures: two acceptance cases and 16 rejection cases, including count/status drift, lost interest evidence, changed screenshots, premature approval, missing source/final-review evidence, stale canonical approval and failed rendered verification. Fixtures did not modify repository records.
+- Lossless comparison with `3435b8d`: all original case fields, source/module/rendered metadata and common provenance preserved; both screenshot files byte-identical. Historical baseline, shared-issue and batch metadata retained.
+- `npm run validate:counselor`: unchanged full corpus passed; `npm run validate:counselor-review`: 438 programmes and 21,212 interest rows current.
+- `git diff --check` and change-scope inspection: clean; only QC infrastructure and governing/operational documentation changed. No compiler or renderer change required replay/regression or new rendered testing during this assignment; the existing rendered findings remain historical evidence, not renewed approval.
