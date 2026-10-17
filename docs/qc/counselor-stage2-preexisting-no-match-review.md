@@ -1,5 +1,7 @@
 # Review of the 55 pre-existing no-match judgments
 
+Completed 17 October 2026: **55 of 55 fixed-scope reviews complete; none remain.** Fifty-four historical no-match judgments were replaced by bounded related-fields comparisons; Japanese Studies retained a reasoned no-match. The scheduled review is disabled. Earlier batch sections below preserve their historical progress counts.
+
 The fixed scope was reconciled against baseline commit `0d0990420d9a182ec2f587b2d1b73adedf5a6009` (13 October 2026). Its canonical corpus contains 69 `no-defensible-ucr-match` exceptions. Excluding all 50 case IDs in the baseline stage-two assessment register removes 14 of these exceptions and leaves exactly **55**. Their exact queue is persisted in `data/counselor/qc/stage2-preexisting-no-match-review.json`, ordered by baseline normalized production order. Subsequent runs must reuse that queue and select its first two IDs without completed entries. Blocked or incomplete reviews remain incomplete.
 
 This review is separate from first-stage remediation, the completed 50-case assessment and the ten-case independent-QC queue. It does not edit their history. A current judgment tests the strongest defensible complete related-fields response, rather than requiring reproduction of the full external discipline.
@@ -883,3 +885,51 @@ All four programmes contain 24 unique courses / 180 EC, exactly four courses in 
 **Progress: 52 of 55 complete; three remain.** Fifty-one historical no-match judgments have been replaced and one retained. The 438-record corpus now contains 388 comparisons and 50 exceptions: 18 no-match and 32 unresolved external programmes. Next fixed-queue batch: **cp-000400 and cp-000436**; cp-000459 is the final single case. The task continues only within this fixed queue.
 
 Final remote verification: both case compiler, Shiny and index-refresh workflows passed. Generated indexes match remote `main` exactly. The final index commit [`ba7791a`](https://github.com/solmyr1980/ucr-pathways/commit/ba7791a3d8956c949173bd898d6f61f65b6fb165) passed Pages deployment; superseded case Pages runs were cancelled. No review remains incomplete in this batch.
+
+## Batch 27 — 17 October 2026
+
+The resumed review used current GitHub AGENTS.md, Production Instructions, Master Specification and the unchanged fixed queue. The enriched workbook was retrieved directly from GitHub and matched Git blob `c2bcc3b63ec7831fd0f7b8ddfb32de1260521655` byte for byte. All earlier 52 review entries, baseline IDs, first-stage histories and other queues are unchanged.
+
+### cp-000400 — Medicine, University of Amsterdam
+
+Replaced no-match with **Biomedical disease mechanisms, health & research** and **Health, cognition, behaviour & social experience**. The first combines molecular/organ-system science, laboratory methods, epidemiology and psychological study of illness. The second changes six courses / 45 EC towards perception, language impairment, social psychology, sociology, qualitative inquiry and persuasion. Those are specific contributions to cognition and patient experience, not medical consultation or treatment. The programmes have nine and eight advanced courses respectively. Abnormal Psychology precedes Psychodiagnostics in the first schedule.
+
+All 60 target-linked interests were assessed: 13 generator-eligible, 35 support-only and 12 search-only. Inclusive healthcare and patient experience generate the second concept. A separate sustainable-healthcare programme was rejected: general lifecycle/resource courses do not supply enough healthcare-operations, waste or service content for 23 substantive non-PPD contributions. Clinical diagnosis, examination, treatment and supervised care remain explicit gaps. The settled UvA 180 EC, 18-EC electives and 12-EC thesis are unchanged. Current official curriculum content was checked; a source-note correction attributes inclusive/sustainable-healthcare interests to the target-linked registry rather than claiming independent confirmation on the current overview page.
+
+### cp-000436 — Dentistry, ACTA / University of Amsterdam
+
+Replaced no-match with **Biomedical disease mechanisms, health & prevention** and **Health, cognition & patient experience**. Cells, systemic anatomy/physiology, pathology, infection, pharmacology and experimental methods supply the biomedical response. Cognitive/psychological study, social inquiry, ethics and persuasion supply the second. The programmes differ by six courses / 45 EC and have nine and eight advanced courses. General anatomy is not described as oral anatomy; general microbial methods are not dental microbiology; public persuasion is not clinical patient consultation.
+
+All 57 target-linked interests were assessed: 12 generator-eligible, 30 support-only and 15 search-only. Accessibility, compassion and patient wellbeing support the second direction. A further precise dental-technology direction was rejected independently: Consumer Product Design does not establish dental materials, restorative procedures, oral mechanics, radiology, preclinical skills or supervised treatment. Prevention is already represented and does not justify a relabelled third programme.
+
+Every settled 2026–27 external component and EC is preserved, including the 14-EC scientific internship and absence of open electives. The current ACTA pages corroborate the academic directions and identify the applicable OER. The direct PDF and study-guide portal were inaccessible; this review does not claim to have re-read them. The recruitment overview now advertises 2027–28 and is not used to replace the applicable 2026–27 curriculum.
+
+## Batch 28 — final single case, 17 October 2026
+
+### cp-000459 — Food Technology, Wageningen University & Research
+
+Replaced no-match with three related academic programmes, constructed sequentially:
+
+- **Biochemistry, circular production & product development** combines seven life/health-science courses, eight environmental/sustainability courses, five quantitative-method courses, three product/enterprise courses and PPD. Molecular mechanisms, bacterial/protein laboratory methods, farming, lifecycle analysis and resource recovery each have a specific role. The programme is not labelled Food Technology.
+- **Health, eating behaviour & consumer research** uses the explicitly evidenced Psychobiology of Eating Behaviour minor direction. Physiology, biochemistry, neural mechanisms, psychology, consumer research, behavioural economics and communication examine choice and product responses. A general psychopathology course was removed in favour of rhetorical analysis with a concrete role in the consumer-message strand. The programme does not promise specialist nutrition or sensory-food-science teaching.
+- **Ecology, circular resources & sustainable food systems** changes the unit of analysis to agricultural ecosystems, soil/water resources, climate impacts, circular materials, governance and economic incentives. Sustainable Farming directly addresses food production; Governance of Sustainability includes food-policy problems. Other courses supply identified environmental and analytical mechanisms rather than all being described as food-specific.
+
+These programmes have seven, seven and six advanced courses. They differ by thirteen, ten and eighteen courses across the three pairs, respectively: 97.5, 75 and 135 EC in each direction. All 83 linked interests were assessed: 18 generator-eligible, 44 support-only and 21 search-only. Product, packaging, protein-transition and plant-based interests are construction-owned by the first concept, with specialist gaps explicit. Eating behaviour and sustainable food systems generate the second and third. Foods of Animal Origin was assessed separately and rejected: general biology cannot supply the missing dairy/meat, animal-food microbiology and animal-food processing sequence.
+
+The current WUR page and its linked October 2026 diagram corroborate the settled curriculum structure and the two named optional minors. The interactive handbook was inaccessible. The full settled 180 EC is preserved, including 30 EC genuine free choice, the neutral 3-EC mathematics option and the 24-EC thesis. No minor was turned into a compulsory route. Food chemistry, microbiology, physics, engineering, preservation, packaging validation and quality systems remain explicit disciplinary gaps.
+
+The initial Food Technology commit was published before its failed corpus-validation result was noticed. The failure concerned an Epidemiology trace that referenced the food-safety basis rather than the eating-behaviour programme's health basis. The corrective commit supplies the specific per-programme health trace. The final full corpus and GitHub checks passed; the initial failed state was not marked complete.
+
+### Final verification and completion
+
+All seven new programmes contain 24 unique courses / 180 EC, four per semester, Year-1 PPD and 23 substantive non-PPD traces. Course metadata, exact planned terms and every formal prerequisite were independently audited against the retrieved workbook. Advisory progression was considered without creating extra formal requirements. Final deterministic compiler replays are byte-identical. Full-corpus structural and methodology validators, registry-interest validation, compiler/optional-research/exception and registry regressions, and all eight repository tests passed. GitHub performed R/Shiny validation. Final decision/canonical and regenerated-index Git blob hashes match remote main; final compiler, Shiny, index and Pages checks succeeded.
+
+The fixed queue is complete: **55 reviewed, 54 replaced by comparisons, one retained no-match, zero incomplete and zero remaining.** The wider 438-record corpus contains 391 comparisons and 47 exceptions: 32 unresolved external programmes and 15 no-match outcomes. Those other cases are outside this completed queue. The hourly task is confirmed disabled; no other queue or continuing evidence monitoring was started.
+
+cp-000400: [case publication](https://github.com/solmyr1980/ucr-pathways/commit/f1217b06cbf5ac7b2284dd637d6c6f160a216bc5) · [final correction](https://github.com/solmyr1980/ucr-pathways/commit/cf596da47c672a40a7add80ba2f7ad82c9aa15a2)
+
+cp-000436: [case publication](https://github.com/solmyr1980/ucr-pathways/commit/ae5dbba6b7653058c6f7289b5d0ecf0b68ed1150)
+
+cp-000459: [case publication](https://github.com/solmyr1980/ucr-pathways/commit/ce4955781fb6a7b24e3ed944129a02099d211e78) · [final correction](https://github.com/solmyr1980/ucr-pathways/commit/05bd6c5480deaa06b2e1177c04a44c2b5c24563c)
+
+Final verified shared index: [`0723316`](https://github.com/solmyr1980/ucr-pathways/commit/0723316b3e9edde9bff6de40555591a304f1d7d9). Full case outcomes, interest ownership, schedules, rejection reasons, source limitations and workflow evidence are recorded in the register.
