@@ -226,6 +226,8 @@ The external programme and valid target-specific programme-interest evidence est
 
 The interface must explain that comparisons are pre-produced at normalized target level, interest search does not personalize them, and UCR programmes are illustrative feasible compositions rather than official tracks or guaranteed future schedules. It should not imply that every comparison contains the same number of UCR alternatives.
 
+Counselor presentation decisions are reversible and separate from academic production status. A case may show its full comparison, show it with a prominent case-specific limitation, or show only the external programme while retaining the complete UCR comparison internally. Withholding a comparison from presentation never changes its canonical academic decision, provenance, validation status or accumulated research. Presentation-specific settings live outside the academic records and default to the full comparison; the counselor app and deployment must apply them consistently.
+
 ---
 
 # 5. Durable academic comparison principles

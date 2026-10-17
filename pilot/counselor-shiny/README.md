@@ -39,6 +39,42 @@ The full comparison table remains the evidence layer and is not shortened or sel
 
 Search remains discovery rather than personalization. Relationship classifications such as `Direct programme interest`, `Stable study direction` and `Curricular topic` continue to affect search ranking internally, but counselor-facing result cards display only the matching interest phrases.
 
+## Reversible counselor presentation controls
+
+Academic comparison decisions and UCR course selections remain unchanged. The counselor app reads
+`data/counselor/presentation-overrides.json` as a separate, versioned display policy.
+With no case entry (the initial default), the full approved comparison appears.
+
+Edit only the entry for the permanent counselor ID to change how an existing **comparison** is displayed:
+
+```json
+{
+  "schemaVersion": 1,
+  "cases": {
+    "cp-000043": {
+      "mode": "caution",
+      "message": "UCR offers related literature and cultural study, but not the English-language training or specialist linguistics sequence of this degree."
+    },
+    "cp-000046": {
+      "mode": "external-only",
+      "message": "A related-fields comparison exists but is withheld while its relevance to French-language study is reconsidered."
+    }
+  }
+}
+```
+
+These are **illustrative examples only**, not active choices. Valid modes are:
+
+- `normal`: display the full comparison (also the default if no entry exists);
+- `caution`: display the full comparison with a prominent case-specific message above the summary; `message` is required;
+- `external-only`: display only the external programme/curriculum and optional `message`, not the UCR alternatives.
+
+Search and discovery remain unchanged. An external-only result displays a "View programme" button. All original
+decision/canonical records, academic rationale, schedules, comparisons and QC reports remain untouched.
+Deleting an entry (or switching it to `normal`) immediately restores the full comparison **on the next deployment**.
+The app validates the settings on startup and the deployment bundle includes the file.
+A true canonical exception still uses its own academic reason and is never reclassified by a display override.
+
 ## Runtime data architecture
 
 GitHub is the authoritative source. Deployment uploads a version-matched runtime bundle from those repository files, but the running app does **not** fetch counselor data from GitHub.

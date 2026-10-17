@@ -31,6 +31,7 @@ repo_root <- normalizePath(file.path(dirname(script_path), ".."), winslash = "/"
 required_files <- c(
   "pilot/counselor-shiny/app.R",
   "pilot/shared.R",
+  "data/counselor/presentation-overrides.json",
   "assets/css/brand.css",
   "assets/css/shiny.css",
   "assets/brand/ucr-primary-plum.png",

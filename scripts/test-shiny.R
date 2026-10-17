@@ -110,6 +110,50 @@ for (index in seq_along(acceptance_records)) {
 }
 stopifnot(grepl("Brain &amp; Cognition specialisation", as.character(counselor$render_comparison_summary(acceptance_records[[4]])), fixed = TRUE))
 
+# Presentation-only overrides must not mutate academic comparisons or exception records.
+stopifnot(identical(counselor$presentation_mode("cp-000001"), "normal"))
+stopifnot(identical(counselor$COUNSELOR_PRESENTATION, list()))
+academic_before <- serialize(acceptance_records[[1]], NULL)
+normal_html <- as.character(counselor$render_comparison(acceptance_records[[1]]))
+counselor$COUNSELOR_PRESENTATION[["cp-000001"]] <- list(
+  mode = "caution", message = "The external degree has specialist content not taught at UCR."
+)
+caution_html <- as.character(counselor$render_comparison(acceptance_records[[1]]))
+stopifnot(grepl("Important: limited disciplinary correspondence", caution_html, fixed = TRUE))
+stopifnot(grepl("specialist content not taught at UCR", caution_html, fixed = TRUE))
+stopifnot(grepl("What this comparison shows", caution_html, fixed = TRUE))
+stopifnot(grepl("UCR courses", caution_html, fixed = TRUE))
+stopifnot(match("presentation-caution", strsplit(caution_html, " ")[[1]]) >= 1L ||
+          grepl("presentation-caution", caution_html, fixed = TRUE))
+stopifnot(regexpr("presentation-caution", caution_html, fixed = TRUE)[[1]] <
+          regexpr("What this comparison shows", caution_html, fixed = TRUE)[[1]])
+
+counselor$COUNSELOR_PRESENTATION[["cp-000001"]] <- list(mode = "external-only")
+hidden_html <- as.character(counselor$render_comparison(acceptance_records[[1]]))
+stopifnot(grepl("Only the external programme is shown", hidden_html, fixed = TRUE))
+stopifnot(grepl("External curriculum at", hidden_html, fixed = TRUE))
+stopifnot(!grepl("UCR courses", hidden_html, fixed = TRUE))
+stopifnot(!grepl("What this comparison shows", hidden_html, fixed = TRUE))
+stopifnot(!grepl("Closest UCR match", hidden_html, fixed = TRUE))
+hidden_result <- list(list(programme = counselor$COUNSELOR_DATA$programmes[[1]], matches = list()))
+stopifnot(grepl("View programme", as.character(counselor$render_result_cards(hidden_result)), fixed = TRUE))
+counselor$COUNSELOR_PRESENTATION[["cp-000001"]] <- list(mode = "normal")
+stopifnot(identical(as.character(counselor$render_comparison(acceptance_records[[1]])), normal_html))
+stopifnot(grepl("Compare with UCR",
+                as.character(counselor$render_result_cards(hidden_result)), fixed = TRUE))
+stopifnot(identical(serialize(acceptance_records[[1]], NULL), academic_before))
+counselor$COUNSELOR_PRESENTATION[["cp-000001"]] <- NULL
+
+# Reject configuration typos rather than quietly displaying a potentially misleading comparison.
+config_fixture <- tempfile(fileext = ".json")
+writeLines('{"schemaVersion":1,"cases":{"cp-000001":{"mode":"caution"}}}', config_fixture)
+stopifnot(inherits(try(counselor$read_presentation_settings(config_fixture), silent = TRUE), "try-error"))
+writeLines('{"schemaVersion":1,"cases":{"cp-000001":{"mode":"unknown"}}}', config_fixture)
+stopifnot(inherits(try(counselor$read_presentation_settings(config_fixture), silent = TRUE), "try-error"))
+writeLines('{"schemaVersion":1,"cases":{"cp-000001":{"mode":"external-only"}}}', config_fixture)
+stopifnot(identical(counselor$read_presentation_settings(config_fixture)[["cp-000001"]]$mode, "external-only"))
+unlink(config_fixture)
+
 # The summary-first view replaces the former generic bottom "How to read" note.
 comparison_html <- as.character(counselor$render_comparison(acceptance_records[[1]]))
 stopifnot(grepl("What this comparison shows", comparison_html, fixed = TRUE))

@@ -9,6 +9,7 @@ REPO_ROOT <- normalizePath(REPO_ROOT)
 source(file.path(REPO_ROOT, "pilot/shared.R"), local = TRUE)
 
 COUNSELOR_DATA_DIR <- file.path(REPO_ROOT, "data", "counselor")
+PRESENTATION_FILE <- file.path(COUNSELOR_DATA_DIR, "presentation-overrides.json")
 PRODUCTION_PROGRAMME_FILE <- file.path(COUNSELOR_DATA_DIR, "programmes.json")
 PRODUCTION_INTEREST_FILE <- file.path(COUNSELOR_DATA_DIR, "interests.json")
 REVIEW_PROGRAMME_FILE <- file.path(COUNSELOR_DATA_DIR, "review-programmes.json")
@@ -55,6 +56,39 @@ safe_text <- function(x) {
 
 read_json_file <- function(path) {
   fromJSON(path, simplifyVector = FALSE)
+}
+
+read_presentation_settings <- function(path) {
+  if (!file.exists(path)) stop("Missing counselor presentation settings: ", path)
+  settings <- read_json_file(path)
+  if (!is.list(settings) || !is.numeric(settings$schemaVersion) ||
+      length(settings$schemaVersion) != 1L || settings$schemaVersion != 1 ||
+      !is.list(settings$cases)) {
+    stop("Invalid counselor presentation settings header.")
+  }
+
+  cases <- settings$cases
+  if (length(cases) && (is.null(names(cases)) ||
+      any(!grepl("^cp-[0-9]{6}$", names(cases))) || anyDuplicated(names(cases)))) {
+    stop("Counselor presentation settings must be keyed by permanent cp- IDs.")
+  }
+  for (id in names(cases)) {
+    entry <- cases[[id]]
+    if (!is.list(entry) || !is.character(entry$mode) ||
+        length(entry$mode) != 1L ||
+        !entry$mode %in% c("normal", "caution", "external-only")) {
+      stop("Invalid presentation mode for ", id, ".")
+    }
+    if (!is.null(entry$message) &&
+        (!is.character(entry$message) || length(entry$message) != 1L ||
+         !nzchar(trimws(entry$message)))) {
+      stop("Invalid presentation message for ", id, ".")
+    }
+    if (identical(entry$mode, "caution") && is.null(entry$message)) {
+      stop("Caution mode requires a case-specific message for ", id, ".")
+    }
+  }
+  cases
 }
 
 norm <- function(x) {
@@ -116,6 +150,17 @@ COUNSELOR_DATA <- tryCatch({
   COUNSELOR_DATA_ERROR <<- conditionMessage(e)
   list(programmes = list(), interestsByProvider = list())
 })
+
+# Display controls never change canonical academic records or indexed statuses.
+COUNSELOR_PRESENTATION <- read_presentation_settings(PRESENTATION_FILE)
+
+presentation_setting <- function(id) {
+  COUNSELOR_PRESENTATION[[id]] %||% list(mode = "normal")
+}
+
+presentation_mode <- function(id) {
+  safe_text(presentation_setting(id)$mode)
+}
 
 comparison_id <- function(programme) {
   id <- safe_text(programme$comparisonId)
@@ -348,12 +393,14 @@ render_result_cards <- function(results) {
         }
       ),
       tags$button(type = "button", class = "open-comparison", `data-id` = comparison_id(programme),
-        if (identical(safe_text(programme$recordStatus), "exception")) "View programme" else "Compare with UCR")
+        if (identical(safe_text(programme$recordStatus), "exception") ||
+            identical(presentation_mode(comparison_id(programme)), "external-only"))
+          "View programme" else "Compare with UCR")
     )
   }))
 }
 
-render_exception <- function(record) {
+render_exception <- function(record, presentation_only = FALSE, display_note = "") {
   meta <- comparator_meta(record)
   components <- meta$components %||% list()
   div(
@@ -365,15 +412,19 @@ render_exception <- function(record) {
     ),
     div(class = "comparison-summary",
       tags$h2("About this programme"),
-      tags$p(if (identical(safe_text(record$exception$type), "no-defensible-ucr-match"))
+      tags$p(if (presentation_only)
+        "Only the external programme is shown. A prepared UCR comparison has been withheld from presentation."
+        else if (identical(safe_text(record$exception$type), "no-defensible-ucr-match"))
         "UCR currently cannot construct a sufficiently close programme for a meaningful curriculum comparison."
         else if (identical(safe_text(record$exception$type), "ucr-assessment-pending"))
         "The university curriculum has been verified. Its comparison with UCR is awaiting assessment."
         else "A reliable curriculum comparison is currently unavailable for this programme."),
-      tags$p(safe_text(record$exception$reason)),
+      if (presentation_only) {
+        if (nzchar(display_note)) tags$p(display_note)
+      } else tags$p(safe_text(record$exception$reason)),
       if (nzchar(safe_text(meta$route))) div(class = "route-note", tags$strong("External pathway: "), safe_text(meta$route)),
       tags$p("Curriculum context: ", safe_text(meta$academicYear)),
-      tags$p(safe_text(record$exception$curriculumContext)),
+      if (!presentation_only) tags$p(safe_text(record$exception$curriculumContext)),
       tags$a(href = safe_text(meta$primarySourceUrl), target = "_blank", rel = "noopener", "Official programme source ↗")
     ),
     if (length(components)) div(class = "compare-scroll",
@@ -392,6 +443,11 @@ render_exception <- function(record) {
 
 render_comparison <- function(record) {
   if (identical(safe_text(record$recordStatus), "exception")) return(render_exception(record))
+  setting <- presentation_setting(safe_text(record$id))
+  if (identical(setting$mode, "external-only")) {
+    return(render_exception(record, presentation_only = TRUE,
+                            display_note = safe_text(setting$message)))
+  }
   div(
     class = "comparison-shell",
     brand_header(),
@@ -403,6 +459,11 @@ render_comparison <- function(record) {
       ),
       actionButton("back_to_search", "← Back to search", class = "secondary-button")
     ),
+    if (identical(setting$mode, "caution")) {
+      div(class = "presentation-caution",
+        tags$strong("Important: limited disciplinary correspondence"),
+        tags$p(safe_text(setting$message)))
+    },
     render_comparison_summary(record),
     render_compare_table(record),
     render_comparison_notes(record),
@@ -448,6 +509,7 @@ ui <- fluidPage(
       .results-meta{color:var(--grey);margin:4px 0 12px}.results{display:grid;gap:10px}.result-card{display:flex;justify-content:space-between;align-items:center;gap:20px;background:#fff;border:1px solid rgba(73,30,52,.14);border-radius:14px;padding:17px 18px}.result-card h3{margin:0 0 4px;font-size:23px}.institution{margin:0;color:var(--grey)}.match-line{color:var(--grey);font-size:13px;margin-top:8px;line-height:1.4}.open-comparison{background:var(--plum);color:#fff;border:0;border-radius:9px;padding:11px 14px;font-weight:700;white-space:nowrap}.no-results{padding:26px;background:#fff;border-radius:14px;color:var(--grey)}
       .comparison-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:18px}.comparison-head h1{margin:0 0 8px;font-size:clamp(31px,3vw,43px)}.comparison-head p{color:var(--grey);max-width:850px}.secondary-button{background:transparent!important;color:var(--plum)!important;border:1px solid rgba(73,30,52,.28)!important;border-radius:10px}
       .comparison-summary{margin:0 0 20px;background:#fff;border:1px solid rgba(73,30,52,.14);border-radius:14px;padding:18px}.summary-heading h2{margin:0 0 5px;font-size:27px}.summary-heading p{margin:0;color:var(--grey);line-height:1.5}.route-note{margin-top:12px;padding:10px 12px;border-radius:9px;background:rgba(185,217,235,.32);color:var(--plum)}.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:14px}.summary-card{border:1px solid rgba(73,30,52,.14);border-radius:11px;padding:14px;background:rgba(255,255,255,.96)}.summary-card h3{font-family:Inter,Arial,sans-serif;font-size:17px;font-weight:700;margin:3px 0 7px;color:var(--plum)}.summary-card p{margin:0;color:var(--grey);font-size:14px;line-height:1.48}.summary-kicker{text-transform:uppercase;letter-spacing:.055em;font-size:11px;font-weight:800;color:var(--grey)}.equivalence-note{margin-top:14px;border-left:5px solid var(--plum);padding:11px 14px;background:rgba(255,225,164,.28);color:var(--grey);line-height:1.5}.equivalence-note p{margin:4px 0 0}
+      .presentation-caution{margin:0 0 20px;padding:18px 20px;border:2px solid #995e24;border-radius:12px;background:#fff1d6;color:#593711;font-size:16px;line-height:1.55}.presentation-caution strong{display:block;font-size:18px}.presentation-caution p{margin:7px 0 0}
       .compare-scroll{overflow-x:auto;border:1px solid rgba(73,30,52,.14);border-radius:14px;background:#fff}.compare-table{border-collapse:separate;border-spacing:0;min-width:min(1120px,100%);width:100%;table-layout:fixed}.compare-table th,.compare-table td{border-right:1px solid rgba(73,30,52,.1);border-bottom:1px solid rgba(73,30,52,.1);padding:13px 15px;vertical-align:top}.compare-table thead th{background:var(--plum);color:#fff;border-right-color:rgba(255,255,255,.18)}.programme-title{font-size:16px;font-weight:700}.programme-title a,.programme-source{color:inherit}.programme-source{display:inline-block;margin-top:5px;color:#fff;opacity:.82;font-size:12px}.block-row th{background:var(--blue);color:var(--plum);font-size:14px;font-weight:700}.comparison-cell{background:#fff;line-height:1.35}.comparison-cell.emphasis{background:rgba(255,225,164,.36)}.empty-cell{background:rgba(92,96,107,.035)}.ec-badge{display:inline-block;margin-top:6px;padding:2px 6px;border-radius:999px;background:rgba(73,30,52,.08);color:var(--grey);font-size:11px}.cell-note{color:var(--grey);font-size:12px;margin-top:5px}.transparency-note{margin-top:18px;background:#fff;border-left:5px solid var(--plum);padding:14px 17px;color:var(--grey);line-height:1.5}.transparency-note p{margin:5px 0 0}.cta-row{display:flex;justify-content:flex-end;margin-top:20px}.primary-cta{display:inline-block;background:var(--plum);color:#fff!important;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none!important}
       .course-link{padding:0;border:0;background:none;color:var(--plum);font:inherit;text-align:left;text-decoration:underline;cursor:pointer}.course-link:hover,.course-link:focus-visible{color:var(--black)}.modal-content{border-radius:14px}.modal-title{color:var(--plum);font-family:IvyMode,Georgia,serif}.course-description{font-size:15px;line-height:1.6}
       @media(max-width:900px){.container-fluid{padding:0 14px 40px}.search-grid{grid-template-columns:1fr}.result-card{display:block}.open-comparison{margin-top:13px}.comparison-head{display:block}.comparison-head .secondary-button{margin-top:10px}.ucr-logo{max-width:210px}}
