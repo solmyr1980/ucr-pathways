@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
   "auditId": "counselor-comprehensive-reaudit",
-  "status": "shared-foundation-verified-awaiting-first-pair-corrections",
+  "status": "first-pair-completed-one-approved-one-external-blocker",
   "preparedOn": "2026-10-17",
   "baselineCommit": "bb2c4b5bd41e060b501448e057757f661ef22d4e",
   "protocol": "docs/qc/counselor-comprehensive-reaudit-protocol.md",
@@ -504,34 +504,25 @@
         "audience-boundary"
       ],
       "unresolved": [
-        "Required new-cohort 5-EC component and applicable catalogue/cohort reconciliation",
-        "Six exact-target career attributions",
-        "Audience-copy reconstruction and final rendered verification after case-specific corrections; no final presentation approval"
+        "Identify the required new-cohort year-2 5-EC component (still T.B.A. in Appendix F), its conditions and applicable future module membership; reconcile mixed-cohort catalogue entries before certifying a complete 180-EC curriculum."
       ],
       "downstreamReassessments": [
         {
-          "trigger": "Verified missing component/cohort resolution",
+          "trigger": "Authoritative identification of the missing new-cohort requirement and applicable module conditions",
+          "scope": "Reassess only materially affected interests, full external curriculum, UCR comparability/construction and final complete-comparison presentation. The verified partial curriculum and completed interest/audience repairs remain retained.",
           "stages": [
             2,
             3,
             4,
             5,
             6
-          ],
-          "scope": "Reassess affected interests, comparability, course implementation, comparison and descriptions; retain independently justified work."
-        },
-        {
-          "trigger": "Corrected discovery classifications",
-          "stages": [
-            3,
-            5,
-            6
-          ],
-          "scope": "Use corrected exact-target evidence; refresh affected discovery entries when an implementation is authorised."
+          ]
         }
       ],
       "implementationCommits": [
-        "44c87cd9157ce7c257ce2a990b7f8a91979eaaee"
+        "44c87cd9157ce7c257ce2a990b7f8a91979eaaee",
+        "90730907518d84bf81bbba91b951ef513e8c9436",
+        "ca29df99377c9c46e8dfb6337fc3f49f3dbe166a"
       ],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000277.json",
@@ -540,7 +531,7 @@
         "2": "correct",
         "3": "blocked",
         "4": "blocked",
-        "5": "reconstruct",
+        "5": "correct",
         "6": "blocked"
       }
     },
@@ -582,44 +573,20 @@
     },
     {
       "id": "cp-000019",
-      "state": "reviewed-with-blockers",
+      "state": "approved",
       "sharedIssueIds": [
         "audience-boundary",
         "course-modal-content",
         "counselor-mobile-table"
       ],
-      "unresolved": [
-        "Health/wellbeing candidate disposition",
-        "Specific academic contribution of MCCCOMM213 to the existing first concept",
-        "Two unsupported discovery examples and bounded career attribution corrections",
-        "Case-specific concept/limitation copy, reviewed note/concept selection and final rendered verification after academic corrections",
-        "Detailed external syllabus/admission information beyond retrieved formal/general evidence is not independently certified"
-      ],
-      "downstreamReassessments": [
-        {
-          "trigger": "Health generator disposition",
-          "stages": [
-            3,
-            4,
-            5,
-            6
-          ],
-          "scope": "Reassess affected concept/basis/stopping claims; preserve independently justified society/media curricula."
-        },
-        {
-          "trigger": "MCCCOMM213 retained with corrected rationale or replaced",
-          "stages": [
-            4,
-            5,
-            6
-          ],
-          "scope": "If replaced, recheck schedule, distinctness, traceability, row alignment and copy. Do not rebuild unrelated alternatives."
-        }
-      ],
+      "unresolved": [],
+      "downstreamReassessments": [],
       "implementationCommits": [
-        "44c87cd9157ce7c257ce2a990b7f8a91979eaaee"
+        "44c87cd9157ce7c257ce2a990b7f8a91979eaaee",
+        "7b465933fe14c842e47484f03917642a2dd8be21",
+        "6162770bba7a51cb10056aafbe4568420ed96be7"
       ],
-      "presentationApproval": false,
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000019.json",
       "stageOutcomes": {
         "1": "retain",
@@ -627,7 +594,7 @@
         "3": "correct",
         "4": "correct",
         "5": "correct",
-        "6": "blocked"
+        "6": "correct"
       }
     },
     {
@@ -762,12 +729,30 @@
         "docs/qc/evidence/counselor-shared-foundation-2026-10-17/rendered-results.json#/screenshots/0"
       ],
       "verificationScope": "Shared mechanism and tested integrations only; individual academic/content review and final case approval remain separate."
+    },
+    {
+      "id": "formal-schema-operational-discrepancy",
+      "status": "open",
+      "type": "corpus-wide-technical",
+      "blocksFinalPublication": true,
+      "affectedStages": [
+        6
+      ],
+      "affectedRecordCount": 64,
+      "evidenceRef": "docs/qc/evidence/counselor-shared-foundation-2026-10-17/preexisting-schema-discrepancies.json",
+      "verificationEvidenceRefs": [
+        "docs/qc/evidence/counselor-first-pair-completion-2026-10-17/verification-replay.json#/fullFormalSchema"
+      ],
+      "finding": "64 pre-existing records pass operational validation but fail full formal JSON Schema validation: component-ID case patterns, missing candidate evidence and legacy internal-note types. The affected set and 969 error messages remain unchanged. CP019 and CP277 both pass full formal validation.",
+      "requiredResolution": "Reconcile schema intent, operational validators and each affected record before final publication; independently validate formal and operational contracts and reviewed evidence. Do not bulk-rewrite academic records to silence errors.",
+      "introducedByThisAssignment": false,
+      "remediationStatus": "Not started; explicitly outside first-pair correction scope."
     }
   ],
   "progress": {
-    "approved": 0,
+    "approved": 1,
     "inProgress": 0,
-    "reviewedWithBlockers": 2,
+    "reviewedWithBlockers": 1,
     "notStarted": 436,
     "pilotStarted": 2
   },
@@ -780,7 +765,7 @@
       ],
       "reviewedOn": "2026-10-17",
       "inputCommit": "ffabf196b0702eba9acbec57f6aa5f954af16a94",
-      "status": "reviewed-with-blockers-awaiting-user-review",
+      "status": "completed-one-approved-one-external-blocker",
       "stagesReviewed": [
         1,
         2,
@@ -789,8 +774,8 @@
         5,
         6
       ],
-      "recordsModified": false,
-      "architectureImplemented": false,
+      "recordsModified": true,
+      "architectureImplemented": true,
       "presentationApproved": false,
       "checks": [
         "unchanged corpus validators pass",
@@ -799,8 +784,48 @@
         "72 workbook placements independently checked",
         "running counselor app at 1440x1000 and 390x844; source links, search/back and two course modals inspected"
       ],
-      "reportSection": "docs/qc/counselor-comprehensive-reaudit-preparation-2026-10-17.md#pilot-pair-1--cp277-and-cp019",
-      "nextPairBlockedPendingUserReview": true
+      "reportSection": "docs/qc/counselor-first-pair-completion-2026-10-17.md#final-dispositions",
+      "nextPairBlockedPendingUserReview": true,
+      "initialReview": {
+        "batch": 1,
+        "caseIds": [
+          "cp-000277",
+          "cp-000019"
+        ],
+        "reviewedOn": "2026-10-17",
+        "inputCommit": "ffabf196b0702eba9acbec57f6aa5f954af16a94",
+        "status": "reviewed-with-blockers-awaiting-user-review",
+        "stagesReviewed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "recordsModified": false,
+        "architectureImplemented": false,
+        "presentationApproved": false,
+        "checks": [
+          "unchanged corpus validators pass",
+          "current review indexes pass",
+          "both v2 decisions replay byte-identically",
+          "72 workbook placements independently checked",
+          "running counselor app at 1440x1000 and 390x844; source links, search/back and two course modals inspected"
+        ],
+        "reportSection": "docs/qc/counselor-comprehensive-reaudit-preparation-2026-10-17.md#pilot-pair-1--cp277-and-cp019",
+        "nextPairBlockedPendingUserReview": true
+      },
+      "casePresentationApproval": {
+        "cp-000277": false,
+        "cp-000019": true
+      },
+      "implementationCommits": [
+        "90730907518d84bf81bbba91b951ef513e8c9436",
+        "7b465933fe14c842e47484f03917642a2dd8be21",
+        "6162770bba7a51cb10056aafbe4568420ed96be7",
+        "ca29df99377c9c46e8dfb6337fc3f49f3dbe166a"
+      ]
     }
   ],
   "scopeChanges": [],
@@ -850,13 +875,24 @@
       },
       {
         "step": 2,
-        "status": "not-started",
+        "status": "completed-with-explicit-external-blocker",
         "caseIds": [
           "cp-000277",
           "cp-000019"
         ],
         "scope": "Return to the first pilot pair; implement bounded academic and content corrections, reassess affected downstream decisions, independently verify corrected results and record final disposition.",
-        "completionGate": "No repairable action deferred to a later corpus-wide correction cycle. Genuinely unavailable evidence remains explicit; reviewed-with-blockers confers no unsupported approval."
+        "completionGate": "No repairable action deferred to a later corpus-wide correction cycle. Genuinely unavailable evidence remains explicit; reviewed-with-blockers confers no unsupported approval.",
+        "report": "docs/qc/counselor-first-pair-completion-2026-10-17.md",
+        "caseDispositions": {
+          "cp-000277": "reviewed-with-blockers",
+          "cp-000019": "approved"
+        },
+        "implementationCommits": [
+          "90730907518d84bf81bbba91b951ef513e8c9436",
+          "7b465933fe14c842e47484f03917642a2dd8be21",
+          "6162770bba7a51cb10056aafbe4568420ed96be7",
+          "ca29df99377c9c46e8dfb6337fc3f49f3dbe166a"
+        ]
       },
       {
         "step": 3,
@@ -880,11 +916,14 @@
         "step": 5,
         "status": "not-started",
         "scope": "Conduct one final corpus-level release check after all case-level reviews finish.",
-        "completionGate": "Reconcile scope/counts, approvals/blockers, shared fixes, artifacts and actual release rendering. This is not a second comprehensive academic re-audit; reopen only material defects or hard-rule failures."
+        "completionGate": "Reconcile scope/counts, approvals/blockers, shared fixes, artifacts and actual release rendering. This is not a second comprehensive academic re-audit; reopen only material defects or hard-rule failures.",
+        "releaseDependencyIds": [
+          "formal-schema-operational-discrepancy"
+        ]
       }
     ],
-    "currentAssignmentBoundary": "Shared application foundation implemented and tested. No canonical academic/decision/interest/presentation-setting changes, no case-specific audience prose production, no further pilot review and no deployment. Next: finish CP277 and CP019.",
-    "priorAssignmentBoundary": "Preparation only: split review evidence, add consistency checking and update governing/operational documentation. No academic records, programme-interest data, application code or presentation settings changed; no next pilot pair started."
+    "currentAssignmentBoundary": "First pair completed as far as evidence permits: CP019 approved; CP277 reviewed with one genuine external-curriculum blocker. No next academic pair, corpus processing or counselor deployment performed or authorized by this completion.",
+    "priorAssignmentBoundary": "Shared application foundation implemented and tested. No canonical academic/decision/interest/presentation-setting changes, no case-specific audience prose production, no further pilot review and no deployment. Next: finish CP277 and CP019."
   },
   "caseEvidenceTemplate": {
     "id": "cp-XXXXXX",
@@ -924,11 +963,25 @@
       "affectedRecords": 64,
       "introducedByThisImplementation": false,
       "evidenceRef": "docs/qc/evidence/counselor-shared-foundation-2026-10-17/preexisting-schema-discrepancies.json",
-      "finding": "Full formal schema errors are identical before/after. Operational corpus validators pass. Resolve targeted schema/evidence questions without bulk identity or academic rewrites."
+      "finding": "Full formal schema errors are identical before/after. Operational corpus validators pass. Resolve targeted schema/evidence questions without bulk identity or academic rewrites.",
+      "trackedIssueId": "formal-schema-operational-discrepancy"
     },
     {
       "scope": "Individual academic/content approval",
-      "finding": "No individual case approval follows from the shared fixes. Both reviewed cases remain blocked; audience content and case-specific academic corrections await integrated completion."
+      "finding": "Shared fixes alone confer no case approval. First-pair final disposition now separately recorded: CP019 approved; CP277 remains blocked solely by unresolved external curriculum evidence."
     }
-  ]
+  ],
+  "releaseDependencies": [
+    {
+      "sharedIssueId": "formal-schema-operational-discrepancy",
+      "requiredDisposition": "resolved-and-verified-before-final-publication"
+    }
+  ],
+  "firstPairCompletionReport": "docs/qc/counselor-first-pair-completion-2026-10-17.md",
+  "completionReviewedInputCommit": "ca29df99377c9c46e8dfb6337fc3f49f3dbe166a",
+  "completionGoverningDocumentBlobs": {
+    "docs/UCR_Pathways_Master_Specification.md": "03238d48149fac656a5519763cb8c0dd37072211",
+    "docs/UCR_Pathways_Production_Instructions.md": "47ab56ace607c0e7dd0790e369ee609951a66211",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "d57b8441a232c85557a17251052e1089437c1b3a"
+  }
 }

@@ -90,6 +90,15 @@ def validate(root):
         if issue['status'] == 'verified':
             require(issue['implementationCommits'], f"{issue['id']}: verified issue lacks implementation")
             evidence_refs(issue.get('verificationEvidenceRefs'))
+    for dependency in d.get('releaseDependencies', []):
+        issue_id = dependency['sharedIssueId']
+        require(issue_id in issues and dependency['requiredDisposition'], 'Invalid release dependency')
+        issue = issues[issue_id]
+        require(issue.get('blocksFinalPublication') is True, f'{issue_id}: release blocker flag missing')
+        reference(issue['evidenceRef'])
+        evidence = read_json(root / issue['evidenceRef'])
+        require(issue['affectedRecordCount'] == evidence['affectedRecordCount'], f'{issue_id}: discrepancy count differs')
+        require(all((root / 'data/counselor/comparisons' / name).is_file() for name in evidence['affectedRecords']), f'{issue_id}: discrepancy record missing')
     pilot = [x for pair in d['pilotPairs'] for x in pair]
     require(all(len(pair) == 2 for pair in d['pilotPairs']) and len(pilot) == len(set(pilot)) == 6, 'Pilot must retain three distinct pairs')
     require(set(pilot) <= set(ids), 'Missing pilot metadata')
@@ -131,6 +140,10 @@ def validate(root):
                 target = [int(r['source_interest_excel_row']) for r in interests if r['counselor_programme_id'] == case_id]
                 require(len(rows) == len(set(rows)) and set(rows) == set(target), f'{case_id}: incomplete/duplicate interest review')
                 require(dict(Counter(r['outcome'] for r in stage['interestRows'])) == stage['rowOutcomeCounts'], f'{case_id}: interest counts differ')
+        for history in case.get('reviewHistory', []):
+            snapshot = history['snapshot']
+            raw = (json.dumps(snapshot, ensure_ascii=False, indent=2) + '\n').encode()
+            require(snapshot['id'] == case_id and hashlib.sha256(raw).hexdigest() == history['originalFileSha256'], f'{case_id}: preserved original review snapshot changed')
         for dependency in case['downstreamReassessments']:
             require(dependency['trigger'] and dependency['scope'] and set(dependency['stages']) <= set(range(1, 7)), f'{case_id}: invalid reassessment')
         for source in case['evidenceSources']:
