@@ -297,6 +297,8 @@ The active counselor decision contract is `decisionSchemaVersion: "2.0"`; compil
 
 Canonical records contain semantic content, not renderer coordinates, CSS or page geometry. Renderers may ignore fields they do not need, but they must not reinterpret or invent programme facts.
 
+User-facing explanations and internal research documentation serve different purposes. Preserve source investigations, cohort reconciliation, validation reasoning and technical evidence internally. Display only clear, academically accurate explanations relevant to prospective students and counselors, including material limitations. A field's presence in the canonical record does not by itself make it suitable for display. Review the rendered experience separately from academic and technical validity.
+
 ---
 
 # 7. Public website

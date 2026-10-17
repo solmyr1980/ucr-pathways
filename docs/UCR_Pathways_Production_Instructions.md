@@ -581,3 +581,9 @@ Before release, inspect all student-visible free text. It may contain only the s
 Check that each programme’s title and description reflect the actual content and relative emphasis of its selected courses; do not present an incidental course topic as a defining programme theme.
 
 Only then release the requested artifact or library record.
+
+## 9.4 Authorised comprehensive counselor re-audits
+
+A separately authorised comprehensive re-audit may independently reassess the whole defined counselor corpus, including records that previously passed QC. Preserve every component, source, decision, course selection and explanation independently confirmed as sound. Prior approval or mechanical validation alone does not establish correctness, and reassessment does not authorise arbitrary rewriting of defensible work.
+
+Review external identity/curriculum, programme-interest evidence, UCR comparability/concepts, courses/schedules/comparison, user-facing explanations and the rendered experience in dependency order. Assign retain, correct, reconstruct or blocked at each reviewed stage. An upstream change requires reassessment of materially dependent decisions; preserve downstream work when it remains justified. Keep unresolved evidence and uncompleted dependent checks visible and withhold unsupported approval. The authorised six-stage exercise is operationalised in the [comprehensive re-audit protocol](qc/counselor-comprehensive-reaudit-protocol.md); its register records progress rather than replacing canonical academic records.
