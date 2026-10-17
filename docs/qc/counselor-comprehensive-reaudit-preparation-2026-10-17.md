@@ -2,7 +2,7 @@
 
 Date: 17 October 2026. Baseline: `bb2c4b5bd41e060b501448e057757f661ef22d4e` on `main`.
 
-Status: preparatory assignment completed. No counselor comparison, decision, curriculum, programme description, schema, validator, application or presentation setting has been changed. The six-case re-audit has not begun. The earlier alignment pilot is a separate historical exercise.
+Status: preparatory assignment completed. The first comprehensive pilot pair has subsequently been reviewed; see the dated findings appended below. No counselor comparison, decision, curriculum, programme description, schema, validator, application or presentation setting has been changed. The earlier alignment pilot is a separate historical exercise.
 
 Deliverables: [operational protocol](counselor-comprehensive-reaudit-protocol.md), this inventory and architecture diagnosis, the pilot below, and an initial [review register](../../data/counselor/qc/comprehensive-reaudit.json). Counts come from the baseline files, not historical report summaries. Inventory inspection is not stage approval.
 
@@ -135,9 +135,9 @@ This is a targeted extension of existing records/compiler/renderers, not a secon
 | Pair / case | Current state | Why it is included |
 |---|---|---|
 | 1 — CP277, Leiden African Studies | External unresolved; 175 EC; external-only | Mandatory case. Tests cohort separation, duplicated Swahili, unresolved required credits, preservation of corrected evidence and severe internal-note exposure. |
-| 1 — CP119, VU Theology and Religious Studies | No defensible match; 180 EC; external-only | Tests independent reconsideration of a retained no-match, an exact part-time/route identity and readable explanation of substantive coverage gaps. Earlier ten-case QC is evidence, not approval. |
+| 2 — CP119, VU Theology and Religious Studies | No defensible match; 180 EC; external-only | Tests independent reconsideration of a retained no-match, an exact part-time/route identity and readable explanation of substantive coverage gaps. Earlier ten-case QC is evidence, not approval. |
 | 2 — CP001, Erasmus Public Administration | Original comparison; two alternatives; normal | Positive control: prior alignment review found no material error. Tests preservation of sound work and the early-record path without a root decision. |
-| 2 — CP019, Erasmus Arts and Culture Studies | Recently repaired comparison; three alternatives; normal | Tests preservation of corrected matches, bounded route choices, internship/thesis distinctions, relative academic emphasis and audience quality beyond mechanical validity. |
+| 1 — CP019, Erasmus Arts and Culture Studies | Recently repaired comparison; three alternatives; normal | Tests preservation of corrected matches, bounded route choices, internship/thesis distinctions, relative academic emphasis and audience quality beyond mechanical validity. |
 | 3 — CP035, Radboud Biology | Recently repaired comparison; three alternatives; normal | Natural-science breadth, ecological versus biomedical purposes, explicitly provisional prospective curriculum and the still-open ethics-content question. Tests source-year handling and downstream restraint. |
 | 3 — CP330, Twente Mechanical Engineering | Reassessment comparison; one alternative; caution | Tests separately credited units versus parent modules, specialist engineering gaps, a restrained related-fields concept and whether the caution text accurately explains this case. |
 
@@ -149,4 +149,105 @@ The six-stage order, preservation principle, four outcomes and two-case batches 
 
 Three implementation choices remain: the precise audience-field contract and migration of mixed notes; whether to withhold unresolved diagnostic component lists or display them with an explicit incomplete/uncertified label; and how to record independent final-review and rendered evidence consistently. The recommended defaults are an explicit canonical audience extension, withholding uncertified diagnostic lists while showing supported programme information and a clear limitation, and compact source-linked review observations plus identified viewport screenshots. None is implemented here.
 
-Next, execute the first pilot pair, CP277 and CP119, under the new protocol. Record academic and communication findings without granting final approval through the known renderer defect. Use the pilot's actual content needs to settle the audience contract, implement the shared remedy once when authorised, then complete all six cases before beginning the 216 subsequent pairs. No corpus-wide run, recurring task or application deployment is started by this preparation.
+The preparatory recommendation was to review CP277 and CP119 first. On 17 October the user instead approved CP277 and CP019 as the first pair; the findings below implement that sequence. Record academic and communication findings without granting final approval through the known renderer defect. Use the pilot's actual content needs to settle the audience contract, implement the shared remedy once when authorised, then complete all six cases before beginning the 216 subsequent pairs. No corpus-wide run, recurring task or application deployment is started by this preparation.
+
+## Pilot pair 1 — CP277 and CP019
+
+Reviewed 17 October 2026 against input commit `ffabf196b0702eba9acbec57f6aa5f954af16a94`. The user approved the protocol and changed the sequence to **CP277 + CP019**, then **CP119 + CP001**, then **CP035 + CP330**. All six cases remain selected. The next pair must wait until these findings have been reviewed.
+
+Both cases are `reviewed-with-blockers`; neither has final academic/presentation approval. This review changes the register, report and pilot sequence only. All proposed record, registry, description-cache, layout and architecture repairs remain unimplemented. Earlier reports remain historical evidence.
+
+### Results across the six stages
+
+| Stage | CP277 African Studies | CP019 Arts and Culture Studies |
+|---|---|---|
+| 1. External identity/curriculum | **Blocked.** Retain corrected 175-EC named subset; required 5 EC still unnamed. | **Retain.** Complete minor pathway and component accounting supported; note detailed-course evidence limit below. |
+| 2. Programme interests | **Correct.** All 63 rows examined; 43 retained, 14 need bounded correction, six career attributions remain blocked. | **Correct.** All 58 rows examined; 51 retained, five need attribution/source corrections, two illustrative examples remain blocked. |
+| 3. Comparability/concepts | **Blocked.** Preserve external-unresolved status; do not convert it to a no-match. | **Correct.** Retain three distinct organising concepts; repair the unaccounted arts/health candidate and narrow specialist claims. |
+| 4. Courses/schedules/comparison | **Blocked.** No UCR schedules exist; no complete comparison can be approved. Supported external components remain. | **Correct.** All 72 placements pass hard constraints. Preserve most course choices and existing alignment corrections; adjudicate one course contribution and narrow some rationales. |
+| 5. User-facing explanations | **Reconstruct the audience explanation.** Preserve the research internally. | **Correct.** Tighten concepts and cell notes; reconcile two course modals with available evidence. |
+| 6. Rendered experience | **Blocked.** Actual desktop/mobile review confirms research-log exposure and an insufficiently labelled partial curriculum. | **Blocked.** Actual review confirms content defects and overlapping mobile comparison columns. |
+
+These outcomes distinguish an academic structure needing reconstruction from defective copy. There is no basis here to regenerate either case wholesale. CP277's explanation needs rebuilding; its independently confirmed academic components do not.
+
+### Evidence and limits of verification
+
+The review independently downloaded and inspected the applicable Leiden programme-specific regulations, Erasmus 2026–2027 TER, current programme/overview/career pages, Leiden's current BA-AFR response and 22 linked module records. The Leiden Appendix F table was also inspected visually. Retrieval metadata and hashes are in the existing register. Programme-level pages retrieved through web search were used where a direct request returned 502. The current-linked Leiden curriculum image is under a **2025–2026** path; it cannot resolve the September-2026 entrant's requirements.
+
+The complete enriched workbook was opened afresh in the current checkout. All 47 unique selected CP019 codes were read against profile/description evidence and their programme roles; all 72 scheduled placements were independently checked. This includes the description-only entry for Writing Art's Histories, not an invented missing outline. The former QC feasibility declarations were not the basis for these results.
+
+The Erasmus linked detailed course guide returned an empty application shell. Formal programme requirements, general progression conditions and the current descriptive overview were available. This supports the reconstruction and bounded partial alignments below, but does **not** certify every detailed external course syllabus or possible course-specific admission restriction. No repeated unsuccessful catalogue search or inferred syllabus is represented as verification.
+
+Primary sources:
+
+- [Leiden African Studies regulations, 2026–2027](https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-african-studies-2026-2027.pdf): articles 2.2–2.3, 2.9, 4.2 and Appendix F, pp.5–7.
+- [Current Leiden programme catalogue response](https://studiegids.universiteitleiden.nl/api/product?code=BA-AFR&type=STUDY), the [programme page](https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/african-studies) and [study-programme page](https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/african-studies/about-the-programme/programme-structure).
+- [Leiden programme career page](https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/african-studies/after-graduation/career-prospects) and [further-study page](https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/african-studies/after-graduation/continuing-your-studies).
+- [Erasmus TER 2026–2027](https://www.eur.nl/en/eshcc/media/2026-08-ter-bachelor-eng-2026-2027): Appendix 7, arts.3.3–3.8/4.3–4.5 and Appendix 11; [programme overview](https://www.eur.nl/en/bachelor/international-bachelor-arts-and-culture-studies/programme-overview), [programme identity](https://www.eur.nl/en/bachelor/international-bachelor-arts-and-culture-studies) and [careers](https://www.eur.nl/en/bachelor/international-bachelor-arts-and-culture-studies/after-graduation).
+- Current repository workbook blob `c2bcc3b63ec7831fd0f7b8ddfb32de1260521655`, canonical/decision pairs and actual app/shared-renderer blobs recorded in the register.
+
+### CP277: preserve the correction, stop its downstream contamination
+
+The formal table independently confirms the central correction. New entrants take one Swahili II component; the later same-named entry belongs to the outgoing curriculum. The new table supplies 60 EC in year 1, 55 named EC plus an unidentified required 5-EC position in year 2, and 60 EC in year 3. The existing 20 components therefore retain 175 identified EC. Swahili III belongs in year 2; both final-year subjects remain requirements rather than an outgoing either/or choice. The 30-EC discretionary component and 10-EC thesis can remain. Keep the zero-credit seminar documented without adding it to positive-credit totals.
+
+The current catalogue still combines new first-year material with outgoing later-year membership. Its general description discusses three tracks, while the applicable formal regulations state no specialisations. The formal cohort table controls; neither an older diagram nor two catalogue codes can fill the missing requirement. Preserve the external-unresolved exception. This is a gap in the **external evidence**, not an academic finding that UCR cannot offer a related programme.
+
+The interest review reveals that the earlier curriculum correction did not propagate into discovery evidence. Rows **12287–12289** still claim History and Anthropology, Literature and Film, and Linguistics as formal specialisations. Their subjects are legitimate programme interests, but their formal status must change. Retain the subject signals and stable row identifiers; remove the unsupported specialisation assertion and use the actual programme-level disciplinary evidence. Rows **12283/12307** also inflate the African Languages Lab's urban youth language work into general urbanisation/urban studies; narrow them to the evidenced linguistic subject.
+
+The eight illustrative questions at **12318–12325** are plausible combinations of taught material, but their evidence falsely says that the university explicitly presents those exact projects. Separate careful inference from quotation/explicit attribution. Several require narrower details, including the city-specific environmental example. Six career claims at **12327–12332** remain unconfirmed for this exact bachelor: the current career page reports pooled Area Studies destinations. Do not relabel pooled evidence as African Studies alumni evidence. Row **12333** can retain postgraduate African Studies, but its anthropology/history destinations are not established by the current further-study list. The register accounts for all 63 rows individually; no missing-credit placeholder is treated as an interest generator.
+
+A fresh workbook scan identifies substantial African art/heritage content and some Mediterranean/African connections, alongside generally related social/historical subjects. Those findings are insufficient to certify an Africa-centred 24-course response, and absence of Swahili at UCR alone would not prove a no-match. Do not construct alternatives until the external basis and corrected interest boundary support that assessment.
+
+The current display requires a new audience explanation. Under “About this programme,” it shows instructions to identify a missing course, catalogue/API reconciliation, date/code fragments and a long curriculum investigation. The component table repeats audit notes; the later transparency panel repeats source documentation. Preserve those details internally. Readers need a short account of what African Studies studies and a separate, plain explanation of why a reliable full comparison is unavailable. The 175-EC diagnostic list must be explicitly incomplete or withheld; suppression of notes alone would not resolve its apparent completeness.
+
+![CP277 at 1440 × 1000: actual exception display; research documentation occupies the programme explanation.](evidence/comprehensive-reaudit-pair1/cp-000277-desktop.png)
+
+### CP019: retain the structure, repair bounded academic and communication claims
+
+The current formal and programme sources support the stored identity, selected Culture and Economics focus and minor option. The webpage explicitly places one focus course in year 2 and two within the minor route's third-year option. That resolves the apparent overlap in the formal table: those two courses are counted within the three-course focus requirement, not added again. Retain all 26 components and the 180-EC reconstruction. The formal-source heritage label can remain despite its updated webpage title. Internship/thesis conditions are material; the programme requires completed first-year study before the internship and first-year plus 45 later EC before the graduation project. Do not imply that generic research or communication courses reproduce those compulsory experiences.
+
+The three UCR organising purposes remain independently defensible: an integrated arts/cultural-economy composition; a society/public-life composition with substantially more history, law, ethics and institutions; and a media/communication composition. Their overlapping sets contain **13, 12 and six courses**; each programme contributes **11, 12 or 18 different courses** to the respective pair. These differences follow academic priorities, rather than swaps made merely to meet the numerical floor.
+
+However, row **1098**, arts and health/wellbeing, is assigned to a combined societal-challenges candidate without showing how the current route implements the arts/health question or why a separate candidate was not pursued. General conflict, ethics, art and social research do not by themselves establish this connection. Preserve the official programme interest, which is explicit, but repair its candidate disposition. This is not evidence that an arts/health programme is impossible, and it does not justify inventing a fourth alternative or automatically removing either existing additional route.
+
+All three schedules pass: **24 unique courses, 180 EC, six four-course semesters, Year-1 PPD, seven/six/seven advanced courses, and every formal prerequisite completed before the course and every assigned term marked available**. Advisory rhetoric progression is relevant: the first route includes Rhetoric in Action without introductory rhetoric, but the database specifies no formal prerequisite, so this is not a mechanical violation.
+
+Most selections contribute actual art/literary/media study, social inquiry or specific economic/institutional perspectives. Two distinctions need clearer treatment:
+
+- The sociology sequence teaches general theory, modernity and civil society, not the comparator's specialist cultural-sociology sequence. Retain the courses and their partial relationships; change the specialist wording in concepts/rationales.
+- **MCCCOMM213 Rhetoric in Action** is a community education project in which students train primary-school children in speaking and debate, principally in Dutch. Its existing cultural-public-communication justification does not explain that specific contribution to this programme's organising purpose. Require a concrete academic justification within the existing concept, or replace this one course. Do not solve the issue by retrospectively inventing a new concept to accommodate it. Other alternatives do not depend on this course.
+
+The [47-code review in the register](../../data/counselor/qc/comprehensive-reaudit.json) records actual roles, qualifications and programme membership. It preserves specific complementary study without pretending that every course teaches cultural-sector applications. For example, EU institutions and public economics can contribute to the public-life composition while remaining separate from specialist cultural-policy/cultural-industry components. Leadership study is only a partial organisational counterpart: it does not reproduce cultural financing or the complete cultural-industries formation.
+
+Review of all **14 positive and 12 unmatched** decisions found no further confirmed material placement error. Retain meaningful partial correspondences and the recently corrected gaps for specialist cultural policy, advanced cultural economics, specialist management research and the mandatory thesis. Preserve the African heritage rematch: collection, museum acquisition and repatriation are directly evidenced. Keep the data-science/statistics relationship limited to actual data organisation/analysis/presentation, not a full SPSS or statistics syllabus. Detailed external syllabi remain unavailable; the more specific claims about cultural-organisation leadership should be narrowed rather than presented as full certification.
+
+All 58 interest rows were examined. Core subjects, genuine focus areas and the five named thesis examples are supported. **1112–1113**, art crime and popular music industries, were not established by the inspected cited pages; they remain unresolved search-only signals, with no current effect on programme generation. Five career/source rows need bounded correction: qualify exact consultancy/media applications, point to the main page where marketing/policy roles are actually supported, and retain the grant-writing example with the alumna's BA-plus-master context. Neither unsupported discovery row warrants reconstructing the UCR programmes.
+
+The user-facing labels can remain. The concepts should become shorter and more proportionate, especially “cultural sociology” and “public cultural communication.” Preserve the limitation note's substantive contrast, but simplify its long catalogue of subjects. Three cell notes saying first-, second- and third-listed courses describe the producer's tie-break; they belong internally. This does not require hiding the selected pathway itself.
+
+The course-modal review found two independent defects. **BENBUSI211** shows an older organisational-design description under the AI-course title; it matches `description2` but does not communicate the enriched AI-focused profile. **MCCHEAM316** displays “description unavailable,” although the workbook supplies an art-historiography description. All 47 selected unique codes were checked; no other selected code lacks modal text. A top-level audience-description field alone would fix neither defect.
+
+### What the running application shows
+
+The unchanged counselor app ran from the exact reviewed checkout with R 4.3.3, Shiny 1.8.0 and repository Playwright/Chromium. Each case was opened through search at **1440 × 1000** and **390 × 844**. Back navigation preserved the query; expected source URLs were present; both tested course modals opened/closed; no page errors were observed. This is actual Shiny output, not a hand-built HTML approximation. The course contents were compared with the workbook as well as checked for successful opening.
+
+At 390px, CP019 forces four table columns into approximately 360px. Text visibly overlaps neighbouring columns; internal content extends to 413px, and the table is about **9,179px high**, versus 5,223px on desktop. Whole-page width still equals the viewport, so a “no document overflow” test would miss the problem. Record this as a shared mobile readability defect, separately from the audience-content contract and academic decisions. No new mobile design is imposed here.
+
+![CP019 at 390 × 844: actual comparison table; four compressed columns produce overlapping text.](evidence/comprehensive-reaudit-pair1/cp-000019-mobile.png)
+
+Mechanical verification passed: unchanged full-corpus counselor validators; current review-index check; byte-identical temporary compiler replays for both decision/canonical pairs. No application/contract change was made, so unrelated regression suites were not rerun as a substitute for source or rendered review.
+
+### Dependencies and implications for the proposed content structure
+
+For **CP277**, resolving the missing component/cohort rule must reopen materially affected interest, comparability, implementation and display decisions. Correcting formal-specialisation claims also affects discovery and any later candidate construction. Preserve independently confirmed subjects/components through those reassessments.
+
+For **CP019**, repair the health-interest disposition and the first route's applied-rhetoric contribution before certification. If a course changes, recheck its schedule, distinctness, traceability, alignment and wording; do not rebuild unrelated alternatives. Discovery-only source corrections do not invalidate supported programme concepts. Course-modal and mobile fixes require renewed rendered checks.
+
+The first pair supports the proposed explicit audience boundary, with four refinements:
+
+1. Separate **what the programme studies** from **why a comparison is unavailable or limited**. An exception reason is not a programme description.
+2. Distinguish clean cohort/route labels and reader-relevant limitations from internal authority/cohort reconciliation. Preserve source links and substantive uncertainty without reproducing the investigation.
+3. Cover curriculum-level notes and the course-description cache as well as top-level summaries. Keep the existing canonical concept field; do not add a competing programme concept merely for this app.
+4. Carry an explicit completeness/status signal when showing partial or diagnostic components. A list of supported courses is not necessarily a complete degree. Layout quality remains a separate requirement.
+
+No final presentation approval is granted. The register contains two reviewed-with-blockers cases and 436 unstarted cases; four selected pilot cases remain unstarted. Review these findings before any next pair, shared architecture implementation or proposed academic/content repairs.

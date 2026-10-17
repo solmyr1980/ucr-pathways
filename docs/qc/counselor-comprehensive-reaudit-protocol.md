@@ -1,6 +1,6 @@
 # Comprehensive counselor re-audit: operational protocol
 
-Date: 17 October 2026. Status: preparation completed; no cases reviewed under this protocol.
+Date: 17 October 2026. Status: approved for the six-case pilot; first-pair findings recorded in the report/register. No final presentation approval granted.
 
 This protocol implements the authorised comprehensive re-audit. It does not replace the [Production Instructions](../UCR_Pathways_Production_Instructions.md) or [Master Specification](../UCR_Pathways_Master_Specification.md). The [preparation report](counselor-comprehensive-reaudit-preparation-2026-10-17.md) records the baseline inventory, application diagnosis and six-case selection. The [review register](../../data/counselor/qc/comprehensive-reaudit.json) holds progress.
 
@@ -103,8 +103,8 @@ Record recurring mechanisms once in `sharedIssues`, with affected field paths, e
 
 ## Execution sequence
 
-1. Preserve the preparation baseline and six-case selection. This assignment stops here: no pilot outcomes are assigned.
-2. On authorisation to execute, process pilot pairs **CP277 + CP119**, **CP001 + CP019**, then **CP035 + CP330**. Complete the academic stages and communication diagnosis; keep stage 6 open where a shared architecture defect prevents approval. Any record repairs follow the existing material-error rules.
+1. Preserve the preparation baseline and six-case selection. The preparatory assignment assigned no stage outcomes; subsequent findings belong to the dated report/register.
+2. On authorisation to execute, process pilot pairs **CP277 + CP019**, **CP119 + CP001**, then **CP035 + CP330**. Complete the academic stages and communication diagnosis; keep stage 6 open where a shared architecture defect prevents approval. Any record repairs follow the existing material-error rules. The user-approved first-pair assignment records findings only; do not begin the next pair until those findings have been reviewed.
 3. Review the proposed audience-content contract before implementing it. Implement the agreed shared remedy once, preserve internal research, and complete rendered checks across normal/caution/external-only, unresolved/no-match and withheld-comparison variants. Revisit only affected pilot stages.
 4. Assess whether the procedure exposed missing criteria or disproportionate documentation. Resolve material methodological questions and complete independent final review before starting corpus-wide batches.
 5. Process the remaining baseline targets in registry `production_order`, two whole cases per batch, skipping pilot cases only when their full review is complete. Prior approvals from other exercises do not remove targets. With 438 targets and six completed pilot cases, 432 remain: 216 pairs. A blocked case stays visibly unresolved; continue to the next unstarted case without counting the blocker as approved or repeatedly selecting it without new evidence.
