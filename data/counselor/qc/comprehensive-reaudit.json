@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
   "auditId": "counselor-comprehensive-reaudit",
-  "status": "second-pair-in-progress",
+  "status": "second-pair-completed",
   "preparedOn": "2026-10-17",
   "baselineCommit": "bb2c4b5bd41e060b501448e057757f661ef22d4e",
   "protocol": "docs/qc/counselor-comprehensive-reaudit-protocol.md",
@@ -550,7 +550,8 @@
       "unresolved": [],
       "downstreamReassessments": [],
       "implementationCommits": [
-        "0bb236ea18ebcab245f990c5fb48b29d62c7f3c7"
+        "0bb236ea18ebcab245f990c5fb48b29d62c7f3c7",
+        "ee64de039ad6167f14f00396058f6e267f44e0dc"
       ],
       "finalReview": null,
       "presentationApproval": true,
@@ -572,15 +573,17 @@
         "decision": null
       },
       "reviewedInputCommit": null,
-      "state": "in-progress",
+      "state": "approved",
       "sharedIssueIds": [
         "audience-boundary"
       ],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
+      "implementationCommits": [
+        "ee64de039ad6167f14f00396058f6e267f44e0dc"
+      ],
       "finalReview": null,
-      "presentationApproval": false,
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000001.json",
       "stageOutcomes": {
         "1": "correct",
@@ -770,8 +773,8 @@
     }
   ],
   "progress": {
-    "approved": 2,
-    "inProgress": 1,
+    "approved": 3,
+    "inProgress": 0,
     "reviewedWithBlockers": 1,
     "notStarted": 434,
     "pilotStarted": 4
@@ -846,6 +849,42 @@
         "6162770bba7a51cb10056aafbe4568420ed96be7",
         "ca29df99377c9c46e8dfb6337fc3f49f3dbe166a"
       ]
+    },
+    {
+      "batch": 2,
+      "caseIds": [
+        "cp-000119",
+        "cp-000001"
+      ],
+      "reviewedOn": "2026-10-17",
+      "inputCommit": "ee64de039ad6167f14f00396058f6e267f44e0dc",
+      "status": "completed-both-approved",
+      "stagesReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "recordsModified": true,
+      "casePresentationApproval": {
+        "cp-000119": true,
+        "cp-000001": true
+      },
+      "implementationCommits": [
+        "0bb236ea18ebcab245f990c5fb48b29d62c7f3c7",
+        "ee64de039ad6167f14f00396058f6e267f44e0dc"
+      ],
+      "checks": [
+        "All 82 target interest rows reviewed; 15 bounded corrections with stable IDs",
+        "72 workbook placements; both byte-identical compiler replays and full formal schemas",
+        "Frozen actual desktop/mobile cases and 30-test rendered matrix",
+        "Original CP001 record/schedules retained; missing-root recovery boundaries tested",
+        "64-record formal schema affected set unchanged"
+      ],
+      "reportSection": "docs/qc/counselor-second-pair-completion-2026-10-17.md#final-dispositions",
+      "nextPairBlockedPendingUserReview": true
     }
   ],
   "scopeChanges": [],
@@ -855,7 +894,8 @@
     "authorisedOn": "2026-10-17",
     "basis": "User approved protocol; requested CP277 + CP019 first, retaining all six selected cases. CP119 and CP001 form the second pair; third pair unchanged.",
     "nextPairMayStart": false,
-    "gate": "Do not start the next pair until the first-pair findings have been reviewed by the user."
+    "gate": "Second pair explicitly authorised and completed. Do not start CP035/CP330 until the next assignment.",
+    "secondPairAuthorisation": "User accepted aa69e93 first-pair baseline and expressly requested CP119/CP001 only."
   },
   "reviewInputCommit": "ffabf196b0702eba9acbec57f6aa5f954af16a94",
   "reviewGoverningDocumentBlobs": {
@@ -916,7 +956,7 @@
       },
       {
         "step": 3,
-        "status": "not-started",
+        "status": "partially-completed-second-pair-approved",
         "caseIds": [
           "cp-000119",
           "cp-000001",
@@ -924,7 +964,16 @@
           "cp-000330"
         ],
         "scope": "Finish the remaining four pilot cases in their two retained pairs using the integrated six-stage review, correction, downstream reassessment, independent verification and disposition procedure.",
-        "completionGate": "First pair has completed step 2; no next pilot pair starts in this preparatory assignment."
+        "completionGate": "Second pair authorised after accepted first-pair dispositions and now complete. Third pair remains unstarted and requires the next assignment.",
+        "completedCaseIds": [
+          "cp-000119",
+          "cp-000001"
+        ],
+        "remainingCaseIds": [
+          "cp-000035",
+          "cp-000330"
+        ],
+        "report": "docs/qc/counselor-second-pair-completion-2026-10-17.md"
       },
       {
         "step": 4,
@@ -942,8 +991,8 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "First pair completed as far as evidence permits: CP019 approved; CP277 reviewed with one genuine external-curriculum blocker. No next academic pair, corpus processing or counselor deployment performed or authorized by this completion.",
-    "priorAssignmentBoundary": "Shared application foundation implemented and tested. No canonical academic/decision/interest/presentation-setting changes, no case-specific audience prose production, no further pilot review and no deployment. Next: finish CP277 and CP019."
+    "currentAssignmentBoundary": "Second pair complete: CP119 and CP001 approved. CP019 and CP277 baseline dispositions preserved. No academic review of CP035/CP330, corpus processing or counselor deployment. Third pair awaits next assignment.",
+    "priorAssignmentBoundary": "First pair completed as far as evidence permits: CP019 approved; CP277 reviewed with one genuine external-curriculum blocker. No next academic pair, corpus processing or counselor deployment performed or authorized by this completion."
   },
   "caseEvidenceTemplate": {
     "id": "cp-XXXXXX",
@@ -1003,5 +1052,6 @@
     "docs/UCR_Pathways_Master_Specification.md": "03238d48149fac656a5519763cb8c0dd37072211",
     "docs/UCR_Pathways_Production_Instructions.md": "47ab56ace607c0e7dd0790e369ee609951a66211",
     "docs/qc/counselor-comprehensive-reaudit-protocol.md": "d57b8441a232c85557a17251052e1089437c1b3a"
-  }
+  },
+  "secondPairCompletionReport": "docs/qc/counselor-second-pair-completion-2026-10-17.md"
 }

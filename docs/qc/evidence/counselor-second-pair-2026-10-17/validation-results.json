@@ -1,0 +1,63 @@
+{
+  "reviewedCommit": "ee64de039ad6167f14f00396058f6e267f44e0dc",
+  "status": "passed",
+  "checks": [
+    {
+      "commands": "npm run test:counselor-compiler",
+      "status": "passed",
+      "log": "docs/qc/evidence/counselor-second-pair-2026-10-17/compiler-tests.log"
+    },
+    {
+      "commands": "npm test",
+      "status": "passed",
+      "log": "docs/qc/evidence/counselor-second-pair-2026-10-17/quality-tests.log"
+    },
+    {
+      "commands": "node scripts/validate-registry-interests.mjs; python scripts/test-registry-corrections.py; python scripts/apply-registry-corrections.py --check",
+      "status": "passed",
+      "log": "docs/qc/evidence/counselor-second-pair-2026-10-17/registry-tests.log"
+    },
+    {
+      "commands": "Rscript scripts/test-shiny.R; Rscript scripts/test-counselor-audience.R; Rscript scripts/deploy-counselor-shiny.R --check-bundle",
+      "status": "passed",
+      "log": "docs/qc/evidence/counselor-second-pair-2026-10-17/shiny-tests.log"
+    },
+    {
+      "commands": "python scripts/test-counselor-recovery.py",
+      "status": "passed",
+      "result": "8 actual git-fixture workflow selector boundary tests"
+    },
+    {
+      "commands": "python replay-verification.py (this evidence directory; openpyxl/jsonschema/referencing)",
+      "status": "passed",
+      "result": "72 placements; both compiler replays and full schemas; unchanged 64-record formal-schema affected set; all unaffected canonical records and non-target registry rows unchanged",
+      "evidenceRef": "docs/qc/evidence/counselor-second-pair-2026-10-17/verification-replay.json"
+    },
+    {
+      "commands": "python scripts/test-counselor-audience-schema.py; python scripts/validate-course-descriptions.py; node scripts/build-counselor-review-index.mjs --check",
+      "status": "passed",
+      "result": "Audience positive/negative schemas; 5 reviewed modal cache entries;438 programme/21212 discovery-interest index rows"
+    },
+    {
+      "commands": "node scripts/test-counselor-rendered.mjs",
+      "status": "passed",
+      "result": "30 actual/fixture record-viewport checks across normal, caution, external-only, withheld, no-match, unresolved and incomplete-audience modes",
+      "evidenceRef": "docs/qc/evidence/counselor-second-pair-2026-10-17/regression/rendered-results.json"
+    },
+    {
+      "commands": "node render-verification.cjs cp-000119 cp-000001 (this evidence directory)",
+      "status": "passed",
+      "result": "4 frozen actual case/viewport views, all 2/3 mobile columns,12 course-modal interactions, source anchors, search/back, no page errors",
+      "evidenceRef": "docs/qc/evidence/counselor-second-pair-2026-10-17/frozen-rendered-results.json"
+    }
+  ],
+  "resolvedFailure": {
+    "observation": "CP119 removal from the explicit presentation inventory caused the full Shiny inventory assertion to fail after the first implementation commit.",
+    "remedy": "ee64de0 restores an explicit normal setting. Effective presentation and academic inputs are unchanged; full Shiny, bundle and rendered regression checks now pass.",
+    "initialCommit": "0bb236ea18ebcab245f990c5fb48b29d62c7f3c7",
+    "correctedCommit": "ee64de039ad6167f14f00396058f6e267f44e0dc"
+  },
+  "scope": "No app deployment. Standard existing PDF build workflow may publish its usual artifacts; its bot commits are preserved.",
+  "githubVerificationRef": "docs/qc/evidence/counselor-second-pair-2026-10-17/github-verification.json",
+  "githubResult": "Build counselor comparison, Refresh counselor review indexes, Validate Shiny pilots and standard PDF build all passed on ee64de0. No counselor deployment workflow invoked."
+}
