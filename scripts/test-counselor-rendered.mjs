@@ -64,7 +64,7 @@ try {
      }
      const modals=[];
      if(id==='cp-000019') {
-      for(const code of ['BENBUSI211','MCCHEAM316']) {
+      for(const code of ['BENBUSI211','MCCHEAM316','MCCHEAM212']) {
        const button=page.locator(`.course-link[data-code="${code}"]`).first();
        if(size==='mobile') {
         const index=await button.evaluate(b=>Array.from(b.closest('tr').children).indexOf(b.closest('td')));
@@ -75,7 +75,7 @@ try {
        const box=await page.locator('.modal-dialog').boundingBox();
        assert.ok(box.x>=0 && box.y>=0 && box.x+box.width<=viewport.width+1,`${code}: inaccessible modal`);
        const text=await page.locator('.modal.in').innerText();
-       assert.ok(text.includes(code==='BENBUSI211'?'generative AI':'history of art history'),`${code}: wrong modal content`);
+       assert.ok(text.includes(code==='BENBUSI211'?'generative AI':code==='MCCHEAM316'?'history of art history':'Renaissance Italy'),`${code}: wrong modal content`);
        assert.ok(!text.includes('description is not currently available'));
        modals.push({code,text});
        await page.screenshot({path:path.join(out,`${variant}-${code}-${size}.png`)});
@@ -90,7 +90,7 @@ try {
      }
      if(id==='cp-000277') {
       assert.ok(body.includes('no complete degree pathway is certified'));
-      if(variant==='actual')assert.equal(await page.locator('.external-curriculum').count(),0);
+      if(variant==='actual' && !JSON.parse(fs.readFileSync(`data/counselor/comparisons/${id}.json`)).audience?.curriculum) assert.equal(await page.locator('.external-curriculum').count(),0);
       else {assert.ok(body.includes('175 EC')&&body.includes('required 5 EC'));assert.ok(body.includes('Verified partial curriculum'));}
      }
      if(id==='cp-000119')assert.ok(body.includes('cannot construct a sufficiently close programme'));

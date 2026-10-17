@@ -3,6 +3,7 @@ source("pilot/counselor-shiny/app.R", local = e)
 load_record <- function(id) jsonlite::fromJSON(paste0("data/counselor/comparisons/", id, ".json"), simplifyVector = FALSE)
 r <- load_record("cp-000019")
 before <- serialize(r, NULL)
+r$audience <- NULL # Explicit unreviewed legacy fixture.
 r$comparator$sourceNotes <- r$comparator$academicYear <- r$comparator$route <- "INTERNAL-SENTINEL"
 r$notes <- lapply(r$notes, function(n) { n$text <- "INTERNAL-SENTINEL"; n })
 r$blocks <- lapply(r$blocks, function(b) { b$rows <- lapply(b$rows, function(row) { row$cells <- lapply(row$cells, function(cell) { if (is.list(cell)) cell$note <- "INTERNAL-SENTINEL"; cell }); row }); b })
@@ -14,6 +15,7 @@ html <- as.character(e$render_comparison(r))
 stopifnot(grepl("Study art and culture in society", html), grepl("required specialist placement differs", html), grepl("Reviewed partial correspondence", html), !grepl("INTERNAL-SENTINEL", html))
 stopifnot(grepl(htmltools::htmlEscape(r$academicRationale$alternatives[[1]]$concept), html, fixed = TRUE))
 x <- load_record("cp-000277")
+x$audience <- NULL # Explicit unreviewed exception fixture.
 x$exception$reason <- x$exception$curriculumContext <- x$comparator$academicYear <- x$comparator$sourceNotes <- "INTERNAL-SENTINEL"
 html <- as.character(e$render_comparison(x))
 stopifnot(!grepl("INTERNAL-SENTINEL", html), !grepl("External programme components", html), grepl("no complete degree pathway is certified", html))

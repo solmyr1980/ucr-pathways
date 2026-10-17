@@ -4,10 +4,13 @@ import { buildProductionRecord } from './build-counselor-production.mjs';
 import { validateAudience } from './counselor-audience.mjs';
 const read = file => JSON.parse(fs.readFileSync(file, 'utf8'));
 const decision = read('data/counselor/decisions/cp-000019.json');
+assert.deepEqual(buildProductionRecord(decision, process.cwd()), read('data/counselor/comparisons/cp-000019.json'));
+delete decision.audience; // Explicit legacy fixture, independent of progressive case content.
 const original = structuredClone(decision);
 const legacy = buildProductionRecord(decision, process.cwd());
 assert.equal(Object.hasOwn(legacy, 'audience'), false);
-assert.deepEqual(legacy, read('data/counselor/comparisons/cp-000019.json'));
+const canonicalWithoutAudience = read('data/counselor/comparisons/cp-000019.json'); delete canonicalWithoutAudience.audience;
+assert.deepEqual(legacy, canonicalWithoutAudience);
 const a = {
   schemaVersion: '1.0', programmeDescription: 'Study art and culture in society.',
   comparisonExplanation: 'The specialist sequences and required placement differ.',
