@@ -43,7 +43,7 @@ Search remains discovery rather than personalization. Relationship classificatio
 
 Academic comparison decisions and UCR course selections remain unchanged. The counselor app reads
 `data/counselor/presentation-overrides.json` as a separate, versioned display policy.
-With no case entry (the initial default), the full approved comparison appears.
+With no case entry, an existing comparison defaults to its full presentation. The accepted historical baseline now gives every currently indexed case an explicit mode; omitting a future case still defaults to normal unless it is a canonical exception.
 
 Edit only the entry for the permanent counselor ID to change how an existing **comparison** is displayed:
 
@@ -63,10 +63,10 @@ Edit only the entry for the permanent counselor ID to change how an existing **c
 }
 ```
 
-These are **illustrative examples only**, not active choices. Valid modes are:
+These are **illustrative examples only**, not the current choices for these cases. Valid modes are:
 
 - `normal`: display the full comparison (also the default if no entry exists);
-- `caution`: display the full comparison with a prominent case-specific message above the summary; `message` is required;
+- `caution`: display the full comparison with a prominent message above the summary; `message` is required and may be shared by a historical cohort or individualized;
 - `external-only`: display only the external programme/curriculum and optional `message`, not the UCR alternatives.
 
 Search and discovery remain unchanged. An external-only result displays a "View programme" button. All original
@@ -74,6 +74,24 @@ decision/canonical records, academic rationale, schedules, comparisons and QC re
 Deleting an entry (or switching it to `normal`) immediately restores the full comparison **on the next deployment**.
 The app validates the settings on startup and the deployment bundle includes the file.
 A true canonical exception still uses its own academic reason and is never reclassified by a display override.
+
+### Initial historical classification (17 October 2026)
+
+The complete 438-case review index was reconciled with the finished QC histories. Its initial presentation settings are:
+
+| Mode | Count | Mechanical source |
+|---|---:|---|
+| `normal` | 302 | Comparisons already accepted outside the subsequent reassessment groups |
+| `caution` | 89 | 54 previous no-match judgments converted by the fixed 55-case review, plus 35 comparisons in the separate 50-case stage-two assessment |
+| `external-only` | 47 | All still-existing canonical exceptions: 15 completed no-match outcomes and 32 unresolved external curricula |
+
+The 54 revised no-matches come from `docs/qc/counselor-stage2-preexisting-no-match-review.md`. The 35 assessed comparisons come from `data/counselor/qc/stage2-ucr-assessment.json`; the status and completeness reconciliation uses `data/counselor/review-programmes.json`. The 55-case review had one retained exception (cp-000301). The two comparison lists have no overlap.
+
+This is a **historical provenance flag**, not a fresh substantive judgment that each comparison is academically strong or weak. All 89 caution cases initially display the same agreed warning:
+
+> UCR offers programmes in related academic fields, but these may differ substantially from the disciplinary programme shown. Important specialist subjects or forms of training may not be available at UCR.
+
+The configuration explicitly lists all 438 permanent case IDs so individual cases can be reassigned by editing one entry; no academic record or comparison has been changed. `external-only` entries for existing canonical exceptions document the category, but the exception renderer already shows only the external curriculum. Changing such an entry to `normal` cannot create an absent comparison: academic generation would be needed first. For existing comparisons, changing the mode back to `normal` immediately restores the full comparison at the next deployment.
 
 ## Runtime data architecture
 

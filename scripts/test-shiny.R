@@ -112,7 +112,25 @@ stopifnot(grepl("Brain &amp; Cognition specialisation", as.character(counselor$r
 
 # Presentation-only overrides must not mutate academic comparisons or exception records.
 stopifnot(identical(counselor$presentation_mode("cp-000001"), "normal"))
-stopifnot(length(counselor$COUNSELOR_PRESENTATION) == 0L)
+# Every currently indexed counselor target has one explicit, independently reversible
+# presentation setting; changing a mode does not alter the canonical record.
+indexed_ids <- vapply(counselor$COUNSELOR_DATA$programmes,
+                      counselor$comparison_id, character(1))
+if (counselor$IS_REVIEW_DATA || identical(counselor$DATA_MODE, "production")) {
+  stopifnot(setequal(names(counselor$COUNSELOR_PRESENTATION), indexed_ids))
+}
+stopifnot(identical(counselor$presentation_mode("cp-000043"), "caution"))
+stopifnot(identical(counselor$presentation_mode("cp-000301"), "external-only"))
+caution_record <- jsonlite::fromJSON("data/counselor/comparisons/cp-000043.json", simplifyVector = FALSE)
+caution_record_html <- as.character(counselor$render_comparison(caution_record))
+stopifnot(grepl("Important: limited disciplinary correspondence", caution_record_html, fixed = TRUE))
+stopifnot(grepl("Important specialist subjects or forms of training", caution_record_html, fixed = TRUE))
+stopifnot(grepl("What this comparison shows", caution_record_html, fixed = TRUE))
+retained_exception <- jsonlite::fromJSON("data/counselor/comparisons/cp-000301.json", simplifyVector = FALSE)
+stopifnot(identical(retained_exception$recordStatus, "exception"))
+retained_exception_html <- as.character(counselor$render_comparison(retained_exception))
+stopifnot(grepl("About this programme", retained_exception_html, fixed = TRUE))
+stopifnot(!grepl("What this comparison shows", retained_exception_html, fixed = TRUE))
 academic_before <- serialize(acceptance_records[[1]], NULL)
 normal_html <- as.character(counselor$render_comparison(acceptance_records[[1]]))
 counselor$COUNSELOR_PRESENTATION[["cp-000001"]] <- list(
