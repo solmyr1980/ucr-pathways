@@ -64,7 +64,7 @@ try {
      }
      const modals=[];
      if(id==='cp-000019') {
-      for(const code of ['BENBUSI211','MCCHEAM316','MCCHEAM212']) {
+      for(const code of ['BENBUSI211','MCCHEAM316','MCCHEAM212','DISARIN111']) {
        const button=page.locator(`.course-link[data-code="${code}"]`).first();
        if(size==='mobile') {
         const index=await button.evaluate(b=>Array.from(b.closest('tr').children).indexOf(b.closest('td')));
@@ -75,7 +75,7 @@ try {
        const box=await page.locator('.modal-dialog').boundingBox();
        assert.ok(box.x>=0 && box.y>=0 && box.x+box.width<=viewport.width+1,`${code}: inaccessible modal`);
        const text=await page.locator('.modal.in').innerText();
-       assert.ok(text.includes(code==='BENBUSI211'?'generative AI':code==='MCCHEAM316'?'history of art history':'Renaissance Italy'),`${code}: wrong modal content`);
+       assert.ok(text.includes(code==='BENBUSI211'?'generative AI':code==='MCCHEAM316'?'history of art history':code==='MCCHEAM212'?'Renaissance Italy':'philosophical and psychological'),`${code}: wrong modal content`);
        assert.ok(!text.includes('description is not currently available'));
        modals.push({code,text});
        await page.screenshot({path:path.join(out,`${variant}-${code}-${size}.png`)});
