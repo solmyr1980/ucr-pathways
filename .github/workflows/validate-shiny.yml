@@ -23,6 +23,13 @@ on:
       - 'scripts/validate-counselor-structural-rules.mjs'
       - 'scripts/validate-counselor-final-rules.mjs'
       - 'scripts/validate-registry-interests.mjs'
+      - 'scripts/test-counselor-audience-schema.py'
+      - 'scripts/test-counselor-audience.mjs'
+      - 'scripts/counselor-audience.mjs'
+      - 'scripts/test-counselor-audience.R'
+      - 'scripts/test-counselor-rendered.mjs'
+      - 'scripts/test-counselor-rendered-server.R'
+      - 'scripts/validate-course-descriptions.py'
       - 'scripts/test-shiny.R'
       - 'scripts/test-student-private.R'
       - 'scripts/test-student-production.R'
@@ -60,6 +67,15 @@ jobs:
       - name: Validate counselor review indexes
         run: npm run validate:counselor-review
 
+      - name: Install workbook reader
+        run: python -m pip install openpyxl jsonschema
+
+      - name: Validate reviewed audience contract and course evidence
+        run: |
+          npm run test:counselor-audience
+          python scripts/test-counselor-audience-schema.py
+          python scripts/validate-course-descriptions.py
+
       - name: Run comparison integrity regression tests
         run: npm test
 
@@ -88,7 +104,9 @@ jobs:
           Rscript -e 'library(jsonlite); fromJSON("data/counselor/pilot-programmes.json"); fromJSON("data/counselor/pilot-interests.json"); fromJSON("data/counselor/review-programmes.json"); fromJSON("data/counselor/review-interests.json"); fromJSON("pilot/shiny/data/access_codes.json"); for (id in sprintf("p-%03d", 1:5)) fromJSON(sprintf("data/examples/%s.json", id))'
 
       - name: Check pilot and review behavior and rendering
-        run: Rscript scripts/test-shiny.R
+        run: |
+          Rscript scripts/test-shiny.R
+          Rscript scripts/test-counselor-audience.R
 
       - name: Create ignored private student test data
         run: Rscript scripts/init-student-private-test.R --quiet
@@ -104,6 +122,14 @@ jobs:
 
       - name: Validate shinyapps.io counselor bundle
         run: Rscript scripts/deploy-counselor-shiny.R --check-bundle
+
+      - name: Install browser test dependencies
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+
+      - name: Inspect running counselor app across desktop and mobile cases
+        run: node scripts/test-counselor-rendered.mjs
 
       - name: Smoke-test student app startup
         shell: bash

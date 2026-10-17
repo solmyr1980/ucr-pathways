@@ -1,3 +1,4 @@
+import { withAudience } from './counselor-audience.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -138,12 +139,12 @@ export function compileV2(decision, repositoryRoot) {
       ...(decision.routeSelection ? { routeSelection: structuredClone(decision.routeSelection) } : {})
     };
     requireCondition(/^https:\/\//.test(comparator.primarySourceUrl), 'exception primary source must be an official HTTPS URL');
-    return {
+    return withAudience({
       schemaVersion: RECORD_SCHEMA, origin: 'counselor', recordStatus: 'exception', id: decision.id,
       programmeProvider: provider(registry), comparator,
       programmes: [{ id: 'comparator', role: 'comparator', family: 'comparator', label: `${comparator.name} at ${comparator.institution}` }],
       exception: structuredClone(exception)
-    };
+    }, decision);
   }
   requireCondition(decision.recordStatus === undefined || decision.recordStatus === 'comparison', 'recordStatus must be comparison or exception');
 
@@ -372,7 +373,7 @@ export function compileV2(decision, repositoryRoot) {
     candidateAssessments,
     alternatives: auditAlternatives
   };
-  return {
+  return withAudience({
     schemaVersion: RECORD_SCHEMA, origin: 'counselor', id: decision.id, cohort: 'Fall 2026 UCR start',
     programmeProvider: provider(registry), comparator, programmes,
     academicRationale: {
@@ -383,7 +384,7 @@ export function compileV2(decision, repositoryRoot) {
     },
     alternativeSelection: { includedCount: decision.alternatives.length, stoppingReason: decision.selection.stoppingReason, assessment: decision.selection.assessment },
     comparisonAlignment: alignment, blocks, notes: structuredClone(decision.notes || [])
-  };
+  }, decision);
 }
 
 function parseArguments(argv) {

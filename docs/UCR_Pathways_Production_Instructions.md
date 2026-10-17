@@ -525,6 +525,32 @@ The canonical record contains semantic content, not renderer coordinates, CSS or
 
 ---
 
+## 7.4 Counselor audience content during progressive review
+
+An optional top-level `audience` object is accepted by v2 decisions (and the retained v1 recovery compiler), preserved unchanged in the canonical record and checked by `counselor-audience.schema.json` and the manual audience validator. Its own `schemaVersion` is `1.0`; canonical and decision versions remain `2.0`. Absence remains valid during the case-by-case re-audit and never triggers automatic narrative migration.
+
+Use the following fields only after checking their substance against the academic record and underlying evidence:
+
+| Field | Meaning |
+|---|---|
+| `programmeDescription` | Concise account of what the external programme studies. |
+| `comparisonExplanation` | Separate reader-facing explanation of comparison status, differences or limitations. |
+| `curriculum.status` | `complete`, `partial` or `unresolved`; this is an evidenced display declaration, not a replacement academic decision. |
+| `curriculum.componentIds` | Stable IDs of the verified components permitted in an external-only display. Complete requires all 180 EC; partial requires a nonempty verified subset and explicit limitation; unresolved requires an empty list and limitation. |
+| `curriculum.yearLabel`, `routeLabel`, `limitation` | Clean academic year (`2026–2027`), concise route label, and material curriculum uncertainty. Do not copy investigation logs. |
+| `conceptProgrammeIds` | Select existing `academicRationale.alternatives[].concept` text by programme ID after review. Keep the single canonical concept field. |
+| `noteTypes` | Select an unambiguous existing `notes[].text` by type after reviewing its content. Internal note types are not automatically display content. |
+| `componentNotes` | Reviewed reader-facing notes keyed by existing comparator component ID. |
+| `cellNotes` | Reviewed `{programmeId, reference, text}` entries; `reference` is the cell's stable UCR course code or external component ID. No row-index mapping. |
+
+Descriptions and status explanations may be populated independently as review proceeds. Missing fields use neutral application copy or are omitted. No raw internal exception, year/route, source, component/cell-note or presentation-message field supplies a prose fallback. Legacy normal/caution comparisons retain their factual table under an explicit review notice; concepts and mixed notes await explicit selection. Caution keeps a clear general specialist-training warning; case-specific detail belongs in reviewed audience explanations/notes. A normal comparison explicitly declared partial/unresolved is shown externally only until its foundations support full comparison. An unresolved external exception can never be marked complete merely because stored components total 180 EC.
+
+Review any audience-selected concept or note in its actual displayed context. Referencing text is permission to display the existing field, not proof that its claim is true. Keep important academic limitations in the reviewed explanation/selected notes; never suppress a limitation merely to remove internal wording. Populate or select content during the integrated review, without bulk rewriting the corpus.
+
+Course-description corrections remain code-keyed in `pilot/shiny/data/courses/*.json`, with `descriptionSources` provenance for reviewed entries. `sourceField`, workbook blob, source/description SHA-256, review date/note and verbatim/edited mode make later source changes detectable. `python scripts/validate-course-descriptions.py` checks fidelity; edited prose still requires substantive review. The current selected fields are not a universal preference order.
+
+---
+
 # 8. Library and public-export boundaries
 
 The counselor record library stores one completed comparison or exception per in-scope normalized target. Discovery programme metadata and programme-interest indexes remain separate from comparison content. Do not flatten all interests into a comparison record; preserve the evidence and construction assessment required to audit the included alternatives and stopping decision without turning the comparison record into a second discovery index.

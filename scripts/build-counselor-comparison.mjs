@@ -1,3 +1,4 @@
+import { withAudience } from './counselor-audience.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -306,7 +307,7 @@ export function compileCounselorDecision(decision, root = process.cwd()) {
     ...academicRationale.interestSelection
   };
 
-  return {
+  return withAudience({
     schemaVersion: RECORD_SCHEMA,
     origin: 'counselor',
     id: decision.id,
@@ -323,7 +324,7 @@ export function compileCounselorDecision(decision, root = process.cwd()) {
     comparisonAlignment,
     blocks,
     notes: structuredClone(decision.notes || [])
-  };
+  }, decision);
 }
 
 function parseArguments(argv) {

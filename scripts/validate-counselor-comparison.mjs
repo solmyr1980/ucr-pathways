@@ -1,3 +1,4 @@
+import { validateAudience } from './counselor-audience.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { isUcrProgramme, normalizeCell, readExample, validateExample } from './example-utils.mjs';
@@ -283,7 +284,7 @@ for (const file of files) {
   const record = readExample(file);
   const exceptionRecord = record.recordStatus === 'exception';
   const generic = exceptionRecord ? { errors: [], warnings: [] } : validateExample(record, sourceName);
-  const errors = [...generic.errors];
+  const errors = [...generic.errors, ...validateAudience(record)];
   const warnings = [...generic.warnings];
   const fail = message => errors.push(`${sourceName}: ${message}`);
   const warn = message => warnings.push(`${sourceName}: ${message}`);

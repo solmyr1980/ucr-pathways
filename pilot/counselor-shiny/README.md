@@ -190,3 +190,11 @@ BA/BSc, discipline and location filters are not claimed as implemented: the curr
 ## Production boundary
 
 Shiny remains the current implementation candidate. Hosting technology can still change later without changing the counselor data contracts: programme metadata, interest discovery index and fixed comparison records remain separate concerns.
+
+## Reviewed audience content and mobile comparisons
+
+The optional canonical `audience` contract is documented in Production Instructions §7.4. Only selected audience prose and ordinary academic facts reach the counselor view. Internal research/context, arbitrary notes and legacy presentation messages are never narrative fallbacks. Unreviewed external-only records retain a status explanation and official link while their component lists are withheld. A reviewed partial list must explicitly identify its verified subset and incompleteness. Existing concepts remain canonical and are displayed by reference after review.
+
+At widths up to 700px, the original table scrolls between full-width columns. Previous/next, programme selection, current name/position and sticky block titles preserve the row/block structure and deliberate gaps. Back to overview returns to the comparison summary; desktop keeps the side-by-side table.
+
+Run `npm run test:counselor-audience`, `Rscript scripts/test-counselor-audience.R`, `python scripts/validate-course-descriptions.py` and the existing Shiny/compiler/bundle checks. `node scripts/test-counselor-rendered.mjs` starts local Shiny servers and tests real records plus isolated runtime-only fixtures; it requires Rscript and Playwright Chromium. `UCR_RSCRIPT`, `UCR_PLAYWRIGHT_MODULE` and `UCR_RENDERED_EVIDENCE_DIR` can select local test dependencies/output. The fixtures never write canonical records or presentation settings. This test does not deploy the app or approve academic cases.

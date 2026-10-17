@@ -53,6 +53,7 @@ if (counselor$IS_REVIEW_DATA) {
   stopifnot(any(vapply(german_interest_results, function(x) identical(x$programme$programmeProviderId, "cp-000040"), logical(1))))
   # Render fixed exception examples independently of later live-record corrections.
   german <- jsonlite::fromJSON("data/test-fixtures/counselor-exception-no-match.json", simplifyVector = FALSE)
+  german$audience <- list(schemaVersion = "1.0", curriculum = list(status = "complete", componentIds = lapply(german$comparator$components, function(x) x$id)))
   exception_html <- as.character(counselor$render_comparison(german))
   stopifnot(grepl("cannot construct a sufficiently close programme", exception_html, fixed = TRUE))
   stopifnot(grepl("Linguistik im Fokus", exception_html, fixed = TRUE))
@@ -60,15 +61,16 @@ if (counselor$IS_REVIEW_DATA) {
   stopifnot(!grepl("UCR courses", exception_html, fixed = TRUE))
   unresolved <- german
   unresolved$exception$type <- "external-programme-unresolved"
+  unresolved$audience$curriculum <- list(status = "unresolved", componentIds = list(), limitation = "The external requirements remain unresolved.")
   unresolved_html <- as.character(counselor$render_comparison(unresolved))
   stopifnot(grepl("A reliable curriculum comparison is currently unavailable", unresolved_html, fixed = TRUE))
   stopifnot(!grepl("cannot construct a sufficiently close programme", unresolved_html, fixed = TRUE))
-  stopifnot(grepl("Linguistik im Fokus", unresolved_html, fixed = TRUE))
+  stopifnot(!grepl("Linguistik im Fokus", unresolved_html, fixed = TRUE))
   stopifnot(!grepl("UCR courses", unresolved_html, fixed = TRUE))
   pending <- german
   pending$exception$type <- "ucr-assessment-pending"
   pending_html <- as.character(counselor$render_comparison(pending))
-  stopifnot(grepl("The university curriculum has been verified", pending_html, fixed = TRUE))
+  stopifnot(grepl("A comparison with UCR is awaiting assessment", pending_html, fixed = TRUE))
   stopifnot(grepl("awaiting assessment", pending_html, fixed = TRUE))
   stopifnot(!grepl("cannot construct a sufficiently close programme", pending_html, fixed = TRUE))
   stopifnot(!grepl("A reliable curriculum comparison is currently unavailable", pending_html, fixed = TRUE))
@@ -88,6 +90,7 @@ test_record <- jsonlite::fromJSON(counselor$comparison_path(test_comparison_id),
 acceptance_records <- lapply(sprintf("cp-%06d", 1:4), function(id) {
   record <- jsonlite::fromJSON(file.path("data/counselor/comparisons", paste0(id, ".json")), simplifyVector = FALSE)
   record$origin <- "counselor"
+  record$audience <- list(schemaVersion = "1.0", conceptProgrammeIds = lapply(Filter(counselor$is_ucr_programme, record$programmes), function(x) x$id), curriculum = list(status = "complete", componentIds = lapply(record$comparator$components, function(x) x$id), routeLabel = record$comparator$route))
   record
 })
 expected_ucr_counts <- c(2L, 2L, 1L, 3L)
@@ -124,7 +127,7 @@ stopifnot(identical(counselor$presentation_mode("cp-000301"), "external-only"))
 caution_record <- jsonlite::fromJSON("data/counselor/comparisons/cp-000043.json", simplifyVector = FALSE)
 caution_record_html <- as.character(counselor$render_comparison(caution_record))
 stopifnot(grepl("Important: limited disciplinary correspondence", caution_record_html, fixed = TRUE))
-stopifnot(grepl("Important specialist subjects or forms of training", caution_record_html, fixed = TRUE))
+stopifnot(grepl("specialist subjects or forms of training may differ", caution_record_html, fixed = TRUE))
 stopifnot(grepl("What this comparison shows", caution_record_html, fixed = TRUE))
 retained_exception <- jsonlite::fromJSON("data/counselor/comparisons/cp-000301.json", simplifyVector = FALSE)
 stopifnot(identical(retained_exception$recordStatus, "exception"))
@@ -138,7 +141,8 @@ counselor$COUNSELOR_PRESENTATION[["cp-000001"]] <- list(
 )
 caution_html <- as.character(counselor$render_comparison(acceptance_records[[1]]))
 stopifnot(grepl("Important: limited disciplinary correspondence", caution_html, fixed = TRUE))
-stopifnot(grepl("specialist content not taught at UCR", caution_html, fixed = TRUE))
+stopifnot(!grepl("specialist content not taught at UCR", caution_html, fixed = TRUE))
+stopifnot(grepl("specialist subjects or forms of training may differ", caution_html, fixed = TRUE))
 stopifnot(grepl("What this comparison shows", caution_html, fixed = TRUE))
 stopifnot(grepl("UCR courses", caution_html, fixed = TRUE))
 stopifnot(grepl("presentation-caution", caution_html, fixed = TRUE))
@@ -148,7 +152,7 @@ stopifnot(regexpr("presentation-caution", caution_html, fixed = TRUE)[[1]] <
 counselor$COUNSELOR_PRESENTATION[["cp-000001"]] <- list(mode = "external-only")
 hidden_html <- as.character(counselor$render_comparison(acceptance_records[[1]]))
 stopifnot(grepl("Only the external programme is shown", hidden_html, fixed = TRUE))
-stopifnot(grepl("External curriculum at", hidden_html, fixed = TRUE))
+stopifnot(grepl("Complete external curriculum", hidden_html, fixed = TRUE))
 stopifnot(!grepl("UCR courses", hidden_html, fixed = TRUE))
 stopifnot(!grepl("What this comparison shows", hidden_html, fixed = TRUE))
 stopifnot(!grepl("Closest UCR match", hidden_html, fixed = TRUE))

@@ -149,6 +149,14 @@ def validate(root):
             require(set(case['stages']) == set('123456') and not case['unresolved'] and not case['downstreamReassessments'], f'{case_id}: approval has unfinished review/dependencies')
             require(all(s['outcome'] != 'blocked' and not s['blockedBy'] and not s['reassessStages'] and all(a['state'] == 'verified' for a in s['actions']) for s in case['stages'].values()), f'{case_id}: approval has blocked stage/unverified correction')
             require(all(issues[x]['status'] == 'verified' for x in case['sharedIssueIds']), f'{case_id}: approval depends on unresolved shared issue')
+            academic_record = records[case_id]
+            audience = academic_record.get('audience', {})
+            require(audience.get('schemaVersion') == '1.0' and audience.get('programmeDescription') and audience.get('comparisonExplanation'), f'{case_id}: final audience explanations missing')
+            curriculum = audience.get('curriculum', {})
+            components = academic_record['comparator']['components']
+            require(curriculum.get('status') == 'complete' and set(curriculum.get('componentIds', [])) == {c['id'] for c in components} and abs(sum(c['credits'] for c in components) - 180) < .001 and academic_record.get('exception', {}).get('type') != 'external-programme-unresolved', f'{case_id}: approved curriculum must be complete and verified')
+            programme_ids = {p['id'] for p in academic_record['programmes'] if p.get('family') == 'ucr'}
+            require(set(audience.get('conceptProgrammeIds', [])) == programme_ids, f'{case_id}: final canonical concepts not selected for display')
             final = case['finalReview']
             require(final and all(final.get(k) for k in ['reviewerOrPass', 'independenceMethod', 'reviewedOn', 'reviewedCommit']), f'{case_id}: independent final review missing')
             evidence_refs(final.get('sourceEvidenceRefs'))

@@ -161,17 +161,23 @@ if (!requireNamespace("rsconnect", quietly = TRUE)) {
   stop("Install the rsconnect package before checking or deploying the counselor app.")
 }
 
+# rsconnect added explicit library resolution after the older supported API.
+# Keep the same selected files and use the installed version's supported arguments.
+rsconnect_library_call <- function(fun, arguments) {
+  if ("dependencyResolution" %in% names(formals(fun))) arguments$dependencyResolution <- "library"
+  do.call(fun, arguments)
+}
+
 if ("--check-bundle" %in% args) {
   selected_files <- rsconnect::listDeploymentFiles(repo_root, appFiles = runtime_files)
   if (!identical(sort(selected_files), sort(runtime_files))) {
     stop("rsconnect did not select exactly the expected counselor runtime files.")
   }
-  dependencies <- rsconnect::appDependencies(
+  dependencies <- rsconnect_library_call(rsconnect::appDependencies, list(
     appDir = repo_root,
     appFiles = runtime_files,
-    appMode = "shiny",
-    dependencyResolution = "library"
-  )
+    appMode = "shiny"
+  ))
   expected_packages <- c("jsonlite", "shiny")
   missing_packages <- setdiff(expected_packages, dependencies$Package)
   if (length(missing_packages)) {
@@ -180,14 +186,13 @@ if ("--check-bundle" %in% args) {
   manifest_path <- file.path(repo_root, "manifest.json")
   if (file.exists(manifest_path)) stop("Refusing to overwrite existing manifest.json during the bundle check.")
   tryCatch({
-    rsconnect::writeManifest(
+    rsconnect_library_call(rsconnect::writeManifest, list(
       appDir = repo_root,
       appFiles = runtime_files,
       appPrimaryDoc = "pilot/counselor-shiny/app.R",
       appMode = "shiny",
-      dependencyResolution = "library",
       quiet = TRUE
-    )
+    ))
     if (!file.exists(manifest_path)) stop("rsconnect did not create the temporary deployment manifest.")
   }, finally = {
     if (file.exists(manifest_path)) unlink(manifest_path)

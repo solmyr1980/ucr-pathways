@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://solmyr1980.github.io/ucr-pathways/data/schema/counselor-audience.schema.json",
+  "title": "Reviewed counselor audience content (optional during progressive re-audit)",
+  "type": "object",
+  "required": [
+    "schemaVersion"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "programmeDescription": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 3000
+    },
+    "comparisonExplanation": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 3000
+    },
+    "conceptProgrammeIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "noteTypes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "curriculum": {
+      "type": "object",
+      "required": [
+        "status",
+        "componentIds"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "complete",
+            "partial",
+            "unresolved"
+          ]
+        },
+        "componentIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "yearLabel": {
+          "type": "string",
+          "pattern": "^20[0-9]{2}[\u2013-]20[0-9]{2}$"
+        },
+        "routeLabel": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "limitation": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 3000
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "partial"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "limitation"
+            ],
+            "properties": {
+              "componentIds": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "unresolved"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "limitation"
+            ],
+            "properties": {
+              "componentIds": {
+                "maxItems": 0
+              }
+            }
+          }
+        }
+      ]
+    },
+    "componentNotes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 3000
+      }
+    },
+    "cellNotes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "programmeId",
+          "reference",
+          "text"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "programmeId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reference": {
+            "type": "string",
+            "minLength": 1
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 3000
+          }
+        }
+      }
+    }
+  }
+}
