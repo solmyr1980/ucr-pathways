@@ -112,7 +112,7 @@ stopifnot(grepl("Brain &amp; Cognition specialisation", as.character(counselor$r
 
 # Presentation-only overrides must not mutate academic comparisons or exception records.
 stopifnot(identical(counselor$presentation_mode("cp-000001"), "normal"))
-stopifnot(identical(counselor$COUNSELOR_PRESENTATION, list()))
+stopifnot(length(counselor$COUNSELOR_PRESENTATION) == 0L)
 academic_before <- serialize(acceptance_records[[1]], NULL)
 normal_html <- as.character(counselor$render_comparison(acceptance_records[[1]]))
 counselor$COUNSELOR_PRESENTATION[["cp-000001"]] <- list(
@@ -123,8 +123,7 @@ stopifnot(grepl("Important: limited disciplinary correspondence", caution_html, 
 stopifnot(grepl("specialist content not taught at UCR", caution_html, fixed = TRUE))
 stopifnot(grepl("What this comparison shows", caution_html, fixed = TRUE))
 stopifnot(grepl("UCR courses", caution_html, fixed = TRUE))
-stopifnot(match("presentation-caution", strsplit(caution_html, " ")[[1]]) >= 1L ||
-          grepl("presentation-caution", caution_html, fixed = TRUE))
+stopifnot(grepl("presentation-caution", caution_html, fixed = TRUE))
 stopifnot(regexpr("presentation-caution", caution_html, fixed = TRUE)[[1]] <
           regexpr("What this comparison shows", caution_html, fixed = TRUE)[[1]])
 
