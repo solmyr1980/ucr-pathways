@@ -1,0 +1,52 @@
+{
+  "reviewedCommit": "31d840e2538a3ab8a21a885ca600018020261482",
+  "status": "passed",
+  "checks": [
+    {
+      "command": "node scripts/validate-counselor-production.mjs",
+      "status": "passed",
+      "log": "docs/qc/evidence/cp119-adjudication-2026-10-18/operational.log"
+    },
+    {
+      "command": "npm run test:counselor-compiler; npm test",
+      "status": "passed",
+      "log": "docs/qc/evidence/cp119-adjudication-2026-10-18/compiler.log"
+    },
+    {
+      "command": "node scripts/validate-registry-interests.mjs; python scripts/test-registry-corrections.py; python scripts/apply-registry-corrections.py --check; node scripts/build-counselor-review-index.mjs --check",
+      "status": "passed",
+      "log": "docs/qc/evidence/cp119-adjudication-2026-10-18/registry.log"
+    },
+    {
+      "command": "Rscript scripts/test-shiny.R; Rscript scripts/test-counselor-audience.R; Rscript scripts/deploy-counselor-shiny.R --check-bundle",
+      "status": "passed",
+      "log": "docs/qc/evidence/cp119-adjudication-2026-10-18/shiny.log"
+    },
+    {
+      "command": "python replay-verification.py (this evidence directory)",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/cp119-adjudication-2026-10-18/verification-replay.json"
+    },
+    {
+      "command": "python scripts/test-counselor-audience-schema.py; python scripts/validate-course-descriptions.py",
+      "status": "passed",
+      "result": "Positive/negative audience schema fixtures and 5 reviewed modal descriptions pass."
+    },
+    {
+      "command": "node render-verification.cjs (this evidence directory)",
+      "status": "passed",
+      "result": "Actual desktop 1440x1000/mobile 390x844; 26 exact component names/180 EC; readable complete external-only view; no archived UCR programme, controls or research leakage; source href/back navigation; zero page errors.",
+      "evidenceRef": "docs/qc/evidence/cp119-adjudication-2026-10-18/frozen-rendered-results.json"
+    },
+    {
+      "command": "node scripts/test-counselor-rendered.mjs",
+      "status": "passed",
+      "result": "30 actual/fixture record-viewport checks across shared modes, missing/partial audience and contaminated internal-field fixtures.",
+      "evidenceRef": "docs/qc/evidence/cp119-adjudication-2026-10-18/regression/rendered-results.json"
+    }
+  ],
+  "interpretation": "Mechanical validity of the preserved composition is retained as a fact, not used to approve target comparability. No matching-row threshold or new disciplinary-equivalence requirement was introduced.",
+  "scope": "CP001 and all other active academic/interest records unchanged; 64-record formal-schema discrepancy set unchanged. No counselor deployment.",
+  "githubVerificationRef": "docs/qc/evidence/cp119-adjudication-2026-10-18/github-verification.json",
+  "githubStatus": "All relevant compiler, index and full Shiny workflows passed on31d840e."
+}
