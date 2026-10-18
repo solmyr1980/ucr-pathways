@@ -1,0 +1,55 @@
+{
+  "reviewedCommit": "17948f6f49c6f13e627a41ee777b05ee330a772b",
+  "checks": [
+    {
+      "command": "node scripts/validate-counselor-production.mjs",
+      "exitCode": 0,
+      "logSha256": "944ebcf10dcbe6c4dbaa143451b3058cd226c43ff75769195a178ea2133e1864"
+    },
+    {
+      "command": "npm run test:counselor-compiler",
+      "exitCode": 0,
+      "logSha256": "21671a09441335b6cf6c7ab1e6b3df62f03d56705d073cd6172fc38b2baee2fc"
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "logSha256": "e02b9c79824d74a274fd51d85029b8a9eb162b2846c1fc532890dbba4a489f70"
+    },
+    {
+      "command": "/tmp/ucr-bin/Rscript scripts/test-shiny.R",
+      "exitCode": 0,
+      "logSha256": "5e09a62cd48c59b0bc3d3946145f76807bb89598c6608b6e9fcd6b9318f1d835"
+    },
+    {
+      "command": "/tmp/ucr-bin/Rscript scripts/test-counselor-audience.R",
+      "exitCode": 0,
+      "logSha256": "72422fdddb0ddba6ac8e4f33f84e013f052a136a7fb7c4ea09835a2b251f8ee4"
+    },
+    {
+      "command": "/tmp/ucr-bin/Rscript scripts/deploy-counselor-shiny.R --check-bundle",
+      "exitCode": 0,
+      "logSha256": "a382799b6289bc5a7c5b5106ec1b2790aaedb2e797d2c4cb5a2579b1cd2e33bd"
+    },
+    {
+      "command": "PYTHONPATH=/tmp/ucr-schema-deps python scripts/test-counselor-audience-schema.py",
+      "exitCode": 0
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "reviewedDescriptions": 13
+    },
+    {
+      "command": "node scripts/build-counselor-review-index.mjs --check",
+      "exitCode": 0
+    },
+    {
+      "command": "python scripts/validate-comprehensive-reaudit.py",
+      "exitCode": 0,
+      "scope": "Re-run after final case/register update"
+    }
+  ],
+  "mechanicalEvidence": "docs/qc/evidence/counselor-final-pair-2026-10-18/verification-replay-cp-000035.json",
+  "renderedEvidence": "docs/qc/evidence/counselor-final-pair-2026-10-18/cp-000035-frozen-rendered-results.json"
+}
