@@ -1,0 +1,98 @@
+{
+  "reviewedCommit": "d24c68c938b7fe4ad0488ef1d7df68bf229040bb",
+  "checks": [
+    {
+      "command": "node scripts/validate-counselor-production.mjs",
+      "exitCode": 0,
+      "log": "docs/qc/evidence/counselor-final-pair-2026-10-18/operational330.log",
+      "logSha256": "00d3b1e56f342d1103a562a4751085e0b460c30e577dfba5298dfa5a2a0902d6"
+    },
+    {
+      "command": "npm run test:counselor-compiler",
+      "exitCode": 0,
+      "log": "docs/qc/evidence/counselor-final-pair-2026-10-18/compiler330.log",
+      "logSha256": "2c658fd7872e71228fdeb97b17904a3b484a072cd82bcf7f97ee091c8bc16556"
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "log": "docs/qc/evidence/counselor-final-pair-2026-10-18/npm330.log",
+      "logSha256": "a234c5d13ecbd8ae9687a66fe419f4a33b2e09b79d37ceb5b2925fa6c28ca1bb"
+    },
+    {
+      "command": "python scripts/test-counselor-recovery.py",
+      "exitCode": 0,
+      "log": "docs/qc/evidence/counselor-final-pair-2026-10-18/recovery330.log",
+      "logSha256": "d27c306d46f0dd39f6a5916ffa59e9f48b8305d6cef6bb58f78aae12c21bd1f4"
+    },
+    {
+      "command": "node scripts/validate-registry-interests.mjs",
+      "exitCode": 0,
+      "log": "docs/qc/evidence/counselor-final-pair-2026-10-18/registry330.log",
+      "logSha256": "0dc1ff8a36961675f58e702191ec97f43c501db23f02270d74dfb6913450c3cc"
+    },
+    {
+      "command": "python scripts/test-registry-corrections.py; python scripts/apply-registry-corrections.py --check",
+      "exitCode": 0,
+      "log": "docs/qc/evidence/counselor-final-pair-2026-10-18/registry-corrections330.log",
+      "logSha256": "b460d59b5cd30a82b3adc8cbc26f0becb01887a134174623c7811a7cfe658cc8"
+    },
+    {
+      "command": "Rscript scripts/test-shiny.R",
+      "exitCode": 0,
+      "log": "docs/qc/evidence/counselor-final-pair-2026-10-18/shiny330.log",
+      "logSha256": "5e09a62cd48c59b0bc3d3946145f76807bb89598c6608b6e9fcd6b9318f1d835"
+    },
+    {
+      "command": "Rscript scripts/test-counselor-audience.R",
+      "exitCode": 0,
+      "log": "docs/qc/evidence/counselor-final-pair-2026-10-18/audience330.log",
+      "logSha256": "72422fdddb0ddba6ac8e4f33f84e013f052a136a7fb7c4ea09835a2b251f8ee4"
+    },
+    {
+      "command": "Rscript scripts/deploy-counselor-shiny.R --check-bundle",
+      "exitCode": 0,
+      "log": "docs/qc/evidence/counselor-final-pair-2026-10-18/bundle330.log",
+      "logSha256": "27081055774dea99052ee27a90dc788aa6a0da2718844195e0084cd687c18d1c"
+    },
+    {
+      "command": "node scripts/test-counselor-rendered.mjs",
+      "exitCode": 0,
+      "log": "docs/qc/evidence/counselor-final-pair-2026-10-18/regression330.log",
+      "logSha256": "2f46a6d9606fb24efb08acfabcbca59ae67282c1666b3cbeb342873936f709c7"
+    },
+    {
+      "command": "PYTHONPATH=/tmp/ucr-schema-deps python scripts/test-counselor-audience-schema.py",
+      "exitCode": 0
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "reviewedDescriptions": 13
+    },
+    {
+      "command": "node scripts/build-counselor-review-index.mjs --check",
+      "exitCode": 0
+    },
+    {
+      "command": "python scripts/validate-comprehensive-reaudit.py",
+      "exitCode": 0,
+      "scope": "Re-run after final update"
+    }
+  ],
+  "matrixMethod": "32 cross-mode/viewport checks ran before publication on exactly the code/data subsequently committed in d24c68c; author upload verified every changed file blob. Focused actual CP330 rendering and source-first/mechanical verification were repeated on frozen d24c68c. CP035 frozen rendering remains 17948f6 with unchanged academic and modal input bytes.",
+  "formalSchema": "Both target records pass full formal schemas. All 438 operational records pass; the same 64 pre-existing non-target formal-schema failures remain, explicitly separate from these approvals.",
+  "workbook": "72 active CP035 plus 24 archived CP330 placements checked; archived feasibility is not active comparison approval.",
+  "noLostEvidence": "Both original decision/canonical pairs preserved byte-for-byte against b313800 and replay identically. All registry bytes and every other canonical record unchanged.",
+  "finalRegisterCounts": {
+    "approved": 5,
+    "inProgress": 0,
+    "reviewedWithBlockers": 1,
+    "notStarted": 432,
+    "pilotStarted": 6
+  },
+  "githubWorkflowEvidence": [
+    "docs/qc/evidence/counselor-final-pair-2026-10-18/cp-000035-github-verification.json",
+    "docs/qc/evidence/counselor-final-pair-2026-10-18/cp-000330-github-verification.json"
+  ]
+}
