@@ -19,6 +19,11 @@ programmes=[];pairs=[];records={};inputs={}
 for id in ids:
  r=read(ROOT/f'data/counselor/comparisons/{id}.json');records[id]=r
  old=read(OUT/f'{id}-original-comparisons.json')
+ for kind in ['decisions','comparisons']:
+  assert (OUT/f'{id}-original-{kind}.json').read_bytes()==subprocess.check_output(['git','show',BASE+f':data/counselor/{kind}/{id}.json'],cwd=ROOT)
+ with tempfile.TemporaryDirectory() as t:
+  archived=Path(t)/'archived.json';subprocess.run(['node','scripts/build-counselor-production.mjs',str(OUT/f'{id}-original-decisions.json'),'--output',str(archived)],cwd=ROOT,check=True,capture_output=True)
+  assert archived.read_bytes()==(OUT/f'{id}-original-comparisons.json').read_bytes()
  facts=lambda x:[(c['id'],c['name'],c['credits']) for c in x['comparator']['components']]
  assert facts(r)==facts(old) and sum(c[2] for c in facts(r))==180
  assert set(r['audience']['curriculum']['componentIds'])=={c[0] for c in facts(r)}
@@ -55,5 +60,5 @@ for p in sorted((ROOT/'data/counselor/comparisons').glob('cp-*.json')):
 baseline=read(ROOT/'docs/qc/evidence/counselor-shared-foundation-2026-10-17/preexisting-schema-discrepancies.json');assert errors==baseline['affectedRecords'] and len(errors)==64;assert all(id+'.json' not in errors for id in ids)
 raw=subprocess.check_output(['git','show',BASE+':data/registry/programme_interests.csv'],cwd=ROOT);assert raw==(ROOT/'data/registry/programme_interests.csv').read_bytes()
 changed=subprocess.check_output(['git','diff','--name-only',BASE,'--','data/counselor/comparisons'],cwd=ROOT,text=True).splitlines();assert set(changed)<={f'data/counselor/comparisons/{id}.json' for id in ['cp-000035','cp-000330']}
-result={'inputCommit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'inputBlobs':inputs,'workbookBlob':blob(ROOT/'data/reference/ucr_courses_enriched.xlsx'),'externalRequirementsPreserved':True,'registryUnchanged':True,'otherCanonicalRecordsUnchanged':True,'programmes':programmes,'distinctness':pairs,'compilerReplayByteIdentical':ids,'formalSchema':{'recordsChecked':438,'targetCasesPassed':ids,'preExistingAffectedCount':64,'affectedSetUnchanged':True,'baselineEvidence':'docs/qc/evidence/counselor-shared-foundation-2026-10-17/preexisting-schema-discrepancies.json'}}
+result={'inputCommit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'inputBlobs':inputs,'workbookBlob':blob(ROOT/'data/reference/ucr_courses_enriched.xlsx'),'externalRequirementsPreserved':True,'registryUnchanged':True,'originalDecisionAndCanonicalBytesPreserved':True,'archivedCompilerReplaysByteIdentical':ids,'otherCanonicalRecordsUnchanged':True,'programmes':programmes,'distinctness':pairs,'compilerReplayByteIdentical':ids,'formalSchema':{'recordsChecked':438,'targetCasesPassed':ids,'preExistingAffectedCount':64,'affectedSetUnchanged':True,'baselineEvidence':'docs/qc/evidence/counselor-shared-foundation-2026-10-17/preexisting-schema-discrepancies.json'}}
 (OUT/('verification-replay-'+'-'.join(ids)+'.json')).write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print('PASS workbook, preserved curricula/schedules, exact compiler replays, full target schemas, unchanged 64-record discrepancy and non-target records/registry',ids)

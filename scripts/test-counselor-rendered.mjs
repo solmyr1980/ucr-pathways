@@ -10,8 +10,8 @@ const out = path.resolve(process.env.UCR_RENDERED_EVIDENCE_DIR || '/tmp/ucr-coun
 fs.mkdirSync(out, {recursive:true});
 const results=[];
 const cases = {
-  actual: [['cp-000003','Pedagogical'],['cp-000001','Public Administration'],['cp-000019','Arts and Culture'],['cp-000330','Mechanical Engineering'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies']],
-  fixtures: [['cp-000004','Psychology'],['cp-000002','Management of International'],['cp-000005','Psychology'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000019','Arts and Culture'],['cp-000330','Mechanical Engineering']]
+  actual: [['cp-000003','Pedagogical'],['cp-000001','Public Administration'],['cp-000019','Arts and Culture'],['cp-000035','Biology'],['cp-000330','Mechanical Engineering'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies']],
+  fixtures: [['cp-000004','Psychology'],['cp-000002','Management of International'],['cp-000005','Psychology'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000019','Arts and Culture'],['cp-000003','Pedagogical']]
 };
 const browser = await chromium.launch({headless:true,args:['--no-sandbox']});
 try {
@@ -103,7 +103,23 @@ try {
      }
      if(variant==='fixtures'&&id==='cp-000002'){assert.ok(body.includes('withheld from presentation'));assert.equal(await page.locator('.compare-view').count(),0);assert.ok(body.includes('Complete external curriculum'));}
      if(variant==='fixtures'&&id==='cp-000005'){assert.ok(body.includes('other content remains under review'));assert.ok(body.includes('Curriculum details are awaiting review'));}
-     if(id==='cp-000330')assert.ok(body.includes('specialist subjects or forms of training may differ'));
+     if(id==='cp-000330') {
+      assert.ok(body.includes('cannot construct a sufficiently close programme'));
+      assert.ok(body.includes('physical mechanical systems') && body.includes('Complete external curriculum'));
+      assert.ok(!body.includes('withheld from presentation') && !body.includes('Computational systems, robotics & sustainable technology'));
+      assert.equal(await page.locator('.compare-view,.column-select,.course-link').count(),0);
+      assert.equal(await page.locator('.external-table tbody tr').count(),47);
+     }
+     if(variant==='fixtures'&&id==='cp-000003')assert.ok(body.includes('specialist subjects or forms of training may differ'));
+     if(variant==='actual'&&id==='cp-000035') {
+      assert.ok(body.includes('provisional') && body.includes('health psychology'));
+      for(const [code,expected] of [['ENSECOL111','diversity of living organisms'],['ENSECOL112','human-driven biodiversity loss'],['ENSECOL211','genes to populations']]) {
+       const button=page.locator(`.course-link[data-code="${code}"]`).first();
+       if(size==='mobile') {const index=await button.evaluate(b=>Array.from(b.closest('tr').children).indexOf(b.closest('td')));await page.locator('.column-select').selectOption(String(index));await page.waitForTimeout(250);}
+       await button.click();await page.locator('.modal.in').waitFor();const text=await page.locator('.modal.in').innerText();assert.ok(text.includes(expected));assert.ok(!/Wizard and the Prophet|policy advice/.test(text));modals.push({code,text});
+       await page.locator('.modal.in button',{hasText:'Close'}).click();await page.locator('.modal-backdrop').waitFor({state:'hidden'});
+      }
+     }
      await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:path.join(out,`${variant}-${id}-${size}-top.png`)});
      fs.writeFileSync(path.join(out,`${variant}-${id}-${size}-text.txt`),body);
      await page.locator('#back_to_search').click();await page.locator('#search_text').waitFor();assert.equal(await page.locator('#search_text').inputValue(),query);
