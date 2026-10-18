@@ -94,7 +94,13 @@ try {
       else {assert.ok(body.includes('175 EC')&&body.includes('required 5 EC'));assert.ok(body.includes('Verified partial curriculum'));}
      }
      if(id==='cp-000428')assert.ok(body.includes('cannot construct a sufficiently close programme'));
-     if(id==='cp-000119' && variant==='actual')assert.ok(body.includes('Philosophy, myth & cultural meaning') && !body.includes('cannot construct a sufficiently close programme'));
+     if(id==='cp-000119' && variant==='actual') {
+      assert.ok(body.includes('cannot construct a sufficiently close programme'));
+      assert.ok(body.includes('Complete external curriculum') && body.includes('religious traditions, sacred texts and lived religion'));
+      assert.ok(!body.includes('Philosophy, myth & cultural meaning'));
+      assert.equal(await page.locator('.compare-view,.column-select,.course-link').count(),0);
+      assert.equal(await page.locator('.external-table tbody tr').count(),26);
+     }
      if(variant==='fixtures'&&id==='cp-000002'){assert.ok(body.includes('withheld from presentation'));assert.equal(await page.locator('.compare-view').count(),0);assert.ok(body.includes('Complete external curriculum'));}
      if(variant==='fixtures'&&id==='cp-000005'){assert.ok(body.includes('other content remains under review'));assert.ok(body.includes('Curriculum details are awaiting review'));}
      if(id==='cp-000330')assert.ok(body.includes('specialist subjects or forms of training may differ'));

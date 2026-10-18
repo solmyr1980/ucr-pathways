@@ -1,5 +1,7 @@
 # Second counselor re-audit pair completion — 17 October 2026
 
+**Subsequent adjudication, 18 October:** the CP119 positive-comparison approval below is superseded by the [focused adjudication](cp119-comparability-adjudication-2026-10-18.md). Its verified external curriculum and constructed programme are preserved; the current academic disposition is `no-defensible-ucr-match`. This dated report remains evidence of the earlier review. CP001’s approval is unchanged.
+
 ## Final dispositions
 
 | Case | Disposition | Retained | Implemented correction |

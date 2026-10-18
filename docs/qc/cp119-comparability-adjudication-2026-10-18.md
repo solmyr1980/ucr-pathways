@@ -1,0 +1,65 @@
+# CP119 comparability adjudication — 18 October 2026
+
+## Academic judgment
+
+**The constructed programme does not satisfy the existing counselor comparability standard for VU Theology and Religious Studies.** Restore `no-defensible-ucr-match` and withdraw the UCR comparison from active presentation. Preserve the complete verified external curriculum and the mechanically feasible UCR composition in review history. This is an academic no-match, not unavailable external evidence or a comparison withheld only by a display preference.
+
+The defect concerns the relationship between the assembled programme and its target. Philosophy, myth & cultural meaning is coherent as philosophy and cultural interpretation. Its course-to-concept explanations do not establish that this broadened concept materially pursues the defining religious subject of the target. The earlier approval substituted the former test for the latter.
+
+No minimum number of matching courses, disciplinary-equivalence rule, religious-content quota, language requirement or professional qualification has been introduced. Two partial shared rows are corroborative evidence of a weak relationship here, not a decision threshold. The assessment also recognises relevant religious material in courses that have no shared VU row.
+
+## Standard and source-first method
+
+The unchanged Master Specification §§2,4.4,5.3 requires a counselor first alternative to be a defensible response to the external target, permits evidenced broader questions, and prohibits weak substitutes. Production Instructions §§2.2–2.3 requires actual content to materially support an evidenced concept; generic context or possible relevance does not suffice. Both concept-to-target validity and course-to-concept validity must hold. Mechanical feasibility and transparency cannot establish either academic relation by themselves.
+
+A separate source-first challenge by the same AI operator re-read current `main` workbook evidence and the adopted VU 2026–2027 OER before testing the prior approval. No separate human reviewer is claimed. Fresh official source retrievals, hashes and a judgment on each of the 24 selected courses are recorded in [source retrievals](evidence/cp119-adjudication-2026-10-18/source-retrievals.json) and [course-by-course challenge](evidence/cp119-adjudication-2026-10-18/course-by-course-challenge.json). The workbook is the directly retrieved GitHub version, blob `c2bcc3b63ec7831fd0f7b8ddfb32de1260521655`; attached registries and public catalogues from other institutions are not substitutes for it.
+
+The examination focuses on this disputed inference and its consequences. The independently verified 26-component/180-EC external route, cohort/part-time identity and corrected 43-row interest evidence are retained. This is not a repeat of the entire six-stage audit.
+
+## What defines the target
+
+VU OER article 10.3 makes religious/worldview traditions and their claims, comparative understanding, interreligious dialogue, inside/outside perspectives and disciplinary inquiry central. The least-specialised Religion and Worldviews route remains religion-centred. Appendix 1, route schedule p.6, confirms the retained pathway: world religions and particular traditions; religious-studies foundations; religious hermeneutics, philosophy, anthropology and psychology; religion in media/public life; interreligious relations; and research/thesis work. The 30-EC approved profiling space remains unspecified.
+
+Current 2026–2027 course pages make the distinction concrete:
+
+- World Philosophy (`G_BATRSCC107`) introduces several global philosophical traditions and the boundaries between philosophy, theology and religion.
+- Myths and Rituals (`G_BATRSPC105`) combines comparative myth with ritual and disciplinary interpretation. UCR’s myth/literature course has a genuine partial relationship.
+- Social Sciences (`G_BATRSCC205`) teaches sociology, psychology and pedagogy **of religion**, including secularisation, religious coping and worldview education. General social theory and social influence are not the same documented inquiry.
+- Anthropology of Religion (`G_BATRSPC205`) includes fieldwork and an interview in a religious community, alongside disciplinary debates. General qualitative research permits transferable methods but does not require that subject/application.
+- Interreligious Hermeneutics (`G_BATRSCC204`) examines sacred-text interpretation, authority and interpretive practices within/across religions. Generic literary criticism alone does not implement it.
+- Comparing Theologies and Philosophies of Religion (`G_BATRSCC206`, labelled Godsdienstfilosofie in the Dutch OER) addresses faith/reason, religious experience, truth claims, pluralism and theological/philosophical assumptions across traditions. It offers a strong test of the proposed general-philosophy bridge.
+
+Current marketing for a programme starting in 2027 does not replace the adopted cohort. Compulsory biblical languages and ministerial formation are not invented for the general route.
+
+## Strongest arguments on each side
+
+| Position | Strongest evidence and argument | Adjudication |
+|---|---|---|
+| Accept the new comparison | Meaning/worldviews and religion as cultural phenomenon are valid target interests. Myth, religious artefacts, African religious visual meaning, Athenian myth/religion, Buddhist self-theory and Aquinas are concrete connections. Philosophy, literary interpretation and social methods can support a differently organised programme; exact VU equivalence is unnecessary. | This establishes real educational connections and a coherent broader composition. It does not establish that the assembled curriculum sustains inquiry into religions, sacred interpretation or lived religious practice. The positive case is stronger than the two shared rows suggest, but still insufficient at programme level. |
+| Retain no-match | The target’s defining object is religious traditions, practices, claims and perspectives. Many course rationales instead justify general meaning, culture, self, civic institutions or belief in the ordinary sense. The record does not require/document their religious application or supply a continuing religious-studies inquiry that would make those complements substantively serve this target. | This is the decisive argument. It permits general methods and neighbouring disciplines; it does not require every course to teach religion. The curriculum’s organising object has shifted, rather than its method simply becoming broader. |
+
+The original main no-match reason explicitly assessed the assembled programme and rejected general additions without a specific religious contribution. It did **not** reject the case because degree titles differed or because every course lacked a one-to-one equivalent. One subsidiary religion/conflict assessment did use an overstrict “23 non-PPD courses specifically” formulation. That sentence should not be adopted as a rule. The subsequent reversal incorrectly generalised it into a description of the central original judgment, then treated generic-meaning coherence as sufficient to overcome that judgment.
+
+## Course contributions and interest ownership
+
+The detailed 24-course ledger acknowledges each contribution and its limits. World Myth & Literature and Western Philosophy retain genuine partial correspondences. Archaeology, African Art, Ancient Democracy, Buddhist self-theory, Aquinas, religious constitutions and religion in literature add specific relevant material. These are not dismissed as irrelevant merely because they lack shared rows.
+
+General ethics, emotion, agency, literary criticism, sociology, civil-society research, law and political thought legitimately explain the new programme’s philosophical/cultural coherence. A possible religious case study or freely chosen project does not establish a taught religious application in the recorded curriculum. PPD remains mandatory and exempt from ordinary course-selection justification. The criticism concerns the combined target relationship, not a prohibition on individual complementary courses.
+
+The original comparison’s claimed ownership of nine generator interests is consequently withdrawn. In particular, literary interpretation does not establish sacred-text hermeneutics (5389/5404); general social influence does not establish the target’s religious belief/behaviour inquiry (5388/5416); ordinary cultural/public-life analysis does not implement comparative religions or religion as a cultural phenomenon (5395/5415/5417); and unspecified research methods do not establish religious-studies research (5425). Philosophical life questions (5392) remain a real bridge, but cannot alone validate the whole target-level composition.
+
+## Limited repair and downstream decision
+
+A narrower label, an additional caveat or more generous alignment of generic methods would change presentation without repairing the academic relationship. The catalogue was screened across all 151 identities and relevant descriptions/profiles/topics/methods; all 24 selected courses and pertinent alternative leads were read substantively. Youth Resilience to Extremism, Native American Histories, comparative politics and information/critical-reasoning study offer further particular or general perspectives. None establishes the missing sustained religious inquiry through a bounded substitution. No new programme is manufactured, no unverified supervision is assumed and no content is inserted into VU’s generic minor or UCR optional research.
+
+The earlier rejection of religion/conflict as merely redundant with the approved public-life strand is superseded: that approved strand is withdrawn. Those interests, and the religion/environment direction, are assessed as religious applications that the documented general offerings do not establish at programme level. The independently supported limitations of confessional and Islamic constructions remain, with corrected interest roles and without using specialist language/professional gaps against the general route.
+
+## Implementation and final disposition
+
+The active decision/canonical record becomes a complete external `no-defensible-ucr-match` exception. It contains no UCR programme, comparison blocks, fabricated schedule or optional-research counterpart. Audience text explains the academic limitation, retains the reviewed VU description and presents all 26 verified components/180 EC with clean year/route/pace information. Presentation is explicitly external-only; the exception type, rather than mere display suppression, controls the explanation.
+
+The former [decision](evidence/cp119-adjudication-2026-10-18/superseded-decision.json) and [canonical comparison](evidence/cp119-adjudication-2026-10-18/superseded-comparison.json) are preserved byte-for-byte. The detailed case preserves the entire `bc0c34d` review snapshot, including approval, course/interest findings and screenshots, as superseded history. Corrected interest rows, source research and the independently reviewed modal-cache correction remain unchanged. CP001 and all other academic records are unchanged.
+
+Final completion status is recorded in the case after verification of the published correction. A completed, approved **no-match exception** signifies that the negative academic decision and external-only presentation are verified; it does not approve the withdrawn UCR comparison. The register’s review-completion count must not be read as a count of positive UCR matches. `academicDisposition` makes this distinction explicit and is checked against the canonical record.
+
+Verification evidence and results are added below when the frozen corrected record has passed the separate final pass. The unchanged 64-record formal-schema issue remains a separate publication dependency. CP035/CP330, corpus processing and deployment are outside this assignment.

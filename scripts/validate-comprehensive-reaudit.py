@@ -124,6 +124,10 @@ def validate(root):
         require(case['id'] == case_id and case['auditId'] == d['auditId'] and case['schemaVersion'] == '2.0', f'{case_id}: detail identity/version mismatch')
         for key in ['state', 'sharedIssueIds', 'unresolved', 'downstreamReassessments', 'implementationCommits', 'presentationApproval']:
             require(entry[key] == case[key], f'{case_id}: central/detail {key} mismatch')
+        if 'academicDisposition' in entry or 'academicDisposition' in case:
+            disposition = records[case_id].get('exception', {}).get('type', 'comparison')
+            require(entry.get('academicDisposition') == case.get('academicDisposition') == disposition,
+                    f'{case_id}: academic disposition differs from canonical record')
         require(entry['stageOutcomes'] == {n: s['outcome'] for n, s in case['stages'].items()}, f'{case_id}: stage outcomes differ')
         require(set(case['stages']) <= set('123456'), f'{case_id}: invalid stage')
         for n, stage in case['stages'].items():
