@@ -912,7 +912,7 @@
     },
     {
       "id": "cp-000013",
-      "state": "in-progress",
+      "state": "approved",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000013.json",
       "stageOutcomes": {
         "1": "correct",
@@ -929,8 +929,10 @@
       ],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "5e5b3448c876e1681a806976c890baa0385e5305"
+      ],
+      "presentationApproval": true,
       "academicDisposition": "comparison"
     }
   ],
@@ -1073,8 +1075,8 @@
     }
   ],
   "progress": {
-    "approved": 14,
-    "inProgress": 1,
+    "approved": 15,
+    "inProgress": 0,
     "reviewedWithBlockers": 1,
     "notStarted": 422,
     "pilotStarted": 6
@@ -1477,7 +1479,7 @@
   },
   "limitedProduction": {
     "authorisedOn": "2026-10-20",
-    "status": "in-progress",
+    "status": "completed-authorised-scope",
     "pairs": [
       [
         "cp-000002",
@@ -1517,12 +1519,13 @@
       [
         "cp-000009",
         "cp-000010"
+      ],
+      [
+        "cp-000011",
+        "cp-000013"
       ]
     ],
-    "nextPair": [
-      "cp-000011",
-      "cp-000013"
-    ],
+    "nextPair": null,
     "completionReports": [
       "docs/qc/counselor-batch-01-completion-2026-10-20.md",
       "docs/qc/counselor-batch-02-completion-2026-10-20.md",
@@ -1530,7 +1533,7 @@
     ],
     "boundedContinuation": {
       "authorisedOn": "2026-10-20",
-      "status": "in-progress",
+      "status": "completed-authorised-scope",
       "allowedCases": [
         "cp-000009",
         "cp-000010",
@@ -1548,32 +1551,27 @@
         ]
       ],
       "unit": "One complete case per execution; task trigger is not substantive completion.",
-      "activeCase": "cp-000013",
-      "activeCaseClaim": {
-        "claimedOn": "2026-10-20T23:05:51+02:00",
-        "verifiedInputCommit": "ad6d5e00057a88c1e8bb10239a65239495165923",
-        "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000013.json",
-        "nextUnverifiedAction": "Publish the corrected decision/canonical pair, mechanical evidence, checkpoint and targeted CP013 Shiny CI step to fresh main; verify Actions, download the rendered artifact, inspect every supplied screenshot, then and only then record final disposition and close the CP011–CP013 pair.",
-        "inputBlobs": {
-          "canonical": "ec263e91ff4bf45acc49d4caee32e8831acd5fdf",
-          "decision": "a6f5ca6a38bcc0a821839c53ac2320a443a1e0e6"
-        },
-        "status": "academic-and-mechanical-complete-rendered-pending"
-      },
+      "activeCase": null,
+      "activeCaseClaim": null,
       "completedCases": [
         "cp-000009",
         "cp-000010",
-        "cp-000011"
+        "cp-000011",
+        "cp-000013"
       ],
       "completedPairs": [
         [
           "cp-000009",
           "cp-000010"
+        ],
+        [
+          "cp-000011",
+          "cp-000013"
         ]
       ],
       "requiredUserIntervention": [],
       "oldRecurringTaskMustRemainDisabled": true,
-      "nextAction": "Complete CP013 targeted CI and rendered verification, then record its final disposition and close the CP011–CP013 pair; do not start another case.",
+      "nextAction": null,
       "caseResults": [
         {
           "caseId": "cp-000009",
@@ -1609,8 +1607,40 @@
           "renderedEvidence": "docs/qc/evidence/counselor-bounded-continuation-2026-10-20/rendered/results-cp-000011.json",
           "elapsed": "approximately 26 minutes",
           "requiredUserIntervention": []
+        },
+        {
+          "caseId": "cp-000013",
+          "disposition": "approved qualified positive comparison; three UCR programmes",
+          "claimCommit": "ad6d5e00057a88c1e8bb10239a65239495165923",
+          "implementationCommit": "5e5b3448c876e1681a806976c890baa0385e5305",
+          "verificationCommit": "5e5b3448c876e1681a806976c890baa0385e5305",
+          "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000013.json",
+          "mechanicalEvidence": "docs/qc/evidence/counselor-bounded-continuation-2026-10-20/cp-000013-mechanical-verification.json",
+          "renderedEvidence": "docs/qc/evidence/counselor-bounded-continuation-2026-10-20/rendered/results-cp-000013.json",
+          "elapsed": "approximately 16 minutes",
+          "requiredUserIntervention": []
         }
-      ]
+      ],
+      "completedOn": "2026-10-20",
+      "completionAssessment": {
+        "scope": "Exactly CP009, CP010, CP011 and CP013 under the 20 October 2026 bounded continuation authorisation.",
+        "outcome": "All four cases reached verified final dispositions; both fixed reporting pairs are complete.",
+        "caseDispositions": {
+          "cp-000009": "approved qualified positive comparison; three UCR programmes",
+          "cp-000010": "approved qualified positive comparison; three UCR programmes",
+          "cp-000011": "approved qualified positive comparison; three UCR programmes",
+          "cp-000013": "approved qualified positive comparison; three UCR programmes"
+        },
+        "elapsed": {
+          "cp-000009": "approximately 18 minutes",
+          "cp-000010": "approximately 36 minutes",
+          "cp-000011": "approximately 26 minutes",
+          "cp-000013": "approximately 16 minutes"
+        },
+        "requiredUserIntervention": [],
+        "triggerIsNotCompletion": true,
+        "oldRecurringTaskRemainsDisabled": true
+      }
     },
     "reliabilityTrial": {
       "authorisedOn": "2026-10-20",
