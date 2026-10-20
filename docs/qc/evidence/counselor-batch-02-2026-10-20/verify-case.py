@@ -1,10 +1,10 @@
 """Mechanical completion checks. Source/academic judgment is recorded separately."""
-import hashlib, itertools, json, pathlib, re, subprocess, sys, tempfile
+import hashlib, itertools, json, os, pathlib, re, subprocess, sys, tempfile
 import openpyxl
 from jsonschema import Draft202012Validator
 from referencing import Registry, Resource
 ROOT=pathlib.Path(__file__).resolve().parents[4]
-OUT=pathlib.Path(__file__).resolve().parent
+OUT=pathlib.Path(os.environ.get('UCR_CASE_EVIDENCE_DIR',pathlib.Path(__file__).resolve().parent));OUT.mkdir(parents=True,exist_ok=True)
 def read(p):return json.loads(p.read_text())
 def blob(p):
  b=p.read_bytes();return hashlib.sha1(f'blob {len(b)}\0'.encode()+b).hexdigest()

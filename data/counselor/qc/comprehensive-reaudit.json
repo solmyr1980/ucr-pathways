@@ -783,6 +783,28 @@
         "5": "correct",
         "6": "correct"
       }
+    },
+    {
+      "id": "cp-000006",
+      "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000006.json",
+      "state": "in-progress",
+      "academicDisposition": "comparison",
+      "sharedIssueIds": [
+        "audience-boundary",
+        "course-modal-content",
+        "counselor-mobile-table"
+      ],
+      "unresolved": [],
+      "downstreamReassessments": [],
+      "implementationCommits": [],
+      "presentationApproval": false,
+      "stageOutcomes": {
+        "1": "correct",
+        "2": "retain",
+        "3": "correct",
+        "4": "correct",
+        "5": "correct"
+      }
     }
   ],
   "sharedIssues": [
@@ -924,9 +946,9 @@
   ],
   "progress": {
     "approved": 9,
-    "inProgress": 0,
+    "inProgress": 1,
     "reviewedWithBlockers": 1,
-    "notStarted": 428,
+    "notStarted": 427,
     "pilotStarted": 6
   },
   "batches": [
@@ -1355,6 +1377,20 @@
     "completionReports": [
       "docs/qc/counselor-batch-01-completion-2026-10-20.md",
       "docs/qc/counselor-batch-02-completion-2026-10-20.md"
-    ]
+    ],
+    "reliabilityTrial": {
+      "authorisedOn": "2026-10-20",
+      "status": "manual-case-in-progress",
+      "manualCase": "cp-000006",
+      "scheduledCase": "cp-000008",
+      "unit": "One whole case per execution; existing fixed pairs remain reporting units.",
+      "qualityRule": "All six stages and final evidence remain required. Reuse existing evidence and helpers; no duplicated academic reports.",
+      "nextAction": "Verify the frozen published CP006 source/course claims in a separately identified source-first pass; run the actual Shiny desktop/mobile comparison and all selected course modals; record final approval only after these and relevant GitHub CI pass.",
+      "successCriteria": [
+        "CP006 final disposition committed and verified in this manual session without a user reminder.",
+        "Then one separate scheduled CP008 execution must persist its own final disposition and verification; creation/enabled state is not success."
+      ],
+      "oldRecurringTask": "6ad63d291df481919a919bba1900528d remains disabled during the controlled trial."
+    }
   }
 }

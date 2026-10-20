@@ -10,7 +10,7 @@ const {chromium}=require(process.env.UCR_PLAYWRIGHT_MODULE||'playwright');
   for(const [size,viewport]of [['desktop',{width:1440,height:1000}],['mobile',{width:390,height:844}]]){
    const p=await browser.newPage({viewport}),errors=[];p.on('pageerror',e=>errors.push(e.message));await p.goto(`http://127.0.0.1:${port}`);
    for(const id of ids){
-    const r=JSON.parse(fs.readFileSync(`data/counselor/comparisons/${id}.json`)),query=id==='cp-000004'?'Psychology':'Sociology';await p.locator('#search_text').fill(query);await p.locator(`.open-comparison[data-id="${id}"]`).click();await p.locator('.comparison-shell').waitFor();
+    const r=JSON.parse(fs.readFileSync(`data/counselor/comparisons/${id}.json`)),query=r.programmeProvider.registryName;await p.locator('#search_text').fill(query);await p.locator(`.open-comparison[data-id="${id}"]`).click();await p.locator('.comparison-shell').waitFor();
     const text=await p.locator('.comparison-shell').innerText();
     for(const s of ['awaiting review','INTERNAL-SENTINEL','sourceNotes','cursuscode=','source-first','_x000D_','formal prerequisite','stoppingReason','semantic review'])assert(!text.includes(s),s);
     assert(text.includes(r.audience.programmeDescription)&&text.includes(r.audience.comparisonExplanation));assert(await p.locator(`a[href="${r.comparator.primarySourceUrl}"]`).count()>0);
@@ -22,7 +22,7 @@ const {chromium}=require(process.env.UCR_PLAYWRIGHT_MODULE||'playwright');
      const credits=(await p.locator('.external-table .ec-badge').allTextContents()).map(x=>Number(x.match(/[0-9.]+/)[0]));assert.equal(credits.reduce((a,b)=>a+b,0),180);
      await p.locator('.external-curriculum').evaluate(el=>scrollTo(0,el.getBoundingClientRect().top+scrollY));
     }else{
-     assert.equal(r.programmes.length,4);assert(text.includes(id==='cp-000004'?'14-EC thesis':'15-EC internship')); for(const concept of r.academicRationale.alternatives)assert(text.includes(concept.concept));
+     assert(r.programmes.length>=2&&r.programmes.length<=4);if(r.audience.curriculum.limitation)assert(text.includes(r.audience.curriculum.limitation));if(size==='desktop')for(const c of r.comparator.components)assert(text.includes(c.name),'Missing external component '+c.id); for(const concept of r.academicRationale.alternatives)assert(text.includes(concept.concept));
      if(size==='mobile'){
       const opts=await p.locator('.column-select option').allTextContents();assert.equal(opts.length,r.programmes.length);
       for(let i=0;i<opts.length;i++){
