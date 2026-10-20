@@ -1383,12 +1383,12 @@
     ],
     "reliabilityTrial": {
       "authorisedOn": "2026-10-20",
-      "status": "manual-case-completed-awaiting-scheduled-trial",
+      "status": "manual-case-completed-scheduled-trial-pending",
       "manualCase": "cp-000006",
       "scheduledCase": "cp-000008",
       "unit": "One whole case per execution; existing fixed pairs remain reporting units.",
       "qualityRule": "All six stages and final evidence remain required. Reuse existing evidence and helpers; no duplicated academic reports.",
-      "nextAction": "Create one scheduled CP008-only execution after this manual completion is published and verified. Keep the old recurring task disabled; do not start CP008 in this manual session.",
+      "nextAction": "The one-time CP008 task must execute its six-stage review and persist verified final disposition or exact failure. Scheduled/enabled state does not establish successful execution. No manual CP008 processing or old recurring queue restart.",
       "successCriteria": [
         "CP006 final disposition committed and verified in this manual session without a user reminder.",
         "Then one separate scheduled CP008 execution must persist its own final disposition and verification; creation/enabled state is not success."
@@ -1397,7 +1397,18 @@
       "manualDisposition": "approved qualified positive comparison; three UCR alternatives",
       "manualImplementationCommit": "fc0cc6898dccca8427fd3db11b9e8331b0521dde",
       "manualEvidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000006.json",
-      "manualUserReminders": 0
+      "manualUserReminders": 0,
+      "manualApprovalCommit": "f0fdf93c283e776054939e64697fefb0d8d3a05d",
+      "scheduledExecution": {
+        "automationId": "6ad7852c680881918cd7cbe0c3c6a4c4",
+        "enabled": true,
+        "schedule": "BEGIN:VEVENT\nDTSTART:20261020T151848Z\nEND:VEVENT",
+        "defaultTimezone": "Europe/Berlin",
+        "createdAt": "2026-10-20T15:13:49.947657+00:00",
+        "manualApprovalCommit": "f0fdf93c283e776054939e64697fefb0d8d3a05d",
+        "status": "scheduled-not-yet-tested",
+        "caseId": "cp-000008"
+      }
     }
   }
 }
