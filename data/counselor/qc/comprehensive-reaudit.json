@@ -1446,7 +1446,6 @@
       "manualApprovalCommit": "f0fdf93c283e776054939e64697fefb0d8d3a05d",
       "scheduledExecution": {
         "automationId": "6ad7852c680881918cd7cbe0c3c6a4c4",
-        "enabled": true,
         "schedule": "BEGIN:VEVENT\nDTSTART:20261020T151848Z\nEND:VEVENT",
         "defaultTimezone": "Europe/Berlin",
         "createdAt": "2026-10-20T15:13:49.947657+00:00",
@@ -1459,9 +1458,12 @@
           "caseEvidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000008.json",
           "caseEvidenceBlob": "2ab26710929ad92477f2d623e986425de88bdfdd",
           "mechanicalEvidence": "docs/qc/evidence/counselor-single-case-trial-2026-10-20/cp-000008-mechanical-verification.json",
-          "runtimeEvidence": "docs/qc/evidence/counselor-single-case-trial-2026-10-20/rendered/results-cp-000008.json"
+          "runtimeEvidence": "docs/qc/evidence/counselor-single-case-trial-2026-10-20/rendered/results-cp-000008.json",
+          "finalDispositionCommit": "5d17fd072a44d47cc1324db96b5788f6d5b614cf"
         },
-        "triggerIsNotCompletion": true
+        "triggerIsNotCompletion": true,
+        "enabledAtCreation": true,
+        "lifecycle": "One-time task; no rescheduling or new automation. No subsequent case started."
       },
       "scheduledDisposition": "approved qualified positive comparison; two UCR alternatives",
       "scheduledImplementationCommit": "cc4a95b4c399ba3d82cc7fc44c9475b7f9e87e0c",
@@ -1476,7 +1478,18 @@
         "cp-000006",
         "cp-000008"
       ],
-      "comparisonOutcome": "Manual CP006 and scheduled CP008 each reached their verified final disposition. These two observations demonstrate the tested completion pattern only; they do not establish general overnight reliability or a platform/root-cause explanation."
+      "comparisonOutcome": "Manual CP006 and scheduled CP008 each reached their verified final disposition. These two observations demonstrate the tested completion pattern only; they do not establish general overnight reliability or a platform/root-cause explanation.",
+      "scheduledApprovalCommit": "5d17fd072a44d47cc1324db96b5788f6d5b614cf",
+      "scheduledApprovalUrl": "https://github.com/solmyr1980/ucr-pathways/commit/5d17fd072a44d47cc1324db96b5788f6d5b614cf",
+      "scheduledApprovalEvidence": {
+        "commit": "5d17fd072a44d47cc1324db96b5788f6d5b614cf",
+        "caseFile": "data/counselor/qc/comprehensive-reaudit/cp-000008.json",
+        "caseBlob": "2ab26710929ad92477f2d623e986425de88bdfdd",
+        "registerFile": "data/counselor/qc/comprehensive-reaudit.json",
+        "reportFile": "docs/qc/counselor-single-case-trial-2026-10-20.md"
+      },
+      "oldRecurringTaskVerifiedDisabledOn": "2026-10-20",
+      "oldRecurringTaskIsEnabled": false
     }
   }
 }
