@@ -135,6 +135,18 @@ jobs:
       - name: Inspect running counselor app across desktop and mobile cases
         run: node scripts/test-counselor-rendered.mjs
 
+      - name: Inspect CP009 across desktop, mobile and every selected-course modal
+        env:
+          UCR_PAIR_RENDERED_EVIDENCE_DIR: /tmp/cp-000009-rendered
+        run: node docs/qc/evidence/counselor-batch-02-2026-10-20/render-cases.cjs cp-000009
+
+      - name: Upload CP009 rendered evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: cp-000009-rendered-${{ github.sha }}
+          path: /tmp/cp-000009-rendered
+          if-no-files-found: error
+
       - name: Smoke-test student app startup
         shell: bash
         run: |
