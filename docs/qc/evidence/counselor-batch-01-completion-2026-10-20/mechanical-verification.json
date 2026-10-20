@@ -1,0 +1,85 @@
+{
+  "checkedOn": "2026-10-20",
+  "reviewedCommit": "885c20e754033870c43417c65fd24dc841fe990f",
+  "workbookBlob": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
+  "status": "passed",
+  "results": [
+    {
+      "id": "cp-000002",
+      "inputBlobs": {
+        "canonical": "a372837d927851db0b7a67338cb54ce8a4550e8c",
+        "decision": "c7c0f5373b2469239a4d5e029d1c63e1b400906a"
+      },
+      "formalSchema": "passed",
+      "audienceSchema": "passed",
+      "compilerByteReplay": "passed",
+      "externalEC": 180,
+      "externalComponents": 23,
+      "activeUcrSchedules": [
+        {
+          "programmeId": "ucr-1",
+          "courses": 24,
+          "advancedCourses": 8,
+          "workbookPrerequisitesAndOfferings": "passed"
+        },
+        {
+          "programmeId": "ucr-2",
+          "courses": 24,
+          "advancedCourses": 8,
+          "workbookPrerequisitesAndOfferings": "passed"
+        }
+      ]
+    },
+    {
+      "id": "cp-000003",
+      "inputBlobs": {
+        "canonical": "778f1fd9f8b505bd39e4b9bfc589e9c338822b71",
+        "decision": "fa2698f97bea4c6437d097dd90e956eb4439bd1a"
+      },
+      "formalSchema": "passed",
+      "audienceSchema": "passed",
+      "compilerByteReplay": "passed",
+      "externalEC": 180,
+      "externalComponents": 17,
+      "activeUcrSchedules": []
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor"
+      ],
+      "exitCode": 0,
+      "stdoutSha256": "ea7927d3bace4f8a2749004ca0be1a2b033028fe5398558c7abfaef552fd5df9",
+      "outputTail": "r methodology rules OK\ncp-000451.json: final counselor methodology rules OK\ncp-000452.json: final counselor methodology rules OK\ncp-000453.json: final counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\n"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor-review"
+      ],
+      "exitCode": 0,
+      "stdoutSha256": "cd37892cacb4c757fd27eb6646e985767abd64463949d89d8ae68c1a3960d5c3",
+      "outputTail": "\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputTail": ""
+    }
+  ],
+  "formalSchemaCorpusDiscrepancy": {
+    "affectedRecords": 64,
+    "baselineSetUnchanged": true,
+    "releaseDependencyStillOpen": true
+  },
+  "limit": "Mechanical checks do not establish academic comparability. Separate academic and runtime evidence is linked in the case files."
+}

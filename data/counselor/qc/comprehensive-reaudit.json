@@ -684,10 +684,15 @@
     },
     {
       "id": "cp-000002",
-      "state": "in-progress",
+      "state": "approved",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000002.json",
       "stageOutcomes": {
-        "1": "retain"
+        "1": "correct",
+        "2": "retain",
+        "3": "retain",
+        "4": "correct",
+        "5": "correct",
+        "6": "retain"
       },
       "sharedIssueIds": [
         "audience-boundary",
@@ -697,16 +702,23 @@
       "unresolved": [],
       "downstreamReassessments": [],
       "implementationCommits": [
-        "eed2fff5c711804754fbd52897b10e5f35201db2"
+        "eed2fff5c711804754fbd52897b10e5f35201db2",
+        "2db6674e88401ca2638c0d8d453f24d588a94f51"
       ],
-      "presentationApproval": false
+      "presentationApproval": true,
+      "academicDisposition": "comparison"
     },
     {
       "id": "cp-000003",
-      "state": "in-progress",
+      "state": "approved",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000003.json",
       "stageOutcomes": {
-        "1": "retain"
+        "1": "correct",
+        "2": "retain",
+        "3": "reconstruct",
+        "4": "correct",
+        "5": "correct",
+        "6": "correct"
       },
       "sharedIssueIds": [
         "audience-boundary",
@@ -715,8 +727,12 @@
       ],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false
+      "implementationCommits": [
+        "794a7a07112e8768210452e6d1da399c93557d5f",
+        "885c20e754033870c43417c65fd24dc841fe990f"
+      ],
+      "presentationApproval": true,
+      "academicDisposition": "no-defensible-ucr-match"
     }
   ],
   "sharedIssues": [
@@ -848,8 +864,8 @@
     }
   ],
   "progress": {
-    "approved": 5,
-    "inProgress": 2,
+    "approved": 7,
+    "inProgress": 0,
     "reviewedWithBlockers": 1,
     "notStarted": 430,
     "pilotStarted": 6
@@ -1010,6 +1026,19 @@
       ],
       "reportSection": "docs/qc/counselor-final-pair-completion-2026-10-18.md#verification-and-six-case-pilot-assessment",
       "nextPairBlockedPendingUserReview": true
+    },
+    {
+      "caseIds": [
+        "cp-000002",
+        "cp-000003"
+      ],
+      "reportSection": "docs/qc/counselor-batch-01-completion-2026-10-20.md",
+      "reviewedOn": "2026-10-20",
+      "status": "completed",
+      "dispositions": {
+        "cp-000002": "approved qualified positive comparison; two UCR alternatives",
+        "cp-000003": "approved no-defensible-ucr-match exception"
+      }
     }
   ],
   "scopeChanges": [],
@@ -1103,9 +1132,9 @@
       },
       {
         "step": 4,
-        "status": "evaluated-awaiting-user-scaling-decision",
+        "status": "limited-ten-case-production-authorised-and-in-progress",
         "scope": "Evaluate pilot quality and throughput before processing the remaining corpus in batches of two.",
-        "completionGate": "Pilot assessment recorded. No measured active-time rate permits a defensible throughput forecast. Remaining432 cases require the subsequent user decision; batch size remains two.",
+        "completionGate": "User authorised ten cases in five fixed pairs on 20 October 2026. Pair CP002–CP003 is complete; eight authorised cases remain. No throughput forecast or wider remaining-corpus authorisation is inferred.",
         "report": "docs/qc/counselor-final-pair-completion-2026-10-18.md"
       },
       {
@@ -1118,7 +1147,7 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "Final pilot pair completed: CP035 qualified positive comparison approved; CP330 verified no-match exception approved. CP001/CP019/CP119/CP277 baseline academic records unchanged. No remaining corpus, batch-size change, schema remediation or counselor deployment.",
+    "currentAssignmentBoundary": "Manual completion of CP002–CP003 finished: CP002 qualified positive comparison with two alternatives; CP003 verified academic no-match. Next authorised fixed pair is CP004–CP005. No next pair, 64-record schema remediation or counselor deployment performed in this manual session.",
     "priorAssignmentBoundary": "First pair completed as far as evidence permits: CP019 approved; CP277 reviewed with one genuine external-curriculum blocker. No next academic pair, corpus processing or counselor deployment performed or authorized by this completion."
   },
   "caseEvidenceTemplate": {
@@ -1236,6 +1265,19 @@
         "cp-000013"
       ]
     ],
-    "scopeRule": "Advance to next pair only after both cases have verified final dispositions; no more than these ten."
+    "scopeRule": "Advance to next pair only after both cases have verified final dispositions; no more than these ten.",
+    "completedPairs": [
+      [
+        "cp-000002",
+        "cp-000003"
+      ]
+    ],
+    "nextPair": [
+      "cp-000004",
+      "cp-000005"
+    ],
+    "completionReports": [
+      "docs/qc/counselor-batch-01-completion-2026-10-20.md"
+    ]
   }
 }
