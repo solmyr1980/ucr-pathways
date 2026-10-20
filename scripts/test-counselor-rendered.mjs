@@ -110,7 +110,8 @@ try {
       assert.equal(await page.locator('.compare-view,.column-select,.course-link').count(),0);
       assert.equal(await page.locator('.external-table tbody tr').count(),47);
      }
-     if(variant==='fixtures'&&id==='cp-000003')assert.ok(body.includes('specialist subjects or forms of training may differ'));
+     if(variant==='fixtures'&&id==='cp-000004')assert.ok(body.includes('specialist subjects or forms of training may differ'));
+     if(id==='cp-000003') {assert.ok(body.includes('cannot construct a sufficiently close programme') && body.includes('Complete external curriculum'));assert.equal(await page.locator('.compare-view,.column-select,.course-link').count(),0);assert.equal(await page.locator('.external-table tbody tr').count(),17);}
      if(variant==='actual'&&id==='cp-000035') {
       assert.ok(body.includes('provisional') && body.includes('health psychology'));
       for(const [code,expected] of [['ENSECOL111','diversity of living organisms'],['ENSECOL112','human-driven biodiversity loss'],['ENSECOL211','genes to populations']]) {

@@ -26,6 +26,6 @@ if (identical(variant, "fixtures")) {
     r
   }
   e$COUNSELOR_PRESENTATION[["cp-000002"]] <- list(mode = "external-only", message = "INTERNAL-SENTINEL-DO-NOT-DISPLAY")
-  e$COUNSELOR_PRESENTATION[["cp-000003"]] <- list(mode = "caution", message = "INTERNAL-SENTINEL-DO-NOT-DISPLAY")
+  e$COUNSELOR_PRESENTATION[["cp-000004"]] <- list(mode = "caution", message = "INTERNAL-SENTINEL-DO-NOT-DISPLAY")
 }
 shiny::runApp(app, host = "127.0.0.1", port = port, launch.browser = FALSE)

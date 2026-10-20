@@ -86,18 +86,26 @@ test_comparison_id <- counselor$comparison_id(first_programme)
 stopifnot(nzchar(test_comparison_id), file.exists(counselor$comparison_path(test_comparison_id)))
 test_record <- jsonlite::fromJSON(counselor$comparison_path(test_comparison_id), simplifyVector = FALSE)
 
-# Counselor comparison summaries are derived from the four accepted production records.
+# Check current comparison summaries and the reviewed CP003 no-match disposition.
 acceptance_records <- lapply(sprintf("cp-%06d", 1:4), function(id) {
   record <- jsonlite::fromJSON(file.path("data/counselor/comparisons", paste0(id, ".json")), simplifyVector = FALSE)
   record$origin <- "counselor"
   record$audience <- list(schemaVersion = "1.0", conceptProgrammeIds = lapply(Filter(counselor$is_ucr_programme, record$programmes), function(x) x$id), curriculum = list(status = "complete", componentIds = lapply(record$comparator$components, function(x) x$id), routeLabel = record$comparator$route))
   record
 })
-expected_ucr_counts <- c(2L, 2L, 1L, 3L)
+expected_ucr_counts <- c(2L, 2L, 0L, 3L)
 for (index in seq_along(acceptance_records)) {
   record <- acceptance_records[[index]]
   ucr_programmes <- counselor$ucr_programmes_for_summary(record)
   stopifnot(length(ucr_programmes) == expected_ucr_counts[[index]])
+  if (identical(record$recordStatus, "exception")) {
+    stopifnot(identical(record$exception$type, "no-defensible-ucr-match"))
+    exception_html <- as.character(counselor$render_comparison(record))
+    stopifnot(grepl("cannot construct a sufficiently close programme", exception_html, fixed = TRUE))
+    stopifnot(grepl("Complete external curriculum", exception_html, fixed = TRUE))
+    stopifnot(!grepl("What this comparison shows", exception_html, fixed = TRUE))
+    next
+  }
   summary_html <- as.character(counselor$render_comparison_summary(record))
   stopifnot(grepl("What this comparison shows", summary_html, fixed = TRUE))
   stopifnot(grepl("Important limitation", summary_html, fixed = TRUE))
