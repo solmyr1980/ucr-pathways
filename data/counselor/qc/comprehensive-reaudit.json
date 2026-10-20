@@ -762,7 +762,7 @@
     {
       "id": "cp-000005",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000005.json",
-      "state": "in-progress",
+      "state": "approved",
       "academicDisposition": "comparison",
       "sharedIssueIds": [
         "audience-boundary",
@@ -771,14 +771,17 @@
       ],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "58e2b14a94bde585139829827d3ed75d628b9143"
+      ],
+      "presentationApproval": true,
       "stageOutcomes": {
         "1": "correct",
         "2": "correct",
         "3": "reconstruct",
         "4": "correct",
-        "5": "correct"
+        "5": "correct",
+        "6": "correct"
       }
     }
   ],
@@ -920,8 +923,8 @@
     }
   ],
   "progress": {
-    "approved": 8,
-    "inProgress": 1,
+    "approved": 9,
+    "inProgress": 0,
     "reviewedWithBlockers": 1,
     "notStarted": 428,
     "pilotStarted": 6
@@ -1095,6 +1098,19 @@
         "cp-000002": "approved qualified positive comparison; two UCR alternatives",
         "cp-000003": "approved no-defensible-ucr-match exception"
       }
+    },
+    {
+      "caseIds": [
+        "cp-000004",
+        "cp-000005"
+      ],
+      "reportSection": "docs/qc/counselor-batch-02-completion-2026-10-20.md",
+      "reviewedOn": "2026-10-20",
+      "status": "completed",
+      "dispositions": {
+        "cp-000004": "approved qualified positive comparison; three UCR alternatives",
+        "cp-000005": "approved qualified positive comparison; three UCR alternatives"
+      }
     }
   ],
   "scopeChanges": [],
@@ -1190,7 +1206,7 @@
         "step": 4,
         "status": "limited-ten-case-production-authorised-and-in-progress",
         "scope": "Evaluate pilot quality and throughput before processing the remaining corpus in batches of two.",
-        "completionGate": "User authorised ten cases in five fixed pairs on 20 October 2026. Pair CP002–CP003 is complete; eight authorised cases remain. No throughput forecast or wider remaining-corpus authorisation is inferred.",
+        "completionGate": "User authorised ten cases in five fixed pairs on 20 October 2026. CP002–CP003 and CP004–CP005 are complete; six authorised cases remain. No throughput forecast or wider remaining-corpus authorisation is inferred.",
         "report": "docs/qc/counselor-final-pair-completion-2026-10-18.md"
       },
       {
@@ -1203,7 +1219,7 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "Manual completion of CP002–CP003 finished: CP002 qualified positive comparison with two alternatives; CP003 verified academic no-match. Next authorised fixed pair is CP004–CP005. No next pair, 64-record schema remediation or counselor deployment performed in this manual session.",
+    "currentAssignmentBoundary": "Manual completion of CP004–CP005 finished: both approved qualified positive comparisons with three UCR alternatives. No next pair, corpus-wide schema remediation or counselor deployment performed in this completion.",
     "priorAssignmentBoundary": "First pair completed as far as evidence permits: CP019 approved; CP277 reviewed with one genuine external-curriculum blocker. No next academic pair, corpus processing or counselor deployment performed or authorized by this completion."
   },
   "caseEvidenceTemplate": {
@@ -1326,14 +1342,19 @@
       [
         "cp-000002",
         "cp-000003"
+      ],
+      [
+        "cp-000004",
+        "cp-000005"
       ]
     ],
     "nextPair": [
-      "cp-000004",
-      "cp-000005"
+      "cp-000006",
+      "cp-000008"
     ],
     "completionReports": [
-      "docs/qc/counselor-batch-01-completion-2026-10-20.md"
+      "docs/qc/counselor-batch-01-completion-2026-10-20.md",
+      "docs/qc/counselor-batch-02-completion-2026-10-20.md"
     ]
   }
 }

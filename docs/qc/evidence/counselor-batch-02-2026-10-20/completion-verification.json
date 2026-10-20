@@ -1,0 +1,31 @@
+{
+  "checkedOn": "2026-10-20",
+  "reviewedAcademicCommit": "11605c9251b51146ad30b80b8cf4076a2b986985",
+  "checks": [
+    {
+      "command": "python scripts/validate-comprehensive-reaudit.py",
+      "exitCode": 0,
+      "result": "438 baseline; 9 approved, 0 in progress, 1 reviewed with blockers, 428 not started; 10 case evidence files consistent."
+    },
+    {
+      "command": "npm run validate:counselor-review",
+      "exitCode": 0,
+      "result": "Current indexes: 438 programmes and 21212 in-scope interest rows."
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0,
+      "result": "No whitespace errors."
+    },
+    {
+      "command": "node docs/qc/evidence/counselor-batch-02-2026-10-20/render-cases.cjs cp-000005 (with documented runtime environment)",
+      "exitCode": 0,
+      "result": "Actual desktop/mobile passed; all 39 selected unique-course modals on each viewport."
+    }
+  ],
+  "caseApprovals": {
+    "cp-000004": "approved",
+    "cp-000005": "approved"
+  },
+  "limits": "Bookkeeping and runtime tests supplement the separately recorded academic review. This pair completion does not resolve the CP277 external blocker or the 63 remaining corpus formal-schema discrepancies."
+}

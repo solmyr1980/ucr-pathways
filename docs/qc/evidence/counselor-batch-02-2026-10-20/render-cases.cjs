@@ -40,7 +40,8 @@ const {chromium}=require(process.env.UCR_PLAYWRIGHT_MODULE||'playwright');
       const btn=p.locator(`.course-link[data-code="${code}"]`).first();
       if(size==='mobile'){const index=await btn.evaluate(b=>[...b.closest('tr').children].indexOf(b.closest('td')));await p.locator('.column-select').selectOption(String(index));await p.waitForTimeout(100);}
       await btn.click();await p.locator('.modal.in').waitFor();await p.waitForTimeout(350);const modalBox=await p.locator('.modal-dialog').boundingBox();assert(modalBox.x>=0&&modalBox.y>=0&&modalBox.x+modalBox.width<=viewport.width+1&&modalBox.y+modalBox.height<=viewport.height+1,'modal exceeds viewport');const t=await p.locator('.modal.in').innerText();assert(!/not currently available|_x000D_/.test(t));
-      const cache=JSON.parse(fs.readFileSync(`pilot/shiny/data/courses/${code.slice(0,3)}.json`));assert(t.includes(cache.descriptions[code].replace(/_x000D_/g,''))||t.includes(cache.descriptions[code]));
+      const cache=JSON.parse(fs.readFileSync(`pilot/shiny/data/courses/${code.slice(0,3)}.json`));// innerText collapses HTML whitespace (GOSHIST311 contains a double space). Preserve every word/punctuation.
+      const visibleText=s=>s.replace(/_x000D_/g,'').replace(/\s+/g,' ').trim();assert(visibleText(t).includes(visibleText(cache.descriptions[code])),'Modal description differs: '+code+' '+size);
       if(['GOSPHIL214','BENBUSI211'].includes(code)){await p.screenshot({path:`${out}/${id}-${size}-${code}.png`});}
       modals.push({code,text:t,geometry:modalBox});await p.locator('.modal.in button',{hasText:'Close'}).click();await p.locator('.modal-backdrop').waitFor({state:'hidden'});
      }
