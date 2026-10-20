@@ -889,7 +889,14 @@
       "id": "cp-000011",
       "state": "in-progress",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000011.json",
-      "stageOutcomes": {},
+      "stageOutcomes": {
+        "1": "correct",
+        "2": "correct",
+        "3": "retain",
+        "4": "correct",
+        "5": "correct",
+        "6": "correct"
+      },
       "sharedIssueIds": [
         "audience-boundary",
         "course-modal-content",
@@ -898,7 +905,8 @@
       "unresolved": [],
       "downstreamReassessments": [],
       "implementationCommits": [],
-      "presentationApproval": false
+      "presentationApproval": false,
+      "academicDisposition": "comparison"
     }
   ],
   "sharedIssues": [
@@ -1518,9 +1526,14 @@
       "activeCase": "cp-000011",
       "activeCaseClaim": {
         "claimedOn": "2026-10-20T21:05:00+02:00",
-        "verifiedInputCommit": "a5591e188e9326bb5c47b04f68e1a05aea168482",
+        "verifiedInputCommit": "cad78bfce1dbd588174d48b414122945862dde48",
         "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000011.json",
-        "nextUnverifiedAction": "Independently verify the exact 2026-2027 external curriculum, routes and every linked interest."
+        "nextUnverifiedAction": "Publish the corrected decision/canonical pair, mechanical evidence, current checkpoint and targeted CP011 Shiny CI step to fresh main; then verify Actions, download its rendered artifact, inspect every supplied screenshot and only then record the final disposition.",
+        "inputBlobs": {
+          "canonical": "d1b100ef5be51f514fa744c02622f4d6c7ce5b8f",
+          "decision": "37564aac57f79b536c9cd9b2d519655bf52b2e82"
+        },
+        "status": "academic-and-mechanical-complete-rendered-pending"
       },
       "completedCases": [
         "cp-000009",
@@ -1534,7 +1547,7 @@
       ],
       "requiredUserIntervention": [],
       "oldRecurringTaskMustRemainDisabled": true,
-      "nextAction": "Complete CP011 through final verified disposition in this execution; do not start CP013.",
+      "nextAction": "Complete CP011 targeted CI and rendered verification, then record its final disposition; do not start CP013.",
       "caseResults": [
         {
           "caseId": "cp-000009",
