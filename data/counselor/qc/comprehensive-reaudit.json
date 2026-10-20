@@ -808,6 +808,28 @@
         "5": "correct",
         "6": "correct"
       }
+    },
+    {
+      "id": "cp-000008",
+      "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000008.json",
+      "state": "in-progress",
+      "academicDisposition": "comparison",
+      "sharedIssueIds": [
+        "audience-boundary",
+        "course-modal-content",
+        "counselor-mobile-table"
+      ],
+      "unresolved": [],
+      "downstreamReassessments": [],
+      "implementationCommits": [],
+      "presentationApproval": false,
+      "stageOutcomes": {
+        "1": "retain",
+        "2": "retain",
+        "3": "correct",
+        "4": "correct",
+        "5": "correct"
+      }
     }
   ],
   "sharedIssues": [
@@ -937,11 +959,12 @@
       "introducedByThisAssignment": false,
       "remediationStatus": "Not started; explicitly outside first-pair correction scope.",
       "caseReviewProgress": {
-        "evidenceRef": "docs/qc/evidence/counselor-batch-02-2026-10-20/formal-schema-case-repair.json",
+        "evidenceRef": "data/counselor/qc/comprehensive-reaudit/cp-000008.json#/formalSchemaRepair",
         "baselineAffectedCount": 64,
-        "remainingAffectedCount": 63,
+        "remainingAffectedCount": 62,
         "resolvedWithinReviewedCases": [
-          "cp-000005"
+          "cp-000005",
+          "cp-000008"
         ],
         "status": "open; final publication reconciliation remains required"
       }
@@ -949,9 +972,9 @@
   ],
   "progress": {
     "approved": 10,
-    "inProgress": 0,
+    "inProgress": 1,
     "reviewedWithBlockers": 1,
-    "notStarted": 427,
+    "notStarted": 426,
     "pilotStarted": 6
   },
   "batches": [
@@ -1383,12 +1406,12 @@
     ],
     "reliabilityTrial": {
       "authorisedOn": "2026-10-20",
-      "status": "manual-case-completed-scheduled-trial-pending",
+      "status": "scheduled-case-in-progress",
       "manualCase": "cp-000006",
       "scheduledCase": "cp-000008",
       "unit": "One whole case per execution; existing fixed pairs remain reporting units.",
       "qualityRule": "All six stages and final evidence remain required. Reuse existing evidence and helpers; no duplicated academic reports.",
-      "nextAction": "The one-time CP008 task must execute its six-stage review and persist verified final disposition or exact failure. Scheduled/enabled state does not establish successful execution. No manual CP008 processing or old recurring queue restart.",
+      "nextAction": "Perform a source-first final pass on the published frozen CP008 claims, run the actual desktop/mobile app and all 28 course modals, wait for relevant GitHub checks, then atomically record final approval and fixed-pair/trial completion.",
       "successCriteria": [
         "CP006 final disposition committed and verified in this manual session without a user reminder.",
         "Then one separate scheduled CP008 execution must persist its own final disposition and verification; creation/enabled state is not success."
@@ -1406,8 +1429,9 @@
         "defaultTimezone": "Europe/Berlin",
         "createdAt": "2026-10-20T15:13:49.947657+00:00",
         "manualApprovalCommit": "f0fdf93c283e776054939e64697fefb0d8d3a05d",
-        "status": "scheduled-not-yet-tested",
-        "caseId": "cp-000008"
+        "status": "executing-CP008",
+        "caseId": "cp-000008",
+        "triggerVerifiedBy": "This execution verified live CP006 prerequisite and began CP008 source/course work."
       }
     }
   }
