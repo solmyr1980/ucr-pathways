@@ -887,7 +887,7 @@
     },
     {
       "id": "cp-000011",
-      "state": "in-progress",
+      "state": "approved",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000011.json",
       "stageOutcomes": {
         "1": "correct",
@@ -904,8 +904,10 @@
       ],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "b726d0532631ff70e5ca198f9378c53996821d49"
+      ],
+      "presentationApproval": true,
       "academicDisposition": "comparison"
     }
   ],
@@ -1048,8 +1050,8 @@
     }
   ],
   "progress": {
-    "approved": 13,
-    "inProgress": 1,
+    "approved": 14,
+    "inProgress": 0,
     "reviewedWithBlockers": 1,
     "notStarted": 423,
     "pilotStarted": 6
@@ -1523,21 +1525,12 @@
         ]
       ],
       "unit": "One complete case per execution; task trigger is not substantive completion.",
-      "activeCase": "cp-000011",
-      "activeCaseClaim": {
-        "claimedOn": "2026-10-20T21:05:00+02:00",
-        "verifiedInputCommit": "cad78bfce1dbd588174d48b414122945862dde48",
-        "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000011.json",
-        "nextUnverifiedAction": "Publish the corrected decision/canonical pair, mechanical evidence, current checkpoint and targeted CP011 Shiny CI step to fresh main; then verify Actions, download its rendered artifact, inspect every supplied screenshot and only then record the final disposition.",
-        "inputBlobs": {
-          "canonical": "d1b100ef5be51f514fa744c02622f4d6c7ce5b8f",
-          "decision": "37564aac57f79b536c9cd9b2d519655bf52b2e82"
-        },
-        "status": "academic-and-mechanical-complete-rendered-pending"
-      },
+      "activeCase": null,
+      "activeCaseClaim": null,
       "completedCases": [
         "cp-000009",
-        "cp-000010"
+        "cp-000010",
+        "cp-000011"
       ],
       "completedPairs": [
         [
@@ -1547,7 +1540,7 @@
       ],
       "requiredUserIntervention": [],
       "oldRecurringTaskMustRemainDisabled": true,
-      "nextAction": "Complete CP011 targeted CI and rendered verification, then record its final disposition; do not start CP013.",
+      "nextAction": "Begin CP013 only in a later permitted execution; verify CP011 remains final before claiming it. Do not close the CP011–CP013 reporting pair until CP013 is also final.",
       "caseResults": [
         {
           "caseId": "cp-000009",
@@ -1570,6 +1563,18 @@
           "mechanicalEvidence": "docs/qc/evidence/counselor-bounded-continuation-2026-10-20/cp-000010-mechanical-verification.json",
           "renderedEvidence": "docs/qc/evidence/counselor-bounded-continuation-2026-10-20/rendered/results-cp-000010.json",
           "elapsed": "approximately 36 minutes",
+          "requiredUserIntervention": []
+        },
+        {
+          "caseId": "cp-000011",
+          "disposition": "approved qualified positive comparison; three UCR programmes",
+          "claimCommit": "cad78bfce1dbd588174d48b414122945862dde48",
+          "implementationCommit": "b726d0532631ff70e5ca198f9378c53996821d49",
+          "verificationCommit": "b726d0532631ff70e5ca198f9378c53996821d49",
+          "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000011.json",
+          "mechanicalEvidence": "docs/qc/evidence/counselor-bounded-continuation-2026-10-20/cp-000011-mechanical-verification.json",
+          "renderedEvidence": "docs/qc/evidence/counselor-bounded-continuation-2026-10-20/rendered/results-cp-000011.json",
+          "elapsed": "approximately 26 minutes",
           "requiredUserIntervention": []
         }
       ]
