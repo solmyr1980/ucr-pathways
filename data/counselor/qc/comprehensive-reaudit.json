@@ -862,7 +862,7 @@
     },
     {
       "id": "cp-000010",
-      "state": "in-progress",
+      "state": "approved",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000010.json",
       "stageOutcomes": {
         "1": "correct",
@@ -879,8 +879,10 @@
       ],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "ceef196447c9cf9c1011b0c7703a3be034970cbf"
+      ],
+      "presentationApproval": true,
       "academicDisposition": "comparison"
     }
   ],
@@ -1023,8 +1025,8 @@
     }
   ],
   "progress": {
-    "approved": 12,
-    "inProgress": 1,
+    "approved": 13,
+    "inProgress": 0,
     "reviewedWithBlockers": 1,
     "notStarted": 424,
     "pilotStarted": 6
@@ -1463,11 +1465,15 @@
       [
         "cp-000006",
         "cp-000008"
+      ],
+      [
+        "cp-000009",
+        "cp-000010"
       ]
     ],
     "nextPair": [
-      "cp-000009",
-      "cp-000010"
+      "cp-000011",
+      "cp-000013"
     ],
     "completionReports": [
       "docs/qc/counselor-batch-01-completion-2026-10-20.md",
@@ -1494,15 +1500,21 @@
         ]
       ],
       "unit": "One complete case per execution; task trigger is not substantive completion.",
-      "activeCase": "cp-000010",
-      "activeCaseClaim": "data/counselor/qc/comprehensive-reaudit/cp-000010.json#/executionCheckpoint",
+      "activeCase": null,
+      "activeCaseClaim": null,
       "completedCases": [
-        "cp-000009"
+        "cp-000009",
+        "cp-000010"
       ],
-      "completedPairs": [],
+      "completedPairs": [
+        [
+          "cp-000009",
+          "cp-000010"
+        ]
+      ],
       "requiredUserIntervention": [],
       "oldRecurringTaskMustRemainDisabled": true,
-      "nextAction": "Complete CP010 through verified final disposition in this execution; do not start CP011.",
+      "nextAction": "Begin CP011 only in a later permitted execution, after fresh-main and live-writer checks; do not start CP013 until CP011 is final.",
       "caseResults": [
         {
           "caseId": "cp-000009",
@@ -1513,6 +1525,18 @@
           "mechanicalEvidence": "docs/qc/evidence/counselor-bounded-continuation-2026-10-20/cp-000009-mechanical-verification.json",
           "renderedEvidence": "docs/qc/evidence/counselor-bounded-continuation-2026-10-20/rendered/results-cp-000009.json",
           "elapsed": "approximately 18 minutes",
+          "requiredUserIntervention": []
+        },
+        {
+          "caseId": "cp-000010",
+          "disposition": "approved qualified positive comparison; three UCR programmes",
+          "claimCommit": "2987c1825441afaa93c86a000a7c0fe65c70d54f",
+          "implementationCommit": "ceef196447c9cf9c1011b0c7703a3be034970cbf",
+          "verificationCommit": "c412d2cb92c93bace2130b9c66b0f6f2c4527867",
+          "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000010.json",
+          "mechanicalEvidence": "docs/qc/evidence/counselor-bounded-continuation-2026-10-20/cp-000010-mechanical-verification.json",
+          "renderedEvidence": "docs/qc/evidence/counselor-bounded-continuation-2026-10-20/rendered/results-cp-000010.json",
+          "elapsed": "approximately 36 minutes",
           "requiredUserIntervention": []
         }
       ]
