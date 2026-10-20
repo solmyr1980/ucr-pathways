@@ -837,7 +837,7 @@
     },
     {
       "id": "cp-000009",
-      "state": "in-progress",
+      "state": "approved",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000009.json",
       "stageOutcomes": {
         "1": "correct",
@@ -854,8 +854,10 @@
       ],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "91837ae698d03d3d48bc349d366fe48dcca6ff0b"
+      ],
+      "presentationApproval": true,
       "academicDisposition": "comparison"
     }
   ],
@@ -998,8 +1000,8 @@
     }
   ],
   "progress": {
-    "approved": 11,
-    "inProgress": 1,
+    "approved": 12,
+    "inProgress": 0,
     "reviewedWithBlockers": 1,
     "notStarted": 425,
     "pilotStarted": 6
@@ -1307,7 +1309,7 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "The bounded continuation authorised on 20 October 2026 permits CP009, CP010, CP011 and CP013 only, one complete case per execution and in fixed-pair order. CP009 is the sole active case in this execution; no later case, recurring-queue re-enable or counselor deployment is authorised.",
+    "currentAssignmentBoundary": "CP009 reached a verified final disposition in the bounded continuation. End this execution. CP010 is next within the still-open CP009–CP010 reporting pair; no later case, recurring-queue re-enable or counselor deployment is authorised here.",
     "priorAssignmentBoundary": "First pair completed as far as evidence permits: CP019 approved; CP277 reviewed with one genuine external-curriculum blocker. No next academic pair, corpus processing or counselor deployment performed or authorized by this completion."
   },
   "caseEvidenceTemplate": {
@@ -1469,13 +1471,28 @@
         ]
       ],
       "unit": "One complete case per execution; task trigger is not substantive completion.",
-      "activeCase": "cp-000009",
-      "activeCaseClaim": "data/counselor/qc/comprehensive-reaudit/cp-000009.json#/executionCheckpoint",
-      "completedCases": [],
+      "activeCase": null,
+      "activeCaseClaim": null,
+      "completedCases": [
+        "cp-000009"
+      ],
       "completedPairs": [],
       "requiredUserIntervention": [],
       "oldRecurringTaskMustRemainDisabled": true,
-      "nextAction": "Complete CP009 through verified final disposition in this execution; do not start CP010."
+      "nextAction": "In the next authorised execution, verify CP009 remains final and process CP010 only. Do not start CP011 until the CP009–CP010 pair is complete.",
+      "caseResults": [
+        {
+          "caseId": "cp-000009",
+          "disposition": "approved qualified positive comparison; three UCR programmes",
+          "claimCommit": "6fd4983bddb588a7bb7bfde9754ab8728aa722e6",
+          "implementationCommit": "91837ae698d03d3d48bc349d366fe48dcca6ff0b",
+          "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000009.json",
+          "mechanicalEvidence": "docs/qc/evidence/counselor-bounded-continuation-2026-10-20/cp-000009-mechanical-verification.json",
+          "renderedEvidence": "docs/qc/evidence/counselor-bounded-continuation-2026-10-20/rendered/results-cp-000009.json",
+          "elapsed": "approximately 18 minutes",
+          "requiredUserIntervention": []
+        }
+      ]
     },
     "reliabilityTrial": {
       "authorisedOn": "2026-10-20",
