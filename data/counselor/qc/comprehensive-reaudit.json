@@ -758,6 +758,28 @@
         "5": "correct",
         "6": "correct"
       }
+    },
+    {
+      "id": "cp-000005",
+      "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000005.json",
+      "state": "in-progress",
+      "academicDisposition": "comparison",
+      "sharedIssueIds": [
+        "audience-boundary",
+        "course-modal-content",
+        "counselor-mobile-table"
+      ],
+      "unresolved": [],
+      "downstreamReassessments": [],
+      "implementationCommits": [],
+      "presentationApproval": false,
+      "stageOutcomes": {
+        "1": "correct",
+        "2": "correct",
+        "3": "reconstruct",
+        "4": "correct",
+        "5": "correct"
+      }
     }
   ],
   "sharedIssues": [
@@ -885,14 +907,23 @@
       "finding": "64 pre-existing records pass operational validation but fail full formal JSON Schema validation: component-ID case patterns, missing candidate evidence and legacy internal-note types. The affected set and 969 error messages remain unchanged. CP019 and CP277 both pass full formal validation.",
       "requiredResolution": "Reconcile schema intent, operational validators and each affected record before final publication; independently validate formal and operational contracts and reviewed evidence. Do not bulk-rewrite academic records to silence errors.",
       "introducedByThisAssignment": false,
-      "remediationStatus": "Not started; explicitly outside first-pair correction scope."
+      "remediationStatus": "Not started; explicitly outside first-pair correction scope.",
+      "caseReviewProgress": {
+        "evidenceRef": "docs/qc/evidence/counselor-batch-02-2026-10-20/formal-schema-case-repair.json",
+        "baselineAffectedCount": 64,
+        "remainingAffectedCount": 63,
+        "resolvedWithinReviewedCases": [
+          "cp-000005"
+        ],
+        "status": "open; final publication reconciliation remains required"
+      }
     }
   ],
   "progress": {
     "approved": 8,
-    "inProgress": 0,
+    "inProgress": 1,
     "reviewedWithBlockers": 1,
-    "notStarted": 429,
+    "notStarted": 428,
     "pilotStarted": 6
   },
   "batches": [
