@@ -2,11 +2,11 @@
   "schemaVersion": "2.0",
   "auditId": "counselor-comprehensive-reaudit",
   "id": "cp-000016",
-  "state": "in-progress",
-  "reviewedInputCommit": "fe3a586d63970fe6f0a21107429ff00f2f80805c",
+  "state": "approved",
+  "reviewedInputCommit": "a6a436803999609b69f064216a5d2b31e660719e",
   "inputBlobs": {
-    "canonical": "be88d48f7526b7a4c3d631c05f41751b5716e637",
-    "decision": "ea4e5db49c97614cf9056d30f0d6b526c2e32b54"
+    "canonical": "9ec455ffda126a5db80eafedaa8f09cfd32ffba5",
+    "decision": "3b67e2255259a5a0d77a93c1396d45dad2ac0f0f"
   },
   "baselineInputCommit": "fe3a586d63970fe6f0a21107429ff00f2f80805c",
   "baselineInputBlobs": {
@@ -547,7 +547,7 @@
     },
     "4": {
       "outcome": "correct",
-      "finding": "Review all 48 original selected courses, retain 42 unique final courses, correct direct/complementary rationales and affected population-health placements/alignments. Correct three medical/psychological modal claims against actual profiles; full mechanical and modal gates remain pending.",
+      "finding": "All 48 original selected course profiles/descriptions reviewed; 42 unique final courses retained. Six weak/disproportionate population-health courses replaced, direct/complementary rationales corrected and downstream schedules/blocks reconciled. All 72 final placements, 24-course/180-EC/four-per-term/advanced/PPD rules, complete traceability and all pairwise distinctness checks passed. Three HCB modal corrections were verified against workbook profiles.",
       "preserved": [],
       "actions": [],
       "evidence": [
@@ -568,13 +568,32 @@
       ],
       "blockedBy": [],
       "reassessStages": []
+    },
+    "6": {
+      "outcome": "correct",
+      "finding": "Actual Shiny passed at 1440×1000 and 390×844: all three alternatives, all external groups/credits, every one of 42 unique selected-course modals in each viewport, source links/back navigation and geometry. All 14 screenshots visually inspected, including all four mobile columns and corrected modals. No page errors, missing descriptions, text mismatch or overflow. Relevant implementation CI completed successfully.",
+      "preserved": [],
+      "actions": [],
+      "evidence": [
+        "docs/qc/evidence/counselor-next-ten-2026-10-21/cp-000016-mechanical-verification.json",
+        "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/results-cp-000016.json",
+        "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/supplement-cp-000016.json"
+      ],
+      "blockedBy": [],
+      "reassessStages": []
     }
   },
-  "sharedIssueIds": [],
+  "sharedIssueIds": [
+    "audience-boundary",
+    "course-modal-content",
+    "counselor-mobile-table"
+  ],
   "unresolved": [],
   "downstreamReassessments": [],
-  "implementationCommits": [],
-  "presentationApproval": false,
+  "implementationCommits": [
+    "a6a436803999609b69f064216a5d2b31e660719e"
+  ],
+  "presentationApproval": true,
   "evidenceSources": [
     {
       "url": "https://www.eur.nl/erasmusmc/media/2026-07-oer-bachelor-geneeskunde-2026-2027-erasmusarts-20300",
@@ -615,31 +634,226 @@
       "role": "Careers/subsequent masters: search-only"
     }
   ],
-  "renderedEvidence": [],
-  "finalReview": null,
+  "renderedEvidence": [
+    {
+      "path": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-desktop-HCBBIOM211.png",
+      "recordId": "cp-000016",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "inputCommit": "a6a436803999609b69f064216a5d2b31e660719e",
+      "presentationMode": "qualified positive comparison with three reviewed UCR programmes",
+      "sha256": "b98485cdc9084bbaf75afaf2cc28954843cdeefbf8fee3887b1968691b416e2a"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-desktop-HCBPSYC211.png",
+      "recordId": "cp-000016",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "inputCommit": "a6a436803999609b69f064216a5d2b31e660719e",
+      "presentationMode": "qualified positive comparison with three reviewed UCR programmes",
+      "sha256": "b8dee8aeaa3ba77f901223bc95d44b2c517a9221c589ca466363d51771a47ac6"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-desktop-HCBPSYC312.png",
+      "recordId": "cp-000016",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "inputCommit": "a6a436803999609b69f064216a5d2b31e660719e",
+      "presentationMode": "qualified positive comparison with three reviewed UCR programmes",
+      "sha256": "c827e54c5074a670271f08a284d1b4f8fc93ca0c537c8ed17f442ae6182558b8"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-desktop-curriculum.png",
+      "recordId": "cp-000016",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "inputCommit": "a6a436803999609b69f064216a5d2b31e660719e",
+      "presentationMode": "qualified positive comparison with three reviewed UCR programmes",
+      "sha256": "ae3defd0e0b97dbe6ec8016f9bbc37280a8a93157c0713e0a7df7d5e561d2155"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-desktop-summary.png",
+      "recordId": "cp-000016",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "inputCommit": "a6a436803999609b69f064216a5d2b31e660719e",
+      "presentationMode": "qualified positive comparison with three reviewed UCR programmes",
+      "sha256": "baee114d8e5798e19cb820c979796101d3f906636031e336d3113511c795a972"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-mobile-HCBBIOM211.png",
+      "recordId": "cp-000016",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "inputCommit": "a6a436803999609b69f064216a5d2b31e660719e",
+      "presentationMode": "qualified positive comparison with three reviewed UCR programmes",
+      "sha256": "436df328e7408b9091c52255e1a3a8f1799fa075493f0854401dc5225ad19991"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-mobile-HCBPSYC211.png",
+      "recordId": "cp-000016",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "inputCommit": "a6a436803999609b69f064216a5d2b31e660719e",
+      "presentationMode": "qualified positive comparison with three reviewed UCR programmes",
+      "sha256": "1311ba47e26f356faf52d9699f1856b581512dc46b00cd4fcce825cd8c7438c0"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-mobile-HCBPSYC312.png",
+      "recordId": "cp-000016",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "inputCommit": "a6a436803999609b69f064216a5d2b31e660719e",
+      "presentationMode": "qualified positive comparison with three reviewed UCR programmes",
+      "sha256": "0778f25030cea26f08e8e7afd083bcbff623d78d45bd31b549053ecea68c2eba"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-mobile-column-0.png",
+      "recordId": "cp-000016",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "inputCommit": "a6a436803999609b69f064216a5d2b31e660719e",
+      "presentationMode": "qualified positive comparison with three reviewed UCR programmes",
+      "sha256": "7791511808f8895eb0f6d9a9b67f102beb4f1a0bd4d0ce4b877f275e3213569b"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-mobile-column-1.png",
+      "recordId": "cp-000016",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "inputCommit": "a6a436803999609b69f064216a5d2b31e660719e",
+      "presentationMode": "qualified positive comparison with three reviewed UCR programmes",
+      "sha256": "50f6107320ae0dfd4b5472bf6e5b598bab9f82085634535e0542c1d186424712"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-mobile-column-2.png",
+      "recordId": "cp-000016",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "inputCommit": "a6a436803999609b69f064216a5d2b31e660719e",
+      "presentationMode": "qualified positive comparison with three reviewed UCR programmes",
+      "sha256": "4eff4a7438c140780526a1c103d7d04f3e1fe4c4211ce25f6f51c2de6e9d46c1"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-mobile-column-3.png",
+      "recordId": "cp-000016",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "inputCommit": "a6a436803999609b69f064216a5d2b31e660719e",
+      "presentationMode": "qualified positive comparison with three reviewed UCR programmes",
+      "sha256": "69e8b8d8f29d9cfa65a001eacd68a02367ab4dbaafdf629907611bc4795a85e3"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-mobile-curriculum.png",
+      "recordId": "cp-000016",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "inputCommit": "a6a436803999609b69f064216a5d2b31e660719e",
+      "presentationMode": "qualified positive comparison with three reviewed UCR programmes",
+      "sha256": "070ba07ce19f092ab85cb59862cdb75dd44c8e1e8be15d3b64113e0eaae8d2aa"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-mobile-summary.png",
+      "recordId": "cp-000016",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "inputCommit": "a6a436803999609b69f064216a5d2b31e660719e",
+      "presentationMode": "qualified positive comparison with three reviewed UCR programmes",
+      "sha256": "fc547faca8825bb4d3b7fe927cb184ca3b864ae11b2690117fbe94926d29b118"
+    }
+  ],
+  "finalReview": {
+    "reviewerOrPass": "CP016 source-first final verification by the same AI operator",
+    "independenceMethod": "Reopened the governing programme/assessment sources and actual enriched-course profiles first, independently reconstructed the content/credit structure and challenged the strongest retained programmes and clinical gap, then compared the finished claims and actual desktop/mobile/modal evidence. Detailed source order, findings and limitations are consolidated in independentFinalReview in this stable case file.",
+    "reviewedOn": "2026-10-21",
+    "reviewedCommit": "a6a436803999609b69f064216a5d2b31e660719e",
+    "inputBlobs": {
+      "canonical": "9ec455ffda126a5db80eafedaa8f09cfd32ffba5",
+      "decision": "3b67e2255259a5a0d77a93c1396d45dad2ac0f0f"
+    },
+    "sourceEvidenceRefs": [
+      "data/counselor/qc/comprehensive-reaudit/cp-000016.json",
+      "data/counselor/decisions/cp-000016.json"
+    ],
+    "checks": {
+      "academic": {
+        "status": "passed",
+        "evidenceRefs": [
+          "data/counselor/qc/comprehensive-reaudit/cp-000016.json"
+        ]
+      },
+      "mechanical": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-next-ten-2026-10-21/cp-000016-mechanical-verification.json"
+        ]
+      },
+      "rendered": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/results-cp-000016.json",
+          "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/supplement-cp-000016.json"
+        ]
+      }
+    },
+    "conclusion": "Approve qualified positive comparison with three evidence-backed academic UCR programmes and explicit clinical limitations. No unresolved case issue or downstream dependency remains."
+  },
   "executionCheckpoint": {
-    "status": "mechanically-verified-awaiting-final-source-and-rendered-pass",
+    "status": "completed",
     "claimedAt": "2026-10-21T10:01:51.074924+00:00",
     "owner": "Counselor Next Ten Cases / 6d014b21-5c38-832a-9da1-455abc54cbe2",
-    "verifiedInputCommit": "fe3a586d63970fe6f0a21107429ff00f2f80805c",
+    "verifiedInputCommit": "a6a436803999609b69f064216a5d2b31e660719e",
     "verifiedInputBlobs": {
-      "canonical": "be88d48f7526b7a4c3d631c05f41751b5716e637",
-      "decision": "ea4e5db49c97614cf9056d30f0d6b526c2e32b54"
+      "canonical": "9ec455ffda126a5db80eafedaa8f09cfd32ffba5",
+      "decision": "3b67e2255259a5a0d77a93c1396d45dad2ac0f0f"
     },
     "completedActions": [
       "Fresh main/scope/preceding CP014 final disposition verified; prior execution completed, no competing claim; setup and prior evidence CI passed.",
       "Official OER/appendices/journey visuals and all 40 interests checked.",
       "All 48 original selected enriched course profiles/descriptions and 42 retained modal texts reviewed; six-course population-health repair and three modal corrections prepared.",
       "Full comparison/audience schemas, byte-exact compiler replay, 72 workbook placements, 24/180/four-per-term/advanced/PPD rules, complete traceability, all pairwise distinctness, operational corpus and clean diff passed.",
-      "Audience JSON/JS/R checks, course-description fidelity and rebuilt review indexes passed."
+      "Audience JSON/JS/R checks, course-description fidelity and rebuilt review indexes passed.",
+      "Source-first final pass by the same AI completed against frozen official/course evidence and input blobs.",
+      "Actual desktop/mobile inspection passed for all three alternatives and 42 modals per viewport; 14 screenshots visually inspected.",
+      "Implementation CI 39582641765 completed successfully; no applicable gate waived."
     ],
     "observedFailures": [],
-    "nextUnverifiedAction": "Publish/freeze these corrected academic inputs; reopen sources for the separately identified final pass and inspect actual desktop/mobile Shiny including all three alternatives and all 42 selected course modals per viewport; await relevant implementation CI, then final disposition.",
+    "nextUnverifiedAction": null,
     "claimCommit": "3b83773fd6720ecf1d2345e50eaf4cb4b2d75d1c",
     "preparedInputBlobs": {
       "canonical": "9ec455ffda126a5db80eafedaa8f09cfd32ffba5",
       "decision": "3b67e2255259a5a0d77a93c1396d45dad2ac0f0f"
-    }
+    },
+    "implementationCommit": "a6a436803999609b69f064216a5d2b31e660719e",
+    "completedAt": "2026-10-21T10:16:16.122558+00:00"
   },
   "academicDisposition": "comparison",
   "courseReview": {
@@ -1297,5 +1511,127 @@
     "docs/UCR_Pathways_Production_Instructions.md": "cb641fa54de9a54a6f3ad62d4d3834fc07f0a7b6",
     "docs/qc/counselor-comprehensive-reaudit-protocol.md": "c383921a57211d85086861789ac0f9f46c254116",
     "docs/UCR_Pathways_Master_Specification.md": "03238d48149fac656a5519763cb8c0dd37072211"
+  },
+  "independentFinalReview": {
+    "passId": "CP016-source-first-final-2026-10-21",
+    "operator": "Separately identified final pass by the same AI operator; not an independent human reviewer.",
+    "reviewedCommit": "a6a436803999609b69f064216a5d2b31e660719e",
+    "inputBlobs": {
+      "canonical": "9ec455ffda126a5db80eafedaa8f09cfd32ffba5",
+      "decision": "3b67e2255259a5a0d77a93c1396d45dad2ac0f0f"
+    },
+    "workbookBlob": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
+    "modalCacheBlob": "b00df71fbe0d9e49a683bbb5d4fd4d06e0d41fa8",
+    "sourceOrder": [
+      "Reopened adopted Appendix 2 articles 9–10, current progression/final norms and the source diagrams before comparing the finished record.",
+      "Independently reconstructed 13 blocks, four projects, five integrated longitudinal lines, 30-EC minor and 1-EC professionalism; distinguished workload from actual credit awards.",
+      "Re-read actual anatomy, physiology, disease-mechanism, imaging, health-psychology and psychodiagnostic source profiles before challenging comparability and clinical-skill claims.",
+      "Compared all 40 interest roles/owners, course-specific direct/complementary contributions, final programmes and audience notes against those sources.",
+      "Checked immutable compiler/schema/workbook evidence and actual rendered text/geometry/modal results; visually inspected all 14 current-case screenshots."
+    ],
+    "independentExternalCheck": {
+      "identity": "Full-time mainly Dutch BSc Geneeskunde, CROHO 56551; Erasmusarts2030 in the adopted 2026–2027 ordinary programme.",
+      "year1Blocks": [
+        "Een gezonde start",
+        "Groei en Ontwikkeling I",
+        "Groei en Ontwikkeling II",
+        "Afweer en aanpak van infecties",
+        "Bedreigingen van binnenuit en buitenaf"
+      ],
+      "year2Blocks": [
+        "Homeostase I",
+        "Regulatie",
+        "Voortplanting en Gynaecologie",
+        "Homeostase II",
+        "Voedselopname en Verwerking"
+      ],
+      "year3Blocks": [
+        "Houding en Beweging",
+        "Hersenen en Zintuigen",
+        "Veroudering en Laatste Levensfase"
+      ],
+      "projects": [
+        "Medische wetenschap",
+        "Duurzame Volksgezondheid",
+        "Gezondheid en Technologie",
+        "Zorgbeleid en Organisatie"
+      ],
+      "lines": [
+        "Klinische Vaardigheden",
+        "Vorming van Identiteit en Professionaliteit",
+        "Maatschappelijke Betrokkenheid",
+        "Academische Vorming",
+        "Technologie"
+      ],
+      "creditCheck": {
+        "totalEC": 180,
+        "minorEC": 30,
+        "professionalismECIncluded": 1,
+        "remainingIntegratedWorkloadEC": 149,
+        "firstYearAwardEC": 30,
+        "displayWorkloadGroups": [
+          60,
+          60,
+          30,
+          29,
+          1
+        ],
+        "judgment": "Supported workload accounting convention, explicitly distinguished from course/annual EC awards; no invented block credits or extra thesis. The final 1 EC is counted once within 180."
+      },
+      "formalConditions": "Progression decisions based on the specified block/competency, professional-conduct and iVTG/POP standards; approved minor/elective rules and integrated final works retained. The ordinary programme is not replaced by a discretionary free programme."
+    },
+    "findings": [
+      "The strongest challenge is the absence of sustained clinical practice, which is central to Medicine. A disclaimer alone cannot cure an academically weak comparison. Here the closest programme has sustained actual health-science content: 21 Health/Cognition/Behaviour courses cover anatomical structure, physiology, cellular/biochemical mechanisms, pathology, infection, pharmacology, neuroscience, psychology, population evidence and research. The positive conclusion rests on that substantive scientific response, not on coherence alone or access to a profession.",
+      "The eight patient-facing interests are now explicitly assigned to one rejected clinical-practice candidate. The final text does not claim general rhetoric, theoretical psychology or lab work delivers medical interviewing, physical examination or patient case management.",
+      "The technology programme has a real biomedical anchor plus mathematical/computational methods and documented medical-imaging/clinical-AI-ethics contributions. General databases, algorithms, neural networks and robotics are represented as methods; no clinical specialism is invented.",
+      "The population-health repair preserves 18 courses and removes six unsupported/disproportionate links. Its epidemiology, health psychology, infection, disease science and research now substantiate the health object; the economic, social and organisational courses provide explicit complementary tools. The seven-course difference from the closest programme follows the concept, not threshold-filling.",
+      "All 72 placements, programme totals, advanced/PPD rules, traceability, pairwise distinctness and status-appropriate formal/audience schemas passed. Three corrected modal descriptions now follow actual enriched profiles and avoid clinical-training or categorical master-admission claims.",
+      "Whole external-year rows remain partial curricular relationships, clearly labelled as workload groups with clinical/project content beyond the single UCR course beside them. All five groups cover the full programme once; optional UCR research remains separate from scheduled 180 EC."
+    ],
+    "limitations": [
+      "This is a separate source-first pass by the same AI, not independent human peer review.",
+      "The credit display groups are an explicit accounting representation of an integrated programme, not official standalone yearly courses.",
+      "Wall-clock duration includes testing and CI; active academic effort is not separately instrumented."
+    ]
+  },
+  "renderedObservations": {
+    "result": "passed",
+    "visuallyInspectedScreenshots": [
+      "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-desktop-HCBBIOM211.png",
+      "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-desktop-HCBPSYC211.png",
+      "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-desktop-HCBPSYC312.png",
+      "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-desktop-curriculum.png",
+      "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-desktop-summary.png",
+      "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-mobile-HCBBIOM211.png",
+      "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-mobile-HCBPSYC211.png",
+      "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-mobile-HCBPSYC312.png",
+      "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-mobile-column-0.png",
+      "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-mobile-column-1.png",
+      "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-mobile-column-2.png",
+      "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-mobile-column-3.png",
+      "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-mobile-curriculum.png",
+      "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/cp-000016-mobile-summary.png"
+    ],
+    "observations": "All three concepts, clinical and workload limitations, integrated year notes, long labels and mobile column controls are readable and do not overlap. Corrected anatomy/statistics/psychodiagnostics modals fit both viewports. All 42 modal texts were checked in the actual app against the reviewed cache and their settled geometry measured per viewport. Source hrefs, retained search and back navigation passed.",
+    "genericHelperReused": "docs/qc/evidence/counselor-batch-02-2026-10-20/render-cases.cjs",
+    "runtime": "R 4.3.3/Shiny 1.8.0 and Chrome headless shell 156.0.8078.47; same local runtime adapter as CP014, no application deployment.",
+    "modalChecksPerViewport": 42,
+    "mobileColumnsInspected": 4
+  },
+  "githubVerification": {
+    "claimCommit": "3b83773fd6720ecf1d2345e50eaf4cb4b2d75d1c",
+    "implementationCommit": "a6a436803999609b69f064216a5d2b31e660719e",
+    "implementationCI": {
+      "runId": 39582641765,
+      "url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/39582641765",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "academicBlobs": {
+      "canonical": "9ec455ffda126a5db80eafedaa8f09cfd32ffba5",
+      "decision": "3b67e2255259a5a0d77a93c1396d45dad2ac0f0f"
+    },
+    "modalCacheBlob": "b00df71fbe0d9e49a683bbb5d4fd4d06e0d41fa8",
+    "reviewIndex": "Rebuilt and checked; no resulting index changes were needed."
   }
 }

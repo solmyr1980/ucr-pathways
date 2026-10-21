@@ -959,21 +959,29 @@
     },
     {
       "id": "cp-000016",
-      "state": "in-progress",
-      "sharedIssueIds": [],
+      "state": "approved",
+      "sharedIssueIds": [
+        "audience-boundary",
+        "course-modal-content",
+        "counselor-mobile-table"
+      ],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "a6a436803999609b69f064216a5d2b31e660719e"
+      ],
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000016.json",
       "stageOutcomes": {
         "1": "correct",
         "2": "correct",
         "3": "correct",
         "4": "correct",
-        "5": "correct"
+        "5": "correct",
+        "6": "correct"
       },
-      "academicDisposition": "comparison"
+      "academicDisposition": "comparison",
+      "reviewedInputCommit": "a6a436803999609b69f064216a5d2b31e660719e"
     }
   ],
   "sharedIssues": [
@@ -1115,8 +1123,8 @@
     }
   ],
   "progress": {
-    "approved": 16,
-    "inProgress": 1,
+    "approved": 17,
+    "inProgress": 0,
     "reviewedWithBlockers": 1,
     "notStarted": 420,
     "pilotStarted": 6
@@ -1414,10 +1422,10 @@
         "completionGate": "The first ten-case limited production and four-case continuation are complete. On 21 October 2026 the user authorised exactly CP014, CP016, CP017, CP018, CP020, CP021, CP022, CP023, CP024 and CP025. Complete all applicable gates for each case, then evaluate before any wider scaling.",
         "report": "docs/qc/counselor-final-pair-completion-2026-10-18.md",
         "currentRunRef": "boundedProductionRuns/0",
-        "nextCase": "cp-000016",
+        "nextCase": "cp-000017",
         "nextPair": [
-          "cp-000014",
-          "cp-000016"
+          "cp-000017",
+          "cp-000018"
         ]
       },
       {
@@ -1430,7 +1438,7 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "Current authority remains exactly the ten cases in bounded-ten-case-2026-10-21. CP014 is final as an approved academic no-match exception. End this execution. CP016 is next in the still-open CP014–CP016 reporting pair. Then retain baseline authorised order, one complete case per execution. No wider scope, old queue reactivation or counselor deployment.",
+    "currentAssignmentBoundary": "Current authority remains exactly the ten cases in bounded-ten-case-2026-10-21. CP014 and CP016 are final; their fixed pair is closed. End this execution. CP017 is next in CP017–CP018, followed by the remaining authorised baseline order, one complete case per execution. No wider processing, old task reactivation or counselor deployment.",
     "priorAssignmentBoundary": "CP009 reached a verified final disposition in the bounded continuation. End this execution. CP010 is next within the still-open CP009–CP010 reporting pair; no later case, recurring-queue re-enable or counselor deployment is authorised here. Superseded by the 21 October 2026 authorisation; retained as history only."
   },
   "caseEvidenceTemplate": {
@@ -1795,35 +1803,18 @@
       ],
       "unit": "One complete case per execution; pairs are reporting units.",
       "scopeRule": "Exactly these ten cases in baseline production order. Resume the earliest unfinished case before advancing. A task trigger is not substantive completion. No authority for later cases or counselor deployment.",
-      "activeCase": "cp-000016",
-      "activeCaseClaim": {
-        "status": "mechanically-verified-awaiting-final-source-and-rendered-pass",
-        "claimedAt": "2026-10-21T10:01:51.074924+00:00",
-        "owner": "Counselor Next Ten Cases / 6d014b21-5c38-832a-9da1-455abc54cbe2",
-        "verifiedInputCommit": "fe3a586d63970fe6f0a21107429ff00f2f80805c",
-        "verifiedInputBlobs": {
-          "canonical": "be88d48f7526b7a4c3d631c05f41751b5716e637",
-          "decision": "ea4e5db49c97614cf9056d30f0d6b526c2e32b54"
-        },
-        "completedActions": [
-          "Fresh main/scope/preceding CP014 final disposition verified; prior execution completed, no competing claim; setup and prior evidence CI passed.",
-          "Official OER/appendices/journey visuals and all 40 interests checked.",
-          "All 48 original selected enriched course profiles/descriptions and 42 retained modal texts reviewed; six-course population-health repair and three modal corrections prepared.",
-          "Full comparison/audience schemas, byte-exact compiler replay, 72 workbook placements, 24/180/four-per-term/advanced/PPD rules, complete traceability, all pairwise distinctness, operational corpus and clean diff passed.",
-          "Audience JSON/JS/R checks, course-description fidelity and rebuilt review indexes passed."
-        ],
-        "observedFailures": [],
-        "nextUnverifiedAction": "Publish/freeze these corrected academic inputs; reopen sources for the separately identified final pass and inspect actual desktop/mobile Shiny including all three alternatives and all 42 selected course modals per viewport; await relevant implementation CI, then final disposition.",
-        "claimCommit": "3b83773fd6720ecf1d2345e50eaf4cb4b2d75d1c",
-        "preparedInputBlobs": {
-          "canonical": "9ec455ffda126a5db80eafedaa8f09cfd32ffba5",
-          "decision": "3b67e2255259a5a0d77a93c1396d45dad2ac0f0f"
-        }
-      },
+      "activeCase": null,
+      "activeCaseClaim": null,
       "completedCases": [
-        "cp-000014"
+        "cp-000014",
+        "cp-000016"
       ],
-      "completedPairs": [],
+      "completedPairs": [
+        [
+          "cp-000014",
+          "cp-000016"
+        ]
+      ],
       "caseResults": [
         {
           "caseId": "cp-000014",
@@ -1849,13 +1840,37 @@
           ],
           "finalDispositionCommit": "16b84fd7ac6f871ea324f4c303ae9c4276da0a5d",
           "finalDispositionUrl": "https://github.com/solmyr1980/ucr-pathways/commit/16b84fd7ac6f871ea324f4c303ae9c4276da0a5d"
+        },
+        {
+          "caseId": "cp-000016",
+          "state": "approved",
+          "academicDisposition": "comparison",
+          "disposition": "Approved qualified positive comparison with three UCR programmes; clinical-practice candidate explicitly rejected.",
+          "claimCommit": "3b83773fd6720ecf1d2345e50eaf4cb4b2d75d1c",
+          "implementationCommit": "a6a436803999609b69f064216a5d2b31e660719e",
+          "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000016.json",
+          "mechanicalEvidence": "docs/qc/evidence/counselor-next-ten-2026-10-21/cp-000016-mechanical-verification.json",
+          "renderedEvidence": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/results-cp-000016.json",
+          "startedAt": "2026-10-21T10:00:36.453024+00:00",
+          "claimedAt": "2026-10-21T10:01:51.074924+00:00",
+          "finalVerifiedAt": "2026-10-21T10:16:16.122558+00:00",
+          "elapsedSecondsFromRecordedStart": 940,
+          "elapsedSecondsFromClaim": 865,
+          "measurementLimit": "Wall-clock through final verification record preparation; includes source examination, corrections, rendered tests and CI; not separately instrumented active effort; final publication latency excluded.",
+          "requiredUserIntervention": [],
+          "recurringQualityProblems": [
+            "Generic courses had been justified through unestablished specialist applications.",
+            "Patient-facing clinical interests had been marked as covered by a scientific programme without delivering those skills.",
+            "Integrated workload groups required explicit separation from formal EC awards.",
+            "Modal prose overstated clinical training or broad master-admission requirements."
+          ]
         }
       ],
       "requiredUserIntervention": [],
-      "nextCase": "cp-000016",
+      "nextCase": "cp-000017",
       "nextPair": [
-        "cp-000014",
-        "cp-000016"
+        "cp-000017",
+        "cp-000018"
       ],
       "cadence": "One execution every two hours in Europe/Amsterdam.",
       "completionRule": "Disable this run's automation after all ten cases have verified final dispositions, including evidence-supported reviewed-with-blockers where genuinely unavoidable. Report dispositions, pair closure, durations, user interventions, recurring quality problems and remaining release dependencies. No silent extension of case scope.",
@@ -1873,9 +1888,9 @@
         "firstScheduledFor": "2026-10-21T10:00:00+02:00",
         "createdOn": "2026-10-21T07:54:19.427851+00:00",
         "recordedLastRun": {
-          "id": "e89d499d-1000-8326-aaf4-6a707826030f",
-          "startedAt": "2026-10-21T07:56:44.480093+00:00",
-          "substantiveCaseResult": "CP014 verified final academic no-match; trigger itself was not completion."
+          "id": "6d014b21-5c38-832a-9da1-455abc54cbe2",
+          "startedAt": "2026-10-21T10:00:36.453024+00:00",
+          "substantiveCaseResult": "CP016 approved qualified positive comparison; CP014–CP016 reporting pair complete."
         },
         "triggerIsNotCompletion": true
       },
@@ -1889,7 +1904,26 @@
         "comparisonIntegrityRegressions": "passed",
         "overallCI": "passed (job 119105650533; all steps successful)"
       },
-      "nextAction": "CP016 claimed; complete its full integrated review before advancing."
+      "nextAction": "CP014–CP016 reporting pair complete. End this execution; CP017 is next in CP017–CP018. No later case is started here.",
+      "pairResults": [
+        {
+          "caseIds": [
+            "cp-000014",
+            "cp-000016"
+          ],
+          "status": "completed",
+          "dispositions": {
+            "cp-000014": "approved academic no-match exception",
+            "cp-000016": "approved qualified positive comparison; three alternatives"
+          },
+          "evidenceFiles": [
+            "data/counselor/qc/comprehensive-reaudit/cp-000014.json",
+            "data/counselor/qc/comprehensive-reaudit/cp-000016.json"
+          ],
+          "requiredUserIntervention": [],
+          "assessment": "Both cases reached verified final dispositions in their own executions. CP014 demonstrates that general coherence can fail specialist comparability. CP016 retains a substantial scientific response after bounded course/ownership/modal repairs. This first reporting pair does not establish whole-corpus reliability or a throughput forecast."
+        }
+      ]
     }
   ]
 }
