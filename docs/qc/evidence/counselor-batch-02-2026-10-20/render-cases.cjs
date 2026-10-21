@@ -16,7 +16,12 @@ const {chromium}=require(process.env.UCR_PLAYWRIGHT_MODULE||'playwright');
     assert(text.includes(r.audience.programmeDescription)&&text.includes(r.audience.comparisonExplanation));assert(await p.locator(`a[href="${r.comparator.primarySourceUrl}"]`).count()>0);
     await p.evaluate(()=>scrollTo(0,0));await p.screenshot({path:`${out}/${id}-${size}-summary.png`});
     const columns=[],modals=[];let displayedComponents;
-    if(r.recordStatus==='exception'){
+    if(['partial','unresolved'].includes(r.audience.curriculum.status)){
+     assert(text.includes(r.audience.curriculum.limitation));assert(!text.includes('Complete external curriculum — 180 EC'));assert.equal(await p.locator('.compare-view,.column-select,.course-link').count(),0);
+     const verified=r.comparator.components.filter(c=>r.audience.curriculum.componentIds.includes(c.id));displayedComponents=await p.locator('.external-table .cell-text').allTextContents();assert.deepEqual(displayedComponents,verified.map(c=>c.name));
+     if(r.audience.curriculum.status==='unresolved'){assert.equal(displayedComponents.length,0);assert(text.includes('withheld from presentation'));}
+     await p.locator('.comparison-summary').evaluate(el=>scrollTo(0,el.getBoundingClientRect().top+scrollY));
+    }else if(r.recordStatus==='exception'){
      assert.equal(r.exception.type,'no-defensible-ucr-match');assert(text.includes('cannot construct a sufficiently close programme'));assert.equal(await p.locator('.compare-view,.column-select,.course-link').count(),0);
      displayedComponents=await p.locator('.external-table .cell-text').allTextContents();assert.deepEqual(displayedComponents,r.comparator.components.map(c=>c.name));
      const credits=(await p.locator('.external-table .ec-badge').allTextContents()).map(x=>Number(x.match(/[0-9.]+/)[0]));assert.equal(credits.reduce((a,b)=>a+b,0),180);
@@ -34,7 +39,7 @@ const {chromium}=require(process.env.UCR_PLAYWRIGHT_MODULE||'playwright');
      await p.locator('.compare-view').evaluate(el=>scrollTo(0,el.getBoundingClientRect().top+scrollY));
     }
     await p.screenshot({path:`${out}/${id}-${size}-curriculum.png`});
-    if(!r.exception){
+    if(!r.exception&&!['partial','unresolved'].includes(r.audience.curriculum.status)){
      const codes=[...new Set(r.programmes.filter(z=>z.family==='ucr').flatMap(z=>z.schedule.semesters.flatMap(s=>s.courses.map(c=>c.code))))].sort();
      for(const code of codes){
       const btn=p.locator(`.course-link[data-code="${code}"]`).first();
@@ -48,9 +53,9 @@ const {chromium}=require(process.env.UCR_PLAYWRIGHT_MODULE||'playwright');
     }
     const geometry=await p.evaluate(()=>({viewport:innerWidth,document:document.documentElement.scrollWidth,overlap:[...document.querySelectorAll('.cell-text')].some(x=>x.scrollWidth>x.clientWidth+1)}));assert(geometry.document<=geometry.viewport+1&&!geometry.overlap);
     await p.locator('#back_to_search').click();assert.equal(await p.locator('#search_text').inputValue(),query);assert.deepEqual(errors,[]);
-    const git=a=>execFileSync('git',a,{encoding:'utf8'}).trim();results.push({id,size,viewport,displayedText:text,columns,displayedComponents,modals,geometry,sourceHref:r.comparator.primarySourceUrl,backNavigation:'passed',pageErrors:errors,inputBlobs:{canonical:git(['hash-object',`data/counselor/comparisons/${id}.json`]),decision:git(['hash-object',`data/counselor/decisions/${id}.json`])}});
+    const git=a=>execFileSync('git',a,{encoding:'utf8'}).trim();results.push({id,size,viewport,presentationMode:r.audience.curriculum.status,deferredGates:['partial','unresolved'].includes(r.audience.curriculum.status)?['Final external curriculum source verification','Included-programme and every-selected-modal inspection after verified curriculum is restored']:[],displayedText:text,columns,displayedComponents,modals,geometry,sourceHref:r.comparator.primarySourceUrl,backNavigation:'passed',pageErrors:errors,inputBlobs:{canonical:git(['hash-object',`data/counselor/comparisons/${id}.json`]),decision:git(['hash-object',`data/counselor/decisions/${id}.json`])}});
    }await p.close();
   }
-  fs.writeFileSync(`${out}/results-${ids.join('-')}.json`,JSON.stringify({inputCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),results},null,2)+'\n');console.log('PASS actual desktop/mobile: reviewed prose, all alternatives/components, every selected course modal, sources, navigation and geometry.');
+  fs.writeFileSync(`${out}/results-${ids.join('-')}.json`,JSON.stringify({inputCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),results},null,2)+'\n');console.log('PASS actual desktop/mobile assertions for the applicable presentation; see result for inspected content and deferred gates.');
  }finally{if(browser)await browser.close();server.kill();fs.closeSync(fd);}
 })().catch(e=>{console.error(e);process.exit(1)});
