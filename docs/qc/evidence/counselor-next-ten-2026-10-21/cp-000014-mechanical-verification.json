@@ -1,0 +1,109 @@
+{
+  "checkedOn": "2026-10-21",
+  "caseId": "cp-000014",
+  "status": "passed",
+  "inputBlobs": {
+    "canonical": "5fe20a80e3e3b56e8c9d449fa601ba7a392581ce",
+    "decision": "5c0ea6a628da3f010df5c1a03870b1add2094a15"
+  },
+  "workbookBlob": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
+  "formalExceptionSchema": "passed",
+  "audienceSchema": "passed",
+  "byteExactCompilerReplay": "passed",
+  "externalComponents": 25,
+  "externalEC": 180,
+  "interestRows": 40,
+  "ucrScheduleGates": "not applicable: final academic no-match exception has no UCR schedules, traceability, pairwise distinctness or optional-research comparison rows; all 72 withdrawn placements separately checked and retained in stable case evidence.",
+  "commands": [
+    {
+      "command": [
+        "node",
+        "scripts/build-counselor-production.mjs",
+        "data/counselor/decisions/cp-000014.json",
+        "--output",
+        "/tmp/tmp8yghn0bv/replay.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "7fc1b3d5039d0cc7d39ca03328f315b1471f245e3482178223d52176fb095d98",
+      "tail": "Built cp-000014 counselor exception record at /tmp/tmp8yghn0bv/replay.json\n"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor"
+      ],
+      "exitCode": 0,
+      "outputSha256": "25ce679d0044a5014e3e8b4baf54ad2bd18bd25a3f1aa8aca21c62455e8184d1",
+      "tail": "ounselor methodology rules OK\ncp-000453.json: final counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:registry-interests"
+      ],
+      "exitCode": 0,
+      "outputSha256": "f7ce7bad855e286774d735f463e47833f715bb1c677a71b50a13e39b12bb572e",
+      "tail": "\n> validate:registry-interests\n> node scripts/validate-registry-interests.mjs\n\nValid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor-review"
+      ],
+      "exitCode": 0,
+      "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8",
+      "tail": "\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-comprehensive-reaudit.py"
+      ],
+      "exitCode": 0,
+      "outputSha256": "b92661300afc7e42fbd8d2f076b64c14327a4f70984e917d7b2f2694458b7629",
+      "tail": "Re-audit register consistent: 438 baseline targets; {'approved': 15, 'inProgress': 1, 'reviewedWithBlockers': 1, 'notStarted': 421, 'pilotStarted': 6}; 17 case evidence files. No academic approval inferred.\n"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:counselor-audience"
+      ],
+      "exitCode": 0,
+      "outputSha256": "4f6c7212ec2e6ac63914830f88740b6336e9fbc8e2f7a00cecbd11e652cded09",
+      "tail": "\n> test:counselor-audience\n> node scripts/test-counselor-audience.mjs\n\nAudience compiler compatibility, lossless pass-through, stable references and negative contract checks passed.\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/test-counselor-audience-schema.py"
+      ],
+      "exitCode": 0,
+      "outputSha256": "3a009b5be575641fecff02823892cc3e77c96f9dbe5f004926112e747c2aa03f",
+      "tail": "Audience JSON Schema, canonical references and positive/negative fixtures pass.\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-descriptions.py"
+      ],
+      "exitCode": 0,
+      "outputSha256": "dee59806c5e53c3da4b707a26e93105d6424bda1f4fa8268a00572a67b6dba0e",
+      "tail": "13 reviewed course descriptions match their declared workbook evidence and text hashes.\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0,
+      "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tail": ""
+    }
+  ],
+  "limit": "This verifies the contract and implementation. The separately identified source-first pass establishes the academic judgment."
+}
