@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
   "auditId": "counselor-comprehensive-reaudit",
-  "status": "bounded-next-ten-authorised-awaiting-schedule",
+  "status": "bounded-next-ten-scheduled",
   "preparedOn": "2026-10-17",
   "baselineCommit": "bb2c4b5bd41e060b501448e057757f661ef22d4e",
   "protocol": "docs/qc/counselor-comprehensive-reaudit-protocol.md",
@@ -1369,7 +1369,7 @@
       },
       {
         "step": 4,
-        "status": "next-ten-cases-authorised-awaiting-schedule",
+        "status": "next-ten-cases-authorised-and-scheduled",
         "scope": "Preserve the completed pilot and first ten production cases; process the next authorised ten in baseline order, one case per execution, five fixed reporting pairs.",
         "completionGate": "The first ten-case limited production and four-case continuation are complete. On 21 October 2026 the user authorised exactly CP014, CP016, CP017, CP018, CP020, CP021, CP022, CP023, CP024 and CP025. Complete all applicable gates for each case, then evaluate before any wider scaling.",
         "report": "docs/qc/counselor-final-pair-completion-2026-10-18.md",
@@ -1713,7 +1713,7 @@
     {
       "runId": "bounded-ten-case-2026-10-21",
       "authorisedOn": "2026-10-21",
-      "status": "authorised-awaiting-schedule",
+      "status": "scheduled",
       "allowedCases": [
         "cp-000014",
         "cp-000016",
@@ -1766,7 +1766,29 @@
       "retryRule": "Persist an exact checkpoint and observed failure; retry the same unfinished case on the next trigger. A live writer causes a skipped trigger, not competing work. Pause and report a genuine non-transient blocker or missing authority; do not invent a cause.",
       "qualityRule": "Preserve all six stages, source-first final verification, formal/audience schemas, compiler replay, enriched workbook checks, actual desktop/mobile inspection and every selected course modal. Three alternatives is a maximum, not a target.",
       "priorCompletedRun": "limitedProduction",
-      "oldRecurringTasksMustRemainDisabled": true
+      "oldRecurringTasksMustRemainDisabled": true,
+      "authorisationCommit": "c30920cc8d549e60dfdf490ea53ae1ab55d2d4d2",
+      "automation": {
+        "id": "6ad86faae6b081919dbe838a3862a734",
+        "title": "Counselor Next Ten Cases",
+        "isEnabledAtCreation": true,
+        "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Europe/Amsterdam:20261021T100000\nRRULE:FREQ=HOURLY;INTERVAL=2\nEND:VEVENT",
+        "defaultTimezone": "Europe/Amsterdam",
+        "firstScheduledFor": "2026-10-21T10:00:00+02:00",
+        "createdOn": "2026-10-21T07:54:19.427851+00:00",
+        "recordedLastRun": null,
+        "triggerIsNotCompletion": true
+      },
+      "setupVerification": {
+        "commit": "c30920cc8d549e60dfdf490ea53ae1ab55d2d4d2",
+        "workflowRun": "https://github.com/solmyr1980/ucr-pathways/actions/runs/39565186961",
+        "registerConsistency": "passed",
+        "counselorProduction": "passed",
+        "registry": "passed",
+        "audienceAndCourseEvidence": "passed",
+        "comparisonIntegrityRegressions": "passed",
+        "overallCI": "in-progress-at-scheduling"
+      }
     }
   ]
 }
