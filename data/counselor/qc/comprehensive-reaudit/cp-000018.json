@@ -594,7 +594,9 @@
       ]
     }
   ],
-  "implementationCommits": [],
+  "implementationCommits": [
+    "2e11f7b928329a4564331f8e1246eda804a780e9"
+  ],
   "finalReview": null,
   "schemaVersion": "2.0",
   "auditId": "counselor-comprehensive-reaudit",
@@ -662,6 +664,11 @@
         "action": "Local operational traceability check",
         "observation": "New retained courses referenced basis labels missing from the alternative evidence maps.",
         "repair": "Added the actual supported technology/lifecourse/organisational/market basis references; complete operational corpus validation passed."
+      },
+      {
+        "action": "Initial implementation publication and relevant CI 39615387409",
+        "observation": "The writer passed elided shell text into the connector for two files larger than the tool output limit. Published registry and review-interest files contained bytes-omitted markers at about 1 MB and the normalized-production CI step failed. Complete local 11,134,360-byte registry and 5,629,556-byte index remained intact.",
+        "repair": "Re-read complete files in bounded base64 chunks, check every chunk length and syntax, create connector blobs and require exact local/GitHub blob hashes before atomic restoration. This is a publication defect, not an academic source blocker or inferred platform cause."
       }
     ],
     "nextUnverifiedAction": "Obtain the current official BMG 2026–2027 regulation PDF; visually inspect the credit-table/header/edition and compare visible with extracted text to resolve 25 versus 30 EC; verify complete formal conditions. Then reassess affected downstream decisions, freeze final academic input, run the remaining source-first final and actual two-programme/all-selected-modal gates.",
