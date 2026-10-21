@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
   "auditId": "counselor-comprehensive-reaudit",
-  "status": "bounded-next-ten-scheduled",
+  "status": "bounded-next-ten-in-progress",
   "preparedOn": "2026-10-17",
   "baselineCommit": "bb2c4b5bd41e060b501448e057757f661ef22d4e",
   "protocol": "docs/qc/counselor-comprehensive-reaudit-protocol.md",
@@ -934,6 +934,17 @@
       ],
       "presentationApproval": true,
       "academicDisposition": "comparison"
+    },
+    {
+      "id": "cp-000014",
+      "state": "in-progress",
+      "sharedIssueIds": [],
+      "unresolved": [],
+      "downstreamReassessments": [],
+      "implementationCommits": [],
+      "presentationApproval": false,
+      "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000014.json",
+      "stageOutcomes": {}
     }
   ],
   "sharedIssues": [
@@ -1076,9 +1087,9 @@
   ],
   "progress": {
     "approved": 15,
-    "inProgress": 0,
+    "inProgress": 1,
     "reviewedWithBlockers": 1,
-    "notStarted": 422,
+    "notStarted": 421,
     "pilotStarted": 6
   },
   "batches": [
@@ -1713,7 +1724,7 @@
     {
       "runId": "bounded-ten-case-2026-10-21",
       "authorisedOn": "2026-10-21",
-      "status": "scheduled",
+      "status": "in-progress",
       "allowedCases": [
         "cp-000014",
         "cp-000016",
@@ -1750,8 +1761,22 @@
       ],
       "unit": "One complete case per execution; pairs are reporting units.",
       "scopeRule": "Exactly these ten cases in baseline production order. Resume the earliest unfinished case before advancing. A task trigger is not substantive completion. No authority for later cases or counselor deployment.",
-      "activeCase": null,
-      "activeCaseClaim": null,
+      "activeCase": "cp-000014",
+      "activeCaseClaim": {
+        "status": "claimed",
+        "claimedAt": "2026-10-21T07:58:45.823371+00:00",
+        "owner": "Counselor Next Ten Cases / e89d499d-1000-8326-aaf4-6a707826030f",
+        "verifiedInputCommit": "0970075d273338205e1c5f5fb6e379ec1dcbec5a",
+        "verifiedInputBlobs": {
+          "canonical": "c66ec2a401ae3c874146d57ca8e7dbc11136fd47",
+          "decision": "33d514a74eb6737e680626ad09d502beb08e6c24"
+        },
+        "completedActions": [
+          "Fresh main and bounded scope verified; no competing claim; setup CI job 119105650533 and register consistency passed."
+        ],
+        "observedFailures": [],
+        "nextUnverifiedAction": "Independently establish the current complete Erasmus Fiscaal Recht curriculum and all 30 linked interest rows; inspect enriched UCR course content and challenge programme-level comparability."
+      },
       "completedCases": [],
       "completedPairs": [],
       "caseResults": [],
@@ -1787,7 +1812,7 @@
         "registry": "passed",
         "audienceAndCourseEvidence": "passed",
         "comparisonIntegrityRegressions": "passed",
-        "overallCI": "in-progress-at-scheduling"
+        "overallCI": "passed (job 119105650533; all steps successful)"
       }
     }
   ]
