@@ -985,14 +985,15 @@
     },
     {
       "id": "cp-000017",
-      "state": "in-progress",
+      "state": "approved",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000017.json",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
         "3": "correct",
         "4": "correct",
-        "5": "correct"
+        "5": "correct",
+        "6": "retain"
       },
       "sharedIssueIds": [
         "audience-boundary",
@@ -1003,10 +1004,12 @@
       "downstreamReassessments": [],
       "implementationCommits": [
         "fba801b0828321a2f672deaf1052bb2ff92bd88f",
-        "322287575ffcbb1ba154ca7ad738208e83d21c4b"
+        "322287575ffcbb1ba154ca7ad738208e83d21c4b",
+        "a6836c34a1035543aaf75bcdef5fe5dc4a7cb30b"
       ],
-      "presentationApproval": false,
-      "academicDisposition": "comparison"
+      "presentationApproval": true,
+      "academicDisposition": "comparison",
+      "reviewedInputCommit": "a6836c34a1035543aaf75bcdef5fe5dc4a7cb30b"
     }
   ],
   "sharedIssues": [
@@ -1148,8 +1151,8 @@
     }
   ],
   "progress": {
-    "approved": 17,
-    "inProgress": 1,
+    "approved": 18,
+    "inProgress": 0,
     "reviewedWithBlockers": 1,
     "notStarted": 419,
     "pilotStarted": 6
@@ -1447,7 +1450,7 @@
         "completionGate": "The first ten-case limited production and four-case continuation are complete. On 21 October 2026 the user authorised exactly CP014, CP016, CP017, CP018, CP020, CP021, CP022, CP023, CP024 and CP025. Complete all applicable gates for each case, then evaluate before any wider scaling.",
         "report": "docs/qc/counselor-final-pair-completion-2026-10-18.md",
         "currentRunRef": "boundedProductionRuns/0",
-        "nextCase": "cp-000017",
+        "nextCase": "cp-000018",
         "nextPair": [
           "cp-000017",
           "cp-000018"
@@ -1463,7 +1466,7 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "CP017 is the active and earliest unfinished authorised case. Complete its integrated review and final disposition before ending this execution; CP018 remains unstarted. Exactly ten-case authority; no wider processing or deployment.",
+    "currentAssignmentBoundary": "Current authority remains exactly the ten cases in bounded-ten-case-2026-10-21. CP014, CP016 and CP017 are final. End this execution; CP018 is next in the still-open CP017–CP018 pair. Preserve completed prior history; no wider processing, old-task reactivation or counselor deployment.",
     "priorAssignmentBoundary": "CP009 reached a verified final disposition in the bounded continuation. End this execution. CP010 is next within the still-open CP009–CP010 reporting pair; no later case, recurring-queue re-enable or counselor deployment is authorised here. Superseded by the 21 October 2026 authorisation; retained as history only."
   },
   "caseEvidenceTemplate": {
@@ -1828,16 +1831,12 @@
       ],
       "unit": "One complete case per execution; pairs are reporting units.",
       "scopeRule": "Exactly these ten cases in baseline production order. Resume the earliest unfinished case before advancing. A task trigger is not substantive completion. No authority for later cases or counselor deployment.",
-      "activeCase": "cp-000017",
-      "activeCaseClaim": {
-        "caseId": "cp-000017",
-        "owner": "Counselor Next Ten Cases / 757042cd-5458-832c-a28d-8cf37245bd08",
-        "claimedAt": "2026-10-21T12:07:23.826047+00:00",
-        "verifiedInputCommit": "d56ccec96c3c5307d51c0ff37540fcc3affaf37c"
-      },
+      "activeCase": null,
+      "activeCaseClaim": null,
       "completedCases": [
         "cp-000014",
-        "cp-000016"
+        "cp-000016",
+        "cp-000017"
       ],
       "completedPairs": [
         [
@@ -1896,10 +1895,39 @@
           ],
           "finalDispositionCommit": "f21627c665a1f08b86fa5ecb7b88828d1ff17674",
           "finalDispositionUrl": "https://github.com/solmyr1980/ucr-pathways/commit/f21627c665a1f08b86fa5ecb7b88828d1ff17674"
+        },
+        {
+          "caseId": "cp-000017",
+          "state": "approved",
+          "academicDisposition": "comparison",
+          "disposition": "Approved qualified positive comparison with three historical UCR programmes; teaching candidate rejected.",
+          "claimCommit": "f892b1532d4cb60af7a7a0416f82566625aabd5f",
+          "implementationCommit": "a6836c34a1035543aaf75bcdef5fe5dc4a7cb30b",
+          "implementationCommits": [
+            "fba801b0828321a2f672deaf1052bb2ff92bd88f",
+            "322287575ffcbb1ba154ca7ad738208e83d21c4b",
+            "a6836c34a1035543aaf75bcdef5fe5dc4a7cb30b"
+          ],
+          "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000017.json",
+          "mechanicalEvidence": "docs/qc/evidence/counselor-next-ten-2026-10-21/cp-000017-mechanical-verification.json",
+          "renderedEvidence": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/results-cp-000017.json",
+          "startedAt": "2026-10-21T12:04:12.764668+00:00",
+          "claimedAt": "2026-10-21T12:07:23.826047+00:00",
+          "finalVerifiedAt": "2026-10-21T12:26:47.187798+00:00",
+          "elapsedSecondsFromRecordedStart": 1354,
+          "elapsedSecondsFromClaim": 1163,
+          "measurementLimit": "Wall-clock through final-verification record preparation, including transient source retrieval failures, corrections, repeated final-pass checks, rendering and CI. Not instrumented active academic effort; final GitHub publication latency excluded.",
+          "requiredUserIntervention": [],
+          "recurringQualityProblems": [
+            "General complementary economics, writing and community engagement had been used to support weak course correspondences.",
+            "Rationales and modal text obscured specific source scope or inferred unestablished assignments.",
+            "Retained progression prose did not consistently describe actual semester order."
+          ],
+          "sourceRetrievalLimit": "Direct EUR PDF downloads/rendering intermittently timed out; required facts were established from successfully inspected current official indexed formal text. No unsupported PDF visual claim or missing academic-evidence blocker recorded."
         }
       ],
       "requiredUserIntervention": [],
-      "nextCase": "cp-000017",
+      "nextCase": "cp-000018",
       "nextPair": [
         "cp-000017",
         "cp-000018"
@@ -1921,8 +1949,8 @@
         "createdOn": "2026-10-21T07:54:19.427851+00:00",
         "recordedLastRun": {
           "id": "757042cd-5458-832c-a28d-8cf37245bd08",
-          "startedAt": "2026-10-21T12:04:12.764668Z",
-          "substantiveCaseResult": "CP017 claimed; not completed."
+          "startedAt": "2026-10-21T12:04:12.764668+00:00",
+          "substantiveCaseResult": "CP017 approved qualified positive comparison; CP017–CP018 reporting pair remains open."
         },
         "triggerIsNotCompletion": true
       },
@@ -1936,7 +1964,7 @@
         "comparisonIntegrityRegressions": "passed",
         "overallCI": "passed (job 119105650533; all steps successful)"
       },
-      "nextAction": "After implementation publication: independently source-first verify exact frozen input commit/blobs; inspect actual desktop/mobile Shiny, all three alternatives, links/back/geometry and all 40 selected course modals per viewport; visually inspect screenshots; require implementation CI before final approval.",
+      "nextAction": "CP017 has a verified final disposition. End this execution; CP018 is next in the still-open CP017–CP018 reporting pair. No later case is started.",
       "pairResults": [
         {
           "caseIds": [
