@@ -937,21 +937,25 @@
     },
     {
       "id": "cp-000014",
-      "state": "in-progress",
+      "state": "approved",
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "517a46b990600990b7504362f2227433b19f10f6"
+      ],
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000014.json",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
         "3": "reconstruct",
         "4": "correct",
-        "5": "correct"
+        "5": "correct",
+        "6": "correct"
       },
-      "academicDisposition": "no-defensible-ucr-match"
+      "academicDisposition": "no-defensible-ucr-match",
+      "reviewedInputCommit": "517a46b990600990b7504362f2227433b19f10f6"
     }
   ],
   "sharedIssues": [
@@ -1093,8 +1097,8 @@
     }
   ],
   "progress": {
-    "approved": 15,
-    "inProgress": 1,
+    "approved": 16,
+    "inProgress": 0,
     "reviewedWithBlockers": 1,
     "notStarted": 421,
     "pilotStarted": 6
@@ -1387,11 +1391,16 @@
       },
       {
         "step": 4,
-        "status": "next-ten-cases-authorised-and-scheduled",
+        "status": "bounded-next-ten-in-progress",
         "scope": "Preserve the completed pilot and first ten production cases; process the next authorised ten in baseline order, one case per execution, five fixed reporting pairs.",
         "completionGate": "The first ten-case limited production and four-case continuation are complete. On 21 October 2026 the user authorised exactly CP014, CP016, CP017, CP018, CP020, CP021, CP022, CP023, CP024 and CP025. Complete all applicable gates for each case, then evaluate before any wider scaling.",
         "report": "docs/qc/counselor-final-pair-completion-2026-10-18.md",
-        "currentRunRef": "boundedProductionRuns/0"
+        "currentRunRef": "boundedProductionRuns/0",
+        "nextCase": "cp-000016",
+        "nextPair": [
+          "cp-000014",
+          "cp-000016"
+        ]
       },
       {
         "step": 5,
@@ -1403,7 +1412,7 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "Current authority: bounded-ten-case-2026-10-21 only. Process CP014, CP016, CP017, CP018, CP020, CP021, CP022, CP023, CP024 and CP025, in that order, one complete case per execution with five fixed reporting pairs. CP009, CP010, CP011 and CP013 are final. Resume the earliest unfinished authorised case; do not advance to a later case while repairable work remains. No wider corpus processing, old queue reactivation or counselor deployment.",
+    "currentAssignmentBoundary": "Current authority remains exactly the ten cases in bounded-ten-case-2026-10-21. CP014 is final as an approved academic no-match exception. End this execution. CP016 is next in the still-open CP014–CP016 reporting pair. Then retain baseline authorised order, one complete case per execution. No wider scope, old queue reactivation or counselor deployment.",
     "priorAssignmentBoundary": "CP009 reached a verified final disposition in the bounded continuation. End this execution. CP010 is next within the still-open CP009–CP010 reporting pair; no later case, recurring-queue re-enable or counselor deployment is authorised here. Superseded by the 21 October 2026 authorisation; retained as history only."
   },
   "caseEvidenceTemplate": {
@@ -1768,36 +1777,39 @@
       ],
       "unit": "One complete case per execution; pairs are reporting units.",
       "scopeRule": "Exactly these ten cases in baseline production order. Resume the earliest unfinished case before advancing. A task trigger is not substantive completion. No authority for later cases or counselor deployment.",
-      "activeCase": "cp-000014",
-      "activeCaseClaim": {
-        "status": "academic-repair-ready-for-verification",
-        "claimedAt": "2026-10-21T07:58:45.823371+00:00",
-        "owner": "Counselor Next Ten Cases / e89d499d-1000-8326-aaf4-6a707826030f",
-        "verifiedInputCommit": "0970075d273338205e1c5f5fb6e379ec1dcbec5a",
-        "verifiedInputBlobs": {
-          "canonical": "c66ec2a401ae3c874146d57ca8e7dbc11136fd47",
-          "decision": "33d514a74eb6737e680626ad09d502beb08e6c24"
-        },
-        "completedActions": [
-          "Fresh main and bounded scope verified; no competing claim; setup CI job 119105650533 and register consistency passed.",
-          "Current OER and source visuals inspected; all 40 exact interest rows reviewed.",
-          "All 35 selected enriched courses and 72 placements examined; strongest positive and bounded repairs assessed.",
-          "Academic no-match correction, current external reconstruction and audience text prepared."
-        ],
-        "observedFailures": [],
-        "nextUnverifiedAction": "Compile corrected exception; run full status-appropriate schemas/compiler/corpus/register checks; freeze implementation commit; perform separately identified source-first final pass and actual desktop/mobile Shiny inspection, then record final disposition.",
-        "claimRowCountCorrection": "Initial claim said 30; actual registry reconciliation establishes 40 rows (891–930). All 40 reviewed.",
-        "claimCommit": "bb8df449e5973215aec98e4faf3d17bc0265e324",
-        "inputBlobsPrepared": {
-          "canonical": "5fe20a80e3e3b56e8c9d449fa601ba7a392581ce",
-          "decision": "5c0ea6a628da3f010df5c1a03870b1add2094a15"
-        }
-      },
-      "completedCases": [],
+      "activeCase": null,
+      "activeCaseClaim": null,
+      "completedCases": [
+        "cp-000014"
+      ],
       "completedPairs": [],
-      "caseResults": [],
+      "caseResults": [
+        {
+          "caseId": "cp-000014",
+          "state": "approved",
+          "academicDisposition": "no-defensible-ucr-match",
+          "disposition": "Approved academic no-match exception; verified complete 2026–2027 external curriculum; zero UCR alternatives.",
+          "claimCommit": "bb8df449e5973215aec98e4faf3d17bc0265e324",
+          "implementationCommit": "517a46b990600990b7504362f2227433b19f10f6",
+          "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000014.json",
+          "mechanicalEvidence": "docs/qc/evidence/counselor-next-ten-2026-10-21/cp-000014-mechanical-verification.json",
+          "renderedEvidence": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/results-cp-000014.json",
+          "startedAt": "2026-10-21T07:56:44.480093+00:00",
+          "claimedAt": "2026-10-21T07:58:45.823371+00:00",
+          "finalVerifiedAt": "2026-10-21T08:15:29.957791+00:00",
+          "elapsedSecondsFromRecordedStart": 1125,
+          "elapsedSecondsFromClaim": 1004,
+          "measurementLimit": "Wall-clock through final verification record preparation; includes dependency setup, testing and CI. Not instrumented active academic time; final GitHub publication latency excluded.",
+          "requiredUserIntervention": [],
+          "recurringQualityProblems": [
+            "An earlier complete/coherent broad programme had been accepted without establishing its substantive response to the specialist target.",
+            "Three alternatives had been exported despite the closest response failing programme-level comparability.",
+            "Stored source-edition discovery claim was stale; current regulation and skills/progression rules needed checking."
+          ]
+        }
+      ],
       "requiredUserIntervention": [],
-      "nextCase": "cp-000014",
+      "nextCase": "cp-000016",
       "nextPair": [
         "cp-000014",
         "cp-000016"
@@ -1817,7 +1829,11 @@
         "defaultTimezone": "Europe/Amsterdam",
         "firstScheduledFor": "2026-10-21T10:00:00+02:00",
         "createdOn": "2026-10-21T07:54:19.427851+00:00",
-        "recordedLastRun": null,
+        "recordedLastRun": {
+          "id": "e89d499d-1000-8326-aaf4-6a707826030f",
+          "startedAt": "2026-10-21T07:56:44.480093+00:00",
+          "substantiveCaseResult": "CP014 verified final academic no-match; trigger itself was not completion."
+        },
         "triggerIsNotCompletion": true
       },
       "setupVerification": {
@@ -1829,7 +1845,8 @@
         "audienceAndCourseEvidence": "passed",
         "comparisonIntegrityRegressions": "passed",
         "overallCI": "passed (job 119105650533; all steps successful)"
-      }
+      },
+      "nextAction": "CP014 is final. End this execution; CP016 is next. CP014–CP016 remains open until CP016 has a verified final disposition."
     }
   ]
 }
