@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
   "auditId": "counselor-comprehensive-reaudit",
-  "status": "six-case-pilot-completed-awaiting-user-scaling-decision",
+  "status": "bounded-next-ten-authorised-awaiting-schedule",
   "preparedOn": "2026-10-17",
   "baselineCommit": "bb2c4b5bd41e060b501448e057757f661ef22d4e",
   "protocol": "docs/qc/counselor-comprehensive-reaudit-protocol.md",
@@ -1279,7 +1279,7 @@
     }
   ],
   "scopeChanges": [],
-  "updatedOn": "2026-10-20",
+  "updatedOn": "2026-10-21",
   "approvedProtocolCommit": "ffabf196b0702eba9acbec57f6aa5f954af16a94",
   "pilotSequenceDecision": {
     "authorisedOn": "2026-10-17",
@@ -1369,10 +1369,11 @@
       },
       {
         "step": 4,
-        "status": "limited-ten-case-production-authorised-and-in-progress",
-        "scope": "Evaluate pilot quality and throughput before processing the remaining corpus in batches of two.",
-        "completionGate": "User authorised ten cases in five fixed pairs on 20 October 2026. CP002–CP003, CP004–CP005 and CP006–CP008 are complete; four authorised cases remain. No throughput forecast or wider remaining-corpus authorisation is inferred.",
-        "report": "docs/qc/counselor-final-pair-completion-2026-10-18.md"
+        "status": "next-ten-cases-authorised-awaiting-schedule",
+        "scope": "Preserve the completed pilot and first ten production cases; process the next authorised ten in baseline order, one case per execution, five fixed reporting pairs.",
+        "completionGate": "The first ten-case limited production and four-case continuation are complete. On 21 October 2026 the user authorised exactly CP014, CP016, CP017, CP018, CP020, CP021, CP022, CP023, CP024 and CP025. Complete all applicable gates for each case, then evaluate before any wider scaling.",
+        "report": "docs/qc/counselor-final-pair-completion-2026-10-18.md",
+        "currentRunRef": "boundedProductionRuns/0"
       },
       {
         "step": 5,
@@ -1384,8 +1385,8 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "CP009 reached a verified final disposition in the bounded continuation. End this execution. CP010 is next within the still-open CP009–CP010 reporting pair; no later case, recurring-queue re-enable or counselor deployment is authorised here.",
-    "priorAssignmentBoundary": "First pair completed as far as evidence permits: CP019 approved; CP277 reviewed with one genuine external-curriculum blocker. No next academic pair, corpus processing or counselor deployment performed or authorized by this completion."
+    "currentAssignmentBoundary": "Current authority: bounded-ten-case-2026-10-21 only. Process CP014, CP016, CP017, CP018, CP020, CP021, CP022, CP023, CP024 and CP025, in that order, one complete case per execution with five fixed reporting pairs. CP009, CP010, CP011 and CP013 are final. Resume the earliest unfinished authorised case; do not advance to a later case while repairable work remains. No wider corpus processing, old queue reactivation or counselor deployment.",
+    "priorAssignmentBoundary": "CP009 reached a verified final disposition in the bounded continuation. End this execution. CP010 is next within the still-open CP009–CP010 reporting pair; no later case, recurring-queue re-enable or counselor deployment is authorised here. Superseded by the 21 October 2026 authorisation; retained as history only."
   },
   "caseEvidenceTemplate": {
     "id": "cp-XXXXXX",
@@ -1707,5 +1708,65 @@
       "oldRecurringTaskVerifiedDisabledOn": "2026-10-20",
       "oldRecurringTaskIsEnabled": false
     }
-  }
+  },
+  "boundedProductionRuns": [
+    {
+      "runId": "bounded-ten-case-2026-10-21",
+      "authorisedOn": "2026-10-21",
+      "status": "authorised-awaiting-schedule",
+      "allowedCases": [
+        "cp-000014",
+        "cp-000016",
+        "cp-000017",
+        "cp-000018",
+        "cp-000020",
+        "cp-000021",
+        "cp-000022",
+        "cp-000023",
+        "cp-000024",
+        "cp-000025"
+      ],
+      "fixedPairs": [
+        [
+          "cp-000014",
+          "cp-000016"
+        ],
+        [
+          "cp-000017",
+          "cp-000018"
+        ],
+        [
+          "cp-000020",
+          "cp-000021"
+        ],
+        [
+          "cp-000022",
+          "cp-000023"
+        ],
+        [
+          "cp-000024",
+          "cp-000025"
+        ]
+      ],
+      "unit": "One complete case per execution; pairs are reporting units.",
+      "scopeRule": "Exactly these ten cases in baseline production order. Resume the earliest unfinished case before advancing. A task trigger is not substantive completion. No authority for later cases or counselor deployment.",
+      "activeCase": null,
+      "activeCaseClaim": null,
+      "completedCases": [],
+      "completedPairs": [],
+      "caseResults": [],
+      "requiredUserIntervention": [],
+      "nextCase": "cp-000014",
+      "nextPair": [
+        "cp-000014",
+        "cp-000016"
+      ],
+      "cadence": "One execution every two hours in Europe/Amsterdam.",
+      "completionRule": "Disable this run's automation after all ten cases have verified final dispositions, including evidence-supported reviewed-with-blockers where genuinely unavoidable. Report dispositions, pair closure, durations, user interventions, recurring quality problems and remaining release dependencies. No silent extension of case scope.",
+      "retryRule": "Persist an exact checkpoint and observed failure; retry the same unfinished case on the next trigger. A live writer causes a skipped trigger, not competing work. Pause and report a genuine non-transient blocker or missing authority; do not invent a cause.",
+      "qualityRule": "Preserve all six stages, source-first final verification, formal/audience schemas, compiler replay, enriched workbook checks, actual desktop/mobile inspection and every selected course modal. Three alternatives is a maximum, not a target.",
+      "priorCompletedRun": "limitedProduction",
+      "oldRecurringTasksMustRemainDisabled": true
+    }
+  ]
 }
