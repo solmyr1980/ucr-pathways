@@ -1013,7 +1013,7 @@
     },
     {
       "id": "cp-000018",
-      "state": "in-progress",
+      "state": "approved",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000018.json",
       "stageOutcomes": {
         "1": "correct",
@@ -1021,7 +1021,7 @@
         "3": "correct",
         "4": "correct",
         "5": "correct",
-        "6": "blocked"
+        "6": "correct"
       },
       "sharedIssueIds": [
         "audience-boundary",
@@ -1029,20 +1029,14 @@
         "counselor-mobile-table"
       ],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "External source resolved to current 2026–2027 framework; row 1071 explicitly corroborated",
-          "scope": "Both concepts, stopping/ownership, unchanged selections, all external alignments and complete audience reassessed; final actual render and independent final verification remain.",
-          "stages": [
-            6
-          ]
-        }
-      ],
+      "downstreamReassessments": [],
       "implementationCommits": [
         "2e11f7b928329a4564331f8e1246eda804a780e9",
-        "b2710860f42dca352023627084dbd160fe9b3adf"
+        "b2710860f42dca352023627084dbd160fe9b3adf",
+        "4fdb30f81dbe35d01117556a90df45d7a5ae9955",
+        "f9c38d5660c49fe7e7cf4e6f5ba261101aa625fd"
       ],
-      "presentationApproval": false,
+      "presentationApproval": true,
       "academicDisposition": "comparison"
     }
   ],
@@ -1185,8 +1179,8 @@
     }
   ],
   "progress": {
-    "approved": 18,
-    "inProgress": 1,
+    "approved": 19,
+    "inProgress": 0,
     "reviewedWithBlockers": 1,
     "notStarted": 418,
     "pilotStarted": 6
@@ -1484,10 +1478,10 @@
         "completionGate": "The first ten-case limited production and four-case continuation are complete. On 21 October 2026 the user authorised exactly CP014, CP016, CP017, CP018, CP020, CP021, CP022, CP023, CP024 and CP025. Complete all applicable gates for each case, then evaluate before any wider scaling.",
         "report": "docs/qc/counselor-final-pair-completion-2026-10-18.md",
         "currentRunRef": "boundedProductionRuns/0",
-        "nextCase": "cp-000018",
+        "nextCase": "cp-000020",
         "nextPair": [
-          "cp-000017",
-          "cp-000018"
+          "cp-000020",
+          "cp-000021"
         ]
       },
       {
@@ -1500,7 +1494,7 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "CP018 source gate resolved from actual official PDF; current 2026–2027 25/15/20 framework confirmed and future 2027–2028 redesign separated. Finish frozen-input same-AI source-first verification, mechanics, actual both-alternative/every-selected-modal desktop/mobile and relevant CI before final disposition. No later case or deployment authorised.",
+    "currentAssignmentBoundary": "CP018 has verified qualified approval with two substantive health-focused alternatives; CP017–CP018 pair closed. End this execution. CP020 is next, within the fixed CP020–CP021 reporting pair, one complete case per execution. Exactly six authorised cases remain; no wider corpus work or counselor deployment.",
     "priorAssignmentBoundary": "CP009 reached a verified final disposition in the bounded continuation. End this execution. CP010 is next within the still-open CP009–CP010 reporting pair; no later case, recurring-queue re-enable or counselor deployment is authorised here. Superseded by the 21 October 2026 authorisation; retained as history only."
   },
   "caseEvidenceTemplate": {
@@ -1865,24 +1859,22 @@
       ],
       "unit": "One complete case per execution; pairs are reporting units.",
       "scopeRule": "Exactly these ten cases in baseline production order. Resume the earliest unfinished case before advancing. A task trigger is not substantive completion. No authority for later cases or counselor deployment.",
-      "activeCase": "cp-000018",
-      "activeCaseClaim": {
-        "caseId": "cp-000018",
-        "owner": "Counselor Next Ten Cases / 8351eca4-a7d0-832c-ad8b-bacc92346ec2",
-        "claimedAt": "2026-10-22T08:02:32.775024+00:00",
-        "verifiedInputCommit": "a4a7bef143a5bd48dab87f560963e44306ac866d",
-        "lastCheckpoint": "source-gate-resolved-awaiting-final-verification",
-        "livenessEvidence": "Current actual execution 8351eca4-a7d0-832c-ad8b-bacc92346ec2 started 2026-10-22T08:01:06Z. Prior execution ended with explicit saved checkpoint at 06:01:17Z and suppressed unchanged notification; fresh main remains that checkpoint without later writer/claim activity. No competing live writer observed."
-      },
+      "activeCase": null,
+      "activeCaseClaim": null,
       "completedCases": [
         "cp-000014",
         "cp-000016",
-        "cp-000017"
+        "cp-000017",
+        "cp-000018"
       ],
       "completedPairs": [
         [
           "cp-000014",
           "cp-000016"
+        ],
+        [
+          "cp-000017",
+          "cp-000018"
         ]
       ],
       "caseResults": [
@@ -1967,13 +1959,57 @@
           "sourceRetrievalLimit": "Direct EUR PDF downloads/rendering intermittently timed out; required facts were established from successfully inspected current official indexed formal text. No unsupported PDF visual claim or missing academic-evidence blocker recorded.",
           "finalDispositionCommit": "3d76c4c51c23dfd313ab3bd8a86f072be95c897b",
           "finalDispositionUrl": "https://github.com/solmyr1980/ucr-pathways/commit/3d76c4c51c23dfd313ab3bd8a86f072be95c897b"
+        },
+        {
+          "caseId": "cp-000018",
+          "state": "approved",
+          "academicDisposition": "comparison",
+          "disposition": "Approved qualified positive comparison with two health-focused UCR programmes; unsupported generic markets option removed, no third constructed.",
+          "claimCommit": "bba03fb4830add613abf0521e40e41c836a6092d",
+          "resumedClaimCommit": "c6a8e29f2b5b35a82ad46b777080a4c56c73b880",
+          "implementationCommit": "f9c38d5660c49fe7e7cf4e6f5ba261101aa625fd",
+          "implementationCommits": [
+            "2e11f7b928329a4564331f8e1246eda804a780e9",
+            "b2710860f42dca352023627084dbd160fe9b3adf",
+            "4fdb30f81dbe35d01117556a90df45d7a5ae9955",
+            "f9c38d5660c49fe7e7cf4e6f5ba261101aa625fd"
+          ],
+          "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000018.json",
+          "mechanicalEvidence": "docs/qc/evidence/counselor-next-ten-2026-10-21/cp-000018-mechanical-verification.json",
+          "renderedEvidence": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/results-cp-000018.json",
+          "startedAt": "2026-10-22T08:01:06.509203+00:00",
+          "claimedAt": "2026-10-22T08:02:32.775024+00:00",
+          "firstCaseClaimedAt": "2026-10-21T13:58:03.382446+00:00",
+          "finalVerifiedAt": "2026-10-22T08:31:17.643509+00:00",
+          "elapsedSecondsFromRecordedStart": 1811,
+          "elapsedSecondsFromClaim": 1724,
+          "totalWallClockSecondsSinceFirstCaseClaim": 66794,
+          "measurementLimit": "Current-execution wall-clock through final-verification record preparation, including source inspection, bounded corrections, source-first rereading, full rendering, CI and context recovery; subsequent final publication latency excluded. Total first-claim wall-clock includes intervals between transient failed source retries and is not active academic effort. Prior attempts are separately retained; no throughput inference.",
+          "requiredUserIntervention": [],
+          "recurringQualityProblems": [
+            "Generic economics/business/legal courses had supported unestablished healthcare specialisms and a weak third programme.",
+            "Current programme marketing versus OER year/credit distinction required actual visible-text/future-appendix resolution.",
+            "Intended formal-condition notes were stored in a field not rendered in the positive comparison; repaired before approval.",
+            "Earlier oversized text publication truncated two large files; prior restoration retained and final complete-file hashes verified."
+          ],
+          "sourceRetrievalLimit": "Prior 503 attempts did not establish a settled academic blocker. Actual current official PDF successfully obtained and visually verified in this execution.",
+          "ci": {
+            "head": "f9c38d5660c49fe7e7cf4e6f5ba261101aa625fd",
+            "runId": 39747051314,
+            "jobId": 119718018852,
+            "url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/39747051314",
+            "status": "completed",
+            "conclusion": "success",
+            "completedAt": "2026-10-22T08:24:49Z",
+            "scope": "All Validate Shiny pilots steps passed, including register, full operational corpus, registry/index, audience/course evidence, integrity, R/Shiny and actual generic desktop/mobile browser regression. Case-specific full rendering is separately recorded."
+          }
         }
       ],
       "requiredUserIntervention": [],
-      "nextCase": "cp-000018",
+      "nextCase": "cp-000020",
       "nextPair": [
-        "cp-000017",
-        "cp-000018"
+        "cp-000020",
+        "cp-000021"
       ],
       "cadence": "One execution every two hours in Europe/Amsterdam.",
       "completionRule": "Disable this run's automation after all ten cases have verified final dispositions, including evidence-supported reviewed-with-blockers where genuinely unavoidable. Report dispositions, pair closure, durations, user interventions, recurring quality problems and remaining release dependencies. No silent extension of case scope.",
@@ -2007,7 +2043,7 @@
         "comparisonIntegrityRegressions": "passed",
         "overallCI": "passed (job 119105650533; all steps successful)"
       },
-      "nextAction": "Freeze this corrected academic/audience input; run full status-appropriate schemas, exact replay, placement/trace/distinctness/operational/index checks; separately re-establish sources/course content in same-AI source-first final pass; inspect actual desktop/mobile both alternatives, all 30 selected modals and screenshots, then relevant CI and final disposition.",
+      "nextAction": "This execution ends after verified CP018 disposition. Next execution: claim and complete CP020 through all applicable six-stage/source-first/mechanical/rendered/CI gates; CP021 follows in the same reporting pair. No later case, scope extension or counselor deployment.",
       "pairResults": [
         {
           "caseIds": [
@@ -2026,6 +2062,23 @@
           "requiredUserIntervention": [],
           "assessment": "Both cases reached verified final dispositions in their own executions. CP014 demonstrates that general coherence can fail specialist comparability. CP016 retains a substantial scientific response after bounded course/ownership/modal repairs. This first reporting pair does not establish whole-corpus reliability or a throughput forecast.",
           "completionCommit": "f21627c665a1f08b86fa5ecb7b88828d1ff17674"
+        },
+        {
+          "caseIds": [
+            "cp-000017",
+            "cp-000018"
+          ],
+          "status": "completed",
+          "dispositions": {
+            "cp-000017": "approved qualified positive comparison; three alternatives",
+            "cp-000018": "approved qualified positive comparison; two alternatives"
+          },
+          "evidenceFiles": [
+            "data/counselor/qc/comprehensive-reaudit/cp-000017.json",
+            "data/counselor/qc/comprehensive-reaudit/cp-000018.json"
+          ],
+          "requiredUserIntervention": [],
+          "assessment": "Both cases have separately verified final dispositions. CP017 required bounded historical content/rationale/progression repairs; CP018 required removal of an unsupported generic option, direct health content, current/future curriculum separation and visible condition-note repair. Formal coherence/disclaimers alone do not establish comparability. Repeated CP018 source failures limit elapsed-time interpretation; this pair supplies no corpus-wide reliability or throughput estimate."
         }
       ],
       "caseAttempts": [
@@ -2386,15 +2439,63 @@
             "observedAt": "2026-10-22T06:01:17.576632+00:00",
             "scope": "Full CI on immediately preceding checkpoint; current resume changes execution metadata only and preserves unchanged validated academic/workbook/registry/index/renderer inputs."
           }
+        },
+        {
+          "caseId": "cp-000018",
+          "state": "approved",
+          "academicDisposition": "comparison",
+          "disposition": "Approved qualified positive comparison with two health-focused UCR programmes; unsupported generic markets option removed, no third constructed.",
+          "claimCommit": "bba03fb4830add613abf0521e40e41c836a6092d",
+          "resumedClaimCommit": "c6a8e29f2b5b35a82ad46b777080a4c56c73b880",
+          "implementationCommit": "f9c38d5660c49fe7e7cf4e6f5ba261101aa625fd",
+          "implementationCommits": [
+            "2e11f7b928329a4564331f8e1246eda804a780e9",
+            "b2710860f42dca352023627084dbd160fe9b3adf",
+            "4fdb30f81dbe35d01117556a90df45d7a5ae9955",
+            "f9c38d5660c49fe7e7cf4e6f5ba261101aa625fd"
+          ],
+          "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000018.json",
+          "mechanicalEvidence": "docs/qc/evidence/counselor-next-ten-2026-10-21/cp-000018-mechanical-verification.json",
+          "renderedEvidence": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/results-cp-000018.json",
+          "startedAt": "2026-10-22T08:01:06.509203+00:00",
+          "claimedAt": "2026-10-22T08:02:32.775024+00:00",
+          "firstCaseClaimedAt": "2026-10-21T13:58:03.382446+00:00",
+          "finalVerifiedAt": "2026-10-22T08:31:17.643509+00:00",
+          "elapsedSecondsFromRecordedStart": 1811,
+          "elapsedSecondsFromClaim": 1724,
+          "totalWallClockSecondsSinceFirstCaseClaim": 66794,
+          "measurementLimit": "Current-execution wall-clock through final-verification record preparation, including source inspection, bounded corrections, source-first rereading, full rendering, CI and context recovery; subsequent final publication latency excluded. Total first-claim wall-clock includes intervals between transient failed source retries and is not active academic effort. Prior attempts are separately retained; no throughput inference.",
+          "requiredUserIntervention": [],
+          "recurringQualityProblems": [
+            "Generic economics/business/legal courses had supported unestablished healthcare specialisms and a weak third programme.",
+            "Current programme marketing versus OER year/credit distinction required actual visible-text/future-appendix resolution.",
+            "Intended formal-condition notes were stored in a field not rendered in the positive comparison; repaired before approval.",
+            "Earlier oversized text publication truncated two large files; prior restoration retained and final complete-file hashes verified."
+          ],
+          "sourceRetrievalLimit": "Prior 503 attempts did not establish a settled academic blocker. Actual current official PDF successfully obtained and visually verified in this execution.",
+          "ci": {
+            "head": "f9c38d5660c49fe7e7cf4e6f5ba261101aa625fd",
+            "runId": 39747051314,
+            "jobId": 119718018852,
+            "url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/39747051314",
+            "status": "completed",
+            "conclusion": "success",
+            "completedAt": "2026-10-22T08:24:49Z",
+            "scope": "All Validate Shiny pilots steps passed, including register, full operational corpus, registry/index, audience/course evidence, integrity, R/Shiny and actual generic desktop/mobile browser regression. Case-specific full rendering is separately recorded."
+          },
+          "executionId": "8351eca4-a7d0-832c-ad8b-bacc92346ec2",
+          "status": "completed",
+          "finalDisposition": "approved",
+          "nextUnverifiedAction": null
         }
       ],
       "lastExecution": {
         "caseId": "cp-000018",
-        "executionId": "cba9d1de-c670-832a-aba1-e2cddb3ff4b8",
-        "status": "checkpointed-incomplete",
-        "checkpointedAt": "2026-10-22T06:01:17.576632+00:00",
-        "resumeSameCase": true,
-        "countsAsFinalDisposition": false
+        "executionId": "8351eca4-a7d0-832c-ad8b-bacc92346ec2",
+        "status": "completed",
+        "completedAt": "2026-10-22T08:31:17.643509+00:00",
+        "resumeSameCase": false,
+        "countsAsFinalDisposition": true
       }
     }
   ]
