@@ -1640,7 +1640,7 @@
       {
         "step": 4,
         "status": "bounded-next-ten-completed",
-        "scope": "Preserve all completed history; process exactly the current ten allowed cases, one per hourly execution, fixed reporting pairs. Resume unfinished non-deferred cases; apply the two-execution essential-source cap and one separate deferred revisit as amended22October2026.",
+        "scope": "Completed exactly10authorisedcases in5fixedreportingpairs;boundedassessmentpublishedandtaskdisabled. Preserveallhistoryandapprovals. No widercorpusauthority.",
         "completionGate": "The first ten-case limited production and four-case continuation are complete. On 21 October 2026 the user authorised exactly CP014, CP016, CP017, CP018, CP020, CP021, CP022, CP023, CP024 and CP025. Complete all applicable gates for each case, then evaluate before any wider scaling.",
         "report": "docs/qc/counselor-next-ten-assessment-2026-10-22.md",
         "currentRunRef": "boundedProductionRuns/0",
@@ -1657,7 +1657,7 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "All10authorised cases have verified final dispositions and all5fixedreportingpairs are closed. Publish/hashverify bounded assessment and disable onlythisautomation. Eight positive comparisons,one approved academic no-match,one settled reviewed-with-blockers. No wider corpusprocessing or counselor deployment authorised.",
+    "currentAssignmentBoundary": "The authorised ten-case run is complete, with8positiveapprovals,1approvedno-matchand1settledblockeddisposition;all5pairsclosedandautomationdisabled. Read the published boundedassessment before anynewauthorisation. No next case or counselor deployment.",
     "priorAssignmentBoundary": "CP009 reached a verified final disposition in the bounded continuation. End this execution. CP010 is next within the still-open CP009–CP010 reporting pair; no later case, recurring-queue re-enable or counselor deployment is authorised here. Superseded by the 21 October 2026 authorisation; retained as history only."
   },
   "caseEvidenceTemplate": {
@@ -3589,7 +3589,85 @@
               }
             ]
           },
-          "unresolved": []
+          "unresolved": [],
+          "finalDispositionCommit": "29e9c40d8cc0cd3522ac434e6d39f3bcd1ae86e5",
+          "finalDispositionUrl": "https://github.com/solmyr1980/ucr-pathways/commit/29e9c40d8cc0cd3522ac434e6d39f3bcd1ae86e5",
+          "publishedVerifiedAt": "2026-10-22T17:35:31.148783+00:00",
+          "finalPublicationCI": {
+            "head": "29e9c40d8cc0cd3522ac434e6d39f3bcd1ae86e5",
+            "runId": 39823657232,
+            "jobId": 119981133641,
+            "url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/39823657232",
+            "status": "in_progress",
+            "conclusion": null,
+            "changedInputChecks": {
+              "status": "passed",
+              "steps": [
+                {
+                  "name": "Validate public comparison records",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 3
+                },
+                {
+                  "name": "Validate normalized counselor production records",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 4
+                },
+                {
+                  "name": "Validate programme-interest registry",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 5
+                },
+                {
+                  "name": "Rebuild counselor review indexes for the test checkout",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 6
+                },
+                {
+                  "name": "Validate counselor review indexes",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 7
+                },
+                {
+                  "name": "Validate re-audit register and preserved review evidence",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 8
+                },
+                {
+                  "name": "Install workbook reader",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 9
+                },
+                {
+                  "name": "Validate reviewed audience contract and course evidence",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 10
+                },
+                {
+                  "name": "Run comparison integrity regression tests",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 11
+                }
+              ]
+            },
+            "scope": "All changed-metadata-specific CI checks passed: record/corpus, registry/index, central/detail approval/evidence, audience/course-source and integrity checks. The automatic full runtime repeat remains in progress and is not claimed complete; full runtime/browser/startup CI on byte-identical academic/app/modal/workbook/registry inputs passed at frozen1ff4fd9 (run39821823061)."
+          },
+          "elapsedSecondsThroughVerifiedPublication": 1848,
+          "publicationMeasurementLimit": "Wall-clock through hash-verified approved disposition and successful automation disable; includes source/correction/verification, actual rendered/visual inspection, lossless evidence publication and CI waiting. Excludes final provenance seal latency; active effort not separately measured.",
+          "commitLinks": {
+            "claimCommit": "https://github.com/solmyr1980/ucr-pathways/commit/1d885ab2f5b7e6ce0d7f155f6cc2834caf323c6d",
+            "implementationCommit": "https://github.com/solmyr1980/ucr-pathways/commit/1ff4fd9f781b70f5b332a172fc65b95c4997611f",
+            "finalDispositionCommit": "https://github.com/solmyr1980/ucr-pathways/commit/29e9c40d8cc0cd3522ac434e6d39f3bcd1ae86e5"
+          }
         }
       ],
       "requiredUserIntervention": [],
@@ -3631,7 +3709,10 @@
             "startedAt": "2026-10-21T13:56:53.092551Z",
             "substantiveCaseResult": "CP018 claimed; not completed."
           }
-        ]
+        ],
+        "isEnabled": false,
+        "disabledAt": "2026-10-22T17:33:53.410469+00:00",
+        "disableReason": "All10allowedcaseshaveverifiedfinaldispositions;all5reportingpairsclosed;boundedassessmentpublished.Noeleventhcaseauthorised."
       },
       "setupVerification": {
         "commit": "c30920cc8d549e60dfdf490ea53ae1ab55d2d4d2",
@@ -3643,7 +3724,7 @@
         "comparisonIntegrityRegressions": "passed",
         "overallCI": "passed (job 119105650533; all steps successful)"
       },
-      "nextAction": "All10authorised cases have verified final dispositions and all5fixedreportingpairs are closed. Publish/hashverify bounded assessment and disable onlythisautomation. Eight positive comparisons,one approved academic no-match,one settled reviewed-with-blockers. No wider corpusprocessing or counselor deployment authorised.",
+      "nextAction": "The authorised ten-case run is complete, with8positiveapprovals,1approvedno-matchand1settledblockeddisposition;all5pairsclosedandautomationdisabled. Read the published boundedassessment before anynewauthorisation. No next case or counselor deployment.",
       "pairResults": [
         {
           "caseIds": [
@@ -3734,7 +3815,9 @@
             "data/counselor/qc/comprehensive-reaudit/cp-000025.json"
           ],
           "requiredUserIntervention": [],
-          "assessment": "Both have source-first verified final approvals. Course-level substance and programme weight determined32/39retainedcourses and differing option counts; specialist finance was rejected rather than supported by general prerequisite courses. All formal/current-year and audience/modal defects repaired before approval."
+          "assessment": "Both have source-first verified final approvals. Course-level substance and programme weight determined32/39retainedcourses and differing option counts; specialist finance was rejected rather than supported by general prerequisite courses. All formal/current-year and audience/modal defects repaired before approval.",
+          "completionCommit": "29e9c40d8cc0cd3522ac434e6d39f3bcd1ae86e5",
+          "completionVerifiedAt": "2026-10-22T17:35:31.148783+00:00"
         }
       ],
       "caseAttempts": [
@@ -5161,7 +5244,7 @@
           "status": "completed",
           "startedAt": "2026-10-22T17:04:43.237690+00:00",
           "claimedAt": "2026-10-22T17:06:42.379764+00:00",
-          "nextUnverifiedAction": "None: all10casesfinal; publish/hashverify assessment and disable onlythisautomation.",
+          "nextUnverifiedAction": "None. All10dispositionsverified;automationdisabled;end.",
           "requiredUserIntervention": [],
           "implementationCommit": "1ff4fd9f781b70f5b332a172fc65b95c4997611f",
           "verifiedInputCommit": "1ff4fd9f781b70f5b332a172fc65b95c4997611f",
@@ -5380,7 +5463,85 @@
           },
           "unresolved": [],
           "completedAt": "2026-10-22T17:30:07.167703+00:00",
-          "countsAsFinalDisposition": true
+          "countsAsFinalDisposition": true,
+          "finalDispositionCommit": "29e9c40d8cc0cd3522ac434e6d39f3bcd1ae86e5",
+          "finalDispositionUrl": "https://github.com/solmyr1980/ucr-pathways/commit/29e9c40d8cc0cd3522ac434e6d39f3bcd1ae86e5",
+          "publishedVerifiedAt": "2026-10-22T17:35:31.148783+00:00",
+          "finalPublicationCI": {
+            "head": "29e9c40d8cc0cd3522ac434e6d39f3bcd1ae86e5",
+            "runId": 39823657232,
+            "jobId": 119981133641,
+            "url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/39823657232",
+            "status": "in_progress",
+            "conclusion": null,
+            "changedInputChecks": {
+              "status": "passed",
+              "steps": [
+                {
+                  "name": "Validate public comparison records",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 3
+                },
+                {
+                  "name": "Validate normalized counselor production records",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 4
+                },
+                {
+                  "name": "Validate programme-interest registry",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 5
+                },
+                {
+                  "name": "Rebuild counselor review indexes for the test checkout",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 6
+                },
+                {
+                  "name": "Validate counselor review indexes",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 7
+                },
+                {
+                  "name": "Validate re-audit register and preserved review evidence",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 8
+                },
+                {
+                  "name": "Install workbook reader",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 9
+                },
+                {
+                  "name": "Validate reviewed audience contract and course evidence",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 10
+                },
+                {
+                  "name": "Run comparison integrity regression tests",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 11
+                }
+              ]
+            },
+            "scope": "All changed-metadata-specific CI checks passed: record/corpus, registry/index, central/detail approval/evidence, audience/course-source and integrity checks. The automatic full runtime repeat remains in progress and is not claimed complete; full runtime/browser/startup CI on byte-identical academic/app/modal/workbook/registry inputs passed at frozen1ff4fd9 (run39821823061)."
+          },
+          "elapsedSecondsThroughVerifiedPublication": 1848,
+          "publicationMeasurementLimit": "Wall-clock through hash-verified approved disposition and successful automation disable; includes source/correction/verification, actual rendered/visual inspection, lossless evidence publication and CI waiting. Excludes final provenance seal latency; active effort not separately measured.",
+          "commitLinks": {
+            "claimCommit": "https://github.com/solmyr1980/ucr-pathways/commit/1d885ab2f5b7e6ce0d7f155f6cc2834caf323c6d",
+            "implementationCommit": "https://github.com/solmyr1980/ucr-pathways/commit/1ff4fd9f781b70f5b332a172fc65b95c4997611f",
+            "finalDispositionCommit": "https://github.com/solmyr1980/ucr-pathways/commit/29e9c40d8cc0cd3522ac434e6d39f3bcd1ae86e5"
+          }
         }
       ],
       "lastExecution": {
@@ -5390,7 +5551,10 @@
         "startedAt": "2026-10-22T17:04:43.237690+00:00",
         "completedAt": "2026-10-22T17:30:07.167703+00:00",
         "countsAsFinalDisposition": true,
-        "resumeSameCase": false
+        "resumeSameCase": false,
+        "finalDispositionCommit": "29e9c40d8cc0cd3522ac434e6d39f3bcd1ae86e5",
+        "finalDispositionUrl": "https://github.com/solmyr1980/ucr-pathways/commit/29e9c40d8cc0cd3522ac434e6d39f3bcd1ae86e5",
+        "publishedVerifiedAt": "2026-10-22T17:35:31.148783+00:00"
       },
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {
@@ -5471,7 +5635,29 @@
       },
       "completedAt": "2026-10-22T17:30:07.167703+00:00",
       "assessmentReport": "docs/qc/counselor-next-ten-assessment-2026-10-22.md",
-      "completionPendingAutomationDisable": true
+      "completionPendingAutomationDisable": false,
+      "completionAssessment": {
+        "preparedAt": "2026-10-22T17:30:07.167703+00:00",
+        "verifiedPublishedAt": "2026-10-22T17:35:31.148783+00:00",
+        "report": "docs/qc/counselor-next-ten-assessment-2026-10-22.md",
+        "caseCount": 10,
+        "pairCount": 5,
+        "approvedPositive": 8,
+        "approvedNoMatch": 1,
+        "reviewedWithBlockers": 1,
+        "deferred": [],
+        "unresolvedCaseIds": [
+          "cp-000020"
+        ],
+        "automationDisabled": true,
+        "noWiderScope": true,
+        "releaseBlockers": [
+          "CP020currententrant175/180ECquestion",
+          "CP277separateexternalcurriculumquestion",
+          "formal-schema-operational-discrepancy64records",
+          "finalcorpusreleaseandintegrationchecknotauthorised"
+        ]
+      }
     }
   ]
 }

@@ -15,7 +15,7 @@ Assessment prepared 2026-10-22T17:30:07.167703+00:00. Exactly ten authorised cas
 | 4 | CP-000022 — International Bachelor Economics and Business Economics | Approved qualified positive comparison | 35m 33s | [Case evidence](../../data/counselor/qc/comprehensive-reaudit/cp-000022.json) · [commit](https://github.com/solmyr1980/ucr-pathways/commit/0dd4090f9c2ea73d80a554327133ba44eaff7e49) |
 | 4 | CP-000023 — International Bachelor History | Approved qualified positive comparison | 35m 39s | [Case evidence](../../data/counselor/qc/comprehensive-reaudit/cp-000023.json) · [commit](https://github.com/solmyr1980/ucr-pathways/commit/0b95c68213d34ad4628489b89f173201b5dfcbef) |
 | 5 | CP-000024 — International Bachelor Psychology | Approved qualified positive comparison | 29m 15s | [Case evidence](../../data/counselor/qc/comprehensive-reaudit/cp-000024.json) · [commit](https://github.com/solmyr1980/ucr-pathways/commit/86c1f0f3647a61e9b72fb5ece27f4b5790696f56) |
-| 5 | CP-000025 — International Business Administration | Approved qualified positive comparison | 25m 24s | [Case evidence](../../data/counselor/qc/comprehensive-reaudit/cp-000025.json) · [commit](https://github.com/solmyr1980/ucr-pathways/commit/1ff4fd9f781b70f5b332a172fc65b95c4997611f) |
+| 5 | CP-000025 — International Business Administration | Approved qualified positive comparison | 25m 24s | [Case evidence](../../data/counselor/qc/comprehensive-reaudit/cp-000025.json) · [commit](https://github.com/solmyr1980/ucr-pathways/commit/29e9c40d8cc0cd3522ac434e6d39f3bcd1ae86e5) |
 
 ## Timing and interventions
 
@@ -45,4 +45,11 @@ The comprehensive register now records 24 approved review outcomes, two reviewed
 
 CP020 still needs an authoritative coherent 180-EC allocation for 2026 IBCoM entrants: clarify whether the research workshop is an additional required 5-EC unit outside the 20-EC focus area or identify another correction, and reconcile Appendix 8 with thesis-entry rules. CP277 retains its separate new-cohort African Studies requirement blocker. Neither is an approved complete comparison.
 
-The separate 64-record formal-schema-operational-discrepancy remains a required corpus-publication dependency. The final corpus-level release/integration check and counselor deployment remain unapproved. The bounded task is to be disabled immediately after hash-verification of these ten dispositions; no eleventh case or replacement automation is authorised.
+The separate 64-record formal-schema-operational-discrepancy remains a required corpus-publication dependency. The final corpus-level release/integration check and counselor deployment remain unapproved. The bounded task was disabled after hash-verification of these ten dispositions. No eleventh case or replacement automation is authorised.
+
+
+## Verified completion publication
+
+Final disposition and complete case evidence: [commit 29e9c40](https://github.com/solmyr1980/ucr-pathways/commit/29e9c40d8cc0cd3522ac434e6d39f3bcd1ae86e5). Published main and all119changed blob hashes were verified. The original academic inputs remain frozen at1ff4fd9f781b70f5b332a172fc65b95c4997611f with full successful CI. Final-publication metadata checks: All changed-metadata-specific CI checks passed: record/corpus, registry/index, central/detail approval/evidence, audience/course-source and integrity checks. The automatic full runtime repeat remains in progress and is not claimed complete; full runtime/browser/startup CI on byte-identical academic/app/modal/workbook/registry inputs passed at frozen1ff4fd9 (run39821823061).
+
+The bounded task is confirmed disabled as of 2026-10-22T17:33:53.410469+00:00. Through verified publication/disable, this case took 30m 48s; the bounded run spanned 33h 38m, including all waits and retries. These are elapsed-time measurements, not active effort. This final provenance seal changes no academic, app, modal or workbook input.
