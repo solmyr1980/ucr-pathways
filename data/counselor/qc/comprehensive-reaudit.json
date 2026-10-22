@@ -1096,7 +1096,7 @@
     },
     {
       "id": "cp-000022",
-      "state": "in-progress",
+      "state": "approved",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000022.json",
       "stageOutcomes": {
         "1": "correct",
@@ -1114,7 +1114,12 @@
         "6fdf92682903358076499c41834290723d2d2186",
         "7dbb83b1ac62d5e025343f4b075c355141b089bb"
       ],
-      "presentationApproval": false
+      "presentationApproval": true,
+      "academicDisposition": "comparison",
+      "finalReview": {
+        "reviewedCommit": "7dbb83b1ac62d5e025343f4b075c355141b089bb",
+        "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000022.json"
+      }
     }
   ],
   "sharedIssues": [
@@ -1256,8 +1261,8 @@
     }
   ],
   "progress": {
-    "approved": 20,
-    "inProgress": 1,
+    "approved": 21,
+    "inProgress": 0,
     "reviewedWithBlockers": 2,
     "notStarted": 415,
     "pilotStarted": 6
@@ -1555,7 +1560,7 @@
         "completionGate": "The first ten-case limited production and four-case continuation are complete. On 21 October 2026 the user authorised exactly CP014, CP016, CP017, CP018, CP020, CP021, CP022, CP023, CP024 and CP025. Complete all applicable gates for each case, then evaluate before any wider scaling.",
         "report": "docs/qc/counselor-final-pair-completion-2026-10-18.md",
         "currentRunRef": "boundedProductionRuns/0",
-        "nextCase": "cp-000022",
+        "nextCase": "cp-000023",
         "nextPair": [
           "cp-000022",
           "cp-000023"
@@ -1571,7 +1576,7 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "CP022 is owned by the current coordinated writer. Its source-first academic, mechanical, actual rendered and visual checks are complete on7dbb83b (full-rendered visible-equivalent6fdf926 evidence retained); relevant frozen-input CI remains queued. Resume exactly that CI gate and finalize only after it passes. Six of ten cases remain final; CP022–CP023 stays open. This is not a source failure or deferral. No CP023 work, deployment, task replacement or wider scope.",
+    "currentAssignmentBoundary": "CP022 has a verified final approved qualified comparison with two UCR programmes. End this execution after publishing and verifying its disposition. Seven of ten allowed cases are final: six approved review outcomes (five positive comparisons and one no-match exception), one settled reviewed-with-blockers. CP022–CP023 remains open; CP023 is next only on the next permitted execution. Preserve22October hourly/two-source-failure amendment, completed pilot/limitedProduction history, all prior approvals and separate64record release dependency. No broader authority or deployment.",
     "priorAssignmentBoundary": "CP009 reached a verified final disposition in the bounded continuation. End this execution. CP010 is next within the still-open CP009–CP010 reporting pair; no later case, recurring-queue re-enable or counselor deployment is authorised here. Superseded by the 21 October 2026 authorisation; retained as history only."
   },
   "caseEvidenceTemplate": {
@@ -1936,24 +1941,16 @@
       ],
       "unit": "One complete case per execution; pairs are reporting units.",
       "scopeRule": "Exactly the ten allowedCases in baseline order, one complete case per execution. Resume the earliest unfinished non-deferred case. After two executions fail to retrieve the same essential source evidence, defer without approval or final disposition and advance to the next non-deferred authorised case. Triggers and deferrals do not count as completion. No later cases or deployment.",
-      "activeCase": "cp-000022",
-      "activeCaseClaim": {
-        "caseId": "cp-000022",
-        "owner": "Counselor Next Ten Cases / c184ac83-5940-8320-be25-e93ef8c10074",
-        "executionId": "c184ac83-5940-8320-be25-e93ef8c10074",
-        "claimedAt": "2026-10-22T13:59:00+00:00",
-        "inputCommit": "7dbb83b1ac62d5e025343f4b075c355141b089bb",
-        "nextUnverifiedAction": "Obtain terminal Validate Shiny pilots CI39794815147/job119879348059 on frozen7dbb83b. Inspect and repair any actual failure. After relevantCI passes, record final approved qualified two-programme disposition, synchronize central/current run and exact nextCP023/openCP022–CP023 pair, verify publication hashes and end this execution. No CP023 work now.",
-        "claimCommit": "45881f6d3bf6a4df0605537a1a3dececfc40b0a3",
-        "updatedAt": "2026-10-22T14:25:00+00:00"
-      },
+      "activeCase": null,
+      "activeCaseClaim": null,
       "completedCases": [
         "cp-000014",
         "cp-000016",
         "cp-000017",
         "cp-000018",
         "cp-000020",
-        "cp-000021"
+        "cp-000021",
+        "cp-000022"
       ],
       "completedPairs": [
         [
@@ -2494,10 +2491,234 @@
           "publishedVerifiedAt": "2026-10-22T13:22:02.051192+00:00",
           "elapsedSecondsThroughVerifiedPublication": 5086,
           "publicationMeasurementLimit": "Wall-clock from the first observed run start through verified disposition publication and metadata-specific CI, including source acquisition, full-profile review, three source-first passes, browser/transfer diagnostics, visual inspection, uploads and waiting for full frozen-input CI. Shared/reused recorded-run observations limit attribution; not separately instrumented active academic effort. Completion-seal upload latency and any later automatic rerun runtime are excluded. No throughput inference."
+        },
+        {
+          "caseId": "cp-000022",
+          "state": "approved",
+          "academicDisposition": "comparison",
+          "disposition": "Verified final qualified positive comparison with two substantive economics programmes; unsupported finance alternative removed.",
+          "claimCommit": "45881f6d3bf6a4df0605537a1a3dececfc40b0a3",
+          "implementationCommit": "7dbb83b1ac62d5e025343f4b075c355141b089bb",
+          "implementationCommits": [
+            "fcad02bc5d91a1689163b00e3eddf12cdb5a8038",
+            "6fdf92682903358076499c41834290723d2d2186",
+            "7dbb83b1ac62d5e025343f4b075c355141b089bb"
+          ],
+          "evidenceCheckpointCommit": "5f4e3c0a4bdf092a754ee4c18d1b6c84466a3f50",
+          "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000022.json",
+          "mechanicalEvidence": "docs/qc/evidence/counselor-next-ten-2026-10-21/cp-000022-mechanical-verification.json",
+          "renderedEvidence": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/results-cp-000022.json",
+          "supplementalRenderedEvidence": [
+            "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/supplement-cp-000022.json",
+            "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/final-visible-cp-000022.json"
+          ],
+          "startedAt": "2026-10-22T13:56:35.899461+00:00",
+          "claimedAt": "2026-10-22T13:59:00+00:00",
+          "finalVerifiedAt": "2026-10-22T14:32:09+00:00",
+          "elapsedSecondsFromRecordedStart": 2133,
+          "elapsedSecondsFromClaim": 1989,
+          "measurementLimit": "Observed wall-clock through final-disposition preparation, including initial source503/timeouts, official alternative retrieval, full-profile/interest review, bounded repair and final source-first corrections, local validation, rendering/visual inspection, immutable uploads and CIqueue/waiting. Not separately instrumented active academic effort; excludes subsequent final-publication/seal latency. No throughput forecast follows.",
+          "requiredUserIntervention": [],
+          "recurringQualityProblems": [
+            "Current and future curriculum editions had been conflated; generic major and combined career/choice units obscured formal conditions.",
+            "A coherent quantitative programme plus15EC accounting/practical-finance content had been labelled as a finance-centred alternative without sufficient substantive implementation.",
+            "Generic or adjacent courses and titles had supported overstated specialist health/finance and international/statistical correspondence claims.",
+            "Weak leadership communication contribution required a substantive evidence-synthesis replacement.",
+            "Four modal descriptions contained unestablished examples or teaching-format/application claims.",
+            "Producer distinctness prose overstated the actual difference count; exact set comparison corrected it from7to6.",
+            "Two mobile full-page captures had inconsistent horizontal positioning; ordinary aligned viewport slices supplied valid actual display evidence instead."
+          ],
+          "ci": {
+            "head": "7dbb83b1ac62d5e025343f4b075c355141b089bb",
+            "runId": 39794815147,
+            "jobId": 119879348059,
+            "url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/39794815147/job/119879348059",
+            "status": "completed",
+            "conclusion": "success",
+            "completedAt": "2026-10-22T14:30:26Z",
+            "scope": "Full Validate Shiny pilots on final academic inputs; every recorded step succeeded, including corpus/registry/index/register/audience/course-source/integrity, R/Shiny, both bundles, actual generic desktop/mobile browser regression and startup checks. Case-specific full modal/visual evidence is separately recorded. The unfiltered job endpoint retained an older queued snapshot; filtered latest jobs and successful terminal run/logs establish actual completion.",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1
+              },
+              {
+                "name": "Check out repository",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2
+              },
+              {
+                "name": "Validate public comparison records",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3
+              },
+              {
+                "name": "Validate normalized counselor production records",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4
+              },
+              {
+                "name": "Validate programme-interest registry",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5
+              },
+              {
+                "name": "Rebuild counselor review indexes for the test checkout",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6
+              },
+              {
+                "name": "Validate counselor review indexes",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7
+              },
+              {
+                "name": "Validate re-audit register and preserved review evidence",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8
+              },
+              {
+                "name": "Install workbook reader",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 9
+              },
+              {
+                "name": "Validate reviewed audience contract and course evidence",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 10
+              },
+              {
+                "name": "Run comparison integrity regression tests",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 11
+              },
+              {
+                "name": "Set up R",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 12
+              },
+              {
+                "name": "Install system dependency for Shiny",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13
+              },
+              {
+                "name": "Install Shiny dependencies",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14
+              },
+              {
+                "name": "Parse both apps",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 15
+              },
+              {
+                "name": "Load both Shiny app objects",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16
+              },
+              {
+                "name": "Validate local JSON inputs",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17
+              },
+              {
+                "name": "Check pilot and review behavior and rendering",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 18
+              },
+              {
+                "name": "Create ignored private student test data",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 19
+              },
+              {
+                "name": "Validate private student behavior and fail-closed checks",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 20
+              },
+              {
+                "name": "Validate shinyapps.io student bundle",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 21
+              },
+              {
+                "name": "Validate cumulative student production workflow",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 22
+              },
+              {
+                "name": "Validate shinyapps.io counselor bundle",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 23
+              },
+              {
+                "name": "Install browser test dependencies",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 24
+              },
+              {
+                "name": "Inspect running counselor app across desktop and mobile cases",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 25
+              },
+              {
+                "name": "Smoke-test student app startup",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 26
+              },
+              {
+                "name": "Smoke-test counselor app startup",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 27
+              },
+              {
+                "name": "Post Check out repository",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 54
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 55
+              }
+            ]
+          },
+          "unresolved": []
         }
       ],
       "requiredUserIntervention": [],
-      "nextCase": "cp-000022",
+      "nextCase": "cp-000023",
       "nextPair": [
         "cp-000022",
         "cp-000023"
@@ -2550,7 +2771,7 @@
         "comparisonIntegrityRegressions": "passed",
         "overallCI": "passed (job 119105650533; all steps successful)"
       },
-      "nextAction": "Obtain terminal Validate Shiny pilots CI39794815147/job119879348059 on frozen7dbb83b. Inspect and repair any actual failure. After relevantCI passes, record final approved qualified two-programme disposition, synchronize central/current run and exact nextCP023/openCP022–CP023 pair, verify publication hashes and end this execution. No CP023 work now.",
+      "nextAction": "CP022 has a verified final approved two-programme comparison. End this execution after verified disposition publication. CP023 is the next permitted case in the still-openCP022–CP023 reporting pair. Seven of ten allowed cases are final; preserve hourly/two-essential-source-failure amendment, all prior history/approvals and settledCP020 blocker. No CP023 work now, eleventh case, deployment, old-task re-enable or replacement automation.",
       "pairResults": [
         {
           "caseIds": [
@@ -3225,10 +3446,10 @@
         {
           "caseId": "cp-000022",
           "executionId": "c184ac83-5940-8320-be25-e93ef8c10074",
-          "status": "in-progress",
+          "status": "completed",
           "startedAt": "2026-10-22T13:56:35.899461+00:00",
           "claimedAt": "2026-10-22T13:59:00+00:00",
-          "nextUnverifiedAction": "Obtain terminal Validate Shiny pilots CI39794815147/job119879348059 on frozen7dbb83b. Inspect and repair any actual failure. After relevantCI passes, record final approved qualified two-programme disposition, synchronize central/current run and exact nextCP023/openCP022–CP023 pair, verify publication hashes and end this execution. No CP023 work now.",
+          "nextUnverifiedAction": "None forCP022; end this execution. CP023 next permitted execution only.",
           "requiredUserIntervention": [],
           "claimCommit": "45881f6d3bf6a4df0605537a1a3dececfc40b0a3",
           "verifiedInputCommit": "7dbb83b1ac62d5e025343f4b075c355141b089bb",
@@ -3236,16 +3457,231 @@
             "fcad02bc5d91a1689163b00e3eddf12cdb5a8038",
             "6fdf92682903358076499c41834290723d2d2186",
             "7dbb83b1ac62d5e025343f4b075c355141b089bb"
-          ]
+          ],
+          "state": "approved",
+          "academicDisposition": "comparison",
+          "disposition": "Verified final qualified positive comparison with two substantive economics programmes; unsupported finance alternative removed.",
+          "implementationCommit": "7dbb83b1ac62d5e025343f4b075c355141b089bb",
+          "evidenceCheckpointCommit": "5f4e3c0a4bdf092a754ee4c18d1b6c84466a3f50",
+          "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000022.json",
+          "mechanicalEvidence": "docs/qc/evidence/counselor-next-ten-2026-10-21/cp-000022-mechanical-verification.json",
+          "renderedEvidence": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/results-cp-000022.json",
+          "supplementalRenderedEvidence": [
+            "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/supplement-cp-000022.json",
+            "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/final-visible-cp-000022.json"
+          ],
+          "finalVerifiedAt": "2026-10-22T14:32:09+00:00",
+          "elapsedSecondsFromRecordedStart": 2133,
+          "elapsedSecondsFromClaim": 1989,
+          "measurementLimit": "Observed wall-clock through final-disposition preparation, including initial source503/timeouts, official alternative retrieval, full-profile/interest review, bounded repair and final source-first corrections, local validation, rendering/visual inspection, immutable uploads and CIqueue/waiting. Not separately instrumented active academic effort; excludes subsequent final-publication/seal latency. No throughput forecast follows.",
+          "recurringQualityProblems": [
+            "Current and future curriculum editions had been conflated; generic major and combined career/choice units obscured formal conditions.",
+            "A coherent quantitative programme plus15EC accounting/practical-finance content had been labelled as a finance-centred alternative without sufficient substantive implementation.",
+            "Generic or adjacent courses and titles had supported overstated specialist health/finance and international/statistical correspondence claims.",
+            "Weak leadership communication contribution required a substantive evidence-synthesis replacement.",
+            "Four modal descriptions contained unestablished examples or teaching-format/application claims.",
+            "Producer distinctness prose overstated the actual difference count; exact set comparison corrected it from7to6.",
+            "Two mobile full-page captures had inconsistent horizontal positioning; ordinary aligned viewport slices supplied valid actual display evidence instead."
+          ],
+          "ci": {
+            "head": "7dbb83b1ac62d5e025343f4b075c355141b089bb",
+            "runId": 39794815147,
+            "jobId": 119879348059,
+            "url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/39794815147/job/119879348059",
+            "status": "completed",
+            "conclusion": "success",
+            "completedAt": "2026-10-22T14:30:26Z",
+            "scope": "Full Validate Shiny pilots on final academic inputs; every recorded step succeeded, including corpus/registry/index/register/audience/course-source/integrity, R/Shiny, both bundles, actual generic desktop/mobile browser regression and startup checks. Case-specific full modal/visual evidence is separately recorded. The unfiltered job endpoint retained an older queued snapshot; filtered latest jobs and successful terminal run/logs establish actual completion.",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1
+              },
+              {
+                "name": "Check out repository",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2
+              },
+              {
+                "name": "Validate public comparison records",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3
+              },
+              {
+                "name": "Validate normalized counselor production records",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4
+              },
+              {
+                "name": "Validate programme-interest registry",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5
+              },
+              {
+                "name": "Rebuild counselor review indexes for the test checkout",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6
+              },
+              {
+                "name": "Validate counselor review indexes",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7
+              },
+              {
+                "name": "Validate re-audit register and preserved review evidence",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8
+              },
+              {
+                "name": "Install workbook reader",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 9
+              },
+              {
+                "name": "Validate reviewed audience contract and course evidence",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 10
+              },
+              {
+                "name": "Run comparison integrity regression tests",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 11
+              },
+              {
+                "name": "Set up R",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 12
+              },
+              {
+                "name": "Install system dependency for Shiny",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13
+              },
+              {
+                "name": "Install Shiny dependencies",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14
+              },
+              {
+                "name": "Parse both apps",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 15
+              },
+              {
+                "name": "Load both Shiny app objects",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16
+              },
+              {
+                "name": "Validate local JSON inputs",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17
+              },
+              {
+                "name": "Check pilot and review behavior and rendering",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 18
+              },
+              {
+                "name": "Create ignored private student test data",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 19
+              },
+              {
+                "name": "Validate private student behavior and fail-closed checks",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 20
+              },
+              {
+                "name": "Validate shinyapps.io student bundle",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 21
+              },
+              {
+                "name": "Validate cumulative student production workflow",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 22
+              },
+              {
+                "name": "Validate shinyapps.io counselor bundle",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 23
+              },
+              {
+                "name": "Install browser test dependencies",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 24
+              },
+              {
+                "name": "Inspect running counselor app across desktop and mobile cases",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 25
+              },
+              {
+                "name": "Smoke-test student app startup",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 26
+              },
+              {
+                "name": "Smoke-test counselor app startup",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 27
+              },
+              {
+                "name": "Post Check out repository",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 54
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 55
+              }
+            ]
+          },
+          "unresolved": [],
+          "completedAt": "2026-10-22T14:32:09+00:00",
+          "countsAsFinalDisposition": true
         }
       ],
       "lastExecution": {
         "caseId": "cp-000022",
         "executionId": "c184ac83-5940-8320-be25-e93ef8c10074",
-        "status": "in-progress",
+        "status": "completed",
         "startedAt": "2026-10-22T13:56:35.899461+00:00",
-        "resumeSameCase": true,
-        "countsAsFinalDisposition": false
+        "completedAt": "2026-10-22T14:32:09+00:00",
+        "countsAsFinalDisposition": true,
+        "resumeSameCase": false
       },
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {
@@ -3260,7 +3696,8 @@
           "unsuccessfulEssentialSourceExecutions": 0,
           "essentialSourceQuestion": null,
           "unresolvedURLs": [],
-          "countingBasis": "Completeessentialevidence obtainedviaoneofficial alternativewithinthisexecution; individualHTTPfailuresarenotfailedexecutions."
+          "countingBasis": "Completeessentialevidence obtainedviaoneofficial alternativewithinthisexecution; individualHTTPfailuresarenotfailedexecutions.",
+          "nextUnverifiedAction": "None: verified final disposition; all essential evidence obtained."
         }
       },
       "sourceRetrievalHistoryTreatment": "Historical documented CP018 source failures remain in the original caseAttempts and case evidence; CP018 is now finally approved and is not reclassified, deferred or reopened. CP020 is a settled substantive 175/180EC discrepancy, not a source-retrieval retry. No unfinished source-deferred case exists at amendment synchronisation.",
@@ -3285,20 +3722,20 @@
         }
       ],
       "progressSummary": {
-        "verifiedFinalCases": 6,
-        "approved": 5,
+        "verifiedFinalCases": 7,
+        "approved": 6,
         "reviewedWithBlockers": 1,
-        "remaining": 4,
+        "remaining": 3,
         "closedReportingPairs": 3,
         "deferredCases": 0,
         "corpus": {
-          "approved": 20,
+          "approved": 21,
           "inProgress": 0,
           "reviewedWithBlockers": 2,
-          "notStarted": 416,
+          "notStarted": 415,
           "pilotStarted": 6
         },
-        "releaseDependencyPreserved": "formal-schema-operational-discrepancy;64 records; separate final-publication blocker unchanged"
+        "releaseDependencyPreserved": "formal-schema-operational-discrepancy;64records; separate final-publication blocker unchanged"
       }
     }
   ]
