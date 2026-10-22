@@ -32,7 +32,7 @@ const {chromium}=require(process.env.UCR_PLAYWRIGHT_MODULE||'playwright');
       const opts=await p.locator('.column-select option').allTextContents();assert.equal(opts.length,r.programmes.length);
       for(let i=0;i<opts.length;i++){
        await p.locator('.column-select').selectOption(String(i));await p.waitForTimeout(120);
-       const g=await p.locator('.compare-table').evaluate(t=>({cellWidth:t.querySelector('th').getBoundingClientRect().width,overlap:[...t.querySelectorAll('.cell-text,.programme-title')].some(x=>x.scrollWidth>x.clientWidth+1)}));assert(g.cellWidth>=300&&!g.overlap);assert.equal(await p.locator('.column-name').innerText(),opts[i]);columns.push({label:opts[i],...g});
+       const g=await p.locator('.compare-table').evaluate(t=>({cellWidth:t.querySelector('th').getBoundingClientRect().width,overlap:[...t.querySelectorAll('.cell-text,.programme-title')].some(x=>x.scrollWidth>x.clientWidth+1)}));assert(g.cellWidth>=300&&!g.overlap);assert.equal(await p.locator('.column-name').innerText(),opts[i]);columns.push({label:opts[i],...g});if(process.env.UCR_CAPTURE_ALL==='1'){await p.locator('.compare-view').scrollIntoViewIfNeeded();await p.screenshot({path:`${out}/${id}-${size}-column-${i}.png`});}
       }
       await p.locator('.column-select').selectOption('1');await p.waitForTimeout(150);
      }
@@ -47,8 +47,8 @@ const {chromium}=require(process.env.UCR_PLAYWRIGHT_MODULE||'playwright');
       await btn.click();await p.locator('.modal.in').waitFor();await p.waitForTimeout(350);const modalBox=await p.locator('.modal-dialog').boundingBox();assert(modalBox.x>=0&&modalBox.y>=0&&modalBox.x+modalBox.width<=viewport.width+1&&modalBox.y+modalBox.height<=viewport.height+1,'modal exceeds viewport');const t=await p.locator('.modal.in').innerText();assert(!/not currently available|_x000D_/.test(t));
       const cache=JSON.parse(fs.readFileSync(`pilot/shiny/data/courses/${code.slice(0,3)}.json`));// innerText collapses HTML whitespace (GOSHIST311 contains a double space). Preserve every word/punctuation.
       const visibleText=s=>s.replace(/_x000D_/g,'').replace(/\s+/g,' ').trim();assert(visibleText(t).includes(visibleText(cache.descriptions[code])),'Modal description differs: '+code+' '+size);
-      if(['GOSPHIL214','BENBUSI211','GOSLAWJ211'].includes(code)){await p.screenshot({path:`${out}/${id}-${size}-${code}.png`});}
-      modals.push({code,text:t,geometry:modalBox});await p.locator('.modal.in button',{hasText:'Close'}).click();await p.locator('.modal-backdrop').waitFor({state:'hidden'});
+      if(process.env.UCR_CAPTURE_ALL==='1'||['GOSPHIL214','BENBUSI211','GOSLAWJ211'].includes(code)){await p.screenshot({path:`${out}/${id}-${size}-${code}.png`});}
+      if(process.env.UCR_CAPTURE_ALL==='1'){const body=p.locator('.modal.in .modal-body');const overflow=await body.evaluate(e=>e.scrollHeight>e.clientHeight+1);if(overflow){await body.evaluate(e=>e.scrollTop=e.scrollHeight);await p.screenshot({path:`${out}/${id}-${size}-${code}-bottom.png`});}}modals.push({code,text:t,geometry:modalBox});await p.locator('.modal.in button',{hasText:'Close'}).click();await p.locator('.modal-backdrop').waitFor({state:'hidden'});
      }
     }
     const geometry=await p.evaluate(()=>({viewport:innerWidth,document:document.documentElement.scrollWidth,overlap:[...document.querySelectorAll('.cell-text')].some(x=>x.scrollWidth>x.clientWidth+1)}));assert(geometry.document<=geometry.viewport+1&&!geometry.overlap);
