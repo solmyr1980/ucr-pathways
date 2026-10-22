@@ -1,5 +1,5 @@
 // Actual local Shiny; no deployment or fixture/corpus mutations.
-const fs=require('fs'),path=require('path'),assert=require('assert'),{spawn,execFileSync}=require('child_process');
+const fs=require('fs'),path=require('path'),assert=require('assert'),crypto=require('crypto'),{spawn,execFileSync}=require('child_process');
 const {chromium}=require(process.env.UCR_PLAYWRIGHT_MODULE||'playwright');
 (async()=>{
  const ids=process.argv.slice(2),out=process.env.UCR_PAIR_RENDERED_EVIDENCE_DIR||'/tmp/ucr-final-pair-rendered';fs.mkdirSync(out,{recursive:true});
@@ -14,6 +14,14 @@ const {chromium}=require(process.env.UCR_PLAYWRIGHT_MODULE||'playwright');
     const text=await p.locator('.comparison-shell').innerText();
     for(const s of ['awaiting review','INTERNAL-SENTINEL','sourceNotes','cursuscode=','source-first','_x000D_','formal prerequisite','stoppingReason','semantic review'])assert(!text.includes(s),s);
     assert(text.includes(r.audience.programmeDescription)&&text.includes(r.audience.comparisonExplanation));assert(await p.locator(`a[href="${r.comparator.primarySourceUrl}"]`).count()>0);
+    let sourceLinkCheck={href:r.comparator.primarySourceUrl,renderedHrefVerified:true};
+    if(process.env.UCR_SOURCE_SNAPSHOT_MAP){
+     const snapshots=JSON.parse(fs.readFileSync(process.env.UCR_SOURCE_SNAPSHOT_MAP)),spec=snapshots[r.comparator.primarySourceUrl];assert(spec,'Missing verified source snapshot');const snapshot=typeof spec==='string'?spec:spec.path;
+     const responsePromise=p.context().waitForEvent('response',{predicate:z=>z.url()===r.comparator.primarySourceUrl,timeout:30000}),popupPromise=p.waitForEvent('popup',{timeout:30000});
+     await p.locator(`a[href="${r.comparator.primarySourceUrl}"]`).first().click();const popup=await popupPromise,response=await responsePromise;await popup.waitForLoadState('domcontentloaded');
+     const hash=b=>crypto.createHash('sha256').update(b).digest('hex'),responseHash=hash(await response.body());let expectedBytes=fs.readFileSync(snapshot);const snapshotHash=hash(expectedBytes);if(spec.restoreCRLF)expectedBytes=Buffer.from(expectedBytes.toString('latin1').replace(/\n/g,'\r\n'),'latin1');if(spec.sourceResponseSha256)assert.equal(hash(expectedBytes),spec.sourceResponseSha256,'Original response reconstruction differs');assert.equal(response.status(),200);assert.equal(responseHash,hash(expectedBytes),'Source response differs from independently verified snapshot');
+     sourceLinkCheck={...sourceLinkCheck,clicked:true,popupURL:popup.url(),status:response.status(),snapshotPath:snapshot,snapshotSha256:snapshotHash,snapshotLineEndingRestoration:spec.restoreCRLF?'LF to original CRLF':'none',responseSha256:responseHash,responseBytesMatchVerifiedSnapshot:true,browserTLSMode:process.env.UCR_BROWSER_DIAGNOSTIC_TLS||'normal'};await popup.close();
+    }
     await p.evaluate(()=>scrollTo(0,0));await p.screenshot({path:`${out}/${id}-${size}-summary.png`});
     const columns=[],modals=[];let displayedComponents;
     if(['partial','unresolved'].includes(r.audience.curriculum.status)){
@@ -32,13 +40,14 @@ const {chromium}=require(process.env.UCR_PLAYWRIGHT_MODULE||'playwright');
       const opts=await p.locator('.column-select option').allTextContents();assert.equal(opts.length,r.programmes.length);
       for(let i=0;i<opts.length;i++){
        await p.locator('.column-select').selectOption(String(i));await p.waitForTimeout(120);
-       const g=await p.locator('.compare-table').evaluate(t=>({cellWidth:t.querySelector('th').getBoundingClientRect().width,overlap:[...t.querySelectorAll('.cell-text,.programme-title')].some(x=>x.scrollWidth>x.clientWidth+1)}));assert(g.cellWidth>=300&&!g.overlap);assert.equal(await p.locator('.column-name').innerText(),opts[i]);columns.push({label:opts[i],...g});if(process.env.UCR_CAPTURE_ALL==='1'){await p.locator('.compare-view').scrollIntoViewIfNeeded();await p.screenshot({path:`${out}/${id}-${size}-column-${i}.png`});}
+       const g=await p.locator('.compare-table').evaluate(t=>({cellWidth:t.querySelector('th').getBoundingClientRect().width,overlap:[...t.querySelectorAll('.cell-text,.programme-title')].some(x=>x.scrollWidth>x.clientWidth+1)}));assert(g.cellWidth>=300&&!g.overlap);assert.equal(await p.locator('.column-name').innerText(),opts[i]);columns.push({label:opts[i],...g});if(process.env.UCR_CAPTURE_ALL==='1'){await p.locator('.compare-view').scrollIntoViewIfNeeded();await p.screenshot({path:`${out}/${id}-${size}-column-${i}.png`});}if(process.env.UCR_CAPTURE_FULL==='1'){await p.screenshot({path:`${out}/${id}-${size}-column-${i}-full.png`,fullPage:true});}
       }
       await p.locator('.column-select').selectOption('1');await p.waitForTimeout(150);
      }
      await p.locator('.compare-view').evaluate(el=>scrollTo(0,el.getBoundingClientRect().top+scrollY));
     }
     await p.screenshot({path:`${out}/${id}-${size}-curriculum.png`});
+    if(process.env.UCR_CAPTURE_FULL==='1'&&size==='desktop')await p.screenshot({path:`${out}/${id}-${size}-full-page.png`,fullPage:true});
     if(!r.exception&&!['partial','unresolved'].includes(r.audience.curriculum.status)){
      const codes=[...new Set(r.programmes.filter(z=>z.family==='ucr').flatMap(z=>z.schedule.semesters.flatMap(s=>s.courses.map(c=>c.code))))].sort();
      for(const code of codes){
@@ -53,7 +62,7 @@ const {chromium}=require(process.env.UCR_PLAYWRIGHT_MODULE||'playwright');
     }
     const geometry=await p.evaluate(()=>({viewport:innerWidth,document:document.documentElement.scrollWidth,overlap:[...document.querySelectorAll('.cell-text')].some(x=>x.scrollWidth>x.clientWidth+1)}));assert(geometry.document<=geometry.viewport+1&&!geometry.overlap);
     await p.locator('#back_to_search').click();assert.equal(await p.locator('#search_text').inputValue(),query);assert.deepEqual(errors,[]);
-    const git=a=>execFileSync('git',a,{encoding:'utf8'}).trim();results.push({id,size,viewport,presentationMode:r.audience.curriculum.status,deferredGates:['partial','unresolved'].includes(r.audience.curriculum.status)?['Final external curriculum source verification','Included-programme and every-selected-modal inspection after verified curriculum is restored']:[],displayedText:text,columns,displayedComponents,modals,geometry,sourceHref:r.comparator.primarySourceUrl,backNavigation:'passed',pageErrors:errors,inputBlobs:{canonical:git(['hash-object',`data/counselor/comparisons/${id}.json`]),decision:git(['hash-object',`data/counselor/decisions/${id}.json`])}});
+    const git=a=>execFileSync('git',a,{encoding:'utf8'}).trim();results.push({id,size,viewport,presentationMode:r.audience.curriculum.status,deferredGates:['partial','unresolved'].includes(r.audience.curriculum.status)?['Final external curriculum source verification','Included-programme and every-selected-modal inspection after verified curriculum is restored']:[],displayedText:text,columns,displayedComponents,modals,geometry,sourceHref:r.comparator.primarySourceUrl,sourceLinkCheck,backNavigation:'passed',pageErrors:errors,inputBlobs:{canonical:git(['hash-object',`data/counselor/comparisons/${id}.json`]),decision:git(['hash-object',`data/counselor/decisions/${id}.json`])}});
    }await p.close();
   }
   fs.writeFileSync(`${out}/results-${ids.join('-')}.json`,JSON.stringify({inputCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),results},null,2)+'\n');console.log('PASS actual desktop/mobile assertions for the applicable presentation; see result for inspected content and deferred gates.');
