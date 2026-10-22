@@ -19,6 +19,17 @@ sheet=openpyxl.load_workbook(ROOT/'data/reference/ucr_courses_enriched.xlsx',dat
 h=[c.value for c in sheet[1]];wb={r[h.index('osiris')]:dict(zip(h,r)) for r in sheet.iter_rows(min_row=2,values_only=True)}
 for cp in sys.argv[1:]:
  canonical=ROOT/f'data/counselor/comparisons/{cp}.json';decision=ROOT/f'data/counselor/decisions/{cp}.json';record=read(canonical)
+ if record.get('recordStatus')=='exception':
+  validators['counselor-exception.schema.json'].validate(record);validators['counselor-audience.schema.json'].validate(record['audience'])
+  with tempfile.TemporaryDirectory(prefix='ucr-exception-byte-replay-') as tmp:
+   output=pathlib.Path(tmp)/f'{cp}.json';run(['node','scripts/build-counselor-production.mjs',str(decision),'--output',str(output)]);assert output.read_bytes()==canonical.read_bytes()
+  components=record['comparator']['components'];total=sum(c['credits'] for c in components);assert len({c['id'] for c in components})==len(components)
+  assert len(record['programmes'])==1 and not any(k in record for k in ['blocks','comparisonAlignment','academicRationale'])
+  status=record['audience']['curriculum']['status'];assert set(record['audience']['curriculum']['componentIds'])=={c['id'] for c in components}
+  if record['exception']['type']=='external-programme-unresolved':assert status in ['partial','unresolved'] and record['audience']['curriculum']['limitation']
+  else:assert total==180 and status=='complete'
+  result={'checkedOn':__import__('datetime').date.today().isoformat(),'inputBlobs':{'canonical':blob(canonical),'decision':blob(decision)},'workbookBlob':blob(ROOT/'data/reference/ucr_courses_enriched.xlsx'),'status':'passed','formalAndAudienceSchema':'passed','compilerByteReplay':'passed','externalComponents':len(components),'externalEC':total,'externalECCheckScope':'Supported subset only; not a complete180EC degree certification' if status!='complete' else 'Complete externally verified framework; academic evidence separate','activeUCRAlternatives':0,'placements':[],'inapplicableChecks':['No active UCR schedule:24courses/180EC/four per term/advanced/PPD, workbook placements, UCR traceability/distinctness and optional research are not fabricated. Original course/placement review remains separately scoped in case evidence.'],'commands':[run(['npm','run','validate:counselor']),run(['git','diff','--check'])],'scopeLimit':'Status-appropriate exception mechanics do not certify an unresolved external curriculum or approve UCR comparability.'}
+  (OUT/f'{cp}-mechanical-verification.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print(cp+': PASS exception/audience schemas, exact replay, supported subset identity, no fabricated UCR schedule and operational corpus.');continue
  validators['counselor-comparison.schema.json'].validate(record);validators['counselor-audience.schema.json'].validate(record['audience'])
  with tempfile.TemporaryDirectory(prefix='ucr-byte-replay-') as tmp:
   output=pathlib.Path(tmp)/f'{cp}.json'
