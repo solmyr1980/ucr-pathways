@@ -1178,7 +1178,7 @@
     },
     {
       "id": "cp-000025",
-      "state": "in-progress",
+      "state": "approved",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000025.json",
       "stageOutcomes": {
         "1": "correct",
@@ -1188,11 +1188,22 @@
         "5": "correct",
         "6": "correct"
       },
-      "sharedIssueIds": [],
+      "sharedIssueIds": [
+        "audience-boundary",
+        "course-modal-content",
+        "counselor-mobile-table"
+      ],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false
+      "implementationCommits": [
+        "1ff4fd9f781b70f5b332a172fc65b95c4997611f"
+      ],
+      "presentationApproval": true,
+      "academicDisposition": "comparison",
+      "finalReview": {
+        "reviewedCommit": "1ff4fd9f781b70f5b332a172fc65b95c4997611f",
+        "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000025.json"
+      }
     }
   ],
   "sharedIssues": [
@@ -1334,8 +1345,8 @@
     }
   ],
   "progress": {
-    "approved": 23,
-    "inProgress": 1,
+    "approved": 24,
+    "inProgress": 0,
     "reviewedWithBlockers": 2,
     "notStarted": 412,
     "pilotStarted": 6
@@ -1628,16 +1639,13 @@
       },
       {
         "step": 4,
-        "status": "bounded-next-ten-in-progress",
+        "status": "bounded-next-ten-completed",
         "scope": "Preserve all completed history; process exactly the current ten allowed cases, one per hourly execution, fixed reporting pairs. Resume unfinished non-deferred cases; apply the two-execution essential-source cap and one separate deferred revisit as amended22October2026.",
         "completionGate": "The first ten-case limited production and four-case continuation are complete. On 21 October 2026 the user authorised exactly CP014, CP016, CP017, CP018, CP020, CP021, CP022, CP023, CP024 and CP025. Complete all applicable gates for each case, then evaluate before any wider scaling.",
-        "report": "docs/qc/counselor-final-pair-completion-2026-10-18.md",
+        "report": "docs/qc/counselor-next-ten-assessment-2026-10-22.md",
         "currentRunRef": "boundedProductionRuns/0",
-        "nextCase": "cp-000025",
-        "nextPair": [
-          "cp-000024",
-          "cp-000025"
-        ]
+        "nextCase": null,
+        "nextPair": null
       },
       {
         "step": 5,
@@ -1649,7 +1657,7 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "CP025 is claimed by 58256fa6-228c-832d-aa60-445049905aa0. Complete this case through its integrated review and verification before advancing. CP020 has its settled reviewed-with-blockers disposition and is not to be retried without new essential evidence. CP024–CP025 remains open. No eleventh-case work or counselor deployment in this execution.",
+    "currentAssignmentBoundary": "All10authorised cases have verified final dispositions and all5fixedreportingpairs are closed. Publish/hashverify bounded assessment and disable onlythisautomation. Eight positive comparisons,one approved academic no-match,one settled reviewed-with-blockers. No wider corpusprocessing or counselor deployment authorised.",
     "priorAssignmentBoundary": "CP009 reached a verified final disposition in the bounded continuation. End this execution. CP010 is next within the still-open CP009–CP010 reporting pair; no later case, recurring-queue re-enable or counselor deployment is authorised here. Superseded by the 21 October 2026 authorisation; retained as history only."
   },
   "caseEvidenceTemplate": {
@@ -1977,7 +1985,7 @@
     {
       "runId": "bounded-ten-case-2026-10-21",
       "authorisedOn": "2026-10-21",
-      "status": "in-progress",
+      "status": "completed",
       "allowedCases": [
         "cp-000014",
         "cp-000016",
@@ -2014,15 +2022,8 @@
       ],
       "unit": "One complete case per execution; pairs are reporting units.",
       "scopeRule": "Exactly the ten allowedCases in baseline order, one complete case per execution. Resume the earliest unfinished non-deferred case. After two executions fail to retrieve the same essential source evidence, defer without approval or final disposition and advance to the next non-deferred authorised case. Triggers and deferrals do not count as completion. No later cases or deployment.",
-      "activeCase": "cp-000025",
-      "activeCaseClaim": {
-        "caseId": "cp-000025",
-        "owner": "Counselor Next Ten Cases / 58256fa6-228c-832d-aa60-445049905aa0",
-        "executionId": "58256fa6-228c-832d-aa60-445049905aa0",
-        "claimedAt": "2026-10-22T17:06:42.379764+00:00",
-        "inputCommit": "dffbe84b72ea7679ebcf3ce8acd67e5531ec9e4c",
-        "nextUnverifiedAction": "Compile repaired decision; run all applicable formal/workbook/corpus checks, freeze exact inputs, perform separately identified source-first verification and inspect actual desktop/mobile with every selected course modal and screenshots; require relevant CI before approval."
-      },
+      "activeCase": null,
+      "activeCaseClaim": null,
       "completedCases": [
         "cp-000014",
         "cp-000016",
@@ -2032,7 +2033,8 @@
         "cp-000021",
         "cp-000022",
         "cp-000023",
-        "cp-000024"
+        "cp-000024",
+        "cp-000025"
       ],
       "completedPairs": [
         [
@@ -2050,6 +2052,10 @@
         [
           "cp-000022",
           "cp-000023"
+        ],
+        [
+          "cp-000024",
+          "cp-000025"
         ]
       ],
       "caseResults": [
@@ -3363,14 +3369,232 @@
             "evidenceCheckpointCommit": "https://github.com/solmyr1980/ucr-pathways/commit/8d7bb4e044b64887b554d1ef1d7638d4bc73da05",
             "finalDispositionCommit": "https://github.com/solmyr1980/ucr-pathways/commit/86c1f0f3647a61e9b72fb5ece27f4b5790696f56"
           }
+        },
+        {
+          "caseId": "cp-000025",
+          "state": "approved",
+          "academicDisposition": "comparison",
+          "disposition": "Approved qualified comparison with two UCR programmes: international business/management and business/AI. Unsupported third finance programme removed.",
+          "claimCommit": "1d885ab2f5b7e6ce0d7f155f6cc2834caf323c6d",
+          "implementationCommit": "1ff4fd9f781b70f5b332a172fc65b95c4997611f",
+          "implementationCommits": [
+            "1ff4fd9f781b70f5b332a172fc65b95c4997611f"
+          ],
+          "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000025.json",
+          "mechanicalEvidence": "docs/qc/evidence/counselor-next-ten-2026-10-21/cp-000025-mechanical-verification.json",
+          "renderedEvidence": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/results-cp-000025.json",
+          "supplementalRenderedEvidence": [
+            "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/supplement-cp-000025.json",
+            "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/archive-cp-000025.json",
+            "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/final-input-identity-cp-000025.json"
+          ],
+          "startedAt": "2026-10-22T17:04:43.237690+00:00",
+          "claimedAt": "2026-10-22T17:06:42.379764+00:00",
+          "finalVerifiedAt": "2026-10-22T17:30:07.167703+00:00",
+          "elapsedSecondsFromRecordedStart": 1524,
+          "elapsedSecondsFromClaim": 1405,
+          "measurementLimit": "Observed wall-clock through final disposition preparation, including academic review/correction, source/PDF inspection, all checks and visuals, publication transfer repair and full CI waiting. Not instrumented active effort; later publication/seal latency excluded.",
+          "requiredUserIntervention": [],
+          "recurringQualityProblems": [
+            "Coherent economics/computing courses had been used to sustain an unsupported specialist international-finance/accounting concept.",
+            "Related-master entrepreneurship claims had been attributed as direct bachelor evidence; exact-source inspection changed one construction role.",
+            "Current curriculum tables were image-only while obsolete tables were extractable; source visual inspection was necessary.",
+            "Formal progression, choice timing, full-track/capacity and external-elective approval conditions were missing from the presentation.",
+            "Generic professional-development, spreadsheet, information-management and research correspondences were too weak.",
+            "Three course-modal summaries contained unestablished or unqualified content.",
+            "Mixed line endings caused an API/localGit hash mismatch before branch update; normalized snapshots preserved original response hashes.",
+            "Automatic review rejected unrestricted destination analytics; safer document-only external navigation passed."
+          ],
+          "ci": {
+            "head": "1ff4fd9f781b70f5b332a172fc65b95c4997611f",
+            "runId": 39821823061,
+            "jobId": 119974783222,
+            "url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/39821823061",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1
+              },
+              {
+                "name": "Check out repository",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2
+              },
+              {
+                "name": "Validate public comparison records",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3
+              },
+              {
+                "name": "Validate normalized counselor production records",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4
+              },
+              {
+                "name": "Validate programme-interest registry",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5
+              },
+              {
+                "name": "Rebuild counselor review indexes for the test checkout",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6
+              },
+              {
+                "name": "Validate counselor review indexes",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7
+              },
+              {
+                "name": "Validate re-audit register and preserved review evidence",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8
+              },
+              {
+                "name": "Install workbook reader",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 9
+              },
+              {
+                "name": "Validate reviewed audience contract and course evidence",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 10
+              },
+              {
+                "name": "Run comparison integrity regression tests",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 11
+              },
+              {
+                "name": "Set up R",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 12
+              },
+              {
+                "name": "Install system dependency for Shiny",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13
+              },
+              {
+                "name": "Install Shiny dependencies",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14
+              },
+              {
+                "name": "Parse both apps",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 15
+              },
+              {
+                "name": "Load both Shiny app objects",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16
+              },
+              {
+                "name": "Validate local JSON inputs",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17
+              },
+              {
+                "name": "Check pilot and review behavior and rendering",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 18
+              },
+              {
+                "name": "Create ignored private student test data",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 19
+              },
+              {
+                "name": "Validate private student behavior and fail-closed checks",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 20
+              },
+              {
+                "name": "Validate shinyapps.io student bundle",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 21
+              },
+              {
+                "name": "Validate cumulative student production workflow",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 22
+              },
+              {
+                "name": "Validate shinyapps.io counselor bundle",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 23
+              },
+              {
+                "name": "Install browser test dependencies",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 24
+              },
+              {
+                "name": "Inspect running counselor app across desktop and mobile cases",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 25
+              },
+              {
+                "name": "Smoke-test student app startup",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 26
+              },
+              {
+                "name": "Smoke-test counselor app startup",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 27
+              },
+              {
+                "name": "Post Check out repository",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 54
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 55
+              }
+            ]
+          },
+          "unresolved": []
         }
       ],
       "requiredUserIntervention": [],
-      "nextCase": "cp-000025",
-      "nextPair": [
-        "cp-000024",
-        "cp-000025"
-      ],
+      "nextCase": null,
+      "nextPair": null,
       "cadence": "One complete case per hourly execution in Europe/Amsterdam, under the 22 October 2026 amendment.",
       "completionRule": "Disable this automation when all ten have verified final dispositions and publish the bounded assessment. If the main queue and each deferred case’s one separate revisit are exhausted with inaccessible essential evidence, disable and report incomplete with exact deferred checkpoints; do not call deferral a final disposition, academic no-match or settled blocker. Preserve fixed pairs, prior approvals and scope; no wider corpus authority.",
       "retryRule": "Record exact essential-source question, URLs, observed execution failures and next action. Count unsuccessful executions, not HTTP requests; seek a reasonable official alternative once. Existing documented failures count, but overlap/no-work triggers and non-source technical failures do not. After two such executions add the in-progress case to deferredCases, withhold approval and do not close its pair. Non-source interruptions resume the same checkpoint. A live writer causes a skipped trigger. Revisit each deferred case at most once separately after all other authorised cases are final, or when new essential evidence is already available. Settled reviewed-with-blockers cases require new evidence to reopen.",
@@ -3419,7 +3643,7 @@
         "comparisonIntegrityRegressions": "passed",
         "overallCI": "passed (job 119105650533; all steps successful)"
       },
-      "nextAction": "Complete CP025 from its durable checkpoint through all six stages, necessary repair, separate source-first final pass and actual desktop/mobile/modal verification. End this execution after CP025 only. CP024–CP025 closes only after CP025 has a verified final disposition.",
+      "nextAction": "All10authorised cases have verified final dispositions and all5fixedreportingpairs are closed. Publish/hashverify bounded assessment and disable onlythisautomation. Eight positive comparisons,one approved academic no-match,one settled reviewed-with-blockers. No wider corpusprocessing or counselor deployment authorised.",
       "pairResults": [
         {
           "caseIds": [
@@ -3494,6 +3718,23 @@
           "assessment": "Both cases have separately verified positive final dispositions. CP022 required rejecting a weak third finance option; CP023 retained three after replacing two weak adjacent choices. Actual curricular contribution and weight, current formal editions, accurate course descriptions and source-first communication checks determine the result rather than a target option count. CI and transfer waiting limit elapsed-time attribution.",
           "completionCommit": "0b95c68213d34ad4628489b89f173201b5dfcbef",
           "completionVerifiedAt": "2026-10-22T15:36:40+00:00"
+        },
+        {
+          "caseIds": [
+            "cp-000024",
+            "cp-000025"
+          ],
+          "status": "completed",
+          "dispositions": {
+            "cp-000024": "approved qualified comparison;threepsychologyprogrammes",
+            "cp-000025": "approved qualified comparison;twobusinessprogrammes"
+          },
+          "evidenceFiles": [
+            "data/counselor/qc/comprehensive-reaudit/cp-000024.json",
+            "data/counselor/qc/comprehensive-reaudit/cp-000025.json"
+          ],
+          "requiredUserIntervention": [],
+          "assessment": "Both have source-first verified final approvals. Course-level substance and programme weight determined32/39retainedcourses and differing option counts; specialist finance was rejected rather than supported by general prerequisite courses. All formal/current-year and audience/modal defects repaired before approval."
         }
       ],
       "caseAttempts": [
@@ -4917,20 +5158,239 @@
         {
           "caseId": "cp-000025",
           "executionId": "58256fa6-228c-832d-aa60-445049905aa0",
-          "status": "in-progress",
+          "status": "completed",
           "startedAt": "2026-10-22T17:04:43.237690+00:00",
           "claimedAt": "2026-10-22T17:06:42.379764+00:00",
-          "nextUnverifiedAction": "Compile repaired decision; run all applicable formal/workbook/corpus checks, freeze exact inputs, perform separately identified source-first verification and inspect actual desktop/mobile with every selected course modal and screenshots; require relevant CI before approval.",
-          "requiredUserIntervention": []
+          "nextUnverifiedAction": "None: all10casesfinal; publish/hashverify assessment and disable onlythisautomation.",
+          "requiredUserIntervention": [],
+          "implementationCommit": "1ff4fd9f781b70f5b332a172fc65b95c4997611f",
+          "verifiedInputCommit": "1ff4fd9f781b70f5b332a172fc65b95c4997611f",
+          "state": "approved",
+          "academicDisposition": "comparison",
+          "disposition": "Approved qualified comparison with two UCR programmes: international business/management and business/AI. Unsupported third finance programme removed.",
+          "claimCommit": "1d885ab2f5b7e6ce0d7f155f6cc2834caf323c6d",
+          "implementationCommits": [
+            "1ff4fd9f781b70f5b332a172fc65b95c4997611f"
+          ],
+          "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000025.json",
+          "mechanicalEvidence": "docs/qc/evidence/counselor-next-ten-2026-10-21/cp-000025-mechanical-verification.json",
+          "renderedEvidence": "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/results-cp-000025.json",
+          "supplementalRenderedEvidence": [
+            "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/supplement-cp-000025.json",
+            "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/archive-cp-000025.json",
+            "docs/qc/evidence/counselor-next-ten-2026-10-21/rendered/final-input-identity-cp-000025.json"
+          ],
+          "finalVerifiedAt": "2026-10-22T17:30:07.167703+00:00",
+          "elapsedSecondsFromRecordedStart": 1524,
+          "elapsedSecondsFromClaim": 1405,
+          "measurementLimit": "Observed wall-clock through final disposition preparation, including academic review/correction, source/PDF inspection, all checks and visuals, publication transfer repair and full CI waiting. Not instrumented active effort; later publication/seal latency excluded.",
+          "recurringQualityProblems": [
+            "Coherent economics/computing courses had been used to sustain an unsupported specialist international-finance/accounting concept.",
+            "Related-master entrepreneurship claims had been attributed as direct bachelor evidence; exact-source inspection changed one construction role.",
+            "Current curriculum tables were image-only while obsolete tables were extractable; source visual inspection was necessary.",
+            "Formal progression, choice timing, full-track/capacity and external-elective approval conditions were missing from the presentation.",
+            "Generic professional-development, spreadsheet, information-management and research correspondences were too weak.",
+            "Three course-modal summaries contained unestablished or unqualified content.",
+            "Mixed line endings caused an API/localGit hash mismatch before branch update; normalized snapshots preserved original response hashes.",
+            "Automatic review rejected unrestricted destination analytics; safer document-only external navigation passed."
+          ],
+          "ci": {
+            "head": "1ff4fd9f781b70f5b332a172fc65b95c4997611f",
+            "runId": 39821823061,
+            "jobId": 119974783222,
+            "url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/39821823061",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1
+              },
+              {
+                "name": "Check out repository",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2
+              },
+              {
+                "name": "Validate public comparison records",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3
+              },
+              {
+                "name": "Validate normalized counselor production records",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4
+              },
+              {
+                "name": "Validate programme-interest registry",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5
+              },
+              {
+                "name": "Rebuild counselor review indexes for the test checkout",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6
+              },
+              {
+                "name": "Validate counselor review indexes",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7
+              },
+              {
+                "name": "Validate re-audit register and preserved review evidence",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8
+              },
+              {
+                "name": "Install workbook reader",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 9
+              },
+              {
+                "name": "Validate reviewed audience contract and course evidence",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 10
+              },
+              {
+                "name": "Run comparison integrity regression tests",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 11
+              },
+              {
+                "name": "Set up R",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 12
+              },
+              {
+                "name": "Install system dependency for Shiny",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13
+              },
+              {
+                "name": "Install Shiny dependencies",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14
+              },
+              {
+                "name": "Parse both apps",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 15
+              },
+              {
+                "name": "Load both Shiny app objects",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16
+              },
+              {
+                "name": "Validate local JSON inputs",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17
+              },
+              {
+                "name": "Check pilot and review behavior and rendering",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 18
+              },
+              {
+                "name": "Create ignored private student test data",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 19
+              },
+              {
+                "name": "Validate private student behavior and fail-closed checks",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 20
+              },
+              {
+                "name": "Validate shinyapps.io student bundle",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 21
+              },
+              {
+                "name": "Validate cumulative student production workflow",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 22
+              },
+              {
+                "name": "Validate shinyapps.io counselor bundle",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 23
+              },
+              {
+                "name": "Install browser test dependencies",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 24
+              },
+              {
+                "name": "Inspect running counselor app across desktop and mobile cases",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 25
+              },
+              {
+                "name": "Smoke-test student app startup",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 26
+              },
+              {
+                "name": "Smoke-test counselor app startup",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 27
+              },
+              {
+                "name": "Post Check out repository",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 54
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 55
+              }
+            ]
+          },
+          "unresolved": [],
+          "completedAt": "2026-10-22T17:30:07.167703+00:00",
+          "countsAsFinalDisposition": true
         }
       ],
       "lastExecution": {
         "caseId": "cp-000025",
         "executionId": "58256fa6-228c-832d-aa60-445049905aa0",
-        "status": "in-progress",
+        "status": "completed",
         "startedAt": "2026-10-22T17:04:43.237690+00:00",
-        "resumeSameCase": true,
-        "countsAsFinalDisposition": false
+        "completedAt": "2026-10-22T17:30:07.167703+00:00",
+        "countsAsFinalDisposition": true,
+        "resumeSameCase": false
       },
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {
@@ -4966,8 +5426,8 @@
           "unsuccessfulEssentialSourceExecutions": 0,
           "essentialSourceQuestion": null,
           "unresolvedURLs": [],
-          "countingBasis": "New case; no prior failed source execution.",
-          "nextUnverifiedAction": "Verify exact current International Business Administration external identity, complete 2026–2027 curriculum and neutral route selection/formal progression against current official sources; then assess every linked interest row and all downstream concepts/courses before final source-first and rendered verification."
+          "countingBasis": "All essential official evidence obtained. Python dependency, text-transport and privacy-review issues were technical, not essential-source failures.",
+          "nextUnverifiedAction": "None: verified final disposition."
         }
       },
       "sourceRetrievalHistoryTreatment": "Historical documented CP018 source failures remain in the original caseAttempts and case evidence; CP018 is now finally approved and is not reclassified, deferred or reopened. CP020 is a settled substantive 175/180EC discrepancy, not a source-retrieval retry. No unfinished source-deferred case exists at amendment synchronisation.",
@@ -4992,23 +5452,26 @@
         }
       ],
       "progressSummary": {
-        "verifiedFinalCases": 9,
-        "approved": 8,
-        "positiveComparisons": 7,
+        "verifiedFinalCases": 10,
+        "approved": 9,
+        "positiveComparisons": 8,
         "noDefensibleUcrMatch": 1,
         "reviewedWithBlockers": 1,
-        "remaining": 1,
-        "closedReportingPairs": 4,
+        "remaining": 0,
+        "closedReportingPairs": 5,
         "deferredCases": 0,
         "corpus": {
-          "approved": 23,
+          "approved": 24,
           "inProgress": 0,
           "reviewedWithBlockers": 2,
-          "notStarted": 413,
+          "notStarted": 412,
           "pilotStarted": 6
         },
-        "releaseDependencyPreserved": "formal-schema-operational-discrepancy;64records; separate final-publication dependency unchanged"
-      }
+        "releaseDependencyPreserved": "formal-schema-operational-discrepancy;64records;separate finalpublicationdependencyunchanged"
+      },
+      "completedAt": "2026-10-22T17:30:07.167703+00:00",
+      "assessmentReport": "docs/qc/counselor-next-ten-assessment-2026-10-22.md",
+      "completionPendingAutomationDisable": true
     }
   ]
 }
