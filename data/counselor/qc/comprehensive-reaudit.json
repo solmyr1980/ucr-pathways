@@ -1091,7 +1091,8 @@
         }
       ],
       "implementationCommits": [
-        "2be8c29d5392c8b3688ab631f0852e2ecb10e872"
+        "2be8c29d5392c8b3688ab631f0852e2ecb10e872",
+        "21cad5bbe48e11f1a4e43262c3b3486fd58ab164"
       ],
       "presentationApproval": false
     }
@@ -1530,7 +1531,7 @@
       {
         "step": 4,
         "status": "bounded-next-ten-in-progress",
-        "scope": "Preserve the completed pilot and first ten production cases; process the next authorised ten in baseline order, one case per execution, five fixed reporting pairs.",
+        "scope": "Preserve all completed history; process exactly the current ten allowed cases, one per hourly execution, fixed reporting pairs. Resume unfinished non-deferred cases; apply the two-execution essential-source cap and one separate deferred revisit as amended22October2026.",
         "completionGate": "The first ten-case limited production and four-case continuation are complete. On 21 October 2026 the user authorised exactly CP014, CP016, CP017, CP018, CP020, CP021, CP022, CP023, CP024 and CP025. Complete all applicable gates for each case, then evaluate before any wider scaling.",
         "report": "docs/qc/counselor-final-pair-completion-2026-10-18.md",
         "currentRunRef": "boundedProductionRuns/0",
@@ -1550,7 +1551,7 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "CP021 is claimed by f7574d41-dde0-8332-8e4f-637d5a376e53. Complete this case through its integrated review and verification before advancing. CP020 has its settled reviewed-with-blockers disposition and is not to be retried without new essential evidence. CP020–CP021 remains open. No CP022 work or counselor deployment in this execution.",
+    "currentAssignmentBoundary": "CP021 is claimed by f7574d41-dde0-8332-8e4f-637d5a376e53. Complete this case through its integrated review and verification before advancing. CP020 has its settled reviewed-with-blockers disposition and is not to be retried without new essential evidence. CP020–CP021 remains open. No CP022 work or counselor deployment in this execution. The22October amendment governs source-retrieval deferral; CP021 has zero failed essential-source executions and must complete its present final verification.",
     "priorAssignmentBoundary": "CP009 reached a verified final disposition in the bounded continuation. End this execution. CP010 is next within the still-open CP009–CP010 reporting pair; no later case, recurring-queue re-enable or counselor deployment is authorised here. Superseded by the 21 October 2026 authorisation; retained as history only."
   },
   "caseEvidenceTemplate": {
@@ -1914,7 +1915,7 @@
         ]
       ],
       "unit": "One complete case per execution; pairs are reporting units.",
-      "scopeRule": "Exactly these ten cases in baseline production order. Resume the earliest unfinished case before advancing. A task trigger is not substantive completion. No authority for later cases or counselor deployment.",
+      "scopeRule": "Exactly the ten allowedCases in baseline order, one complete case per execution. Resume the earliest unfinished non-deferred case. After two executions fail to retrieve the same essential source evidence, defer without approval or final disposition and advance to the next non-deferred authorised case. Triggers and deferrals do not count as completion. No later cases or deployment.",
       "activeCase": "cp-000021",
       "activeCaseClaim": {
         "caseId": "cp-000021",
@@ -1922,9 +1923,9 @@
         "executionId": "f7574d41-dde0-8332-8e4f-637d5a376e53",
         "claimedAt": "2026-10-22T11:59:01.860891+00:00",
         "inputCommit": "5d80ce132dfe76f93ed384b5b4db2918528ab39c",
-        "nextUnverifiedAction": "Publish the validated two-programme repair and synchronized checkpoint; then separately verify its exact frozen source/academic inputs, inspect actual desktop/mobile Shiny with both included alternatives, all29 selected course modals, source click/response bytes/back navigation/geometry, visually inspect screenshots and confirm relevant CI before final approval.",
+        "nextUnverifiedAction": "Publish this bounded mathematical-scope wording repair, then verify its exact frozen inputs and final actual desktop/mobile presentation, all selected course modals and screenshots; confirm current-input CI before approval.",
         "claimCommit": "bd8c52d106b78f2125fe99a5dd69a87e6029a681",
-        "updatedAt": "2026-10-22T12:36:34.727166+00:00"
+        "updatedAt": "2026-10-22T12:53:24.430093+00:00"
       },
       "completedCases": [
         "cp-000014",
@@ -2153,9 +2154,9 @@
         "cp-000020",
         "cp-000021"
       ],
-      "cadence": "One execution every two hours in Europe/Amsterdam.",
-      "completionRule": "Disable this run's automation after all ten cases have verified final dispositions, including evidence-supported reviewed-with-blockers where genuinely unavoidable. Report dispositions, pair closure, durations, user interventions, recurring quality problems and remaining release dependencies. No silent extension of case scope.",
-      "retryRule": "Persist an exact checkpoint and observed failure; retry the same unfinished case on the next trigger. A live writer causes a skipped trigger, not competing work. Pause and report a genuine non-transient blocker or missing authority; do not invent a cause.",
+      "cadence": "One complete case per hourly execution in Europe/Amsterdam, under the 22 October 2026 amendment.",
+      "completionRule": "Disable this automation when all ten have verified final dispositions and publish the bounded assessment. If the main queue and each deferred case’s one separate revisit are exhausted with inaccessible essential evidence, disable and report incomplete with exact deferred checkpoints; do not call deferral a final disposition, academic no-match or settled blocker. Preserve fixed pairs, prior approvals and scope; no wider corpus authority.",
+      "retryRule": "Record exact essential-source question, URLs, observed execution failures and next action. Count unsuccessful executions, not HTTP requests; seek a reasonable official alternative once. Existing documented failures count, but overlap/no-work triggers and non-source technical failures do not. After two such executions add the in-progress case to deferredCases, withhold approval and do not close its pair. Non-source interruptions resume the same checkpoint. A live writer causes a skipped trigger. Revisit each deferred case at most once separately after all other authorised cases are final, or when new essential evidence is already available. Settled reviewed-with-blockers cases require new evidence to reopen.",
       "qualityRule": "Preserve all six stages, source-first final verification, formal/audience schemas, compiler replay, enriched workbook checks, actual desktop/mobile inspection and every selected course modal. Three alternatives is a maximum, not a target.",
       "priorCompletedRun": "limitedProduction",
       "oldRecurringTasksMustRemainDisabled": true,
@@ -2164,7 +2165,7 @@
         "id": "6ad86faae6b081919dbe838a3862a734",
         "title": "Counselor Next Ten Cases",
         "isEnabledAtCreation": true,
-        "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Europe/Amsterdam:20261021T100000\nRRULE:FREQ=HOURLY;INTERVAL=2\nEND:VEVENT",
+        "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Europe/Amsterdam:20261022T150000\nRRULE:FREQ=HOURLY;INTERVAL=1\nEND:VEVENT",
         "defaultTimezone": "Europe/Amsterdam",
         "firstScheduledFor": "2026-10-21T10:00:00+02:00",
         "createdOn": "2026-10-21T07:54:19.427851+00:00",
@@ -2173,7 +2174,14 @@
           "startedAt": "2026-10-21T13:56:53.092551Z",
           "substantiveCaseResult": "CP018 claimed; not completed."
         },
-        "triggerIsNotCompletion": true
+        "triggerIsNotCompletion": true,
+        "scheduleHistory": [
+          {
+            "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Europe/Amsterdam:20261021T100000\nRRULE:FREQ=HOURLY;INTERVAL=2\nEND:VEVENT",
+            "supersededBy": "525fe7488adaa5961ea036835285cd9cd83b9f65"
+          }
+        ],
+        "scheduleAmendmentCommit": "525fe7488adaa5961ea036835285cd9cd83b9f65"
       },
       "setupVerification": {
         "commit": "c30920cc8d549e60dfdf490ea53ae1ab55d2d4d2",
@@ -2716,7 +2724,7 @@
           "status": "in-progress",
           "startedAt": "2026-10-22T11:57:16.402989+00:00",
           "claimedAt": "2026-10-22T11:59:01.860891+00:00",
-          "nextUnverifiedAction": "Publish the validated two-programme repair and synchronized checkpoint; then separately verify its exact frozen source/academic inputs, inspect actual desktop/mobile Shiny with both included alternatives, all29 selected course modals, source click/response bytes/back navigation/geometry, visually inspect screenshots and confirm relevant CI before final approval.",
+          "nextUnverifiedAction": "Publish this bounded mathematical-scope wording repair, then verify its exact frozen inputs and final actual desktop/mobile presentation, all selected course modals and screenshots; confirm current-input CI before approval.",
           "requiredUserIntervention": [],
           "claimCommit": "bd8c52d106b78f2125fe99a5dd69a87e6029a681"
         }
@@ -2728,7 +2736,26 @@
         "startedAt": "2026-10-22T11:57:16.402989+00:00",
         "resumeSameCase": true,
         "countsAsFinalDisposition": false
-      }
+      },
+      "deferredCases": [],
+      "sourceRetrievalFailuresByCase": {
+        "cp-000021": {
+          "unsuccessfulEssentialSourceExecutions": 0,
+          "essentialSourceQuestion": null,
+          "unresolvedURLs": [],
+          "countingBasis": "All essential current framework, identity, formal conditions, interests and workbook evidence obtained. Script-only individual guides led to bounded unsupported-claim correction, not an unresolved essential-source dependency. Browser/proxy/transfer/compiler interruptions are non-source technical failures.",
+          "nextUnverifiedAction": "Final frozen-input rendered/visual verification and CI."
+        }
+      },
+      "sourceRetrievalHistoryTreatment": "Historical documented CP018 source failures remain in the original caseAttempts and case evidence; CP018 is now finally approved and is not reclassified, deferred or reopened. CP020 is a settled substantive 175/180EC discrepancy, not a source-retrieval retry. No unfinished source-deferred case exists at amendment synchronisation.",
+      "observedUserInterventions": [
+        {
+          "type": "operational-policy-amendment",
+          "commit": "525fe7488adaa5961ea036835285cd9cd83b9f65",
+          "observedAt": "2026-10-22T12:53:24.430093+00:00",
+          "effect": "Hourly cadence and bounded two-execution essential-source retrieval cap; no case-specific assistance requested or academic gates lowered."
+        }
+      ]
     }
   ]
 }
