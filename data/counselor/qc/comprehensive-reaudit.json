@@ -1303,33 +1303,33 @@
     },
     {
       "id": "cp-000029",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "correct",
         "3": "correct",
         "4": "correct",
         "5": "correct",
-        "6": "blocked"
+        "6": "correct"
       },
       "sharedIssueIds": [],
-      "unresolved": [
-        "Confirm full academic-input CI 39953329837 passes the remaining runtime steps for frozen 1128 e 04989436068 f 4240 f 747536 c 03367 cfe 400. Current observed step: Set up R. All academic, mechanical and rendered case checks are complete; no source or UCR comparability question remains."
-      ],
+      "unresolved": [],
       "downstreamReassessments": [],
       "implementationCommits": [
         "56353027aafb0cc1dd479e9940a4853c827025c1",
         "014ed5f86fb0f86d61547fb9b3190e672a2f52b2",
         "1128e04989436068f4240f747536c03367cfe400"
       ],
-      "presentationApproval": false,
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000029.json",
       "academicDisposition": "comparison",
       "finalReview": {
         "reviewedCommit": "1128e04989436068f4240f747536c03367cfe400",
         "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000029.json",
-        "approvalPending": "Full academic-input runtime CI"
-      }
+        "CI": "passed",
+        "reviewPass": "Separate source-first final pass by the same AI"
+      },
+      "reviewedInputCommit": "1128e04989436068f4240f747536c03367cfe400"
     }
   ],
   "sharedIssues": [
@@ -1471,8 +1471,8 @@
     }
   ],
   "progress": {
-    "approved": 26,
-    "inProgress": 1,
+    "approved": 27,
+    "inProgress": 0,
     "reviewedWithBlockers": 3,
     "notStarted": 408,
     "pilotStarted": 6
@@ -1769,10 +1769,10 @@
         "scope": "Authorised 23 October 2026: exactly CP026, CP027, CP028, CP029, CP030, CP031, CP032, CP033, CP034 and CP036; one complete case per hourly execution, five fixed reporting pairs. Apply the two-execution essential-source failure limit and one separate deferred revisit. Stop and assess after the run. CP020/CP277 remain settled blocked pending new evidence. No wider scope or counselor deployment.",
         "completionGate": "All applicable gates for each authorised case; triggers and deferrals are not completion. Disable and assess after ten verified final dispositions, or report incomplete and disable if all non-deferred cases and permitted deferred revisits are exhausted.",
         "currentRunRef": "boundedProductionRuns/1",
-        "nextCase": "cp-000029",
+        "nextCase": "cp-000030",
         "nextPair": [
-          "cp-000028",
-          "cp-000029"
+          "cp-000030",
+          "cp-000031"
         ]
       },
       {
@@ -1785,7 +1785,7 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "CP029 resumed solely for final-input and passed CI verification, disposition publication and pair closure. One coordinated writer owns this claim; CP030 remains unstarted.",
+    "currentAssignmentBoundary": "CP026–CP029 have verified final dispositions; CP028–CP029 is closed. CP029 is an approved qualified comparison with three alternatives. Finish only CP029 publication verification in this execution. On the next execution begin CP030–CP031 with CP030; preserve the exact ten-case boundary and all prior history.",
     "priorAssignmentBoundary": "The authorised ten-case run is complete, with8positiveapprovals,1approvedno-matchand1settledblockeddisposition;all5pairsclosedandautomationdisabled. Read the published boundedassessment before anynewauthorisation. No next case or counselor deployment."
   },
   "caseEvidenceTemplate": {
@@ -5831,26 +5831,33 @@
           "cp-000036"
         ]
       ],
-      "activeCase": "cp-000029",
+      "activeCase": null,
       "activeCaseClaim": {
         "caseId": "cp-000029",
         "executionId": "bounded-ten-2026-10-23-cp029-resume-1303",
-        "status": "active-final-publication",
+        "status": "completed",
         "startedAt": "2026-10-23T13:05:10+00:00",
-        "updatedAt": "2026-10-23T13:05:10+00:00",
+        "updatedAt": "2026-10-23T13:08:04+00:00",
         "inputCommit": "1128e04989436068f4240f747536c03367cfe400",
         "checkpointRef": "data/counselor/qc/comprehensive-reaudit/cp-000029.json#/executionCheckpoint",
-        "resumesClaim": "d2f609a60ff58e17a17c4abfbb66f971597f1096"
+        "resumesClaim": "d2f609a60ff58e17a17c4abfbb66f971597f1096",
+        "completedAt": "2026-10-23T13:08:04+00:00",
+        "claimCommit": "0f00810cddadc3393f4b3689d4dcf83d5a6e1cae"
       },
       "completedCases": [
         "cp-000026",
         "cp-000027",
-        "cp-000028"
+        "cp-000028",
+        "cp-000029"
       ],
       "completedPairs": [
         [
           "cp-000026",
           "cp-000027"
+        ],
+        [
+          "cp-000028",
+          "cp-000029"
         ]
       ],
       "caseResults": [
@@ -5943,7 +5950,7 @@
           "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000028.json",
           "startedAt": "2026-10-23T11:01:00+00:00",
           "completedAt": "2026-10-23T11:19:00+00:00",
-          "elapsedSeconds": 1080,
+          "elapsedSeconds": 1080.0,
           "measurementLimit": "Wall time from durable claim preparation to final disposition preparation, using minute-resolution UTC clock observations. Includes review, corrections, publication, CI and rendering; excludes final evidence-publication latency and is not active academic effort. The execution-host clock differed and was not used.",
           "userInterventions": 0,
           "essentialSourceRetrievalFailures": 0,
@@ -5966,6 +5973,49 @@
           ],
           "finalDispositionUrl": "https://github.com/solmyr1980/ucr-pathways/commit/2cbc6b5400a01781e9b168425e6fc5ab7772b81d",
           "publicationVerifiedAt": "2026-10-23T11:23:00+00:00"
+        },
+        {
+          "caseId": "cp-000029",
+          "disposition": "approved",
+          "academicDisposition": "comparison",
+          "qualification": "Qualified related-field comparison using the official indicative 2027-intake plan; music/performance, fieldwork and separate-thesis gaps remain explicit.",
+          "ucrAlternatives": 3,
+          "presentationApproval": true,
+          "claimCommit": "d2f609a60ff58e17a17c4abfbb66f971597f1096",
+          "resumeClaimCommit": "0f00810cddadc3393f4b3689d4dcf83d5a6e1cae",
+          "implementationCommits": [
+            "56353027aafb0cc1dd479e9940a4853c827025c1",
+            "014ed5f86fb0f86d61547fb9b3190e672a2f52b2",
+            "1128e04989436068f4240f747536c03367cfe400"
+          ],
+          "implementationCommit": "1128e04989436068f4240f747536c03367cfe400",
+          "reviewedCommit": "1128e04989436068f4240f747536c03367cfe400",
+          "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000029.json",
+          "startedAt": "2026-10-23T11:58:00+00:00",
+          "completedAt": "2026-10-23T13:08:04+00:00",
+          "elapsedSeconds": 4204,
+          "resumedExecutionStartedAt": "2026-10-23T13:03:25.372825+00:00",
+          "resumedExecutionToDispositionPreparationSeconds": 278.627175,
+          "measurementLimit": "Wall time from minute-resolution initial claim to disposition preparation includes source/correction/validation/rendering/publication work, full CI waiting and the 23-minute gap from prior checkpoint to resume. It is not active academic effort; final evidence-publication latency is excluded. Resume duration uses the recorded execution start.",
+          "userInterventions": 0,
+          "essentialSourceRetrievalFailures": 0,
+          "sourceDeferral": false,
+          "courseReplacements": 3,
+          "selectedDistinctCourses": 37,
+          "placementsVerified": 72,
+          "modalOpenings": 74,
+          "CI": [
+            "https://github.com/solmyr1980/ucr-pathways/actions/runs/39953329837",
+            "https://github.com/solmyr1980/ucr-pathways/actions/runs/39953329874",
+            "https://github.com/solmyr1980/ucr-pathways/actions/runs/39953329934"
+          ],
+          "recurringQualityProblems": [
+            "The inherited180ECtable joined different entrant cohorts; adequate official same-cohort indicative webpages resolve it without demanding future regulations.",
+            "General institutional-politics courses diluted the identity/power route; three direct cultural-course replacements corrected its weight.",
+            "Aesthetics, art historiography and fixed-topic historical research were overstated; correspondence and audience claims were narrowed.",
+            "Inherited pairwise difference counts were overstated; actual differences are9,5and12courses.",
+            "The modal harness incorrectly treated a vertically scrollable long dialog as overflow; actual complete text and footer access were verified without changing the app."
+          ]
         }
       ],
       "pairResults": [
@@ -5991,16 +6041,17 @@
             "cp-000028",
             "cp-000029"
           ],
-          "status": "open",
+          "status": "closed",
           "verifiedFinalCases": [
-            "cp-000028"
-          ],
-          "remainingCases": [
+            "cp-000028",
             "cp-000029"
           ],
+          "remainingCases": [],
           "dispositions": {
-            "cp-000028": "approved"
-          }
+            "cp-000028": "approved",
+            "cp-000029": "approved"
+          },
+          "closedAt": "2026-10-23T13:08:04+00:00"
         }
       ],
       "caseAttempts": [
@@ -6077,28 +6128,31 @@
         {
           "caseId": "cp-000029",
           "executionId": "bounded-ten-2026-10-23-cp029-resume-1303",
-          "status": "active-final-publication",
+          "status": "completed",
           "startedAt": "2026-10-23T13:05:10+00:00",
           "updatedAt": "2026-10-23T13:05:10+00:00",
           "inputCommit": "1128e04989436068f4240f747536c03367cfe400",
           "checkpointRef": "data/counselor/qc/comprehensive-reaudit/cp-000029.json#/executionCheckpoint",
           "resumesClaim": "d2f609a60ff58e17a17c4abfbb66f971597f1096",
           "sourceRetrievalFailure": false,
-          "userInterventions": 0
+          "userInterventions": 0,
+          "completedAt": "2026-10-23T13:08:04+00:00",
+          "claimCommit": "0f00810cddadc3393f4b3689d4dcf83d5a6e1cae",
+          "reviewedCommit": "1128e04989436068f4240f747536c03367cfe400"
         }
       ],
       "requiredUserIntervention": [],
-      "nextCase": "cp-000029",
+      "nextCase": "cp-000030",
       "nextPair": [
-        "cp-000028",
-        "cp-000029"
+        "cp-000030",
+        "cp-000031"
       ],
       "cadence": "One complete case per hourly execution in Europe/Amsterdam under the 23 October 2026 authorisation; retain the 22 October source-retrieval limit.",
       "priorCompletedRun": "boundedProductionRuns/0",
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {},
       "assessmentReport": null,
-      "nextAction": "Verify unchanged frozen academic/app/evidence inputs and successful full CI, then publish the final CP029 disposition and completion seal. Do not repeat unchanged verified academic or rendered checks.",
+      "nextAction": "On the next execution, claim CP030 and complete it through the integrated six-stage workflow. CP029 has passed all academic, mechanical, actual presentation and frozen-input CI gates; publish/hash-verify and seal its evidence. Do not start CP030 in this execution.",
       "authorisationEvidence": {
         "date": "2026-10-23",
         "instruction": "execute",
@@ -6135,17 +6189,17 @@
         "fullJob": "All27jobstepspassed"
       },
       "progressSummary": {
-        "verifiedFinalCases": 3,
-        "approved": 2,
-        "positiveComparisons": 2,
+        "verifiedFinalCases": 4,
+        "approved": 3,
+        "positiveComparisons": 3,
         "noDefensibleUcrMatch": 0,
         "reviewedWithBlockers": 1,
-        "remaining": 7,
-        "closedReportingPairs": 1,
+        "remaining": 6,
+        "closedReportingPairs": 2,
         "deferredCases": 0,
         "corpus": {
-          "approved": 26,
-          "inProgress": 1,
+          "approved": 27,
+          "inProgress": 0,
           "reviewedWithBlockers": 3,
           "notStarted": 408,
           "pilotStarted": 6
@@ -6169,7 +6223,12 @@
         "A second alternative differentiated mainly by weakly related cellular, laboratory and disease courses instead of a distinct evidence-backed developmental-support curriculum.",
         "Evidence synthesis described as independent primary research or a thesis substitute.",
         "Failure to separate the Radboud180EC degree, Pabo exemption and combined two-degree workload.",
-        "Formal conditions and noncredit obligations omitted from otherwise numerically correct curricula."
+        "Formal conditions and noncredit obligations omitted from otherwise numerically correct curricula.",
+        "The inherited180ECtable joined different entrant cohorts; adequate official same-cohort indicative webpages resolve it without demanding future regulations.",
+        "General institutional-politics courses diluted the identity/power route; three direct cultural-course replacements corrected its weight.",
+        "Aesthetics, art historiography and fixed-topic historical research were overstated; correspondence and audience claims were narrowed.",
+        "Inherited pairwise difference counts were overstated; actual differences are9,5and12courses.",
+        "The modal harness incorrectly treated a vertically scrollable long dialog as overflow; actual complete text and footer access were verified without changing the app."
       ],
       "elapsedTimeMeasurement": "Wall time from durable case setup to final disposition preparation includes source reading, runtime provisioning, validation, diagnostic rendering and publication work. It is not active academic effort or final evidence-publication latency.",
       "publicationVerification": {
@@ -6230,24 +6289,11 @@
         "CP020 and CP277 remain settled blocked pending new official evidence."
       ],
       "lastCasePublication": {
-        "caseId": "cp-000028",
-        "academicInputCommit": "2c68213e253a8a1711386d75f9acbd40ee8bf485",
+        "caseId": "cp-000029",
+        "academicInputCommit": "1128e04989436068f4240f747536c03367cfe400",
         "academicCI": "passed",
-        "finalDispositionCommit": "2cbc6b5400a01781e9b168425e6fc5ab7772b81d",
         "newUserInterventions": 0,
-        "verifiedOnMain": true,
-        "changedFinalHashesVerified": 24,
-        "verifiedAt": "2026-10-23T11:23:00+00:00",
-        "priorRun0AndOtherCasesUnchanged": true,
-        "finalEvidenceCI": {
-          "runId": 39945624513,
-          "jobId": 120387454909,
-          "changedEvidenceChecks": "Passed: corpus, registry, review indexes, re-audit register, audience/course evidence and comparison integrity.",
-          "overallStatus": "in_progress",
-          "currentStep": "Set up R",
-          "observedAt": "2026-10-23T11:23:00+00:00",
-          "scope": "Evidence-only final-disposition commit. Canonical, decision, registry, workbook, app and course-modal inputs are byte-identical to the fully passed academic commit 2c68213. The repeated runtime job is not claimed completed."
-        }
+        "publicationStatus": "final-disposition-prepared"
       },
       "lastCaseCheckpoint": {
         "caseId": "cp-000029",
@@ -6255,20 +6301,20 @@
         "academic": "passed",
         "mechanical": "passed",
         "rendered": "passed",
-        "fullCI": "pending-runtime",
+        "fullCI": "passed",
         "CI": {
           "academicInputCommit": "1128e04989436068f4240f747536c03367cfe400",
           "fullWorkflow": {
             "runId": 39953329837,
             "jobId": 120412940212,
             "url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/39953329837",
-            "status": "in_progress",
-            "currentStep": "Set up R",
-            "precedingSteps": "All completed steps3–11 passed: corpus, registry, indexes, central register, audience/course evidence and integrity regressions.",
-            "observedAt": "2026-10-23T12:39:00+00:00",
-            "limitation": "Full job is not claimed passed; final disposition remains unrecorded until the remaining runtime CI resolves.",
-            "currentStepStartedAt": "2026-10-23T12:27:01Z",
-            "observedRuntimeSetupElapsedMinutes": 12
+            "status": "completed",
+            "conclusion": "success",
+            "headSha": "1128e04989436068f4240f747536c03367cfe400",
+            "allJobSteps": "All 27 validation/runtime/browser steps and setup/cleanup completed successfully.",
+            "observedAt": "2026-10-23T13:08:04+00:00",
+            "workflowUpdatedAt": "2026-10-23T12:57:55Z",
+            "workflowStartedAt": "2026-10-23T12:26:32Z"
           },
           "compilerWorkflow": {
             "runId": 39953329874,
@@ -6287,7 +6333,8 @@
         "evidenceCommit": "27badd0e2d0a2b61dad1992d454d8ff1ac9ce8f0",
         "changedHashesVerified": 41,
         "verifiedAt": "2026-10-23T12:39:00+00:00",
-        "nextUnverifiedAction": "Read fresh result of academic-input workflow39953329837 (job120412940212) for frozen1128e04989436068f4240f747536c03367cfe400. Last observed at12:39UTC: Set up R has been in progress since12:27:01UTC, no failure result. If all remaining steps pass, record CP029 approved as a qualified three-programme comparison, publish/hash-verify disposition and completion seal, close CP028–CP029, and advance currentrun/executionSequence to CP030–CP031. If CI fails, inspect its actual failing step and correct only affected inputs; do not repeat unchanged source/course/render checks. No source-retrieval deferral or academic blocker remains."
+        "nextUnverifiedAction": "Verify final disposition publication hashes and applicable evidence-only CI; seal CP029 completion. No further academic or rendered work remains.",
+        "finalDispositionPreparedAt": "2026-10-23T13:08:04+00:00"
       }
     }
   ]
