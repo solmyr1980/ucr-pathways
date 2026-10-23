@@ -1278,20 +1278,28 @@
     },
     {
       "id": "cp-000028",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "correct",
         "3": "correct",
         "4": "correct",
-        "5": "correct"
+        "5": "correct",
+        "6": "retain"
       },
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000028.json"
+      "implementationCommits": [
+        "2c68213e253a8a1711386d75f9acbd40ee8bf485"
+      ],
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000028.json",
+      "academicDisposition": "comparison",
+      "finalReview": {
+        "reviewedCommit": "2c68213e253a8a1711386d75f9acbd40ee8bf485",
+        "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000028.json"
+      }
     }
   ],
   "sharedIssues": [
@@ -1433,8 +1441,8 @@
     }
   ],
   "progress": {
-    "approved": 25,
-    "inProgress": 1,
+    "approved": 26,
+    "inProgress": 0,
     "reviewedWithBlockers": 3,
     "notStarted": 409,
     "pilotStarted": 6
@@ -1731,7 +1739,7 @@
         "scope": "Authorised 23 October 2026: exactly CP026, CP027, CP028, CP029, CP030, CP031, CP032, CP033, CP034 and CP036; one complete case per hourly execution, five fixed reporting pairs. Apply the two-execution essential-source failure limit and one separate deferred revisit. Stop and assess after the run. CP020/CP277 remain settled blocked pending new evidence. No wider scope or counselor deployment.",
         "completionGate": "All applicable gates for each authorised case; triggers and deferrals are not completion. Disable and assess after ten verified final dispositions, or report incomplete and disable if all non-deferred cases and permitted deferred revisits are exhausted.",
         "currentRunRef": "boundedProductionRuns/1",
-        "nextCase": "cp-000028",
+        "nextCase": "cp-000029",
         "nextPair": [
           "cp-000028",
           "cp-000029"
@@ -1747,7 +1755,7 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "CP026–CP027 closed. Complete only active CP028 in reporting pair CP028–CP029, then end this execution; preserve all prior run history.",
+    "currentAssignmentBoundary": "Continue only the ten-case run authorised on 23 October. CP028 is an approved qualified comparison with one UCR programme; CP029 is next in the open reporting pair CP028–CP029. Complete one case per execution; no wider scope or deployment is authorised.",
     "priorAssignmentBoundary": "The authorised ten-case run is complete, with8positiveapprovals,1approvedno-matchand1settledblockeddisposition;all5pairsclosedandautomationdisabled. Read the published boundedassessment before anynewauthorisation. No next case or counselor deployment."
   },
   "caseEvidenceTemplate": {
@@ -5793,19 +5801,12 @@
           "cp-000036"
         ]
       ],
-      "activeCase": "cp-000028",
-      "activeCaseClaim": {
-        "caseId": "cp-000028",
-        "executionId": "bounded-ten-2026-10-23-cp028-root-1101",
-        "status": "active",
-        "startedAt": "2026-10-23T11:01:00+00:00",
-        "updatedAt": "2026-10-23T11:01:00+00:00",
-        "inputCommit": "a6225b0f5b178880f04b7b14fe6961b749c620ec",
-        "checkpointRef": "data/counselor/qc/comprehensive-reaudit/cp-000028.json#/executionCheckpoint"
-      },
+      "activeCase": null,
+      "activeCaseClaim": null,
       "completedCases": [
         "cp-000026",
-        "cp-000027"
+        "cp-000027",
+        "cp-000028"
       ],
       "completedPairs": [
         [
@@ -5885,6 +5886,45 @@
           ],
           "finalDispositionUrl": "https://github.com/solmyr1980/ucr-pathways/commit/c3247060aa94a9fc4788ebcce97cd02c108a73dd",
           "publicationVerifiedAt": "2026-10-23T10:34:17.405384+00:00"
+        },
+        {
+          "caseId": "cp-000028",
+          "disposition": "approved",
+          "academicDisposition": "comparison",
+          "qualification": "Qualified related-field comparison; no primary-teacher or orthopedagogy professional equivalence.",
+          "ucrAlternatives": 1,
+          "presentationApproval": true,
+          "claimCommit": "ed952009f0f0579fcc5c9a3292f3d7f21c8f409d",
+          "implementationCommits": [
+            "2c68213e253a8a1711386d75f9acbd40ee8bf485"
+          ],
+          "implementationCommit": "2c68213e253a8a1711386d75f9acbd40ee8bf485",
+          "reviewedCommit": "2c68213e253a8a1711386d75f9acbd40ee8bf485",
+          "finalDispositionCommit": "pending-this-coordinated-publication",
+          "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000028.json",
+          "startedAt": "2026-10-23T11:01:00+00:00",
+          "completedAt": "2026-10-23T11:19:00+00:00",
+          "elapsedSeconds": 1080.0,
+          "measurementLimit": "Wall time from durable claim preparation to final disposition preparation. Includes source/course review, corrections, publication, CI and rendering; excludes final evidence-publication latency and is not active academic effort. The UTC clock tool supplied these times because the execution-host clock differed.",
+          "userInterventions": 0,
+          "essentialSourceRetrievalFailures": 0,
+          "sourceDeferral": false,
+          "courseReplacements": 3,
+          "withdrawnAlternatives": 1,
+          "selectedDistinctCourses": 24,
+          "placementsVerified": 24,
+          "modalOpenings": 48,
+          "CI": [
+            "https://github.com/solmyr1980/ucr-pathways/actions/runs/39944564698",
+            "https://github.com/solmyr1980/ucr-pathways/actions/runs/39944564893",
+            "https://github.com/solmyr1980/ucr-pathways/actions/runs/39944564696"
+          ],
+          "recurringQualityProblems": [
+            "A second alternative differentiated mainly by weakly related cellular, laboratory and disease courses instead of a distinct evidence-backed developmental-support curriculum.",
+            "Evidence synthesis described as independent primary research or a thesis substitute.",
+            "Failure to separate the Radboud180EC degree, Pabo exemption and combined two-degree workload.",
+            "Formal conditions and noncredit obligations omitted from otherwise numerically correct curricula."
+          ]
         }
       ],
       "pairResults": [
@@ -5904,6 +5944,22 @@
             "cp-000027": "approved"
           },
           "closedAt": "2026-10-23T10:32:43.457689+00:00"
+        },
+        {
+          "pair": [
+            "cp-000028",
+            "cp-000029"
+          ],
+          "status": "open",
+          "verifiedFinalCases": [
+            "cp-000028"
+          ],
+          "remainingCases": [
+            "cp-000029"
+          ],
+          "dispositions": {
+            "cp-000028": "approved"
+          }
         }
       ],
       "caseAttempts": [
@@ -5939,12 +5995,20 @@
           "caseId": "cp-000028",
           "executionId": "bounded-ten-2026-10-23-cp028-root-1101",
           "startedAt": "2026-10-23T11:01:00+00:00",
-          "status": "active",
-          "checkpointRef": "data/counselor/qc/comprehensive-reaudit/cp-000028.json#/executionCheckpoint"
+          "status": "completed",
+          "checkpointRef": "data/counselor/qc/comprehensive-reaudit/cp-000028.json#/executionCheckpoint",
+          "completedAt": "2026-10-23T11:19:00+00:00",
+          "claimCommit": "ed952009f0f0579fcc5c9a3292f3d7f21c8f409d",
+          "implementationCommit": "2c68213e253a8a1711386d75f9acbd40ee8bf485",
+          "implementationCommits": [
+            "2c68213e253a8a1711386d75f9acbd40ee8bf485"
+          ],
+          "finalDispositionCommit": "pending-this-coordinated-publication",
+          "sourceRetrievalFailure": false
         }
       ],
       "requiredUserIntervention": [],
-      "nextCase": "cp-000028",
+      "nextCase": "cp-000029",
       "nextPair": [
         "cp-000028",
         "cp-000029"
@@ -5954,7 +6018,7 @@
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {},
       "assessmentReport": null,
-      "nextAction": "Complete CP028 from its durable claim through all applicable gates; do not start CP029 in this execution.",
+      "nextAction": "Complete CP029 next. CP028 is an approved qualified comparison with one UCR programme. The reporting pair CP028–CP029 remains open until CP029 has a verified final disposition. CP026, CP020 and CP277 remain settled blocked pending new official evidence.",
       "authorisationEvidence": {
         "date": "2026-10-23",
         "instruction": "execute",
@@ -5991,19 +6055,19 @@
         "fullJob": "All27jobstepspassed"
       },
       "progressSummary": {
-        "verifiedFinalCases": 2,
-        "approved": 1,
-        "positiveComparisons": 1,
+        "verifiedFinalCases": 3,
+        "approved": 2,
+        "positiveComparisons": 2,
         "noDefensibleUcrMatch": 0,
         "reviewedWithBlockers": 1,
-        "remaining": 8,
+        "remaining": 7,
         "closedReportingPairs": 1,
         "deferredCases": 0,
         "corpus": {
-          "approved": 25,
+          "approved": 26,
           "inProgress": 0,
           "reviewedWithBlockers": 3,
-          "notStarted": 410,
+          "notStarted": 409,
           "pilotStarted": 6
         }
       },
@@ -6021,7 +6085,11 @@
         "Weak adjacent military-history or business courses used where actual legal or normative content was needed.",
         "Generic research/persuasion described too close to dedicated legal research or skills.",
         "Residual audience cell notes surviving after upstream formal-choice correction.",
-        "Biennial offerings require checking exact assigned terms after course replacements."
+        "Biennial offerings require checking exact assigned terms after course replacements.",
+        "A second alternative differentiated mainly by weakly related cellular, laboratory and disease courses instead of a distinct evidence-backed developmental-support curriculum.",
+        "Evidence synthesis described as independent primary research or a thesis substitute.",
+        "Failure to separate the Radboud180EC degree, Pabo exemption and combined two-degree workload.",
+        "Formal conditions and noncredit obligations omitted from otherwise numerically correct curricula."
       ],
       "elapsedTimeMeasurement": "Wall time from durable case setup to final disposition preparation includes source reading, runtime provisioning, validation, diagnostic rendering and publication work. It is not active academic effort or final evidence-publication latency.",
       "publicationVerification": {
@@ -6082,24 +6150,11 @@
         "CP020 and CP277 remain settled blocked pending new official evidence."
       ],
       "lastCasePublication": {
-        "caseId": "cp-000027",
-        "academicInputCommit": "e05f05bae1071fbe80773c85a0e1d6fe726ad594",
+        "caseId": "cp-000028",
+        "academicInputCommit": "2c68213e253a8a1711386d75f9acbd40ee8bf485",
         "academicCI": "passed",
-        "finalDispositionCommit": "c3247060aa94a9fc4788ebcce97cd02c108a73dd",
-        "newUserInterventions": 0,
-        "verifiedOnMain": true,
-        "changedFinalHashesVerified": 39,
-        "verifiedAt": "2026-10-23T10:34:17.405384+00:00",
-        "priorRun0AndOtherCasesUnchanged": true,
-        "finalEvidenceCI": {
-          "runId": 39939975383,
-          "jobId": 120368717923,
-          "changedEvidenceChecks": "Passed: corpus, registry, review indexes, re-audit register, audience/course evidence and comparison integrity.",
-          "overallStatus": "in_progress",
-          "currentStep": "Runtime repeat after changed-evidence checks",
-          "observedAt": "2026-10-23T10:34:59.131987+00:00",
-          "scope": "Evidence-only final-disposition commit. Canonical, decision, registry, workbook, app and course-modal inputs are byte-identical to the fully passed final academic commit e05f05b. Its runtime repeat is not claimed completed."
-        }
+        "finalDispositionCommit": "pending-this-coordinated-publication",
+        "newUserInterventions": 0
       }
     }
   ]
