@@ -8,10 +8,10 @@
     "canonical": "f9f444e6acf87a5e7ab556e5d043adc8c758859a",
     "decision": "a3aa357a09fd345eeeba73ea7f24d34a4624500e"
   },
-  "reviewedInputCommit": "ba1c6a8cdddaf591078ec3d3957c158dd9040568",
+  "reviewedInputCommit": "dd9945ce476d095bcd4bb0afcb2f9b447f73221b",
   "inputBlobs": {
-    "canonical": "980429c05bfcb23f6cb7be53b8e45ba3790b0212",
-    "decision": "f310e7b594d39cbc28c9f4d17c81cf28be65861e"
+    "canonical": "6a49c969d1fea883130d8ad44f04b0840d3c0ba6",
+    "decision": "df1d21949732d2c07dac908b004428b2d4f3da46"
   },
   "governingDocumentBlobs": {
     "docs/UCR_Pathways_Production_Instructions.md": "00d2c04fdd702c8a88782015abe68a747a75f170",
@@ -22,7 +22,8 @@
   "unresolved": [],
   "downstreamReassessments": [],
   "implementationCommits": [
-    "ba1c6a8cdddaf591078ec3d3957c158dd9040568"
+    "ba1c6a8cdddaf591078ec3d3957c158dd9040568",
+    "dd9945ce476d095bcd4bb0afcb2f9b447f73221b"
   ],
   "presentationApproval": false,
   "stages": {
@@ -743,17 +744,44 @@
           "result": "passed"
         }
       ]
+    },
+    {
+      "reviewerOrPass": "Source-first follow-up verification of the audience correction by the same AI",
+      "independenceMethod": "The same AI performed this follow-up. Returned to the official excluded-course rule and actual current rendered text, then verified that the correction keeps the formal condition in internal evidence while removing the unexplained identifier and selection-process wording from the audience. All non-audience canonical content and workbook/app/modal dependencies are identical to the first source-first pass; its academic conclusions and72actualmodal openings are reused on those verified unchanged inputs.",
+      "reviewedOn": "2026-10-23",
+      "reviewedCommit": "dd9945ce476d095bcd4bb0afcb2f9b447f73221b",
+      "inputBlobs": {
+        "canonical": "6a49c969d1fea883130d8ad44f04b0840d3c0ba6",
+        "decision": "df1d21949732d2c07dac908b004428b2d4f3da46"
+      },
+      "sourceEvidenceRefs": [
+        "docs/qc/evidence/counselor-next-ten-2026-10-23/cp-000034-source-verification.json",
+        "docs/qc/evidence/counselor-next-ten-2026-10-23/cp-000034-course-review.json"
+      ],
+      "limitations": "Same-AI verification. Current page and link/navigation rendering atdd9945c is separately verified;72modal openings were inspected atba1c6a8 on byte-identical app/course/modal and non-audience academic inputs.",
+      "findings": [
+        {
+          "claim": "Formal conditions and audience separation",
+          "sourceFirstCheck": "The current OER European Governance exclusion remains in the internal component/source evidence. The selected pathway does not include the excluded unit. Actual desktop/mobile text after correction contains no MAN-BCU348A; the restricted electives are explained as one possible pair with capacity limits. No course, schedule, traceability, alignment, concept or source fact changed.",
+          "result": "passed"
+        },
+        {
+          "claim": "Unchanged academic and modal inputs",
+          "sourceFirstCheck": "Canonical JSON with the audience field removed is identical before and after the correction. Workbook, app, shared renderer and all seven course-cache blobs are byte-identical. Current full schemas and exact compiler replay pass, as do all72placement/traceability/distinctness checks. Reuse the separately preserved72modal openings; reinspect all changed page/vertical views.",
+          "result": "passed"
+        }
+      ]
     }
   ],
   "executionCheckpoint": {
     "executionId": "bounded-ten-2026-10-23-cp034-root-1759",
     "status": "active",
     "startedAt": "2026-10-23T17:59:00+00:00",
-    "updatedAt": "2026-10-23T18:10:00+00:00",
-    "verifiedInputCommit": "ba1c6a8cdddaf591078ec3d3957c158dd9040568",
+    "updatedAt": "2026-10-23T18:25:00+00:00",
+    "verifiedInputCommit": "dd9945ce476d095bcd4bb0afcb2f9b447f73221b",
     "verifiedInputBlobs": {
-      "canonical": "980429c05bfcb23f6cb7be53b8e45ba3790b0212",
-      "decision": "f310e7b594d39cbc28c9f4d17c81cf28be65861e"
+      "canonical": "6a49c969d1fea883130d8ad44f04b0840d3c0ba6",
+      "decision": "df1d21949732d2c07dac908b004428b2d4f3da46"
     },
     "completedActions": [
       "Read fresh main register, execution sequence, governing documents and exact target. CP026–CP033 have verified final dispositions; CP034 is earliest eligible and has no prior checkpoint.",
@@ -773,9 +801,14 @@
         "kind": "rendered-audience-code",
         "finding": "Actual screenshot inspection found an unexplained excluded-course identifier in the audience EuropeanGovernance note and unnecessary neutral-selection process language. Removed the audience identifier, retained the formal exclusion in internal evidence and clarified the restricted electives as one possible pair. No course, schedule, correspondence, app or modal content changed.",
         "sourceRetrievalFailure": false
+      },
+      {
+        "kind": "register-implementation-commit-mismatch",
+        "finding": "Audience-only publicationdd9945c recorded an implementation list in the case detail without synchronising the central case entry. CI40002743698 failed at the explicit re-audit consistency step; local validation reproduced central/detail implementationCommits mismatch. Synchronised both records before approval. No source-failure count or unsupported platform cause.",
+        "sourceRetrievalFailure": false
       }
     ],
-    "nextUnverifiedAction": "Publish corrected audience-only frozen input; verify full schemas/replay and unchanged academic/schedule/modal hashes. Reinspect changed rendered audience/vertical views, reuse the verified72modal openings on unchanged modal/app/course inputs, then record final disposition and verify publication/CI.",
+    "nextUnverifiedAction": "Publish the central/detail implementation-commit consistency repair and verify relevant CI. Current audience views and all independent academic, formal,72modal and navigation gates have passed; finish visual inspection of31durable images, publish final disposition, verify changed hashes and seal completion.",
     "claimCommit": "38066f06773657d05a02da8c13c49d4d9176954f"
   },
   "academicDisposition": "comparison",
