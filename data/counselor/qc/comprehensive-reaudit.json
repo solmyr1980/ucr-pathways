@@ -1359,7 +1359,7 @@
     },
     {
       "id": "cp-000031",
-      "state": "in-progress",
+      "state": "approved",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000031.json",
       "stageOutcomes": {
         "1": "correct",
@@ -1372,8 +1372,12 @@
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false
+      "implementationCommits": [
+        "6b4fc5ffede5e04cdb686faed0557a93973e4589",
+        "9242e6547432f2851b15a00f223082893fc6fd75"
+      ],
+      "presentationApproval": true,
+      "academicDisposition": "comparison"
     }
   ],
   "sharedIssues": [
@@ -1515,8 +1519,8 @@
     }
   ],
   "progress": {
-    "approved": 28,
-    "inProgress": 1,
+    "approved": 29,
+    "inProgress": 0,
     "reviewedWithBlockers": 3,
     "notStarted": 406,
     "pilotStarted": 6
@@ -1813,10 +1817,10 @@
         "scope": "Authorised 23 October 2026: exactly CP026, CP027, CP028, CP029, CP030, CP031, CP032, CP033, CP034 and CP036; one complete case per hourly execution, five fixed reporting pairs. Apply the two-execution essential-source failure limit and one separate deferred revisit. Stop and assess after the run. CP020/CP277 remain settled blocked pending new evidence. No wider scope or counselor deployment.",
         "completionGate": "All applicable gates for each authorised case; triggers and deferrals are not completion. Disable and assess after ten verified final dispositions, or report incomplete and disable if all non-deferred cases and permitted deferred revisits are exhausted.",
         "currentRunRef": "boundedProductionRuns/1",
-        "nextCase": "cp-000031",
+        "nextCase": "cp-000032",
         "nextPair": [
-          "cp-000030",
-          "cp-000031"
+          "cp-000032",
+          "cp-000033"
         ]
       },
       {
@@ -1829,7 +1833,7 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "CP026–CP030 verified final; CP031 is actively claimed for integrated review. CP030–CP031 remains open. No later case in this execution or counselor deployment.",
+    "currentAssignmentBoundary": "CP026–CP031 have verified final dispositions; CP031 is an approved qualified comparison with three alternatives. CP030–CP031 is closed; CP032 is next on a later execution. Preserve all history and the authorised ten-case boundary; no counselor deployment.",
     "priorAssignmentBoundary": "The authorised ten-case run is complete, with8positiveapprovals,1approvedno-matchand1settledblockeddisposition;all5pairsclosedandautomationdisabled. Read the published boundedassessment before anynewauthorisation. No next case or counselor deployment."
   },
   "caseEvidenceTemplate": {
@@ -5875,22 +5879,25 @@
           "cp-000036"
         ]
       ],
-      "activeCase": "cp-000031",
+      "activeCase": null,
       "activeCaseClaim": {
         "caseId": "cp-000031",
         "executionId": "bounded-ten-2026-10-23-cp031-root-1504",
-        "status": "in-progress",
+        "status": "completed",
         "startedAt": "2026-10-23T15:04:00+00:00",
-        "updatedAt": "2026-10-23T15:19:10+00:00",
+        "updatedAt": "2026-10-23T15:25:20+00:00",
         "inputCommit": "7f30df553468c0fab197fa5a5647c724c52084bd",
-        "checkpointRef": "data/counselor/qc/comprehensive-reaudit/cp-000031.json#/executionCheckpoint"
+        "checkpointRef": "data/counselor/qc/comprehensive-reaudit/cp-000031.json#/executionCheckpoint",
+        "completedAt": "2026-10-23T15:25:20+00:00",
+        "claimCommit": "bb3dd1065a45380876a3767284ea3437e3f707e5"
       },
       "completedCases": [
         "cp-000026",
         "cp-000027",
         "cp-000028",
         "cp-000029",
-        "cp-000030"
+        "cp-000030",
+        "cp-000031"
       ],
       "completedPairs": [
         [
@@ -5900,6 +5907,10 @@
         [
           "cp-000028",
           "cp-000029"
+        ],
+        [
+          "cp-000030",
+          "cp-000031"
         ]
       ],
       "caseResults": [
@@ -6124,6 +6135,48 @@
             "observedAt": "2026-10-23T14:22:32+00:00",
             "scope": "The final disposition changed only case/register evidence and added screenshots/results. Canonical,decision,registry,workbook,app andmodal inputs remain byte-identical to fully passed academic input0bc121e. The repeated fullruntime job is not claimed completed."
           }
+        },
+        {
+          "caseId": "cp-000031",
+          "disposition": "approved",
+          "academicDisposition": "comparison",
+          "qualification": "Qualified related-field AI comparison; three computational/cognitive emphases without full specialist equivalence.",
+          "ucrAlternatives": 3,
+          "presentationApproval": true,
+          "claimCommit": "bb3dd1065a45380876a3767284ea3437e3f707e5",
+          "implementationCommits": [
+            "6b4fc5ffede5e04cdb686faed0557a93973e4589",
+            "9242e6547432f2851b15a00f223082893fc6fd75"
+          ],
+          "implementationCommit": "9242e6547432f2851b15a00f223082893fc6fd75",
+          "reviewedCommit": "9242e6547432f2851b15a00f223082893fc6fd75",
+          "finalDispositionCommit": "pending-this-coordinated-publication",
+          "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000031.json",
+          "startedAt": "2026-10-23T15:04:00+00:00",
+          "completedAt": "2026-10-23T15:25:20+00:00",
+          "elapsedSeconds": 1280.0,
+          "measurementLimit": "Walltime from minute-resolution durableclaim preparation to finaldisposition preparation. Includes source/course review,schedule reconstruction,corrections,validation,publication,CI and actualrendering; excludes initial setup beforeclaim and finalpublication/seal latency. It is not activeacademic effort. UTCtoolclock used; executionhostclock not used.",
+          "userInterventions": 0,
+          "essentialSourceRetrievalFailures": 0,
+          "sourceDeferral": false,
+          "courseReplacements": 4,
+          "inheritedUnavailablePlacements": 61,
+          "selectedDistinctCourses": 34,
+          "placementsVerified": 72,
+          "modalOpenings": 68,
+          "verticalSlices": 70,
+          "durableRenderedImages": 33,
+          "CI": [
+            "https://github.com/solmyr1980/ucr-pathways/actions/runs/39977435474",
+            "https://github.com/solmyr1980/ucr-pathways/actions/runs/39977435480"
+          ],
+          "recurringQualityProblems": [
+            "Inherited validator-passed schedules had61placements in unavailable terms; scheduling must read the actual workbook,including biennial offerings.",
+            "Medical/health and persuasive-communication choices were justified through adjacency rather than the defining AI concept; fourplacements replaced with substantive AI/methods/cognitive foundations.",
+            "Human psycholinguistics,human-centred design and programming-language concepts were given misleading same-row relationships.",
+            "A cohort-restricted elective and stale prospective-year metadata survived without formal eligibility reconciliation.",
+            "A dependent healthcare note survived course removal and was caught during the source-first visual finalpass."
+          ]
         }
       ],
       "pairResults": [
@@ -6166,16 +6219,17 @@
             "cp-000030",
             "cp-000031"
           ],
-          "status": "open",
+          "status": "closed",
           "verifiedFinalCases": [
-            "cp-000030"
-          ],
-          "remainingCases": [
+            "cp-000030",
             "cp-000031"
           ],
+          "remainingCases": [],
           "dispositions": {
-            "cp-000030": "approved"
-          }
+            "cp-000030": "approved",
+            "cp-000031": "approved"
+          },
+          "closedAt": "2026-10-23T15:25:20+00:00"
         }
       ],
       "caseAttempts": [
@@ -6287,27 +6341,35 @@
         {
           "caseId": "cp-000031",
           "executionId": "bounded-ten-2026-10-23-cp031-root-1504",
-          "status": "in-progress",
+          "status": "completed",
           "startedAt": "2026-10-23T15:04:00+00:00",
           "updatedAt": "2026-10-23T15:04:00+00:00",
           "inputCommit": "7f30df553468c0fab197fa5a5647c724c52084bd",
           "checkpointRef": "data/counselor/qc/comprehensive-reaudit/cp-000031.json#/executionCheckpoint",
           "sourceRetrievalFailure": false,
-          "userInterventions": 0
+          "userInterventions": 0,
+          "completedAt": "2026-10-23T15:25:20+00:00",
+          "claimCommit": "bb3dd1065a45380876a3767284ea3437e3f707e5",
+          "implementationCommit": "9242e6547432f2851b15a00f223082893fc6fd75",
+          "implementationCommits": [
+            "6b4fc5ffede5e04cdb686faed0557a93973e4589",
+            "9242e6547432f2851b15a00f223082893fc6fd75"
+          ],
+          "finalDispositionCommit": "pending-this-coordinated-publication"
         }
       ],
       "requiredUserIntervention": [],
-      "nextCase": "cp-000031",
+      "nextCase": "cp-000032",
       "nextPair": [
-        "cp-000030",
-        "cp-000031"
+        "cp-000032",
+        "cp-000033"
       ],
       "cadence": "One complete case per hourly execution in Europe/Amsterdam under the 23 October 2026 authorisation; retain the 22 October source-retrieval limit.",
       "priorCompletedRun": "boundedProductionRuns/0",
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {},
       "assessmentReport": null,
-      "nextAction": "Complete CP031 from its newly published claim through final verification; retain CP030–CP031 reporting pair and ten-case boundary.",
+      "nextAction": "Complete CP032 next in reporting pair CP032–CP033. CP030–CP031 is closed. Retain the ten-case boundary; no wider corpus or deployment.",
       "authorisationEvidence": {
         "date": "2026-10-23",
         "instruction": "execute",
@@ -6344,17 +6406,17 @@
         "fullJob": "All27jobstepspassed"
       },
       "progressSummary": {
-        "verifiedFinalCases": 5,
-        "approved": 4,
-        "positiveComparisons": 4,
+        "verifiedFinalCases": 6,
+        "approved": 5,
+        "positiveComparisons": 5,
         "noDefensibleUcrMatch": 0,
         "reviewedWithBlockers": 1,
-        "remaining": 5,
-        "closedReportingPairs": 2,
+        "remaining": 4,
+        "closedReportingPairs": 3,
         "deferredCases": 0,
         "corpus": {
-          "approved": 28,
-          "inProgress": 1,
+          "approved": 29,
+          "inProgress": 0,
           "reviewedWithBlockers": 3,
           "notStarted": 406,
           "pilotStarted": 6
@@ -6388,7 +6450,12 @@
         "Psycholinguistics was incorrectly treated as substantive ownership of a global-English interest.",
         "Art historiography, environmental media and constitutional-law scope were overstated in rationales.",
         "Zero-credit obligations, minor/elective timing and prospective-cohort uncertainty were omitted from audience explanations.",
-        "Legacy modal summaries omitted a defining American focus or added unsupported research/body-experience details."
+        "Legacy modal summaries omitted a defining American focus or added unsupported research/body-experience details.",
+        "Inherited validator-passed schedules had61placements in unavailable terms; scheduling must read the actual workbook,including biennial offerings.",
+        "Medical/health and persuasive-communication choices were justified through adjacency rather than the defining AI concept; fourplacements replaced with substantive AI/methods/cognitive foundations.",
+        "Human psycholinguistics,human-centred design and programming-language concepts were given misleading same-row relationships.",
+        "A cohort-restricted elective and stale prospective-year metadata survived without formal eligibility reconciliation.",
+        "A dependent healthcare note survived course removal and was caught during the source-first visual finalpass."
       ],
       "elapsedTimeMeasurement": "Wall time from durable case setup to final disposition preparation includes source reading, runtime provisioning, validation, diagnostic rendering and publication work. It is not active academic effort or final evidence-publication latency.",
       "publicationVerification": {
@@ -6449,32 +6516,18 @@
         "CP020 and CP277 remain settled blocked pending new official evidence."
       ],
       "lastCasePublication": {
-        "caseId": "cp-000030",
-        "academicInputCommit": "0bc121e66b4849cda6b54a4b9a606e2b7e3412d4",
+        "caseId": "cp-000031",
+        "academicInputCommit": "9242e6547432f2851b15a00f223082893fc6fd75",
         "academicCI": "passed",
-        "finalDispositionCommit": "6f90ef261659026f0e496d9351bca54b9ed5240f",
-        "newUserInterventions": 0,
-        "publishedMainVerified": true,
-        "changedEvidenceBlobsVerified": 40,
-        "publicationVerifiedAt": "2026-10-23T14:22:32+00:00",
-        "finalEvidenceCI": {
-          "runId": 39968957859,
-          "jobId": 120466213072,
-          "url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/39968957859",
-          "headSha": "6f90ef261659026f0e496d9351bca54b9ed5240f",
-          "changedEvidenceChecks": "All applicable evidence-only checks passed:public/counselor corpus,registry/review indexes,central register and preserved screenshot hashes,audience/course provenance and comparison integrity (steps3–11).",
-          "overallStatus": "in_progress",
-          "currentStep": "Set up R",
-          "observedAt": "2026-10-23T14:22:32+00:00",
-          "scope": "The final disposition changed only case/register evidence and added screenshots/results. Canonical,decision,registry,workbook,app andmodal inputs remain byte-identical to fully passed academic input0bc121e. The repeated fullruntime job is not claimed completed."
-        }
+        "finalDispositionCommit": "pending-this-coordinated-publication",
+        "newUserInterventions": 0
       },
       "lastCaseCheckpoint": {
         "caseId": "cp-000031",
-        "status": "final-pass-bounded-text-correction",
-        "inputCommit": "6b4fc5ffede5e04cdb686faed0557a93973e4589",
-        "updatedAt": "2026-10-23T15:19:10+00:00",
-        "nextUnverifiedAction": "Verify narrow healthcare-note correction on exact new inputs,retaining passed unchangedmodals/schedules;finalinputCI and disposition remain."
+        "status": "completed-awaiting-publication-verification",
+        "inputCommit": "9242e6547432f2851b15a00f223082893fc6fd75",
+        "updatedAt": "2026-10-23T15:25:20+00:00",
+        "nextUnverifiedAction": "Verify finaldisposition publication and all changed case/register/image hashes; record exactfinalSHA and applicable final-evidenceCI. No academic or presentation gate remains. CP032 is next only on a later execution."
       }
     }
   ]
