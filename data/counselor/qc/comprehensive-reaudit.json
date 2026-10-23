@@ -1330,6 +1330,17 @@
         "reviewPass": "Separate source-first final pass by the same AI"
       },
       "reviewedInputCommit": "1128e04989436068f4240f747536c03367cfe400"
+    },
+    {
+      "id": "cp-000030",
+      "state": "in-progress",
+      "stageOutcomes": {},
+      "sharedIssueIds": [],
+      "unresolved": [],
+      "downstreamReassessments": [],
+      "implementationCommits": [],
+      "presentationApproval": false,
+      "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000030.json"
     }
   ],
   "sharedIssues": [
@@ -1472,9 +1483,9 @@
   ],
   "progress": {
     "approved": 27,
-    "inProgress": 0,
+    "inProgress": 1,
     "reviewedWithBlockers": 3,
-    "notStarted": 408,
+    "notStarted": 407,
     "pilotStarted": 6
   },
   "batches": [
@@ -1785,7 +1796,7 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "CP026–CP029 have verified final dispositions; CP028–CP029 is closed. CP029 is an approved qualified comparison with three alternatives and publication hashes/applicable CI verified. Begin CP030 on the next execution in CP030–CP031, preserving the ten-case boundary and all prior history. No counselor deployment is authorised.",
+    "currentAssignmentBoundary": "CP026–CP029 closed. Complete only active CP030 in reporting pair CP030–CP031, then end this execution; preserve all prior run history.",
     "priorAssignmentBoundary": "The authorised ten-case run is complete, with8positiveapprovals,1approvedno-matchand1settledblockeddisposition;all5pairsclosedandautomationdisabled. Read the published boundedassessment before anynewauthorisation. No next case or counselor deployment."
   },
   "caseEvidenceTemplate": {
@@ -5831,20 +5842,15 @@
           "cp-000036"
         ]
       ],
-      "activeCase": null,
+      "activeCase": "cp-000030",
       "activeCaseClaim": {
-        "caseId": "cp-000029",
-        "executionId": "bounded-ten-2026-10-23-cp029-resume-1303",
-        "status": "completed",
-        "startedAt": "2026-10-23T13:05:10+00:00",
-        "updatedAt": "2026-10-23T13:08:04+00:00",
-        "inputCommit": "1128e04989436068f4240f747536c03367cfe400",
-        "checkpointRef": "data/counselor/qc/comprehensive-reaudit/cp-000029.json#/executionCheckpoint",
-        "resumesClaim": "d2f609a60ff58e17a17c4abfbb66f971597f1096",
-        "completedAt": "2026-10-23T13:08:04+00:00",
-        "claimCommit": "0f00810cddadc3393f4b3689d4dcf83d5a6e1cae",
-        "executionEndedAt": "2026-10-23T13:11:00+00:00",
-        "finalDispositionCommit": "e975aad23f41ef39e149b492fc1631a780c5e359"
+        "caseId": "cp-000030",
+        "executionId": "bounded-ten-2026-10-23-cp030-root-1359",
+        "status": "active",
+        "startedAt": "2026-10-23T13:59:00+00:00",
+        "updatedAt": "2026-10-23T13:59:00+00:00",
+        "inputCommit": "57f5df6eb86d5a7f1e1877a277d3e9f2fb6ea828",
+        "checkpointRef": "data/counselor/qc/comprehensive-reaudit/cp-000030.json#/executionCheckpoint"
       },
       "completedCases": [
         "cp-000026",
@@ -6155,6 +6161,13 @@
           "reviewedCommit": "1128e04989436068f4240f747536c03367cfe400",
           "finalDispositionCommit": "e975aad23f41ef39e149b492fc1631a780c5e359",
           "publicationVerifiedAt": "2026-10-23T13:11:00+00:00"
+        },
+        {
+          "caseId": "cp-000030",
+          "executionId": "bounded-ten-2026-10-23-cp030-root-1359",
+          "startedAt": "2026-10-23T13:59:00+00:00",
+          "status": "active",
+          "checkpointRef": "data/counselor/qc/comprehensive-reaudit/cp-000030.json#/executionCheckpoint"
         }
       ],
       "requiredUserIntervention": [],
@@ -6168,7 +6181,7 @@
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {},
       "assessmentReport": null,
-      "nextAction": "On the next execution, claim CP030 and complete it through the integrated six-stage workflow, then report within CP030–CP031. CP026–CP029 have verified final dispositions, with three approved comparisons and one blocked external curriculum. CP028–CP029 is closed. Do not reopen settled blockers without new official evidence or exceed the ten authorised cases.",
+      "nextAction": "Complete CP030 from its durable claim through all applicable gates; do not start CP031 in this execution.",
       "authorisationEvidence": {
         "date": "2026-10-23",
         "instruction": "execute",
@@ -6185,9 +6198,9 @@
         "reuse": "Reuse the disabled completed task for this new authorisation; preserve its earlier run as historical evidence.",
         "isEnabled": true,
         "enabledAt": "2026-10-23T08:39:18.997058+00:00",
-        "observedAt": "2026-10-23T13:05:10+00:00",
+        "observedAt": "2026-10-23T13:59:00+00:00",
         "actualEnabledConfigurationVerified": true,
-        "currentRunRecordLimitation": "Fresh private lookup confirms the same enabled hourly bounded task. Its current run began 13:03:25Z; latest_result is the earlier overlap trigger, not evidence of current completion. Published checkpoint explicitly ended the prior execution; tracked files match fresh main and no live case writer or render process is observed."
+        "currentRunRecordLimitation": "Fresh task lookup reports enabled configuration and current run1a5c0f3c,started13:56:37Z,in_progress;the preceding run completed CP029 at13:13:20Z; task metadata is not completion evidence. No competing active claim or live local writer observed."
       },
       "setupVerification": {
         "commit": "2df81a8f969748ba79a346eb76089a480934870e",
