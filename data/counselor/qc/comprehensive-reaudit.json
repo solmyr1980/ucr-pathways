@@ -1207,9 +1207,10 @@
     },
     {
       "id": "cp-000026",
-      "state": "in-progress",
+      "state": "reviewed-with-blockers",
       "sharedIssueIds": [
-        "audience-boundary"
+        "audience-boundary",
+        "course-modal-content"
       ],
       "unresolved": [
         "Establish one coherent current 180-EC EUC pathway. For the 2025 entrant cohort, clarify the stated 45-EC Academic Core versus eight listed 5-EC courses, confirm its 60-EC choice allocation and the 45-EC core requirement for Capstone entry. Alternatively, provide the applicable major requirements and corrected Capstone conditions for the 2026 entrant 40-EC core. Identify the controlling ARR and cohort; a numerical sum assembled across different cohorts is insufficient."
@@ -1227,7 +1228,9 @@
           ]
         }
       ],
-      "implementationCommits": [],
+      "implementationCommits": [
+        "04466f51e3183676253e8c34de4ad02280eb2ec8"
+      ],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000026.json",
       "stageOutcomes": {
@@ -1236,9 +1239,13 @@
         "3": "blocked",
         "4": "correct",
         "5": "correct",
-        "6": "blocked"
+        "6": "retain"
       },
-      "academicDisposition": "external-programme-unresolved"
+      "academicDisposition": "external-programme-unresolved",
+      "finalReview": {
+        "reviewedCommit": "04466f51e3183676253e8c34de4ad02280eb2ec8",
+        "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000026.json"
+      }
     }
   ],
   "sharedIssues": [
@@ -1381,8 +1388,8 @@
   ],
   "progress": {
     "approved": 24,
-    "inProgress": 1,
-    "reviewedWithBlockers": 2,
+    "inProgress": 0,
+    "reviewedWithBlockers": 3,
     "notStarted": 411,
     "pilotStarted": 6
   },
@@ -1678,7 +1685,7 @@
         "scope": "Authorised 23 October 2026: exactly CP026, CP027, CP028, CP029, CP030, CP031, CP032, CP033, CP034 and CP036; one complete case per hourly execution, five fixed reporting pairs. Apply the two-execution essential-source failure limit and one separate deferred revisit. Stop and assess after the run. CP020/CP277 remain settled blocked pending new evidence. No wider scope or counselor deployment.",
         "completionGate": "All applicable gates for each authorised case; triggers and deferrals are not completion. Disable and assess after ten verified final dispositions, or report incomplete and disable if all non-deferred cases and permitted deferred revisits are exhausted.",
         "currentRunRef": "boundedProductionRuns/1",
-        "nextCase": "cp-000026",
+        "nextCase": "cp-000027",
         "nextPair": [
           "cp-000026",
           "cp-000027"
@@ -1694,7 +1701,7 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "Authorised 23 October 2026: exactly CP026, CP027, CP028, CP029, CP030, CP031, CP032, CP033, CP034 and CP036; one complete case per hourly execution, five fixed reporting pairs. Apply the two-execution essential-source failure limit and one separate deferred revisit. Stop and assess after the run. CP020/CP277 remain settled blocked pending new evidence. No wider scope or counselor deployment.",
+    "currentAssignmentBoundary": "Continue only the 23 October authorised CP026\u2013CP034 and CP036 run. CP026 is reviewed with an external curriculum blocker; CP027 is next. One complete case per execution; pair CP026\u2013CP027 remains open. Earlier runs and settled blockers are preserved; no wider scope or deployment.",
     "priorAssignmentBoundary": "The authorised ten-case run is complete, with8positiveapprovals,1approvedno-matchand1settledblockeddisposition;all5pairsclosedandautomationdisabled. Read the published boundedassessment before anynewauthorisation. No next case or counselor deployment."
   },
   "caseEvidenceTemplate": {
@@ -5740,46 +5747,72 @@
           "cp-000036"
         ]
       ],
-      "activeCase": "cp-000026",
-      "activeCaseClaim": {
-        "status": "in-progress",
-        "owner": "Counselor Next Ten Cases / bounded-ten-2026-10-23-cp026-844944ff",
-        "executionId": "bounded-ten-2026-10-23-cp026-844944ff",
-        "claimedAt": "2026-10-23T09:01:58.414661+00:00",
-        "updatedAt": "2026-10-23T09:16:26.436695+00:00",
-        "verifiedInputCommit": "ff058fc99ac543d2a084ad507808c1ee690c2b68",
-        "verifiedInputBlobs": {
-          "canonical": "4f432b95b3ff63c6fbfe1e807ed8685e68da5992",
-          "decision": "3e50246861a89b408d7f3cb88bf0e1a243a8cb07"
-        },
-        "completedActions": [
-          "Fresh main governing documents and current register read. No existing CP026 claim or case checkpoint. Earlier bounded run and settled blockers preserved.",
-          "Setup CI 39926033569/job120322516761 freshly confirmed successful including register consistency and all runtime checks.",
-          "Actual task6ad86faae6b081919dbe838a3862a734 enabled with current authorised ten-case prompt and hourly schedule; all four older tasks disabled. Automation lookup returned historical last_run_time without current run_details; no competing claim on fresh main.",
-          "Retrieved both officialcataloguesHTTP200 andallsevenprogramme/interestpages;visualPDFreviewconfirmedcredit/cohortconflict. Currentcoursecataloguepage offers no correctededition.",
-          "All87linkedinterestrows reviewed;threenarrowevidencecorrections. All57enrichedcourseprofiles and72placementrulesread;threeprovisionaldesignsmechanicallyvalid.",
-          "Preparedsupportedclaim/alignmentcorrections;activeexceptioncontains175verifiedECwith no inventedmissing5EC."
-        ],
-        "observedFailures": [],
-        "nextUnverifiedAction": "Run applicable formal checks and publish frozen academic inputs. Then perform the separate source-first final pass, actual desktop/mobile inspection and relevant CI before recording disposition.",
-        "startedAt": "2026-10-23T09:01:58.414661+00:00",
-        "claimCommit": "75205c9a8e43a61bc1fcee3c71c5e0ca1819492e"
-      },
-      "completedCases": [],
+      "activeCase": null,
+      "activeCaseClaim": null,
+      "completedCases": [
+        "cp-000026"
+      ],
       "completedPairs": [],
-      "caseResults": [],
-      "pairResults": [],
+      "caseResults": [
+        {
+          "caseId": "cp-000026",
+          "disposition": "reviewed-with-blockers",
+          "academicDisposition": "external-programme-unresolved",
+          "presentationApproval": false,
+          "claimCommit": "75205c9a8e43a61bc1fcee3c71c5e0ca1819492e",
+          "implementationCommit": "04466f51e3183676253e8c34de4ad02280eb2ec8",
+          "reviewedCommit": "04466f51e3183676253e8c34de4ad02280eb2ec8",
+          "finalDispositionCommit": "pending-this-coordinated-publication",
+          "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000026.json",
+          "startedAt": "2026-10-23T09:01:58.414661+00:00",
+          "completedAt": "2026-10-23T09:34:21.403414+00:00",
+          "elapsedSeconds": 1942.988753,
+          "measurementLimit": "Wall time from durable case setup to final disposition preparation includes source reading, runtime provisioning, validation, diagnostic rendering and publication work. It is not active academic effort or final evidence-publication latency.",
+          "userInterventions": 0,
+          "essentialSourceRetrievalFailures": 0,
+          "sourceDeferral": false,
+          "blocker": "Establish one coherent current 180-EC EUC pathway. For the 2025 entrant cohort, clarify the stated 45-EC Academic Core versus eight listed 5-EC courses, confirm its 60-EC choice allocation and the 45-EC core requirement for Capstone entry. Alternatively, provide the applicable major requirements and corrected Capstone conditions for the 2026 entrant 40-EC core. Identify the controlling ARR and cohort; a numerical sum assembled across different cohorts is insufficient.",
+          "recurringQualityProblems": [
+            "Mixing entrant-core and second-year-major catalogue editions despite superficially correct totals.",
+            "Describing evidence synthesis or historiography as a primary research project.",
+            "Overstating interest provenance and professional outcomes.",
+            "Course-modal summaries diverging from actual enriched content."
+          ],
+          "CI": [
+            "https://github.com/solmyr1980/ucr-pathways/actions/runs/39931596480",
+            "https://github.com/solmyr1980/ucr-pathways/actions/runs/39931596199"
+          ]
+        }
+      ],
+      "pairResults": [
+        {
+          "pair": [
+            "cp-000026",
+            "cp-000027"
+          ],
+          "status": "open",
+          "verifiedFinalCases": [
+            "cp-000026"
+          ],
+          "remainingCases": [
+            "cp-000027"
+          ]
+        }
+      ],
       "caseAttempts": [
         {
           "caseId": "cp-000026",
           "executionId": "bounded-ten-2026-10-23-cp026-844944ff",
           "startedAt": "2026-10-23T09:01:58.414661+00:00",
-          "status": "in-progress",
-          "checkpointRef": "data/counselor/qc/comprehensive-reaudit/cp-000026.json#/executionCheckpoint"
+          "status": "completed-with-blockers",
+          "checkpointRef": "data/counselor/qc/comprehensive-reaudit/cp-000026.json#/executionCheckpoint",
+          "completedAt": "2026-10-23T09:34:21.403414+00:00",
+          "implementationCommit": "04466f51e3183676253e8c34de4ad02280eb2ec8",
+          "sourceRetrievalFailure": false
         }
       ],
       "requiredUserIntervention": [],
-      "nextCase": "cp-000026",
+      "nextCase": "cp-000027",
       "nextPair": [
         "cp-000026",
         "cp-000027"
@@ -5789,7 +5822,7 @@
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {},
       "assessmentReport": null,
-      "nextAction": "Run applicable formal checks and publish frozen academic inputs. Then perform the separate source-first final pass, actual desktop/mobile inspection and relevant CI before recording disposition.",
+      "nextAction": "Claim and complete CP027. CP026 has a verified reviewed-with-blockers disposition, remains unapproved and must not hold this queue. Pair CP026\u2013CP027 stays open until CP027 also has a verified final disposition.",
       "authorisationEvidence": {
         "date": "2026-10-23",
         "instruction": "execute",
@@ -5826,18 +5859,18 @@
         "fullJob": "All27jobstepspassed"
       },
       "progressSummary": {
-        "verifiedFinalCases": 0,
+        "verifiedFinalCases": 1,
         "approved": 0,
         "positiveComparisons": 0,
         "noDefensibleUcrMatch": 0,
-        "reviewedWithBlockers": 0,
-        "remaining": 10,
+        "reviewedWithBlockers": 1,
+        "remaining": 9,
         "closedReportingPairs": 0,
         "deferredCases": 0,
         "corpus": {
           "approved": 24,
-          "inProgress": 1,
-          "reviewedWithBlockers": 2,
+          "inProgress": 0,
+          "reviewedWithBlockers": 3,
           "notStarted": 411,
           "pilotStarted": 6
         }
@@ -5847,7 +5880,25 @@
         "cp-000277"
       ],
       "authorisationCommit": "2df81a8f969748ba79a346eb76089a480934870e",
-      "startedAt": "2026-10-23T09:01:58.414661+00:00"
+      "startedAt": "2026-10-23T09:01:58.414661+00:00",
+      "recurringQualityProblems": [
+        "Mixing entrant-core and second-year-major catalogue editions despite superficially correct totals.",
+        "Describing evidence synthesis or historiography as a primary research project.",
+        "Overstating interest provenance and professional outcomes.",
+        "Course-modal summaries diverging from actual enriched content."
+      ],
+      "elapsedTimeMeasurement": "Wall time from durable case setup to final disposition preparation includes source reading, runtime provisioning, validation, diagnostic rendering and publication work. It is not active academic effort or final evidence-publication latency.",
+      "publicationVerification": {
+        "implementationCommit": "04466f51e3183676253e8c34de4ad02280eb2ec8",
+        "changedBlobHashesVerified": 13,
+        "finalDisposition": "pending-publication",
+        "newUserInterventions": 0
+      },
+      "operationalCorpusCounts": {
+        "comparison": 386,
+        "no-defensible-ucr-match": 18,
+        "external-programme-unresolved": 34
+      }
     }
   ]
 }
