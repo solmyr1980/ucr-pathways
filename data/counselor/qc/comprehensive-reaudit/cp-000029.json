@@ -213,7 +213,7 @@
     "executionId": "bounded-ten-2026-10-23-cp029-resume-1303",
     "status": "completed",
     "startedAt": "2026-10-23T11:58:00+00:00",
-    "updatedAt": "2026-10-23T13:08:04+00:00",
+    "updatedAt": "2026-10-23T13:11:00+00:00",
     "verifiedInputCommit": "1128e04989436068f4240f747536c03367cfe400",
     "verifiedInputBlobs": {
       "canonical": "aac9893f9370aeb06d0496b667c39dad7e0ae251",
@@ -236,7 +236,8 @@
       "Checkpoint27badd0 published and all41changed evidence hashes verified on freshmain. Prior boundedrun0 and all other completed case entries remain unchanged.",
       "Local scripts/test-shiny.R passed, in addition to the already passed audience regression and full case browser inspection.",
       "Fresh exact-head full workflow and all job steps confirmed successful; run 39953329837 completed at 12:57:55Z. No essential source failure or unresolved academic issue remains.",
-      "Resume claim 0f00810 published and both remote contents verified. Canonical, decision, workbook, app and course-modal inputs are unchanged from frozen 1128e049; retained source-first and rendered evidence is not redundantly repeated."
+      "Resume claim 0f00810 published and both remote contents verified. Canonical, decision, workbook, app and course-modal inputs are unchanged from frozen 1128e049; retained source-first and rendered evidence is not redundantly repeated.",
+      "Final disposition e975aad published and all three changed contents/blob hashes verified on main. Applicable evidence-only CI checks (steps 3–11) passed; unchanged academic/app inputs retain fully passed exact-input runtime CI. Historical run 0, all other case records and all previously verified rendering evidence blobs were preserved."
     ],
     "observedFailures": [
       {
@@ -245,12 +246,14 @@
         "sourceRetrievalFailure": false
       }
     ],
-    "nextUnverifiedAction": "None for CP029 academic/mechanical/presentation work. Verify final disposition publication hashes and applicable evidence-only CI, then seal completion. CP030 may start only on a later execution.",
+    "nextUnverifiedAction": "None for CP029. Academic, mechanical, actual presentation, full frozen-input CI, applicable final-evidence CI and publication byte/hash verification are complete. CP030 is next within the existing authorisation on a later execution.",
     "claimCommit": "d2f609a60ff58e17a17c4abfbb66f971597f1096",
     "resumedAt": "2026-10-23T13:05:10+00:00",
     "resumedFromCommit": "37e14387e513e966c764bfff2376183c607478f0",
     "completedAt": "2026-10-23T13:08:04+00:00",
-    "resumeClaimCommit": "0f00810cddadc3393f4b3689d4dcf83d5a6e1cae"
+    "resumeClaimCommit": "0f00810cddadc3393f4b3689d4dcf83d5a6e1cae",
+    "finalDispositionCommit": "e975aad23f41ef39e149b492fc1631a780c5e359",
+    "executionEndedAt": "2026-10-23T13:11:00+00:00"
   },
   "evidenceSources": [
     {
@@ -1684,13 +1687,40 @@
         "blob": "2890c7508902f07241551dc56a567f46dde41058"
       }
     ],
-    "verifiedAt": "2026-10-23T12:39:00+00:00",
+    "verifiedAt": "2026-10-23T13:11:00+00:00",
     "historicalRun0AndOtherCasesUnchanged": true,
-    "finalDisposition": "prepared-after-all-applicable-gates-passed",
+    "finalDisposition": "verified-on-main",
     "resumeClaimCommit": "0f00810cddadc3393f4b3689d4dcf83d5a6e1cae",
     "finalAcademicCI": "passed",
     "claimHashesVerified": 2,
-    "newUserInterventions": 0
+    "newUserInterventions": 0,
+    "finalDispositionCommit": "e975aad23f41ef39e149b492fc1631a780c5e359",
+    "changedFinalHashesVerified": 3,
+    "finalDispositionBlobs": [
+      {
+        "path": "data/counselor/qc/comprehensive-reaudit.json",
+        "blob": "457299a44fc29129817d35590b8120dac6641519"
+      },
+      {
+        "path": "data/counselor/qc/comprehensive-reaudit/cp-000029.json",
+        "blob": "e1f60dc9bffd05d94edf4ba0e5c87c504a6f45e4"
+      },
+      {
+        "path": "docs/qc/evidence/counselor-next-ten-2026-10-23/cp-000029-runtime-checks.json",
+        "blob": "b21bcc98fb6f5ab87a284cf5e8386afe83aaa3cb"
+      }
+    ],
+    "finalEvidenceCI": {
+      "runId": 39959023090,
+      "jobId": 120432003714,
+      "changedEvidenceChecks": "Passed: corpus, normalized production, registry, review indexes, central register, audience/course evidence and comparison integrity (steps 3–11).",
+      "overallStatus": "in_progress",
+      "currentStep": "Set up R",
+      "observedAt": "2026-10-23T13:11:00+00:00",
+      "scope": "Evidence-only final disposition commit. Canonical, decision, registry, workbook, app and all course-modal inputs remain byte-identical to the fully passed frozen academic-input commit 1128e04989436068f4240f747536c03367cfe400. The repeated runtime job is not claimed completed."
+    },
+    "priorRun0AndOtherCasesUnchanged": true,
+    "gateBasis": "All checks applicable to changed final evidence passed locally and in CI. Full academic/runtime CI and actual case rendering passed on the exact unchanged frozen academic/app inputs. No repeated evidence-only runtime result is substituted for that verification."
   },
   "recurringQualityProblems": [
     "The inherited180ECtable joined different entrant cohorts; adequate official same-cohort indicative webpages resolve it without demanding future regulations.",
