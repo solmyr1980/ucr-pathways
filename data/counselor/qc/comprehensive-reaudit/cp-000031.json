@@ -513,9 +513,9 @@
   },
   "executionCheckpoint": {
     "executionId": "bounded-ten-2026-10-23-cp031-root-1504",
-    "status": "completed-awaiting-publication-verification",
+    "status": "completed",
     "startedAt": "2026-10-23T15:04:00+00:00",
-    "updatedAt": "2026-10-23T15:25:20+00:00",
+    "updatedAt": "2026-10-23T15:29:17+00:00",
     "verifiedInputCommit": "9242e6547432f2851b15a00f223082893fc6fd75",
     "verifiedInputBlobs": {
       "canonical": "e9c3b45fafade8c5b0663396f6557c63c3506fa2",
@@ -546,7 +546,8 @@
       "Source-first finalpass caught one leftover health-courses note after the medicalcourse removal;correct it in decision/canonical/audience and inspect only the affected rendered text.",
       "Finalsource-first pass2 bysameAI passed after healthcare-note correction; all39externalcomponents,24interests,34selectedcontents and academiccomparability confirmed.",
       "Actualchangedhealthcarecell passed at finalinput9242e65 ondesktop/mobile. All10app/workbook/modaldependencies byte-identical to the full68modal/70slice rendering. All33durable images visually inspected.",
-      "FullfinalacademicinputCI39977435474 andcompiler39977435480 passed; exactschema/compiler/workbook/traceability/distinctness/corpus checks passed onfinalcanonical."
+      "FullfinalacademicinputCI39977435474 andcompiler39977435480 passed; exactschema/compiler/workbook/traceability/distinctness/corpus checks passed onfinalcanonical.",
+      "Finaldisposition7c275ed published on main with parent9242e65; all41changedblobhashes independently matched,including33images. Final-evidenceCIsteps3–11 passed. All earliercaseentries and prior boundedrun0 preserved."
     ],
     "observedFailures": [
       {
@@ -558,11 +559,18 @@
         "kind": "external-link-transient",
         "sourceRetrievalFailure": false,
         "finding": "Actual UCR course-source click first returned HTTP503; one retry succeeded with200 and verified official content on desktop and mobile. Essential academic evidence was already available; no deferral/source-failure execution counted."
+      },
+      {
+        "kind": "publication-read-discrepancy",
+        "sourceRetrievalFailure": false,
+        "finding": "The immediate ref comparison after confirmed update did not return the expected new head. Subsequent independent commit-list and ref reads both confirmed7c275ed on main,parent9242e65,with no intervening commit observed. All41published hashes then independently matched. Cause not determined; no competing write or platform explanation inferred."
       }
     ],
-    "nextUnverifiedAction": "Verify finaldisposition publication and all changed case/register/image hashes; record exactfinalSHA and applicable final-evidenceCI. No academic or presentation gate remains. CP032 is next only on a later execution.",
+    "nextUnverifiedAction": "None for CP031. Academic/formal/compiler/workbook/allmodal/rendered/CI gates and finalpublication41hashchecks are complete. CP032 is next only on a later execution.",
     "claimCommit": "bb3dd1065a45380876a3767284ea3437e3f707e5",
-    "completedAt": "2026-10-23T15:25:20+00:00"
+    "completedAt": "2026-10-23T15:25:20+00:00",
+    "executionEndedAt": "2026-10-23T15:29:17+00:00",
+    "finalDispositionCommit": "7c275edee197ac987dea07a5729257a0378c6b3c"
   },
   "auditId": "counselor-comprehensive-reaudit",
   "evidenceSources": [
@@ -1716,7 +1724,22 @@
     "noSourceDeferral": true,
     "userInterventions": 0,
     "publishedAcademicHashesVerified": 5,
-    "finalDispositionCommit": "pending-this-coordinated-publication"
+    "finalDispositionCommit": "7c275edee197ac987dea07a5729257a0378c6b3c",
+    "finalDispositionUrl": "https://github.com/solmyr1980/ucr-pathways/commit/7c275edee197ac987dea07a5729257a0378c6b3c",
+    "publishedMainVerified": true,
+    "changedEvidenceBlobsVerified": 41,
+    "publicationVerifiedAt": "2026-10-23T15:29:17+00:00",
+    "finalEvidenceCI": {
+      "runId": 39978470853,
+      "jobId": 120499203419,
+      "url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/39978470853",
+      "headSha": "7c275edee197ac987dea07a5729257a0378c6b3c",
+      "changedEvidenceChecks": "All applicable evidence-only checks passed:public/counselor corpus,registry/review indexes,central register and preserved screenshot hashes,audience/course provenance and comparison integrity (steps3–11).",
+      "overallStatus": "in_progress",
+      "currentStep": "Set up R",
+      "observedAt": "2026-10-23T15:28:30+00:00",
+      "scope": "Finaldisposition changes onlycase/register evidence and preserved screenshots/results. Canonical,decision,registry,workbook,app andallmodal inputs are byte-identical to fully passed academicinput9242e65. Repeatedruntime job is not claimed completed."
+    }
   },
   "recurringQualityProblems": [
     "Inherited validator-passed schedules had61placements in unavailable terms; scheduling must read the actual workbook,including biennial offerings.",
@@ -1724,5 +1747,16 @@
     "Human psycholinguistics,human-centred design and programming-language concepts were given misleading same-row relationships.",
     "A cohort-restricted elective and stale prospective-year metadata survived without formal eligibility reconciliation.",
     "A dependent healthcare note survived course removal and was caught during the source-first visual finalpass."
+  ],
+  "completionHistory": [
+    {
+      "verifiedOn": "2026-10-23T15:29:17+00:00",
+      "finalDispositionCommit": "7c275edee197ac987dea07a5729257a0378c6b3c",
+      "publishedMainVerified": true,
+      "changedFilesVerified": 41,
+      "currentRunRef": "boundedProductionRuns/1",
+      "nextCase": "cp-000032",
+      "noOtherCaseStarted": true
+    }
   ]
 }
