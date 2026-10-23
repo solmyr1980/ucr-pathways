@@ -1275,6 +1275,17 @@
         "reviewedCommit": "e05f05bae1071fbe80773c85a0e1d6fe726ad594",
         "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000027.json"
       }
+    },
+    {
+      "id": "cp-000028",
+      "state": "in-progress",
+      "stageOutcomes": {},
+      "sharedIssueIds": [],
+      "unresolved": [],
+      "downstreamReassessments": [],
+      "implementationCommits": [],
+      "presentationApproval": false,
+      "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000028.json"
     }
   ],
   "sharedIssues": [
@@ -1417,9 +1428,9 @@
   ],
   "progress": {
     "approved": 25,
-    "inProgress": 0,
+    "inProgress": 1,
     "reviewedWithBlockers": 3,
-    "notStarted": 410,
+    "notStarted": 409,
     "pilotStarted": 6
   },
   "batches": [
@@ -1730,7 +1741,7 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "Continue only the 23 October authorised ten-case run. CP026–CP027 is closed: CP026 remains blocked; CP027 is an approved qualified comparison. CP028 is next, in reporting pair CP028–CP029. One complete case per execution; no wider scope or deployment.",
+    "currentAssignmentBoundary": "CP026–CP027 closed. Complete only active CP028 in reporting pair CP028–CP029, then end this execution; preserve all prior run history.",
     "priorAssignmentBoundary": "The authorised ten-case run is complete, with8positiveapprovals,1approvedno-matchand1settledblockeddisposition;all5pairsclosedandautomationdisabled. Read the published boundedassessment before anynewauthorisation. No next case or counselor deployment."
   },
   "caseEvidenceTemplate": {
@@ -5776,8 +5787,16 @@
           "cp-000036"
         ]
       ],
-      "activeCase": null,
-      "activeCaseClaim": null,
+      "activeCase": "cp-000028",
+      "activeCaseClaim": {
+        "caseId": "cp-000028",
+        "executionId": "bounded-ten-2026-10-23-cp028-root-1101",
+        "status": "active",
+        "startedAt": "2026-10-23T11:01:00+00:00",
+        "updatedAt": "2026-10-23T11:01:00+00:00",
+        "inputCommit": "a6225b0f5b178880f04b7b14fe6961b749c620ec",
+        "checkpointRef": "data/counselor/qc/comprehensive-reaudit/cp-000028.json#/executionCheckpoint"
+      },
       "completedCases": [
         "cp-000026",
         "cp-000027"
@@ -5909,6 +5928,13 @@
           ],
           "finalDispositionCommit": "c3247060aa94a9fc4788ebcce97cd02c108a73dd",
           "sourceRetrievalFailure": false
+        },
+        {
+          "caseId": "cp-000028",
+          "executionId": "bounded-ten-2026-10-23-cp028-root-1101",
+          "startedAt": "2026-10-23T11:01:00+00:00",
+          "status": "active",
+          "checkpointRef": "data/counselor/qc/comprehensive-reaudit/cp-000028.json#/executionCheckpoint"
         }
       ],
       "requiredUserIntervention": [],
@@ -5922,7 +5948,7 @@
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {},
       "assessmentReport": null,
-      "nextAction": "Claim and complete CP028 next. CP026–CP027 is closed with one approved qualified comparison and one settled reviewed-with-blockers disposition. Preserve CP026, CP020 and CP277 pending new official evidence.",
+      "nextAction": "Complete CP028 from its durable claim through all applicable gates; do not start CP029 in this execution.",
       "authorisationEvidence": {
         "date": "2026-10-23",
         "instruction": "execute",
@@ -5939,9 +5965,9 @@
         "reuse": "Reuse the disabled completed task for this new authorisation; preserve its earlier run as historical evidence.",
         "isEnabled": true,
         "enabledAt": "2026-10-23T08:39:18.997058+00:00",
-        "observedAt": "2026-10-23T09:01:58.414661+00:00",
+        "observedAt": "2026-10-23T11:01:00+00:00",
         "actualEnabledConfigurationVerified": true,
-        "currentRunRecordLimitation": "Lookup returned historical last_run_time and no run_details; current trigger cannot establish completion. No live competing claim observed."
+        "currentRunRecordLimitation": "Fresh task lookup reports enabled configuration and historical last_run_time10:33:08Z without run_details; task metadata is not completion evidence. No competing active claim or live local writer observed."
       },
       "setupVerification": {
         "commit": "2df81a8f969748ba79a346eb76089a480934870e",
