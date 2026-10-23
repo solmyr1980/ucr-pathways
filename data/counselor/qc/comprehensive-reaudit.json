@@ -5762,7 +5762,7 @@
           "claimCommit": "75205c9a8e43a61bc1fcee3c71c5e0ca1819492e",
           "implementationCommit": "04466f51e3183676253e8c34de4ad02280eb2ec8",
           "reviewedCommit": "04466f51e3183676253e8c34de4ad02280eb2ec8",
-          "finalDispositionCommit": "pending-this-coordinated-publication",
+          "finalDispositionCommit": "9aeafe2d2221d401facabe75782305c62c2d3454",
           "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000026.json",
           "startedAt": "2026-10-23T09:01:58.414661+00:00",
           "completedAt": "2026-10-23T09:34:21.403414+00:00",
@@ -5781,7 +5781,9 @@
           "CI": [
             "https://github.com/solmyr1980/ucr-pathways/actions/runs/39931596480",
             "https://github.com/solmyr1980/ucr-pathways/actions/runs/39931596199"
-          ]
+          ],
+          "finalDispositionUrl": "https://github.com/solmyr1980/ucr-pathways/commit/9aeafe2d2221d401facabe75782305c62c2d3454",
+          "publicationVerifiedAt": "2026-10-23T09:39:59.475896+00:00"
         }
       ],
       "pairResults": [
@@ -5808,7 +5810,9 @@
           "checkpointRef": "data/counselor/qc/comprehensive-reaudit/cp-000026.json#/executionCheckpoint",
           "completedAt": "2026-10-23T09:34:21.403414+00:00",
           "implementationCommit": "04466f51e3183676253e8c34de4ad02280eb2ec8",
-          "sourceRetrievalFailure": false
+          "sourceRetrievalFailure": false,
+          "claimCommit": "75205c9a8e43a61bc1fcee3c71c5e0ca1819492e",
+          "finalDispositionCommit": "9aeafe2d2221d401facabe75782305c62c2d3454"
         }
       ],
       "requiredUserIntervention": [],
@@ -5891,14 +5895,60 @@
       "publicationVerification": {
         "implementationCommit": "04466f51e3183676253e8c34de4ad02280eb2ec8",
         "changedBlobHashesVerified": 13,
-        "finalDisposition": "pending-publication",
-        "newUserInterventions": 0
+        "finalDisposition": "verified-on-main",
+        "newUserInterventions": 0,
+        "finalDispositionCommit": "9aeafe2d2221d401facabe75782305c62c2d3454",
+        "changedFinalBlobsVerified": 36,
+        "verifiedAt": "2026-10-23T09:39:59.475896+00:00",
+        "historicalRun0AndPriorCaseEntriesUnchanged": true,
+        "checks": {
+          "academicInputCommit": "04466f51e3183676253e8c34de4ad02280eb2ec8",
+          "academicInputFullCI": {
+            "runId": 39931596480,
+            "jobId": 120340934024,
+            "status": "completed",
+            "conclusion": "success"
+          },
+          "finalDispositionCommit": "9aeafe2d2221d401facabe75782305c62c2d3454",
+          "finalEvidenceCI": {
+            "runId": 39933173872,
+            "jobId": 120346202057,
+            "changedInputChecks": "Register, corpus, registry/index, audience/course-evidence and comparison integrity steps all passed.",
+            "overallStatus": "in_progress",
+            "currentStep": "Set up R",
+            "observedAt": "2026-10-23T09:41:07.997902+00:00",
+            "scope": "This commit changes only case/register evidence and screenshots. All academic, canonical, decision, registry, app and course-modal inputs are byte-identical to the fully passed academic-input commit; its repeated runtime job is not claimed passed."
+          },
+          "publishedChangedHashChecks": {
+            "academicCommit": 13,
+            "finalEvidenceCommit": 36
+          },
+          "gateBasis": "All checks applicable to changed final inputs passed. Full academic/runtime CI and actual case rendering passed on the same frozen academic/app inputs. No final evidence-only runtime repeat is substituted for, or claimed as, academic-input completion."
+        }
       },
       "operationalCorpusCounts": {
         "comparison": 386,
         "no-defensible-ucr-match": 18,
         "external-programme-unresolved": 34
-      }
+      },
+      "executionResources": {
+        "reuseIfPresent": {
+          "localCheckout": "/workspace/scratch/1b80591b3cae/final-audit",
+          "Rscript": "/tmp/cp026/Rscript",
+          "playwrightModule": "/tmp/cp026/browser/node_modules/playwright",
+          "pythonSchemaPath": "/tmp/cp026/pylibs"
+        },
+        "stableHelpers": [
+          "docs/qc/evidence/counselor-batch-02-2026-10-20/verify-case.py",
+          "docs/qc/evidence/counselor-batch-02-2026-10-20/render-cases.cjs"
+        ],
+        "note": "Check availability before reuse. These local runtime paths avoided weakening any validation gate and can prevent repeated dependency preparation; academic evidence remains in committed case files."
+      },
+      "releaseBlockersRetained": [
+        "formal-schema-operational-discrepancy remains a separate corpus-wide publication dependency.",
+        "CP026 remains unapproved pending official external cohort/core/choice/Capstone clarification.",
+        "CP020 and CP277 remain settled blocked pending new official evidence."
+      ]
     }
   ]
 }
