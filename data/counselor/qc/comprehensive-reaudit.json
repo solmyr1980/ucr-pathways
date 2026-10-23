@@ -1300,6 +1300,17 @@
         "reviewedCommit": "2c68213e253a8a1711386d75f9acbd40ee8bf485",
         "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000028.json"
       }
+    },
+    {
+      "id": "cp-000029",
+      "state": "in-progress",
+      "stageOutcomes": {},
+      "sharedIssueIds": [],
+      "unresolved": [],
+      "downstreamReassessments": [],
+      "implementationCommits": [],
+      "presentationApproval": false,
+      "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000029.json"
     }
   ],
   "sharedIssues": [
@@ -1442,9 +1453,9 @@
   ],
   "progress": {
     "approved": 26,
-    "inProgress": 0,
+    "inProgress": 1,
     "reviewedWithBlockers": 3,
-    "notStarted": 409,
+    "notStarted": 408,
     "pilotStarted": 6
   },
   "batches": [
@@ -1755,7 +1766,7 @@
         ]
       }
     ],
-    "currentAssignmentBoundary": "Continue only the ten-case run authorised on 23 October. CP028 is an approved qualified comparison with one UCR programme; CP029 is next in the open reporting pair CP028–CP029. Complete one case per execution; no wider scope or deployment is authorised.",
+    "currentAssignmentBoundary": "Complete active CP029 only, in open reporting pair CP028–CP029. Preserve prior history and all gates; no wider scope or deployment.",
     "priorAssignmentBoundary": "The authorised ten-case run is complete, with8positiveapprovals,1approvedno-matchand1settledblockeddisposition;all5pairsclosedandautomationdisabled. Read the published boundedassessment before anynewauthorisation. No next case or counselor deployment."
   },
   "caseEvidenceTemplate": {
@@ -5801,8 +5812,16 @@
           "cp-000036"
         ]
       ],
-      "activeCase": null,
-      "activeCaseClaim": null,
+      "activeCase": "cp-000029",
+      "activeCaseClaim": {
+        "caseId": "cp-000029",
+        "executionId": "bounded-ten-2026-10-23-cp029-root-1158",
+        "status": "active",
+        "startedAt": "2026-10-23T11:58:00+00:00",
+        "updatedAt": "2026-10-23T11:58:00+00:00",
+        "inputCommit": "a9c7d308f521ba4710fbcca970b051397f7feb18",
+        "checkpointRef": "data/counselor/qc/comprehensive-reaudit/cp-000029.json#/executionCheckpoint"
+      },
       "completedCases": [
         "cp-000026",
         "cp-000027",
@@ -6007,6 +6026,13 @@
           ],
           "finalDispositionCommit": "2cbc6b5400a01781e9b168425e6fc5ab7772b81d",
           "sourceRetrievalFailure": false
+        },
+        {
+          "caseId": "cp-000029",
+          "executionId": "bounded-ten-2026-10-23-cp029-root-1158",
+          "startedAt": "2026-10-23T11:58:00+00:00",
+          "status": "active",
+          "checkpointRef": "data/counselor/qc/comprehensive-reaudit/cp-000029.json#/executionCheckpoint"
         }
       ],
       "requiredUserIntervention": [],
@@ -6020,7 +6046,7 @@
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {},
       "assessmentReport": null,
-      "nextAction": "Complete CP029 next. CP028 is an approved qualified comparison with one UCR programme. The reporting pair CP028–CP029 remains open until CP029 has a verified final disposition. CP026, CP020 and CP277 remain settled blocked pending new official evidence.",
+      "nextAction": "Complete only CP029 through integrated review, correction, source-first verification and final disposition; do not start CP030 in this execution.",
       "authorisationEvidence": {
         "date": "2026-10-23",
         "instruction": "execute",
@@ -6037,9 +6063,9 @@
         "reuse": "Reuse the disabled completed task for this new authorisation; preserve its earlier run as historical evidence.",
         "isEnabled": true,
         "enabledAt": "2026-10-23T08:39:18.997058+00:00",
-        "observedAt": "2026-10-23T11:01:00+00:00",
+        "observedAt": "2026-10-23T11:58:00+00:00",
         "actualEnabledConfigurationVerified": true,
-        "currentRunRecordLimitation": "Fresh task lookup reports enabled configuration and historical last_run_time10:33:08Z without run_details; task metadata is not completion evidence. No competing active claim or live local writer observed."
+        "currentRunRecordLimitation": "Fresh private task lookup confirms hourly enabled configuration and disabled older tasks; run_details unavailable. Platform metadata is not completion evidence. No competing active case claim observed."
       },
       "setupVerification": {
         "commit": "2df81a8f969748ba79a346eb76089a480934870e",
