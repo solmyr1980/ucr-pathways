@@ -1525,14 +1525,24 @@
     },
     {
       "id": "cp-000038",
-      "state": "in-progress",
+      "state": "approved",
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "6ce7c90457bd6e10c61eba3145f76c9a8cc5aa17"
+      ],
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000038.json",
-      "stageOutcomes": {}
+      "stageOutcomes": {
+        "1": "correct",
+        "2": "correct",
+        "3": "correct",
+        "4": "correct",
+        "5": "correct",
+        "6": "retain"
+      },
+      "academicDisposition": "comparison"
     },
     {
       "id": "cp-000041",
@@ -1685,8 +1695,8 @@
     }
   ],
   "progress": {
-    "approved": 34,
-    "inProgress": 2,
+    "approved": 35,
+    "inProgress": 1,
     "reviewedWithBlockers": 4,
     "notStarted": 398,
     "pilotStarted": 6
@@ -1990,7 +2000,7 @@
         ],
         "nextCaseByWorker": {
           "A": "cp-000041",
-          "B": "cp-000038"
+          "B": "cp-000040"
         },
         "completedBoundedAssessmentReport": "docs/qc/counselor-next-ten-assessment-2026-10-23.md"
       },
@@ -7784,23 +7794,24 @@
           "frequency": "hourly",
           "minute": 30
         },
-        "nextCase": "cp-000038",
-        "activeClaim": {
-          "caseId": "cp-000038",
-          "executionId": "B-cp038-a8490acd-20261024T202648Z",
-          "startedAt": "2026-10-24T20:27:43Z",
-          "inputCommit": "67d4f7353e0f21759bd0354c320ebc5f02edd18d",
-          "inputBlobs": {
-            "canonical": "b70c15c4286b515616b2c55abfdf7ef3fbda9df6",
-            "decision": "142e8d72e85622a688640a1d31e9f5348cb13596"
-          },
-          "checkpoint": "Reuse locally preserved current OER and actual course-profile inspection; reconcile current180EC, all35interest rows and content/schedule/alignments; implement bounded corrections then complete source-first final and actual desktop/mobile/modal checks."
-        },
-        "completedCases": [],
+        "nextCase": "cp-000040",
+        "activeClaim": null,
+        "completedCases": [
+          "cp-000038"
+        ],
         "deferredCases": [],
         "sourceRetrievalFailuresByCase": {},
         "deferredRevisitsByCase": {},
-        "caseResults": []
+        "caseResults": [
+          {
+            "caseId": "cp-000038",
+            "state": "approved",
+            "academicDisposition": "comparison",
+            "completedAt": "2026-10-24T20:35:39.786936+00:00",
+            "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000038.json",
+            "reviewedInputCommit": "6ce7c90457bd6e10c61eba3145f76c9a8cc5aa17"
+          }
+        ]
       }
     },
     "splitRule": "Alternate the frozen remaining baseline order: A receives positions 1,3,5,...; B receives 2,4,6,...; 201 unique cases each. No cross-queue reassignment without explicit authority.",
@@ -8669,6 +8680,24 @@
         "setupCiRun": 40116760265,
         "setupCiStatus": "in_progress at publication verification; check for observed failures before academic work"
       }
-    }
+    },
+    "reportingPairResults": [
+      {
+        "caseIds": [
+          "cp-000037",
+          "cp-000038"
+        ],
+        "status": "closed",
+        "verifiedFinalStates": {
+          "cp-000037": "approved",
+          "cp-000038": "approved"
+        },
+        "evidenceFiles": [
+          "data/counselor/qc/comprehensive-reaudit/cp-000037.json",
+          "data/counselor/qc/comprehensive-reaudit/cp-000038.json"
+        ],
+        "closedAt": "2026-10-24T20:35:39.786936+00:00"
+      }
+    ]
   }
 }
