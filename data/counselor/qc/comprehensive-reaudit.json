@@ -1480,14 +1480,26 @@
     },
     {
       "id": "cp-000037",
-      "state": "in-progress",
+      "state": "approved",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000037.json",
-      "stageOutcomes": {},
+      "stageOutcomes": {
+        "1": "correct",
+        "2": "retain",
+        "3": "retain",
+        "4": "correct",
+        "5": "correct",
+        "6": "retain"
+      },
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false
+      "implementationCommits": [
+        "7c5d70403bcccacbb4ec9c83db8e5b5d7da68de2",
+        "4f4fa5a8f983fb41cde57ea39e6fa600fbb395a4",
+        "6e2b72cd71727f52f9b2aa156abe325ad9ce6d3d"
+      ],
+      "presentationApproval": true,
+      "academicDisposition": "comparison"
     }
   ],
   "sharedIssues": [
@@ -1629,8 +1641,8 @@
     }
   ],
   "progress": {
-    "approved": 32,
-    "inProgress": 1,
+    "approved": 33,
+    "inProgress": 0,
     "reviewedWithBlockers": 4,
     "notStarted": 401,
     "pilotStarted": 6
@@ -1933,7 +1945,7 @@
           "cp-000038"
         ],
         "nextCaseByWorker": {
-          "A": "cp-000037",
+          "A": "cp-000039",
           "B": "cp-000038"
         },
         "completedBoundedAssessmentReport": "docs/qc/counselor-next-ten-assessment-2026-10-23.md"
@@ -7212,7 +7224,7 @@
   "corpusContinuation": {
     "id": "remaining-corpus-2026-10-24",
     "authorisedOn": "2026-10-24",
-    "status": "scheduled",
+    "status": "in-progress",
     "authority": "User accepted continuous processing of the remaining corpus and explicitly requested two hourly tasks with an equal split: A from 20:00, B from 21:30, Europe/Amsterdam.",
     "baselineCommit": "8cc4a8d9cad8a0c50a4c1a324f25a4470507a56b",
     "baselineDenominator": 438,
@@ -7258,7 +7270,7 @@
     "workers": {
       "A": {
         "automationId": "6ad86faae6b081919dbe838a3862a734",
-        "status": "in-progress",
+        "status": "active",
         "caseIds": [
           "cp-000037",
           "cp-000039",
@@ -7468,23 +7480,24 @@
           "frequency": "hourly",
           "minute": 0
         },
-        "nextCase": "cp-000037",
-        "activeClaim": {
-          "caseId": "cp-000037",
-          "executionId": "A-cp037-20261024T180139Z",
-          "startedAt": "2026-10-24T18:03:16.988Z",
-          "checkpoint": "Independently retrieve exact Dutch CIW official curriculum, applicable regulations, methods/thesis/progression and non-credit requirements; assess every target-linked interest row.",
-          "inputCommit": "13434adbee8191b857f9e553135db6d1699add7a",
-          "inputBlobs": {
-            "canonical": "6b07e895911f3d45ca4925629b84ce83dc31f2b0",
-            "decision": "8a41a6b0fbd1627156e4c1331da0bf3c613c0970"
-          }
-        },
-        "completedCases": [],
+        "nextCase": "cp-000039",
+        "activeClaim": null,
+        "completedCases": [
+          "cp-000037"
+        ],
         "deferredCases": [],
         "sourceRetrievalFailuresByCase": {},
         "deferredRevisitsByCase": {},
-        "caseResults": []
+        "caseResults": [
+          {
+            "caseId": "cp-000037",
+            "state": "approved",
+            "academicDisposition": "comparison",
+            "completedAt": "2026-10-24T18:20:21.290018+00:00",
+            "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000037.json",
+            "reviewedInputCommit": "6e2b72cd71727f52f9b2aa156abe325ad9ce6d3d"
+          }
+        ]
       },
       "B": {
         "automationId": "6adceb9664b08191a4eadc4daeb7ad15",
