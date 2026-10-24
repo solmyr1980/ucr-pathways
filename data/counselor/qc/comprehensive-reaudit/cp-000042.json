@@ -156,7 +156,7 @@
         "conclusion": "success"
       }
     ],
-    "nextUnverifiedCIAction": "Verify this deferral publication and CI receipt; no academic final approval is claimed.",
+    "nextUnverifiedCIAction": "Deferral main/content hashes verified. Recheck deferral publication CI for observed failures at B's next start before CP044 academic work.",
     "priorCheckpointCIRechecked": {
       "runs": [
         40138957497,
@@ -195,5 +195,50 @@
         "scope": "Measuredwalltimeincludingretrieval/coursechecks/repair;activeeffortnotmeasured."
       }
     }
-  ]
+  ],
+  "deferralPublicationVerification": {
+    "status": "passed",
+    "checkpointCommit": "19d25e653f88b30ad4ee07e98017d975d618bd9c",
+    "changedPathsVerified": [
+      {
+        "path": "data/counselor/qc/comprehensive-reaudit.json",
+        "sha": "a91870cc0b0a8865f8c402461e9693a058a33bee"
+      },
+      {
+        "path": "data/counselor/qc/comprehensive-reaudit/cp-000042.json",
+        "sha": "bdd34e48b893ce41678d75b4a6b7cc8084d2551e"
+      },
+      {
+        "path": "docs/qc/evidence/counselor-corpus-B-cp042-2026-10-25/source-retrieval-execution-2.json",
+        "sha": "42f1cf8fe19d99be32a364f6633af3beb8e41c76"
+      }
+    ],
+    "mainVerified": true,
+    "observedAt": "2026-10-24T23:31:30.462Z",
+    "CI": [
+      {
+        "runId": 40143054050,
+        "name": "Validate Shiny pilots",
+        "status": "in_progress",
+        "conclusion": null
+      },
+      {
+        "runId": 40143053289,
+        "name": "pages build and deployment",
+        "status": "in_progress",
+        "conclusion": null
+      }
+    ],
+    "ciScope": "No final academic or presentation approval. Published register consistency checked locally; recheck pending publication CI for observed failures at B's next start.",
+    "publishedRegisterCI": {
+      "runId": 40143054050,
+      "jobId": 121018616457,
+      "step": {
+        "name": "Validate re-audit register and preserved review evidence",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 8
+      }
+    }
+  }
 }
