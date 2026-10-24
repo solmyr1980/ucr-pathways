@@ -1072,8 +1072,8 @@
   "checkpoint": {
     "executionId": "A-cp039-20261024T185812Z",
     "startedAt": "2026-10-24T19:00:15.091Z",
-    "stage": 1,
-    "nextAction": "Verified final disposition; next own assigned caseCP041. CP039–CP040 reporting pair remains open until CP040 is final.",
+    "stage": 6,
+    "nextAction": "All applicable CP039 checks, published evidence hashes and post-publication CI verified. No further CP039 action; A's next assigned case is CP041. CP039–CP040 reporting pair remains open.",
     "setupCi": {
       "head": "f8746a187798037ec8ec585e7b86f0039d07e4e6",
       "run": 40120747005,
@@ -1086,7 +1086,7 @@
       "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
       "docs/qc/counselor-comprehensive-reaudit-protocol.md": "d1c9572d5c09307a3c7951b4a703c2e6b9bb4206"
     },
-    "completedAt": "2026-10-24T19:20:49.845428+00:00"
+    "completedAt": "2026-10-24T19:35:54Z"
   },
   "workbookBlob": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
   "academicDisposition": "comparison",
@@ -1120,7 +1120,9 @@
     "elapsedWallSecondsToDispositionPreparation": 1234.8,
     "scope": "Measured wall time includes research, correction, rendering, verification and waits; active academic effort is not measured.",
     "additionalUserInterventions": 0,
-    "elapsedTimeLimitReached": false
+    "elapsedTimeLimitReached": false,
+    "verifiedCompletionAt": "2026-10-24T19:35:54Z",
+    "elapsedWallSecondsToVerifiedCompletion": 2138.9
   },
   "interruptions": [
     {
@@ -1130,11 +1132,46 @@
     {
       "type": "verification-refinement",
       "finding": "Actual screenshot review identified minor audience typography and insufficiently overlapping mobile capture intervals. Corrected visible spacing and captured27ordinary mobile viewports at480pxsteps; did not repeat unchanged course-modal checks."
+    },
+    {
+      "type": "verification-wait",
+      "finding": "Post-publication CI remained in progress during browser dependency installation; no failure was observed. It subsequently passed running desktop/mobile browser and startup checks.",
+      "workflowRun": 40125077600,
+      "createdAt": "2026-10-24T19:23:31Z",
+      "completedAt": "2026-10-24T19:34:40Z",
+      "elapsedWallSeconds": 669
     }
   ],
   "recurringQualityProblems": [
     "Check actual advanced-course content before assigning social/justice rationales to natural-science methods.",
     "Explicitly record fieldwork/project/thesis progression and zero-credit obligations.",
     "Preserve defensible complementary courses rather than change a palette simply because another reasonable selection exists."
-  ]
+  ],
+  "publicationVerification": {
+    "dispositionCommit": "7f1dc6d4d0674600ffcc0ccaf3ab9eb182c55559",
+    "verifiedAt": "2026-10-24T19:35:54Z",
+    "remoteMainVerified": true,
+    "changedPathCount": 28,
+    "allChangedBlobHashesVerified": true,
+    "workerBUnchanged": true,
+    "completionParentCommit": "911260b728f45ee7c82c5cf9e6616a87cf42e88a",
+    "frozenAcademicDependenciesUnchanged": true,
+    "postPublicationCi": {
+      "id": 40125077600,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "academicInputCi": {
+      "id": 40124310575,
+      "conclusion": "success"
+    },
+    "reviewedInputShinyCi": {
+      "id": 40124310561,
+      "conclusion": "success"
+    },
+    "reviewIndexCi": {
+      "id": 40124310579,
+      "conclusion": "success"
+    }
+  }
 }
