@@ -1680,14 +1680,24 @@
     },
     {
       "id": "cp-000044",
-      "state": "in-progress",
+      "state": "approved",
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "1fad5eec1b96396864e5261d766bcf77d2f06a3d"
+      ],
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000044.json",
-      "stageOutcomes": {}
+      "stageOutcomes": {
+        "1": "correct",
+        "2": "retain",
+        "3": "retain",
+        "4": "correct",
+        "5": "correct",
+        "6": "retain"
+      },
+      "academicDisposition": "comparison"
     }
   ],
   "sharedIssues": [
@@ -1829,8 +1839,8 @@
     }
   ],
   "progress": {
-    "approved": 38,
-    "inProgress": 3,
+    "approved": 39,
+    "inProgress": 2,
     "reviewedWithBlockers": 5,
     "notStarted": 392,
     "pilotStarted": 6
@@ -2134,7 +2144,7 @@
         ],
         "nextCaseByWorker": {
           "A": "cp-000049",
-          "B": "cp-000044"
+          "B": "cp-000046"
         },
         "completedBoundedAssessmentReport": "docs/qc/counselor-next-ten-assessment-2026-10-23.md"
       },
@@ -7954,28 +7964,12 @@
           "frequency": "hourly",
           "minute": 30
         },
-        "nextCase": "cp-000044",
-        "activeClaim": {
-          "worker": "B",
-          "caseId": "cp-000044",
-          "executionId": "B-cp044-20261025T002712Z",
-          "automationRunId": "d3d6ed92-5674-832e-a134-f045f015e22b",
-          "startedAt": "2026-10-25T00:30:36.407Z",
-          "reviewedInputCommit": "5beaa972e7b292e9ec3b0099720f074a05932e9e",
-          "inputBlobs": {
-            "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
-            "data/counselor/comparisons/cp-000044.json": "a171215faa559e55b8a2ad6c38cdef626b88a124",
-            "data/counselor/decisions/cp-000044.json": "3b6b4923c0cd16405bea6b9f090a60262e3257b1",
-            "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-            "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
-            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "d1c9572d5c09307a3c7951b4a703c2e6b9bb4206"
-          },
-          "checkpoint": "Initial source-first review; no previous case checkpoint exists.",
-          "nextAction": "Run actual desktop/mobile Shiny, every selected course modal and all links; perform separate same-AI source-first final pass against this published repair before approval."
-        },
+        "nextCase": "cp-000046",
+        "activeClaim": null,
         "completedCases": [
           "cp-000038",
-          "cp-000040"
+          "cp-000040",
+          "cp-000044"
         ],
         "deferredCases": [
           "cp-000042"
@@ -8013,6 +8007,14 @@
             "reviewedInputCommit": "a58cee0c77a736a3369fda84afb6b2691f4958ba",
             "publicationVerifiedAt": "2026-10-24T21:50:13.024Z",
             "finalDispositionCommit": "68ad2d268b8479534a9c164d8b24729586021586"
+          },
+          {
+            "caseId": "cp-000044",
+            "state": "approved",
+            "academicDisposition": "comparison",
+            "completedAt": "2026-10-25T00:39:38.918714+00:00",
+            "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000044.json",
+            "reviewedInputCommit": "1fad5eec1b96396864e5261d766bcf77d2f06a3d"
           }
         ]
       }
