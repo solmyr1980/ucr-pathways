@@ -1,0 +1,46 @@
+{
+  "caseId": "cp-000069",
+  "worker": "A",
+  "executionId": "A-cp069-20261025T115901Z",
+  "checkedOn": "2026-10-25",
+  "unsuccessfulEssentialSourceExecutions": 1,
+  "countingRule": "One execution, not four HTTP requests. First failure: no deferral and no final academic blocker or no-match disposition.",
+  "attempts": [
+    {
+      "code": "LET-ACWB304-STC",
+      "url": "https://ru.osiris-student.nl/student/osiris/owc/cursussen/LET-ACWB304-STC/2026?taal=NL",
+      "error": "curl: (22) The requested URL returned error: 404\n"
+    },
+    {
+      "code": "LET-ACWB3000-STC",
+      "url": "https://ru.osiris-student.nl/student/osiris/owc/cursussen/LET-ACWB3000-STC/2026?taal=NL",
+      "error": "curl: (22) The requested URL returned error: 404\n"
+    },
+    {
+      "code": "LET-ACWB304-STC",
+      "url": "https://ru.osiris-student.nl/student/osiris/owc/cursussen/LET-ACWB304-STC/2027?taal=NL",
+      "exitCode": 22,
+      "error": "curl: (22) The requested URL returned error: 404\n"
+    },
+    {
+      "code": "LET-ACWB3000-STC",
+      "url": "https://ru.osiris-student.nl/student/osiris/owc/cursussen/LET-ACWB3000-STC/2027?taal=NL",
+      "exitCode": 22,
+      "error": "curl: (22) The requested URL returned error: 404\n"
+    }
+  ],
+  "reasonableOfficialAlternative": "After the prospectus-linked current 2026 records returned 404, checked the same exact STC codes in 2027 once. Both also returned 404.",
+  "unresolvedQuestions": [
+    "What are the exact STC final-work and whitepaper learning outcomes, assessment and progression/prerequisite conditions for a coherent applicable cohort?",
+    "What authoritative adopted STC B3 framework completes the available B1/B2 tables to 180 EC? The current OER contains no STC B3 table.",
+    "Reconcile the selected French minor packages and any mandatory individual course conditions with the selected cohort; published recommended B1/B1+ levels are already verified."
+  ],
+  "verifiedWorkRefs": [
+    "source-framework-checkpoint.json",
+    "interest-review.json",
+    "course-review-checkpoint.json",
+    "original-placement-review.json",
+    "external-conditions.json"
+  ],
+  "nextUnverifiedAction": "On the next execution resume CP069 before advancing: retry the exact official STC final-work and whitepaper records or genuinely new authoritative evidence; reuse unchanged verified work. Finish cohort/minor reconciliation, substantive weighted alternatives and all downstream/final verification gates. If the same essential evidence remains unavailable in that second execution, preserve the new failures and defer under corpusContinuation without finalising the case."
+}
