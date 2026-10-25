@@ -2202,7 +2202,7 @@
         ],
         "nextCaseByWorker": {
           "A": "cp-000051",
-          "B": "cp-000046"
+          "B": "cp-000048"
         },
         "completedBoundedAssessmentReport": "docs/qc/counselor-next-ten-assessment-2026-10-23.md"
       },
@@ -8033,29 +8033,13 @@
           "frequency": "hourly",
           "minute": 30
         },
-        "nextCase": "cp-000046",
-        "activeClaim": {
-          "worker": "B",
-          "caseId": "cp-000046",
-          "executionId": "B-cp046-20261025T022908Z",
-          "automationRunId": "9577daec-5bd8-8330-8dc6-3998e02e43ec",
-          "startedAt": "2026-10-25T02:30:04.739Z",
-          "reviewedInputCommit": "f1c8883a507815dc14d60521e943f1a64512427c",
-          "inputBlobs": {
-            "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
-            "data/counselor/comparisons/cp-000046.json": "34332d67c724e972c71d8da1c580b74651467243",
-            "data/counselor/decisions/cp-000046.json": "f3a9c6e8c1f417d3f097ddf040690c0dd44df900",
-            "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-            "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
-            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "d1c9572d5c09307a3c7951b4a703c2e6b9bb4206"
-          },
-          "checkpoint": "All six stages and final same-AI source-first pass complete; genuine15ECofficialcurriculumblocker.",
-          "nextAction": "Verify all disposition publication hashes and CI; then record workerB fourthfinal disposition,closefixedpairCP045–CP046 andpublishmergedten-caseassessment#1. NextnondeferredBcaseCP048;CP042remainsdeferred."
-        },
+        "nextCase": "cp-000048",
+        "activeClaim": null,
         "completedCases": [
           "cp-000038",
           "cp-000040",
-          "cp-000044"
+          "cp-000044",
+          "cp-000046"
         ],
         "deferredCases": [
           "cp-000042"
@@ -8103,6 +8087,16 @@
             "reviewedInputCommit": "1fad5eec1b96396864e5261d766bcf77d2f06a3d",
             "publicationVerifiedAt": "2026-10-25T00:45:36.959Z",
             "finalDispositionCommit": "f32cf11ecd0baf67783fea7286e5f048b0830656"
+          },
+          {
+            "caseId": "cp-000046",
+            "state": "reviewed-with-blockers",
+            "academicDisposition": "external-programme-unresolved",
+            "completedAt": "2026-10-25T02:53:23.495534+00:00",
+            "publicationVerifiedAt": "2026-10-25T02:53:23.495534+00:00",
+            "finalDispositionCommit": "93eb9fa35fca01985b605d8a74212aa2bd8325e2",
+            "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000046.json",
+            "reviewedInputCommit": "68f28e70b1c989f631082b958c3100ccdaa90f0b"
           }
         ]
       }
@@ -8915,7 +8909,28 @@
       ]
     ],
     "progressReportInterval": 10,
-    "progressReports": [],
+    "progressReports": [
+      {
+        "number": 1,
+        "milestoneVerifiedFinalDispositions": 10,
+        "reportedAt": "2026-10-25T02:53:23.495534+00:00",
+        "caseIds": [
+          "cp-000037",
+          "cp-000038",
+          "cp-000039",
+          "cp-000040",
+          "cp-000043",
+          "cp-000044",
+          "cp-000045",
+          "cp-000046",
+          "cp-000047",
+          "cp-000049"
+        ],
+        "reportFile": "docs/qc/counselor-corpus-progress-001-2026-10-25.md",
+        "evidenceFile": "docs/qc/evidence/counselor-corpus-progress-001-2026-10-25.json",
+        "reportingOnly": true
+      }
+    ],
     "systemicPause": null,
     "executionRule": "One complete case per worker execution. Resume own unfinished non-deferred case. Other-worker academic work on its separate case may proceed concurrently. Skip only a genuinely live duplicate execution of the same worker.",
     "writerPolicy": "Serialize publication only: fetch fresh main and every changed path; apply only own case/worker delta to current data; atomically commit on that exact parent via authenticated GitHub connector, non-forced fast-forward with expected-parent guard. On conflict refresh, merge, revalidate and rebuild. Never publish a stale whole shared file or overwrite another worker. Separate local checkouts, ports and render paths.",
@@ -9022,6 +9037,22 @@
           "data/counselor/qc/comprehensive-reaudit/cp-000044.json"
         ],
         "closedAt": "2026-10-25T00:45:36.959Z"
+      },
+      {
+        "caseIds": [
+          "cp-000045",
+          "cp-000046"
+        ],
+        "status": "closed",
+        "verifiedFinalStates": {
+          "cp-000045": "approved",
+          "cp-000046": "reviewed-with-blockers"
+        },
+        "evidenceFiles": [
+          "data/counselor/qc/comprehensive-reaudit/cp-000045.json",
+          "data/counselor/qc/comprehensive-reaudit/cp-000046.json"
+        ],
+        "closedAt": "2026-10-25T02:53:23.495534+00:00"
       }
     ]
   }
