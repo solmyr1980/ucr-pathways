@@ -5,7 +5,7 @@
     "decision": "882c5eafaa5e0cfa53eeb7e7e5dffb16e4f3294f",
     "canonical": "e90c056bce452c5d946e8144af228f9e398f1ef0"
   },
-  "state": "in-progress",
+  "state": "approved",
   "stages": {
     "1": {
       "outcome": "correct",
@@ -761,19 +761,18 @@
       "reassessStages": []
     },
     "6": {
-      "outcome": "blocked",
-      "finding": "Frozen source-first verification, actual desktop/mobile visuals/links and relevant CI remain.",
+      "outcome": "correct",
+      "finding": "Separate same-AI source-first pass, full applicable schemas/replay/workbook/corpus/register, actual desktop/mobile visual/link/navigation/geometry gates and full Shiny CI passed.",
       "preserved": [
         "Sound external framework and genuine partial UCR course contributions."
       ],
       "actions": [],
       "evidence": [
-        "docs/qc/evidence/counselor-corpus-B-cp068-2026-10-25/source-verification.json",
-        "docs/qc/evidence/counselor-corpus-B-cp068-2026-10-25/course-review.json"
+        "docs/qc/evidence/counselor-corpus-B-cp068-2026-10-25/source-first-final-pass.json",
+        "docs/qc/evidence/counselor-corpus-B-cp068-2026-10-25/cp-000068-mechanical-verification.json",
+        "docs/qc/evidence/counselor-corpus-B-cp068-2026-10-25/rendered-final/visual-manifest.json"
       ],
-      "blockedBy": [
-        "Final verification gates pending"
-      ],
+      "blockedBy": [],
       "reassessStages": []
     }
   },
@@ -845,12 +844,16 @@
     "ci": {
       "inputRunId": 40222231972,
       "inputCommit": "2b21b0f674633f1b0f917fd04c46437d81620619",
-      "inputConclusion": "pending"
+      "frozenReviewedCommit": "2b21b0f674633f1b0f917fd04c46437d81620619",
+      "identicalActualInputPaths": 18,
+      "inputConclusion": "success",
+      "evidenceRunId": 40222478168,
+      "evidenceRequiredChecks": "Register, audience/evidence and integrity8/10/11 passed; full Shiny passed on identical18actualinputs."
     }
   },
   "schemaVersion": "2.0",
   "auditId": "counselor-comprehensive-reaudit",
-  "presentationApproval": false,
+  "presentationApproval": true,
   "evidenceSources": [
     {
       "urls": [
@@ -917,12 +920,13 @@
       "pilot/shiny/data/courses/GOS.json": "a70d5a154184f75dff1983983b0136a109d2293b",
       "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
       "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
-      "data/counselor/decisions/cp-000068.json": "7537664a6d5fbb521036a620f4a4329b43dd25d1",
-      "data/counselor/comparisons/cp-000068.json": "e61c6131e26fd3387eaaf09d494c9898cb8ed085"
+      "data/counselor/review-programmes.json": "2b73dd0994c9626078a694a441bac46ff18a5202",
+      "data/counselor/decisions/cp-000068.json": "882c5eafaa5e0cfa53eeb7e7e5dffb16e4f3294f",
+      "data/counselor/comparisons/cp-000068.json": "e90c056bce452c5d946e8144af228f9e398f1ef0"
     },
     "stage": 6,
-    "checkpoint": "Resume verified adopted OER/catalogue checkpoint. A073 register defect is resolved on fresh main; no essential source failure or deferral.",
-    "nextAction": "Full relevant CI, final disposition and published-hash verification pending.",
+    "checkpoint": "Final approved no-defensible-UCR-match; all applicable gates verified.",
+    "nextAction": "Verify final disposition publication and receipt. CP068 complete; next assigned B case CP070; no second case in this execution.",
     "setupCI": {
       "head": "39f9c9e3cc0e0df8650303f0306bcbb86a2e3f45",
       "runs": [
@@ -942,85 +946,50 @@
       "observedFailures": [],
       "priorRegisterFailureResolvedBy": "c145bc2f9a42d0125779852de01fc3fe8b446d24"
     },
-    "lastVerifiedAt": "2026-10-25T18:40:51.916Z",
+    "lastVerifiedAt": "2026-10-25T18:47:54.602Z",
     "evidenceRefs": [
       "docs/qc/evidence/counselor-corpus-B-cp068-2026-10-25/source-checkpoint.json",
       "docs/qc/evidence/counselor-corpus-B-cp068-2026-10-25/actual-course-content-checkpoint.json",
       "docs/qc/evidence/counselor-corpus-B-cp068-2026-10-25/interest-checkpoint.json",
       "docs/qc/evidence/counselor-corpus-B-cp068-2026-10-25/original-placement-review.json"
-    ]
-  },
-  "workerClaim": {
-    "worker": "B",
-    "caseId": "cp-000068",
-    "executionId": "B-cp068-20261025T173222Z",
-    "automationRunId": "da17bff5-e36c-8323-ab8c-369ceabd5360",
-    "startedAt": "2026-10-25T17:32:21.520119Z",
-    "claimedAt": "2026-10-25T17:33:44.098Z",
-    "reviewedInputCommit": "39f9c9e3cc0e0df8650303f0306bcbb86a2e3f45",
-    "inputBlobs": {
-      "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
-      "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-      "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
-      "data/registry/programmes.csv": "e0b978c7efb7afc1f60a47ef53827e022df542e9",
-      "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
-      "docs/qc/counselor-comprehensive-reaudit-protocol.md": "d1c9572d5c09307a3c7951b4a703c2e6b9bb4206",
-      "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
-      "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
-      "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
-      "pilot/shiny/data/courses/BEN.json": "01f692c24c8407fdb4cca4154abc8c1b544f7958",
-      "pilot/shiny/data/courses/DIS.json": "f7d8f10c6dad39a63e25cc214b0ea95a6db5ed3d",
-      "pilot/shiny/data/courses/ENS.json": "2363c63ec014611d1a7708895f6e14f31e29cb95",
-      "pilot/shiny/data/courses/GOS.json": "a70d5a154184f75dff1983983b0136a109d2293b",
-      "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
-      "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
-      "data/counselor/decisions/cp-000068.json": "7537664a6d5fbb521036a620f4a4329b43dd25d1",
-      "data/counselor/comparisons/cp-000068.json": "e61c6131e26fd3387eaaf09d494c9898cb8ed085"
-    },
-    "stage": 1,
-    "checkpoint": "Resume verified adopted OER/catalogue checkpoint. A073 register defect is resolved on fresh main; no essential source failure or deferral.",
-    "nextAction": "Full relevant CI, final disposition and published-hash verification pending.",
-    "setupCI": {
-      "head": "39f9c9e3cc0e0df8650303f0306bcbb86a2e3f45",
-      "runs": [
-        {
-          "id": 40216980489,
-          "name": "Validate Shiny pilots",
-          "status": "in_progress",
-          "conclusion": null
-        },
-        {
-          "id": 40216980517,
-          "name": "pages build and deployment",
-          "status": "in_progress",
-          "conclusion": null
-        }
-      ],
-      "observedFailures": [],
-      "priorRegisterFailureResolvedBy": "c145bc2f9a42d0125779852de01fc3fe8b446d24"
-    },
-    "lastVerifiedAt": "2026-10-25T16:40:53.917Z",
-    "evidenceRefs": [
-      "docs/qc/evidence/counselor-corpus-B-cp068-2026-10-25/source-checkpoint.json",
-      "docs/qc/evidence/counselor-corpus-B-cp068-2026-10-25/actual-course-content-checkpoint.json",
-      "docs/qc/evidence/counselor-corpus-B-cp068-2026-10-25/interest-checkpoint.json",
-      "docs/qc/evidence/counselor-corpus-B-cp068-2026-10-25/original-placement-review.json"
-    ]
-  },
-  "executionMetrics": {
-    "executionId": "B-cp068-20261025T163220Z",
-    "startedAt": "2026-10-25T16:32:16.270621Z",
-    "checkpointedAt": "2026-10-25T16:40:53.917Z",
-    "elapsedWallSeconds": 517.647,
-    "measurementLimit": "Elapsedwalltimeonly;noimposedtimecap oractive-effort/rateclaim.",
-    "essentialSourceRetrievalFailures": 0,
-    "technicalObservations": [
-      "SetupCI40209897402 alreadyfailed registerstep8 becauseotherworkerCP073centralentrylacksstageOutcomes;BpreservedAentry.",
-      "Allthreeessential2026catalogueheaders/detailsretrievedcompletely, so noessentialsourcefailure.",
-      "Someoversizedprofilereadoutputs truncated; full37profileacademicjudgment notclaimed.",
-      "bs4 unavailable;standard-libraryregexusedsuccessfullyforexactofficialcataloguelinks."
     ],
-    "userInterventions": [],
+    "completedAt": "2026-10-25T18:47:54.602Z"
+  },
+  "workerClaim": null,
+  "executionMetrics": {
+    "executionId": "B-cp068-20261025T182940Z",
+    "startedAt": "2026-10-25T18:29:39.112450Z",
+    "finalReviewAt": "2026-10-25T18:47:54.602Z",
+    "elapsedWallSeconds": 1095,
+    "elapsedTimeLimitReached": false,
+    "additionalAcademicUserInterventions": 0,
+    "essentialSourceRetrievalFailures": 0,
+    "observedInterruptions": [],
+    "technicalObservations": [
+      {
+        "cause": "Ad-hoc claim/metadata scripting and initial29vs28component assertion corrected locally; failedchecknotfinalapproval.",
+        "resolved": true
+      },
+      {
+        "cause": "Initial final-stage central/downstream mismatch rejected by localregister; synchronized completed reassessment before rootpublication.",
+        "resolved": true
+      },
+      {
+        "cause": "Initial sourceNotes incorrectly copied Theology's obsolete BSAfooter claim. This case's own OER retains2026–27 footer. Source-first pass corrected paired decision/canonical and sourceevidence in2b21b0f; schema/replay/actualUI repeated on changed basis before approval.",
+        "resolved": true
+      },
+      {
+        "cause": "Generic UI supplement expected28components fromearliercase;actualRPS29 assertionfailed. Helpercorrected to29 andfullactualUI rerunpassed. No datarepairneeded.",
+        "resolved": true
+      }
+    ],
+    "scope": "Measured elapsed wall time from current actual run start, including source/course review, correction, rendering, publication and CI waits. Active effort/rate not measured. Previous interrupted B work preserved and reused; no imposed execution deadline observed.",
+    "recurringQualityProblems": [
+      "Cross-case source-edition prose must be checked against the selected case's own PDF; false inherited footer claim caught by source-first pass and corrected before final.",
+      "Coherent politics/media/philosophy cannot replace sustained comparative religious traditions and religious-studies methods.",
+      "FormalNONE prerequisite cells can omit actual preparation.",
+      "Illustrative named events not confirmed as current recurring components must not become UCR generators."
+    ],
     "releaseBlockers": [
       "formal-schema-operational-discrepancy"
     ]
