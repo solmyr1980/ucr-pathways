@@ -1919,11 +1919,33 @@
       "unresolved": [
         "Verify applicable entry/attendance conditions of newly required AI-Assisted Development NWI-IBC054, Human-Computer Interaction NWI-IBC053 and Information Retrieval NWI-IBC052. All three2026catalogue endpoints return404; corresponding2027endpoints also404. Currentprospectiveyear2/3pagesgiveprovisional2027–28overviewsbutnotthesethreecourseconditions. The adopted identities/3ECcredits are verified, but no absence of prerequisites is inferred."
       ],
-      "downstreamReassessments": [],
-      "implementationCommits": [],
+      "downstreamReassessments": [
+        {
+          "trigger": "Applicableofficialnew-corecourseentry/attendanceconditionsforIBC054,IBC053,IBC052.",
+          "scope": "Completeexternalprogression/source-firstacademicverificationandaffectedcomparability/audiencegates;preserveunchangedverifiedcourses/schedules/rendering.",
+          "stages": [
+            1,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "implementationCommits": [
+        "fc3b0edc70e316b1fc546bae2b3004cd4f446b20"
+      ],
       "presentationApproval": false,
-      "stageOutcomes": {},
-      "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000052.json"
+      "stageOutcomes": {
+        "1": "blocked",
+        "2": "correct",
+        "3": "blocked",
+        "4": "retain",
+        "5": "correct",
+        "6": "blocked"
+      },
+      "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000052.json",
+      "academicDisposition": "comparison"
     }
   ],
   "sharedIssues": [
@@ -8245,25 +8267,7 @@
           "minute": 30
         },
         "nextCase": "cp-000052",
-        "activeClaim": {
-          "worker": "B",
-          "caseId": "cp-000052",
-          "executionId": "B-cp052-20261025T053311Z",
-          "automationRunId": "3f6966d6-d6b0-8329-baff-fc2e01345e6a",
-          "startedAt": "2026-10-25 05:34:48 UTC",
-          "reviewedInputCommit": "595456b5a5ec057a4e06041a72e75a0ca35bbc2a",
-          "inputBlobs": {
-            "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
-            "data/counselor/decisions/cp-000052.json": "b19195f45844f4fbceb9981f8d1ee2ee4c277a1c",
-            "data/counselor/comparisons/cp-000052.json": "99b04163873d22d099ae874d22c301ea458d2941",
-            "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-            "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
-            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "d1c9572d5c09307a3c7951b4a703c2e6b9bb4206"
-          },
-          "checkpoint": "No previous comprehensive checkpoint; one Computing/data/AI alternative.",
-          "nextAction": "Verify applicable entry/attendance conditions of newly required AI-Assisted Development NWI-IBC054, Human-Computer Interaction NWI-IBC053 and Information Retrieval NWI-IBC052. All three2026catalogue endpoints return404; corresponding2027endpoints also404. Currentprospectiveyear2/3pagesgiveprovisional2027–28overviewsbutnotthesethreecourseconditions. The adopted identities/3ECcredits are verified, but no absence of prerequisites is inferred. Completeaffectedsource-first/finalgates;secondunsuccessfulessential-sourceexecutiondeferscasewithoutfinalcompletion.",
-          "stage": 1
-        },
+        "activeClaim": null,
         "completedCases": [
           "cp-000038",
           "cp-000040",
@@ -8287,6 +8291,15 @@
             "deferred": true,
             "deferralCommit": "19d25e653f88b30ad4ee07e98017d975d618bd9c",
             "publicationVerified": true
+          },
+          "cp-000052": {
+            "unsuccessfulExecutions": 1,
+            "executionIds": [
+              "B-cp052-20261025T053311Z"
+            ],
+            "lastAttemptAt": "2026-10-25T05:47:11.653310+00:00",
+            "questionsEvidenceRef": "docs/qc/evidence/counselor-corpus-B-cp052-2026-10-25/source-retrieval-execution-1.json",
+            "deferred": false
           }
         },
         "deferredRevisitsByCase": {},
