@@ -6477,7 +6477,7 @@
     },
     {
       "id": "cp-000075",
-      "state": "in-progress",
+      "state": "approved",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000075.json",
       "stageOutcomes": {
         "1": "correct",
@@ -6485,23 +6485,11 @@
         "3": "reconstruct",
         "4": "correct",
         "5": "correct",
-        "6": "blocked"
+        "6": "correct"
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Theological substance absent despite broadercoherence",
-          "scope": "Allinterests/candidates/ownership/stopping/contentweights/schedules/alignments/audience",
-          "stages": [
-            2,
-            3,
-            4,
-            5,
-            6
-          ]
-        }
-      ],
+      "downstreamReassessments": [],
       "implementationCommits": [
         "58222800165f18c3bde65dd54f58c157ca8b1e5b"
       ],
@@ -6566,11 +6554,16 @@
         "ci": {
           "inputRunId": 40219418902,
           "inputCommit": "58222800165f18c3bde65dd54f58c157ca8b1e5b",
-          "inputConclusion": "pending",
-          "evidenceRequiredChecks": "root register/audience/evidence/integrity checks passed; full R/Shiny pending."
+          "frozenReviewedCommit": "c994b00127dc93afe07e1ff606f9ca7e402dc22a",
+          "inputConclusion": "success",
+          "committedIdenticalInputPaths": 17,
+          "regeneratedIdenticalDerivedIndex": "db0668fde95b449b881b9ab0d2db6ee8e69108ca",
+          "derivationProof": "CI step6 rebuilds review index before validating indexes and all R/Shiny tests. The same unchanged script rebuilt locally against the paired inputs to exact current/frozen db0668fde95b449b881b9ab0d2db6ee8e69108ca. Full CI therefore tests all18 effective actual inputs, although17 are byte-identical in the raw parent tree.",
+          "evidenceRunId": 40220113354,
+          "evidenceRequiredChecks": "Register, audience/evidence and integrity steps8/10/11 passed on frozen verification evidence; full R/Shiny passed on effective identical inputs."
         }
       },
-      "presentationApproval": false,
+      "presentationApproval": true,
       "checkpoint": {
         "worker": "A",
         "caseId": "cp-000075",
@@ -6595,12 +6588,13 @@
           "pilot/shiny/data/courses/GOS.json": "a70d5a154184f75dff1983983b0136a109d2293b",
           "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
           "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
-          "data/counselor/decisions/cp-000075.json": "894e2955417fddebc5923a2a915e23fb84093f45",
-          "data/counselor/comparisons/cp-000075.json": "3ae81aec3d66cfcb8208d4946402bfada2baa275"
+          "data/counselor/review-programmes.json": "db0668fde95b449b881b9ab0d2db6ee8e69108ca",
+          "data/counselor/decisions/cp-000075.json": "f025938eeacd6e4195ae0a25271cce2bf46681fd",
+          "data/counselor/comparisons/cp-000075.json": "9fcf9aaa399bdbe6aed4db5433ef90a589105ba6"
         },
         "stage": 6,
-        "checkpoint": "Academic, mechanical and actual desktop/mobile presentation verified; full CI pending.",
-        "nextAction": "Await full relevant CI on identical frozen actual inputs, then publish final disposition, verify hashes and publish reporting milestone30.",
+        "checkpoint": "Final approved no-defensible-UCR-match; all applicable gates verified.",
+        "nextAction": "CP075 complete. No further case in this execution; next assigned A case is CP077. Publish and verify final disposition and reporting milestone30.",
         "setupCI": {
           "head": "4cf93c2510991bf6839faa1f1a1a4945bc0f1f47",
           "runs": [
@@ -6619,57 +6613,10 @@
           ],
           "observedFailures": []
         },
-        "lastVerifiedAt": "2026-10-25T18:10:37.101Z"
+        "lastVerifiedAt": "2026-10-25T18:13:26.142Z",
+        "completedAt": "2026-10-25T18:13:26.142Z"
       },
-      "workerClaim": {
-        "worker": "A",
-        "caseId": "cp-000075",
-        "executionId": "A-cp075-20261025T175651Z",
-        "automationRunId": "54230943-7d8c-8322-b575-c40c8ccf7edd",
-        "startedAt": "2026-10-25T17:56:50.515769Z",
-        "claimedAt": "2026-10-25T17:58:26.602Z",
-        "reviewedInputCommit": "4cf93c2510991bf6839faa1f1a1a4945bc0f1f47",
-        "inputBlobs": {
-          "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
-          "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-          "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
-          "data/registry/programmes.csv": "e0b978c7efb7afc1f60a47ef53827e022df542e9",
-          "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "d1c9572d5c09307a3c7951b4a703c2e6b9bb4206",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
-          "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
-          "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
-          "pilot/shiny/data/courses/BEN.json": "01f692c24c8407fdb4cca4154abc8c1b544f7958",
-          "pilot/shiny/data/courses/DIS.json": "f7d8f10c6dad39a63e25cc214b0ea95a6db5ed3d",
-          "pilot/shiny/data/courses/ENS.json": "2363c63ec014611d1a7708895f6e14f31e29cb95",
-          "pilot/shiny/data/courses/GOS.json": "a70d5a154184f75dff1983983b0136a109d2293b",
-          "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
-          "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
-          "data/counselor/decisions/cp-000075.json": "894e2955417fddebc5923a2a915e23fb84093f45",
-          "data/counselor/comparisons/cp-000075.json": "3ae81aec3d66cfcb8208d4946402bfada2baa275"
-        },
-        "stage": 1,
-        "checkpoint": "First comprehensive review of assigned CP075; no academic gate yet approved.",
-        "nextAction": "Await full relevant CI on identical frozen actual inputs, then publish final disposition, verify hashes and publish reporting milestone30.",
-        "setupCI": {
-          "head": "4cf93c2510991bf6839faa1f1a1a4945bc0f1f47",
-          "runs": [
-            {
-              "id": 40217092526,
-              "name": "Validate Shiny pilots",
-              "status": "completed",
-              "conclusion": "success"
-            },
-            {
-              "id": 40217091974,
-              "name": "pages build and deployment",
-              "status": "completed",
-              "conclusion": "success"
-            }
-          ],
-          "observedFailures": []
-        }
-      },
+      "workerClaim": null,
       "academicDisposition": "no-defensible-ucr-match",
       "reviewedInputCommit": "c994b00127dc93afe07e1ff606f9ca7e402dc22a",
       "inputBlobs": {
@@ -6817,8 +6764,8 @@
     }
   ],
   "progress": {
-    "approved": 55,
-    "inProgress": 7,
+    "approved": 56,
+    "inProgress": 6,
     "reviewedWithBlockers": 10,
     "notStarted": 366,
     "pilotStarted": 6
@@ -12656,56 +12603,8 @@
           "frequency": "hourly",
           "minute": 0
         },
-        "nextCase": "cp-000075",
-        "activeClaim": {
-          "worker": "A",
-          "caseId": "cp-000075",
-          "executionId": "A-cp075-20261025T175651Z",
-          "automationRunId": "54230943-7d8c-8322-b575-c40c8ccf7edd",
-          "startedAt": "2026-10-25T17:56:50.515769Z",
-          "claimedAt": "2026-10-25T17:58:26.602Z",
-          "reviewedInputCommit": "4cf93c2510991bf6839faa1f1a1a4945bc0f1f47",
-          "inputBlobs": {
-            "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
-            "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-            "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
-            "data/registry/programmes.csv": "e0b978c7efb7afc1f60a47ef53827e022df542e9",
-            "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
-            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "d1c9572d5c09307a3c7951b4a703c2e6b9bb4206",
-            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
-            "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
-            "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
-            "pilot/shiny/data/courses/BEN.json": "01f692c24c8407fdb4cca4154abc8c1b544f7958",
-            "pilot/shiny/data/courses/DIS.json": "f7d8f10c6dad39a63e25cc214b0ea95a6db5ed3d",
-            "pilot/shiny/data/courses/ENS.json": "2363c63ec014611d1a7708895f6e14f31e29cb95",
-            "pilot/shiny/data/courses/GOS.json": "a70d5a154184f75dff1983983b0136a109d2293b",
-            "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
-            "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
-            "data/counselor/decisions/cp-000075.json": "894e2955417fddebc5923a2a915e23fb84093f45",
-            "data/counselor/comparisons/cp-000075.json": "3ae81aec3d66cfcb8208d4946402bfada2baa275"
-          },
-          "stage": 1,
-          "checkpoint": "First comprehensive review of assigned CP075; no academic gate yet approved.",
-          "nextAction": "Await full relevant CI on identical frozen actual inputs, then publish final disposition, verify hashes and publish reporting milestone30.",
-          "setupCI": {
-            "head": "4cf93c2510991bf6839faa1f1a1a4945bc0f1f47",
-            "runs": [
-              {
-                "id": 40217092526,
-                "name": "Validate Shiny pilots",
-                "status": "completed",
-                "conclusion": "success"
-              },
-              {
-                "id": 40217091974,
-                "name": "pages build and deployment",
-                "status": "completed",
-                "conclusion": "success"
-              }
-            ],
-            "observedFailures": []
-          }
-        },
+        "nextCase": "cp-000077",
+        "activeClaim": null,
         "completedCases": [
           "cp-000037",
           "cp-000039",
@@ -12722,7 +12621,8 @@
           "cp-000065",
           "cp-000067",
           "cp-000071",
-          "cp-000073"
+          "cp-000073",
+          "cp-000075"
         ],
         "deferredCases": [
           "cp-000041",
@@ -12922,6 +12822,14 @@
             "reviewedInputCommit": "4606c26991adc42cebf561aa1e69a696384f3f4c",
             "finalDispositionCommit": "36c4fa438dd1c5e8bc17e9f7eb5eddc0e2e4c16a",
             "publicationVerifiedAt": "2026-10-25T17:32:24.189Z"
+          },
+          {
+            "caseId": "cp-000075",
+            "state": "approved",
+            "academicDisposition": "no-defensible-ucr-match",
+            "completedAt": "2026-10-25T18:13:26.142Z",
+            "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000075.json",
+            "reviewedInputCommit": "c994b00127dc93afe07e1ff606f9ca7e402dc22a"
           }
         ],
         "lastCheckpoint": {
@@ -12948,12 +12856,13 @@
             "pilot/shiny/data/courses/GOS.json": "a70d5a154184f75dff1983983b0136a109d2293b",
             "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
             "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
-            "data/counselor/decisions/cp-000075.json": "894e2955417fddebc5923a2a915e23fb84093f45",
-            "data/counselor/comparisons/cp-000075.json": "3ae81aec3d66cfcb8208d4946402bfada2baa275"
+            "data/counselor/review-programmes.json": "db0668fde95b449b881b9ab0d2db6ee8e69108ca",
+            "data/counselor/decisions/cp-000075.json": "f025938eeacd6e4195ae0a25271cce2bf46681fd",
+            "data/counselor/comparisons/cp-000075.json": "9fcf9aaa399bdbe6aed4db5433ef90a589105ba6"
           },
           "stage": 6,
-          "checkpoint": "Academic, mechanical and actual desktop/mobile presentation verified; full CI pending.",
-          "nextAction": "Await full relevant CI on identical frozen actual inputs, then publish final disposition, verify hashes and publish reporting milestone30.",
+          "checkpoint": "Final approved no-defensible-UCR-match; all applicable gates verified.",
+          "nextAction": "CP075 complete. No further case in this execution; next assigned A case is CP077. Publish and verify final disposition and reporting milestone30.",
           "setupCI": {
             "head": "4cf93c2510991bf6839faa1f1a1a4945bc0f1f47",
             "runs": [
@@ -12972,7 +12881,8 @@
             ],
             "observedFailures": []
           },
-          "lastVerifiedAt": "2026-10-25T18:10:37.101Z"
+          "lastVerifiedAt": "2026-10-25T18:13:26.142Z",
+          "completedAt": "2026-10-25T18:13:26.142Z"
         }
       },
       "B": {
