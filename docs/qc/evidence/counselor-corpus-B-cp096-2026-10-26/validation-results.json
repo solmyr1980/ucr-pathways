@@ -1,0 +1,26 @@
+{
+  "caseId": "cp-000096",
+  "inputCommit": "29e5d15f607a285d0c31237722412164aeb73efd",
+  "mechanicalEvidence": "docs/qc/evidence/counselor-corpus-B-cp096-2026-10-26/final-mechanical.json",
+  "fullFormalAudienceMethodologySchemas": "passed",
+  "compiler": "byte-exact",
+  "operationalCorpus": {
+    "records": 438,
+    "result": "passed"
+  },
+  "actualPresentation": "All 62 modal openings, both included alternatives and complete comparator curriculum on actual desktop/mobile; source/catalogue/builder controls and navigation checked. Visual findings recorded in manifest.",
+  "observedTechnicalIssues": [
+    {
+      "action": "First paired candidate",
+      "failure": "Prose-spacing helper changed BENECON111 into BENEC ON111 in commit 386fc3a. Direct workbook lookup caught the invalid course code; initial actual render could not load that cache entry.",
+      "resolution": "Correct paired root/canonical 79402913; all 48 actual placements rechecked and actual render repeated. No approval used invalid basis."
+    },
+    {
+      "action": "Visual final pass",
+      "failure": "Joined words in three explanatory passages persisted in candidate 79402913.",
+      "resolution": "Exact prose replacements only. Compiler refused existing canonical; shell result was not gated and commit 28a4febe temporarily changed root alone. Regenerated canonical and synchronized in 29e5d15f. Byte-exact replay, frozen checks and full actual render repeated. This publication sequencing error is recorded; only synchronized final basis is approved."
+    }
+  ],
+  "sourceFailureExecutions": 0,
+  "releaseDependency": "formal-schema-operational-discrepancy remains a separate release/integration dependency; no deployment or release authority."
+}
