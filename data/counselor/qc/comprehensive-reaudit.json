@@ -8567,20 +8567,23 @@
     },
     {
       "id": "cp-000097",
-      "state": "in-progress",
+      "state": "approved",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000097.json",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
         "3": "retain",
         "4": "correct",
-        "5": "correct"
+        "5": "correct",
+        "6": "correct"
       },
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "4b4d2e6c02c3a28129d4f035717f0331b4fb3574"
+      ],
+      "presentationApproval": true,
       "checkpoint": {
         "worker": "A",
         "caseId": "cp-000097",
@@ -8588,7 +8591,7 @@
         "automationRunId": "d25233b9-85b8-8322-8b3a-a67868a9dd4d",
         "startedAt": "2026-10-26T12:02:51.338574Z",
         "claimedAt": "2026-10-26T12:05:15.933Z",
-        "reviewedInputCommit": "38a7d0ff5854a6c8c4acda6c0ff4766e546b1d44",
+        "reviewedInputCommit": "4b4d2e6c02c3a28129d4f035717f0331b4fb3574",
         "inputBlobs": {
           "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
           "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
@@ -8607,12 +8610,12 @@
           "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
           "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
           "data/counselor/review-interests.json": "a58bac210cd55300dd10801d3206408623f1747c",
-          "data/counselor/decisions/cp-000097.json": "2e30251d8840a0361f0046780f221e59837ae496",
-          "data/counselor/comparisons/cp-000097.json": "6341b259b1b14f1ab1ce5595f1d549e7ed44d102"
+          "data/counselor/decisions/cp-000097.json": "47e3247751088ceefcb9960eff620f5a442dc444",
+          "data/counselor/comparisons/cp-000097.json": "35f27f4b771c634516d2fd68aed0d4c6e8cc1cd1"
         },
-        "stage": 5,
-        "checkpoint": "Stages1–5 examined; preservebothUCRcurricula/all28courses/all48placements. Boundedsource/trace/alignment/audience/formalevidencerepairs;fullschema/replay/workbookchecks locallypassed. Awaitpairedpublication,frozeninputs,separatesource-firstfinalpassandactualUI.",
-        "nextAction": "PublishpairedCP097repair;freeze19actualinputs;performseparatesource-firstfinalpassandactualShinydesktop/mobilebothalternatives/all28selectedmodals.",
+        "stage": 6,
+        "checkpoint": "All six stages and repairs verified; both qualified comparisons approved after source-first same-AI final pass, full schemas/replay/workbook checks, actual desktop/mobile visual inspection and successful full paired-input CI. Published immutable evidence verified.",
+        "nextAction": "Verify final disposition publication and receipt; then CP097 is complete and CP099 is next in a separate A execution. CP097–CP098 remains open.",
         "setupCI": {
           "head": "38a7d0ff5854a6c8c4acda6c0ff4766e546b1d44",
           "runs": [
@@ -8630,7 +8633,8 @@
           "observedFailures": []
         },
         "essentialSourceRetrievalFailures": 0,
-        "lastVerifiedAt": "2026-10-26T12:19:30.589Z"
+        "lastVerifiedAt": "2026-10-26T12:42:14.973Z",
+        "evidenceCommit": "139f0c1865f8e0d01e4028a38d7075f1b05bb8aa"
       },
       "academicDisposition": "comparison"
     },
@@ -8840,8 +8844,8 @@
     }
   ],
   "progress": {
-    "approved": 76,
-    "inProgress": 7,
+    "approved": 77,
+    "inProgress": 6,
     "reviewedWithBlockers": 12,
     "notStarted": 343,
     "pilotStarted": 6
@@ -14679,58 +14683,8 @@
           "frequency": "hourly",
           "minute": 0
         },
-        "nextCase": "cp-000097",
-        "activeClaim": {
-          "worker": "A",
-          "caseId": "cp-000097",
-          "executionId": "A-cp097-20261026T120255Z",
-          "automationRunId": "d25233b9-85b8-8322-8b3a-a67868a9dd4d",
-          "startedAt": "2026-10-26T12:02:51.338574Z",
-          "claimedAt": "2026-10-26T12:05:15.933Z",
-          "reviewedInputCommit": "38a7d0ff5854a6c8c4acda6c0ff4766e546b1d44",
-          "inputBlobs": {
-            "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
-            "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
-            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "d1c9572d5c09307a3c7951b4a703c2e6b9bb4206",
-            "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-            "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
-            "data/registry/programmes.csv": "e0b978c7efb7afc1f60a47ef53827e022df542e9",
-            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
-            "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
-            "data/counselor/review-programmes.json": "e9463c8bbfddf2ce4338823d4e42cc98a5efad07",
-            "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
-            "pilot/shiny/data/courses/BEN.json": "01f692c24c8407fdb4cca4154abc8c1b544f7958",
-            "pilot/shiny/data/courses/DIS.json": "f7d8f10c6dad39a63e25cc214b0ea95a6db5ed3d",
-            "pilot/shiny/data/courses/ENS.json": "d1da80e0530e5f731047547c2f807059bbf6131b",
-            "pilot/shiny/data/courses/GOS.json": "a70d5a154184f75dff1983983b0136a109d2293b",
-            "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
-            "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
-            "data/counselor/review-interests.json": "a58bac210cd55300dd10801d3206408623f1747c",
-            "data/counselor/decisions/cp-000097.json": "2e30251d8840a0361f0046780f221e59837ae496",
-            "data/counselor/comparisons/cp-000097.json": "6341b259b1b14f1ab1ce5595f1d549e7ed44d102"
-          },
-          "stage": 5,
-          "checkpoint": "Stages1–5 examined; preservebothUCRcurricula/all28courses/all48placements. Boundedsource/trace/alignment/audience/formalevidencerepairs;fullschema/replay/workbookchecks locallypassed. Awaitpairedpublication,frozeninputs,separatesource-firstfinalpassandactualUI.",
-          "nextAction": "PublishpairedCP097repair;freeze19actualinputs;performseparatesource-firstfinalpassandactualShinydesktop/mobilebothalternatives/all28selectedmodals.",
-          "setupCI": {
-            "head": "38a7d0ff5854a6c8c4acda6c0ff4766e546b1d44",
-            "runs": [
-              {
-                "id": 40318921011,
-                "name": "Validate Shiny pilots",
-                "conclusion": "success"
-              },
-              {
-                "id": 40318919695,
-                "name": "pages build and deployment",
-                "conclusion": "success"
-              }
-            ],
-            "observedFailures": []
-          },
-          "essentialSourceRetrievalFailures": 0,
-          "lastVerifiedAt": "2026-10-26T12:19:30.589Z"
-        },
+        "nextCase": "cp-000099",
+        "activeClaim": null,
         "completedCases": [
           "cp-000037",
           "cp-000039",
@@ -14758,7 +14712,8 @@
           "cp-000089",
           "cp-000091",
           "cp-000093",
-          "cp-000095"
+          "cp-000095",
+          "cp-000097"
         ],
         "deferredCases": [
           "cp-000041",
@@ -15075,6 +15030,15 @@
             "finalDispositionCommit": "970364fda96b2b2207c35f8e93cebd96d6f594f8",
             "publicationVerifiedAt": "2026-10-26T11:21:51.213Z",
             "publicationVerified": true
+          },
+          {
+            "caseId": "cp-000097",
+            "state": "approved",
+            "academicDisposition": "comparison",
+            "completedAt": "2026-10-26T12:42:14.973Z",
+            "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000097.json",
+            "reviewedInputCommit": "4b4d2e6c02c3a28129d4f035717f0331b4fb3574",
+            "evidenceCommit": "139f0c1865f8e0d01e4028a38d7075f1b05bb8aa"
           }
         ],
         "lastCheckpoint": {
@@ -15084,7 +15048,7 @@
           "automationRunId": "d25233b9-85b8-8322-8b3a-a67868a9dd4d",
           "startedAt": "2026-10-26T12:02:51.338574Z",
           "claimedAt": "2026-10-26T12:05:15.933Z",
-          "reviewedInputCommit": "38a7d0ff5854a6c8c4acda6c0ff4766e546b1d44",
+          "reviewedInputCommit": "4b4d2e6c02c3a28129d4f035717f0331b4fb3574",
           "inputBlobs": {
             "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
             "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
@@ -15103,12 +15067,12 @@
             "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
             "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
             "data/counselor/review-interests.json": "a58bac210cd55300dd10801d3206408623f1747c",
-            "data/counselor/decisions/cp-000097.json": "2e30251d8840a0361f0046780f221e59837ae496",
-            "data/counselor/comparisons/cp-000097.json": "6341b259b1b14f1ab1ce5595f1d549e7ed44d102"
+            "data/counselor/decisions/cp-000097.json": "47e3247751088ceefcb9960eff620f5a442dc444",
+            "data/counselor/comparisons/cp-000097.json": "35f27f4b771c634516d2fd68aed0d4c6e8cc1cd1"
           },
-          "stage": 5,
-          "checkpoint": "Stages1–5 examined; preservebothUCRcurricula/all28courses/all48placements. Boundedsource/trace/alignment/audience/formalevidencerepairs;fullschema/replay/workbookchecks locallypassed. Awaitpairedpublication,frozeninputs,separatesource-firstfinalpassandactualUI.",
-          "nextAction": "PublishpairedCP097repair;freeze19actualinputs;performseparatesource-firstfinalpassandactualShinydesktop/mobilebothalternatives/all28selectedmodals.",
+          "stage": 6,
+          "checkpoint": "All six stages and repairs verified; both qualified comparisons approved after source-first same-AI final pass, full schemas/replay/workbook checks, actual desktop/mobile visual inspection and successful full paired-input CI. Published immutable evidence verified.",
+          "nextAction": "Verify final disposition publication and receipt; then CP097 is complete and CP099 is next in a separate A execution. CP097–CP098 remains open.",
           "setupCI": {
             "head": "38a7d0ff5854a6c8c4acda6c0ff4766e546b1d44",
             "runs": [
@@ -15126,8 +15090,10 @@
             "observedFailures": []
           },
           "essentialSourceRetrievalFailures": 0,
-          "lastVerifiedAt": "2026-10-26T12:19:30.589Z"
-        }
+          "lastVerifiedAt": "2026-10-26T12:42:14.973Z",
+          "evidenceCommit": "139f0c1865f8e0d01e4028a38d7075f1b05bb8aa"
+        },
+        "lastCompletedAt": "2026-10-26T12:42:14.973Z"
       },
       "B": {
         "automationId": "6adceb9664b08191a4eadc4daeb7ad15",
