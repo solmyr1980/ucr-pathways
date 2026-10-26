@@ -1,11 +1,11 @@
 {
   "id": "cp-000099",
-  "reviewedInputCommit": "af79edc639d65784753fca8517cf3755b662cf1c",
+  "reviewedInputCommit": "c8b9c605782e61b38cd4b8f272044a613a9bf922",
   "inputBlobs": {
-    "canonical": "67d6f2b4dc715e56e8e091fcce90de01744f4fd2",
-    "decision": "8ab72041fc73e6226f55c5f8a2b64d00c6d273ea"
+    "decision": "17418975770fabcf09510992a6837fc00b92885a",
+    "canonical": "6a5a2de7fc1cb5122beb87addc8de0dd2c01a042"
   },
-  "state": "in-progress",
+  "state": "reviewed-with-blockers",
   "stages": {
     "1": {
       "outcome": "blocked",
@@ -29,7 +29,17 @@
       "preserved": [
         "Verified first-year60EC and minimum open-study30EC; exact Dutch fulltime target."
       ],
-      "actions": [],
+      "actions": [
+        {
+          "scope": "Verify every interest and restricted-choice/minor boundary.",
+          "state": "verified",
+          "implementationCommit": "c8b9c605782e61b38cd4b8f272044a613a9bf922",
+          "verificationEvidenceRefs": [
+            "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/source-first-final-pass.json",
+            "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/rendered/manifest.json"
+          ]
+        }
+      ],
       "evidence": [
         "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/academic-review.json",
         "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/interest-review.json"
@@ -73,10 +83,35 @@
       "preserved": [
         "Verified first-year60EC and minimum open-study30EC; exact Dutch fulltime target."
       ],
-      "actions": [],
+      "actions": [
+        {
+          "scope": "Repair reviewed partial external-only audience explanation.",
+          "state": "verified",
+          "implementationCommit": "c8b9c605782e61b38cd4b8f272044a613a9bf922",
+          "verificationEvidenceRefs": [
+            "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/source-first-final-pass.json",
+            "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/rendered/manifest.json"
+          ]
+        }
+      ],
       "evidence": [
         "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/academic-review.json",
         "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/interest-review.json"
+      ],
+      "blockedBy": [],
+      "reassessStages": []
+    },
+    "6": {
+      "outcome": "retain",
+      "finding": "Actual desktop/mobile partial exception inspected: all eleven components90EC, explicit remaining90EC uncertainty, no UCR alternatives or fabricated schedule, correct source and UCR links and search navigation. Four screenshots visually inspected. Full paired-input CI, full exception/audience schemas, byte-exact compiler replay and operational/register/index checks passed. Same AI conducted separate source-first final pass.",
+      "preserved": [
+        "Partial external-only presentation with no academic/presentation approval."
+      ],
+      "actions": [],
+      "evidence": [
+        "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/rendered/manifest.json",
+        "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/rendered/results-cp-000099.json",
+        "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/rendered/supplement.json"
       ],
       "blockedBy": [],
       "reassessStages": []
@@ -93,8 +128,69 @@
     }
   ],
   "downstreamReassessments": [],
-  "implementationCommits": [],
-  "finalReview": null,
+  "implementationCommits": [
+    "c8b9c605782e61b38cd4b8f272044a613a9bf922"
+  ],
+  "finalReview": {
+    "reviewerOrPass": "Separate source-first final pass by the same AI; not a second reviewer",
+    "independenceMethod": "Return first to the adopted OER Articles11.3,12.1,12.2,14.1,15.2 and revision pages1–2, then challenge the corrected record. Verify the new entrant cohort separately from outgoing specialisations, actual credit evidence and every interest; inspect the actual external-only Shiny presentation after freezing inputs. Same AI limitation explicit.",
+    "reviewedOn": "2026-10-26",
+    "reviewedCommit": "c8b9c605782e61b38cd4b8f272044a613a9bf922",
+    "inputBlobs": {
+      "decision": "17418975770fabcf09510992a6837fc00b92885a",
+      "canonical": "6a5a2de7fc1cb5122beb87addc8de0dd2c01a042"
+    },
+    "frozenDependencies": {
+      "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
+      "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
+      "docs/qc/counselor-comprehensive-reaudit-protocol.md": "d1c9572d5c09307a3c7951b4a703c2e6b9bb4206",
+      "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
+      "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
+      "data/registry/programmes.csv": "e0b978c7efb7afc1f60a47ef53827e022df542e9",
+      "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+      "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+      "data/counselor/review-programmes.json": "e9463c8bbfddf2ce4338823d4e42cc98a5efad07",
+      "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
+      "pilot/shiny/data/courses/BEN.json": "01f692c24c8407fdb4cca4154abc8c1b544f7958",
+      "pilot/shiny/data/courses/DIS.json": "f7d8f10c6dad39a63e25cc214b0ea95a6db5ed3d",
+      "pilot/shiny/data/courses/ENS.json": "d1da80e0530e5f731047547c2f807059bbf6131b",
+      "pilot/shiny/data/courses/GOS.json": "a70d5a154184f75dff1983983b0136a109d2293b",
+      "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
+      "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
+      "data/counselor/review-interests.json": "a58bac210cd55300dd10801d3206408623f1747c",
+      "data/counselor/decisions/cp-000099.json": "17418975770fabcf09510992a6837fc00b92885a",
+      "data/counselor/comparisons/cp-000099.json": "6a5a2de7fc1cb5122beb87addc8de0dd2c01a042"
+    },
+    "sourceEvidenceRefs": [
+      "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/academic-review.json",
+      "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/interest-review.json",
+      "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/source-first-final-pass.json"
+    ],
+    "checks": {
+      "academic": {
+        "status": "passed-with-explicit-unresolved-evidence",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/academic-review.json",
+          "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/interest-review.json"
+        ]
+      },
+      "mechanical": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/final-mechanical.json"
+        ]
+      },
+      "rendered": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/rendered/manifest.json",
+          "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/rendered/results-cp-000099.json",
+          "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/rendered/supplement.json"
+        ]
+      }
+    },
+    "explicitLimit": "External degree reconstruction remains unresolved. This final reviewed-with-blockers disposition confers no academic or presentation approval."
+  },
   "schemaVersion": "2.0",
   "auditId": "counselor-comprehensive-reaudit",
   "presentationApproval": false,
@@ -124,7 +220,56 @@
       "purpose": "Applicable cohort and partial credit reconstruction"
     }
   ],
-  "renderedEvidence": [],
+  "renderedEvidence": [
+    {
+      "path": "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/rendered/desktop-1.webp",
+      "sha256": "3edfcd959a9a2f781059525a46e486f1357e74257ad5d0425384eca62aef7169",
+      "gitBlob": "ea4e3c84e031fedda929d9169c019b0b2991c762",
+      "recordId": "cp-000099",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "inputCommit": "c8b9c605782e61b38cd4b8f272044a613a9bf922",
+      "presentationMode": "partial"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/rendered/desktop-2.webp",
+      "sha256": "ba12d155af2c0a9d78018101d9facfcc4d6323f0321f597338880fd4c80efbb4",
+      "gitBlob": "9453dce5a7cac2b509355f6dae026a1f1199bb51",
+      "recordId": "cp-000099",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "inputCommit": "c8b9c605782e61b38cd4b8f272044a613a9bf922",
+      "presentationMode": "partial"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/rendered/desktop-3.webp",
+      "sha256": "e50d79bf31c1c03988e2587c7a0810f0c2d815c3c4072820ff5dd3f5ae21e575",
+      "gitBlob": "3af552a3873bae6ffd78ab50827b84a70c32f1f6",
+      "recordId": "cp-000099",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "inputCommit": "c8b9c605782e61b38cd4b8f272044a613a9bf922",
+      "presentationMode": "partial"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/rendered/mobile-1.webp",
+      "sha256": "5b42258033f115c7200fea5ba31968bf7595c54f7a4f426a68c7d0fc0c116a6f",
+      "gitBlob": "06d5931b334f2514b2b3e375a15df387259efa4d",
+      "recordId": "cp-000099",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "inputCommit": "c8b9c605782e61b38cd4b8f272044a613a9bf922",
+      "presentationMode": "partial"
+    }
+  ],
   "checkpoint": {
     "worker": "A",
     "caseId": "cp-000099",
@@ -132,7 +277,7 @@
     "automationRunId": "e2840d9f-f778-832d-8c17-0b85553dfd04",
     "startedAt": "2026-10-26T13:01:10.596250Z",
     "claimedAt": "2026-10-26T13:03:04.164Z",
-    "reviewedInputCommit": "af79edc639d65784753fca8517cf3755b662cf1c",
+    "reviewedInputCommit": "c8b9c605782e61b38cd4b8f272044a613a9bf922",
     "inputBlobs": {
       "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
       "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
@@ -151,12 +296,12 @@
       "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
       "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
       "data/counselor/review-interests.json": "a58bac210cd55300dd10801d3206408623f1747c",
-      "data/counselor/decisions/cp-000099.json": "8ab72041fc73e6226f55c5f8a2b64d00c6d273ea",
-      "data/counselor/comparisons/cp-000099.json": "67d6f2b4dc715e56e8e091fcce90de01744f4fd2"
+      "data/counselor/decisions/cp-000099.json": "17418975770fabcf09510992a6837fc00b92885a",
+      "data/counselor/comparisons/cp-000099.json": "6a5a2de7fc1cb5122beb87addc8de0dd2c01a042"
     },
-    "stage": 5,
-    "checkpoint": "Sources inspected, 54 interests reviewed, bounded repairs prepared. Genuine cohort-information gap; not a retrieval failure or no-match.",
-    "nextAction": "Publish paired source/audience repair; freeze actual inputs; separate same-AI source-first final pass and actual partial exception desktop/mobile checks.",
+    "stage": 6,
+    "checkpoint": "Final reviewed-with-blockers after all independently possible repairs/checks. Successfully retrieved sources lack applicable new-cohort90EC credits/choice/research rules. Not a source retrieval deferral or UCR no-match.",
+    "nextAction": "CP099 complete pending exact new official evidence. Verify disposition receipt; CP101 next assigned case in a separate A execution. CP099–CP100 remains open.",
     "setupCI": {
       "head": "af79edc639d65784753fca8517cf3755b662cf1c",
       "runs": [
@@ -167,7 +312,33 @@
       ],
       "observedFailures": []
     },
-    "essentialSourceRetrievalFailures": 0
+    "essentialSourceRetrievalFailures": 0,
+    "lastVerifiedAt": "2026-10-26T13:12:43.711Z"
   },
-  "academicDisposition": "external-programme-unresolved"
+  "academicDisposition": "external-programme-unresolved",
+  "executionObservations": {
+    "startedAt": "2026-10-26T13:01:10.596250Z",
+    "finishedAt": "2026-10-26T13:12:43.711Z",
+    "measuredElapsedSeconds": 693,
+    "imposedElapsedTimeLimitSeconds": null,
+    "essentialSourceRetrievalFailureExecutions": 0,
+    "userInterventions": 0,
+    "technicalInterruptions": [],
+    "correctedHelperIssues": [
+      "Clean academic year label required by compiler; fixed before paired publication.",
+      "Contact-sheet creation was attempted before supplement output existed; reran after browser work completed."
+    ],
+    "sourceBlocker": "Successful retrieval establishes explicit cohort transition; missing applicable future credit table is a substantive unresolved evidence question, not transient inaccessibility.",
+    "CI": {
+      "pairedRun": 40327936520,
+      "conclusion": "success",
+      "compilerRun": 40327936557,
+      "compilerConclusion": "success",
+      "indexRun": 40328141047,
+      "indexConclusion": "success"
+    },
+    "releaseDependenciesRetained": [
+      "formal-schema-operational-discrepancy"
+    ]
+  }
 }
