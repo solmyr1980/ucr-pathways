@@ -7611,7 +7611,7 @@
     },
     {
       "id": "cp-000078",
-      "state": "in-progress",
+      "state": "approved",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000078.json",
       "stageOutcomes": {
         "1": "correct",
@@ -7628,7 +7628,7 @@
         "4a215759fc1e2a1bbfc2f6a43a2adeec9eef71bb",
         "efc789c363e7814dba0115bdf802f2b10a098179"
       ],
-      "presentationApproval": false,
+      "presentationApproval": true,
       "checkpoint": {
         "worker": "B",
         "caseId": "cp-000078",
@@ -7659,8 +7659,8 @@
           "data/counselor/comparisons/cp-000078.json": "d4863c84cf402fedbbce12d1b57cbe5a53517ff8"
         },
         "stage": 6,
-        "checkpoint": "Six integrated stages verified; final evidence transaction prepared; approval withheld pending publication/CI/hashes.",
-        "nextAction": "Publish all verified evidence; verify all changed hashes and19frozen inputs; relevant evidence CI; only then record final approved disposition and verified pair closure.",
+        "checkpoint": "Final approved: one qualified Earth systems, water and surface resources comparison. Six stages, actual rendered evidence and publication gates verified.",
+        "nextAction": "CP078 complete. Next assigned B case CP080 on a subsequent execution. No release/deployment authorized.",
         "setupCI": {
           "head": "48c4bed2fd5cf9ab7c5fa941eaacaa1b6f06e74d",
           "runs": [
@@ -7690,76 +7690,18 @@
             "cause": "This case's downstream reassessment lacked required scope field",
             "action": "Added exact case-local scope; actual19academic/app/workbook/index inputs unchanged; full CI must pass before approval."
           }
-        ]
+        ],
+        "completedAt": "2026-10-26 03:04:01 UTC",
+        "resumedAt": "2026-10-26T03:01:32.154832Z",
+        "interruption": "A request arrived while B evidence publication checks were pending. B checkpoint/evidence remained durable; resumed same B run/case with fresh main and all19actual inputs unchanged."
       },
-      "workerClaim": {
-        "worker": "B",
-        "caseId": "cp-000078",
-        "executionId": "B-cp078-20261026T022922Z",
-        "automationRunId": "cbe56f29-ee4c-8322-b4ed-f1911e24f426",
-        "startedAt": "2026-10-26T02:29:21.201649Z",
-        "claimedAt": "2026-10-26T02:31:13.528Z",
-        "reviewedInputCommit": "efc789c363e7814dba0115bdf802f2b10a098179",
-        "inputBlobs": {
-          "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
-          "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "d1c9572d5c09307a3c7951b4a703c2e6b9bb4206",
-          "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-          "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
-          "data/registry/programmes.csv": "e0b978c7efb7afc1f60a47ef53827e022df542e9",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
-          "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
-          "data/counselor/review-programmes.json": "87dd957002636ccb3f9a264039f4116e72e90843",
-          "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
-          "pilot/shiny/data/courses/BEN.json": "01f692c24c8407fdb4cca4154abc8c1b544f7958",
-          "pilot/shiny/data/courses/DIS.json": "f7d8f10c6dad39a63e25cc214b0ea95a6db5ed3d",
-          "pilot/shiny/data/courses/ENS.json": "d1da80e0530e5f731047547c2f807059bbf6131b",
-          "pilot/shiny/data/courses/GOS.json": "a70d5a154184f75dff1983983b0136a109d2293b",
-          "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
-          "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
-          "data/counselor/review-interests.json": "a58bac210cd55300dd10801d3206408623f1747c",
-          "data/counselor/decisions/cp-000078.json": "8ae906ca8d03dcbb1a21178a2f01fb07c62d7cf4",
-          "data/counselor/comparisons/cp-000078.json": "d4863c84cf402fedbbce12d1b57cbe5a53517ff8"
-        },
-        "stage": 6,
-        "checkpoint": "Six integrated stages verified; final evidence transaction prepared; approval withheld pending publication/CI/hashes.",
-        "nextAction": "Publish all verified evidence; verify all changed hashes and19frozen inputs; relevant evidence CI; only then record final approved disposition and verified pair closure.",
-        "setupCI": {
-          "head": "48c4bed2fd5cf9ab7c5fa941eaacaa1b6f06e74d",
-          "runs": [
-            {
-              "id": 40258558470,
-              "name": "pages build and deployment",
-              "status": "completed",
-              "conclusion": "success"
-            },
-            {
-              "id": 40258559213,
-              "name": "Validate Shiny pilots",
-              "status": "completed",
-              "conclusion": "success"
-            }
-          ],
-          "observedFailures": []
-        },
-        "essentialSourceRetrievalFailures": 0,
-        "observedFailures": [
-          {
-            "kind": "review metadata",
-            "CIrun": 40260811539,
-            "job": 121372589309,
-            "step": 8,
-            "failure": "Re-audit consistency failure: 'scope'",
-            "cause": "This case's downstream reassessment lacked required scope field",
-            "action": "Added exact case-local scope; actual19academic/app/workbook/index inputs unchanged; full CI must pass before approval."
-          }
-        ]
-      },
+      "workerClaim": null,
       "reviewedInputCommit": "efc789c363e7814dba0115bdf802f2b10a098179",
       "inputBlobs": {
         "decision": "8ae906ca8d03dcbb1a21178a2f01fb07c62d7cf4",
         "canonical": "d4863c84cf402fedbbce12d1b57cbe5a53517ff8"
-      }
+      },
+      "academicDisposition": "comparison"
     },
     {
       "id": "cp-000089",
@@ -8021,8 +7963,8 @@
     }
   ],
   "progress": {
-    "approved": 65,
-    "inProgress": 7,
+    "approved": 66,
+    "inProgress": 6,
     "reviewedWithBlockers": 12,
     "notStarted": 354,
     "pilotStarted": 6
@@ -8326,7 +8268,7 @@
         ],
         "nextCaseByWorker": {
           "A": "cp-000089",
-          "B": "cp-000078"
+          "B": "cp-000080"
         },
         "completedBoundedAssessmentReport": "docs/qc/counselor-next-ten-assessment-2026-10-23.md"
       },
@@ -14473,70 +14415,8 @@
           "frequency": "hourly",
           "minute": 30
         },
-        "nextCase": "cp-000078",
-        "activeClaim": {
-          "worker": "B",
-          "caseId": "cp-000078",
-          "executionId": "B-cp078-20261026T022922Z",
-          "automationRunId": "cbe56f29-ee4c-8322-b4ed-f1911e24f426",
-          "startedAt": "2026-10-26T02:29:21.201649Z",
-          "claimedAt": "2026-10-26T02:31:13.528Z",
-          "reviewedInputCommit": "efc789c363e7814dba0115bdf802f2b10a098179",
-          "inputBlobs": {
-            "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
-            "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
-            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "d1c9572d5c09307a3c7951b4a703c2e6b9bb4206",
-            "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-            "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
-            "data/registry/programmes.csv": "e0b978c7efb7afc1f60a47ef53827e022df542e9",
-            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
-            "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
-            "data/counselor/review-programmes.json": "87dd957002636ccb3f9a264039f4116e72e90843",
-            "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
-            "pilot/shiny/data/courses/BEN.json": "01f692c24c8407fdb4cca4154abc8c1b544f7958",
-            "pilot/shiny/data/courses/DIS.json": "f7d8f10c6dad39a63e25cc214b0ea95a6db5ed3d",
-            "pilot/shiny/data/courses/ENS.json": "d1da80e0530e5f731047547c2f807059bbf6131b",
-            "pilot/shiny/data/courses/GOS.json": "a70d5a154184f75dff1983983b0136a109d2293b",
-            "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
-            "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
-            "data/counselor/review-interests.json": "a58bac210cd55300dd10801d3206408623f1747c",
-            "data/counselor/decisions/cp-000078.json": "8ae906ca8d03dcbb1a21178a2f01fb07c62d7cf4",
-            "data/counselor/comparisons/cp-000078.json": "d4863c84cf402fedbbce12d1b57cbe5a53517ff8"
-          },
-          "stage": 6,
-          "checkpoint": "Six integrated stages verified; final evidence transaction prepared; approval withheld pending publication/CI/hashes.",
-          "nextAction": "Publish all verified evidence; verify all changed hashes and19frozen inputs; relevant evidence CI; only then record final approved disposition and verified pair closure.",
-          "setupCI": {
-            "head": "48c4bed2fd5cf9ab7c5fa941eaacaa1b6f06e74d",
-            "runs": [
-              {
-                "id": 40258558470,
-                "name": "pages build and deployment",
-                "status": "completed",
-                "conclusion": "success"
-              },
-              {
-                "id": 40258559213,
-                "name": "Validate Shiny pilots",
-                "status": "completed",
-                "conclusion": "success"
-              }
-            ],
-            "observedFailures": []
-          },
-          "essentialSourceRetrievalFailures": 0,
-          "observedFailures": [
-            {
-              "kind": "review metadata",
-              "CIrun": 40260811539,
-              "job": 121372589309,
-              "step": 8,
-              "failure": "Re-audit consistency failure: 'scope'",
-              "cause": "This case's downstream reassessment lacked required scope field",
-              "action": "Added exact case-local scope; actual19academic/app/workbook/index inputs unchanged; full CI must pass before approval."
-            }
-          ]
-        },
+        "nextCase": "cp-000080",
+        "activeClaim": null,
         "completedCases": [
           "cp-000038",
           "cp-000040",
@@ -14555,7 +14435,8 @@
           "cp-000070",
           "cp-000072",
           "cp-000074",
-          "cp-000076"
+          "cp-000076",
+          "cp-000078"
         ],
         "deferredCases": [
           "cp-000042",
@@ -14778,6 +14659,14 @@
             "reviewedInputCommit": "0bc7a40b9f9ff022170c2d7ee8f13208194c9e10",
             "finalDispositionCommit": "641fea38ab5ccf79d9500b4984c73f561a9553f6",
             "publicationVerifiedAt": "2026-10-26T01:00:22.392Z"
+          },
+          {
+            "caseId": "cp-000078",
+            "state": "approved",
+            "academicDisposition": "comparison",
+            "completedAt": "2026-10-26 03:04:01 UTC",
+            "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000078.json",
+            "reviewedInputCommit": "efc789c363e7814dba0115bdf802f2b10a098179"
           }
         ],
         "lastCheckpoint": {
@@ -14810,8 +14699,8 @@
             "data/counselor/comparisons/cp-000078.json": "d4863c84cf402fedbbce12d1b57cbe5a53517ff8"
           },
           "stage": 6,
-          "checkpoint": "Six integrated stages verified; final evidence transaction prepared; approval withheld pending publication/CI/hashes.",
-          "nextAction": "Publish all verified evidence; verify all changed hashes and19frozen inputs; relevant evidence CI; only then record final approved disposition and verified pair closure.",
+          "checkpoint": "Final approved: one qualified Earth systems, water and surface resources comparison. Six stages, actual rendered evidence and publication gates verified.",
+          "nextAction": "CP078 complete. Next assigned B case CP080 on a subsequent execution. No release/deployment authorized.",
           "setupCI": {
             "head": "48c4bed2fd5cf9ab7c5fa941eaacaa1b6f06e74d",
             "runs": [
@@ -14841,7 +14730,10 @@
               "cause": "This case's downstream reassessment lacked required scope field",
               "action": "Added exact case-local scope; actual19academic/app/workbook/index inputs unchanged; full CI must pass before approval."
             }
-          ]
+          ],
+          "completedAt": "2026-10-26 03:04:01 UTC",
+          "resumedAt": "2026-10-26T03:01:32.154832Z",
+          "interruption": "A request arrived while B evidence publication checks were pending. B checkpoint/evidence remained durable; resumed same B run/case with fresh main and all19actual inputs unchanged."
         }
       }
     },
