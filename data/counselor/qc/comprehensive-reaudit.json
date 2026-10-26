@@ -8888,21 +8888,25 @@
     },
     {
       "id": "cp-000094",
-      "state": "in-progress",
+      "state": "approved",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000094.json",
       "reviewedInputCommit": "9f640e811a824d5f0fa346a554575cfe03bc1448",
-      "presentationApproval": false,
+      "presentationApproval": true,
       "stageOutcomes": {
         "1": "correct",
         "2": "correct",
-        "3": "reconstruct",
+        "3": "correct",
         "4": "correct",
-        "5": "correct"
+        "5": "correct",
+        "6": "retain"
       },
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "sharedIssueIds": []
+      "implementationCommits": [
+        "21a0bf11a0f49b321941eb6a527d3dcef3efa2b9"
+      ],
+      "sharedIssueIds": [],
+      "academicDisposition": "comparison"
     },
     {
       "id": "cp-000103",
@@ -9165,8 +9169,8 @@
     }
   ],
   "progress": {
-    "approved": 80,
-    "inProgress": 7,
+    "approved": 81,
+    "inProgress": 6,
     "reviewedWithBlockers": 13,
     "notStarted": 338,
     "pilotStarted": 6
@@ -9470,7 +9474,7 @@
         ],
         "nextCaseByWorker": {
           "A": "cp-000105",
-          "B": "cp-000094"
+          "B": "cp-000096"
         },
         "completedBoundedAssessmentReport": "docs/qc/counselor-next-ten-assessment-2026-10-23.md"
       },
@@ -15701,52 +15705,8 @@
           "frequency": "hourly",
           "minute": 30
         },
-        "nextCase": "cp-000094",
-        "activeClaim": {
-          "worker": "B",
-          "caseId": "cp-000094",
-          "executionId": "B-cp094-20261026T153841Z",
-          "startedAt": "2026-10-26T15:38:40.970518Z",
-          "claimedAt": "2026-10-26T15:40:36.161Z",
-          "reviewedInputCommit": "26ed003b7bcf382045bf10843059a2bcb48fcc95",
-          "inputBlobs": {
-            "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
-            "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
-            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "d1c9572d5c09307a3c7951b4a703c2e6b9bb4206",
-            "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-            "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
-            "data/registry/programmes.csv": "e0b978c7efb7afc1f60a47ef53827e022df542e9",
-            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
-            "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
-            "data/counselor/review-programmes.json": "1f16271559071e83166a6b2993db4f6733810d8c",
-            "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
-            "pilot/shiny/data/courses/BEN.json": "01f692c24c8407fdb4cca4154abc8c1b544f7958",
-            "pilot/shiny/data/courses/DIS.json": "f7d8f10c6dad39a63e25cc214b0ea95a6db5ed3d",
-            "pilot/shiny/data/courses/ENS.json": "d1da80e0530e5f731047547c2f807059bbf6131b",
-            "pilot/shiny/data/courses/GOS.json": "a70d5a154184f75dff1983983b0136a109d2293b",
-            "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
-            "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
-            "data/counselor/review-interests.json": "a58bac210cd55300dd10801d3206408623f1747c",
-            "data/counselor/decisions/cp-000094.json": "9d4a3e25ac45dc077d633303a6ac1ea9998034fc",
-            "data/counselor/comparisons/cp-000094.json": "0ec5b503b7674be8421cb19f8347ba1ba9424407"
-          },
-          "stage": 5,
-          "checkpoint": "Resume own unfinished CP094. Published paired repair and all56actualmodals/sourceUCRlink/navigation/geometry assertions pass; screenshot visual inspection and source-first final report remain. Shared review index changed only for A105; verify exact CP094 entry scope before reusing captures.",
-          "nextAction": "Publish source-first finalpass, visually inspect all contact sheets; verify CP094 scoped index and current dependency hashes, relevant CI, then synchronized final disposition/receipt and pair093–094 closure if CP093 receipt remains valid.",
-          "setupCI": {
-            "runId": 40347307917,
-            "jobId": 121657569678,
-            "status": "completed",
-            "conclusion": "success",
-            "inputCommit": "21a0bf11a0f49b321941eb6a527d3dcef3efa2b9",
-            "frozenRepairCommit": "a9ab2ab15e709163dd3dd2fdb207f61b2c4fca48",
-            "all19ActualInputBlobsIdentical": true
-          },
-          "essentialSourceRetrievalFailures": 0,
-          "lastVerifiedAt": "2026-10-26T15:40:36.161Z",
-          "automationRunId": "ec3e4fbd-7684-8330-8efd-5bb57daec6de",
-          "frozenRepairCommit": "a9ab2ab15e709163dd3dd2fdb207f61b2c4fca48"
-        },
+        "nextCase": "cp-000096",
+        "activeClaim": null,
         "completedCases": [
           "cp-000038",
           "cp-000040",
@@ -15773,7 +15733,8 @@
           "cp-000086",
           "cp-000088",
           "cp-000090",
-          "cp-000092"
+          "cp-000092",
+          "cp-000094"
         ],
         "deferredCases": [
           "cp-000042",
@@ -16085,6 +16046,16 @@
             "finalDispositionCommit": "f8f7242a6434afda64718e1a19b96805d8bfa570",
             "publicationVerified": true,
             "publicationVerifiedAt": "2026-10-26T13:53:44.509Z"
+          },
+          {
+            "caseId": "cp-000094",
+            "state": "approved",
+            "academicDisposition": "comparison",
+            "completedAt": "2026-10-26T15:51:17.720276+00:00",
+            "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000094.json",
+            "reviewedInputCommit": "a9ab2ab15e709163dd3dd2fdb207f61b2c4fca48",
+            "evidenceCommit": "df652092780a4cefe832b53dd6ee77a949e11ebe",
+            "publicationVerified": false
           }
         ],
         "lastCheckpoint": {
@@ -16115,9 +16086,9 @@
             "data/counselor/decisions/cp-000094.json": "9d4a3e25ac45dc077d633303a6ac1ea9998034fc",
             "data/counselor/comparisons/cp-000094.json": "0ec5b503b7674be8421cb19f8347ba1ba9424407"
           },
-          "stage": 5,
-          "checkpoint": "Resume own unfinished CP094. Published paired repair and all56actualmodals/sourceUCRlink/navigation/geometry assertions pass; screenshot visual inspection and source-first final report remain. Shared review index changed only for A105; verify exact CP094 entry scope before reusing captures.",
-          "nextAction": "Publish source-first finalpass, visually inspect all contact sheets; verify CP094 scoped index and current dependency hashes, relevant CI, then synchronized final disposition/receipt and pair093–094 closure if CP093 receipt remains valid.",
+          "stage": 6,
+          "checkpoint": "CP094 final approved qualified comparison after all six stages;37interests,32profiles read/28retained,48placements,56actualmodals and15visuallyinspected sheets. Source-first sameAI, fullschemas/replay and applicablefullCI pass.",
+          "nextAction": "Verify final publication and receipt, then close fixedCP093–CP094pair after both receipts remain valid. Next B caseCP096 only in a separate execution.",
           "setupCI": {
             "runId": 40347307917,
             "jobId": 121657569678,
@@ -16128,11 +16099,11 @@
             "all19ActualInputBlobsIdentical": true
           },
           "essentialSourceRetrievalFailures": 0,
-          "lastVerifiedAt": "2026-10-26T15:40:36.161Z",
+          "lastVerifiedAt": "2026-10-26T15:51:17.720276+00:00",
           "automationRunId": "ec3e4fbd-7684-8330-8efd-5bb57daec6de",
           "frozenRepairCommit": "a9ab2ab15e709163dd3dd2fdb207f61b2c4fca48"
         },
-        "lastCompletedAt": "2026-10-26T13:51:12.965Z"
+        "lastCompletedAt": "2026-10-26T15:51:17.720276+00:00"
       }
     },
     "splitRule": "Alternate the frozen remaining baseline order: A receives positions 1,3,5,...; B receives 2,4,6,...; 201 unique cases each. No cross-queue reassignment without explicit authority.",
