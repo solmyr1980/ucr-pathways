@@ -16101,7 +16101,9 @@
             "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000096.json",
             "reviewedInputCommit": "29e5d15f607a285d0c31237722412164aeb73efd",
             "evidenceCommit": "5846a170ebf6974700cd501a55a8318758f2dbbd",
-            "publicationVerified": false
+            "publicationVerified": true,
+            "publicationVerifiedAt": "2026-10-26T18:02:43Z",
+            "finalDispositionCommit": "1757fb6d857837ab3c0b73a406942a9f253548d3"
           }
         ],
         "lastCheckpoint": {
@@ -16134,8 +16136,8 @@
             "data/counselor/comparisons/cp-000096.json": "39d93553db5a83d077be2544ff5eefa2dd85a5ea"
           },
           "stage": 6,
-          "checkpoint": "Approved qualified comparison after all six stages, published evidence and current actual-input verification. Final disposition publication verification pending.",
-          "nextAction": "Verify final disposition main and all 19 actual inputs / 32 immutable evidence paths; publish receipt and close fixed pair 95–96.",
+          "checkpoint": "Complete: final disposition and all 19 actual inputs / 32 immutable evidence hashes verified; publication receipt and fixed pair closure recorded.",
+          "nextAction": "B resumes cp-000098 in a separate execution. No further CP096 work unless applicable evidence or inputs change.",
           "setupCI": {
             "runId": 40368080577,
             "inputCommit": "c0b624d5bdc4b60195e1761e6a4dce5cb450a113",
@@ -17678,6 +17680,35 @@
         },
         "closedAt": "2026-10-26T15:57:44.881Z",
         "publicationVerifiedAt": "2026-10-26T15:57:44.881Z"
+      },
+      {
+        "caseIds": [
+          "cp-000095",
+          "cp-000096"
+        ],
+        "status": "closed",
+        "verifiedFinalStates": {
+          "cp-000095": "approved",
+          "cp-000096": "approved"
+        },
+        "evidenceFiles": [
+          "data/counselor/qc/comprehensive-reaudit/cp-000095.json",
+          "data/counselor/qc/comprehensive-reaudit/cp-000096.json"
+        ],
+        "verificationEvidenceRefs": [
+          "docs/qc/evidence/counselor-corpus-A-cp095-2026-10-26/publication-verification.json",
+          "docs/qc/evidence/counselor-corpus-B-cp096-2026-10-26/publication-verification.json"
+        ],
+        "basisReconciliation": {
+          "CP095Other18ActualInputsUnchanged": true,
+          "CP095All14ImmutableEvidenceHashesUnchanged": true,
+          "CP095ExactIndexEntryUnchanged": true,
+          "CP096All19ActualInputsVerified": true,
+          "CP096All32ImmutableEvidenceHashesVerified": true,
+          "indexDifference": "Whole review-programmes index changed through unrelated case entries; exact CP095 entry equals frozen final basis. No changed applicable academic/presentation inputs."
+        },
+        "closedAt": "2026-10-26T18:02:43Z",
+        "publicationVerifiedAt": "2026-10-26T18:02:43Z"
       }
     ]
   }
