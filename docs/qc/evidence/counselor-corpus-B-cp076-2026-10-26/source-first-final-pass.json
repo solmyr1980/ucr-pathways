@@ -34,7 +34,7 @@
     "docs/qc/evidence/counselor-corpus-B-cp076-2026-10-26/source-verification.json",
     "docs/qc/evidence/counselor-corpus-B-cp076-2026-10-26/course-review.json"
   ],
-  "result": "passed-awaiting-publication-and-CI",
+  "result": "approved",
   "academicFindings": {
     "external": "Radboud University FNWI Dutch fulltime BSc Wiskunde56980,ordinary2026–27 singledegree; neutral firstlistedWiskunde line.",
     "framework": "54requiredY1+6openY1+24commonY2/3+36selectedline+48openY2/3+12individualthesis=180EC. Selectedline18prescribed+18restricted,includingatleast6ECyear3. WritingSkillschosenoncefrompairedalternatives. Current26componentspreserved. RADAr0ECparticipationmandatory,passingnotrequired;priorRadboudtestexempt. BachelorSeminarmandatoryordinaryroute; conditionalwaiversnotassumed.",
@@ -90,9 +90,34 @@
     "method": "Compared full canonical objects. Changed ownership/candidate/stopping audit data only; all audience text, programmes/schedules, blocks, course data, comparator and actual app inputs otherwise identical."
   },
   "CI": {
-    "fullInputRun": 40251325015,
-    "head": "0bc7a40b9f9ff022170c2d7ee8f13208194c9e10",
-    "status": "in_progress;finalsuccessrequired",
+    "fullInputRun": {
+      "id": 40251325015,
+      "status": "completed",
+      "conclusion": "success",
+      "head": "0bc7a40b9f9ff022170c2d7ee8f13208194c9e10"
+    },
+    "evidenceCommit": {
+      "head": "c38e96c5bb0b71b9c3ae8f95472979193ecd1681",
+      "run": 40251756289,
+      "job": 121344985597,
+      "passedApplicableMetadataGates": [
+        {
+          "number": 8,
+          "name": "Validate re-audit register and preserved review evidence",
+          "conclusion": "success"
+        },
+        {
+          "number": 10,
+          "name": "Validate reviewed audience contract and course evidence",
+          "conclusion": "success"
+        },
+        {
+          "number": 11,
+          "name": "Run comparison integrity regression tests",
+          "conclusion": "success"
+        }
+      ]
+    },
     "indexRuns": [
       40251400483,
       40251325113
@@ -113,5 +138,11 @@
   "releaseDependenciesRetained": [
     "formal-schema-operational-discrepancy"
   ],
-  "releaseOrCounselorDeploymentAuthorized": false
+  "releaseOrCounselorDeploymentAuthorized": false,
+  "publicationVerification": {
+    "evidenceCommit": "c38e96c5bb0b71b9c3ae8f95472979193ecd1681",
+    "all31ChangedPathHashesVerified": true,
+    "all19ActualDependenciesUnchanged": true,
+    "verifiedAt": "2026-10-26T00:58:14.392Z"
+  }
 }
