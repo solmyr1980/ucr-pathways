@@ -16271,7 +16271,9 @@
             "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000100.json",
             "reviewedInputCommit": "df7b858bb7b139d4026d4f3beb677c66e5187af2",
             "evidenceCommit": "5e92f63016ce3b19d5439178178b6caa4d1564c3",
-            "publicationVerified": false
+            "publicationVerified": true,
+            "publicationVerifiedAt": "2026-10-26T20:51:32.253Z",
+            "finalDispositionCommit": "88fbd98c8e54552af5fb645eb9d55739f52b2423"
           }
         ],
         "lastCheckpoint": {
@@ -16304,8 +16306,8 @@
             "data/counselor/decisions/cp-000100.json": "87752de4fe7f794107e8a349d1a50ffb597070ff"
           },
           "stage": 6,
-          "checkpoint": "Final reviewed-with-blockers: all independently possible repairs/checks and published evidence pass; precise new-cohort Year-3 credit plan remains unresolved.",
-          "nextAction": "Verify final publication and close fixed pair99–100 after both final states and receipts are verified; B continues CP102 next execution.",
+          "checkpoint": "Final reviewed-with-blockers publication verified: 19 actual inputs and 18 immutable evidence hashes; pair99–100 closed with both unresolved external blockers retained.",
+          "nextAction": "B continues CP102 in a separate execution. Reopen CP100 only on exact new authoritative cohort evidence.",
           "setupCI": {
             "runId": 40395211065,
             "conclusion": "success",
@@ -17903,6 +17905,34 @@
         },
         "closedAt": "2026-10-26T20:22:35.556Z",
         "publicationVerifiedAt": "2026-10-26T20:22:35.556Z"
+      },
+      {
+        "caseIds": [
+          "cp-000099",
+          "cp-000100"
+        ],
+        "status": "closed",
+        "verifiedFinalStates": {
+          "cp-000099": "reviewed-with-blockers",
+          "cp-000100": "reviewed-with-blockers"
+        },
+        "evidenceFiles": [
+          "data/counselor/qc/comprehensive-reaudit/cp-000099.json",
+          "data/counselor/qc/comprehensive-reaudit/cp-000100.json"
+        ],
+        "verificationEvidenceRefs": [
+          "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/publication-verification.json",
+          "docs/qc/evidence/counselor-corpus-B-cp100-2026-10-26/publication-verification.json"
+        ],
+        "basisReconciliation": {
+          "allOtherActualInputsUnchanged": true,
+          "allImmutableEvidenceHashesUnchanged": true,
+          "exactCurrentIndexEntryEqualsFrozenFinalBasis": true,
+          "otherDisposition": "51e0f90428c4308a772371213d1a1901ee223cab",
+          "receipt": "docs/qc/evidence/counselor-corpus-A-cp099-2026-10-26/publication-verification.json"
+        },
+        "closedAt": "2026-10-26T20:51:32.253Z",
+        "publicationVerifiedAt": "2026-10-26T20:51:32.253Z"
       }
     ]
   }
