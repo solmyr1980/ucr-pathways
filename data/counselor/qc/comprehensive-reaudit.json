@@ -9080,7 +9080,7 @@
     },
     {
       "id": "cp-000098",
-      "state": "in-progress",
+      "state": "approved",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000098.json",
       "stageOutcomes": {
         "1": "correct",
@@ -9099,7 +9099,8 @@
         "0c8ebc51d20d53238c97da4e75a418caff6b85ae",
         "b70452cc30139ed21c234aabe51b9c2381024c93"
       ],
-      "presentationApproval": false
+      "presentationApproval": true,
+      "academicDisposition": "comparison"
     },
     {
       "id": "cp-000109",
@@ -9273,8 +9274,8 @@
     }
   ],
   "progress": {
-    "approved": 85,
-    "inProgress": 7,
+    "approved": 86,
+    "inProgress": 6,
     "reviewedWithBlockers": 13,
     "notStarted": 333,
     "pilotStarted": 6
@@ -9578,7 +9579,7 @@
         ],
         "nextCaseByWorker": {
           "A": "cp-000111",
-          "B": "cp-000098"
+          "B": "cp-000100"
         },
         "completedBoundedAssessmentReport": "docs/qc/counselor-next-ten-assessment-2026-10-23.md"
       },
@@ -15852,93 +15853,8 @@
           "frequency": "hourly",
           "minute": 30
         },
-        "nextCase": "cp-000098",
-        "activeClaim": {
-          "worker": "B",
-          "caseId": "cp-000098",
-          "executionId": "B-cp098-20261026T193409Z",
-          "automationRunId": "bddf6971-ed8c-832b-88ac-b930c6f049e8",
-          "startedAt": "2026-10-26T19:34:07.491530Z",
-          "claimedAt": "2026-10-26T19:35:42.324585+00:00",
-          "reviewedInputCommit": "b70452cc30139ed21c234aabe51b9c2381024c93",
-          "inputBlobs": {
-            "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
-            "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
-            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "d1c9572d5c09307a3c7951b4a703c2e6b9bb4206",
-            "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-            "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
-            "data/registry/programmes.csv": "e0b978c7efb7afc1f60a47ef53827e022df542e9",
-            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
-            "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
-            "data/counselor/review-programmes.json": "83f5e9f573498390cc905d4e4f8f3ac0aa40bfc2",
-            "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
-            "pilot/shiny/data/courses/BEN.json": "01f692c24c8407fdb4cca4154abc8c1b544f7958",
-            "pilot/shiny/data/courses/DIS.json": "f7d8f10c6dad39a63e25cc214b0ea95a6db5ed3d",
-            "pilot/shiny/data/courses/ENS.json": "d1da80e0530e5f731047547c2f807059bbf6131b",
-            "pilot/shiny/data/courses/GOS.json": "a70d5a154184f75dff1983983b0136a109d2293b",
-            "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
-            "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
-            "data/counselor/review-interests.json": "a58bac210cd55300dd10801d3206408623f1747c",
-            "data/counselor/decisions/cp-000098.json": "fb3283ec2e1407eb9f128f59379a93df0c6aa19a",
-            "data/counselor/comparisons/cp-000098.json": "d7a1d3a74a0b389f9242c02a2be1f3a995fc6086"
-          },
-          "stage": 6,
-          "checkpoint": "All six integrated stages, separately identified same-AI source-first pass, full mechanics, 23 visually inspected image sheets, 80 modal openings and full input CI verified. Final evidence publication pending.",
-          "nextAction": "Publish and verify immutable evidence plus all 19 actual inputs; synchronize final case/central disposition; verify final main and close reporting pair 97–98 only after both final receipts are verified.",
-          "setupCI": {
-            "runId": 40385059566,
-            "conclusion": "success",
-            "observedFailures": []
-          },
-          "essentialSourceRetrievalFailures": 0,
-          "observedTechnicalFailures": [
-            {
-              "action": "Initial claim register synchronization",
-              "failure": "Assumed unstarted cases had central entries; iterator stopped before central update, and later shell validator failed. Publication was erroneously allowed despite validation failure.",
-              "resolution": "Append a new central entry from the authoritative template and synchronize own worker claim before academic work; withhold all approval."
-            },
-            {
-              "action": "Interest ownership refinement",
-              "failure": "The compiler rejected removing formally generator-eligible rows 4568 and 4574 without a construction owner.",
-              "resolution": "Explicitly rejected specialist crime/genocide and migration-history candidates account for both rows in dbe807834a10b2a60deb2781b7b35b7696636c77; registry unchanged."
-            },
-            {
-              "action": "Full formal schema check",
-              "failure": "The existing included conflict candidate lacked explicit evidence. Full schema rejected the provisional output before approval; a shell pipeline continued into rendering despite that failure.",
-              "resolution": "Stop/discard that render; paired source-evidence correction in 0c8ebc51d20d53238c97da4e75a418caff6b85ae. Full schemas and byte-exact replay then passed. Later b70452cc prose basis repeated all relevant checks and actual rendering."
-            },
-            {
-              "action": "Validator invocation",
-              "failure": "A guessed validate-counselor-corpus.mjs path did not exist; passing a file path to the final-rules validator was also rejected.",
-              "resolution": "Use repository validate-counselor-production.mjs and cp-000098 ID for formal final rules. Both completed successfully; no academic inference from failed invocations."
-            },
-            {
-              "action": "Final prose and downstream trace review",
-              "failure": "The Western philosophy contribution still implied specific Key Texts support, and three concepts had joined year notation.",
-              "resolution": "Qualify intellectual context without exact reading-list equivalence; correct concepts, notes, label rationale and affected trace prose in paired b70452cc30139ed21c234aabe51b9c2381024c93. All final checks/rendering use this basis."
-            },
-            {
-              "action": "Actual mobile visual capture",
-              "failure": "Composite previews appeared to clip sticky-navigation text; geometry remained in bounds.",
-              "resolution": "Direct inspection of underlying PNG pixels and separate nav crops showed complete text; OCR independently confirmed all four selected navigation columns. Software/settled recapture also retained full source text. No app defect established and no application change published. Separately verify long MCCHEAM315 modal scroll and Close."
-            },
-            {
-              "action": "Resumed metadata publication after A steering",
-              "failure": "Local central register referenced A111, whose newly added detailed file was missing from B checkout. Validator failed. Publication was explicitly terminated; remote main remained e14175462f9b5e32bb6c149eb0c58ec1a1ba2955.",
-              "resolution": "Synchronize read-only A111 file, revalidate, and add a mandatory register-validator guard inside the authenticated publisher. Only B checkpoint paths published in 53d751f244c9bdf5dee57c0a35572eb43fe6ea33; A claim/state preserved."
-            }
-          ],
-          "evidenceRefs": [
-            "docs/qc/evidence/counselor-corpus-B-cp098-2026-10-26/checkpoint-findings.json",
-            "docs/qc/evidence/counselor-corpus-B-cp098-2026-10-26/source-retrieval.json",
-            "docs/qc/evidence/counselor-corpus-B-cp098-2026-10-26/enriched-profiles.json",
-            "docs/qc/evidence/counselor-corpus-B-cp098-2026-10-26/interest-preliminary-review.json",
-            "docs/qc/evidence/counselor-corpus-B-cp098-2026-10-26/preliminary-placement-check.json"
-          ],
-          "checkpointAt": "2026-10-26T20:15:19.612962+00:00",
-          "sourceRetrievalFailureExecutions": 0,
-          "elapsedTimeLimitObserved": null
-        },
+        "nextCase": "cp-000100",
+        "activeClaim": null,
         "completedCases": [
           "cp-000038",
           "cp-000040",
@@ -15967,7 +15883,8 @@
           "cp-000090",
           "cp-000092",
           "cp-000094",
-          "cp-000096"
+          "cp-000096",
+          "cp-000098"
         ],
         "deferredCases": [
           "cp-000042",
@@ -16303,16 +16220,26 @@
             "publicationVerified": true,
             "publicationVerifiedAt": "2026-10-26T18:02:43Z",
             "finalDispositionCommit": "1757fb6d857837ab3c0b73a406942a9f253548d3"
+          },
+          {
+            "caseId": "cp-000098",
+            "state": "approved",
+            "academicDisposition": "comparison",
+            "completedAt": "2026-10-26T20:19:56.116061+00:00",
+            "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000098.json",
+            "reviewedInputCommit": "b70452cc30139ed21c234aabe51b9c2381024c93",
+            "evidenceCommit": "f20e7db4e6414fca719b76c42fd84a1e69dadae0",
+            "publicationVerified": false
           }
         ],
         "lastCheckpoint": {
           "worker": "B",
           "caseId": "cp-000098",
-          "executionId": "B-cp098-20261026T182946Z",
-          "automationRunId": "1e26bafc-6c1c-8320-b80c-ee001361bccd",
-          "startedAt": "2026-10-26T18:29:43.799055Z",
-          "claimedAt": "2026-10-26T18:31:38.762938+00:00",
-          "reviewedInputCommit": "ff785fc4c07dff1cc776a39bdb8e24e3235e3eec",
+          "executionId": "B-cp098-20261026T193409Z",
+          "automationRunId": "bddf6971-ed8c-832b-88ac-b930c6f049e8",
+          "startedAt": "2026-10-26T19:34:07.491530Z",
+          "claimedAt": "2026-10-26T19:35:42.324585+00:00",
+          "reviewedInputCommit": "b70452cc30139ed21c234aabe51b9c2381024c93",
           "inputBlobs": {
             "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
             "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
@@ -16322,7 +16249,7 @@
             "data/registry/programmes.csv": "e0b978c7efb7afc1f60a47ef53827e022df542e9",
             "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
             "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
-            "data/counselor/review-programmes.json": "67bfc72144fc1598e7ab030f7e09c6e75a9e41c9",
+            "data/counselor/review-programmes.json": "83f5e9f573498390cc905d4e4f8f3ac0aa40bfc2",
             "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
             "pilot/shiny/data/courses/BEN.json": "01f692c24c8407fdb4cca4154abc8c1b544f7958",
             "pilot/shiny/data/courses/DIS.json": "f7d8f10c6dad39a63e25cc214b0ea95a6db5ed3d",
@@ -16331,14 +16258,14 @@
             "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
             "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
             "data/counselor/review-interests.json": "a58bac210cd55300dd10801d3206408623f1747c",
-            "data/counselor/decisions/cp-000098.json": "ae3eba8a181cd912f3a176f1668cb89c3c1fe239",
-            "data/counselor/comparisons/cp-000098.json": "dd88556eb46a2d436e1ed70a2abfe3b827ce6334"
+            "data/counselor/decisions/cp-000098.json": "fb3283ec2e1407eb9f128f59379a93df0c6aa19a",
+            "data/counselor/comparisons/cp-000098.json": "d7a1d3a74a0b389f9242c02a2be1f3a995fc6086"
           },
-          "stage": 1,
-          "checkpoint": "Official source attribution and initial 72-placement workbook check persisted. Academic reconstruction and all final approval gates unfinished.",
-          "nextAction": "Visually inspect adopted annual-plan PDF pp22–23 and remaining Dutch Year3 plan; verify exact annual research/seminar/thesis/colloquium requirements. Then complete all40profile/topics/methods contribution review and final alternative/interest ownership judgement; implement paired root/canonical corrections, full gates, actual desktop/mobile every selected modal and separate same-AI source-first final pass.",
+          "stage": 6,
+          "checkpoint": "Approved qualified comparison after all six stages, published evidence, full input CI and current actual-input verification. Final disposition publication verification pending.",
+          "nextAction": "Verify final main and all 19 actual inputs / 41 immutable evidence paths; publish final receipt and close fixed reporting pair 97–98.",
           "setupCI": {
-            "runId": 40374380397,
+            "runId": 40385059566,
             "conclusion": "success",
             "observedFailures": []
           },
@@ -16348,6 +16275,36 @@
               "action": "Initial claim register synchronization",
               "failure": "Assumed unstarted cases had central entries; iterator stopped before central update, and later shell validator failed. Publication was erroneously allowed despite validation failure.",
               "resolution": "Append a new central entry from the authoritative template and synchronize own worker claim before academic work; withhold all approval."
+            },
+            {
+              "action": "Interest ownership refinement",
+              "failure": "The compiler rejected removing formally generator-eligible rows 4568 and 4574 without a construction owner.",
+              "resolution": "Explicitly rejected specialist crime/genocide and migration-history candidates account for both rows in dbe807834a10b2a60deb2781b7b35b7696636c77; registry unchanged."
+            },
+            {
+              "action": "Full formal schema check",
+              "failure": "The existing included conflict candidate lacked explicit evidence. Full schema rejected the provisional output before approval; a shell pipeline continued into rendering despite that failure.",
+              "resolution": "Stop/discard that render; paired source-evidence correction in 0c8ebc51d20d53238c97da4e75a418caff6b85ae. Full schemas and byte-exact replay then passed. Later b70452cc prose basis repeated all relevant checks and actual rendering."
+            },
+            {
+              "action": "Validator invocation",
+              "failure": "A guessed validate-counselor-corpus.mjs path did not exist; passing a file path to the final-rules validator was also rejected.",
+              "resolution": "Use repository validate-counselor-production.mjs and cp-000098 ID for formal final rules. Both completed successfully; no academic inference from failed invocations."
+            },
+            {
+              "action": "Final prose and downstream trace review",
+              "failure": "The Western philosophy contribution still implied specific Key Texts support, and three concepts had joined year notation.",
+              "resolution": "Qualify intellectual context without exact reading-list equivalence; correct concepts, notes, label rationale and affected trace prose in paired b70452cc30139ed21c234aabe51b9c2381024c93. All final checks/rendering use this basis."
+            },
+            {
+              "action": "Actual mobile visual capture",
+              "failure": "Composite previews appeared to clip sticky-navigation text; geometry remained in bounds.",
+              "resolution": "Direct inspection of underlying PNG pixels and separate nav crops showed complete text; OCR independently confirmed all four selected navigation columns. Software/settled recapture also retained full source text. No app defect established and no application change published. Separately verify long MCCHEAM315 modal scroll and Close."
+            },
+            {
+              "action": "Resumed metadata publication after A steering",
+              "failure": "Local central register referenced A111, whose newly added detailed file was missing from B checkout. Validator failed. Publication was explicitly terminated; remote main remained e14175462f9b5e32bb6c149eb0c58ec1a1ba2955.",
+              "resolution": "Synchronize read-only A111 file, revalidate, and add a mandatory register-validator guard inside the authenticated publisher. Only B checkpoint paths published in 53d751f244c9bdf5dee57c0a35572eb43fe6ea33; A claim/state preserved."
             }
           ],
           "evidenceRefs": [
@@ -16357,11 +16314,11 @@
             "docs/qc/evidence/counselor-corpus-B-cp098-2026-10-26/interest-preliminary-review.json",
             "docs/qc/evidence/counselor-corpus-B-cp098-2026-10-26/preliminary-placement-check.json"
           ],
-          "checkpointAt": "2026-10-26T18:36:31.170845+00:00",
+          "checkpointAt": "2026-10-26T20:15:19.612962+00:00",
           "sourceRetrievalFailureExecutions": 0,
           "elapsedTimeLimitObserved": null
         },
-        "lastCompletedAt": "2026-10-26T17:59:54.813907+00:00"
+        "lastCompletedAt": "2026-10-26T20:19:56.116061+00:00"
       }
     },
     "splitRule": "Alternate the frozen remaining baseline order: A receives positions 1,3,5,...; B receives 2,4,6,...; 201 unique cases each. No cross-queue reassignment without explicit authority.",
