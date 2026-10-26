@@ -9035,7 +9035,7 @@
     },
     {
       "id": "cp-000096",
-      "state": "in-progress",
+      "state": "approved",
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
@@ -9045,7 +9045,7 @@
         "28a4febe4f8ea8f865c56ac64db0307255c266c8",
         "29e5d15f607a285d0c31237722412164aeb73efd"
       ],
-      "presentationApproval": false,
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000096.json",
       "stageOutcomes": {
         "1": "correct",
@@ -9054,7 +9054,8 @@
         "4": "correct",
         "5": "correct",
         "6": "correct"
-      }
+      },
+      "academicDisposition": "comparison"
     },
     {
       "id": "cp-000107",
@@ -9217,8 +9218,8 @@
     }
   ],
   "progress": {
-    "approved": 83,
-    "inProgress": 6,
+    "approved": 84,
+    "inProgress": 5,
     "reviewedWithBlockers": 13,
     "notStarted": 336,
     "pilotStarted": 6
@@ -9522,7 +9523,7 @@
         ],
         "nextCaseByWorker": {
           "A": "cp-000109",
-          "B": "cp-000096"
+          "B": "cp-000098"
         },
         "completedBoundedAssessmentReport": "docs/qc/counselor-next-ten-assessment-2026-10-23.md"
       },
@@ -15737,70 +15738,8 @@
           "frequency": "hourly",
           "minute": 30
         },
-        "nextCase": "cp-000096",
-        "activeClaim": {
-          "worker": "B",
-          "caseId": "cp-000096",
-          "executionId": "B-cp096-20261026T173318Z",
-          "automationRunId": "4ffefb00-9a20-8329-81b6-9f8c0af372e5",
-          "startedAt": "2026-10-26T17:33:17.535317Z",
-          "claimedAt": "2026-10-26T17:36:35.522677+00:00",
-          "reviewedInputCommit": "29e5d15f607a285d0c31237722412164aeb73efd",
-          "inputBlobs": {
-            "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
-            "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
-            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "d1c9572d5c09307a3c7951b4a703c2e6b9bb4206",
-            "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-            "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
-            "data/registry/programmes.csv": "e0b978c7efb7afc1f60a47ef53827e022df542e9",
-            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
-            "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
-            "data/counselor/review-programmes.json": "67bfc72144fc1598e7ab030f7e09c6e75a9e41c9",
-            "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
-            "pilot/shiny/data/courses/BEN.json": "01f692c24c8407fdb4cca4154abc8c1b544f7958",
-            "pilot/shiny/data/courses/DIS.json": "f7d8f10c6dad39a63e25cc214b0ea95a6db5ed3d",
-            "pilot/shiny/data/courses/ENS.json": "d1da80e0530e5f731047547c2f807059bbf6131b",
-            "pilot/shiny/data/courses/GOS.json": "a70d5a154184f75dff1983983b0136a109d2293b",
-            "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
-            "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
-            "data/counselor/review-interests.json": "a58bac210cd55300dd10801d3206408623f1747c",
-            "data/counselor/decisions/cp-000096.json": "3e9c6ba66f728c7ddefc5d5a8981b6ce566a0c9f",
-            "data/counselor/comparisons/cp-000096.json": "39d93553db5a83d077be2544ff5eefa2dd85a5ea"
-          },
-          "stage": 6,
-          "checkpoint": "Six stages and separately identified same-AI source-first final pass verified; durable evidence publication pending.",
-          "nextAction": "Publish and verify final evidence hashes, then synchronize final case/central disposition and verify reporting pair 95–96.",
-          "setupCI": {
-            "runId": 40368080577,
-            "inputCommit": "c0b624d5bdc4b60195e1761e6a4dce5cb450a113",
-            "conclusion": "success",
-            "observedFailures": []
-          },
-          "essentialSourceRetrievalFailures": 0,
-          "observedTechnicalFailures": [
-            {
-              "at": "2026-10-26T16:30:22.314Z",
-              "action": "Initial claim validation",
-              "error": "Missing evidenceSources (and empty renderedEvidence/finalReview containers) in new case metadata.",
-              "resolution": "Add empty unverified metadata fields; revalidate before academic work. No academic approval inferred."
-            },
-            {
-              "action": "Resume shared-index comparison helper",
-              "failure": "Lookup used id instead of actualcomparisonId; assertionstoppedbeforemetadataedit. An unchanged-tree commit1b7207bwascreated after later validationpassed.",
-              "resolution": "CorrectcomparisonId lookup verified exactCP096entryunchanged; noacademicworklost or approvalinferred."
-            },
-            {
-              "action": "First paired candidate",
-              "failure": "Prose-spacing helper changed BENECON111 into BENEC ON111 in commit 386fc3a. Direct workbook lookup caught the invalid course code; initial actual render could not load that cache entry.",
-              "resolution": "Correct paired root/canonical 79402913; all 48 actual placements rechecked and actual render repeated. No approval used invalid basis."
-            },
-            {
-              "action": "Visual final pass",
-              "failure": "Joined words in three explanatory passages persisted in candidate 79402913.",
-              "resolution": "Exact prose replacements only. Compiler refused existing canonical; shell result was not gated and commit 28a4febe temporarily changed root alone. Regenerated canonical and synchronized in 29e5d15f. Byte-exact replay, frozen checks and full actual render repeated. This publication sequencing error is recorded; only synchronized final basis is approved."
-            }
-          ]
-        },
+        "nextCase": "cp-000098",
+        "activeClaim": null,
         "completedCases": [
           "cp-000038",
           "cp-000040",
@@ -15828,7 +15767,8 @@
           "cp-000088",
           "cp-000090",
           "cp-000092",
-          "cp-000094"
+          "cp-000094",
+          "cp-000096"
         ],
         "deferredCases": [
           "cp-000042",
@@ -16152,6 +16092,16 @@
             "publicationVerified": true,
             "finalDispositionCommit": "7dec13fcbe86dd7be67994be2446fa4c54382b3c",
             "publicationVerifiedAt": "2026-10-26T15:57:44.881Z"
+          },
+          {
+            "caseId": "cp-000096",
+            "state": "approved",
+            "academicDisposition": "comparison",
+            "completedAt": "2026-10-26T17:59:54.813907+00:00",
+            "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000096.json",
+            "reviewedInputCommit": "29e5d15f607a285d0c31237722412164aeb73efd",
+            "evidenceCommit": "5846a170ebf6974700cd501a55a8318758f2dbbd",
+            "publicationVerified": false
           }
         ],
         "lastCheckpoint": {
@@ -16161,7 +16111,7 @@
           "automationRunId": "4ffefb00-9a20-8329-81b6-9f8c0af372e5",
           "startedAt": "2026-10-26T17:33:17.535317Z",
           "claimedAt": "2026-10-26T17:36:35.522677+00:00",
-          "reviewedInputCommit": "1b7207b17cc513b33ccf0b62c1b8f3967397689c",
+          "reviewedInputCommit": "29e5d15f607a285d0c31237722412164aeb73efd",
           "inputBlobs": {
             "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
             "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
@@ -16180,12 +16130,12 @@
             "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
             "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
             "data/counselor/review-interests.json": "a58bac210cd55300dd10801d3206408623f1747c",
-            "data/counselor/decisions/cp-000096.json": "a8d7bd11da4a47d9f054cf32bcac28f649c67ab5",
-            "data/counselor/comparisons/cp-000096.json": "a6c5d1c6ed27641c1bb063667342be7a5e266886"
+            "data/counselor/decisions/cp-000096.json": "3e9c6ba66f728c7ddefc5d5a8981b6ce566a0c9f",
+            "data/counselor/comparisons/cp-000096.json": "39d93553db5a83d077be2544ff5eefa2dd85a5ea"
           },
           "stage": 6,
-          "checkpoint": "Allstages1–5repairedandpairedcandidatecompiled;notapproved.",
-          "nextAction": "Freeze publishedrepair; complete separatelyidentified sameAI source-firstfinalpass,fullformal/audience/methodologyschemasandbyteexactreplay,actualworkbookforall48placements/31profiles, actualdesktop/mobileall62coursemodalopeningsandcomplete2-alternativepresentation,visualinspectionandCI.",
+          "checkpoint": "Approved qualified comparison after all six stages, published evidence and current actual-input verification. Final disposition publication verification pending.",
+          "nextAction": "Verify final disposition main and all 19 actual inputs / 32 immutable evidence paths; publish receipt and close fixed pair 95–96.",
           "setupCI": {
             "runId": 40368080577,
             "inputCommit": "c0b624d5bdc4b60195e1761e6a4dce5cb450a113",
@@ -16204,10 +16154,20 @@
               "action": "Resume shared-index comparison helper",
               "failure": "Lookup used id instead of actualcomparisonId; assertionstoppedbeforemetadataedit. An unchanged-tree commit1b7207bwascreated after later validationpassed.",
               "resolution": "CorrectcomparisonId lookup verified exactCP096entryunchanged; noacademicworklost or approvalinferred."
+            },
+            {
+              "action": "First paired candidate",
+              "failure": "Prose-spacing helper changed BENECON111 into BENEC ON111 in commit 386fc3a. Direct workbook lookup caught the invalid course code; initial actual render could not load that cache entry.",
+              "resolution": "Correct paired root/canonical 79402913; all 48 actual placements rechecked and actual render repeated. No approval used invalid basis."
+            },
+            {
+              "action": "Visual final pass",
+              "failure": "Joined words in three explanatory passages persisted in candidate 79402913.",
+              "resolution": "Exact prose replacements only. Compiler refused existing canonical; shell result was not gated and commit 28a4febe temporarily changed root alone. Regenerated canonical and synchronized in 29e5d15f. Byte-exact replay, frozen checks and full actual render repeated. This publication sequencing error is recorded; only synchronized final basis is approved."
             }
           ]
         },
-        "lastCompletedAt": "2026-10-26T15:51:17.720276+00:00"
+        "lastCompletedAt": "2026-10-26T17:59:54.813907+00:00"
       }
     },
     "splitRule": "Alternate the frozen remaining baseline order: A receives positions 1,3,5,...; B receives 2,4,6,...; 201 unique cases each. No cross-queue reassignment without explicit authority.",
