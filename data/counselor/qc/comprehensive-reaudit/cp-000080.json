@@ -7,7 +7,7 @@
     "decision": "c10814863995caf548045d7fb135465404e5404f",
     "canonical": "eed934e09a27acc79cf46595af69f475a468d491"
   },
-  "state": "in-progress",
+  "state": "approved",
   "stages": {
     "1": {
       "outcome": "correct",
@@ -145,7 +145,7 @@
     },
     "6": {
       "outcome": "correct",
-      "finding": "Separate source-first sameAI finalpass,actualrendered checks and fullfinalinputCI passed;approvalwithheldpendingdurablepublicationandapplicableCI.",
+      "finding": "Separate source-firstsameAI finalpass approved3qualifiedAIresponses. All72placements,schemas/replay,fullactualdesktop/mobile/every34selectedmodal/links/navigation/visuals,finalinputCI andpublished30paths/19actualinputs verified;release dependencyretained.",
       "preserved": [],
       "actions": [],
       "evidence": [
@@ -200,7 +200,7 @@
       "docs/qc/evidence/counselor-corpus-B-cp080-2026-10-26/original-enriched-profiles.json",
       "docs/qc/evidence/counselor-corpus-B-cp080-2026-10-26/linked-interest-rows.json"
     ],
-    "result": "verification-complete-pending-publication",
+    "result": "approved",
     "academicFindings": {
       "external": "VUEnglishfulltimeBScAI2026–27generalroute;27components180EC;restricted/openchoicesandnooptionalcredentialexplicit.",
       "requirements": "The general route comprises54EC compulsory year-one courses plus one6EC restricted choice;42EC compulsory year-two courses plus three6EC restricted choices;24EC prescribed year-three project/ethics/research-design plus one6EC restricted choice and30EC open academic profiling. First-listed eligible choices are shown; options and optional specialisations are not stacked. Project entry requires passed introductory Python6EC and at least90EC of AI bachelor curricular courses. The individual project requires a supervisor/topic, literature study, thesis and annual seminar poster presentation; assessment is work50%, report40%, presentation10%. Research Design accompanies it and requires four on-campus working groups with pass/fail participation; remote or substitute assessment is unavailable. Diagnostic English testing and required refresher are mandatory without extra EC. BSA ordinarily requires42EC first-year credits, subject to exceptions. Individual open choices require prior board approval, at least12EC level300 and at most6EC level100. Foreign choices may additionally include at most one6EC master course, not reusable later. Eligible university/listed minors are exempt from prior approval, but AI students may not enrol in the university Data Science or Basics of AI minors. Course-manual attendance and thesis/placement regulations apply. The general route claims no specialisation credential. The project normally runs in periods5–6. Its topic must be recorded in OnStage before period5 starts; otherwise the project moves to the following academic year. Modelling Human Behaviour requires on-campus lectures/practicals and assessment components of at least5.5 each.",
@@ -244,6 +244,16 @@
         "status": "completed",
         "conclusion": "success",
         "job": 121386586056
+      },
+      "evidenceCommit": {
+        "head": "757dd37bc0589f4e0d9e6fe6a463875b365ab5de",
+        "run": 40266176801,
+        "job": 121388996774,
+        "passedApplicableSteps": [
+          8,
+          10,
+          11
+        ]
       }
     },
     "observedFailures": [
@@ -256,9 +266,14 @@
     "releaseDependenciesRetained": [
       "formal-schema-operational-discrepancy"
     ],
-    "releaseOrCounselorDeploymentAuthorized": false
+    "releaseOrCounselorDeploymentAuthorized": false,
+    "publicationVerification": {
+      "evidenceCommit": "757dd37bc0589f4e0d9e6fe6a463875b365ab5de",
+      "all30ChangedPathsVerified": true,
+      "all19ApplicableInputsUnchanged": true
+    }
   },
-  "presentationApproval": false,
+  "presentationApproval": true,
   "evidenceSources": [
     {
       "urls": [
@@ -578,8 +593,8 @@
       "data/counselor/comparisons/cp-000080.json": "0a64f359df749582bbbf5f8e8a61f6e1a52d9a3a"
     },
     "stage": 6,
-    "checkpoint": "Source-first pass found missing OnStage-before-period5 rule; corrected paired contract. Original68modal openings complete; updatedaudienceviews and final visual/CI/publication gates pending.",
-    "nextAction": "Verify updatedaudience rendering; reconcile unchangedmodal/course inputs against finalpair; visuallyinspectallcontactimages; publishfrozenfinalevidence; CIthenfinaldisposition.",
+    "checkpoint": "Finalapproved:threequalifiedAIresponses;fullsource/content/methods/actualrenderedverificationcomplete.",
+    "nextAction": "CP080complete;nextassignedBcaseCP082onasubsequentexecution.No release/deployment.",
     "setupCI": {
       "head": "4b93761ce83c83c1568fca50d43b15fa7678a38b",
       "runs": [
@@ -598,58 +613,9 @@
       ],
       "observedFailures": []
     },
-    "essentialSourceRetrievalFailures": 0
+    "essentialSourceRetrievalFailures": 0,
+    "completedAt": "2026-10-26 03:53:11 UTC"
   },
-  "workerClaim": {
-    "worker": "B",
-    "caseId": "cp-000080",
-    "executionId": "B-cp080-20261026T032601Z",
-    "automationRunId": "bd50a218-b29c-832d-a709-f826c9419a82",
-    "startedAt": "2026-10-26T03:26:00.240424Z",
-    "claimedAt": "2026-10-26 03:27:57 UTC",
-    "reviewedInputCommit": "4b93761ce83c83c1568fca50d43b15fa7678a38b",
-    "inputBlobs": {
-      "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
-      "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
-      "docs/qc/counselor-comprehensive-reaudit-protocol.md": "d1c9572d5c09307a3c7951b4a703c2e6b9bb4206",
-      "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-      "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
-      "data/registry/programmes.csv": "e0b978c7efb7afc1f60a47ef53827e022df542e9",
-      "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
-      "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
-      "data/counselor/review-programmes.json": "87dd957002636ccb3f9a264039f4116e72e90843",
-      "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
-      "pilot/shiny/data/courses/BEN.json": "01f692c24c8407fdb4cca4154abc8c1b544f7958",
-      "pilot/shiny/data/courses/DIS.json": "f7d8f10c6dad39a63e25cc214b0ea95a6db5ed3d",
-      "pilot/shiny/data/courses/ENS.json": "d1da80e0530e5f731047547c2f807059bbf6131b",
-      "pilot/shiny/data/courses/GOS.json": "a70d5a154184f75dff1983983b0136a109d2293b",
-      "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
-      "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
-      "data/counselor/review-interests.json": "a58bac210cd55300dd10801d3206408623f1747c",
-      "data/counselor/decisions/cp-000080.json": "263d39ae169046552ec1f8349f383a952a07153f",
-      "data/counselor/comparisons/cp-000080.json": "0a64f359df749582bbbf5f8e8a61f6e1a52d9a3a"
-    },
-    "stage": 6,
-    "checkpoint": "Source-first pass found missing OnStage-before-period5 rule; corrected paired contract. Original68modal openings complete; updatedaudienceviews and final visual/CI/publication gates pending.",
-    "nextAction": "Verify updatedaudience rendering; reconcile unchangedmodal/course inputs against finalpair; visuallyinspectallcontactimages; publishfrozenfinalevidence; CIthenfinaldisposition.",
-    "setupCI": {
-      "head": "4b93761ce83c83c1568fca50d43b15fa7678a38b",
-      "runs": [
-        {
-          "id": 40262451293,
-          "name": "Validate Shiny pilots",
-          "status": "completed",
-          "conclusion": "success"
-        },
-        {
-          "id": 40262450027,
-          "name": "pages build and deployment",
-          "status": "completed",
-          "conclusion": "success"
-        }
-      ],
-      "observedFailures": []
-    },
-    "essentialSourceRetrievalFailures": 0
-  }
+  "workerClaim": null,
+  "academicDisposition": "comparison"
 }
