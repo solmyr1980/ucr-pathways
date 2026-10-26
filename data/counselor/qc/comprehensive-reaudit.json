@@ -16229,7 +16229,9 @@
             "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000098.json",
             "reviewedInputCommit": "b70452cc30139ed21c234aabe51b9c2381024c93",
             "evidenceCommit": "f20e7db4e6414fca719b76c42fd84a1e69dadae0",
-            "publicationVerified": false
+            "publicationVerified": true,
+            "publicationVerifiedAt": "2026-10-26T20:22:35.556Z",
+            "finalDispositionCommit": "5f770026825eca6662610222885a5221bee53323"
           }
         ],
         "lastCheckpoint": {
@@ -16262,8 +16264,8 @@
             "data/counselor/comparisons/cp-000098.json": "d7a1d3a74a0b389f9242c02a2be1f3a995fc6086"
           },
           "stage": 6,
-          "checkpoint": "Approved qualified comparison after all six stages, published evidence, full input CI and current actual-input verification. Final disposition publication verification pending.",
-          "nextAction": "Verify final main and all 19 actual inputs / 41 immutable evidence paths; publish final receipt and close fixed reporting pair 97–98.",
+          "checkpoint": "Complete: final disposition, all 19 actual inputs and 41 immutable evidence hashes verified; publication receipt and fixed reporting-pair closure recorded.",
+          "nextAction": "B continues cp-000100 in a separate execution. No further CP098 work unless applicable inputs or authoritative evidence change.",
           "setupCI": {
             "runId": 40385059566,
             "conclusion": "success",
@@ -17858,6 +17860,54 @@
         },
         "closedAt": "2026-10-26T18:02:43Z",
         "publicationVerifiedAt": "2026-10-26T18:02:43Z"
+      },
+      {
+        "caseIds": [
+          "cp-000097",
+          "cp-000098"
+        ],
+        "status": "closed",
+        "verifiedFinalStates": {
+          "cp-000097": "approved",
+          "cp-000098": "approved"
+        },
+        "evidenceFiles": [
+          "data/counselor/qc/comprehensive-reaudit/cp-000097.json",
+          "data/counselor/qc/comprehensive-reaudit/cp-000098.json"
+        ],
+        "verificationEvidenceRefs": [
+          "docs/qc/evidence/counselor-corpus-A-cp097-2026-10-26/publication-verification.json",
+          "docs/qc/evidence/counselor-corpus-B-cp098-2026-10-26/publication-verification.json"
+        ],
+        "basisReconciliation": {
+          "other18ActualInputsUnchanged": true,
+          "all26ImmutableEvidenceHashesUnchanged": true,
+          "exactCurrentIndexEntryEqualsFrozenFinalBasis": true,
+          "frozenFinalDisposition": "571c6a51baef243d1e7717e054bf2cbaa1b20f0d",
+          "indexEntry": {
+            "comparisonId": "cp-000097",
+            "sourceExcelRow": 104,
+            "programmeProviderId": "cp-000097",
+            "opleidingseenheidcode": "1001O5909",
+            "recognizedProgrammeId": "56551",
+            "registryName": "B Geneeskunde",
+            "displayName": "Medicine",
+            "institution": "Vrije Universiteit Amsterdam",
+            "degree": "BACHELOR",
+            "language": "NLD",
+            "studyLoad": "180",
+            "officialUrl": "https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/151c0dc2-797e-46fb-b61c-ac16761ceb04/1%20OER%20Ba%20VUmc-compas%202026-2027%20DEF.pdf"
+          },
+          "changedWholeIndex": [
+            [
+              "data/counselor/review-programmes.json",
+              "e9463c8bbfddf2ce4338823d4e42cc98a5efad07"
+            ]
+          ],
+          "receipt": "docs/qc/evidence/counselor-corpus-A-cp097-2026-10-26/publication-verification.json"
+        },
+        "closedAt": "2026-10-26T20:22:35.556Z",
+        "publicationVerifiedAt": "2026-10-26T20:22:35.556Z"
       }
     ]
   }
