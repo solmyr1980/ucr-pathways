@@ -8127,8 +8127,8 @@
           "data/counselor/comparisons/cp-000088.json": "11b2fef99915f5aa98a8f63e8d1e6107eec9cafc"
         },
         "stage": 6,
-        "checkpoint": "Approved2qualifiedcomparisons;allacademic/mechanical/source-first/actualvisual/fullinputCI/evidencepublicationgatespassed.",
-        "nextAction": "Verify finaldisposition main/hash/applicablemetadataCI;publish receipt andcloseCP087–088pair oncebothverified. CP090 only innextexecution.",
+        "checkpoint": "Finalapproved CP088 publicationverified;all26academic/imageevidencehashes and19inputblobs unchanged;dispositionmetadataCIpassed.",
+        "nextAction": "No unfinishedCP088action;CP090nextassignedcaseinaseparateexecution. CP087–088pairclosedafterbothverifiedfinaldispositions.",
         "setupCI": {
           "head": "a0cab20f6b9104c05b42ab1040e5dd2721349c8d",
           "runs": [
@@ -8140,7 +8140,7 @@
           "observedFailures": []
         },
         "essentialSourceRetrievalFailures": 0,
-        "updatedAt": "2026-10-26T09:52:11.247Z",
+        "updatedAt": "2026-10-26 09:54:54 UTC",
         "evidenceRef": "docs/qc/evidence/counselor-corpus-B-cp088-2026-10-26/source-first-final-pass.json",
         "verifiedInputCommit": "e8f43a1bb998b6b71ccc78cc037d803f5ebaab07",
         "verifiedInputBlobs": {
@@ -8164,7 +8164,8 @@
           "data/counselor/decisions/cp-000088.json": "4eba48d432e963572cbf8a21cdef8b5b244469fa",
           "data/counselor/comparisons/cp-000088.json": "e48ce5fe028e2a1c57bf1df0678b712cfee46fc3"
         }
-      }
+      },
+      "publicationVerifiedAt": "2026-10-26 09:54:54 UTC"
     }
   ],
   "sharedIssues": [
@@ -15067,7 +15068,10 @@
             "completedAt": "2026-10-26T09:52:11.248Z",
             "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000088.json",
             "reviewedInputCommit": "e8f43a1bb998b6b71ccc78cc037d803f5ebaab07",
-            "evidenceCommit": "26eaae512d150d87cc2eaae0104c0f2f77652eed"
+            "evidenceCommit": "26eaae512d150d87cc2eaae0104c0f2f77652eed",
+            "finalDispositionCommit": "ac375532d392a5ada92b0826bbf0b76d88e997b7",
+            "publicationVerifiedAt": "2026-10-26 09:54:54 UTC",
+            "publicationVerified": true
           }
         ],
         "lastCheckpoint": {
@@ -15100,8 +15104,8 @@
             "data/counselor/comparisons/cp-000088.json": "11b2fef99915f5aa98a8f63e8d1e6107eec9cafc"
           },
           "stage": 6,
-          "checkpoint": "Approved2qualifiedcomparisons;allacademic/mechanical/source-first/actualvisual/fullinputCI/evidencepublicationgatespassed.",
-          "nextAction": "Verify finaldisposition main/hash/applicablemetadataCI;publish receipt andcloseCP087–088pair oncebothverified. CP090 only innextexecution.",
+          "checkpoint": "Finalapproved CP088 publicationverified;all26academic/imageevidencehashes and19inputblobs unchanged;dispositionmetadataCIpassed.",
+          "nextAction": "No unfinishedCP088action;CP090nextassignedcaseinaseparateexecution. CP087–088pairclosedafterbothverifiedfinaldispositions.",
           "setupCI": {
             "head": "a0cab20f6b9104c05b42ab1040e5dd2721349c8d",
             "runs": [
@@ -15113,7 +15117,7 @@
             "observedFailures": []
           },
           "essentialSourceRetrievalFailures": 0,
-          "updatedAt": "2026-10-26T09:52:11.247Z",
+          "updatedAt": "2026-10-26 09:54:54 UTC",
           "evidenceRef": "data/counselor/qc/comprehensive-reaudit/cp-000088.json",
           "verifiedInputCommit": "e8f43a1bb998b6b71ccc78cc037d803f5ebaab07",
           "verifiedInputBlobs": {
@@ -15137,7 +15141,9 @@
             "data/counselor/decisions/cp-000088.json": "4eba48d432e963572cbf8a21cdef8b5b244469fa",
             "data/counselor/comparisons/cp-000088.json": "e48ce5fe028e2a1c57bf1df0678b712cfee46fc3"
           },
-          "finalState": "approved"
+          "finalState": "approved",
+          "finalDispositionCommit": "ac375532d392a5ada92b0826bbf0b76d88e997b7",
+          "publicationVerifiedAt": "2026-10-26 09:54:54 UTC"
         },
         "lastCompletedAt": "2026-10-26T09:52:11.248Z"
       }
@@ -16489,6 +16495,42 @@
           ],
           "interpretation": "Receipt hashScope explicitly distinguishes evidence/disposition commits and later completion metadata. Current3JSONdeltas contain only completed-status/CI/register-validation updates;allacademicselection/content/screenshot inputs remain frozen."
         }
+      },
+      {
+        "caseIds": [
+          "cp-000087",
+          "cp-000088"
+        ],
+        "status": "closed",
+        "verifiedFinalStates": {
+          "cp-000087": "reviewed-with-blockers",
+          "cp-000088": "approved"
+        },
+        "evidenceFiles": [
+          "data/counselor/qc/comprehensive-reaudit/cp-000087.json",
+          "data/counselor/qc/comprehensive-reaudit/cp-000088.json"
+        ],
+        "verificationEvidenceRefs": [
+          "docs/qc/evidence/counselor-corpus-A-cp087-2026-10-26/publication-verification.json",
+          "docs/qc/evidence/counselor-corpus-B-cp088-2026-10-26/publication-verification.json"
+        ],
+        "basisReconciliation": {
+          "cp087Receipt": "docs/qc/evidence/counselor-corpus-A-cp087-2026-10-26/publication-verification.json",
+          "all19ActualInputsUnchanged": true,
+          "allImmutableImagesAndAcademicEvidenceUnchanged": true,
+          "sourceFirstDifference": "CI.disposition added only",
+          "courseReviewDifference": "nextUnverifiedAction changed to final completion only",
+          "caseDifferences": [
+            "finalReview.CI.disposition",
+            "checkpoint.lastVerifiedAt",
+            "executionMetrics.publicationVerifiedAt",
+            "executionMetrics.elapsedWallSecondsThroughPublication",
+            "publicationVerification"
+          ],
+          "interpretation": "Receipt hashScope allows laterreceipt/status-only metadata. Verified currentdifferencekeys;noacademicinput/course/evidencecontentchanged."
+        },
+        "closedAt": "2026-10-26 09:54:54 UTC",
+        "publicationVerifiedAt": "2026-10-26 09:54:54 UTC"
       }
     ]
   }
