@@ -7,7 +7,7 @@
     "decision": "4eb7b597ffc79a87063287134c1de4132d9063aa",
     "canonical": "38c04cf8b4883997134903f1f9ab8be5ae9f06ca"
   },
-  "state": "in-progress",
+  "state": "approved",
   "stages": {
     "1": {
       "outcome": "correct",
@@ -820,7 +820,7 @@
       "docs/qc/evidence/counselor-corpus-A-cp089-2026-10-26/source-course-review.json",
       "docs/qc/evidence/counselor-corpus-A-cp089-2026-10-26/source-first-final-pass.json"
     ],
-    "result": "academic/mechanical/renderedpassed;awaitingpublished-evidenceCIandfinaldisposition",
+    "result": "approved",
     "checks": {
       "academic": {
         "status": "passed",
@@ -854,6 +854,16 @@
         "head": "93b5c35be115721eb82a80fb15e75cd52a72122f",
         "job": 121395342887,
         "conclusion": "success"
+      },
+      "evidenceCommit": {
+        "head": "dee5a56686c6edf59865ab53f1e0ea0e6b58ddd1",
+        "run": 40268888535,
+        "job": 121397193102,
+        "passedApplicableSteps": [
+          8,
+          10,
+          11
+        ]
       }
     },
     "observedFailures": [
@@ -867,9 +877,16 @@
     "observedExecutionDeadline": null,
     "releaseDependenciesRetained": [
       "formal-schema-operational-discrepancy"
-    ]
+    ],
+    "reviewedAt": "2026-10-26 04:25:31 UTC",
+    "publicationVerification": {
+      "evidenceCommit": "dee5a56686c6edf59865ab53f1e0ea0e6b58ddd1",
+      "all28ChangedPathsVerified": true,
+      "all19ApplicableInputsUnchanged": true,
+      "receipt": "docs/qc/evidence/counselor-corpus-A-cp089-2026-10-26/publication-verification.json"
+    }
   },
-  "presentationApproval": false,
+  "presentationApproval": true,
   "evidenceSources": [
     {
       "urls": [
@@ -1249,8 +1266,8 @@
       "data/counselor/comparisons/cp-000089.json": "38c04cf8b4883997134903f1f9ab8be5ae9f06ca"
     },
     "stage": 6,
-    "checkpoint": "Sixstageacademic/mechanical/renderedreviewcomplete;frozen93b5inputs;56modals/all15visuals/fullinputCIpassed;unapproveduntilpublished-evidence/finaldispositionverification.",
-    "nextAction": "Verifyallpublished evidencehashesandapplicableCI, thenpublish synchronizedapproveddisposition andverifiedreceipt;nextAcaseCP091onlysubsequentexecution.",
+    "checkpoint": "Final approved:two qualified substantiveCSresponses;fourbaselineofferingfailuresrepaired;allsource/interest/course/placement/render/schema/replay/CIgatespassed.",
+    "nextAction": "Verifyfinaldispositionpublication;CP091nextonlyinasubsequentexecution.No release/deployment.",
     "setupCI": {
       "head": "d8282d7de396ff46318069e67326b4e99e03a63c",
       "runs": [
@@ -1280,7 +1297,8 @@
       "fullschemasandbyteexactreplay",
       "operationalcorpus"
     ],
-    "claimCorrection": "Initialresumedclaimestimated38interests; actual49verified, recordcorrectedhere."
+    "claimCorrection": "Initialresumedclaimestimated38interests; actual49verified, recordcorrectedhere.",
+    "completedAt": "2026-10-26 04:25:31 UTC"
   },
   "workerClaim": {
     "worker": "A",
@@ -1312,8 +1330,8 @@
       "data/counselor/comparisons/cp-000089.json": "38c04cf8b4883997134903f1f9ab8be5ae9f06ca"
     },
     "stage": 6,
-    "checkpoint": "Sixstageacademic/mechanical/renderedreviewcomplete;frozen93b5inputs;56modals/all15visuals/fullinputCIpassed;unapproveduntilpublished-evidence/finaldispositionverification.",
-    "nextAction": "Verifyallpublished evidencehashesandapplicableCI, thenpublish synchronizedapproveddisposition andverifiedreceipt;nextAcaseCP091onlysubsequentexecution.",
+    "checkpoint": "Final approved:two qualified substantiveCSresponses;fourbaselineofferingfailuresrepaired;allsource/interest/course/placement/render/schema/replay/CIgatespassed.",
+    "nextAction": "Verifyfinaldispositionpublication;CP091nextonlyinasubsequentexecution.No release/deployment.",
     "setupCI": {
       "head": "d8282d7de396ff46318069e67326b4e99e03a63c",
       "runs": [
@@ -1343,7 +1361,8 @@
       "fullschemasandbyteexactreplay",
       "operationalcorpus"
     ],
-    "claimCorrection": "Initialresumedclaimestimated38interests; actual49verified, recordcorrectedhere."
+    "claimCorrection": "Initialresumedclaimestimated38interests; actual49verified, recordcorrectedhere.",
+    "completedAt": "2026-10-26 04:25:31 UTC"
   },
   "executionHistory": [
     {
@@ -1352,5 +1371,12 @@
       "preservedLocalWork": "OfficialTERretrieved and28profiles/48placements extracted; no approval carried over."
     }
   ],
-  "academicDisposition": "comparison"
+  "academicDisposition": "comparison",
+  "publicationVerification": {
+    "status": "evidence-verified-final-disposition-receipt-pending",
+    "evidenceCommit": "dee5a56686c6edf59865ab53f1e0ea0e6b58ddd1",
+    "changedPathCount": 28,
+    "allChangedHashesVerified": true,
+    "allApplicableInputsUnchanged": true
+  }
 }
