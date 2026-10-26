@@ -14934,7 +14934,9 @@
             "completedAt": "2026-10-26 08:44:06 UTC",
             "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000086.json",
             "reviewedInputCommit": "a243ae75a758c8576e4393e7ab5c3c2cabd8f348",
-            "publicationVerified": false
+            "publicationVerified": true,
+            "publicationVerifiedAt": "2026-10-26 08:47:12 UTC",
+            "finalDispositionCommit": "c2e0b7d12e58bac53c06793cb1ca74e05d7ad4d7"
           }
         ],
         "lastCheckpoint": {
@@ -14968,7 +14970,7 @@
           },
           "stage": 6,
           "checkpoint": "Approved qualified comparison:3substantive alternatives;all academic/mechanical/actualrender/source-first/published-evidence gatespassed.",
-          "nextAction": "Verify disposition and receipt;CP088nextassignednondeferredBcaseinsubsequentexecution.",
+          "nextAction": "CP086 complete; CP088 next assigned nondeferred B case in a subsequent execution. No release/deployment.",
           "setupCI": {
             "head": "f1ae84a5d08cb02f255037176a5183e738870370",
             "runs": [
@@ -15005,7 +15007,8 @@
           },
           "evidenceRef": "docs/qc/evidence/counselor-corpus-B-cp086-2026-10-26/source-first-final-pass.json",
           "completedAt": "2026-10-26 08:44:06 UTC",
-          "updatedAt": "2026-10-26 08:44:06 UTC"
+          "updatedAt": "2026-10-26 08:44:06 UTC",
+          "lastVerifiedAt": "2026-10-26 08:47:12 UTC"
         },
         "lastCompletedAt": "2026-10-26 08:44:06 UTC"
       }
@@ -16301,6 +16304,61 @@
           "immutableEvidenceHashesUnchanged": true,
           "sharedRegistryAndAppInputsUnchanged": true,
           "indexChange": "Subsequent-case additions only; exact CP083 entry identical to frozen index. All other applicable shared registry/workbook/app/course inputs unchanged."
+        }
+      },
+      {
+        "caseIds": [
+          "cp-000085",
+          "cp-000086"
+        ],
+        "status": "closed",
+        "verifiedFinalStates": {
+          "cp-000085": "approved",
+          "cp-000086": "approved"
+        },
+        "evidenceFiles": [
+          "data/counselor/qc/comprehensive-reaudit/cp-000085.json",
+          "data/counselor/qc/comprehensive-reaudit/cp-000086.json"
+        ],
+        "closedAt": "2026-10-26 08:47:12 UTC",
+        "publicationVerifiedAt": "2026-10-26 08:47:12 UTC",
+        "verificationEvidenceRefs": [
+          "docs/qc/evidence/counselor-corpus-A-cp085-2026-10-26/publication-verification.json",
+          "docs/qc/evidence/counselor-corpus-B-cp086-2026-10-26/publication-verification.json"
+        ],
+        "basisReconciliation": {
+          "cp085Receipt": "docs/qc/evidence/counselor-corpus-A-cp085-2026-10-26/publication-verification.json",
+          "rootCanonicalUnchanged": true,
+          "appWorkbookRegistryCourseInputsUnchanged": true,
+          "indexEntryUnchanged": true,
+          "metadataOnlyDifferences": [
+            {
+              "path": "docs/qc/evidence/counselor-corpus-A-cp085-2026-10-26/course-review.json",
+              "receiptEvidenceBlob": "a0526877684e7d0b1fc4406e977ec9692ff60cc6",
+              "currentBlob": "588227c25019b6acb095cd296eb807fc0270277a",
+              "changedKeys": [
+                "nextUnverifiedAction"
+              ]
+            },
+            {
+              "path": "docs/qc/evidence/counselor-corpus-A-cp085-2026-10-26/source-first-final-pass.json",
+              "receiptEvidenceBlob": "d472aea279d71a4dba0cc1adc5b9882cdca31a9e",
+              "currentBlob": "baa1d14e3bda5e6168743ac936b66d1b2bbeb2c0",
+              "changedKeys": [
+                "result",
+                "CI"
+              ]
+            },
+            {
+              "path": "docs/qc/evidence/counselor-corpus-A-cp085-2026-10-26/cp-000085-mechanical-verification.json",
+              "receiptEvidenceBlob": "6b11da243b391fcc4a5833679cd9fd1bd3b3b5b6",
+              "currentBlob": "b01879bcd3d61e90bc3d82915f0a7fb0d6a8053d",
+              "changedKeys": [
+                "comprehensiveRegisterValidation"
+              ]
+            }
+          ],
+          "interpretation": "Receipt hashScope explicitly distinguishes evidence/disposition commits and later completion metadata. Current3JSONdeltas contain only completed-status/CI/register-validation updates;allacademicselection/content/screenshot inputs remain frozen."
         }
       }
     ]
