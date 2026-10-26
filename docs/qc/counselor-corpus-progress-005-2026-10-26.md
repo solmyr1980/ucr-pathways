@@ -1,0 +1,38 @@
+# Counselor corpus progress assessment 5
+
+As of 2026-10-26T10:30:56.883Z, the continuation has 50 newly verified final dispositions: 32 approved comparisons retaining 65 UCR alternatives, ten approved no-match findings and eight reviews with authoritative blockers. This fifth interval adds nine comparisons with 21 alternatives and one review with blockers. Provisional alternatives in blocked cases are excluded.
+
+| Case | Programme | Final disposition | Approved UCR alternatives |
+|---|---|---|---:|
+| [cp-000078](../../data/counselor/qc/comprehensive-reaudit/cp-000078.json) | Earth Sciences (Aardwetenschappen) | approved comparison | 1 |
+| [cp-000080](../../data/counselor/qc/comprehensive-reaudit/cp-000080.json) | Artificial Intelligence | approved comparison | 3 |
+| [cp-000082](../../data/counselor/qc/comprehensive-reaudit/cp-000082.json) | Public Administration and Organization Science (Bestuurs- en Organisatiewetenschap) | approved comparison | 3 |
+| [cp-000084](../../data/counselor/qc/comprehensive-reaudit/cp-000084.json) | Biology (Biologie) | approved comparison | 3 |
+| [cp-000086](../../data/counselor/qc/comprehensive-reaudit/cp-000086.json) | Business Analytics | approved comparison | 3 |
+| [cp-000087](../../data/counselor/qc/comprehensive-reaudit/cp-000087.json) | Communication and Information Studies (Communicatie- en Informatiewetenschappen) | reviewed with blockers | 0 |
+| [cp-000088](../../data/counselor/qc/comprehensive-reaudit/cp-000088.json) | Communication Science (Communicatiewetenschap) | approved comparison | 2 |
+| [cp-000089](../../data/counselor/qc/comprehensive-reaudit/cp-000089.json) | Computer Science | approved comparison | 2 |
+| [cp-000091](../../data/counselor/qc/comprehensive-reaudit/cp-000091.json) | Cultural Anthropology and Development Sociology | approved comparison | 2 |
+| [cp-000093](../../data/counselor/qc/comprehensive-reaudit/cp-000093.json) | Econometrics and Operations Research | approved comparison | 2 |
+
+The 438-case baseline reconciles to 74 approved, 12 reviewed with blockers, five in progress and 347 unstarted. All five in-progress cases are source-deferred: CP041, CP042, CP052, CP055 and CP069. The earlier 36-case history and settled CP020, CP026, CP033 and CP277 remain unchanged. A has 26/201 final, three deferred and 172 unstarted; CP095 is next. B has 24/201 final, two deferred and 175 unstarted; CP090 is next. Deferrals are incomplete, not final.
+
+Fixed adjacent pairs CP077–078, CP079–080, CP081–082, CP083–084, CP085–086 and CP087–088 have verified closures. CP087 remains reviewed with blockers despite its pair closing. CP089–090, CP091–092 and CP093–094 remain open. Earlier pairs containing deferred cases remain open. No pair is closed from one member or a task status.
+
+CP087’s adopted pathway omits Discourse Analysis while the current catalogue requires it for a compulsory later unit. An exact applicable cohort waiver/replacement or corrected coherent route is still required. The review completed all independently possible source, content, repair, formal and actual presentation checks; provisional UCR schedules were withdrawn. This is a documentary progression conflict, not transient inaccessibility.
+
+The approved comparisons retain substantive responses separately from scheduling coherence. Earth Sciences retains one qualified surface/system direction with specialist geological gaps. AI, public governance, Biology and Business Analytics retain differentiated programmes after actual content and weight review. Computer Science retains two computing/mathematical responses; anthropology retains two social/cultural approaches with explicit ethnographic-theory and fieldwork gaps. Communication Science retains two rhetorical/media/research approaches while bounding film, poetry and school-based practice. Three remains a maximum.
+
+Recurring repairs concern actual course substance, preparation and scheduling. Business Analytics places probability/statistics before machine learning and separates accounting from finance and calculus from linear algebra. Biology moves laboratory study earlier and corrects ecological/methods alignments. Computer Science corrects four offering failures. Anthropology corrects four law-prerequisite placements and replaces literary stylistics with research methods/statistics. Communication Science supplies the missing business prerequisite, adds basic research/statistics in the second option and modern sociology before advanced inquiry; literary/film/creative content no longer stands in for specialist communication projects. These are specific repairs to affected cases, not unrelated bulk changes.
+
+CP093 independently confirms the exact 2026–27 180-EC EOR pathway, noncredit language/support obligations, BSA and practical/thesis entry conditions. Its guide requires one or two broader Year-3 electives while the adopted chart says at most two. Econometrics III, Mathematical Economics III and Financial Econometrics satisfy both. The chart’s Econometrics-II title is resolved by its E_EOR3_TR3 code and current course entry. No older inferred course weights remain. UCR accounting, signals analysis and AI planning do not establish finance, advanced econometric time-series or stochastic-OR equivalence. Two qualified compositions remain, differing by eight courses/60 EC; energy-price forecasting is not promised. All 36 interests, 32 selected profiles and 48 placements were checked.
+
+Actual desktop/mobile reviews cover every included alternative, complete external curriculum, links/navigation/geometry and every selected course modal, with screenshots visually inspected. CP093 has 64 modal openings and 17 lossless contact/slice images. Full formal/audience/methodology schemas, byte-exact compiler replay, actual workbook prerequisites/offerings and corpus/index/register checks passed. Separate source-first final passes were performed by the same AI; no second reviewer is claimed. Exceptions have no invented UCR schedules.
+
+Technical and process findings remain explicit. CP091 resumed a browser-runtime interruption and finished only after actual rendering became possible. CP087 reconciled a moved main after an automated index update and rebuilt its publication transaction. CP088 replaced a truncated large-file reader before publication. CP093’s changed primary source required a single index-row refresh; the compiler overwrite guard was handled with a fresh task output and byte-exact replay. Its final receipt also corrected stage bookkeeping: schedule evidence belongs in stage 4 and the already completed audience/context inspection in stage 5. No academic input changed in that bookkeeping repair.
+
+CP093 measured 1680 seconds from its recorded start through final disposition/hash verification, including retrieval, academic work, rendering, visual inspection and CI/publication waiting. No imposed elapsed-time limit or additional academic user intervention was observed. This is wall time; active effort and throughput were not measured. Other exact observed metrics are retained in the machine-readable case references rather than inferred from statuses.
+
+The formal-schema-operational-discrepancy release dependency remains separate. Exact documentary blockers and source deferrals remain unresolved; no evidenced systemic failure requires pausing either queue. This is a reporting checkpoint, not an approval or stopping gate. Final release, integration, discovery publication and counselor deployment remain separate and unauthorised.
+
+[Machine-readable assessment](evidence/counselor-corpus-progress-005-2026-10-26.json).
