@@ -54,6 +54,17 @@ def validate(root):
             reference(ref)
 
     d = read_json(root / REGISTER)
+    case_dir = CASE_DIR
+    active = d.get('activeAudit')
+    if active:
+        reference(active['register'])
+        historical = d
+        d = read_json(root / active['register'])
+        case_dir = d['caseEvidenceDirectory']
+        require(d['auditId'] == active['auditId'], 'Active audit identity mismatch')
+        require(d['baselineCaseOrder'] == historical['baselineCaseOrder'], 'Restart changed baseline scope/order')
+        require(case_dir == active['caseEvidenceDirectory'], 'Active case directory mismatch')
+        require((root / case_dir).resolve().is_relative_to(root), 'Unsafe active case directory')
     require(d['schemaVersion'] == '2.0', 'Unsupported register version')
     require(d['caseLifecycleVocabulary'] == STATES, 'Unexpected lifecycle vocabulary')
     require(d['stageOutcomeVocabulary'] == OUTCOMES, 'Unexpected stage vocabulary')
@@ -117,7 +128,7 @@ def validate(root):
             require(not entry.get('evidenceFile'), f'{case_id}: unstarted evidence file')
             continue
         file = entry['evidenceFile']
-        require(file == f'{CASE_DIR}/{case_id}.json', f'{case_id}: unstable evidence path')
+        require(file == f'{case_dir}/{case_id}.json', f'{case_id}: unstable evidence path')
         reference(file)
         detail_paths.add(file)
         case = read_json(root / file)
@@ -184,11 +195,33 @@ def validate(root):
             for kind, name in [('canonical', 'comparisons'), ('decision', 'decisions')]:
                 current = root / f'data/counselor/{name}/{case_id}.json'
                 require(final['inputBlobs'][kind] == (git_blob(current) if current.exists() else None), f'{case_id}: final approval refers to stale {kind}')
-    actual_details = {str(p.relative_to(root)) for p in (root / CASE_DIR).glob('cp-*.json')}
+    actual_details = {str(p.relative_to(root)) for p in (root / case_dir).glob('cp-*.json')}
     require(detail_paths == actual_details, 'Orphaned or missing case evidence file')
     counts = Counter(states.values())
     expected = {'approved': counts['approved'], 'inProgress': counts['in-progress'], 'reviewedWithBlockers': counts['reviewed-with-blockers'], 'notStarted': counts['not-started'], 'pilotStarted': sum(states[x] != 'not-started' for x in pilot)}
     require(d['progress'] == expected, f'Progress differs: expected {expected}')
+    if 'workers' in d:
+        workers = d['workers']
+        require(set(workers) == {'A', 'B'}, 'Restart requires exactly two workers')
+        midpoint = len(baseline) // 2
+        require(len(baseline) % 2 == 0, 'Restart baseline cannot split equally')
+        assigned = workers['A']['assignedCases'] + workers['B']['assignedCases']
+        require(assigned == baseline and len(set(assigned)) == len(baseline), 'Restart assignments overlap/omit/reorder cases')
+        require(workers['A']['assignedCases'] == baseline[:midpoint] and workers['B']['assignedCases'] == baseline[midpoint:], 'Restart halves differ from frozen baseline halves')
+        task_ids = [worker['automationId'] for worker in workers.values()]
+        require(all(task_ids) and len(set(task_ids)) == 2, 'Restart task identities missing/duplicated')
+        for name, worker in workers.items():
+            own = worker['assignedCases']
+            require(worker['assignedCaseCount'] == len(own) == midpoint, f'{name}: unequal half')
+            completed = worker['completedCases']
+            actual_final = {case_id for case_id in own if states[case_id] in ['approved', 'reviewed-with-blockers']}
+            require(len(completed) == len(set(completed)) and set(completed) == actual_final, f'{name}: completion count differs from new dispositions')
+            deferred = worker['deferredCases']
+            require(set(deferred) <= set(own) and not (set(deferred) & set(completed)), f'{name}: invalid deferral ownership/completion')
+            require(all(states[case_id] == 'in-progress' for case_id in deferred), f'{name}: deferred case must remain in-progress')
+            claim = worker.get('activeClaim')
+            require(not claim or claim.get('caseId') in own, f'{name}: claim belongs to another half')
+        require(d['reportingPairs'] == [baseline[i:i + 2] for i in range(0, len(baseline), 2)], 'Restart reporting pairs changed')
     for batch in d['batches']:
         require(len(batch['caseIds']) == len(set(batch['caseIds'])) == 2 and set(batch['caseIds']) <= set(ids), 'Invalid batch references')
         reference(batch['reportSection'])

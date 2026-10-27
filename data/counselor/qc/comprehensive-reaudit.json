@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
   "auditId": "counselor-comprehensive-reaudit",
-  "status": "remaining-corpus-scheduled",
+  "status": "superseded-by-full-restart",
   "preparedOn": "2026-10-17",
   "baselineCommit": "bb2c4b5bd41e060b501448e057757f661ef22d4e",
   "protocol": "docs/qc/counselor-comprehensive-reaudit-protocol.md",
@@ -15364,7 +15364,7 @@
   "corpusContinuation": {
     "id": "remaining-corpus-2026-10-24",
     "authorisedOn": "2026-10-24",
-    "status": "in-progress",
+    "status": "superseded-by-full-restart",
     "authority": "User accepted continuous processing of the remaining corpus and explicitly requested two hourly tasks with an equal split: A from 20:00, B from 21:30, Europe/Amsterdam.",
     "baselineCommit": "8cc4a8d9cad8a0c50a4c1a324f25a4470507a56b",
     "baselineDenominator": 438,
@@ -18080,7 +18080,12 @@
         "reportingOnly": true
       }
     ],
-    "systemicPause": null,
+    "systemicPause": {
+      "active": true,
+      "recordedOn": "2026-10-27",
+      "reason": "User superseded this continuation with a full 438-case restart. Both old schedules paused. Any already-running old execution must preserve checkpoint and stop before further publication. Do not pause or change the replacement tasks.",
+      "replacementRegister": "data/counselor/qc/full-restart-2026-10-27.json"
+    },
     "executionRule": "One complete case per worker execution. Resume own unfinished non-deferred case. Other-worker academic work on its separate case may proceed concurrently. Skip only a genuinely live duplicate execution of the same worker.",
     "writerPolicy": "Serialize publication only: fetch fresh main and every changed path; apply only own case/worker delta to current data; atomically commit on that exact parent via authenticated GitHub connector, non-forced fast-forward with expected-parent guard. On conflict refresh, merge, revalidate and rebuild. Never publish a stale whole shared file or overwrite another worker. Separate local checkouts, ports and render paths.",
     "sourceRetryRule": {
@@ -19128,5 +19133,12 @@
         "publicationVerifiedAt": "2026-10-27 09:44:02 UTC"
       }
     ]
-  }
+  },
+  "activeAudit": {
+    "auditId": "counselor-full-restart-2026-10-27",
+    "register": "data/counselor/qc/full-restart-2026-10-27.json",
+    "caseEvidenceDirectory": "data/counselor/qc/full-restart-2026-10-27",
+    "authorisedOn": "2026-10-27"
+  },
+  "historicalProgressNotice": "All progress and case dispositions in this file describe the superseded audit only; current progress is in activeAudit.register."
 }
