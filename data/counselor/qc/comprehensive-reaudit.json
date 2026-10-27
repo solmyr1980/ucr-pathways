@@ -9567,14 +9567,24 @@
     },
     {
       "id": "cp-000118",
-      "state": "in-progress",
+      "state": "approved",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000118.json",
-      "stageOutcomes": {},
+      "stageOutcomes": {
+        "1": "reconstruct",
+        "2": "correct",
+        "3": "reconstruct",
+        "4": "correct",
+        "5": "correct",
+        "6": "correct"
+      },
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false
+      "implementationCommits": [
+        "a4b1e63fe1e89055dae6eccbdbd5aeb2042877df"
+      ],
+      "presentationApproval": true,
+      "academicDisposition": "no-defensible-ucr-match"
     }
   ],
   "sharedIssues": [
@@ -9716,8 +9726,8 @@
     }
   ],
   "progress": {
-    "approved": 101,
-    "inProgress": 7,
+    "approved": 102,
+    "inProgress": 6,
     "reviewedWithBlockers": 16,
     "notStarted": 314,
     "pilotStarted": 6
@@ -10021,7 +10031,7 @@
         ],
         "nextCaseByWorker": {
           "A": "cp-000133",
-          "B": "cp-000118"
+          "B": "cp-000122"
         },
         "completedBoundedAssessmentReport": "docs/qc/counselor-next-ten-assessment-2026-10-23.md"
       },
@@ -16394,49 +16404,8 @@
           "frequency": "hourly",
           "minute": 30
         },
-        "nextCase": "cp-000118",
-        "activeClaim": {
-          "worker": "B",
-          "caseId": "cp-000118",
-          "executionId": "B-cp118-20261027T082738Z",
-          "automationRunId": "3328f883-50cc-832e-a444-a327ad07b0eb",
-          "startedAt": "2026-10-27T08:25:27.631744Z",
-          "claimedAt": "2026-10-27T08:28:38.845791+00:00",
-          "reviewedInputCommit": "668d761b368e2a1b2bd8feb9f18b5f993cd01fe1",
-          "inputBlobs": {
-            "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
-            "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
-            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "d1c9572d5c09307a3c7951b4a703c2e6b9bb4206",
-            "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-            "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
-            "data/registry/programmes.csv": "e0b978c7efb7afc1f60a47ef53827e022df542e9",
-            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
-            "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
-            "data/counselor/review-programmes.json": "9c2fbb174f6384bbece1e63be876123117d373bf",
-            "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
-            "pilot/shiny/data/courses/BEN.json": "01f692c24c8407fdb4cca4154abc8c1b544f7958",
-            "pilot/shiny/data/courses/DIS.json": "f7d8f10c6dad39a63e25cc214b0ea95a6db5ed3d",
-            "pilot/shiny/data/courses/ENS.json": "d1da80e0530e5f731047547c2f807059bbf6131b",
-            "pilot/shiny/data/courses/GOS.json": "a70d5a154184f75dff1983983b0136a109d2293b",
-            "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
-            "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
-            "data/counselor/review-interests.json": "a58bac210cd55300dd10801d3206408623f1747c",
-            "data/counselor/decisions/cp-000118.json": "de8fab3d437ce47bdc7ebbb9e27946e17a5f4daf",
-            "data/counselor/comparisons/cp-000118.json": "fcc890719446c64f07895b856cc44e5cb9af5c7a"
-          },
-          "stage": 1,
-          "checkpoint": "Fresh main corpusContinuation/executionSequence read; systemicPause null. B38final/2deferred, no live claim or unfinished non-deferred case. CP114 selected in frozen baseline order. A has no active claim. SetupCI40471630760checked forobservedfailures;fullacademic/appbasisofA127previouslypassed. Current setup passed.",
-          "nextAction": "Independently inspect exact ACTA Dentistry exactroute/cohort target and current official curriculum, adopted OER/annual plan, every linked interest and all actual selected enriched profiles. Determine valid route/elective choices and comparability before paired correction and all final gates.",
-          "setupCI": {
-            "runId": 40471630760,
-            "status": "completed",
-            "conclusion": "success",
-            "observedFailures": []
-          },
-          "sourceRetrievalFailureExecutions": 0,
-          "elapsedTimeLimitObserved": null,
-          "observedTechnicalFailures": []
-        },
+        "nextCase": "cp-000122",
+        "activeClaim": null,
         "completedCases": [
           "cp-000038",
           "cp-000040",
@@ -16475,7 +16444,8 @@
           "cp-000110",
           "cp-000112",
           "cp-000114",
-          "cp-000116"
+          "cp-000116",
+          "cp-000118"
         ],
         "deferredCases": [
           "cp-000042",
@@ -16931,16 +16901,26 @@
             "publicationVerified": true,
             "publicationVerifiedAt": "2026-10-27T07:51:36.954Z",
             "finalDispositionCommit": "8531433f07bfa4c7ed7d80b05042ab11ee8346b1"
+          },
+          {
+            "caseId": "cp-000118",
+            "state": "approved",
+            "academicDisposition": "no-defensible-ucr-match",
+            "completedAt": "2026-10-27T08:43:04.879973+00:00",
+            "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000118.json",
+            "reviewedInputCommit": "a4b1e63fe1e89055dae6eccbdbd5aeb2042877df",
+            "evidenceCommit": "ad6f1195472d4c294a87696f68d7be9a34fffe01",
+            "publicationVerified": false
           }
         ],
         "lastCheckpoint": {
           "worker": "B",
-          "caseId": "cp-000116",
-          "executionId": "B-cp116-20261027T072908Z",
-          "automationRunId": "3b89255a-4178-8323-82db-f042ca3670f0",
-          "startedAt": "2026-10-27T07:29:07.722661Z",
-          "claimedAt": "2026-10-27T07:30:38.907Z",
-          "reviewedInputCommit": "5647b906aa37c7c0f56af3018d94d2ccefb96575",
+          "caseId": "cp-000118",
+          "executionId": "B-cp118-20261027T082738Z",
+          "automationRunId": "3328f883-50cc-832e-a444-a327ad07b0eb",
+          "startedAt": "2026-10-27T08:25:27.631744Z",
+          "claimedAt": "2026-10-27T08:28:38.845791+00:00",
+          "reviewedInputCommit": "668d761b368e2a1b2bd8feb9f18b5f993cd01fe1",
           "inputBlobs": {
             "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
             "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
@@ -16959,14 +16939,14 @@
             "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
             "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
             "data/counselor/review-interests.json": "a58bac210cd55300dd10801d3206408623f1747c",
-            "data/counselor/decisions/cp-000116.json": "c3627f588351cfb37064edcc8f5e1c71e7aacd2b",
-            "data/counselor/comparisons/cp-000116.json": "78903827497f16a0c06a6fd82de203fc57111859"
+            "data/counselor/decisions/cp-000118.json": "de8fab3d437ce47bdc7ebbb9e27946e17a5f4daf",
+            "data/counselor/comparisons/cp-000118.json": "fcc890719446c64f07895b856cc44e5cb9af5c7a"
           },
           "stage": 6,
-          "checkpoint": "Approvedfinaldispositiononmainandall35immutableevidencepaths/19actualinputsverified;all6stages/fullrepairCI/actualdesktopmobile68modals/20visualfilespassed. Fixed115–116pairclosedwithA115unchanged.",
-          "nextAction": "NextBexecutionreadfreshmain,claim/setupCIthenCP118. No remaining unverifiedCP116action.",
+          "checkpoint": "Allsixstages/source-firstsameAI/fullschemas/replay/workbook/actualdesktopmobile andfullrepairCIpassed;37immutableevidencepathsand19actualinputsverifiedonmain. Approvingno-defensible-UCR-match exception;finalpublicationreceiptpending.",
+          "nextAction": "Verifyfinalmainandallchangedhashes;publishreceiptandclose117–118paironlyafterverifiedfinalstate. NextBexecutionCP122.",
           "setupCI": {
-            "runId": 40465038479,
+            "runId": 40471630760,
             "status": "completed",
             "conclusion": "success",
             "observedFailures": []
@@ -16974,13 +16954,13 @@
           "sourceRetrievalFailureExecutions": 0,
           "elapsedTimeLimitObserved": null,
           "observedTechnicalFailures": [
-            "Directcurl/browsingtoUCRdomainwasblockedbyenvironmentnetworkpolicy. ExactactualShinyanchoroutboundrequestsverifiedforVUsource/UCRcourses/builderonbothviewports;remoteendpoints independently openedviawebretrieval on2026-10-27. Nativeexternaldestinationrenderingisnotclaimed.",
-            "CurrentcomparisonrendercaptureomittedinputCommmitbecausewrongenvvar;capturedinputblobsprovethesamefrozenbasis;annotatedexplicitlywithoutrepeatingunchangedrendering.",
-            "Preliminarycheckaccidentallysummednestedapproved-minoroptionsascompulsorycredits;fixedhelpertofirsttwofullmajorYearsplusYear3compulsorygroup. Noacademiccreditaddedandcanonicalremained180EC.",
-            "OneprepublicationStrategyplacementwasnotavailableinFall;exchangeditwithDataScienceacrossterm5/6,thenall72actualplacements/schema/replayrechecked.",
-            "Compilerrejectedunownedgenerator5291;correctlyrecordedseparaterejectedproject-intensivecandidate,insteadofchangingregistryroletoevadeownership."
+            "Prepublicationreviewindexvalidatorreportedstaleindexafterpairedcanonicalchange; regeneratedonlyCP118entryandfullindexcheckpassed.",
+            "Asecondlocalrepairscriptinvocationinitiallyreadthealreadymodifieddecisionandcompilerrefusedscratchoverwrite;originalproposalrestoredbyteexactfromverifiedmainblobde8fab3d437ce47bdc7ebbb9e27946e17a5f4daf;reruncompiledintonewscratchandvalidated.",
+            "SupplementinitiallyexpectedUCRanchorcontrolsontheexceptionview;actualUIshowsnonewithzeroalternatives. Correctedstatus-awareassertion;retainedsourceoutboundclickchecksandfull desktop/mobilecapturepassed.",
+            "OnePDFtablequeryduringfinalpassmatchedthetableofcontents;correctedtorindexandactualfulltableindependentlyread.",
+            "Contactsheetthumbnailshowedapparentleftcropping;original390pxscreenshotinspectedandgeometryfits390px. Noapplayoutdefect."
           ],
-          "verifiedInputCommit": "af4e0e09cd1a95a3becd6cc12628f26c8b6bc61b",
+          "verifiedInputCommit": "a4b1e63fe1e89055dae6eccbdbd5aeb2042877df",
           "verifiedInputBlobs": {
             "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
             "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
@@ -16990,7 +16970,7 @@
             "data/registry/programmes.csv": "e0b978c7efb7afc1f60a47ef53827e022df542e9",
             "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
             "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
-            "data/counselor/review-programmes.json": "9c2fbb174f6384bbece1e63be876123117d373bf",
+            "data/counselor/review-programmes.json": "1a779e798daf4e93a8f1a6d1e869ec5f3f2169c4",
             "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
             "pilot/shiny/data/courses/BEN.json": "01f692c24c8407fdb4cca4154abc8c1b544f7958",
             "pilot/shiny/data/courses/DIS.json": "f7d8f10c6dad39a63e25cc214b0ea95a6db5ed3d",
@@ -16999,11 +16979,11 @@
             "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
             "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
             "data/counselor/review-interests.json": "a58bac210cd55300dd10801d3206408623f1747c",
-            "data/counselor/decisions/cp-000116.json": "23dc86b6b3b3a3d6d2fd8f73abcb952a9132e53b",
-            "data/counselor/comparisons/cp-000116.json": "a1a6158493bedc2ff1f388360650d47d2c034199"
+            "data/counselor/decisions/cp-000118.json": "c5c2d13379f4923d2a4f5536486618cdd9e88362",
+            "data/counselor/comparisons/cp-000118.json": "9456880b25a835e905b668a6bc7e0dcd3103ec3e"
           }
         },
-        "lastCompletedAt": "2026-10-27T07:50:28.684Z"
+        "lastCompletedAt": "2026-10-27T08:43:04.879973+00:00"
       }
     },
     "splitRule": "Alternate the frozen remaining baseline order: A receives positions 1,3,5,...; B receives 2,4,6,...; 201 unique cases each. No cross-queue reassignment without explicit authority.",
