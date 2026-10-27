@@ -5,11 +5,11 @@ This folder maintains a **standalone, outline-only academic-content database**. 
 ## Files
 
 - [COURSE_OUTLINE_EXTRACTION_ASSIGNMENT.md](COURSE_OUTLINE_EXTRACTION_ASSIGNMENT.md) — current targeted extraction specification and validation rules.
-- `UCR_Course_Outline_Database.xlsx` — permanent filename for the **one-sheet, flat, cumulative extraction workbook**, created when the first batch is re-extracted under the new assignment.
+- [UCR_Course_Outline_Database.xlsx](UCR_Course_Outline_Database.xlsx) — the **one-sheet, flat, cumulative extraction workbook**.
 
-**Current status:** No accepted extraction workbook is currently present. The original seven-sheet workbook and its associated 27 October 2026 processing report were discarded and removed from the current branch. They must not be reused as accepted input. The 2026h2 outlines require re-extraction under the revised specification.
+**Current coverage:** `2026h2` — 63 course–semester–group records covering 62 distinct course codes, extracted from all 63 PDFs in `outlines_2026h2(2).zip` on 27 October 2026 under assignment version 2.0. No PDFs were skipped and no incoming records were already present. Source conflicts and content limitations are recorded in the relevant workbook rows. This fresh extraction replaces the rejected seven-sheet output; no data from that output was reused.
 
-The workbook will contain one row per course–semester–group and focus on `profile`, `discipline`, `topics` and `methods`, alongside minimal source/identity fields. The source PDFs and ZIPs are not stored here.
+The workbook contains one row per course–semester–group and focus on `profile`, `discipline`, `topics` and `methods`, alongside minimal source/identity fields. The source PDFs and ZIPs are not stored here.
 
 ## Two separate stages
 
