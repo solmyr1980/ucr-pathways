@@ -2881,14 +2881,26 @@
     },
     {
       "id": "cp-000237",
-      "state": "in-progress",
-      "stageOutcomes": {},
+      "state": "approved",
+      "stageOutcomes": {
+        "1": "correct",
+        "2": "correct",
+        "3": "reconstruct",
+        "4": "reconstruct",
+        "5": "correct",
+        "6": "retain"
+      },
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000237.json"
+      "implementationCommits": [
+        "c46080ad450c460c1524c323e217b39bb015ec5d",
+        "ec6f76523e117feff931e5dc62d48450456c7188",
+        "33c3703c4b257f7dcc5b7cefad0bd785422c91ec"
+      ],
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000237.json",
+      "academicDisposition": "comparison"
     },
     {
       "id": "cp-000238",
@@ -5072,8 +5084,8 @@
     }
   ],
   "progress": {
-    "approved": 1,
-    "inProgress": 1,
+    "approved": 2,
+    "inProgress": 0,
     "reviewedWithBlockers": 0,
     "notStarted": 436,
     "pilotStarted": 1
@@ -5570,49 +5582,30 @@
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000237",
-      "activeClaim": {
-        "executionId": "restart-B-cp237-20261027T1202",
-        "worker": "B",
-        "caseId": "cp-000237",
-        "claimedAt": "2026-10-27T11:03:33.221874+00:00",
-        "reviewedInputCommit": "e232caf52405c5965e8fe6b431661f46cc337a3c",
-        "inputBlobs": {
-          "data/counselor/comparisons/cp-000237.json": "342fc905ee3854f32d16d3fc236ac9159f8ede71",
-          "data/counselor/decisions/cp-000237.json": "dec1bb30d632864d9aa709261a798dd901573706",
-          "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-          "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "df2ee1b23f894c2e9f79b74a477d50d279158ffa",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "cb7497f8e8ca5a6986197968dc637ad65c31d4e6"
-        },
-        "nextAction": "Independently retrieve current official Tilburg Economie en Bedrijfseconomie curriculum,cohort/route and applicable formal rules; reconcile every exact-target interest.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
-      "completedCases": [],
-      "completedDispositions": [],
+      "nextCase": "cp-000238",
+      "activeClaim": null,
+      "completedCases": [
+        "cp-000237"
+      ],
+      "completedDispositions": [
+        {
+          "caseId": "cp-000237",
+          "state": "approved",
+          "academicDisposition": "comparison",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000237.json",
+          "verifiedOn": "2026-10-27"
+        }
+      ],
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {},
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "executionId": "restart-B-cp237-20261027T1202",
-        "worker": "B",
         "caseId": "cp-000237",
-        "claimedAt": "2026-10-27T11:03:33.221874+00:00",
-        "reviewedInputCommit": "e232caf52405c5965e8fe6b431661f46cc337a3c",
-        "inputBlobs": {
-          "data/counselor/comparisons/cp-000237.json": "342fc905ee3854f32d16d3fc236ac9159f8ede71",
-          "data/counselor/decisions/cp-000237.json": "dec1bb30d632864d9aa709261a798dd901573706",
-          "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-          "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "df2ee1b23f894c2e9f79b74a477d50d279158ffa",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "cb7497f8e8ca5a6986197968dc637ad65c31d4e6"
-        },
-        "nextAction": "Independently retrieve current official Tilburg Economie en Bedrijfseconomie curriculum,cohort/route and applicable formal rules; reconcile every exact-target interest.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
+        "executionId": "restart-B-cp237-20261027T1202",
+        "at": "2026-10-27T11:26:44.087177+00:00",
+        "state": "approved",
+        "reviewedInputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+        "nextAction": "Process cp-000238 as a fresh case next execution."
       }
     }
   },
@@ -6546,7 +6539,7 @@
         "scope": "Process every assigned case from scratch, update only this audit's progress and case evidence.",
         "nextCaseByWorker": {
           "A": "cp-000002",
-          "B": "cp-000237"
+          "B": "cp-000238"
         }
       },
       {
