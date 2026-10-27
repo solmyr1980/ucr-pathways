@@ -1,5 +1,26 @@
 {
   "inputCommit": "1ae103ed8d845c5b1e015ae4b2ced167ebe37b4e",
+  "validationCommit": "496deec63af75bbda09b2da7645af8ff9aaa97c6",
+  "identicalAcademicInputBlobs": {
+    "data/counselor/comparisons/cp-000238.json": "ef73992654b1a2c207b155abbd0612b6e58f9d10",
+    "data/counselor/decisions/cp-000238.json": "8214befe167dae0981a496b8806718af186a5ee8",
+    "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
+    "data/registry/programme_interests.csv": "836d2a9b9495d24be7800aba1d72ef7d3bbd87e5",
+    "data/counselor/review-interests.json": "30c2db483788188534b740665c101e8eb5b1089d",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+    "docs/UCR_Pathways_Production_Instructions.md": "df2ee1b23f894c2e9f79b74a477d50d279158ffa",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "cb7497f8e8ca5a6986197968dc637ad65c31d4e6",
+    "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
+    "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
+    "pilot/shiny/data/courses/GOS.json": "a70d5a154184f75dff1983983b0136a109d2293b",
+    "pilot/shiny/data/courses/ENS.json": "d1da80e0530e5f731047547c2f807059bbf6131b",
+    "pilot/shiny/data/courses/DIS.json": "f7d8f10c6dad39a63e25cc214b0ea95a6db5ed3d",
+    "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
+    "pilot/shiny/data/courses/BEN.json": "01f692c24c8407fdb4cca4154abc8c1b544f7958"
+  },
   "runs": [
     {
       "id": 40503199890,
@@ -30,19 +51,280 @@
       "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/40503011383"
     },
     {
-      "id": 40503012466,
+      "id": 40505683736,
       "name": "Validate Shiny pilots",
-      "status": "in_progress",
-      "conclusion": null,
-      "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/40503012466"
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/40505683736",
+      "head_sha": "496deec63af75bbda09b2da7645af8ff9aaa97c6"
     }
   ],
-  "runtimeDiagnostic": {
+  "checkpointJobs": [
+    {
+      "id": 122194270867,
+      "run_id": 40505683736,
+      "workflow_name": "Validate Shiny pilots",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/solmyr1980/ucr-pathways/actions/runs/40505683736",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOT68jLM8AAAAcc1iakw",
+      "head_sha": "496deec63af75bbda09b2da7645af8ff9aaa97c6",
+      "url": "https://api.github.com/repos/solmyr1980/ucr-pathways/actions/jobs/122194270867",
+      "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/40505683736/job/122194270867",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-27T12:40:56Z",
+      "started_at": "2026-10-27T12:41:00Z",
+      "completed_at": "2026-10-27T12:48:59Z",
+      "name": "validate-shiny",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-27T12:41:01Z",
+          "completed_at": "2026-10-27T12:41:02Z"
+        },
+        {
+          "name": "Check out repository",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-27T12:41:02Z",
+          "completed_at": "2026-10-27T12:41:18Z"
+        },
+        {
+          "name": "Validate public comparison records",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-27T12:41:18Z",
+          "completed_at": "2026-10-27T12:41:18Z"
+        },
+        {
+          "name": "Validate normalized counselor production records",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-27T12:41:18Z",
+          "completed_at": "2026-10-27T12:41:24Z"
+        },
+        {
+          "name": "Validate programme-interest registry",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-27T12:41:24Z",
+          "completed_at": "2026-10-27T12:41:25Z"
+        },
+        {
+          "name": "Rebuild counselor review indexes for the test checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-27T12:41:25Z",
+          "completed_at": "2026-10-27T12:41:26Z"
+        },
+        {
+          "name": "Validate counselor review indexes",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-27T12:41:26Z",
+          "completed_at": "2026-10-27T12:41:27Z"
+        },
+        {
+          "name": "Validate re-audit register and preserved review evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-27T12:41:27Z",
+          "completed_at": "2026-10-27T12:41:28Z"
+        },
+        {
+          "name": "Install workbook reader",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-27T12:41:28Z",
+          "completed_at": "2026-10-27T12:41:33Z"
+        },
+        {
+          "name": "Validate reviewed audience contract and course evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-27T12:41:33Z",
+          "completed_at": "2026-10-27T12:41:37Z"
+        },
+        {
+          "name": "Run comparison integrity regression tests",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-27T12:41:37Z",
+          "completed_at": "2026-10-27T12:41:37Z"
+        },
+        {
+          "name": "Set up R",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-10-27T12:41:37Z",
+          "completed_at": "2026-10-27T12:42:21Z"
+        },
+        {
+          "name": "Install system dependency for Shiny",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-27T12:42:21Z",
+          "completed_at": "2026-10-27T12:42:26Z"
+        },
+        {
+          "name": "Install Shiny dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-27T12:42:26Z",
+          "completed_at": "2026-10-27T12:42:46Z"
+        },
+        {
+          "name": "Parse both apps",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-27T12:42:46Z",
+          "completed_at": "2026-10-27T12:42:46Z"
+        },
+        {
+          "name": "Load both Shiny app objects",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-27T12:42:46Z",
+          "completed_at": "2026-10-27T12:42:49Z"
+        },
+        {
+          "name": "Validate local JSON inputs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-27T12:42:49Z",
+          "completed_at": "2026-10-27T12:42:51Z"
+        },
+        {
+          "name": "Check pilot and review behavior and rendering",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-10-27T12:42:51Z",
+          "completed_at": "2026-10-27T12:43:03Z"
+        },
+        {
+          "name": "Create ignored private student test data",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-10-27T12:43:03Z",
+          "completed_at": "2026-10-27T12:43:03Z"
+        },
+        {
+          "name": "Validate private student behavior and fail-closed checks",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-10-27T12:43:03Z",
+          "completed_at": "2026-10-27T12:43:06Z"
+        },
+        {
+          "name": "Validate shinyapps.io student bundle",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-10-27T12:43:06Z",
+          "completed_at": "2026-10-27T12:43:10Z"
+        },
+        {
+          "name": "Validate cumulative student production workflow",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-10-27T12:43:10Z",
+          "completed_at": "2026-10-27T12:43:34Z"
+        },
+        {
+          "name": "Validate shinyapps.io counselor bundle",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-10-27T12:43:34Z",
+          "completed_at": "2026-10-27T12:43:38Z"
+        },
+        {
+          "name": "Install browser test dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 24,
+          "started_at": "2026-10-27T12:43:38Z",
+          "completed_at": "2026-10-27T12:47:32Z"
+        },
+        {
+          "name": "Inspect running counselor app across desktop and mobile cases",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25,
+          "started_at": "2026-10-27T12:47:32Z",
+          "completed_at": "2026-10-27T12:48:52Z"
+        },
+        {
+          "name": "Smoke-test student app startup",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 26,
+          "started_at": "2026-10-27T12:48:52Z",
+          "completed_at": "2026-10-27T12:48:53Z"
+        },
+        {
+          "name": "Smoke-test counselor app startup",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 27,
+          "started_at": "2026-10-27T12:48:53Z",
+          "completed_at": "2026-10-27T12:48:56Z"
+        },
+        {
+          "name": "Post Check out repository",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 54,
+          "started_at": "2026-10-27T12:48:56Z",
+          "completed_at": "2026-10-27T12:48:56Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 55,
+          "started_at": "2026-10-27T12:48:56Z",
+          "completed_at": "2026-10-27T12:48:56Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/solmyr1980/ucr-pathways/check-runs/122194270867",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000011500,
+      "runner_name": "GitHub Actions 1000011500",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ],
+  "supersededRuntimeWait": {
     "runId": 40503012466,
-    "jobId": 122185164687,
     "setupStartedAt": "2026-10-27T12:21:16Z",
-    "lastObservedPendingAt": "2026-10-27T12:37:29Z",
-    "cause": "unknown; setup R has not completed",
-    "logRetrieval": "GitHub connector rejected job log endpoint with HTTP400; no underlying setup error established."
+    "statusObservedAtCheckpoint": "Set up R pending;cause unknown;logs endpoint unavailable",
+    "resolution": "The subsequent durable evidence checkpoint passed full Shiny CI with all18academic/appinputblobsbyte-identical;no new academic input or weaker gate substituted."
   }
 }

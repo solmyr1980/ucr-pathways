@@ -2915,7 +2915,7 @@
     },
     {
       "id": "cp-000238",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "correct",
@@ -2932,8 +2932,9 @@
         "8ff014605238525d969e237c21acfaad5379841d",
         "1ae103ed8d845c5b1e015ae4b2ced167ebe37b4e"
       ],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000238.json"
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000238.json",
+      "academicDisposition": "comparison"
     },
     {
       "id": "cp-000239",
@@ -5107,8 +5108,8 @@
     }
   ],
   "progress": {
-    "approved": 3,
-    "inProgress": 1,
+    "approved": 4,
+    "inProgress": 0,
     "reviewedWithBlockers": 0,
     "notStarted": 434,
     "pilotStarted": 1
@@ -5612,35 +5613,18 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000238",
-      "activeClaim": {
-        "executionId": "restart-B-cp238-20261027T1300",
-        "worker": "B",
-        "caseId": "cp-000238",
-        "claimedAt": "2026-10-27T12:00:08.036684+00:00",
-        "reviewedInputCommit": "fc70ad4cfc4f4e4b8b89f004fcf74321824a16fa",
-        "inputBlobs": {
-          "data/counselor/comparisons/cp-000238.json": "7ef742c7cfa1e4fa3bdb13acee6f148c315b69cb",
-          "data/counselor/decisions/cp-000238.json": "b5f8a29817e0105b5e68acd35dd79bbdfd94fdf5",
-          "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-          "data/registry/programme_interests.csv": "db31bbf420e81bc47826d2cde9c6a83576aef278",
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "df2ee1b23f894c2e9f79b74a477d50d279158ffa",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "cb7497f8e8ca5a6986197968dc637ad65c31d4e6"
-        },
-        "nextAction": "Independently establish exact target identity, coherent current cohort/route, complete external requirements and every exact-target interest row; then test UCR concepts against actual workbook content.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000239",
+      "activeClaim": null,
       "completedCases": [
-        "cp-000237"
+        "cp-000237",
+        "cp-000238"
       ],
       "completedDispositions": [
         {
@@ -5649,43 +5633,31 @@
           "academicDisposition": "comparison",
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000237.json",
           "verifiedOn": "2026-10-27"
+        },
+        {
+          "caseId": "cp-000238",
+          "state": "approved",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-10-27",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000238.json"
         }
       ],
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {},
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "executionId": "restart-B-cp238-20261027T1300",
-        "worker": "B",
         "caseId": "cp-000238",
-        "claimedAt": "2026-10-27T12:00:08.036684+00:00",
-        "reviewedInputCommit": "fc70ad4cfc4f4e4b8b89f004fcf74321824a16fa",
+        "executionId": "restart-B-cp238-20261027T1300",
+        "state": "approved",
+        "reviewedInputCommit": "1ae103ed8d845c5b1e015ae4b2ced167ebe37b4e",
         "inputBlobs": {
-          "data/counselor/comparisons/cp-000238.json": "7ef742c7cfa1e4fa3bdb13acee6f148c315b69cb",
-          "data/counselor/decisions/cp-000238.json": "b5f8a29817e0105b5e68acd35dd79bbdfd94fdf5",
-          "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-          "data/registry/programme_interests.csv": "db31bbf420e81bc47826d2cde9c6a83576aef278",
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "df2ee1b23f894c2e9f79b74a477d50d279158ffa",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "cb7497f8e8ca5a6986197968dc637ad65c31d4e6"
+          "canonical": "ef73992654b1a2c207b155abbd0612b6e58f9d10",
+          "decision": "8214befe167dae0981a496b8806718af186a5ee8"
         },
-        "nextAction": "Verify successful completion of applicable Shiny CI for frozen inputs1ae103e (current run40503012466 pending Set up R),or equivalent subsequent checkpoint CI with identical academic inputs;freshly validate changed dependencies and active register before final approval. No further academic reconstruction or source retrieval is pending.",
+        "verifiedAt": "2026-10-27T12:50:22.061814+00:00",
+        "nextAction": "Case complete. Worker B resumes cp-000239 on its next execution. No final release or deployment is authorised.",
         "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown",
-        "checkpointAt": "2026-10-27T12:40:01.604449+00:00",
-        "reviewedFrozenInputCommit": "1ae103ed8d845c5b1e015ae4b2ced167ebe37b4e",
-        "pendingTechnicalGates": [
-          {
-            "gate": "Validate Shiny pilots CI",
-            "runId": 40503012466,
-            "jobId": 122185164687,
-            "observedStep": "Set up R",
-            "startedAt": "2026-10-27T12:21:16Z",
-            "lastObservedAt": "2026-10-27T12:40:01.604449+00:00",
-            "cause": "unknown;joblogsnotavailableviaconnector",
-            "sourceRetrievalFailure": false
-          }
-        ]
+        "runtimeReasoningEffort": "unknown"
       }
     }
   },
