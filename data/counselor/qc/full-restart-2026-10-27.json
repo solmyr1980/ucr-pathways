@@ -670,7 +670,7 @@
     }
   ],
   "auditId": "counselor-full-restart-2026-10-27",
-  "status": "authorised-not-started",
+  "status": "in-progress",
   "preparedOn": "2026-10-27",
   "updatedOn": "2026-10-27",
   "authority": "User, 27 October 2026: restart the entire corpus from scratch; split into two halves; two hourly tasks starting 11:30 and 12:00 Europe/Amsterdam; user manually selects models.",
@@ -680,13 +680,14 @@
   "cases": [
     {
       "id": "cp-000001",
-      "state": "not-started",
+      "state": "in-progress",
       "stageOutcomes": {},
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
       "implementationCommits": [],
-      "presentationApproval": false
+      "presentationApproval": false,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000001.json"
     },
     {
       "id": "cp-000002",
@@ -5061,10 +5062,10 @@
   ],
   "progress": {
     "approved": 0,
-    "inProgress": 0,
+    "inProgress": 1,
     "reviewedWithBlockers": 0,
-    "notStarted": 438,
-    "pilotStarted": 0
+    "notStarted": 437,
+    "pilotStarted": 1
   },
   "batches": [],
   "workers": {
@@ -5293,7 +5294,7 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "not-started",
+      "status": "in-progress",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
@@ -5301,13 +5302,49 @@
         "minute": 30
       },
       "nextCase": "cp-000001",
-      "activeClaim": null,
+      "activeClaim": {
+        "executionId": "restart-A-cp001-20261027T1130",
+        "worker": "A",
+        "caseId": "cp-000001",
+        "claimedAt": "2026-10-27T10:30:05.816315+00:00",
+        "reviewedInputCommit": "5be0855900a254c1d8cf94a370e8ad4daf7dac0a",
+        "inputBlobs": {
+          "data/counselor/comparisons/cp-000001.json": "06c720a49ebd228930b7afa34bd3aab0eb479f9d",
+          "data/counselor/decisions/cp-000001.json": "4f39b3bf075558f19681d0cb5828e8ecffee77b0",
+          "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
+          "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
+          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+          "docs/UCR_Pathways_Production_Instructions.md": "df2ee1b23f894c2e9f79b74a477d50d279158ffa",
+          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "cb7497f8e8ca5a6986197968dc637ad65c31d4e6"
+        },
+        "nextAction": "Independently retrieve applicable official Erasmus Bestuurskunde curriculum/EER and exact-target interests before course selection.",
+        "runtimeModel": "unknown",
+        "runtimeReasoningEffort": "unknown"
+      },
       "completedCases": [],
       "completedDispositions": [],
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {},
       "deferredRevisitExecutionsByCase": {},
-      "lastCheckpoint": null
+      "lastCheckpoint": {
+        "executionId": "restart-A-cp001-20261027T1130",
+        "worker": "A",
+        "caseId": "cp-000001",
+        "claimedAt": "2026-10-27T10:30:05.816315+00:00",
+        "reviewedInputCommit": "5be0855900a254c1d8cf94a370e8ad4daf7dac0a",
+        "inputBlobs": {
+          "data/counselor/comparisons/cp-000001.json": "06c720a49ebd228930b7afa34bd3aab0eb479f9d",
+          "data/counselor/decisions/cp-000001.json": "4f39b3bf075558f19681d0cb5828e8ecffee77b0",
+          "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
+          "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
+          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+          "docs/UCR_Pathways_Production_Instructions.md": "df2ee1b23f894c2e9f79b74a477d50d279158ffa",
+          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "cb7497f8e8ca5a6986197968dc637ad65c31d4e6"
+        },
+        "nextAction": "Independently retrieve applicable official Erasmus Bestuurskunde curriculum/EER and exact-target interests before course selection.",
+        "runtimeModel": "unknown",
+        "runtimeReasoningEffort": "unknown"
+      }
     },
     "B": {
       "id": "B",
