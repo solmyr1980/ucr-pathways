@@ -1,7 +1,7 @@
 # UCR Course-Outline Database — Longitudinal Extraction Assignment
 
 **Status:** Reusable standalone production instruction  
-**Version:** 1.0 (27 October 2026)  
+**Version:** 1.1 (27 October 2026)  
 **Scope:** Extract all reasonably structured course information from UCR course-outline PDFs, semester by semester.
 
 ## 1. Purpose and independence
@@ -42,7 +42,9 @@ For the supplied example, the archive **outlines_2026h2.zip** includes two outli
 
 ## 4. Workbook contract
 
-Return one **flat, unformatted .xlsx workbook** containing exactly the seven worksheets below, in this order. Each sheet has one header row, ordinary cell values, and no merged cells, decorative formatting, formulas, filters, or hidden data. Use lower-case snake_case column names exactly as listed.
+The canonical cumulative workbook is **`course-outline-database/UCR_Course_Outline_Database.xlsx`** in `solmyr1980/ucr-pathways`, branch `main`. Keep this filename and path stable across all semesters. Extend the same workbook rather than creating one Excel file per semester; Git history retains earlier workbook versions.
+
+Return one **flat, unformatted .xlsx workbook**, named **`UCR_Course_Outline_Database.xlsx`**, containing exactly the seven worksheets below, in this order. Each sheet has one header row, ordinary cell values, and no merged cells, decorative formatting, formulas, filters, or hidden data. Use lower-case snake_case column names exactly as listed.
 
 All seven worksheets begin with **semester, course_code, group_number**, in that order. Within each sheet, the remaining columns follow the order shown. The unique main record is keyed by those three fields; subsidiary tables use the key plus their own sequence number.
 
@@ -162,7 +164,7 @@ This is a **priority verbatim extraction**, independent of whether catch-up week
 
 ## 7. Incremental production and protection of history
 
-1. If an existing workbook from earlier runs of **this same assignment** is provided, verify its seven sheet names, columns, and composite keys. It is the cumulative output, **not an additional source**.
+1. Start with the latest canonical **`course-outline-database/UCR_Course_Outline_Database.xlsx`** from GitHub `main`. If a cumulative workbook from this same assignment is supplied separately, reconcile its version with the current repository workbook before publication; never replace newer accepted history with an older copy. Verify the seven sheet names, columns, and composite keys. The existing workbook is the cumulative output, **not an additional substantive source**.
 2. Preserve every accepted historical row and cell unchanged. Never re-research, normalize, reorder, or replace earlier records merely for consistency.
 3. Process all valid PDFs in the supplied new batch, including separate groups of the same course. Append records absent from the cumulative workbook.
 4. When an incoming key already exists:
@@ -170,6 +172,9 @@ This is a **priority verbatim extraction**, independent of whether catch-up week
    - If the checksum differs, report a **source revision conflict**. Do not overwrite the existing course or subsidiary rows without explicit authorization and a versioning decision.
 5. Process independent outlines even when other files are blocked. Track skipped files and reasons; do not invent placeholder course records.
 6. Never filter records by programme usefulness, student eligibility, administrative status, level, academic subject, or relevance to UCR Pathways. The archive defines the input population.
+
+7. Publish the updated cumulative workbook at the same canonical path, together with a new dated batch report under **`course-outline-database/reports/`**. Use **`YYYYhN_YYYY-MM-DD.txt`** for reports; add `_02`, `_03`, etc. when that name already exists. Preserve earlier batch reports. Update the coverage table in `course-outline-database/README.md`.
+8. Immediately before publishing, verify the current remote `main` head and check for any intervening workbook update. Preserve that update before committing. Publish the workbook and its report in one atomic fast-forward commit, following `AGENTS.md`; do not overwrite concurrent work or rewrite history.
 
 ## 8. Quality control before returning the workbook
 
@@ -190,7 +195,7 @@ Perform a systematic check of the new batch:
 
 ## 9. Deliverables and report
 
-Return **(1)** the updated cumulative Excel workbook and **(2)** a short processing report with:
+Return **(1)** the updated cumulative **`UCR_Course_Outline_Database.xlsx`** and **(2)** a short, dated processing report, and publish both at their canonical repository locations. The workbook filename has no semester suffix; the batch report identifies the semester and processing date. The report contains:
 
 1. The authoritative semester, input container name, and number of PDF files discovered.
 2. The course–semester–group keys processed and counts of new, already-present, and blocked records.
@@ -198,10 +203,11 @@ Return **(1)** the updated cumulative Excel workbook and **(2)** a short process
 4. Catch-up-week coverage: number classified dedicated_prose, schedule, both, and not_mentioned.
 5. Only material anomalies, conflicting revisions, illegible passages, and unresolved blockers, with filenames and affected fields.
 
-Do not demand routine approval during extraction and do not begin another semester until this run is finished. Unless specifically instructed otherwise, **never upload the course-outline PDFs or their extracted workbook to a public GitHub repository**. The repository stores this reusable assignment, not the underlying teaching documents or personnel details.
+Do not demand routine approval during extraction and do not begin another semester until this run is finished. The user explicitly authorized publication of the cumulative extracted workbook and processing reports in `solmyr1980/ucr-pathways` on 27 October 2026. Maintain those outputs in the locations above. **Do not upload the source course-outline PDFs or ZIP archives** unless the user separately requests their publication.
 
 ## 10. Boundaries and future development
 
 This assignment is exclusively for **extraction and structured documentation**. It does not judge pedagogical quality, harmonize curricula, validate prerequisites against external rules, recommend courses, map courses to careers, or construct UCR Pathways programmes. Those are separate downstream uses.
 
 The seven-sheet schema is the baseline for all semesters. When a genuinely recurrent source field cannot be represented adequately, **propose a documented schema revision** rather than inventing columns mid-batch. Apply approved structural changes consistently to the future production contract without silently rewriting historical source values.
+

@@ -27,7 +27,9 @@ Retrieve these current GitHub copies before substantive project work. Do not sub
 
 ## Standalone course-outline database
 
-The [UCR Course-Outline Database extraction assignment](course-outline-database/COURSE_OUTLINE_EXTRACTION_ASSIGNMENT.md) is a separate, reusable longitudinal source-data workflow. It uses only uploaded course-outline PDFs and their container and file names as evidence; UCR Pathways may use the resulting database, but does not govern this independent extraction process.
+The [UCR Course-Outline Database](course-outline-database/README.md) is maintained as one cumulative workbook at [`course-outline-database/UCR_Course_Outline_Database.xlsx`](course-outline-database/UCR_Course_Outline_Database.xlsx). Future semesters extend that file; processing reports are retained separately in [`course-outline-database/reports/`](course-outline-database/reports/).
+
+The [extraction assignment](course-outline-database/COURSE_OUTLINE_EXTRACTION_ASSIGNMENT.md) is a separate, reusable longitudinal source-data workflow. It uses only uploaded course-outline PDFs and their container and file names as evidence; UCR Pathways may use the resulting database, but does not govern this independent extraction process.
 
 ## Repository operating rule
 
@@ -233,3 +235,4 @@ See `docs/quality-control/2026-09-11-audit.md` for the feedback-by-feedback impl
 The five public fixtures retain their approved academic content and now use the generic UCR-alternative structure. They remain demonstration/public records without asserted current counselor production provenance. New records with an explicit production origin must satisfy the applicable current production contract. Public explanatory notes must contain final rendered text.
 
 Use `npm ci` and `npm run dev` for a local website preview; deployment remains the existing static GitHub Pages site. `npm test` and `npm run validate` check presentation contracts and fixture structure. `Rscript scripts/test-shiny.R` checks access-code handling, search, retrieval, comparison-note rendering and variable programme-option rendering with local fixtures. These checks do not replace course-database feasibility validation.
+
