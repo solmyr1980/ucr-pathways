@@ -680,14 +680,24 @@
   "cases": [
     {
       "id": "cp-000001",
-      "state": "in-progress",
-      "stageOutcomes": {},
+      "state": "approved",
+      "stageOutcomes": {
+        "1": "retain",
+        "2": "retain",
+        "3": "retain",
+        "4": "retain",
+        "5": "correct",
+        "6": "retain"
+      },
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000001.json"
+      "implementationCommits": [
+        "55f787943745ca9454e2392fdc284dfa65755547"
+      ],
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000001.json",
+      "academicDisposition": "comparison"
     },
     {
       "id": "cp-000002",
@@ -5061,8 +5071,8 @@
     }
   ],
   "progress": {
-    "approved": 0,
-    "inProgress": 1,
+    "approved": 1,
+    "inProgress": 0,
     "reviewedWithBlockers": 0,
     "notStarted": 437,
     "pilotStarted": 1
@@ -5301,49 +5311,30 @@
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000001",
-      "activeClaim": {
-        "executionId": "restart-A-cp001-20261027T1130",
-        "worker": "A",
-        "caseId": "cp-000001",
-        "claimedAt": "2026-10-27T10:30:05.816315+00:00",
-        "reviewedInputCommit": "5be0855900a254c1d8cf94a370e8ad4daf7dac0a",
-        "inputBlobs": {
-          "data/counselor/comparisons/cp-000001.json": "06c720a49ebd228930b7afa34bd3aab0eb479f9d",
-          "data/counselor/decisions/cp-000001.json": "4f39b3bf075558f19681d0cb5828e8ecffee77b0",
-          "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-          "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "df2ee1b23f894c2e9f79b74a477d50d279158ffa",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "cb7497f8e8ca5a6986197968dc637ad65c31d4e6"
-        },
-        "nextAction": "Independently retrieve applicable official Erasmus Bestuurskunde curriculum/EER and exact-target interests before course selection.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
-      "completedCases": [],
-      "completedDispositions": [],
+      "nextCase": "cp-000002",
+      "activeClaim": null,
+      "completedCases": [
+        "cp-000001"
+      ],
+      "completedDispositions": [
+        {
+          "caseId": "cp-000001",
+          "state": "approved",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-10-27",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000001.json"
+        }
+      ],
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {},
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "executionId": "restart-A-cp001-20261027T1130",
-        "worker": "A",
         "caseId": "cp-000001",
-        "claimedAt": "2026-10-27T10:30:05.816315+00:00",
-        "reviewedInputCommit": "5be0855900a254c1d8cf94a370e8ad4daf7dac0a",
-        "inputBlobs": {
-          "data/counselor/comparisons/cp-000001.json": "06c720a49ebd228930b7afa34bd3aab0eb479f9d",
-          "data/counselor/decisions/cp-000001.json": "4f39b3bf075558f19681d0cb5828e8ecffee77b0",
-          "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-          "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "df2ee1b23f894c2e9f79b74a477d50d279158ffa",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "cb7497f8e8ca5a6986197968dc637ad65c31d4e6"
-        },
-        "nextAction": "Independently retrieve applicable official Erasmus Bestuurskunde curriculum/EER and exact-target interests before course selection.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
+        "executionId": "restart-A-cp001-20261027T1130",
+        "at": "2026-10-27T10:43:57.603169+00:00",
+        "state": "approved",
+        "nextAction": "Process cp-000002 as a fresh case next execution.",
+        "reviewedInputCommit": "55f787943745ca9454e2392fdc284dfa65755547"
       }
     },
     "B": {
@@ -6517,7 +6508,7 @@
         "status": "authorised-not-started",
         "scope": "Process every assigned case from scratch, update only this audit's progress and case evidence.",
         "nextCaseByWorker": {
-          "A": "cp-000001",
+          "A": "cp-000002",
           "B": "cp-000237"
         }
       },
