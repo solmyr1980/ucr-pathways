@@ -9363,7 +9363,7 @@
     },
     {
       "id": "cp-000123",
-      "state": "in-progress",
+      "state": "approved",
       "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000123.json",
       "stageOutcomes": {
         "1": "correct",
@@ -9381,7 +9381,8 @@
         "8c1cff4ca75a3de2a8b6fa28a4a71354fc83fb4b",
         "24434df5c9cd03d85c7b4aa7b086ffc5fa39e1c4"
       ],
-      "presentationApproval": false
+      "presentationApproval": true,
+      "academicDisposition": "comparison"
     },
     {
       "id": "cp-000110",
@@ -9534,8 +9535,8 @@
     }
   ],
   "progress": {
-    "approved": 94,
-    "inProgress": 7,
+    "approved": 95,
+    "inProgress": 6,
     "reviewedWithBlockers": 15,
     "notStarted": 322,
     "pilotStarted": 6
@@ -9838,7 +9839,7 @@
           "cp-000038"
         ],
         "nextCaseByWorker": {
-          "A": "cp-000123",
+          "A": "cp-000125",
           "B": "cp-000110"
         },
         "completedBoundedAssessmentReport": "docs/qc/counselor-next-ten-assessment-2026-10-23.md"
@@ -15373,58 +15374,8 @@
           "frequency": "hourly",
           "minute": 0
         },
-        "nextCase": "cp-000123",
-        "activeClaim": {
-          "worker": "A",
-          "caseId": "cp-000123",
-          "executionId": "A-cp123-20261027T020138Z",
-          "automationRunId": "3de2f922-6130-8330-a607-c15cbeee9d55",
-          "startedAt": "2026-10-27T02:01:38.700933Z",
-          "claimedAt": "2026-10-27T02:02:37.181876+00:00",
-          "reviewedInputCommit": "12509a8ebcb5bdb8c1578fda4753c78b06744474",
-          "inputBlobs": {
-            "AGENTS.md": "7f65f439c2fafc10c4060e9aa5b4cfaaa2116bc2",
-            "docs/UCR_Pathways_Production_Instructions.md": "840303c40f8bb3d9f1e5218c3a392310c61ba7f5",
-            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "d1c9572d5c09307a3c7951b4a703c2e6b9bb4206",
-            "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-            "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
-            "data/registry/programmes.csv": "e0b978c7efb7afc1f60a47ef53827e022df542e9",
-            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
-            "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
-            "data/counselor/review-programmes.json": "a11b747168e69b7b22186d2e7c6b438e90527579",
-            "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
-            "pilot/shiny/data/courses/BEN.json": "01f692c24c8407fdb4cca4154abc8c1b544f7958",
-            "pilot/shiny/data/courses/DIS.json": "f7d8f10c6dad39a63e25cc214b0ea95a6db5ed3d",
-            "pilot/shiny/data/courses/ENS.json": "d1da80e0530e5f731047547c2f807059bbf6131b",
-            "pilot/shiny/data/courses/GOS.json": "a70d5a154184f75dff1983983b0136a109d2293b",
-            "pilot/shiny/data/courses/HCB.json": "e43636ee8c3eb633db2815bf4f0a45968f0dea82",
-            "pilot/shiny/data/courses/MCC.json": "2cf0347dc2237e940b2c116ee2c38d6f69a8c6d7",
-            "data/counselor/review-interests.json": "a58bac210cd55300dd10801d3206408623f1747c",
-            "data/counselor/decisions/cp-000123.json": "212240758661f37368f6beb8c580c9e67fc31906",
-            "data/counselor/comparisons/cp-000123.json": "51ade6849c71020d0525013f94432ec7c8713789"
-          },
-          "stage": 6,
-          "checkpoint": "All academic/mechanical/actualUI/source-first/fullCI gates verified against frozen24434; immutable evidence publication and guarded final disposition pending.",
-          "nextAction": "Publish complete frozen evidence, verify changed hashes; then synchronize approved final disposition and workerA/global counts, retaining B110 and open123–124pair.",
-          "setupCI": {
-            "runId": 40435528171,
-            "status": "completed",
-            "conclusion": "success",
-            "observedFailures": []
-          },
-          "sourceRetrievalFailureExecutions": 0,
-          "elapsedTimeLimitObserved": null,
-          "observedTechnicalFailures": [
-            {
-              "issue": "Initial copied claim label named wrong target",
-              "resolution": "Corrected before academic work in6ae826b; exact Biomedical Sciences identity verified."
-            },
-            {
-              "issue": "Inherited render helper inputCommit label pointed to unrelated earlier case",
-              "resolution": "Caught before evidence publication; helpers parameterized, full62modal and supplement capture repeated on24434; actualdecision/canonical hashes verified."
-            }
-          ]
-        },
+        "nextCase": "cp-000125",
+        "activeClaim": null,
         "completedCases": [
           "cp-000037",
           "cp-000039",
@@ -15464,7 +15415,8 @@
           "cp-000113",
           "cp-000115",
           "cp-000117",
-          "cp-000121"
+          "cp-000121",
+          "cp-000123"
         ],
         "deferredCases": [
           "cp-000041",
@@ -15923,6 +15875,15 @@
             "publicationVerified": true,
             "publicationVerifiedAt": "2026-10-27T01:26:49Z",
             "finalDispositionCommit": "f15574968d6a1a216444bb079eb3a063e4c3077c"
+          },
+          {
+            "caseId": "cp-000123",
+            "state": "approved",
+            "academicDisposition": "comparison",
+            "completedAt": "2026-10-27T02:47:44.591772+00:00",
+            "evidenceFile": "data/counselor/qc/comprehensive-reaudit/cp-000123.json",
+            "reviewedInputCommit": "24434df5c9cd03d85c7b4aa7b086ffc5fa39e1c4",
+            "evidenceCommit": "11c230fe11a4336f715af34f5b716a6c032815c7"
           }
         ],
         "lastCheckpoint": {
@@ -15955,8 +15916,8 @@
             "data/counselor/comparisons/cp-000123.json": "51ade6849c71020d0525013f94432ec7c8713789"
           },
           "stage": 6,
-          "checkpoint": "Current official2026–27basis and two qualified biomedical responses corrected locally; no approval.31retained courses,26interests; detailed final source-first and actualUI gates pending.",
-          "nextAction": "Publish root/canonical pair,freeze actual inputs;source-first same-AI finalpass;fullschemas/replay/all48placements/trace/distinctness/corpus/register/CI;actualdesktopmobile2alternatives/fullcurriculum/all31course modals/sourceUCRlinks/navigation/geometry andvisualscreenshots.",
+          "checkpoint": "All six stages complete; immutable39file evidence and frozen19inputs verified. Approved comparison with2qualified alternatives; receipt verification pending.",
+          "nextAction": "Verify final disposition main/hash identity and metadata CI; publish final receipt, retain open123–124pair and nextA125.",
           "setupCI": {
             "runId": 40435528171,
             "status": "completed",
@@ -15965,9 +15926,18 @@
           },
           "sourceRetrievalFailureExecutions": 0,
           "elapsedTimeLimitObserved": null,
-          "observedTechnicalFailures": []
+          "observedTechnicalFailures": [
+            {
+              "issue": "Initial copied claim label named wrong target",
+              "resolution": "Corrected before academic work in6ae826b; exact Biomedical Sciences identity verified."
+            },
+            {
+              "issue": "Inherited render helper inputCommit label pointed to unrelated earlier case",
+              "resolution": "Caught before evidence publication; helpers parameterized, full62modal and supplement capture repeated on24434; actualdecision/canonical hashes verified."
+            }
+          ]
         },
-        "lastCompletedAt": "2026-10-27T01:24:27.853236+00:00"
+        "lastCompletedAt": "2026-10-27T02:47:44.591772+00:00"
       },
       "B": {
         "automationId": "6adceb9664b08191a4eadc4daeb7ad15",
