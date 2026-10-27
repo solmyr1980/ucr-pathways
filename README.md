@@ -25,6 +25,10 @@ The authoritative maintained specifications are in `docs/`:
 
 Retrieve these current GitHub copies before substantive project work. Do not substitute old project-source copies or previous-conversation summaries.
 
+## Standalone course-outline database
+
+The [UCR Course-Outline Database extraction assignment](course-outline-database/COURSE_OUTLINE_EXTRACTION_ASSIGNMENT.md) is a separate, reusable longitudinal source-data workflow. It uses only uploaded course-outline PDFs and their container and file names as evidence; UCR Pathways may use the resulting database, but does not govern this independent extraction process.
+
 ## Repository operating rule
 
 Routine approved work is performed directly on `main`.

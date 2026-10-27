@@ -1,0 +1,11 @@
+#!/bin/bash
+export R_HOME=/tmp/cp091-rroot/usr/lib/R
+export R_SHARE_DIR=/tmp/cp091-rroot/usr/share/R/share
+export R_INCLUDE_DIR=/tmp/cp091-rroot/usr/share/R/include
+export R_DOC_DIR=/tmp/cp091-rroot/usr/share/doc/R
+export R_LIBS_SITE=/tmp/cp091-rroot/usr/lib/R/site-library
+export LD_LIBRARY_PATH=/tmp/cp091-rroot/usr/lib/R/lib:/tmp/cp091-rroot/usr/lib/x86_64-linux-gnu:${LD_LIBRARY_PATH:-}
+if [ "$1" = "-e" ]; then exec /tmp/cp091-rroot/usr/lib/R/bin/exec/R --no-echo --no-restore "$@"; fi
+script_path=$1
+shift
+exec /tmp/cp091-rroot/usr/lib/R/bin/exec/R --no-echo --no-restore --file="$script_path" --args "$@"

@@ -16,3 +16,9 @@
 ## Validation
 
 - Run the relevant repository validators and tests before publishing changes.
+
+## Active counselor audit authority
+
+- Before every counselor review publication, read fresh `data/counselor/qc/comprehensive-reaudit.json`. When `activeAudit` is present, follow its register and case directory; earlier run state is historical.
+- On 27 October 2026 the user superseded the 402-case continuation with a full 438-case restart. Old continuation workers/tasks must checkpoint and stop without further academic publication. Both old schedules are paused. Do not alter the new tasks from a superseded execution.
+- New workers must check their active register and `systemicPause` again immediately before each write, preserve prior evidence, and count only newly verified reviews in this audit.
