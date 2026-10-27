@@ -27,9 +27,9 @@ Retrieve these current GitHub copies before substantive project work. Do not sub
 
 ## Standalone course-outline database
 
-The [UCR Course-Outline Database](course-outline-database/README.md) is maintained as one cumulative workbook at [`course-outline-database/UCR_Course_Outline_Database.xlsx`](course-outline-database/UCR_Course_Outline_Database.xlsx). Future semesters extend that file; processing reports are retained separately in [`course-outline-database/reports/`](course-outline-database/reports/).
+The [UCR Course-Outline Database](course-outline-database/README.md) is a separate, outline-only academic-content source with its own [targeted extraction assignment](course-outline-database/COURSE_OUTLINE_EXTRACTION_ASSIGNMENT.md). The accepted output will be one cumulative, flat workbook at `course-outline-database/UCR_Course_Outline_Database.xlsx`, covering course profiles, disciplines, topics and methods. The superseded seven-sheet workbook and its processing report have been removed; the new extraction has not yet been run.
 
-The [extraction assignment](course-outline-database/COURSE_OUTLINE_EXTRACTION_ASSIGNMENT.md) is a separate, reusable longitudinal source-data workflow. It uses only uploaded course-outline PDFs and their container and file names as evidence; UCR Pathways may use the resulting database, but does not govern this independent extraction process.
+**Extraction and Pathways enrichment are different stages.** The extraction uses only supplied course outlines, not central course records. A later, separate merge combines accepted outline-derived information with the central course database's authoritative course identities, classifications, prerequisites and semester availability. The existing Pathways-enriched course file remains unchanged until that merge.
 
 ## Repository operating rule
 
