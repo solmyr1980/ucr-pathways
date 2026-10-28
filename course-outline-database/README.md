@@ -21,6 +21,10 @@ All three batches were extracted on 27 October 2026 under assignment version 2.0
 
 The workbook contains one row per course–semester–group and focuses on `profile`, `discipline`, `topics` and `methods`, alongside minimal source/identity fields. The source outlines and ZIPs are not stored here. The accepted `2026h2` extraction replaced the rejected seven-sheet output; no data from that rejected output was reused.
 
+## Detailed historical reference
+
+The [`detailed-reference/` directory](detailed-reference/README.md) is reserved for the seven-sheet **Microsoft Cowork 2026h2 detailed extraction**, named `UCR_Course_Outline_Database_Cowork_Detailed_2026h2.xlsx`. That material is **reference-only**, not part of the accepted cumulative targeted database. The directory README identifies the original attachment and its SHA-256, and records that binary upload to GitHub is still pending verification.
+
 ## Two separate stages
 
 **Stage 1 — extract from outlines:** use the supplied course outlines and their file/container names only, applying the explicitly documented input convention above for `2026h1` and `2025h2`. Never consult the central course database or the existing Pathways-enriched file as evidence for missing content. Maintain the standalone flat workbook here.
