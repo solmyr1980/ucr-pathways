@@ -7,7 +7,7 @@
     "canonical": "342fc905ee3854f32d16d3fc236ac9159f8ede71",
     "decision": "dec1bb30d632864d9aa709261a798dd901573706"
   },
-  "state": "approved",
+  "state": "in-progress",
   "stages": {
     "1": {
       "outcome": "correct",
@@ -857,53 +857,29 @@
     }
   },
   "sharedIssueIds": [],
-  "unresolved": [],
-  "downstreamReassessments": [],
+  "unresolved": [
+    "Revalidation against the current course workbook is pending; no new review has begun."
+  ],
+  "downstreamReassessments": [
+    {
+      "trigger": "Authoritative enriched course workbook replaced after the previous approval.",
+      "scope": "Reassess UCR concepts and course contributions, all prerequisites and assigned offerings, dependent comparison/content, and final academic/mechanical/rendered verification.",
+      "stages": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "state": "pending"
+    }
+  ],
   "implementationCommits": [
     "c46080ad450c460c1524c323e217b39bb015ec5d",
     "ec6f76523e117feff931e5dc62d48450456c7188",
     "33c3703c4b257f7dcc5b7cefad0bd785422c91ec"
   ],
-  "finalReview": {
-    "reviewerOrPass": "source-first-final-B-CP237-20261027",
-    "independenceMethod": "Separate source-first final pass after academic reconstruction:reconsidered adopted EER identity,cohort,formal requirements and learning outcomes;current exact-target programme evidence;then actual enriched content and completed programmes. Earlier approvals ignored. Same AI;no second reviewer claimed. No interpersonal independence is asserted.",
-    "reviewedOn": "2026-10-27",
-    "reviewedCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
-    "inputBlobs": {
-      "canonical": "328b5ca0b0f8a7cce46c1e35c50cb743a5439c68",
-      "decision": "29f0d36d33902e46d39ba62e5ca0b0cbb9040948"
-    },
-    "sourceEvidenceRefs": [
-      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/sources.json",
-      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/enriched-course-review.json",
-      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/source-first-final-pass.json"
-    ],
-    "checks": {
-      "academic": {
-        "status": "passed",
-        "evidenceRefs": [
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/source-first-final-pass.json"
-        ]
-      },
-      "mechanical": {
-        "status": "passed",
-        "evidenceRefs": [
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/mechanical-schema-replay.json",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/ci.json"
-        ]
-      },
-      "rendered": {
-        "status": "passed",
-        "evidenceRefs": [
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/results-cp-000237-desktop.json",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/results-cp-000237-mobile.json",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/tiles.json",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/links.json"
-        ]
-      }
-    }
-  },
-  "presentationApproval": true,
+  "finalReview": null,
+  "presentationApproval": false,
   "evidenceSources": [
     {
       "id": "curriculum",
@@ -2261,25 +2237,7 @@
       "presentationMode": "normal"
     }
   ],
-  "executionClaim": {
-    "executionId": "restart-B-cp237-20261027T1202",
-    "worker": "B",
-    "caseId": "cp-000237",
-    "claimedAt": "2026-10-27T11:03:33.221874+00:00",
-    "reviewedInputCommit": "e232caf52405c5965e8fe6b431661f46cc337a3c",
-    "inputBlobs": {
-      "data/counselor/comparisons/cp-000237.json": "342fc905ee3854f32d16d3fc236ac9159f8ede71",
-      "data/counselor/decisions/cp-000237.json": "dec1bb30d632864d9aa709261a798dd901573706",
-      "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
-      "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
-      "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-      "docs/UCR_Pathways_Production_Instructions.md": "df2ee1b23f894c2e9f79b74a477d50d279158ffa",
-      "docs/qc/counselor-comprehensive-reaudit-protocol.md": "cb7497f8e8ca5a6986197968dc637ad65c31d4e6"
-    },
-    "nextAction": "Independently retrieve current official Tilburg Economie en Bedrijfseconomie curriculum,cohort/route and applicable formal rules; reconcile every exact-target interest.",
-    "runtimeModel": "unknown",
-    "runtimeReasoningEffort": "unknown"
-  },
+  "executionClaim": null,
   "technicalObservations": [
     "Earlier local mechanical pass found wrong route-selection enum and missingfirstbasisownership;fixed before approval.",
     "Workbook checks rejected provisional policy placements of spring-onlyAIandfall-onlystatistics;reconstructed schedule and reran all72placements.",
@@ -2292,7 +2250,7 @@
   "sourceRetrievalFailuresThisAudit": 0,
   "runtimeModel": "unknown",
   "runtimeReasoningEffort": "unknown",
-  "nextAction": "CP237 complete;process cp-000238 next worker B execution.",
+  "nextAction": "Remain paused at the user’s request. When the user authorises resumption, revalidate this reopened case against the current workbook and close all dependent checks before any new approval.",
   "academicDisposition": "comparison",
   "measuredExecution": {
     "claimedAt": "2026-10-27T11:03:33.221874+00:00",
@@ -2313,5 +2271,2336 @@
       "sha256": "1f76c2eab64ba17f045be73255144a4d2147def17ab332978ed11c21cfbbee3c",
       "status": "Diagnostic initial local reconstruction;course subsequently removed;not approval evidence. Exact intermediate canonical blob was not captured."
     }
-  ]
+  ],
+  "reviewHistory": [
+    {
+      "preservedOn": "2026-10-29",
+      "reason": "The authoritative course workbook changed; the four earlier approvals require renewed course-content, availability and dependent checks. The user authorised reopening these cases but explicitly withheld resumption of the full review.",
+      "originalFileSha256": "fb409d76c65328a070cb1f4ca6dc55aba1b7bbd85d5ce61c0805df993f95d4fd",
+      "snapshot": {
+        "schemaVersion": "2.0",
+        "auditId": "counselor-full-restart-2026-10-27",
+        "id": "cp-000237",
+        "reviewedInputCommit": "e232caf52405c5965e8fe6b431661f46cc337a3c",
+        "inputBlobs": {
+          "canonical": "342fc905ee3854f32d16d3fc236ac9159f8ede71",
+          "decision": "dec1bb30d632864d9aa709261a798dd901573706"
+        },
+        "state": "approved",
+        "stages": {
+          "1": {
+            "outcome": "correct",
+            "finding": "Correct/formally substantiate27component180EC2026cohort reconstruction;instantiate6ECFinancialAdministration restricted elective,retain30ECapprovedchoice,andidentifyoptionalzeroECGROWplusprogression/attendance rules.",
+            "preserved": [],
+            "actions": [
+              {
+                "scope": "Correct/formally substantiate27component180EC2026cohort reconstruction;instantiate6ECFinancialAdministration restricted elective,retain30ECapprovedchoice,andidentifyoptionalzeroECGROWplusprogression/attendance rules.",
+                "state": "verified",
+                "implementationCommit": "ec6f76523e117feff931e5dc62d48450456c7188",
+                "verificationEvidenceRefs": [
+                  "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/sources.json",
+                  "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/source-first-final-pass.json"
+                ]
+              }
+            ],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/sources.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "2": {
+            "outcome": "correct",
+            "finding": "Correct row9959 and dependent question to remove unsupported labour-shortages qualifier;freshly assess all60exact-target rows,18generator/28support/14search,with exhaustive ownership and postmaster career qualifications.",
+            "preserved": [],
+            "actions": [
+              {
+                "scope": "Correct row9959 and dependent question to remove unsupported labour-shortages qualifier;freshly assess all60exact-target rows,18generator/28support/14search,with exhaustive ownership and postmaster career qualifications.",
+                "state": "verified",
+                "implementationCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+                "verificationEvidenceRefs": [
+                  "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/interest-review.json",
+                  "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/source-first-final-pass.json"
+                ]
+              }
+            ],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/interest-review.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": [],
+            "interestRows": [
+              {
+                "row": 9952,
+                "outcome": "retain",
+                "constructionRole": "generator-eligible",
+                "constructionOwner": "closest-core",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9953,
+                "outcome": "retain",
+                "constructionRole": "generator-eligible",
+                "constructionOwner": "closest-core",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9954,
+                "outcome": "retain",
+                "constructionRole": "generator-eligible",
+                "constructionOwner": "Financial markets, risk and quantitative analysis",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9955,
+                "outcome": "retain",
+                "constructionRole": "generator-eligible",
+                "constructionOwner": "closest-core",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9956,
+                "outcome": "retain",
+                "constructionRole": "generator-eligible",
+                "constructionOwner": "closest-core",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9957,
+                "outcome": "retain",
+                "constructionRole": "generator-eligible",
+                "constructionOwner": "Economics, public policy and institutions",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9958,
+                "outcome": "retain",
+                "constructionRole": "generator-eligible",
+                "constructionOwner": "Economics, public policy and institutions",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9959,
+                "outcome": "correct",
+                "constructionRole": "generator-eligible",
+                "constructionOwner": "Economics, public policy and institutions",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Bounded correction removes unsupported labour-shortages wording;current exact-target pages support housing and economic policy. Labour Economics remains row9994;dependent internal question updated to labour markets."
+              },
+              {
+                "row": 9960,
+                "outcome": "retain",
+                "constructionRole": "generator-eligible",
+                "constructionOwner": "closest-core",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9961,
+                "outcome": "retain",
+                "constructionRole": "generator-eligible",
+                "constructionOwner": "Economics, public policy and institutions",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9962,
+                "outcome": "retain",
+                "constructionRole": "generator-eligible",
+                "constructionOwner": "closest-core",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9963,
+                "outcome": "retain",
+                "constructionRole": "generator-eligible",
+                "constructionOwner": "Financial markets, risk and quantitative analysis",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9964,
+                "outcome": "retain",
+                "constructionRole": "generator-eligible",
+                "constructionOwner": "closest-core",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9965,
+                "outcome": "retain",
+                "constructionRole": "generator-eligible",
+                "constructionOwner": "Economics, public policy and institutions",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9966,
+                "outcome": "retain",
+                "constructionRole": "generator-eligible",
+                "constructionOwner": "Economics, public policy and institutions",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9967,
+                "outcome": "retain",
+                "constructionRole": "generator-eligible",
+                "constructionOwner": "closest-core",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9968,
+                "outcome": "retain",
+                "constructionRole": "generator-eligible",
+                "constructionOwner": "Economics, public policy and institutions",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9969,
+                "outcome": "retain",
+                "constructionRole": "generator-eligible",
+                "constructionOwner": "closest-core",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9970,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9971,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9972,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9973,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9974,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9975,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9976,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9977,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9978,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9979,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9980,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9981,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9982,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9983,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9984,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9985,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9986,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9987,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9988,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9989,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9990,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9991,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9992,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9993,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9994,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9995,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9996,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9997,
+                "outcome": "retain",
+                "constructionRole": "support-only",
+                "constructionOwner": "support-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Current exact-target programme/curriculum and applicable EER substantiate this academic direction/topic."
+              },
+              {
+                "row": 9998,
+                "outcome": "retain",
+                "constructionRole": "search-only",
+                "constructionOwner": "search-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Programme example or testimonial illustration;retained for discovery but does not independently generate a programme."
+              },
+              {
+                "row": 9999,
+                "outcome": "retain",
+                "constructionRole": "search-only",
+                "constructionOwner": "search-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Programme example or testimonial illustration;retained for discovery but does not independently generate a programme."
+              },
+              {
+                "row": 10000,
+                "outcome": "retain",
+                "constructionRole": "search-only",
+                "constructionOwner": "search-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Programme example or testimonial illustration;retained for discovery but does not independently generate a programme."
+              },
+              {
+                "row": 10001,
+                "outcome": "retain",
+                "constructionRole": "search-only",
+                "constructionOwner": "search-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Programme example or testimonial illustration;retained for discovery but does not independently generate a programme."
+              },
+              {
+                "row": 10002,
+                "outcome": "retain",
+                "constructionRole": "search-only",
+                "constructionOwner": "search-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Programme example or testimonial illustration;retained for discovery but does not independently generate a programme."
+              },
+              {
+                "row": 10003,
+                "outcome": "retain",
+                "constructionRole": "search-only",
+                "constructionOwner": "search-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Programme example or testimonial illustration;retained for discovery but does not independently generate a programme."
+              },
+              {
+                "row": 10004,
+                "outcome": "retain",
+                "constructionRole": "search-only",
+                "constructionOwner": "search-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Programme example or testimonial illustration;retained for discovery but does not independently generate a programme."
+              },
+              {
+                "row": 10005,
+                "outcome": "retain",
+                "constructionRole": "search-only",
+                "constructionOwner": "search-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Career direction stated after further master study;not guaranteed bachelor employment and not used to construct a UCR programme."
+              },
+              {
+                "row": 10006,
+                "outcome": "retain",
+                "constructionRole": "search-only",
+                "constructionOwner": "search-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Career direction stated after further master study;not guaranteed bachelor employment and not used to construct a UCR programme."
+              },
+              {
+                "row": 10007,
+                "outcome": "retain",
+                "constructionRole": "search-only",
+                "constructionOwner": "search-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Career direction stated after further master study;not guaranteed bachelor employment and not used to construct a UCR programme."
+              },
+              {
+                "row": 10008,
+                "outcome": "retain",
+                "constructionRole": "search-only",
+                "constructionOwner": "search-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Career direction stated after further master study;not guaranteed bachelor employment and not used to construct a UCR programme."
+              },
+              {
+                "row": 10009,
+                "outcome": "retain",
+                "constructionRole": "search-only",
+                "constructionOwner": "search-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Career direction stated after further master study;not guaranteed bachelor employment and not used to construct a UCR programme."
+              },
+              {
+                "row": 10010,
+                "outcome": "retain",
+                "constructionRole": "search-only",
+                "constructionOwner": "search-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Career direction stated after further master study;not guaranteed bachelor employment and not used to construct a UCR programme."
+              },
+              {
+                "row": 10011,
+                "outcome": "retain",
+                "constructionRole": "search-only",
+                "constructionOwner": "search-only",
+                "sourceRefs": [
+                  "curriculum",
+                  "programme",
+                  "eer"
+                ],
+                "finding": "Career direction stated after further master study;not guaranteed bachelor employment and not used to construct a UCR programme."
+              }
+            ],
+            "rowOutcomeCounts": {
+              "retain": 59,
+              "correct": 1
+            }
+          },
+          "3": {
+            "outcome": "reconstruct",
+            "finding": "Retain strongest business/economics/data concept and quantitative-finance direction after programme-level tests;reconstruct economic-policy implementation rather than retain an unrelated history seminar or missing prerequisite. Three evidenced,distinct concepts pass sequentially.",
+            "preserved": [],
+            "actions": [
+              {
+                "scope": "Retain strongest business/economics/data concept and quantitative-finance direction after programme-level tests;reconstruct economic-policy implementation rather than retain an unrelated history seminar or missing prerequisite. Three evidenced,distinct concepts pass sequentially.",
+                "state": "verified",
+                "implementationCommit": "c46080ad450c460c1524c323e217b39bb015ec5d",
+                "verificationEvidenceRefs": [
+                  "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/source-first-final-pass.json",
+                  "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/source-first-final-pass.json"
+                ]
+              }
+            ],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/source-first-final-pass.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "4": {
+            "outcome": "reconstruct",
+            "finding": "Reconstruct policy schedule and course-to-basis traceability;verify72placements,40actualprofiles,24unique/180ECeach,fourpersemester,atleast6advanced,Year1PPD,earlierformal prerequisites and assigned offerings. Correct weak alignments and preserve deliberate disciplinary gaps.",
+            "preserved": [],
+            "actions": [
+              {
+                "scope": "Reconstruct policy schedule and course-to-basis traceability;verify72placements,40actualprofiles,24unique/180ECeach,fourpersemester,atleast6advanced,Year1PPD,earlierformal prerequisites and assigned offerings. Correct weak alignments and preserve deliberate disciplinary gaps.",
+                "state": "verified",
+                "implementationCommit": "c46080ad450c460c1524c323e217b39bb015ec5d",
+                "verificationEvidenceRefs": [
+                  "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/mechanical-schema-replay.json",
+                  "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/source-first-final-pass.json"
+                ]
+              }
+            ],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/mechanical-schema-replay.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "5": {
+            "outcome": "correct",
+            "finding": "Add accurate audience programme/comparison/completecurriculum explanations,threeactualconcepts,route/year,selectedrestrictedchoice and substantive gap wording. Correct first-course finance and companylaw overclaims;preserve sound enriched modal summaries.",
+            "preserved": [],
+            "actions": [
+              {
+                "scope": "Add accurate audience programme/comparison/completecurriculum explanations,threeactualconcepts,route/year,selectedrestrictedchoice and substantive gap wording. Correct first-course finance and companylaw overclaims;preserve sound enriched modal summaries.",
+                "state": "verified",
+                "implementationCommit": "c46080ad450c460c1524c323e217b39bb015ec5d",
+                "verificationEvidenceRefs": [
+                  "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/source-first-final-pass.json",
+                  "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/source-first-final-pass.json"
+                ]
+              }
+            ],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/source-first-final-pass.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "6": {
+            "outcome": "retain",
+            "finding": "Passed actual running desktop 1440×1000 and mobile 390×844: all three alternatives, full external/UCR curricula, 40 selected course modals per viewport, search/back, previous/next/overview navigation, source/UCR link clicks and 200 responses, and geometry. Raw screenshots visually inspected. Full formal comparison/methodology/audience schemas, byte-exact replay, 72 workbook placements, registry/index/operational corpus checks and applicable CI passed.",
+            "preserved": [],
+            "actions": [],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/results-cp-000237-desktop.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/results-cp-000237-mobile.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/tiles.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/links.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/ci.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          }
+        },
+        "sharedIssueIds": [],
+        "unresolved": [],
+        "downstreamReassessments": [],
+        "implementationCommits": [
+          "c46080ad450c460c1524c323e217b39bb015ec5d",
+          "ec6f76523e117feff931e5dc62d48450456c7188",
+          "33c3703c4b257f7dcc5b7cefad0bd785422c91ec"
+        ],
+        "finalReview": {
+          "reviewerOrPass": "source-first-final-B-CP237-20261027",
+          "independenceMethod": "Separate source-first final pass after academic reconstruction:reconsidered adopted EER identity,cohort,formal requirements and learning outcomes;current exact-target programme evidence;then actual enriched content and completed programmes. Earlier approvals ignored. Same AI;no second reviewer claimed. No interpersonal independence is asserted.",
+          "reviewedOn": "2026-10-27",
+          "reviewedCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+          "inputBlobs": {
+            "canonical": "328b5ca0b0f8a7cce46c1e35c50cb743a5439c68",
+            "decision": "29f0d36d33902e46d39ba62e5ca0b0cbb9040948"
+          },
+          "sourceEvidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/sources.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/enriched-course-review.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/source-first-final-pass.json"
+          ],
+          "checks": {
+            "academic": {
+              "status": "passed",
+              "evidenceRefs": [
+                "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/source-first-final-pass.json"
+              ]
+            },
+            "mechanical": {
+              "status": "passed",
+              "evidenceRefs": [
+                "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/mechanical-schema-replay.json",
+                "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/ci.json"
+              ]
+            },
+            "rendered": {
+              "status": "passed",
+              "evidenceRefs": [
+                "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/results-cp-000237-desktop.json",
+                "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/results-cp-000237-mobile.json",
+                "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/tiles.json",
+                "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/links.json"
+              ]
+            }
+          }
+        },
+        "presentationApproval": true,
+        "evidenceSources": [
+          {
+            "id": "curriculum",
+            "url": "https://www.tilburguniversity.edu/nl/onderwijs/bacheloropleidingen/economie-en-bedrijfseconomie/programma-en-vakken",
+            "checkedOn": "2026-10-27",
+            "scope": "Exact Dutch EBE 2026-entrant cohort;all27components;common60EC,common36+branch24EC,thirdyear60EC;programme questions and current course examples.",
+            "finding": "Retain common and Bedrijfseconomie pathway;instantiate Financiële Administratie6EC from restricted list;preserve approved30EC mobility/minor space. GROW0EC is extracurricular,not extra degree credits."
+          },
+          {
+            "id": "programme",
+            "url": "https://www.tilburguniversity.edu/nl/onderwijs/bacheloropleidingen/economie-en-bedrijfseconomie",
+            "checkedOn": "2026-10-27",
+            "scope": "Identity/language/duration,both genuine specialisations,substantive interests,examples,andpostmastercareer outcomes.",
+            "finding": "Current text supports housing,AI,energy,sustainability,economiccycles,incomeinequality,consumerchoice,marketsandfinance. Labour shortages is not established by inspected current text;labour-market study remains separately supported by Labour Economics elective."
+          },
+          {
+            "id": "eer",
+            "url": "https://www.tilburguniversity.edu/sites/default/files/download/EER_TiSEM_2026-2027_v4.pdf",
+            "checkedOn": "2026-10-27",
+            "sha256": "8743d5bdaf1380f12e3e0482a1d600dd51fb82db630d37469824d3a32a44eca2",
+            "scope": "Adopted2026–27EERv4 pp61–64 cohort2026,Articles3.7,4.4–4.7,5.6.",
+            "finding": "180ECcoherent2026entrypathway;requiredvsrestricted/openstatusestablished;42firstyearECBSA;postponedBSApermissionor42ECandmax30ECsemester;thesis120ECsemester6/138ECsemester7+;internship90EC;manual/syllabusconditionsremainapplicable;assessedpracticals maycarryattendanceconditions announcedinOSIRIS/Canvas;laterGROWexplicitlyoptional."
+          }
+        ],
+        "renderedEvidence": [
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-column-0.png",
+            "sha256": "74c516c0c2f97965a180cc208ed6e3c421922dc7396a9970eac8000b82c6a131",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-3-5547.png",
+            "sha256": "5d8dcf952ba6ab4bb0bcb048dd6001b4933257df758e718ce5318562fa5b674c",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-column-1.png",
+            "sha256": "b09abb393a2e21d7e37214a3442ea82085ef98b46315cd838ee898dabe704c22",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-summary.png",
+            "sha256": "4c095dfda8c2aa80f6eb97417a63f26821377e678b3f4128dceaa588a0d91676",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-GOSPOLI111.png",
+            "sha256": "9066959b7a17e6200c481038d9f2e89c9f20771e5de1e1a06c9081c5c68cb642",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-BENECON211.png",
+            "sha256": "7a1f623e45d1569673bb66698064d88f76c371b7f2e074271e20556381983a22",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-GOSPOLI112.png",
+            "sha256": "a8283afee4b1c48dc39589c0c0373ef71c2eabccb96d434c23fe6cfdb50a470f",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-BENGATE102.png",
+            "sha256": "47877a304ef90415447150b478cf93272240ae50f76313581bc2c81390213d1c",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-GOSSOCI111.png",
+            "sha256": "89b1f1ce23e07b4d803339a31c1291c8c7bc76977a7345e5281547cea4ff5607",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-DISCOMP212.png",
+            "sha256": "228e8d168f69418993919486b6ecbe2e12b681312bfca6161a83e4a10381d7b3",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-column-3.png",
+            "sha256": "859e3aee5acdd0face23cfc3583ce50d8a65ef458e46e9b8794b2fad14cd95ce",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-3-6197.png",
+            "sha256": "c5cb226d99e23d5b48ca6636eb1fc88dadeced989a1b954ce204b6b6ece4fd8c",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-BENBUSI112.png",
+            "sha256": "ee96970af334b53795072f2d4c911ecef54bdf1e777f3eb68cb626986f8e8cc2",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-BENENTR211.png",
+            "sha256": "e3ff6cc29cf3566368ec02b9a72bc13df0bde1294df9a05d5d3296a34ef30a9e",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-2-5547.png",
+            "sha256": "b60c20fcf273bd199b5d608d62c2cba6ee174bdc581bdfd89b23f84216578c3e",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-BENECON311.png",
+            "sha256": "b6fe0f2f7f09bc235f51f073e8edb93e864099179c1aacd58323964f24b712e6",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-curriculum.png",
+            "sha256": "4db7f4cd436fa387ef826bcc9f65681b79a6a6182dad5b5fec6e0e634507caa4",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-GOSPHIL212.png",
+            "sha256": "28acc63acee41c86f4b9cc0013f40d889db2afc7a172b71f9ce29751f2782756",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-DISMATH214.png",
+            "sha256": "59ff5b610c6b9cca8ae9f8e67d87efafd4119dd27094fe6e9b4fc49dc997297d",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-BENBUSI211.png",
+            "sha256": "31fa4488fa1a372f909b74713ba7d42c8b828bbf13b4e99ae9c62b6c7e0895e0",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-GOSSOCI311.png",
+            "sha256": "bc4e34f1a690eb99ce9ae8febc69a72bbc47c79d33f417050fb5ca0ee9a675c4",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-DISCOMP212.png",
+            "sha256": "6dfdc7d64197caa1068c5053911d3c2e0b1a3f9db2ef104127b031ff543c1a39",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-2-3597.png",
+            "sha256": "17eb84272456d9bb254d771ace64e3e7467996a96b8514bdaa7b7bb277bcf786",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-3-2297.png",
+            "sha256": "17b7d1da4cc101cb0d72b9ecaa09f82735139c798da9b34d9b3d926e0abcda9c",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-1-2947.png",
+            "sha256": "992a518b05a3226864826dbeefcb966ca9ecd4e4fe1d4a92be73eb0d9b77534f",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-DISDATA111.png",
+            "sha256": "fd1d57ed32d4d6f3119009260d10985ac9e7127ccc6b616390e3f19e748b5b4c",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-BENECON314.png",
+            "sha256": "55b2112986e1c0b88d4166f62fdd2e2c21cecb2db6fb1645c318096832ff6674",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-BENECON312.png",
+            "sha256": "51d0b40abb5a995fffb0dfead817840967db300044b750a6634f7d2cfc679d97",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-ACCPPDE101.png",
+            "sha256": "0d24ddd35b663af5c3489134f9603f3ed532c721611f885b430facfba6df97b2",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-GOSSOCI214.png",
+            "sha256": "579b3417c4f7a6757b5947958f9dcde003464f27ee892be24101f6f8c7cd7eaa",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-0-2297.png",
+            "sha256": "f87993fe16d9fac70d7b79d27ea7c75023b07d120a241ff7f3626a971c0fc137",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-DISDATA111.png",
+            "sha256": "6efaff65e35a585974a323f5111118a005e9c3951022879d533fbe87084f983c",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-0-3597.png",
+            "sha256": "a4734e9895e948b2c28ed89cc125679e6a37ad21782400366e1c838fd5e0f7b7",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-DISDATA211.png",
+            "sha256": "92d8f0268add2bf1972fd6c35eaa04bd6a94630a7e3cfadfb30602167717d363",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-BENGATE102.png",
+            "sha256": "879c5ef6fb76404f2da5d57901254ad9ef25d9365f26f5b6bf7dc2e9be266798",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-BENBUSI112.png",
+            "sha256": "c1fb611af1cc497702e2030198f54d2f06b32d8aa873b07076a590315cace9ae",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-DISMATH211.png",
+            "sha256": "81c4f19381a56ed2bb831324c76575b4647abc0ecbfe6d46d47dc553b1792307",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-1-3597.png",
+            "sha256": "7547635da638a0393cdcbdb4bb043e0166565b2461d467793738dc8493105215",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-BENENTR311.png",
+            "sha256": "2df4d17fca207a274466c0ca12487fd2b3e8313cddcc36d5e509931d55a6ac19",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-1-2297.png",
+            "sha256": "af5c40af504bb03da8207e8d209a84e5334ea1d96cbf2ae892809948539c287c",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-GOSLAWJ312.png",
+            "sha256": "e3e00de0928bf396920341f96e9f50ccf56240b4805ba563ccf0b3ef0d1fe6ca",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-HCBPSYC211.png",
+            "sha256": "d1a9c0200e0625ce22d54f556cfbb3489e4bd885386a8f335ee427e400fb1553",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-BENBUSI312.png",
+            "sha256": "927b61d87536df828a57806f6823d228c2f9eebb213349e17b7147b3ce4e2544",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-BENLEAD311.png",
+            "sha256": "65965501723b7032f66e6db0ba77c5631ce3f970bc2c919b9aad4342a22fc2bb",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-BENECON314.png",
+            "sha256": "906f02a9946e6b710bfc6b397c40e4046fa16ed6793a9c61c99f96d725fda0a6",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-GOSPOLI311.png",
+            "sha256": "52016122371b76e2b481ac66ecf71f58e28355c00271588756ecc56a83ec2498",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-BENENTR212.png",
+            "sha256": "4c968c0f59a2db9ec8d705e9f82b7f784513c9a17258f62c4606a0dd63b79599",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-BENLEAD311.png",
+            "sha256": "a42b0765a289c735e16985e815f575dc2e3dc5b78769c6cfb4cb76a0d44c40d9",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/frozen-desktop-full.png",
+            "sha256": "ed1dce54de132a632d994e2fe545ce068d1b0a40bf8450d88d14f974e7e5bd30",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-2-2297.png",
+            "sha256": "00670c9372a36c8efec5ae1d7bdc041fd3e34dea1578030f6d0593812b57c52b",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-0-5547.png",
+            "sha256": "fda420af55c292849a5b949aaeefc5a812c1a77b5b556e2fcf97a36bd2bf31ce",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-BENBUSI211.png",
+            "sha256": "6bca3c621506bbf90883cfc8aa7d43226ee08866dfb7a034e94abfa36e0f6fcb",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-BENENTR312.png",
+            "sha256": "cb06c5bcad0107551618f515f90316c60352a3a474cc7215d4d56b8567c1455f",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-0-2947.png",
+            "sha256": "586487c70145b9356913ec2c9d4549e4483d24db0ac5449210f9096779c9e8d0",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-0-4247.png",
+            "sha256": "212ba05437431ae6318add18c5fd4e24dd33af9830d6043b8bb48d7cfe747997",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-BENECON211.png",
+            "sha256": "81e69063efc67ef654c50286be97b485a09b4b3080b3132d4e86a2c6aef363a4",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-BENGATE101.png",
+            "sha256": "e9ceafc66c0eca50818e8e3722fc286dd0495852dfc2ac177a2f36c27f1631a6",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-HCBPSYC211.png",
+            "sha256": "bf02485164087780ccc384e93c2bdc573091a6764cdb915ac1dd01ce963385f6",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-BENECON212.png",
+            "sha256": "99a351324124bcd3b9149b71db4c65da03803eabedc48a9187de245c07c50203",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-0-6847.png",
+            "sha256": "798a238cd0a5fd2618af3db922c79879299b3ca501d1d513e73b70c96a819291",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-GOSSOCI311.png",
+            "sha256": "b43f14c76395d092516436586ab334775e0c19df09aede9080646d21e6964235",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-BENENTR312.png",
+            "sha256": "3f0288ca577226c552b666b6914a79ce8180f9217ccef6e3c1432b9815e654af",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-DISMATH314.png",
+            "sha256": "3ea1fc1987f8738705e7cfb601042dc4134b2f0a5b4b2755035dcc51545bedeb",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-BENECON312.png",
+            "sha256": "4effdabf75f21542e7f3f1a05eb545363b072d15bb8b461bf28c03269d28fd65",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-curriculum.png",
+            "sha256": "d2986eb06221cc8e66ed1cc7a5c601c629f47843a8c5a320127a7d6416a34e74",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-DISMATH314.png",
+            "sha256": "639891ef11951e2ac6d82b29f3a65b75bd1efbd79b7ee35bd72ab2eb103173b8",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-BENENTR212.png",
+            "sha256": "283a435537d6b9e5f8a266c18890226a83450ec107429cde15ac926e9a1a1319",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-BENENTR111.png",
+            "sha256": "d789262f0d71c534f2e05343d3ec1009fd43ae41455e4577a466d225330d2613",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-BENECON111.png",
+            "sha256": "e7ea11b0eb074b4296727ed926826554f7e8b9d2e52bf9951300f1f9b76f1d60",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-BENGATE101.png",
+            "sha256": "4db280c9ba1fd915d5b5e6f28ffedfe725f897ef3e558989d0c2bf826a2e3dc3",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-1-5547.png",
+            "sha256": "4e7d01ec709201cb16b4ac68c49ceff667b77bfc4fd5d814827d2e4d4d8110d5",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-GOSLAWJ213.png",
+            "sha256": "e5ee689af8552395af962740f730caf74bc0af45e5ed66a7a5883496df554159",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-1-4247.png",
+            "sha256": "d44ca52fd806b909134fd887d53e3bbb648eaab23289e8654f7cb67777bc7c57",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-0-4897.png",
+            "sha256": "4dd29c8367ff163085d708dcf6e66f8d12fb5bfedaff1d06b6f7f8958e8a8f35",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-2-2947.png",
+            "sha256": "0454260480946375e314d2ab6ea05ad7cb7f3206ff190deef3e01aa1e1b73d4f",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-BENBUSI312.png",
+            "sha256": "c7c26c9bcc621e66a34c3fcf6bb67cb7acc10d8af5ebfc73067ec3cff0706e50",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-GOSGATE102.png",
+            "sha256": "261a7d1f17bb03f3246654147ee3031b296bbabbe402abebb154b0cf10bfb393",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-GOSGATE102.png",
+            "sha256": "67582d89abb80a33d176780bf0f14662843a9a4c506857e6e01356d851dc18e7",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-ENSDELT312.png",
+            "sha256": "49ab1456858b73c02c15e96fbf3a83b7e78f331d0b890d75c81ccc9a18f0bacf",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-2-4897.png",
+            "sha256": "13bea258bb50edb6ccfe11428d99e162069fb023e4234996870d7ef78ef92dbf",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-3-4247.png",
+            "sha256": "8c3b3f80c42864a6a3f666ffe10bad4948cd03d3754abf09539882bfa5119489",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-DISDATA211.png",
+            "sha256": "57254c134a6be6128c4c4dc2d685dd066bff090b6cb538fa649cd1c93cd4d7ca",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-2-6197.png",
+            "sha256": "e1504d9c0fff8d683dd907267b4c67c3eafb7e2fda95d84a5c2681491ef7b9d3",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-GOSLAWJ213.png",
+            "sha256": "005fc94636f8aa1bfdc9c59512e7471944d1b973a023b88ba680344fc0553c16",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-GOSPOLI311.png",
+            "sha256": "ce6e8fdbe2360d8c50f6e72ab1c237825d2384ad791690c1561804d945429b1b",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-GOSSOCI214.png",
+            "sha256": "bb42f449f7351f887add03e40bb8886bdf34babe3e2b9f8e3ee22ed7495d6394",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-GOSPOLI112.png",
+            "sha256": "53bc684760ae7a0fd0ccf0c5d21d16fd9c4dc7c4321f88d813f16a8e8af8a278",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-DISGATE102.png",
+            "sha256": "7c1c0454432c8a1c07d6a0cf5e56b0deb1bfb84b97dc50ebd4bcb5e0d105e554",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-GOSSOCI111.png",
+            "sha256": "2b79d9a93b4d6a391d734830e77dcaf703798464a37b25b7ac71ef39d14815cc",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-ENSDELT312.png",
+            "sha256": "a5e18cfdf70789e1f086c9620ff48d2a25dd8043d49355f5ddeeeeabbf6b00c5",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-DISARIN211.png",
+            "sha256": "b22bff3c020d271b729d71f54bac27d99af372b5beac0f396d59ca5f1433dd0d",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-1-4897.png",
+            "sha256": "5a15c2e6bc853967d2fe4dc2c56f9cc42a117118d488942c686f28e809b2e9c0",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-DISARIN211.png",
+            "sha256": "353cd92400bf3399ea13d58247c59b9c832af8d3eae46b20081ba146871b3df6",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-BENENTR111.png",
+            "sha256": "5715c06f480bd009f121c6c68c712312c82b63e4cd3d1721537cf326eed9d3b9",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-GOSLAWJ312.png",
+            "sha256": "2babd21a5b63bc08464a0b77624432cba70f038b62db5f46c46c7d0022f3c7b0",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-GOSSOCI212.png",
+            "sha256": "f4a6b279e6a2fe2507f2ead559bdceca2170c2bdbd0f877a0ee35a2e799561bb",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-DISGATE101.png",
+            "sha256": "55fad6a987dc5d53301870541708bb61669c4e0616f9b79704aa942a7a266390",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-GOSPHIL212.png",
+            "sha256": "fdacadad25fff4bc84508b83a1b71333249f4393262ef4930af09ee5ef298bd7",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-1-6847.png",
+            "sha256": "f8807b221eddf233e5d7c7cc42b73fb9a9dd5d360d8f8bf81b20bedb17c36358",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-3-6847.png",
+            "sha256": "41bbe00f5b7438718bb7bd19f7eefce9f10acf89b2ba9bc99501502c21947a84",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-0-6197.png",
+            "sha256": "97f72a64bbb71032cfdb9b1e4e7ae36e2e4c03ab06f9a3938c8e0d7b96a514d5",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-1-6197.png",
+            "sha256": "3cbea1be8dacd41fce433a8ee89fcc71ad50439366d7cf3854b4ea7d5291825c",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-ACCPPDE101.png",
+            "sha256": "d3d54b6cfe6ec455a440116ac9badf523603120f7e676d6f3681e182af0ef9e7",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-GOSPOLI111.png",
+            "sha256": "770ff9ae8be9b4c794c05337c7b608041ad55f16c4b6a68d3da4950e141b2626",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-DISGATE101.png",
+            "sha256": "04bf1e2c83a36c5cad063a51b6784d1b623956151bc0ed7cc5dd0a5543844531",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-BENECON212.png",
+            "sha256": "b1d72775cd8975600869c71ceda75489498fb3cf433031bf87d73be735607912",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-BENECON111.png",
+            "sha256": "2681bc5590940acc9a0a6202bb0b7b442e0b48c5b1741574373fef20352205f7",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-DISMATH211.png",
+            "sha256": "f5365d2989e3465233436bfa7478180e1a6bd09695e6ca0f3f0f748e9eb6a437",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-BENENTR211.png",
+            "sha256": "5e9b0f9d78fa44ecd14cac6001d09248bbd0450e0635190f86a160303fd0203b",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-3-4897.png",
+            "sha256": "b46b487e97c93401213ae3ba98e596e3c3a21d346668eef8eea2179ecc6c4569",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-summary.png",
+            "sha256": "f3ceb35d6f936739d93bfca7760f8447d8d4ff847b85e145e03c23851d88b304",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-BENENTR311.png",
+            "sha256": "06876eb0996d3eae9189362af1138dd1f51c2d09122b46bf5e4d186cf5bf4278",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-3-2947.png",
+            "sha256": "92cc49bc9372ee5ddba52e328a8ab89c5db8a172de1aa65923e7b28d9569a538",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-column-2.png",
+            "sha256": "c5432ead201bc322e48bebcb4fbdb42cd5512d5a5692488c1f83dbe1e97c68d6",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-DISGATE102.png",
+            "sha256": "e97c6881b7be06cd4e807c60a08a49ebcb5c2520fa9a7bb8aa27a53ac2b3a5e9",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-2-4247.png",
+            "sha256": "71d4e36e26d220f919e2d33879caae84efabd12d0a101f47d7f0c0150e5bb820",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-2-6847.png",
+            "sha256": "1ce435edc71846d11400b49dcd93f5f5c7e4736202497ce990df69deb360995a",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-BENECON311.png",
+            "sha256": "7b30eb67cd9e7d9bd0ac9b83ff04cef8f53415224e661df5b1395e05b9a6ebef",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/viewport-mobile-3-3597.png",
+            "sha256": "6fa0cd00c67a3b9cb82a7cf8d2ee3dc1cac286cb8928306d3d7fa9b2ccda9948",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-GOSSOCI212.png",
+            "sha256": "abdd5bdbc36446bbd55aac2842ee7a1b601516a5d1e4bb5f9f307a39b3e894af",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-DISMATH214.png",
+            "sha256": "9388102b138b9194156883dc54154212d91f3abfbf1b377622c60a5570342c61",
+            "recordId": "cp-000237",
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "inputCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+            "presentationMode": "normal"
+          }
+        ],
+        "executionClaim": {
+          "executionId": "restart-B-cp237-20261027T1202",
+          "worker": "B",
+          "caseId": "cp-000237",
+          "claimedAt": "2026-10-27T11:03:33.221874+00:00",
+          "reviewedInputCommit": "e232caf52405c5965e8fe6b431661f46cc337a3c",
+          "inputBlobs": {
+            "data/counselor/comparisons/cp-000237.json": "342fc905ee3854f32d16d3fc236ac9159f8ede71",
+            "data/counselor/decisions/cp-000237.json": "dec1bb30d632864d9aa709261a798dd901573706",
+            "data/reference/ucr_courses_enriched.xlsx": "c2bcc3b63ec7831fd0f7b8ddfb32de1260521655",
+            "data/registry/programme_interests.csv": "545013f82ffa3ff292475afe74488b7bb8bb222d",
+            "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+            "docs/UCR_Pathways_Production_Instructions.md": "df2ee1b23f894c2e9f79b74a477d50d279158ffa",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "cb7497f8e8ca5a6986197968dc637ad65c31d4e6"
+          },
+          "nextAction": "Independently retrieve current official Tilburg Economie en Bedrijfseconomie curriculum,cohort/route and applicable formal rules; reconcile every exact-target interest.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown"
+        },
+        "technicalObservations": [
+          "Earlier local mechanical pass found wrong route-selection enum and missingfirstbasisownership;fixed before approval.",
+          "Workbook checks rejected provisional policy placements of spring-onlyAIandfall-onlystatistics;reconstructed schedule and reran all72placements.",
+          "Current-row evidence correction propagated to one internal question during finalsourcepass;pairedcompiler replay repeated.",
+          "Earlier raw rendering versions superseded by finalviewport runs against frozen33c3703inputs;desktop/mobile results identify loadedcanonical/decision hashes.",
+          "Prior task had demonstrated fullPage mobile screenshot resets nested scroll;use actualviewporttiles instead.",
+          "DefaultPythonmissingrequests;officialEERretrievedwithcurl;no essentialsource failure.",
+          "Source popup wait initially observed aboutblank before real navigation;default load wait then timed out after correctURLandDOMContentLoaded because external resources remained loading. Corrected readiness to DOMContentLoaded;both official and UCRlinks clicked and200resource responses verified through existingenvironmentproxy. No essentialsource failure."
+        ],
+        "sourceRetrievalFailuresThisAudit": 0,
+        "runtimeModel": "unknown",
+        "runtimeReasoningEffort": "unknown",
+        "nextAction": "CP237 complete;process cp-000238 next worker B execution.",
+        "academicDisposition": "comparison",
+        "measuredExecution": {
+          "claimedAt": "2026-10-27T11:03:33.221874+00:00",
+          "verifiedAt": "2026-10-27T11:27:39.250503+00:00",
+          "secondsSinceClaim": 1446,
+          "essentialSourceFailures": 0,
+          "elapsedTimeLimitObserved": null,
+          "userInterventions": []
+        },
+        "supersededRenderedArtifacts": [
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-desktop-MCCCOMM311.png",
+            "sha256": "d4dc4211210990837f8fd499713f5d367dd10e98bcbd075d0b146b19d34c9e76",
+            "status": "Diagnostic initial local reconstruction;course subsequently removed;not approval evidence. Exact intermediate canonical blob was not captured."
+          },
+          {
+            "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/rendered/cp-000237-mobile-MCCCOMM311.png",
+            "sha256": "1f76c2eab64ba17f045be73255144a4d2147def17ab332978ed11c21cfbbee3c",
+            "status": "Diagnostic initial local reconstruction;course subsequently removed;not approval evidence. Exact intermediate canonical blob was not captured."
+          }
+        ]
+      }
+    }
+  ],
+  "reopening": {
+    "reopenedOn": "2026-10-29",
+    "reason": "The authoritative course workbook changed; the four earlier approvals require renewed course-content, availability and dependent checks. The user authorised reopening these cases but explicitly withheld resumption of the full review.",
+    "currentWorkbookBlob": "f49628e7d4072f173794cb8f9c8f7e851c3e7145",
+    "previousApprovalCommit": "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
+    "reviewStarted": false
+  }
 }

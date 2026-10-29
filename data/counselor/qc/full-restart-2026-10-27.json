@@ -670,9 +670,9 @@
     }
   ],
   "auditId": "counselor-full-restart-2026-10-27",
-  "status": "in-progress",
+  "status": "paused-by-user",
   "preparedOn": "2026-10-27",
-  "updatedOn": "2026-10-27",
+  "updatedOn": "2026-10-29",
   "authority": "User, 27 October 2026: restart the entire corpus from scratch; split into two halves; two hourly tasks starting 11:30 and 12:00 Europe/Amsterdam; user manually selects models.",
   "historicalAudit": "data/counselor/qc/comprehensive-reaudit.json",
   "priorApprovalPolicy": "No old approval, no-match, blocker, deferral, stage outcome, retrieval-failure count or completed-case credit is inherited. Review every baseline case anew. Existing academic artifacts and sources are candidates for independently verified retention, not evidence of fresh approval.",
@@ -680,7 +680,7 @@
   "cases": [
     {
       "id": "cp-000001",
-      "state": "approved",
+      "state": "in-progress",
       "stageOutcomes": {
         "1": "retain",
         "2": "retain",
@@ -690,18 +690,32 @@
         "6": "retain"
       },
       "sharedIssueIds": [],
-      "unresolved": [],
-      "downstreamReassessments": [],
+      "unresolved": [
+        "Revalidation against the current course workbook is pending; no new review has begun."
+      ],
+      "downstreamReassessments": [
+        {
+          "trigger": "Authoritative enriched course workbook replaced after the previous approval.",
+          "scope": "Reassess UCR concepts and course contributions, all prerequisites and assigned offerings, dependent comparison/content, and final academic/mechanical/rendered verification.",
+          "stages": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "state": "pending"
+        }
+      ],
       "implementationCommits": [
         "55f787943745ca9454e2392fdc284dfa65755547"
       ],
-      "presentationApproval": true,
+      "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000001.json",
       "academicDisposition": "comparison"
     },
     {
       "id": "cp-000002",
-      "state": "approved",
+      "state": "in-progress",
       "stageOutcomes": {
         "1": "correct",
         "2": "correct",
@@ -711,12 +725,26 @@
         "6": "retain"
       },
       "sharedIssueIds": [],
-      "unresolved": [],
-      "downstreamReassessments": [],
+      "unresolved": [
+        "Revalidation against the current course workbook is pending; no new review has begun."
+      ],
+      "downstreamReassessments": [
+        {
+          "trigger": "Authoritative enriched course workbook replaced after the previous approval.",
+          "scope": "Reassess UCR concepts and course contributions, all prerequisites and assigned offerings, dependent comparison/content, and final academic/mechanical/rendered verification.",
+          "stages": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "state": "pending"
+        }
+      ],
       "implementationCommits": [
         "cb3d93911e6b1b2911d7c4d309e15e3c987d41bb"
       ],
-      "presentationApproval": true,
+      "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000002.json",
       "academicDisposition": "comparison"
     },
@@ -2892,7 +2920,7 @@
     },
     {
       "id": "cp-000237",
-      "state": "approved",
+      "state": "in-progress",
       "stageOutcomes": {
         "1": "correct",
         "2": "correct",
@@ -2902,20 +2930,34 @@
         "6": "retain"
       },
       "sharedIssueIds": [],
-      "unresolved": [],
-      "downstreamReassessments": [],
+      "unresolved": [
+        "Revalidation against the current course workbook is pending; no new review has begun."
+      ],
+      "downstreamReassessments": [
+        {
+          "trigger": "Authoritative enriched course workbook replaced after the previous approval.",
+          "scope": "Reassess UCR concepts and course contributions, all prerequisites and assigned offerings, dependent comparison/content, and final academic/mechanical/rendered verification.",
+          "stages": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "state": "pending"
+        }
+      ],
       "implementationCommits": [
         "c46080ad450c460c1524c323e217b39bb015ec5d",
         "ec6f76523e117feff931e5dc62d48450456c7188",
         "33c3703c4b257f7dcc5b7cefad0bd785422c91ec"
       ],
-      "presentationApproval": true,
+      "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000237.json",
       "academicDisposition": "comparison"
     },
     {
       "id": "cp-000238",
-      "state": "approved",
+      "state": "in-progress",
       "stageOutcomes": {
         "1": "correct",
         "2": "correct",
@@ -2925,14 +2967,28 @@
         "6": "retain"
       },
       "sharedIssueIds": [],
-      "unresolved": [],
-      "downstreamReassessments": [],
+      "unresolved": [
+        "Revalidation against the current course workbook is pending; no new review has begun."
+      ],
+      "downstreamReassessments": [
+        {
+          "trigger": "Authoritative enriched course workbook replaced after the previous approval.",
+          "scope": "Reassess UCR concepts and course contributions, all prerequisites and assigned offerings, dependent comparison/content, and final academic/mechanical/rendered verification.",
+          "stages": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "state": "pending"
+        }
+      ],
       "implementationCommits": [
         "c2ba5d67359ed720b8eddf6430df5bd18b18aaf5",
         "8ff014605238525d969e237c21acfaad5379841d",
         "1ae103ed8d845c5b1e015ae4b2ced167ebe37b4e"
       ],
-      "presentationApproval": true,
+      "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000238.json",
       "academicDisposition": "comparison"
     },
@@ -5108,8 +5164,8 @@
     }
   ],
   "progress": {
-    "approved": 4,
-    "inProgress": 0,
+    "approved": 0,
+    "inProgress": 4,
     "reviewedWithBlockers": 0,
     "notStarted": 434,
     "pilotStarted": 1
@@ -5341,52 +5397,72 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "ready",
+      "status": "paused",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000003",
+      "nextCase": "cp-000001",
       "activeClaim": null,
-      "completedCases": [
-        "cp-000001",
-        "cp-000002"
-      ],
-      "completedDispositions": [
-        {
-          "caseId": "cp-000001",
-          "state": "approved",
-          "academicDisposition": "comparison",
-          "verifiedOn": "2026-10-27",
-          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000001.json"
-        },
-        {
-          "caseId": "cp-000002",
-          "state": "approved",
-          "academicDisposition": "comparison",
-          "verifiedOn": "2026-10-27",
-          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000002.json"
-        }
-      ],
+      "completedCases": [],
+      "completedDispositions": [],
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {},
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000002",
-        "executionId": "restart-A-cp002-20261027T1230",
-        "state": "approved",
-        "reviewedInputCommit": "cb3d93911e6b1b2911d7c4d309e15e3c987d41bb",
-        "inputBlobs": {
-          "canonical": "bf71183680dd1fa0bf3f0ed71a4ef9c72687a8ee",
-          "decision": "ad94bb20a6f63a8def92579bfacb41f00ab9fd7b"
-        },
-        "verifiedAt": "2026-10-27T11:51:59.649459+00:00",
-        "nextAction": "Case complete. Worker A resumes cp-000003 on its next execution; no final release or deployment authorised.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      }
+        "caseId": "cp-000001",
+        "state": "in-progress",
+        "checkpointedOn": "2026-10-29",
+        "nextAction": "Cases reopened administratively; academic processing remains paused by the user. No review or repair started.",
+        "reviewStarted": false
+      },
+      "checkpointHistory": [
+        {
+          "preservedOn": "2026-10-29",
+          "reason": "The authoritative course workbook changed; the four earlier approvals require renewed course-content, availability and dependent checks. The user authorised reopening these cases but explicitly withheld resumption of the full review.",
+          "snapshot": {
+            "status": "ready",
+            "nextCase": "cp-000003",
+            "activeClaim": null,
+            "completedCases": [
+              "cp-000001",
+              "cp-000002"
+            ],
+            "completedDispositions": [
+              {
+                "caseId": "cp-000001",
+                "state": "approved",
+                "academicDisposition": "comparison",
+                "verifiedOn": "2026-10-27",
+                "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000001.json"
+              },
+              {
+                "caseId": "cp-000002",
+                "state": "approved",
+                "academicDisposition": "comparison",
+                "verifiedOn": "2026-10-27",
+                "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000002.json"
+              }
+            ],
+            "lastCheckpoint": {
+              "caseId": "cp-000002",
+              "executionId": "restart-A-cp002-20261027T1230",
+              "state": "approved",
+              "reviewedInputCommit": "cb3d93911e6b1b2911d7c4d309e15e3c987d41bb",
+              "inputBlobs": {
+                "canonical": "bf71183680dd1fa0bf3f0ed71a4ef9c72687a8ee",
+                "decision": "ad94bb20a6f63a8def92579bfacb41f00ab9fd7b"
+              },
+              "verifiedAt": "2026-10-27T11:51:59.649459+00:00",
+              "nextAction": "Case complete. Worker A resumes cp-000003 on its next execution; no final release or deployment authorised.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
+        }
+      ]
     },
     "B": {
       "id": "B",
@@ -5613,52 +5689,72 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "ready",
+      "status": "paused",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000239",
+      "nextCase": "cp-000237",
       "activeClaim": null,
-      "completedCases": [
-        "cp-000237",
-        "cp-000238"
-      ],
-      "completedDispositions": [
-        {
-          "caseId": "cp-000237",
-          "state": "approved",
-          "academicDisposition": "comparison",
-          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000237.json",
-          "verifiedOn": "2026-10-27"
-        },
-        {
-          "caseId": "cp-000238",
-          "state": "approved",
-          "academicDisposition": "comparison",
-          "verifiedOn": "2026-10-27",
-          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000238.json"
-        }
-      ],
+      "completedCases": [],
+      "completedDispositions": [],
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {},
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000238",
-        "executionId": "restart-B-cp238-20261027T1300",
-        "state": "approved",
-        "reviewedInputCommit": "1ae103ed8d845c5b1e015ae4b2ced167ebe37b4e",
-        "inputBlobs": {
-          "canonical": "ef73992654b1a2c207b155abbd0612b6e58f9d10",
-          "decision": "8214befe167dae0981a496b8806718af186a5ee8"
-        },
-        "verifiedAt": "2026-10-27T12:50:22.061814+00:00",
-        "nextAction": "Case complete. Worker B resumes cp-000239 on its next execution. No final release or deployment is authorised.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      }
+        "caseId": "cp-000237",
+        "state": "in-progress",
+        "checkpointedOn": "2026-10-29",
+        "nextAction": "Cases reopened administratively; academic processing remains paused by the user. No review or repair started.",
+        "reviewStarted": false
+      },
+      "checkpointHistory": [
+        {
+          "preservedOn": "2026-10-29",
+          "reason": "The authoritative course workbook changed; the four earlier approvals require renewed course-content, availability and dependent checks. The user authorised reopening these cases but explicitly withheld resumption of the full review.",
+          "snapshot": {
+            "status": "ready",
+            "nextCase": "cp-000239",
+            "activeClaim": null,
+            "completedCases": [
+              "cp-000237",
+              "cp-000238"
+            ],
+            "completedDispositions": [
+              {
+                "caseId": "cp-000237",
+                "state": "approved",
+                "academicDisposition": "comparison",
+                "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000237.json",
+                "verifiedOn": "2026-10-27"
+              },
+              {
+                "caseId": "cp-000238",
+                "state": "approved",
+                "academicDisposition": "comparison",
+                "verifiedOn": "2026-10-27",
+                "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000238.json"
+              }
+            ],
+            "lastCheckpoint": {
+              "caseId": "cp-000238",
+              "executionId": "restart-B-cp238-20261027T1300",
+              "state": "approved",
+              "reviewedInputCommit": "1ae103ed8d845c5b1e015ae4b2ced167ebe37b4e",
+              "inputBlobs": {
+                "canonical": "ef73992654b1a2c207b155abbd0612b6e58f9d10",
+                "decision": "8214befe167dae0981a496b8806718af186a5ee8"
+              },
+              "verifiedAt": "2026-10-27T12:50:22.061814+00:00",
+              "nextAction": "Case complete. Worker B resumes cp-000239 on its next execution. No final release or deployment is authorised.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
+        }
+      ]
     }
   },
   "splitRule": "First contiguous 219 baseline entries to A; last contiguous 219 to B. Explicit ID lists are authoritative; do not infer assignments from numeric ID ranges.",
@@ -6542,7 +6638,11 @@
   ],
   "progressReportInterval": 10,
   "progressReports": [],
-  "systemicPause": null,
+  "systemicPause": {
+    "type": "user-requested-hold",
+    "pausedOn": "2026-10-29",
+    "reason": "Reopen CP001, CP002, CP237 and CP238 only. Do not resume the full review until the user explicitly authorises it."
+  },
   "modelPolicy": {
     "selection": "User changes model manually in task settings.",
     "runtimeModel": null,
@@ -6587,11 +6687,11 @@
       },
       {
         "step": 4,
-        "status": "authorised-not-started",
+        "status": "paused-by-user",
         "scope": "Process every assigned case from scratch, update only this audit's progress and case evidence.",
         "nextCaseByWorker": {
-          "A": "cp-000002",
-          "B": "cp-000238"
+          "A": "cp-000001",
+          "B": "cp-000237"
         }
       },
       {
@@ -6608,9 +6708,39 @@
         "cp-000001",
         "cp-000002"
       ],
-      "state": "closed",
+      "state": "reopened",
       "verifiedOn": "2026-10-27",
-      "basis": "Both NEW audit dispositions verified final; historical approvals not counted."
+      "basis": "Previous pair closure is historical; both cases require renewed validation against the current workbook.",
+      "priorClosure": {
+        "pairNumber": 1,
+        "caseIds": [
+          "cp-000001",
+          "cp-000002"
+        ],
+        "state": "closed",
+        "verifiedOn": "2026-10-27",
+        "basis": "Both NEW audit dispositions verified final; historical approvals not counted."
+      },
+      "reopenedOn": "2026-10-29"
     }
-  ]
+  ],
+  "reopening": {
+    "reopenedOn": "2026-10-29",
+    "caseIds": [
+      "cp-000001",
+      "cp-000002",
+      "cp-000237",
+      "cp-000238"
+    ],
+    "reason": "The authoritative course workbook changed; the four earlier approvals require renewed course-content, availability and dependent checks. The user authorised reopening these cases but explicitly withheld resumption of the full review.",
+    "currentWorkbookBlob": "f49628e7d4072f173794cb8f9c8f7e851c3e7145",
+    "previousProgress": {
+      "approved": 4,
+      "inProgress": 0,
+      "reviewedWithBlockers": 0,
+      "notStarted": 434,
+      "pilotStarted": 1
+    },
+    "reviewStarted": false
+  }
 }
