@@ -244,7 +244,7 @@ Never present optional material as compulsory, combine mutually exclusive choice
 
 ## 5.2 UCR feasibility
 
-Use the enriched UCR course database as the authoritative source for course content, prerequisites and planned semester availability.
+Use `data/reference/ucr_courses_enriched.xlsx` as the single authoritative Pathways course reference for course content, prerequisites and planned semester availability. The cumulative course-outline database is a separate upstream evidence source; it does not replace the merged Pathways reference.
 
 Each included UCR programme must contain exactly 24 unique courses, four courses in each of six semesters, at least six 300-level courses, and Personal & Professional Development during Year 1. Prerequisites must precede dependent courses and every course must be available in its assigned semester.
 
@@ -306,6 +306,8 @@ Counselor renderers allow only ordinary canonical academic facts and explicitly 
 On narrow counselor screens, preserve the full comparison table and its row relationships in horizontally navigable, readable-width columns. Provide previous/next and programme-selection controls, the current column name and position, visible block titles and a route back to the comparison overview. Preserve partial correspondences and deliberate blank cells; scrolling between columns does not assert course equivalence. Wider screens retain the side-by-side table.
 
 Course modals use the existing shared course-description cache. A reviewed correction records the selected enriched-workbook field and version, text hashes and review basis. Select or edit coherent audience-ready prose after reading the evidence; do not automatically promote profiles, topic lists or internal metadata into descriptions. Genuinely absent descriptions receive a readable neutral fallback.
+
+Course-evidence provenance and its strength or limitations are internal production and review information. Do not display outline-versus-description classifications, evidence-quality labels, confidence indicators, extraction notes, hashes or source-review explanations in either Shiny app, the public website or other customer-facing outputs. Use these distinctions internally to keep academic claims accurate and proportionate; they are not interface content.
 
 When a comprehensive counselor re-audit is authorised, each case proceeds through review, necessary correction or reconstruction, reassessment of affected downstream decisions, independent verification and final disposition as one integrated process. Preserve all independently verified work. Approval requires implemented and verified corrections, source-based academic verification, mechanical validity and an acceptable actual rendered experience. Genuinely unavailable evidence remains explicit and cannot support academic or presentation approval. The Production Instructions govern execution; one final corpus release check does not create a second comprehensive academic re-audit.
 

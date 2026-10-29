@@ -1,7 +1,8 @@
 # UCR Course-Outline Database — Targeted Extraction Assignment
 
 **Status:** Reusable standalone production instruction  
-**Version:** 2.0 (27 October 2026)  
+**Version:** 2.1 (29 October 2026)
+
 **Purpose:** Maintain a focused, longitudinal record of the academic substance of UCR courses, extracted from course outlines alone.
 
 ## 1. Scope and independence
@@ -17,8 +18,8 @@ The extraction stage does **not** merge, replace or verify central attributes su
 Receive a folder or ZIP archive of PDF course outlines for one semester.
 
 - Take the authoritative semester from the supplied ZIP filename (or the supplied root-folder name), using exactly one unambiguous token of the form `YYYYh1` or `YYYYh2`.
-- Take the authoritative course code and group number from each PDF filename. For `ACCPPDE1012.pdf`, use `course_code = ACCPPDE101` and `group_number = 2`. The last digit is the group number; the preceding characters are the course code.
-- Use the composite key `(semester, course_code, group_number)`. Separate groups are separate source records even when most text is identical.
+- Take the authoritative course code and group number from each PDF filename. For `ACCPPDE1012.pdf`, use `osiris = ACCPPDE101` and `group_number = 2`. The last digit is the group number; the preceding characters are the course code.
+- Use the composite key `(outline_semester, osiris, group_number)`. Separate groups are separate source records even when most text is identical.
 - Retain the course title as printed in the outline for identification and verification, not as an authoritative central-course title.
 - Do not repair a conflict between the filename/container and the contents of a PDF. Keep the authoritative key and describe material differences in `source_discrepancy_note`.
 - Process all valid PDFs in the supplied collection, including less directly relevant courses. Skip unreadable or ambiguously named files with an explicit exception; continue with the rest.
@@ -33,15 +34,15 @@ It contains **one worksheet named `courses`, one header row, and one row per cou
 
 | Column | Content |
 | --- | --- |
-| `semester` | Semester from input container |
-| `course_code` | Course code from filename |
+| `outline_semester` | Semester from input container |
+| `osiris` | Course code from filename |
 | `group_number` | Final filename digit, numeric |
 | `course_title` | Course title reported in PDF |
 | `profile` | Accurate, concise description of what the course substantively studies and does |
 | `discipline` | Academic disciplines or substantive disciplinary subfields genuinely represented |
 | `topics` | Distinct, meaningful concepts, questions, subject areas and phenomena covered |
 | `methods` | Specific research, analytical, technical or practical methods substantively taught or applied |
-| `source_filename` | Exact PDF filename |
+| `outline_source` | Exact PDF filename |
 | `source_file_hash` | SHA-256 of the source PDF |
 | `source_discrepancy_note` | Material conflicts within the PDF or between its identity and the authoritative key |
 | `extraction_notes` | Only unresolved source ambiguities or limitations materially affecting the four content fields |
@@ -89,7 +90,6 @@ Review the earliest, middle and latest outlines in a batch with the same care. D
 
 ## 6. Incremental publication
 
-- The **previous seven-sheet workbook and its 27 October 2026 processing report have been rejected and removed from the current branch**. Treat them as superseded history. They are **not accepted baseline data** for this revised assignment. Re-extract any affected semester, including `2026h2`, from its original PDF inputs.
 - When there is no accepted workbook in the repository, create the new one-sheet workbook from the supplied input. For subsequent runs, retrieve the current accepted workbook from `main` and append new distinct keys without rewriting accepted rows.
 - If an incoming key already exists with the same `source_file_hash`, leave it unchanged. If its checksum differs, report a source revision conflict and do not replace it without an explicit decision.
 - Publish the updated workbook to the **same stable path** on `main`. Do not generate separate workbooks for each semester. Keep the `README.md` coverage note current.
@@ -98,8 +98,8 @@ Review the earliest, middle and latest outlines in a batch with the same care. D
 
 ## 7. Separate downstream merge
 
-The extraction workbook remains **outline-only evidence**. The later Pathways enrichment stage joins course content by authoritative course code to the current central course database, whose official identities, prerequisites, classifications and planned availability remain authoritative.
+The extraction workbook remains **outline-only evidence**. The separate Pathways enrichment stage joins accepted content by `osiris` to BOS course attributes and YearPlan planned availability. Its source ownership and deterministic outline-selection rule are defined in [`../data/reference/README.md`](../data/reference/README.md).
 
-When multiple outline groups or semesters are available for the same course, the downstream merge must explicitly determine which source evidence is appropriate; it must not silently overwrite central attributes or assume that one historical offering represents every future offering. The existing Pathways-enriched database is not modified by this extraction assignment.
+The downstream merge selects outline evidence under that rule; extraction preserves every accepted course–semester–group record. Outline evidence must not overwrite central attributes or be treated as a guarantee of future content. This extraction assignment does not modify the Pathways-enriched database or regenerate academic records.
 
 If a future use requires another attribute, add it **only after identifying that concrete need**, rather than resuming comprehensive extraction.

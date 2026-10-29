@@ -1,25 +1,25 @@
-# UCR course reference files
+# UCR course reference
 
-This directory contains the repository copies of the UCR course datasets used by UCR Pathways.
+`ucr_courses_enriched.xlsx` is the single authoritative course reference for UCR Pathways, used by both student and counselor production. It contains one row per active course, keyed by `osiris`. There is no separate base-course workbook.
 
-## Files
+## Sources and field ownership
 
-### `ucr_courses.xlsx`
+| Source | Authoritative fields |
+| --- | --- |
+| Central BOS database | Active course identities, `osiris`, official `name` and `description2`, department/track classifications and labels, and formal `preq1` prerequisites. |
+| YearPlan | Planned availability in the semester columns named `YYYYh1` or `YYYYh2`. |
+| Cumulative [course-outline database](../../course-outline-database/README.md) | Selected `outline_source`, `outline_semester`, `profile`, `discipline`, `topics` and `methods`. |
 
-Base UCR course dataset. It contains the shared course fields used for course identity, descriptions, prerequisites, labels/classification and planned semester availability.
+During a deliberate regeneration, retain the active BOS course set and join sources by `osiris`. For each course, select the most recent available `outline_semester` and, within that semester, the lowest numeric `group_number`. Copy the selected row's evidence and provenance together; do not combine content across groups or semesters. Historical outlines do not override current official attributes or establish future offerings.
 
-Use it when a task requires only the base course data. Do **not** substitute it for the enriched dataset when academic course selection, interpretation or counselor-production feasibility requires the enriched evidence.
+Where no outline exists, leave the six outline-derived fields blank. The official `description2` remains available for academic use under Production Instructions Section 2.2; do not generate replacement enrichment from it. `enrichment_basis` has been discontinued and `CRG` is absent from the current reference. Missing official descriptions must remain missing rather than being restored from superseded data or silently filled with outline prose.
 
-### `ucr_courses_enriched.xlsx`
+The extraction workbook retains all accepted course–semester–group records and their source hashes and limitation notes. Its `outline_semester`, `osiris` and `outline_source` identify the selected source when a material ambiguity needs review. Extraction and Pathways regeneration remain separate: appending new outlines does not update this workbook automatically. Assess the latest-semester/lowest-group selection against the extraction input used for the deliberate merge, rather than treating a later outline append as an invalidation of the existing reference.
 
-Enriched UCR course dataset. It contains the same base course fields plus the enrichment fields `outline_source`, `outline_semester`, `enrichment_basis`, `profile`, `discipline`, `topics` and `methods`.
-
-For counselor production, this is the authoritative UCR course-evidence dataset for course selection, academic interpretation, scheduling and feasibility assessment.
+Read planning coverage from the actual semester columns. Within a covered term, `X` means planned availability and a blank cell means no planned offering. A missing term column supplies no planning evidence. Production Instructions Section 2.2 owns the academic evidence and feasibility rules, including treatment of an insufficient horizon; the Master Specification owns the customer-facing content boundary.
 
 ## AI access rule
 
-The files in this directory are the authoritative repository copies.
+Retrieve `data/reference/ucr_courses_enriched.xlsx` directly from current GitHub `main` and verify that it is readable before course-level academic production begins. Do not require a separate upload, Project Source copy or other human-provided duplicate.
 
-For counselor production, the AI must retrieve `data/reference/ucr_courses_enriched.xlsx` directly from the current GitHub `main` branch and verify that it is readable before academic production begins. Do not require a separate upload, Project Source copy or other human-provided duplicate.
-
-Use the retrieved GitHub copy throughout the production workstream. Retrieve it again only when repository changes may have altered it. If the file is unavailable or unreadable, stop and report the missing dependency rather than reconstructing UCR course evidence from memory, public web sources or incomplete substitutes.
+Use the retrieved copy throughout the workstream. Retrieve it again only when repository changes may have altered it. If it is unavailable or unreadable, stop and report the missing dependency rather than reconstructing UCR course evidence from memory, public web sources or incomplete substitutes.

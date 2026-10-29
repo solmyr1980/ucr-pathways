@@ -37,7 +37,7 @@ stopifnot(identical(serialize(load_record("cp-000019"), NULL), before))
 for (code in c("BENBUSI211", "MCCHEAM316")) {
   d <- jsonlite::fromJSON(paste0("pilot/shiny/data/courses/", substr(code,1,3), ".json"))$descriptions[[code]]
   stopifnot(nzchar(d))
-  if (code == "BENBUSI211") stopifnot(grepl("generative AI",d,fixed=TRUE))
+  if (code == "BENBUSI211") stopifnot(grepl("business, economic and societal",d,fixed=TRUE))
   else stopifnot(grepl("history of art history",d,fixed=TRUE))
 }
 stopifnot(grepl(e$COURSE_DESCRIPTION_UNAVAILABLE, as.character(e$course_description_dialog("UNKNOWN","Unknown",NULL)),fixed=TRUE))
