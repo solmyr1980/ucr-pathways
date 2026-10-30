@@ -33,6 +33,7 @@ on:
       - 'scripts/validate-course-descriptions.py'
       - 'scripts/validate-course-feasibility.py'
       - 'scripts/validate-counselor-schema.py'
+      - 'scripts/validate-counselor-production.mjs'
       - 'scripts/test-workflow-checks.py'
       - 'scripts/validate-comprehensive-reaudit.py'
       - 'scripts/test-shiny.R'
@@ -75,8 +76,8 @@ jobs:
                   subprocess.run(['git', 'fetch', '--no-tags', '--depth=1', 'origin', before], check=True)
                   result = subprocess.run(['git', 'diff', '--name-only', before, 'HEAD'], capture_output=True, text=True, check=True)
               paths = result.stdout.splitlines()
-          shared = paths is None or any(not p.startswith('data/counselor/') for p in paths)
-          runtime = shared or any(not p.startswith('data/counselor/qc/') and not p.endswith('.md') for p in paths or [])
+          shared = paths is None or any(not p.startswith(('data/counselor/', 'docs/')) and p != 'README.md' for p in paths)
+          runtime = shared or any(p.startswith('data/counselor/') and not p.startswith('data/counselor/qc/') and not p.endswith('.md') for p in paths or [])
           from pathlib import Path
           records = [p for p in paths or [] if re.fullmatch(r'data/counselor/comparisons/cp-\d{6}\.json', p) and Path(p).is_file()]
           with open(os.environ['GITHUB_OUTPUT'], 'a') as output:

@@ -76,6 +76,9 @@ def sync_summaries(root):
     # Validate the proposed local register, restoring the original on any failure.
     original = pointer.read_text()
     text = json.dumps(register, ensure_ascii=False, indent=2) + '\n'
+    if text == original:
+        validate(root)
+        return False
     try:
         pointer.write_text(text)
         validate(root)

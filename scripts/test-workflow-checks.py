@@ -11,6 +11,7 @@ import subprocess
 import tempfile
 import textwrap
 import unittest
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -54,6 +55,19 @@ class WorkflowChecks(unittest.TestCase):
     def test_exception_does_not_invent_schedule(self):
         self.assertEqual(feasibility.check_record({'recordStatus': 'exception', 'programmes': []}, {}, set()), [])
 
+    def test_supported_role_only_records_are_checked(self):
+        for role in ['ucr-alternative', 'ucr-depth', 'ucr-balanced', 'ucr-thematic']:
+            with self.subTest(role=role):
+                record, courses, terms = fixture()
+                programme = record['programmes'][0]
+                programme.pop('family')
+                programme['role'] = role
+                self.assertEqual(feasibility.check_record(record, courses, terms), [])
+                courses['TSTTEST104']['2027h1'] = None
+                self.assertTrue(any('not planned' in e for e in feasibility.check_record(record, courses, terms)))
+                record['recordStatus'] = 'exception'
+                self.assertTrue(feasibility.check_record(record, courses, terms))
+
     def test_duplicate_missing_course_and_credit_failures(self):
         record, courses, terms = fixture()
         items = record['programmes'][0]['schedule']['semesters'][0]['courses']
@@ -68,6 +82,8 @@ class WorkflowChecks(unittest.TestCase):
     def test_change_report_preserves_unused_capability_warning(self):
         record, before, _ = fixture()
         record['id'] = 'cp-000001'
+        record['programmes'][0].pop('family')
+        record['programmes'][0]['role'] = 'ucr-depth'
         after = copy.deepcopy(before)
         after['TSTTEST104']['2027h1'] = None
         after['TSTNEW301'] = {'name': 'New content', 'profile': 'New content'}
@@ -96,7 +112,7 @@ class WorkflowChecks(unittest.TestCase):
 
     def test_schema_keeps_missing_evidence_a_failure(self):
         checks = schema.validators()
-        record = json.loads((ROOT / 'data/counselor/comparisons/cp-000019.json').read_text())
+        record = json.loads((ROOT / 'data/counselor/decisions/_regression/expected/cp-000004.json').read_text())
         self.assertEqual(schema.record_errors(record, checks), [])
         component = checks['example.schema.json'].schema['$defs']['comparatorComponent']
         from jsonschema import Draft202012Validator
@@ -107,21 +123,44 @@ class WorkflowChecks(unittest.TestCase):
                      'generatingInterestRows': [2], 'supportingInterestRows': [], 'disposition': 'rejected', 'rejectionReason': 'not-feasible'}
         record['academicRationale']['interestSelection']['candidateDirections'].append(candidate)
         self.assertTrue(any('evidence' in m for _, m in schema.record_errors(record, checks)))
+        candidate['evidence'] = []
+        self.assertTrue(any(p.endswith('/evidence') for p, _ in schema.record_errors(record, checks)))
 
     def test_sync_is_idempotent_and_preserves_pause_and_claims(self):
-        # Validate against the real accepted register/evidence, then exercise rollback in a copy.
-        register_path = ROOT / 'data/counselor/qc/full-restart-2026-10-27.json'
-        before = register_path.read_bytes()
-        self.assertFalse(reviews.sync_summaries(ROOT))
-        self.assertEqual(register_path.read_bytes(), before)
-        try:
-            stale = json.loads(before)
-            stale['progress']['approved'] = 999
-            register_path.write_text(json.dumps(stale, ensure_ascii=False, indent=2) + '\n')
-            self.assertTrue(reviews.sync_summaries(ROOT))
-            self.assertEqual(register_path.read_bytes(), before)
-        finally:
-            register_path.write_bytes(before)
+        # Exercise the derivation with synthetic files only. CI separately runs
+        # the complete read-only validator against the accepted register/evidence.
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            pointer = root / reviews.REGISTER
+            pointer.parent.mkdir(parents=True)
+            register_path = pointer.parent / 'current.json'
+            case_path = pointer.parent / 'case.json'
+            pointer.write_text(json.dumps({'activeAudit': {'register': str(register_path.relative_to(root))}}))
+            ids = [f'cp-{n:06}' for n in range(1, 7)]
+            case = {'id': ids[0], 'auditId': 'fixture', 'state': 'in-progress', 'sharedIssueIds': [],
+                    'unresolved': [], 'downstreamReassessments': [], 'implementationCommits': [],
+                    'presentationApproval': False, 'stages': {'1': {'outcome': 'retain'}}}
+            case_path.write_text(json.dumps(case))
+            pause = {'type': 'user-requested-hold'}
+            claim = {'caseId': ids[0], 'token': 'preserve'}
+            register = {'auditId': 'fixture', 'baselineCaseOrder': ids,
+                        'pilotPairs': [ids[:2], ids[2:4], ids[4:]],
+                        'cases': [{'id': ids[0], 'evidenceFile': str(case_path.relative_to(root)), 'state': 'not-started'}],
+                        'progress': {'approved': 999}, 'status': 'paused-by-user', 'systemicPause': pause,
+                        'workers': {'A': {'assignedCases': ids[:3], 'activeClaim': claim},
+                                    'B': {'assignedCases': ids[3:], 'activeClaim': None}}}
+            register_path.write_text(json.dumps(register))
+            with mock.patch.object(reviews, 'validate') as validate:
+                self.assertTrue(reviews.sync_summaries(root))
+                actual = json.loads(register_path.read_text())
+                self.assertEqual(actual['progress'], {'approved': 0, 'inProgress': 1,
+                                 'reviewedWithBlockers': 0, 'notStarted': 5, 'pilotStarted': 1})
+                self.assertEqual(actual['systemicPause'], pause)
+                self.assertEqual(actual['workers']['A']['activeClaim'], claim)
+                self.assertEqual(actual['workers']['A']['completedCases'], [])
+                self.assertFalse(actual['cases'][0]['presentationApproval'])
+                self.assertFalse(reviews.sync_summaries(root))
+                self.assertEqual(validate.call_count, 2)
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
             pointer = root / reviews.REGISTER
@@ -147,15 +186,18 @@ class WorkflowChecks(unittest.TestCase):
             (cwd / 'README.md').write_text('Fixture')
             git('add', '.')
             git('commit', '-qm', 'Baseline')
-            scenarios = [('data/counselor/qc/state.json', False, False),
-                         ('data/counselor/comparisons/cp-000001.json', False, True),
-                         ('pilot/shared.R', True, True)]
-            for path, shared, runtime in scenarios:
+            scenarios = [(['data/counselor/qc/state.json'], False, False),
+                         (['data/counselor/comparisons/cp-000001.json', 'docs/qc/report.md',
+                           'docs/qc/evidence/desktop.png'], False, True),
+                         (['docs/qc/follow-up.md', 'docs/qc/evidence/mobile.png'], False, False),
+                         (['pilot/shared.R'], True, True)]
+            for paths, shared, runtime in scenarios:
                 before = git('rev-parse', 'HEAD')
-                target = cwd / path
-                target.parent.mkdir(parents=True, exist_ok=True)
-                target.write_text('{}')
-                git('add', path)
+                for path in paths:
+                    target = cwd / path
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    target.write_text('{}')
+                git('add', *paths)
                 git('commit', '-qm', 'Change')
                 output = cwd / 'outputs.txt'
                 output.write_text('')
@@ -164,7 +206,7 @@ class WorkflowChecks(unittest.TestCase):
                 values = dict(line.split('=', 1) for line in output.read_text().splitlines())
                 self.assertEqual(values['shared'], str(shared).lower())
                 self.assertEqual(values['runtime'], str(runtime).lower())
-                self.assertEqual(json.loads(values['records']), [path] if '/comparisons/' in path else [])
+                self.assertEqual(json.loads(values['records']), [p for p in paths if '/comparisons/' in p])
 
 
 if __name__ == '__main__':

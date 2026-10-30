@@ -15,6 +15,12 @@ TERM = re.compile(r'^\d{4}h[12]$')
 CODE = re.compile(r'^[A-Z]{3,}[0-9]{3}$')
 
 
+def is_ucr_programme(programme):
+    # Match the established shared JS and private-student R record contract.
+    return programme.get('family') == 'ucr' or programme.get('role') in {
+        'ucr-alternative', 'ucr-depth', 'ucr-balanced', 'ucr-thematic'}
+
+
 def load_courses(path):
     sheet = openpyxl.load_workbook(path, data_only=True).active
     values = list(sheet.values)
@@ -36,7 +42,7 @@ def load_courses(path):
 
 def check_record(record, courses, terms):
     errors = []
-    programmes = [p for p in record.get('programmes', []) if p.get('family') == 'ucr']
+    programmes = [p for p in record.get('programmes', []) if is_ucr_programme(p)]
     if record.get('recordStatus') == 'exception':
         return ['Exception contains a UCR programme'] if programmes else []
     if not programmes:
@@ -111,7 +117,7 @@ def compare_courses(before, after, records):
     affected = {}
     for path in records:
         record = json.loads(path.read_text())
-        used = {c['code'] for p in record.get('programmes', []) if p.get('family') == 'ucr'
+        used = {c['code'] for p in record.get('programmes', []) if is_ucr_programme(p)
                 for s in p.get('schedule', {}).get('semesters', []) for c in s.get('courses', [])}
         codes = sorted(used & changes.keys())
         if codes:
