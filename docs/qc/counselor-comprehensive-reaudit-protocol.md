@@ -27,7 +27,7 @@ An outcome describes the review finding. A separate action state records whether
 
 ## Integrated processing of each case
 
-A normal reporting pair contains two whole cases; the current two-task continuation processes one complete assigned case per worker execution. For each case, complete the following workflow before moving to the next case; do not create a diagnosis queue followed by a separate corpus-wide correction exercise:
+The active register sets case assignments and the number of cases per execution. Reporting pairs group whole case results; they do not split the six-stage workflow. For each case, complete the following workflow before moving to the next case; do not create a diagnosis queue followed by a separate corpus-wide correction exercise:
 
 1. Independently examine the existing academic evidence and decisions through all six stages below, including the actual user-facing output. Treat previous QC and validation as leads, not approvals to inherit.
 2. Identify precisely what can be retained, what needs bounded correction and what needs reconstruction. Record the evidence, affected fields and dependencies. Preserve independently verified work.
