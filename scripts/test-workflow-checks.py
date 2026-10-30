@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Focused regression checks for feasibility, provenance, schema and derived review state."""
 import copy
+import fnmatch
 import hashlib
 import importlib.util
 import json
@@ -207,6 +208,23 @@ class WorkflowChecks(unittest.TestCase):
                 self.assertEqual(values['shared'], str(shared).lower())
                 self.assertEqual(values['runtime'], str(runtime).lower())
                 self.assertEqual(json.loads(values['records']), [p for p in paths if '/comparisons/' in p])
+
+    def test_pdf_build_tracks_its_inputs_not_review_helpers(self):
+        workflow = (ROOT / '.github/workflows/build-linkedin-pdf.yml').read_text()
+        section = workflow.split('  push:\n', 1)[1].split('\npermissions:', 1)[0]
+        paths = re.findall(r"^\s+- '([^']+)'$", section, re.M)
+        triggered = lambda path: any(fnmatch.fnmatchcase(path, pattern) for pattern in paths)
+        for path in ['data/examples/p-001.json', 'assets/js/comparison.js',
+                     'scripts/build-linkedin-html.mjs', 'scripts/build-open-day-html.mjs',
+                     'scripts/render-linkedin-pdf.mjs', 'scripts/render-open-day-pdf.mjs',
+                     'scripts/validate-example.mjs', 'scripts/example-utils.mjs',
+                     'scripts/quality.test.mjs', 'data/schema/example.schema.json']:
+            self.assertTrue(triggered(path), path)
+        for path in ['scripts/validate-course-feasibility.py', 'scripts/test-workflow-checks.py',
+                     'scripts/validate-comprehensive-reaudit.py', 'docs/qc/report.md',
+                     'data/counselor/comparisons/cp-000001.json',
+                     'data/schema/counselor-comparison.schema.json']:
+            self.assertFalse(triggered(path), path)
 
 
 if __name__ == '__main__':
