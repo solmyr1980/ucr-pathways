@@ -32,6 +32,59 @@ def git_blob(path):
     return hashlib.sha1(f'blob {len(data)}\0'.encode() + data).hexdigest()
 
 
+def sync_summaries(root):
+    """Derive mirrors/counts only. Never create findings, approvals, claims or closures."""
+    root = root.resolve()
+    pointer = root / REGISTER
+    register = read_json(pointer)
+    if register.get('activeAudit'):
+        pointer = (root / register['activeAudit']['register']).resolve()
+        require(pointer.is_relative_to(root), 'Unsafe active register path')
+        register = read_json(pointer)
+    mirrors = ['state', 'sharedIssueIds', 'unresolved', 'downstreamReassessments',
+               'implementationCommits', 'presentationApproval']
+    states = dict.fromkeys(register['baselineCaseOrder'], 'not-started')
+    dispositions = {}
+    for entry in register['cases']:
+        if entry.get('evidenceFile'):
+            path = (root / entry['evidenceFile']).resolve()
+            require(path.is_relative_to(root), 'Unsafe case evidence path')
+            case = read_json(path)
+            require(case['id'] == entry['id'] and case['auditId'] == register['auditId'], 'Case identity differs')
+            for key in mirrors:
+                entry[key] = case[key]
+            entry['stageOutcomes'] = {n: stage['outcome'] for n, stage in case['stages'].items()}
+            if 'academicDisposition' in case:
+                entry['academicDisposition'] = case['academicDisposition']
+            dispositions[case['id']] = {'caseId': case['id'], 'state': case['state'],
+                                       'evidenceFile': entry['evidenceFile']}
+            if 'academicDisposition' in case:
+                dispositions[case['id']]['academicDisposition'] = case['academicDisposition']
+            final = case.get('finalReview') or {}
+            if final.get('reviewedOn'):
+                dispositions[case['id']]['verifiedOn'] = final['reviewedOn']
+        states[entry['id']] = entry['state']
+    counts = Counter(states[case_id] for case_id in register['baselineCaseOrder'])
+    pilot = [c for pair in register['pilotPairs'] for c in pair]
+    register['progress'] = {'approved': counts['approved'], 'inProgress': counts['in-progress'],
+                            'reviewedWithBlockers': counts['reviewed-with-blockers'],
+                            'notStarted': counts['not-started'],
+                            'pilotStarted': sum(states[c] != 'not-started' for c in pilot)}
+    for worker in register.get('workers', {}).values():
+        worker['completedCases'] = [c for c in worker['assignedCases'] if states[c] in ['approved', 'reviewed-with-blockers']]
+        worker['completedDispositions'] = [dispositions[c] for c in worker['completedCases']]
+    # Validate the proposed local register, restoring the original on any failure.
+    original = pointer.read_text()
+    text = json.dumps(register, ensure_ascii=False, indent=2) + '\n'
+    try:
+        pointer.write_text(text)
+        validate(root)
+    except Exception:
+        pointer.write_text(original)
+        raise
+    return text != original
+
+
 def validate(root):
     root = root.resolve()
 
@@ -235,8 +288,13 @@ def validate(root):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument('--sync', action='store_true', help='Derive central mirrors/progress from case evidence, then validate; preserve operational decisions')
     args = parser.parse_args()
     try:
-        validate(args.root)
+        if args.sync:
+            changed = sync_summaries(args.root)
+            print('Derived register summaries updated.' if changed else 'Derived register summaries already current.')
+        else:
+            validate(args.root)
     except (ValueError, KeyError, TypeError, OSError, IndexError) as error:
         parser.exit(1, f'Re-audit consistency failure: {error}\n')

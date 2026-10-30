@@ -31,6 +31,9 @@ on:
       - 'scripts/test-counselor-rendered.mjs'
       - 'scripts/test-counselor-rendered-server.R'
       - 'scripts/validate-course-descriptions.py'
+      - 'scripts/validate-course-feasibility.py'
+      - 'scripts/validate-counselor-schema.py'
+      - 'scripts/test-workflow-checks.py'
       - 'scripts/validate-comprehensive-reaudit.py'
       - 'scripts/test-shiny.R'
       - 'scripts/test-student-private.R'
@@ -53,6 +56,32 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Identify changed inputs
+        id: scope
+        env:
+          BEFORE: ${{ github.event.before }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          python - <<'PY'
+          import json, os, re, subprocess
+          before = os.environ.get('BEFORE', '')
+          paths = None
+          if os.environ['EVENT_NAME'] == 'push' and re.fullmatch(r'[a-f0-9]{40}', before) and set(before) != {'0'}:
+              result = subprocess.run(['git', 'diff', '--name-only', before, 'HEAD'], capture_output=True, text=True)
+              if result.returncode != 0:
+                  subprocess.run(['git', 'fetch', '--no-tags', '--depth=1', 'origin', before], check=True)
+                  result = subprocess.run(['git', 'diff', '--name-only', before, 'HEAD'], capture_output=True, text=True, check=True)
+              paths = result.stdout.splitlines()
+          shared = paths is None or any(not p.startswith('data/counselor/') for p in paths)
+          runtime = shared or any(not p.startswith('data/counselor/qc/') and not p.endswith('.md') for p in paths or [])
+          from pathlib import Path
+          records = [p for p in paths or [] if re.fullmatch(r'data/counselor/comparisons/cp-\d{6}\.json', p) and Path(p).is_file()]
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write(f'shared={str(shared).lower()}\nruntime={str(runtime).lower()}\nrecords={json.dumps(records)}\n')
+          PY
 
       - name: Validate public comparison records
         run: node scripts/validate-example.mjs all
@@ -75,6 +104,24 @@ jobs:
       - name: Install workbook reader
         run: python -m pip install openpyxl "jsonschema>=4.18" referencing
 
+      - name: Test reusable workflow checks
+        run: python scripts/test-workflow-checks.py
+
+      - name: Validate new or changed canonical records against current facts and full schema
+        env:
+          CHANGED_RECORDS: ${{ steps.scope.outputs.records }}
+        run: |
+          python - <<'PY'
+          import json, os, subprocess, sys
+          records = json.loads(os.environ['CHANGED_RECORDS'])
+          if records:
+              subprocess.run([sys.executable, 'scripts/validate-course-feasibility.py', *records], check=True)
+              subprocess.run([sys.executable, 'scripts/validate-counselor-schema.py', *records], check=True)
+          PY
+
+      - name: Inventory remaining legacy schema gaps (not release approval)
+        run: python scripts/validate-counselor-schema.py --report-only
+
       - name: Validate reviewed audience contract and course evidence
         run: |
           npm run test:counselor-audience
@@ -85,58 +132,73 @@ jobs:
         run: npm test
 
       - name: Set up R
+        if: steps.scope.outputs.runtime == 'true'
         uses: r-lib/actions/setup-r@v2
 
       - name: Install system dependency for Shiny
+        if: steps.scope.outputs.runtime == 'true'
         run: |
           sudo apt-get update
           sudo apt-get install -y libuv1-dev
 
       - name: Install Shiny dependencies
+        if: steps.scope.outputs.runtime == 'true'
         run: Rscript -e 'install.packages(c("shiny", "jsonlite", "openssl", "rsconnect", "testthat"), repos=Sys.getenv("RSPM"))'
 
       - name: Parse both apps
+        if: steps.scope.outputs.runtime == 'true'
         run: |
           Rscript -e 'parse(file="pilot/shiny/app.R"); parse(file="pilot/counselor-shiny/app.R")'
 
       - name: Load both Shiny app objects
+        if: steps.scope.outputs.runtime == 'true'
         run: |
           Rscript -e 'x <- source("pilot/shiny/app.R", local=new.env())$value; stopifnot(inherits(x,"shiny.appobj"))'
           Rscript -e 'x <- source("pilot/counselor-shiny/app.R", local=new.env())$value; stopifnot(inherits(x,"shiny.appobj"))'
 
       - name: Validate local JSON inputs
+        if: steps.scope.outputs.runtime == 'true'
         run: |
           Rscript -e 'library(jsonlite); fromJSON("data/counselor/pilot-programmes.json"); fromJSON("data/counselor/pilot-interests.json"); fromJSON("data/counselor/review-programmes.json"); fromJSON("data/counselor/review-interests.json"); fromJSON("pilot/shiny/data/access_codes.json"); for (id in sprintf("p-%03d", 1:5)) fromJSON(sprintf("data/examples/%s.json", id))'
 
       - name: Check pilot and review behavior and rendering
+        if: steps.scope.outputs.runtime == 'true'
         run: |
           Rscript scripts/test-shiny.R
           Rscript scripts/test-counselor-audience.R
 
       - name: Create ignored private student test data
+        if: steps.scope.outputs.shared == 'true'
         run: Rscript scripts/init-student-private-test.R --quiet
 
       - name: Validate private student behavior and fail-closed checks
+        if: steps.scope.outputs.shared == 'true'
         run: Rscript scripts/test-student-private.R
 
       - name: Validate shinyapps.io student bundle
+        if: steps.scope.outputs.shared == 'true'
         run: Rscript scripts/deploy-student-shiny.R --check-bundle
 
       - name: Validate cumulative student production workflow
+        if: steps.scope.outputs.shared == 'true'
         run: Rscript scripts/test-student-production.R
 
       - name: Validate shinyapps.io counselor bundle
+        if: steps.scope.outputs.runtime == 'true'
         run: Rscript scripts/deploy-counselor-shiny.R --check-bundle
 
       - name: Install browser test dependencies
+        if: steps.scope.outputs.runtime == 'true'
         run: |
           npm ci
           npx playwright install --with-deps chromium
 
       - name: Inspect running counselor app across desktop and mobile cases
+        if: steps.scope.outputs.runtime == 'true'
         run: node scripts/test-counselor-rendered.mjs
 
       - name: Smoke-test student app startup
+        if: steps.scope.outputs.runtime == 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -151,6 +213,7 @@ jobs:
           if [ "$ok" -ne 1 ]; then cat /tmp/student-shiny.log; exit 1; fi
 
       - name: Smoke-test counselor app startup
+        if: steps.scope.outputs.runtime == 'true'
         shell: bash
         run: |
           set -euo pipefail

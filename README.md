@@ -228,6 +228,16 @@ User-facing interfaces follow UCR's settled visual identity and do not display a
 
 The website, both Shiny pilots and both PDF renderers load the same UCR fonts and palette from `assets/css/brand.css`. Shiny screen states share `assets/css/shiny.css`; the website and print formats retain their own layout styles. Colour supports identity, navigation and orientation rather than acting as the principal academic classification system.
 
+## Workflow maintenance
+
+Use [incremental maintenance](docs/UCR_Pathways_Maintenance_Concept.md) to identify changed dependencies, and the [review protocol](docs/qc/counselor-comprehensive-reaudit-protocol.md) for integrated case execution. The active audit register owns the current pause and assignments; tooling maintenance does not resume production.
+
+- `python scripts/validate-course-feasibility.py <canonical.json>` checks explicit schedules against the authoritative workbook during AI academic production.
+- `python scripts/validate-counselor-schema.py <canonical.json>` is strict full-schema validation for new/repaired records. Without paths it checks the complete corpus; `--report-only` inventories legacy failures and is never release approval.
+- `python scripts/validate-comprehensive-reaudit.py --sync` derives central mirrors/counts from detailed case evidence and validates them; the command without `--sync` is read-only.
+
+These are production/review tools, not additional commands for the student app operator. The existing R registration/deployment workflow is unchanged.
+
 ## Quality control and current limitations
 
 See `docs/quality-control/2026-09-11-audit.md` for the feedback-by-feedback implementation review, verification evidence and unresolved production requirements. This is an implementation record, not another specification.

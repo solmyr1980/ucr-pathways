@@ -8,10 +8,14 @@ const root = process.cwd();
 const validationRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'ucr-counselor-validation-'));
 
 try {
-  fs.cpSync(root, validationRoot, {
-    recursive: true,
-    filter: source => !source.includes(`${path.sep}.git${path.sep}`) && !source.endsWith(`${path.sep}.git`)
-  });
+  // Only these inputs are read by the operational validators. Screenshots,
+  // private records and unrelated publication assets need no temporary copy.
+  for (const relative of ['scripts', 'assets/js', 'package.json', 'data/counselor/comparisons',
+    'data/registry/programmes.csv', 'data/registry/programme_interests.csv']) {
+    const destination = path.join(validationRoot, relative);
+    fs.mkdirSync(path.dirname(destination), { recursive: true });
+    fs.cpSync(path.join(root, relative), destination, { recursive: true });
+  }
 
   const comparisonsDir = path.join(validationRoot, 'data', 'counselor', 'comparisons');
   for (const name of fs.readdirSync(comparisonsDir).filter(name => /^cp-[0-9]{6}\.json$/.test(name))) {

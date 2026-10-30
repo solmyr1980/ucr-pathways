@@ -18,6 +18,8 @@ Use the following sources of truth:
 - GitHub repository state, Actions and commit history — implementation state and build mechanics;
 - **UCR Pathways Supporting Research Workflows** — programme-interest enrichment and synthetic-interest work only, not routine student/counselor academic production.
 
+The Maintenance Concept owns incremental change assessment; the comprehensive review protocol owns review execution; the active audit register owns current scope, assignments, pauses and progress. Historical operating amendments do not override those current authorities.
+
 A rule should be stated in the document that owns it rather than repeated across documents. A batch assignment may invoke authoritative instructions but must not redefine them.
 
 ---

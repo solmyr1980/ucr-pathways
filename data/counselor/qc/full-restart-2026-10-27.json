@@ -647,11 +647,44 @@
       "verificationEvidenceRefs": [
         "docs/qc/evidence/counselor-first-pair-completion-2026-10-17/verification-replay.json#/fullFormalSchema"
       ],
-      "finding": "64 pre-existing records pass operational validation but fail full formal JSON Schema validation: component-ID case patterns, missing candidate evidence and legacy internal-note types. The affected set and 969 error messages remain unchanged. CP019 and CP277 both pass full formal validation.",
-      "requiredResolution": "Reconcile schema intent, operational validators and each affected record before final publication; independently validate formal and operational contracts and reviewed evidence. Do not bulk-rewrite academic records to silence errors.",
+      "finding": "Current full-schema inventory after contract reconciliation leaves 12 records with 27 missing candidate-evidence properties. Stable component-ID casing and internal semantic note identifiers are representation questions, not academic defects. Historical 64-record/969-message evidence is preserved.",
+      "requiredResolution": "Repair missing candidate evidence during the 12 applicable case reviews; pass strict full-schema and operational validation for all canonical records before release. Do not fabricate evidence or bulk-rewrite academic decisions.",
       "introducedByThisAssignment": false,
-      "remediationStatus": "Not started; explicitly outside first-pair correction scope.",
+      "remediationStatus": "Contract reconciled; 12 record-evidence gaps remain open. No academic processing resumed.",
       "caseReviewProgress": {
+        "baselineAffectedCount": 64,
+        "remainingAffectedCount": 12,
+        "status": "open; candidate evidence remains required",
+        "evidenceRef": "scripts/validate-counselor-schema.py",
+        "checkedOn": "2026-10-30"
+      },
+      "contractReconciliation": {
+        "checkedOn": "2026-10-30",
+        "inputCommit": "b12c0d88bd74f24af6bec29fa763792e104dc58b",
+        "status": "contract reconciled; record evidence remains outstanding",
+        "beforeAffectedRecords": 51,
+        "remainingAffectedRecords": 12,
+        "remainingValidationMessages": 27,
+        "remainingCategory": "missing candidate evidence",
+        "remainingCases": [
+          "cp-000205",
+          "cp-000246",
+          "cp-000247",
+          "cp-000248",
+          "cp-000254",
+          "cp-000261",
+          "cp-000262",
+          "cp-000265",
+          "cp-000267",
+          "cp-000270",
+          "cp-000273",
+          "cp-000274"
+        ],
+        "verificationCommand": "python scripts/validate-counselor-schema.py --report-only",
+        "resolution": "Stable component IDs may contain uppercase characters and semantic internal note identifiers need not belong to the public template taxonomy. Required candidate evidence is unchanged. Strict full-schema gates apply to new/repaired records and final release. No academic record was rewritten."
+      },
+      "historicalFinding": "64 pre-existing records pass operational validation but fail full formal JSON Schema validation: component-ID case patterns, missing candidate evidence and legacy internal-note types. The affected set and 969 error messages remain unchanged. CP019 and CP277 both pass full formal validation.",
+      "historicalCaseReviewProgress": {
         "evidenceRef": "data/counselor/qc/comprehensive-reaudit/cp-000008.json#/formalSchemaRepair",
         "baselineAffectedCount": 64,
         "remainingAffectedCount": 62,
@@ -672,7 +705,7 @@
   "auditId": "counselor-full-restart-2026-10-27",
   "status": "paused-by-user",
   "preparedOn": "2026-10-27",
-  "updatedOn": "2026-10-29",
+  "updatedOn": "2026-10-30",
   "authority": "User, 27 October 2026: restart the entire corpus from scratch; split into two halves; two hourly tasks starting 11:30 and 12:00 Europe/Amsterdam; user manually selects models.",
   "historicalAudit": "data/counselor/qc/comprehensive-reaudit.json",
   "priorApprovalPolicy": "No old approval, no-match, blocker, deferral, stage outcome, retrieval-failure count or completed-case credit is inherited. Review every baseline case anew. Existing academic artifacts and sources are candidates for independently verified retention, not evidence of fresh approval.",

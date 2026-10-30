@@ -21,6 +21,8 @@ The intended division of labour is:
 
 Before academic production begins, retrieve the current `main` version of `data/reference/ucr_courses_enriched.xlsx` and verify that it is readable. If it is not accessible, stop and report the missing dependency. Do not ask for a separately uploaded copy or reconstruct UCR course evidence from memory, public web sources or incomplete substitutes. Use the retrieved GitHub copy throughout the production workstream unless repository changes may have altered it.
 
+After temporary compilation, run `python scripts/validate-course-feasibility.py <canonical.json>` and `python scripts/validate-counselor-schema.py <canonical.json>` before publication. For an authorised re-audit, the active register and review protocol govern assignments and reuse; this ordinary new-production batch default does not override them.
+
 Infrastructure engineering is separate from routine academic production. Do not weaken validators, move academic judgment into deterministic code, or redesign infrastructure merely to make one target pass. Repeated failures that reveal a genuine structural tooling problem should be treated as infrastructure work rather than as a target-specific workaround.
 
 The responsibility boundary remains unchanged across AI systems: **AI makes academic decisions; deterministic code expresses, checks and publishes them.**

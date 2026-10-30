@@ -16,6 +16,8 @@ Where no outline exists, leave the six outline-derived fields blank. The officia
 
 The extraction workbook retains all accepted course–semester–group records and their source hashes and limitation notes. Its `outline_semester`, `osiris` and `outline_source` identify the selected source when a material ambiguity needs review. Extraction and Pathways regeneration remain separate: appending new outlines does not update this workbook automatically. Assess the latest-semester/lowest-group selection against the extraction input used for the deliberate merge, rather than treating a later outline append as an invalidation of the existing reference.
 
+Use `python scripts/validate-course-feasibility.py <canonical.json>` to verify explicit schedules against this workbook during academic production. Use its `--compare-workbook <previous.xlsx>` option for a read-only field-change/impact report after deliberate regeneration; new or changed content also needs targeted subject-area judgment beyond records that already use the course. Neither command edits the reference or makes academic selections.
+
 Read planning coverage from the actual semester columns. Within a covered term, `X` means planned availability and a blank cell means no planned offering. A missing term column supplies no planning evidence. Production Instructions Section 2.2 owns the academic evidence and feasibility rules, including treatment of an insufficient horizon; the Master Specification owns the customer-facing content boundary.
 
 ## AI access rule

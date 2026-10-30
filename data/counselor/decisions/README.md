@@ -56,7 +56,7 @@ The compiler must fail when an academic decision is missing or invalid. It must 
 - `progression` contains the explicit status and concise academic rationale.
 - Every additional alternative requires a substantive `distinctness` rationale.
 
-For UCR course selection and feasibility checking, follow `data/reference/README.md`. The AI production agent retrieves the current GitHub `main` version of `data/reference/ucr_courses_enriched.xlsx` directly from the repository before production begins; no separate upload or human-provided copy is required. The active compiler deliberately does not make academic course-selection or feasibility decisions from that workbook. The AI verifies those decisions before compilation, and the verified selected-course facts therefore remain explicit compact input rather than compiler lookup data.
+For UCR course selection and feasibility checking, follow `data/reference/README.md`. The AI production agent retrieves the current GitHub `main` version of `data/reference/ucr_courses_enriched.xlsx` directly from the repository before production begins; no separate upload or human-provided copy is required. The active compiler deliberately does not make academic course-selection or feasibility decisions from that workbook. The AI verifies the academic decisions; the shared `validate-course-feasibility.py` checks the temporary canonical schedule against the workbook before publication. This is factual constraint checking, not course selection. Verified selected-course facts remain explicit compact input rather than compiler lookup data. New and repaired records must also pass `validate-counselor-schema.py` in strict mode.
 
 ## Production workflow
 
