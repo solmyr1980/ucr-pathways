@@ -636,7 +636,7 @@
     },
     {
       "id": "formal-schema-operational-discrepancy",
-      "status": "open",
+      "status": "verified",
       "type": "corpus-wide-technical",
       "blocksFinalPublication": true,
       "affectedStages": [
@@ -645,17 +645,18 @@
       "affectedRecordCount": 64,
       "evidenceRef": "docs/qc/evidence/counselor-shared-foundation-2026-10-17/preexisting-schema-discrepancies.json",
       "verificationEvidenceRefs": [
-        "docs/qc/evidence/counselor-first-pair-completion-2026-10-17/verification-replay.json#/fullFormalSchema"
+        "docs/qc/evidence/counselor-first-pair-completion-2026-10-17/verification-replay.json#/fullFormalSchema",
+        "docs/qc/evidence/counselor-schema-reference-repair-2026-10-30.json"
       ],
-      "finding": "Current full-schema inventory after contract reconciliation leaves 12 records with 27 missing candidate-evidence properties. Stable component-ID casing and internal semantic note identifiers are representation questions, not academic defects. Historical 64-record/969-message evidence is preserved.",
-      "requiredResolution": "Repair missing candidate evidence during the 12 applicable case reviews; pass strict full-schema and operational validation for all canonical records before release. Do not fabricate evidence or bulk-rewrite academic decisions.",
+      "finding": "All 438 canonical records pass strict full JSON Schema validation. The remaining 27 candidate-evidence fields in 12 records now cite their existing target-specific generating/supporting programme-interest rows. No academic decisions or approvals changed. Historical discrepancy and contract-reconciliation evidence is preserved.",
+      "requiredResolution": "Technical schema discrepancy resolved and verified; retain strict full-schema and current-facts gates before release. Existing schedule conflicts and the full academic restart remain outstanding under the user hold.",
       "introducedByThisAssignment": false,
-      "remediationStatus": "Contract reconciled; 12 record-evidence gaps remain open. No academic processing resumed.",
+      "remediationStatus": "Verified technical reference repair; zero remaining schema gaps. No academic review resumed.",
       "caseReviewProgress": {
         "baselineAffectedCount": 64,
-        "remainingAffectedCount": 12,
-        "status": "open; candidate evidence remains required",
-        "evidenceRef": "scripts/validate-counselor-schema.py",
+        "remainingAffectedCount": 0,
+        "status": "schema references verified; no case approval inferred",
+        "evidenceRef": "docs/qc/evidence/counselor-schema-reference-repair-2026-10-30.json",
         "checkedOn": "2026-10-30"
       },
       "contractReconciliation": {
@@ -693,6 +694,28 @@
           "cp-000008"
         ],
         "status": "open; final publication reconciliation remains required"
+      },
+      "implementationCommits": [
+        "6cfe53eb59fe040e4cdb3e393d9cd4bbb9f58de1",
+        "11294761eaf354861037445c8173388551f9b772",
+        "1ae35a72e931e011382cd2134453a96db7b27e16",
+        "043eab7660e17b7aef21c8a7f7a5fc0c945c7e1b",
+        "95d5ce69f3b609c300e6e4488fdd6360f7b52632",
+        "62379bc772003c82279725b347c4f0c8890e7383",
+        "d885cb99c3ae10b1febf833e3d3199cc91f76d21",
+        "a9bce92421b98eb97d58678eaf16c019303f7802",
+        "98572ca8417a8f4dfe7cb8de8927213cb6a55fe1",
+        "d13919bb44d84094d9c3305abebb8e653ad7cbe1",
+        "36c06f38a27a4ccfa1ec4ed66b65a29b5527d6cf",
+        "784d9a376a1a800e01aba0579cc61a5aa87b0654"
+      ],
+      "referenceRepair": {
+        "checkedOn": "2026-10-30",
+        "repairedRecords": 12,
+        "addedEvidenceFields": 27,
+        "remainingAffectedRecords": 0,
+        "evidenceRef": "docs/qc/evidence/counselor-schema-reference-repair-2026-10-30.json",
+        "academicApproval": false
       }
     }
   ],
