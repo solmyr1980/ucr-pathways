@@ -7,17 +7,20 @@ This folder maintains a **standalone, outline-only academic-content database**. 
 - [COURSE_OUTLINE_EXTRACTION_ASSIGNMENT.md](COURSE_OUTLINE_EXTRACTION_ASSIGNMENT.md) — current targeted extraction specification and validation rules.
 - [UCR_Course_Outline_Database.xlsx](UCR_Course_Outline_Database.xlsx) — the **one-sheet, flat, cumulative extraction workbook**.
 
-**Current coverage:** 196 course–semester–group records covering 142 distinct course codes across `2025h2`, `2026h1` and `2026h2`.
+**Current coverage:** 198 course–semester–group records covering 144 distinct course codes across `2025h2`, `2026h1`, `2026h2` and `2027h1`.
 
 | Semester | Records | Distinct course codes | Input container | Outlines |
 | --- | ---: | ---: | --- | --- |
 | `2025h2` | 67 | 67 | `outlines_2025h2.zip` | 45 PDFs; 22 DOCX files |
 | `2026h1` | 66 | 66 | `outlines_2026h1.zip` plus three supplemental files | 37 PDFs; 29 DOCX files |
 | `2026h2` | 63 | 62 | `outlines_2026h2(2).zip` | 63 PDFs |
+| `2027h1` | 2 | 2 | Two individually supplied files; semester confirmed by the user | 2 PDFs |
 
 All three batches were extracted on 27 October 2026 under assignment version 2.0. No input outlines were skipped and no incoming records were already present. All 63 accepted `2026h2` records were preserved unchanged when `2026h1` was appended; all 126 accepted records were preserved unchanged when `2025h2` was appended. The `2025h2` append has no source revision conflicts; 24 incoming outlines have source discrepancies documented in their rows. Source conflicts and content limitations are recorded in the relevant workbook rows.
 
 On 29 October 2026, three supplemental files supplied individually by the user were appended under the user-confirmed `2026h1` classification: `HCBPSYC111.docx`, `ENSENVI212.docx` and `MCCCOMM112.pdf`. All 193 previously accepted records were preserved unchanged; none of the three incoming keys was already present, no file was skipped and no source revision conflict occurred. The two DOCX files describe summer 2026 delivery and contain internal course codes that differ from their filenames; those differences are recorded in their `source_discrepancy_note` fields. The complete filename stems supply `osiris`, and numeric group 1 follows the same archive convention below.
+
+On 30 October 2026, `BENBUSI312.pdf` and `BENLEAD211.pdf` were appended under the user-confirmed Spring 2027 (`2027h1`) classification. Their complete filename stems supply `osiris`; numeric group 1 is assigned under the same convention used for individually supplied files, since no group suffix is present. All 196 accepted records were preserved unchanged; neither incoming key was already present, no file was skipped and no source revision conflict occurred. BENBUSI312 identifies SSCECON209 and Spring 2022 internally; the filename/semester conflict is recorded in its `source_discrepancy_note`. BENLEAD211 is a Spring 2027 proposal with a fuller outline to follow; its conditional company collaboration and optional factor analysis are recorded as limitations in `extraction_notes`.
 
 **Input convention for `2026h1` and `2025h2`:** the user explicitly instructed the `2026h1` batch to process both PDF and DOCX outlines; the continuing `2025h2` batch uses the same convention. These filenames contain complete course codes without group suffixes, so retain each complete filename stem as `osiris` and assign numeric `group_number = 1` to every record. This is an archive-specific override of the assignment's PDF-only input and final-digit group convention; group 1 is an assigned convention, not an inferred source value. Preserve the exact original filename and SHA-256 hash. The input container supplies the semester (`2026h1` or `2025h2`), including where an outline contains a conflicting semester or year.
 
