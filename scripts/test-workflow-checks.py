@@ -173,6 +173,45 @@ class WorkflowChecks(unittest.TestCase):
                 reviews.sync_summaries(root)
             self.assertEqual(pointer.read_bytes(), original)
 
+    def test_content_review_requires_real_final_checks_without_runtime(self):
+        policy = {'id': reviews.CONTENT_REVIEW_POLICY, 'liveAppRequiredPerCase': False}
+        final = {'verificationPolicy': reviews.CONTENT_REVIEW_POLICY,
+                 'checks': {area: {'status': 'passed', 'evidenceRefs': ['verified.json']}
+                            for area in ['academic', 'mechanical', 'content']}}
+        refs = mock.Mock()
+        reviews.validate_final_checks(final, 'cp-fixture', policy, refs)
+        self.assertEqual(refs.call_count, 3)
+        for area in ['academic', 'mechanical', 'content']:
+            with self.subTest(area=area):
+                bad = copy.deepcopy(final)
+                bad['checks'][area]['status'] = 'pending'
+                with self.assertRaises(ValueError):
+                    reviews.validate_final_checks(bad, 'cp-fixture', policy, refs)
+        # Old screenshots cannot substitute for the new content check.
+        bad = copy.deepcopy(final)
+        bad['checks']['rendered'] = bad['checks'].pop('content')
+        with self.assertRaises(ValueError):
+            reviews.validate_final_checks(bad, 'cp-fixture', policy, refs)
+        bad = copy.deepcopy(final)
+        bad.pop('verificationPolicy')
+        with self.assertRaises(ValueError):
+            reviews.validate_final_checks(bad, 'cp-fixture', policy, refs)
+        with self.assertRaises(ValueError):
+            reviews.validate_final_checks(final, 'cp-fixture', {'id': 'unknown'}, refs)
+        # Historical audits retain their original rendered evidence requirement.
+        with self.assertRaises(ValueError):
+            reviews.validate_final_checks(final, 'cp-fixture', None, refs)
+        legacy = copy.deepcopy(final)
+        legacy['checks']['rendered'] = legacy['checks'].pop('content')
+        reviews.validate_final_checks(legacy, 'cp-fixture', None, refs)
+        def require_refs(values):
+            if not values:
+                raise ValueError('Missing evidence')
+        bad = copy.deepcopy(final)
+        bad['checks']['content']['evidenceRefs'] = []
+        with self.assertRaises(ValueError):
+            reviews.validate_final_checks(bad, 'cp-fixture', policy, require_refs)
+
     def test_ci_scope_keeps_case_checks_and_skips_unrelated_private_checks(self):
         workflow = (ROOT / '.github/workflows/validate-shiny.yml').read_text()
         section = workflow.split('- name: Identify changed inputs', 1)[1]
@@ -189,8 +228,12 @@ class WorkflowChecks(unittest.TestCase):
             git('commit', '-qm', 'Baseline')
             scenarios = [(['data/counselor/qc/state.json'], False, False),
                          (['data/counselor/comparisons/cp-000001.json', 'docs/qc/report.md',
-                           'docs/qc/evidence/desktop.png'], False, True),
+                           'docs/qc/evidence/desktop.png'], False, False),
+                         (['pilot/shiny/data/courses/BEN.json'], False, False),
+                         (['data/reference/ucr_courses_enriched.xlsx'], False, False),
+                         (['data/registry/programme_interests.csv'], False, False),
                          (['docs/qc/follow-up.md', 'docs/qc/evidence/mobile.png'], False, False),
+                         (['pilot/counselor-shiny/app.R'], True, True),
                          (['pilot/shared.R'], True, True)]
             for paths, shared, runtime in scenarios:
                 before = git('rev-parse', 'HEAD')
@@ -208,6 +251,14 @@ class WorkflowChecks(unittest.TestCase):
                 self.assertEqual(values['shared'], str(shared).lower())
                 self.assertEqual(values['runtime'], str(runtime).lower())
                 self.assertEqual(json.loads(values['records']), [p for p in paths if '/comparisons/' in p])
+            # Explicit final-release verification retains the full runtime suite.
+            output.write_text('')
+            subprocess.run(['python', '-c', code], cwd=cwd, check=True,
+                           env={**os.environ, 'EVENT_NAME': 'workflow_dispatch',
+                                'BEFORE': '', 'GITHUB_OUTPUT': str(output)})
+            values = dict(line.split('=', 1) for line in output.read_text().splitlines())
+            self.assertEqual(values['shared'], 'true')
+            self.assertEqual(values['runtime'], 'true')
 
     def test_pdf_build_tracks_its_inputs_not_review_helpers(self):
         workflow = (ROOT / '.github/workflows/build-linkedin-pdf.yml').read_text()

@@ -16,11 +16,33 @@ REGISTER = 'data/counselor/qc/comprehensive-reaudit.json'
 CASE_DIR = 'data/counselor/qc/comprehensive-reaudit'
 STATES = ['not-started', 'in-progress', 'reviewed-with-blockers', 'approved']
 OUTCOMES = ['retain', 'correct', 'reconstruct', 'blocked']
+CONTENT_REVIEW_POLICY = 'record-content-review-2026-10-31'
 
 
 def require(condition, message):
     if not condition:
         raise ValueError(message)
+
+
+def validate_final_checks(final, case_id, policy, evidence_refs):
+    """Require source, mechanical and reader-facing content evidence.
+
+    Historical audits keep their rendered gate. The explicitly authorised policy
+    changes that gate only; it never creates a passed review or release authority.
+    """
+    if policy:
+        require(policy.get('id') == CONTENT_REVIEW_POLICY
+                and policy.get('liveAppRequiredPerCase') is False,
+                'Unsupported case review policy')
+        require(final.get('verificationPolicy') == CONTENT_REVIEW_POLICY,
+                f'{case_id}: final review must identify the active verification policy')
+        areas = ['academic', 'mechanical', 'content']
+    else:
+        areas = ['academic', 'mechanical', 'rendered']
+    for area in areas:
+        check = final.get('checks', {}).get(area, {})
+        require(check.get('status') == 'passed', f'{case_id}: {area} final check failed')
+        evidence_refs(check.get('evidenceRefs'))
 
 
 def read_json(path):
@@ -244,10 +266,7 @@ def validate(root):
             final = case['finalReview']
             require(final and all(final.get(k) for k in ['reviewerOrPass', 'independenceMethod', 'reviewedOn', 'reviewedCommit']), f'{case_id}: independent final review missing')
             evidence_refs(final.get('sourceEvidenceRefs'))
-            for area in ['academic', 'mechanical', 'rendered']:
-                check = final['checks'][area]
-                require(check['status'] == 'passed', f'{case_id}: {area} final check failed')
-                evidence_refs(check.get('evidenceRefs'))
+            validate_final_checks(final, case_id, d.get('caseReviewPolicy'), evidence_refs)
             for kind, name in [('canonical', 'comparisons'), ('decision', 'decisions')]:
                 current = root / f'data/counselor/{name}/{case_id}.json'
                 require(final['inputBlobs'][kind] == (git_blob(current) if current.exists() else None), f'{case_id}: final approval refers to stale {kind}')
