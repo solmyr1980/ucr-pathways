@@ -1,0 +1,61 @@
+[
+  {
+    "command": [
+      "python",
+      "scripts/validate-course-feasibility.py",
+      "data/counselor/comparisons/cp-000004.json"
+    ],
+    "exitCode": 0,
+    "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000004/check-1.log"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate-counselor-schema.py",
+      "data/counselor/comparisons/cp-000004.json"
+    ],
+    "exitCode": 0,
+    "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000004/check-2.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "validate:counselor"
+    ],
+    "exitCode": 0,
+    "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000004/check-3.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "validate:counselor-review"
+    ],
+    "exitCode": 0,
+    "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000004/check-4.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "validate:registry-interests"
+    ],
+    "exitCode": 0,
+    "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000004/check-5.log"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate-course-descriptions.py"
+    ],
+    "exitCode": 0,
+    "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000004/check-6.log"
+  },
+  {
+    "command": "Decision compiler replay to /tmp/cp004-exact-replay.json",
+    "exitCode": 0,
+    "byteExact": true,
+    "canonicalSha256": "e1c46d7d2a481573c41fb1b8b276cc1476362e4f7fcff6a0d7d3cc7557f24611"
+  }
+]

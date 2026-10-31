@@ -1,0 +1,995 @@
+{
+  "caseId": "cp-000004",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+    "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+    "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000004.json": "5c298afcc2b924eb496c5e3e76e11dd85c54be59",
+    "data/counselor/comparisons/cp-000004.json": "31c99e9399554d3fd6c2f9fd2156222e5d432def",
+    "data/registry/programme_interests.csv": "b8b416bad788644c8ec30a31792adb86f22f4da3",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "data/counselor/review-programmes.json": "1d5eec852ec502ad16be72175562039faf2282a0",
+    "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
+    "pilot/shiny/data/courses/BEN.json": "a8f4bd8fd8e6b7d59f1258d2da4d1f1fd4dea215",
+    "pilot/shiny/data/courses/DIS.json": "eb3747b911e3f9d8a97a44dc74d21f22eaddc996",
+    "pilot/shiny/data/courses/GOS.json": "b9788d61805fb3afb343a61c34786e7b5ec31d60",
+    "pilot/shiny/data/courses/HCB.json": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad",
+    "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa"
+  },
+  "fieldToRenderer": [
+    "pilot/shared.R:visible_label",
+    "pilot/counselor-shiny/app.R:curriculum_view,render_audience_context,render_comparison_summary,render_audience_notes,audience_cell_note,render_compare_table,course_description_dialog"
+  ],
+  "fieldsRead": [
+    "comparator.name/institution/primarySourceUrl/components[].name/credits",
+    "programmes[].label/schedule.semesters[].courses[].name",
+    "academicRationale.alternatives[].concept selectedby audience.conceptProgrammeIds",
+    "audience.programmeDescription/comparisonExplanation/curriculum.*",
+    "audience.componentNotes.*",
+    "notes[].text selectedby audience.noteTypes",
+    "blocks[].title/rows[].cells.*.text/credits",
+    "optionalIndependentResearch",
+    "all42selectedcachedcourse-descriptiontexts"
+  ],
+  "presentationMode": "normal",
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "Psychology at Erasmus University Rotterdam studies behaviour, emotion, development and cognition through psychological theory, research methods and practical training. The pathway shown continues through Brain & Cognition after the shared core.",
+    "comparisonExplanation": "UCR offers a broad psychology programme and two related options focusing on cognition and mind, or psychology and organisations. They share substantial psychological inquiry with Erasmus, while adding other disciplines. Dedicated psychometrics, specialist professional training and the compulsory 14-EC thesis are not reproduced.",
+    "curriculum": {
+      "status": "complete",
+      "componentIds": [
+        "psy-social",
+        "psy-personality",
+        "psy-biological",
+        "psy-methods1",
+        "psy-developmental",
+        "psy-clinical1",
+        "psy-history-methods",
+        "psy-cross-cultural",
+        "psy-thrive1",
+        "psy-psychodiag1",
+        "psy-communication1",
+        "psy-writing1",
+        "psy-cognitive",
+        "psy-methods2",
+        "psy-ethics",
+        "psy-thrive2",
+        "psy-educational",
+        "psy-work",
+        "psy-science-practical",
+        "psy-mental2",
+        "psy-psychometrics",
+        "psy-communication2",
+        "psy-writing2",
+        "psy-psychodiag2",
+        "psy-brain-perception",
+        "psy-minor",
+        "psy-elective",
+        "psy-methods3",
+        "psy-thrive3",
+        "psy-thesis",
+        "psy-intervention-research",
+        "psy-memory-language",
+        "psy-data-r"
+      ],
+      "yearLabel": "2026–2027",
+      "routeLabel": "Brain & Cognition; Dutch-language track",
+      "limitation": "The 180 EC include a 15-EC approved minor and two programme-offered psychology electives of 5 EC each. Erasmus also requires test-subject hours without EC. Lectures are in English; the Dutch track uses Dutch tutorials and examinations."
+    },
+    "conceptProgrammeIds": [
+      "ucr-1",
+      "ucr-2",
+      "ucr-3"
+    ],
+    "noteTypes": [
+      "missing-specialist-components"
+    ],
+    "componentNotes": {
+      "psy-elective": "10 EC of psychology profiling: two programme-offered 5-EC electives, one five-week and one nine-week course; places may be limited.",
+      "psy-minor": "15 EC of approved minor or exchange space.",
+      "psy-thesis": "Required 14-EC thesis. Optional UCR independent research is additional and unscheduled."
+    }
+  },
+  "labelsAndConcepts": [
+    {
+      "label": "Psychology, behaviour & social contexts",
+      "concept": "Social, developmental, clinical and cognitive psychology are studied through empirical research and evidence synthesis. Organisational psychology, biological foundations, behavioural economics and social theory add distinct perspectives on people, mental processes and social settings."
+    },
+    {
+      "label": "Brain, cognition & mind",
+      "concept": "Brain and behaviour, perception, memory and language form the centre of this programme. Neuroscience and psychology connect with data analysis and computational models of vision, while philosophy examines consciousness, emotion and the self."
+    },
+    {
+      "label": "Psychology, leadership & organisations",
+      "concept": "Psychology of work and organisations connects with leadership, diversity, negotiation, behavioural decision-making and empirical research. Sociology and business courses examine the institutional settings in which people work."
+    }
+  ],
+  "notes": [
+    {
+      "type": "missing-specialist-components",
+      "placement": "comparison",
+      "text": "The Erasmus curriculum includes specialist psychological assessment, psychometrics, professional skills and a required 14-EC thesis. These UCR programmes offer related academic study and do not establish the same specialist preparation or automatic access to a particular master’s programme."
+    }
+  ],
+  "table": [
+    {
+      "id": "block-1",
+      "title": "Foundations across psychology",
+      "rows": [
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Social Psychology",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC111"
+            },
+            "ucr-2": {
+              "text": "Social Psychology",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC111"
+            },
+            "ucr-3": {
+              "text": "Social Psychology",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC111"
+            },
+            "comparator": {
+              "text": "Social Psychology: People in Groups",
+              "credits": 5,
+              "componentId": "psy-social"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Lifespan Developmental Psychology",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC314"
+            },
+            "ucr-2": {
+              "text": "Lifespan Developmental Psychology",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC314"
+            },
+            "comparator": {
+              "text": "Developmental Psychology: Child and Adolescent Development",
+              "credits": 5,
+              "componentId": "psy-developmental"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Introduction to Sociology",
+              "credits": 7.5,
+              "courseCode": "GOSSOCI111"
+            },
+            "ucr-3": {
+              "text": "Introduction to Sociology",
+              "credits": 7.5,
+              "courseCode": "GOSSOCI111"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Modern Sociology",
+              "credits": 7.5,
+              "courseCode": "GOSSOCI214"
+            },
+            "ucr-3": {
+              "text": "Modern Sociology",
+              "credits": 7.5,
+              "courseCode": "GOSSOCI214"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "New Issues in Contemporary Social Theory",
+              "credits": 7.5,
+              "courseCode": "GOSSOCI311"
+            },
+            "ucr-3": {
+              "text": "New Issues in Contemporary Social Theory",
+              "credits": 7.5,
+              "courseCode": "GOSSOCI311"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Behavioral Economics",
+              "credits": 7.5,
+              "courseCode": "BENECON314"
+            },
+            "ucr-3": {
+              "text": "Behavioral Economics",
+              "credits": 7.5,
+              "courseCode": "BENECON314"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Personality Psychology: Differences Between People",
+              "credits": 5,
+              "componentId": "psy-personality"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "History and Methods of Psychology",
+              "credits": 5,
+              "componentId": "psy-history-methods"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Cross Cultural Psychology",
+              "credits": 5,
+              "componentId": "psy-cross-cultural"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "block-2",
+      "title": "Brain, cognition & mental health",
+      "rows": [
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Introduction to Brain & Behavior",
+              "credits": 7.5,
+              "courseCode": "HCBGATE102"
+            },
+            "ucr-2": {
+              "text": "Introduction to Brain & Behavior",
+              "credits": 7.5,
+              "courseCode": "HCBGATE102"
+            },
+            "ucr-3": {
+              "text": "Introduction to Brain & Behavior",
+              "credits": 7.5,
+              "courseCode": "HCBGATE102"
+            },
+            "comparator": {
+              "text": "Biological Psychology: Brain & Body",
+              "credits": 5,
+              "componentId": "psy-biological"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Psychopathology",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC212"
+            },
+            "ucr-2": {
+              "text": "Psychopathology",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC212"
+            },
+            "comparator": {
+              "text": "Clinical Psychology: Mental Health Challenges I",
+              "credits": 5,
+              "componentId": "psy-clinical1"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Psychodiagnostics & Psychotherapies",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC312"
+            },
+            "comparator": {
+              "text": "Psychodiagnostics B1",
+              "credits": 6.5,
+              "componentId": "psy-psychodiag1"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Neurobiology",
+              "credits": 7.5,
+              "courseCode": "HCBCOGN112"
+            },
+            "ucr-2": {
+              "text": "Neurobiology",
+              "credits": 7.5,
+              "courseCode": "HCBCOGN112"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Perception & Action",
+              "credits": 7.5,
+              "courseCode": "HCBCOGN212"
+            },
+            "ucr-2": {
+              "text": "Perception & Action",
+              "credits": 7.5,
+              "courseCode": "HCBCOGN212"
+            },
+            "comparator": {
+              "text": "Brain and Perception",
+              "credits": 9,
+              "componentId": "psy-brain-perception"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Higher Order Functions",
+              "credits": 7.5,
+              "courseCode": "HCBCOGN311"
+            },
+            "ucr-2": {
+              "text": "Higher Order Functions",
+              "credits": 7.5,
+              "courseCode": "HCBCOGN311"
+            },
+            "comparator": {
+              "text": "Cognitive Psychology",
+              "credits": 5,
+              "componentId": "psy-cognitive"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Psycholinguistics",
+              "credits": 7.5,
+              "courseCode": "HCBCOGN312"
+            },
+            "ucr-2": {
+              "text": "Psycholinguistics",
+              "credits": 7.5,
+              "courseCode": "HCBCOGN312"
+            },
+            "comparator": {
+              "text": "Memory & Language",
+              "credits": 5,
+              "componentId": "psy-memory-language"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Foundation of Life, Health & Biomedicine",
+              "credits": 7.5,
+              "courseCode": "HCBGATE101"
+            },
+            "ucr-2": {
+              "text": "Foundation of Life, Health & Biomedicine",
+              "credits": 7.5,
+              "courseCode": "HCBGATE101"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Human Physiology",
+              "credits": 7.5,
+              "courseCode": "HCBLIFE212"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Mental Health Challenges II",
+              "credits": 5,
+              "componentId": "psy-mental2"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "block-3",
+      "title": "Applied psychology: learning & work",
+      "rows": [
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Psychology of Organizations & Leadership",
+              "credits": 7.5,
+              "courseCode": "BENLEAD311"
+            },
+            "ucr-3": {
+              "text": "Psychology of Organizations & Leadership",
+              "credits": 7.5,
+              "courseCode": "BENLEAD311"
+            },
+            "comparator": {
+              "text": "The World of Work",
+              "credits": 5,
+              "componentId": "psy-work"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Personal Leadership",
+              "credits": 7.5,
+              "courseCode": "BENLEAD111"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Psychology of Leading Under Pressure",
+              "credits": 7.5,
+              "courseCode": "BENLEAD211"
+            },
+            "ucr-3": {
+              "text": "Psychology of Leading Under Pressure",
+              "credits": 7.5,
+              "courseCode": "BENLEAD211"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Leadership Communication",
+              "credits": 7.5,
+              "courseCode": "BENLEAD112"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Persuasive Communication",
+              "credits": 7.5,
+              "courseCode": "MCCCOMM311"
+            },
+            "ucr-3": {
+              "text": "Persuasive Communication",
+              "credits": 7.5,
+              "courseCode": "MCCCOMM311"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Negotiation & Strategic Thinking",
+              "credits": 7.5,
+              "courseCode": "BENLEAD312"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Entrepreneurship & Business Foundations",
+              "credits": 7.5,
+              "courseCode": "BENGATE101"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Business & Economy in the Age of AI",
+              "credits": 7.5,
+              "courseCode": "BENBUSI211"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Market Research",
+              "credits": 7.5,
+              "courseCode": "BENENTR311"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "International Business & Governance",
+              "credits": 7.5,
+              "courseCode": "BENENTR312"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Microeconomics & Behavior",
+              "credits": 7.5,
+              "courseCode": "BENECON212"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Medical & Health Psychology",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC311"
+            },
+            "ucr-2": {
+              "text": "Medical & Health Psychology",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC311"
+            },
+            "ucr-3": {
+              "text": "Medical & Health Psychology",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC311"
+            },
+            "comparator": {
+              "text": "Communication Skills I",
+              "credits": 2.5,
+              "componentId": "psy-communication1"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Youth Resilience to Extremism",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC315"
+            },
+            "ucr-2": {
+              "text": "Youth Resilience to Extremism",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC315"
+            },
+            "comparator": {
+              "text": "Educational Psychology",
+              "credits": 5,
+              "componentId": "psy-educational"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Communication Skills II",
+              "credits": 2,
+              "componentId": "psy-communication2"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "block-4",
+      "title": "Research, assessment & scientific skills",
+      "rows": [
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Statistics & Experimental Methods",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC211"
+            },
+            "ucr-2": {
+              "text": "Statistics & Experimental Methods",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC211"
+            },
+            "ucr-3": {
+              "text": "Statistics & Experimental Methods",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC211"
+            },
+            "comparator": {
+              "text": "Methods & Statistics II",
+              "credits": 7.5,
+              "componentId": "psy-methods2"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Psychological Science",
+              "credits": 4.5,
+              "componentId": "psy-science-practical"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Research Methods & Statistics",
+              "credits": 7.5,
+              "courseCode": "BENGATE102"
+            },
+            "ucr-2": {
+              "text": "Research Methods & Statistics",
+              "credits": 7.5,
+              "courseCode": "BENGATE102"
+            },
+            "ucr-3": {
+              "text": "Research Methods & Statistics",
+              "credits": 7.5,
+              "courseCode": "BENGATE102"
+            },
+            "comparator": {
+              "text": "Methods and Statistics I: An Introduction",
+              "credits": 7.5,
+              "componentId": "psy-methods1"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Qualitative Research Methodology",
+              "credits": 7.5,
+              "courseCode": "GOSSOCI212"
+            },
+            "ucr-3": {
+              "text": "Qualitative Research Methodology",
+              "credits": 7.5,
+              "courseCode": "GOSSOCI212"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Advanced Research Methods & Statistics",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC313"
+            },
+            "ucr-2": {
+              "text": "Advanced Research Methods & Statistics",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC313"
+            },
+            "ucr-3": {
+              "text": "Advanced Research Methods & Statistics",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC313"
+            },
+            "comparator": {
+              "text": "Data processing and analysis in R",
+              "credits": 2,
+              "componentId": "psy-data-r"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Academic Writing Skills I",
+              "credits": 4.5,
+              "componentId": "psy-writing1"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Psychometrics: An Introduction",
+              "credits": 7.5,
+              "componentId": "psy-psychometrics"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Academic Writing Skills II",
+              "credits": 3,
+              "componentId": "psy-writing2"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Practical Psychodiagnostics",
+              "credits": 2.5,
+              "componentId": "psy-psychodiag2"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Methods & Statistics III",
+              "credits": 7.5,
+              "componentId": "psy-methods3"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Bachelor Thesis",
+              "credits": 14,
+              "componentId": "psy-thesis"
+            },
+            "ucr-1": {
+              "text": "Optional independent research",
+              "credits": 15,
+              "comparisonOnly": true,
+              "comparisonElementId": "optional-independent-research"
+            },
+            "ucr-2": {
+              "text": "Optional independent research",
+              "credits": 15,
+              "comparisonOnly": true,
+              "comparisonElementId": "optional-independent-research"
+            },
+            "ucr-3": {
+              "text": "Optional independent research",
+              "credits": 15,
+              "comparisonOnly": true,
+              "comparisonElementId": "optional-independent-research"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Intervention Research",
+              "credits": 5,
+              "componentId": "psy-intervention-research"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Image Processing & Computer Vision",
+              "credits": 7.5,
+              "courseCode": "DISDATA212"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Machine Learning",
+              "credits": 7.5,
+              "courseCode": "DISDATA211"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "block-5",
+      "title": "Professional formation & communication",
+      "rows": [
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Personal & Professional Development",
+              "credits": 7.5,
+              "courseCode": "ACCPPDE101"
+            },
+            "ucr-2": {
+              "text": "Personal & Professional Development",
+              "credits": 7.5,
+              "courseCode": "ACCPPDE101"
+            },
+            "ucr-3": {
+              "text": "Personal & Professional Development",
+              "credits": 7.5,
+              "courseCode": "ACCPPDE101"
+            },
+            "comparator": {
+              "text": "ThriveTrack I",
+              "credits": 4,
+              "componentId": "psy-thrive1"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Professional Ethics",
+              "credits": 2,
+              "componentId": "psy-ethics"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "ThriveTrack II",
+              "credits": 2,
+              "componentId": "psy-thrive2"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "ThriveTrack III",
+              "credits": 1.5,
+              "componentId": "psy-thrive3"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "block-6",
+      "title": "Choice space",
+      "rows": [
+        {
+          "cells": {
+            "comparator": {
+              "text": "Minor",
+              "credits": 15,
+              "componentId": "psy-minor",
+              "note": "Open minor/exchange space within the programme."
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Psychology elective space",
+              "credits": 10,
+              "componentId": "psy-elective",
+              "note": "Two psychology electives; specific electives are not fixed here."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "mind-computation",
+      "title": "Mind, philosophy & computational methods",
+      "rows": [
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Introduction to Data Science",
+              "credits": 7.5,
+              "courseCode": "DISDATA111"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Introduction to Programming",
+              "credits": 7.5,
+              "courseCode": "DISGATE101"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Introduction to Western Philosophy",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL111"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Ethics",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL212"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Philosophy of Mind",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL214"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Philosophy of Emotion",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL311"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Free Will, Time & the Self",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL313"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "selectedCourseDescriptionCodes": [
+    "ACCPPDE101",
+    "BENBUSI211",
+    "BENECON212",
+    "BENECON314",
+    "BENENTR311",
+    "BENENTR312",
+    "BENGATE101",
+    "BENGATE102",
+    "BENLEAD111",
+    "BENLEAD112",
+    "BENLEAD211",
+    "BENLEAD311",
+    "BENLEAD312",
+    "DISDATA111",
+    "DISDATA211",
+    "DISDATA212",
+    "DISGATE101",
+    "GOSPHIL111",
+    "GOSPHIL212",
+    "GOSPHIL214",
+    "GOSPHIL311",
+    "GOSPHIL313",
+    "GOSSOCI111",
+    "GOSSOCI212",
+    "GOSSOCI214",
+    "GOSSOCI311",
+    "HCBCOGN112",
+    "HCBCOGN212",
+    "HCBCOGN311",
+    "HCBCOGN312",
+    "HCBGATE101",
+    "HCBGATE102",
+    "HCBLIFE212",
+    "HCBPSYC111",
+    "HCBPSYC211",
+    "HCBPSYC212",
+    "HCBPSYC311",
+    "HCBPSYC312",
+    "HCBPSYC313",
+    "HCBPSYC314",
+    "HCBPSYC315",
+    "MCCCOMM311"
+  ],
+  "selectedDescriptionEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000004/course-content-review.json#/selectedDescriptionReview",
+  "finding": "Read everylistedfield andall42descriptions incontentcontext. PsychologyEnglishheading current; closestlabelnowdescribes actualcurriculum. All33completecurriculumreferences and3concept/selectednote references resolve. Revisedleadership/advancedmethodsnames agreewithcurrentworkbook andcache. Choiceconstraintsthisislimitationnoncreditobligation clear. Internalresearch,provenance andsourceNotes have nonarrativefallback. Selectedcomponentnotes3; nocellNotesselected. No missingdescriptionfallback. Noappcodechange,launch,installation,screenshot orlivemodalexercise; representativeactualrenderingremainsafinalreleasegate."
+}
