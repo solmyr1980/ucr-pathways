@@ -759,7 +759,7 @@
     },
     {
       "id": "cp-000002",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "correct",
@@ -769,26 +769,14 @@
         "6": "retain"
       },
       "sharedIssueIds": [],
-      "unresolved": [
-        "Await exact published repair/input verification,applicableCI and separately identified source-first final academic/content pass."
-      ],
-      "downstreamReassessments": [
-        {
-          "trigger": "Authoritative workbook content,identity andoffering changes; now-available directPublicPolicyAnalysis",
-          "scope": "Three concepts,all72placements,35selectedcourses,policy/leadership alignments,thirdcandidate stopping andselectedreader-facingcontent reassessed; frozen final pass pending.",
-          "stages": [
-            3,
-            4,
-            5,
-            6
-          ],
-          "state": "in-progress"
-        }
-      ],
+      "unresolved": [],
+      "downstreamReassessments": [],
       "implementationCommits": [
-        "cb3d93911e6b1b2911d7c4d309e15e3c987d41bb"
+        "cb3d93911e6b1b2911d7c4d309e15e3c987d41bb",
+        "d189b00ffc02fde141c8e108313ea2b216f1e170",
+        "ba4532dac09dc7f131b08386a6792b5f1d0602af"
       ],
-      "presentationApproval": false,
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000002.json",
       "academicDisposition": "comparison"
     },
@@ -5182,8 +5170,8 @@
     }
   ],
   "progress": {
-    "approved": 3,
-    "inProgress": 1,
+    "approved": 4,
+    "inProgress": 0,
     "reviewedWithBlockers": 0,
     "notStarted": 434,
     "pilotStarted": 1
@@ -5415,42 +5403,31 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "working",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000002",
-      "activeClaim": {
-        "executionId": "restart-A-cp002-content-20261031T1026Z",
-        "worker": "A",
-        "caseId": "cp-000002",
-        "claimedAt": "2026-10-31 10:26:31 UTC",
-        "reviewedInputCommit": "74204bee2ebb976f5a0e7bfb0225f0f7297b21ed",
-        "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/comparisons/cp-000002.json": "bf71183680dd1fa0bf3f0ed71a4ef9c72687a8ee",
-          "data/counselor/decisions/cp-000002.json": "ad94bb20a6f63a8def92579bfacb41f00ab9fd7b",
-          "data/registry/programme_interests.csv": "836d2a9b9495d24be7800aba1d72ef7d3bbd87e5"
-        },
-        "nextAction": "Reassess reopened CP002 current UCR course content, identities, prerequisites and offerings; preserve valid external/interest research; implement dependent repairs and complete source-first academic, mechanical and content final checks.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000003",
+      "activeClaim": null,
       "completedCases": [
-        "cp-000001"
+        "cp-000001",
+        "cp-000002"
       ],
       "completedDispositions": [
         {
           "caseId": "cp-000001",
           "state": "approved",
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000001.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-10-31"
+        },
+        {
+          "caseId": "cp-000002",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000002.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-10-31"
         }
@@ -5461,15 +5438,18 @@
       "lastCheckpoint": {
         "caseId": "cp-000002",
         "executionId": "restart-A-cp002-content-20261031T1026Z",
-        "state": "in-progress",
-        "reviewedInputCommit": "d189b00ffc02fde141c8e108313ea2b216f1e170",
+        "state": "approved",
+        "reviewedInputCommit": "ba4532dac09dc7f131b08386a6792b5f1d0602af",
         "inputBlobs": {
           "canonical": "47298bd50e91da0d7b4fe100037dbb83a5cf9123",
           "decision": "f333df3f70dea9c0702573f33820299eb4ce1118"
         },
+        "verifiedAt": "2026-10-31T10:38:39.966820+00:00",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000002/technology-route-review-2026-10-31.json",
-        "nextAction": "Verify published CP002 repair andapplicableCI; conduct separatelyidentified source-first academic/content finalpass onexactinputs andrecordfinalchecks. CompleteCP002beforeCP003."
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000002/record-source-first-final-2026-10-31.json",
+        "nextAction": "CP002 complete. Worker A resumes CP003 on the next execution. Final release, discovery finalisation and counselor deployment remain unauthorised.",
+        "runtimeModel": "unknown",
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -6784,9 +6764,9 @@
         "cp-000001",
         "cp-000002"
       ],
-      "state": "reopened",
-      "verifiedOn": "2026-10-27",
-      "basis": "Previous pair closure is historical; both cases require renewed validation against the current workbook.",
+      "state": "closed",
+      "verifiedOn": "2026-10-31",
+      "basis": "Both reopened cases now have new verified final dispositions under record-content-review-2026-10-31; prior closure and reopening retained in reportingPairClosureHistory.",
       "priorClosure": {
         "pairNumber": 1,
         "caseIds": [
@@ -6797,7 +6777,15 @@
         "verifiedOn": "2026-10-27",
         "basis": "Both NEW audit dispositions verified final; historical approvals not counted."
       },
-      "reopenedOn": "2026-10-29"
+      "reopenedOn": "2026-10-29",
+      "evidenceFiles": [
+        "data/counselor/qc/full-restart-2026-10-27/cp-000001.json",
+        "data/counselor/qc/full-restart-2026-10-27/cp-000002.json"
+      ],
+      "verificationEvidenceRefs": [
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000001/source-first-content-final-2026-10-31.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000002/record-source-first-final-2026-10-31.json"
+      ]
     }
   ],
   "reopening": {
@@ -6911,5 +6899,28 @@
     "scope": "Representative actual desktop/mobile rendering, presentation modes, navigation, links, course modals and fallbacks; applicable runtime regressions for app/renderer code changes.",
     "releaseAuthority": false,
     "counselorDeploymentAuthority": false
-  }
+  },
+  "reportingPairClosureHistory": [
+    {
+      "pairNumber": 1,
+      "caseIds": [
+        "cp-000001",
+        "cp-000002"
+      ],
+      "state": "reopened",
+      "verifiedOn": "2026-10-27",
+      "basis": "Previous pair closure is historical; both cases require renewed validation against the current workbook.",
+      "priorClosure": {
+        "pairNumber": 1,
+        "caseIds": [
+          "cp-000001",
+          "cp-000002"
+        ],
+        "state": "closed",
+        "verifiedOn": "2026-10-27",
+        "basis": "Both NEW audit dispositions verified final; historical approvals not counted."
+      },
+      "reopenedOn": "2026-10-29"
+    }
+  ]
 }
