@@ -3064,7 +3064,7 @@
     },
     {
       "id": "cp-000241",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "correct",
@@ -3075,21 +3075,11 @@
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Mobility/corecoupling,oneinterestcorrection andweakcourse/placementreconstruction",
-          "scope": "All3concepts/stopping,42selectedcoursecontributions,72placements,distinctness,25alignments andallreader-facingcontent reassessed. Publishedverificationpending.",
-          "stages": [
-            2,
-            3,
-            4,
-            5,
-            6
-          ]
-        }
+      "downstreamReassessments": [],
+      "implementationCommits": [
+        "8b3c38a461365d73d325937f354f9d7e347fa46a"
       ],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000241.json",
       "academicDisposition": "comparison"
     },
@@ -5235,8 +5225,8 @@
     }
   ],
   "progress": {
-    "approved": 8,
-    "inProgress": 1,
+    "approved": 9,
+    "inProgress": 0,
     "reviewedWithBlockers": 0,
     "notStarted": 429,
     "pilotStarted": 1
@@ -5804,39 +5794,21 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "working",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000241",
-      "activeClaim": {
-        "executionId": "restart-B-cp241-20261031T1259Z",
-        "worker": "B",
-        "caseId": "cp-000241",
-        "claimedAt": "2026-10-31T13:00:13.424413+00:00",
-        "reviewedInputCommit": "a75d1f6fd3133acec52283df0ab615e8af77374f",
-        "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000241.json": "616286de94de27ba4dce059dd1820f946d5d09ea",
-          "data/counselor/comparisons/cp-000241.json": "62e8dfa814a29ef9a65b58e0831c5ca90909b975",
-          "data/registry/programme_interests.csv": "b8b416bad788644c8ec30a31792adb86f22f4da3"
-        },
-        "nextAction": "Publish repairedCP241 pair,oneinterest/reviewindexcorrection anddetailedcase/registerevidence; verifyexactpublishedinputs,CI andseparatelyrecordedsource-firstfinalpass,thenrecorddisposition.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000242",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
         "cp-000239",
-        "cp-000240"
+        "cp-000240",
+        "cp-000241"
       ],
       "completedDispositions": [
         {
@@ -5866,25 +5838,32 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000240.json",
           "academicDisposition": "no-defensible-ucr-match",
           "verifiedOn": "2026-10-31"
+        },
+        {
+          "caseId": "cp-000241",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000241.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-10-31"
         }
       ],
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {},
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000240",
-        "executionId": "restart-B-cp240-20261031T1203Z",
+        "caseId": "cp-000241",
+        "executionId": "restart-B-cp241-20261031T1259Z",
         "state": "approved",
-        "academicDisposition": "no-defensible-ucr-match",
-        "reviewedInputCommit": "84e735b248fdb5efb940fe3d926807ff65b64246",
+        "academicDisposition": "comparison",
+        "reviewedInputCommit": "8b3c38a461365d73d325937f354f9d7e347fa46a",
         "inputBlobs": {
-          "canonical": "b3b37de6aeeab395b500120af2af8444e2b93958",
-          "decision": "3a7ed54ef2ed94ccc66bdb3399d20d9397bc21a1"
+          "canonical": "158dbd9641df583a528a7ad92cf8f6c49c1cdc4c",
+          "decision": "0030566fd8df220f1a0f155117286433899ff41d"
         },
-        "verifiedAt": "2026-10-31T12:11:47.223758+00:00",
+        "verifiedAt": "2026-10-31T13:17:41.629238+00:00",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000240/source-first-final-pass.json",
-        "nextAction": "CP240 complete as verified no-defensible-ucr-match. Worker B resumes CP241 next execution. Finalrelease,discoverypublication anddeployment remainunauthorised.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000241/source-first-final-pass.json",
+        "nextAction": "CP241 complete with three verified alternatives. Worker B resumes CP242 next execution. Final release, discovery publication and deployment remain unauthorised.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
