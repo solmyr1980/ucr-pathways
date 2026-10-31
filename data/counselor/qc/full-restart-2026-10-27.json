@@ -3230,7 +3230,9 @@
           ]
         }
       ],
-      "implementationCommits": [],
+      "implementationCommits": [
+        "35e9b7d41782c72a65a193e34a81ef6bbbd4c098"
+      ],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000245.json",
       "academicDisposition": "external-programme-unresolved"
@@ -5946,7 +5948,7 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "working",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
@@ -5954,48 +5956,7 @@
         "minute": 0
       },
       "nextCase": "cp-000245",
-      "activeClaim": {
-        "executionId": "restart-B-cp245-20261031T1804Z",
-        "worker": "B",
-        "caseId": "cp-000245",
-        "claimedAt": "2026-10-31T18:04:00Z",
-        "reviewedInputCommit": "aed0227b625c3086817ba24677a2082b51de5256",
-        "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000245.json": "5149b13f148b9f366392c6db3a18f9c560b943ff",
-          "data/counselor/comparisons/cp-000245.json": "f7d4f4f367d2bbf6c664a8c31f3f7dc7329d16ab",
-          "data/registry/programme_interests.csv": "3d78a6f1c07e2104742ea328b1431e6fac13acce"
-        },
-        "nextAction": "Verify published partialexception/independentrepairs andCI;record sourceattempt1 checkpoint without approval orqueueadvance. Next execution resumes CP245 to obtain authoritative2026cohort rules andidentify0000NewCourse.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown",
-        "previousClaim": {
-          "executionId": "restart-B-cp245-20261031T1702Z",
-          "worker": "B",
-          "caseId": "cp-000245",
-          "claimedAt": "2026-10-31T17:02:45.398644+00:00",
-          "reviewedInputCommit": "0251c800780d79a22c176a3d363783160512e123",
-          "inputBlobs": {
-            "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-            "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-            "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
-            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-            "data/counselor/decisions/cp-000245.json": "5149b13f148b9f366392c6db3a18f9c560b943ff",
-            "data/counselor/comparisons/cp-000245.json": "f7d4f4f367d2bbf6c664a8c31f3f7dc7329d16ab",
-            "data/registry/programme_interests.csv": "3d78a6f1c07e2104742ea328b1431e6fac13acce"
-          },
-          "nextAction": "Fresh six-stage CP245 review: verify the official external identity/curriculum and all exact-target interests; assess current UCR substance, repair the case and complete source-first final verification.",
-          "runtimeModel": "unknown",
-          "runtimeReasoningEffort": "unknown"
-        }
-      },
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -6065,22 +6026,23 @@
         }
       ],
       "deferredCases": [],
-      "sourceRetrievalFailuresByCase": {},
+      "sourceRetrievalFailuresByCase": {
+        "cp-000245": 1
+      },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000244",
-        "executionId": "restart-B-cp244-20261031T1556Z",
-        "state": "approved",
-        "academicDisposition": "no-defensible-ucr-match",
-        "reviewedInputCommit": "217bf91f4db3b99f6ce5478dfb530835b74646af",
+        "caseId": "cp-000245",
+        "executionId": "restart-B-cp245-20261031T1804Z",
+        "state": "in-progress",
+        "academicDisposition": "external-programme-unresolved",
+        "reviewedInputCommit": "35e9b7d41782c72a65a193e34a81ef6bbbd4c098",
         "inputBlobs": {
-          "canonical": "f95c0625357d6aa0685191f4bb2b105813efa215",
-          "decision": "dc92158c207f069ee67850a49aa641c081eb049c"
+          "canonical": "93ada61ff86c66e18ae7d6114a50885d97b6fd32",
+          "decision": "0b31f1ff6aaf4ffba1437f81b62844d220c8cb18"
         },
-        "verifiedAt": "2026-10-31T16:04:48.341751+00:00",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000244/source-first-final-pass.json",
-        "nextAction": "CP244 complete as verified no-defensible-ucr-match. Worker B resumes CP245 next execution.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/source-first-checkpoint.json",
+        "nextAction": "Resume CP245: obtain authoritative2026entrant curriculum/transition andchoice rules identifying0000NewCourse andresolving theduplicated subjects andlater-year allocation. Preserve verifiedfirstyear,52interests andindependentUCRrepairs. Source-evidence unsuccessfulexecution1;notdeferred orcomplete.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -6127,6 +6089,81 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-10-31",
+          "reason": "Preserve previous checkpoint and both interrupted/resumed CP245 execution claims before source-attempt checkpoint.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000244",
+              "executionId": "restart-B-cp244-20261031T1556Z",
+              "state": "approved",
+              "academicDisposition": "no-defensible-ucr-match",
+              "reviewedInputCommit": "217bf91f4db3b99f6ce5478dfb530835b74646af",
+              "inputBlobs": {
+                "canonical": "f95c0625357d6aa0685191f4bb2b105813efa215",
+                "decision": "dc92158c207f069ee67850a49aa641c081eb049c"
+              },
+              "verifiedAt": "2026-10-31T16:04:48.341751+00:00",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000244/source-first-final-pass.json",
+              "nextAction": "CP244 complete as verified no-defensible-ucr-match. Worker B resumes CP245 next execution.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-B-cp245-20261031T1804Z",
+              "worker": "B",
+              "caseId": "cp-000245",
+              "claimedAt": "2026-10-31T18:04:00Z",
+              "reviewedInputCommit": "aed0227b625c3086817ba24677a2082b51de5256",
+              "inputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000245.json": "5149b13f148b9f366392c6db3a18f9c560b943ff",
+                "data/counselor/comparisons/cp-000245.json": "f7d4f4f367d2bbf6c664a8c31f3f7dc7329d16ab",
+                "data/registry/programme_interests.csv": "3d78a6f1c07e2104742ea328b1431e6fac13acce"
+              },
+              "nextAction": "Verify published partialexception/independentrepairs andCI;record sourceattempt1 checkpoint without approval orqueueadvance. Next execution resumes CP245 to obtain authoritative2026cohort rules andidentify0000NewCourse.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown",
+              "previousClaim": {
+                "executionId": "restart-B-cp245-20261031T1702Z",
+                "worker": "B",
+                "caseId": "cp-000245",
+                "claimedAt": "2026-10-31T17:02:45.398644+00:00",
+                "reviewedInputCommit": "0251c800780d79a22c176a3d363783160512e123",
+                "inputBlobs": {
+                  "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                  "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                  "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                  "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+                  "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                  "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                  "data/counselor/decisions/cp-000245.json": "5149b13f148b9f366392c6db3a18f9c560b943ff",
+                  "data/counselor/comparisons/cp-000245.json": "f7d4f4f367d2bbf6c664a8c31f3f7dc7329d16ab",
+                  "data/registry/programme_interests.csv": "3d78a6f1c07e2104742ea328b1431e6fac13acce"
+                },
+                "nextAction": "Fresh six-stage CP245 review: verify the official external identity/curriculum and all exact-target interests; assess current UCR substance, repair the case and complete source-first final verification.",
+                "runtimeModel": "unknown",
+                "runtimeReasoningEffort": "unknown"
+              }
+            }
+          }
+        }
+      ],
+      "sourceRetrievalFailureHistory": [
+        {
+          "caseId": "cp-000245",
+          "executionId": "restart-B-cp245-20261031T1804Z",
+          "checkedOn": "2026-10-31",
+          "essentialEvidence": "Resolve the applicable2026 entrant curriculum andtransition/choice rules: identify the7.5EC year2 entry0000 New Course; determine which duplicated Psychology andEmbodied Meaning entries apply to eachcohort; reconcile the current15EC thesis and30EC external-space listing with the other third-year courses andthe older10EC-thesis/15EC-choice programme. A combined list of all27entries is not a valid180EC pathway.",
+          "officialAlternative": "Currentpubliccatalogue inspected,olderofficialaccreditation inspected;neither settles revisedcohortconditions.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/source-first-checkpoint.json"
         }
       ]
     }
