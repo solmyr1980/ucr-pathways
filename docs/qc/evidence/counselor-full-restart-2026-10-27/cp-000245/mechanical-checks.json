@@ -1,0 +1,54 @@
+{
+  "checks": [
+    {
+      "check": "feasibility",
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000245.json",
+      "exitCode": 0,
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/feasibility.log"
+    },
+    {
+      "check": "schema",
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000245.json",
+      "exitCode": 0,
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/schema.log"
+    },
+    {
+      "check": "operational",
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/operational.log"
+    },
+    {
+      "check": "interests",
+      "command": "npm run validate:registry-interests",
+      "exitCode": 0,
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/interests.log"
+    },
+    {
+      "check": "review-index",
+      "command": "npm run validate:counselor-review",
+      "exitCode": 0,
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/review-index.log"
+    },
+    {
+      "check": "descriptions",
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/descriptions.log"
+    },
+    {
+      "check": "decision-canonical-replay",
+      "status": "passed",
+      "byteExact": true,
+      "canonicalSha256": "4332531390ac4ab11a3aff02daea933c9e5a75d2188534ab777d6cda9f6ff269",
+      "temporaryOutput": "/tmp/b245-byte-replay-wording.json"
+    }
+  ],
+  "scope": "Case mechanical/operational validation only; academic and content judgments recorded separately. No runtime app testing or release authority."
+}
