@@ -977,7 +977,9 @@
           ]
         }
       ],
-      "implementationCommits": [],
+      "implementationCommits": [
+        "8e6baa2c7afc7ba17268ded20217f11407b6b080"
+      ],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000013.json",
       "academicDisposition": "external-programme-unresolved"
@@ -5607,7 +5609,7 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "working",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
@@ -5615,27 +5617,7 @@
         "minute": 30
       },
       "nextCase": "cp-000013",
-      "activeClaim": {
-        "executionId": "restart-A-cp013-20261031T1935Z",
-        "worker": "A",
-        "caseId": "cp-000013",
-        "claimedAt": "2026-10-31 19:35:44 UTC",
-        "reviewedInputCommit": "1cbc6ff6ded3f6c868fc398121b99aae57d5be60",
-        "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000013.json": "a6f5ca6a38bcc0a821839c53ac2320a443a1e0e6",
-          "data/counselor/comparisons/cp-000013.json": "ec263e91ff4bf45acc49d4caee32e8831acd5fdf",
-          "data/registry/programme_interests.csv": "3d78a6f1c07e2104742ea328b1431e6fac13acce"
-        },
-        "nextAction": "Verifypublishedpartialexception andindependentrepairs/CI; complete separate same-AIsource-firstpass andrecordsourceattempt1withoutapproval,deferral orqueueadvance.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -5721,22 +5703,23 @@
         }
       ],
       "deferredCases": [],
-      "sourceRetrievalFailuresByCase": {},
+      "sourceRetrievalFailuresByCase": {
+        "cp-000013": 1
+      },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000011",
-        "executionId": "restart-A-cp011-20261031T1832Z",
-        "state": "approved",
-        "academicDisposition": "comparison",
-        "reviewedInputCommit": "a75dea254bf66e9b83b2641f3ebb4e28eb828568",
+        "caseId": "cp-000013",
+        "executionId": "restart-A-cp013-20261031T1935Z",
+        "state": "in-progress",
+        "academicDisposition": "external-programme-unresolved",
+        "reviewedInputCommit": "8e6baa2c7afc7ba17268ded20217f11407b6b080",
         "inputBlobs": {
-          "canonical": "1b116cd0327411c7eb7d597ccb7fc607c7275d01",
-          "decision": "f3a43d0facb92b51390f11ea9e36eda1c25bb35c"
+          "canonical": "bf5dada0ceedd77e88edc5aae1447d9776d6ef95",
+          "decision": "42acd11805f32d6da8e38ce33ecd1c482894ef34"
         },
-        "verifiedAt": "2026-10-31",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000011/source-first-final-pass.json",
-        "nextAction": "CP011 complete with three verified alternatives; worker A resumes CP013 next execution.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000013/source-first-checkpoint.json",
+        "nextAction": "Resume CP013: obtain current discipline-specific philosophy choice rules for the Economics/Business illustration and instantiate the recognised90EC complementary coursework. Preserve verified75EC,interest findings andindependentUCR repairs. Sourceattempt1 remains incomplete;noapproval ordeferral.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -5827,6 +5810,60 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-10-31",
+          "reason": "Preservepreviouscheckpoint andcurrentclaim before incomplete sourcecheckpoint.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000011",
+              "executionId": "restart-A-cp011-20261031T1832Z",
+              "state": "approved",
+              "academicDisposition": "comparison",
+              "reviewedInputCommit": "a75dea254bf66e9b83b2641f3ebb4e28eb828568",
+              "inputBlobs": {
+                "canonical": "1b116cd0327411c7eb7d597ccb7fc607c7275d01",
+                "decision": "f3a43d0facb92b51390f11ea9e36eda1c25bb35c"
+              },
+              "verifiedAt": "2026-10-31",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000011/source-first-final-pass.json",
+              "nextAction": "CP011 complete with three verified alternatives; worker A resumes CP013 next execution.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp013-20261031T1935Z",
+              "worker": "A",
+              "caseId": "cp-000013",
+              "claimedAt": "2026-10-31 19:35:44 UTC",
+              "reviewedInputCommit": "1cbc6ff6ded3f6c868fc398121b99aae57d5be60",
+              "inputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000013.json": "a6f5ca6a38bcc0a821839c53ac2320a443a1e0e6",
+                "data/counselor/comparisons/cp-000013.json": "ec263e91ff4bf45acc49d4caee32e8831acd5fdf",
+                "data/registry/programme_interests.csv": "3d78a6f1c07e2104742ea328b1431e6fac13acce"
+              },
+              "nextAction": "Verifypublishedpartialexception andindependentrepairs/CI; complete separate same-AIsource-firstpass andrecordsourceattempt1withoutapproval,deferral orqueueadvance.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
+        }
+      ],
+      "sourceRetrievalFailureHistory": [
+        {
+          "caseId": "cp-000013",
+          "executionId": "restart-A-cp013-20261031T1935Z",
+          "checkedOn": "2026-10-31",
+          "essentialEvidence": "Confirm the current2026–2027 Economics and Business Economics discipline-specific philosophy selection (15EC, including obligatory/restricted choices) and instantiate a coherent recognised90EC complementary coursework set. The oldpublic2025–2026 ESE menu is not a verified current selection.",
+          "officialAlternative": "Current2026–2027TER/Rules&Guidelines,publicoverviewandtargetedofficialsearchinspected;thecurrentdiscipline-choiceallocation remainsunresolved.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000013/source-first-checkpoint.json"
         }
       ]
     },
