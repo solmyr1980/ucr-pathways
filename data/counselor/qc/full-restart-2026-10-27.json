@@ -741,25 +741,25 @@
         "1": "retain",
         "2": "retain",
         "3": "retain",
-        "4": "retain",
+        "4": "correct",
         "5": "correct",
-        "6": "retain"
+        "6": "blocked"
       },
       "sharedIssueIds": [],
       "unresolved": [
-        "Revalidation against the current course workbook is pending; no new review has begun."
+        "Actual desktop/mobile Shiny verification and source-first final pass outstanding; Rscript unavailable."
       ],
       "downstreamReassessments": [
         {
           "trigger": "Authoritative enriched course workbook replaced after the previous approval.",
-          "scope": "Reassess UCR concepts and course contributions, all prerequisites and assigned offerings, dependent comparison/content, and final academic/mechanical/rendered verification.",
+          "scope": "Course contributions and both schedules reassessed; repairs pass mechanical gates. Rendered integration and final source-first pass remain open.",
           "stages": [
             3,
             4,
             5,
             6
           ],
-          "state": "pending"
+          "state": "in-progress"
         }
       ],
       "implementationCommits": [
@@ -5453,7 +5453,7 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "blocked-runtime",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
@@ -5461,25 +5461,7 @@
         "minute": 30
       },
       "nextCase": "cp-000001",
-      "activeClaim": {
-        "executionId": "restart-A-cp001-20261031T0730Z",
-        "worker": "A",
-        "caseId": "cp-000001",
-        "claimedAt": "2026-10-31T07:31:06.961892+00:00",
-        "reviewedInputCommit": "44f3f483444ed538888834559c95f889b7c331f9",
-        "inputBlobs": {
-          "data/counselor/comparisons/cp-000001.json": "4a4ec287fc2c02df225aff54bbc3962630e2ff28",
-          "data/counselor/decisions/cp-000001.json": "ae2e2e071b6b70be7893f59c970a784ab6e1fc54",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "docs/UCR_Pathways_Production_Instructions.md": "e0fd5358d11b044fe531c21e966705dd2f388760",
-          "docs/UCR_Pathways_Master_Specification.md": "5a3a13afe4d390ff674d0d5af2524809459a1e5e",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "a87138d5ef066dc6f8d79bacd6b852958f5b85c6",
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e"
-        },
-        "nextAction": "Read current UCR evidence and feasibility; retain unchanged verified external and interest findings; repair affected selections, schedule, traceability and display.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "activeClaim": null,
       "completedCases": [],
       "completedDispositions": [],
       "deferredCases": [],
@@ -5487,10 +5469,12 @@
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
         "caseId": "cp-000001",
+        "executionId": "restart-A-cp001-20261031T0730Z",
         "state": "in-progress",
         "checkpointedOn": "2026-10-31",
-        "nextAction": "Resume cp-000001 from its detailed reopened case evidence under the current protocol; retain verified unaffected work and complete every reopened dependency and remaining gate. Review restart authorised by the user on 31 October 2026; no case work performed by this administrative resumption.",
-        "reviewStarted": false
+        "nextAction": "Restore Rscript and the required Shiny/browser environment; inspect repaired CP001 at desktop/mobile widths, including source navigation and all selected-course modal integrations; perform the separately identified source-first final pass, reconcile published inputs and CI, then record final disposition. Resume CP001 before advancing.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000001/reopened-2026-10-31.json",
+        "reviewStarted": true
       },
       "checkpointHistory": [
         {
