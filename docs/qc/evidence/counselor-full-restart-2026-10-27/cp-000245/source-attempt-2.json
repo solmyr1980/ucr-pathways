@@ -1,0 +1,210 @@
+{
+  "caseId": "cp-000245",
+  "executionId": "restart-B-cp245-20261031T1857Z",
+  "checkedOn": "2026-10-31",
+  "reviewedInputCommit": "24a89895f7b458360ac113ca328be3a23b9b6b4d",
+  "inputBlobs": {
+    "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+    "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+    "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000245.json": "046ca09fb04f8e854bd7629d9844d5c11e7f30d7",
+    "data/counselor/comparisons/cp-000245.json": "f175e7661490d59c6b2b71e9f277fa0ef4741f75",
+    "data/registry/programme_interests.csv": "3d78a6f1c07e2104742ea328b1431e6fac13acce",
+    "data/counselor/review-programmes.json": "7ecca57f4482cbad198df0836fa1551e3114056e",
+    "data/counselor/review-interests.json": "ba77b2a9190380673f25b8643c35fab15bd8f73a",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa",
+    "pilot/shiny/data/courses/BEN.json": "a8f4bd8fd8e6b7d59f1258d2da4d1f1fd4dea215",
+    "pilot/shiny/data/courses/HCB.json": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad",
+    "pilot/shiny/data/courses/ENS.json": "6f2253ad67a2491dd6cf9ce0e8699c7f618b118e",
+    "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
+    "pilot/shiny/data/courses/GOS.json": "b9788d61805fb3afb343a61c34786e7b5ec31d60"
+  },
+  "essentialEvidence": "Authoritative 2026 entrant cohort, transition and choice rules identifying the unnamed 7.5-EC course0000 and reconciling duplicated Psychology/Embodied Meaning entries with later-year thesis and external-study allocations.",
+  "sources": [
+    {
+      "url": "https://uvh.sqill.it/publisher/api/v0/opleiding/items/114",
+      "finding": "Public2026–2027 programme confirms meaning-making/humanisation and humanities/social sciences, but contains no full curriculum/cohort rules.",
+      "sha256": "4290c0cc60ae4c274a2a362882821d499959e2a08fac4e302c2d8544a45ded93"
+    },
+    {
+      "url": "https://uvh.sqill.it/publisher/api/v0/opleiding/items/search?size=100&offset=0&type_canonical_name=cursus",
+      "method": "Read-only public catalogue POST search",
+      "body": {
+        "query": "",
+        "filters": {
+          "opleiding_filter": [
+            114
+          ]
+        },
+        "language": "nl"
+      },
+      "finding": "All27records exactly equal the prior execution catalogue. The unnamed7.5EC course, duplicatedyear memberships and conflicting later-year total remain unresolved.",
+      "sha256": "b1a2b3126df46a680f1a12738d24e9b58964f5d0908342c52fbeb7adee22cf44"
+    },
+    {
+      "url": "https://www.uvh.nl/onderwijs/onderwijskwaliteit/",
+      "finding": "Current official quality page links2026–2027 examination rules and older accreditation; no complete entrant curriculum or transition table supplied."
+    },
+    {
+      "url": "https://www.uvh.nl/download/5904/?tmstv=1793466238",
+      "title": "Regels en richtlijnen Examencommissie2026–2027",
+      "sha256": "3a535ce1d111f5b3fbf5acb192af72091f5e9b2ce07ff6ccdb426bf103584257",
+      "sections": "8.2 p12;10.2 pp13–14;Appendix2 p17",
+      "finding": "Current formal official alternative inspected. Thesis assessment and external-study approval/no-overlap procedures refer to bachelor OER Arts3.7/3.8. The rules supply neither cohort course membership nor the missing course identity or applicable EC allocation."
+    },
+    {
+      "url": "https://www.uvh.nl/over-de-uvh/algemene-gegevens-en-documenten/",
+      "finding": "General document directory inspected; not a current bachelor curriculum table."
+    }
+  ],
+  "placeholderFields": {
+    "vakcode": "0000",
+    "jaar": "Jaar 2",
+    "studielast_in_ects": 7.5,
+    "vaktitel": {
+      "nl": "Nieuwe vak",
+      "en": "New Course"
+    },
+    "leerdoelen": [],
+    "inhoud": {
+      "nl": null,
+      "en": ""
+    },
+    "plek_in_het_curriculumrelatie_tot_andere_vakken": {
+      "nl": null,
+      "en": ""
+    }
+  },
+  "sixStageDisposition": {
+    "1": "Blocked: full coherent180EC new-entrant curriculum still not established. Retain verified first-year eightcourses60EC.",
+    "2": "Retain unchanged52-interest review; no source change affecting prior interest findings.",
+    "3": "Blocked dependent comparability; retain two provisional concepts without certifying either as an accepted complete comparison.",
+    "4": "Retain independently verified current UCR selection/schedule repairs and all35contribution reviews. No active UCR schedule is fabricated for the exception.",
+    "5": "Retain corrected English reader record and selected descriptions; all active explanation,limitation,title,component and source fields reread.",
+    "6": "Mechanical and record/content checks pass for the partial exception; academic check remains blocked. Deferral is not approval or completion."
+  },
+  "separateSourceFirstPass": {
+    "reviewerOrPass": "Worker B separate same-AI source-first second-execution pass",
+    "method": "After investigating the current formal examination rules, independently fetched public catalogue item244 and reconsidered its actual empty content, then compared the unchanged full27-entry catalogue with the earlier evidence and the finished partial exception. The same AI performed this separately identified pass; no independent human reviewer claimed.",
+    "url": "https://uvh.sqill.it/publisher/api/v0/opleiding/items/244",
+    "sha256": "8f99f62cb94d6ee1ba1541d8d30a70daa176b58aa0e2b847defb293912252d48",
+    "finding": "The official alternative does not resolve the core question, and direct final item retrieval still has no name/content sufficient to reconstruct this component. Do not deduplicate or invent a180EC pathway. Preserve source evidence and repaired content."
+  },
+  "retainedEvidenceRefs": [
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/interest-review.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/wording-content-review.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/wording-publication-verification.json"
+  ],
+  "fieldToRenderer": [
+    "pilot/shared.R:visible_label",
+    "pilot/counselor-shiny/app.R:render_exception,curriculum_view,render_audience_context,render_compare_table,course_description_dialog"
+  ],
+  "contentRead": {
+    "audience": {
+      "schemaVersion": "1.0",
+      "programmeDescription": "Humanistic Studies examines meaning-making and how organisations and society can become more humane. It combines philosophy, psychology, sociology, history and worldview studies with research and reflective professional skills.",
+      "comparisonExplanation": "The revised course sequence and choice requirements remain unconfirmed. The verified first-year courses are shown below. A complete external curriculum is needed before the proposed UCR study compositions can be compared with the degree.",
+      "curriculum": {
+        "status": "partial",
+        "componentIds": [
+          "y1-b1-fh",
+          "y1-b1-ho",
+          "y1-b1-ih",
+          "y1-b1-il",
+          "y1-b1-iw",
+          "y1-b1-so",
+          "y1-b1-np",
+          "y1-b1-ph"
+        ],
+        "yearLabel": "2026–2027",
+        "routeLabel": "Dutch-language, full-time bachelor",
+        "limitation": "The degree comprises 180 EC. Only the eight verified first-year courses, worth 60 EC, are listed here. Later-year requirements and cohort transition rules need clarification before a complete comparison can be approved."
+      }
+    },
+    "components": [
+      {
+        "id": "y1-b1-fh",
+        "name": "Philosophy in Humanistic Studies",
+        "credits": 7.5,
+        "note": "Verified first-year course in the 2026–2027 catalogue. The complete degree comprises 180 EC."
+      },
+      {
+        "id": "y1-b1-ho",
+        "name": "Historical Research",
+        "credits": 7.5,
+        "note": "Verified first-year course in the 2026–2027 catalogue. The complete degree comprises 180 EC."
+      },
+      {
+        "id": "y1-b1-ih",
+        "name": "Introduction to Humanistic Studies",
+        "credits": 7.5,
+        "note": "Verified first-year course in the 2026–2027 catalogue. The complete degree comprises 180 EC."
+      },
+      {
+        "id": "y1-b1-il",
+        "name": "Introduction to the Theory and History of Worldviews",
+        "credits": 7.5,
+        "note": "Verified first-year course in the 2026–2027 catalogue. The complete degree comprises 180 EC."
+      },
+      {
+        "id": "y1-b1-iw",
+        "name": "Introduction to Scientific Research",
+        "credits": 7.5,
+        "note": "Verified first-year course in the 2026–2027 catalogue. The complete degree comprises 180 EC."
+      },
+      {
+        "id": "y1-b1-so",
+        "name": "Qualitative Research for the Social Sciences",
+        "credits": 7.5,
+        "note": "Verified first-year course in the 2026–2027 catalogue. The complete degree comprises 180 EC."
+      },
+      {
+        "id": "y1-b1-np",
+        "name": "Normative Professionalisation 1",
+        "credits": 7.5,
+        "note": "Verified first-year course in the 2026–2027 catalogue. The complete degree comprises 180 EC."
+      },
+      {
+        "id": "y1-b1-ph",
+        "name": "Psychology in Humanistic Studies",
+        "credits": 7.5,
+        "note": "Verified first-year course in the 2026–2027 catalogue. The complete degree comprises 180 EC."
+      }
+    ],
+    "exception": {
+      "type": "external-programme-unresolved",
+      "checkedOn": "2026-10-31",
+      "reason": "The complete curriculum for students entering in 2026 remains unconfirmed. The catalogue includes an unnamed 7.5-EC second-year course (code 0000), lists Psychology and Embodied Meaning in different years, and does not reconcile later-year courses with the 15-EC thesis and 30-EC elective or external-study space. Cohort and transition rules are needed to establish a complete 180-EC pathway.",
+      "curriculumContext": "The degree comprises 180 EC. Eight first-year courses worth 60 EC are verified; the remaining requirements need clarification.",
+      "ucrCourseEvidence": "UCR offers relevant study in philosophy, ethics, psychology, sociology, research, law and public policy. Two provisional study compositions have been examined, but a complete external curriculum is needed before their comparability can be established.",
+      "candidateAssessment": [
+        {
+          "concept": "Meaning, ethics & humane society",
+          "assessment": "A provisional composition combines philosophical reflection, ethics, psychology, social theory and research to explore meaning and humane society. Its relationship to the full Humanistic Studies curriculum remains to be assessed."
+        },
+        {
+          "concept": "Citizenship, law & public values",
+          "assessment": "A provisional composition combines law, political institutions, public policy, history and social research around citizenship and public values. Its relationship to the full Humanistic Studies curriculum remains to be assessed."
+        }
+      ]
+    },
+    "sourceLinks": "https://www.uvh.nl/onderwijs/bachelor-humanistiek/"
+  },
+  "reuseFinding": "All20 actual prior reviewed inputs unchanged, including current-main sole workbook blob22783315e6d5510522d16a72281859dd62a05294, active pair, renderer and selected description caches. Reuse all unchanged verified course contributions, shared description reviews and independent repairs; do not repeat unaffected research. No app or Excel changes.",
+  "deferral": {
+    "sourceAttemptCount": 2,
+    "permittedBy": "active register sourceRetryRule",
+    "completion": false,
+    "approval": false,
+    "noMatch": false,
+    "revisitRule": "One separate revisit after own non-deferred queue or when new essential evidence becomes available; none consumed.",
+    "nextNonDeferredCase": "cp-000246"
+  }
+}

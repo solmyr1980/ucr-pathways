@@ -6012,46 +6012,15 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "working",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000245",
-      "activeClaim": {
-        "executionId": "restart-B-cp245-20261031T1857Z",
-        "worker": "B",
-        "caseId": "cp-000245",
-        "claimedAt": "2026-10-31 18:58:16 UTC",
-        "reviewedInputCommit": "24a89895f7b458360ac113ca328be3a23b9b6b4d",
-        "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000245.json": "046ca09fb04f8e854bd7629d9844d5c11e7f30d7",
-          "data/counselor/comparisons/cp-000245.json": "f175e7661490d59c6b2b71e9f277fa0ef4741f75",
-          "data/registry/programme_interests.csv": "3d78a6f1c07e2104742ea328b1431e6fac13acce",
-          "data/counselor/review-programmes.json": "7ecca57f4482cbad198df0836fa1551e3114056e",
-          "data/counselor/review-interests.json": "ba77b2a9190380673f25b8643c35fab15bd8f73a",
-          "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
-          "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
-          "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa",
-          "pilot/shiny/data/courses/BEN.json": "a8f4bd8fd8e6b7d59f1258d2da4d1f1fd4dea215",
-          "pilot/shiny/data/courses/HCB.json": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad",
-          "pilot/shiny/data/courses/ENS.json": "6f2253ad67a2491dd6cf9ce0e8699c7f618b118e",
-          "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
-          "pilot/shiny/data/courses/GOS.json": "b9788d61805fb3afb343a61c34786e7b5ec31d60"
-        },
-        "nextAction": "Second execution for CP245 essential evidence: seek current official curriculum/cohort/transition rules to identify course0000 and reconcile duplicated subjects and later-year allocations. Preserve verified stages and independent course repairs; record supported disposition or permitted deferral after source-first final verification.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000246",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -6120,24 +6089,27 @@
           "verifiedOn": "2026-10-31"
         }
       ],
-      "deferredCases": [],
+      "deferredCases": [
+        "cp-000245"
+      ],
       "sourceRetrievalFailuresByCase": {
-        "cp-000245": 1
+        "cp-000245": 2
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
         "caseId": "cp-000245",
-        "executionId": "restart-B-cp245-20261031T1804Z",
+        "executionId": "restart-B-cp245-20261031T1857Z",
         "state": "in-progress",
+        "operationalDisposition": "deferred-incomplete",
         "academicDisposition": "external-programme-unresolved",
-        "reviewedInputCommit": "81f2a85cd5385463306e8d4c49c15740278c6053",
+        "reviewedInputCommit": "24a89895f7b458360ac113ca328be3a23b9b6b4d",
         "inputBlobs": {
           "canonical": "f175e7661490d59c6b2b71e9f277fa0ef4741f75",
           "decision": "046ca09fb04f8e854bd7629d9844d5c11e7f30d7"
         },
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/wording-publication-verification.json",
-        "nextAction": "Resume CP245: obtain authoritative 2026 entrant cohort, transition and choice rules identifying course 0000 and reconciling the duplicate subjects and later-year allocations. Preserve the verified first year, 52-interest review and independent UCR repairs. Source attempt 1 remains incomplete; no approval or deferral.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/source-attempt-2.json",
+        "nextAction": "CP245 deferred and incomplete after two unsuccessful essential-source executions. Resume only for new authoritative cohort/course evidence or the permitted separate revisit after B non-deferred queue. Worker B next reviews CP246.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -6302,6 +6274,60 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-10-31",
+          "reason": "Preserve previous checkpoint and second-execution claim before explicit incomplete deferral.",
+          "snapshot": {
+            "activeClaim": {
+              "executionId": "restart-B-cp245-20261031T1857Z",
+              "worker": "B",
+              "caseId": "cp-000245",
+              "claimedAt": "2026-10-31 18:58:16 UTC",
+              "reviewedInputCommit": "24a89895f7b458360ac113ca328be3a23b9b6b4d",
+              "inputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000245.json": "046ca09fb04f8e854bd7629d9844d5c11e7f30d7",
+                "data/counselor/comparisons/cp-000245.json": "f175e7661490d59c6b2b71e9f277fa0ef4741f75",
+                "data/registry/programme_interests.csv": "3d78a6f1c07e2104742ea328b1431e6fac13acce",
+                "data/counselor/review-programmes.json": "7ecca57f4482cbad198df0836fa1551e3114056e",
+                "data/counselor/review-interests.json": "ba77b2a9190380673f25b8643c35fab15bd8f73a",
+                "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+                "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+                "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa",
+                "pilot/shiny/data/courses/BEN.json": "a8f4bd8fd8e6b7d59f1258d2da4d1f1fd4dea215",
+                "pilot/shiny/data/courses/HCB.json": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad",
+                "pilot/shiny/data/courses/ENS.json": "6f2253ad67a2491dd6cf9ce0e8699c7f618b118e",
+                "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
+                "pilot/shiny/data/courses/GOS.json": "b9788d61805fb3afb343a61c34786e7b5ec31d60"
+              },
+              "nextAction": "Second execution for CP245 essential evidence: seek current official curriculum/cohort/transition rules to identify course0000 and reconcile duplicated subjects and later-year allocations. Preserve verified stages and independent course repairs; record supported disposition or permitted deferral after source-first final verification.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "lastCheckpoint": {
+              "caseId": "cp-000245",
+              "executionId": "restart-B-cp245-20261031T1804Z",
+              "state": "in-progress",
+              "academicDisposition": "external-programme-unresolved",
+              "reviewedInputCommit": "81f2a85cd5385463306e8d4c49c15740278c6053",
+              "inputBlobs": {
+                "canonical": "f175e7661490d59c6b2b71e9f277fa0ef4741f75",
+                "decision": "046ca09fb04f8e854bd7629d9844d5c11e7f30d7"
+              },
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/wording-publication-verification.json",
+              "nextAction": "Resume CP245: obtain authoritative 2026 entrant cohort, transition and choice rules identifying course 0000 and reconciling the duplicate subjects and later-year allocations. Preserve the verified first year, 52-interest review and independent UCR repairs. Source attempt 1 remains incomplete; no approval or deferral.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -6312,6 +6338,26 @@
           "essentialEvidence": "Resolve the applicable2026 entrant curriculum andtransition/choice rules: identify the7.5EC year2 entry0000 New Course; determine which duplicated Psychology andEmbodied Meaning entries apply to eachcohort; reconcile the current15EC thesis and30EC external-space listing with the other third-year courses andthe older10EC-thesis/15EC-choice programme. A combined list of all27entries is not a valid180EC pathway.",
           "officialAlternative": "Currentpubliccatalogue inspected,olderofficialaccreditation inspected;neither settles revisedcohortconditions.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/source-first-checkpoint.json"
+        },
+        {
+          "caseId": "cp-000245",
+          "executionId": "restart-B-cp245-20261031T1857Z",
+          "checkedOn": "2026-10-31",
+          "essentialEvidence": "Authoritative 2026 entrant cohort, transition and choice rules identifying the unnamed 7.5-EC course0000 and reconciling duplicated Psychology/Embodied Meaning entries with later-year thesis and external-study allocations.",
+          "officialAlternative": "Current2026–2027 examination rules10.2/Appendix2 inspected; no course/cohort reconstruction supplied.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/source-attempt-2.json"
+        }
+      ],
+      "deferralHistory": [
+        {
+          "caseId": "cp-000245",
+          "deferredOn": "2026-10-31",
+          "executionId": "restart-B-cp245-20261031T1857Z",
+          "unsuccessfulExecutions": 2,
+          "reason": "Authoritative 2026 entrant cohort, transition and choice rules identifying the unnamed 7.5-EC course0000 and reconciling duplicated Psychology/Embodied Meaning entries with later-year thesis and external-study allocations.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/source-attempt-2.json",
+          "revisitStatus": "pending;not consumed",
+          "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
         }
       ]
     }

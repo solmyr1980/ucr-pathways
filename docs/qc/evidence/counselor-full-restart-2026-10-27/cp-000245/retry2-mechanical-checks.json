@@ -1,0 +1,26 @@
+{
+  "checks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000245.json",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/retry2-feasibility.log"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000245.json",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/retry2-schema.log"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/retry2-operational.log"
+    },
+    {
+      "check": "decision/canonical replay",
+      "status": "passed",
+      "byteExact": true,
+      "canonicalSha256": "b47d46265ab97226922b279a7715484955c9eb607541b98b315bb70c991c425f"
+    }
+  ],
+  "scope": "Partial exception only; academic completeness remains blocked."
+}
