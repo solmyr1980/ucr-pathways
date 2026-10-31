@@ -21,7 +21,7 @@
     "pilot/shiny/data/courses/DIS.json": "eb3747b911e3f9d8a97a44dc74d21f22eaddc996",
     "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62"
   },
-  "presentationMode": "normal / no-defensible-ucr-match exception",
+  "presentationMode": "no-defensible-ucr-match exception renderer; configured caution override is bypassed for exception records",
   "fieldToRenderer": [
     "pilot/shared.R:visible_label",
     "pilot/counselor-shiny/app.R:render_exception,curriculum_view,render_audience_context,render_compare_table,course_description_dialog"
@@ -296,5 +296,6 @@
     "HCBCOGN311",
     "HCBGATE102"
   ],
-  "finding": "All28unique components total180EC; minor/elective/graduation boundaries and audience references resolve. English Electrical Engineering heading and clean2026–2027year/route are accurate. Audience gives specific UCR strengths and explains the organising physical-electrical gap without denigrating computation or making a credential-only objection. No weak UCR column remains. Current30candidate descriptions/provenance reviewed andunchangedshared prose reused. No app change,Shinylaunch,installation,screenshot orlivemodal. Actualrepresentativerendering remains required beforefinalrelease."
+  "finding": "All28unique components total180EC; minor/elective/graduation boundaries and audience references resolve. English Electrical Engineering heading and clean2026–2027year/route are accurate. Audience gives specific UCR strengths and explains the organising physical-electrical gap without denigrating computation or making a credential-only objection. No weak UCR column remains. Current30candidate descriptions/provenance reviewed andunchangedshared prose reused. No app change,Shinylaunch,installation,screenshot orlivemodal. Actualrepresentativerendering remains required beforefinalrelease.",
+  "rendererBranchVerification": "Read app.R render_comparison: recordStatus=exception returns render_exception before presentation_setting/caution handling. The old caution mode does not expose a comparison or its warning. render_exception displays the verified heading, official link, audience context,complete external component table and permitted audience notes. Raw exception/cell/source investigations do not supply a prose fallback."
 }
