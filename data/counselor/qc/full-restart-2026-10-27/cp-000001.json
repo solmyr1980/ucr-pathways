@@ -364,7 +364,16 @@
       "outcome": "correct",
       "finding": "Repaired unavailable offering, BENLEAD211 metadata, contribution and affected alignment. Both 24-course schedules pass workbook feasibility, strict schema, operational checks and byte-exact compiler replay.",
       "preserved": [],
-      "actions": [],
+      "actions": [
+        {
+          "state": "verified",
+          "scope": "Repair ucr-2 unavailable economics placement and update BENLEAD211 metadata, contribution and affected alignment. Mechanical implementation verified; no rendered or final academic approval.",
+          "implementationCommit": "fa87ac6406e46504343c1b1abd20d6e1a5c312aa",
+          "verificationEvidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000001/reopened-2026-10-31.json"
+          ]
+        }
+      ],
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000001/placement-schema-replay.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000001/reopened-2026-10-31.json"
@@ -431,7 +440,8 @@
     }
   ],
   "implementationCommits": [
-    "55f787943745ca9454e2392fdc284dfa65755547"
+    "55f787943745ca9454e2392fdc284dfa65755547",
+    "fa87ac6406e46504343c1b1abd20d6e1a5c312aa"
   ],
   "finalReview": null,
   "presentationApproval": false,
@@ -3129,5 +3139,14 @@
     "currentWorkbookBlob": "f49628e7d4072f173794cb8f9c8f7e851c3e7145",
     "previousApprovalCommit": "55f787943745ca9454e2392fdc284dfa65755547",
     "reviewStarted": true
+  },
+  "publicationVerification": {
+    "commit": "fa87ac6406e46504343c1b1abd20d6e1a5c312aa",
+    "verifiedFiles": 5,
+    "method": "Authenticated connector fetch of all five published files at the exact commit; text equality with reviewed publication payload.",
+    "buildWorkflow": "https://github.com/solmyr1980/ucr-pathways/actions/runs/41181214939",
+    "buildConclusion": "success",
+    "otherWorkflows": "Still running at checkpoint; no approval inferred.",
+    "workerATask": "Paused because the current execution environment lacks Rscript and required actual Shiny verification cannot complete. Worker B task unchanged."
   }
 }
