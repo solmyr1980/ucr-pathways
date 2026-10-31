@@ -909,7 +909,7 @@
     },
     {
       "id": "cp-000010",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
@@ -920,21 +920,11 @@
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Correct current major,course evidence andoffering conflicts",
-          "scope": "Allaffected interests,concepts,selections,schedules,alignments andreaderfields reassessed; finalpublishedverification pending.",
-          "stages": [
-            2,
-            3,
-            4,
-            5,
-            6
-          ]
-        }
+      "downstreamReassessments": [],
+      "implementationCommits": [
+        "97bf59ac7f4ec07d3524d12210eab4d9d7e0480b"
       ],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000010.json",
       "academicDisposition": "comparison"
     },
@@ -5324,8 +5314,8 @@
     }
   ],
   "progress": {
-    "approved": 16,
-    "inProgress": 1,
+    "approved": 17,
+    "inProgress": 0,
     "reviewedWithBlockers": 0,
     "notStarted": 421,
     "pilotStarted": 1
@@ -5557,35 +5547,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "working",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000010",
-      "activeClaim": {
-        "executionId": "restart-A-cp010-20261031T1730Z",
-        "worker": "A",
-        "caseId": "cp-000010",
-        "claimedAt": "2026-10-31T17:30:00Z",
-        "reviewedInputCommit": "a51771a74c8c2762c64814fb599bcad97fdc90de",
-        "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000010.json": "bcb6baa2afa61415c59d13bf1655bfc24a059be8",
-          "data/counselor/comparisons/cp-000010.json": "67d6a34446706c3c7ca79f3536723c65574e7269",
-          "data/registry/programme_interests.csv": "3d78a6f1c07e2104742ea328b1431e6fac13acce"
-        },
-        "nextAction": "Publish CP010 repaired pair/evidence andderivedregister,verify exactpublishedinputs andCI,then complete separate same-AI source-first final disposition.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000011",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -5594,7 +5564,8 @@
         "cp-000005",
         "cp-000006",
         "cp-000008",
-        "cp-000009"
+        "cp-000009",
+        "cp-000010"
       ],
       "completedDispositions": [
         {
@@ -5652,25 +5623,32 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000009.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-10-31"
+        },
+        {
+          "caseId": "cp-000010",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000010.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-10-31"
         }
       ],
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {},
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000009",
-        "executionId": "restart-A-cp009-20261031T1635Z",
+        "caseId": "cp-000010",
+        "executionId": "restart-A-cp010-20261031T1730Z",
         "state": "approved",
         "academicDisposition": "comparison",
-        "reviewedInputCommit": "0251c800780d79a22c176a3d363783160512e123",
+        "reviewedInputCommit": "97bf59ac7f4ec07d3524d12210eab4d9d7e0480b",
         "inputBlobs": {
-          "canonical": "3784fafc12ee843b663593f4125ca63a23ed1518",
-          "decision": "7433d0a9de3ea0e24ff274c742be9767a08ad2cb"
+          "canonical": "7e340f2446fb452661fe64be9d34a899b44566d7",
+          "decision": "3118845b9a6b444e7998bde37dbafdaa6be4189c"
         },
-        "verifiedAt": "2026-10-31T17:00:55.093197+00:00",
+        "verifiedAt": "2026-10-31",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000009/source-first-final-pass.json",
-        "nextAction": "CP009 complete with three verified alternatives. Worker A resumes CP010 next execution.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000010/source-first-final-pass.json",
+        "nextAction": "CP010complete with three verifiedalternatives;worker A resumes CP011 next execution.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
