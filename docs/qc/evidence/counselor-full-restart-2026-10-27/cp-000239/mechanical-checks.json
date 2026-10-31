@@ -1,0 +1,139 @@
+{
+  "initialChecks": [
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "data/counselor/comparisons/cp-000239.json"
+      ],
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000239/check-1.log"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "data/counselor/comparisons/cp-000239.json"
+      ],
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000239/check-2.log"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-descriptions.py"
+      ],
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000239/check-3.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor"
+      ],
+      "exitCode": 1,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000239/check-4.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor-review"
+      ],
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000239/check-5.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:registry-interests"
+      ],
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000239/check-6.log"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/build-counselor-production.mjs",
+        "data/counselor/decisions/cp-000239.json",
+        "--output",
+        "/tmp/cp239-final-replay.json"
+      ],
+      "exitCode": 0,
+      "byteExact": true,
+      "canonicalSha256": "8e6fbc8e9fa14825b1ac422e167373440126cc4291379c73822cf22f7d126db3"
+    }
+  ],
+  "boundedFailure": "Initial operational final-rules check found new AI Ethics trace q0 absent from closest evidence-map basis. Added its actual existing knowledge/science/information question basis and recompiled; no systemic failure.",
+  "finalChangedInputChecks": [
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "data/counselor/comparisons/cp-000239.json"
+      ],
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000239/final-check-1.log"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "data/counselor/comparisons/cp-000239.json"
+      ],
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000239/final-check-2.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor"
+      ],
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000239/final-check-3.log"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/build-counselor-production.mjs",
+        "data/counselor/decisions/cp-000239.json",
+        "--output",
+        "/tmp/cp239-final-replay-2.json"
+      ],
+      "exitCode": 0,
+      "byteExact": true,
+      "canonicalSha256": "55346bb3d702cbd3940e6521007e0d419574bc4562eb29decc28fb0705a146f4"
+    }
+  ],
+  "unchangedInputChecks": [
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-descriptions.py"
+      ],
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000239/check-3.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor-review"
+      ],
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000239/check-5.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:registry-interests"
+      ],
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000239/check-6.log"
+    }
+  ]
+}

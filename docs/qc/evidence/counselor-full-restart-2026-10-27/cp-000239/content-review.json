@@ -1,0 +1,979 @@
+{
+  "presentationMode": "normal",
+  "fieldToRenderer": [
+    "pilot/shared.R:visible_label",
+    "pilot/counselor-shiny/app.R:curriculum_view,render_audience_context,render_comparison_summary,render_audience_notes,audience_cell_note,render_compare_table,course_description_dialog"
+  ],
+  "fieldPaths": [
+    "comparator.name/institution/primarySourceUrl/components[].name/credits",
+    "programmes[].label/schedule.semesters[].courses[].name",
+    "academicRationale.alternatives[].concept selected by audience.conceptProgrammeIds",
+    "audience.programmeDescription/comparisonExplanation/curriculum.*",
+    "audience.componentNotes.*",
+    "notes[].text selected by audience.noteTypes",
+    "blocks[].title/rows[].cells.*.text/credits",
+    "optionalIndependentResearch",
+    "selected pilot/shiny/data/courses/*.json descriptions"
+  ],
+  "inputBlobs": {
+    "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+    "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+    "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/comparisons/cp-000239.json": "200a4a9a7f4338e720c0eaf5deb204168ad31ef3",
+    "data/counselor/decisions/cp-000239.json": "72f84e09954d018d6498d69a6f7d56c13855b10c",
+    "data/registry/programme_interests.csv": "333ec2609fcfecba85bc57d0de0ce30dfc605667",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "data/counselor/review-programmes.json": "cd3d6d642e5d20757e2d22bc626b065f11def05e",
+    "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
+    "pilot/shiny/data/courses/DIS.json": "eb3747b911e3f9d8a97a44dc74d21f22eaddc996",
+    "pilot/shiny/data/courses/GOS.json": "b9788d61805fb3afb343a61c34786e7b5ec31d60",
+    "pilot/shiny/data/courses/HCB.json": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad",
+    "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa"
+  },
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "Philosophy at Tilburg University studies ethics, philosophical anthropology and psychology, political and social philosophy, and philosophy of science and knowledge. Historical and contemporary philosophical texts support argument, interpretation and independent research.",
+    "comparisonExplanation": "The UCR options connect philosophical study with social and literary interpretation, normative questions about institutions, or empirical mind and language research. They address related questions through different disciplines, while leaving gaps in Tilburg’s dedicated history, epistemology, metaphysics and philosophical-methods sequence. Shared rows indicate partial relationships rather than course equivalence.",
+    "curriculum": {
+      "status": "complete",
+      "componentIds": [
+        "y1-political",
+        "y1-ethics",
+        "y1-logic",
+        "y1-history-ancient-medieval",
+        "y1-cultural",
+        "y1-writing1",
+        "y1-social-political",
+        "y1-anthropology",
+        "y1-epistemology",
+        "y1-history-modern",
+        "y1-metaphysics",
+        "y1-mentoring",
+        "y2-kant",
+        "y2-mind",
+        "y2-instrumental-reason",
+        "y2-methodology",
+        "y2-philosophy-science",
+        "y2-writing2",
+        "y2-applied-ethics",
+        "y2-political-topics",
+        "y2-existentialism-structuralism",
+        "y2-analytic",
+        "y2-language",
+        "y2-thesis-prep",
+        "y3-free-choice",
+        "y3-moral-psychology",
+        "y3-society-science-information",
+        "y3-phenomenology",
+        "y3-presentation",
+        "y3-thesis"
+      ],
+      "yearLabel": "2026–2027",
+      "routeLabel": "Filosofie Algemeen; 2026 entrants; Dutch-language bachelor",
+      "limitation": "The pathway includes 30 EC of genuine choice space and a required 10-EC thesis. First-year mentoring carries 1 EC; second-year mentoring carries 0 EC. The Entrepreneurship track is a different route and is not combined with this pathway."
+    },
+    "conceptProgrammeIds": [
+      "ucr-1",
+      "ucr-2",
+      "ucr-3"
+    ],
+    "noteTypes": [
+      "less-disciplinary-depth"
+    ],
+    "componentNotes": {
+      "y3-free-choice": "30 EC of choice among study abroad, philosophy electives or an approved minor; no subject is assumed.",
+      "y3-thesis": "Required 10-EC bachelor thesis. Optional UCR independent research is additional and unscheduled.",
+      "y2-thesis-prep": "Required 2-EC preparation for the later bachelor thesis."
+    }
+  },
+  "labelsAndConcepts": [
+    {
+      "label": "Philosophy, society & interpretation",
+      "concept": "Philosophical inquiry into knowledge, ethics, mind, agency and political authority is supported by logic, critical social theory and interpretation of historical and literary texts. Social psychology provides a specific empirical perspective on persons and moral judgment. The programme combines philosophical reading and argument with interdisciplinary cases while retaining important specialist gaps."
+    },
+    {
+      "label": "Ethics, politics, justice and institutions",
+      "concept": "Ethics, political philosophy, logic and human-rights reasoning examine responsibility, justice, freedom and authority. Law, social theory, gender history and literary interpretation provide specific institutions, social experiences and arguments through which those normative questions can be assessed."
+    },
+    {
+      "label": "Mind, language, cognition and artificial intelligence",
+      "concept": "Philosophy of mind, emotion, agency and ethical responsibility is examined alongside empirical cognition, language and neuroscience. Logic, programming and statistical methods provide complementary ways to assess representation, artificial inference and competing evidence about mental life. Empirical training does not replace philosophical argument."
+    }
+  ],
+  "notes": [
+    {
+      "type": "less-disciplinary-depth",
+      "placement": "comparison",
+      "text": "Tilburg provides a sustained philosophy curriculum with dedicated history of philosophy, epistemology, metaphysics, philosophical methods and language study, followed by the general Philosophy track and a required 10-EC thesis. The UCR options combine substantive philosophy with other fields and retain important specialist gaps. Optional independent research is additional to the displayed 180 EC and is not a required philosophy thesis."
+    }
+  ],
+  "table": [
+    {
+      "id": "history",
+      "title": "History of philosophy and cultural interpretation",
+      "rows": [
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Introduction to Western Philosophy",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL111"
+            },
+            "ucr-2": {
+              "text": "Introduction to Western Philosophy",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL111"
+            },
+            "ucr-3": {
+              "text": "Introduction to Western Philosophy",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL111"
+            },
+            "comparator": {
+              "text": "Geschiedenis van de Antieke en Middeleeuwse Wijsbegeerte",
+              "credits": 6,
+              "componentId": "y1-history-ancient-medieval"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Modern History",
+              "credits": 7.5,
+              "courseCode": "GOSHIST111"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Histories of Gender",
+              "credits": 7.5,
+              "courseCode": "GOSHIST112"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Native American Histories",
+              "credits": 7.5,
+              "courseCode": "GOSHIST311"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Heritage & Ancient Democracy",
+              "credits": 7.5,
+              "courseCode": "MCCHEAM315"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Great Literary Works",
+              "credits": 7.5,
+              "courseCode": "MCCLITR112"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "World Myth & Literature",
+              "credits": 7.5,
+              "courseCode": "MCCLITR211"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Close Reading Ethiek (Kant's Praktische Filosofie)",
+              "credits": 6,
+              "componentId": "y2-kant"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Kritiek van de Instrumentele Rede",
+              "credits": 6,
+              "componentId": "y2-instrumental-reason"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Existentialisme en Structuralisme",
+              "credits": 6,
+              "componentId": "y2-existentialism-structuralism"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Hedendaagse Fenomenologie",
+              "credits": 6,
+              "componentId": "y3-phenomenology"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Geschiedenis van de Moderne Wijsbegeerte",
+              "credits": 6,
+              "componentId": "y1-history-modern"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Cultuurfilosofie",
+              "credits": 3,
+              "componentId": "y1-cultural"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "practice",
+      "title": "Ethics, politics, justice and society",
+      "rows": [
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Ethics",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL212"
+            },
+            "ucr-2": {
+              "text": "Ethics",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL212"
+            },
+            "ucr-3": {
+              "text": "Ethics",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL212"
+            },
+            "comparator": {
+              "text": "Ethiek",
+              "credits": 6,
+              "componentId": "y1-ethics"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Introduction to Political Philosophy",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI111"
+            },
+            "ucr-2": {
+              "text": "Introduction to Political Philosophy",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI111"
+            },
+            "ucr-3": {
+              "text": "Introduction to Political Philosophy",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI111"
+            },
+            "comparator": {
+              "text": "Political Philosophy",
+              "credits": 6,
+              "componentId": "y1-political"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Foundations of Comparative Politics",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI112"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Theory of International Relations",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI212"
+            },
+            "ucr-2": {
+              "text": "Theory of International Relations",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI212"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "European Union Politics",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI311"
+            },
+            "ucr-2": {
+              "text": "European Union Politics",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI311"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Peace & Conflict",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI313"
+            },
+            "ucr-2": {
+              "text": "Peace & Conflict",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI313"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Law, Society & Justice",
+              "credits": 7.5,
+              "courseCode": "GOSGATE102"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Human Rights: Law & Philosophy",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ111"
+            },
+            "ucr-2": {
+              "text": "Human Rights: Law & Philosophy",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ111"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Criminal Law & Criminal Justice",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ211"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Comparative Constitutional Law",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ213"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Foundations of European Union Law",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ312"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Modern Sociology",
+              "credits": 7.5,
+              "courseCode": "GOSSOCI214"
+            },
+            "ucr-2": {
+              "text": "Modern Sociology",
+              "credits": 7.5,
+              "courseCode": "GOSSOCI214"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Social Movements & Environmental Justice",
+              "credits": 7.5,
+              "courseCode": "GOSSOCI215"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "New Issues in Contemporary Social Theory",
+              "credits": 7.5,
+              "courseCode": "GOSSOCI311"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "AI Ethics",
+              "credits": 7.5,
+              "courseCode": "DISARIN111"
+            },
+            "ucr-2": {
+              "text": "AI Ethics",
+              "credits": 7.5,
+              "courseCode": "DISARIN111"
+            },
+            "ucr-3": {
+              "text": "AI Ethics",
+              "credits": 7.5,
+              "courseCode": "DISARIN111"
+            },
+            "comparator": {
+              "text": "Toegepaste Ethiek",
+              "credits": 6,
+              "componentId": "y2-applied-ethics"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Hedendaagse Sociale en Politieke Filosofie",
+              "credits": 6,
+              "componentId": "y1-social-political"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Political Topics",
+              "credits": 6,
+              "componentId": "y2-political-topics"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "mind",
+      "title": "Knowledge, mind, language and human nature",
+      "rows": [
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Philosophy of Mind",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL214"
+            },
+            "ucr-2": {
+              "text": "Philosophy of Mind",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL214"
+            },
+            "ucr-3": {
+              "text": "Philosophy of Mind",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL214"
+            },
+            "comparator": {
+              "text": "Bewustzijnsfilosofie",
+              "credits": 6,
+              "componentId": "y2-mind"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Philosophy of Emotion",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL311"
+            },
+            "ucr-2": {
+              "text": "Philosophy of Emotion",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL311"
+            },
+            "ucr-3": {
+              "text": "Philosophy of Emotion",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL311"
+            },
+            "comparator": {
+              "text": "Moral Psychology",
+              "credits": 6,
+              "componentId": "y3-moral-psychology"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Free Will, Time & the Self",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL313"
+            },
+            "ucr-2": {
+              "text": "Free Will, Time & the Self",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL313"
+            },
+            "ucr-3": {
+              "text": "Free Will, Time & the Self",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL313"
+            },
+            "comparator": {
+              "text": "Metafysica",
+              "credits": 6,
+              "componentId": "y1-metaphysics"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Introduction to Brain & Behavior",
+              "credits": 7.5,
+              "courseCode": "HCBGATE102"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Neurobiology",
+              "credits": 7.5,
+              "courseCode": "HCBCOGN112"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Perception & Action",
+              "credits": 7.5,
+              "courseCode": "HCBCOGN212"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Higher Order Functions",
+              "credits": 7.5,
+              "courseCode": "HCBCOGN311"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Psycholinguistics",
+              "credits": 7.5,
+              "courseCode": "HCBCOGN312"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Social Psychology",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC111"
+            },
+            "ucr-3": {
+              "text": "Social Psychology",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC111"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Machine Learning",
+              "credits": 7.5,
+              "courseCode": "DISDATA211"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Wijsgerige Antropologie",
+              "credits": 5,
+              "componentId": "y1-anthropology"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Epistemologie",
+              "credits": 6,
+              "componentId": "y1-epistemology"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Wetenschapsfilosofie",
+              "credits": 4,
+              "componentId": "y2-philosophy-science"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Analytische Filosofie",
+              "credits": 6,
+              "componentId": "y2-analytic"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Philosophy of Language",
+              "credits": 4,
+              "componentId": "y2-language"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Society, Science and Information",
+              "credits": 6,
+              "componentId": "y3-society-science-information"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "methods",
+      "title": "Logic, argument, communication and research",
+      "rows": [
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Logic & Discrete Mathematics",
+              "credits": 7.5,
+              "courseCode": "DISARIN212"
+            },
+            "ucr-2": {
+              "text": "Logic & Discrete Mathematics",
+              "credits": 7.5,
+              "courseCode": "DISARIN212"
+            },
+            "ucr-3": {
+              "text": "Logic & Discrete Mathematics",
+              "credits": 7.5,
+              "courseCode": "DISARIN212"
+            },
+            "comparator": {
+              "text": "Logic",
+              "credits": 6,
+              "componentId": "y1-logic"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "The Art of Rhetorical Communication",
+              "credits": 7.5,
+              "courseCode": "MCCCOMM111"
+            },
+            "ucr-3": {
+              "text": "The Art of Rhetorical Communication",
+              "credits": 7.5,
+              "courseCode": "MCCCOMM111"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Style & Meaning",
+              "credits": 7.5,
+              "courseCode": "MCCCOMM211"
+            },
+            "ucr-3": {
+              "text": "Style & Meaning",
+              "credits": 7.5,
+              "courseCode": "MCCCOMM211"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Persuasive Communication",
+              "credits": 7.5,
+              "courseCode": "MCCCOMM311"
+            },
+            "ucr-2": {
+              "text": "Persuasive Communication",
+              "credits": 7.5,
+              "courseCode": "MCCCOMM311"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Introduction to Literary Studies",
+              "credits": 7.5,
+              "courseCode": "MCCLITR111"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Perspectives on Literary Meaning",
+              "credits": 7.5,
+              "courseCode": "MCCLITR312"
+            },
+            "ucr-2": {
+              "text": "Perspectives on Literary Meaning",
+              "credits": 7.5,
+              "courseCode": "MCCLITR312"
+            },
+            "ucr-3": {
+              "text": "Perspectives on Literary Meaning",
+              "credits": 7.5,
+              "courseCode": "MCCLITR312"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Qualitative Research Methodology",
+              "credits": 7.5,
+              "courseCode": "GOSSOCI212"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Statistics & Experimental Methods",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC211"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Advanced Research Methods & Statistics",
+              "credits": 7.5,
+              "courseCode": "HCBPSYC313"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Introduction to Programming",
+              "credits": 7.5,
+              "courseCode": "DISGATE101"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Academisch Nederlands 1",
+              "credits": 3,
+              "componentId": "y1-writing1"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Academisch Nederlands 2",
+              "credits": 2,
+              "componentId": "y2-writing2"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Bachelorscriptietraject",
+              "credits": 2,
+              "componentId": "y2-thesis-prep",
+              "note": "Preparation for the third-year bachelor thesis, including topic choice and supervisor arrangements."
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Scriptie",
+              "credits": 10,
+              "componentId": "y3-thesis"
+            },
+            "ucr-1": {
+              "text": "Optional independent research",
+              "credits": 15,
+              "comparisonOnly": true,
+              "comparisonElementId": "optional-independent-research"
+            },
+            "ucr-2": {
+              "text": "Optional independent research",
+              "credits": 15,
+              "comparisonOnly": true,
+              "comparisonElementId": "optional-independent-research"
+            },
+            "ucr-3": {
+              "text": "Optional independent research",
+              "credits": 15,
+              "comparisonOnly": true,
+              "comparisonElementId": "optional-independent-research"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Filosofische Vaardigheden (Presentatievaardigheden)",
+              "credits": 2,
+              "componentId": "y3-presentation"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Methodology: Styles of Philosophy",
+              "credits": 6,
+              "componentId": "y2-methodology"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "profile",
+      "title": "Free-choice space and personal development",
+      "rows": [
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Personal & Professional Development",
+              "credits": 7.5,
+              "courseCode": "ACCPPDE101"
+            },
+            "ucr-2": {
+              "text": "Personal & Professional Development",
+              "credits": 7.5,
+              "courseCode": "ACCPPDE101"
+            },
+            "ucr-3": {
+              "text": "Personal & Professional Development",
+              "credits": 7.5,
+              "courseCode": "ACCPPDE101"
+            },
+            "comparator": {
+              "text": "GROW: Mentoraat",
+              "credits": 1,
+              "componentId": "y1-mentoring"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Vrijekeuzeruimte",
+              "credits": 30,
+              "componentId": "y3-free-choice",
+              "note": "Genuine choice among exchange/study abroad, Philosophy electives, an internal Tilburg minor, or a minor at another Dutch university."
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "selectedCourseCodes": [
+    "ACCPPDE101",
+    "DISARIN111",
+    "DISARIN212",
+    "DISDATA211",
+    "DISGATE101",
+    "GOSGATE102",
+    "GOSHIST111",
+    "GOSHIST112",
+    "GOSHIST311",
+    "GOSLAWJ111",
+    "GOSLAWJ211",
+    "GOSLAWJ213",
+    "GOSLAWJ312",
+    "GOSPHIL111",
+    "GOSPHIL212",
+    "GOSPHIL214",
+    "GOSPHIL311",
+    "GOSPHIL313",
+    "GOSPOLI111",
+    "GOSPOLI112",
+    "GOSPOLI212",
+    "GOSPOLI311",
+    "GOSPOLI313",
+    "GOSSOCI212",
+    "GOSSOCI214",
+    "GOSSOCI215",
+    "GOSSOCI311",
+    "HCBCOGN112",
+    "HCBCOGN212",
+    "HCBCOGN311",
+    "HCBCOGN312",
+    "HCBGATE102",
+    "HCBPSYC111",
+    "HCBPSYC211",
+    "HCBPSYC313",
+    "MCCCOMM111",
+    "MCCCOMM211",
+    "MCCCOMM311",
+    "MCCHEAM315",
+    "MCCLITR111",
+    "MCCLITR112",
+    "MCCLITR211",
+    "MCCLITR312"
+  ],
+  "selectedDescriptionEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000239/course-content-review.json#/selectedDescriptionReview",
+  "findings": "Read every listed field and selected description in context. English display name Philosophy agrees with current registry display metadata. All curriculum references and selected concepts/notes resolve; complete status justified by source evidence, not total alone. No cellNotes selected; internal alignment/retrieval/provenance prose has no renderer narrative fallback. Source links lead to inspected official pages; course links use actual selected codes/names. All 43 descriptions exist, so unavailable-description fallback is not selected. Optional research is additional, unscheduled and not thesis equivalence. No app/renderer behaviour changes; no live runtime or screenshot claim. Representative actual rendering remains a separate final-release dependency."
+}
