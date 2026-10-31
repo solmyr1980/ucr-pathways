@@ -1,0 +1,54 @@
+{
+  "checks": [
+    {
+      "check": "feasibility",
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000011.json",
+      "exitCode": 0,
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000011/feasibility.log"
+    },
+    {
+      "check": "schema",
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000011.json",
+      "exitCode": 0,
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000011/schema.log"
+    },
+    {
+      "check": "operational",
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000011/operational.log"
+    },
+    {
+      "check": "interests",
+      "command": "npm run validate:registry-interests",
+      "exitCode": 0,
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000011/interests.log"
+    },
+    {
+      "check": "review-index",
+      "command": "npm run validate:counselor-review",
+      "exitCode": 0,
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000011/review-index.log"
+    },
+    {
+      "check": "descriptions",
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000011/descriptions.log"
+    },
+    {
+      "check": "decision-canonical-replay",
+      "status": "passed",
+      "byteExact": true,
+      "canonicalSha256": "da85a13f300baf86d40eee3c4e79243a96a422ee07c240f768ca3e95400e02f9",
+      "temporaryOutput": "/tmp/a11-byte-replay.json"
+    }
+  ],
+  "scope": "Case mechanical/operational validation only; academic and content judgments recorded separately. No runtime app testing or release authority."
+}
