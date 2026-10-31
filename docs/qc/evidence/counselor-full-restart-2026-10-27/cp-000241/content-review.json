@@ -1,0 +1,926 @@
+{
+  "caseId": "cp-000241",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+    "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+    "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000241.json": "0030566fd8df220f1a0f155117286433899ff41d",
+    "data/counselor/comparisons/cp-000241.json": "158dbd9641df583a528a7ad92cf8f6c49c1cdc4c",
+    "data/registry/programme_interests.csv": "196ec6217fafb02f0c5ad1c8a5d0e4e26df55efb",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "data/counselor/review-programmes.json": "1d5eec852ec502ad16be72175562039faf2282a0",
+    "data/counselor/review-interests.json": "de23039ce32ae33f0ea32c6ca2015f5b1871ec66",
+    "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
+    "pilot/shiny/data/courses/BEN.json": "a8f4bd8fd8e6b7d59f1258d2da4d1f1fd4dea215",
+    "pilot/shiny/data/courses/ENS.json": "6f2253ad67a2491dd6cf9ce0e8699c7f618b118e",
+    "pilot/shiny/data/courses/GOS.json": "b9788d61805fb3afb343a61c34786e7b5ec31d60",
+    "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa"
+  },
+  "fieldToRenderer": [
+    "pilot/shared.R:visible_label",
+    "pilot/counselor-shiny/app.R:curriculum_view,render_audience_context,render_comparison_summary,render_audience_notes,audience_cell_note,render_compare_table,course_description_dialog"
+  ],
+  "fieldsRead": [
+    "comparator.name/institution/primarySourceUrl/components[].name/credits",
+    "programmes[].label/schedule.semesters[].courses[].name",
+    "academicRationale.alternatives[].concept selectedby audience.conceptProgrammeIds",
+    "audience.programmeDescription/comparisonExplanation/curriculum.*",
+    "audience.componentNotes.*",
+    "notes[].text selectedby audience.noteTypes",
+    "blocks[].title/rows[].cells.*.text/credits",
+    "optionalIndependentResearch",
+    "all42selectedcachedcourse-descriptiontexts"
+  ],
+  "presentationMode": "normal",
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "Global Law at Tilburg University studies legal problems across jurisdictions through comparative, public, private and international law. Legal history, philosophy, research and communication support a broad legal foundation and a required bachelor thesis.",
+    "comparisonExplanation": "The UCR options combine substantive comparative and international legal study with political and social contexts, commercial fields, or environmental governance. They retain gaps in Tilburg’s sustained doctrinal and legal-skills sequence and required legal thesis. Shared rows show partial subject relationships rather than course equivalence or professional qualification.",
+    "curriculum": {
+      "status": "complete",
+      "componentIds": [
+        "y1-intro1",
+        "y1-constitutional",
+        "y1-philosophy",
+        "y1-history-global",
+        "y1-methods",
+        "y1-intro2",
+        "y1-criminal",
+        "y1-history-intl",
+        "y1-tort",
+        "y1-business",
+        "y2-public-intl",
+        "y2-perspectives",
+        "y2-contract1",
+        "y2-corporate",
+        "y2-criminology",
+        "y2-administrative",
+        "y2-property",
+        "y2-technology",
+        "y2-eu",
+        "y2-conflict",
+        "y3-mobility",
+        "y3-commercial",
+        "y3-philosophy",
+        "y3-contract2",
+        "y3-thesis"
+      ],
+      "yearLabel": "2026–2027",
+      "routeLabel": "English-language bachelor; standard core with Commercial Law",
+      "limitation": "The 180 EC include 30 EC of approved mobility/minor choice and a required 12-EC thesis. Communication skills and GROW include zero-credit activities. Choosing the Dutch Law minor changes the final-year core and is a separate pathway from the one shown."
+    },
+    "conceptProgrammeIds": [
+      "ucr-1",
+      "ucr-2",
+      "ucr-3"
+    ],
+    "noteTypes": [
+      "related-fields-not-full-discipline"
+    ],
+    "componentNotes": {
+      "y3-mobility": "30 EC of approved choice compatible with the displayed standard core. The Dutch Law minor instead replaces Commercial Law with Dutch civil procedure; it is not combined with this pathway. Some minor options include Dutch-taught courses.",
+      "y3-thesis": "Required 12-EC legal thesis. Optional UCR independent research is additional and unscheduled."
+    }
+  },
+  "labelsAndConcepts": [
+    {
+      "label": "Global and comparative law, institutions & justice",
+      "concept": "Comparative, international, EU, constitutional, criminal and private law are studied through legal interpretation, case analysis and argument. Political philosophy, institutions, social history and theory, ethics and cross-border commerce place legal problems in specific global contexts. Specialist legal depth and the required LLB thesis remain important differences."
+    },
+    {
+      "label": "Commercial law, business & global regulation",
+      "concept": "A commercial-law direction connecting private, international, constitutional and EU law with transnational business law, accounting, finance, economics, strategy, corporate governance, negotiation and applied business research."
+    },
+    {
+      "label": "Law, sustainability & environmental governance",
+      "concept": "Comparative, international, EU, criminal, private and human-rights law connect with climate change, life-cycle assessment, water governance, public policy, economics and ethical reasoning. Legal methods and environmental evidence approach sustainability problems from different disciplines; the programme does not reproduce a specialist environmental-law or litigation sequence."
+    }
+  ],
+  "notes": [
+    {
+      "type": "related-fields-not-full-discipline",
+      "placement": "comparison",
+      "text": "UCR offers a substantial interdisciplinary law curriculum but not Tilburg's 180-ECTS LLB, specialist legal-skills sequence, required legal thesis or Dutch qualifying-law route. These pathways should not be read as qualifying law degrees."
+    }
+  ],
+  "table": [
+    {
+      "id": "foundations",
+      "title": "Legal foundations, history, philosophy and research",
+      "rows": [
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Personal & Professional Development",
+              "credits": 7.5,
+              "courseCode": "ACCPPDE101"
+            },
+            "ucr-2": {
+              "text": "Personal & Professional Development",
+              "credits": 7.5,
+              "courseCode": "ACCPPDE101"
+            },
+            "ucr-3": {
+              "text": "Personal & Professional Development",
+              "credits": 7.5,
+              "courseCode": "ACCPPDE101"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Law, Society & Justice",
+              "credits": 7.5,
+              "courseCode": "GOSGATE102"
+            },
+            "ucr-2": {
+              "text": "Law, Society & Justice",
+              "credits": 7.5,
+              "courseCode": "GOSGATE102"
+            },
+            "ucr-3": {
+              "text": "Law, Society & Justice",
+              "credits": 7.5,
+              "courseCode": "GOSGATE102"
+            },
+            "comparator": {
+              "text": "Introduction to Global Law I",
+              "credits": 6,
+              "componentId": "y1-intro1"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Human Rights: Law & Philosophy",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ111"
+            },
+            "ucr-2": {
+              "text": "Human Rights: Law & Philosophy",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ111"
+            },
+            "ucr-3": {
+              "text": "Human Rights: Law & Philosophy",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ111"
+            },
+            "comparator": {
+              "text": "Introduction to Philosophy of Global Law",
+              "credits": 6,
+              "componentId": "y1-philosophy"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Histories of Gender",
+              "credits": 7.5,
+              "courseCode": "GOSHIST112"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Research Methods & Statistics",
+              "credits": 7.5,
+              "courseCode": "BENGATE102"
+            },
+            "ucr-3": {
+              "text": "Research Methods & Statistics",
+              "credits": 7.5,
+              "courseCode": "BENGATE102"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Qualitative Research Methodology",
+              "credits": 7.5,
+              "courseCode": "GOSSOCI212"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "The Art of Rhetorical Communication",
+              "credits": 7.5,
+              "courseCode": "MCCCOMM111"
+            },
+            "ucr-2": {
+              "text": "The Art of Rhetorical Communication",
+              "credits": 7.5,
+              "courseCode": "MCCCOMM111"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Persuasive Communication",
+              "credits": 7.5,
+              "courseCode": "MCCCOMM311"
+            },
+            "ucr-2": {
+              "text": "Persuasive Communication",
+              "credits": 7.5,
+              "courseCode": "MCCCOMM311"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Introduction to Global Law II",
+              "credits": 6,
+              "componentId": "y1-intro2"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Perspectives on Law",
+              "credits": 6,
+              "componentId": "y2-perspectives"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Advanced Philosophy of Global Law",
+              "credits": 6,
+              "componentId": "y3-philosophy"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Thesis Global Law (Final Essay)",
+              "credits": 12,
+              "componentId": "y3-thesis",
+              "note": "Compulsory independent bachelor thesis concluding the programme."
+            },
+            "ucr-1": {
+              "text": "Optional independent research",
+              "credits": 15,
+              "comparisonOnly": true,
+              "comparisonElementId": "optional-independent-research"
+            },
+            "ucr-2": {
+              "text": "Optional independent research",
+              "credits": 15,
+              "comparisonOnly": true,
+              "comparisonElementId": "optional-independent-research"
+            },
+            "ucr-3": {
+              "text": "Optional independent research",
+              "credits": 15,
+              "comparisonOnly": true,
+              "comparisonElementId": "optional-independent-research"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "public-law",
+      "title": "Public, international, European and criminal law",
+      "rows": [
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Criminal Law & Criminal Justice",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ211"
+            },
+            "ucr-3": {
+              "text": "Criminal Law & Criminal Justice",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ211"
+            },
+            "comparator": {
+              "text": "Criminal Law",
+              "credits": 6,
+              "componentId": "y1-criminal"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Introduction to Public International Law",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ212"
+            },
+            "ucr-2": {
+              "text": "Introduction to Public International Law",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ212"
+            },
+            "ucr-3": {
+              "text": "Introduction to Public International Law",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ212"
+            },
+            "comparator": {
+              "text": "Public International Law",
+              "credits": 6,
+              "componentId": "y2-public-intl"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Comparative Constitutional Law",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ213"
+            },
+            "ucr-2": {
+              "text": "Comparative Constitutional Law",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ213"
+            },
+            "ucr-3": {
+              "text": "Comparative Constitutional Law",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ213"
+            },
+            "comparator": {
+              "text": "Constitutional Law",
+              "credits": 6,
+              "componentId": "y1-constitutional"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Foundations of European Union Law",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ312"
+            },
+            "ucr-2": {
+              "text": "Foundations of European Union Law",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ312"
+            },
+            "ucr-3": {
+              "text": "Foundations of European Union Law",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ312"
+            },
+            "comparator": {
+              "text": "European Union Law",
+              "credits": 6,
+              "componentId": "y2-eu"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Foundations of Comparative Politics",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI112"
+            },
+            "ucr-3": {
+              "text": "Foundations of Comparative Politics",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI112"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Theory of International Relations",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI212"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "European Union Politics",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI311"
+            },
+            "ucr-3": {
+              "text": "European Union Politics",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI311"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Peace & Conflict",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI313"
+            },
+            "ucr-3": {
+              "text": "Peace & Conflict",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI313"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Introduction to Sociology",
+              "credits": 7.5,
+              "courseCode": "GOSSOCI111"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "History of International Law",
+              "credits": 6,
+              "componentId": "y1-history-intl"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Conflict of Laws",
+              "credits": 6,
+              "componentId": "y2-conflict"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "private-business",
+      "title": "Private law, commerce, business and regulation",
+      "rows": [
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Principles of Private Law",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ311"
+            },
+            "ucr-2": {
+              "text": "Principles of Private Law",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ311"
+            },
+            "ucr-3": {
+              "text": "Principles of Private Law",
+              "credits": 7.5,
+              "courseCode": "GOSLAWJ311"
+            },
+            "comparator": {
+              "text": "Obligations and Contract Law I",
+              "credits": 6,
+              "componentId": "y2-contract1"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Transnational Business Law",
+              "credits": 7.5,
+              "courseCode": "BENBUSI311"
+            },
+            "ucr-2": {
+              "text": "Transnational Business Law",
+              "credits": 7.5,
+              "courseCode": "BENBUSI311"
+            },
+            "comparator": {
+              "text": "Commercial Law",
+              "credits": 6,
+              "componentId": "y3-commercial"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Introduction to Economics",
+              "credits": 7.5,
+              "courseCode": "BENECON111"
+            },
+            "ucr-3": {
+              "text": "Introduction to Economics",
+              "credits": 7.5,
+              "courseCode": "BENECON111"
+            },
+            "comparator": {
+              "text": "Business for Lawyers",
+              "credits": 6,
+              "componentId": "y1-business"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Accounting & Corporate Finance",
+              "credits": 7.5,
+              "courseCode": "BENBUSI112"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Business & Economy in the Age of AI",
+              "credits": 7.5,
+              "courseCode": "BENBUSI211"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Money, Banking & Finance",
+              "credits": 7.5,
+              "courseCode": "BENBUSI312"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Public Economics",
+              "credits": 7.5,
+              "courseCode": "BENECON311"
+            },
+            "ucr-3": {
+              "text": "Public Economics",
+              "credits": 7.5,
+              "courseCode": "BENECON311"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Econometrics",
+              "credits": 7.5,
+              "courseCode": "BENECON312"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Strategy & Digital Transformation",
+              "credits": 7.5,
+              "courseCode": "BENENTR212"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Market Research",
+              "credits": 7.5,
+              "courseCode": "BENENTR311"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "International Business & Governance",
+              "credits": 7.5,
+              "courseCode": "BENENTR312"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Psychology of Organizations & Leadership",
+              "credits": 7.5,
+              "courseCode": "BENLEAD311"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Negotiation & Strategic Thinking",
+              "credits": 7.5,
+              "courseCode": "BENLEAD312"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "New Issues in Contemporary Social Theory",
+              "credits": 7.5,
+              "courseCode": "GOSSOCI311"
+            },
+            "ucr-2": {
+              "text": "New Issues in Contemporary Social Theory",
+              "credits": 7.5,
+              "courseCode": "GOSSOCI311"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Tort Law",
+              "credits": 6,
+              "componentId": "y1-tort"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Obligations and Contract Law II",
+              "credits": 6,
+              "componentId": "y3-contract2"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "sustainability",
+      "title": "Sustainability, environmental governance and structured choice",
+      "rows": [
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Sustainability Essentials I",
+              "credits": 7.5,
+              "courseCode": "ENSGATE101"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Living with Water",
+              "credits": 7.5,
+              "courseCode": "ENSDELT211"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Governance of Sustainability",
+              "credits": 7.5,
+              "courseCode": "ENSDELT312"
+            },
+            "ucr-3": {
+              "text": "Governance of Sustainability",
+              "credits": 7.5,
+              "courseCode": "ENSDELT312"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Social Movements & Environmental Justice",
+              "credits": 7.5,
+              "courseCode": "GOSSOCI215"
+            },
+            "ucr-3": {
+              "text": "Social Movements & Environmental Justice",
+              "credits": 7.5,
+              "courseCode": "GOSSOCI215"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Media & the Environment",
+              "credits": 7.5,
+              "courseCode": "MCCMEDI212"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Mobility window: approved option compatible with the standard core",
+              "credits": 30,
+              "componentId": "y3-mobility",
+              "note": "30 EC of approved exchange/minor/free-minor choice. The Dutch Law minor is a different coherent pathway because it also replaces Commercial Law with Dutch civil procedure."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "reassessed-foundations",
+      "title": "Political, ethical and environmental foundations",
+      "rows": [
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Entrepreneurship & Business Foundations",
+              "credits": 7.5,
+              "courseCode": "BENGATE101"
+            },
+            "ucr-2": {
+              "text": "Entrepreneurship & Business Foundations",
+              "credits": 7.5,
+              "courseCode": "BENGATE101"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Climate Change",
+              "credits": 7.5,
+              "courseCode": "ENSSUST111"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Life Cycle Analysis & Circular Economy",
+              "credits": 7.5,
+              "courseCode": "ENSSUST112"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Ethics",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL212"
+            },
+            "ucr-3": {
+              "text": "Ethics",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL212"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Introduction to Political Philosophy",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI111"
+            },
+            "ucr-3": {
+              "text": "Introduction to Political Philosophy",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI111"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Public Policy Analysis",
+              "credits": 7.5,
+              "courseCode": "GOSPOLI312"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Global Legal History",
+              "credits": 6,
+              "componentId": "y1-history-global"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Methods and Techniques",
+              "credits": 6,
+              "componentId": "y1-methods"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Administrative Law",
+              "credits": 6,
+              "componentId": "y2-administrative"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Criminology and Criminal Justice",
+              "credits": 6,
+              "componentId": "y2-criminology"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Law, Technology and Society",
+              "credits": 6,
+              "componentId": "y2-technology"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Property and Insolvency Law",
+              "credits": 6,
+              "componentId": "y2-property"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Corporate Law",
+              "credits": 6,
+              "componentId": "y2-corporate"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "selectedCourseDescriptionCodes": [
+    "ACCPPDE101",
+    "BENBUSI112",
+    "BENBUSI211",
+    "BENBUSI311",
+    "BENBUSI312",
+    "BENECON111",
+    "BENECON311",
+    "BENECON312",
+    "BENENTR212",
+    "BENENTR311",
+    "BENENTR312",
+    "BENGATE101",
+    "BENGATE102",
+    "BENLEAD311",
+    "BENLEAD312",
+    "ENSDELT211",
+    "ENSDELT312",
+    "ENSGATE101",
+    "ENSSUST111",
+    "ENSSUST112",
+    "GOSGATE102",
+    "GOSHIST112",
+    "GOSLAWJ111",
+    "GOSLAWJ211",
+    "GOSLAWJ212",
+    "GOSLAWJ213",
+    "GOSLAWJ311",
+    "GOSLAWJ312",
+    "GOSPHIL212",
+    "GOSPOLI111",
+    "GOSPOLI112",
+    "GOSPOLI212",
+    "GOSPOLI311",
+    "GOSPOLI312",
+    "GOSPOLI313",
+    "GOSSOCI111",
+    "GOSSOCI212",
+    "GOSSOCI215",
+    "GOSSOCI311",
+    "MCCCOMM111",
+    "MCCCOMM311",
+    "MCCMEDI212"
+  ],
+  "selectedDescriptionEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000241/course-content-review.json#/selectedDescriptionReview",
+  "finding": "Everylistedtitle/concept/note/reference/source/coursecell and42descriptions readincontext. GlobalLawEnglishdisplaymetadataagrees. All25completecurriculumreferences,3conceptreferences andselectednoteresolve. DutchminorcorecouplingandoptionalDutch-taughtstudy explicit. Partialmatchesdonotclaimcourseequivalence; noautomaticprofessionalqualification. SourceNotes/internalresearch/provenance havenarrativefallbacknone. Allselecteddescriptions exist; no missingdescriptionfallback. Noappcodechange,launch,install,screenshot orlivemodalexercise. Representativeactualrenderingrequired beforefinalrelease."
+}
