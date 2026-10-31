@@ -1,0 +1,966 @@
+{
+  "caseId": "cp-000001",
+  "reviewedOn": "2026-10-31",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "reviewedCommit": "86028670a712f50fb2f34447f52f83c965995a47",
+  "inputBlobs": {
+    "data/counselor/comparisons/cp-000001.json": "37888e09b80298b2c99d328648211411432346c8",
+    "data/counselor/decisions/cp-000001.json": "7b65dd7c8b85ad5a0ef24c7741767707e2d4518f",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/registry/programme_interests.csv": "836d2a9b9495d24be7800aba1d72ef7d3bbd87e5",
+    "data/counselor/review-programmes.json": "cd3d6d642e5d20757e2d22bc626b065f11def05e",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+    "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+    "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
+    "pilot/shiny/data/courses/BEN.json": "a8f4bd8fd8e6b7d59f1258d2da4d1f1fd4dea215",
+    "pilot/shiny/data/courses/ENS.json": "6f2253ad67a2491dd6cf9ce0e8699c7f618b118e",
+    "pilot/shiny/data/courses/GOS.json": "b9788d61805fb3afb343a61c34786e7b5ec31d60"
+  },
+  "presentationMode": "normal; complete comparison",
+  "displayName": "Bachelor of Public Administration",
+  "fieldToRenderer": {
+    "audience.programmeDescription": "render_audience_context",
+    "audience.comparisonExplanation": "render_audience_context",
+    "audience.curriculum": "curriculum_view; render_audience_context; external-only curriculum",
+    "programmes[].label": "visible_label; comparison titles",
+    "academicRationale.alternatives[].concept": "render_comparison_summary when selected by conceptProgrammeIds",
+    "blocks[].title": "render_compare_table block headings",
+    "blocks[].rows[].cells.*.text": "render_compare_table names and credits",
+    "audience.componentNotes": "external curriculum; keyed verified component IDs",
+    "notes[].text": "render_audience_notes when selected by noteTypes",
+    "pilot/shiny/data/courses/*.json:descriptions[code]": "course_description_dialog keyed by clicked code"
+  },
+  "reviewedReaderFields": {
+    "audience": {
+      "schemaVersion": "1.0",
+      "programmeDescription": "Public Administration (Bestuurskunde) at Erasmus University Rotterdam examines how governments and public organizations address social problems. Students combine policy, politics, law, sociology, economics and management with social research, a public-sector internship and a bachelor project. The selected programme is the Dutch-language full-time bachelor.",
+      "comparisonExplanation": "The first UCR option combines politics, law, economics, sociology and public-policy analysis; the second adds a substantial climate and sustainability focus. Neither reproduces EUR’s dedicated public-administration degree. Its integrated public-administration sequence, required internship and bachelor-project sequence remain important differences. Shared rows show content relationships, including partial matches, rather than course equivalence.",
+      "curriculum": {
+        "status": "complete",
+        "componentIds": [
+          "pa-introduction",
+          "pa-sociology-1",
+          "pa-administrative-law",
+          "pa-organisation-management",
+          "pa-designing-social-research",
+          "pa-political-science",
+          "pa-economics-welfare-distribution",
+          "pa-public-policy",
+          "pa-skills",
+          "pa-network-governance",
+          "pa-qualitative-methods",
+          "pa-policy-analysis",
+          "pa-quantitative-methods",
+          "pa-internship",
+          "pa-public-resources",
+          "pa-research-project",
+          "pa-minor",
+          "pa-european-international-governance",
+          "pa-political-philosophy-democracy",
+          "pa-institutions-policy-society",
+          "pa-people-management",
+          "pa-bachelor-project"
+        ],
+        "yearLabel": "2026–2027",
+        "routeLabel": "Dutch-language Public Administration (Bestuurskunde); full-time",
+        "limitation": "The complete EUR curriculum comprises 180 EC over three years, including a 15-EC approved minor. Some lectures are in English; the Dutch offering retains Dutch working groups, assignments and assessments."
+      },
+      "conceptProgrammeIds": [
+        "ucr-1",
+        "ucr-2"
+      ],
+      "noteTypes": [
+        "related-fields-not-full-discipline"
+      ],
+      "componentNotes": {
+        "pa-minor": "15 EC of approved minor study; its subject is not fixed in this comparison.",
+        "pa-internship": "Required 15-EC public-sector placement; the programme describes ten weeks of practical experience.",
+        "pa-bachelor-project": "Required 15-EC public-administration research project. This differs from optional UCR research outside the 180 EC."
+      }
+    },
+    "concepts": [
+      {
+        "programmeId": "ucr-1",
+        "concept": "Politics, law, sociology and economics provide different ways to examine public institutions and policy choices. Research methods, ethics, organizational psychology and leadership connect those perspectives to public problems. This is an interdisciplinary UCR response, with gaps in dedicated public-administration teaching and compulsory professional practice.",
+        "basisLabels": [
+          "Public administration and governance",
+          "Politics and public policy",
+          "Law and public institutions",
+          "Sociology and social/governance issues",
+          "Economics, welfare and public resources",
+          "Organisation and public management",
+          "Qualitative and quantitative social research",
+          "Research-based advice and professional skills",
+          "European and international governance"
+        ],
+        "evidence": [
+          {
+            "sourceType": "official-source",
+            "reference": "https://www.eur.nl/en/essb/media/2026-08-essb-bachelor-eer-26-27"
+          },
+          {
+            "sourceType": "official-source",
+            "reference": "https://www.eur.nl/bachelor/bestuurskunde/studieprogramma"
+          }
+        ],
+        "labelRationale": "The completed curriculum combines political science, constitutional/international/EU law, sociology, economics, methods and organisational study. The label names its academic substance and does not imply a UCR public-administration qualification."
+      },
+      {
+        "programmeId": "ucr-2",
+        "concept": "Public institutions and policy are studied alongside climate change, water management, environmental justice and resource stewardship. Science and laboratory study support informed analysis of sustainability choices. The programme combines governance with environmental knowledge; it is not a specialist public-administration or environmental-engineering degree.",
+        "basisLabels": [
+          "Public administration and governance",
+          "Politics and public policy",
+          "Law and public institutions",
+          "Sociology and social/governance issues",
+          "Qualitative and quantitative social research",
+          "Climate change and sustainability governance",
+          "How should governments govern climate and sustainability challenges?",
+          "Economics, welfare and public resources",
+          "Organisation and public management",
+          "Research-based advice and professional skills"
+        ],
+        "evidence": [
+          {
+            "sourceType": "programme-interest",
+            "reference": "programme_interests.csv:327"
+          },
+          {
+            "sourceType": "official-source",
+            "reference": "https://www.eur.nl/bachelor/bestuurskunde/waarom-deze-studie"
+          }
+        ],
+        "labelRationale": "The visible label was reviewed after completion of the 24-course curriculum and describes its substantive organising direction without treating the generating concept as an official UCR track or overstating one strand of the programme.",
+        "distinctnessRationale": "Compared with the closest match, this route replaces seven courses (52.5 EC) with sustainability and environmental-governance study. The changed courses are consequences of the evidenced climate-policy direction, not threshold-filling substitutions."
+      }
+    ],
+    "notes": [
+      {
+        "type": "related-fields-not-full-discipline",
+        "placement": "comparison",
+        "text": "EUR combines public-administration theory and policy analysis with law, economics, sociology, management, a required public-sector internship and a bachelor project. UCR offers related interdisciplinary study, with a second option focused on sustainability governance. It does not reproduce the dedicated policy, internship and bachelor-project sequence. Shared rows include partial content relationships; blank cells show deliberate gaps. Optional independent research is additional to the displayed 180 EC."
+      }
+    ],
+    "blockTitles": [
+      "Governance, politics & law",
+      "Organisations, economics & public management",
+      "Society, methods & research",
+      "Climate, sustainability & environmental governance",
+      "Professional formation, practice & choice"
+    ],
+    "sourceLinks": [
+      "https://www.eur.nl/en/essb/media/2026-08-essb-bachelor-eer-26-27",
+      "https://www.eur.nl/bachelor/bestuurskunde/studieprogramma",
+      "https://www.eur.nl/bachelor/bestuurskunde",
+      "https://www.eur.nl/bachelor/bestuurskunde/waarom-deze-studie"
+    ]
+  },
+  "selectedCourseDescriptions": [
+    {
+      "code": "ACCPPDE101",
+      "name": "Personal & Professional Development",
+      "description": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+      "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+      "existingProvenance": null,
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Develops academic writing and research-literacy skills alongside personal development and civic engagement. Students locate and evaluate scholarly sources, synthesize literature, formulate research questions and arguments, and construct a research-paper introduction. A community-engaged project with a societal partner connects these skills to collaboration, reflection and practical contribution. Personal development planning addresses learning goals, self-efficacy, and stress and time management; the course also considers responsible academic use of AI.",
+        "description2": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+        "topics": "Scholarly sources and research questions; Argumentation and thesis statements; Literature synthesis; Academic integrity and referencing; Community engagement; Personal learning goals and reflective learning; Collaborative learning; Self-efficacy; Stress and time management; Responsible use of AI",
+        "methods": "Scholarly literature searching and source evaluation; Literature synthesis; CARS model for research introductions; Reflective development planning; Community project co-design",
+        "preq1": "NONE",
+        "2026h2": "X",
+        "2027h1": "X",
+        "2027h2": "X",
+        "2028h1": "X",
+        "2028h2": "X",
+        "2029h1": "X"
+      }
+    },
+    {
+      "code": "BENECON111",
+      "name": "Introduction to Economics",
+      "description": "Explore how individuals, firms, and societies make economic decisions. This course introduces key concepts from both microeconomics and macroeconomics, including markets, incentives, and the principles of supply and demand, and provides a foundation for analyzing real-world economic issues.",
+      "descriptionSha256": "2278892bd9c8b20df80deb4bd04a3bf00a3fe4cc79099b153861afa0f69110e8",
+      "existingProvenance": null,
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Introduces microeconomic principles and short-run macroeconomic analysis. The microeconomic component examines supply and demand, strategic interaction, consumer choice, production, costs and competitive markets. The macroeconomic component introduces output, unemployment and inflation, then relates goods and financial markets through the IS-LM model. Students use algebra and graphs to explain economic behaviour and apply models to economic issues.",
+        "description2": "Explore how individuals, firms, and societies make economic decisions. This course introduces key concepts from both microeconomics and macroeconomics, including markets, incentives, and the principles of supply and demand, and provides a foundation for analyzing real-world economic issues.",
+        "topics": "Supply and demand; Game theory; Rational consumer choice; Individual and market demand; Production and costs; Perfect competition; Aggregate output; Unemployment and inflation; Goods and financial markets; IS-LM model",
+        "methods": "Algebraic and graphical economic analysis; Supply-and-demand analysis; Game-theoretic analysis; IS-LM modelling",
+        "preq1": "NONE",
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": null,
+        "2028h1": null,
+        "2028h2": null,
+        "2029h1": null
+      }
+    },
+    {
+      "code": "BENECON211",
+      "name": "International Macroeconomics",
+      "description": "Study the economy as a whole through topics such as national income, economic growth, inflation, and unemployment. Understand how governments and central banks use fiscal and monetary policies to influence economic performance over time. The course also explores business cycles, international trade, and economic crises, preparing students to evaluate policy debates and global economic trends.",
+      "descriptionSha256": "33b36d74db138b4f57c17d242b5ba5dc4d4f8de34149ead79cef4bd1d0f2ccba",
+      "existingProvenance": null,
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Examines short-, medium- and long-run macroeconomic dynamics and policy, including international dimensions. Students study goods, financial and labour markets, inflation and unemployment, economic growth, expectations and the open economy. IS-LM and IS-LM-PC models connect markets and policy effects. Algebraic and graphical analysis and interpretation of macroeconomic indicators support the evaluation of economic developments and fiscal and monetary policy.",
+        "description2": "Study the economy as a whole through topics such as national income, economic growth, inflation, and unemployment. Understand how governments and central banks use fiscal and monetary policies to influence economic performance over time. The course also explores business cycles, international trade, and economic crises, preparing students to evaluate policy debates and global economic trends.",
+        "topics": "Goods and financial markets; Labour markets; Phillips curve; IS-LM and IS-LM-PC models; Economic growth; Saving and capital accumulation; Technological progress; Expectations; Open-economy macroeconomics; Fiscal and monetary policy; Business cycles and economic crises",
+        "methods": "Algebraic and graphical macroeconomic analysis; IS-LM and IS-LM-PC modelling; Macroeconomic data and indicator analysis",
+        "preq1": "BENGATE102",
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      }
+    },
+    {
+      "code": "BENECON212",
+      "name": "Microeconomics & Behavior",
+      "description": "Study how consumers and producers make decisions under scarcity. Explore key concepts such as rational choice, decision-making under uncertainty, and non-egoistic preferences. Analyze market structures, strategic interactions, and factor markets. Learn how markets function and examine the impact of regulation. Develop analytical tools to better understand behavior and engage with empirical research.",
+      "descriptionSha256": "bb7e873ebcf0737250b0602678e531aaf080f101cfda442ebc4abcd4574d4250",
+      "existingProvenance": null,
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Develops microeconomic theory through consumer behaviour, imperfectly competitive markets and economy-wide allocation. Students examine choice under uncertainty, non-egoistic preferences and cognitive limitations, then monopoly, strategic behaviour and labour and capital markets. General equilibrium, efficiency, externalities and government complete the analysis. Algebraic problem-solving and graphical analysis are connected to the interpretation and evaluation of research papers.",
+        "description2": "Study how consumers and producers make decisions under scarcity. Explore key concepts such as rational choice, decision-making under uncertainty, and non-egoistic preferences. Analyze market structures, strategic interactions, and factor markets. Learn how markets function and examine the impact of regulation. Develop analytical tools to better understand behavior and engage with empirical research.",
+        "topics": "Choice under uncertainty; Non-egoistic preferences; Cognitive limitations; Monopoly; Imperfect competition and strategic behaviour; Labour markets; Capital markets; General equilibrium; Market efficiency; Externalities; Government intervention",
+        "methods": "Algebraic microeconomic analysis; Graphical economic analysis; Critical evaluation of economic research",
+        "preq1": "BENGATE102",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      }
+    },
+    {
+      "code": "BENECON311",
+      "name": "Public Economics",
+      "description": "Investigate the role of government in the economy, focusing on how public policy influences efficiency and equity. The course covers taxation, public goods, externalities, and government spending. Combining theoretical models with empirical evidence, it evaluates how different policies affect societal welfare.",
+      "descriptionSha256": "7a4ba78a0cfe9e6eb397bc2a538e91ff9a12eaecf7737f2cfbb377ac04d4aa84",
+      "existingProvenance": null,
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Examines government intervention through the efficiency and equity effects of public policy. Market failure, public goods and externalities provide foundations for studying public production, collective choice, spending and taxation. Health, education, welfare and social insurance illustrate expenditure and redistribution questions. Students apply economic models, interpret data and graphs, evaluate research and develop a research proposal and paper.",
+        "description2": "Investigate the role of government in the economy, focusing on how public policy influences efficiency and equity. The course covers taxation, public goods, externalities, and government spending. Combining theoretical models with empirical evidence, it evaluates how different policies affect societal welfare.",
+        "topics": "Role and size of government; Market efficiency and failure; Public goods; Externalities; Efficiency and equity; Public production; Public choice; Public expenditure; Health and education policy; Welfare programs; Social insurance; Taxation and redistribution",
+        "methods": "Economic model-based policy analysis; Efficiency and equity assessment; Interpretation of economic data and graphs; Critical evaluation of public-economics research",
+        "preq1": "BENGATE102",
+        "2026h2": null,
+        "2027h1": null,
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": null
+      }
+    },
+    {
+      "code": "BENECON312",
+      "name": "Econometrics",
+      "description": "Econometrics supplies tools to analyze data to answer questions of causality and prediction. In this course you learn three estimators—Ordinary Least Squares, Generalized Least Squares, and Instrumental Variables—and three tests—t-test, F-test, and LM-test. Understanding the basic rules of econometrics, particularly the sampling distribution concept, is key, and the course uses Monte Carlo simulations in Stata to visualize it. Tools are applied to estimate economic relationships and make predictions, and students write an empirical paper.",
+      "descriptionSha256": "3754e43821eb3db5407d6eded2b8e70021b3eb45d2284acfae505d85d85baea9",
+      "existingProvenance": null,
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": null,
+        "description2": "Econometrics supplies tools to analyze data to answer questions of causality and prediction. In this course you learn three estimators—Ordinary Least Squares, Generalized Least Squares, and Instrumental Variables—and three tests—t-test, F-test, and LM-test. Understanding the basic rules of econometrics, particularly the sampling distribution concept, is key, and the course uses Monte Carlo simulations in Stata to visualize it. Tools are applied to estimate economic relationships and make predictions, and students write an empirical paper.",
+        "topics": null,
+        "methods": null,
+        "preq1": "BENGATE102",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": null,
+        "2028h2": null,
+        "2029h1": "X"
+      }
+    },
+    {
+      "code": "BENGATE102",
+      "name": "Research Methods & Statistics",
+      "description": "Research Methods & Statistics introduces research design, operationalisation, measurement, sampling, surveys and experiments. Students study descriptive statistics, estimation, hypothesis testing and introductory regression using R and R Commander. A group project develops a research plan and instruments, collects and analyses data, and reports findings under research-ethics and privacy requirements.",
+      "descriptionSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+      "existingProvenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "9d88751452d5c0a6888ac7901a73d1a848617dee2b587d4df64815fc39ad8813",
+        "descriptionSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Research Methods & Statistics"
+      },
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Introduces empirical research design and statistical analysis, followed by a substantial student research project. Students study operationalization, measurement quality, sampling, surveys and experimental and nonexperimental designs, then descriptive statistics, estimation, hypothesis testing and introductory regression. R and R Commander support data display and analysis. Project teams develop instruments and a research plan, collect and analyze data, and report results under explicit research-ethics and privacy requirements.",
+        "description2": "Research Methods & Statistics gives you a strong foundation in how business management—and social and behavioral sciences—move from mere practices to true fields of scientific study. You’ll learn how to plan research logically, from designing studies to working with real data using experimental and survey techniques. You’ll also study descriptive and inferential statistics, with a brief intro to multivariate tools.",
+        "topics": "Scientific inquiry and hypotheses; Operationalization and measurement; Reliability and validity; Survey construction and sampling; Randomized and quasi-experimental designs; Nonexperimental and qualitative research; Descriptive statistics; Sampling distributions and estimation; Hypothesis testing and confidence intervals; Association and regression; Research ethics and anonymous data collection",
+        "methods": "Survey design; Probability and nonprobability sampling; Experimental and nonexperimental research design; R and R Commander data analysis; Descriptive statistics and visualization; Scale-reliability analysis; One- and two-sample mean tests; ANOVA; Chi-square tests; Correlation and regression; Empirical data collection and analysis",
+        "preq1": "NONE",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      }
+    },
+    {
+      "code": "BENLEAD211",
+      "name": "Psychology of Leading Under Pressure",
+      "description": "Examines how emotion regulation, emotional intelligence, belonging, identity safety and psychological safety shape leadership in diverse contexts, with particular attention to minority experiences. Students design and pilot a quantitative survey, collect data ethically, and use SPSS or RStudio for descriptive statistics, reliability analysis, correlations, group comparisons and introductory multiple regression. They interpret the findings and develop evidence-based leadership recommendations.",
+      "descriptionSha256": "b5bfb901eaf1286ca42a21c22a4c5c86a619c00526eb11286f93c2244de3295b",
+      "existingProvenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "999ba5b05cd61f55317070b1224b8b12e159ec2100773c4e4a14a721e01b3853",
+        "descriptionSha256": "b5bfb901eaf1286ca42a21c22a4c5c86a619c00526eb11286f93c2244de3295b",
+        "mode": "edited",
+        "reviewedOn": "2026-10-30",
+        "reviewNote": "Reviewed against the Spring 2027 profile and official description. Omits conditional company collaboration and optional factor analysis; no evidence-source commentary appears in the display text.",
+        "courseName": "Psychology of Leading Under Pressure"
+      },
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Examines how emotion regulation, emotional intelligence, emotional expression and suppression, emotional labor, belonging, identity safety and psychological safety shape leadership and social interaction under conflict, exclusion and interpersonal uncertainty. It emphasises inclusive leadership and ethnic, cultural, sexual and gender minority experiences, with digital emotion regulation as a further strand. Students conduct a supervised quantitative survey project: formulating theory-driven hypotheses, selecting established psychological measures, designing and piloting a Qualtrics survey, recruiting participants ethically, collecting original data and preparing a clean dataset. Individual work applies descriptive statistics, reliability analysis, correlations, group comparisons and introductory multiple regression in SPSS or RStudio, and interprets findings and limitations in empirical reports and evidence-based leadership recommendations.",
+        "description2": "What does it take to lead effectively through pressure, conflict, and diversity? Explore how emotion, identity, belonging, and inclusion shape leadership, teamwork, and performance. Design and conduct an original empirical study while building career-ready skills in research design, data analysis, teamwork, ethical decision-making, and scientific communication.",
+        "topics": "Emotion regulation strategies; Emotional intelligence; Emotional expression and suppression; Emotional labor; Inclusive leadership; Belonging and identity safety; Psychological safety; Ethnic, cultural, sexual and gender minority experiences; Digital emotion regulation; Psychological measurement, reliability and validity; Ethical survey research in diverse populations; Interpretation and limitations of quantitative evidence; Evidence-based leadership recommendations",
+        "methods": "Theory-driven hypothesis formulation; Quantitative survey research; Established psychological measure selection and evaluation; Qualtrics survey construction and piloting; Ethical participant recruitment and original data collection; Codebook development, reverse coding and scale scoring; Data cleaning and missing-data documentation; Descriptive statistics; Reliability analysis; Correlation analysis; Group comparisons; Introductory multiple regression in SPSS or RStudio; APA-style empirical reporting",
+        "preq1": "BENGATE102",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      }
+    },
+    {
+      "code": "BENLEAD311",
+      "name": "Psychology of Organizations & Leadership",
+      "description": "Psychology of Organizations & Leadership examines the psychological, social and structural dynamics of organisations. Case discussions and research-based frameworks address motivation, leadership, group dynamics, organisational culture, power, conflict and change.",
+      "descriptionSha256": "668a9f550a115ab294eb553586c70cf6e941271625ed97b1527613ed53b1aadf",
+      "existingProvenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "a6257b450ccaf3dcad4ed2cff83ec2065a49f8afb6c0549530896581e301fa60",
+        "descriptionSha256": "668a9f550a115ab294eb553586c70cf6e941271625ed97b1527613ed53b1aadf",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Psychology of Organizations & Leadership"
+      },
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Examines organizational behaviour at individual, group and organizational levels. Topics connect personality, perception, emotions and motivation to teams, leadership, power, conflict, structure, culture and change. Students design research plans for organizational cases and conduct a brief systematic literature review using PRISMA reporting tools. Workshops develop literature searching, study selection, source appraisal and synthesis, linking organizational-psychology evidence to practical questions and recommendations.",
+        "description2": "This course offers Liberal Arts and Sciences students a deep dive into the psychological, social, and structural dynamics that shape workplaces. Through interactive case discussions, simulations, and real-world insights, students develop critical skills in motivation, leadership, group dynamics, and culture. By synthesizing research and applying theory to practice, participants gain the tools to navigate and influence diverse organizational environments effectively.",
+        "topics": "Diversity, equity and inclusion; Job attitudes and satisfaction; Emotions, stress and workplace health; Personality and individual differences; Perception and decision-making; Motivation; Group behaviour and work teams; Human resource systems; Communication, conflict and negotiation; Leadership, power and politics; Organizational structure; Organizational culture and change",
+        "methods": "Organizational case analysis; Research design and hypothesis formulation; Systematic literature review; PRISMA flow diagrams and checklists; Database searching and study screening; Source-quality appraisal and evidence synthesis",
+        "preq1": "BENGATE102",
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      }
+    },
+    {
+      "code": "ENSDELT211",
+      "name": "Living with Water",
+      "description": "Studies water risks and opportunities in deltas, using Zeeland as a central case. Flooding, freshwater scarcity, salinisation, subsidence and pollution are connected to infrastructure, history, governance, law and justice. Students evaluate engineered and nature-based responses, then apply these ideas through site-based inquiry and a project on delta adaptation.",
+      "descriptionSha256": "c6f1c8e47fbc4bf63763a5360356732043355009a05991ce7099da0a8babeede",
+      "existingProvenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6bc06d8eab4fbe5bd42de4764d7f92dee7335af1186c736cce876e23c2e44360",
+        "descriptionSha256": "c6f1c8e47fbc4bf63763a5360356732043355009a05991ce7099da0a8babeede",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Living with Water"
+      },
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Examines how delta societies manage water risks and opportunities, using Zeeland as a central case. Physical and ecological challenges such as flooding, salinization, freshwater scarcity, subsidence and pollution are connected to infrastructure, history, governance, law and justice. Students evaluate engineered and nature-based responses, considering trade-offs and long-term consequences. Site-based inquiry and a project apply these concepts to context-sensitive adaptation in a delta region.",
+        "description2": "Explores sustainable water management in delta regions. Focuses on adaptation to rising seas, floods and land subsidence; engages students in projects in Zeeland; and highlights nature‑based solutions and resilient infrastructure.",
+        "topics": "Delta environments; Flood risk and protection; Drainage and freshwater management; Sea-level rise and subsidence; Salinization; Water infrastructure and ecological consequences; Water governance, law and justice; Contaminants and pollution; EU Water Framework Directive; Nature-based adaptation; Urban ecology and water; Long-term delta resilience",
+        "methods": "Site-based water-management case analysis; Comparative appraisal of engineered and nature-based solutions; Context-sensitive adaptation-strategy development",
+        "preq1": "NONE",
+        "2026h2": null,
+        "2027h1": null,
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      }
+    },
+    {
+      "code": "ENSDELT311",
+      "name": "R3: Recycling, Recovery, Remediation",
+      "description": "Examines strategies and technologies towards a circular economy. Explores resource security and stewardship, develops lab skills and inorganic chemistry knowledge, and connects to themes at the Delta Climate Center.",
+      "descriptionSha256": "1b0026b1e19169693ebc23ba4ee5b8bb515ce3b67dd06bd33b230b9b04bf262d",
+      "existingProvenance": null,
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Studies resource circularity through solar-panel recycling, metal recovery from electronic waste, and soil remediation using plants and mycelium. Theory and extensive laboratory work connect material composition and separation technologies to resource yields, environmental consequences and recycling constraints. Students develop leaching protocols, analyze metal concentrations and recovery, cultivate fungal networks, and use microscopy to characterize materials and mycelium growth.",
+        "description2": "Examines strategies and technologies towards a circular economy. Explores resource security and stewardship, develops lab skills and inorganic chemistry knowledge, and connects to themes at the Delta Climate Center.",
+        "topics": "Circular resource supply; Solar-cell and solar-panel recycling; Delamination and material separation; Electronic waste; Pyrometallurgy and hydrometallurgy; Precious-metal recovery; Plastic-recycling legislation; Phytoremediation; Mycoremediation; Mycelium-based soil amendments",
+        "methods": "Solar-panel dismantling and physical separation; Chemical leaching; Experimental-protocol design; ICP metal analysis; Electrochemical recovery; Scanning electron microscopy and EDS; Mycelium cultivation and growth characterization; Recovery-yield and resource-potential calculations",
+        "preq1": "ENSGATE201",
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": null,
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      }
+    },
+    {
+      "code": "ENSDELT312",
+      "name": "Governance of Sustainability",
+      "description": "This course examines sustainability through the lens of governance: “a process of rule-making and collective decision-making that includes both governmental and non-governmental actors in shaping public policy” (Fenger & Bekkers, 2016). Taking this lens, we ask questions such as how are sustainability policies on the local, national, and international level made and enforced? Which actors represent which interests, and which are most influential? How is public opinion on sustainability shaped, and how does public opinion shape politics? What, at the end of the day, determines effective policy for sustainability? By the end of this course, you will have gained a deep appreciation of the complexity of the governance dimension of sustainability, and have developed the theoretical and practical understanding to critically assess mainstream policy decisions.",
+      "descriptionSha256": "746711aaebf20395c0fd5695fb91c5951f611715825c91ca6da251c5d890e362",
+      "existingProvenance": null,
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Analyzes sustainability as a problem of collective decision-making involving governments, markets and civil society. Concepts of institutions, power, participation, justice and problem complexity frame competing technological and systemic responses. Structured cases examine food, freshwater, energy and climate mitigation. Students apply governance frameworks to a Zeeland issue, consult relevant organizations or experts, and produce policy advice or an evaluation assessing effectiveness, feasibility and stakeholder interests.",
+        "description2": "This course examines sustainability through the lens of governance: “a process of rule-making and collective decision-making that includes both governmental and non-governmental actors in shaping public policy” (Fenger & Bekkers, 2016). Taking this lens, we ask questions such as how are sustainability policies on the local, national, and international level made and enforced? Which actors represent which interests, and which are most influential? How is public opinion on sustainability shaped, and how does public opinion shape politics? What, at the end of the day, determines effective policy for sustainability? By the end of this course, you will have gained a deep appreciation of the complexity of the governance dimension of sustainability, and have developed the theoretical and practical understanding to critically assess mainstream policy decisions.",
+        "topics": "Institutions, actors and power; Collective action and common-pool resources; Governance modes and networks; Techno-optimism and ecological limits; Climate justice; Populism and environmental politics; Wicked and long-term problems; Public participation; Food, water and energy governance; Markets, public goods and externalities; Adaptive and global governance; Climate mitigation; Policy effectiveness and feasibility",
+        "methods": "Governance-framework application; Problem diagnosis and causal analysis; Stakeholder and policy-option matrices; Policy evaluation; Policy-advice memo development; Stakeholder and expert interviewing; Comparative analysis of normative policy perspectives",
+        "preq1": "NONE",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      }
+    },
+    {
+      "code": "ENSGATE101",
+      "name": "Sustainability Essentials I",
+      "description": "Introduces sustainability through planetary boundaries and scientific tools for understanding human impacts on Earth systems. Students interpret graphs and uncertainty, build simple dynamic models, and study chemical and physical principles relevant to climate, energy and materials. A laboratory project makes and tests starch-based biopolymers.",
+      "descriptionSha256": "3d8021bff00c075753d30587e5e529c4ac8337c828561c59c0c227299a1e04e9",
+      "existingProvenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "82f50723d99a79ffd7371f9f6eebe3e42e760cc7f4f8bbeb032e81fd5acc4184",
+        "descriptionSha256": "3d8021bff00c075753d30587e5e529c4ac8337c828561c59c0c227299a1e04e9",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Sustainability Essentials I"
+      },
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Uses planetary boundaries to introduce scientific tools for understanding sustainability and human impacts on Earth systems. Students interpret graphs and uncertainty, build simple dynamic models, and learn chemical, thermodynamic and mechanical principles relevant to environmental processes. Topics connect climate, ocean acidification, nutrient cycles, energy and materials. An iterative laboratory project makes starch-based biopolymers and measures their strength and elasticity to improve the formulation.",
+        "description2": "Provides key concepts in physics, chemistry, materials science, mathematics and modelling necessary for sustainability. Uses a case study to connect concepts to real‑world sustainability challenges and prepares students for 200‑level sustainability courses.",
+        "topics": "Planetary boundaries and the Anthropocene; Exponential growth and environmental change; Graphs, rates and uncertainty; Dynamic systems; Chemical bonds, reactions and equilibria; Ocean acidification and nutrient cycles; Thermodynamics and entropy; Greenhouse gases and energy; Ozone depletion; Newtonian mechanics, stress and strain; Biopolymers and material properties",
+        "methods": "Graph interpretation and comparison; Fermi estimation; Difference-equation and first-order linear differential-equation modelling; Elementary differentiation and integration; Biopolymer preparation; Strength and elasticity measurement; Iterative experimental improvement",
+        "preq1": "NONE",
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      }
+    },
+    {
+      "code": "ENSGATE201",
+      "name": "Sustainability Essentials II",
+      "description": "Develops physical-science foundations for sustainability through waves, chemistry and materials science. Reflective work and a project apply these topics to analysing greenwashing.",
+      "descriptionSha256": "465a8a129a7b496e5cc7188a77d3e2b04fb5a3c7f3afceae8a56afe6d062285b",
+      "existingProvenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "10191be23b197bf2051541f534acdc52bc20762fc7d8889972890e7176afed60",
+        "descriptionSha256": "465a8a129a7b496e5cc7188a77d3e2b04fb5a3c7f3afceae8a56afe6d062285b",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Sustainability Essentials II"
+      },
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Connects wave physics, chemistry and materials science to sustainability questions. Students study wave behaviour and observation methods, chemical analysis, microscopic material structure and macroscopic stress and strain. Practical sessions include wave applications and chemistry laboratory work. Reflective inquiries and a final project critically assess sustainability campaigns, identify greenwashing and communicate evidence-based improvements to a public audience.",
+        "description2": "Builds on Sustainability Essentials I. Applies tools and knowledge to a real‑world sustainability case study and allows students to delve deeper into aspects connected to their field of interest.",
+        "topics": "Electromagnetic and mechanical waves; Wave composition and interference; Optical spectroscopy; Electron microscopy; Inorganic and organic chemistry; Chemical testing; Material structure and crystallography; Stress and strain; Sustainable material design; Geological wave applications; Nuclear power and waste; Greenwashing",
+        "methods": "Oscilloscope wave visualization; Optical-spectroscopy interpretation; Fourier wave analysis; Copper dissolution and chemical analysis; Laboratory logbook documentation; Stress-strain analysis; Mohr's-circle application; Evidence-based greenwashing case analysis; Public sustainability-communication design",
+        "preq1": "ENSGATE101",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      }
+    },
+    {
+      "code": "ENSSUST111",
+      "name": "Climate Change",
+      "description": "Focuses on drivers and impacts of anthropogenic climate change on sea level, ocean acidification, ecology and society. Discusses adaptation and mitigation solutions, including renewable energy systems, carbon storage and climate‑adaptive planning, and examines climate governance and justice.",
+      "descriptionSha256": "51b7423fe905aaf8f483ff6389d1685b21b8a2fb0a4b9b41d99b59e42808a974",
+      "existingProvenance": null,
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Introduces climate-change science, societal impacts, and mitigation and adaptation. Students examine greenhouse gases, feedbacks, tipping points, ocean acidification and sea-level rise, then consequences for ecosystems, agriculture, transport, buildings and health. Climate justice, governance, communication and misinformation connect physical changes to social responses. Solution pathways include energy systems, carbon removal and climate-adaptive planning. Students interview a stakeholder and produce a short film, alongside reflection on their own role.",
+        "description2": "Focuses on drivers and impacts of anthropogenic climate change on sea level, ocean acidification, ecology and society. Discusses adaptation and mitigation solutions, including renewable energy systems, carbon storage and climate‑adaptive planning, and examines climate governance and justice.",
+        "topics": "Anthropogenic climate change; Greenhouse gases; Feedback loops and tipping points; Ocean acidification and sea-level rise; Biosphere impacts; Agriculture, transport and construction; Climate and health; Climate justice and governance; Paris Agreement; Renewable energy and sustainable heat; Carbon removal and geoengineering; Climate communication and misinformation; Climate anxiety; Mitigation and adaptation",
+        "methods": "Stakeholder interviewing; Short-film production for climate communication; Source-credibility evaluation; What? So What? Now What? reflective model",
+        "preq1": "NONE",
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      }
+    },
+    {
+      "code": "GOSGATE102",
+      "name": "Law, Society & Justice",
+      "description": "Law, Society & Justice examines legal, social and normative perspectives on law. Students compare legal traditions and study public and private law, human rights, justice, social control and change, race and gender. Case briefs, demand letters and mock trials develop legal reasoning, while a family-law topic supports the design of a socio-legal research proposal.",
+      "descriptionSha256": "035b12c51282127288b99b6ba3cb906896d0fabff1cdf5153709df2d32006391",
+      "existingProvenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "e3ee6c30cefe40d0410e4896ebe9e340104aad5931f93baad84dd2e4cfcd8c3e",
+        "descriptionSha256": "035b12c51282127288b99b6ba3cb906896d0fabff1cdf5153709df2d32006391",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Law, Society & Justice"
+      },
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Introduces law through legal, social and normative perspectives. Students compare major legal traditions and survey public and private law, including constitutional, criminal, international, human-rights, property, contract and tort law. The second part examines justice, social control and change, race and gender. Case briefs, legal interpretation, demand letters and mock trials apply legal reasoning; a family-law topic supports the design of a small socio-legal research proposal.",
+        "description2": "Examines law from legal, socio‑scientific and normative perspectives. Explores definitions, legal traditions and fields of law, investigates the relationship between law and society and the concept of justice, and includes case law, excursion to international legal organisations, interviews with practitioners and a moot court session.",
+        "topics": "Legal positivism and empirical and normative perspectives; Common-law and civil-law traditions; Constitutional and administrative law; Criminal law; International law and human rights; Property, contract and tort law; Justice; Law and social control; Law and social change; Race and gender in law; Family law",
+        "methods": "Legal interpretation; Case-law research and IRAC case briefing; Demand-letter drafting; Mock-trial legal argumentation; Socio-legal research design; Literature review",
+        "preq1": "NONE",
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      }
+    },
+    {
+      "code": "GOSLAWJ111",
+      "name": "Human Rights: Law & Philosophy",
+      "description": "Offers a legal, historical and philosophical approach to human rights. Studies classical and modern philosophers, traces the rise of human rights, examines the US Bill of Rights and the French Declaration, and discusses human rights treaties.",
+      "descriptionSha256": "1ed6ae8d1c72724248e9a340650eef63f02eaf747b2175254ce1ca96fc82ab62",
+      "existingProvenance": null,
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Studies human rights both as positive law and as philosophical claims. Students examine the UDHR, European and UN protection systems, monitoring institutions and landmark cases alongside natural law, natural rights, legal positivism and critiques of universality. Historical and philosophical texts frame debates about dignity, life and reproductive rights, punishment, religious freedom, expression and democracy. Close engagement with legal and philosophical arguments supports independent moral positions.",
+        "description2": "Offers a legal, historical and philosophical approach to human rights. Studies classical and modern philosophers, traces the rise of human rights, examines the US Bill of Rights and the French Declaration, and discusses human rights treaties.",
+        "topics": "Human-rights generations and justifications; UDHR and its formation; UN and European human-rights protection; Natural law and natural rights; Legal positivism and cultural relativism; Universality and statelessness; Human dignity; Right to life and reproductive rights; Torture and punishment; Freedom of religion; Freedom of expression; Democracy",
+        "methods": "Treaty and legal-text analysis; Judicial and treaty-body case-law research; Case-law analysis; Philosophical text and argument analysis",
+        "preq1": "NONE",
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      }
+    },
+    {
+      "code": "GOSLAWJ212",
+      "name": "Introduction to Public International Law",
+      "description": "Introduction to Public International Law examines its sources, theories, institutions and relationship to domestic law. Topics include responsibility, force, armed conflict, international crime, human rights, economic relations and environmental protection, followed by self-determination, Third World approaches, compliance and treaty politics. Case exercises and a research podcast develop legal reasoning and critical analysis.",
+      "descriptionSha256": "69f757ece2c00572df432e6ab9cc82f74c14f17c69dd6726bf3e86264049390a",
+      "existingProvenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "0f8c6da05a320590248fdd068ef7492aa4a552af12c9e621a746cfcdf1ad4f41",
+        "descriptionSha256": "69f757ece2c00572df432e6ab9cc82f74c14f17c69dd6726bf3e86264049390a",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Introduction to Public International Law"
+      },
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Introduces public international law through its sources, theories, institutions and relationship to domestic legal systems. Legal principles are applied to responsibility, force, armed conflict, international crime, human rights, economic relations and environmental protection. The later course examines self-determination, Third World approaches, soft law, compliance and treaty politics. Case exercises develop legal reasoning, while a research podcast critically investigates a political dimension of international law.",
+        "description2": "Introduces rules, institutions and politics of public international law. Covers treaties, the UN, armed conflict, war crimes, refugee protection and climate change. Students analyse cases, debate issues and produce a podcast connecting law to global challenges.",
+        "topics": "Sources and theories of international law; Treaty law; International legal subjects; Jurisdiction and immunities; Domestic courts and international law; State responsibility; Use of force; UN reform; Armed conflict and international criminal law; International human rights and economic law; Environmental law; Self-determination; Third World Approaches to International Law; Soft law, compliance and effectiveness; Global environmental treaties",
+        "methods": "Identification and interpretation of international legal instruments; Judgment and case-law analysis; Application of legal principles to factual scenarios; Legal, empirical and normative critique; Research podcast development",
+        "preq1": "GOSGATE102",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      }
+    },
+    {
+      "code": "GOSLAWJ213",
+      "name": "Comparative Constitutional Law",
+      "description": "Comparative Constitutional Law compares constitutional structures, institutions and rights across legal systems and introduces administrative law. Students study federalism, legislatures, executive relationships, courts, judicial review, human rights, public participation and procedural fairness. A staged booklet compares two constitutions, supported by legal interpretation, case-law analysis and hypothetical cases.",
+      "descriptionSha256": "1845c8f87e0e1295bfe5b43ee7ea5c3902c6690b455726ad6c44b66c78ae8a6a",
+      "existingProvenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "3749867e8b6ef513149437432c78c9a25f6a6964e62399088abd19dddf6c47b1",
+        "descriptionSha256": "1845c8f87e0e1295bfe5b43ee7ea5c3902c6690b455726ad6c44b66c78ae8a6a",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Comparative Constitutional Law"
+      },
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Compares constitutional structures, institutions and rights across legal systems and introduces administrative law. Students examine constitutional features, federalism, legislatures, executive relationships, courts, judicial review and human rights. The administrative component addresses public participation, remedies and procedural fairness. A staged booklet compares two constitutions, supported by legal interpretation, case-law analysis and application of principles to hypothetical facts.",
+        "description2": "Explores constitutional law and state organisation, using a comparative approach. Covers constitutionalism, separation of powers, judicial review, federalism and fundamental rights, and discusses constitution‑making, religious constitutions and constitutional backsliding.",
+        "topics": "Constitutional origins and fundamental features; Federalism and decentralization; Parliaments and lawmaking; Governments and heads of state; Court systems and judicial review; Constitutional rights; EU constitutional order; Administrative-law functions; Public participation; Administrative remedies; Procedural fairness, discretion and legitimate expectations",
+        "methods": "Comparative constitutional analysis; Constitutional and legislative interpretation; Case-law analysis; Application of legal principles to hypothetical facts; Structured comparative legal writing",
+        "preq1": "GOSGATE102",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      }
+    },
+    {
+      "code": "GOSLAWJ312",
+      "name": "Foundations of European Union Law",
+      "description": "Introduces the EU legal order. Studies institutions, framework, citizenship and the internal market using problem‑based exercises and guest lectures.",
+      "descriptionSha256": "fea5f72e90d46266e5f1eb6bdfeb2ee451f21334ff92ecd9dc947792b4add6b6",
+      "existingProvenance": null,
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Introduces the EU legal order through its institutions, sources, competences and relationship to member-state law. Students study supremacy, legal effect, liability and judicial remedies before applying citizenship and free-movement law to concrete problems. Structured legal cases and research into current judgments develop interpretation and comparison across EU and domestic settings. Digital regulation and the green transition provide a contemporary application.",
+        "description2": "Introduces the EU legal order. Studies institutions, framework, citizenship and the internal market using problem‑based exercises and guest lectures.",
+        "topics": "European integration and institutions; EU legal sources and fundamental rights; Competences, subsidiarity and proportionality; Supremacy; Direct and indirect effect; State liability; Preliminary rulings; Review of EU acts and enforcement; EU citizenship; Free movement of persons, workers and goods; Establishment and services; Digital-market regulation and green transition",
+        "methods": "EU legal-source research; Case-law analysis; Comparative interpretation of EU and national law; Application of free-movement principles to factual scenarios; Structured legal problem analysis",
+        "preq1": "GOSGATE102",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      }
+    },
+    {
+      "code": "GOSPHIL212",
+      "name": "Ethics",
+      "description": "Ethics examines moral reasoning through historical and contemporary theories and close philosophical reading. Students study utilitarianism, Kantian ethics, virtue ethics, contractarianism and feminist ethics, alongside Nietzsche, Murdoch and Nagel. Reflection and research essays develop interpretation, argument evaluation and an independent position on ethical theory or a practical ethical problem.",
+      "descriptionSha256": "d17cd0a6631823a666c2978b81f52bc5e8b5c8e52ed68edccb3fa37073146e5b",
+      "existingProvenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6d4bf415a51b5b6fb41f341d23fe8b8ce483263f17505e77d1a4ae37299fe30f",
+        "descriptionSha256": "d17cd0a6631823a666c2978b81f52bc5e8b5c8e52ed68edccb3fa37073146e5b",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Ethics"
+      },
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Studies moral reasoning through historical and contemporary ethical theories and close philosophical reading. Utilitarianism, consequentialism, Kantian ethics, virtue ethics, contractarianism and feminist ethics lead into Nietzsche's genealogy, Murdoch's account of goodness and Nagel's treatments of value, perspective, death and meaning. Reflection and research essays require interpretation, argument evaluation and an independent position on ethical theory or a practical ethical problem.",
+        "description2": "Explores theories of moral reasoning—virtue ethics, deontology, utilitarianism—and discusses moral knowledge, motivation, responsibility and the relation between happiness and pleasure. Applies theories to practical issues such as animal rights, privacy, future generations, war, punishment, disability and equality.",
+        "topics": "Divine command and human nature; Moral relativism and universalism; Utilitarianism and consequentialism; Kantian ethics; Virtue ethics; Social contract and intuitionism; Feminist and care ethics; Nietzschean genealogy and nihilism; Murdoch's sovereignty of good; Moral value and perspective; Death, absurdity and meaning; Ethical theory and practical judgment",
+        "methods": "Close philosophical text analysis; Reconstruction and critical evaluation of moral arguments; Comparison of ethical theories; Conceptual analysis; Independent philosophical argument development",
+        "preq1": "NONE",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      }
+    },
+    {
+      "code": "GOSPOLI111",
+      "name": "Introduction to Political Philosophy",
+      "description": "Introduction to Political Philosophy examines political thought from classical antiquity to contemporary debates, including European and non-European thinkers. Students study views of human nature, society, rights and authority in historical context and compare their arguments with current political problems. Original texts, an essay and a group project develop interpretation and normative argument.",
+      "descriptionSha256": "ea3b0a363bec6cacab1a13c186f6c97bbbf5d5ce40d4cf5cdb1a67491d47a19c",
+      "existingProvenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "b82d5b7efaf1e222b9ec94652bba7beb367919298b5ae983d3f07f072f142130",
+        "descriptionSha256": "ea3b0a363bec6cacab1a13c186f6c97bbbf5d5ce40d4cf5cdb1a67491d47a19c",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Introduction to Political Philosophy"
+      },
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Surveys political thought from classical antiquity to contemporary debates, including European and non-European thinkers. Students examine views of human nature, society, rights and authority in their historical contexts and compare their proposed solutions with current political problems. Close study of original texts, an individual essay and a group project developing a coherent political philosophy connect historical interpretation to normative argument.",
+        "description2": "Introduces political philosophy. Examines concepts such as authority, freedom, equality, democracy, human rights, pluralism, multiculturalism, poverty and environmental issues through classical and contemporary texts. Emphasises essay writing and presentations.",
+        "topics": "Society, rights and political authority; Classical political thought; Sovereignty and political realism; Enlightenment and revolution; Liberalism and conservatism; Feminism; Nationalism; Socialism and communism; Empire, race and decolonization; Welfare state and libertarianism; Neoliberalism; Justice",
+        "methods": "Political-text interpretation; Historical contextualization of political ideas; Comparative political argument analysis; Assumption identification; Normative political-theory construction",
+        "preq1": "NONE",
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      }
+    },
+    {
+      "code": "GOSPOLI112",
+      "name": "Foundations of Comparative Politics",
+      "description": "Provides analytical tools to compare political systems and democracies. Examines phenomena like democratic backsliding, decline of political parties, rise of populism, media changes, non‑majoritarian institutions and globalization’s impact on domestic politics.",
+      "descriptionSha256": "72f9efff37e62fdc1cb0ddf27e595e7b3c526eb132dad86622cf55738204a4ee",
+      "existingProvenance": null,
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Introduces empirical comparison of political systems, with democracy, democratization and autocratization as central concerns. Students study political institutions, rules, actors and behaviour, including parties, elections, participation, polarization, interest groups and policy. Research exercises operationalize and measure democracy using V-Dem data and compare academic literature-search tools. A qualitative or quantitative research memo answers a theoretically grounded comparative-politics question through empirical analysis.",
+        "description2": "Provides analytical tools to compare political systems and democracies. Examines phenomena like democratic backsliding, decline of political parties, rise of populism, media changes, non‑majoritarian institutions and globalization’s impact on domestic politics.",
+        "topics": "Democracy and authoritarianism; Democratization and democratic backsliding; States, nations and nationalism; Constitutions and courts; Executives, legislatures and bureaucracies; Political economy; Parties and party systems; Populism and technocracy; Elections and electoral systems; Political culture and polarization; Political participation; Interest groups and public policy",
+        "methods": "Theory-driven qualitative and quantitative research; Concept operationalization and democracy measurement; V-Dem data analysis; Comparative case analysis; Academic literature searching with OpenAlex and AI tools; Empirical election analysis; Research-question formulation",
+        "preq1": "NONE",
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      }
+    },
+    {
+      "code": "GOSPOLI212",
+      "name": "Theory of International Relations",
+      "description": "Theory of International Relations introduces competing approaches to international relations and geopolitics, including realism, liberalism, Marxism, constructivism and critical theory. Students apply theories to historical and contemporary cases. A United Nations Security Council simulation develops country-position research, negotiation and collaborative resolution drafting.",
+      "descriptionSha256": "04498c2b83c05d39830633ba46b62b3691d10af2bb8320e5413d0f75963fbc80",
+      "existingProvenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "0f83c15b507fb2c91b8001182f4a8a94e42ee1673da8396a51bb4a3556d47116",
+        "descriptionSha256": "04498c2b83c05d39830633ba46b62b3691d10af2bb8320e5413d0f75963fbc80",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Theory of International Relations"
+      },
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Introduces international relations and geopolitics through competing theoretical approaches and historical and contemporary cases. Students study realism, liberalism, Marxism, constructivism, critical theory and foreign-policy analysis. Case research connects theories to conflicts, colonial relationships, economic competition and climate politics. A UN Security Council simulation requires country-position research, strategy and position papers, negotiation and collaborative resolution drafting.",
+        "description2": "Introduces basic theories of international relations and applies them to contemporary issues such as climate change, energy, humanitarian intervention, global crises and international relations between North-South and South-South actors. Includes a UN Security Council negotiation simulation.",
+        "topics": "International state system and non-state actors; Classical and contemporary geopolitics; Realism and neorealism; Liberalism and neoliberalism; Marxism and world-systems theory; Constructivism and critical theory; Foreign-policy decision-making; War and great-power competition; Colonialism and economic relations; Climate politics; UN Security Council diplomacy",
+        "methods": "Theory-guided international case analysis; Historical-source analysis; Comparative foreign-policy analysis; Country-position and strategy research; Diplomatic negotiation simulation; Position-paper and resolution drafting",
+        "preq1": "NONE",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      }
+    },
+    {
+      "code": "GOSPOLI311",
+      "name": "European Union Politics",
+      "description": "European Union Politics examines EU institutions, actors, integration and policymaking, including representation, legitimacy and decision-making. An empirical project investigates European Parliament committee amendments, relating MEP ideology and possible interest-group influence to amendment activity. Students plan the research, code amendments, assess salience and trace legislative processes.",
+      "descriptionSha256": "97411c9c43963bfc500f8c6494383d57cfd36eeb9c57f554e94ba2d6e35c4253",
+      "existingProvenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "42788a5dd28eccc535d20a771b88a601c20af300b1102ef637945a852f156fe0",
+        "descriptionSha256": "97411c9c43963bfc500f8c6494383d57cfd36eeb9c57f554e94ba2d6e35c4253",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "mode": "edited",
+        "courseName": "European Union Politics"
+      },
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Studies EU institutions, political actors, integration and policymaking, linking formal rules to current political issues. Students analyze representation, legitimacy, interests, agenda setting, decision-making and implementation. A substantial empirical project examines European Parliament committee amendments, connecting MEP ideology and possible interest-group influence to amendment activity. Students develop a project plan, code amendments, assess salience and trace legislative processes.",
+        "description2": "Introduces EU politics. Outlines actors, institutions and decision‑making rules; examines responses to crises; and employs various approaches to study EU politics and policy‑making.",
+        "topics": "European integration; EU institutions and decision rules; EU legitimacy and democracy; Public opinion; Parties and European Parliament; Interest representation and lobbying; Agenda setting; EU legislation and implementation; MEP roles and committee behaviour; Political ideology and amendments; Policy salience",
+        "methods": "EU policy and legislative-document research; Process tracing; Systematic amendment coding; Ideology and amendment-activity analysis; Salience assessment; Comparative news-source analysis",
+        "preq1": "NONE",
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      }
+    },
+    {
+      "code": "GOSPOLI312",
+      "name": "Public Policy Analysis",
+      "description": "Investigates public policy in the context of globalization. Uses a case study on sugar to examine policy‑making phases and alternative conceptualisations across national and international arenas. Students write policy memos.",
+      "descriptionSha256": "c9f3958d93c55568454749b18f2790f1adf0927a53afbc8d93fb3ce9ca1729e6",
+      "existingProvenance": null,
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": null,
+        "description2": "Investigates public policy in the context of globalization. Uses a case study on sugar to examine policy‑making phases and alternative conceptualisations across national and international arenas. Students write policy memos.",
+        "topics": null,
+        "methods": null,
+        "preq1": "NONE",
+        "2026h2": null,
+        "2027h1": null,
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      }
+    },
+    {
+      "code": "GOSSOCI111",
+      "name": "Introduction to Sociology",
+      "description": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+      "descriptionSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+      "existingProvenance": null,
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Introduces sociological reasoning through classical theories, their historical settings and perspectives that address exclusions from the discipline. Students connect solidarity, modernity, identity, social boundaries, networks and stratification to race, gender, migration and inequality in education and work. An individual analysis applies a course concept to contemporary social life without original data collection. A group paper develops a sociological question and analyzes a social problem using theory and academic literature.",
+        "description2": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+        "topics": "Sociological imagination and knowledge; Social structure and socialization; Classical social theory; Colonialism and the formation of sociology; Solidarity and modernity; Identity, belonging and othering; Groups and social networks; Capital, class and mobility; Race and gender inequality; Global inequality and migration; Education and labour-market inequality",
+        "methods": "Theory-guided sociological case analysis; Comparative analysis of sociological perspectives; Library-based social-science research; Sociological research-question formulation",
+        "preq1": "NONE",
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      }
+    },
+    {
+      "code": "GOSSOCI212",
+      "name": "Qualitative Research Methodology",
+      "description": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+      "descriptionSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+      "existingProvenance": null,
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Develops qualitative inquiry from research design and preparation through data collection, management, analysis and dissemination. Students examine methodological foundations, ethics, positionality and reflexivity alongside interviews, focus groups, ethnography, documentary and visual approaches. Coding, thematic interpretation and NVivo support analysis. Research teams formulate a question, collect and analyze qualitative evidence, and report their methodological decisions, findings and limitations in staged assignments.",
+        "description2": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+        "topics": "Qualitative knowledge and research design; Ethics, positionality and reflexivity; Mixed methods; Participatory research; Interview and focus-group approaches; Ethnography and participant observation; Documentary and archival sources; Visual and participatory media; Coding and thematic interpretation; Qualitative research dissemination",
+        "methods": "Qualitative research design; Interviews; Focus groups; Ethnography and participant observation; Documentary and archival analysis; Visual-data analysis; Participatory video and drawing; Transcription; Qualitative coding; Thematic analysis; NVivo-supported analysis; Reflexive methodological evaluation",
+        "preq1": "NONE",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      }
+    },
+    {
+      "code": "GOSSOCI214",
+      "name": "Modern Sociology",
+      "description": "Examines the trajectory of sociology within the culture of imperialism and colonial responses. Studies leading social theories and debates about modernity and critically engages with sociological discourses.",
+      "descriptionSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+      "existingProvenance": null,
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Examines twentieth-century and contemporary social theory alongside critical accounts of modernity, colonialism and disciplinary exclusion. Functionalism, critical theory, Black feminist thought, phenomenology, symbolic interactionism and Bourdieu's work are read with postcolonial, decolonial and Indigenous perspectives. Students compare theories and apply them to empirical cases, including visual material. An individual research paper develops a theoretically grounded interpretation of a selected social phenomenon.",
+        "description2": "Examines the trajectory of sociology within the culture of imperialism and colonial responses. Studies leading social theories and debates about modernity and critically engages with sociological discourses.",
+        "topics": "Modernity and Eurocentrism; Functionalism; Frankfurt School critical theory; Black feminist thought and intersectionality; Social construction of reality; Symbolic interactionism; Stigma and othering; Social space, capital and art; Coloniality and postcolonialism; Decolonial and Indigenous sociology; Gender and power",
+        "methods": "Close reading of social theory; Comparative theoretical analysis; Theory-guided empirical case analysis; Visual sociological analysis; Literature-based sociological research",
+        "preq1": "NONE",
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      }
+    },
+    {
+      "code": "GOSSOCI215",
+      "name": "Social Movements & Environmental Justice",
+      "description": "Focuses on social movement theories and environmental justice. Uses case studies from the Environmental Justice Atlas and integrates perspectives such as feminism, anti‑colonialism, degrowth and environmental peacebuilding to encourage civic engagement.",
+      "descriptionSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+      "existingProvenance": null,
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": null,
+        "description2": "Focuses on social movement theories and environmental justice. Uses case studies from the Environmental Justice Atlas and integrates perspectives such as feminism, anti‑colonialism, degrowth and environmental peacebuilding to encourage civic engagement.",
+        "topics": null,
+        "methods": null,
+        "preq1": "NONE",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      }
+    },
+    {
+      "code": "GOSSOCI311",
+      "name": "New Issues in Contemporary Social Theory",
+      "description": "New Issues in Contemporary Social Theory studies civil society through critical, neo-functionalist and decolonial perspectives. Topics include trust, social capital, public spheres, solidarity, social movements and civil repair. An experience report connects engagement or observation to course concepts, while an individual project uses theoretical and empirical sources to analyse a civil-society organisation, movement or initiative.",
+      "descriptionSha256": "367314c88b9f1c559ccd023159845f9624f353f78d898bc66b690ebe3392336b",
+      "existingProvenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "New Issues in Contemporary Social Theory",
+        "sourceField": "profile",
+        "sourceSha256": "f54abdf8a1ca13792cdc4bc2d390f202721dd6280b0cae44aa0609c2db02dbbf",
+        "descriptionSha256": "367314c88b9f1c559ccd023159845f9624f353f78d898bc66b690ebe3392336b",
+        "mode": "edited",
+        "reviewedOn": "2026-10-31",
+        "reviewNote": "Read the selected current profile and cumulative outline limitation fields. The displayed summary follows its substantive topics and activities; it omits unsupported resource-planning or mandatory NGO group-project claims from superseded cache wording."
+      },
+      "finding": "Retain: inspected displayed text against current profile/description and selected source; no unsupported defining claim.",
+      "courseEvidence": {
+        "profile": "Focuses on civil society through critical, neo-functionalist and decolonial social theory. Students examine social trust, capital, hegemony, public spheres, solidarity, social movements and civil repair across political and regional contexts. An experience report relates personal engagement or observation to course concepts. An individual research project uses theoretical and empirical sources to analyze a civil-society organization, movement, initiative or related phenomenon.",
+        "description2": "Examines contemporary sociological debates about civil society through critical tradition, neo‑functionalism and decolonial critiques. Includes research group projects with NGOs or civil society organizations that translate conceptual insights into empirical analysis.",
+        "topics": "Civil society; Social trust and social capital; Hegemony; Critical theory; Public spheres, digital publics and counterpublics; Solidarity and civil repair; Civil sphere; Social movements and intersectionality; Migrant solidarity; Civil society under authoritarianism; Decolonial critique; Public sociology",
+        "methods": "Comparative social-theory analysis; Theory-guided empirical case analysis; Document and secondary-source analysis; Structured reflection on civil-society engagement or observation; Sociological research design",
+        "preq1": "NONE",
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      }
+    }
+  ],
+  "contentAssessment": "All selected concepts/notes resolve uniquely. All 22 external components, 31 unique UCR titles and 48 course placements reviewed. Audience explains partial correspondence, integrated disciplinary limits, compulsory placement/thesis and optional research outside 180 EC. No internal source logs or raw cell notes are selected as prose. Updated policy-analysis limitation agrees with actual selection.",
+  "runtimeTests": "None performed; record content approval only. Final release requires separate representative actual rendering."
+}

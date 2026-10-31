@@ -736,36 +736,24 @@
   "cases": [
     {
       "id": "cp-000001",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "retain",
         "2": "retain",
-        "3": "retain",
+        "3": "correct",
         "4": "correct",
-        "5": "correct"
+        "5": "correct",
+        "6": "retain"
       },
       "sharedIssueIds": [],
-      "unresolved": [
-        "Final record-content verification and separately identified source-first academic pass remain outstanding under record-content-review-2026-10-31."
-      ],
-      "downstreamReassessments": [
-        {
-          "trigger": "Authoritative enriched course workbook replaced after the previous approval.",
-          "scope": "Retain verified course, schedule, alignment and communication repairs. Complete record-content verification, the source-first final pass and any remaining academic dependencies against exact current inputs; live app execution is not a case gate.",
-          "stages": [
-            3,
-            4,
-            5,
-            6
-          ],
-          "state": "in-progress"
-        }
-      ],
+      "unresolved": [],
+      "downstreamReassessments": [],
       "implementationCommits": [
         "55f787943745ca9454e2392fdc284dfa65755547",
-        "fa87ac6406e46504343c1b1abd20d6e1a5c312aa"
+        "fa87ac6406e46504343c1b1abd20d6e1a5c312aa",
+        "86028670a712f50fb2f34447f52f83c965995a47"
       ],
-      "presentationApproval": false,
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000001.json",
       "academicDisposition": "comparison"
     },
@@ -5207,8 +5195,8 @@
     }
   ],
   "progress": {
-    "approved": 1,
-    "inProgress": 3,
+    "approved": 2,
+    "inProgress": 2,
     "reviewedWithBlockers": 0,
     "notStarted": 434,
     "pilotStarted": 1
@@ -5440,48 +5428,45 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000001",
-      "activeClaim": {
-        "executionId": "restart-A-cp001-content-20261031",
-        "worker": "A",
-        "caseId": "cp-000001",
-        "claimedAt": "2026-10-31T09:47:41.557515+00:00",
-        "reviewedInputCommit": "1f83f6451b50b34edd14985ad07e43ca9ab4a86a",
-        "inputBlobs": {
-          "data/counselor/comparisons/cp-000001.json": "7b8cdb1bfe00a55cf962af628e484ffc48f2d068",
-          "data/counselor/decisions/cp-000001.json": "251871d1a62f1456986d74c2495230ec41d936e2",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/registry/programme_interests.csv": "836d2a9b9495d24be7800aba1d72ef7d3bbd87e5",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
-          "data/reference/ucr-course-descriptions.json": "HEAD:data/reference/ucr-course-descriptions.json"
-        },
-        "nextAction": "Read exact finished record, selected description text and underlying course evidence; source-first final pass, mechanical checks and disposition under record-content-review-2026-10-31.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
-      "completedCases": [],
-      "completedDispositions": [],
+      "nextCase": "cp-000002",
+      "activeClaim": null,
+      "completedCases": [
+        "cp-000001"
+      ],
+      "completedDispositions": [
+        {
+          "caseId": "cp-000001",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000001.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-10-31"
+        }
+      ],
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {},
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
         "caseId": "cp-000001",
-        "executionId": "restart-A-cp001-20261031T0730Z",
-        "state": "in-progress",
-        "checkpointedOn": "2026-10-31",
-        "nextAction": "Resume cp-000001: review all reader-facing fields, selected audience references, source links and selected course-description text; complete stage 6 record validation and the separately identified source-first final academic pass against current inputs. Record finalReview.verificationPolicy=record-content-review-2026-10-31 with passed academic, mechanical and content checks and actual evidenceRefs only after completion. Do not install or launch R/Shiny/browser software for this case. Preserve verified repairs and historical runtime evidence; no approval granted by this policy update.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000001/reopened-2026-10-31.json",
-        "reviewStarted": true,
-        "verificationPolicy": "record-content-review-2026-10-31"
+        "executionId": "restart-A-cp001-content-20261031",
+        "state": "approved",
+        "verifiedOn": "2026-10-31",
+        "reviewedInputCommit": "86028670a712f50fb2f34447f52f83c965995a47",
+        "inputBlobs": {
+          "canonical": "37888e09b80298b2c99d328648211411432346c8",
+          "decision": "7b65dd7c8b85ad5a0ef24c7741767707e2d4518f"
+        },
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "nextAction": "CP001 complete under record-content-review-2026-10-31. Worker A resumes CP002; release and app verification remain separate.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000001/source-first-content-final-2026-10-31.json",
+        "runtimeModel": "unknown",
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -6770,7 +6755,7 @@
         "status": "in-progress",
         "scope": "Process every assigned case from scratch, update only this audit's progress and case evidence.",
         "nextCaseByWorker": {
-          "A": "cp-000001",
+          "A": "cp-000002",
           "B": "cp-000237"
         }
       },
