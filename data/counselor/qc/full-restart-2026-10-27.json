@@ -2976,38 +2976,25 @@
     },
     {
       "id": "cp-000237",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "correct",
         "3": "retain",
         "4": "correct",
-        "5": "correct"
+        "5": "correct",
+        "6": "retain"
       },
       "sharedIssueIds": [],
-      "unresolved": [
-        "Final record-content verification and separately identified source-first academic pass remain outstanding under record-content-review-2026-10-31."
-      ],
-      "downstreamReassessments": [
-        {
-          "trigger": "Authoritative enriched course workbook replaced after the previous approval.",
-          "scope": "Retain verified course, schedule, alignment and communication repairs. Complete record-content verification, the source-first final pass and any remaining academic dependencies against exact current inputs; live app execution is not a case gate.",
-          "stages": [
-            3,
-            4,
-            5,
-            6
-          ],
-          "state": "in-progress"
-        }
-      ],
+      "unresolved": [],
+      "downstreamReassessments": [],
       "implementationCommits": [
         "c46080ad450c460c1524c323e217b39bb015ec5d",
         "ec6f76523e117feff931e5dc62d48450456c7188",
         "33c3703c4b257f7dcc5b7cefad0bd785422c91ec",
         "8f651b32e150f0fde46b7b0343d5f84459857b15"
       ],
-      "presentationApproval": false,
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000237.json",
       "academicDisposition": "comparison"
     },
@@ -5220,8 +5207,8 @@
     }
   ],
   "progress": {
-    "approved": 0,
-    "inProgress": 4,
+    "approved": 1,
+    "inProgress": 3,
     "reviewedWithBlockers": 0,
     "notStarted": 434,
     "pilotStarted": 1
@@ -5767,38 +5754,45 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "working",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000237",
-      "activeClaim": {
-        "executionId": "restart-B-cp237-record-content-20261031T0946Z",
-        "worker": "B",
-        "caseId": "cp-000237",
-        "claimedAt": "2026-10-31 09:47:38 UTC",
-        "reviewedInputCommit": "1f83f6451b50b34edd14985ad07e43ca9ab4a86a",
-        "nextAction": "Read complete selected reader-facing content and workbook evidence; validate current pair and provenance; conduct separately identified source-first final pass under record-content-review-2026-10-31.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
-      "completedCases": [],
-      "completedDispositions": [],
+      "nextCase": "cp-000238",
+      "activeClaim": null,
+      "completedCases": [
+        "cp-000237"
+      ],
+      "completedDispositions": [
+        {
+          "caseId": "cp-000237",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000237.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-10-31"
+        }
+      ],
       "deferredCases": [],
       "sourceRetrievalFailuresByCase": {},
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
         "caseId": "cp-000237",
-        "executionId": "restart-B-cp237-20261031T0756Z",
-        "state": "in-progress",
-        "checkpointedOn": "2026-10-31",
-        "nextAction": "Resume cp-000237: review all reader-facing fields, selected audience references, source links and selected course-description text; complete stage 6 record validation and the separately identified source-first final academic pass against current inputs. Record finalReview.verificationPolicy=record-content-review-2026-10-31 with passed academic, mechanical and content checks and actual evidenceRefs only after completion. Do not install or launch R/Shiny/browser software for this case. Preserve verified repairs and historical runtime evidence; no approval granted by this policy update.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/reopened-2026-10-31.json",
-        "reviewStarted": true,
-        "verificationPolicy": "record-content-review-2026-10-31"
+        "executionId": "restart-B-cp237-record-content-20261031T0946Z",
+        "state": "approved",
+        "reviewedInputCommit": "d1b9b21620805e324cd0193cf1355ab8d10532e8",
+        "inputBlobs": {
+          "canonical": "17777196c84178ed10d40877064f0a23fb98d898",
+          "decision": "e35c65e674903196235a8c253cc62774fca2230d"
+        },
+        "verifiedAt": "2026-10-31T09:50:25.254805+00:00",
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000237/record-content-final-2026-10-31.json",
+        "nextAction": "CP237 complete. Worker B resumes reopened CP238 on next execution. No final release or deployment authorised.",
+        "runtimeModel": "unknown",
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
