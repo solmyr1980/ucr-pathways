@@ -1,0 +1,54 @@
+{
+  "checks": [
+    {
+      "check": "feasibility",
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000014.json",
+      "exitCode": 0,
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000014/feasibility.log"
+    },
+    {
+      "check": "schema",
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000014.json",
+      "exitCode": 0,
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000014/schema.log"
+    },
+    {
+      "check": "operational",
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000014/operational.log"
+    },
+    {
+      "check": "interests",
+      "command": "npm run validate:registry-interests",
+      "exitCode": 0,
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000014/interests.log"
+    },
+    {
+      "check": "review-index",
+      "command": "npm run validate:counselor-review",
+      "exitCode": 0,
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000014/review-index.log"
+    },
+    {
+      "check": "descriptions",
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000014/descriptions.log"
+    },
+    {
+      "check": "decision-canonical-replay",
+      "status": "passed",
+      "byteExact": true,
+      "canonicalSha256": "bcaf20018a03eeed27893e443351fa7c5da4bef5bb3100af1f2e0c902693ffec",
+      "temporaryOutput": "/tmp/b014-byte-replay.json"
+    }
+  ],
+  "scope": "Case mechanical/operational validation only; academic and content judgments recorded separately. No runtime app testing or release authority."
+}
