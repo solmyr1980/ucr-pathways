@@ -1007,7 +1007,7 @@
     },
     {
       "id": "cp-000016",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
@@ -1018,20 +1018,11 @@
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Currentcourseidentities/content,offeringconflict andprogression/preferences",
-          "scope": "Affectedcoursecontributions,schedules,partialalignments,distinctness,concepttextandaudiencewordingreassessed;publicationverificationpending.",
-          "stages": [
-            3,
-            4,
-            5,
-            6
-          ]
-        }
+      "downstreamReassessments": [],
+      "implementationCommits": [
+        "1b289b8ddf359e4f2944d2503b600e8b87ac1628"
       ],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000016.json",
       "academicDisposition": "comparison"
     },
@@ -5440,8 +5431,8 @@
     }
   ],
   "progress": {
-    "approved": 22,
-    "inProgress": 3,
+    "approved": 23,
+    "inProgress": 2,
     "reviewedWithBlockers": 0,
     "notStarted": 413,
     "pilotStarted": 1
@@ -5673,35 +5664,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "working",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000016",
-      "activeClaim": {
-        "executionId": "restart-A-cp016-20261031T2233Z",
-        "worker": "A",
-        "caseId": "cp-000016",
-        "claimedAt": "2026-10-31 22:33:19 UTC",
-        "reviewedInputCommit": "cdc9009ea1b9271371911553ff84cf58ddfc2b14",
-        "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000016.json": "3b67e2255259a5a0d77a93c1396d45dad2ac0f0f",
-          "data/counselor/comparisons/cp-000016.json": "9ec455ffda126a5db80eafedaa8f09cfd32ffba5",
-          "data/registry/programme_interests.csv": "00ba23eee32f1c7c1e1ae1463b7de45f289d0d27"
-        },
-        "nextAction": "Verify publishedCP016pair/evidence,actualreviewedinputs andapplicableCI;complete separate same-AI source-firstfinalpassbeforeapproval.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000017",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -5713,7 +5684,8 @@
         "cp-000009",
         "cp-000010",
         "cp-000011",
-        "cp-000014"
+        "cp-000014",
+        "cp-000016"
       ],
       "completedDispositions": [
         {
@@ -5792,6 +5764,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000014.json",
           "academicDisposition": "no-defensible-ucr-match",
           "verifiedOn": "2026-10-31"
+        },
+        {
+          "caseId": "cp-000016",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000016.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-10-31"
         }
       ],
       "deferredCases": [
@@ -5802,19 +5781,19 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000014",
-        "executionId": "restart-A-cp014-20261031T2133Z",
+        "caseId": "cp-000016",
+        "executionId": "restart-A-cp016-20261031T2233Z",
         "state": "approved",
-        "academicDisposition": "no-defensible-ucr-match",
-        "reviewedInputCommit": "251cd93ecb6e16285c02db92fd09551605c4e98a",
+        "academicDisposition": "comparison",
+        "reviewedInputCommit": "1b289b8ddf359e4f2944d2503b600e8b87ac1628",
         "inputBlobs": {
-          "canonical": "bae77586bf6b3b3dd2d6082eea05e9d1c15d264d",
-          "decision": "5b06497f3e924e0db59b9359ccc1f70a5e422c9d"
+          "canonical": "2dec55357dededb20a8c592ef25c17444e2f4464",
+          "decision": "0c744d4def1d4a1a1ea8b9834d843dcf45fe402d"
         },
         "verifiedAt": "2026-10-31",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000014/source-first-final-pass.json",
-        "nextAction": "CP014 complete as verified no-defensible-UCR-match. Worker A resumes CP016; CP013 remains deferred/incomplete with its separate permitted revisit unconsumed.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000016/source-first-final-pass.json",
+        "nextAction": "CP016 complete as verified comparison. Worker A resumes CP017; CP013 remains deferred/incomplete with its separate permitted revisit unconsumed.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -6042,6 +6021,50 @@
                 "data/registry/programme_interests.csv": "bf57668ad1882ff6e2e5a0bfacbf671c928f0ae4"
               },
               "nextAction": "Verify published CP014 pair/evidence and applicable CI; complete separate same-AI source-first final pass before approval.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
+        },
+        {
+          "preservedOn": "2026-10-31",
+          "reason": "Preserve own claim and prior source-deferral checkpoint before verified disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000014",
+              "executionId": "restart-A-cp014-20261031T2133Z",
+              "state": "approved",
+              "academicDisposition": "no-defensible-ucr-match",
+              "reviewedInputCommit": "251cd93ecb6e16285c02db92fd09551605c4e98a",
+              "inputBlobs": {
+                "canonical": "bae77586bf6b3b3dd2d6082eea05e9d1c15d264d",
+                "decision": "5b06497f3e924e0db59b9359ccc1f70a5e422c9d"
+              },
+              "verifiedAt": "2026-10-31",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000014/source-first-final-pass.json",
+              "nextAction": "CP014 complete as verified no-defensible-UCR-match. Worker A resumes CP016; CP013 remains deferred/incomplete with its separate permitted revisit unconsumed.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp016-20261031T2233Z",
+              "worker": "A",
+              "caseId": "cp-000016",
+              "claimedAt": "2026-10-31 22:33:19 UTC",
+              "reviewedInputCommit": "cdc9009ea1b9271371911553ff84cf58ddfc2b14",
+              "inputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000016.json": "3b67e2255259a5a0d77a93c1396d45dad2ac0f0f",
+                "data/counselor/comparisons/cp-000016.json": "9ec455ffda126a5db80eafedaa8f09cfd32ffba5",
+                "data/registry/programme_interests.csv": "00ba23eee32f1c7c1e1ae1463b7de45f289d0d27"
+              },
+              "nextAction": "Verify publishedCP016pair/evidence,actualreviewedinputs andapplicableCI;complete separate same-AI source-firstfinalpassbeforeapproval.",
               "runtimeModel": "unknown",
               "runtimeReasoningEffort": "unknown"
             }
