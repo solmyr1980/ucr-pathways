@@ -1,0 +1,2725 @@
+{
+  "caseId": "cp-000238",
+  "auditId": "counselor-full-restart-2026-10-27",
+  "reviewedOn": "2026-10-31",
+  "reviewedInputCommit": "3024cb4310984613e7dadc57c0ed79b75232d07a",
+  "actualInputBlobs": {
+    "data/counselor/comparisons/cp-000238.json": "272b51e40b316951fa1f090bcdd87ca9e512438b",
+    "data/counselor/decisions/cp-000238.json": "f55146c0ca405b810f536b8a5bee2ec16f6fcb40",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/registry/programme_interests.csv": "836d2a9b9495d24be7800aba1d72ef7d3bbd87e5",
+    "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+    "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+    "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "data/counselor/review-programmes.json": "cd3d6d642e5d20757e2d22bc626b065f11def05e",
+    "pilot/shiny/data/courses/ACC.json": "14a127e3a9a46f60286b9498be7340207e950a62",
+    "pilot/shiny/data/courses/BEN.json": "a8f4bd8fd8e6b7d59f1258d2da4d1f1fd4dea215",
+    "pilot/shiny/data/courses/DIS.json": "eb3747b911e3f9d8a97a44dc74d21f22eaddc996",
+    "pilot/shiny/data/courses/ENS.json": "6f2253ad67a2491dd6cf9ce0e8699c7f618b118e",
+    "pilot/shiny/data/courses/GOS.json": "b9788d61805fb3afb343a61c34786e7b5ec31d60",
+    "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa"
+  },
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "retainedResearch": "Existing current-audit stages1/2 contain complete30component180EC reconstruction and exhaustive54interest review. The workbook reopening does not alter these inputs or their conclusions; retain under dependency reuse rules. Current official programme/curriculum pages and the adopted EER were reread for the final claim check; no old approval is inherited.",
+  "sourceChecks": [
+    {
+      "url": "https://www.tilburguniversity.edu/education/bachelors-programs/entrepreneurship-and-business-innovation/program-and-courses",
+      "checkedOn": "2026-10-31",
+      "finding": "Current2026-entrant tables confirm all30components, common course requirements,30EC approved choice,6ECspecialisation,6ECelective,6ECphilosophy,12ECproject and five learning lines.",
+      "method": "Web open turn1view0, read complete curriculum and learning lines."
+    },
+    {
+      "url": "https://www.tilburguniversity.edu/education/bachelors-programs/entrepreneurship-and-business-innovation",
+      "checkedOn": "2026-10-31",
+      "finding": "Defines entrepreneurship, established-company innovation and impact ventures. Accounting supports strategic project/venture decisions. English three-year identity confirmed.",
+      "method": "Web open turn2view0."
+    },
+    {
+      "url": "https://www.tilburguniversity.edu/sites/default/files/download/EER_TiSEM_2026-2027_v4.pdf",
+      "checkedOn": "2026-10-31",
+      "sha256": "8743d5bdaf1380f12e3e0482a1d600dd51fb82db630d37469824d3a32a44eca2",
+      "method": "Reuse exact PDF retrieved earlier this morning; reread printed pp65–67 through pdftotext, with general rules4.5 verified in the same source.",
+      "finding": "Retain2026cohort, neutral EER-order course choices and all180EC, zero-credit noncompulsory GROW, graduation and mobility rules. Page elective ordering differs from EER; retain adopted formal-order selection International Entrepreneurship."
+    }
+  ],
+  "repairs": [
+    "Seven invalid assigned offerings repaired by rescheduling retained course sets; no fabricated offerings or cohort shift.",
+    "Update BENLEAD211 name to Psychology of Leading Under Pressure and its contribution to emotion regulation, inclusive leadership and survey-based research.",
+    "Update accounting/financial-system contributions and remove unsupported startup-budgeting and specific climate-ethics claims.",
+    "Remove unsupported direct Entrepreneurial Finance/BENBUSI312 correspondence; retain dedicated external component as unmatched and disclose specialist-finance gap. Bank/market study remains specific complementary contribution to ventures."
+  ],
+  "scheduleChanges": [
+    {
+      "label": "Entrepreneurial ventures & business innovation",
+      "moves": [
+        {
+          "courseCode": "BENENTR311",
+          "from": 6,
+          "to": 4
+        },
+        {
+          "courseCode": "BENBUSI211",
+          "from": 4,
+          "to": 5
+        },
+        {
+          "courseCode": "BENENTR111",
+          "from": 5,
+          "to": 6
+        }
+      ]
+    },
+    {
+      "label": "Corporate innovation & business analytics",
+      "moves": [
+        {
+          "courseCode": "BENECON111",
+          "from": 3,
+          "to": 1
+        },
+        {
+          "courseCode": "DISDATA111",
+          "from": 1,
+          "to": 3
+        },
+        {
+          "courseCode": "DISARIN111",
+          "from": 6,
+          "to": 4
+        },
+        {
+          "courseCode": "BENBUSI211",
+          "from": 4,
+          "to": 5
+        },
+        {
+          "courseCode": "BENENTR111",
+          "from": 5,
+          "to": 6
+        }
+      ]
+    },
+    {
+      "label": "Impact entrepreneurship & sustainable ventures",
+      "moves": [
+        {
+          "courseCode": "BENECON111",
+          "from": 3,
+          "to": 1
+        },
+        {
+          "courseCode": "BENENTR111",
+          "from": 5,
+          "to": 1
+        },
+        {
+          "courseCode": "ENSDELT312",
+          "from": 6,
+          "to": 2
+        },
+        {
+          "courseCode": "BENGATE101",
+          "from": 1,
+          "to": 3
+        },
+        {
+          "courseCode": "ENSSUST111",
+          "from": 1,
+          "to": 5
+        },
+        {
+          "courseCode": "BENENTR212",
+          "from": 2,
+          "to": 6
+        }
+      ]
+    }
+  ],
+  "schedulingMethod": "Explicit retained selections; binary term assignment minimises moved courses subject to fourpersemester, actual planned offerings, earlier formal prerequisites and Year1PPD. Academic sequencing inspected after assignment; computation makes no course/concept choices.",
+  "advisoryProgression": "Research/business foundations precede their formal dependent courses. Corporate mathematics precedes higher mathematics; Data Science precedes Machine Learning. Impact option keeps Consumer Product Design as an introductory first-year project, then business foundations in Fall2027 before Business Law/strategy/international business/market research. First-term-only Economics and first/final-only Product Design, required firstyearPPD and SustainabilityI-before-II constrain this retained set. Governance has no formal prerequisite; early conceptual policy study supports later sector work. These are academically reasonable sequences under UCR open prerequisites.",
+  "conceptAssessment": [
+    "Retain broad venture/businessinnovation: project-based venture planning, product work, strategy, market research and marketing provide substantive entrepreneurship, supported by business disciplines and methods.",
+    "Retain corporateinnovation/businessanalytics: six distinct programming/mathematics/database/AIethics courses change mode of business inquiry while business/project core survives.",
+    "Retain impactventure: environmental assessment and sector knowledge provide substantive problem/intervention domains alongside sustained venture/product/strategy/market/financial study; science courses remain complementary rather than entrepreneurial substitutes."
+  ],
+  "pairwiseDifferences": [
+    {
+      "pair": [
+        "ucr-1",
+        "ucr-2"
+      ],
+      "coursesEach": 6
+    },
+    {
+      "pair": [
+        "ucr-1",
+        "ucr-3"
+      ],
+      "coursesEach": 9
+    },
+    {
+      "pair": [
+        "ucr-2",
+        "ucr-3"
+      ],
+      "coursesEach": 11
+    }
+  ],
+  "courseReview": [
+    {
+      "code": "ACCPPDE101",
+      "name": "Personal & Professional Development",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": "X",
+        "2027h1": "X",
+        "2027h2": "X",
+        "2028h1": "X",
+        "2028h2": "X",
+        "2029h1": "X"
+      },
+      "outline_source": "ACCPPDE1011.pdf",
+      "outline_semester": "2026h2",
+      "evidenceRead": {
+        "profile": "Develops academic writing and research-literacy skills alongside personal development and civic engagement. Students locate and evaluate scholarly sources, synthesize literature, formulate research questions and arguments, and construct a research-paper introduction. A community-engaged project with a societal partner connects these skills to collaboration, reflection and practical contribution. Personal development planning addresses learning goals, self-efficacy, and stress and time management; the course also considers responsible academic use of AI.",
+        "topics": "Scholarly sources and research questions; Argumentation and thesis statements; Literature synthesis; Academic integrity and referencing; Community engagement; Personal learning goals and reflective learning; Collaborative learning; Self-efficacy; Stress and time management; Responsible use of AI",
+        "methods": "Scholarly literature searching and source evaluation; Literature synthesis; CARS model for research introductions; Reflective development planning; Community project co-design"
+      },
+      "contribution": "Mandatory Year-1 PPD",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENBUSI112",
+      "name": "Accounting & Corporate Finance",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      },
+      "outline_source": "BENBUSI1121.pdf",
+      "outline_semester": "2026h2",
+      "evidenceRead": {
+        "profile": "Introduces financial accounting, management accounting and investment appraisal, including accounting's social role and accountability implications. Students record transactions, prepare and interpret financial statements, and analyze performance and financing. The course then examines costing, pricing, budgeting, organizational control and sustainable management accounting. Investment decisions are evaluated using accounting and discounted-cash-flow measures. A case study analyzes the misuse of an accounting principle and its financial-statement effects.",
+        "topics": "Accounting and accountability; Financial reporting frameworks; Accrual accounting; Assets, liabilities and equity; Financial statements and cash flows; Accounting judgements and estimates; Costing and pricing; Budgeting and performance indicators; Organizational control; Sustainable management accounting; Investment appraisal; Accounting misuse",
+        "methods": "Double-entry bookkeeping; Year-end accounting adjustments; Financial-statement preparation; Financial-ratio analysis; Variance analysis; Accounting rate of return and payback calculations; Net present value and internal rate of return; Cost-of-capital analysis; Accounting case analysis"
+      },
+      "contribution": "Financial-statement preparation and analysis, costing, budgeting, organisational control and investment appraisal provide direct accounting and business-decision foundations. This introductory course does not reproduce the complete specialist entrepreneurship-finance sequence.",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENBUSI211",
+      "name": "Business & Economy in the Age of AI",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      },
+      "outline_source": "BENBUSI211.pdf",
+      "outline_semester": "2026h1",
+      "evidenceRead": {
+        "profile": "Examines AI's business, economic and societal implications without requiring a technical background. AI foundations and limitations lead into applications across enterprise functions and industries, labour-market change, productivity, innovation, market structure and inequality. Governance, corporate responsibility, regulation and future scenarios connect technological developments to institutional choices. Students analyze business cases and competing scholarly arguments, then investigate a country's AI readiness, workforce, regulation and industrial policy.",
+        "topics": "AI capabilities and limitations; AI in business functions and industries; Agentic AI; Market structure and business models; Automation and augmentation; Labour markets and productivity; Innovation and economic growth; Inequality; Techno-economic paradigms and economic narratives; AI ethics and societal impacts; Corporate governance and AI regulation; National AI readiness and industrial policy; Future AI scenarios",
+        "methods": "Business-case analysis; Comparative analysis of economic arguments; Evidence-based policy argumentation; Comparative country AI-readiness analysis"
+      },
+      "contribution": "examines AI capabilities and limits,competitiveness,innovation and governance across business functions;this contextual managerial course is not a dedicated corporate-entrepreneurship project",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENBUSI311",
+      "name": "Transnational Business Law",
+      "preq1": "BENGATE101",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": null,
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": null
+      },
+      "outline_source": "BENBUSI311.pdf",
+      "outline_semester": "2026h1",
+      "evidenceRead": {
+        "profile": "Studies legal frameworks governing cross-border business transactions, combining comparative and international perspectives with practical legal problem-solving. Topics include trade regulation, contracts and international sales, transport and documentary transactions, finance, services, intellectual property, foreign investment and digital commerce. Advisory assignments assess contractual outcomes, risk allocation, intellectual-property protection and e-commerce compliance. A simulated arbitration develops written legal argument and oral advocacy.",
+        "topics": "International trade regulation; Comparative and international contract law; International sales; Transport of goods and Incoterms; Documentary transactions; International trade finance; Employment and sale of services; Intellectual-property protection; International commercial dispute resolution; Foreign direct investment; E-commerce and digital economy regulation",
+        "methods": "Comparative legal analysis; Application of legal rules to commercial scenarios; Transport-risk allocation analysis; Intellectual-property strategy assessment; E-commerce legal-compliance analysis; Arbitration memorandum drafting and simulated advocacy"
+      },
+      "contribution": "studies cross-border contracts,trade,intellectualproperty,investment and digitalcommerce through practical legal scenarios and arbitration",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENBUSI312",
+      "name": "Money, Banking & Finance",
+      "preq1": "BENGATE101",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "outline_source": "BENBUSI312.pdf",
+      "outline_semester": "2027h1",
+      "evidenceRead": {
+        "profile": "Examines financial markets and institutions, including the pricing of bonds, stocks and derivatives, interest rates and their risk and term structure, commercial-bank balance sheets and performance, financial structure and regulation, banking fragility and financial crises, central banks, money creation and monetary policy. Students apply algebraic and graphical analysis to financial and monetary problems. In the Stanford Banking Game they manage a simulated bank, analyse performance in Excel dashboards, forecast financial statements, and make evidence-based decisions about loans, deposits, capital, liquidity and risk. A small research project extends a selected financial or monetary research article through additional literature, a case study or updated evidence.",
+        "topics": "Financial markets and institutions; Bond, stock and derivative pricing; Interest-rate determination; Interest-rate risk and the term structure; Commercial-bank balance sheets and performance; Bank capital, liquidity and risk management; Financial structure and regulation; Banking fragility; Financial crises in advanced and emerging economies; Central banking; Money supply; Monetary-policy tools and conduct",
+        "methods": "Algebraic and graphical financial analysis; Balance-sheet analysis; Duration gap analysis; Bank-management simulation (Stanford Banking Game); Excel-based financial dashboard construction and performance analysis; Financial-statement forecasting; Research-article extension using literature comparison, case study or updated data"
+      },
+      "contribution": "Financial markets, interest rates and risk, commercial banking and financial regulation explain the intermediaries and market conditions through which ventures obtain finance. The bank-management simulation applies balance-sheet analysis, financial forecasting, liquidity and risk decisions. This is specific complementary financial-system knowledge, not dedicated startup budgeting or venture-capital fundraising.",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENECON111",
+      "name": "Introduction to Economics",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": null,
+        "2028h1": null,
+        "2028h2": null,
+        "2029h1": null
+      },
+      "outline_source": "BENECON1111.pdf",
+      "outline_semester": "2026h2",
+      "evidenceRead": {
+        "profile": "Introduces microeconomic principles and short-run macroeconomic analysis. The microeconomic component examines supply and demand, strategic interaction, consumer choice, production, costs and competitive markets. The macroeconomic component introduces output, unemployment and inflation, then relates goods and financial markets through the IS-LM model. Students use algebra and graphs to explain economic behaviour and apply models to economic issues.",
+        "topics": "Supply and demand; Game theory; Rational consumer choice; Individual and market demand; Production and costs; Perfect competition; Aggregate output; Unemployment and inflation; Goods and financial markets; IS-LM model",
+        "methods": "Algebraic and graphical economic analysis; Supply-and-demand analysis; Game-theoretic analysis; IS-LM modelling"
+      },
+      "contribution": "introduces supply/demand,game theory,consumer/firm behaviour,marketstructure and macroeconomic conditions needed to assess entrepreneurial markets",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENECON211",
+      "name": "International Macroeconomics",
+      "preq1": "BENGATE102",
+      "offerings": {
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      },
+      "outline_source": "BENECON2111.pdf",
+      "outline_semester": "2026h2",
+      "evidenceRead": {
+        "profile": "Examines short-, medium- and long-run macroeconomic dynamics and policy, including international dimensions. Students study goods, financial and labour markets, inflation and unemployment, economic growth, expectations and the open economy. IS-LM and IS-LM-PC models connect markets and policy effects. Algebraic and graphical analysis and interpretation of macroeconomic indicators support the evaluation of economic developments and fiscal and monetary policy.",
+        "topics": "Goods and financial markets; Labour markets; Phillips curve; IS-LM and IS-LM-PC models; Economic growth; Saving and capital accumulation; Technological progress; Expectations; Open-economy macroeconomics; Fiscal and monetary policy; Business cycles and economic crises",
+        "methods": "Algebraic and graphical macroeconomic analysis; IS-LM and IS-LM-PC modelling; Macroeconomic data and indicator analysis"
+      },
+      "contribution": "provides complementary analysis of growth,inflation,unemployment,crises and internationaltrade that shape the environment for new ventures",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENECON311",
+      "name": "Public Economics",
+      "preq1": "BENGATE102",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": null,
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": null
+      },
+      "outline_source": "BENECON311.pdf",
+      "outline_semester": "2026h1",
+      "evidenceRead": {
+        "profile": "Examines government intervention through the efficiency and equity effects of public policy. Market failure, public goods and externalities provide foundations for studying public production, collective choice, spending and taxation. Health, education, welfare and social insurance illustrate expenditure and redistribution questions. Students apply economic models, interpret data and graphs, evaluate research and develop a research proposal and paper.",
+        "topics": "Role and size of government; Market efficiency and failure; Public goods; Externalities; Efficiency and equity; Public production; Public choice; Public expenditure; Health and education policy; Welfare programs; Social insurance; Taxation and redistribution",
+        "methods": "Economic model-based policy analysis; Efficiency and equity assessment; Interpretation of economic data and graphs; Critical evaluation of public-economics research"
+      },
+      "contribution": "analyses externalities,publicgoods,taxation,spending and redistribution,providing the economic policy context for impact-oriented ventures",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENECON312",
+      "name": "Econometrics",
+      "preq1": "BENGATE102",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": null,
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "outline_source": null,
+      "outline_semester": null,
+      "evidenceRead": {
+        "description2": "Econometrics supplies tools to analyze data to answer questions of causality and prediction. In this course you learn three estimators—Ordinary Least Squares, Generalized Least Squares, and Instrumental Variables—and three tests—t-test, F-test, and LM-test. Understanding the basic rules of econometrics, particularly the sampling distribution concept, is key, and the course uses Monte Carlo simulations in Stata to visualize it. Tools are applied to estimate economic relationships and make predictions, and students write an empirical paper."
+      },
+      "contribution": "uses regression,causal/predictive estimators,hypothesis tests,simulation and an empiricalpaper for quantitative business/economic inquiry",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENENTR111",
+      "name": "Consumer Product Design",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": null,
+        "2028h1": null,
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "outline_source": "BENENTR1111.pdf",
+      "outline_semester": "2026h2",
+      "evidenceRead": {
+        "profile": "Teaches consumer-product design and development through projects that progress from understanding an existing product to creating a new one. Students investigate product mechanisms and environmental impact, interview potential customers, translate needs into specifications, select concepts, and develop production plans and prototypes where feasible. The final project integrates these stages with industrial scaling and elementary economic analysis. Sustainability, including material use, repairability, lifespan and circularity, informs design decisions throughout.",
+        "topics": "Consumer needs; Product concepts and specifications; Product working mechanisms; Prototyping; Laboratory-to-industrial production scaling; Materials and resource use; Product lifespan, repairability and circularity; Environmental impact; Production costs and commercial viability",
+        "methods": "Consumer interviews; Needs ranking and specification development; Concept-criteria matrices; Quantitative product modelling; Product investigation and experimentation; Prototyping; Process-flow diagrams and material balances; Environmental-impact estimation; Break-even analysis"
+      },
+      "contribution": "develops a consumer product in a self-managed team,from customer interviews and concepts through prototypes,production,costs/proceeds,intellectualproperty and sustainability assessment",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENENTR211",
+      "name": "Marketing & Consumer Engagement",
+      "preq1": "BENGATE102",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "outline_source": "BENENTR211.pdf",
+      "outline_semester": "2026h1",
+      "evidenceRead": {
+        "profile": "Connects marketing strategy and consumer psychology to responsible brand development and customer engagement. Students study strategic planning, customer experience, qualitative and quantitative insights, brand identity, digital marketing and behavioural framing. Applied projects analyze a company's strategy and response to disruption, design a brand, and investigate a consumer phenomenon using academic literature and primary and secondary evidence. Customer-journey mapping translates findings into recommendations.",
+        "topics": "Strategic marketing planning; Marketing mix; Customer centricity and experience; Consumer journeys; Market research and augmented insights; Brand identity and image; Brand partnerships; Digital and social marketing; Responsible marketing; Consumer psychology; Nudging and framing; Emerging technologies and marketing agility",
+        "methods": "Marketing-strategy case analysis; Advertising-campaign analysis; Kapferer brand-identity prism; Brand design; Primary and secondary consumer research; Consumer-journey mapping; Disruption-response planning"
+      },
+      "contribution": "connects marketing strategy,consumerpsychology,branddevelopment and responsible engagement through cases and marketingplans",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENENTR212",
+      "name": "Strategy & Digital Transformation",
+      "preq1": "BENGATE101",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "outline_source": null,
+      "outline_semester": null,
+      "evidenceRead": {
+        "description2": "The course explores how companies develop strategies and drive responsible digital transformation amid rapid technology change impacting the economy and society. Students develop a strategic plan, from vision to execution, and identify digital value opportunities. Using industry cases, they gain foresight into digital technologies and their impact on strategy, business models and social responsibilities."
+      },
+      "contribution": "develops company strategy from vision to execution and identifies responsible digital-value opportunities,businessmodels and socialresponsibility",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENENTR311",
+      "name": "Market Research",
+      "preq1": "BENGATE101",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "outline_source": null,
+      "outline_semester": null,
+      "evidenceRead": {
+        "description2": "See how companies figure out what customers love and what they don’t. You’ll plan and carry out real research, analyze what you find, and share your results. Our course shows you how to gather opinions and turn them into smart business ideas. Ready to turn curiosity into career skills? Perfect for future marketers, analysts, or entrepreneurs."
+      },
+      "contribution": "plans and conducts actual customer/market research,analyses evidence and communicates findings for businessideas and entrepreneurial decisions",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENENTR312",
+      "name": "International Business & Governance",
+      "preq1": "BENGATE101",
+      "offerings": {
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      },
+      "outline_source": "BENENTR3121.pdf",
+      "outline_semester": "2026h2",
+      "evidenceRead": {
+        "profile": "Examines how international trade, globalization and political, sociocultural and technological forces shape firms' cross-border decisions. Economic foundations include trade theories, foreign direct investment, foreign exchange and the monetary system. Students analyze governance, responsibility and trade-policy conflicts, investigate an international-business question, and develop an evidence-based market-entry strategy covering country attractiveness and business functions. A tariff case applies game theory to stakeholder choices and negotiation.",
+        "topics": "Globalization; International trade theories; Foreign direct investment; Foreign exchange and international monetary systems; Trade policy and economic integration; Cross-border governance; Corporate responsibility; Sociocultural and technological business environments; International business strategy; Market entry; Marketing, supply chains and human resources; Economic warfare",
+        "methods": "Trade-policy case analysis; Game-theoretic stakeholder analysis; Secondary-data analysis and visualization; Country and market-attractiveness assessment; Market-entry strategy development; Research-question formulation and evidence evaluation"
+      },
+      "contribution": "examines institutional,political and cultural forces,corporate responsibility,globaltrade and cross-border governance as context for businessinnovation",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENGATE101",
+      "name": "Entrepreneurship & Business Foundations",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      },
+      "outline_source": "BENGATE1011.pdf",
+      "outline_semester": "2026h2",
+      "evidenceRead": {
+        "profile": "Introduces entrepreneurship and core business functions through the development of a startup concept. Students use design thinking to discover customer needs, define a problem, generate and prototype solutions, and construct value propositions and business models. Marketing, finance, operations, human resources and funding inform a coherent business plan and investor pitch. Entrepreneurial cases and a startup simulation examine decision-making, early growth and business lifecycles, with attention to societal impact and sustainability.",
+        "topics": "Entrepreneurial mindset and pathways; Business environments, ownership and competition; Customer needs; Value propositions; Business models; Marketing and sales; Finance and accounting; Venture funding; Operations and human resources; Competitive positioning; Startup growth and business lifecycles; Sustainability and societal impact",
+        "methods": "Design thinking; Customer-needs discovery; Ideation and prototyping; Value Proposition Canvas; Business Model Canvas; Business planning; SWOT and risk assessment; Startup simulation"
+      },
+      "contribution": "develops an actual new-venture concept in teams from ideation through finalpitch,using designthinking,marketvalidation and businessplanning",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENGATE102",
+      "name": "Research Methods & Statistics",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "outline_source": "BENGATE102.docx",
+      "outline_semester": "2026h1",
+      "evidenceRead": {
+        "profile": "Introduces empirical research design and statistical analysis, followed by a substantial student research project. Students study operationalization, measurement quality, sampling, surveys and experimental and nonexperimental designs, then descriptive statistics, estimation, hypothesis testing and introductory regression. R and R Commander support data display and analysis. Project teams develop instruments and a research plan, collect and analyze data, and report results under explicit research-ethics and privacy requirements.",
+        "topics": "Scientific inquiry and hypotheses; Operationalization and measurement; Reliability and validity; Survey construction and sampling; Randomized and quasi-experimental designs; Nonexperimental and qualitative research; Descriptive statistics; Sampling distributions and estimation; Hypothesis testing and confidence intervals; Association and regression; Research ethics and anonymous data collection",
+        "methods": "Survey design; Probability and nonprobability sampling; Experimental and nonexperimental research design; R and R Commander data analysis; Descriptive statistics and visualization; Scale-reliability analysis; One- and two-sample mean tests; ANOVA; Chi-square tests; Correlation and regression; Empirical data collection and analysis"
+      },
+      "contribution": "teaches operationalisation,researchdesign,sampling,experiments,surveys and descriptive/inferential statistics,then applies them in a group researchproject",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENLEAD111",
+      "name": "Personal Leadership",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      },
+      "outline_source": "BENLEAD1111.pdf",
+      "outline_semester": "2026h2",
+      "evidenceRead": {
+        "profile": "Introduces leadership through self-leadership, leadership theory and emotional intelligence. Covey's habits provide a framework for personal vision, prioritization and collaboration, alongside transformational, authentic, situational and adaptive leadership perspectives. Students analyze personality and emotional-intelligence profiles in relation to group dynamics, examine leadership cases, and construct a personal development plan with actionable goals. Assessment tools support educational reflection rather than diagnosis, and the outline acknowledges differences in their scientific support.",
+        "topics": "Self-leadership and self-awareness; Covey's seven habits; Emotional intelligence and emotion regulation; Personality and group dynamics; Transformational and authentic leadership; Situational and adaptive leadership; Evolutionary perspectives on leadership; Goal setting and prioritization; Conflict resolution and negotiation; Trust and collaboration",
+        "methods": "Leadership theory and case analysis; Reflective personality and emotional-intelligence assessments; Eisenhower prioritization matrix; SMART goal setting; Leadership-development planning; Leadership simulations"
+      },
+      "contribution": "studies leadership models,self-awareness,emotionalintelligence,goalsetting and collaborative practice through workshops,reflection and roleplays",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENLEAD112",
+      "name": "Leadership Communication",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "outline_source": "BENLEAD112.docx",
+      "outline_semester": "2026h1",
+      "evidenceRead": {
+        "profile": "Studies leadership communication through leadership theory, persuasion and practical rhetorical work. Students compare contemporary leadership approaches and examine emotional intelligence, gender, culture and ethics. Literary characters, film and speeches provide material for analyzing effective and ineffective leadership. Students interview a real leader, analyze the leader's communication challenge in an advisory report, and develop a public address presenting their own ethical leadership vision.",
+        "topics": "Leadership models and approaches; Transformational, authentic and adaptive leadership; Servant leadership and followership; Emotional intelligence; Leadership ethics; Gender and culture in leadership; Persuasion and organizational communication; Leadership in literature and film; Storytelling and public speaking; Personal leadership vision",
+        "methods": "Leadership-theory application; Literary and film-based leadership analysis; Professional interviewing and note collection; Leadership-discourse analysis; Communication-advisory report development; Rhetorical speechwriting and storytelling"
+      },
+      "contribution": "studies leadershipcommunication models,ethics,culture and emotionalintelligence with business/public leaders and rhetorical/literary cases",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENLEAD211",
+      "name": "Psychology of Leading Under Pressure",
+      "preq1": "BENGATE102",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "outline_source": "BENLEAD211.pdf",
+      "outline_semester": "2027h1",
+      "evidenceRead": {
+        "profile": "Examines how emotion regulation, emotional intelligence, emotional expression and suppression, emotional labor, belonging, identity safety and psychological safety shape leadership and social interaction under conflict, exclusion and interpersonal uncertainty. It emphasises inclusive leadership and ethnic, cultural, sexual and gender minority experiences, with digital emotion regulation as a further strand. Students conduct a supervised quantitative survey project: formulating theory-driven hypotheses, selecting established psychological measures, designing and piloting a Qualtrics survey, recruiting participants ethically, collecting original data and preparing a clean dataset. Individual work applies descriptive statistics, reliability analysis, correlations, group comparisons and introductory multiple regression in SPSS or RStudio, and interprets findings and limitations in empirical reports and evidence-based leadership recommendations.",
+        "topics": "Emotion regulation strategies; Emotional intelligence; Emotional expression and suppression; Emotional labor; Inclusive leadership; Belonging and identity safety; Psychological safety; Ethnic, cultural, sexual and gender minority experiences; Digital emotion regulation; Psychological measurement, reliability and validity; Ethical survey research in diverse populations; Interpretation and limitations of quantitative evidence; Evidence-based leadership recommendations",
+        "methods": "Theory-driven hypothesis formulation; Quantitative survey research; Established psychological measure selection and evaluation; Qualtrics survey construction and piloting; Ethical participant recruitment and original data collection; Codebook development, reverse coding and scale scoring; Data cleaning and missing-data documentation; Descriptive statistics; Reliability analysis; Correlation analysis; Group comparisons; Introductory multiple regression in SPSS or RStudio; APA-style empirical reporting"
+      },
+      "contribution": "Emotion regulation, emotional intelligence, belonging and psychological safety examine inclusive leadership under conflict and interpersonal uncertainty. A supervised quantitative survey and empirical reporting connect leadership questions to original evidence; minority experiences inform the analysis.",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENLEAD311",
+      "name": "Psychology of Organizations & Leadership",
+      "preq1": "BENGATE102",
+      "offerings": {
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      },
+      "outline_source": "BENLEAD3111.pdf",
+      "outline_semester": "2026h2",
+      "evidenceRead": {
+        "profile": "Examines organizational behaviour at individual, group and organizational levels. Topics connect personality, perception, emotions and motivation to teams, leadership, power, conflict, structure, culture and change. Students design research plans for organizational cases and conduct a brief systematic literature review using PRISMA reporting tools. Workshops develop literature searching, study selection, source appraisal and synthesis, linking organizational-psychology evidence to practical questions and recommendations.",
+        "topics": "Diversity, equity and inclusion; Job attitudes and satisfaction; Emotions, stress and workplace health; Personality and individual differences; Perception and decision-making; Motivation; Group behaviour and work teams; Human resource systems; Communication, conflict and negotiation; Leadership, power and politics; Organizational structure; Organizational culture and change",
+        "methods": "Organizational case analysis; Research design and hypothesis formulation; Systematic literature review; PRISMA flow diagrams and checklists; Database searching and study screening; Source-quality appraisal and evidence synthesis"
+      },
+      "contribution": "examines motivation,groups,power,conflict,structure,culture and organisationalchange using research-based organisationalbehaviour frameworks",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "BENLEAD312",
+      "name": "Negotiation & Strategic Thinking",
+      "preq1": "BENGATE102",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": null,
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": null
+      },
+      "outline_source": "BENLEAD312.docx",
+      "outline_semester": "2026h1",
+      "evidenceRead": {
+        "profile": "Develops negotiation as an analytical practice and interpersonal skill. Students learn interest-based bargaining, BATNA and ZOPA, value creation, framing, concessions and strategies for handling power, emotions and difficult counterparts. Social-psychological and communication perspectives connect negotiation to trust, ethics, culture and relationships. Frequent simulations and narrative analysis lead to an annotated negotiation film and the design, teaching and evaluation of a negotiation scenario grounded in Delta Climate Center themes.",
+        "topics": "Interests versus positions; BATNA and ZOPA; Mutual gains and objective criteria; Dual-concern model; Anchoring, framing and concessions; Trade-offs and logrolling; Cognitive biases and influence; Power and emotions; Trust, reputation and ethics; Cross-cultural and organizational negotiation; Negotiation implementation and withdrawal; Stakeholder interests",
+        "methods": "BATNA and ZOPA analysis; Stakeholder-interest mapping; Interest-based negotiation; Negotiation simulations; Narrative and film analysis of bargaining; Negotiation-scene scripting and annotation; Scenario design and reflective evaluation"
+      },
+      "contribution": "uses BATNA,ZOPA,interest-based bargaining,valuecreation and tradeoff analysis through simulations and reflection to develop negotiation decisions",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "DISARIN111",
+      "name": "AI Ethics",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "outline_source": "DISARIN111.pdf",
+      "outline_semester": "2026h1",
+      "evidenceRead": {
+        "profile": "Examines AI through ethical theory and psychological accounts of human behaviour and interaction. Ethical debates address fairness, privacy, responsibility, alignment, moral status and political or existential risks. Psychological perspectives consider development, clinical care, social and organizational relationships, forensic applications and cognitive neuroscience. Students synthesize literature and apply ethical frameworks in an analytical psychology project and a research-grounded podcast, with a creative communication component.",
+        "topics": "Algorithmic fairness and bias; Privacy and surveillance; Responsibility and accountability; Human-value alignment; Moral status of AI; Existential risk and democratic implications; Trust and agency in human-AI interaction; AI in clinical care; Child development and AI; Social and organizational effects of AI; AI in forensic psychology; Cognitive and socioemotional development; AI consciousness and sentience",
+        "methods": "Ethical-framework application; Philosophical argument evaluation; Psychological-literature synthesis; Theory-based analysis of AI applications; Research podcast scripting, recording and editing"
+      },
+      "contribution": "examines AI fairness,bias,privacy,responsibility,agency and humaninteraction;this is complementary normative preparation for responsible digitalinnovation",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "DISCOMP212",
+      "name": "Database Management Systems",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "outline_source": null,
+      "outline_semester": null,
+      "evidenceRead": {
+        "description2": "Introduces relational database management systems and SQL. Covers relational database theory, authorization, normalization and query processing."
+      },
+      "contribution": "provides relationaldatabase andSQL tools,normalisation,authorisation and queryprocessing for structured organisationaldata;it is not an entrepreneurship course",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "DISDATA111",
+      "name": "Introduction to Data Science",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": "X",
+        "2027h1": "X",
+        "2027h2": "X",
+        "2028h1": "X",
+        "2028h2": "X",
+        "2029h1": "X"
+      },
+      "outline_source": "DISDATA1111.pdf",
+      "outline_semester": "2026h2",
+      "evidenceRead": {
+        "profile": "Introduces data analysis and visualization in R through practical work with tabular, textual and spatial data. Students import, clean, transform and join data, explore patterns, and construct visualizations using tidy-data principles and the grammar of graphics. Web scraping and basic programming functions extend the workflow. A student research project applies these tools to a question using data from a field of interest.",
+        "topics": "Data visualization; Exploratory data analysis; Tidy data; Data transformation and integration; Dates and times; Web data; Text data; Geospatial data; Programming functions; Data-based research questions",
+        "methods": "R programming; ggplot visualization and grammar of graphics; Data cleaning, tidying and transformation; Data import and joins; Web scraping; Text-data analysis; Geospatial-data analysis"
+      },
+      "contribution": "develops data cleaning,manipulation and visualisation,including an actual researchproject with tabular,spatial or textdata",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "DISDATA211",
+      "name": "Machine Learning",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      },
+      "outline_source": "DISDATA2111.pdf",
+      "outline_semester": "2026h2",
+      "evidenceRead": {
+        "profile": "Introduces statistical learning for understanding data and predicting outcomes. Students study regression and classification, model accuracy, resampling, regularization, nonlinear models, trees, support vector machines and unsupervised learning. Practical assignments evaluate methods on real data using R or Python. Projects emphasize informative predictor construction, test-set prediction, appropriate model choice and clear reporting of results and limitations.",
+        "topics": "Prediction and model accuracy; Regression and classification; Resampling and validation; Model selection and regularization; High-dimensional data; Nonlinear regression; Tree-based learning; Support vector methods; Dimension reduction; Unsupervised learning; Feature engineering",
+        "methods": "Linear and logistic regression; Generative classification; Cross-validation and bootstrap; Subset selection; Ridge regression and LASSO; Splines and generalized additive models; Basic and advanced decision-tree methods; Support vector machines; Principal component analysis; Clustering; Predictive-performance evaluation; R or Python implementation"
+      },
+      "contribution": "teaches regression,classification,resampling,trees,clustering and other predictive methods using realdata examples;applications complement businessstudy",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "DISGATE101",
+      "name": "Introduction to Programming",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      },
+      "outline_source": "DISGATE1011.pdf",
+      "outline_semester": "2026h2",
+      "evidenceRead": {
+        "profile": "Introduces computational problem-solving and programming in Python. Students develop structured programs using branching, iteration, functions and data collections, then progress to recursion, exception handling and object-oriented programming with inheritance. Elements of logic, sets and enumeration support computational reasoning. Exercises and projects require students to write, trace, test, debug and explain programs that solve problems of moderate complexity.",
+        "topics": "Python language fundamentals; Strings and input/output; Branching and loops; Functions; Tuples, lists, sets and dictionaries; Aliasing and cloning; Recursion; Exceptions and assertions; Object-oriented programming; Inheritance; Computational problem-solving",
+        "methods": "Structured programming in Python; Object-oriented programming; Recursive problem-solving; Program tracing; Testing and debugging; Exception handling"
+      },
+      "contribution": "teaches Python programming,testing,debugging and computational problemsolving through labs and projects as tools for digital businessanalysis",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "DISGATE102",
+      "name": "Mathematical Methods",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "outline_source": "DISGATE102.pdf",
+      "outline_semester": "2025h2",
+      "evidenceRead": {
+        "profile": "Develops single-variable calculus and related mathematical tools for modelling scientific problems. Functions, limits and differentiation lead to optimization, Taylor series, complex numbers, integration and differential equations. Students solve problems analytically and with Mathematica, including numerical approximation. A project implements, analyzes and adapts a dynamic model, requiring interpretation of its behaviour and explanation of the computational results.",
+        "topics": "Functions and limits; Continuity; Differentiation; Optimization; Taylor series; Complex numbers; Definite and indefinite integrals; Integration techniques; First-order differential equations; Population-growth and predator–prey models; Second-order linear differential equations; Dynamic models",
+        "methods": "Analytical differentiation and integration; Taylor approximation; Newton's method; Numerical integration; Euler's method; Analytical solution of differential equations; Computer algebra with Mathematica; Dynamic-model implementation and analysis"
+      },
+      "contribution": "provides calculus,integration,complexnumbers and differentialequations with applications including economics;it is mathematical preparation,not businessstrategy",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "DISMATH211",
+      "name": "Linear Algebra",
+      "preq1": "DISGATE102",
+      "offerings": {
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      },
+      "outline_source": "DISMATH2111.pdf",
+      "outline_semester": "2026h2",
+      "evidenceRead": {
+        "profile": "Develops linear algebra from systems of equations and matrix operations to vector spaces, linear transformations, eigenvalues and orthogonality. Students study least-squares approximation, symmetric matrices, quadratic forms and singular value decomposition. Applications include discrete signals, difference equations, Markov chains, dynamical systems, graphics and principal component analysis. Mathematica exercises teach computer-algebra approaches to larger problems alongside analytical problem-solving.",
+        "topics": "Linear systems and matrix algebra; Linear independence, span, basis, dimension and rank; Linear transformations; Determinants and invertibility; Vector spaces; Eigenvalues and eigenvectors; Difference equations and Markov chains; Discrete signals and Fourier series; Orthogonality and inner products; Quadratic forms and constrained optimization; Singular value decomposition; Principal component analysis",
+        "methods": "Row reduction; Matrix factorization and diagonalization; Change of basis; Gram-Schmidt orthogonalization; Orthogonal projection; Least-squares fitting and QR factorization; Singular value decomposition; Principal component analysis; Mathematica computer-algebra computation"
+      },
+      "contribution": "develops matrices,vector spaces,lineartransformations,eigenvalues and Markov-chain applications as mathematical foundations for quantitative models",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "DISMATH314",
+      "name": "Probability & Statistics",
+      "preq1": "DISGATE102",
+      "offerings": {
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      },
+      "outline_source": "DISMATH3141.pdf",
+      "outline_semester": "2026h2",
+      "evidenceRead": {
+        "profile": "Provides a rigorous introduction to probability and mathematical statistics, from probability spaces and random variables to multivariate distributions and statistical inference. Students study estimation, confidence intervals, hypothesis tests and maximum-likelihood methods, followed by an introduction to Bayesian reasoning. Mathematica simulations verify analytical results. A substantial project implements and compares random-sampling algorithms, including inverse sampling, accept-reject sampling and Gibbs sampling.",
+        "topics": "Probability spaces and conditional probability; Random variables and expectation; Moment-generating functions; Discrete and continuous distributions; Multivariate and conditional distributions; Transformations and correlation; Sampling and order statistics; Confidence intervals and hypothesis tests; Estimation efficiency; Bayesian inference; Monte Carlo methods",
+        "methods": "Analytical probability calculation; Maximum-likelihood estimation and testing; Chi-square tests; Bootstrap; EM algorithm; Bayesian updating; Inverse-transform sampling; Accept-reject sampling; Gibbs sampling; Monte Carlo simulation in Mathematica"
+      },
+      "contribution": "develops probability,distributions,sampling,estimation and simulation using computertools;it is mathematical statistics,not an asserted duplicate of Tilburg QuantitativeMethods3",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "ENSDELT312",
+      "name": "Governance of Sustainability",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "outline_source": "ENSDELT312.docx",
+      "outline_semester": "2026h1",
+      "evidenceRead": {
+        "profile": "Analyzes sustainability as a problem of collective decision-making involving governments, markets and civil society. Concepts of institutions, power, participation, justice and problem complexity frame competing technological and systemic responses. Structured cases examine food, freshwater, energy and climate mitigation. Students apply governance frameworks to a Zeeland issue, consult relevant organizations or experts, and produce policy advice or an evaluation assessing effectiveness, feasibility and stakeholder interests.",
+        "topics": "Institutions, actors and power; Collective action and common-pool resources; Governance modes and networks; Techno-optimism and ecological limits; Climate justice; Populism and environmental politics; Wicked and long-term problems; Public participation; Food, water and energy governance; Markets, public goods and externalities; Adaptive and global governance; Climate mitigation; Policy effectiveness and feasibility",
+        "methods": "Governance-framework application; Problem diagnosis and causal analysis; Stakeholder and policy-option matrices; Policy evaluation; Policy-advice memo development; Stakeholder and expert interviewing; Comparative analysis of normative policy perspectives"
+      },
+      "contribution": "examines multi-actor rulemaking,policy,enforcement,publicopinion and sustainabilitygovernance using problem-based cases",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "ENSECOL312",
+      "name": "Sustainable Farming & Innovation",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": null,
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "outline_source": "ENSECOL312.docx",
+      "outline_semester": "2026h1",
+      "evidenceRead": {
+        "profile": "Examines how food production can balance human needs with environmental impacts. Students assess current agriculture, horticulture and animal husbandry, their effects on biodiversity and ecosystems, and alternative practices and innovations. Aquaculture, alternative animal-protein sources and farming for other industries extend the comparison. A literature-based project critically investigates a chosen sustainable-farming question and reports the evidence without prescribing a single preferred approach.",
+        "topics": "Agricultural and horticultural systems; Environmental impacts of farming; Wildlife and biodiversity; Modification of current farming practices; Alternative agricultural approaches; Animal husbandry; Aquaculture; Alternative protein sources; Farming for non-food industries; Sustainable-farming innovation",
+        "methods": "Scientific-literature review; Comparative appraisal of farming practices and innovations"
+      },
+      "contribution": "critically assesses foodproduction,environmentalimpacts,alternatives and farminginnovation as a possible impact domain;it does not teach social-enterprise or venture management",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "ENSGATE101",
+      "name": "Sustainability Essentials I",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      },
+      "outline_source": "ENSGATE1011.pdf",
+      "outline_semester": "2026h2",
+      "evidenceRead": {
+        "profile": "Uses planetary boundaries to introduce scientific tools for understanding sustainability and human impacts on Earth systems. Students interpret graphs and uncertainty, build simple dynamic models, and learn chemical, thermodynamic and mechanical principles relevant to environmental processes. Topics connect climate, ocean acidification, nutrient cycles, energy and materials. An iterative laboratory project makes starch-based biopolymers and measures their strength and elasticity to improve the formulation.",
+        "topics": "Planetary boundaries and the Anthropocene; Exponential growth and environmental change; Graphs, rates and uncertainty; Dynamic systems; Chemical bonds, reactions and equilibria; Ocean acidification and nutrient cycles; Thermodynamics and entropy; Greenhouse gases and energy; Ozone depletion; Newtonian mechanics, stress and strain; Biopolymers and material properties",
+        "methods": "Graph interpretation and comparison; Fermi estimation; Difference-equation and first-order linear differential-equation modelling; Elementary differentiation and integration; Biopolymer preparation; Strength and elasticity measurement; Iterative experimental improvement"
+      },
+      "contribution": "introduces planetaryboundaries and environmentalconstraints as problem knowledge for sustainableproduct/venture decisions",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "ENSGATE201",
+      "name": "Sustainability Essentials II",
+      "preq1": "ENSGATE101",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "outline_source": "ENSGATE201.pdf",
+      "outline_semester": "2026h1",
+      "evidenceRead": {
+        "profile": "Connects wave physics, chemistry and materials science to sustainability questions. Students study wave behaviour and observation methods, chemical analysis, microscopic material structure and macroscopic stress and strain. Practical sessions include wave applications and chemistry laboratory work. Reflective inquiries and a final project critically assess sustainability campaigns, identify greenwashing and communicate evidence-based improvements to a public audience.",
+        "topics": "Electromagnetic and mechanical waves; Wave composition and interference; Optical spectroscopy; Electron microscopy; Inorganic and organic chemistry; Chemical testing; Material structure and crystallography; Stress and strain; Sustainable material design; Geological wave applications; Nuclear power and waste; Greenwashing",
+        "methods": "Oscilloscope wave visualization; Optical-spectroscopy interpretation; Fourier wave analysis; Copper dissolution and chemical analysis; Laboratory logbook documentation; Stress-strain analysis; Mohr's-circle application; Evidence-based greenwashing case analysis; Public sustainability-communication design"
+      },
+      "contribution": "develops waves,chemistry and materials foundations and applies them to greenwashing analysis;these15ECwiththefirstgateway support later energy-system study rather than claim entrepreneurship content",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "ENSSUST111",
+      "name": "Climate Change",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      },
+      "outline_source": "ENSSUST1111.pdf",
+      "outline_semester": "2026h2",
+      "evidenceRead": {
+        "profile": "Introduces climate-change science, societal impacts, and mitigation and adaptation. Students examine greenhouse gases, feedbacks, tipping points, ocean acidification and sea-level rise, then consequences for ecosystems, agriculture, transport, buildings and health. Climate justice, governance, communication and misinformation connect physical changes to social responses. Solution pathways include energy systems, carbon removal and climate-adaptive planning. Students interview a stakeholder and produce a short film, alongside reflection on their own role.",
+        "topics": "Anthropogenic climate change; Greenhouse gases; Feedback loops and tipping points; Ocean acidification and sea-level rise; Biosphere impacts; Agriculture, transport and construction; Climate and health; Climate justice and governance; Paris Agreement; Renewable energy and sustainable heat; Carbon removal and geoengineering; Climate communication and misinformation; Climate anxiety; Mitigation and adaptation",
+        "methods": "Stakeholder interviewing; Short-film production for climate communication; Source-credibility evaluation; What? So What? Now What? reflective model"
+      },
+      "contribution": "examines climate drivers/impacts,societal effects,justice,governance,adaptation and mitigation as context for environmentally valuable ventures",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "ENSSUST112",
+      "name": "Life Cycle Analysis & Circular Economy",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": null,
+        "2029h1": null
+      },
+      "outline_source": "ENSSUST112.pdf",
+      "outline_semester": "2025h2",
+      "evidenceRead": {
+        "profile": "Develops life-cycle approaches to evaluating products, processes and services within a circular economy. Students examine environmental, social and health consequences from resource extraction to disposal or reuse, together with costs, revenues and management strategies. Three preliminary projects develop different parts or forms of life-cycle analysis, followed by a project that integrates the stages into a full product or process assessment.",
+        "topics": "Circular economy; Product and process life cycles; Resource extraction and reuse; Environmental impacts; Social and health consequences; Life-cycle management strategies; Product-based and process-based assessment; Costs and revenues; Sustainable product and process planning",
+        "methods": "Life-cycle assessment; Life-cycle management strategy analysis; Environmental-impact estimation; Cost and revenue analysis; Integrated product or process assessment"
+      },
+      "contribution": "analyses environmental,social and health impacts across product/process lifecycles and circular reuse through hands-on assessments",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "ENSSUST311",
+      "name": "Renewable System Design",
+      "preq1": "ENSGATE201",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "outline_source": null,
+      "outline_semester": null,
+      "evidenceRead": {
+        "description2": "Teaches assessment of energy usage patterns and strategies for reducing consumption or transitioning to cleaner energy. Explores solar, wind and bioenergy solutions and includes technical and economic analysis; students deliver a report and presentation to a partner company."
+      },
+      "contribution": "assesses energyusage and renewable options technically and economically,then delivers a report/presentation to a partnercompany;this supplies a concrete business intervention context",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "GOSPHIL212",
+      "name": "Ethics",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "outline_source": "GOSPHIL212.pdf",
+      "outline_semester": "2026h1",
+      "evidenceRead": {
+        "profile": "Studies moral reasoning through historical and contemporary ethical theories and close philosophical reading. Utilitarianism, consequentialism, Kantian ethics, virtue ethics, contractarianism and feminist ethics lead into Nietzsche's genealogy, Murdoch's account of goodness and Nagel's treatments of value, perspective, death and meaning. Reflection and research essays require interpretation, argument evaluation and an independent position on ethical theory or a practical ethical problem.",
+        "topics": "Divine command and human nature; Moral relativism and universalism; Utilitarianism and consequentialism; Kantian ethics; Virtue ethics; Social contract and intuitionism; Feminist and care ethics; Nietzschean genealogy and nihilism; Murdoch's sovereignty of good; Moral value and perspective; Death, absurdity and meaning; Ethical theory and practical judgment",
+        "methods": "Close philosophical text analysis; Reconstruction and critical evaluation of moral arguments; Comparison of ethical theories; Conceptual analysis; Independent philosophical argument development"
+      },
+      "contribution": "Moral theories, close reading and critical argument evaluation provide normative tools for assessing responsible business choices and societal impact. The course does not establish a dedicated climate-ethics or entrepreneurship-ethics syllabus.",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "GOSSOCI212",
+      "name": "Qualitative Research Methodology",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "outline_source": "GOSSOCI212.docx",
+      "outline_semester": "2026h1",
+      "evidenceRead": {
+        "profile": "Develops qualitative inquiry from research design and preparation through data collection, management, analysis and dissemination. Students examine methodological foundations, ethics, positionality and reflexivity alongside interviews, focus groups, ethnography, documentary and visual approaches. Coding, thematic interpretation and NVivo support analysis. Research teams formulate a question, collect and analyze qualitative evidence, and report their methodological decisions, findings and limitations in staged assignments.",
+        "topics": "Qualitative knowledge and research design; Ethics, positionality and reflexivity; Mixed methods; Participatory research; Interview and focus-group approaches; Ethnography and participant observation; Documentary and archival sources; Visual and participatory media; Coding and thematic interpretation; Qualitative research dissemination",
+        "methods": "Qualitative research design; Interviews; Focus groups; Ethnography and participant observation; Documentary and archival analysis; Visual-data analysis; Participatory video and drawing; Transcription; Qualitative coding; Thematic analysis; NVivo-supported analysis; Reflexive methodological evaluation"
+      },
+      "contribution": "conducts qualitative research from design through collection,interpretation and dissemination,with reflexive consideration of position,bias and socialprocesses",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    },
+    {
+      "code": "MCCCOMM111",
+      "name": "The Art of Rhetorical Communication",
+      "preq1": "NONE",
+      "offerings": {
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null
+      },
+      "outline_source": "MCCCOMM1111.pdf",
+      "outline_semester": "2026h2",
+      "evidenceRead": {
+        "profile": "Teaches rhetorical analysis and persuasive communication through classical history, theory and practice. Students study Greek and Roman rhetoric, the five canons, types of discourse, persuasive appeals, argumentation and fallacies. Written exercises, debates and public speeches develop invention, arrangement, style, memory and delivery. An applied project creates narrative and storytelling material for an immersive educational setting concerned with Zeeland's climate and community.",
+        "topics": "Greek and Roman rhetoric; Deliberative, forensic and epideictic discourse; Logos, ethos and pathos; Invention, arrangement, style, memory and delivery; Argumentation and fallacies; Tropes and schemes; Stasis and enthymemes; Persuasive speech; Narrative and storytelling; Immersive educational communication",
+        "methods": "Rhetorical text analysis; Stasis analysis; Argument invention and arrangement; Stylistic analysis and composition; Structured debate; Persuasive speechwriting and delivery; Educational storytelling design"
+      },
+      "contribution": "teaches rhetorical argument,analysis and clear persuasive academic writing/oralpresentation;these communicationtools support entrepreneurial proposals without claiming a dedicated Tilburg pitching course",
+      "finding": "Retain specific direct/complementary contribution under the three existing concepts; narrow claims to this evidence."
+    }
+  ],
+  "alignmentReview": [
+    {
+      "componentId": "y1-accounting",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "BENBUSI112",
+      "rationale": "Matched explicitly after semantic review: Accounting for Strategic Decisions corresponds to Accounting & Corporate Finance."
+    },
+    {
+      "componentId": "y1-marketing",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "BENENTR211",
+      "rationale": "Matched explicitly after semantic review: Entrepreneurial Marketing corresponds to Marketing & Consumer Engagement."
+    },
+    {
+      "componentId": "y1-team",
+      "matchType": "unmatched",
+      "rationale": "The UCR curriculum provides relevant complementary study, but no single scheduled course establishes substantial coverage of this dedicated component."
+    },
+    {
+      "componentId": "y2-corporate",
+      "matchType": "unmatched",
+      "rationale": "The UCR curriculum provides relevant complementary study, but no single scheduled course establishes substantial coverage of this dedicated component."
+    },
+    {
+      "componentId": "y2-leadership",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "BENLEAD111",
+      "rationale": "Matched explicitly after semantic review: Leadership and Ethics corresponds to Personal Leadership."
+    },
+    {
+      "componentId": "y1-innovation",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "BENENTR212",
+      "rationale": "Matched explicitly after semantic review: Fundamentals of Business Innovation corresponds to Strategy & Digital Transformation."
+    },
+    {
+      "componentId": "y2-law",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "BENBUSI311",
+      "rationale": "Matched explicitly after semantic review: Business Law corresponds to Transnational Business Law."
+    },
+    {
+      "componentId": "y2-plan",
+      "matchType": "unmatched",
+      "rationale": "The UCR curriculum provides relevant complementary study, but no single scheduled course establishes substantial coverage of this dedicated component."
+    },
+    {
+      "componentId": "y1-models",
+      "matchType": "unmatched",
+      "rationale": "The UCR curriculum provides relevant complementary study, but no single scheduled course establishes substantial coverage of this dedicated component."
+    },
+    {
+      "componentId": "y1-fit",
+      "matchType": "unmatched",
+      "rationale": "UCR applies opportunity and product-design methods but has no dedicated second Entrepreneurship in Action project."
+    },
+    {
+      "componentId": "y2-model-development",
+      "matchType": "unmatched",
+      "rationale": "UCR has strategy and product design but no dedicated third Entrepreneurship in Action project."
+    },
+    {
+      "componentId": "y2-creative",
+      "matchType": "unmatched",
+      "rationale": "UCR includes design and strategic problem-solving but no separate three-ECTS creative-problem-solving course."
+    },
+    {
+      "componentId": "y2-startup",
+      "matchType": "unmatched",
+      "rationale": "The broad venturegateway is accounted once;it is not reused as a separate dedicated startupcontext course."
+    },
+    {
+      "componentId": "y2-finance",
+      "matchType": "unmatched",
+      "rationale": "No dedicated entrepreneurial-finance counterpart is established. UCR financial-market and banking study supplies complementary knowledge of financial institutions and risk, without asserting venture funding or startup-finance equivalence."
+    },
+    {
+      "componentId": "y1-math",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "DISGATE102",
+      "rationale": "Matched explicitly after semantic review: Business Mathematics corresponds to Mathematical Methods."
+    },
+    {
+      "componentId": "y1-markets",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "BENECON111",
+      "rationale": "Matched explicitly after semantic review: Microeconomics: Markets and Games corresponds to Introduction to Economics."
+    },
+    {
+      "componentId": "y1-programming",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "DISGATE101",
+      "rationale": "Matched explicitly after semantic review: Business Programming corresponds to Introduction to Programming."
+    },
+    {
+      "componentId": "y2-data",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "DISDATA211",
+      "rationale": "Matched explicitly after semantic review: Data-Driven Decision Making corresponds to Machine Learning."
+    },
+    {
+      "componentId": "y2-quant3",
+      "matchType": "unmatched",
+      "rationale": "The UCR curriculum provides relevant complementary study, but no single scheduled course establishes substantial coverage of this dedicated component."
+    },
+    {
+      "componentId": "y2-quant2",
+      "matchType": "unmatched",
+      "rationale": "UCR quantitative work is represented elsewhere and is not duplicated as a second direct match."
+    },
+    {
+      "componentId": "y3-philosophy",
+      "matchType": "unmatched",
+      "rationale": "The UCR curriculum provides relevant complementary study, but no single scheduled course establishes substantial coverage of this dedicated component."
+    },
+    {
+      "componentId": "y2-impact",
+      "matchType": "unmatched",
+      "rationale": "The UCR curriculum provides relevant complementary study, but no single scheduled course establishes substantial coverage of this dedicated component."
+    },
+    {
+      "componentId": "y1-entrepreneurship",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "BENGATE101",
+      "rationale": "Matched explicitly after semantic review: Fundamentals of Entrepreneurship corresponds to Entrepreneurship & Business Foundations."
+    },
+    {
+      "componentId": "y2-competence",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "ACCPPDE101",
+      "rationale": "Matched explicitly after semantic review: Competence Compass corresponds to Personal & Professional Development."
+    },
+    {
+      "componentId": "y1-quant1",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "BENGATE102",
+      "rationale": "Matched explicitly after semantic review: Quantitative Methods 1 corresponds to Research Methods & Statistics."
+    },
+    {
+      "componentId": "y2-mindset",
+      "matchType": "unmatched",
+      "rationale": "No selected UCR course establishes a substantial counterpart to this dedicated component."
+    },
+    {
+      "componentId": "y3-mobility",
+      "matchType": "unmatched",
+      "rationale": "The comparator’s genuine mobility, minor or internship window is not populated with assumed courses."
+    },
+    {
+      "componentId": "y3-project",
+      "matchType": "unmatched",
+      "rationale": "UCR optional independent research is shown separately and does not make the Tilburg graduation project a direct course match."
+    },
+    {
+      "componentId": "y3-specialisation",
+      "matchType": "unmatched",
+      "rationale": "Selected Advanced Startup Entrepreneurship6EC from the restricted list;no dedicated advancedstartup course is claimed in UCR."
+    },
+    {
+      "componentId": "y3-elective",
+      "matchType": "unmatched",
+      "rationale": "Selected International Entrepreneurship6EC from the restricted list;UCR globalbusiness context is not treated as a dedicated internationalentrepreneurship course."
+    }
+  ],
+  "contentReview": {
+    "presentationMode": "normal",
+    "fieldToRenderer": [
+      "pilot/shared.R:visible_label",
+      "pilot/counselor-shiny/app.R:curriculum_view,render_audience_context,render_comparison_summary,render_audience_notes,audience_cell_note,render_compare_table,course_description_dialog"
+    ],
+    "fieldPaths": [
+      "comparator.name/institution/primarySourceUrl/components[].name/credits",
+      "programmes[].label/schedule.semesters[].courses[].name",
+      "academicRationale.alternatives[].concept selected by audience.conceptProgrammeIds",
+      "audience.programmeDescription/comparisonExplanation/curriculum.*",
+      "audience.componentNotes.*",
+      "notes[].text selected by audience.noteTypes",
+      "blocks[].title/rows[].cells.*.text/credits",
+      "optionalIndependentResearch",
+      "pilot/shiny/data/courses/*.json descriptions for all39codes"
+    ],
+    "audience": {
+      "schemaVersion": "1.0",
+      "programmeDescription": "Entrepreneurship and Business Innovation at Tilburg University studies how new ventures and existing organisations develop ideas into economic and societal value. Business theory, quantitative methods, programming and personal development support four Entrepreneurship in Action projects and a graduation project.",
+      "comparisonExplanation": "The broad UCR option combines venture and product development with marketing, economics, leadership, financial study and research. The corporate option adds programming and quantitative business analytics; the impact option adds life-cycle assessment, sustainability and environmental intervention study. These programmes leave gaps in Tilburg’s four-project practice sequence, dedicated entrepreneurship contexts, specialist entrepreneurial finance and compulsory graduation project.",
+      "curriculum": {
+        "status": "complete",
+        "componentIds": [
+          "y1-entrepreneurship",
+          "y1-innovation",
+          "y1-quant1",
+          "y1-team",
+          "y1-math",
+          "y1-programming",
+          "y1-accounting",
+          "y1-marketing",
+          "y1-markets",
+          "y1-models",
+          "y1-fit",
+          "y2-finance",
+          "y2-leadership",
+          "y2-model-development",
+          "y2-quant2",
+          "y2-mindset",
+          "y2-creative",
+          "y2-competence",
+          "y2-data",
+          "y2-law",
+          "y2-plan",
+          "y2-quant3",
+          "y2-startup",
+          "y2-impact",
+          "y2-corporate",
+          "y3-mobility",
+          "y3-philosophy",
+          "y3-project",
+          "y3-specialisation",
+          "y3-elective"
+        ],
+        "yearLabel": "2026–2027",
+        "routeLabel": "2026 entrants; English; Advanced Startup Entrepreneurship + International Entrepreneurship",
+        "limitation": "The 180-EC pathway follows the adopted rules for 2026 entrants. One 6-EC specialisation and one 6-EC elective are selected from restricted lists. The 30-EC mobility/minor/internship window remains approved choice space. GROW is optional and carries 0 EC."
+      },
+      "conceptProgrammeIds": [
+        "ucr-1",
+        "ucr-2",
+        "ucr-3"
+      ],
+      "noteTypes": [
+        "related-fields-not-full-discipline"
+      ],
+      "componentNotes": {
+        "y3-specialisation": "Selected 6-EC Advanced Startup Entrepreneurship. The other permitted specialisation choices are alternatives, not additional courses.",
+        "y3-elective": "Selected 6-EC International Entrepreneurship from the restricted programme elective list.",
+        "y3-mobility": "30 EC of approved mobility/minor/internship space; no particular subject is assumed.",
+        "y3-project": "Required 12-EC Graduation Project. Optional UCR research is additional and unscheduled; it is not a compulsory project equivalent."
+      }
+    },
+    "labels": [
+      {
+        "label": "Entrepreneurial ventures & business innovation",
+        "concept": "Venture creation and business innovation connect customer needs, product development, marketing, finance, economics and organisational leadership. Quantitative and qualitative research, communication and negotiation support evidence-based entrepreneurial decisions.",
+        "labelReason": "The completed curriculum has direct venture creation, product-development and business-strategy work, supported by market research, marketing, finance, leadership and evidence. The label describes that substance without claiming the four-project Tilburg sequence."
+      },
+      {
+        "label": "Corporate innovation & business analytics",
+        "concept": "Venture and product development, business strategy and organisational study examine innovation inside established firms. Programming, data science, quantitative analysis and AI ethics provide tools for assessing digital opportunities and responsible strategic change.",
+        "labelReason": "The reconstructed programme retains venture/product development, marketing, market research, business law, negotiation, leadership, accounting and strategy. Its programming, mathematics, database and AI-ethics strand implements the explicit data/AI learning line without allowing algorithms and deep learning to displace too much business substance."
+      },
+      {
+        "label": "Impact entrepreneurship & sustainable ventures",
+        "concept": "Impact-oriented ventures combine customer-focused product design, business strategy, finance, marketing and leadership with climate, life-cycle assessment and circular-economy study. Environmental science, governance and sector cases define problems and interventions; business and research courses support decisions about viable and responsible ventures.",
+        "labelReason": "The completed curriculum retains substantial business and venture work while life-cycle assessment, climate, sustainability foundations, governance and energy/farming cases supply the impact domain. Environmental courses are complementary problem knowledge,not stand-ins for dedicated impact-entrepreneurship courses."
+      }
+    ],
+    "notes": [
+      {
+        "type": "related-fields-not-full-discipline",
+        "placement": "comparison",
+        "text": "Tilburg requires four successive Entrepreneurship in Action projects, dedicated startup/corporate/impact courses, a chosen advanced specialisation and a 12-EC graduation project. UCR provides substantive venture creation, product development, business and analytical study, with digital or impact directions, while retaining gaps in that specialist sequence."
+      }
+    ],
+    "table": [
+      {
+        "id": "business",
+        "title": "Management, markets & organisations",
+        "rows": [
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Accounting & Corporate Finance",
+                "credits": 7.5,
+                "courseCode": "BENBUSI112"
+              },
+              "ucr-2": {
+                "text": "Accounting & Corporate Finance",
+                "credits": 7.5,
+                "courseCode": "BENBUSI112"
+              },
+              "ucr-3": {
+                "text": "Accounting & Corporate Finance",
+                "credits": 7.5,
+                "courseCode": "BENBUSI112"
+              },
+              "comparator": {
+                "text": "Accounting for Strategic Decisions",
+                "credits": 6,
+                "componentId": "y1-accounting",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Marketing & Consumer Engagement",
+                "credits": 7.5,
+                "courseCode": "BENENTR211"
+              },
+              "ucr-2": {
+                "text": "Marketing & Consumer Engagement",
+                "credits": 7.5,
+                "courseCode": "BENENTR211"
+              },
+              "ucr-3": {
+                "text": "Marketing & Consumer Engagement",
+                "credits": 7.5,
+                "courseCode": "BENENTR211"
+              },
+              "comparator": {
+                "text": "Entrepreneurial Marketing",
+                "credits": 6,
+                "componentId": "y1-marketing",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Leadership Communication",
+                "credits": 7.5,
+                "courseCode": "BENLEAD112"
+              },
+              "ucr-2": {
+                "text": "Leadership Communication",
+                "credits": 7.5,
+                "courseCode": "BENLEAD112"
+              }
+            }
+          },
+          {
+            "cells": {
+              "comparator": {
+                "text": "Entrepreneurship in Action 1: Forming an Effective Team",
+                "credits": 6,
+                "componentId": "y1-team",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Business & Economy in the Age of AI",
+                "credits": 7.5,
+                "courseCode": "BENBUSI211"
+              },
+              "ucr-2": {
+                "text": "Business & Economy in the Age of AI",
+                "credits": 7.5,
+                "courseCode": "BENBUSI211"
+              }
+            }
+          },
+          {
+            "cells": {
+              "comparator": {
+                "text": "Corporate Entrepreneurship",
+                "credits": 3,
+                "componentId": "y2-corporate",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Personal Leadership",
+                "credits": 7.5,
+                "courseCode": "BENLEAD111"
+              },
+              "ucr-3": {
+                "text": "Personal Leadership",
+                "credits": 7.5,
+                "courseCode": "BENLEAD111"
+              },
+              "comparator": {
+                "text": "Leadership and Ethics",
+                "credits": 6,
+                "componentId": "y2-leadership",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Strategy & Digital Transformation",
+                "credits": 7.5,
+                "courseCode": "BENENTR212"
+              },
+              "ucr-2": {
+                "text": "Strategy & Digital Transformation",
+                "credits": 7.5,
+                "courseCode": "BENENTR212"
+              },
+              "ucr-3": {
+                "text": "Strategy & Digital Transformation",
+                "credits": 7.5,
+                "courseCode": "BENENTR212"
+              },
+              "comparator": {
+                "text": "Fundamentals of Business Innovation",
+                "credits": 6,
+                "componentId": "y1-innovation",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Transnational Business Law",
+                "credits": 7.5,
+                "courseCode": "BENBUSI311"
+              },
+              "ucr-2": {
+                "text": "Transnational Business Law",
+                "credits": 7.5,
+                "courseCode": "BENBUSI311"
+              },
+              "ucr-3": {
+                "text": "Transnational Business Law",
+                "credits": 7.5,
+                "courseCode": "BENBUSI311"
+              },
+              "comparator": {
+                "text": "Business Law",
+                "credits": 6,
+                "componentId": "y2-law",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Market Research",
+                "credits": 7.5,
+                "courseCode": "BENENTR311"
+              },
+              "ucr-2": {
+                "text": "Market Research",
+                "credits": 7.5,
+                "courseCode": "BENENTR311"
+              },
+              "ucr-3": {
+                "text": "Market Research",
+                "credits": 7.5,
+                "courseCode": "BENENTR311"
+              }
+            }
+          },
+          {
+            "cells": {
+              "comparator": {
+                "text": "Entrepreneurship in Action 4: Developing a Business Plan",
+                "credits": 6,
+                "componentId": "y2-plan",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Psychology of Leading Under Pressure",
+                "credits": 7.5,
+                "courseCode": "BENLEAD211"
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Consumer Product Design",
+                "credits": 7.5,
+                "courseCode": "BENENTR111"
+              },
+              "ucr-2": {
+                "text": "Consumer Product Design",
+                "credits": 7.5,
+                "courseCode": "BENENTR111"
+              },
+              "ucr-3": {
+                "text": "Consumer Product Design",
+                "credits": 7.5,
+                "courseCode": "BENENTR111"
+              }
+            }
+          },
+          {
+            "cells": {
+              "comparator": {
+                "text": "Business Models",
+                "credits": 6,
+                "componentId": "y1-models",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "The Art of Rhetorical Communication",
+                "credits": 7.5,
+                "courseCode": "MCCCOMM111"
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Negotiation & Strategic Thinking",
+                "credits": 7.5,
+                "courseCode": "BENLEAD312"
+              },
+              "ucr-2": {
+                "text": "Negotiation & Strategic Thinking",
+                "credits": 7.5,
+                "courseCode": "BENLEAD312"
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "International Business & Governance",
+                "credits": 7.5,
+                "courseCode": "BENENTR312"
+              },
+              "ucr-2": {
+                "text": "International Business & Governance",
+                "credits": 7.5,
+                "courseCode": "BENENTR312"
+              },
+              "ucr-3": {
+                "text": "International Business & Governance",
+                "credits": 7.5,
+                "courseCode": "BENENTR312"
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Psychology of Organizations & Leadership",
+                "credits": 7.5,
+                "courseCode": "BENLEAD311"
+              },
+              "ucr-2": {
+                "text": "Psychology of Organizations & Leadership",
+                "credits": 7.5,
+                "courseCode": "BENLEAD311"
+              },
+              "ucr-3": {
+                "text": "Psychology of Organizations & Leadership",
+                "credits": 7.5,
+                "courseCode": "BENLEAD311"
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Money, Banking & Finance",
+                "credits": 7.5,
+                "courseCode": "BENBUSI312"
+              },
+              "ucr-3": {
+                "text": "Money, Banking & Finance",
+                "credits": 7.5,
+                "courseCode": "BENBUSI312"
+              }
+            }
+          },
+          {
+            "cells": {
+              "comparator": {
+                "text": "Entrepreneurship in Action 2: Reaching Problem-Solution Fit",
+                "credits": 6,
+                "componentId": "y1-fit",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "comparator": {
+                "text": "Entrepreneurship in Action 3: Developing a Business Model",
+                "credits": 6,
+                "componentId": "y2-model-development",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "comparator": {
+                "text": "Creative Problem Solving",
+                "credits": 3,
+                "componentId": "y2-creative",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "comparator": {
+                "text": "Startup Entrepreneurship",
+                "credits": 3,
+                "componentId": "y2-startup",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "comparator": {
+                "text": "Entrepreneurial Finance",
+                "credits": 6,
+                "componentId": "y2-finance",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "analytics",
+        "title": "Finance, economics & digital analysis",
+        "rows": [
+          {
+            "cells": {
+              "ucr-2": {
+                "text": "Mathematical Methods",
+                "credits": 7.5,
+                "courseCode": "DISGATE102"
+              },
+              "comparator": {
+                "text": "Business Mathematics",
+                "credits": 3,
+                "componentId": "y1-math",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Introduction to Data Science",
+                "credits": 7.5,
+                "courseCode": "DISDATA111"
+              },
+              "ucr-2": {
+                "text": "Introduction to Data Science",
+                "credits": 7.5,
+                "courseCode": "DISDATA111"
+              },
+              "ucr-3": {
+                "text": "Introduction to Data Science",
+                "credits": 7.5,
+                "courseCode": "DISDATA111"
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Introduction to Economics",
+                "credits": 7.5,
+                "courseCode": "BENECON111"
+              },
+              "ucr-2": {
+                "text": "Introduction to Economics",
+                "credits": 7.5,
+                "courseCode": "BENECON111"
+              },
+              "ucr-3": {
+                "text": "Introduction to Economics",
+                "credits": 7.5,
+                "courseCode": "BENECON111"
+              },
+              "comparator": {
+                "text": "Microeconomics: Markets and Games",
+                "credits": 6,
+                "componentId": "y1-markets",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-2": {
+                "text": "Introduction to Programming",
+                "credits": 7.5,
+                "courseCode": "DISGATE101"
+              },
+              "comparator": {
+                "text": "Business Programming",
+                "credits": 3,
+                "componentId": "y1-programming",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Machine Learning",
+                "credits": 7.5,
+                "courseCode": "DISDATA211"
+              },
+              "ucr-2": {
+                "text": "Machine Learning",
+                "credits": 7.5,
+                "courseCode": "DISDATA211"
+              },
+              "comparator": {
+                "text": "Data-Driven Decision Making",
+                "credits": 6,
+                "componentId": "y2-data",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-2": {
+                "text": "Database Management Systems",
+                "credits": 7.5,
+                "courseCode": "DISCOMP212"
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "International Macroeconomics",
+                "credits": 7.5,
+                "courseCode": "BENECON211"
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Econometrics",
+                "credits": 7.5,
+                "courseCode": "BENECON312"
+              },
+              "ucr-2": {
+                "text": "Econometrics",
+                "credits": 7.5,
+                "courseCode": "BENECON312"
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-2": {
+                "text": "AI Ethics",
+                "credits": 7.5,
+                "courseCode": "DISARIN111"
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-2": {
+                "text": "Linear Algebra",
+                "credits": 7.5,
+                "courseCode": "DISMATH211"
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-2": {
+                "text": "Probability & Statistics",
+                "credits": 7.5,
+                "courseCode": "DISMATH314"
+              }
+            }
+          },
+          {
+            "cells": {
+              "comparator": {
+                "text": "Quantitative Methods 3",
+                "credits": 3,
+                "componentId": "y2-quant3",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-3": {
+                "text": "Public Economics",
+                "credits": 7.5,
+                "courseCode": "BENECON311"
+              }
+            }
+          },
+          {
+            "cells": {
+              "comparator": {
+                "text": "Quantitative Methods 2",
+                "credits": 3,
+                "componentId": "y2-quant2",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "responsibility",
+        "title": "Sustainability, ethics & responsibility",
+        "rows": [
+          {
+            "cells": {
+              "ucr-3": {
+                "text": "Renewable System Design",
+                "credits": 7.5,
+                "courseCode": "ENSSUST311"
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-3": {
+                "text": "Ethics",
+                "credits": 7.5,
+                "courseCode": "GOSPHIL212"
+              }
+            }
+          },
+          {
+            "cells": {
+              "comparator": {
+                "text": "Philosophy for Business",
+                "credits": 6,
+                "componentId": "y3-philosophy",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-3": {
+                "text": "Sustainability Essentials I",
+                "credits": 7.5,
+                "courseCode": "ENSGATE101"
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-3": {
+                "text": "Climate Change",
+                "credits": 7.5,
+                "courseCode": "ENSSUST111"
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-3": {
+                "text": "Sustainability Essentials II",
+                "credits": 7.5,
+                "courseCode": "ENSGATE201"
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-3": {
+                "text": "Life Cycle Analysis & Circular Economy",
+                "credits": 7.5,
+                "courseCode": "ENSSUST112"
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-3": {
+                "text": "Sustainable Farming & Innovation",
+                "credits": 7.5,
+                "courseCode": "ENSECOL312"
+              }
+            }
+          },
+          {
+            "cells": {
+              "comparator": {
+                "text": "Impact Entrepreneurship",
+                "credits": 3,
+                "componentId": "y2-impact",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-3": {
+                "text": "Governance of Sustainability",
+                "credits": 7.5,
+                "courseCode": "ENSDELT312"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "methods",
+        "title": "Research, practice & open curriculum",
+        "rows": [
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Entrepreneurship & Business Foundations",
+                "credits": 7.5,
+                "courseCode": "BENGATE101"
+              },
+              "ucr-2": {
+                "text": "Entrepreneurship & Business Foundations",
+                "credits": 7.5,
+                "courseCode": "BENGATE101"
+              },
+              "ucr-3": {
+                "text": "Entrepreneurship & Business Foundations",
+                "credits": 7.5,
+                "courseCode": "BENGATE101"
+              },
+              "comparator": {
+                "text": "Fundamentals of Entrepreneurship",
+                "credits": 6,
+                "componentId": "y1-entrepreneurship",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Personal & Professional Development",
+                "credits": 7.5,
+                "courseCode": "ACCPPDE101"
+              },
+              "ucr-2": {
+                "text": "Personal & Professional Development",
+                "credits": 7.5,
+                "courseCode": "ACCPPDE101"
+              },
+              "ucr-3": {
+                "text": "Personal & Professional Development",
+                "credits": 7.5,
+                "courseCode": "ACCPPDE101"
+              },
+              "comparator": {
+                "text": "Competence Compass",
+                "credits": 3,
+                "componentId": "y2-competence",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Research Methods & Statistics",
+                "credits": 7.5,
+                "courseCode": "BENGATE102"
+              },
+              "ucr-2": {
+                "text": "Research Methods & Statistics",
+                "credits": 7.5,
+                "courseCode": "BENGATE102"
+              },
+              "ucr-3": {
+                "text": "Research Methods & Statistics",
+                "credits": 7.5,
+                "courseCode": "BENGATE102"
+              },
+              "comparator": {
+                "text": "Quantitative Methods 1",
+                "credits": 6,
+                "componentId": "y1-quant1",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "ucr-1": {
+                "text": "Qualitative Research Methodology",
+                "credits": 7.5,
+                "courseCode": "GOSSOCI212"
+              }
+            }
+          },
+          {
+            "cells": {
+              "comparator": {
+                "text": "Entrepreneurship as Mindset",
+                "credits": 3,
+                "componentId": "y2-mindset",
+                "note": "Compulsory component in the2026-entry examination programme."
+              }
+            }
+          },
+          {
+            "cells": {
+              "comparator": {
+                "text": "Mobility / minor / internship window",
+                "credits": 30,
+                "componentId": "y3-mobility",
+                "note": "Approved30ECchoice window:exchange,two15ECTiSEMminors,one30ECTilburgminor,or24ECinternship+6ECelective;EER3.7approval/nonoverlap and internship eligibility apply. No particular subject assumed."
+              }
+            }
+          },
+          {
+            "cells": {
+              "comparator": {
+                "text": "Graduation Project",
+                "credits": 12,
+                "componentId": "y3-project",
+                "note": "Compulsory component in the2026-entry examination programme."
+              },
+              "ucr-1": {
+                "text": "Optional independent research",
+                "credits": 15,
+                "comparisonOnly": true,
+                "comparisonElementId": "optional-independent-research"
+              },
+              "ucr-2": {
+                "text": "Optional independent research",
+                "credits": 15,
+                "comparisonOnly": true,
+                "comparisonElementId": "optional-independent-research"
+              },
+              "ucr-3": {
+                "text": "Optional independent research",
+                "credits": 15,
+                "comparisonOnly": true,
+                "comparisonElementId": "optional-independent-research"
+              }
+            }
+          },
+          {
+            "cells": {
+              "comparator": {
+                "text": "Advanced Startup Entrepreneurship",
+                "credits": 6,
+                "componentId": "y3-specialisation",
+                "note": "Selected restricted6ECspecialisation course,300345-B-6; first in adopted EER list. Other permitted choices:AdvancedCorporateEntrepreneurship orAdvancedImpactEntrepreneurship."
+              }
+            }
+          },
+          {
+            "cells": {
+              "comparator": {
+                "text": "International Entrepreneurship",
+                "credits": 6,
+                "componentId": "y3-elective",
+                "note": "Selected restricted6ECprogramme elective,300350-B-6; first in adopted EER list. Other permitted choices:MakingDeals,JoiningtheFamilyBusiness,InvestmentDecisions."
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "selectedDescriptions": [
+      {
+        "code": "ACCPPDE101",
+        "name": "Personal & Professional Development",
+        "text": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+        "textSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+        "sourceField": "description2",
+        "sourceSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENBUSI112",
+        "name": "Accounting & Corporate Finance",
+        "text": "This course describes the most widely accepted accounting theory and practice with an emphasis on using and analyzing the information in financial statements. Students learn how to comprehend a typical corporate annual report and to use accounting as a tool in understanding how economic events affect business.",
+        "textSha256": "95cd6567c849e07c7c327d9b874e1c22931ddd720596ff41693cd3a11cdad5af",
+        "sourceField": "description2",
+        "sourceSha256": "95cd6567c849e07c7c327d9b874e1c22931ddd720596ff41693cd3a11cdad5af",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENBUSI211",
+        "name": "Business & Economy in the Age of AI",
+        "text": "Examines AI's business, economic and societal implications without requiring a technical background. Students study AI's capabilities and limits, applications across business functions and industries, and effects on labour markets, productivity, innovation and inequality. Business cases and scholarly arguments support analysis of governance, regulation and a country's AI readiness and industrial policy.",
+        "textSha256": "dc99e879e62a02957451c99d0ed08cdbc50fc9e07847d0d251210dfd8a973cb1",
+        "sourceField": "profile",
+        "sourceSha256": "142e38261e07fee05e042a882559c77aa357856539a62060518c508d07aa8411",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "descriptionSha256": "dc99e879e62a02957451c99d0ed08cdbc50fc9e07847d0d251210dfd8a973cb1",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "sourceSha256": "142e38261e07fee05e042a882559c77aa357856539a62060518c508d07aa8411",
+          "courseName": "Business & Economy in the Age of AI"
+        },
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENBUSI311",
+        "name": "Transnational Business Law",
+        "text": "Transnational Business Law studies legal frameworks for cross-border business, including contracts, trade, intellectual property, foreign investment and digital commerce. Comparative and international perspectives support analysis of legal risks through discussions, problem-based assignments and an arbitration simulation.",
+        "textSha256": "44f7635bd8da8902ebff96a2cb8c950fd59683bb52cc5e7f6a8e25e61ae83152",
+        "sourceField": "profile",
+        "sourceSha256": "2367a44583d9c31af7aaf5c353fab6a14a537d449a64a724b1e83c69ffa71430",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "2367a44583d9c31af7aaf5c353fab6a14a537d449a64a724b1e83c69ffa71430",
+          "descriptionSha256": "44f7635bd8da8902ebff96a2cb8c950fd59683bb52cc5e7f6a8e25e61ae83152",
+          "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+          "courseName": "Transnational Business Law"
+        },
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENBUSI312",
+        "name": "Money, Banking & Finance",
+        "text": "Examines financial markets, commercial banks and central banks, including interest rates, financial regulation, financial crises and monetary policy. Students analyse financial problems and manage a simulated bank in the Stanford Banking Game, using Excel dashboards and financial forecasts to inform decisions about loans, deposits, capital, liquidity and risk.",
+        "textSha256": "dd318ab8d5a96197622f9002a480483d9f49dca92bc4f69000cb2b409994d82b",
+        "sourceField": "profile",
+        "sourceSha256": "0ee0bc0327ea0165f3b9f13e920ef9311d6b4ed5de8b4a6ed31ef36aaada0623",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "sourceSha256": "0ee0bc0327ea0165f3b9f13e920ef9311d6b4ed5de8b4a6ed31ef36aaada0623",
+          "descriptionSha256": "dd318ab8d5a96197622f9002a480483d9f49dca92bc4f69000cb2b409994d82b",
+          "mode": "edited",
+          "reviewedOn": "2026-10-30",
+          "reviewNote": "Reviewed against the selected profile and current official description. Describes substantive financial and banking content and the bank-management simulation without treating the source as proof of future delivery.",
+          "courseName": "Money, Banking & Finance"
+        },
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENECON111",
+        "name": "Introduction to Economics",
+        "text": "Explore how individuals, firms, and societies make economic decisions. This course introduces key concepts from both microeconomics and macroeconomics, including markets, incentives, and the principles of supply and demand, and provides a foundation for analyzing real-world economic issues.",
+        "textSha256": "2278892bd9c8b20df80deb4bd04a3bf00a3fe4cc79099b153861afa0f69110e8",
+        "sourceField": "description2",
+        "sourceSha256": "2278892bd9c8b20df80deb4bd04a3bf00a3fe4cc79099b153861afa0f69110e8",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENECON211",
+        "name": "International Macroeconomics",
+        "text": "Study the economy as a whole through topics such as national income, economic growth, inflation, and unemployment. Understand how governments and central banks use fiscal and monetary policies to influence economic performance over time. The course also explores business cycles, international trade, and economic crises, preparing students to evaluate policy debates and global economic trends.",
+        "textSha256": "33b36d74db138b4f57c17d242b5ba5dc4d4f8de34149ead79cef4bd1d0f2ccba",
+        "sourceField": "description2",
+        "sourceSha256": "33b36d74db138b4f57c17d242b5ba5dc4d4f8de34149ead79cef4bd1d0f2ccba",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENECON311",
+        "name": "Public Economics",
+        "text": "Investigate the role of government in the economy, focusing on how public policy influences efficiency and equity. The course covers taxation, public goods, externalities, and government spending. Combining theoretical models with empirical evidence, it evaluates how different policies affect societal welfare.",
+        "textSha256": "7a4ba78a0cfe9e6eb397bc2a538e91ff9a12eaecf7737f2cfbb377ac04d4aa84",
+        "sourceField": "description2",
+        "sourceSha256": "7a4ba78a0cfe9e6eb397bc2a538e91ff9a12eaecf7737f2cfbb377ac04d4aa84",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENECON312",
+        "name": "Econometrics",
+        "text": "Econometrics supplies tools to analyze data to answer questions of causality and prediction. In this course you learn three estimators—Ordinary Least Squares, Generalized Least Squares, and Instrumental Variables—and three tests—t-test, F-test, and LM-test. Understanding the basic rules of econometrics, particularly the sampling distribution concept, is key, and the course uses Monte Carlo simulations in Stata to visualize it. Tools are applied to estimate economic relationships and make predictions, and students write an empirical paper.",
+        "textSha256": "3754e43821eb3db5407d6eded2b8e70021b3eb45d2284acfae505d85d85baea9",
+        "sourceField": "description2",
+        "sourceSha256": "3754e43821eb3db5407d6eded2b8e70021b3eb45d2284acfae505d85d85baea9",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENENTR111",
+        "name": "Consumer Product Design",
+        "text": "You will learn how to function in a ‘real-world’ design and development team for consumer products. We go through the phases of design and development: probe customer needs, translate these into a product concept, develop a fabrication method, analyze sustainability, analyze costs and proceeds. Design and development involves interviewing customers, brainstorming, laboratory experiments, quantitative modeling, constructing a prototype, and considering protection of intellectual property.",
+        "textSha256": "4291c862f893e8d1238b3b2b2e1fc4aedfc59877fcb676414c4e08bcbc764aa5",
+        "sourceField": "description2",
+        "sourceSha256": "4291c862f893e8d1238b3b2b2e1fc4aedfc59877fcb676414c4e08bcbc764aa5",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENENTR211",
+        "name": "Marketing & Consumer Engagement",
+        "text": "Marketing & Consumer Engagement examines consumer psychology, marketing strategy, responsible brand development and customer engagement. Students analyse a company strategy, design a brand and investigate a consumer phenomenon using academic literature and primary and secondary evidence. Digital marketing and customer-journey mapping connect analysis with practical recommendations.",
+        "textSha256": "2efbda10043579cfc91b4b70b5769fee4e1e2d7e1496729792874feba75f5fc5",
+        "sourceField": "profile",
+        "sourceSha256": "c509ecddc65919fc8585eb008b76451ee2deccb1e3a53395a49dff17348f3e98",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "c509ecddc65919fc8585eb008b76451ee2deccb1e3a53395a49dff17348f3e98",
+          "descriptionSha256": "2efbda10043579cfc91b4b70b5769fee4e1e2d7e1496729792874feba75f5fc5",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Marketing & Consumer Engagement"
+        },
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENENTR212",
+        "name": "Strategy & Digital Transformation",
+        "text": "The course explores how companies develop strategies and drive responsible digital transformation amid rapid technology change impacting the economy and society. Students develop a strategic plan, from vision to execution, and identify digital value opportunities. Using industry cases, they gain foresight into digital technologies and their impact on strategy, business models and social responsibilities.",
+        "textSha256": "cb24661573e745d91032af0f521ca1f350798226bde892b2a1a21d75259734dc",
+        "sourceField": "description2",
+        "sourceSha256": "cb24661573e745d91032af0f521ca1f350798226bde892b2a1a21d75259734dc",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENENTR311",
+        "name": "Market Research",
+        "text": "See how companies figure out what customers love and what they don’t. You’ll plan and carry out real research, analyze what you find, and share your results. Our course shows you how to gather opinions and turn them into smart business ideas—perfect for future marketers, analysts, or entrepreneurs.",
+        "textSha256": "a1c4bbf2535a78be2903f93e8c44632e83422aa6ec28c0764c723f60b2e77ae1",
+        "sourceField": "description2",
+        "sourceSha256": "722a2bd4f37333f708d1a5953a875c744ac6d2f03b61d985505c2d6379264a58",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "description2",
+          "sourceSha256": "722a2bd4f37333f708d1a5953a875c744ac6d2f03b61d985505c2d6379264a58",
+          "descriptionSha256": "a1c4bbf2535a78be2903f93e8c44632e83422aa6ec28c0764c723f60b2e77ae1",
+          "mode": "edited",
+          "reviewedOn": "2026-10-30",
+          "reviewNote": "Compared the retained modal with the revised official description. The revision adds promotional wording without changing the substantive account of planning, conducting and analysing market research; the existing concise text remains faithful.",
+          "courseName": "Market Research"
+        },
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENENTR312",
+        "name": "International Business & Governance",
+        "text": "This course examines the institutional, political and cultural forces shaping global businesses. It first explores how international companies operate, then centers on key global challenges including cross-border governance, corporate responsibility, geopolitical strategies and global trade. It provides a comprehensive understanding of today’s complex international business environment.",
+        "textSha256": "856a96cf250de7952f8c7b224afd49ef702d16f3c4788647a561611357173349",
+        "sourceField": "description2",
+        "sourceSha256": "856a96cf250de7952f8c7b224afd49ef702d16f3c4788647a561611357173349",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENGATE101",
+        "name": "Entrepreneurship & Business Foundations",
+        "text": "Through experiential learning, students turn their own bold ideas into new ventures. No prior business expertise is required as teams work on a startup project from ideation to final pitch while gaining business and entrepreneurial skills in areas such as design thinking, business model and customer validation. The class fosters creativity and collaboration to drive business and social innovation.",
+        "textSha256": "be06c9c110a9f2b97e6488ea6896b76949da3932009e02cd6af21a9a379b9160",
+        "sourceField": "description2",
+        "sourceSha256": "be06c9c110a9f2b97e6488ea6896b76949da3932009e02cd6af21a9a379b9160",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENGATE102",
+        "name": "Research Methods & Statistics",
+        "text": "Research Methods & Statistics introduces research design, operationalisation, measurement, sampling, surveys and experiments. Students study descriptive statistics, estimation, hypothesis testing and introductory regression using R and R Commander. A group project develops a research plan and instruments, collects and analyses data, and reports findings under research-ethics and privacy requirements.",
+        "textSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+        "sourceField": "profile",
+        "sourceSha256": "9d88751452d5c0a6888ac7901a73d1a848617dee2b587d4df64815fc39ad8813",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "9d88751452d5c0a6888ac7901a73d1a848617dee2b587d4df64815fc39ad8813",
+          "descriptionSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Research Methods & Statistics"
+        },
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENLEAD111",
+        "name": "Personal Leadership",
+        "text": "Personal Leadership provides a comprehensive introduction to leadership theory and practice, designed to help students discover their unique leadership style through self-awareness and practical skill-building. Through interactive workshops, reflective exercises, and real-world applications, students engage deeply with core leadership principles and develop the tools needed to lead confidently in any setting.",
+        "textSha256": "660a40cb125d3149393643099818a9e9b4c63d66ea9e5092af0c66f0bf84280c",
+        "sourceField": "description2",
+        "sourceSha256": "660a40cb125d3149393643099818a9e9b4c63d66ea9e5092af0c66f0bf84280c",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENLEAD112",
+        "name": "Leadership Communication",
+        "text": "This course blends theory with practice from both fiction and the real world, helping you develop essential leadership skills. Learn how to inspire teams, sharpen your communication, take ethical decisions, and lead with confidence.",
+        "textSha256": "74e05eabc35da5635ed47bbc9360aa194b2b6bcf6b448f6b60aa521ba3d7db93",
+        "sourceField": "description2",
+        "sourceSha256": "74e05eabc35da5635ed47bbc9360aa194b2b6bcf6b448f6b60aa521ba3d7db93",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENLEAD211",
+        "name": "Psychology of Leading Under Pressure",
+        "text": "Examines how emotion regulation, emotional intelligence, belonging, identity safety and psychological safety shape leadership in diverse contexts, with particular attention to minority experiences. Students design and pilot a quantitative survey, collect data ethically, and use SPSS or RStudio for descriptive statistics, reliability analysis, correlations, group comparisons and introductory multiple regression. They interpret the findings and develop evidence-based leadership recommendations.",
+        "textSha256": "b5bfb901eaf1286ca42a21c22a4c5c86a619c00526eb11286f93c2244de3295b",
+        "sourceField": "profile",
+        "sourceSha256": "999ba5b05cd61f55317070b1224b8b12e159ec2100773c4e4a14a721e01b3853",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "sourceSha256": "999ba5b05cd61f55317070b1224b8b12e159ec2100773c4e4a14a721e01b3853",
+          "descriptionSha256": "b5bfb901eaf1286ca42a21c22a4c5c86a619c00526eb11286f93c2244de3295b",
+          "mode": "edited",
+          "reviewedOn": "2026-10-30",
+          "reviewNote": "Reviewed against the Spring 2027 profile and official description. Omits conditional company collaboration and optional factor analysis; no evidence-source commentary appears in the display text.",
+          "courseName": "Psychology of Leading Under Pressure"
+        },
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENLEAD311",
+        "name": "Psychology of Organizations & Leadership",
+        "text": "Psychology of Organizations & Leadership examines the psychological, social and structural dynamics of organisations. Case discussions and research-based frameworks address motivation, leadership, group dynamics, organisational culture, power, conflict and change.",
+        "textSha256": "668a9f550a115ab294eb553586c70cf6e941271625ed97b1527613ed53b1aadf",
+        "sourceField": "profile",
+        "sourceSha256": "a6257b450ccaf3dcad4ed2cff83ec2065a49f8afb6c0549530896581e301fa60",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "a6257b450ccaf3dcad4ed2cff83ec2065a49f8afb6c0549530896581e301fa60",
+          "descriptionSha256": "668a9f550a115ab294eb553586c70cf6e941271625ed97b1527613ed53b1aadf",
+          "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+          "courseName": "Psychology of Organizations & Leadership"
+        },
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "BENLEAD312",
+        "name": "Negotiation & Strategic Thinking",
+        "text": "How do you get to yes? In this course you will learn how to craft persuasive arguments, deploy the right language, negotiate more effectively, and influence decisions with confidence—whether in business, leadership, or life.",
+        "textSha256": "06c968d26aee6cb3bd4d3c0081ae191dc96766a1e08ccde5336c2d581e6e5f43",
+        "sourceField": "description2",
+        "sourceSha256": "06c968d26aee6cb3bd4d3c0081ae191dc96766a1e08ccde5336c2d581e6e5f43",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "DISARIN111",
+        "name": "AI Ethics",
+        "text": "AI Ethics examines artificial intelligence from philosophical and psychological perspectives. Topics include fairness, privacy, responsibility, human-value alignment, moral status and political or existential risks. Students apply ethical frameworks to questions about human behaviour and interaction, synthesise research in an analytical psychology project, and produce a research-based podcast.",
+        "textSha256": "573776c86616fbb9aa39c644ba0abcae2cb7c073febebe3b0203c329264cbeb3",
+        "sourceField": "profile",
+        "sourceSha256": "cb43b0c596757e7e4f5f93392738ac9d23f450d75d7dd7698bbb59ee1557333a",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "cb43b0c596757e7e4f5f93392738ac9d23f450d75d7dd7698bbb59ee1557333a",
+          "descriptionSha256": "573776c86616fbb9aa39c644ba0abcae2cb7c073febebe3b0203c329264cbeb3",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "AI Ethics"
+        },
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "DISCOMP212",
+        "name": "Database Management Systems",
+        "text": "Introduces relational database management systems and SQL. Covers relational database theory, authorization, normalization and query processing.",
+        "textSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d",
+        "sourceField": "description2",
+        "sourceSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "DISDATA111",
+        "name": "Introduction to Data Science",
+        "text": "Develops foundational skills in data visualization, cleaning and manipulation. Explores spatial and text data and includes hands‑on work with datasets from various disciplines.",
+        "textSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+        "sourceField": "description2",
+        "sourceSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "DISDATA211",
+        "name": "Machine Learning",
+        "text": "Machine Learning introduces methods for understanding data and making predictions, including linear regression, classification, resampling, shrinkage, tree-based methods, support vector machines and clustering. Real-world examples illustrate the methods, their strengths and limitations.",
+        "textSha256": "ae7fce189f80fcd62e521b78f43d3119e98a2ee78d29f61127a0f6b61faaf862",
+        "sourceField": "profile",
+        "sourceSha256": "6a112d70695b992eb7664e19ed9656612b364e2c28a116980a602eef2687ace6",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "6a112d70695b992eb7664e19ed9656612b364e2c28a116980a602eef2687ace6",
+          "descriptionSha256": "ae7fce189f80fcd62e521b78f43d3119e98a2ee78d29f61127a0f6b61faaf862",
+          "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+          "courseName": "Machine Learning"
+        },
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "DISGATE101",
+        "name": "Introduction to Programming",
+        "text": "Introduces programming and computer science. Covers structured programming, data constructs, testing, debugging and object‑oriented programming with Python, and develops computational problem‑solving skills.",
+        "textSha256": "efe3b89e39a2611d475d27d09b06151a514076321c7453cd31f9cfbbd84248bf",
+        "sourceField": "description2",
+        "sourceSha256": "efe3b89e39a2611d475d27d09b06151a514076321c7453cd31f9cfbbd84248bf",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "DISGATE102",
+        "name": "Mathematical Methods",
+        "text": "Mathematical Methods develops foundational techniques in differentiation, integration, complex numbers and differential equations. Students solve problems analytically and with Mathematica. A project implements, analyses and adapts a dynamic model, requiring interpretation of its behaviour and computational results.",
+        "textSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38",
+        "sourceField": "profile",
+        "sourceSha256": "6250945baf68c519d3820bddeaa08cb4b3c71273ddbb9bc31a7dffe6d021af5f",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "6250945baf68c519d3820bddeaa08cb4b3c71273ddbb9bc31a7dffe6d021af5f",
+          "descriptionSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Mathematical Methods"
+        },
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "DISMATH211",
+        "name": "Linear Algebra",
+        "text": "Linear Algebra studies systems of equations, matrices, vectors, linear transformations and vector spaces. Students examine eigenvalues, orthogonality, least-squares approximation, quadratic forms and singular value decomposition. Applications include discrete signals, difference equations, Markov chains, dynamical systems, graphics and principal component analysis, with Mathematica supporting analytical problem-solving.",
+        "textSha256": "bd23120a02190d6bcf24aa6c30ce1e454082afae59ba3d81c21d48cfb4194ba4",
+        "sourceField": "profile",
+        "sourceSha256": "26ebd64922aa03e17140aa9b6529a98f2428bdf29ab1fa4360f9bd876de4e680",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "26ebd64922aa03e17140aa9b6529a98f2428bdf29ab1fa4360f9bd876de4e680",
+          "descriptionSha256": "bd23120a02190d6bcf24aa6c30ce1e454082afae59ba3d81c21d48cfb4194ba4",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Linear Algebra"
+        },
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "DISMATH314",
+        "name": "Probability & Statistics",
+        "text": "Provides a foundation in mathematical statistics. Covers probability theory, discrete and continuous distributions, sampling, parameter estimation and simulation; uses computer algebra software to develop theoretical understanding and practical skills.",
+        "textSha256": "9d3ee2b42fa7fe2c0e62777da64474690e9fac0ca76929d04c6670dab516d10f",
+        "sourceField": "description2",
+        "sourceSha256": "9d3ee2b42fa7fe2c0e62777da64474690e9fac0ca76929d04c6670dab516d10f",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "ENSDELT312",
+        "name": "Governance of Sustainability",
+        "text": "This course examines sustainability through the lens of governance: “a process of rule-making and collective decision-making that includes both governmental and non-governmental actors in shaping public policy” (Fenger & Bekkers, 2016). Taking this lens, we ask questions such as how are sustainability policies on the local, national, and international level made and enforced? Which actors represent which interests, and which are most influential? How is public opinion on sustainability shaped, and how does public opinion shape politics? What, at the end of the day, determines effective policy for sustainability? By the end of this course, you will have gained a deep appreciation of the complexity of the governance dimension of sustainability, and have developed the theoretical and practical understanding to critically assess mainstream policy decisions.",
+        "textSha256": "746711aaebf20395c0fd5695fb91c5951f611715825c91ca6da251c5d890e362",
+        "sourceField": "description2",
+        "sourceSha256": "746711aaebf20395c0fd5695fb91c5951f611715825c91ca6da251c5d890e362",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "ENSECOL312",
+        "name": "Sustainable Farming & Innovation",
+        "text": "Discusses environmental impacts of agriculture and explores sustainable agriculture approaches such as agroecology, organic farming, conservation agriculture, precision agriculture, sustainable livestock farming, agroforestry, permaculture, crop rotation, integrated pest management and sustainable supply chains.",
+        "textSha256": "8e93a30040ee349e76607b3b392df124cd0cdb471701baa4c924c8fa460e8c46",
+        "sourceField": "description2",
+        "sourceSha256": "8e93a30040ee349e76607b3b392df124cd0cdb471701baa4c924c8fa460e8c46",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "ENSGATE101",
+        "name": "Sustainability Essentials I",
+        "text": "Introduces sustainability through planetary boundaries and scientific tools for understanding human impacts on Earth systems. Students interpret graphs and uncertainty, build simple dynamic models, and study chemical and physical principles relevant to climate, energy and materials. A laboratory project makes and tests starch-based biopolymers.",
+        "textSha256": "3d8021bff00c075753d30587e5e529c4ac8337c828561c59c0c227299a1e04e9",
+        "sourceField": "profile",
+        "sourceSha256": "82f50723d99a79ffd7371f9f6eebe3e42e760cc7f4f8bbeb032e81fd5acc4184",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "sourceSha256": "82f50723d99a79ffd7371f9f6eebe3e42e760cc7f4f8bbeb032e81fd5acc4184",
+          "descriptionSha256": "3d8021bff00c075753d30587e5e529c4ac8337c828561c59c0c227299a1e04e9",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Sustainability Essentials I"
+        },
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "ENSGATE201",
+        "name": "Sustainability Essentials II",
+        "text": "Develops physical-science foundations for sustainability through waves, chemistry and materials science. Reflective work and a project apply these topics to analysing greenwashing.",
+        "textSha256": "465a8a129a7b496e5cc7188a77d3e2b04fb5a3c7f3afceae8a56afe6d062285b",
+        "sourceField": "profile",
+        "sourceSha256": "10191be23b197bf2051541f534acdc52bc20762fc7d8889972890e7176afed60",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "sourceSha256": "10191be23b197bf2051541f534acdc52bc20762fc7d8889972890e7176afed60",
+          "descriptionSha256": "465a8a129a7b496e5cc7188a77d3e2b04fb5a3c7f3afceae8a56afe6d062285b",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+          "courseName": "Sustainability Essentials II"
+        },
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "ENSSUST111",
+        "name": "Climate Change",
+        "text": "Focuses on drivers and impacts of anthropogenic climate change on sea level, ocean acidification, ecology and society. Discusses adaptation and mitigation solutions, including renewable energy systems, carbon storage and climate‑adaptive planning, and examines climate governance and justice.",
+        "textSha256": "51b7423fe905aaf8f483ff6389d1685b21b8a2fb0a4b9b41d99b59e42808a974",
+        "sourceField": "description2",
+        "sourceSha256": "51b7423fe905aaf8f483ff6389d1685b21b8a2fb0a4b9b41d99b59e42808a974",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "ENSSUST112",
+        "name": "Life Cycle Analysis & Circular Economy",
+        "text": "Teaches evaluation of environmental impacts of products, processes and services throughout their lifecycle. Emphasises strategic planning for a circular economy through hands‑on learning.",
+        "textSha256": "1507c66a61e12992a10ae7eef4194b4994d433c482be61ac982d0a8eb0870afe",
+        "sourceField": "description2",
+        "sourceSha256": "1507c66a61e12992a10ae7eef4194b4994d433c482be61ac982d0a8eb0870afe",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "ENSSUST311",
+        "name": "Renewable System Design",
+        "text": "Teaches assessment of energy usage patterns and strategies for reducing consumption or transitioning to cleaner energy. Explores solar, wind and bioenergy solutions and includes technical and economic analysis; students deliver a report and presentation to a partner company.",
+        "textSha256": "f59be5886c977469ba596b55eae9382fde7efb5a64b50dd70745e2af463641eb",
+        "sourceField": "description2",
+        "sourceSha256": "f59be5886c977469ba596b55eae9382fde7efb5a64b50dd70745e2af463641eb",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "GOSPHIL212",
+        "name": "Ethics",
+        "text": "Ethics examines moral reasoning through historical and contemporary theories and close philosophical reading. Students study utilitarianism, Kantian ethics, virtue ethics, contractarianism and feminist ethics, alongside Nietzsche, Murdoch and Nagel. Reflection and research essays develop interpretation, argument evaluation and an independent position on ethical theory or a practical ethical problem.",
+        "textSha256": "d17cd0a6631823a666c2978b81f52bc5e8b5c8e52ed68edccb3fa37073146e5b",
+        "sourceField": "profile",
+        "sourceSha256": "6d4bf415a51b5b6fb41f341d23fe8b8ce483263f17505e77d1a4ae37299fe30f",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "6d4bf415a51b5b6fb41f341d23fe8b8ce483263f17505e77d1a4ae37299fe30f",
+          "descriptionSha256": "d17cd0a6631823a666c2978b81f52bc5e8b5c8e52ed68edccb3fa37073146e5b",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Ethics"
+        },
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "GOSSOCI212",
+        "name": "Qualitative Research Methodology",
+        "text": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+        "textSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+        "sourceField": "description2",
+        "sourceSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+        "provenance": null,
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      },
+      {
+        "code": "MCCCOMM111",
+        "name": "The Art of Rhetorical Communication",
+        "text": "The Art of Rhetorical Communication develops rhetorical analysis, academic writing and oral presentation. Students examine classical Western roots and the canons of rhetoric, and learn to construct, organise and support persuasive arguments. Historical and contemporary examples connect rhetorical theory with practical communication.",
+        "textSha256": "34ab73cc0cae33e2a0e47ba5df0ee55c9b0e5f2d4e21ae97ea18667a96400c4c",
+        "sourceField": "profile",
+        "sourceSha256": "a1075e2aff565380f637a1ee31ac79c668477b11b15a7f853230b303cf44485f",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "a1075e2aff565380f637a1ee31ac79c668477b11b15a7f853230b303cf44485f",
+          "descriptionSha256": "34ab73cc0cae33e2a0e47ba5df0ee55c9b0e5f2d4e21ae97ea18667a96400c4c",
+          "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+          "courseName": "The Art of Rhetorical Communication"
+        },
+        "assessment": "Read selected text against supporting evidence. Legacy entries are exact current official description2; explicitly reviewed edits have matching recorded source/name/text hashes."
+      }
+    ],
+    "links": [
+      "https://www.tilburguniversity.edu/education/bachelors-programs/entrepreneurship-and-business-innovation/program-and-courses",
+      "https://ucr.nl/education/courses/"
+    ],
+    "assessment": "All selected concepts,notes and component IDs resolve without competing prose. Current course names agree with table/schedule. Complete status selects all180EC. Normal mode uses factual tables and only audience-selected prose; internal research/trace/alignment notes are not display fallbacks. All39descriptions exist; generic missing-description fallback is not selected. Shared static fallback and link mapping inspected without runtime interaction. No screenshot or live-modal claim."
+  },
+  "mechanicalChecks": [
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "data/counselor/comparisons/cp-000238.json"
+      ],
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000238/current-course-check-1.log"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "data/counselor/comparisons/cp-000238.json"
+      ],
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000238/current-course-check-2.log"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-descriptions.py"
+      ],
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000238/current-course-check-3.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor"
+      ],
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000238/current-course-check-4.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor-review"
+      ],
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000238/current-course-check-5.log"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/build-counselor-production.mjs",
+        "data/counselor/decisions/cp-000238.json",
+        "--output",
+        "/tmp/cp238-byte-replay.json"
+      ],
+      "exitCode": 0,
+      "byteExact": true,
+      "canonicalSha256": "48197467ccb5109a8d68ff8f6908ac01b54746c3247c4410b690063881c0bbd2"
+    }
+  ],
+  "appBoundary": "No app code changed, Shiny launch, R/browser installation or runtime tests performed. Historical runtime evidence preserved. Separate representative app verification required before release.",
+  "status": "Repair/content review complete; source-first final pass against published repaired inputs and applicable repairCI still required before final approval."
+}
