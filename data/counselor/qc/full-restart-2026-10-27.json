@@ -726,9 +726,9 @@
     }
   ],
   "auditId": "counselor-full-restart-2026-10-27",
-  "status": "paused-by-user",
+  "status": "active",
   "preparedOn": "2026-10-27",
-  "updatedOn": "2026-10-30",
+  "updatedOn": "2026-10-31",
   "authority": "User, 27 October 2026: restart the entire corpus from scratch; split into two halves; two hourly tasks starting 11:30 and 12:00 Europe/Amsterdam; user manually selects models.",
   "historicalAudit": "data/counselor/qc/comprehensive-reaudit.json",
   "priorApprovalPolicy": "No old approval, no-match, blocker, deferral, stage outcome, retrieval-failure count or completed-case credit is inherited. Review every baseline case anew. Existing academic artifacts and sources are candidates for independently verified retention, not evidence of fresh approval.",
@@ -5453,7 +5453,7 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "paused",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
@@ -5470,8 +5470,8 @@
       "lastCheckpoint": {
         "caseId": "cp-000001",
         "state": "in-progress",
-        "checkpointedOn": "2026-10-29",
-        "nextAction": "Cases reopened administratively; academic processing remains paused by the user. No review or repair started.",
+        "checkpointedOn": "2026-10-31",
+        "nextAction": "Resume cp-000001 from its detailed reopened case evidence under the current protocol; retain verified unaffected work and complete every reopened dependency and remaining gate. Review restart authorised by the user on 31 October 2026; no case work performed by this administrative resumption.",
         "reviewStarted": false
       },
       "checkpointHistory": [
@@ -5745,7 +5745,7 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "paused",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
@@ -5762,8 +5762,8 @@
       "lastCheckpoint": {
         "caseId": "cp-000237",
         "state": "in-progress",
-        "checkpointedOn": "2026-10-29",
-        "nextAction": "Cases reopened administratively; academic processing remains paused by the user. No review or repair started.",
+        "checkpointedOn": "2026-10-31",
+        "nextAction": "Resume cp-000237 from its detailed reopened case evidence under the current protocol; retain verified unaffected work and complete every reopened dependency and remaining gate. Review restart authorised by the user on 31 October 2026; no case work performed by this administrative resumption.",
         "reviewStarted": false
       },
       "checkpointHistory": [
@@ -6694,11 +6694,7 @@
   ],
   "progressReportInterval": 10,
   "progressReports": [],
-  "systemicPause": {
-    "type": "user-requested-hold",
-    "pausedOn": "2026-10-29",
-    "reason": "Reopen CP001, CP002, CP237 and CP238 only. Do not resume the full review until the user explicitly authorises it."
-  },
+  "systemicPause": null,
   "modelPolicy": {
     "selection": "User changes model manually in task settings.",
     "runtimeModel": null,
@@ -6743,7 +6739,7 @@
       },
       {
         "step": 4,
-        "status": "paused-by-user",
+        "status": "in-progress",
         "scope": "Process every assigned case from scratch, update only this audit's progress and case evidence.",
         "nextCaseByWorker": {
           "A": "cp-000001",
@@ -6798,5 +6794,41 @@
       "pilotStarted": 1
     },
     "reviewStarted": false
-  }
+  },
+  "resumptionHistory": [
+    {
+      "authorisedOn": "2026-10-31",
+      "authority": "User explicitly authorised clearing the user-requested hold and enabling the existing revised Restart Corpus A and Restart Corpus B tasks, preserving assignments, schedules and model settings.",
+      "priorStatus": "paused-by-user",
+      "clearedPause": {
+        "type": "user-requested-hold",
+        "pausedOn": "2026-10-29",
+        "reason": "Reopen CP001, CP002, CP237 and CP238 only. Do not resume the full review until the user explicitly authorises it."
+      },
+      "priorWorkerState": {
+        "A": {
+          "status": "paused",
+          "lastCheckpoint": {
+            "caseId": "cp-000001",
+            "state": "in-progress",
+            "checkpointedOn": "2026-10-29",
+            "nextAction": "Cases reopened administratively; academic processing remains paused by the user. No review or repair started.",
+            "reviewStarted": false
+          }
+        },
+        "B": {
+          "status": "paused",
+          "lastCheckpoint": {
+            "caseId": "cp-000237",
+            "state": "in-progress",
+            "checkpointedOn": "2026-10-29",
+            "nextAction": "Cases reopened administratively; academic processing remains paused by the user. No review or repair started.",
+            "reviewStarted": false
+          }
+        }
+      },
+      "priorExecutionStep4Status": "paused-by-user",
+      "scope": "Resume the existing 438-case restart through the assigned workers. No replacement tasks or new academic approvals. Final release and deployment remain unauthorised."
+    }
+  ]
 }
