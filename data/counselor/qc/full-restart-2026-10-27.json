@@ -986,7 +986,7 @@
     },
     {
       "id": "cp-000014",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "retain",
         "2": "retain",
@@ -997,21 +997,11 @@
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Current source/course verification and English display correction",
-          "scope": "Affected concepts,course contributions,test schedule,alignments andaudience content reassessed; publication verification pending.",
-          "stages": [
-            2,
-            3,
-            4,
-            5,
-            6
-          ]
-        }
+      "downstreamReassessments": [],
+      "implementationCommits": [
+        "251cd93ecb6e16285c02db92fd09551605c4e98a"
       ],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000014.json",
       "academicDisposition": "no-defensible-ucr-match"
     },
@@ -5419,8 +5409,8 @@
     }
   ],
   "progress": {
-    "approved": 20,
-    "inProgress": 3,
+    "approved": 21,
+    "inProgress": 2,
     "reviewedWithBlockers": 0,
     "notStarted": 415,
     "pilotStarted": 1
@@ -5652,35 +5642,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "working",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000014",
-      "activeClaim": {
-        "executionId": "restart-A-cp014-20261031T2133Z",
-        "worker": "A",
-        "caseId": "cp-000014",
-        "claimedAt": "2026-10-31 21:33:14 UTC",
-        "reviewedInputCommit": "8f1dca444ff5a3ca4bba11e7086c2f938f2fa275",
-        "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000014.json": "5c0ea6a628da3f010df5c1a03870b1add2094a15",
-          "data/counselor/comparisons/cp-000014.json": "5fe20a80e3e3b56e8c9d449fa601ba7a392581ce",
-          "data/registry/programme_interests.csv": "bf57668ad1882ff6e2e5a0bfacbf671c928f0ae4"
-        },
-        "nextAction": "Verify published CP014 pair/evidence and applicable CI; complete separate same-AI source-first final pass before approval.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000016",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -5691,7 +5661,8 @@
         "cp-000008",
         "cp-000009",
         "cp-000010",
-        "cp-000011"
+        "cp-000011",
+        "cp-000014"
       ],
       "completedDispositions": [
         {
@@ -5763,6 +5734,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000011.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-10-31"
+        },
+        {
+          "caseId": "cp-000014",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000014.json",
+          "academicDisposition": "no-defensible-ucr-match",
+          "verifiedOn": "2026-10-31"
         }
       ],
       "deferredCases": [
@@ -5773,18 +5751,19 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000013",
-        "executionId": "restart-A-cp013-20261031T2029Z",
-        "state": "in-progress",
-        "academicDisposition": "external-programme-unresolved",
-        "reviewedInputCommit": "e079ad6f0757eff420b17d473dc13caf68239f51",
+        "caseId": "cp-000014",
+        "executionId": "restart-A-cp014-20261031T2133Z",
+        "state": "approved",
+        "academicDisposition": "no-defensible-ucr-match",
+        "reviewedInputCommit": "251cd93ecb6e16285c02db92fd09551605c4e98a",
         "inputBlobs": {
-          "canonical": "bf5dada0ceedd77e88edc5aae1447d9776d6ef95",
-          "decision": "42acd11805f32d6da8e38ce33ecd1c482894ef34"
+          "canonical": "bae77586bf6b3b3dd2d6082eea05e9d1c15d264d",
+          "decision": "5b06497f3e924e0db59b9359ccc1f70a5e422c9d"
         },
+        "verifiedAt": "2026-10-31",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000013/retry2-source-first-final-pass.json",
-        "nextAction": "CP013 is deferred and incomplete after two unsuccessful executions for the same essential source evidence. Worker A resumes CP014 next execution. Revisit CP013 once after the non-deferred A queue, or earlier if new essential evidence supplies the current ESE 15-EC allocation and a permitted complementary-study arrangement. Preserve verified common curriculum, interest research and all independent UCR repairs.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000014/source-first-final-pass.json",
+        "nextAction": "CP014 complete as verified no-defensible-UCR-match. Worker A resumes CP016; CP013 remains deferred/incomplete with its separate permitted revisit unconsumed.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -5969,6 +5948,49 @@
                 "pilot/shiny/data/courses/GOS.json": "b9788d61805fb3afb343a61c34786e7b5ec31d60"
               },
               "nextAction": "Second essential-source execution for CP013: verify current discipline-specific philosophy allocation and complementary-credit rules from official sources. Preserve verified stages and independent UCR repairs; complete source-first final check and record approval only if full gates pass, otherwise permitted incomplete deferral.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
+        },
+        {
+          "preservedOn": "2026-10-31",
+          "reason": "Preserve own claim and prior source-deferral checkpoint before verified disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000013",
+              "executionId": "restart-A-cp013-20261031T2029Z",
+              "state": "in-progress",
+              "academicDisposition": "external-programme-unresolved",
+              "reviewedInputCommit": "e079ad6f0757eff420b17d473dc13caf68239f51",
+              "inputBlobs": {
+                "canonical": "bf5dada0ceedd77e88edc5aae1447d9776d6ef95",
+                "decision": "42acd11805f32d6da8e38ce33ecd1c482894ef34"
+              },
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000013/retry2-source-first-final-pass.json",
+              "nextAction": "CP013 is deferred and incomplete after two unsuccessful executions for the same essential source evidence. Worker A resumes CP014 next execution. Revisit CP013 once after the non-deferred A queue, or earlier if new essential evidence supplies the current ESE 15-EC allocation and a permitted complementary-study arrangement. Preserve verified common curriculum, interest research and all independent UCR repairs.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp014-20261031T2133Z",
+              "worker": "A",
+              "caseId": "cp-000014",
+              "claimedAt": "2026-10-31 21:33:14 UTC",
+              "reviewedInputCommit": "8f1dca444ff5a3ca4bba11e7086c2f938f2fa275",
+              "inputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000014.json": "5c0ea6a628da3f010df5c1a03870b1add2094a15",
+                "data/counselor/comparisons/cp-000014.json": "5fe20a80e3e3b56e8c9d449fa601ba7a392581ce",
+                "data/registry/programme_interests.csv": "bf57668ad1882ff6e2e5a0bfacbf671c928f0ae4"
+              },
+              "nextAction": "Verify published CP014 pair/evidence and applicable CI; complete separate same-AI source-first final pass before approval.",
               "runtimeModel": "unknown",
               "runtimeReasoningEffort": "unknown"
             }
