@@ -1,0 +1,26 @@
+{
+  "checks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000020.json",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000020/retry2-feasibility.log"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000020.json",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000020/retry2-schema.log"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000020/retry2-operational.log"
+    },
+    {
+      "check": "decision/canonical replay",
+      "status": "passed",
+      "byteExact": true,
+      "canonicalSha256": "bd744ed73d047de2180bf76939122d064410c8c095255c8a493562889d9798b4"
+    }
+  ],
+  "scope": "Unchanged partial exception; no selected UCR schedule or descriptions. Academic completeness remains blocked."
+}
