@@ -1,0 +1,39 @@
+{
+  "checks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000025.json",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000025/feasibility.log"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000025.json",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000025/schema.log"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000025/operational.log"
+    },
+    {
+      "command": "npm run validate:registry-interests",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000025/interests.log"
+    },
+    {
+      "command": "npm run validate:counselor-review",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000025/review-index.log"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000025/descriptions.log"
+    },
+    {
+      "check": "byte-exact decision/canonical replay",
+      "status": "passed",
+      "canonicalSha256": "98c7941191c51e1e33e4118c4bc2fbdb10bb2b0151087590ffc74d8a54a8a175"
+    }
+  ]
+}
