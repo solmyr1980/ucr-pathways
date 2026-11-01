@@ -728,7 +728,7 @@
   "auditId": "counselor-full-restart-2026-10-27",
   "status": "active",
   "preparedOn": "2026-10-27",
-  "updatedOn": "2026-10-31",
+  "updatedOn": "2026-11-01",
   "authority": "User, 27 October 2026: restart the entire corpus from scratch; split into two halves; two hourly tasks starting 11:30 and 12:00 Europe/Amsterdam; user manually selects models.",
   "historicalAudit": "data/counselor/qc/comprehensive-reaudit.json",
   "priorApprovalPolicy": "No old approval, no-match, blocker, deferral, stage outcome, retrieval-failure count or completed-case credit is inherited. Review every baseline case anew. Existing academic artifacts and sources are candidates for independently verified retention, not evidence of fresh approval.",
@@ -3709,7 +3709,7 @@
     },
     {
       "id": "cp-000256",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "reconstruct",
         "2": "correct",
@@ -3719,27 +3719,12 @@
         "6": "correct"
       },
       "sharedIssueIds": [],
-      "unresolved": [
-        "Published repair/CI and separately identified source-first final verification remain to be completed; this is not approval."
+      "unresolved": [],
+      "downstreamReassessments": [],
+      "implementationCommits": [
+        "4ea0829750c6fff6b9ea048fe9109e2de108687a"
       ],
-      "downstreamReassessments": [
-        {
-          "trigger": "External module/cohort reconstruction and substantive concept/selection corrections",
-          "scope": "All dependent interests, course contributions, schedules, alignments and audience claims reassessed; published inputs/CI and separate source-first pass pending.",
-          "stages": [
-            2,
-            3,
-            4,
-            5,
-            6
-          ],
-          "evidenceRefs": [
-            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000256/course-content-review.json"
-          ]
-        }
-      ],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000256.json",
       "academicDisposition": "comparison"
     },
@@ -5735,8 +5720,8 @@
     }
   ],
   "progress": {
-    "approved": 34,
-    "inProgress": 9,
+    "approved": 35,
+    "inProgress": 8,
     "reviewedWithBlockers": 0,
     "notStarted": 395,
     "pilotStarted": 2
@@ -7223,28 +7208,8 @@
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000256",
-      "activeClaim": {
-        "executionId": "restart-B-cp256-20261101",
-        "worker": "B",
-        "caseId": "cp-000256",
-        "claimedAt": "2026-11-01T10:05:57.648305+00:00",
-        "reviewedInputCommit": "8c7b694faad88dc1f39ab000c8da41e832611565",
-        "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000256.json": "0d87943a556bcc496cd13eb3f67eacad95cbb809",
-          "data/counselor/comparisons/cp-000256.json": "984b26d858350d67f4993fe593484e325a404a7c",
-          "data/registry/programme_interests.csv": "6a5143c0ef5691bd6da28279db9a0e3635053455"
-        },
-        "nextAction": "Publish repaired decision/canonical pair with full evidence after validators; verify published inputs/CI; separately reconsider underlying sources and complete final content gates before approval.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000257",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -7259,7 +7224,8 @@
         "cp-000248",
         "cp-000249",
         "cp-000251",
-        "cp-000253"
+        "cp-000253",
+        "cp-000256"
       ],
       "completedDispositions": [
         {
@@ -7359,6 +7325,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000253.json",
           "academicDisposition": "no-defensible-ucr-match",
           "verifiedOn": "2026-11-01"
+        },
+        {
+          "caseId": "cp-000256",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000256.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-01"
         }
       ],
       "deferredCases": [
@@ -7380,9 +7353,13 @@
         "caseId": "cp-000256",
         "executionId": "restart-B-cp256-20261101",
         "checkedOn": "2026-11-01",
-        "state": "in-progress",
-        "nextAction": "Publish repaired decision/canonical pair with full evidence after validators; verify published inputs/CI; separately reconsider underlying sources and complete final content gates before approval.",
-        "evidenceRef": "data/counselor/qc/full-restart-2026-10-27/cp-000256.json"
+        "state": "approved",
+        "academicDisposition": "comparison",
+        "reviewedCommit": "4ea0829750c6fff6b9ea048fe9109e2de108687a",
+        "evidenceRef": "data/counselor/qc/full-restart-2026-10-27/cp-000256.json",
+        "nextAction": "CP256 complete. Worker B next resumes CP257 under a fresh active-register check; five deferred cases remain incomplete pending their permitted revisits. No final release or additional automation.",
+        "runtimeModel": "unknown",
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -8221,6 +8198,14 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "caseId": "cp-000256",
+          "executionId": "restart-B-cp256-20261101",
+          "checkedOn": "2026-11-01",
+          "state": "in-progress",
+          "nextAction": "Publish repaired decision/canonical pair with full evidence after validators; verify published inputs/CI; separately reconsider underlying sources and complete final content gates before approval.",
+          "evidenceRef": "data/counselor/qc/full-restart-2026-10-27/cp-000256.json"
         }
       ],
       "sourceRetrievalFailureHistory": [
