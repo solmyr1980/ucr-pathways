@@ -1,0 +1,86 @@
+{
+  "checkedOn": "2026-11-01",
+  "scope": "CP256 repaired pair and affected shared description provenance / interest review indexes. No app code change.",
+  "results": [
+    {
+      "check": "feasibility",
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "data/counselor/comparisons/cp-000256.json"
+      ],
+      "exitCode": 0,
+      "log": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000256/feasibility.log",
+      "sha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "check": "schema",
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "data/counselor/comparisons/cp-000256.json"
+      ],
+      "exitCode": 0,
+      "log": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000256/schema.log",
+      "sha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "check": "descriptions",
+      "command": [
+        "python",
+        "scripts/validate-course-descriptions.py"
+      ],
+      "exitCode": 0,
+      "log": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000256/descriptions.log",
+      "sha256": "45c35224685d45c88ebcd4e6011679e1c7e9ca6fb9c542f4dcdac2bf65dfbeaf"
+    },
+    {
+      "check": "operational",
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor"
+      ],
+      "exitCode": 0,
+      "log": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000256/operational.log",
+      "sha256": "77ee345c6a7eee9c347eb82a005ffbfcc6c2156f72587338e8b8b0a0ba745f6e"
+    },
+    {
+      "check": "interests",
+      "command": [
+        "npm",
+        "run",
+        "validate:registry-interests"
+      ],
+      "exitCode": 0,
+      "log": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000256/interests.log",
+      "sha256": "f7ce7bad855e286774d735f463e47833f715bb1c677a71b50a13e39b12bb572e"
+    },
+    {
+      "check": "review-index",
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor-review"
+      ],
+      "exitCode": 0,
+      "log": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000256/review-index.log",
+      "sha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8"
+    },
+    {
+      "check": "byte-exact replay",
+      "command": [
+        "node",
+        "scripts/build-counselor-production.mjs",
+        "data/counselor/decisions/cp-000256.json",
+        "--output",
+        "/tmp/b256replay.json"
+      ],
+      "exitCode": 0,
+      "sameBytes": true,
+      "canonicalSha256": "698c2ce416e91863385c3b1974fc539dea702260fb86db8dd2ec9b6eec417be0"
+    }
+  ],
+  "publishedCI": "pending",
+  "failureAttribution": "Initial formal-schema invocation lacked Python jsonschema; installed validation dependency and reran. First final-rules run identified local route-enum spelling and shared trace-basis mismatch, both repaired before these successful checks. Neither was systemic."
+}
