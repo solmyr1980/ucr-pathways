@@ -1,0 +1,2049 @@
+{
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "presentationMode": "normal",
+  "inputBlobs": {
+    "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+    "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+    "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000032.json": "9a661a962b2426f1711f098a27fe6a719c7d8b15",
+    "data/counselor/comparisons/cp-000032.json": "6eb66a0524df11bccb386819909218ba964b3bc4",
+    "data/registry/programme_interests.csv": "be22a6e108bb7232867eace3f2f155585155e627",
+    "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+    "data/counselor/review-programmes.json": "47222ca66901ed076b36ae4415e05ad2bf4cdbb9",
+    "data/counselor/review-interests.json": "c0c59451c132724842fc5f4b295acaef06bb4d0c",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/GOS.json": "49da38b390637fa113a95b835a4d9bbda854ef83",
+    "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa"
+  },
+  "fieldToRenderer": [
+    "pilot/shared.R:visible_label selects comparator identity and explicit UCR labels.",
+    "pilot/counselor-shiny/app.R:curriculum_view resolves complete22 IDs/180EC and clean year/route labels; render_audience_context selects explicit descriptions/limitations.",
+    "render_comparison_summary selects concepts only by audience.conceptProgrammeIds; render_audience_notes selects canonical notes only by audience.noteTypes.",
+    "render_compare_table shows block/cell names/credits; audience_cell_note selects exact programmeId/reference. Internal sourceNotes, block alignment rationales and component investigation notes do not become fallback prose.",
+    "course_click selects department cache descriptions[code]; course_description_dialog shows selected text or approved neutral unavailable fallback. All37 selected entries exist; historical behavior reused, no runtime invoked."
+  ],
+  "fieldsRead": [
+    {
+      "path": "audience.schemaVersion",
+      "text": "1.0"
+    },
+    {
+      "path": "audience.programmeDescription",
+      "text": "The English-taught Arts and Culture Studies specialisation examines visual art, literature, music, film, television and performance through historical, theoretical and social perspectives. Students develop cultural criticism, research and cultural-sector practice."
+    },
+    {
+      "path": "audience.comparisonExplanation",
+      "text": "Three UCR programmes offer related routes through arts and media, culture and power, or literature and communication. Radboud provides dedicated music study, festival production and a separate bachelor thesis. This comparison uses Radboud’s published indicative plan for students starting in 2027."
+    },
+    {
+      "path": "audience.curriculum.status",
+      "text": "complete"
+    },
+    {
+      "path": "audience.curriculum.componentIds[0]",
+      "text": "acs-y1-text"
+    },
+    {
+      "path": "audience.curriculum.componentIds[1]",
+      "text": "acs-y1-image"
+    },
+    {
+      "path": "audience.curriculum.componentIds[2]",
+      "text": "acs-y1-music"
+    },
+    {
+      "path": "audience.curriculum.componentIds[3]",
+      "text": "acs-y1-skills"
+    },
+    {
+      "path": "audience.curriculum.componentIds[4]",
+      "text": "acs-y1-europe"
+    },
+    {
+      "path": "audience.curriculum.componentIds[5]",
+      "text": "acs-y1-theory"
+    },
+    {
+      "path": "audience.curriculum.componentIds[6]",
+      "text": "acs-y1-planetary"
+    },
+    {
+      "path": "audience.curriculum.componentIds[7]",
+      "text": "acs-y1-gender"
+    },
+    {
+      "path": "audience.curriculum.componentIds[8]",
+      "text": "acs-y1-transmedial"
+    },
+    {
+      "path": "audience.curriculum.componentIds[9]",
+      "text": "acs-y2-material"
+    },
+    {
+      "path": "audience.curriculum.componentIds[10]",
+      "text": "acs-y2-philosophy"
+    },
+    {
+      "path": "audience.curriculum.componentIds[11]",
+      "text": "acs-y2-music-tech"
+    },
+    {
+      "path": "audience.curriculum.componentIds[12]",
+      "text": "acs-y2-vulgar"
+    },
+    {
+      "path": "audience.curriculum.componentIds[13]",
+      "text": "acs-y2-screen"
+    },
+    {
+      "path": "audience.curriculum.componentIds[14]",
+      "text": "acs-y2-methods"
+    },
+    {
+      "path": "audience.curriculum.componentIds[15]",
+      "text": "acs-y2-minors"
+    },
+    {
+      "path": "audience.curriculum.componentIds[16]",
+      "text": "acs-y3-visual"
+    },
+    {
+      "path": "audience.curriculum.componentIds[17]",
+      "text": "acs-y3-conspiracy"
+    },
+    {
+      "path": "audience.curriculum.componentIds[18]",
+      "text": "acs-y3-spatial"
+    },
+    {
+      "path": "audience.curriculum.componentIds[19]",
+      "text": "acs-y3-cultural-field"
+    },
+    {
+      "path": "audience.curriculum.componentIds[20]",
+      "text": "acs-y3-thesis"
+    },
+    {
+      "path": "audience.curriculum.componentIds[21]",
+      "text": "acs-y3-free"
+    },
+    {
+      "path": "audience.curriculum.yearLabel",
+      "text": "2027–2028"
+    },
+    {
+      "path": "audience.curriculum.routeLabel",
+      "text": "Arts and Culture Studies — standard domestic pathway"
+    },
+    {
+      "path": "audience.curriculum.limitation",
+      "text": "This indicative entrant plan begins in 2027–2028 and continues through 2029–2030. Radboud labels its future offerings provisional and subject to change. The plan preserves two 15-EC Faculty of Arts minors and 30 EC of free electives; it does not guarantee future courses or replace the applicable programme regulations."
+    },
+    {
+      "path": "audience.conceptProgrammeIds[0]",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.conceptProgrammeIds[1]",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.conceptProgrammeIds[2]",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.noteTypes[0]",
+      "text": "missing-specialist-components"
+    },
+    {
+      "path": "audience.componentNotes.acs-y2-minors",
+      "text": "Two 15-EC Faculty of Arts minors, one per second-year semester; this is structured choice space, not unrestricted electives."
+    },
+    {
+      "path": "audience.componentNotes.acs-y3-thesis",
+      "text": "Required 10-EC bachelor thesis; current published progression requires completion of compulsory second-year major courses. Future regulations may change."
+    },
+    {
+      "path": "audience.componentNotes.acs-y3-free",
+      "text": "30 EC free-choice space. In the standard domestic pathway, 15 EC is taken in each semester; courses, internship and study abroad are possibilities subject to programme rules. The alternative exchange pathway is not added."
+    },
+    {
+      "path": "audience.componentNotes.acs-y1-skills",
+      "text": "Mentoring/PPO and the RADAr academic-language requirement carry 0 EC and are separate from the 180-EC total. The programme currently requires attendance, including mentoring, and 45 first-year EC for positive study advice, subject to personal circumstances."
+    },
+    {
+      "path": "audience.cellNotes[0].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[0].reference",
+      "text": "MCCHEAM111"
+    },
+    {
+      "path": "audience.cellNotes[0].text",
+      "text": "Both introduce close visual analysis and interpretation of artworks in historical context."
+    },
+    {
+      "path": "audience.cellNotes[1].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[1].reference",
+      "text": "MCCHEAM111"
+    },
+    {
+      "path": "audience.cellNotes[1].text",
+      "text": "Both introduce close visual analysis and interpretation of artworks in historical context."
+    },
+    {
+      "path": "audience.cellNotes[2].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[2].reference",
+      "text": "MCCHEAM212"
+    },
+    {
+      "path": "audience.cellNotes[2].text",
+      "text": "Partial cultural-repertoire relationship through Renaissance Italian visual art and its Mediterranean, Asian, African and American connections. UCR concentrates on this historical artistic period rather than Radboud’s wider European/global cultural repertoire."
+    },
+    {
+      "path": "audience.cellNotes[3].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[3].reference",
+      "text": "MCCHEAM312"
+    },
+    {
+      "path": "audience.cellNotes[3].text",
+      "text": "Both examine visual culture and the institutions that shape modern artistic meaning; UCR focuses specifically on modern art and museums."
+    },
+    {
+      "path": "audience.cellNotes[4].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[4].reference",
+      "text": "MCCHEAM312"
+    },
+    {
+      "path": "audience.cellNotes[4].text",
+      "text": "Both examine visual culture and the institutions that shape modern artistic meaning; UCR focuses specifically on modern art and museums."
+    },
+    {
+      "path": "audience.cellNotes[5].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[5].reference",
+      "text": "MCCHEAM316"
+    },
+    {
+      "path": "audience.cellNotes[5].text",
+      "text": "Partial philosophical-cultural correspondence: historiography examines aesthetics, meaning, authorship and interpretation through major art-historical thinkers. It does not reproduce the full Culture through Philosophy course."
+    },
+    {
+      "path": "audience.cellNotes[6].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[6].reference",
+      "text": "MCCHEAM316"
+    },
+    {
+      "path": "audience.cellNotes[6].text",
+      "text": "Partial philosophical-cultural correspondence: historiography examines aesthetics, meaning, authorship and interpretation through major art-historical thinkers. It does not reproduce the full Culture through Philosophy course."
+    },
+    {
+      "path": "audience.cellNotes[7].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[7].reference",
+      "text": "MCCHEAM112"
+    },
+    {
+      "path": "audience.cellNotes[7].text",
+      "text": "Both analyse material objects as cultural evidence across historical and social contexts; UCR uses world archaeology as its disciplinary frame."
+    },
+    {
+      "path": "audience.cellNotes[8].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[8].reference",
+      "text": "acs-y3-spatial"
+    },
+    {
+      "path": "audience.cellNotes[8].text",
+      "text": "UCR has heritage and material-culture courses but no single scheduled course centred on spatial culture."
+    },
+    {
+      "path": "audience.cellNotes[9].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[9].reference",
+      "text": "MCCLITR111"
+    },
+    {
+      "path": "audience.cellNotes[9].text",
+      "text": "Both provide foundational analysis and interpretation of written cultural texts."
+    },
+    {
+      "path": "audience.cellNotes[10].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[10].reference",
+      "text": "MCCLITR111"
+    },
+    {
+      "path": "audience.cellNotes[10].text",
+      "text": "Both provide foundational analysis and interpretation of written cultural texts."
+    },
+    {
+      "path": "audience.cellNotes[11].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[11].reference",
+      "text": "MCCMEDI111"
+    },
+    {
+      "path": "audience.cellNotes[11].text",
+      "text": "Both provide substantive analysis of screen culture, film form and the social and political contexts of moving images."
+    },
+    {
+      "path": "audience.cellNotes[12].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[12].reference",
+      "text": "MCCMEDI111"
+    },
+    {
+      "path": "audience.cellNotes[12].text",
+      "text": "Both provide substantive analysis of screen culture, film form and the social and political contexts of moving images."
+    },
+    {
+      "path": "audience.cellNotes[13].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[13].reference",
+      "text": "MCCMEDI111"
+    },
+    {
+      "path": "audience.cellNotes[13].text",
+      "text": "Both provide substantive analysis of screen culture, film form and the social and political contexts of moving images."
+    },
+    {
+      "path": "audience.cellNotes[14].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[14].reference",
+      "text": "MCCLITR311"
+    },
+    {
+      "path": "audience.cellNotes[14].text",
+      "text": "Both study how stories and meanings move between media; UCR focuses on adaptation between literature and film."
+    },
+    {
+      "path": "audience.cellNotes[15].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[15].reference",
+      "text": "MCCLITR311"
+    },
+    {
+      "path": "audience.cellNotes[15].text",
+      "text": "Both study how stories and meanings move between media; UCR focuses on adaptation between literature and film."
+    },
+    {
+      "path": "audience.cellNotes[16].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[16].reference",
+      "text": "MCCLITR311"
+    },
+    {
+      "path": "audience.cellNotes[16].text",
+      "text": "Both study how stories and meanings move between media; UCR focuses on adaptation between literature and film."
+    },
+    {
+      "path": "audience.cellNotes[17].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[17].reference",
+      "text": "MCCLITR312"
+    },
+    {
+      "path": "audience.cellNotes[17].text",
+      "text": "Partial cultural-theory correspondence through humanist, feminist, Marxist, cultural-minority and psychoanalytic approaches to textual meaning. Radboud applies cultural theory across a wider range of arts."
+    },
+    {
+      "path": "audience.cellNotes[18].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[18].reference",
+      "text": "MCCLITR312"
+    },
+    {
+      "path": "audience.cellNotes[18].text",
+      "text": "Partial cultural-theory correspondence through humanist, feminist, Marxist, cultural-minority and psychoanalytic approaches to textual meaning. Radboud applies cultural theory across a wider range of arts."
+    },
+    {
+      "path": "audience.cellNotes[19].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[19].reference",
+      "text": "acs-y1-music"
+    },
+    {
+      "path": "audience.cellNotes[19].text",
+      "text": "UCR has no dedicated music-analysis course in the current enriched catalogue."
+    },
+    {
+      "path": "audience.cellNotes[20].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[20].reference",
+      "text": "acs-y2-music-tech"
+    },
+    {
+      "path": "audience.cellNotes[20].text",
+      "text": "UCR has no dedicated course on music as a technology or cultural medium."
+    },
+    {
+      "path": "audience.cellNotes[21].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[21].reference",
+      "text": "acs-y2-vulgar"
+    },
+    {
+      "path": "audience.cellNotes[21].text",
+      "text": "Popular culture is studied across UCR media and literature courses. No selected single course is verified to address this component’s particular organising subject."
+    },
+    {
+      "path": "audience.cellNotes[22].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[22].reference",
+      "text": "acs-y3-conspiracy"
+    },
+    {
+      "path": "audience.cellNotes[22].text",
+      "text": "UCR has no verified direct counterpart to this specialist cultural-studies component."
+    },
+    {
+      "path": "audience.cellNotes[23].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[23].reference",
+      "text": "GOSHIST112"
+    },
+    {
+      "path": "audience.cellNotes[23].text",
+      "text": "Partial gender-and-culture correspondence through American storytelling, cultural expressions and activism; the UCR course has a specific American historical focus."
+    },
+    {
+      "path": "audience.cellNotes[24].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[24].reference",
+      "text": "acs-y1-planetary"
+    },
+    {
+      "path": "audience.cellNotes[24].text",
+      "text": "Global, postcolonial and environmental perspectives occur in several UCR courses. No selected single course establishes a direct counterpart for this integrated cultural-studies component."
+    },
+    {
+      "path": "audience.cellNotes[25].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[25].reference",
+      "text": "MCCCOMM111"
+    },
+    {
+      "path": "audience.cellNotes[25].text",
+      "text": "Both develop academic argument, source use, writing and oral presentation; UCR uses rhetoric as its organising framework."
+    },
+    {
+      "path": "audience.cellNotes[26].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[26].reference",
+      "text": "GOSSOCI212"
+    },
+    {
+      "path": "audience.cellNotes[26].text",
+      "text": "Both develop qualitative research design, data collection, interpretation and methodological reflexivity."
+    },
+    {
+      "path": "audience.cellNotes[27].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[27].reference",
+      "text": "GOSSOCI212"
+    },
+    {
+      "path": "audience.cellNotes[27].text",
+      "text": "Both develop qualitative research design, data collection, interpretation and methodological reflexivity."
+    },
+    {
+      "path": "audience.cellNotes[28].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[28].reference",
+      "text": "GOSSOCI212"
+    },
+    {
+      "path": "audience.cellNotes[28].text",
+      "text": "Both develop qualitative research design, data collection, interpretation and methodological reflexivity."
+    },
+    {
+      "path": "audience.cellNotes[29].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[29].reference",
+      "text": "acs-y3-cultural-field"
+    },
+    {
+      "path": "audience.cellNotes[29].text",
+      "text": "Dedicated festival organisation and cultural-sector practice. UCR creative communication develops poetic and hybrid projects; it does not guarantee festival production or an arts-sector placement."
+    },
+    {
+      "path": "audience.cellNotes[30].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[30].reference",
+      "text": "acs-y3-thesis"
+    },
+    {
+      "path": "audience.cellNotes[30].text",
+      "text": "Required 10-EC independent bachelor thesis. Scheduled UCR historical and subject-specific research develops source analysis and papers; it does not replace this degree requirement. Optional independent research is separate from the scheduled 180 EC."
+    },
+    {
+      "path": "audience.cellNotes[31].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[31].reference",
+      "text": "acs-y2-minors"
+    },
+    {
+      "path": "audience.cellNotes[31].text",
+      "text": "This is structured programme choice space. UCR flexibility is distributed across the complete 180-EC curriculum, so no single course is asserted as its equivalent."
+    },
+    {
+      "path": "audience.cellNotes[32].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[32].reference",
+      "text": "acs-y3-free"
+    },
+    {
+      "path": "audience.cellNotes[32].text",
+      "text": "This is genuine free-choice space. UCR flexibility is distributed across the complete 180-EC curriculum, so no single scheduled course is asserted as its equivalent."
+    },
+    {
+      "path": "programmes[0].id",
+      "text": "comparator"
+    },
+    {
+      "path": "programmes[0].role",
+      "text": "comparator"
+    },
+    {
+      "path": "programmes[0].family",
+      "text": "comparator"
+    },
+    {
+      "path": "programmes[0].label",
+      "text": "Arts and Culture Studies at Radboud University"
+    },
+    {
+      "path": "programmes[1].id",
+      "text": "ucr-1"
+    },
+    {
+      "path": "programmes[1].role",
+      "text": "ucr-alternative"
+    },
+    {
+      "path": "programmes[1].family",
+      "text": "ucr"
+    },
+    {
+      "path": "programmes[1].alternativeKind",
+      "text": "closest-match"
+    },
+    {
+      "path": "programmes[1].label",
+      "text": "Arts, media & cultural analysis"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].label",
+      "text": "Year 1 · Semester 1"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].term",
+      "text": "2026h2"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].courses[0].code",
+      "text": "ACCPPDE101"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].courses[0].name",
+      "text": "Personal & Professional Development"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].courses[1].code",
+      "text": "MCCHEAM111"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].courses[1].name",
+      "text": "Introduction to Western Art History"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].courses[2].code",
+      "text": "MCCLITR111"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].courses[2].name",
+      "text": "Introduction to Literary Studies"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].courses[3].code",
+      "text": "MCCMEDI111"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].courses[3].name",
+      "text": "Introduction to Film & Media"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].label",
+      "text": "Year 1 · Semester 2"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].term",
+      "text": "2027h1"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].courses[0].code",
+      "text": "MCCLITR112"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].courses[0].name",
+      "text": "Great Literary Works"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].courses[1].code",
+      "text": "MCCCOMM211"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].courses[1].name",
+      "text": "Style & Meaning"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].courses[2].code",
+      "text": "MCCHEAM212"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].courses[2].name",
+      "text": "Renaissance Italy & Global Mediterranean"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].courses[3].code",
+      "text": "GOSSOCI212"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].courses[3].name",
+      "text": "Qualitative Research Methodology"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].label",
+      "text": "Year 2 · Semester 1"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].term",
+      "text": "2027h2"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].courses[0].code",
+      "text": "GOSHIST111"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].courses[0].name",
+      "text": "Modern History"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].courses[1].code",
+      "text": "MCCMEDI112"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].courses[1].name",
+      "text": "Media Archaeology"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].courses[2].code",
+      "text": "MCCLITR211"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].courses[2].name",
+      "text": "World Myth & Literature"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].courses[3].code",
+      "text": "GOSSOCI111"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].courses[3].name",
+      "text": "Introduction to Sociology"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].label",
+      "text": "Year 2 · Semester 2"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].term",
+      "text": "2028h1"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].courses[0].code",
+      "text": "MCCLITR212"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].courses[0].name",
+      "text": "Life & Travel Writing"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].courses[1].code",
+      "text": "MCCMEDI312"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].courses[1].name",
+      "text": "The Documentary"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].courses[2].code",
+      "text": "GOSPHIL212"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].courses[2].name",
+      "text": "Ethics"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].courses[3].code",
+      "text": "MCCHEAM211"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].courses[3].name",
+      "text": "African Art & Heritage"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].label",
+      "text": "Year 3 · Semester 1"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].term",
+      "text": "2028h2"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].courses[0].code",
+      "text": "MCCHEAM312"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].courses[0].name",
+      "text": "Modern Art & Modern Museums"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].courses[1].code",
+      "text": "MCCMEDI311"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].courses[1].name",
+      "text": "Media & Race"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].courses[2].code",
+      "text": "MCCLITR311"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].courses[2].name",
+      "text": "Film & Text"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].courses[3].code",
+      "text": "GOSSOCI311"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].courses[3].name",
+      "text": "New Issues in Contemporary Social Theory"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].label",
+      "text": "Year 3 · Semester 2"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].term",
+      "text": "2029h1"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].courses[0].code",
+      "text": "MCCHEAM316"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].courses[0].name",
+      "text": "Writing Art's Histories"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].courses[1].code",
+      "text": "MCCLITR312"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].courses[1].name",
+      "text": "Perspectives on Literary Meaning"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].courses[2].code",
+      "text": "MCCCOMM312"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].courses[2].name",
+      "text": "Creative Communication Laboratory"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].courses[3].code",
+      "text": "GOSHIST312"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].courses[3].name",
+      "text": "Researching the “American Century”"
+    },
+    {
+      "path": "programmes[2].id",
+      "text": "ucr-2"
+    },
+    {
+      "path": "programmes[2].role",
+      "text": "ucr-alternative"
+    },
+    {
+      "path": "programmes[2].family",
+      "text": "ucr"
+    },
+    {
+      "path": "programmes[2].alternativeKind",
+      "text": "related-direction"
+    },
+    {
+      "path": "programmes[2].label",
+      "text": "Culture, identity & power"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].label",
+      "text": "Year 1 · Semester 1"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].term",
+      "text": "2026h2"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].courses[0].code",
+      "text": "ACCPPDE101"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].courses[0].name",
+      "text": "Personal & Professional Development"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].courses[1].code",
+      "text": "GOSHIST111"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].courses[1].name",
+      "text": "Modern History"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].courses[2].code",
+      "text": "GOSPOLI111"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].courses[2].name",
+      "text": "Introduction to Political Philosophy"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].courses[3].code",
+      "text": "GOSSOCI111"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].courses[3].name",
+      "text": "Introduction to Sociology"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].label",
+      "text": "Year 1 · Semester 2"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].term",
+      "text": "2027h1"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].courses[0].code",
+      "text": "GOSHIST112"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].courses[0].name",
+      "text": "Histories of Gender"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].courses[1].code",
+      "text": "GOSPHIL212"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].courses[1].name",
+      "text": "Ethics"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].courses[2].code",
+      "text": "GOSSOCI212"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].courses[2].name",
+      "text": "Qualitative Research Methodology"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].courses[3].code",
+      "text": "MCCMEDI212"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].courses[3].name",
+      "text": "Media & the Environment"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].label",
+      "text": "Year 2 · Semester 1"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].term",
+      "text": "2027h2"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].courses[0].code",
+      "text": "MCCHEAM111"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].courses[0].name",
+      "text": "Introduction to Western Art History"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].courses[1].code",
+      "text": "GOSHIST211"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].courses[1].name",
+      "text": "History of Empires"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].courses[2].code",
+      "text": "MCCLITR211"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].courses[2].name",
+      "text": "World Myth & Literature"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].courses[3].code",
+      "text": "MCCMEDI111"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].courses[3].name",
+      "text": "Introduction to Film & Media"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].label",
+      "text": "Year 2 · Semester 2"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].term",
+      "text": "2028h1"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].courses[0].code",
+      "text": "MCCCOMM211"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].courses[0].name",
+      "text": "Style & Meaning"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].courses[1].code",
+      "text": "MCCLITR212"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].courses[1].name",
+      "text": "Life & Travel Writing"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].courses[2].code",
+      "text": "MCCCOMM212"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].courses[2].name",
+      "text": "Communicating the Climate Crisis"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].courses[3].code",
+      "text": "MCCHEAM211"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].courses[3].name",
+      "text": "African Art & Heritage"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].label",
+      "text": "Year 3 · Semester 1"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].term",
+      "text": "2028h2"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].courses[0].code",
+      "text": "GOSSOCI311"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].courses[0].name",
+      "text": "New Issues in Contemporary Social Theory"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].courses[1].code",
+      "text": "MCCLITR311"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].courses[1].name",
+      "text": "Film & Text"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].courses[2].code",
+      "text": "MCCMEDI311"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].courses[2].name",
+      "text": "Media & Race"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].courses[3].code",
+      "text": "MCCHEAM315"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].courses[3].name",
+      "text": "Heritage & Ancient Democracy"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].label",
+      "text": "Year 3 · Semester 2"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].term",
+      "text": "2029h1"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].courses[0].code",
+      "text": "GOSPOLI313"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].courses[0].name",
+      "text": "Peace & Conflict"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].courses[1].code",
+      "text": "GOSHIST312"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].courses[1].name",
+      "text": "Researching the “American Century”"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].courses[2].code",
+      "text": "GOSSOCI215"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].courses[2].name",
+      "text": "Social Movements & Environmental Justice"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].courses[3].code",
+      "text": "GOSPHIL311"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].courses[3].name",
+      "text": "Philosophy of Emotion"
+    },
+    {
+      "path": "programmes[3].id",
+      "text": "ucr-3"
+    },
+    {
+      "path": "programmes[3].role",
+      "text": "ucr-alternative"
+    },
+    {
+      "path": "programmes[3].family",
+      "text": "ucr"
+    },
+    {
+      "path": "programmes[3].alternativeKind",
+      "text": "related-direction"
+    },
+    {
+      "path": "programmes[3].label",
+      "text": "Literature, film & cultural communication"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].label",
+      "text": "Year 1 · Semester 1"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].term",
+      "text": "2026h2"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].courses[0].code",
+      "text": "ACCPPDE101"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].courses[0].name",
+      "text": "Personal & Professional Development"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].courses[1].code",
+      "text": "MCCLITR111"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].courses[1].name",
+      "text": "Introduction to Literary Studies"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].courses[2].code",
+      "text": "MCCMEDI111"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].courses[2].name",
+      "text": "Introduction to Film & Media"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].courses[3].code",
+      "text": "MCCCOMM111"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].courses[3].name",
+      "text": "The Art of Rhetorical Communication"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].label",
+      "text": "Year 1 · Semester 2"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].term",
+      "text": "2027h1"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].courses[0].code",
+      "text": "MCCLITR112"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].courses[0].name",
+      "text": "Great Literary Works"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].courses[1].code",
+      "text": "MCCCOMM211"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].courses[1].name",
+      "text": "Style & Meaning"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].courses[2].code",
+      "text": "MCCMEDI212"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].courses[2].name",
+      "text": "Media & the Environment"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].courses[3].code",
+      "text": "MCCHEAM112"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].courses[3].name",
+      "text": "Introduction to World Archaeology"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].label",
+      "text": "Year 2 · Semester 1"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].term",
+      "text": "2027h2"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].courses[0].code",
+      "text": "MCCLITR211"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].courses[0].name",
+      "text": "World Myth & Literature"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].courses[1].code",
+      "text": "MCCMEDI112"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].courses[1].name",
+      "text": "Media Archaeology"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].courses[2].code",
+      "text": "GOSHIST111"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].courses[2].name",
+      "text": "Modern History"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].courses[3].code",
+      "text": "GOSPHIL111"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].courses[3].name",
+      "text": "Introduction to Western Philosophy"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].label",
+      "text": "Year 2 · Semester 2"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].term",
+      "text": "2028h1"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].courses[0].code",
+      "text": "MCCLITR212"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].courses[0].name",
+      "text": "Life & Travel Writing"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].courses[1].code",
+      "text": "MCCMEDI312"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].courses[1].name",
+      "text": "The Documentary"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].courses[2].code",
+      "text": "MCCHEAM211"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].courses[2].name",
+      "text": "African Art & Heritage"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].courses[3].code",
+      "text": "GOSSOCI212"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].courses[3].name",
+      "text": "Qualitative Research Methodology"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].label",
+      "text": "Year 3 · Semester 1"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].term",
+      "text": "2028h2"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].courses[0].code",
+      "text": "MCCLITR311"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].courses[0].name",
+      "text": "Film & Text"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].courses[1].code",
+      "text": "MCCMEDI311"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].courses[1].name",
+      "text": "Media & Race"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].courses[2].code",
+      "text": "MCCHEAM312"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].courses[2].name",
+      "text": "Modern Art & Modern Museums"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].courses[3].code",
+      "text": "MCCCOMM311"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].courses[3].name",
+      "text": "Persuasive Communication"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].label",
+      "text": "Year 3 · Semester 2"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].term",
+      "text": "2029h1"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].courses[0].code",
+      "text": "MCCLITR312"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].courses[0].name",
+      "text": "Perspectives on Literary Meaning"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].courses[1].code",
+      "text": "MCCCOMM312"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].courses[1].name",
+      "text": "Creative Communication Laboratory"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].courses[2].code",
+      "text": "MCCHEAM316"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].courses[2].name",
+      "text": "Writing Art's Histories"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].courses[3].code",
+      "text": "GOSPHIL212"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].courses[3].name",
+      "text": "Ethics"
+    },
+    {
+      "path": "notes[0].type",
+      "text": "missing-specialist-components"
+    },
+    {
+      "path": "notes[0].placement",
+      "text": "comparison"
+    },
+    {
+      "path": "notes[0].text",
+      "text": "The UCR programmes offer substantial art history, literature, film, media and cultural interpretation. Radboud additionally requires dedicated music analysis and music as technology, festival work and a separate bachelor thesis. UCR creative communication and subject-specific research offer different forms of practice and inquiry; they do not reproduce these specialist requirements."
+    },
+    {
+      "path": "optionalIndependentResearch.id",
+      "text": "optional-independent-research"
+    },
+    {
+      "path": "optionalIndependentResearch.text",
+      "text": "Optional independent research"
+    },
+    {
+      "path": "optionalIndependentResearch.researchComponentId",
+      "text": "acs-y3-thesis"
+    },
+    {
+      "path": "optionalIndependentResearch.placement",
+      "text": "parallel-to-comparator-research"
+    },
+    {
+      "path": "academicRationale.alternatives[0].concept",
+      "text": "A broad arts-and-culture route combining art history and heritage, literature, film and media with stylistics, social theory, ethics and qualitative inquiry. Historiography examines how art is interpreted; historical research develops source criticism and a substantial paper, rather than replacing a required cultural-studies thesis."
+    },
+    {
+      "path": "academicRationale.alternatives[1].concept",
+      "text": "A cultural-studies route examining identity and power through art, literature, media, gender history and heritage. Political philosophy, social theory, empire, social movements and conflict provide specific contexts; qualitative inquiry and historical research develop complementary methods."
+    },
+    {
+      "path": "academicRationale.alternatives[2].concept",
+      "text": "A literature, film and communication route organised around close reading, adaptation, documentary, rhetoric, stylistics and creative communication. Art history and material culture provide selected cultural contexts; general philosophy, ethics and qualitative methods contribute complementary analytical tools."
+    },
+    {
+      "path": "blocks[0].title",
+      "text": "Visual art, heritage & material culture"
+    },
+    {
+      "path": "blocks[0].rows[0].cells.ucr-1.text",
+      "text": "Introduction to Western Art History"
+    },
+    {
+      "path": "blocks[0].rows[0].cells.ucr-2.text",
+      "text": "Introduction to Western Art History"
+    },
+    {
+      "path": "blocks[0].rows[0].cells.comparator.text",
+      "text": "Image Analysis"
+    },
+    {
+      "path": "blocks[0].rows[1].cells.ucr-1.text",
+      "text": "Renaissance Italy & Global Mediterranean"
+    },
+    {
+      "path": "blocks[0].rows[1].cells.comparator.text",
+      "text": "European Culture in a Global World"
+    },
+    {
+      "path": "blocks[0].rows[2].cells.ucr-1.text",
+      "text": "African Art & Heritage"
+    },
+    {
+      "path": "blocks[0].rows[2].cells.ucr-2.text",
+      "text": "African Art & Heritage"
+    },
+    {
+      "path": "blocks[0].rows[2].cells.ucr-3.text",
+      "text": "African Art & Heritage"
+    },
+    {
+      "path": "blocks[0].rows[3].cells.ucr-1.text",
+      "text": "Modern Art & Modern Museums"
+    },
+    {
+      "path": "blocks[0].rows[3].cells.ucr-3.text",
+      "text": "Modern Art & Modern Museums"
+    },
+    {
+      "path": "blocks[0].rows[3].cells.comparator.text",
+      "text": "Visual Culture"
+    },
+    {
+      "path": "blocks[0].rows[4].cells.ucr-1.text",
+      "text": "Writing Art's Histories"
+    },
+    {
+      "path": "blocks[0].rows[4].cells.ucr-3.text",
+      "text": "Writing Art's Histories"
+    },
+    {
+      "path": "blocks[0].rows[4].cells.comparator.text",
+      "text": "Culture through Philosophy"
+    },
+    {
+      "path": "blocks[0].rows[5].cells.ucr-2.text",
+      "text": "Heritage & Ancient Democracy"
+    },
+    {
+      "path": "blocks[0].rows[6].cells.ucr-3.text",
+      "text": "Introduction to World Archaeology"
+    },
+    {
+      "path": "blocks[0].rows[6].cells.comparator.text",
+      "text": "Material Culture"
+    },
+    {
+      "path": "blocks[0].rows[7].cells.comparator.text",
+      "text": "Spatial Culture"
+    },
+    {
+      "path": "blocks[1].title",
+      "text": "Literature, film, media & performance"
+    },
+    {
+      "path": "blocks[1].rows[0].cells.ucr-1.text",
+      "text": "Introduction to Literary Studies"
+    },
+    {
+      "path": "blocks[1].rows[0].cells.ucr-3.text",
+      "text": "Introduction to Literary Studies"
+    },
+    {
+      "path": "blocks[1].rows[0].cells.comparator.text",
+      "text": "Text Analysis"
+    },
+    {
+      "path": "blocks[1].rows[1].cells.ucr-1.text",
+      "text": "Introduction to Film & Media"
+    },
+    {
+      "path": "blocks[1].rows[1].cells.ucr-2.text",
+      "text": "Introduction to Film & Media"
+    },
+    {
+      "path": "blocks[1].rows[1].cells.ucr-3.text",
+      "text": "Introduction to Film & Media"
+    },
+    {
+      "path": "blocks[1].rows[1].cells.comparator.text",
+      "text": "Screen Culture"
+    },
+    {
+      "path": "blocks[1].rows[2].cells.ucr-1.text",
+      "text": "Great Literary Works"
+    },
+    {
+      "path": "blocks[1].rows[2].cells.ucr-3.text",
+      "text": "Great Literary Works"
+    },
+    {
+      "path": "blocks[1].rows[3].cells.ucr-1.text",
+      "text": "Style & Meaning"
+    },
+    {
+      "path": "blocks[1].rows[3].cells.ucr-2.text",
+      "text": "Style & Meaning"
+    },
+    {
+      "path": "blocks[1].rows[3].cells.ucr-3.text",
+      "text": "Style & Meaning"
+    },
+    {
+      "path": "blocks[1].rows[4].cells.ucr-1.text",
+      "text": "Media Archaeology"
+    },
+    {
+      "path": "blocks[1].rows[4].cells.ucr-3.text",
+      "text": "Media Archaeology"
+    },
+    {
+      "path": "blocks[1].rows[5].cells.ucr-1.text",
+      "text": "World Myth & Literature"
+    },
+    {
+      "path": "blocks[1].rows[5].cells.ucr-2.text",
+      "text": "World Myth & Literature"
+    },
+    {
+      "path": "blocks[1].rows[5].cells.ucr-3.text",
+      "text": "World Myth & Literature"
+    },
+    {
+      "path": "blocks[1].rows[6].cells.ucr-1.text",
+      "text": "Life & Travel Writing"
+    },
+    {
+      "path": "blocks[1].rows[6].cells.ucr-2.text",
+      "text": "Life & Travel Writing"
+    },
+    {
+      "path": "blocks[1].rows[6].cells.ucr-3.text",
+      "text": "Life & Travel Writing"
+    },
+    {
+      "path": "blocks[1].rows[7].cells.ucr-1.text",
+      "text": "The Documentary"
+    },
+    {
+      "path": "blocks[1].rows[7].cells.ucr-3.text",
+      "text": "The Documentary"
+    },
+    {
+      "path": "blocks[1].rows[8].cells.ucr-1.text",
+      "text": "Media & Race"
+    },
+    {
+      "path": "blocks[1].rows[8].cells.ucr-2.text",
+      "text": "Media & Race"
+    },
+    {
+      "path": "blocks[1].rows[8].cells.ucr-3.text",
+      "text": "Media & Race"
+    },
+    {
+      "path": "blocks[1].rows[9].cells.ucr-1.text",
+      "text": "Film & Text"
+    },
+    {
+      "path": "blocks[1].rows[9].cells.ucr-2.text",
+      "text": "Film & Text"
+    },
+    {
+      "path": "blocks[1].rows[9].cells.ucr-3.text",
+      "text": "Film & Text"
+    },
+    {
+      "path": "blocks[1].rows[9].cells.comparator.text",
+      "text": "Transmedial Storytelling"
+    },
+    {
+      "path": "blocks[1].rows[10].cells.ucr-1.text",
+      "text": "Perspectives on Literary Meaning"
+    },
+    {
+      "path": "blocks[1].rows[10].cells.ucr-3.text",
+      "text": "Perspectives on Literary Meaning"
+    },
+    {
+      "path": "blocks[1].rows[10].cells.comparator.text",
+      "text": "Cultural Theory"
+    },
+    {
+      "path": "blocks[1].rows[11].cells.ucr-2.text",
+      "text": "Media & the Environment"
+    },
+    {
+      "path": "blocks[1].rows[11].cells.ucr-3.text",
+      "text": "Media & the Environment"
+    },
+    {
+      "path": "blocks[1].rows[12].cells.ucr-2.text",
+      "text": "Communicating the Climate Crisis"
+    },
+    {
+      "path": "blocks[1].rows[13].cells.comparator.text",
+      "text": "Music Analysis"
+    },
+    {
+      "path": "blocks[1].rows[14].cells.comparator.text",
+      "text": "Music as Technology"
+    },
+    {
+      "path": "blocks[1].rows[15].cells.comparator.text",
+      "text": "Vulgar Culture"
+    },
+    {
+      "path": "blocks[1].rows[16].cells.comparator.text",
+      "text": "Conspiracy Culture"
+    },
+    {
+      "path": "blocks[2].title",
+      "text": "Cultural theory, society, identity & power"
+    },
+    {
+      "path": "blocks[2].rows[0].cells.ucr-1.text",
+      "text": "Ethics"
+    },
+    {
+      "path": "blocks[2].rows[0].cells.ucr-2.text",
+      "text": "Ethics"
+    },
+    {
+      "path": "blocks[2].rows[0].cells.ucr-3.text",
+      "text": "Ethics"
+    },
+    {
+      "path": "blocks[2].rows[1].cells.ucr-1.text",
+      "text": "Introduction to Sociology"
+    },
+    {
+      "path": "blocks[2].rows[1].cells.ucr-2.text",
+      "text": "Introduction to Sociology"
+    },
+    {
+      "path": "blocks[2].rows[2].cells.ucr-1.text",
+      "text": "New Issues in Contemporary Social Theory"
+    },
+    {
+      "path": "blocks[2].rows[2].cells.ucr-2.text",
+      "text": "New Issues in Contemporary Social Theory"
+    },
+    {
+      "path": "blocks[2].rows[3].cells.ucr-2.text",
+      "text": "Introduction to Political Philosophy"
+    },
+    {
+      "path": "blocks[2].rows[4].cells.ucr-2.text",
+      "text": "Histories of Gender"
+    },
+    {
+      "path": "blocks[2].rows[4].cells.comparator.text",
+      "text": "Gender and the Arts"
+    },
+    {
+      "path": "blocks[2].rows[5].cells.ucr-2.text",
+      "text": "History of Empires"
+    },
+    {
+      "path": "blocks[2].rows[6].cells.ucr-2.text",
+      "text": "Peace & Conflict"
+    },
+    {
+      "path": "blocks[2].rows[7].cells.ucr-2.text",
+      "text": "Social Movements & Environmental Justice"
+    },
+    {
+      "path": "blocks[2].rows[8].cells.ucr-2.text",
+      "text": "Philosophy of Emotion"
+    },
+    {
+      "path": "blocks[2].rows[9].cells.ucr-3.text",
+      "text": "Introduction to Western Philosophy"
+    },
+    {
+      "path": "blocks[2].rows[10].cells.ucr-1.text",
+      "text": "Modern History"
+    },
+    {
+      "path": "blocks[2].rows[10].cells.ucr-2.text",
+      "text": "Modern History"
+    },
+    {
+      "path": "blocks[2].rows[10].cells.ucr-3.text",
+      "text": "Modern History"
+    },
+    {
+      "path": "blocks[2].rows[11].cells.comparator.text",
+      "text": "Planetary Culture"
+    },
+    {
+      "path": "blocks[3].title",
+      "text": "Research, criticism & cultural practice"
+    },
+    {
+      "path": "blocks[3].rows[0].cells.ucr-3.text",
+      "text": "The Art of Rhetorical Communication"
+    },
+    {
+      "path": "blocks[3].rows[0].cells.comparator.text",
+      "text": "Academic Skills"
+    },
+    {
+      "path": "blocks[3].rows[1].cells.ucr-1.text",
+      "text": "Qualitative Research Methodology"
+    },
+    {
+      "path": "blocks[3].rows[1].cells.ucr-2.text",
+      "text": "Qualitative Research Methodology"
+    },
+    {
+      "path": "blocks[3].rows[1].cells.ucr-3.text",
+      "text": "Qualitative Research Methodology"
+    },
+    {
+      "path": "blocks[3].rows[1].cells.comparator.text",
+      "text": "Research Methods in Cultural Studies"
+    },
+    {
+      "path": "blocks[3].rows[2].cells.ucr-1.text",
+      "text": "Creative Communication Laboratory"
+    },
+    {
+      "path": "blocks[3].rows[2].cells.ucr-3.text",
+      "text": "Creative Communication Laboratory"
+    },
+    {
+      "path": "blocks[3].rows[3].cells.ucr-1.text",
+      "text": "Researching the “American Century”"
+    },
+    {
+      "path": "blocks[3].rows[3].cells.ucr-2.text",
+      "text": "Researching the “American Century”"
+    },
+    {
+      "path": "blocks[3].rows[4].cells.ucr-3.text",
+      "text": "Persuasive Communication"
+    },
+    {
+      "path": "blocks[3].rows[5].cells.comparator.text",
+      "text": "Working in the Cultural Field"
+    },
+    {
+      "path": "blocks[3].rows[6].cells.comparator.text",
+      "text": "BA Thesis"
+    },
+    {
+      "path": "blocks[3].rows[6].cells.ucr-1.text",
+      "text": "Optional independent research"
+    },
+    {
+      "path": "blocks[3].rows[6].cells.ucr-2.text",
+      "text": "Optional independent research"
+    },
+    {
+      "path": "blocks[3].rows[6].cells.ucr-3.text",
+      "text": "Optional independent research"
+    },
+    {
+      "path": "blocks[4].title",
+      "text": "Choice space"
+    },
+    {
+      "path": "blocks[4].rows[0].cells.comparator.text",
+      "text": "Two Faculty of Arts minors"
+    },
+    {
+      "path": "blocks[4].rows[1].cells.comparator.text",
+      "text": "Free electives"
+    },
+    {
+      "path": "blocks[5].title",
+      "text": "Personal development"
+    },
+    {
+      "path": "blocks[5].rows[0].cells.ucr-1.text",
+      "text": "Personal & Professional Development"
+    },
+    {
+      "path": "blocks[5].rows[0].cells.ucr-2.text",
+      "text": "Personal & Professional Development"
+    },
+    {
+      "path": "blocks[5].rows[0].cells.ucr-3.text",
+      "text": "Personal & Professional Development"
+    },
+    {
+      "path": "comparator.name",
+      "text": "Arts and Culture Studies"
+    },
+    {
+      "path": "comparator.institution",
+      "text": "Radboud University"
+    },
+    {
+      "path": "comparator.primarySourceUrl",
+      "text": "https://www.ru.nl/en/education/bachelors/arts-and-culture-studies/study-programme"
+    },
+    {
+      "path": "comparator.additionalSourceUrls[0]",
+      "text": "https://www.ru.nl/en/education/bachelors/arts-and-culture-studies"
+    },
+    {
+      "path": "comparator.additionalSourceUrls[1]",
+      "text": "https://www.ru.nl/en/education/bachelors/arts-and-culture-studies/study-programme/year-1"
+    },
+    {
+      "path": "comparator.additionalSourceUrls[2]",
+      "text": "https://www.ru.nl/en/education/bachelors/arts-and-culture-studies/study-programme/year-2"
+    },
+    {
+      "path": "comparator.additionalSourceUrls[3]",
+      "text": "https://www.ru.nl/en/education/bachelors/arts-and-culture-studies/study-programme/year-3"
+    },
+    {
+      "path": "comparator.components[0].id",
+      "text": "acs-y1-text"
+    },
+    {
+      "path": "comparator.components[0].name",
+      "text": "Text Analysis"
+    },
+    {
+      "path": "comparator.components[1].id",
+      "text": "acs-y1-image"
+    },
+    {
+      "path": "comparator.components[1].name",
+      "text": "Image Analysis"
+    },
+    {
+      "path": "comparator.components[2].id",
+      "text": "acs-y1-music"
+    },
+    {
+      "path": "comparator.components[2].name",
+      "text": "Music Analysis"
+    },
+    {
+      "path": "comparator.components[3].id",
+      "text": "acs-y1-skills"
+    },
+    {
+      "path": "comparator.components[3].name",
+      "text": "Academic Skills"
+    },
+    {
+      "path": "comparator.components[4].id",
+      "text": "acs-y1-europe"
+    },
+    {
+      "path": "comparator.components[4].name",
+      "text": "European Culture in a Global World"
+    },
+    {
+      "path": "comparator.components[5].id",
+      "text": "acs-y1-theory"
+    },
+    {
+      "path": "comparator.components[5].name",
+      "text": "Cultural Theory"
+    },
+    {
+      "path": "comparator.components[6].id",
+      "text": "acs-y1-planetary"
+    },
+    {
+      "path": "comparator.components[6].name",
+      "text": "Planetary Culture"
+    },
+    {
+      "path": "comparator.components[7].id",
+      "text": "acs-y1-gender"
+    },
+    {
+      "path": "comparator.components[7].name",
+      "text": "Gender and the Arts"
+    },
+    {
+      "path": "comparator.components[8].id",
+      "text": "acs-y1-transmedial"
+    },
+    {
+      "path": "comparator.components[8].name",
+      "text": "Transmedial Storytelling"
+    },
+    {
+      "path": "comparator.components[9].id",
+      "text": "acs-y2-material"
+    },
+    {
+      "path": "comparator.components[9].name",
+      "text": "Material Culture"
+    },
+    {
+      "path": "comparator.components[10].id",
+      "text": "acs-y2-philosophy"
+    },
+    {
+      "path": "comparator.components[10].name",
+      "text": "Culture through Philosophy"
+    },
+    {
+      "path": "comparator.components[11].id",
+      "text": "acs-y2-music-tech"
+    },
+    {
+      "path": "comparator.components[11].name",
+      "text": "Music as Technology"
+    },
+    {
+      "path": "comparator.components[12].id",
+      "text": "acs-y2-vulgar"
+    },
+    {
+      "path": "comparator.components[12].name",
+      "text": "Vulgar Culture"
+    },
+    {
+      "path": "comparator.components[13].id",
+      "text": "acs-y2-screen"
+    },
+    {
+      "path": "comparator.components[13].name",
+      "text": "Screen Culture"
+    },
+    {
+      "path": "comparator.components[14].id",
+      "text": "acs-y2-methods"
+    },
+    {
+      "path": "comparator.components[14].name",
+      "text": "Research Methods in Cultural Studies"
+    },
+    {
+      "path": "comparator.components[15].id",
+      "text": "acs-y2-minors"
+    },
+    {
+      "path": "comparator.components[15].name",
+      "text": "Two Faculty of Arts minors"
+    },
+    {
+      "path": "comparator.components[15].note",
+      "text": "Two 15-EC Faculty of Arts minors, one per second-year semester; this is structured choice space, not unrestricted electives."
+    },
+    {
+      "path": "comparator.components[16].id",
+      "text": "acs-y3-visual"
+    },
+    {
+      "path": "comparator.components[16].name",
+      "text": "Visual Culture"
+    },
+    {
+      "path": "comparator.components[17].id",
+      "text": "acs-y3-conspiracy"
+    },
+    {
+      "path": "comparator.components[17].name",
+      "text": "Conspiracy Culture"
+    },
+    {
+      "path": "comparator.components[18].id",
+      "text": "acs-y3-spatial"
+    },
+    {
+      "path": "comparator.components[18].name",
+      "text": "Spatial Culture"
+    },
+    {
+      "path": "comparator.components[19].id",
+      "text": "acs-y3-cultural-field"
+    },
+    {
+      "path": "comparator.components[19].name",
+      "text": "Working in the Cultural Field"
+    },
+    {
+      "path": "comparator.components[20].id",
+      "text": "acs-y3-thesis"
+    },
+    {
+      "path": "comparator.components[20].name",
+      "text": "BA Thesis"
+    },
+    {
+      "path": "comparator.components[20].note",
+      "text": "Required 10-EC bachelor thesis; current published progression requires completion of compulsory second-year major courses. Future regulations may change."
+    },
+    {
+      "path": "comparator.components[21].id",
+      "text": "acs-y3-free"
+    },
+    {
+      "path": "comparator.components[21].name",
+      "text": "Free electives"
+    },
+    {
+      "path": "comparator.components[21].note",
+      "text": "30 EC free-choice space. In the standard domestic pathway, 15 EC is taken in each semester; courses, internship and study abroad are possibilities subject to programme rules. The alternative exchange pathway is not added."
+    }
+  ],
+  "descriptionEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000032/course-content-review.json#/courses",
+  "additionalContentRead": [
+    "Registry English display name Arts and Culture Studies and exact English/fulltime metadata.",
+    "All seven official links, UCR programme link and optional15EC research text; exact source pathway/year qualification and independent-research credit exclusion.",
+    "Every component and course name agrees with source/current workbook. Current historical research description is used; Walcheren teaching is not attributed.",
+    "All37 selected cached descriptions read: unchanged source/text/name reviews reused; unannotated text independently compared to current official description/profile. No cache edit needed."
+  ],
+  "finding": "Record content, all audience references and names read substantively. Current literary-theory and Renaissance global-art partial correspondences replace weaker contextual relationships. Provisional future entrant scope and structured/open choice conditions remain explicit; dedicated music/festival/thesis gaps remain plain. No app/runtime/release claim."
+}
