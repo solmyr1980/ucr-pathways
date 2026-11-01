@@ -1128,7 +1128,7 @@
     },
     {
       "id": "cp-000021",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "retain",
         "2": "retain",
@@ -1139,22 +1139,12 @@
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Currentofferingconflicts/course-specificity",
-          "scope": "Schedules,coursecontributions,conceptdistinctness,comparisonrelationships andaudiencecontentreassessed;publishedverificationpending.",
-          "stages": [
-            3,
-            4,
-            5,
-            6
-          ]
-        }
-      ],
+      "downstreamReassessments": [],
       "implementationCommits": [
-        "e5836dac5d89aed054fac0694a6c61b6bf947411"
+        "e5836dac5d89aed054fac0694a6c61b6bf947411",
+        "a55e56e8bfea4d44954f53a169ca75ca78ffd298"
       ],
-      "presentationApproval": false,
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000021.json",
       "academicDisposition": "comparison"
     },
@@ -5585,8 +5575,8 @@
     }
   ],
   "progress": {
-    "approved": 28,
-    "inProgress": 6,
+    "approved": 29,
+    "inProgress": 5,
     "reviewedWithBlockers": 0,
     "notStarted": 404,
     "pilotStarted": 2
@@ -5818,35 +5808,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "working",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000021",
-      "activeClaim": {
-        "executionId": "restart-A-cp021-20261101T0426Z",
-        "worker": "A",
-        "caseId": "cp-000021",
-        "claimedAt": "2026-11-01 04:26:31 UTC",
-        "reviewedInputCommit": "902791bcf64784c903d7c5fc2e8590a713c588b6",
-        "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000021.json": "2ae6282723799fccedcff31e24f96e1392f2bfbb",
-          "data/counselor/comparisons/cp-000021.json": "453f13e4a908e6c6f9ab19796b5059545bcbf197",
-          "data/registry/programme_interests.csv": "55f78dbd8d88e1106cca884a74bd51584422540b"
-        },
-        "nextAction": "Verify targetedMarkovalignmentpair,allreviewedinputsandcurrentCI;completeupdatedsame-AIsource-firstverificationbeforeapproval.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000022",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -5862,7 +5832,8 @@
         "cp-000016",
         "cp-000017",
         "cp-000018",
-        "cp-000019"
+        "cp-000019",
+        "cp-000021"
       ],
       "completedDispositions": [
         {
@@ -5969,6 +5940,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000019.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-01"
+        },
+        {
+          "caseId": "cp-000021",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000021.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-01"
         }
       ],
       "deferredCases": [
@@ -5981,19 +5959,19 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000020",
-        "executionId": "restart-A-cp020-retry2-20261101T0330Z",
-        "state": "in-progress",
-        "operationalDisposition": "deferred-incomplete",
-        "academicDisposition": "external-programme-unresolved",
-        "reviewedInputCommit": "a87f27e3853fe8b33430c95b8ec346e80cbbabec",
+        "caseId": "cp-000021",
+        "executionId": "restart-A-cp021-20261101T0426Z",
+        "state": "approved",
+        "academicDisposition": "comparison",
+        "reviewedInputCommit": "a55e56e8bfea4d44954f53a169ca75ca78ffd298",
         "inputBlobs": {
-          "canonical": "06abcf8eef3e812da12014cd6de101ca3c6d2762",
-          "decision": "beaf98a616dfd10bd748a3c5461ebd0db42824e9"
+          "canonical": "1ba94b772895326c2b0940fe429ecde6b7e4981c",
+          "decision": "260b5ad905f3dec8144376fa4aefb9290fb25ecf"
         },
+        "verifiedAt": "2026-11-01",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000020/source-attempt-2.json",
-        "nextAction": "CP020 deferred and incomplete after two unsuccessful essential-source executions. Resolve authoritative current2026entrant missing5EC/BA2workshop allocation on its permitted separate revisit after A non-deferred queue or earlier new essential evidence. Preserve25components175EC,33interestroles,12courseleads andverifiedEnglishheading/thesis-note repairs. Worker A next reviewsCP021.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000021/source-first-final-pass.json",
+        "nextAction": "CP021 complete: two verified quantitative-economics/data-science comparisons. Worker A resumes CP022; CP013 and CP020 remain deferred/incomplete and their permitted revisits are unconsumed.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -6485,6 +6463,50 @@
               "verificationPolicy": "record-content-review-2026-10-31",
               "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000020/source-first-checkpoint.json",
               "nextAction": "Resume CP020 source attempt2: obtain authoritative current2026entrant allocation resolving the missing5EC andBA2workshopcredit/status outside20ECfocusareas; preserve25verifiedcomponents175EC,33interestroles,12courseleads andEnglishheading/thesis-note repairs. Do not advance CP021.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
+        },
+        {
+          "preservedOn": "2026-11-01",
+          "reason": "Preserve prior checkpoint and own claim before final disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000020",
+              "executionId": "restart-A-cp020-retry2-20261101T0330Z",
+              "state": "in-progress",
+              "operationalDisposition": "deferred-incomplete",
+              "academicDisposition": "external-programme-unresolved",
+              "reviewedInputCommit": "a87f27e3853fe8b33430c95b8ec346e80cbbabec",
+              "inputBlobs": {
+                "canonical": "06abcf8eef3e812da12014cd6de101ca3c6d2762",
+                "decision": "beaf98a616dfd10bd748a3c5461ebd0db42824e9"
+              },
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000020/source-attempt-2.json",
+              "nextAction": "CP020 deferred and incomplete after two unsuccessful essential-source executions. Resolve authoritative current2026entrant missing5EC/BA2workshop allocation on its permitted separate revisit after A non-deferred queue or earlier new essential evidence. Preserve25components175EC,33interestroles,12courseleads andverifiedEnglishheading/thesis-note repairs. Worker A next reviewsCP021.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp021-20261101T0426Z",
+              "worker": "A",
+              "caseId": "cp-000021",
+              "claimedAt": "2026-11-01 04:26:31 UTC",
+              "reviewedInputCommit": "902791bcf64784c903d7c5fc2e8590a713c588b6",
+              "inputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000021.json": "2ae6282723799fccedcff31e24f96e1392f2bfbb",
+                "data/counselor/comparisons/cp-000021.json": "453f13e4a908e6c6f9ab19796b5059545bcbf197",
+                "data/registry/programme_interests.csv": "55f78dbd8d88e1106cca884a74bd51584422540b"
+              },
+              "nextAction": "Verify targetedMarkovalignmentpair,allreviewedinputsandcurrentCI;completeupdatedsame-AIsource-firstverificationbeforeapproval.",
               "runtimeModel": "unknown",
               "runtimeReasoningEffort": "unknown"
             }
