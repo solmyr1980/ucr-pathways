@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "check": "feasibility",
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000020.json",
+      "status": "passed",
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000020/feasibility.log"
+    },
+    {
+      "check": "schema",
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000020.json",
+      "status": "passed",
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000020/schema.log"
+    },
+    {
+      "check": "operational",
+      "command": "npm run validate:counselor",
+      "status": "passed",
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000020/operational.log"
+    },
+    {
+      "check": "interests",
+      "command": "npm run validate:registry-interests",
+      "status": "passed",
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000020/interests.log"
+    },
+    {
+      "check": "review-index",
+      "command": "npm run validate:counselor-review",
+      "status": "passed",
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000020/review-index.log"
+    },
+    {
+      "check": "byte-exact decision/canonical replay",
+      "status": "passed",
+      "sha256": "bd744ed73d047de2180bf76939122d064410c8c095255c8a493562889d9798b4"
+    }
+  ],
+  "scope": "Exception; no UCR schedule selected or fabricated. Academic approval remains blocked."
+}
