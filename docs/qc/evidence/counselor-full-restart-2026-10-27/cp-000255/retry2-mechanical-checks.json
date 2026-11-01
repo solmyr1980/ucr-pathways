@@ -1,0 +1,39 @@
+{
+  "checks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000255.json",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000255/retry2-feasibility.log"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000255.json",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000255/retry2-schema.log"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000255/retry2-operational.log"
+    },
+    {
+      "command": "npm run validate:registry-interests",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000255/retry2-interests.log"
+    },
+    {
+      "command": "npm run validate:counselor-review",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000255/retry2-review-index.log"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py /tmp/b255-provisional.json",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000255/retry2-provisional-feasibility.log"
+    },
+    {
+      "check": "byte-exact decision/canonical replay",
+      "status": "passed",
+      "canonicalSha256": "5c470e56bbbd3dfac45e0904eb0b92c9f92b9cce9ec1878519961c5e44f842a5"
+    }
+  ]
+}
