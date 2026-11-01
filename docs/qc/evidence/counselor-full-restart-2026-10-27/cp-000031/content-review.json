@@ -1,0 +1,2779 @@
+{
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "presentationMode": "normal full comparison",
+  "inputBlobs": {
+    "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+    "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+    "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000031.json": "0d9173704cf1254fbbfe1477eabb50ec8d54b6e5",
+    "data/counselor/comparisons/cp-000031.json": "10d361683449dc25d76ab348c96b2fd03dd707b4",
+    "data/registry/programme_interests.csv": "787ad46c29af6579fdf82b2b433b5a631ac81799",
+    "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+    "data/counselor/review-programmes.json": "2f48647014845c4635a496846dcaa67af9379a23",
+    "data/counselor/review-interests.json": "c0c59451c132724842fc5f4b295acaef06bb4d0c",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
+    "pilot/shiny/data/courses/DIS.json": "5774e2104a8310aa2925fc2aada2adac0c53bb95",
+    "pilot/shiny/data/courses/GOS.json": "49da38b390637fa113a95b835a4d9bbda854ef83",
+    "pilot/shiny/data/courses/HCB.json": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad"
+  },
+  "fieldToRenderer": [
+    "pilot/shared.R:visible_label selects comparator identity and explicit UCR labels.",
+    "pilot/counselor-shiny/app.R:curriculum_view resolves complete39 IDs/180EC and clean year/route labels; render_audience_context selects explicit descriptions/limitations.",
+    "render_comparison_summary selects concepts only by audience.conceptProgrammeIds; render_audience_notes selects canonical notes only by audience.noteTypes.",
+    "render_compare_table shows block/cell names/credits; audience_cell_note selects exact programmeId/reference. Internal sourceNotes, block alignment rationales and component investigation notes do not become fallback prose.",
+    "course_click selects department cache descriptions[code]; course_description_dialog shows selected text or approved neutral unavailable fallback. All33 selected entries exist; historical behavior reused, no runtime invoked."
+  ],
+  "fieldsRead": [
+    {
+      "path": "audience.schemaVersion",
+      "text": "1.0"
+    },
+    {
+      "path": "audience.programmeDescription",
+      "text": "Radboud’s English-taught Artificial Intelligence bachelor studies human cognition and develops intelligent computer systems. Programming, mathematics, statistics, robotics, neuroscience, language and philosophy support a 180 EC degree with restricted electives, free choice and a required thesis."
+    },
+    {
+      "path": "audience.comparisonExplanation",
+      "text": "Three related UCR programmes emphasise broad AI and cognition, computational intelligent systems, or cognitive neuroscience and language. Each contains substantial AI methods but differs from Radboud’s integrated specialist sequence. Human language study is distinct from computational NLP, and the UCR schedules do not replace the separate Radboud thesis."
+    },
+    {
+      "path": "audience.curriculum.status",
+      "text": "complete"
+    },
+    {
+      "path": "audience.curriculum.componentIds[0]",
+      "text": "ai1-calc1"
+    },
+    {
+      "path": "audience.curriculum.componentIds[1]",
+      "text": "ai1-prog1"
+    },
+    {
+      "path": "audience.curriculum.componentIds[2]",
+      "text": "ai1-intro"
+    },
+    {
+      "path": "audience.curriculum.componentIds[3]",
+      "text": "ai1-prob"
+    },
+    {
+      "path": "audience.curriculum.componentIds[4]",
+      "text": "ai1-formal"
+    },
+    {
+      "path": "audience.curriculum.componentIds[5]",
+      "text": "ai1-ppd"
+    },
+    {
+      "path": "audience.curriculum.componentIds[6]",
+      "text": "ai1-cogpsych"
+    },
+    {
+      "path": "audience.curriculum.componentIds[7]",
+      "text": "ai1-prog2"
+    },
+    {
+      "path": "audience.curriculum.componentIds[8]",
+      "text": "ai1-linalg"
+    },
+    {
+      "path": "audience.curriculum.componentIds[9]",
+      "text": "ai1-research"
+    },
+    {
+      "path": "audience.curriculum.componentIds[10]",
+      "text": "ai1-hcd"
+    },
+    {
+      "path": "audience.curriculum.componentIds[11]",
+      "text": "ai1-brain"
+    },
+    {
+      "path": "audience.curriculum.componentIds[12]",
+      "text": "ai1-proglang"
+    },
+    {
+      "path": "audience.curriculum.componentIds[13]",
+      "text": "ai1-robotics"
+    },
+    {
+      "path": "audience.curriculum.componentIds[14]",
+      "text": "ai1-freqstats"
+    },
+    {
+      "path": "audience.curriculum.componentIds[15]",
+      "text": "ai1-dsp"
+    },
+    {
+      "path": "audience.curriculum.componentIds[16]",
+      "text": "ai1-skills"
+    },
+    {
+      "path": "audience.curriculum.componentIds[17]",
+      "text": "ai2-calc2"
+    },
+    {
+      "path": "audience.curriculum.componentIds[18]",
+      "text": "ai2-impact"
+    },
+    {
+      "path": "audience.curriculum.componentIds[19]",
+      "text": "ai2-data-model"
+    },
+    {
+      "path": "audience.curriculum.componentIds[20]",
+      "text": "ai2-communication"
+    },
+    {
+      "path": "audience.curriculum.componentIds[21]",
+      "text": "ai2-knowledge"
+    },
+    {
+      "path": "audience.curriculum.componentIds[22]",
+      "text": "ai2-nlp"
+    },
+    {
+      "path": "audience.curriculum.componentIds[23]",
+      "text": "ai2-rl"
+    },
+    {
+      "path": "audience.curriculum.componentIds[24]",
+      "text": "ai2-deep"
+    },
+    {
+      "path": "audience.curriculum.componentIds[25]",
+      "text": "ai2-philsci"
+    },
+    {
+      "path": "audience.curriculum.componentIds[26]",
+      "text": "ai2-bayesstats"
+    },
+    {
+      "path": "audience.curriculum.componentIds[27]",
+      "text": "ai2-ppd"
+    },
+    {
+      "path": "audience.curriculum.componentIds[28]",
+      "text": "ai2-bayesnet"
+    },
+    {
+      "path": "audience.curriculum.componentIds[29]",
+      "text": "ai2-ccn"
+    },
+    {
+      "path": "audience.curriculum.componentIds[30]",
+      "text": "ai2-explainable"
+    },
+    {
+      "path": "audience.curriculum.componentIds[31]",
+      "text": "ai2-sustainable"
+    },
+    {
+      "path": "audience.curriculum.componentIds[32]",
+      "text": "ai3-intersectional"
+    },
+    {
+      "path": "audience.curriculum.componentIds[33]",
+      "text": "ai3-bci"
+    },
+    {
+      "path": "audience.curriculum.componentIds[34]",
+      "text": "ai3-modeling"
+    },
+    {
+      "path": "audience.curriculum.componentIds[35]",
+      "text": "ai3-connected"
+    },
+    {
+      "path": "audience.curriculum.componentIds[36]",
+      "text": "ai3-health-ethics"
+    },
+    {
+      "path": "audience.curriculum.componentIds[37]",
+      "text": "ai3-free"
+    },
+    {
+      "path": "audience.curriculum.componentIds[38]",
+      "text": "ai3-thesis"
+    },
+    {
+      "path": "audience.curriculum.yearLabel",
+      "text": "2026–2027"
+    },
+    {
+      "path": "audience.curriculum.limitation",
+      "text": "This new-entrant pathway uses the current 2026–2027 regulations. Prospective webpages describe an indicative overview that may change; future cohort availability is not guaranteed. Year 2 contains 12 EC restricted choices and year 3 contains 24 EC restricted choices plus 24 EC free electives. Cognitive Science is restricted to second-year AI students from cohort 2025, so it is not selected for this pathway. Year 2 requires positive study advice; year 3 requires all first-year units; the thesis requires 120 EC. RADAr English is an additional 0 EC requirement. The programme publishes a 42 EC first-year continuation threshold, subject to personal circumstances."
+    },
+    {
+      "path": "audience.curriculum.routeLabel",
+      "text": "Standard bachelor under the 2026–2027 regulations"
+    },
+    {
+      "path": "audience.conceptProgrammeIds[0]",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.conceptProgrammeIds[1]",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.conceptProgrammeIds[2]",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.noteTypes[0]",
+      "text": "related-fields-not-full-discipline"
+    },
+    {
+      "path": "audience.componentNotes.ai2-bayesnet",
+      "text": "One of four selected 3-EC second-year restricted electives."
+    },
+    {
+      "path": "audience.componentNotes.ai2-ccn",
+      "text": "One of four selected 3-EC second-year restricted electives."
+    },
+    {
+      "path": "audience.componentNotes.ai2-explainable",
+      "text": "One of four selected 3-EC second-year restricted electives."
+    },
+    {
+      "path": "audience.componentNotes.ai2-sustainable",
+      "text": "One of four selected 3-EC second-year restricted electives."
+    },
+    {
+      "path": "audience.componentNotes.ai3-intersectional",
+      "text": "Part of the selected 24-EC third-year restricted-elective package."
+    },
+    {
+      "path": "audience.componentNotes.ai3-bci",
+      "text": "Part of the selected 24-EC third-year restricted-elective package."
+    },
+    {
+      "path": "audience.componentNotes.ai3-modeling",
+      "text": "Part of the selected 24-EC third-year restricted-elective package."
+    },
+    {
+      "path": "audience.componentNotes.ai3-connected",
+      "text": "Part of the selected 24-EC third-year restricted-elective package."
+    },
+    {
+      "path": "audience.componentNotes.ai3-health-ethics",
+      "text": "Part of the selected 24-EC third-year restricted-elective package."
+    },
+    {
+      "path": "audience.componentNotes.ai3-free",
+      "text": "24 EC genuine free electives at Radboud, other Dutch universities or partner universities abroad need no Examination Board permission. Courses from other institutions require permission; compulsory courses cannot be counted twice."
+    },
+    {
+      "path": "audience.componentNotes.ai3-thesis",
+      "text": "Required 12 EC thesis; entry requires at least 120 EC, with all first-year units passed for B 3 participation."
+    },
+    {
+      "path": "audience.cellNotes[0].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[0].reference",
+      "text": "DISGATE101"
+    },
+    {
+      "path": "audience.cellNotes[0].text",
+      "text": "Both provide introductory programming and computational problem-solving foundations."
+    },
+    {
+      "path": "audience.cellNotes[1].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[1].reference",
+      "text": "DISGATE101"
+    },
+    {
+      "path": "audience.cellNotes[1].text",
+      "text": "Both provide introductory programming and computational problem-solving foundations."
+    },
+    {
+      "path": "audience.cellNotes[2].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[2].reference",
+      "text": "DISGATE101"
+    },
+    {
+      "path": "audience.cellNotes[2].text",
+      "text": "Both provide introductory programming and computational problem-solving foundations."
+    },
+    {
+      "path": "audience.cellNotes[3].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[3].reference",
+      "text": "DISCOMP213"
+    },
+    {
+      "path": "audience.cellNotes[3].text",
+      "text": "Both develop programming beyond the introductory level; UCR emphasises software engineering and multiple paradigms."
+    },
+    {
+      "path": "audience.cellNotes[4].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[4].reference",
+      "text": "DISCOMP213"
+    },
+    {
+      "path": "audience.cellNotes[4].text",
+      "text": "Both develop programming beyond the introductory level; UCR emphasises software engineering and multiple paradigms."
+    },
+    {
+      "path": "audience.cellNotes[5].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[5].reference",
+      "text": "ai1-proglang"
+    },
+    {
+      "path": "audience.cellNotes[5].text",
+      "text": "Dedicated programming-language concepts are not reproduced by an advanced algorithms course. Software Development uses C++ and Haskell, but no equivalent language-concepts syllabus is established."
+    },
+    {
+      "path": "audience.cellNotes[6].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[6].reference",
+      "text": "ai1-intro"
+    },
+    {
+      "path": "audience.cellNotes[6].text",
+      "text": "UCR builds AI across several courses but has no single scheduled survey identical to this introductory component."
+    },
+    {
+      "path": "audience.cellNotes[7].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[7].reference",
+      "text": "ai3-connected"
+    },
+    {
+      "path": "audience.cellNotes[7].text",
+      "text": "UCR courses address intelligent systems and social application, but no single course reproduces this restricted elective."
+    },
+    {
+      "path": "audience.cellNotes[8].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[8].reference",
+      "text": "DISDATA211"
+    },
+    {
+      "path": "audience.cellNotes[8].text",
+      "text": "Both develop predictive modelling from data; UCR surveys major machine-learning methods."
+    },
+    {
+      "path": "audience.cellNotes[9].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[9].reference",
+      "text": "DISDATA211"
+    },
+    {
+      "path": "audience.cellNotes[9].text",
+      "text": "Both develop predictive modelling from data; UCR surveys major machine-learning methods."
+    },
+    {
+      "path": "audience.cellNotes[10].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[10].reference",
+      "text": "DISDATA211"
+    },
+    {
+      "path": "audience.cellNotes[10].text",
+      "text": "Both develop predictive modelling from data; UCR surveys major machine-learning methods."
+    },
+    {
+      "path": "audience.cellNotes[11].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[11].reference",
+      "text": "DISDATA311"
+    },
+    {
+      "path": "audience.cellNotes[11].text",
+      "text": "Both provide substantial neural-network and deep-learning theory and implementation."
+    },
+    {
+      "path": "audience.cellNotes[12].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[12].reference",
+      "text": "DISDATA311"
+    },
+    {
+      "path": "audience.cellNotes[12].text",
+      "text": "Both provide substantial neural-network and deep-learning theory and implementation."
+    },
+    {
+      "path": "audience.cellNotes[13].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[13].reference",
+      "text": "DISDATA311"
+    },
+    {
+      "path": "audience.cellNotes[13].text",
+      "text": "Both provide substantial neural-network and deep-learning theory and implementation."
+    },
+    {
+      "path": "audience.cellNotes[14].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[14].reference",
+      "text": "DISARIN312"
+    },
+    {
+      "path": "audience.cellNotes[14].text",
+      "text": "Both directly develop reinforcement-learning theory and algorithms."
+    },
+    {
+      "path": "audience.cellNotes[15].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[15].reference",
+      "text": "DISARIN312"
+    },
+    {
+      "path": "audience.cellNotes[15].text",
+      "text": "Both directly develop reinforcement-learning theory and algorithms."
+    },
+    {
+      "path": "audience.cellNotes[16].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[16].reference",
+      "text": "DISDATA312"
+    },
+    {
+      "path": "audience.cellNotes[16].text",
+      "text": "Both provide dedicated robotics study; UCR emphasises kinematics, manipulation and motion planning."
+    },
+    {
+      "path": "audience.cellNotes[17].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[17].reference",
+      "text": "DISDATA312"
+    },
+    {
+      "path": "audience.cellNotes[17].text",
+      "text": "Both provide dedicated robotics study; UCR emphasises kinematics, manipulation and motion planning."
+    },
+    {
+      "path": "audience.cellNotes[18].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[18].reference",
+      "text": "DISGATE102"
+    },
+    {
+      "path": "audience.cellNotes[18].text",
+      "text": "Both provide foundational calculus and mathematical methods for later modelling."
+    },
+    {
+      "path": "audience.cellNotes[19].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[19].reference",
+      "text": "DISGATE102"
+    },
+    {
+      "path": "audience.cellNotes[19].text",
+      "text": "Both provide foundational calculus and mathematical methods for later modelling."
+    },
+    {
+      "path": "audience.cellNotes[20].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[20].reference",
+      "text": "DISGATE102"
+    },
+    {
+      "path": "audience.cellNotes[20].text",
+      "text": "Both provide foundational calculus and mathematical methods for later modelling."
+    },
+    {
+      "path": "audience.cellNotes[21].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[21].reference",
+      "text": "DISMATH211"
+    },
+    {
+      "path": "audience.cellNotes[21].text",
+      "text": "Both develop linear-algebra foundations through matrices, vectors and transformations."
+    },
+    {
+      "path": "audience.cellNotes[22].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[22].reference",
+      "text": "DISMATH211"
+    },
+    {
+      "path": "audience.cellNotes[22].text",
+      "text": "Both develop linear-algebra foundations through matrices, vectors and transformations."
+    },
+    {
+      "path": "audience.cellNotes[23].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[23].reference",
+      "text": "DISMATH211"
+    },
+    {
+      "path": "audience.cellNotes[23].text",
+      "text": "Both develop linear-algebra foundations through matrices, vectors and transformations."
+    },
+    {
+      "path": "audience.cellNotes[24].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[24].reference",
+      "text": "DISARIN212"
+    },
+    {
+      "path": "audience.cellNotes[24].text",
+      "text": "Both develop formal reasoning, logic and discrete structures for AI."
+    },
+    {
+      "path": "audience.cellNotes[25].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[25].reference",
+      "text": "DISARIN212"
+    },
+    {
+      "path": "audience.cellNotes[25].text",
+      "text": "Both develop formal reasoning, logic and discrete structures for AI."
+    },
+    {
+      "path": "audience.cellNotes[26].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[26].reference",
+      "text": "DISARIN212"
+    },
+    {
+      "path": "audience.cellNotes[26].text",
+      "text": "Both develop formal reasoning, logic and discrete structures for AI."
+    },
+    {
+      "path": "audience.cellNotes[27].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[27].reference",
+      "text": "DISMATH314"
+    },
+    {
+      "path": "audience.cellNotes[27].text",
+      "text": "Both introduce probability foundations; UCR combines probability with statistical inference."
+    },
+    {
+      "path": "audience.cellNotes[28].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[28].reference",
+      "text": "DISMATH314"
+    },
+    {
+      "path": "audience.cellNotes[28].text",
+      "text": "Both introduce probability foundations; UCR combines probability with statistical inference."
+    },
+    {
+      "path": "audience.cellNotes[29].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[29].reference",
+      "text": "DISMATH314"
+    },
+    {
+      "path": "audience.cellNotes[29].text",
+      "text": "Both introduce probability foundations; UCR combines probability with statistical inference."
+    },
+    {
+      "path": "audience.cellNotes[30].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[30].reference",
+      "text": "HCBPSYC211"
+    },
+    {
+      "path": "audience.cellNotes[30].text",
+      "text": "Both develop statistical modelling and analysis; UCR focuses on multivariate and experimental human-data methods."
+    },
+    {
+      "path": "audience.cellNotes[31].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[31].reference",
+      "text": "HCBPSYC211"
+    },
+    {
+      "path": "audience.cellNotes[31].text",
+      "text": "Both develop statistical modelling and analysis; UCR focuses on multivariate and experimental human-data methods."
+    },
+    {
+      "path": "audience.cellNotes[32].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[32].reference",
+      "text": "HCBPSYC211"
+    },
+    {
+      "path": "audience.cellNotes[32].text",
+      "text": "Both develop statistical modelling and analysis; UCR focuses on multivariate and experimental human-data methods."
+    },
+    {
+      "path": "audience.cellNotes[33].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[33].reference",
+      "text": "BENGATE102"
+    },
+    {
+      "path": "audience.cellNotes[33].text",
+      "text": "Both provide research design, experiments, sampling and introductory statistical methodology."
+    },
+    {
+      "path": "audience.cellNotes[34].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[34].reference",
+      "text": "BENGATE102"
+    },
+    {
+      "path": "audience.cellNotes[34].text",
+      "text": "Both provide research design, experiments, sampling and introductory statistical methodology."
+    },
+    {
+      "path": "audience.cellNotes[35].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[35].reference",
+      "text": "ai2-bayesstats"
+    },
+    {
+      "path": "audience.cellNotes[35].text",
+      "text": "UCR Probability & Statistics covers inference and probability, but not a dedicated six-credit Bayesian-statistics sequence."
+    },
+    {
+      "path": "audience.cellNotes[36].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[36].reference",
+      "text": "DISMATH312"
+    },
+    {
+      "path": "audience.cellNotes[36].text",
+      "text": "Direct partial correspondence in signals and transforms: linear systems covers convolution, Fourier methods, Laplace and Z transforms. It is a broader mathematical systems course, not an identical digital-signal-processing syllabus."
+    },
+    {
+      "path": "audience.cellNotes[37].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[37].reference",
+      "text": "HCBGATE102"
+    },
+    {
+      "path": "audience.cellNotes[37].text",
+      "text": "Both provide broad psychological and cognitive foundations; UCR integrates these with neuroscience and behaviour."
+    },
+    {
+      "path": "audience.cellNotes[38].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[38].reference",
+      "text": "HCBGATE102"
+    },
+    {
+      "path": "audience.cellNotes[38].text",
+      "text": "Both provide broad psychological and cognitive foundations; UCR integrates these with neuroscience and behaviour."
+    },
+    {
+      "path": "audience.cellNotes[39].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[39].reference",
+      "text": "HCBGATE102"
+    },
+    {
+      "path": "audience.cellNotes[39].text",
+      "text": "Both provide broad psychological and cognitive foundations; UCR integrates these with neuroscience and behaviour."
+    },
+    {
+      "path": "audience.cellNotes[40].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[40].reference",
+      "text": "HCBCOGN112"
+    },
+    {
+      "path": "audience.cellNotes[40].text",
+      "text": "Both provide biological foundations for understanding the brain."
+    },
+    {
+      "path": "audience.cellNotes[41].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[41].reference",
+      "text": "HCBCOGN112"
+    },
+    {
+      "path": "audience.cellNotes[41].text",
+      "text": "Both provide biological foundations for understanding the brain."
+    },
+    {
+      "path": "audience.cellNotes[42].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[42].reference",
+      "text": "ai2-nlp"
+    },
+    {
+      "path": "audience.cellNotes[42].text",
+      "text": "Human psycholinguistics does not reproduce the computational representations, algorithms and modelling methods of dedicated natural-language processing."
+    },
+    {
+      "path": "audience.cellNotes[43].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[43].reference",
+      "text": "ai2-ccn"
+    },
+    {
+      "path": "audience.cellNotes[43].text",
+      "text": "UCR combines neurobiology, cognition and computation across courses but has no single dedicated computational-neuroscience component."
+    },
+    {
+      "path": "audience.cellNotes[44].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[44].reference",
+      "text": "ai3-bci"
+    },
+    {
+      "path": "audience.cellNotes[44].text",
+      "text": "UCR offers neuroscience, perception and computing courses but no dedicated brain-computer-interface course."
+    },
+    {
+      "path": "audience.cellNotes[45].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[45].reference",
+      "text": "ai3-modeling"
+    },
+    {
+      "path": "audience.cellNotes[45].text",
+      "text": "UCR supports computational and cognitive modelling across courses but not a nine-credit dedicated theoretical-modelling component."
+    },
+    {
+      "path": "audience.cellNotes[46].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[46].reference",
+      "text": "DISARIN111"
+    },
+    {
+      "path": "audience.cellNotes[46].text",
+      "text": "Both critically examine ethical and societal consequences of AI, including responsibility, fairness and human agency."
+    },
+    {
+      "path": "audience.cellNotes[47].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[47].reference",
+      "text": "DISARIN111"
+    },
+    {
+      "path": "audience.cellNotes[47].text",
+      "text": "Both critically examine ethical and societal consequences of AI, including responsibility, fairness and human agency."
+    },
+    {
+      "path": "audience.cellNotes[48].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[48].reference",
+      "text": "DISARIN111"
+    },
+    {
+      "path": "audience.cellNotes[48].text",
+      "text": "Both critically examine ethical and societal consequences of AI, including responsibility, fairness and human agency."
+    },
+    {
+      "path": "audience.cellNotes[49].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[49].reference",
+      "text": "ai1-hcd"
+    },
+    {
+      "path": "audience.cellNotes[49].text",
+      "text": "No scheduled course establishes dedicated human-centred design methods. Psychological insight and AI ethics support the wider programme but do not substitute for this design component."
+    },
+    {
+      "path": "audience.cellNotes[50].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[50].reference",
+      "text": "ACCPPDE101"
+    },
+    {
+      "path": "audience.cellNotes[50].text",
+      "text": "Both develop personal, academic and professional formation in the first year."
+    },
+    {
+      "path": "audience.cellNotes[51].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[51].reference",
+      "text": "ACCPPDE101"
+    },
+    {
+      "path": "audience.cellNotes[51].text",
+      "text": "Both develop personal, academic and professional formation in the first year."
+    },
+    {
+      "path": "audience.cellNotes[52].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[52].reference",
+      "text": "ACCPPDE101"
+    },
+    {
+      "path": "audience.cellNotes[52].text",
+      "text": "Both develop personal, academic and professional formation in the first year."
+    },
+    {
+      "path": "audience.cellNotes[53].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[53].reference",
+      "text": "ai1-skills"
+    },
+    {
+      "path": "audience.cellNotes[53].text",
+      "text": "UCR develops academic skills across its curriculum and PPD, but has no separate five-credit AI-specific academic-skills course."
+    },
+    {
+      "path": "audience.cellNotes[54].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[54].reference",
+      "text": "ai2-communication"
+    },
+    {
+      "path": "audience.cellNotes[54].text",
+      "text": "UCR develops research and communication across several courses but not as a dedicated AI design-and-communication component."
+    },
+    {
+      "path": "audience.cellNotes[55].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[55].reference",
+      "text": "ai2-philsci"
+    },
+    {
+      "path": "audience.cellNotes[55].text",
+      "text": "UCR includes AI ethics and philosophy of mind but no dedicated philosophy-of-science-for-AI course."
+    },
+    {
+      "path": "audience.cellNotes[56].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[56].reference",
+      "text": "ai2-ppd"
+    },
+    {
+      "path": "audience.cellNotes[56].text",
+      "text": "UCR requires first-year PPD but has no separate second-year PPD continuation."
+    },
+    {
+      "path": "audience.cellNotes[57].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[57].reference",
+      "text": "ai3-intersectional"
+    },
+    {
+      "path": "audience.cellNotes[57].text",
+      "text": "UCR AI Ethics examines fairness and bias, but no single course reproduces this dedicated intersectional-theory elective."
+    },
+    {
+      "path": "audience.cellNotes[58].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[58].reference",
+      "text": "ai3-health-ethics"
+    },
+    {
+      "path": "audience.cellNotes[58].text",
+      "text": "AI Ethics includes clinical and therapeutic contexts, but no scheduled course provides a dedicated AI-ethics-in-healthcare component."
+    },
+    {
+      "path": "audience.cellNotes[59].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[59].reference",
+      "text": "ai3-free"
+    },
+    {
+      "path": "audience.cellNotes[59].text",
+      "text": "The comparator preserves 24 EC of genuine free choice."
+    },
+    {
+      "path": "audience.cellNotes[60].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[60].reference",
+      "text": "ai2-explainable"
+    },
+    {
+      "path": "audience.cellNotes[60].text",
+      "text": "No scheduled course provides a dedicated explainable-AI syllabus."
+    },
+    {
+      "path": "audience.cellNotes[61].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[61].reference",
+      "text": "ai2-sustainable"
+    },
+    {
+      "path": "audience.cellNotes[61].text",
+      "text": "No scheduled course provides a dedicated sustainable-AI syllabus."
+    },
+    {
+      "path": "audience.cellNotes[62].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[62].reference",
+      "text": "DISARIN211"
+    },
+    {
+      "path": "audience.cellNotes[62].text",
+      "text": "Direct partial correspondence in Bayesian networks, probabilistic inference and belief updating. UCR embeds these methods in a broader intelligent-agent course rather than offering the same dedicated elective."
+    },
+    {
+      "path": "audience.cellNotes[63].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[63].reference",
+      "text": "DISARIN211"
+    },
+    {
+      "path": "audience.cellNotes[63].text",
+      "text": "Direct partial correspondence in Bayesian networks, probabilistic inference and belief updating. UCR embeds these methods in a broader intelligent-agent course rather than offering the same dedicated elective."
+    },
+    {
+      "path": "audience.cellNotes[64].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[64].reference",
+      "text": "ai2-knowledge"
+    },
+    {
+      "path": "audience.cellNotes[64].text",
+      "text": "UCR offers search, optimisation and probabilistic-agent methods. The available evidence does not establish a selected counterpart for the Knowledge Based AI component’s primary knowledge-representation and reasoning focus."
+    },
+    {
+      "path": "audience.cellNotes[65].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[65].reference",
+      "text": "ai2-calc2"
+    },
+    {
+      "path": "audience.cellNotes[65].text",
+      "text": "UCR numerical methods develops approximation, quadrature and numerical differential equations. This has a different primary method from the comparator’s second calculus unit; no calculus-course equivalence is asserted."
+    },
+    {
+      "path": "programmes[0].id",
+      "text": "comparator"
+    },
+    {
+      "path": "programmes[0].role",
+      "text": "comparator"
+    },
+    {
+      "path": "programmes[0].family",
+      "text": "comparator"
+    },
+    {
+      "path": "programmes[0].label",
+      "text": "Artificial Intelligence at Radboud University"
+    },
+    {
+      "path": "programmes[1].id",
+      "text": "ucr-1"
+    },
+    {
+      "path": "programmes[1].role",
+      "text": "ucr-alternative"
+    },
+    {
+      "path": "programmes[1].family",
+      "text": "ucr"
+    },
+    {
+      "path": "programmes[1].alternativeKind",
+      "text": "closest-match"
+    },
+    {
+      "path": "programmes[1].label",
+      "text": "Artificial intelligence, cognition & intelligent systems"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].label",
+      "text": "Year 1 · Semester 1"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].term",
+      "text": "2026h2"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].courses[0].code",
+      "text": "DISGATE101"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].courses[0].name",
+      "text": "Introduction to Programming"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].courses[1].code",
+      "text": "HCBGATE102"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].courses[1].name",
+      "text": "Introduction to Brain & Behavior"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].courses[2].code",
+      "text": "HCBPSYC211"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].courses[2].name",
+      "text": "Statistics & Experimental Methods"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].courses[3].code",
+      "text": "ACCPPDE101"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[0].courses[3].name",
+      "text": "Personal & Professional Development"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].label",
+      "text": "Year 1 · Semester 2"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].term",
+      "text": "2027h1"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].courses[0].code",
+      "text": "DISGATE102"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].courses[0].name",
+      "text": "Mathematical Methods"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].courses[1].code",
+      "text": "DISARIN111"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].courses[1].name",
+      "text": "AI Ethics"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].courses[2].code",
+      "text": "HCBCOGN112"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].courses[2].name",
+      "text": "Neurobiology"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].courses[3].code",
+      "text": "HCBCOGN312"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[1].courses[3].name",
+      "text": "Psycholinguistics"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].label",
+      "text": "Year 2 · Semester 1"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].term",
+      "text": "2027h2"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].courses[0].code",
+      "text": "DISDATA111"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].courses[0].name",
+      "text": "Introduction to Data Science"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].courses[1].code",
+      "text": "DISARIN212"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].courses[1].name",
+      "text": "Logic & Discrete Mathematics"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].courses[2].code",
+      "text": "DISMATH211"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].courses[2].name",
+      "text": "Linear Algebra"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].courses[3].code",
+      "text": "DISCOMP311"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[2].courses[3].name",
+      "text": "Algorithms & Data Structures"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].label",
+      "text": "Year 2 · Semester 2"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].term",
+      "text": "2028h1"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].courses[0].code",
+      "text": "DISCOMP213"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].courses[0].name",
+      "text": "Software Development"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].courses[1].code",
+      "text": "DISDATA312"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].courses[1].name",
+      "text": "Robotics"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].courses[2].code",
+      "text": "DISMATH312"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].courses[2].name",
+      "text": "Linear Systems"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].courses[3].code",
+      "text": "HCBCOGN212"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[3].courses[3].name",
+      "text": "Perception & Action"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].label",
+      "text": "Year 3 · Semester 1"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].term",
+      "text": "2028h2"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].courses[0].code",
+      "text": "DISARIN211"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].courses[0].name",
+      "text": "Decision-making in AI"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].courses[1].code",
+      "text": "DISDATA211"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].courses[1].name",
+      "text": "Machine Learning"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].courses[2].code",
+      "text": "DISMATH314"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].courses[2].name",
+      "text": "Probability & Statistics"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].courses[3].code",
+      "text": "HCBCOGN311"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[4].courses[3].name",
+      "text": "Higher Order Functions"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].label",
+      "text": "Year 3 · Semester 2"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].term",
+      "text": "2029h1"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].courses[0].code",
+      "text": "DISDATA212"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].courses[0].name",
+      "text": "Image Processing & Computer Vision"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].courses[1].code",
+      "text": "DISARIN311"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].courses[1].name",
+      "text": "Optimization Methods in AI"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].courses[2].code",
+      "text": "DISARIN312"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].courses[2].name",
+      "text": "Reinforcement Learning"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].courses[3].code",
+      "text": "DISDATA311"
+    },
+    {
+      "path": "programmes[1].schedule.semesters[5].courses[3].name",
+      "text": "Neural Networks & Deep Learning"
+    },
+    {
+      "path": "programmes[2].id",
+      "text": "ucr-2"
+    },
+    {
+      "path": "programmes[2].role",
+      "text": "ucr-alternative"
+    },
+    {
+      "path": "programmes[2].family",
+      "text": "ucr"
+    },
+    {
+      "path": "programmes[2].alternativeKind",
+      "text": "related-direction"
+    },
+    {
+      "path": "programmes[2].label",
+      "text": "Computational AI & autonomous systems"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].label",
+      "text": "Year 1 · Semester 1"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].term",
+      "text": "2026h2"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].courses[0].code",
+      "text": "DISGATE101"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].courses[0].name",
+      "text": "Introduction to Programming"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].courses[1].code",
+      "text": "HCBGATE102"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].courses[1].name",
+      "text": "Introduction to Brain & Behavior"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].courses[2].code",
+      "text": "DISDATA111"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].courses[2].name",
+      "text": "Introduction to Data Science"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].courses[3].code",
+      "text": "ACCPPDE101"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[0].courses[3].name",
+      "text": "Personal & Professional Development"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].label",
+      "text": "Year 1 · Semester 2"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].term",
+      "text": "2027h1"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].courses[0].code",
+      "text": "DISGATE102"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].courses[0].name",
+      "text": "Mathematical Methods"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].courses[1].code",
+      "text": "BENGATE102"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].courses[1].name",
+      "text": "Research Methods & Statistics"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].courses[2].code",
+      "text": "DISARIN111"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].courses[2].name",
+      "text": "AI Ethics"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].courses[3].code",
+      "text": "DISDATA212"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[1].courses[3].name",
+      "text": "Image Processing & Computer Vision"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].label",
+      "text": "Year 2 · Semester 1"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].term",
+      "text": "2027h2"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].courses[0].code",
+      "text": "DISARIN212"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].courses[0].name",
+      "text": "Logic & Discrete Mathematics"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].courses[1].code",
+      "text": "DISMATH211"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].courses[1].name",
+      "text": "Linear Algebra"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].courses[2].code",
+      "text": "DISCOMP211"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].courses[2].name",
+      "text": "Networks & Operating Systems"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].courses[3].code",
+      "text": "DISCOMP311"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[2].courses[3].name",
+      "text": "Algorithms & Data Structures"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].label",
+      "text": "Year 2 · Semester 2"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].term",
+      "text": "2028h1"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].courses[0].code",
+      "text": "DISCOMP213"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].courses[0].name",
+      "text": "Software Development"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].courses[1].code",
+      "text": "DISCOMP312"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].courses[1].name",
+      "text": "Advanced Algorithms"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].courses[2].code",
+      "text": "DISDATA312"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].courses[2].name",
+      "text": "Robotics"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].courses[3].code",
+      "text": "DISMATH213"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[3].courses[3].name",
+      "text": "Computational & Numerical Methods"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].label",
+      "text": "Year 3 · Semester 1"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].term",
+      "text": "2028h2"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].courses[0].code",
+      "text": "HCBPSYC211"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].courses[0].name",
+      "text": "Statistics & Experimental Methods"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].courses[1].code",
+      "text": "DISARIN211"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].courses[1].name",
+      "text": "Decision-making in AI"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].courses[2].code",
+      "text": "DISDATA211"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].courses[2].name",
+      "text": "Machine Learning"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].courses[3].code",
+      "text": "DISMATH314"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[4].courses[3].name",
+      "text": "Probability & Statistics"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].label",
+      "text": "Year 3 · Semester 2"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].term",
+      "text": "2029h1"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].courses[0].code",
+      "text": "DISARIN311"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].courses[0].name",
+      "text": "Optimization Methods in AI"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].courses[1].code",
+      "text": "DISARIN312"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].courses[1].name",
+      "text": "Reinforcement Learning"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].courses[2].code",
+      "text": "DISCOMP212"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].courses[2].name",
+      "text": "Database Management Systems"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].courses[3].code",
+      "text": "DISDATA311"
+    },
+    {
+      "path": "programmes[2].schedule.semesters[5].courses[3].name",
+      "text": "Neural Networks & Deep Learning"
+    },
+    {
+      "path": "programmes[3].id",
+      "text": "ucr-3"
+    },
+    {
+      "path": "programmes[3].role",
+      "text": "ucr-alternative"
+    },
+    {
+      "path": "programmes[3].family",
+      "text": "ucr"
+    },
+    {
+      "path": "programmes[3].alternativeKind",
+      "text": "related-direction"
+    },
+    {
+      "path": "programmes[3].label",
+      "text": "Cognitive AI, language & neuroscience"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].label",
+      "text": "Year 1 · Semester 1"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].term",
+      "text": "2026h2"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].courses[0].code",
+      "text": "DISGATE101"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].courses[0].name",
+      "text": "Introduction to Programming"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].courses[1].code",
+      "text": "HCBGATE102"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].courses[1].name",
+      "text": "Introduction to Brain & Behavior"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].courses[2].code",
+      "text": "HCBPSYC211"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].courses[2].name",
+      "text": "Statistics & Experimental Methods"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].courses[3].code",
+      "text": "ACCPPDE101"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[0].courses[3].name",
+      "text": "Personal & Professional Development"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].label",
+      "text": "Year 1 · Semester 2"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].term",
+      "text": "2027h1"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].courses[0].code",
+      "text": "DISGATE102"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].courses[0].name",
+      "text": "Mathematical Methods"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].courses[1].code",
+      "text": "DISARIN111"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].courses[1].name",
+      "text": "AI Ethics"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].courses[2].code",
+      "text": "HCBCOGN112"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].courses[2].name",
+      "text": "Neurobiology"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].courses[3].code",
+      "text": "HCBCOGN312"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[1].courses[3].name",
+      "text": "Psycholinguistics"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].label",
+      "text": "Year 2 · Semester 1"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].term",
+      "text": "2027h2"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].courses[0].code",
+      "text": "DISARIN212"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].courses[0].name",
+      "text": "Logic & Discrete Mathematics"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].courses[1].code",
+      "text": "DISMATH211"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].courses[1].name",
+      "text": "Linear Algebra"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].courses[2].code",
+      "text": "DISCOMP311"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].courses[2].name",
+      "text": "Algorithms & Data Structures"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].courses[3].code",
+      "text": "DISDATA111"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[2].courses[3].name",
+      "text": "Introduction to Data Science"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].label",
+      "text": "Year 2 · Semester 2"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].term",
+      "text": "2028h1"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].courses[0].code",
+      "text": "BENGATE102"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].courses[0].name",
+      "text": "Research Methods & Statistics"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].courses[1].code",
+      "text": "GOSPHIL214"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].courses[1].name",
+      "text": "Philosophy of Mind"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].courses[2].code",
+      "text": "HCBCOGN212"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].courses[2].name",
+      "text": "Perception & Action"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].courses[3].code",
+      "text": "HCBPSYC111"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[3].courses[3].name",
+      "text": "Social Psychology"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].label",
+      "text": "Year 3 · Semester 1"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].term",
+      "text": "2028h2"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].courses[0].code",
+      "text": "DISDATA211"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].courses[0].name",
+      "text": "Machine Learning"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].courses[1].code",
+      "text": "DISMATH314"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].courses[1].name",
+      "text": "Probability & Statistics"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].courses[2].code",
+      "text": "GOSPHIL313"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].courses[2].name",
+      "text": "Free Will, Time & the Self"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].courses[3].code",
+      "text": "HCBCOGN311"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[4].courses[3].name",
+      "text": "Higher Order Functions"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].label",
+      "text": "Year 3 · Semester 2"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].term",
+      "text": "2029h1"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].courses[0].code",
+      "text": "DISDATA212"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].courses[0].name",
+      "text": "Image Processing & Computer Vision"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].courses[1].code",
+      "text": "DISARIN311"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].courses[1].name",
+      "text": "Optimization Methods in AI"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].courses[2].code",
+      "text": "DISDATA311"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].courses[2].name",
+      "text": "Neural Networks & Deep Learning"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].courses[3].code",
+      "text": "HCBPSYC313"
+    },
+    {
+      "path": "programmes[3].schedule.semesters[5].courses[3].name",
+      "text": "Advanced Research Methods & Statistics"
+    },
+    {
+      "path": "notes[0].type",
+      "text": "related-fields-not-full-discipline"
+    },
+    {
+      "path": "notes[0].placement",
+      "text": "comparison"
+    },
+    {
+      "path": "notes[0].text",
+      "text": "Radboud integrates computing, mathematics, statistics, cognitive science, neuroscience, linguistics and philosophy with a required 12-EC thesis. UCR offers substantial AI study with different computational and cognitive emphases. Bayesian-network methods occur in its intelligent-agent course; dedicated Bayesian statistics, symbolic knowledge representation, NLP, human-centred design, brain-computer interfacing and theoretical cognitive modelling are less fully represented. Signal processing occurs in the broad option. Human psycholinguistics and deep-learning language applications do not reproduce a dedicated NLP sequence. Scheduled research and evidence synthesis do not replace Radboud’s thesis; optional independent research remains outside the 24-course schedule."
+    },
+    {
+      "path": "optionalIndependentResearch.id",
+      "text": "optional-independent-research"
+    },
+    {
+      "path": "optionalIndependentResearch.text",
+      "text": "Optional independent research"
+    },
+    {
+      "path": "optionalIndependentResearch.researchComponentId",
+      "text": "ai3-thesis"
+    },
+    {
+      "path": "optionalIndependentResearch.placement",
+      "text": "parallel-to-comparator-research"
+    },
+    {
+      "path": "academicRationale.alternatives[0].concept",
+      "text": "Programming, mathematical methods and machine learning combine with robotics, reinforcement learning, signal processing and cognitive neuroscience. Human perception, higher cognition and language supply the cognitive-science strand of this broad AI programme."
+    },
+    {
+      "path": "academicRationale.alternatives[1].concept",
+      "text": "Programming, algorithms, software, data infrastructure and mathematical modelling organise this computational AI programme. Machine learning, reinforcement learning, robotics and computer vision develop intelligent systems, supported by research methods, AI ethics and an introduction to brain and behaviour."
+    },
+    {
+      "path": "academicRationale.alternatives[2].concept",
+      "text": "Cognitive neuroscience, human language, psychology and philosophy organise this cognitive AI programme. Programming, machine learning, neural networks, computer vision, optimisation and statistics connect the study of mind and brain to computational methods; research training includes experimental design and evidence synthesis."
+    },
+    {
+      "path": "blocks[0].title",
+      "text": "Programming, algorithms & intelligent systems"
+    },
+    {
+      "path": "blocks[0].rows[0].cells.ucr-1.text",
+      "text": "Introduction to Programming"
+    },
+    {
+      "path": "blocks[0].rows[0].cells.ucr-2.text",
+      "text": "Introduction to Programming"
+    },
+    {
+      "path": "blocks[0].rows[0].cells.ucr-3.text",
+      "text": "Introduction to Programming"
+    },
+    {
+      "path": "blocks[0].rows[0].cells.comparator.text",
+      "text": "Programming 1"
+    },
+    {
+      "path": "blocks[0].rows[1].cells.ucr-1.text",
+      "text": "Software Development"
+    },
+    {
+      "path": "blocks[0].rows[1].cells.ucr-2.text",
+      "text": "Software Development"
+    },
+    {
+      "path": "blocks[0].rows[1].cells.comparator.text",
+      "text": "Programming 2"
+    },
+    {
+      "path": "blocks[0].rows[2].cells.ucr-2.text",
+      "text": "Advanced Algorithms"
+    },
+    {
+      "path": "blocks[0].rows[3].cells.comparator.text",
+      "text": "Concepts of Programming Languages"
+    },
+    {
+      "path": "blocks[0].rows[4].cells.ucr-1.text",
+      "text": "Decision-making in AI"
+    },
+    {
+      "path": "blocks[0].rows[4].cells.ucr-2.text",
+      "text": "Decision-making in AI"
+    },
+    {
+      "path": "blocks[0].rows[4].cells.comparator.text",
+      "text": "Bayesian Networks"
+    },
+    {
+      "path": "blocks[0].rows[5].cells.ucr-1.text",
+      "text": "Algorithms & Data Structures"
+    },
+    {
+      "path": "blocks[0].rows[5].cells.ucr-2.text",
+      "text": "Algorithms & Data Structures"
+    },
+    {
+      "path": "blocks[0].rows[5].cells.ucr-3.text",
+      "text": "Algorithms & Data Structures"
+    },
+    {
+      "path": "blocks[0].rows[6].cells.ucr-2.text",
+      "text": "Networks & Operating Systems"
+    },
+    {
+      "path": "blocks[0].rows[7].cells.ucr-2.text",
+      "text": "Database Management Systems"
+    },
+    {
+      "path": "blocks[0].rows[8].cells.ucr-1.text",
+      "text": "Optimization Methods in AI"
+    },
+    {
+      "path": "blocks[0].rows[8].cells.ucr-2.text",
+      "text": "Optimization Methods in AI"
+    },
+    {
+      "path": "blocks[0].rows[8].cells.ucr-3.text",
+      "text": "Optimization Methods in AI"
+    },
+    {
+      "path": "blocks[0].rows[9].cells.comparator.text",
+      "text": "Introduction Artificial Intelligence"
+    },
+    {
+      "path": "blocks[0].rows[10].cells.comparator.text",
+      "text": "AI in the Connected World"
+    },
+    {
+      "path": "blocks[0].rows[11].cells.comparator.text",
+      "text": "Knowledge Based AI"
+    },
+    {
+      "path": "blocks[1].title",
+      "text": "Machine learning, robotics & perception"
+    },
+    {
+      "path": "blocks[1].rows[0].cells.ucr-1.text",
+      "text": "Machine Learning"
+    },
+    {
+      "path": "blocks[1].rows[0].cells.ucr-2.text",
+      "text": "Machine Learning"
+    },
+    {
+      "path": "blocks[1].rows[0].cells.ucr-3.text",
+      "text": "Machine Learning"
+    },
+    {
+      "path": "blocks[1].rows[0].cells.comparator.text",
+      "text": "From Data to Model"
+    },
+    {
+      "path": "blocks[1].rows[1].cells.ucr-1.text",
+      "text": "Neural Networks & Deep Learning"
+    },
+    {
+      "path": "blocks[1].rows[1].cells.ucr-2.text",
+      "text": "Neural Networks & Deep Learning"
+    },
+    {
+      "path": "blocks[1].rows[1].cells.ucr-3.text",
+      "text": "Neural Networks & Deep Learning"
+    },
+    {
+      "path": "blocks[1].rows[1].cells.comparator.text",
+      "text": "Deep Learning"
+    },
+    {
+      "path": "blocks[1].rows[2].cells.ucr-1.text",
+      "text": "Reinforcement Learning"
+    },
+    {
+      "path": "blocks[1].rows[2].cells.ucr-2.text",
+      "text": "Reinforcement Learning"
+    },
+    {
+      "path": "blocks[1].rows[2].cells.comparator.text",
+      "text": "Reinforcement Learning"
+    },
+    {
+      "path": "blocks[1].rows[3].cells.ucr-1.text",
+      "text": "Robotics"
+    },
+    {
+      "path": "blocks[1].rows[3].cells.ucr-2.text",
+      "text": "Robotics"
+    },
+    {
+      "path": "blocks[1].rows[3].cells.comparator.text",
+      "text": "Introduction Robotics"
+    },
+    {
+      "path": "blocks[1].rows[4].cells.ucr-1.text",
+      "text": "Image Processing & Computer Vision"
+    },
+    {
+      "path": "blocks[1].rows[4].cells.ucr-2.text",
+      "text": "Image Processing & Computer Vision"
+    },
+    {
+      "path": "blocks[1].rows[4].cells.ucr-3.text",
+      "text": "Image Processing & Computer Vision"
+    },
+    {
+      "path": "blocks[2].title",
+      "text": "Mathematics, logic, statistics & data"
+    },
+    {
+      "path": "blocks[2].rows[0].cells.ucr-1.text",
+      "text": "Mathematical Methods"
+    },
+    {
+      "path": "blocks[2].rows[0].cells.ucr-2.text",
+      "text": "Mathematical Methods"
+    },
+    {
+      "path": "blocks[2].rows[0].cells.ucr-3.text",
+      "text": "Mathematical Methods"
+    },
+    {
+      "path": "blocks[2].rows[0].cells.comparator.text",
+      "text": "Calculus I"
+    },
+    {
+      "path": "blocks[2].rows[1].cells.ucr-1.text",
+      "text": "Linear Algebra"
+    },
+    {
+      "path": "blocks[2].rows[1].cells.ucr-2.text",
+      "text": "Linear Algebra"
+    },
+    {
+      "path": "blocks[2].rows[1].cells.ucr-3.text",
+      "text": "Linear Algebra"
+    },
+    {
+      "path": "blocks[2].rows[1].cells.comparator.text",
+      "text": "Linear Algebra"
+    },
+    {
+      "path": "blocks[2].rows[2].cells.ucr-1.text",
+      "text": "Logic & Discrete Mathematics"
+    },
+    {
+      "path": "blocks[2].rows[2].cells.ucr-2.text",
+      "text": "Logic & Discrete Mathematics"
+    },
+    {
+      "path": "blocks[2].rows[2].cells.ucr-3.text",
+      "text": "Logic & Discrete Mathematics"
+    },
+    {
+      "path": "blocks[2].rows[2].cells.comparator.text",
+      "text": "Formal Reasoning for AI"
+    },
+    {
+      "path": "blocks[2].rows[3].cells.ucr-1.text",
+      "text": "Probability & Statistics"
+    },
+    {
+      "path": "blocks[2].rows[3].cells.ucr-2.text",
+      "text": "Probability & Statistics"
+    },
+    {
+      "path": "blocks[2].rows[3].cells.ucr-3.text",
+      "text": "Probability & Statistics"
+    },
+    {
+      "path": "blocks[2].rows[3].cells.comparator.text",
+      "text": "Probability Theory"
+    },
+    {
+      "path": "blocks[2].rows[4].cells.ucr-1.text",
+      "text": "Statistics & Experimental Methods"
+    },
+    {
+      "path": "blocks[2].rows[4].cells.ucr-2.text",
+      "text": "Statistics & Experimental Methods"
+    },
+    {
+      "path": "blocks[2].rows[4].cells.ucr-3.text",
+      "text": "Statistics & Experimental Methods"
+    },
+    {
+      "path": "blocks[2].rows[4].cells.comparator.text",
+      "text": "Frequentist Statistics"
+    },
+    {
+      "path": "blocks[2].rows[5].cells.ucr-1.text",
+      "text": "Introduction to Data Science"
+    },
+    {
+      "path": "blocks[2].rows[5].cells.ucr-2.text",
+      "text": "Introduction to Data Science"
+    },
+    {
+      "path": "blocks[2].rows[5].cells.ucr-3.text",
+      "text": "Introduction to Data Science"
+    },
+    {
+      "path": "blocks[2].rows[6].cells.ucr-2.text",
+      "text": "Computational & Numerical Methods"
+    },
+    {
+      "path": "blocks[2].rows[7].cells.ucr-2.text",
+      "text": "Research Methods & Statistics"
+    },
+    {
+      "path": "blocks[2].rows[7].cells.ucr-3.text",
+      "text": "Research Methods & Statistics"
+    },
+    {
+      "path": "blocks[2].rows[7].cells.comparator.text",
+      "text": "Research Design & Scientific Method"
+    },
+    {
+      "path": "blocks[2].rows[8].cells.comparator.text",
+      "text": "Bayesian Statistics"
+    },
+    {
+      "path": "blocks[2].rows[9].cells.ucr-1.text",
+      "text": "Linear Systems"
+    },
+    {
+      "path": "blocks[2].rows[9].cells.comparator.text",
+      "text": "Introduction Digital Signal Processing"
+    },
+    {
+      "path": "blocks[2].rows[10].cells.comparator.text",
+      "text": "Calculus II"
+    },
+    {
+      "path": "blocks[3].title",
+      "text": "Cognition, neuroscience & language"
+    },
+    {
+      "path": "blocks[3].rows[0].cells.ucr-1.text",
+      "text": "Introduction to Brain & Behavior"
+    },
+    {
+      "path": "blocks[3].rows[0].cells.ucr-2.text",
+      "text": "Introduction to Brain & Behavior"
+    },
+    {
+      "path": "blocks[3].rows[0].cells.ucr-3.text",
+      "text": "Introduction to Brain & Behavior"
+    },
+    {
+      "path": "blocks[3].rows[0].cells.comparator.text",
+      "text": "Cognitive Psychology"
+    },
+    {
+      "path": "blocks[3].rows[1].cells.ucr-1.text",
+      "text": "Neurobiology"
+    },
+    {
+      "path": "blocks[3].rows[1].cells.ucr-3.text",
+      "text": "Neurobiology"
+    },
+    {
+      "path": "blocks[3].rows[1].cells.comparator.text",
+      "text": "Brain"
+    },
+    {
+      "path": "blocks[3].rows[2].cells.ucr-1.text",
+      "text": "Perception & Action"
+    },
+    {
+      "path": "blocks[3].rows[2].cells.ucr-3.text",
+      "text": "Perception & Action"
+    },
+    {
+      "path": "blocks[3].rows[3].cells.ucr-1.text",
+      "text": "Higher Order Functions"
+    },
+    {
+      "path": "blocks[3].rows[3].cells.ucr-3.text",
+      "text": "Higher Order Functions"
+    },
+    {
+      "path": "blocks[3].rows[4].cells.ucr-1.text",
+      "text": "Psycholinguistics"
+    },
+    {
+      "path": "blocks[3].rows[4].cells.ucr-3.text",
+      "text": "Psycholinguistics"
+    },
+    {
+      "path": "blocks[3].rows[5].cells.comparator.text",
+      "text": "Natural Language Processing"
+    },
+    {
+      "path": "blocks[3].rows[6].cells.ucr-3.text",
+      "text": "Social Psychology"
+    },
+    {
+      "path": "blocks[3].rows[7].cells.ucr-3.text",
+      "text": "Philosophy of Mind"
+    },
+    {
+      "path": "blocks[3].rows[8].cells.ucr-3.text",
+      "text": "Free Will, Time & the Self"
+    },
+    {
+      "path": "blocks[3].rows[9].cells.comparator.text",
+      "text": "Cognitive Computational Neuroscience"
+    },
+    {
+      "path": "blocks[3].rows[10].cells.comparator.text",
+      "text": "Brain-Computer Interfacing"
+    },
+    {
+      "path": "blocks[3].rows[11].cells.comparator.text",
+      "text": "Theoretical Modeling for Cognitive Science"
+    },
+    {
+      "path": "blocks[4].title",
+      "text": "Human-centred design, ethics & research"
+    },
+    {
+      "path": "blocks[4].rows[0].cells.ucr-1.text",
+      "text": "AI Ethics"
+    },
+    {
+      "path": "blocks[4].rows[0].cells.ucr-2.text",
+      "text": "AI Ethics"
+    },
+    {
+      "path": "blocks[4].rows[0].cells.ucr-3.text",
+      "text": "AI Ethics"
+    },
+    {
+      "path": "blocks[4].rows[0].cells.comparator.text",
+      "text": "Societal Impact of AI"
+    },
+    {
+      "path": "blocks[4].rows[1].cells.comparator.text",
+      "text": "Human Centered Design"
+    },
+    {
+      "path": "blocks[4].rows[2].cells.ucr-3.text",
+      "text": "Advanced Research Methods & Statistics"
+    },
+    {
+      "path": "blocks[4].rows[3].cells.ucr-1.text",
+      "text": "Personal & Professional Development"
+    },
+    {
+      "path": "blocks[4].rows[3].cells.ucr-2.text",
+      "text": "Personal & Professional Development"
+    },
+    {
+      "path": "blocks[4].rows[3].cells.ucr-3.text",
+      "text": "Personal & Professional Development"
+    },
+    {
+      "path": "blocks[4].rows[3].cells.comparator.text",
+      "text": "Personal & Professional Development I"
+    },
+    {
+      "path": "blocks[4].rows[4].cells.comparator.text",
+      "text": "Academic Skills for AI 1"
+    },
+    {
+      "path": "blocks[4].rows[5].cells.comparator.text",
+      "text": "Academic Design and Communication"
+    },
+    {
+      "path": "blocks[4].rows[6].cells.comparator.text",
+      "text": "Philosophy of Science for AI"
+    },
+    {
+      "path": "blocks[4].rows[7].cells.comparator.text",
+      "text": "Personal & Professional Development II"
+    },
+    {
+      "path": "blocks[4].rows[8].cells.comparator.text",
+      "text": "Critical Intersectional Theories for AI"
+    },
+    {
+      "path": "blocks[4].rows[9].cells.comparator.text",
+      "text": "AI Ethics in Healthcare"
+    },
+    {
+      "path": "blocks[4].rows[10].cells.comparator.text",
+      "text": "Bachelor thesis"
+    },
+    {
+      "path": "blocks[4].rows[10].cells.ucr-1.text",
+      "text": "Optional independent research"
+    },
+    {
+      "path": "blocks[4].rows[10].cells.ucr-2.text",
+      "text": "Optional independent research"
+    },
+    {
+      "path": "blocks[4].rows[10].cells.ucr-3.text",
+      "text": "Optional independent research"
+    },
+    {
+      "path": "blocks[4].rows[11].cells.comparator.text",
+      "text": "Free choice electives"
+    },
+    {
+      "path": "blocks[4].rows[12].cells.comparator.text",
+      "text": "Explainable AI"
+    },
+    {
+      "path": "blocks[4].rows[13].cells.comparator.text",
+      "text": "Sustainable AI"
+    },
+    {
+      "path": "comparator.name",
+      "text": "Artificial Intelligence"
+    },
+    {
+      "path": "comparator.institution",
+      "text": "Radboud University"
+    },
+    {
+      "path": "comparator.primarySourceUrl",
+      "text": "https://www.ru.nl/sites/default/files/2026-08/fsw-eer-2026-2027-ai-bachelor.pdf"
+    },
+    {
+      "path": "comparator.additionalSourceUrls[0]",
+      "text": "https://www.ru.nl/en/education/bachelors/artificial-intelligence"
+    },
+    {
+      "path": "comparator.additionalSourceUrls[1]",
+      "text": "https://www.ru.nl/en/education/bachelors/artificial-intelligence/curriculum-and-courses"
+    },
+    {
+      "path": "comparator.additionalSourceUrls[2]",
+      "text": "https://www.ru.nl/en/education/bachelors/artificial-intelligence/curriculum-and-courses/year-1"
+    },
+    {
+      "path": "comparator.additionalSourceUrls[3]",
+      "text": "https://www.ru.nl/en/education/bachelors/artificial-intelligence/curriculum-and-courses/year-2"
+    },
+    {
+      "path": "comparator.additionalSourceUrls[4]",
+      "text": "https://www.ru.nl/en/education/bachelors/artificial-intelligence/curriculum-and-courses/year-3"
+    },
+    {
+      "path": "comparator.components[0].id",
+      "text": "ai1-calc1"
+    },
+    {
+      "path": "comparator.components[0].name",
+      "text": "Calculus I"
+    },
+    {
+      "path": "comparator.components[1].id",
+      "text": "ai1-prog1"
+    },
+    {
+      "path": "comparator.components[1].name",
+      "text": "Programming 1"
+    },
+    {
+      "path": "comparator.components[2].id",
+      "text": "ai1-intro"
+    },
+    {
+      "path": "comparator.components[2].name",
+      "text": "Introduction Artificial Intelligence"
+    },
+    {
+      "path": "comparator.components[3].id",
+      "text": "ai1-prob"
+    },
+    {
+      "path": "comparator.components[3].name",
+      "text": "Probability Theory"
+    },
+    {
+      "path": "comparator.components[4].id",
+      "text": "ai1-formal"
+    },
+    {
+      "path": "comparator.components[4].name",
+      "text": "Formal Reasoning for AI"
+    },
+    {
+      "path": "comparator.components[5].id",
+      "text": "ai1-ppd"
+    },
+    {
+      "path": "comparator.components[5].name",
+      "text": "Personal & Professional Development I"
+    },
+    {
+      "path": "comparator.components[6].id",
+      "text": "ai1-cogpsych"
+    },
+    {
+      "path": "comparator.components[6].name",
+      "text": "Cognitive Psychology"
+    },
+    {
+      "path": "comparator.components[7].id",
+      "text": "ai1-prog2"
+    },
+    {
+      "path": "comparator.components[7].name",
+      "text": "Programming 2"
+    },
+    {
+      "path": "comparator.components[8].id",
+      "text": "ai1-linalg"
+    },
+    {
+      "path": "comparator.components[8].name",
+      "text": "Linear Algebra"
+    },
+    {
+      "path": "comparator.components[9].id",
+      "text": "ai1-research"
+    },
+    {
+      "path": "comparator.components[9].name",
+      "text": "Research Design & Scientific Method"
+    },
+    {
+      "path": "comparator.components[10].id",
+      "text": "ai1-hcd"
+    },
+    {
+      "path": "comparator.components[10].name",
+      "text": "Human Centered Design"
+    },
+    {
+      "path": "comparator.components[11].id",
+      "text": "ai1-brain"
+    },
+    {
+      "path": "comparator.components[11].name",
+      "text": "Brain"
+    },
+    {
+      "path": "comparator.components[12].id",
+      "text": "ai1-proglang"
+    },
+    {
+      "path": "comparator.components[12].name",
+      "text": "Concepts of Programming Languages"
+    },
+    {
+      "path": "comparator.components[13].id",
+      "text": "ai1-robotics"
+    },
+    {
+      "path": "comparator.components[13].name",
+      "text": "Introduction Robotics"
+    },
+    {
+      "path": "comparator.components[14].id",
+      "text": "ai1-freqstats"
+    },
+    {
+      "path": "comparator.components[14].name",
+      "text": "Frequentist Statistics"
+    },
+    {
+      "path": "comparator.components[15].id",
+      "text": "ai1-dsp"
+    },
+    {
+      "path": "comparator.components[15].name",
+      "text": "Introduction Digital Signal Processing"
+    },
+    {
+      "path": "comparator.components[16].id",
+      "text": "ai1-skills"
+    },
+    {
+      "path": "comparator.components[16].name",
+      "text": "Academic Skills for AI 1"
+    },
+    {
+      "path": "comparator.components[17].id",
+      "text": "ai2-calc2"
+    },
+    {
+      "path": "comparator.components[17].name",
+      "text": "Calculus II"
+    },
+    {
+      "path": "comparator.components[18].id",
+      "text": "ai2-impact"
+    },
+    {
+      "path": "comparator.components[18].name",
+      "text": "Societal Impact of AI"
+    },
+    {
+      "path": "comparator.components[19].id",
+      "text": "ai2-data-model"
+    },
+    {
+      "path": "comparator.components[19].name",
+      "text": "From Data to Model"
+    },
+    {
+      "path": "comparator.components[20].id",
+      "text": "ai2-communication"
+    },
+    {
+      "path": "comparator.components[20].name",
+      "text": "Academic Design and Communication"
+    },
+    {
+      "path": "comparator.components[21].id",
+      "text": "ai2-knowledge"
+    },
+    {
+      "path": "comparator.components[21].name",
+      "text": "Knowledge Based AI"
+    },
+    {
+      "path": "comparator.components[22].id",
+      "text": "ai2-nlp"
+    },
+    {
+      "path": "comparator.components[22].name",
+      "text": "Natural Language Processing"
+    },
+    {
+      "path": "comparator.components[23].id",
+      "text": "ai2-rl"
+    },
+    {
+      "path": "comparator.components[23].name",
+      "text": "Reinforcement Learning"
+    },
+    {
+      "path": "comparator.components[24].id",
+      "text": "ai2-deep"
+    },
+    {
+      "path": "comparator.components[24].name",
+      "text": "Deep Learning"
+    },
+    {
+      "path": "comparator.components[25].id",
+      "text": "ai2-philsci"
+    },
+    {
+      "path": "comparator.components[25].name",
+      "text": "Philosophy of Science for AI"
+    },
+    {
+      "path": "comparator.components[26].id",
+      "text": "ai2-bayesstats"
+    },
+    {
+      "path": "comparator.components[26].name",
+      "text": "Bayesian Statistics"
+    },
+    {
+      "path": "comparator.components[27].id",
+      "text": "ai2-ppd"
+    },
+    {
+      "path": "comparator.components[27].name",
+      "text": "Personal & Professional Development II"
+    },
+    {
+      "path": "comparator.components[28].id",
+      "text": "ai2-bayesnet"
+    },
+    {
+      "path": "comparator.components[28].name",
+      "text": "Bayesian Networks"
+    },
+    {
+      "path": "comparator.components[28].note",
+      "text": "Selected from the 12-EC restricted-elective basket by official listing order."
+    },
+    {
+      "path": "comparator.components[29].id",
+      "text": "ai2-ccn"
+    },
+    {
+      "path": "comparator.components[29].name",
+      "text": "Cognitive Computational Neuroscience"
+    },
+    {
+      "path": "comparator.components[29].note",
+      "text": "Selected from the 12-EC restricted-elective basket by official listing order."
+    },
+    {
+      "path": "comparator.components[30].id",
+      "text": "ai2-explainable"
+    },
+    {
+      "path": "comparator.components[30].name",
+      "text": "Explainable AI"
+    },
+    {
+      "path": "comparator.components[30].note",
+      "text": "One of four selected 3 EC year 2 restricted electives. Cognitive Science is excluded because its current formal eligibility is restricted to cohort 2025."
+    },
+    {
+      "path": "comparator.components[31].id",
+      "text": "ai2-sustainable"
+    },
+    {
+      "path": "comparator.components[31].name",
+      "text": "Sustainable AI"
+    },
+    {
+      "path": "comparator.components[31].note",
+      "text": "Selected by current official listing order after excluding the cohort-restricted Cognitive Science option."
+    },
+    {
+      "path": "comparator.components[32].id",
+      "text": "ai3-intersectional"
+    },
+    {
+      "path": "comparator.components[32].name",
+      "text": "Critical Intersectional Theories for AI"
+    },
+    {
+      "path": "comparator.components[32].note",
+      "text": "Selected from the 24-EC restricted-elective basket by official listing order."
+    },
+    {
+      "path": "comparator.components[33].id",
+      "text": "ai3-bci"
+    },
+    {
+      "path": "comparator.components[33].name",
+      "text": "Brain-Computer Interfacing"
+    },
+    {
+      "path": "comparator.components[33].note",
+      "text": "Selected from the 24-EC restricted-elective basket by official listing order."
+    },
+    {
+      "path": "comparator.components[34].id",
+      "text": "ai3-modeling"
+    },
+    {
+      "path": "comparator.components[34].name",
+      "text": "Theoretical Modeling for Cognitive Science"
+    },
+    {
+      "path": "comparator.components[34].note",
+      "text": "Selected from the 24-EC restricted-elective basket by official listing order."
+    },
+    {
+      "path": "comparator.components[35].id",
+      "text": "ai3-connected"
+    },
+    {
+      "path": "comparator.components[35].name",
+      "text": "AI in the Connected World"
+    },
+    {
+      "path": "comparator.components[35].note",
+      "text": "Selected from the 24-EC restricted-elective basket by official listing order."
+    },
+    {
+      "path": "comparator.components[36].id",
+      "text": "ai3-health-ethics"
+    },
+    {
+      "path": "comparator.components[36].name",
+      "text": "AI Ethics in Healthcare"
+    },
+    {
+      "path": "comparator.components[36].note",
+      "text": "Selected from the 24-EC restricted-elective basket by official listing order."
+    },
+    {
+      "path": "comparator.components[37].id",
+      "text": "ai3-free"
+    },
+    {
+      "path": "comparator.components[37].name",
+      "text": "Free choice electives"
+    },
+    {
+      "path": "comparator.components[37].note",
+      "text": "24 EC genuine free electives at Radboud, other Dutch universities or partner universities abroad need no Examination Board permission. Courses from other institutions require permission; compulsory courses cannot be counted twice."
+    },
+    {
+      "path": "comparator.components[38].id",
+      "text": "ai3-thesis"
+    },
+    {
+      "path": "comparator.components[38].name",
+      "text": "Bachelor thesis"
+    },
+    {
+      "path": "comparator.components[38].note",
+      "text": "Required 12 EC thesis; entry requires at least 120 EC, with all first-year units passed for B 3 participation."
+    }
+  ],
+  "descriptionEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000031/course-content-review.json#/descriptions",
+  "additionalContentRead": [
+    "Registry English display name American Studies and English/fulltime metadata.",
+    "All six official links, UCR programme link and optional15EC research text; exact source pathway/year qualification and independent-research credit exclusion.",
+    "Every component and course name agrees with source/current workbook. Comparative subjects do not imply dedicated American content.",
+    "All33 selected cached descriptions read: unchanged source/text/name reviews reused; unannotated text independently compared to current official description/profile. No cache edit needed."
+  ],
+  "finding": "Record content, all audience references and names read substantively. Current Bayesian-network partial correspondence is explicit; generic calculus match removed. New-entrant/cohort and partner-university elective conditions are accurate; AI specialist gaps remain plain. No app/runtime/release claim."
+}
