@@ -1,0 +1,62 @@
+{
+  "inputBlobs": {
+    "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+    "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+    "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000258.json": "cdc78b8b03d55d08589378fd000fce56a99e760f",
+    "data/counselor/comparisons/cp-000258.json": "2923b45428fa4d31625325c76c72bbe80cde497a",
+    "data/registry/programme_interests.csv": "3d3ed211ab8e0f6410f6dbb3765465811afd88b2",
+    "data/counselor/review-interests.json": "c0c59451c132724842fc5f4b295acaef06bb4d0c",
+    "data/counselor/review-programmes.json": "36388ca36407743d021d0c996e60291980520831",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7"
+  },
+  "checks": [
+    {
+      "check": "operational",
+      "status": "passed",
+      "outputSha256": "ded9e065565656e8d8693a3e16650246e224550901761b4623f1de74ef227d21",
+      "summary": "nal counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\n"
+    },
+    {
+      "check": "registry",
+      "status": "passed",
+      "outputSha256": "701db7916631b535a59f2dddfa14aa18e7600fbf399175359b4f2478be617cc7",
+      "summary": "known env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> validate:registry-interests\n> node scripts/validate-registry-interests.mjs\n\nValid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.\n"
+    },
+    {
+      "check": "reviewIndexes",
+      "status": "passed",
+      "outputSha256": "9cdc82c30ce21ebe3a169c66afb6ec7ca95b122741df4a50df822f14484914fc",
+      "summary": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\n"
+    },
+    {
+      "check": "strict full schema",
+      "status": "passed"
+    },
+    {
+      "check": "active exception feasibility (no fabricated UCR programme)",
+      "status": "passed"
+    },
+    {
+      "check": "strengthened internal24coursecandidate feasibility",
+      "status": "passed"
+    },
+    {
+      "check": "byte-exact decision/canonical replay",
+      "status": "passed",
+      "sha256": "c9733e1161be0922cd7dad4aa0559130ded9581910b8597707e493e0a799a161"
+    },
+    {
+      "check": "selected descriptions",
+      "status": "not-applicable",
+      "finding": "External-only exception has no selected UCR descriptions; caches and app remain unchanged. Global86declaredprovenancereviews pass."
+    }
+  ],
+  "academicApproval": false,
+  "scope": "Passing mechanical/content checks do not resolve the external cohort/entry evidence. No final no-match or approval."
+}
