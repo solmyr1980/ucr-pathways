@@ -728,7 +728,7 @@
   "auditId": "counselor-full-restart-2026-10-27",
   "status": "active",
   "preparedOn": "2026-10-27",
-  "updatedOn": "2026-11-01T14:34:59.399149+00:00",
+  "updatedOn": "2026-11-01",
   "authority": "User, 27 October 2026: restart the entire corpus from scratch; split into two halves; two hourly tasks starting 11:30 and 12:00 Europe/Amsterdam; user manually selects models.",
   "historicalAudit": "data/counselor/qc/comprehensive-reaudit.json",
   "priorApprovalPolicy": "No old approval, no-match, blocker, deferral, stage outcome, retrieval-failure count or completed-case credit is inherited. Review every baseline case anew. Existing academic artifacts and sources are candidates for independently verified retention, not evidence of fresh approval.",
@@ -1337,7 +1337,7 @@
     },
     {
       "id": "cp-000030",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "retain",
         "2": "correct",
@@ -1348,21 +1348,11 @@
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Course rescheduling, current course-content claims, stronger partial matches and interest attribution",
-          "stages": [
-            2,
-            3,
-            4,
-            5,
-            6
-          ],
-          "scope": "Pending final published pair and separate source-first verification; no unaffected external-source investigation repeated."
-        }
+      "downstreamReassessments": [],
+      "implementationCommits": [
+        "5871f00a1406d3b7b558ca32bac079414c010865"
       ],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000030.json",
       "academicDisposition": "comparison"
     },
@@ -5825,8 +5815,8 @@
     }
   ],
   "progress": {
-    "approved": 40,
-    "inProgress": 10,
+    "approved": 41,
+    "inProgress": 9,
     "reviewedWithBlockers": 0,
     "notStarted": 388,
     "pilotStarted": 2
@@ -6058,58 +6048,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000030",
-      "activeClaim": {
-        "worker": "A",
-        "executionId": "restart-A-cp030-20261101T143459Z",
-        "caseId": "cp-000030",
-        "claimedAt": "2026-11-01T14:34:59.399149+00:00",
-        "reviewedInputCommit": "75965d83fa0951051e9ab1a3d60b2d6be887c491",
-        "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000030.json": "d7062d4d0ce140d48aa6916b845d1cbb546ce8da",
-          "data/counselor/comparisons/cp-000030.json": "a093327315bf01819922b36593527a3bb3109f11",
-          "data/registry/programme_interests.csv": "3deffdc5abd8cbb05378c91edb86a3a19ee87e30"
-        },
-        "nextAction": "Publish the validated bounded CP030 repair/canonical pair and case evidence. Verify exact published inputs and applicableCI; complete separate same-AI source-first academic/mechanical/content pass, then final disposition.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown",
-        "workingInputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000030.json": "6fc8276e6639893121b814d62fc60d7f2ec24899",
-          "data/counselor/comparisons/cp-000030.json": "e97d331c13d93565a54a505cba829bfcea87ef1d",
-          "data/registry/programme_interests.csv": "2d94da4aea7168d291ecc4b8e810f023dc07067a",
-          "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
-          "data/counselor/review-programmes.json": "a2e37df1c0dc27dfd2ea0d2282fb61f2a100cde4",
-          "data/counselor/review-interests.json": "c0c59451c132724842fc5f4b295acaef06bb4d0c",
-          "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
-          "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
-          "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
-          "pilot/shiny/data/courses/BEN.json": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
-          "pilot/shiny/data/courses/GOS.json": "49da38b390637fa113a95b835a4d9bbda854ef83",
-          "pilot/shiny/data/courses/HCB.json": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad",
-          "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa"
-        },
-        "lastHeartbeat": "2026-11-01T14:40:27.358058+00:00"
-      },
+      "nextCase": "cp-000031",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -6133,7 +6080,8 @@
         "cp-000025",
         "cp-000027",
         "cp-000028",
-        "cp-000029"
+        "cp-000029",
+        "cp-000030"
       ],
       "completedDispositions": [
         {
@@ -6296,6 +6244,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000029.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-01"
+        },
+        {
+          "caseId": "cp-000030",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000030.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-01"
         }
       ],
       "deferredCases": [
@@ -6310,19 +6265,19 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000029",
-        "executionId": "restart-A-cp029-20261101T1335Z",
+        "caseId": "cp-000030",
+        "executionId": "restart-A-cp030-20261101T143459Z",
         "state": "approved",
         "academicDisposition": "comparison",
-        "reviewedInputCommit": "17806af52fd6c4120b7320d5dcd37ac5b8277d35",
+        "reviewedInputCommit": "5871f00a1406d3b7b558ca32bac079414c010865",
         "inputBlobs": {
-          "decision": "ae1a0f8f6888a4f8596389b56eb512b0e383c5e2",
-          "canonical": "33d26bad1bf8eda2b67c217c80980858197a1890"
+          "decision": "6fc8276e6639893121b814d62fc60d7f2ec24899",
+          "canonical": "e97d331c13d93565a54a505cba829bfcea87ef1d"
         },
         "verifiedAt": "2026-11-01",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000029/source-first-final-pass.json",
-        "nextAction": "CP029 complete: three verified related arts-and-culture comparisons. Worker A next reviews CP030 after fresh authority checks. CP013, CP020 and CP026 remain deferred and incomplete with permitted revisits pending. No final release, discovery publication, deployment, university contact or additional automation.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000030/source-first-final-pass.json",
+        "nextAction": "CP030 complete: three verified related American Studies comparisons. Worker A next reviews CP031 after fresh authority checks. CP013, CP020 and CP026 remain deferred and incomplete with permitted revisits pending. No final release, discovery publication, deployment, university contact or additional automation.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -7223,6 +7178,73 @@
               "nextAction": "Fresh source verification of coherent external cohort/route and progression; review all interests, course contributions, current feasibility, alignment and reader content. Preserve valid research, repair affected dependencies and perform separate source-first final pass.",
               "runtimeModel": "unknown",
               "runtimeReasoningEffort": "unknown"
+            }
+          }
+        },
+        {
+          "preservedOn": "2026-11-01",
+          "reason": "Preserve previous checkpoint and own claim before verified disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000029",
+              "executionId": "restart-A-cp029-20261101T1335Z",
+              "state": "approved",
+              "academicDisposition": "comparison",
+              "reviewedInputCommit": "17806af52fd6c4120b7320d5dcd37ac5b8277d35",
+              "inputBlobs": {
+                "decision": "ae1a0f8f6888a4f8596389b56eb512b0e383c5e2",
+                "canonical": "33d26bad1bf8eda2b67c217c80980858197a1890"
+              },
+              "verifiedAt": "2026-11-01",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000029/source-first-final-pass.json",
+              "nextAction": "CP029 complete: three verified related arts-and-culture comparisons. Worker A next reviews CP030 after fresh authority checks. CP013, CP020 and CP026 remain deferred and incomplete with permitted revisits pending. No final release, discovery publication, deployment, university contact or additional automation.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "worker": "A",
+              "executionId": "restart-A-cp030-20261101T143459Z",
+              "caseId": "cp-000030",
+              "claimedAt": "2026-11-01T14:34:59.399149+00:00",
+              "reviewedInputCommit": "75965d83fa0951051e9ab1a3d60b2d6be887c491",
+              "inputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000030.json": "d7062d4d0ce140d48aa6916b845d1cbb546ce8da",
+                "data/counselor/comparisons/cp-000030.json": "a093327315bf01819922b36593527a3bb3109f11",
+                "data/registry/programme_interests.csv": "3deffdc5abd8cbb05378c91edb86a3a19ee87e30"
+              },
+              "nextAction": "Publish the validated bounded CP030 repair/canonical pair and case evidence. Verify exact published inputs and applicableCI; complete separate same-AI source-first academic/mechanical/content pass, then final disposition.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown",
+              "workingInputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000030.json": "6fc8276e6639893121b814d62fc60d7f2ec24899",
+                "data/counselor/comparisons/cp-000030.json": "e97d331c13d93565a54a505cba829bfcea87ef1d",
+                "data/registry/programme_interests.csv": "2d94da4aea7168d291ecc4b8e810f023dc07067a",
+                "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+                "data/counselor/review-programmes.json": "a2e37df1c0dc27dfd2ea0d2282fb61f2a100cde4",
+                "data/counselor/review-interests.json": "c0c59451c132724842fc5f4b295acaef06bb4d0c",
+                "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+                "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+                "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+                "pilot/shiny/data/courses/BEN.json": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
+                "pilot/shiny/data/courses/GOS.json": "49da38b390637fa113a95b835a4d9bbda854ef83",
+                "pilot/shiny/data/courses/HCB.json": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad",
+                "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa"
+              },
+              "lastHeartbeat": "2026-11-01T14:40:27.358058+00:00"
             }
           }
         }

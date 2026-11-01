@@ -66,8 +66,22 @@
       "command": "cmp /tmp/a30-replay-3.json data/counselor/comparisons/cp-000030.json",
       "exitCode": 0,
       "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "python scripts/validate-comprehensive-reaudit.py --sync",
+      "exitCode": 0,
+      "finding": "Derived41 approved / A24 / B17; 438 fixed scope and disjoint219 assignments consistent. Final disposition advances only A to CP031."
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
     }
   ],
   "replaySha256": "3f55ad52195a32e20d6ba41c6f8fd3ce441aedb7c09b52fb966cd3a729518bda",
-  "scope": "Actual strict schema/current151-course workbook six-term feasibility, complete operational/registry/index validation, shared description provenance and exact replay. Review index rebuild produced no file delta. No R/Shiny/browser invoked; academic review separately evidenced. Initial local CSV-edit quoting error corrected before validation; all44 target rows and unrelated rows preserved. No published failure or systemic problem."
+  "scope": "Actual strict schema/current151-course workbook six-term feasibility, complete operational/registry/index validation, shared description provenance and exact replay. Review index rebuild produced no file delta. No R/Shiny/browser invoked; academic review separately evidenced. Initial local CSV-edit quoting error corrected before validation; all44 target rows and unrelated rows preserved. No published failure or systemic problem.",
+  "publishedCI": {
+    "status": "passed",
+    "commit": "5871f00a1406d3b7b558ca32bac079414c010865",
+    "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000030/ci-verification.json"
+  }
 }
