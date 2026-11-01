@@ -6153,35 +6153,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000033",
-      "activeClaim": {
-        "worker": "A",
-        "caseId": "cp-000033",
-        "executionId": "restart-A-cp033-attempt2-20261101T1828Z",
-        "claimedAt": "2026-11-01T18:28:50Z",
-        "reviewedInputCommit": "47730d8621060835d766dd20576330276be84de1",
-        "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000033.json": "3cfc4963fbc0bc0b476850fe828b70ba9a8b26ae",
-          "data/counselor/comparisons/cp-000033.json": "986c4af0b8b48f6f89b1c4724103d0e03b35e9d6",
-          "data/registry/programme_interests.csv": "79ad865c96c39c4f952532fc4980c78203af2b22"
-        },
-        "nextAction": "Second essential-source verification: inspect current OER Appendix3/4, current thesis catalogue and explicit transition/equivalence/precedence evidence. Preserve unaffected verified43interests and three repaired provisional candidates. Resolve all academic gates or record incomplete deferral under sourceRetryRule; no new failure count until source pass completed.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000034",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -6397,29 +6377,30 @@
       "deferredCases": [
         "cp-000013",
         "cp-000020",
-        "cp-000026"
+        "cp-000026",
+        "cp-000033"
       ],
       "sourceRetrievalFailuresByCase": {
         "cp-000013": 2,
         "cp-000020": 2,
         "cp-000026": 2,
-        "cp-000033": 1
+        "cp-000033": 2
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
         "caseId": "cp-000033",
-        "executionId": "restart-A-cp033-20261101T1728Z",
-        "state": "in-progress",
+        "executionId": "restart-A-cp033-attempt2-20261101T1828Z",
+        "state": "deferred-incomplete",
         "academicDisposition": "external-programme-unresolved",
-        "reviewedInputCommit": "6a36604293b23d9fb34198ae7d981275b08bd6da",
+        "reviewedInputCommit": "e9e2f0889dbdb03cb308abf3b2fc60f9702291ec",
         "inputBlobs": {
           "decision": "3cfc4963fbc0bc0b476850fe828b70ba9a8b26ae",
           "canonical": "986c4af0b8b48f6f89b1c4724103d0e03b35e9d6"
         },
         "checkpointedOn": "2026-11-01",
-        "sourceVerificationAttempt": 1,
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000033/source-attempt-1.json",
-        "nextAction": "Resume CP033 for essential-source verification attempt2: obtain authoritative amendment, explicit course-equivalence/transition or precedence resolving MAN-BPRO372A2026entry. OERAppendix4 requires102ECwithAcademicSkills+oldOIMA/B; current catalogue requires102ECwithBIN117B,BPRA171,BPRO100A. Preserve verified25componentcreditstructure,all43interest reviews and repaired current provisional curricula under reuse rules; do not repeat unaffected research. No approval/no-match/deferral; no queue advance, release, discovery, deployment, contact or newautomation.",
+        "sourceVerificationAttempt": 2,
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000033/source-attempt-2.json",
+        "nextAction": "CP033 deferred and incomplete after two essential-source executions. Revisit once after worker A non-deferred queue or new authoritative MAN-BPRO372A thesis prerequisite amendment/equivalence/precedence evidence. Preserve all unaffected verified research,43interests and three feasible provisional candidates. Resume CP034 next execution; no approval/no-match/release/discovery/deployment/contact/additionalautomation.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -7567,6 +7548,50 @@
               }
             }
           }
+        },
+        {
+          "preservedOn": "2026-11-01",
+          "reason": "Preserve first checkpoint and second execution claim before source-rule deferral.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000033",
+              "executionId": "restart-A-cp033-20261101T1728Z",
+              "state": "in-progress",
+              "academicDisposition": "external-programme-unresolved",
+              "reviewedInputCommit": "6a36604293b23d9fb34198ae7d981275b08bd6da",
+              "inputBlobs": {
+                "decision": "3cfc4963fbc0bc0b476850fe828b70ba9a8b26ae",
+                "canonical": "986c4af0b8b48f6f89b1c4724103d0e03b35e9d6"
+              },
+              "checkpointedOn": "2026-11-01",
+              "sourceVerificationAttempt": 1,
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000033/source-attempt-1.json",
+              "nextAction": "Resume CP033 for essential-source verification attempt2: obtain authoritative amendment, explicit course-equivalence/transition or precedence resolving MAN-BPRO372A2026entry. OERAppendix4 requires102ECwithAcademicSkills+oldOIMA/B; current catalogue requires102ECwithBIN117B,BPRA171,BPRO100A. Preserve verified25componentcreditstructure,all43interest reviews and repaired current provisional curricula under reuse rules; do not repeat unaffected research. No approval/no-match/deferral; no queue advance, release, discovery, deployment, contact or newautomation.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "worker": "A",
+              "caseId": "cp-000033",
+              "executionId": "restart-A-cp033-attempt2-20261101T1828Z",
+              "claimedAt": "2026-11-01T18:28:50Z",
+              "reviewedInputCommit": "47730d8621060835d766dd20576330276be84de1",
+              "inputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000033.json": "3cfc4963fbc0bc0b476850fe828b70ba9a8b26ae",
+                "data/counselor/comparisons/cp-000033.json": "986c4af0b8b48f6f89b1c4724103d0e03b35e9d6",
+                "data/registry/programme_interests.csv": "79ad865c96c39c4f952532fc4980c78203af2b22"
+              },
+              "nextAction": "Second essential-source verification: inspect current OER Appendix3/4, current thesis catalogue and explicit transition/equivalence/precedence evidence. Preserve unaffected verified43interests and three repaired provisional candidates. Resolve all academic gates or record incomplete deferral under sourceRetryRule; no new failure count until source pass completed.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -7625,6 +7650,14 @@
           "essentialEvidence": "Clarify the controlling 2026–2027 thesis-entry requirement for the Dutch Bedrijfskunde programme MAN-BPRO372A. The latest September OER Appendix 4 p35 requires at least102 EC including Academic Skills and Onderzoeks- en Interventiemethodologie A and B, which are absent under those names from the renewed Appendix3 curriculum. The current official2026 Osiris course172589 instead requires102 EC including BIN117B, BPRA171 and BPRO100A. An authoritative amendment, explicit equivalence/transition rule or precedence statement is needed to reconcile these current official conditions. No exemption, replacement equivalence or administrative error is assumed.",
           "officialAlternative": "Current facultyOERindex and currentlylinked49-pageedition checked; aliaspublication is byte-identical SHA2563789c9ec36346fc70bf70063663e077b374027ef52375f6c5fc522afbbefe7d9. Current public2026catalogue/API confirms differentnamedcourseconditions. Currenttransitiontext and targeted officialclarification search did not reconcile. No university contact or oldfailurecount inherited.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000033/source-attempt-1.json"
+        },
+        {
+          "caseId": "cp-000033",
+          "executionId": "restart-A-cp033-attempt2-20261101T1828Z",
+          "checkedOn": "2026-11-01",
+          "essentialEvidence": "Resolve controlling MAN-BPRO372A2026thesis-entry requirement: adoptedOERAppendix4 oldOIMA/B vs currentcatalogueBIN117B/BPRA171/BPRO100A and renewedAppendix3. Need authoritative amendment, explicit equivalence/transition or precedence evidence.",
+          "officialAlternative": "Current faculty OER index and its current publication alias independently retrieved. Alias and direct September49-pagePDF are byte-identical SHA2563789c9ec36346fc70bf70063663e077b374027ef52375f6c5fc522afbbefe7d9. Current public2026thesisAPI172589 independently retrieved. Current Article41transition andAppendix3/4 inspected; no explicit new-cohortOIMequivalence orprecedence. Targeted officialsearch adds older2024OERtransition forpre2024entrants and anotherprogramme2025lawtransition; neither establishes2026DutchBedrijfskundethesisconditions. Historical course/staff listings do not resolve current formal requirements. No universitycontact or inferredexemption.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000033/source-attempt-2.json"
         }
       ],
       "deferralHistory": [
@@ -7655,6 +7688,16 @@
           "unsuccessfulExecutions": 2,
           "reason": "Establish one coherent current 180-EC EUC pathway. For the 2025 entrant cohort, clarify the stated 45-EC Academic Core versus eight listed 5-EC courses, confirm its 60-EC choice allocation and the 45-EC core requirement for Capstone entry. Alternatively, provide the applicable major requirements and corrected Capstone conditions for the 2026 entrant 40-EC core. Identify the controlling ARR and cohort; a numerical sum assembled across different cohorts is insufficient.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000026/source-attempt-2.json",
+          "revisitStatus": "pending; not consumed",
+          "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
+        },
+        {
+          "caseId": "cp-000033",
+          "deferredOn": "2026-11-01",
+          "executionId": "restart-A-cp033-attempt2-20261101T1828Z",
+          "unsuccessfulExecutions": 2,
+          "reason": "Resolve controlling MAN-BPRO372A2026thesis-entry requirement: adoptedOERAppendix4 oldOIMA/B vs currentcatalogueBIN117B/BPRA171/BPRO100A and renewedAppendix3. Need authoritative amendment, explicit equivalence/transition or precedence evidence.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000033/source-attempt-2.json",
           "revisitStatus": "pending; not consumed",
           "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
         }

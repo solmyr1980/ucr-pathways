@@ -1,0 +1,88 @@
+{
+  "reviewedInputCommit": "e9e2f0889dbdb03cb308abf3b2fc60f9702291ec",
+  "inputBlobs": {
+    "decision": "3cfc4963fbc0bc0b476850fe828b70ba9a8b26ae",
+    "canonical": "986c4af0b8b48f6f89b1c4724103d0e03b35e9d6"
+  },
+  "checks": [
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000033.json --output /tmp/a33b-replay.json",
+      "exitCode": 0,
+      "outputSha256": "0039c15b8216e0328546664da147c0192d0b7e6f35a6349c4ef6914054e83492",
+      "output": "Built cp-000033 counselor exception record at /tmp/a33b-replay.json\n"
+    },
+    {
+      "command": "cmp /tmp/a33b-replay.json data/counselor/comparisons/cp-000033.json",
+      "exitCode": 0,
+      "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output": ""
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000033/provisional-candidate-decision.json --output /tmp/a33b-candidate.json",
+      "exitCode": 0,
+      "outputSha256": "bed48b998b00f2e8b3a34af1b7e11832ac3670b668d38c53f59c0f389d6ab620",
+      "output": "Built cp-000033 counselor comparison record at /tmp/a33b-candidate.json\n"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py /tmp/a33b-candidate.json",
+      "exitCode": 0,
+      "outputSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c",
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py /tmp/a33b-candidate.json",
+      "exitCode": 0,
+      "outputSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918",
+      "output": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000033.json",
+      "exitCode": 0,
+      "outputSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c",
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000033.json",
+      "exitCode": 0,
+      "outputSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918",
+      "output": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "outputSha256": "ba9e304866817704dc0d2aa0879969a1a36c9b70587c8f4e3012fb17f2665a44",
+      "output": "cp-000443.json: final counselor methodology rules OK\ncp-000444.json: final counselor methodology rules OK\ncp-000445.json: final counselor methodology rules OK\ncp-000446.json: final counselor methodology rules OK\ncp-000447.json: final counselor methodology rules OK\ncp-000448.json: final counselor methodology rules OK\ncp-000449.json: final counselor methodology rules OK\ncp-000450.json: final counselor methodology rules OK\ncp-000451.json: final counselor methodology rules OK\ncp-000452.json: final counselor methodology rules OK\ncp-000453.json: final counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": "npm run validate:registry-interests",
+      "exitCode": 0,
+      "outputSha256": "f7ce7bad855e286774d735f463e47833f715bb1c677a71b50a13e39b12bb572e",
+      "output": "\n> validate:registry-interests\n> node scripts/validate-registry-interests.mjs\n\nValid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": "npm run validate:counselor-review",
+      "exitCode": 0,
+      "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8",
+      "output": "\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "outputSha256": "994b1639a5f96a3deac0d3b5c1ca4e345eb8c2f3ec0ae363b58da3ddc8a3a0c8",
+      "output": "86 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.\n"
+    }
+  ],
+  "reuse": {
+    "changedGlobalInputs": [
+      {
+        "path": "data/registry/programme_interests.csv",
+        "old": "c23795fa33b3ad7038174895baf0e16abb1ff3b7",
+        "current": "79ad865c96c39c4f952532fc4980c78203af2b22"
+      }
+    ],
+    "exactTargetRows": 43,
+    "targetRowsStatus": "exact",
+    "retained": "All other reviewed inputs, decision/canonical, workbook, renderer, selected cache and prepared candidates unchanged; B CP263 registry-only changes do not affect CP033."
+  },
+  "finding": "No active academic pair, app, workbook, cache or registry edits in this execution. Active exception and three retained provisional candidates pass current schema/feasibility. Replay is byte-exact. Governing and source/course inputs reused only after exact-version comparison; CP263 global registry changes leave all43CP033 rows exact. Operational and description provenance checks passed. No academic approval inferred."
+}
