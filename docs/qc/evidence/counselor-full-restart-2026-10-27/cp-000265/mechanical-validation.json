@@ -1,0 +1,612 @@
+{
+  "inputBlobs": {
+    "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+    "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+    "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000265.json": "f5f33b8aba4c14f5e8994c8df7b442366c3894c0",
+    "data/counselor/comparisons/cp-000265.json": "98ab9937a587821426655334ceb6188cda420049",
+    "data/registry/programme_interests.csv": "88a3bb7d63e428a6be7b369f943ced98cb6dbb56",
+    "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+    "data/counselor/review-programmes.json": "c7d908254b592b23edf2c1fa2651e57d4e39066a",
+    "data/counselor/review-interests.json": "48ba4938598dee021a53592b307f973f9d0c3626",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
+    "pilot/shiny/data/courses/DIS.json": "5774e2104a8310aa2925fc2aada2adac0c53bb95",
+    "pilot/shiny/data/courses/ENS.json": "da5d9225d6682419998c3cf20837727a5fa39cbf"
+  },
+  "checks": [
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000265.json --output /tmp/b265-active-replay.json",
+      "exitCode": 0,
+      "outputSha256": "96c9752705e50bfad887e058e3bfc93f53daf42225c7cfe9dccced5e71881a29",
+      "output": "Built cp-000265 counselor comparison record at /tmp/b265-active-replay.json\n"
+    },
+    {
+      "command": "cp /tmp/b265-active-replay.json data/counselor/comparisons/cp-000265.json",
+      "exitCode": 0,
+      "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output": ""
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000265.json",
+      "exitCode": 0,
+      "outputSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c",
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000265.json",
+      "exitCode": 0,
+      "outputSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918",
+      "output": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "outputSha256": "ba9e304866817704dc0d2aa0879969a1a36c9b70587c8f4e3012fb17f2665a44",
+      "output": "on: final counselor methodology rules OK\ncp-000440.json: final counselor methodology rules OK\ncp-000441.json: final counselor methodology rules OK\ncp-000442.json: final counselor methodology rules OK\ncp-000443.json: final counselor methodology rules OK\ncp-000444.json: final counselor methodology rules OK\ncp-000445.json: final counselor methodology rules OK\ncp-000446.json: final counselor methodology rules OK\ncp-000447.json: final counselor methodology rules OK\ncp-000448.json: final counselor methodology rules OK\ncp-000449.json: final counselor methodology rules OK\ncp-000450.json: final counselor methodology rules OK\ncp-000451.json: final counselor methodology rules OK\ncp-000452.json: final counselor methodology rules OK\ncp-000453.json: final counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": "npm run validate:registry-interests",
+      "exitCode": 0,
+      "outputSha256": "f7ce7bad855e286774d735f463e47833f715bb1c677a71b50a13e39b12bb572e",
+      "output": "\n> validate:registry-interests\n> node scripts/validate-registry-interests.mjs\n\nValid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": "npm run build:counselor-review",
+      "exitCode": 0,
+      "outputSha256": "03d5707a2817feb59ebd51b7eaf3d54e159f7df8c3e1f0d4f4d75b8a67aee3e2",
+      "output": "\n> build:counselor-review\n> node scripts/build-counselor-review-index.mjs\n\nWrote counselor review indexes: 438 programmes, 21212 interest rows.\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": "npm run validate:counselor-review",
+      "exitCode": 0,
+      "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8",
+      "output": "\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "outputSha256": "994b1639a5f96a3deac0d3b5c1ca4e345eb8c2f3ec0ae363b58da3ddc8a3a0c8",
+      "output": "86 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.\n"
+    },
+    {
+      "command": "cmp /tmp/b265-active-replay.json data/counselor/comparisons/cp-000265.json",
+      "exitCode": 0,
+      "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output": ""
+    }
+  ],
+  "interestCsvScope": {
+    "changedLines": [
+      {
+        "line": 11539,
+        "row": "11539",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11540,
+        "row": "11540",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11541,
+        "row": "11541",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11542,
+        "row": "11542",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11543,
+        "row": "11543",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11544,
+        "row": "11544",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11545,
+        "row": "11545",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11546,
+        "row": "11546",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11547,
+        "row": "11547",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11548,
+        "row": "11548",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11549,
+        "row": "11549",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11550,
+        "row": "11550",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11551,
+        "row": "11551",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11552,
+        "row": "11552",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11553,
+        "row": "11553",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11554,
+        "row": "11554",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11555,
+        "row": "11555",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11556,
+        "row": "11556",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11557,
+        "row": "11557",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11558,
+        "row": "11558",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11559,
+        "row": "11559",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11560,
+        "row": "11560",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11561,
+        "row": "11561",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11562,
+        "row": "11562",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11563,
+        "row": "11563",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11564,
+        "row": "11564",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11565,
+        "row": "11565",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11566,
+        "row": "11566",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11567,
+        "row": "11567",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11568,
+        "row": "11568",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11569,
+        "row": "11569",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11570,
+        "row": "11570",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11571,
+        "row": "11571",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11572,
+        "row": "11572",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11573,
+        "row": "11573",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url",
+          "strength",
+          "interest_relationship"
+        ]
+      },
+      {
+        "line": 11574,
+        "row": "11574",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11575,
+        "row": "11575",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11576,
+        "row": "11576",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11577,
+        "row": "11577",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11578,
+        "row": "11578",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11579,
+        "row": "11579",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11580,
+        "row": "11580",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11581,
+        "row": "11581",
+        "changedFields": [
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11582,
+        "row": "11582",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11583,
+        "row": "11583",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11584,
+        "row": "11584",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11585,
+        "row": "11585",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11586,
+        "row": "11586",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11587,
+        "row": "11587",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11588,
+        "row": "11588",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11589,
+        "row": "11589",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11590,
+        "row": "11590",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11591,
+        "row": "11591",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11592,
+        "row": "11592",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11593,
+        "row": "11593",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11594,
+        "row": "11594",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11595,
+        "row": "11595",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11596,
+        "row": "11596",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11597,
+        "row": "11597",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      },
+      {
+        "line": 11598,
+        "row": "11598",
+        "changedFields": [
+          "evidence",
+          "source_title",
+          "source_url"
+        ]
+      }
+    ],
+    "totalLines": 22260,
+    "allOtherBytesUnchanged": true,
+    "beforeSha256": "69df7d605da88a38de91e9f9bf0e6357170aa109b320d8e5444bd42a56ee6a5b",
+    "afterSha256": "084bdec0b58622e8cb2416c23845f4ee7fc8d8cb5331db08b1923964b6475b8d"
+  },
+  "scope": "Both24course180ECprogrammes/48placements satisfycurrentcoveredterms,earlierformalprerequisites,PPDyear1 andadvancedminimum. Allcurrentofferingconflicts repaired throughrescheduling; no workbook/database edit. Fullschema/operational/registry/index/provenance/byteexactreplaypass; noapp/runtime change. Optionalresearch15ECoutside180beside10ECexternalBEP."
+}
