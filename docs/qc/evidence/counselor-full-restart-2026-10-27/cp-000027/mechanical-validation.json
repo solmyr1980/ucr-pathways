@@ -6,8 +6,8 @@
     "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
     "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
     "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-    "data/counselor/decisions/cp-000027.json": "09a9872a33421f35610c4604483afd582844f7aa",
-    "data/counselor/comparisons/cp-000027.json": "d0e528a61cc36afde76dd33bafa403447a697216",
+    "data/counselor/decisions/cp-000027.json": "a46e7e172d59691aed575aee317d2596883756e8",
+    "data/counselor/comparisons/cp-000027.json": "c6a8ab4618c178fe0312cfde1745a3e0da058bba",
     "data/registry/programme_interests.csv": "b3a75ca420fabb9c96406c6ac54a22b2fc9f5857",
     "data/counselor/review-programmes.json": "3ce53c2e28b1059282f9398ab741dcc420c95e02",
     "data/counselor/review-interests.json": "a0223d185576999b74ebdc714d7fc91026ad3a47",
@@ -70,5 +70,27 @@
     }
   ],
   "scope": "Actual repairedCP027inputs. The initial operational failure was a missing a0basis reference after adding comparative private law to option2; repaired and replayed. It was not systemic. Original5offering conflicts belonged to CP027; no old values restored.",
-  "appChanges": false
+  "appChanges": false,
+  "sourceFirstRepairChecks": {
+    "fullSchema": {
+      "status": "passed",
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000027.json"
+    },
+    "courseFeasibility": {
+      "status": "passed",
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000027.json"
+    },
+    "operational": {
+      "status": "passed",
+      "command": "npm run validate:counselor",
+      "outputSha256": "991c53c2f3ed3caaff717d00810c4b347b872c855cf45573847734f194537fbd"
+    },
+    "byteExactReplay": {
+      "status": "passed",
+      "bytes": 154989,
+      "sha256": "84e6ae07b41c9be1d5052a293b59600fbb45600cab32d0d616d7b087fec95505",
+      "temporaryOutput": "/tmp/a27second-canonical.json"
+    },
+    "unchangedChecks": "Registry, review indexes and selected description caches unchanged; preceding passed checks retain identical relevant inputs."
+  }
 }
