@@ -3421,7 +3421,9 @@
           ]
         }
       ],
-      "implementationCommits": [],
+      "implementationCommits": [
+        "26decd87698fc2255d6cf49baff37429cef01581"
+      ],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000250.json",
       "academicDisposition": "external-programme-unresolved"
@@ -6426,7 +6428,7 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "working",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
@@ -6434,27 +6436,7 @@
         "minute": 0
       },
       "nextCase": "cp-000250",
-      "activeClaim": {
-        "executionId": "restart-B-cp250-20261031T2359Z",
-        "worker": "B",
-        "caseId": "cp-000250",
-        "claimedAt": "2026-10-31T23:59:55Z",
-        "reviewedInputCommit": "bba6779fde8edd9156b8abc8d7cc227184f7bf30",
-        "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000250.json": "101aed3ea6c20edfb7fde799aba515ee964d4b68",
-          "data/counselor/comparisons/cp-000250.json": "4f78e2a6b927498cd70431560594f07d28f90250",
-          "data/registry/programme_interests.csv": "8d920fbb8f3c523d99c131754061b315f6a59e6d"
-        },
-        "nextAction": "Verify publishedCP250partialview/interestrepairs andactualinputs/CI; recordfirstunsuccessfulessential-sourceexecution,notapproval. ResumeCP250 forsourceattempt2: resolveauthoritativeBScKT2755/180EC allocation,usingthecurrentMSc3.5ECcounterevidencewithoutassumingitcorrectstheBSc. Preserveverifiedfirstyear,55interestreview and16courseleads;thencompleteacademicassessment orpermittedincompletedeferral.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -6559,23 +6541,24 @@
         "cp-000245"
       ],
       "sourceRetrievalFailuresByCase": {
-        "cp-000245": 2
+        "cp-000245": 2,
+        "cp-000250": 1
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000249",
-        "executionId": "restart-B-cp249-20261031T2259Z",
-        "state": "approved",
-        "academicDisposition": "comparison",
-        "reviewedInputCommit": "7ae3e810675d3bbba35adde6c21cba8efe977712",
+        "caseId": "cp-000250",
+        "executionId": "restart-B-cp250-20261031T2359Z",
+        "state": "in-progress",
+        "academicDisposition": "external-programme-unresolved",
+        "operationalDisposition": "incomplete; sourceattempt1",
+        "reviewedInputCommit": "26decd87698fc2255d6cf49baff37429cef01581",
         "inputBlobs": {
-          "canonical": "ef2f0207486798d31663fe84519819c1c4d34151",
-          "decision": "3776a0365b88d5af320c3e83a96ae669d8c65023"
+          "canonical": "40c542b81938e2532dd103ccbf3a419e1085aa46",
+          "decision": "3cf0483fdba2bddee2410d4acf2ae2697dfcedcf"
         },
-        "verifiedAt": "2026-10-31",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000249/source-first-final-pass.json",
-        "nextAction": "CP249 complete: two verified related-fields comparisons. Worker B resumes CP250; CP245 remains deferred/incomplete and its permitted revisit is unconsumed.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/source-first-checkpoint.json",
+        "nextAction": "ResumeCP250 sourceattempt2 forauthoritativeBScKT2755/current180ECallocation. Preservefirstyear60EC,55interestreview,16currentcourseleads andindependentcontentrepairs; donotadvanceCP251.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -6971,6 +6954,50 @@
               "claimedAtSource": "Authenticated GitHub claim commit 8a807d5a8f69044d4aa7a569af6cc220b44f3d7a created_at; replaces provisional minute timestamp."
             }
           }
+        },
+        {
+          "preservedOn": "2026-11-01",
+          "reason": "Preserve prior checkpoint and own execution claim before releasing this checkpointed execution.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000249",
+              "executionId": "restart-B-cp249-20261031T2259Z",
+              "state": "approved",
+              "academicDisposition": "comparison",
+              "reviewedInputCommit": "7ae3e810675d3bbba35adde6c21cba8efe977712",
+              "inputBlobs": {
+                "canonical": "ef2f0207486798d31663fe84519819c1c4d34151",
+                "decision": "3776a0365b88d5af320c3e83a96ae669d8c65023"
+              },
+              "verifiedAt": "2026-10-31",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000249/source-first-final-pass.json",
+              "nextAction": "CP249 complete: two verified related-fields comparisons. Worker B resumes CP250; CP245 remains deferred/incomplete and its permitted revisit is unconsumed.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-B-cp250-20261031T2359Z",
+              "worker": "B",
+              "caseId": "cp-000250",
+              "claimedAt": "2026-10-31T23:59:55Z",
+              "reviewedInputCommit": "bba6779fde8edd9156b8abc8d7cc227184f7bf30",
+              "inputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000250.json": "101aed3ea6c20edfb7fde799aba515ee964d4b68",
+                "data/counselor/comparisons/cp-000250.json": "4f78e2a6b927498cd70431560594f07d28f90250",
+                "data/registry/programme_interests.csv": "8d920fbb8f3c523d99c131754061b315f6a59e6d"
+              },
+              "nextAction": "Verify publishedCP250partialview/interestrepairs andactualinputs/CI; recordfirstunsuccessfulessential-sourceexecution,notapproval. ResumeCP250 forsourceattempt2: resolveauthoritativeBScKT2755/180EC allocation,usingthecurrentMSc3.5ECcounterevidencewithoutassumingitcorrectstheBSc. Preserveverifiedfirstyear,55interestreview and16courseleads;thencompleteacademicassessment orpermittedincompletedeferral.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -6989,6 +7016,14 @@
           "essentialEvidence": "Authoritative 2026 entrant cohort, transition and choice rules identifying the unnamed 7.5-EC course0000 and reconciling duplicated Psychology/Embodied Meaning entries with later-year thesis and external-study allocations.",
           "officialAlternative": "Current2026–2027 examination rules10.2/Appendix2 inspected; no course/cohort reconstruction supplied.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/source-attempt-2.json"
+        },
+        {
+          "caseId": "cp-000250",
+          "executionId": "restart-B-cp250-20261031T2359Z",
+          "checkedOn": "2026-11-01",
+          "essentialEvidence": "Resolve the applicable2026–2027 bachelor allocation for KT2755/current60+61+60printed181EC requirements: obtain an applicable BSc correction,current bachelor course allocation or explicit credit-sharing/cohort rule reconciling180EC. CurrentMScbridge3.5EC is contrary evidence,not a BSc correction.",
+          "officialAlternative": "FollowedcurrentMEportalOERlink(sameBScPDF),inspectedcurrentTechnicalMedicineMScbridge regulation,andfollowedofficiallearningpagestudy-guidelinktoeducations/19049(404). Focusedofficialsearchdidnotestablish anapplicableBSc correction. Historical2024materialnotusedascurrentauthority.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/source-first-checkpoint.json"
         }
       ],
       "deferralHistory": [
