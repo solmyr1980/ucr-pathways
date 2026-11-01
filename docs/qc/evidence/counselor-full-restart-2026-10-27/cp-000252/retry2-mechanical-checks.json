@@ -1,0 +1,26 @@
+{
+  "checks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000252.json",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000252/retry2-feasibility.log"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000252.json",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000252/retry2-schema.log"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "status": "passed",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000252/retry2-operational.log"
+    },
+    {
+      "check": "decision/canonical replay",
+      "status": "passed",
+      "byteExact": true,
+      "canonicalSha256": "fe6e710cd7ddae3bdaf1a7ac5fc88120a9ff966cfd8005d04ed341c25b5cbdac"
+    }
+  ],
+  "scope": "Unchanged partial exception; no selected UCR schedule or descriptions. Academic validity remains blocked. Strengthened candidate and its passed feasibility retained."
+}
