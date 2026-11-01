@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "check": "feasibility",
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000254.json",
+      "status": "passed",
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000254/feasibility.log"
+    },
+    {
+      "check": "schema",
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000254.json",
+      "status": "passed",
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000254/schema.log"
+    },
+    {
+      "check": "operational",
+      "command": "npm run validate:counselor",
+      "status": "passed",
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000254/operational.log"
+    },
+    {
+      "check": "interests",
+      "command": "npm run validate:registry-interests",
+      "status": "passed",
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000254/interests.log"
+    },
+    {
+      "check": "review-index",
+      "command": "npm run validate:counselor-review",
+      "status": "passed",
+      "exitCode": 0,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000254/review-index.log"
+    },
+    {
+      "check": "byte-exact decision/canonical replay",
+      "status": "passed",
+      "sha256": "ba2ae7ce12c477c8380f6f085828cd9b5a829636342ca1a3731d482a182dbe79"
+    }
+  ],
+  "scope": "Exception; no UCR schedule selected or fabricated. Academic judgment and source-first final pass recorded separately."
+}
