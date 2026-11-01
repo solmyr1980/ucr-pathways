@@ -1,0 +1,73 @@
+{
+  "inputBlobs": {
+    "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+    "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+    "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000030.json": "6fc8276e6639893121b814d62fc60d7f2ec24899",
+    "data/counselor/comparisons/cp-000030.json": "e97d331c13d93565a54a505cba829bfcea87ef1d",
+    "data/registry/programme_interests.csv": "2d94da4aea7168d291ecc4b8e810f023dc07067a",
+    "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+    "data/counselor/review-programmes.json": "a2e37df1c0dc27dfd2ea0d2282fb61f2a100cde4",
+    "data/counselor/review-interests.json": "c0c59451c132724842fc5f4b295acaef06bb4d0c",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
+    "pilot/shiny/data/courses/GOS.json": "49da38b390637fa113a95b835a4d9bbda854ef83",
+    "pilot/shiny/data/courses/HCB.json": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad",
+    "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa"
+  },
+  "checks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000030.json",
+      "exitCode": 0,
+      "outputSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000030.json",
+      "exitCode": 0,
+      "outputSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "outputSha256": "38b70fc5793e95f56c5e8f9aae8c7dfaf09b2ec038b4c584f98e4468ff4de0be"
+    },
+    {
+      "command": "npm run validate:registry-interests",
+      "exitCode": 0,
+      "outputSha256": "f7ce7bad855e286774d735f463e47833f715bb1c677a71b50a13e39b12bb572e"
+    },
+    {
+      "command": "npm run build:counselor-review",
+      "exitCode": 0,
+      "outputSha256": "03d5707a2817feb59ebd51b7eaf3d54e159f7df8c3e1f0d4f4d75b8a67aee3e2"
+    },
+    {
+      "command": "npm run validate:counselor-review",
+      "exitCode": 0,
+      "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "outputSha256": "994b1639a5f96a3deac0d3b5c1ca4e345eb8c2f3ec0ae363b58da3ddc8a3a0c8"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000030.json --output /tmp/a30-replay-3.json",
+      "exitCode": 0,
+      "outputSha256": "6acff0119777bb68c4d71d6741b5a28c54a53caa1a1777613928fc4e3c51f22a"
+    },
+    {
+      "command": "cmp /tmp/a30-replay-3.json data/counselor/comparisons/cp-000030.json",
+      "exitCode": 0,
+      "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "replaySha256": "3f55ad52195a32e20d6ba41c6f8fd3ce441aedb7c09b52fb966cd3a729518bda",
+  "scope": "Actual strict schema/current151-course workbook six-term feasibility, complete operational/registry/index validation, shared description provenance and exact replay. Review index rebuild produced no file delta. No R/Shiny/browser invoked; academic review separately evidenced. Initial local CSV-edit quoting error corrected before validation; all44 target rows and unrelated rows preserved. No published failure or systemic problem."
+}
