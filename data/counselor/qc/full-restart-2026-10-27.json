@@ -3452,7 +3452,7 @@
     },
     {
       "id": "cp-000251",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "correct",
@@ -3463,20 +3463,11 @@
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Currentcourse-content specificity and formal new-cohort confirmation",
-          "scope": "Coursecontributions,comparability/stopping,progression,alignments andeveryreaderfield reassessed;publicationverificationpending.",
-          "stages": [
-            3,
-            4,
-            5,
-            6
-          ]
-        }
+      "downstreamReassessments": [],
+      "implementationCommits": [
+        "e25645f02795eb27e3c3dbbe49208af34d08a155"
       ],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000251.json",
       "academicDisposition": "comparison"
     },
@@ -5522,8 +5513,8 @@
     }
   ],
   "progress": {
-    "approved": 27,
-    "inProgress": 4,
+    "approved": 28,
+    "inProgress": 3,
     "reviewedWithBlockers": 0,
     "notStarted": 407,
     "pilotStarted": 2
@@ -6574,35 +6565,15 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "working",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000251",
-      "activeClaim": {
-        "executionId": "restart-B-cp251-20261101T0201Z",
-        "worker": "B",
-        "caseId": "cp-000251",
-        "claimedAt": "2026-11-01 02:01:22 UTC",
-        "reviewedInputCommit": "2d1d5033fd625b941d01f19908ef63708136530a",
-        "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000251.json": "bc41d7ae3a013cc894f997e37e8ef3530acba070",
-          "data/counselor/comparisons/cp-000251.json": "e999fac24fea1667eb7a0a4c048ca752becbf7f2",
-          "data/registry/programme_interests.csv": "7c1c986b758851b1d9ae6c580ce1d232c683d9a7"
-        },
-        "nextAction": "Verify publishedCP251pair/evidence,actualinputblobs andapplicableCI;complete separate same-AI source-firstfinalpassbeforeapproval.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000252",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -6615,7 +6586,8 @@
         "cp-000246",
         "cp-000247",
         "cp-000248",
-        "cp-000249"
+        "cp-000249",
+        "cp-000251"
       ],
       "completedDispositions": [
         {
@@ -6701,6 +6673,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000249.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-10-31"
+        },
+        {
+          "caseId": "cp-000251",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000251.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-01"
         }
       ],
       "deferredCases": [
@@ -6713,19 +6692,19 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000250",
-        "executionId": "restart-B-cp250-retry2-20261101T0056Z",
-        "state": "in-progress",
-        "operationalDisposition": "deferred-incomplete",
-        "academicDisposition": "external-programme-unresolved",
-        "reviewedInputCommit": "d14c9a006ec6e32a99b6ad2942c1658b63667e31",
+        "caseId": "cp-000251",
+        "executionId": "restart-B-cp251-20261101T0201Z",
+        "state": "approved",
+        "academicDisposition": "comparison",
+        "reviewedInputCommit": "e25645f02795eb27e3c3dbbe49208af34d08a155",
         "inputBlobs": {
-          "canonical": "40c542b81938e2532dd103ccbf3a419e1085aa46",
-          "decision": "3cf0483fdba2bddee2410d4acf2ae2697dfcedcf"
+          "canonical": "fe5de8a5dd5c18b99ad9a3e7a79eb56d16bca57d",
+          "decision": "04d60c24c06cb9ef69c6e46d7cb5b3146b66b99d"
         },
+        "verifiedAt": "2026-11-01",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/source-attempt-2.json",
-        "nextAction": "CP250 deferred and incomplete after two unsuccessful essential-source executions. Resolve authoritative current BSc KT2755/180EC allocation on its permitted separate revisit after B non-deferred queue or earlier new essential evidence. Preserve verified firstyear60EC,55interest review,16UCRleads and independent repairs. Worker B resumes CP251.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000251/source-first-final-pass.json",
+        "nextAction": "CP251 complete: one verified molecular-life-science comparison. Worker B resumes CP252; CP245 and CP250 remain deferred/incomplete and their permitted revisits are unconsumed.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -7205,6 +7184,50 @@
               "verificationPolicy": "record-content-review-2026-10-31",
               "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/source-first-checkpoint.json",
               "nextAction": "ResumeCP250 sourceattempt2 forauthoritativeBScKT2755/current180ECallocation. Preservefirstyear60EC,55interestreview,16currentcourseleads andindependentcontentrepairs; donotadvanceCP251.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
+        },
+        {
+          "preservedOn": "2026-11-01",
+          "reason": "Preserve prior checkpoint and own claim before final disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000250",
+              "executionId": "restart-B-cp250-retry2-20261101T0056Z",
+              "state": "in-progress",
+              "operationalDisposition": "deferred-incomplete",
+              "academicDisposition": "external-programme-unresolved",
+              "reviewedInputCommit": "d14c9a006ec6e32a99b6ad2942c1658b63667e31",
+              "inputBlobs": {
+                "canonical": "40c542b81938e2532dd103ccbf3a419e1085aa46",
+                "decision": "3cf0483fdba2bddee2410d4acf2ae2697dfcedcf"
+              },
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/source-attempt-2.json",
+              "nextAction": "CP250 deferred and incomplete after two unsuccessful essential-source executions. Resolve authoritative current BSc KT2755/180EC allocation on its permitted separate revisit after B non-deferred queue or earlier new essential evidence. Preserve verified firstyear60EC,55interest review,16UCRleads and independent repairs. Worker B resumes CP251.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-B-cp251-20261101T0201Z",
+              "worker": "B",
+              "caseId": "cp-000251",
+              "claimedAt": "2026-11-01 02:01:22 UTC",
+              "reviewedInputCommit": "2d1d5033fd625b941d01f19908ef63708136530a",
+              "inputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000251.json": "bc41d7ae3a013cc894f997e37e8ef3530acba070",
+                "data/counselor/comparisons/cp-000251.json": "e999fac24fea1667eb7a0a4c048ca752becbf7f2",
+                "data/registry/programme_interests.csv": "7c1c986b758851b1d9ae6c580ce1d232c683d9a7"
+              },
+              "nextAction": "Verify publishedCP251pair/evidence,actualinputblobs andapplicableCI;complete separate same-AI source-firstfinalpassbeforeapproval.",
               "runtimeModel": "unknown",
               "runtimeReasoningEffort": "unknown"
             }
