@@ -1,0 +1,607 @@
+{
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "presentationMode": "normal full comparison",
+  "inputBlobs": {
+    "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+    "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+    "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000029.json": "ae1a0f8f6888a4f8596389b56eb512b0e383c5e2",
+    "data/counselor/comparisons/cp-000029.json": "33d26bad1bf8eda2b67c217c80980858197a1890",
+    "data/registry/programme_interests.csv": "3d3ed211ab8e0f6410f6dbb3765465811afd88b2",
+    "data/counselor/review-programmes.json": "a2e37df1c0dc27dfd2ea0d2282fb61f2a100cde4",
+    "data/counselor/review-interests.json": "c0c59451c132724842fc5f4b295acaef06bb4d0c",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/GOS.json": "49da38b390637fa113a95b835a4d9bbda854ef83",
+    "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa"
+  },
+  "fieldToRenderer": [
+    "pilot/shared.R:visible_label",
+    "pilot/counselor-shiny/app.R:curriculum_view,render_audience_context,render_audience_notes,render_comparison_summary,render_compare_table,audience_cell_note",
+    "course_click -> department cache descriptions[code] -> course_description_dialog"
+  ],
+  "fieldsRead": [
+    {
+      "path": "audience.schemaVersion",
+      "text": "1.0"
+    },
+    {
+      "path": "audience.programmeDescription",
+      "text": "The Dutch-taught Algemene Cultuurwetenschappen route studies visual art, literature, music, film, television and performance through historical, theoretical and social perspectives. Students develop cultural criticism, research and cultural-sector practice."
+    },
+    {
+      "path": "audience.comparisonExplanation",
+      "text": "Three UCR programmes offer related routes through arts and media, culture and power, or literature and communication. Radboud provides more dedicated music and performance study, festival production and a separate bachelor thesis. The comparison uses Radboud’s currently published indicative plan for students starting in 2027."
+    },
+    {
+      "path": "audience.curriculum.status",
+      "text": "complete"
+    },
+    {
+      "path": "audience.curriculum.componentIds[0]",
+      "text": "acw-y1-text"
+    },
+    {
+      "path": "audience.curriculum.componentIds[1]",
+      "text": "acw-y1-image"
+    },
+    {
+      "path": "audience.curriculum.componentIds[2]",
+      "text": "acw-y1-music"
+    },
+    {
+      "path": "audience.curriculum.componentIds[3]",
+      "text": "acw-y1-skills"
+    },
+    {
+      "path": "audience.curriculum.componentIds[4]",
+      "text": "acw-y1-europe-global"
+    },
+    {
+      "path": "audience.curriculum.componentIds[5]",
+      "text": "acw-y1-planetary"
+    },
+    {
+      "path": "audience.curriculum.componentIds[6]",
+      "text": "acw-y1-theory"
+    },
+    {
+      "path": "audience.curriculum.componentIds[7]",
+      "text": "acw-y1-gender"
+    },
+    {
+      "path": "audience.curriculum.componentIds[8]",
+      "text": "acw-y1-criticism"
+    },
+    {
+      "path": "audience.curriculum.componentIds[9]",
+      "text": "acw-y2-romanticism"
+    },
+    {
+      "path": "audience.curriculum.componentIds[10]",
+      "text": "acw-y2-literature-power"
+    },
+    {
+      "path": "audience.curriculum.componentIds[11]",
+      "text": "acw-y2-aesthetics"
+    },
+    {
+      "path": "audience.curriculum.componentIds[12]",
+      "text": "acw-y2-opera-musical"
+    },
+    {
+      "path": "audience.curriculum.componentIds[13]",
+      "text": "acw-y2-performance"
+    },
+    {
+      "path": "audience.curriculum.componentIds[14]",
+      "text": "acw-y2-methods"
+    },
+    {
+      "path": "audience.curriculum.componentIds[15]",
+      "text": "acw-y2-minor"
+    },
+    {
+      "path": "audience.curriculum.componentIds[16]",
+      "text": "acw-y3-visual"
+    },
+    {
+      "path": "audience.curriculum.componentIds[17]",
+      "text": "acw-y3-spatial"
+    },
+    {
+      "path": "audience.curriculum.componentIds[18]",
+      "text": "acw-y3-popular-music"
+    },
+    {
+      "path": "audience.curriculum.componentIds[19]",
+      "text": "acw-y3-cultural-field"
+    },
+    {
+      "path": "audience.curriculum.componentIds[20]",
+      "text": "acw-y3-thesis"
+    },
+    {
+      "path": "audience.curriculum.componentIds[21]",
+      "text": "acw-y3-free"
+    },
+    {
+      "path": "audience.curriculum.yearLabel",
+      "text": "2027–2028"
+    },
+    {
+      "path": "audience.curriculum.routeLabel",
+      "text": "Arts and Culture Studies (Dutch route)"
+    },
+    {
+      "path": "audience.curriculum.limitation",
+      "text": "Radboud describes these 2027–2030 course offerings as indicative and subject to change. This planning comparison does not guarantee future courses or replace the applicable programme regulations. Mentoring/PPO and RADAr academic Dutch are zero-credit requirements."
+    },
+    {
+      "path": "audience.conceptProgrammeIds[0]",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.conceptProgrammeIds[1]",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.conceptProgrammeIds[2]",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.noteTypes[0]",
+      "text": "missing-specialist-components"
+    },
+    {
+      "path": "audience.componentNotes.acw-y1-skills",
+      "text": "Mentoring/PPO and RADAr academic-language requirements carry 0 EC and are recorded separately from the 180 EC credit total."
+    },
+    {
+      "path": "audience.componentNotes.acw-y2-minor",
+      "text": "Two 15 EC Faculty of Arts minors, one in each second-year semester. Specific examples are indicative rather than guaranteed future offerings."
+    },
+    {
+      "path": "audience.componentNotes.acw-y3-free",
+      "text": "30 EC genuine free space: courses, an internship or study abroad as permitted by the programme. The alternative third-year exchange route is not added to this standard pathway."
+    },
+    {
+      "path": "audience.componentNotes.acw-y3-thesis",
+      "text": "A required 10 EC bachelor thesis. Current published progression requires completion of compulsory second-year major courses."
+    },
+    {
+      "path": "audience.componentNotes.acw-y3-popular-music",
+      "text": "Required in the indicative 2029–2030 standard pathway."
+    },
+    {
+      "path": "audience.cellNotes[0].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[0].reference",
+      "text": "MCCHEAM111"
+    },
+    {
+      "path": "audience.cellNotes[0].text",
+      "text": "Both introduce close visual analysis and interpretation of artworks in historical context."
+    },
+    {
+      "path": "audience.cellNotes[1].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[1].reference",
+      "text": "MCCHEAM111"
+    },
+    {
+      "path": "audience.cellNotes[1].text",
+      "text": "Both introduce close visual analysis and interpretation of artworks in historical context."
+    },
+    {
+      "path": "audience.cellNotes[2].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[2].reference",
+      "text": "MCCHEAM312"
+    },
+    {
+      "path": "audience.cellNotes[2].text",
+      "text": "Partial visual-cultural correspondence through modern art, museums, curatorial practices and exhibition strategies."
+    },
+    {
+      "path": "audience.cellNotes[3].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[3].reference",
+      "text": "MCCHEAM312"
+    },
+    {
+      "path": "audience.cellNotes[3].text",
+      "text": "Partial visual-cultural correspondence through modern art, museums, curatorial practices and exhibition strategies."
+    },
+    {
+      "path": "audience.cellNotes[4].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[4].reference",
+      "text": "MCCHEAM316"
+    },
+    {
+      "path": "audience.cellNotes[4].text",
+      "text": "Partial theoretical correspondence: art historiography examines aesthetics, meaning and interpretation within the history of art history; it does not reproduce a dedicated philosophical aesthetics course."
+    },
+    {
+      "path": "audience.cellNotes[5].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[5].reference",
+      "text": "MCCHEAM316"
+    },
+    {
+      "path": "audience.cellNotes[5].text",
+      "text": "Partial theoretical correspondence: art historiography examines aesthetics, meaning and interpretation within the history of art history; it does not reproduce a dedicated philosophical aesthetics course."
+    },
+    {
+      "path": "audience.cellNotes[6].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[6].reference",
+      "text": "acw-y2-romanticism"
+    },
+    {
+      "path": "audience.cellNotes[6].text",
+      "text": "UCR offers art history and literature across several periods but no dedicated course on Romanticism as an artistic movement."
+    },
+    {
+      "path": "audience.cellNotes[7].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[7].reference",
+      "text": "acw-y3-spatial"
+    },
+    {
+      "path": "audience.cellNotes[7].text",
+      "text": "UCR has heritage and material-culture courses but no single scheduled course centred on spatial culture."
+    },
+    {
+      "path": "audience.cellNotes[8].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[8].reference",
+      "text": "acw-y3-popular-music"
+    },
+    {
+      "path": "audience.cellNotes[8].text",
+      "text": "Dedicated popular-music-and-society course. UCR media and cultural study supplies related contexts, but no scheduled dedicated music-studies counterpart."
+    },
+    {
+      "path": "audience.cellNotes[9].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[9].reference",
+      "text": "MCCLITR111"
+    },
+    {
+      "path": "audience.cellNotes[9].text",
+      "text": "Both provide foundational analysis and interpretation of written cultural texts."
+    },
+    {
+      "path": "audience.cellNotes[10].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[10].reference",
+      "text": "MCCLITR111"
+    },
+    {
+      "path": "audience.cellNotes[10].text",
+      "text": "Both provide foundational analysis and interpretation of written cultural texts."
+    },
+    {
+      "path": "audience.cellNotes[11].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[11].reference",
+      "text": "acw-y1-music"
+    },
+    {
+      "path": "audience.cellNotes[11].text",
+      "text": "UCR has no dedicated music-analysis course in the current enriched catalogue."
+    },
+    {
+      "path": "audience.cellNotes[12].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[12].reference",
+      "text": "acw-y2-opera-musical"
+    },
+    {
+      "path": "audience.cellNotes[12].text",
+      "text": "UCR has no dedicated course in opera, musical theatre or music history."
+    },
+    {
+      "path": "audience.cellNotes[13].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[13].reference",
+      "text": "acw-y2-performance"
+    },
+    {
+      "path": "audience.cellNotes[13].text",
+      "text": "UCR includes film, media, rhetoric and creative communication but no dedicated performing-arts course."
+    },
+    {
+      "path": "audience.cellNotes[14].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[14].reference",
+      "text": "GOSSOCI311"
+    },
+    {
+      "path": "audience.cellNotes[14].text",
+      "text": "Partial theoretical correspondence through civil society, public-sphere theory, solidarity and decolonial critique; it does not reproduce the full cross-arts cultural-theory syllabus."
+    },
+    {
+      "path": "audience.cellNotes[15].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[15].reference",
+      "text": "GOSSOCI311"
+    },
+    {
+      "path": "audience.cellNotes[15].text",
+      "text": "Partial theoretical correspondence through civil society, public-sphere theory, solidarity and decolonial critique; it does not reproduce the full cross-arts cultural-theory syllabus."
+    },
+    {
+      "path": "audience.cellNotes[16].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[16].reference",
+      "text": "GOSHIST112"
+    },
+    {
+      "path": "audience.cellNotes[16].text",
+      "text": "Both analyse culture and artistic or narrative forms through gender, identity and power."
+    },
+    {
+      "path": "audience.cellNotes[17].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[17].reference",
+      "text": "GOSHIST111"
+    },
+    {
+      "path": "audience.cellNotes[17].text",
+      "text": "Partial contextual correspondence: European and wider political, social and economic history from 1815 onward; not the comparator’s full cultural repertoire or global-period coverage."
+    },
+    {
+      "path": "audience.cellNotes[18].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[18].reference",
+      "text": "GOSHIST111"
+    },
+    {
+      "path": "audience.cellNotes[18].text",
+      "text": "Partial contextual correspondence: European and wider political, social and economic history from 1815 onward; not the comparator’s full cultural repertoire or global-period coverage."
+    },
+    {
+      "path": "audience.cellNotes[19].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[19].reference",
+      "text": "GOSHIST111"
+    },
+    {
+      "path": "audience.cellNotes[19].text",
+      "text": "Partial contextual correspondence: European and wider political, social and economic history from 1815 onward; not the comparator’s full cultural repertoire or global-period coverage."
+    },
+    {
+      "path": "audience.cellNotes[20].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[20].reference",
+      "text": "acw-y1-planetary"
+    },
+    {
+      "path": "audience.cellNotes[20].text",
+      "text": "Planetary Culture is a dedicated 10-EC component. UCR environmental-media courses address representations and ecological questions, but the available evidence does not establish the same primary scope for one counterpart."
+    },
+    {
+      "path": "audience.cellNotes[21].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[21].reference",
+      "text": "MCCCOMM111"
+    },
+    {
+      "path": "audience.cellNotes[21].text",
+      "text": "Both develop academic argument, source use, writing and oral presentation; UCR uses rhetoric as its organising framework."
+    },
+    {
+      "path": "audience.cellNotes[22].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[22].reference",
+      "text": "GOSSOCI212"
+    },
+    {
+      "path": "audience.cellNotes[22].text",
+      "text": "Partial methodological correspondence: UCR teaches qualitative design, data collection and interpretation. Radboud requires research methods specifically for cultural studies; identical method coverage is not asserted."
+    },
+    {
+      "path": "audience.cellNotes[23].programmeId",
+      "text": "ucr-2"
+    },
+    {
+      "path": "audience.cellNotes[23].reference",
+      "text": "GOSSOCI212"
+    },
+    {
+      "path": "audience.cellNotes[23].text",
+      "text": "Partial methodological correspondence: UCR teaches qualitative design, data collection and interpretation. Radboud requires research methods specifically for cultural studies; identical method coverage is not asserted."
+    },
+    {
+      "path": "audience.cellNotes[24].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[24].reference",
+      "text": "GOSSOCI212"
+    },
+    {
+      "path": "audience.cellNotes[24].text",
+      "text": "Partial methodological correspondence: UCR teaches qualitative design, data collection and interpretation. Radboud requires research methods specifically for cultural studies; identical method coverage is not asserted."
+    },
+    {
+      "path": "audience.cellNotes[25].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[25].reference",
+      "text": "acw-y1-criticism"
+    },
+    {
+      "path": "audience.cellNotes[25].text",
+      "text": "Dedicated art criticism. UCR develops interpretation and argument in several courses but has no single scheduled professional arts-review course."
+    },
+    {
+      "path": "audience.cellNotes[26].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[26].reference",
+      "text": "acw-y3-cultural-field"
+    },
+    {
+      "path": "audience.cellNotes[26].text",
+      "text": "A required festival-production course. UCR creative communication develops poetic and hybrid projects, with no guaranteed festival or cultural-sector placement."
+    },
+    {
+      "path": "audience.cellNotes[27].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[27].reference",
+      "text": "acw-y3-thesis"
+    },
+    {
+      "path": "audience.cellNotes[27].text",
+      "text": "Required 10-EC cultural-studies bachelor thesis. The UCR historical seminar develops source-based research and a substantial paper concerning the American Century; it is not the same disciplinary thesis. Optional independent research remains separate from the 180-EC schedule."
+    },
+    {
+      "path": "audience.cellNotes[28].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[28].reference",
+      "text": "acw-y2-minor"
+    },
+    {
+      "path": "audience.cellNotes[28].text",
+      "text": "This is structured programme choice space. UCR flexibility is distributed across the complete 180-EC curriculum, so no single course is asserted as its equivalent."
+    },
+    {
+      "path": "audience.cellNotes[29].programmeId",
+      "text": "comparator"
+    },
+    {
+      "path": "audience.cellNotes[29].reference",
+      "text": "acw-y3-free"
+    },
+    {
+      "path": "audience.cellNotes[29].text",
+      "text": "This is genuine free-choice space. UCR flexibility is distributed across the complete 180-EC curriculum, so no single scheduled course is asserted as its equivalent."
+    },
+    {
+      "path": "audience.cellNotes[30].programmeId",
+      "text": "ucr-1"
+    },
+    {
+      "path": "audience.cellNotes[30].reference",
+      "text": "MCCLITR312"
+    },
+    {
+      "path": "audience.cellNotes[30].text",
+      "text": "Partial correspondence through feminist, Marxist and cultural-minority readings of literature. UCR examines how interpretive perspectives shape meaning, rather than reproducing the whole Literature and Power course."
+    },
+    {
+      "path": "audience.cellNotes[31].programmeId",
+      "text": "ucr-3"
+    },
+    {
+      "path": "audience.cellNotes[31].reference",
+      "text": "MCCLITR312"
+    },
+    {
+      "path": "audience.cellNotes[31].text",
+      "text": "Partial correspondence through feminist, Marxist and cultural-minority readings of literature. UCR examines how interpretive perspectives shape meaning, rather than reproducing the whole Literature and Power course."
+    },
+    {
+      "path": "notes[0].type",
+      "text": "missing-specialist-components"
+    },
+    {
+      "path": "notes[0].placement",
+      "text": "comparison"
+    },
+    {
+      "path": "notes[0].text",
+      "text": "The UCR programmes offer substantial art history, literature, film, media and cultural interpretation. Radboud also requires music analysis, opera and musical theatre, performance culture, festival work and a separate bachelor thesis. UCR does not reproduce these specialist sequences. Its creative laboratory centres poetic and hybrid projects; its historical seminar develops research concerning the American Century."
+    },
+    {
+      "path": "alternatives[0].label",
+      "text": "Arts, media & cultural analysis"
+    },
+    {
+      "path": "alternatives[0].concept",
+      "text": "A broad arts-and-culture route combining art history and heritage, literature, film and media with stylistics, social theory, ethics and qualitative inquiry. Historiography examines how art is interpreted; the historical research seminar develops source-based inquiry concerning the American Century rather than a dedicated cultural-studies thesis."
+    },
+    {
+      "path": "alternatives[1].label",
+      "text": "Culture, identity & power"
+    },
+    {
+      "path": "alternatives[1].concept",
+      "text": "A cultural-studies route examining identity and power through art, literature, media, gender history and heritage. Political philosophy, social theory, empire, social movements and conflict provide specific contexts; qualitative inquiry and an American-history research seminar develop complementary methods."
+    },
+    {
+      "path": "alternatives[2].label",
+      "text": "Literature, film & cultural communication"
+    },
+    {
+      "path": "alternatives[2].concept",
+      "text": "A literature, film and communication route organised around close reading, adaptation, documentary, rhetoric, stylistics and creative communication. Art history and material culture provide selected cultural contexts; general philosophy, ethics and qualitative methods contribute complementary analytical tools."
+    }
+  ],
+  "additionalContentRead": [
+    "All 22 English component titles, credits and labels; six block titles; all 37 selected course names, 72 term placements, source and UCR links; optional research 15 EC once per UCR alternative beside required 10 EC thesis, outside 180 EC.",
+    "All 37 selected description texts in course-content-review.json; 25 exact unchanged shared reviews reused, 12 additional descriptions substantively reread."
+  ],
+  "finding": "Every selected reader field and description was read against the sources/current workbook. No old military-history claim, unverified Vasari detail or categorical music exclusion remains. Partial literary-power relationship states the direct critical-reading overlap and different scope. Important music, performance, festival and dedicated thesis gaps are explicit. Current external intake is clearly indicative, with separate zero-credit obligations and genuine choice space. No app code change, local R/Shiny/browser, screenshots or live modals; actual representative rendering remains a final-release requirement."
+}
