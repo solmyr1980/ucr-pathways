@@ -1,0 +1,96 @@
+{
+  "inputBlobs": {
+    "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+    "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+    "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000041.json": "2b5d705abef14156418fa270c94dad6d80e33d6a",
+    "data/counselor/comparisons/cp-000041.json": "2c15f33da275b322341f2bca95667b590ad17dd6",
+    "data/registry/programme_interests.csv": "f9f9b9e0bdfb166decab46b1e3ea57832964c269",
+    "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+    "data/counselor/review-programmes.json": "05cff18130e1e9386da61d066ab9ed2b1127f48b",
+    "data/counselor/review-interests.json": "48ba4938598dee021a53592b307f973f9d0c3626",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
+    "pilot/shiny/data/courses/DIS.json": "5774e2104a8310aa2925fc2aada2adac0c53bb95",
+    "pilot/shiny/data/courses/ENS.json": "da5d9225d6682419998c3cf20837727a5fa39cbf",
+    "pilot/shiny/data/courses/GOS.json": "49da38b390637fa113a95b835a4d9bbda854ef83"
+  },
+  "checks": [
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000041.json --output /tmp/a41b-active-replay.json",
+      "exitCode": 0,
+      "outputSha256": "a8975cab0f05fc8253c7e30babf7c5fde9678bf4c8e5be23c953d071d6999071",
+      "output": "Built cp-000041 counselor exception record at /tmp/a41b-active-replay.json\n"
+    },
+    {
+      "command": "cmp /tmp/a41b-active-replay.json data/counselor/comparisons/cp-000041.json",
+      "exitCode": 0,
+      "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output": ""
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000041/provisional-candidate-decision.json --output /tmp/a41b-candidate.json",
+      "exitCode": 0,
+      "outputSha256": "de359f0a1855b3e1299c44aed1684824c9aa6ab657fc49c1f1423e5122cd93f1",
+      "output": "Built cp-000041 counselor comparison record at /tmp/a41b-candidate.json\n"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py /tmp/a41b-candidate.json",
+      "exitCode": 0,
+      "outputSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c",
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py /tmp/a41b-candidate.json",
+      "exitCode": 0,
+      "outputSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918",
+      "output": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000041.json",
+      "exitCode": 0,
+      "outputSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c",
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000041.json",
+      "exitCode": 0,
+      "outputSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918",
+      "output": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "outputSha256": "8a2531f772162864af8e541232d61aaf5d8e60a4730ff9335f7eee460f4bb6bc",
+      "output": "nal counselor methodology rules OK\ncp-000438.json: final counselor methodology rules OK\ncp-000439.json: final counselor methodology rules OK\ncp-000440.json: final counselor methodology rules OK\ncp-000441.json: final counselor methodology rules OK\ncp-000442.json: final counselor methodology rules OK\ncp-000443.json: final counselor methodology rules OK\ncp-000444.json: final counselor methodology rules OK\ncp-000445.json: final counselor methodology rules OK\ncp-000446.json: final counselor methodology rules OK\ncp-000447.json: final counselor methodology rules OK\ncp-000448.json: final counselor methodology rules OK\ncp-000449.json: final counselor methodology rules OK\ncp-000450.json: final counselor methodology rules OK\ncp-000451.json: final counselor methodology rules OK\ncp-000452.json: final counselor methodology rules OK\ncp-000453.json: final counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": "npm run validate:registry-interests",
+      "exitCode": 0,
+      "outputSha256": "f7ce7bad855e286774d735f463e47833f715bb1c677a71b50a13e39b12bb572e",
+      "output": "\n> validate:registry-interests\n> node scripts/validate-registry-interests.mjs\n\nValid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": "npm run validate:counselor-review",
+      "exitCode": 0,
+      "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8",
+      "output": "\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "outputSha256": "994b1639a5f96a3deac0d3b5c1ca4e345eb8c2f3ec0ae363b58da3ddc8a3a0c8",
+      "output": "86 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.\n"
+    }
+  ],
+  "activeCanonicalReplayByteExact": true,
+  "provisionalCandidateDecisionSha256": "91d944864a694974d2395b304f7996da7a610928871b225715c4a068230eea3a",
+  "provisionalCanonicalSha256": "923b95c2599f4e07b23e0c65ffb8ba0174f263c0f3b3d1d20de5b4184dc245c8",
+  "scope": "Current active exception and two provisional24course/180EC candidates pass feasibility/strictschema/operational/interests/index/provenance. No academic approval inferred."
+}
