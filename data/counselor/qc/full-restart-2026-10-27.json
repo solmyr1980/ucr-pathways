@@ -4923,7 +4923,8 @@
         }
       ],
       "implementationCommits": [
-        "8a094f3421f2322b751b93622b7159db861c4ff1"
+        "8a094f3421f2322b751b93622b7159db861c4ff1",
+        "fdefeef5515d364fecd62fe29d69d54638175c1b"
       ],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000284.json",
@@ -10823,41 +10824,15 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000284",
-      "activeClaim": {
-        "executionId": "restart-B-cp284-retry2-20261102T2301Z",
-        "worker": "B",
-        "caseId": "cp-000284",
-        "claimedAt": "2026-11-02T23:01:48.530418+00:00",
-        "reviewedInputCommit": "a75a49e95ef2cd958cd5814ca6cfb0d421b0e278",
-        "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000284.json": "8cd7416829527c4fb6f10b20cfbd4e2425aa4fed",
-          "data/counselor/comparisons/cp-000284.json": "c6a1d62888d3670a8a22d7ebba9e7e3c33f304c9",
-          "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
-          "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
-          "data/counselor/review-programmes.json": "d0f41d708ba99bd1d9e689b46f7e53fcd3fa400f",
-          "data/counselor/review-interests.json": "d7341f5bf03dcc667f24e53c3bcd9607e831d9d4",
-          "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
-          "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify published second-source evidence and applicable CI,then separately reconsider underlying sources and finished content before incomplete deferral. Preserve verified research; worker B then resumes CP285.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000285",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -11147,7 +11122,8 @@
         "cp-000277",
         "cp-000278",
         "cp-000282",
-        "cp-000283"
+        "cp-000283",
+        "cp-000284"
       ],
       "sourceRetrievalFailuresByCase": {
         "cp-000245": 2,
@@ -11163,22 +11139,22 @@
         "cp-000278": 2,
         "cp-000282": 2,
         "cp-000283": 2,
-        "cp-000284": 1
+        "cp-000284": 2
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
         "caseId": "cp-000284",
-        "executionId": "restart-B-cp284-20261102T2240Z",
+        "executionId": "restart-B-cp284-retry2-20261102T2301Z",
         "state": "in-progress",
         "academicDisposition": "external-programme-unresolved",
-        "reviewedInputCommit": "8a094f3421f2322b751b93622b7159db861c4ff1",
+        "reviewedInputCommit": "fdefeef5515d364fecd62fe29d69d54638175c1b",
         "inputBlobs": {
           "decision": "8cd7416829527c4fb6f10b20cfbd4e2425aa4fed",
           "canonical": "c6a1d62888d3670a8a22d7ebba9e7e3c33f304c9"
         },
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000284/source-first-checkpoint.json",
-        "nextAction": "Resume CP284 for essential-source attempt2: obtain the applicable revised third-year60EC requirements/weights,choice/minor/thesis allocation and progression rules or an explicit cohort bridge; clarify regular Criminology eligibility for required21111010Y. Preserve the confirmed120EC,60interest reviews,36course judgments and feasible internal24course challenge. Do not advance to CP285.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000284/retry2/source-first-final-pass.json",
+        "nextAction": "CP284 deferred and incomplete after two unsuccessful essential-source executions. Preserve confirmed120EC,60interest reviews,36course judgments and feasible internal24course challenge. One permitted revisit remains pending after own non-deferred queue or new essential evidence. Worker B resumes CP285. No approval,no-match,final release,discovery,deployment,university contact or additional automation.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -14317,6 +14293,55 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-11-03",
+          "reason": "Preserve first-source checkpoint and second-execution claim before incomplete deferral.",
+          "snapshot": {
+            "activeClaim": {
+              "executionId": "restart-B-cp284-retry2-20261102T2301Z",
+              "worker": "B",
+              "caseId": "cp-000284",
+              "claimedAt": "2026-11-02T23:01:48.530418+00:00",
+              "reviewedInputCommit": "a75a49e95ef2cd958cd5814ca6cfb0d421b0e278",
+              "inputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000284.json": "8cd7416829527c4fb6f10b20cfbd4e2425aa4fed",
+                "data/counselor/comparisons/cp-000284.json": "c6a1d62888d3670a8a22d7ebba9e7e3c33f304c9",
+                "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+                "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
+                "data/counselor/review-programmes.json": "d0f41d708ba99bd1d9e689b46f7e53fcd3fa400f",
+                "data/counselor/review-interests.json": "d7341f5bf03dcc667f24e53c3bcd9607e831d9d4",
+                "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+                "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Verify published second-source evidence and applicable CI,then separately reconsider underlying sources and finished content before incomplete deferral. Preserve verified research; worker B then resumes CP285.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "lastCheckpoint": {
+              "caseId": "cp-000284",
+              "executionId": "restart-B-cp284-20261102T2240Z",
+              "state": "in-progress",
+              "academicDisposition": "external-programme-unresolved",
+              "reviewedInputCommit": "8a094f3421f2322b751b93622b7159db861c4ff1",
+              "inputBlobs": {
+                "decision": "8cd7416829527c4fb6f10b20cfbd4e2425aa4fed",
+                "canonical": "c6a1d62888d3670a8a22d7ebba9e7e3c33f304c9"
+              },
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000284/source-first-checkpoint.json",
+              "nextAction": "Resume CP284 for essential-source attempt2: obtain the applicable revised third-year60EC requirements/weights,choice/minor/thesis allocation and progression rules or an explicit cohort bridge; clarify regular Criminology eligibility for required21111010Y. Preserve the confirmed120EC,60interest reviews,36course judgments and feasible internal24course challenge. Do not advance to CP285.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -14531,6 +14556,14 @@
           "essentialEvidence": "Clarify the applicable third-year language-choice rule: BA-CHI-3-K3 has a 5-EC total and choiceValue 1, and the programme narrative requires one language choice overall; its instruction nevertheless requires a language course in each semester (two 5-EC courses). Obtain an official applicable correction, precedence or explicit pathway rule. The BA Paper integration is now resolved independently and must not be reopened without new evidence.",
           "officialAlternative": "Fresh current OER/prospective structure page,strong official-domain search and four unchanged programme/module responses supply no applicable language-rule correction. Prior chart is corroboration,not precedence;old cohorts not imported. No university contact,login or browser.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000283/retry2/source-first-final-pass.json"
+        },
+        {
+          "caseId": "cp-000284",
+          "executionId": "restart-B-cp284-retry2-20261102T2301Z",
+          "checkedOn": "2026-11-03",
+          "essentialEvidence": "Establish the revised-cohort final60EC: named third-year requirements and weights, bounded/open choices, thesis allocation and applicable entry/progression conditions, using an official applicable curriculum or cohort bridge. Current BA-CRIM explicitly restricts its third-year35+15+10 table to entrants2024 or earlier and defers the new third year to2027–2028. Current overview describes a minor followed by three thematic units and a thesis, while the detailed structure page still says15EC elective space and an extracurricular30EC minor. Neither supplies the complete revised allocation. Do not combine cohorts or invent weights.",
+          "officialAlternative": "Fresh current overview/detail pages,strong official-domain search and four unchanged programme/module responses supply no complete applicable revised allocation or admission correction. Outgoing2025programme/OER not imported;no university contact,login or browser.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000284/retry2/source-first-final-pass.json"
         }
       ],
       "deferralHistory": [
@@ -14661,6 +14694,16 @@
           "unsuccessfulExecutions": 2,
           "reason": "Clarify the applicable third-year language-choice rule: BA-CHI-3-K3 has a 5-EC total and choiceValue 1, and the programme narrative requires one language choice overall; its instruction nevertheless requires a language course in each semester (two 5-EC courses). Obtain an official applicable correction, precedence or explicit pathway rule. The BA Paper integration is now resolved independently and must not be reopened without new evidence.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000283/retry2/source-first-final-pass.json",
+          "revisitStatus": "pending; not consumed",
+          "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
+        },
+        {
+          "caseId": "cp-000284",
+          "deferredOn": "2026-11-03",
+          "executionId": "restart-B-cp284-retry2-20261102T2301Z",
+          "unsuccessfulExecutions": 2,
+          "reason": "Establish the revised-cohort final60EC: named third-year requirements and weights, bounded/open choices, thesis allocation and applicable entry/progression conditions, using an official applicable curriculum or cohort bridge. Current BA-CRIM explicitly restricts its third-year35+15+10 table to entrants2024 or earlier and defers the new third year to2027–2028. Current overview describes a minor followed by three thematic units and a thesis, while the detailed structure page still says15EC elective space and an extracurricular30EC minor. Neither supplies the complete revised allocation. Do not combine cohorts or invent weights.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000284/retry2/source-first-final-pass.json",
           "revisitStatus": "pending; not consumed",
           "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
         }
