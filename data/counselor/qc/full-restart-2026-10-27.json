@@ -720,7 +720,7 @@
     },
     {
       "id": "ieis-elective-plan-earned-credit-condition",
-      "status": "bounded-case-repair-pending",
+      "status": "verified",
       "affectedStages": [
         1,
         5,
@@ -734,7 +734,22 @@
       "evidenceRefs": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000271/source-first-reopening.json"
       ],
-      "scope": "WorkerBowncasesonly;CP271correctioninprogress,CP269targetedreopeningqueued. Nootherworker/caseapprovalrevoked. Noevidencedsystemicfailure."
+      "scope": "WorkerBowncasesonly;CP271correctioninprogress,CP269targetedreopeningqueued. Nootherworker/caseapprovalrevoked. Noevidencedsystemicfailure.",
+      "resolvedCases": [
+        "cp-000271"
+      ],
+      "pendingCases": [
+        "cp-000269"
+      ],
+      "verifiedOn": "2026-11-02",
+      "implementationCommits": [
+        "94e80301886bd610bb6f707c0d0cd93b45d72fe8"
+      ],
+      "verificationEvidenceRefs": [
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000271/source-first-final-pass.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000271/published-verification.json"
+      ],
+      "verificationScope": "UnderlyingcurrentIEISrule90earnedAND180plannedandCP271correctedapplicationverified. CP269remainsreopened/unapprovedpendingitsownboundedcontentrepairandverification;thissharedruleverificationdoesnotapproveCP269."
     }
   ],
   "releaseDependencies": [
@@ -4290,7 +4305,7 @@
     },
     {
       "id": "cp-000271",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "reconstruct",
         "2": "correct",
@@ -4303,23 +4318,12 @@
         "ieis-elective-plan-earned-credit-condition"
       ],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Currentexternalframework/neutralroute and availableUCRspatialevidence",
-          "stages": [
-            2,
-            3,
-            4,
-            5,
-            6
-          ],
-          "scope": "Allinterests,candidates,concepts,selections,schedules,alignmentsandaudiencecontentreassessed;exactpublication/CI/finalpasspending."
-        }
-      ],
+      "downstreamReassessments": [],
       "implementationCommits": [
-        "0ed7b8a898f44ed6f5ee728d9b51f98cb7f08403"
+        "0ed7b8a898f44ed6f5ee728d9b51f98cb7f08403",
+        "94e80301886bd610bb6f707c0d0cd93b45d72fe8"
       ],
-      "presentationApproval": false,
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000271.json",
       "academicDisposition": "comparison"
     },
@@ -6165,8 +6169,8 @@
     }
   ],
   "progress": {
-    "approved": 57,
-    "inProgress": 15,
+    "approved": 58,
+    "inProgress": 14,
     "reviewedWithBlockers": 0,
     "notStarted": 366,
     "pilotStarted": 3
@@ -8767,57 +8771,15 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000271",
-      "activeClaim": {
-        "worker": "B",
-        "caseId": "cp-000271",
-        "executionId": "restart-B-cp271-20261102T0257Z",
-        "claimedAt": "2026-11-02T02:57:13Z",
-        "reviewedInputCommit": "e2cbb74f3b1ce892672a9e8727a37640d69bb73f",
-        "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000271.json": "ee4ca4246b3427d30f472bdc65dae07af988e989",
-          "data/counselor/comparisons/cp-000271.json": "e9479177243302e16ac5935b69953b9d6fce0924",
-          "data/registry/programme_interests.csv": "f9f9b9e0bdfb166decab46b1e3ea57832964c269"
-        },
-        "nextAction": "PublishCP271pair/case/register;verifyexactpublishedinputs/CIandcompleteseparatelyidentifiedsame-AIsource-firstfinalpassbeforeapproval.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown",
-        "workingInputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000271.json": "ac575a098afd000bb3ca6af8b69e2c80aed7b126",
-          "data/counselor/comparisons/cp-000271.json": "982209aba2feda5d7c4c6e6e74ed2b865eb78e34",
-          "data/registry/programme_interests.csv": "f9f9b9e0bdfb166decab46b1e3ea57832964c269",
-          "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
-          "data/counselor/review-programmes.json": "102f691c960674ac064bf30f00a33c5e4101ec7c",
-          "data/counselor/review-interests.json": "48ba4938598dee021a53592b307f973f9d0c3626",
-          "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
-          "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
-          "pilot/shiny/data/courses/BEN.json": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
-          "pilot/shiny/data/courses/DIS.json": "5774e2104a8310aa2925fc2aada2adac0c53bb95",
-          "pilot/shiny/data/courses/ENS.json": "da5d9225d6682419998c3cf20837727a5fa39cbf",
-          "pilot/shiny/data/courses/GOS.json": "49da38b390637fa113a95b835a4d9bbda854ef83",
-          "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa"
-        }
-      },
+      "nextCase": "cp-000269",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -8843,7 +8805,8 @@
         "cp-000265",
         "cp-000267",
         "cp-000268",
-        "cp-000270"
+        "cp-000270",
+        "cp-000271"
       ],
       "completedDispositions": [
         {
@@ -9020,6 +8983,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000270.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-02"
+        },
+        {
+          "caseId": "cp-000271",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000271.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-02"
         }
       ],
       "deferredCases": [
@@ -9044,19 +9014,19 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000270",
-        "executionId": "restart-B-cp270-20261102T0204Z",
+        "caseId": "cp-000271",
+        "executionId": "restart-B-cp271-20261102T0257Z",
         "state": "approved",
         "academicDisposition": "comparison",
-        "reviewedInputCommit": "b9f2ab3b332dbe8bf3dc6f0faa14239954ead461",
+        "reviewedInputCommit": "94e80301886bd610bb6f707c0d0cd93b45d72fe8",
         "inputBlobs": {
-          "decision": "1c5c159cb0debd969b363f8dd3bdfea16d3d28f2",
-          "canonical": "9c0270750208aac1114f6c4514d289ae7194c812"
+          "decision": "ac575a098afd000bb3ca6af8b69e2c80aed7b126",
+          "canonical": "982209aba2feda5d7c4c6e6e74ed2b865eb78e34"
         },
         "verifiedAt": "2026-11-02",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000270/source-first-final-pass.json",
-        "nextAction": "CP270 complete: one verified related Chemical Engineering and Chemistry comparison. Worker B next reviews CP271 after fresh authority checks. CP245,250,252,254,255,258,263,266 remain deferred/incomplete, permitted revisits pending. No finalrelease/discovery/deployment/universitycontact/additionalautomation authorised.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000271/source-first-final-pass.json",
+        "nextAction": "CP271 complete: two verified related Sustainable Innovation comparisons. Worker B next resumes reopened CP269 for targeted90earnedconditionrepairanddependentverification after fresh authority checks, before advancing CP272. CP245,250,252,254,255,258,263,266 remain deferred/incomplete, permitted revisits pending. No finalrelease/discovery/deployment/universitycontact/additionalautomation authorised.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -10827,6 +10797,72 @@
                 "pilot/shiny/data/courses/DIS.json": "5774e2104a8310aa2925fc2aada2adac0c53bb95",
                 "pilot/shiny/data/courses/ENS.json": "da5d9225d6682419998c3cf20837727a5fa39cbf",
                 "pilot/shiny/data/courses/HCB.json": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad"
+              }
+            }
+          }
+        },
+        {
+          "preservedOn": "2026-11-02",
+          "reason": "Preserve previous checkpoint and own execution claim before verifiedCP271 disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000270",
+              "executionId": "restart-B-cp270-20261102T0204Z",
+              "state": "approved",
+              "academicDisposition": "comparison",
+              "reviewedInputCommit": "b9f2ab3b332dbe8bf3dc6f0faa14239954ead461",
+              "inputBlobs": {
+                "decision": "1c5c159cb0debd969b363f8dd3bdfea16d3d28f2",
+                "canonical": "9c0270750208aac1114f6c4514d289ae7194c812"
+              },
+              "verifiedAt": "2026-11-02",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000270/source-first-final-pass.json",
+              "nextAction": "CP270 complete: one verified related Chemical Engineering and Chemistry comparison. Worker B next reviews CP271 after fresh authority checks. CP245,250,252,254,255,258,263,266 remain deferred/incomplete, permitted revisits pending. No finalrelease/discovery/deployment/universitycontact/additionalautomation authorised.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "worker": "B",
+              "caseId": "cp-000271",
+              "executionId": "restart-B-cp271-20261102T0257Z",
+              "claimedAt": "2026-11-02T02:57:13Z",
+              "reviewedInputCommit": "e2cbb74f3b1ce892672a9e8727a37640d69bb73f",
+              "inputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000271.json": "ee4ca4246b3427d30f472bdc65dae07af988e989",
+                "data/counselor/comparisons/cp-000271.json": "e9479177243302e16ac5935b69953b9d6fce0924",
+                "data/registry/programme_interests.csv": "f9f9b9e0bdfb166decab46b1e3ea57832964c269"
+              },
+              "nextAction": "PublishCP271pair/case/register;verifyexactpublishedinputs/CIandcompleteseparatelyidentifiedsame-AIsource-firstfinalpassbeforeapproval.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown",
+              "workingInputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000271.json": "ac575a098afd000bb3ca6af8b69e2c80aed7b126",
+                "data/counselor/comparisons/cp-000271.json": "982209aba2feda5d7c4c6e6e74ed2b865eb78e34",
+                "data/registry/programme_interests.csv": "f9f9b9e0bdfb166decab46b1e3ea57832964c269",
+                "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+                "data/counselor/review-programmes.json": "102f691c960674ac064bf30f00a33c5e4101ec7c",
+                "data/counselor/review-interests.json": "48ba4938598dee021a53592b307f973f9d0c3626",
+                "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+                "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+                "pilot/shiny/data/courses/BEN.json": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
+                "pilot/shiny/data/courses/DIS.json": "5774e2104a8310aa2925fc2aada2adac0c53bb95",
+                "pilot/shiny/data/courses/ENS.json": "da5d9225d6682419998c3cf20837727a5fa39cbf",
+                "pilot/shiny/data/courses/GOS.json": "49da38b390637fa113a95b835a4d9bbda854ef83",
+                "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa"
               }
             }
           }
