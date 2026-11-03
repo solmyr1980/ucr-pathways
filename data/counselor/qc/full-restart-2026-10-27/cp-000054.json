@@ -1,11 +1,11 @@
 {
   "id": "cp-000054",
-  "reviewedInputCommit": "deae53b1b3988b18f20e6f046acac25951ba4bb0",
+  "reviewedInputCommit": "8e1ab022a2066ef20319434ab19bda2d5f29d1d9",
   "inputBlobs": {
-    "decision": "636fe64010c89219edc01d44717697ada7ad4a12",
-    "canonical": "24165ba6e42d9d508fef05d160b1a452128e61d4"
+    "decision": "85872995b705e12fd5d389d96247e8614c755286",
+    "canonical": "df8f989a4da11296e6d23515f99aee22f9f4ed65"
   },
-  "state": "in-progress",
+  "state": "approved",
   "stages": {
     "4": {
       "outcome": "correct",
@@ -23,8 +23,13 @@
           ]
         },
         {
-          "state": "proposed",
-          "scope": "Publish the reviewed partial discourse placement and more precise alignment explanations."
+          "state": "verified",
+          "scope": "Publish the reviewed partial discourse placement and more precise alignment explanations.",
+          "implementationCommit": "8e1ab022a2066ef20319434ab19bda2d5f29d1d9",
+          "verificationEvidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-first-final-pass.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/published-verification.json"
+          ]
         }
       ],
       "evidence": [
@@ -35,9 +40,7 @@
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/mechanical-validation.json"
       ],
       "blockedBy": [],
-      "reassessStages": [
-        6
-      ]
+      "reassessStages": []
     },
     "1": {
       "outcome": "retain",
@@ -68,8 +71,13 @@
       "preserved": [],
       "actions": [
         {
-          "state": "proposed",
-          "scope": "Publish the two revised concepts."
+          "state": "verified",
+          "scope": "Publish the two revised concepts.",
+          "implementationCommit": "8e1ab022a2066ef20319434ab19bda2d5f29d1d9",
+          "verificationEvidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-first-final-pass.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/published-verification.json"
+          ]
         }
       ],
       "evidence": [
@@ -85,13 +93,31 @@
       "preserved": [],
       "actions": [
         {
-          "state": "proposed",
-          "scope": "Publish revised placement and audience text with the canonical pair."
+          "state": "verified",
+          "scope": "Publish revised placement and audience text with the canonical pair.",
+          "implementationCommit": "8e1ab022a2066ef20319434ab19bda2d5f29d1d9",
+          "verificationEvidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-first-final-pass.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/published-verification.json"
+          ]
         }
       ],
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/alignment-content-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/selected-description-review.json"
+      ],
+      "blockedBy": [],
+      "reassessStages": []
+    },
+    "6": {
+      "outcome": "retain",
+      "finding": "The separate source-first pass verified academic, mechanical and reader-facing gates against the published input versions under the record-content policy.",
+      "preserved": [],
+      "actions": [],
+      "evidence": [
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-first-final-pass.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/published-verification.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/ci-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
@@ -101,12 +127,54 @@
   "unresolved": [],
   "downstreamReassessments": [],
   "implementationCommits": [
-    "deae53b1b3988b18f20e6f046acac25951ba4bb0"
+    "deae53b1b3988b18f20e6f046acac25951ba4bb0",
+    "8e1ab022a2066ef20319434ab19bda2d5f29d1d9"
   ],
-  "finalReview": null,
+  "finalReview": {
+    "verificationPolicy": "record-content-review-2026-10-31",
+    "reviewerOrPass": "CP054 separately identified same-AI source-first final pass",
+    "independenceMethod": "After publication, reconsidered the adopted route, language progression, module entry and actual workbook content before confirming the finished concepts, placements and reader text. The same AI carried out the repair and this separate pass.",
+    "reviewedOn": "2026-11-03",
+    "reviewedCommit": "8e1ab022a2066ef20319434ab19bda2d5f29d1d9",
+    "inputBlobs": {
+      "decision": "85872995b705e12fd5d389d96247e8614c755286",
+      "canonical": "df8f989a4da11296e6d23515f99aee22f9f4ed65"
+    },
+    "sourceEvidenceRefs": [
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-findings.json",
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-first-final-pass.json"
+    ],
+    "checks": {
+      "academic": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-first-final-pass.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-findings.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/interest-review.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/course-content-review.json"
+        ]
+      },
+      "mechanical": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/mechanical-validation.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/published-verification.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/ci-verification.json"
+        ]
+      },
+      "content": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-first-final-pass.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/alignment-content-review.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/selected-description-review.json"
+        ]
+      }
+    }
+  },
   "schemaVersion": "2.0",
   "auditId": "counselor-full-restart-2026-10-27",
-  "presentationApproval": false,
+  "presentationApproval": true,
   "evidenceSources": [
     {
       "url": "https://www.ru.nl/ru-bestanden/oerbciw2627",
@@ -187,9 +255,11 @@
     },
     "nextAction": "Verify the published CP054 content repair and applicable CI, then independently structure a same-AI source-first final pass under the record-content policy.",
     "runtimeModel": "unknown",
-    "runtimeReasoningEffort": "unknown"
+    "runtimeReasoningEffort": "unknown",
+    "releasedAt": "2026-11-03T00:37:07.814947+00:00",
+    "status": "completed"
   },
-  "nextAction": "Verify the published CP054 content repair and applicable CI, then independently structure a same-AI source-first final pass under the record-content policy.",
+  "nextAction": "CP054 approved with two related comparisons. Worker A resumes CP055 after checking fresh audit authority and claim.",
   "reviewHistory": [
     {
       "preservedOn": "2026-11-03",
@@ -470,6 +540,488 @@
             }
           }
         ]
+      }
+    },
+    {
+      "preservedOn": "2026-11-03",
+      "reason": "Preserve stages 1–5 and the proposed repair before final disposition.",
+      "originalFileSha256": "5b81df24572d16ef7ef00470869386913a448cdf770620f7e859e7ed0d09d0b4",
+      "snapshot": {
+        "id": "cp-000054",
+        "reviewedInputCommit": "deae53b1b3988b18f20e6f046acac25951ba4bb0",
+        "inputBlobs": {
+          "decision": "636fe64010c89219edc01d44717697ada7ad4a12",
+          "canonical": "24165ba6e42d9d508fef05d160b1a452128e61d4"
+        },
+        "state": "in-progress",
+        "stages": {
+          "4": {
+            "outcome": "correct",
+            "finding": "Bounded repair of a workbook offering conflict and outdated course title and contribution. Full course, alignment and audience reassessment remains pending. Reassessed all 33 selected course contributions and every alignment after the repair. Stylistics provides partial textual discourse analysis. The complete interaction and cross-cultural language research sequence remains a gap.",
+            "preserved": [
+              "Both course sets and their concept assignments"
+            ],
+            "actions": [
+              {
+                "state": "verified",
+                "scope": "Publish the revised schedule and current leadership title and contribution together with canonical replay.",
+                "implementationCommit": "deae53b1b3988b18f20e6f046acac25951ba4bb0",
+                "verificationEvidenceRefs": [
+                  "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/publication-checkpoint.json"
+                ]
+              },
+              {
+                "state": "proposed",
+                "scope": "Publish the reviewed partial discourse placement and more precise alignment explanations."
+              }
+            ],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/repair-checkpoint.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/publication-checkpoint.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/course-content-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/alignment-content-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/mechanical-validation.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": [
+              6
+            ]
+          },
+          "1": {
+            "outcome": "retain",
+            "finding": "The adopted 2026–2027 English-track regulations and current modules confirm the 180 EC route, attendance and entry conditions. The Spanish credit requirement applies to the named Spanish language-use module.",
+            "preserved": [],
+            "actions": [],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-findings.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "2": {
+            "outcome": "retain",
+            "finding": "Reconciled 47 exact-target interests by role, closest ownership and candidate outcome. Specialist digital and language candidates lack adequate academic coverage.",
+            "preserved": [],
+            "actions": [],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-findings.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "3": {
+            "outcome": "correct",
+            "finding": "Reassessed both concepts after the schedule repair. The business and public routes differ by nine courses per route. The concept text distinguishes research, subject context and applied communication.",
+            "preserved": [],
+            "actions": [
+              {
+                "state": "proposed",
+                "scope": "Publish the two revised concepts."
+              }
+            ],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/course-content-review.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "5": {
+            "outcome": "correct",
+            "finding": "Reviewed both concepts, all reader-facing fields and the 33 selected descriptions. Refined partial correspondence, described the Dutch-language project and clarified the elective and language requirements.",
+            "preserved": [],
+            "actions": [
+              {
+                "state": "proposed",
+                "scope": "Publish revised placement and audience text with the canonical pair."
+              }
+            ],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/alignment-content-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/selected-description-review.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          }
+        },
+        "sharedIssueIds": [],
+        "unresolved": [],
+        "downstreamReassessments": [],
+        "implementationCommits": [
+          "deae53b1b3988b18f20e6f046acac25951ba4bb0"
+        ],
+        "finalReview": null,
+        "schemaVersion": "2.0",
+        "auditId": "counselor-full-restart-2026-10-27",
+        "presentationApproval": false,
+        "evidenceSources": [
+          {
+            "url": "https://www.ru.nl/ru-bestanden/oerbciw2627",
+            "checkedOn": "2026-11-03",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-findings.json"
+          },
+          {
+            "url": "https://www.ru.nl/en/education/bachelors/international-business-communication/study-programme",
+            "checkedOn": "2026-11-03",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-findings.json"
+          },
+          {
+            "url": "https://www.ru.nl/en/education/bachelors/international-business-communication/study-programme/year-1",
+            "checkedOn": "2026-11-03",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-findings.json"
+          },
+          {
+            "url": "https://www.ru.nl/en/education/bachelors/international-business-communication/study-programme/year-2",
+            "checkedOn": "2026-11-03",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-findings.json"
+          },
+          {
+            "url": "https://www.ru.nl/en/education/bachelors/international-business-communication/study-programme/year-3",
+            "checkedOn": "2026-11-03",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-findings.json"
+          },
+          {
+            "url": "https://www.ru.nl/ru-bestanden/oeralgemeenbachelor2627",
+            "checkedOn": "2026-11-03",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-findings.json"
+          },
+          {
+            "url": "https://www.ru.nl/en/education/bachelors/international-business-communication",
+            "checkedOn": "2026-11-03",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-findings.json"
+          },
+          {
+            "url": "https://www.ru.nl/en/education/bachelors/international-business-communication/what-can-you-do-with-a-bachelors-in-international-business-communication",
+            "checkedOn": "2026-11-03",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-findings.json"
+          },
+          {
+            "url": "https://www.ru.nl/studenten/onderwijs-volgen/regels-en-richtlijnen/onderwijs-en-examenregelingen/letteren",
+            "checkedOn": "2026-11-03",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/source-findings.json"
+          }
+        ],
+        "renderedEvidence": [],
+        "executionClaim": {
+          "executionId": "restart-A-cp054-resume-20261103T0031Z",
+          "worker": "A",
+          "caseId": "cp-000054",
+          "claimedAt": "2026-11-03T00:31:28.143539+00:00",
+          "reviewedInputCommit": "05e780c25946077c6037abd936b050d681cb42b6",
+          "inputBlobs": {
+            "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+            "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+            "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000054.json": "636fe64010c89219edc01d44717697ada7ad4a12",
+            "data/counselor/comparisons/cp-000054.json": "24165ba6e42d9d508fef05d160b1a452128e61d4",
+            "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+            "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
+            "data/counselor/review-programmes.json": "d0f41d708ba99bd1d9e689b46f7e53fcd3fa400f",
+            "data/counselor/review-interests.json": "d7341f5bf03dcc667f24e53c3bcd9607e831d9d4",
+            "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+            "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+            "pilot/shiny/data/courses/ENS.json": "da5d9225d6682419998c3cf20837727a5fa39cbf",
+            "pilot/shiny/data/courses/HCB.json": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad",
+            "pilot/shiny/data/courses/BEN.json": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
+            "pilot/shiny/data/courses/DIS.json": "5774e2104a8310aa2925fc2aada2adac0c53bb95",
+            "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+            "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa",
+            "pilot/shiny/data/courses/GOS.json": "49da38b390637fa113a95b835a4d9bbda854ef83"
+          },
+          "nextAction": "Verify the published CP054 content repair and applicable CI, then independently structure a same-AI source-first final pass under the record-content policy.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown"
+        },
+        "nextAction": "Verify the published CP054 content repair and applicable CI, then independently structure a same-AI source-first final pass under the record-content policy.",
+        "reviewHistory": [
+          {
+            "preservedOn": "2026-11-03",
+            "reason": "Preserve initial bounded repair checkpoint.",
+            "originalFileSha256": "f58c055632aff3ae559f111a37f9bf94831fbf9e3bbe5f186639214425f4b3a7",
+            "snapshot": {
+              "id": "cp-000054",
+              "reviewedInputCommit": "060e5704c9b3ee50b19056e5c82ab1a7d2fc7738",
+              "inputBlobs": {
+                "decision": "a13b5bbcace547323a642ad9fcdc1514a97f4247",
+                "canonical": "1bcfa178b512289e25754f781dd0d02d8b780143"
+              },
+              "state": "in-progress",
+              "stages": {
+                "4": {
+                  "outcome": "correct",
+                  "finding": "Bounded repair of a workbook offering conflict and outdated course title and contribution. Full course, alignment and audience reassessment remains pending.",
+                  "preserved": [
+                    "Both course sets and their concept assignments"
+                  ],
+                  "actions": [
+                    {
+                      "state": "proposed",
+                      "scope": "Publish the revised schedule and current leadership title and contribution together with canonical replay."
+                    }
+                  ],
+                  "evidence": [
+                    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/repair-checkpoint.json"
+                  ],
+                  "blockedBy": [],
+                  "reassessStages": [
+                    3,
+                    4,
+                    5,
+                    6
+                  ]
+                }
+              },
+              "sharedIssueIds": [],
+              "unresolved": [],
+              "downstreamReassessments": [],
+              "implementationCommits": [],
+              "finalReview": null,
+              "schemaVersion": "2.0",
+              "auditId": "counselor-full-restart-2026-10-27",
+              "presentationApproval": false,
+              "evidenceSources": [
+                {
+                  "url": "https://www.ru.nl/ru-bestanden/oerbciw2627",
+                  "checkedOn": "2026-11-03",
+                  "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/repair-checkpoint.json"
+                }
+              ],
+              "renderedEvidence": [],
+              "executionClaim": {
+                "executionId": "restart-A-cp054-20261102T2331Z",
+                "worker": "A",
+                "caseId": "cp-000054",
+                "claimedAt": "2026-11-02T23:31:28.371380+00:00",
+                "reviewedInputCommit": "060e5704c9b3ee50b19056e5c82ab1a7d2fc7738",
+                "inputBlobs": {
+                  "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                  "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                  "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                  "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+                  "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                  "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                  "data/counselor/decisions/cp-000054.json": "a13b5bbcace547323a642ad9fcdc1514a97f4247",
+                  "data/counselor/comparisons/cp-000054.json": "1bcfa178b512289e25754f781dd0d02d8b780143",
+                  "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+                  "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
+                  "data/counselor/review-programmes.json": "d0f41d708ba99bd1d9e689b46f7e53fcd3fa400f",
+                  "data/counselor/review-interests.json": "d7341f5bf03dcc667f24e53c3bcd9607e831d9d4",
+                  "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+                  "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+                  "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+                  "pilot/shiny/data/courses/ENS.json": "da5d9225d6682419998c3cf20837727a5fa39cbf",
+                  "pilot/shiny/data/courses/HCB.json": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad",
+                  "pilot/shiny/data/courses/BEN.json": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
+                  "pilot/shiny/data/courses/DIS.json": "5774e2104a8310aa2925fc2aada2adac0c53bb95",
+                  "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+                  "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa",
+                  "pilot/shiny/data/courses/GOS.json": "49da38b390637fa113a95b835a4d9bbda854ef83"
+                },
+                "nextAction": "Verify the 2026 English International Business Communication pathway and all exact interests. Audit and repair UCR course selections, schedules, alignments and reader-facing content, then verify the published pair.",
+                "runtimeModel": "unknown",
+                "runtimeReasoningEffort": "unknown"
+              },
+              "nextAction": "Verify the published scheduling and course-title repair and its CI. Finish checking current English-track module entry and participation conditions against the adopted regulations, including the Cross-Cultural Online Communication wording. Review every exact-target interest, each selected course contribution and description, the two concepts and every alignment and audience field. Complete a separate source-first final pass before disposition."
+            }
+          },
+          {
+            "preservedOn": "2026-11-03",
+            "reason": "Preserve the prior verified schedule and title repair checkpoint before downstream reassessment.",
+            "originalFileSha256": "d428bef8f2bb7d649f176ba7e4ccdf3c7543c9e05892d17fb5b4d261ec8236c8",
+            "snapshot": {
+              "id": "cp-000054",
+              "reviewedInputCommit": "deae53b1b3988b18f20e6f046acac25951ba4bb0",
+              "inputBlobs": {
+                "decision": "636fe64010c89219edc01d44717697ada7ad4a12",
+                "canonical": "24165ba6e42d9d508fef05d160b1a452128e61d4"
+              },
+              "state": "in-progress",
+              "stages": {
+                "4": {
+                  "outcome": "correct",
+                  "finding": "Bounded repair of a workbook offering conflict and outdated course title and contribution. Full course, alignment and audience reassessment remains pending.",
+                  "preserved": [
+                    "Both course sets and their concept assignments"
+                  ],
+                  "actions": [
+                    {
+                      "state": "verified",
+                      "scope": "Publish the revised schedule and current leadership title and contribution together with canonical replay.",
+                      "implementationCommit": "deae53b1b3988b18f20e6f046acac25951ba4bb0",
+                      "verificationEvidenceRefs": [
+                        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/publication-checkpoint.json"
+                      ]
+                    }
+                  ],
+                  "evidence": [
+                    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/repair-checkpoint.json",
+                    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/publication-checkpoint.json"
+                  ],
+                  "blockedBy": [],
+                  "reassessStages": [
+                    3,
+                    4,
+                    5,
+                    6
+                  ]
+                }
+              },
+              "sharedIssueIds": [],
+              "unresolved": [],
+              "downstreamReassessments": [],
+              "implementationCommits": [
+                "deae53b1b3988b18f20e6f046acac25951ba4bb0"
+              ],
+              "finalReview": null,
+              "schemaVersion": "2.0",
+              "auditId": "counselor-full-restart-2026-10-27",
+              "presentationApproval": false,
+              "evidenceSources": [
+                {
+                  "url": "https://www.ru.nl/ru-bestanden/oerbciw2627",
+                  "checkedOn": "2026-11-03",
+                  "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/repair-checkpoint.json"
+                }
+              ],
+              "renderedEvidence": [],
+              "executionClaim": {
+                "executionId": "restart-A-cp054-20261102T2331Z",
+                "worker": "A",
+                "caseId": "cp-000054",
+                "claimedAt": "2026-11-02T23:31:28.371380+00:00",
+                "reviewedInputCommit": "060e5704c9b3ee50b19056e5c82ab1a7d2fc7738",
+                "inputBlobs": {
+                  "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                  "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                  "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                  "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+                  "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                  "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                  "data/counselor/decisions/cp-000054.json": "a13b5bbcace547323a642ad9fcdc1514a97f4247",
+                  "data/counselor/comparisons/cp-000054.json": "1bcfa178b512289e25754f781dd0d02d8b780143",
+                  "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+                  "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
+                  "data/counselor/review-programmes.json": "d0f41d708ba99bd1d9e689b46f7e53fcd3fa400f",
+                  "data/counselor/review-interests.json": "d7341f5bf03dcc667f24e53c3bcd9607e831d9d4",
+                  "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+                  "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+                  "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+                  "pilot/shiny/data/courses/ENS.json": "da5d9225d6682419998c3cf20837727a5fa39cbf",
+                  "pilot/shiny/data/courses/HCB.json": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad",
+                  "pilot/shiny/data/courses/BEN.json": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
+                  "pilot/shiny/data/courses/DIS.json": "5774e2104a8310aa2925fc2aada2adac0c53bb95",
+                  "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+                  "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa",
+                  "pilot/shiny/data/courses/GOS.json": "49da38b390637fa113a95b835a4d9bbda854ef83"
+                },
+                "nextAction": "Verify the published scheduling and course-title repair and its CI. Finish checking current English-track module entry and participation conditions against the adopted regulations, including the Cross-Cultural Online Communication wording. Review every exact-target interest, each selected course contribution and description, the two concepts and every alignment and audience field. Complete a separate source-first final pass before disposition.",
+                "runtimeModel": "unknown",
+                "runtimeReasoningEffort": "unknown",
+                "status": "checkpointed",
+                "releasedAt": "2026-11-02T23:40:38.567752+00:00"
+              },
+              "nextAction": "Resume CP054. Finish verifying the English-track module content and entry and participation conditions against the 2026–2027 regulations. Reconcile all 47 exact-target interests, then finish individual selected-course and description judgments, both concepts, component alignments and every audience field. Reconsider the finished record from underlying sources in a separately identified final pass.",
+              "reviewHistory": [
+                {
+                  "preservedOn": "2026-11-03",
+                  "reason": "Preserve initial bounded repair checkpoint.",
+                  "originalFileSha256": "f58c055632aff3ae559f111a37f9bf94831fbf9e3bbe5f186639214425f4b3a7",
+                  "snapshot": {
+                    "id": "cp-000054",
+                    "reviewedInputCommit": "060e5704c9b3ee50b19056e5c82ab1a7d2fc7738",
+                    "inputBlobs": {
+                      "decision": "a13b5bbcace547323a642ad9fcdc1514a97f4247",
+                      "canonical": "1bcfa178b512289e25754f781dd0d02d8b780143"
+                    },
+                    "state": "in-progress",
+                    "stages": {
+                      "4": {
+                        "outcome": "correct",
+                        "finding": "Bounded repair of a workbook offering conflict and outdated course title and contribution. Full course, alignment and audience reassessment remains pending.",
+                        "preserved": [
+                          "Both course sets and their concept assignments"
+                        ],
+                        "actions": [
+                          {
+                            "state": "proposed",
+                            "scope": "Publish the revised schedule and current leadership title and contribution together with canonical replay."
+                          }
+                        ],
+                        "evidence": [
+                          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/repair-checkpoint.json"
+                        ],
+                        "blockedBy": [],
+                        "reassessStages": [
+                          3,
+                          4,
+                          5,
+                          6
+                        ]
+                      }
+                    },
+                    "sharedIssueIds": [],
+                    "unresolved": [],
+                    "downstreamReassessments": [],
+                    "implementationCommits": [],
+                    "finalReview": null,
+                    "schemaVersion": "2.0",
+                    "auditId": "counselor-full-restart-2026-10-27",
+                    "presentationApproval": false,
+                    "evidenceSources": [
+                      {
+                        "url": "https://www.ru.nl/ru-bestanden/oerbciw2627",
+                        "checkedOn": "2026-11-03",
+                        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000054/repair-checkpoint.json"
+                      }
+                    ],
+                    "renderedEvidence": [],
+                    "executionClaim": {
+                      "executionId": "restart-A-cp054-20261102T2331Z",
+                      "worker": "A",
+                      "caseId": "cp-000054",
+                      "claimedAt": "2026-11-02T23:31:28.371380+00:00",
+                      "reviewedInputCommit": "060e5704c9b3ee50b19056e5c82ab1a7d2fc7738",
+                      "inputBlobs": {
+                        "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                        "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                        "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                        "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+                        "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                        "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                        "data/counselor/decisions/cp-000054.json": "a13b5bbcace547323a642ad9fcdc1514a97f4247",
+                        "data/counselor/comparisons/cp-000054.json": "1bcfa178b512289e25754f781dd0d02d8b780143",
+                        "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+                        "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
+                        "data/counselor/review-programmes.json": "d0f41d708ba99bd1d9e689b46f7e53fcd3fa400f",
+                        "data/counselor/review-interests.json": "d7341f5bf03dcc667f24e53c3bcd9607e831d9d4",
+                        "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+                        "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+                        "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+                        "pilot/shiny/data/courses/ENS.json": "da5d9225d6682419998c3cf20837727a5fa39cbf",
+                        "pilot/shiny/data/courses/HCB.json": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad",
+                        "pilot/shiny/data/courses/BEN.json": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
+                        "pilot/shiny/data/courses/DIS.json": "5774e2104a8310aa2925fc2aada2adac0c53bb95",
+                        "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+                        "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa",
+                        "pilot/shiny/data/courses/GOS.json": "49da38b390637fa113a95b835a4d9bbda854ef83"
+                      },
+                      "nextAction": "Verify the 2026 English International Business Communication pathway and all exact interests. Audit and repair UCR course selections, schedules, alignments and reader-facing content, then verify the published pair.",
+                      "runtimeModel": "unknown",
+                      "runtimeReasoningEffort": "unknown"
+                    },
+                    "nextAction": "Verify the published scheduling and course-title repair and its CI. Finish checking current English-track module entry and participation conditions against the adopted regulations, including the Cross-Cultural Online Communication wording. Review every exact-target interest, each selected course contribution and description, the two concepts and every alignment and audience field. Complete a separate source-first final pass before disposition."
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "academicDisposition": "comparison"
       }
     }
   ],
