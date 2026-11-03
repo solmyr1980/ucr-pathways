@@ -42,7 +42,8 @@
     "route": "Six DSAI electives in the 36-EC free-choice space",
     "additionalSourceUrls": [
       "https://studiegids.universiteitleiden.nl/studies/BA-DSAI?year=2261",
-      "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/data-science-and-artificial-intelligence"
+      "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/data-science-and-artificial-intelligence",
+      "https://studiegids.universiteitleiden.nl/api/product?code=4032BDX15Y&type=MODULE&year=2261&language=en"
     ],
     "sourceNotes": "The live 2026-2027 Leiden Study Guide establishes a complete 180-EC programme: 120 EC of mandatory courses across Years 1 and 2; 24 EC of mandatory Year 3 components, consisting of AI and Ethics (3 EC), Software Engineering (6 EC) and the Bachelor Thesis Project (15 EC); and 36 EC of elective space. The standard discipline-specific route of six DSAI electives is selected rather than a 30-EC minor plus one DSAI elective because it most directly continues the programme's broad academic identity. The six choices remain an explicit restricted-choice aggregate rather than invented individual selections.",
     "components": [
@@ -1136,7 +1137,7 @@
     "alternatives": [
       {
         "programmeId": "ucr-1",
-        "concept": "The closest feasible UCR response combines programming and software, algorithms and databases, a substantial mathematics-and-statistics spine, data science and machine learning, and AI reasoning, optimisation and reinforcement learning.",
+        "concept": "Build skills in programming, algorithms, computer systems and databases alongside mathematics and statistics. Apply them to machine learning, neural networks and decision-making in AI.",
         "basisLabels": [
           "Programming, software engineering, databases and computer systems",
           "Algorithms, data structures and computational problem-solving for intelligent systems",
@@ -1203,7 +1204,7 @@
       },
       {
         "programmeId": "ucr-2",
-        "concept": "This route takes Leiden's cognition-and-computation strand as its organising logic, combining cognitive neuroscience, language, philosophy of mind and AI ethics with machine learning, intelligent agents, robotics and data analysis.",
+        "concept": "Explore how people perceive, act and use language, alongside how machines learn and make decisions. Combine cognitive science and philosophy with robotics, machine learning and AI ethics.",
         "basisLabels": [
           "Human cognition, cognitive neuroscience and computational models of information processing",
           "Human interaction with intelligent systems and ethical, responsible AI",
@@ -2289,8 +2290,9 @@
     },
     {
       "componentId": "y1-systems-2",
-      "matchType": "unmatched",
-      "rationale": "No selected UCR course reproduces this second computer-systems component."
+      "matchType": "substantive-match",
+      "ucrCourseCode": "DISCOMP211",
+      "rationale": "Operating systems and networks develop related computer-systems foundations. Leiden distributes its systems requirements across two courses."
     },
     {
       "componentId": "y1-calculus-1",
@@ -2326,7 +2328,7 @@
       "componentId": "y1-orientation-ai",
       "matchType": "substantive-match",
       "ucrCourseCode": "DISDATA111",
-      "rationale": "Both orient students to data preparation, analysis and intelligent-system questions through practical work."
+      "rationale": "Practical data preparation and visualization overlap with introductory data work. The Leiden course has a wider orientation to AI."
     },
     {
       "componentId": "y2-machine-learning",
@@ -2344,7 +2346,7 @@
       "componentId": "y2-symbolic-ai",
       "matchType": "substantive-match",
       "ucrCourseCode": "DISARIN311",
-      "rationale": "Both cover symbolic problem solving, search and reasoning for artificial intelligence."
+      "rationale": "Search methods overlap. UCR extends them into numerical and adversarial optimization, while Leiden covers additional forms of symbolic reasoning."
     },
     {
       "componentId": "y2-reinforcement",
@@ -2356,24 +2358,23 @@
       "componentId": "y2-embodied-agents",
       "matchType": "substantive-match",
       "ucrCourseCode": "HCBCOGN212",
-      "rationale": "Both connect perception and action to embodied agents, though Leiden concentrates on conversational-agent design."
+      "rationale": "Perception and action provide background on human cognition. Leiden applies this area to the design of conversational agents."
     },
     {
       "componentId": "y2-cognition-computation",
       "matchType": "substantive-match",
       "ucrCourseCode": "HCBCOGN311",
-      "rationale": "Both study cognitive processes and computational accounts of information processing."
-    },
-    {
-      "componentId": "y2-language-computation",
-      "matchType": "substantive-match",
-      "ucrCourseCode": "HCBCOGN312",
-      "rationale": "Both examine language processing and its relationship to computational systems."
+      "rationale": "Cognitive neuroscience contributes evidence on attention and memory. Leiden also examines computational models of cognition."
     },
     {
       "componentId": "y2-security",
       "matchType": "unmatched",
       "rationale": "No selected UCR course reproduces Leiden's dedicated technical security component."
+    },
+    {
+      "componentId": "y2-language-computation",
+      "matchType": "unmatched",
+      "rationale": "Formal languages and computation remain a specialist component."
     },
     {
       "componentId": "y3-ai-ethics",
@@ -2538,19 +2539,15 @@
         },
         {
           "cells": {
-            "comparator": {
-              "text": "Essentials of Computer Systems 2",
-              "credits": 3,
-              "componentId": "y1-systems-2"
-            }
-          }
-        },
-        {
-          "cells": {
             "ucr-1": {
               "text": "Networks & Operating Systems",
               "credits": 7.5,
               "courseCode": "DISCOMP211"
+            },
+            "comparator": {
+              "text": "Essentials of Computer Systems 2",
+              "credits": 3,
+              "componentId": "y1-systems-2"
             }
           }
         }
@@ -2803,11 +2800,6 @@
               "text": "Psycholinguistics",
               "credits": 7.5,
               "courseCode": "HCBCOGN312"
-            },
-            "comparator": {
-              "text": "Languages and Computation",
-              "credits": 6,
-              "componentId": "y2-language-computation"
             }
           }
         },
@@ -2849,6 +2841,15 @@
               "text": "Security",
               "credits": 6,
               "componentId": "y2-security"
+            }
+          }
+        },
+        {
+          "cells": {
+            "comparator": {
+              "text": "Languages and Computation",
+              "credits": 6,
+              "componentId": "y2-language-computation"
             }
           }
         }
@@ -3008,14 +3009,70 @@
     {
       "type": "missing-specialist-components",
       "placement": "comparison",
-      "text": "Both programmes include substantial programming, mathematics, statistics, machine learning and artificial intelligence. Leiden additionally provides a fixed specialist sequence in computer systems, formal computer-science foundations, security, language and computation, software engineering, an independent thesis and 36 EC of advanced DSAI electives. UCR can combine related courses but does not reproduce that full sequence."
+      "text": "UCR offers related study in computing, mathematics and AI. Leiden requires dedicated courses in security, formal languages and software engineering, an independent thesis and 36 EC of advanced electives."
     },
     {
       "type": "different-curricular-structure",
       "placement": "comparison",
-      "text": "Leiden organises Data Science and Artificial Intelligence as a fixed specialist bachelor with a large advanced elective space. At UCR, comparable subjects are distributed across computer science, mathematics, data science, artificial intelligence, cognitive science and philosophy."
+      "text": "Leiden’s specialist curriculum combines a fixed core with advanced electives. UCR combines related courses across several fields."
     }
   ],
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "Leiden’s Data Science and Artificial Intelligence degree combines computer science, mathematics and statistics with machine learning, cognition and responsible AI.",
+    "comparisonExplanation": "Both UCR routes combine programming, statistics and AI. One adds computer systems and advanced mathematics. The other adds cognition, philosophy and robotics. Leiden’s dedicated security, formal languages and thesis requirements remain gaps.",
+    "conceptProgrammeIds": [
+      "ucr-1",
+      "ucr-2"
+    ],
+    "noteTypes": [
+      "missing-specialist-components",
+      "different-curricular-structure"
+    ],
+    "curriculum": {
+      "status": "complete",
+      "componentIds": [
+        "y1-foundations",
+        "y1-algorithms",
+        "y1-databases",
+        "y1-cognition",
+        "y1-calculus-1",
+        "y1-digital-skills",
+        "y1-orientation-ai",
+        "y1-presenting",
+        "y1-systems-1",
+        "y1-programming",
+        "y1-linear-algebra",
+        "y1-calculus-2",
+        "y1-logic",
+        "y1-systems-2",
+        "y1-probability",
+        "y2-embodied-agents",
+        "y2-language-computation",
+        "y2-statistics",
+        "y2-software-development",
+        "y2-symbolic-ai",
+        "y2-reinforcement",
+        "y2-machine-learning",
+        "y2-neural-computing",
+        "y2-security",
+        "y2-cognition-computation",
+        "y2-research-methods",
+        "y3-ai-ethics",
+        "y3-software-engineering",
+        "y3-thesis",
+        "y3-electives"
+      ],
+      "yearLabel": "2026–2027",
+      "routeLabel": "Data Science and Artificial Intelligence",
+      "limitation": "The first two years contain 120 EC of required courses. Year three combines 24 EC of requirements with 36 EC of electives."
+    },
+    "componentNotes": {
+      "y3-thesis": "For spring entry, complete all first-year courses, at least 66 EC from years two and three, and Research Methods in AI. At the February check, at most 27 EC of second- and third-year spring courses may remain, excluding the thesis. The September check applies the same spring-credit limit and asks students to expect to meet the February requirements. Matching is in December. The 2026–2027 fall class follows the preceding guide.",
+      "y3-electives": "The route shown uses six DSAI electives. A 30 EC minor plus one DSAI elective is another option. Other packages require advance approval.",
+      "y2-embodied-agents": "Embodied Conversational Agents replaces Human-Agent Interaction from 2026–2027."
+    }
+  },
   "optionalIndependentResearch": {
     "id": "optional-independent-research",
     "text": "Optional independent research",
