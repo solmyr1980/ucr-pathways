@@ -5283,13 +5283,14 @@
         "2": "correct",
         "3": "retain",
         "5": "correct",
-        "6": "retain"
+        "6": "blocked"
       },
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
       "implementationCommits": [
-        "331652de4acca64314438d12801d0b5aa536061a"
+        "331652de4acca64314438d12801d0b5aa536061a",
+        "881ae221069b22f3088cf11b9eabc633799a0870"
       ],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000292.json"
@@ -13312,7 +13313,7 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
@@ -13320,28 +13321,7 @@
         "minute": 0
       },
       "nextCase": "cp-000292",
-      "activeClaim": {
-        "executionId": "restart-B-cp292-20261104T1600Z",
-        "worker": "B",
-        "caseId": "cp-000292",
-        "claimedAt": "2026-11-04T16:00:37.237082+00:00",
-        "reviewedInputCommit": "c7df4933fa36ca6a91538967df8e4f961dde1233",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000292.json": "fc084144a26aff6b834c4cd5afab511e4fe30eca",
-          "data/counselor/comparisons/cp-000292.json": "6401b86a7acba765133696512d60edd49d17aa86",
-          "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify recovery/follow-upCI then complete remaining course/concept/description/audience/alignment checks and separate source-firstfinalpass; preserve valid source/progression research.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -13678,29 +13658,38 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "executionId": "restart-B-cp292-20261104T0356Z",
+        "executionId": "restart-B-cp292-20261104T1600Z",
         "worker": "B",
         "caseId": "cp-000292",
-        "claimedAt": "2026-11-04T03:56:35Z",
-        "reviewedInputCommit": "bc51c157735f7ac8e429774314df6ef05b3fb698",
+        "claimedAt": "2026-11-04T16:00:37.237082+00:00",
+        "reviewedInputCommit": "881ae221069b22f3088cf11b9eabc633799a0870",
         "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
           "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
           "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000292.json": "3fafa8ca8178fb02a456d62f8f02cd0af5833cbb",
-          "data/counselor/comparisons/cp-000292.json": "8ae21a55640015df9bb1cfda4902f175aa9f0ea6",
-          "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          "data/counselor/decisions/cp-000292.json": "96a8759ff95e50db1c88a5b6c26bae2b88b99aa4",
+          "data/counselor/comparisons/cp-000292.json": "fdfa5f09e7545791e3f6e8bdc1cb899f16f02937",
+          "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
+          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+          "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+          "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+          "pilot/shiny/data/courses/DIS.json": "5774e2104a8310aa2925fc2aada2adac0c53bb95",
+          "pilot/shiny/data/courses/GOS.json": "c2084e45718d49f9acea1efc1a98dac5f8e74f83",
+          "pilot/shiny/data/courses/HCB.json": "601663c536a5e6fcfe85ca65e4abcf4733495e45",
+          "pilot/shiny/data/courses/MCC.json": "9a53e51880fd3be810d2c2479ee0816b3f29201b",
+          "canonical": "fdfa5f09e7545791e3f6e8bdc1cb899f16f02937",
+          "decision": "96a8759ff95e50db1c88a5b6c26bae2b88b99aa4"
         },
-        "nextAction": "Repair published and verified. Check follow-up CI, then complete pending CP292 content and source-first final review.",
+        "nextAction": "Resume CP-000292: verify Build counselor comparison, Refresh counselor review indexes and Validate Shiny pilots for repair 881ae221069b22f3088cf11b9eabc633799a0870 and applicable checkpoint CI. Confirm all reviewed input hashes remain unchanged; resolve any actual failure against its inputs. Only after applicable gates pass, record final approval, sync derived progress and coordinate assessment 9 if combined verified count reaches 90. Preserve valid source-first academic/content findings; do not advance to CP-000293 yet.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown",
+        "checkpointedAt": "2026-11-04T16:17:35.390239+00:00",
         "state": "in-progress",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000292/publication-recovery.json",
-        "recoveryAuthorisedOn": "2026-11-04"
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000292/source-first-review-pending-ci.json",
+        "verificationPolicy": "record-content-review-2026-10-31"
       },
       "checkpointHistory": [
         {
@@ -17963,6 +17952,59 @@
               "runtimeReasoningEffort": "unknown",
               "state": "in-progress",
               "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000292/substantive-content-repair.json"
+            }
+          }
+        },
+        {
+          "preservedOn": "2026-11-04T16:17:35.390239+00:00",
+          "reason": "Preserve prior checkpoint and own completed execution claim before waiting for queued repair CI.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "executionId": "restart-B-cp292-20261104T0356Z",
+              "worker": "B",
+              "caseId": "cp-000292",
+              "claimedAt": "2026-11-04T03:56:35Z",
+              "reviewedInputCommit": "bc51c157735f7ac8e429774314df6ef05b3fb698",
+              "inputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000292.json": "3fafa8ca8178fb02a456d62f8f02cd0af5833cbb",
+                "data/counselor/comparisons/cp-000292.json": "8ae21a55640015df9bb1cfda4902f175aa9f0ea6",
+                "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Repair published and verified. Check follow-up CI, then complete pending CP292 content and source-first final review.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown",
+              "state": "in-progress",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000292/publication-recovery.json",
+              "recoveryAuthorisedOn": "2026-11-04"
+            },
+            "activeClaim": {
+              "executionId": "restart-B-cp292-20261104T1600Z",
+              "worker": "B",
+              "caseId": "cp-000292",
+              "claimedAt": "2026-11-04T16:00:37.237082+00:00",
+              "reviewedInputCommit": "c7df4933fa36ca6a91538967df8e4f961dde1233",
+              "inputBlobs": {
+                "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000292.json": "fc084144a26aff6b834c4cd5afab511e4fe30eca",
+                "data/counselor/comparisons/cp-000292.json": "6401b86a7acba765133696512d60edd49d17aa86",
+                "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Verify recovery/follow-upCI then complete remaining course/concept/description/audience/alignment checks and separate source-firstfinalpass; preserve valid source/progression research.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
             }
           }
         }
