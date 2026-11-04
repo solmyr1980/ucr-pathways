@@ -13509,36 +13509,15 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000293",
-      "activeClaim": {
-        "executionId": "restart-B-cp293-source2-20261104",
-        "worker": "B",
-        "caseId": "cp-000293",
-        "claimedAt": "2026-11-04T19:03:46.988090+00:00",
-        "reviewedInputCommit": "0f1f14ee52788cf80ce3301e03fa80cbdf9e7858",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000293.json": "4befd9412f898caf5a5d542a4f99ba5c7886607a",
-          "data/counselor/comparisons/cp-000293.json": "bbafc4c7d3647252bf1a603b0caeab139fa4315d",
-          "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Second source execution: recheck revised-cohort catalogue and official alternative for five remaining course weights, final-work relationship and progression; retain unchanged155EC/interest/UCR/content research. Apply source-retry disposition only after fresh verification.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000294",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -13858,7 +13837,8 @@
         "cp-000288",
         "cp-000289",
         "cp-000290",
-        "cp-000291"
+        "cp-000291",
+        "cp-000293"
       ],
       "sourceRetrievalFailuresByCase": {
         "cp-000245": 2,
@@ -13880,28 +13860,26 @@
         "cp-000289": 2,
         "cp-000290": 2,
         "cp-000291": 2,
-        "cp-000293": 1
+        "cp-000293": 2
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
         "caseId": "cp-000293",
-        "executionId": "restart-B-cp293-20261104T1759Z",
+        "executionId": "restart-B-cp293-source2-20261104",
         "state": "in-progress",
         "academicDisposition": "external-programme-unresolved",
-        "checkedAt": "2026-11-04T18:09:55.402611+00:00",
-        "reviewedInputCommit": "ffb2c7e5191072ee0732c84a0c6547fc2378ffca",
+        "reviewedInputCommit": "8ed117851219c0b9e087097a997e4727c74b02d5",
         "inputBlobs": {
           "canonical": "bbafc4c7d3647252bf1a603b0caeab139fa4315d",
           "decision": "4befd9412f898caf5a5d542a4f99ba5c7886607a"
         },
-        "sourceUnsuccessfulExecutions": 1,
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000293/source-first-refinement.json",
-        "nextAction": "Resume CP293 source attempt2 next execution: Confirm individual weights for the remaining25EC of the revised third-year compulsory fiscal courses and the applicable final-work and progression/admission rules. Current new-cohort diagram confirms MootCourtTaxLaw5EC, but does not identify it as the final work or weight the other five units. CurrentOER3.3.2/4.2 delegates finalwork/order to the catalogue, whose third year is for2024or earlier entrants. Need an applicable new-cohort course specification or explicit transition/bridge. Do not import the outgoing thesis or infer five equal weights from the180EC total. Keep155ECsupported subset, verified interest/course research and bounded audience repair. No deferral or approval after first unsuccessful execution.",
+        "checkedAt": "2026-11-04T19:06:50.268802+00:00",
+        "sourceUnsuccessfulExecutions": 2,
+        "deferred": true,
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000293/source-attempt-2.json",
+        "nextAction": "CP293 deferred and incomplete after two unsuccessful source-verification executions. Revisit once when new essential evidence is available or after own non-deferred queue. Preserve155EC subset and all still-valid research/repairs; no academic or presentation approval. Resume CP294 next execution.",
         "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown",
-        "implementationCommit": "02612450d97017f0f3091b7f01befaf9fc2ef37e",
-        "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000293/published-verification.json",
-        "CI": "passed"
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -18306,6 +18284,53 @@
           "nextAction": "CP292 complete. Worker B resumes CP293 next execution.",
           "runtimeModel": "unknown",
           "runtimeReasoningEffort": "unknown"
+        },
+        {
+          "preservedOn": "2026-11-04T19:06:50.268802+00:00",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000293",
+              "executionId": "restart-B-cp293-20261104T1759Z",
+              "state": "in-progress",
+              "academicDisposition": "external-programme-unresolved",
+              "checkedAt": "2026-11-04T18:09:55.402611+00:00",
+              "reviewedInputCommit": "ffb2c7e5191072ee0732c84a0c6547fc2378ffca",
+              "inputBlobs": {
+                "canonical": "bbafc4c7d3647252bf1a603b0caeab139fa4315d",
+                "decision": "4befd9412f898caf5a5d542a4f99ba5c7886607a"
+              },
+              "sourceUnsuccessfulExecutions": 1,
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000293/source-first-refinement.json",
+              "nextAction": "Resume CP293 source attempt2 next execution: Confirm individual weights for the remaining25EC of the revised third-year compulsory fiscal courses and the applicable final-work and progression/admission rules. Current new-cohort diagram confirms MootCourtTaxLaw5EC, but does not identify it as the final work or weight the other five units. CurrentOER3.3.2/4.2 delegates finalwork/order to the catalogue, whose third year is for2024or earlier entrants. Need an applicable new-cohort course specification or explicit transition/bridge. Do not import the outgoing thesis or infer five equal weights from the180EC total. Keep155ECsupported subset, verified interest/course research and bounded audience repair. No deferral or approval after first unsuccessful execution.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown",
+              "implementationCommit": "02612450d97017f0f3091b7f01befaf9fc2ef37e",
+              "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000293/published-verification.json",
+              "CI": "passed"
+            },
+            "activeClaim": {
+              "executionId": "restart-B-cp293-source2-20261104",
+              "worker": "B",
+              "caseId": "cp-000293",
+              "claimedAt": "2026-11-04T19:03:46.988090+00:00",
+              "reviewedInputCommit": "0f1f14ee52788cf80ce3301e03fa80cbdf9e7858",
+              "inputBlobs": {
+                "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000293.json": "4befd9412f898caf5a5d542a4f99ba5c7886607a",
+                "data/counselor/comparisons/cp-000293.json": "bbafc4c7d3647252bf1a603b0caeab139fa4315d",
+                "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Second source execution: recheck revised-cohort catalogue and official alternative for five remaining course weights, final-work relationship and progression; retain unchanged155EC/interest/UCR/content research. Apply source-retry disposition only after fresh verification.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -18800,6 +18825,16 @@
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000291/source-attempt-2.json",
           "revisitStatus": "pending; not consumed",
           "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
+        },
+        {
+          "caseId": "cp-000293",
+          "deferredOn": "2026-11-04",
+          "executionId": "restart-B-cp293-source2-20261104",
+          "unsuccessfulExecutions": 2,
+          "reason": "The forward-year BA-FIS request again returns the current guide byte for byte. Its third-year group still applies only to entrants in2024or earlier. CurrentOER3.3.2 and4.2 still delegate final-work and required-order details to that guide. The revised diagram previously verified supports MootCourt5EC but does not settle the other five course weights, final-work relationship or progression. The155EC partial allocation remains supported; the remaining25EC and final assessment/progression cannot yet be certified for the revised cohort.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000293/source-attempt-2.json",
+          "revisitStatus": "pending; not consumed",
+          "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
         }
       ],
       "reopeningDependencies": [
@@ -18831,6 +18866,13 @@
           "essentialEvidence": "Establish the revised-cohort third-year compulsory 30 EC at course level: applicable credit weights for the five non-Moot-Court units, final-work allocation/assessment and required order or admission conditions. The new curriculum diagram identifies six units and gives Moot Court 5 EC; OER 3.1/3.2 confirms 150 required plus 30 open EC, but OER 3.3.2 and 4.2 delegate final work and order to the catalogue, whose third year remains explicitly restricted to entrants in 2024 or earlier. Obtain an applicable new-cohort course specification or explicit transition/bridge; do not import the outgoing thesis or infer five equal weights from numerical closure.",
           "officialAlternative": "Current faculty annual programme table, revised curriculum diagram, transition rules and current adopted OER inspected; remaining question persists.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000293/source-attempt-1.json"
+        },
+        {
+          "caseId": "cp-000293",
+          "executionId": "restart-B-cp293-source2-20261104",
+          "checkedOn": "2026-11-04",
+          "essentialEvidence": "The forward-year BA-FIS request again returns the current guide byte for byte. Its third-year group still applies only to entrants in2024or earlier. CurrentOER3.3.2 and4.2 still delegate final-work and required-order details to that guide. The revised diagram previously verified supports MootCourt5EC but does not settle the other five course weights, final-work relationship or progression. The155EC partial allocation remains supported; the remaining25EC and final assessment/progression cannot yet be certified for the revised cohort.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000293/source-attempt-2.json"
         }
       ],
       "publicationRecovery": {
