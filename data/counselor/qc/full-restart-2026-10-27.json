@@ -2336,35 +2336,25 @@
     },
     {
       "id": "cp-000070",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
         "3": "correct",
         "4": "correct",
-        "5": "correct"
+        "5": "correct",
+        "6": "retain"
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "BC1prerequisitechoice repair,preregistrationdisclosure and precise recognition ofactualUCRchemicalwork",
-          "scope": "Recheckcompleteexternalroute,41coursecontributions,interest/candidatestopping and completefinishedrecord in separate source-first final pass.",
-          "stages": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ]
-        }
-      ],
+      "downstreamReassessments": [],
       "implementationCommits": [
-        "05a97ae27fbfda1c02b321793eac2bcdd44c89f1"
+        "05a97ae27fbfda1c02b321793eac2bcdd44c89f1",
+        "2f144af82eddc47b90a151c5089dcae6fb93aa92"
       ],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000070.json"
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000070.json",
+      "academicDisposition": "no-defensible-ucr-match"
     },
     {
       "id": "cp-000071",
@@ -6898,8 +6888,8 @@
     }
   ],
   "progress": {
-    "approved": 87,
-    "inProgress": 36,
+    "approved": 88,
+    "inProgress": 35,
     "reviewedWithBlockers": 0,
     "notStarted": 315,
     "pilotStarted": 4
@@ -7131,36 +7121,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000070",
-      "activeClaim": {
-        "executionId": "restart-A-cp070-20261104T1231Z",
-        "worker": "A",
-        "caseId": "cp-000070",
-        "claimedAt": "2026-11-04T12:31:42.672619+00:00",
-        "reviewedInputCommit": "7c80a4c40b879d75fb265127c6564f57b789114c",
-        "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000070.json": "0437722b0933d7353a83c30c9873b2393b548c38",
-          "data/counselor/comparisons/cp-000070.json": "f8d904f5ae510de19888a1eda846d25d157e9ee4",
-          "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify Chemistry identity,current180ECroute and progression; reconsider all interests and strongest UCR response from actual course evidence; complete sixstages and separate source-first final verification.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000071",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -7212,7 +7181,8 @@
         "cp-000065",
         "cp-000066",
         "cp-000067",
-        "cp-000068"
+        "cp-000068",
+        "cp-000070"
       ],
       "completedDispositions": [
         {
@@ -7571,6 +7541,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000068.json",
           "academicDisposition": "no-defensible-ucr-match",
           "verifiedOn": "2026-11-04"
+        },
+        {
+          "caseId": "cp-000070",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000070.json",
+          "academicDisposition": "no-defensible-ucr-match",
+          "verifiedOn": "2026-11-04"
         }
       ],
       "deferredCases": [
@@ -7611,8 +7588,19 @@
       "lastCheckpoint": {
         "caseId": "cp-000070",
         "executionId": "restart-A-cp070-20261104T1231Z",
-        "state": "in-progress",
-        "nextAction": "Verify published bounded external prerequisite/no-match reasoning repair andCI; complete separate source-first final academic/mechanical/content pass."
+        "state": "approved",
+        "academicDisposition": "no-defensible-ucr-match",
+        "reviewedInputCommit": "2f144af82eddc47b90a151c5089dcae6fb93aa92",
+        "inputBlobs": {
+          "canonical": "f40a97ef5c8dc6232a06dda429b30f5e8840f2ab",
+          "decision": "2b1ad1eeec3d08fb288d832882efb8656610ab7a"
+        },
+        "verifiedAt": "2026-11-04T12:49:01.001936+00:00",
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000070/source-first-final-pass.json",
+        "nextAction": "CP070 complete as verified no-defensible-ucr-match. Resume CP071 next execution; finalrelease/discovery/deployment remain unauthorised.",
+        "runtimeModel": "unknown",
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -12402,6 +12390,40 @@
               "nextAction": "After A’s non-deferred queue, or on genuinely new essential evidence, use the one permitted revisit to establish applicable STC B3 and finalwork/whitepaper conditions plus selected language-minor mandatory conditions. Then finish dependent interests, concepts,coursealignment,descriptions and separate source-first finalverification. CP070 is next non-deferred case; no newcase academicwork in thisexecution.",
               "runtimeModel": "unknown",
               "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp070-20261104T1231Z",
+              "worker": "A",
+              "caseId": "cp-000070",
+              "claimedAt": "2026-11-04T12:31:42.672619+00:00",
+              "reviewedInputCommit": "7c80a4c40b879d75fb265127c6564f57b789114c",
+              "inputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000070.json": "0437722b0933d7353a83c30c9873b2393b548c38",
+                "data/counselor/comparisons/cp-000070.json": "f8d904f5ae510de19888a1eda846d25d157e9ee4",
+                "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Verify Chemistry identity,current180ECroute and progression; reconsider all interests and strongest UCR response from actual course evidence; complete sixstages and separate source-first final verification.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
+        },
+        {
+          "preservedOn": "2026-11-04",
+          "reason": "Preserve own checkpoint and claim before case update.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000070",
+              "executionId": "restart-A-cp070-20261104T1231Z",
+              "state": "in-progress",
+              "nextAction": "Verify published bounded external prerequisite/no-match reasoning repair andCI; complete separate source-first final academic/mechanical/content pass."
             },
             "activeClaim": {
               "executionId": "restart-A-cp070-20261104T1231Z",
