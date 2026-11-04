@@ -2280,31 +2280,24 @@
     },
     {
       "id": "cp-000068",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "retain",
         "2": "retain",
         "3": "retain",
         "4": "retain",
-        "5": "correct"
+        "5": "correct",
+        "6": "retain"
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Bounded audience-note correction and current course reassessment",
-          "scope": "Verify published pair,CI and separate source-first academic/mechanical/content review.",
-          "stages": [
-            3,
-            4,
-            5,
-            6
-          ]
-        }
+      "downstreamReassessments": [],
+      "implementationCommits": [
+        "74d67e503ddc5b280ce5230cc3bcbfdebc6f6c23"
       ],
-      "implementationCommits": [],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000068.json"
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000068.json",
+      "academicDisposition": "no-defensible-ucr-match"
     },
     {
       "id": "cp-000069",
@@ -6858,8 +6851,8 @@
     }
   ],
   "progress": {
-    "approved": 86,
-    "inProgress": 35,
+    "approved": 87,
+    "inProgress": 34,
     "reviewedWithBlockers": 0,
     "notStarted": 317,
     "pilotStarted": 4
@@ -7091,36 +7084,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000068",
-      "activeClaim": {
-        "executionId": "restart-A-cp068-20261104T0931Z",
-        "worker": "A",
-        "caseId": "cp-000068",
-        "claimedAt": "2026-11-04T09:32:54.384074+00:00",
-        "reviewedInputCommit": "09e426ac940d3ff32b40ccfaa7f55a33831b03e0",
-        "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000068.json": "882c5eafaa5e0cfa53eeb7e7e5dffb16e4f3294f",
-          "data/counselor/comparisons/cp-000068.json": "e90c056bce452c5d946e8144af228f9e398f1ef0",
-          "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify current Religion,Politics and Society identity,curriculum and progression; reconsider all interests and strongest UCR response from current course evidence; complete six stages and separate source-first final verification.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000069",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -7171,7 +7143,8 @@
         "cp-000064",
         "cp-000065",
         "cp-000066",
-        "cp-000067"
+        "cp-000067",
+        "cp-000068"
       ],
       "completedDispositions": [
         {
@@ -7523,6 +7496,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000067.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-04T08:35:40.290854+00:00"
+        },
+        {
+          "caseId": "cp-000068",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000068.json",
+          "academicDisposition": "no-defensible-ucr-match",
+          "verifiedOn": "2026-11-04"
         }
       ],
       "deferredCases": [
@@ -7561,9 +7541,19 @@
       "lastCheckpoint": {
         "caseId": "cp-000068",
         "executionId": "restart-A-cp068-20261104T0931Z",
-        "reviewedOn": "2026-11-04",
-        "status": "repair-prepared",
-        "nextAction": "Verify published bounded audience repair and CI; finish separate source-first academic/mechanical/content verification."
+        "state": "approved",
+        "academicDisposition": "no-defensible-ucr-match",
+        "reviewedInputCommit": "74d67e503ddc5b280ce5230cc3bcbfdebc6f6c23",
+        "inputBlobs": {
+          "canonical": "29320d3108c59c78a61d9a7a3c80f1f4fac20d11",
+          "decision": "97ea5475ffded3fc39f0ff9e2c434a36aec4b26d"
+        },
+        "verifiedAt": "2026-11-04T09:46:41.144618+00:00",
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000068/source-first-final-pass.json",
+        "nextAction": "CP068 complete as verified no-defensible-ucr-match; resume cp-000069 next execution. No finalrelease/discovery/deployment authority.",
+        "runtimeModel": "unknown",
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -12185,6 +12175,41 @@
               "nextAction": "CP067 complete as a verified two-alternative Law comparison. Resume cp-000068 next execution; release/discovery/deployment remain unauthorised.",
               "runtimeModel": "unknown",
               "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp068-20261104T0931Z",
+              "worker": "A",
+              "caseId": "cp-000068",
+              "claimedAt": "2026-11-04T09:32:54.384074+00:00",
+              "reviewedInputCommit": "09e426ac940d3ff32b40ccfaa7f55a33831b03e0",
+              "inputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000068.json": "882c5eafaa5e0cfa53eeb7e7e5dffb16e4f3294f",
+                "data/counselor/comparisons/cp-000068.json": "e90c056bce452c5d946e8144af228f9e398f1ef0",
+                "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Verify current Religion,Politics and Society identity,curriculum and progression; reconsider all interests and strongest UCR response from current course evidence; complete six stages and separate source-first final verification.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
+        },
+        {
+          "preservedOn": "2026-11-04",
+          "reason": "Preserve own checkpoint and claim before case update.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000068",
+              "executionId": "restart-A-cp068-20261104T0931Z",
+              "reviewedOn": "2026-11-04",
+              "status": "repair-prepared",
+              "nextAction": "Verify published bounded audience repair and CI; finish separate source-first academic/mechanical/content verification."
             },
             "activeClaim": {
               "executionId": "restart-A-cp068-20261104T0931Z",
