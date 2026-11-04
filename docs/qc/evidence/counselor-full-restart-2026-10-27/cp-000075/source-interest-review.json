@@ -1,0 +1,735 @@
+{
+  "caseId": "cp-000075",
+  "checkedAt": "2026-11-04T19:32:13.116164+00:00",
+  "inputBlobs": {
+    "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000075.json": "f025938eeacd6e4195ae0a25271cce2bf46681fd",
+    "data/counselor/comparisons/cp-000075.json": "9fcf9aaa399bdbe6aed4db5433ef90a589105ba6",
+    "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+  },
+  "sources": [
+    {
+      "index": 0,
+      "url": "https://www.ru.nl/opleidingen/bachelors/theologie",
+      "status": 200,
+      "format": "html",
+      "sha256": "e650c5629dd110dcf96576dea0c9743b489b992ecbe4b3fedcf7181f59a301ce",
+      "bytes": 59934
+    },
+    {
+      "index": 1,
+      "url": "https://www.ru.nl/opleidingen/bachelors/theologie/studieprogramma",
+      "status": 200,
+      "format": "html",
+      "sha256": "92ef3c6b1a614e2c4127a366e0b7d02d54d694f764c17612ab1f97c3e0002d23",
+      "bytes": 49431
+    },
+    {
+      "index": 2,
+      "url": "https://www.ru.nl/opleidingen/bachelors/theologie/studieprogramma-van-bachelor-theologie/studieprogramma-bachelor-theologie-jaar-1",
+      "status": 200,
+      "format": "html",
+      "sha256": "c09a61cc3b9edef9c98eece91f548a4843dbcb98371720e041a2217ea7c01ee8",
+      "bytes": 64635
+    },
+    {
+      "index": 3,
+      "url": "https://www.ru.nl/opleidingen/bachelors/theologie/studieprogramma-van-bachelor-theologie/studieprogramma-bachelor-theologie-jaar-2",
+      "status": 200,
+      "format": "html",
+      "sha256": "5abd2616863bc1cbada6a201d13b6ea8a20f18bf6ebbaa491872a052fa533f95",
+      "bytes": 63210
+    },
+    {
+      "index": 4,
+      "url": "https://www.ru.nl/opleidingen/bachelors/theologie/studieprogramma-van-bachelor-theologie/studieprogramma-bachelor-theologie-jaar-3",
+      "status": 200,
+      "format": "html",
+      "sha256": "5d98cf2f625d2adc37da6e2ea4328485c9d22f4fce541dada2091f1a8942d499",
+      "bytes": 59725
+    },
+    {
+      "index": 5,
+      "url": "https://www.ru.nl/sites/default/files/2026-07/oer-2026-2027-bachelor-theologie-def.pdf",
+      "status": 200,
+      "format": "pdf",
+      "sha256": "e824b2678dd3b04ea379fdab95790297157a9d7a918cf715988b772e1a388131",
+      "bytes": 1131347
+    },
+    {
+      "index": 6,
+      "url": "https://www.ru.nl/opleidingen/bachelors/theologie/wat-kun-je-ermee",
+      "status": 200,
+      "format": "html",
+      "sha256": "9a94892853a9c3f88ed454f10c965362ed84f8dbd8a35a447ab88001361c055f",
+      "bytes": 42759
+    }
+  ],
+  "catalogueSources": [
+    {
+      "code": "FTR-THEBA102",
+      "url": "https://ru.osiris-student.nl/student/osiris/owc/cursussen/175505?taal=NL",
+      "sha256": "2f54316ae5d63172696e78329496e0cea51a4fdf2887f9dc3afb60ea4492b103",
+      "status": 200
+    },
+    {
+      "code": "FTR-THEBA203",
+      "url": "https://ru.osiris-student.nl/student/osiris/owc/cursussen/175509?taal=NL",
+      "sha256": "c7bb52217deaec8a1ecf3e4be64a5fc8d1f07d26749b112037434d6fc26762e3",
+      "status": 200
+    },
+    {
+      "code": "FTR-THBA110",
+      "url": "https://ru.osiris-student.nl/student/osiris/owc/cursussen/175417?taal=NL",
+      "sha256": "4c8be65746c621341069340d34c433c19ec0673b880466a5630d2d7120a7ebca",
+      "status": 200
+    },
+    {
+      "code": "FTR-THBA203",
+      "url": "https://ru.osiris-student.nl/student/osiris/owc/cursussen/175420?taal=NL",
+      "sha256": "61ac7d77b84c1aac3bed0d2aaec00a3a6dcee4383a5b013538c9cbdb17566bb2",
+      "status": 200
+    },
+    {
+      "code": "FTR-CC300",
+      "url": "https://ru.osiris-student.nl/student/osiris/owc/cursussen/175353?taal=NL",
+      "sha256": "d4d51f7dd7c8ab2d2cd1de52cf975fc93bd2e29c69dabcb1df9e87059d05f364",
+      "status": 200
+    },
+    {
+      "code": "FTR-RTIBA300",
+      "url": "https://ru.osiris-student.nl/student/osiris/owc/cursussen/175493?taal=NL",
+      "sha256": "a9352aa8cebf0d115f1b617df9636a603b83d23a3ebb013ee52508f49c341cde",
+      "status": 200
+    },
+    {
+      "code": "FTR-RTIBA201",
+      "url": "https://ru.osiris-student.nl/student/osiris/owc/cursussen/175492?taal=NL",
+      "sha256": "9a4c12529212e06a777e1012f82cb4d5e609495733b06160a74c52687e944a47",
+      "status": 200
+    }
+  ],
+  "identity": "Radboud Dutch ordinary full-time BA Theology56109, three years180EC, distinct from120EC shortened remainder, part-time pacing and master. Generic target; first-listed adopted Worldviews,NatureandClimate15ECmodule neutrally retained.",
+  "curriculum": {
+    "requiredEC": 135,
+    "restrictedModuleEC": 15,
+    "openEC": 30,
+    "totalEC": 180,
+    "components": [
+      [
+        "y1-01",
+        "Religie en theologie: vraagstukken en vaardigheden (PPO1)",
+        10,
+        null
+      ],
+      [
+        "y1-02",
+        "Liturgiewetenschap",
+        5,
+        "Required 5-EC first-year liturgical-studies course in the adopted 2026–27 OER (Appendix II); omitted from the current public year-one course list, whose positive-credit rows otherwise total only 55 EC despite its 60-EC heading."
+      ],
+      [
+        "y1-03",
+        "De mens op zoek naar God",
+        5,
+        null
+      ],
+      [
+        "y1-04",
+        "Bijbels Hebreeuws 1",
+        5,
+        null
+      ],
+      [
+        "y1-05",
+        "The Bible: An Introduction",
+        5,
+        null
+      ],
+      [
+        "y1-06",
+        "Religie Wereldwijd: Overtuigingen en Praktijken",
+        5,
+        null
+      ],
+      [
+        "y1-07",
+        "Pastoraaltheologie",
+        5,
+        null
+      ],
+      [
+        "y1-08",
+        "Wat christenen geloven",
+        5,
+        null
+      ],
+      [
+        "y1-09",
+        "Bijbels Hebreeuws 2",
+        5,
+        null
+      ],
+      [
+        "y1-10",
+        "God in Nederland: Empirisch onderzoek",
+        5,
+        null
+      ],
+      [
+        "y1-11",
+        "Interpretatie van het Oude Testament",
+        5,
+        null
+      ],
+      [
+        "y2-01",
+        "Onderzoeksproject (PPO2)",
+        10,
+        null
+      ],
+      [
+        "y2-02",
+        "Filosofie van de Religiewetenschappen",
+        5,
+        null
+      ],
+      [
+        "y2-03",
+        "Wereldchristendom en interculturele dialoog",
+        5,
+        null
+      ],
+      [
+        "y2-04",
+        "Theologische Ethiek: God en Moraal",
+        5,
+        null
+      ],
+      [
+        "y2-05",
+        "Bijbels Grieks 1",
+        5,
+        null
+      ],
+      [
+        "y2-06",
+        "Inleiding geschiedenis Christendom",
+        5,
+        null
+      ],
+      [
+        "y2-07",
+        "Interpretatie van het Nieuwe Testament",
+        5,
+        null
+      ],
+      [
+        "y2-08",
+        "Kerkelijk Recht",
+        5,
+        null
+      ],
+      [
+        "y2-09",
+        "Spiritualiteit",
+        5,
+        null
+      ],
+      [
+        "y2-10",
+        "Bijbels Grieks 2",
+        5,
+        null
+      ],
+      [
+        "y2-11",
+        "Geschiedenis christendom in de 20e eeuw",
+        5,
+        null
+      ],
+      [
+        "y3-02a",
+        "Religie, mens en natuur",
+        5,
+        "Selected restricted module component; complete three-course module required."
+      ],
+      [
+        "y3-02b",
+        "Integrale ecologie",
+        5,
+        "Selected restricted module component."
+      ],
+      [
+        "y3-02c",
+        "Klimaatverandering in het mondiale zuiden",
+        5,
+        "Selected restricted module component."
+      ],
+      [
+        "y3-01",
+        "Geesteswetenschappen in de Praktijk (PPO3)",
+        5,
+        null
+      ],
+      [
+        "y3-03",
+        "Vrije ruimte",
+        30,
+        "Genuine unrestricted 30-EC third-year minor/free space; an educational minor or international semester is optional, not a required addition."
+      ],
+      [
+        "y3-04",
+        "Eindwerkstuk",
+        10,
+        "Required 10-EC independent theology bachelor thesis."
+      ]
+    ],
+    "verification": "Adopted OER Articles12–16/AppendixII pp24–25 match all28unit identities/weights:60+60+60. First-year public list still omits5ECLiturgy; current adopted table controls and the stored unit stays. Year3 selected module15 plus free15 in autumn; free15,PPO3five,thesisten in spring. Aggregate open30 not an extra selected minor. No duplicate modules or old shortened-pillar minimum."
+  },
+  "formalConditions": "OER15 cohort exam linkage;16 open study cannot overlap or be master-level, approval rules for outside minor offers and internships;13 internship max15EC with nominal progress, placement and coordinator approval.18/19 no thesis exemption/substitution. RADAr0EC, equivalent university-test exemption only.80% practical/workgroup attendance; usual full-time BSA44, special late/reentry/deferred norms60 under incorporated appendix. Current annual framework, not a future offering guarantee.",
+  "progression": [
+    {
+      "code": "FTR-THEBA102",
+      "finding": "HebrewII expects HebrewI/equivalent. Ordinary B1 semester1 before2 satisfies it; weekly translation/grammar, quizzes and final written examination."
+    },
+    {
+      "code": "FTR-THEBA203",
+      "finding": "GreekII expects beginning Greek, exemplified by GreekI or schoolGreek. Ordinary B2 semester1 precedes2; no prior-school exemption assumed."
+    },
+    {
+      "code": "FTR-THBA110",
+      "finding": "OTinterpretation builds on BibleIntroduction; Hebrew not required, while translation work belongs in HebrewII. Stored B1 sequence satisfies it."
+    },
+    {
+      "code": "FTR-THBA203",
+      "finding": "NTinterpretation states no specific prerequisite or Greek requirement. Weekly tasks and finalpaper; do not invent a language gate."
+    },
+    {
+      "code": "FTR-RTIBA201",
+      "finding": "Yearlong B2project builds on B1methods/PPO1. Proposal presentation, individual research/chapter and shared volume; no extra project credits."
+    },
+    {
+      "code": "FTR-CC300",
+      "finding": "B3 professional/profile and scholarly field project assumes more than elementary disciplinary knowledge; portfolio. Retained later placement follows major foundations."
+    },
+    {
+      "code": "FTR-RTIBA300",
+      "finding": "B3 and AcademicSkills preparation, compulsory thesis workshop and approvedquestion. Individual methodological research with workshop and content supervision; completion at endofsemester2. PPO1/2 prepare skills before thesis; no language/prerequisite waiver."
+    }
+  ],
+  "interests": [
+    {
+      "row": 3475,
+      "interest": "what gives human life meaning",
+      "relationship": "Direct programme interest",
+      "constructionRole": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Official programme frames Christian texts/theories/practices and meaning/goodlife/public relevance; OER11/AppendixII supplies disciplinary core."
+    },
+    {
+      "row": 3476,
+      "interest": "Christian beliefs, ideas and religious practice",
+      "relationship": "Direct programme interest",
+      "constructionRole": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Official programme frames Christian texts/theories/practices and meaning/goodlife/public relevance; OER11/AppendixII supplies disciplinary core."
+    },
+    {
+      "row": 3477,
+      "interest": "how religious traditions respond to contemporary society",
+      "relationship": "Direct programme interest",
+      "constructionRole": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Official programme frames Christian texts/theories/practices and meaning/goodlife/public relevance; OER11/AppendixII supplies disciplinary core."
+    },
+    {
+      "row": 3478,
+      "interest": "what it means to live a good life",
+      "relationship": "Direct programme interest",
+      "constructionRole": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Official programme frames Christian texts/theories/practices and meaning/goodlife/public relevance; OER11/AppendixII supplies disciplinary core."
+    },
+    {
+      "row": 3479,
+      "interest": "how people find meaning during uncertainty",
+      "relationship": "Direct programme interest",
+      "constructionRole": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Official programme frames Christian texts/theories/practices and meaning/goodlife/public relevance; OER11/AppendixII supplies disciplinary core."
+    },
+    {
+      "row": 3480,
+      "interest": "religion in an increasingly secular society",
+      "relationship": "Direct programme interest",
+      "constructionRole": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Official programme frames Christian texts/theories/practices and meaning/goodlife/public relevance; OER11/AppendixII supplies disciplinary core."
+    },
+    {
+      "row": 3481,
+      "interest": "combining theology, philosophy, history and sociology",
+      "relationship": "Direct programme interest",
+      "constructionRole": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Official programme frames Christian texts/theories/practices and meaning/goodlife/public relevance; OER11/AppendixII supplies disciplinary core."
+    },
+    {
+      "row": 3482,
+      "interest": "systematic theology and Christian thought",
+      "relationship": "Stable study direction",
+      "constructionRole": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Official programme frames Christian texts/theories/practices and meaning/goodlife/public relevance; OER11/AppendixII supplies disciplinary core."
+    },
+    {
+      "row": 3483,
+      "interest": "the history of Christianity",
+      "relationship": "Stable study direction",
+      "constructionRole": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Official programme frames Christian texts/theories/practices and meaning/goodlife/public relevance; OER11/AppendixII supplies disciplinary core."
+    },
+    {
+      "row": 3484,
+      "interest": "practical theology and lived religious faith",
+      "relationship": "Stable study direction",
+      "constructionRole": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Official programme frames Christian texts/theories/practices and meaning/goodlife/public relevance; OER11/AppendixII supplies disciplinary core."
+    },
+    {
+      "row": 3485,
+      "interest": "biblical interpretation and exegesis",
+      "relationship": "Stable study direction",
+      "constructionRole": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Official programme frames Christian texts/theories/practices and meaning/goodlife/public relevance; OER11/AppendixII supplies disciplinary core."
+    },
+    {
+      "row": 3486,
+      "interest": "theological research methods",
+      "relationship": "Stable study direction",
+      "constructionRole": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Official programme frames Christian texts/theories/practices and meaning/goodlife/public relevance; OER11/AppendixII supplies disciplinary core."
+    },
+    {
+      "row": 3487,
+      "interest": "religious worldviews, climate and nature",
+      "relationship": "Stable study direction",
+      "constructionRole": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Current year3 module descriptions substantiate this direction; choice-dependent, not compulsory in every route."
+    },
+    {
+      "row": 3488,
+      "interest": "existential questions and the search for meaning",
+      "relationship": "Stable study direction",
+      "constructionRole": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Current year3 module descriptions substantiate this direction; choice-dependent, not compulsory in every route."
+    },
+    {
+      "row": 3489,
+      "interest": "religion and care",
+      "relationship": "Stable study direction",
+      "constructionRole": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Current year3 module descriptions substantiate this direction; choice-dependent, not compulsory in every route."
+    },
+    {
+      "row": 3490,
+      "interest": "religion, equality, freedom and justice",
+      "relationship": "Stable study direction",
+      "constructionRole": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Current year3 module descriptions substantiate this direction; choice-dependent, not compulsory in every route."
+    },
+    {
+      "row": 3491,
+      "interest": "reading the Bible in its historical context",
+      "relationship": "Direct programme interest",
+      "constructionRole": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Official programme frames Christian texts/theories/practices and meaning/goodlife/public relevance; OER11/AppendixII supplies disciplinary core."
+    },
+    {
+      "row": 3492,
+      "interest": "the Old Testament and its interpretation",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3493,
+      "interest": "the New Testament and early Christian texts",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3494,
+      "interest": "learning biblical Hebrew",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3495,
+      "interest": "learning biblical Greek",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3496,
+      "interest": "the history and composition of the Bible",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3497,
+      "interest": "pastoral theology and religious care",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3498,
+      "interest": "Christian doctrines and religious beliefs",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3499,
+      "interest": "empirical research on religion in the Netherlands",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3500,
+      "interest": "philosophical approaches to religion",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3501,
+      "interest": "world Christianity and intercultural dialogue",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3502,
+      "interest": "theological ethics and moral responsibility",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3503,
+      "interest": "how religious traditions define a good life",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3504,
+      "interest": "ethical questions about life and death in healthcare",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3505,
+      "interest": "whether the state treats different religions equally",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3506,
+      "interest": "how liberal societies handle religious diversity",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3507,
+      "interest": "whether science can answer questions about meaning",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3508,
+      "interest": "indigenous religious perspectives on ecology",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3509,
+      "interest": "church law and religious institutions",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3510,
+      "interest": "spirituality and Christian religious practice",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3511,
+      "interest": "twentieth-century Christianity and religious change",
+      "relationship": "Curricular topic",
+      "constructionRole": "support-only",
+      "outcome": "retain",
+      "finding": "Current Bible/language/pastoral/doctrine/empirical/history/ethics/law/spirituality units and module descriptions substantiate the topic; support rather than independent construction."
+    },
+    {
+      "row": 3512,
+      "interest": "fieldwork in contemporary religious communities",
+      "relationship": "Illustrative or temporary topic",
+      "constructionRole": "search-only",
+      "outcome": "retain",
+      "finding": "PPO research/project and module teaching provide applied examples; discovery only."
+    },
+    {
+      "row": 3513,
+      "interest": "literary analysis of religious texts",
+      "relationship": "Illustrative or temporary topic",
+      "constructionRole": "search-only",
+      "outcome": "retain",
+      "finding": "PPO research/project and module teaching provide applied examples; discovery only."
+    },
+    {
+      "row": 3514,
+      "interest": "religious responses to climate anxiety",
+      "relationship": "Illustrative or temporary topic",
+      "constructionRole": "search-only",
+      "outcome": "retain",
+      "finding": "PPO research/project and module teaching provide applied examples; discovery only."
+    },
+    {
+      "row": 3515,
+      "interest": "spiritual care in hospitals",
+      "relationship": "Outcome or individual trajectory",
+      "constructionRole": "search-only",
+      "outcome": "retain",
+      "finding": "Current official careers page offers possible later trajectories; further study/qualifications may apply. No bachelor/UCR entitlement or construction direction."
+    },
+    {
+      "row": 3516,
+      "interest": "spiritual care in prisons",
+      "relationship": "Outcome or individual trajectory",
+      "constructionRole": "search-only",
+      "outcome": "retain",
+      "finding": "Current official careers page offers possible later trajectories; further study/qualifications may apply. No bachelor/UCR entitlement or construction direction."
+    },
+    {
+      "row": 3517,
+      "interest": "spiritual care in psychiatric services",
+      "relationship": "Outcome or individual trajectory",
+      "constructionRole": "search-only",
+      "outcome": "retain",
+      "finding": "Current official careers page offers possible later trajectories; further study/qualifications may apply. No bachelor/UCR entitlement or construction direction."
+    },
+    {
+      "row": 3518,
+      "interest": "spiritual care in nursing homes",
+      "relationship": "Outcome or individual trajectory",
+      "constructionRole": "search-only",
+      "outcome": "retain",
+      "finding": "Current official careers page offers possible later trajectories; further study/qualifications may apply. No bachelor/UCR entitlement or construction direction."
+    },
+    {
+      "row": 3519,
+      "interest": "teaching religion and worldviews",
+      "relationship": "Outcome or individual trajectory",
+      "constructionRole": "search-only",
+      "outcome": "retain",
+      "finding": "Current official careers page offers possible later trajectories; further study/qualifications may apply. No bachelor/UCR entitlement or construction direction."
+    },
+    {
+      "row": 3520,
+      "interest": "religious journalism",
+      "relationship": "Outcome or individual trajectory",
+      "constructionRole": "search-only",
+      "outcome": "retain",
+      "finding": "Current official careers page offers possible later trajectories; further study/qualifications may apply. No bachelor/UCR entitlement or construction direction."
+    },
+    {
+      "row": 3521,
+      "interest": "government policy involving religion and ethics",
+      "relationship": "Outcome or individual trajectory",
+      "constructionRole": "search-only",
+      "outcome": "retain",
+      "finding": "Current official careers page offers possible later trajectories; further study/qualifications may apply. No bachelor/UCR entitlement or construction direction."
+    },
+    {
+      "row": 3522,
+      "interest": "church ministry and religious leadership",
+      "relationship": "Outcome or individual trajectory",
+      "constructionRole": "search-only",
+      "outcome": "retain",
+      "finding": "Current official careers page offers possible later trajectories; further study/qualifications may apply. No bachelor/UCR entitlement or construction direction."
+    },
+    {
+      "row": 3523,
+      "interest": "academic theological research",
+      "relationship": "Outcome or individual trajectory",
+      "constructionRole": "search-only",
+      "outcome": "retain",
+      "finding": "Current official careers page offers possible later trajectories; further study/qualifications may apply. No bachelor/UCR entitlement or construction direction."
+    },
+    {
+      "row": 3524,
+      "interest": "postgraduate theological specialisation",
+      "relationship": "Outcome or individual trajectory",
+      "constructionRole": "search-only",
+      "outcome": "retain",
+      "finding": "Current official careers page offers possible later trajectories; further study/qualifications may apply. No bachelor/UCR entitlement or construction direction."
+    }
+  ],
+  "roleCounts": {
+    "generator-eligible": 17,
+    "support-only": 20,
+    "search-only": 13
+  },
+  "oldEvidenceBoundary": "Old audit research used only as leads to exact sources and catalogue endpoints. All claims above independently rechecked against current retrieved official documents; no old approval/failure count inherited."
+}
