@@ -1,0 +1,36 @@
+{
+  "caseId": "cp-000068",
+  "checkedOn": "2026-11-04",
+  "inputs": {
+    "data/counselor/decisions/cp-000068.json": "97ea5475ffded3fc39f0ff9e2c434a36aec4b26d",
+    "data/counselor/comparisons/cp-000068.json": "29320d3108c59c78a61d9a7a3c80f1f4fac20d11"
+  },
+  "checks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000068.json",
+      "exitCode": 0,
+      "result": "1 canonical record passes; exception has zero active schedules. Not evidence that candidate academic relevance passes."
+    },
+    {
+      "command": "PYTHONPATH=/tmp/a64/python python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000068.json",
+      "exitCode": 0,
+      "result": "1 canonical record passes strict full JSON Schema."
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "result": "Operational production and methodology validation passed."
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000068.json --output /tmp/a68/replay.json; cmp /tmp/a68/replay.json data/counselor/comparisons/cp-000068.json",
+      "exitCode": 0,
+      "result": "Byte-exact regenerated canonical replay."
+    },
+    {
+      "command": "python scripts/validate-comprehensive-reaudit.py --sync",
+      "exitCode": 0,
+      "result": "438-case scope;86approved; case in progress, no approval inferred."
+    }
+  ],
+  "runtimeTesting": "No app/renderer change; record/content policy applies. No runtime claims."
+}
