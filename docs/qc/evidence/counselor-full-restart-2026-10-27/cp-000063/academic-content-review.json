@@ -1,0 +1,693 @@
+{
+  "caseId": "cp-000063",
+  "auditId": "counselor-full-restart-2026-10-27",
+  "reviewedOn": "2026-11-04",
+  "reviewedInputCommit": "ee7d539f1d55765517f64fa3ed65630e8e57dcb9",
+  "inputBlobs": {
+    "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+    "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+    "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000063.json": "da535c33a1fab3eb25088c5b92e81116182b84f4",
+    "data/counselor/comparisons/cp-000063.json": "e73f5441a6749f3fb27209e6704a915b5c77e8f6",
+    "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "canonical": "e73f5441a6749f3fb27209e6704a915b5c77e8f6",
+    "decision": "da535c33a1fab3eb25088c5b92e81116182b84f4",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7"
+  },
+  "sourceRetrieval": [
+    {
+      "id": 0,
+      "url": "https://www.ru.nl/sites/default/files/2026-08/fsw-oer-2026-2027-pwpo-bachelor.pdf",
+      "status": 200,
+      "effectiveUrl": "https://www.ru.nl/sites/default/files/2026-08/fsw-oer-2026-2027-pwpo-bachelor.pdf",
+      "sha256": "f4279ef13548cef7a6d0b3195f5d9f6c66dfa14a604398d97013923e6305eff2"
+    },
+    {
+      "id": 1,
+      "url": "https://www.ru.nl/sites/default/files/2026-08/fsw-r-r-pw-pwpo-copo-ow-2026-2027.pdf",
+      "status": 200,
+      "effectiveUrl": "https://www.ru.nl/sites/default/files/2026-08/fsw-r-r-pw-pwpo-copo-ow-2026-2027.pdf",
+      "sha256": "73b2a6b3cbe45f7f74e1ac13c539f4796b3c2b67b9aee4971064c6506ba17dd6"
+    },
+    {
+      "id": 2,
+      "url": "https://www.ru.nl/studenten/onderwijs-volgen/regels-en-richtlijnen/onderwijs-en-examenregelingen/sociale-wetenschappen",
+      "status": 200,
+      "effectiveUrl": "https://www.ru.nl/studenten/onderwijs-volgen/regels-en-richtlijnen/onderwijs-en-examenregelingen/sociale-wetenschappen",
+      "sha256": "d17fd98137a77f9145db5c4e9ea0b52155a885cc8bcb8965bc8245cb2d951c84"
+    },
+    {
+      "id": 3,
+      "url": "https://www.ru.nl/opleidingen/bachelors/pedagogische-wetenschappen-van-primair-onderwijs",
+      "status": 200,
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/pedagogische-wetenschappen-van-primair-onderwijs",
+      "sha256": "b7e19e3959dc8f89fd5d5375bd9c591fdb61d971fc27bf42113b357f4db9ffe5"
+    },
+    {
+      "id": 4,
+      "url": "https://www.ru.nl/opleidingen/bachelors/pedagogische-wetenschappen-van-primair-onderwijs/studieprogramma-pwpo",
+      "status": 200,
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/pedagogische-wetenschappen-van-primair-onderwijs/studieprogramma",
+      "sha256": "26e4912746b0682a7507765b8c7ed980c79a0e71539dffaec50a4a4e834ce85a"
+    },
+    {
+      "id": 5,
+      "url": "https://www.ru.nl/opleidingen/bachelors/pedagogische-wetenschappen-van-primair-onderwijs/studieprogramma/studieprogramma-pwpo-jaar-1",
+      "status": 200,
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/pedagogische-wetenschappen-van-primair-onderwijs/studieprogramma/jaar-1",
+      "sha256": "67bb2de99142e1145907b2e6e080e4a3a91e6de9a9769616516a0e06d3df4f8e"
+    },
+    {
+      "id": 6,
+      "url": "https://www.ru.nl/opleidingen/bachelors/pedagogische-wetenschappen-van-primair-onderwijs/studieprogramma/studieprogramma-pwpo-jaar-2",
+      "status": 200,
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/pedagogische-wetenschappen-van-primair-onderwijs/studieprogramma/jaar-2",
+      "sha256": "248b6b71fbdf77c6f1980dcd2c3720eaa6b4b58ed9bf5619f90ed7c71b2ccbb6"
+    },
+    {
+      "id": 7,
+      "url": "https://www.ru.nl/opleidingen/bachelors/pedagogische-wetenschappen-van-primair-onderwijs/studieprogramma/studieprogramma-pwpo-jaar-3",
+      "status": 200,
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/pedagogische-wetenschappen-van-primair-onderwijs/studieprogramma/jaar-3",
+      "sha256": "8b1592479b570a14fdbb356a8f9f075ecd74354e793d4e82211763d1b79e0304"
+    },
+    {
+      "id": 8,
+      "url": "https://www.ru.nl/opleidingen/bachelors/pedagogische-wetenschappen-van-primair-onderwijs/na-je-studie",
+      "status": 200,
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/pedagogische-wetenschappen-van-primair-onderwijs/na-je-studie",
+      "sha256": "03f38f424c29bf594298126912e573319096d7fad10fdbc8919e2f2e033f99d1"
+    }
+  ],
+  "externalReview": {
+    "identity": "Ordinary Dutch full-time PWPO BSc59329; distinct from general PW and ALPO.",
+    "cohort": "Current adopted2026–2027 OER, applicable to all enrolled students; fresh PDF has the same f4279ef13548cef7a6d0b3195f5d9f6c66dfa14a604398d97013923e6305eff2 hash as the retained source.",
+    "formalSections": [
+      "1.1",
+      "3.11",
+      "4.9(8)",
+      "8.2",
+      "9.1–9.6"
+    ],
+    "creditReconciliation": "35 distinct components,60EC each year,180 total;164required plus16genuine academic replacement choice. Didactic units45EC, classroom management5EC and fourplacements33EC retained separately. The optional4EC and12EC choices replace named optional modules; no duplicate credit.",
+    "progression": "AV1→AV2→thesis; fullB1 beforeB3; thesis preregistration; Stage1+classroom management→Stage2→Stage3→graduationstage. Stage-linked didactics remain concurrent with practice. Non-credit language assessment is mandatory; BSA42EC is not full first-year completion.",
+    "sourceConflictResolution": "The adopted OER’s named AV2 requirement and current2320 curriculum entry govern over the old parenthetical2180 code in the retained thesis catalogue prose; no waiver or equivalence is invented.",
+    "researchAndPractice": "Re-read underlying retained2026thesis and fourplacement content/aims/assessment records. Direct instruction, differentiated lesson design, lesson transitions, lower/upper pupil groups and professionally assessed teaching form a cumulative instructional sequence. Individual thesis and independent second assessment retained.",
+    "retainedUnderlyingRecords": "docs/qc/evidence/counselor-corpus-A-cp063-2026-10-25/external-progression.json",
+    "limit": "Official prospective descriptions support topics; adopted annual regulations govern credits and status. Earlier audit approvals and screenshot conclusions are not reused as approval."
+  },
+  "interestReview": [
+    {
+      "row": 2972,
+      "interest": "becoming an academically trained primary-school teacher",
+      "role": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Exact PWPO identity includes academic teacher formation; no UCR teaching qualification is implied. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2973,
+      "interest": "how young children learn and develop",
+      "role": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Child development is defining and supported by UCR lifespan development, with limits of lifespan breadth. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2974,
+      "interest": "improving primary education through scientific research",
+      "role": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Research and classroom practice are integrated; general methods do not certify educational intervention enquiry. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2975,
+      "interest": "child-rearing and pedagogy in primary schools",
+      "role": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Pedagogy and classroom relationships are central; broad psychology is a genuine partial contribution. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2976,
+      "interest": "designing effective lessons for primary-school children",
+      "role": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Lesson design is assessed in sequenced stages; UCR rhetoric teaching supports one limited instructional area. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2977,
+      "interest": "classroom management and supportive learning environments",
+      "role": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Classroom management5EC and ongoing stages are required; social psychology is not equivalent. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2978,
+      "interest": "evidence-based primary-school teaching",
+      "role": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Evidence-based teaching integrates theory and supervised practice; not generic knowledge of research. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2979,
+      "interest": "subject-specific primary-education didactics",
+      "role": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Nine5EC subject-didactic units are required across three years, concurrent with stages. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2980,
+      "interest": "supervised teaching practice in primary classrooms",
+      "role": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Four required placements33EC with stage-to-stage progression; UCR rhetoric project is distinct. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2981,
+      "interest": "explicit direct instruction",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "EDI is explicit in first-year stage content and official programme pages; not inferred from generic communication. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2982,
+      "interest": "teaching children to read",
+      "role": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Technical reading5EC is required; psycholinguistics is foundational but not reading instruction. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2983,
+      "interest": "teaching spelling and written language",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "Spelling5EC and writing/speaking5EC are required; stylistics/rhetoric are distinct. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2984,
+      "interest": "teaching arithmetic and mathematics",
+      "role": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Numeracy/mathematics didactics5EC is required; general data statistics is not teaching children maths. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2985,
+      "interest": "children’s handwriting and writing development",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "Handwriting didactics5EC is required; no UCR instructional substitute found. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2986,
+      "interest": "children’s vocabulary and reading comprehension",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "Text comprehension/literature didactics5EC is required; psycholinguistics/style contribute partial foundations. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2987,
+      "interest": "children’s literature and reading motivation",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "Children’s literature is taught within subject didactics, not merely university literary study. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2988,
+      "interest": "teaching history in primary school",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "History teaching falls within world-orientation didactics5EC; university history content is not pedagogy. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2989,
+      "interest": "teaching geography to young learners",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "Geography teaching is within world orientation, not a separate guaranteed geography course. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2990,
+      "interest": "science and technology education for children",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "Science/technology teaching is within world orientation, not university science alone. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2991,
+      "interest": "art and culture education in primary schools",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "Art/culture didactics5EC is required, concurrent with stage; art content alone is not didactics. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2992,
+      "interest": "teaching English in primary school",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "English teaching is part of multilingual didactics; oralEnglish is assessed underOER9.2. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2993,
+      "interest": "multilingual children and language-sensitive teaching",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "Multilingual didactics5EC is required; UCR psycholinguistics genuinely supports language understanding. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2994,
+      "interest": "learning difficulties and additional educational needs",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "LearningProblems4EC and orthopedagogical foundations are required; no clinical competence promised by UCR. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2995,
+      "interest": "mental-health and behavioural difficulties in children",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "Child/youth psychopathology4EC is required; UCR abnormal psychology has broader lifespan scope. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2996,
+      "interest": "motor development and atypical development",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "Official programme discusses typical/atypical motor development; not an extra credited unit. No retained UCR programme ownership.",
+      "currentSourceCheck": "Current official year2 prose explicitly names motor/atypical development; year3 prose explicitly names how brains learn. These remain context topics, not extra credited units."
+    },
+    {
+      "row": 2997,
+      "interest": "how the brain supports children’s learning",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "Learning/brain knowledge is curricular context; UCR cognition is relevant without instructional equivalent. No retained UCR programme ownership.",
+      "currentSourceCheck": "Current official year2 prose explicitly names motor/atypical development; year3 prose explicitly names how brains learn. These remain context topics, not extra credited units."
+    },
+    {
+      "row": 2998,
+      "interest": "psychological assessment and educational measurement",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "Psychometrics4EC and analysis sequence are required; UCR statistics is meaningful but not complete psychometrics training. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 2999,
+      "interest": "evaluating and improving school quality",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "EducationalQuality3EC is required; broad sociology/politics do not establish school-quality methods. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 3000,
+      "interest": "the philosophy of education and scientific knowledge",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "PhilosophyOfScience4EC is required; political philosophy is a different emphasis. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 3001,
+      "interest": "school identity and the social role of education",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "SchoolAndSociety3EC is required; sociology supports broad context only. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 3002,
+      "interest": "children’s autonomy and rules in the classroom",
+      "role": "search-only",
+      "outcome": "retain",
+      "finding": "Illustrative autonomy/rules question is search-only, not a compulsory standalone topic or UCR generator. No retained UCR programme ownership.",
+      "currentSourceCheck": "Illustrative/search-only autonomy/privacy questions; actual placement confidentiality supports relevance without promoting either example to a construction direction."
+    },
+    {
+      "row": 3003,
+      "interest": "protecting pupils’ privacy",
+      "role": "search-only",
+      "outcome": "retain",
+      "finding": "Illustrative pupil-privacy question is search-only; actual confidentiality is integral to stages/thesis. No retained UCR programme ownership.",
+      "currentSourceCheck": "Illustrative/search-only autonomy/privacy questions; actual placement confidentiality supports relevance without promoting either example to a construction direction."
+    },
+    {
+      "row": 3004,
+      "interest": "ethical and legal questions in primary education",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "LegalEthicalContext4EC is required; general human rights is partial, not specific education law. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 3005,
+      "interest": "teaching younger primary-school children",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "Stage3 focuses on kindergarten/lower school; no UCR primary-school ages9–12 equivalence. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 3006,
+      "interest": "teaching older primary-school children",
+      "role": "support-only",
+      "outcome": "retain",
+      "finding": "Stage2 and graduation stage address older pupils/whole-day teaching; rhetoric lesson project has narrower scope. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 3007,
+      "interest": "investigating educational questions in real classrooms",
+      "role": "generator-eligible",
+      "outcome": "retain",
+      "finding": "Academic methods and assessed stage/thesis integrate educational enquiry; no guaranteed UCR classroom research. No retained UCR programme ownership.",
+      "currentSourceCheck": "OER9.5 and the current official curriculum/placement content"
+    },
+    {
+      "row": 3008,
+      "interest": "developing primary-school curricula",
+      "role": "search-only",
+      "outcome": "retain",
+      "finding": "Official possible postgraduate/career direction: developing primary-school curricula. Requires relevant later study/admission/qualification; search-only. No UCR professional qualification, master admission or employment promise. No retained UCR programme ownership.",
+      "currentSourceCheck": "Current official careers/master page: seven possible postgraduate/career directions; search-only and conditional on later study, not bachelor or UCR entitlement."
+    },
+    {
+      "row": 3009,
+      "interest": "postgraduate study in educational science",
+      "role": "search-only",
+      "outcome": "retain",
+      "finding": "Official possible postgraduate/career direction: postgraduate study in educational science. Requires relevant later study/admission/qualification; search-only. No UCR professional qualification, master admission or employment promise. No retained UCR programme ownership.",
+      "currentSourceCheck": "Current official careers/master page: seven possible postgraduate/career directions; search-only and conditional on later study, not bachelor or UCR entitlement."
+    },
+    {
+      "row": 3010,
+      "interest": "postgraduate specialisation in pedagogy",
+      "role": "search-only",
+      "outcome": "retain",
+      "finding": "Official possible postgraduate/career direction: postgraduate specialisation in pedagogy. Requires relevant later study/admission/qualification; search-only. No UCR professional qualification, master admission or employment promise. No retained UCR programme ownership.",
+      "currentSourceCheck": "Current official careers/master page: seven possible postgraduate/career directions; search-only and conditional on later study, not bachelor or UCR entitlement."
+    },
+    {
+      "row": 3011,
+      "interest": "advising schools on educational improvement",
+      "role": "search-only",
+      "outcome": "retain",
+      "finding": "Official possible postgraduate/career direction: advising schools on educational improvement. Requires relevant later study/admission/qualification; search-only. No UCR professional qualification, master admission or employment promise. No retained UCR programme ownership.",
+      "currentSourceCheck": "Current official careers/master page: seven possible postgraduate/career directions; search-only and conditional on later study, not bachelor or UCR entitlement."
+    },
+    {
+      "row": 3012,
+      "interest": "postgraduate behavioural-science research",
+      "role": "search-only",
+      "outcome": "retain",
+      "finding": "Official possible postgraduate/career direction: postgraduate behavioural-science research. Requires relevant later study/admission/qualification; search-only. No UCR professional qualification, master admission or employment promise. No retained UCR programme ownership.",
+      "currentSourceCheck": "Current official careers/master page: seven possible postgraduate/career directions; search-only and conditional on later study, not bachelor or UCR entitlement."
+    },
+    {
+      "row": 3013,
+      "interest": "working as an orthopedagogue after postgraduate training",
+      "role": "search-only",
+      "outcome": "retain",
+      "finding": "Official possible postgraduate/career direction: working as an orthopedagogue after postgraduate training. Requires relevant later study/admission/qualification; search-only. No UCR professional qualification, master admission or employment promise. No retained UCR programme ownership.",
+      "currentSourceCheck": "Current official careers/master page: seven possible postgraduate/career directions; search-only and conditional on later study, not bachelor or UCR entitlement."
+    },
+    {
+      "row": 3014,
+      "interest": "conducting educational research for public authorities",
+      "role": "search-only",
+      "outcome": "retain",
+      "finding": "Official possible postgraduate/career direction: conducting educational research for public authorities. Requires relevant later study/admission/qualification; search-only. No UCR professional qualification, master admission or employment promise. No retained UCR programme ownership.",
+      "currentSourceCheck": "Current official careers/master page: seven possible postgraduate/career directions; search-only and conditional on later study, not bachelor or UCR entitlement."
+    }
+  ],
+  "courseReview": {
+    "ACCPPDE101": {
+      "currentName": "Personal & Professional Development",
+      "selectedField": "profile",
+      "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+      "currentContent": "Develops academic writing and research-literacy skills alongside personal development and civic engagement. Students locate and evaluate scholarly sources, synthesize literature, formulate research questions and arguments, and construct a research-paper introduction. A community-engaged project with a societal partner connects these skills to collaboration, reflection and practical contribution. Personal development planning addresses learning goals, self-efficacy, and stress and time management; the course also considers responsible academic use of AI.",
+      "assessmentRole": "mandatoryPPD",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    },
+    "BENGATE102": {
+      "currentName": "Research Methods & Statistics",
+      "selectedField": "profile",
+      "sourceSha256": "9d88751452d5c0a6888ac7901a73d1a848617dee2b587d4df64815fc39ad8813",
+      "currentContent": "Introduces empirical research design and statistical analysis, followed by a substantial student research project. Students study operationalization, measurement quality, sampling, surveys and experimental and nonexperimental designs, then descriptive statistics, estimation, hypothesis testing and introductory regression. R and R Commander support data display and analysis. Project teams develop instruments and a research plan, collect and analyze data, and report results under explicit research-ethics and privacy requirements.",
+      "assessmentRole": "research methods",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    },
+    "DISDATA111": {
+      "currentName": "Introduction to Data Science",
+      "selectedField": "profile",
+      "sourceSha256": "85912cb78bd13d1aa873ef9cca2a8d7e00345543f75d1f07b56d808f1c6702ef",
+      "currentContent": "Introduces data analysis and visualization in R through practical work with tabular, textual and spatial data. Students import, clean, transform and join data, explore patterns, and construct visualizations using tidy-data principles and the grammar of graphics. Web scraping and basic programming functions extend the workflow. A student research project applies these tools to a question using data from a field of interest.",
+      "assessmentRole": "research methods",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    },
+    "GOSLAWJ111": {
+      "currentName": "Human Rights: Law & Philosophy",
+      "selectedField": "profile",
+      "sourceSha256": "48e9acda58ff6a7860c4114b8d149a6f645cef5f3f456a30ca1f184348f4ffd8",
+      "currentContent": "Studies human rights both as positive law and as philosophical claims. Students examine the UDHR, European and UN protection systems, monitoring institutions and landmark cases alongside natural law, natural rights, legal positivism and critiques of universality. Historical and philosophical texts frame debates about dignity, life and reproductive rights, punishment, religious freedom, expression and democracy. Close engagement with legal and philosophical arguments supports independent moral positions.",
+      "assessmentRole": "complementary communication/social/normative content",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    },
+    "GOSPOLI111": {
+      "currentName": "Introduction to Political Philosophy",
+      "selectedField": "profile",
+      "sourceSha256": "b82d5b7efaf1e222b9ec94652bba7beb367919298b5ae983d3f07f072f142130",
+      "currentContent": "Surveys political thought from classical antiquity to contemporary debates, including European and non-European thinkers. Students examine views of human nature, society, rights and authority in their historical contexts and compare their proposed solutions with current political problems. Close study of original texts, an individual essay and a group project developing a coherent political philosophy connect historical interpretation to normative argument.",
+      "assessmentRole": "complementary communication/social/normative content",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    },
+    "GOSSOCI111": {
+      "currentName": "Introduction to Sociology",
+      "selectedField": "profile",
+      "sourceSha256": "2c5e6511dd8d9aecb821cd421fce68fe511220de4b6da15349b60282efad36ac",
+      "currentContent": "Introduces sociological reasoning through classical theories, their historical settings and perspectives that address exclusions from the discipline. Students connect solidarity, modernity, identity, social boundaries, networks and stratification to race, gender, migration and inequality in education and work. An individual analysis applies a course concept to contemporary social life without original data collection. A group paper develops a sociological question and analyzes a social problem using theory and academic literature.",
+      "assessmentRole": "complementary communication/social/normative content",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    },
+    "GOSSOCI212": {
+      "currentName": "Qualitative Research Methodology",
+      "selectedField": "profile",
+      "sourceSha256": "6531d96f817df19cfa773d8d8004f44da6041eeab39acfce1462438728cd1eeb",
+      "currentContent": "Develops qualitative inquiry from research design and preparation through data collection, management, analysis and dissemination. Students examine methodological foundations, ethics, positionality and reflexivity alongside interviews, focus groups, ethnography, documentary and visual approaches. Coding, thematic interpretation and NVivo support analysis. Research teams formulate a question, collect and analyze qualitative evidence, and report their methodological decisions, findings and limitations in staged assignments.",
+      "assessmentRole": "research methods",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    },
+    "HCBCOGN112": {
+      "currentName": "Neurobiology",
+      "selectedField": "profile",
+      "sourceSha256": "faf0f85889650abcd1cd20e8038228eb9964ce43c317af9edc586eac043bc30c",
+      "currentContent": "Studies nervous systems and behaviour from comparative, evolutionary and physiological perspectives. Brain anatomy and laboratory introductions support analysis of animal behaviour, research models and welfare. The second part connects regulatory behaviour and biological rhythms to sleep, lifestyle drugs, mood and eating disorders. Comparative-anatomy work and a literature-based disorder report apply neurobiological concepts while animal-research assignments examine reduction, refinement and replacement.",
+      "assessmentRole": "developmental/clinical/language foundations",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    },
+    "HCBCOGN212": {
+      "currentName": "Perception & Action",
+      "selectedField": "description2",
+      "sourceSha256": "d5057fb9cd7115d620719855269abccdb6cd5c3585d55631b2c6322bc0346aab",
+      "currentContent": "Explores neural mechanisms behind perception and action. Examines how the brain processes sensory information and guides goal‑directed behaviour using methods from cognitive neuroscience and neuropsychology.",
+      "assessmentRole": "developmental/clinical/language foundations",
+      "finding": "Description-only evidence supports neural perception/action mechanisms; fully considered, without inventing developmental teaching methods."
+    },
+    "HCBCOGN311": {
+      "currentName": "Higher Order Functions",
+      "selectedField": "profile",
+      "sourceSha256": "f6033f78b541acd4a5788e843aa744855b5a99d2841ce90ebdd17797944c5d42",
+      "currentContent": "Deepens understanding of neuroanatomy, neurophysiology and the experimental study of higher cognitive functions. Students examine attention, memory, emotion, cognitive control, social cognition, pain and consciousness, connecting brain function and dysfunction to behaviour. An attentional-blink experiment provides direct engagement with empirical work. A team research proposal requires literature analysis, a feasible experimental design and ethical reflection, supported by peer review.",
+      "assessmentRole": "developmental/clinical/language foundations",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    },
+    "HCBCOGN312": {
+      "currentName": "Psycholinguistics",
+      "selectedField": "description2",
+      "sourceSha256": "8b48cfd32534496954068f0d33edc9cd03d1856a6e075c0364ae1ec55dad27ec",
+      "currentContent": "Psycholinguistics is the study of the neurobiological and psychological factors that enable us to acquire, use, and understand language. Modern research draws on cognitive psychology, neuroscience, and computer science to investigate how language is processed. The course focuses primarily, though not exclusively, on the neuroscience of language. Students examine theoretical and experimental issues in speech production and comprehension, language impairments, the relationship between thought and language, and the evolution and acquisition of language. They also gain hands-on experience with experimental approaches to the study of language and develop an understanding of human linguistic capacity as a subject of multidisciplinary research. Topics covered: What is language? Evolutionary aspects of language and animal communication; language and thought; aphasia; language acquisition; bilingualism; speech comprehension; semantics; reading and dyslexia; speech production.",
+      "assessmentRole": "developmental/clinical/language foundations",
+      "finding": "Description-only evidence explicitly supports language acquisition, reading/dyslexia and experimental language study; fully considered as a strong language foundation. It does not teach the complete reading/spelling/multilingual instructional sequence."
+    },
+    "HCBGATE102": {
+      "currentName": "Introduction to Brain & Behavior",
+      "selectedField": "profile",
+      "sourceSha256": "6d605699b0fd169d061934b859575ea92f2ae8c41c05147cf1d7137c8cf49859",
+      "currentContent": "Introduces psychological and neuroscientific explanations of behaviour and mental processes. Students study neural signalling, brain anatomy and development, learning, intelligence, personality, social influence, mental disorders and treatments. Several sessions introduce behavioural, imaging and electrophysiological approaches to neuroscience and their combined use. Interdisciplinary research-article and case analysis connects psychological processes to neural mechanisms and clinical questions.",
+      "assessmentRole": "developmental/clinical/language foundations",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    },
+    "HCBPSYC111": {
+      "currentName": "Social Psychology",
+      "selectedField": "profile",
+      "sourceSha256": "98dd42b7632703daa8f8cae1c9428810869e3183e59ea31d8ab2271bf1205c75",
+      "currentContent": "Introduces the scientific study of how thoughts, feelings and behaviour are shaped by other people and social situations. Social cognition, the self, influence and persuasion lead into group processes, prejudice, aggression, prosocial behaviour, attraction and close relationships. Students critically examine empirical research, synthesize findings from journal articles, formulate theory-guided questions and design a feasible study. The final project proposes research rather than conducting an empirical investigation.",
+      "assessmentRole": "developmental/clinical/language foundations",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    },
+    "HCBPSYC211": {
+      "currentName": "Statistics & Experimental Methods",
+      "selectedField": "profile",
+      "sourceSha256": "bf482d4e283320560451930d2822162ada50a7697ded31de54eb7b021694adbc",
+      "currentContent": "Develops experimental-design knowledge and practical statistical analysis for health and behavioural research. Students choose, fit, diagnose and interpret multivariable models, comparing means, analyzing categorical outcomes and studying latent constructs. R, primarily through R Commander, supports repeated practical exercises; SPSS is an optional alternative. Data-analysis papers and a poster connect research questions and hypotheses to appropriate models, assumption checks, substantive interpretation and APA reporting.",
+      "assessmentRole": "research methods",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    },
+    "HCBPSYC212": {
+      "currentName": "Psychopathology",
+      "selectedField": "profile",
+      "sourceSha256": "659354853b4cf2eb38461623c31bf75a06cffbad9c0ebfba318acac667f3e531",
+      "currentContent": "Examines mental health and psychopathology across the lifespan using a biopsychosocial perspective. Historical views, classification and assessment frame biological, psychological, cultural and social explanations of disorders and treatment. Case-based work applies diagnostic concepts to varied presentations. A structured literature-based essay investigates a focused mental-health question through explicit searching, source selection, evidence appraisal and synthesis, with optional use of PRISMA reporting tools.",
+      "assessmentRole": "developmental/clinical/language foundations",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    },
+    "HCBPSYC311": {
+      "currentName": "Medical & Health Psychology",
+      "selectedField": "profile",
+      "sourceSha256": "c9753f8e333632af538773e50407750fccbb4473a8ce563143713152b8984e45",
+      "currentContent": "Examines health and illness through interactions among biological, psychological and sociocultural factors. Health inequalities, behaviour and prevention lead into stress, symptoms, pain, medical consultation and treatment decisions. Chronic illness is considered from patients', families' and healthcare professionals' perspectives. Students analyze research, interventions and clinical cases, practice interviewing with attention to culture, and apply clinical-health formulation to understand support and quality of life in medical settings.",
+      "assessmentRole": "developmental/clinical/language foundations",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    },
+    "HCBPSYC312": {
+      "currentName": "Psychodiagnostics & Psychotherapies",
+      "selectedField": "profile",
+      "sourceSha256": "b1bc649543fcb4a63180fc7ccc90801681d03545c15b14ec1a2b0f9fa9dc02d5",
+      "currentContent": "Introduces clinical psychological assessment and major psychotherapeutic approaches across the lifespan. Students study ethics, diagnostic systems, test reliability and validity, interviews, personality and cognitive assessment, then psychodynamic, behavioural, cognitive, humanistic, systemic and integrative treatments. Training sessions develop introductory administration, scoring and interpretation skills. A psychodiagnostic case report integrates findings and treatment recommendations, while self-monitoring examines developing clinical skills.",
+      "assessmentRole": "developmental/clinical/language foundations",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    },
+    "HCBPSYC313": {
+      "currentName": "Advanced Research Methods & Statistics",
+      "selectedField": "profile",
+      "sourceSha256": "eb24b7cc21c239bb763218b5b09a429739925fa1a8206c390c2f07c75f528c1d",
+      "currentContent": "Teaches systematic review and meta-analysis for synthesizing evidence in medical, behavioural and related research. Students define review questions, search and select studies, extract and code findings, assess bias and compute effect sizes. Hands-on R work fits fixed- and random-effects models, examines heterogeneity and moderators, conducts meta-regression and investigates publication bias. A group project completes a small meta-analysis and presents its methods and results in a research poster.",
+      "assessmentRole": "research methods",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    },
+    "HCBPSYC314": {
+      "currentName": "Lifespan Developmental Psychology",
+      "selectedField": "profile",
+      "sourceSha256": "b7108c9195e152f16dd2afa551f26c8c9ee9ed03a2b6d6bb95737d197ba5b139",
+      "currentContent": "Examines physical, cognitive, emotional, social and personality development from prenatal life through old age and death. Biological and environmental influences are considered alongside attachment, education, relationships, cultural differences and developmental psychopathology. Students connect theoretical perspectives to case studies, assessment and interventions at different life stages. A life-story interview with an adult over fifty applies developmental concepts through interviewing, analysis and a written report.",
+      "assessmentRole": "developmental/clinical/language foundations",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    },
+    "HCBPSYC315": {
+      "currentName": "Youth Resilience to Extremism",
+      "selectedField": "profile",
+      "sourceSha256": "50e3dc2759f559372aec73151dc8dda10e186f15c9a87ca099bfbb354349574a",
+      "currentContent": "Examines youth radicalization and educational prevention through psychology, education, sociology, political science and peace education. Models of radicalization and adolescent risk and protective factors lead into inclusive school climates, belonging, social-emotional learning, dialogue, media literacy and civic agency. Students translate primary research into teacher-training materials and a youth toolkit for an international school project, then revise the resources using feedback from intended recipients.",
+      "assessmentRole": "child-linked instructional contribution",
+      "finding": "Actual youth prevention, inclusive school climate and evidence-informed teacher/youth resources strengthen educational relevance. They are not a sustained primary-school teaching/didactics curriculum."
+    },
+    "MCCCOMM111": {
+      "currentName": "The Art of Rhetorical Communication",
+      "selectedField": "profile",
+      "sourceSha256": "a1075e2aff565380f637a1ee31ac79c668477b11b15a7f853230b303cf44485f",
+      "currentContent": "Teaches rhetorical analysis and persuasive communication through classical history, theory and practice. Students study Greek and Roman rhetoric, the five canons, types of discourse, persuasive appeals, argumentation and fallacies. Written exercises, debates and public speeches develop invention, arrangement, style, memory and delivery. An applied project creates narrative and storytelling material for an immersive educational setting concerned with Zeeland's climate and community.",
+      "assessmentRole": "complementary communication/social/normative content",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    },
+    "MCCCOMM211": {
+      "currentName": "Style & Meaning",
+      "selectedField": "profile",
+      "sourceSha256": "d080043304ce78e0dfb21e7626ed39788487ac6407c4b6b9b8dd65a1ccc3cb3c",
+      "currentContent": "Studies how linguistic choices produce meaning and interpretive effects, principally in literary texts but also in nonfiction. Students connect linguistic description to interpretation across grammar, discourse and cognition. Stylistic frameworks address foregrounding, dialogue, narration, modality, transitivity, deixis, schemas, construal and text worlds. Frequent analysis exercises lead to an original, research-supported stylistic analysis of a selected text.",
+      "assessmentRole": "complementary communication/social/normative content",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    },
+    "MCCCOMM213": {
+      "currentName": "Rhetoric in Action",
+      "selectedField": "profile",
+      "sourceSha256": "49cbe94898e4590587bb6b19cfa4f4870e0bc5568295474cf7074fac712d031e",
+      "currentContent": "Applies rhetoric through community-engaged work with local primary-school children. Students develop their own public-speaking, debating and storytelling skills, then design and iteratively refine age-appropriate teaching activities with school partners. On-site coaching and a final public-speaking event connect rhetorical education to civic participation and confidence. Structured reflection examines reciprocity, cultural sensitivity, personal development and the practical challenges of community-engaged teaching.",
+      "assessmentRole": "child-linked instructional contribution",
+      "finding": "Actual primary-school rhetorical teaching, coaching, age-appropriate activity design and reflection are genuine educational contributions. They remain narrower than subject didactics across reading, spelling, handwriting, maths, world orientation, arts and multilingual teaching with sequenced placements."
+    },
+    "MCCCOMM311": {
+      "currentName": "Persuasive Communication",
+      "selectedField": "profile",
+      "sourceSha256": "bad6a0cb3dd14e5cb07c4aeb36a102d09309142fdc5bab339f0096830ec5209a",
+      "currentContent": "Examines contemporary persuasion through communication studies, social psychology and ethical analysis, then applies it in community-engaged work. Students study coactive persuasion, framing, argumentation, cognitive shortcuts and verbal and nonverbal communication. Projects with the Delta Climate Centre and Vlissingen municipality develop communication encouraging sustainable and circular lifestyles. An individual research paper evaluates selected persuasion tools through literature review, field research diaries and reflective analysis of their use.",
+      "assessmentRole": "complementary communication/social/normative content",
+      "finding": "Read current evidence, not old cached approval. Substantive contribution retained within its stated subject scope; this course does not establish the missing sustained primary-school subject-didactics and supervised teaching sequence."
+    }
+  },
+  "candidateReassessment": {
+    "initialConcept": "Child development, language and educational inquiry: tested the strongest actual child/language/clinical/methods courses, including primary-school rhetoric and youth educational-resource design.",
+    "finding": "Coherence as developmental/psychological study is not enough for meaningful programme-level comparability to PWPO’s defining instructional substance. The no-match does not depend merely on a professional licence, exact degree title or numerical quota.",
+    "reconstruction": "Tested a more instructional school-language/culture response using literary study, educational storytelling, heritage games, leadership/negotiation teaching exercises, AI/child topics, social/education policy and ethics. Their actual subject matter does not supply a sustained multi-subject primary didactics/management/practice programme. Adding unrelated school subjects is not the same as learning to teach those subjects.",
+    "catalogueScope": "Read the24candidatecourseprofiles/descriptions and screened all151current course names/content fields for child/school/teaching/didactic/education leads; re-read the23additional matching course profiles/descriptions. No full deep reading of all151claimed.",
+    "sourceBoundary": "Current workbook22783315e6d5510522d16a72281859dd62a05294 only. Historical source ownership/offering assertions from the old workbook are not used.",
+    "scheduleBoundary": "No UCR alternative is included in this exception; there is no active schedule to repair or invent. The no-match follows substantive curriculum assessment, not missing planning coverage.",
+    "disposition": "Retain no-defensible-ucr-match; zero retained alternatives, no invented optional-research element or comparison alignments."
+  },
+  "contentReview": {
+    "policy": "record-content-review-2026-10-31",
+    "presentationMode": "exception external-curriculum view; configured caution does not override exception rendering",
+    "rendererBlob": "821be611428fc28490c679783be464455ad00aa1",
+    "mapping": "app.R render_exception displays comparator name/institution, status-specific no-match copy, audience programmeDescription/comparisonExplanation, clean curriculum labels/limitation, the35selected component names/credits, seven audience.componentNotes and the official primarySourceUrl. No UCR programmes, course buttons or selected course descriptions are displayed. Internal exception reasons/sourceNotes have no narrative fallback.",
+    "reviewedFieldPaths": [
+      "comparator.name",
+      "comparator.institution",
+      "comparator.primarySourceUrl",
+      "comparator.components[*].name/credits",
+      "audience.programmeDescription",
+      "audience.comparisonExplanation",
+      "audience.curriculum.*",
+      "audience.componentNotes.*",
+      "audience.conceptProgrammeIds",
+      "audience.noteTypes"
+    ],
+    "finding": "Read all selected titles/explanations/notes in context. Clear academic teacher-formation identity, complete credits, cumulative practice, genuine choice, thesis and postgraduate limits. UCR strengths acknowledged without implying a teaching qualification or a full instructional equivalent. All audience component references resolve; concept/note lists are empty as intended.",
+    "selectedCourseDescriptions": [],
+    "descriptionBoundary": "No selected modal text in the active external-only exception. Candidate course academic evidence was read directly from the workbook; no unperformed modal test is claimed.",
+    "links": "All9officialsource links returned200 with recorded redirects. Primary heading points to the adopted official PWPOOER.",
+    "runtime": "No app launch, browser, screenshot or live modal; no app/renderer code changed. Historical screenshots remain historical."
+  },
+  "mechanical": {
+    "courseFeasibility": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000063.json passed; exception has no active UCR schedule",
+    "schema": "fullJSONschema passed1record",
+    "replay": "productionv2 compiler temporary replay byte-exact to canonical",
+    "operational": "npm run validate:counselor exit0",
+    "operationalLogSha256": "75d2ee86670411f390b618683c8b0cd873ccd9ed0c857ce02756aff3b033a9c8",
+    "creditCoverage": {
+      "components": 35,
+      "unique": 35,
+      "totalEC": 180,
+      "yearEC": [
+        60,
+        60,
+        60
+      ]
+    },
+    "registry": "Exact target identity/provenance and all43target interest rows match; no registry/index input changed."
+  }
+}
