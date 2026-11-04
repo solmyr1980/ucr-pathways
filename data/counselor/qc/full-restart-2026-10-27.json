@@ -2411,14 +2411,22 @@
     },
     {
       "id": "cp-000073",
-      "state": "in-progress",
-      "stageOutcomes": {},
+      "state": "approved",
+      "stageOutcomes": {
+        "1": "retain",
+        "2": "retain",
+        "3": "retain",
+        "4": "retain",
+        "5": "retain",
+        "6": "retain"
+      },
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
       "implementationCommits": [],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000073.json"
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000073.json",
+      "academicDisposition": "no-defensible-ucr-match"
     },
     {
       "id": "cp-000074",
@@ -6928,8 +6936,8 @@
     }
   ],
   "progress": {
-    "approved": 89,
-    "inProgress": 37,
+    "approved": 90,
+    "inProgress": 36,
     "reviewedWithBlockers": 0,
     "notStarted": 312,
     "pilotStarted": 4
@@ -7161,36 +7169,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000073",
-      "activeClaim": {
-        "executionId": "restart-A-cp073-20261104T1627Z",
-        "worker": "A",
-        "caseId": "cp-000073",
-        "claimedAt": "2026-11-04T16:28:20.186617+00:00",
-        "reviewedInputCommit": "bf33d4025cd66b42de324b197ac89c46b55d9741",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000073.json": "b829fdcb3d0dd8d3c2939d69a544866b715ef182",
-          "data/counselor/comparisons/cp-000073.json": "2ba595f103ae65fa4982fd792dcc03695abd70cc",
-          "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify current Radboud Linguistics external route, all target interests and strongest UCR response; retain sound research only after source inspection, then complete content and source-first final checks.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000074",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -7244,7 +7231,8 @@
         "cp-000067",
         "cp-000068",
         "cp-000070",
-        "cp-000071"
+        "cp-000071",
+        "cp-000073"
       ],
       "completedDispositions": [
         {
@@ -7617,6 +7605,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000071.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-04"
+        },
+        {
+          "caseId": "cp-000073",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000073.json",
+          "academicDisposition": "no-defensible-ucr-match",
+          "verifiedOn": "2026-11-04"
         }
       ],
       "deferredCases": [
@@ -7657,19 +7652,18 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000072",
-        "executionId": "restart-A-cp072-retry2-20261104T1525Z",
-        "state": "in-progress",
-        "operationalDisposition": "deferred-incomplete",
-        "reviewedInputCommit": "c305dc97cfe63f1c5afee159a6c473547d51ba0e",
+        "caseId": "cp-000073",
+        "executionId": "restart-A-cp073-20261104T1627Z",
+        "state": "approved",
+        "academicDisposition": "no-defensible-ucr-match",
+        "reviewedInputCommit": "dc5f3a5050bd67210141697de9e1981c457e7531",
         "inputBlobs": {
-          "canonical": "bb30f20ed0c52b713eeed96465292ef0e77c877c",
-          "decision": "41dc38b753a301d52906b395e93e9215db600665"
+          "canonical": "2ba595f103ae65fa4982fd792dcc03695abd70cc",
+          "decision": "b829fdcb3d0dd8d3c2939d69a544866b715ef182"
         },
-        "checkpointedAt": "2026-11-04T15:29:18.968997+00:00",
-        "unsuccessfulSourceExecutions": 2,
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000072/source-attempt-2.json",
-        "nextAction": "ResumeCP073next execution. RevisitCP072onlyunderrecordedsourceRetryRule; obtainapplicableunique180ECcohort/alternationallocation,abroadreplacementandapprovedthesisseminarfulfilment, thencloseaffectedstagesandfinalsource-firstacademic/mechanical/contentchecks.",
+        "verifiedAt": "2026-11-04T16:32:44.348059+00:00",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000073/source-first-final-pass.json",
+        "nextAction": "Complete as verified no-defensible-ucr-match. Worker A resumes CP074 next execution; finalrelease and deployment remain unauthorised.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -12683,6 +12677,51 @@
                 "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
               },
               "nextAction": "ResumeCP072 exactsourcequestions: seek officialcohortalternation/replacement,abroadallocationandthesisseminarfulfilment. Preserve verifiedinterests/content and151courseworkbook; ifsecond unsuccessfulacademicexecution recordpermitteddeferralwithoutapproval.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
+        },
+        {
+          "preservedOn": "2026-11-04T16:32:44.348059+00:00",
+          "reason": "Preserve prior checkpoint and live claim before CP073 approval.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000072",
+              "executionId": "restart-A-cp072-retry2-20261104T1525Z",
+              "state": "in-progress",
+              "operationalDisposition": "deferred-incomplete",
+              "reviewedInputCommit": "c305dc97cfe63f1c5afee159a6c473547d51ba0e",
+              "inputBlobs": {
+                "canonical": "bb30f20ed0c52b713eeed96465292ef0e77c877c",
+                "decision": "41dc38b753a301d52906b395e93e9215db600665"
+              },
+              "checkpointedAt": "2026-11-04T15:29:18.968997+00:00",
+              "unsuccessfulSourceExecutions": 2,
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000072/source-attempt-2.json",
+              "nextAction": "ResumeCP073next execution. RevisitCP072onlyunderrecordedsourceRetryRule; obtainapplicableunique180ECcohort/alternationallocation,abroadreplacementandapprovedthesisseminarfulfilment, thencloseaffectedstagesandfinalsource-firstacademic/mechanical/contentchecks.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp073-20261104T1627Z",
+              "worker": "A",
+              "caseId": "cp-000073",
+              "claimedAt": "2026-11-04T16:28:20.186617+00:00",
+              "reviewedInputCommit": "bf33d4025cd66b42de324b197ac89c46b55d9741",
+              "inputBlobs": {
+                "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000073.json": "b829fdcb3d0dd8d3c2939d69a544866b715ef182",
+                "data/counselor/comparisons/cp-000073.json": "2ba595f103ae65fa4982fd792dcc03695abd70cc",
+                "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Verify current Radboud Linguistics external route, all target interests and strongest UCR response; retain sound research only after source inspection, then complete content and source-first final checks.",
               "runtimeModel": "unknown",
               "runtimeReasoningEffort": "unknown"
             }
@@ -19525,6 +19564,17 @@
       },
       "combinedVerifiedCount": 80,
       "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000061/assessment-8.json"
+    },
+    {
+      "assessmentNumber": 9,
+      "verifiedOn": "2026-11-04",
+      "milestone": 90,
+      "workerVerifiedCounts": {
+        "A": 54,
+        "B": 36
+      },
+      "combinedVerifiedCount": 90,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000073/assessment-9.json"
     }
   ],
   "systemicPause": null,
