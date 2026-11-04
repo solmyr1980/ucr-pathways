@@ -2,8 +2,8 @@
   "caseId": "cp-000070",
   "checkedOn": "2026-11-04",
   "inputs": {
-    "canonical": "95b1b7443192cfe822a8a433b9d1df0400de9f05",
-    "decision": "43b4c6b204d63384239f8c6eaf957e2973625154"
+    "canonical": "f40a97ef5c8dc6232a06dda429b30f5e8840f2ab",
+    "decision": "2b1ad1eeec3d08fb288d832882efb8656610ab7a"
   },
   "checks": [
     {
@@ -30,5 +30,39 @@
       "scope": "438scope87approved; noapprovalinferred."
     }
   ],
-  "runtime": "No app/renderer change; no runtimeclaims."
+  "runtime": "No app/renderer change; no runtimeclaims.",
+  "previousInputChecks": [
+    {
+      "inputs": {
+        "canonical": "95b1b7443192cfe822a8a433b9d1df0400de9f05",
+        "decision": "43b4c6b204d63384239f8c6eaf957e2973625154"
+      },
+      "checks": [
+        {
+          "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000070.json",
+          "exitCode": 0,
+          "scope": "Exception has zeroactiveUCRschedules; academicrelevance notassessed."
+        },
+        {
+          "command": "PYTHONPATH=/tmp/a64/python python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000070.json",
+          "exitCode": 0
+        },
+        {
+          "command": "npm run validate:counselor",
+          "exitCode": 0
+        },
+        {
+          "command": "productioncompiler to/tmp/a70/replay.json;cmp againstcanonical",
+          "exitCode": 0,
+          "scope": "Byteexact replay."
+        },
+        {
+          "command": "python scripts/validate-comprehensive-reaudit.py --sync",
+          "exitCode": 0,
+          "scope": "438scope87approved; noapprovalinferred."
+        }
+      ]
+    }
+  ],
+  "contentLabelChecks": "Feasibility,fullschema,operationalvalidation and byte-exactreplay repeated exit0 on clarified reader labels. Noacademicinputchange."
 }
