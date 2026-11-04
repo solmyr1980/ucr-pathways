@@ -2195,34 +2195,24 @@
     },
     {
       "id": "cp-000064",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "correct",
         "3": "correct",
         "4": "correct",
-        "5": "correct"
+        "5": "correct",
+        "6": "correct"
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Third mental-health alternative and bounded audience/title changes",
-          "scope": "Reassess finished courses,alignment,labels,all42descriptions,credits,distinctness and independent source-first pass after publication.",
-          "stages": [
-            3,
-            4,
-            5,
-            6
-          ],
-          "evidenceRefs": [
-            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000064/academic-content-repair.json"
-          ]
-        }
+      "downstreamReassessments": [],
+      "implementationCommits": [
+        "b2d04fa373c03d31d8ac6d68436d1e6d9088758e"
       ],
-      "implementationCommits": [],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000064.json"
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000064.json",
+      "academicDisposition": "comparison"
     },
     {
       "id": "cp-000065",
@@ -6816,8 +6806,8 @@
     }
   ],
   "progress": {
-    "approved": 82,
-    "inProgress": 35,
+    "approved": 83,
+    "inProgress": 34,
     "reviewedWithBlockers": 0,
     "notStarted": 321,
     "pilotStarted": 4
@@ -7049,36 +7039,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000064",
-      "activeClaim": {
-        "executionId": "restart-A-cp064-20261104T0526Z",
-        "worker": "A",
-        "caseId": "cp-000064",
-        "claimedAt": "2026-11-04T05:25:55Z",
-        "reviewedInputCommit": "4d4b8136de9c77fac57b8ff4f7cd020e30e5cea0",
-        "inputBlobs": {
-          "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
-          "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
-          "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000064.json": "c66009a16193228b92408171d6e717b715c6e96e",
-          "data/counselor/comparisons/cp-000064.json": "66705f3420876ae241a0fc61384946eae4a5e9bb",
-          "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Review current PPS external requirements, all interests and both UCR alternatives through full academic/content/source-first gates.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000065",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -7125,7 +7094,8 @@
         "cp-000059",
         "cp-000061",
         "cp-000062",
-        "cp-000063"
+        "cp-000063",
+        "cp-000064"
       ],
       "completedDispositions": [
         {
@@ -7449,6 +7419,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000063.json",
           "academicDisposition": "no-defensible-ucr-match",
           "verifiedOn": "2026-11-04"
+        },
+        {
+          "caseId": "cp-000064",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000064.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-04T05:43:29.309967+00:00"
         }
       ],
       "deferredCases": [
@@ -7485,20 +7462,21 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "executionId": "restart-A-cp064-20261104T0526Z",
-        "worker": "A",
         "caseId": "cp-000064",
-        "claimedAt": "2026-11-04T05:25:55Z",
-        "reviewedInputCommit": "4d4b8136de9c77fac57b8ff4f7cd020e30e5cea0",
+        "executionId": "restart-A-cp064-20261104T0526Z",
+        "state": "approved",
+        "academicDisposition": "comparison",
+        "reviewedInputCommit": "b2d04fa373c03d31d8ac6d68436d1e6d9088758e",
         "inputBlobs": {
           "canonical": "c63030a6ef9737f0fc3cca9008641180360a2552",
           "decision": "7c510fa85c661e4d8947d44ea8da012503abdd0b"
         },
-        "nextAction": "Publish/verify repaired three-alternative pair and applicable CI; then complete separate same-AI source-first final review and final disposition.",
+        "verifiedAt": "2026-11-04T05:43:29.309967+00:00",
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000064/source-first-final-pass.json",
+        "nextAction": "CP064 complete as a verified three-alternative comparison. Resume cp-000065 next execution; release/discovery/deployment remain unauthorised.",
         "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown",
-        "state": "in-progress",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000064/academic-content-repair.json"
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -11760,6 +11738,50 @@
               "verificationPolicy": "record-content-review-2026-10-31",
               "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000063/source-first-final-pass.json",
               "nextAction": "CP063complete as a verified no-defensible-UCR-match exception. Resume CP064 next execution; no final release/discovery/deployment authorised.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
+        },
+        {
+          "preservedOn": "2026-11-04T05:43:29.309967+00:00",
+          "reason": "Preserve repair checkpoint and release own claim after verified final disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "executionId": "restart-A-cp064-20261104T0526Z",
+              "worker": "A",
+              "caseId": "cp-000064",
+              "claimedAt": "2026-11-04T05:25:55Z",
+              "reviewedInputCommit": "4d4b8136de9c77fac57b8ff4f7cd020e30e5cea0",
+              "inputBlobs": {
+                "canonical": "c63030a6ef9737f0fc3cca9008641180360a2552",
+                "decision": "7c510fa85c661e4d8947d44ea8da012503abdd0b"
+              },
+              "nextAction": "Publish/verify repaired three-alternative pair and applicable CI; then complete separate same-AI source-first final review and final disposition.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown",
+              "state": "in-progress",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000064/academic-content-repair.json"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp064-20261104T0526Z",
+              "worker": "A",
+              "caseId": "cp-000064",
+              "claimedAt": "2026-11-04T05:25:55Z",
+              "reviewedInputCommit": "4d4b8136de9c77fac57b8ff4f7cd020e30e5cea0",
+              "inputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000064.json": "c66009a16193228b92408171d6e717b715c6e96e",
+                "data/counselor/comparisons/cp-000064.json": "66705f3420876ae241a0fc61384946eae4a5e9bb",
+                "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Review current PPS external requirements, all interests and both UCR alternatives through full academic/content/source-first gates.",
               "runtimeModel": "unknown",
               "runtimeReasoningEffort": "unknown"
             }
