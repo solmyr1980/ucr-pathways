@@ -1,0 +1,60 @@
+{
+  "caseId": "cp-000295",
+  "checkedAt": "2026-11-04T22:18:38.219414+00:00",
+  "inputBlobs": {
+    "data/counselor/decisions/cp-000295.json": "0c924e318c2a3e792a933a1f468a9ae747e6873b",
+    "data/counselor/comparisons/cp-000295.json": "418969bac1f8ad9791dee78e8d6190f1ae436b8c",
+    "data/registry/programme_interests.csv": "1a3bca29e689956521189694d6990e8e99af4c39",
+    "data/counselor/review-interests.json": "37e4880c0843b345c40aec78b60d5be11e5329d7",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+  },
+  "checks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000295.json",
+      "status": "passed",
+      "evidence": "Exception has no active UCR selection; all source/reference constraints pass."
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py /tmp/cp295/candidate-canonical.json",
+      "status": "passed",
+      "evidence": "Provisional 24-course schedule passes actual current prerequisites and offerings. This does not establish academic comparability."
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000295.json",
+      "status": "passed",
+      "evidence": "1 canonical records pass full JSON Schema validation."
+    },
+    {
+      "command": "npm run validate:counselor",
+      "status": "passed",
+      "evidence": "Exit 0; all operational counselor records pass."
+    },
+    {
+      "command": "npm run validate:registry-interests && npm run validate:counselor-review",
+      "status": "passed",
+      "evidence": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\n"
+    },
+    {
+      "command": "python scripts/apply-registry-corrections.py --check",
+      "status": "passed",
+      "evidence": "Registry post-build corrections and alias crosswalks are current\n"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs decision --output temporary; cmp temporary canonical",
+      "status": "passed",
+      "evidence": "Byte-exact replay of the final repaired decision."
+    }
+  ],
+  "scopeCheck": {
+    "onlyInterestRowsChanged": [
+      13329,
+      13330,
+      13331,
+      13332,
+      13333
+    ],
+    "otherRegistryRowsPreserved": true
+  },
+  "appCodeChanged": false
+}

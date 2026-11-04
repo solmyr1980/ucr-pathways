@@ -5408,13 +5408,34 @@
     {
       "id": "cp-000295",
       "state": "in-progress",
-      "stageOutcomes": {},
+      "stageOutcomes": {
+        "1": "blocked",
+        "2": "correct",
+        "3": "blocked",
+        "4": "correct",
+        "5": "correct",
+        "6": "blocked"
+      },
       "sharedIssueIds": [],
-      "unresolved": [],
-      "downstreamReassessments": [],
+      "unresolved": [
+        "Verify the current credits and assessment for LPV3 (30136LPV1Y), the applicable final-work definition and progression framework, and half-minor admission and approval conditions, or an authoritative cohort bridge. Current LPV3 API responses in English, Dutch and the previous year are null. AWV3 has 3 EC metadata but no content or assessment specification. The 2025–2026 OER documents Curriculum 2023 and a 2026 theme transition, but states that its validity is one academic year. Its full applicability to 2026–2027 is unverified. Current general third-year text and the formal endpoint requirements need reconciliation. The remaining 7 EC are not assigned to LPV3 by subtraction."
+      ],
+      "downstreamReassessments": [
+        {
+          "trigger": "ResolveapplicableexternalLPV3/finalwork/halfminor/cohortconditions",
+          "scope": "Completepathway,conceptacceptance,alignments,readercontent andfinalacademicdisposition",
+          "stages": [
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
       "implementationCommits": [],
       "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000295.json"
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000295.json",
+      "academicDisposition": "external-programme-unresolved"
     },
     {
       "id": "cp-000296",
@@ -14093,23 +14114,18 @@
         "cp-000290": 2,
         "cp-000291": 2,
         "cp-000293": 2,
-        "cp-000294": 1
+        "cp-000294": 1,
+        "cp-000295": 1
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000294",
-        "executionId": "restart-B-cp294-retry2-20261104T2102Z",
-        "state": "approved",
-        "academicDisposition": "no-defensible-ucr-match",
-        "reviewedInputCommit": "6ae766d4a658337c8e7e0214cdbd8c84ed94599a",
-        "inputBlobs": {
-          "canonical": "b25781b24629fb5690debf07d09fbfff34290324",
-          "decision": "43707bd0983e33589d1e0cdd5948385c015d4d7e"
-        },
-        "verifiedAt": "2026-11-04T21:09:26.114660+00:00",
-        "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000294/published-execution-2.json",
-        "nextAction": "CP294 complete asverifiedno-defensible-UCR-match. Resume CP295 next execution. Finalrelease/discoverypublication/deployment remainunauthorised.",
+        "caseId": "cp-000295",
+        "executionId": "restart-B-cp295-20261104T2202Z",
+        "state": "in-progress",
+        "academicDisposition": "external-programme-unresolved",
+        "nextAction": "Resume CP-000295 source attempt 2: Verify the current credits and assessment for LPV3 (30136LPV1Y), the applicable final-work definition and progression framework, and half-minor admission and approval conditions, or an authoritative cohort bridge. Current LPV3 API responses in English, Dutch and the previous year are null. AWV3 has 3 EC metadata but no content or assessment specification. The 2025–2026 OER documents Curriculum 2023 and a 2026 theme transition, but states that its validity is one academic year. Its full applicability to 2026–2027 is unverified. Current general third-year text and the formal endpoint requirements need reconciliation. The remaining 7 EC are not assigned to LPV3 by subtraction. Preserve the supported 173 EC partial inventory, five interest corrections and provisional UCR research. This first unsuccessful source execution does not permit deferral.",
+        "sourceFailureExecutions": 1,
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000295/source-attempt-1.json",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -18631,6 +18647,27 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-11-04T22:13:34.697163+00:00",
+          "reason": "Preservepreviousworkercheckpoint before CP295sourceattempt1.",
+          "snapshot": {
+            "caseId": "cp-000294",
+            "executionId": "restart-B-cp294-retry2-20261104T2102Z",
+            "state": "approved",
+            "academicDisposition": "no-defensible-ucr-match",
+            "reviewedInputCommit": "6ae766d4a658337c8e7e0214cdbd8c84ed94599a",
+            "inputBlobs": {
+              "canonical": "b25781b24629fb5690debf07d09fbfff34290324",
+              "decision": "43707bd0983e33589d1e0cdd5948385c015d4d7e"
+            },
+            "verifiedAt": "2026-11-04T21:09:26.114660+00:00",
+            "verificationPolicy": "record-content-review-2026-10-31",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000294/published-execution-2.json",
+            "nextAction": "CP294 complete asverifiedno-defensible-UCR-match. Resume CP295 next execution. Finalrelease/discoverypublication/deployment remainunauthorised.",
+            "runtimeModel": "unknown",
+            "runtimeReasoningEffort": "unknown"
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -18933,6 +18970,14 @@
           "essentialEvidence": "The 2027–2028 request returned the same 2026–2027 BA-FLW record byte for byte. The current Film Studies table still repeats World Cinema B, code 5541VWCBY, ID 207810. Historical guides show distinct A and B courses in alternating years but no applicable 2027–2028 schedule or adopted substitution was established. The distinct recorded components support 175 EC.",
           "officialAlternative": "Forward-year catalogue and official-domain search checked.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000291/source-attempt-2.json"
+        },
+        {
+          "caseId": "cp-000295",
+          "executionId": "restart-B-cp295-20261104T2202Z",
+          "failedOn": "2026-11-04T22:13:34.697163+00:00",
+          "attempt": 1,
+          "reason": "Verify the current credit/assessment specification for LPV3 (30136LPV1Y), the applicable final-work definition and progression framework, and half-minor admission/approval conditions, or an explicit authoritative cohort bridge. Current LPV3 API responses in EN/NL and prior year are null; AWV3 has3EC metadata but no content/assessment descriptions. The 2025–26 OER defines Curriculum2023 and a2026theme transition but explicitly has one-academic-year validity; do not presume it governs all2026–27requirements. Current general third-year text still says programme follows and uses a distributed endpoint that needs reconciliation with the formal/current course records. The remaining7EC are not allocated by subtraction to an unverified LPV3 weight.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000295/source-attempt-1.json"
         }
       ],
       "deferralHistory": [

@@ -1,0 +1,811 @@
+{
+  "caseId": "cp-000295",
+  "checkedOn": "2026-11-04T22:13:34.697163+00:00",
+  "claim": {
+    "executionId": "restart-B-cp295-20261104T2202Z",
+    "worker": "B",
+    "caseId": "cp-000295",
+    "claimedAt": "2026-11-04T22:01:57.262655+00:00",
+    "reviewedInputCommit": "bfb5b99f8ef847995aa2820f5b93a2478435dfa9",
+    "inputBlobs": {
+      "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+      "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+      "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+      "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+      "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+      "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+      "data/counselor/decisions/cp-000295.json": "68dd7e19e9e15eb138d44449443e915560d2b612",
+      "data/counselor/comparisons/cp-000295.json": "ac4516af81f76c0a109cda80646252bb8810349d",
+      "data/registry/programme_interests.csv": "fb3296d45e7556a612c7c2e443ffd483bbc29544",
+      "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+    },
+    "nextAction": "Independently verify current Medicine curriculum/cohort/progression and all target interests; review actualUCRconcepts/courses/alignments, repair material offering/content defects, then final record/content and separate source-first pass.",
+    "runtimeModel": "unknown",
+    "runtimeReasoningEffort": "unknown"
+  },
+  "sources": [
+    {
+      "index": 0,
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=BA-GEN&type=STUDY&year=2261&language=en",
+      "status": 200,
+      "format": "json",
+      "sha256": "b2906dc5d83b0292aabe9738efc1ba6e8cedc74165f3638c2f26a07d58e87fad",
+      "bytes": 90216
+    },
+    {
+      "index": 1,
+      "url": "https://www.student.universiteitleiden.nl/vr/geneeskunde/onderwijs-en-examenregeling",
+      "status": 200,
+      "format": "html",
+      "sha256": "4fb930c2eb5deae925ecf3d7d646001bf34dc2e1e5f77362a134e4629093c8f6",
+      "bytes": 21993,
+      "inspection": "HTMLaccess-block response, not inspectedregulations content. Currentregulation unresolved; separateofficialwebreaderinspectedannual2025–26PDF ascontext only."
+    }
+  ],
+  "currentModuleSources": [
+    {
+      "code": "3011INT00Y",
+      "group": "BA-GEN-YR1-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Introduction / IC"
+        },
+        {
+          "language": "NL",
+          "value": "Introductie / IC dagen"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=3011INT00Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "df78aad88737cb99130273920fa34dfba4fed4e5eaa5ea813e5146842785ba75",
+      "null": false
+    },
+    {
+      "code": "3011CTM00Y",
+      "group": "BA-GEN-YR1-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "From Cell to Molecule"
+        },
+        {
+          "language": "NL",
+          "value": "Van Cel tot Molecuul"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=3011CTM00Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "5a3ce1ad3d7a972014b6662215747d04d2cf95acbc4109302a40d82de1327076",
+      "null": false
+    },
+    {
+      "code": "3011MTC00Y",
+      "group": "BA-GEN-YR1-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "From Body to Cell"
+        },
+        {
+          "language": "NL",
+          "value": "Van Mens tot Cel"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=3011MTC00Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "d2d83e257857e9386bae87999953e12522676b9adbdc139de08442a50c603b8c",
+      "null": false
+    },
+    {
+      "code": "3011BTH00Y",
+      "group": "BA-GEN-YR1-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "From Basics to Homeostasis"
+        },
+        {
+          "language": "NL",
+          "value": "Van Basis tot Homeostase"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=3011BTH00Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "c983ef27be8e7e4fca1089f9d483f8856b66604f2fae7a85e2dd7b4e1e3cf382",
+      "null": false
+    },
+    {
+      "code": "3011LPV20Y",
+      "group": "BA-GEN-YR1-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Line Professional Skills year 1"
+        },
+        {
+          "language": "NL",
+          "value": "Lijn Professionele Vaardigheden jaar 1"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=3011LPV20Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "911fc5524db7ef8779e9cc4981a2df5554453dac0421a2c53920a7947bf18087",
+      "null": false
+    },
+    {
+      "code": "3011ZGS00Y",
+      "group": "BA-GEN-YR1-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Professional Development"
+        },
+        {
+          "language": "NL",
+          "value": "Zorgstage"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=3011ZGS00Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "9f2c2792a486df164718781cda510a7eba5336a96762b444c8d2bef8cdaf5860",
+      "null": false
+    },
+    {
+      "code": "3011SST00Y",
+      "group": "BA-GEN-YR1-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Metabolism & Regulation"
+        },
+        {
+          "language": "NL",
+          "value": "Sturing & Stofwisseling"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=3011SST00Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "e9761625560004655bcdfde7932cbb8b6334b7def06c7da3062b3d88f26d7a62",
+      "null": false
+    },
+    {
+      "code": "3011HAS00Y",
+      "group": "BA-GEN-YR1-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Brain & Control"
+        },
+        {
+          "language": "NL",
+          "value": "Hersenen & Aansturing"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=3011HAS00Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "42f91e2cc456e572ba8280176f1da97c5eedaddeedef9a47b2ea4a0e1f04ab5a",
+      "null": false
+    },
+    {
+      "code": "3011VGTJ1Y",
+      "group": "BA-GEN-YR1-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Progress examination Year 1"
+        },
+        {
+          "language": "NL",
+          "value": "Voortgangstoets Jaar 1"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=3011VGTJ1Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "1b1bfdc94b5b0e8da17f0922ee6b8a6f9d3dd07898dc5f6ba589938298b62a7c",
+      "null": false
+    },
+    {
+      "code": "3011AWV30Y",
+      "group": "3011AWV30Y",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Line AWV 1: Project Critical scientific thinking)"
+        },
+        {
+          "language": "NL",
+          "value": "Lijn Academische en Wetenschappelijke Vorming 1"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=3011AWV30Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "ea60126c45a93fcace1960b9c1b50e5dfda67116ca6f1d677e60e0e5a5012233",
+      "null": false
+    },
+    {
+      "code": "30123GB10Y",
+      "group": "BA-GEN-YR2-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Healthcare and career orientation year 2"
+        },
+        {
+          "language": "NL",
+          "value": "Themaweek gezondheidszorg en beroepsoriëntatie jaar 2"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=30123GB10Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "549c40886f8ad9bf529648b32948b2d77d29ebb4df942c5625bb14acb78fc331",
+      "null": false
+    },
+    {
+      "code": "30123PD10Y",
+      "group": "BA-GEN-YR2-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Theme week Planetary health & sustainability"
+        },
+        {
+          "language": "NL",
+          "value": "Themaweek Planetaire gezondheid & duurzaamheid"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=30123PD10Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "f79585dbcf73ff0e188591b65fe21d41f8d83ed37d67094f6109a99ff9a4f198",
+      "null": false,
+      "inspection": "Module metadata retrieved. No descriptions field; the diagnostic error was local parsing, not retrieval failure."
+    },
+    {
+      "code": "30125BU10Y",
+      "group": "BA-GEN-YR2-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Clinical problems: Abdomen"
+        },
+        {
+          "language": "NL",
+          "value": "Vraagstukken Buik"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=30125BU10Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "95548e7c2a8ba7b40b1572d223a5ebd062dbfc4d77587cabde4b5a2fd24a8f81",
+      "null": false
+    },
+    {
+      "code": "30128LPV0Y",
+      "group": "BA-GEN-YR2-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Line Professional Skills 2"
+        },
+        {
+          "language": "NL",
+          "value": "Lijn Professionele Vaardigheden jaar 2"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=30128LPV0Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "a87908fdb4d404c9a417ed66cb733daeef6092e6014b9ae61405508b67c43548",
+      "null": false
+    },
+    {
+      "code": "30121MO10Y",
+      "group": "BA-GEN-YR2-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Mechanisms of Disease 1"
+        },
+        {
+          "language": "NL",
+          "value": "Mechanisms of Disease 1"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=30121MO10Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "15684b2885bd73e2dba5080fe18aaa548e34f0553b4c9426817d77922e6dee9f",
+      "null": false
+    },
+    {
+      "code": "30122MO20Y",
+      "group": "BA-GEN-YR2-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Mechanisms of Disease 2"
+        },
+        {
+          "language": "NL",
+          "value": "Mechanisms of Disease 2"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=30122MO20Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "5417ca0479cdfb13aa827c5d05bfa5fde0cad098fb785d1b4146d55fc73aaab5",
+      "null": false
+    },
+    {
+      "code": "3012FAR10Y",
+      "group": "BA-GEN-YR2-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Pharmacology"
+        },
+        {
+          "language": "NL",
+          "value": "Farmacologie"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=3012FAR10Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "0e5f3d1d55d7d9da7a09eab4e71ba7e096074485281d25961e5592bc163307b8",
+      "null": false
+    },
+    {
+      "code": "3012VGTJ2Y",
+      "group": "BA-GEN-YR2-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Progress examination Year 2"
+        },
+        {
+          "language": "NL",
+          "value": "Voortgangstoets Jaar 2"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=3012VGTJ2Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "51c601b816170e0214c36d100dbe18094b887a8494f7782868579335918f42c5",
+      "null": false
+    },
+    {
+      "code": "30126BW00Y",
+      "group": "BA-GEN-YR2-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Clinical problems: Locomotion"
+        },
+        {
+          "language": "NL",
+          "value": "Vraagstukken Bewegen"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=30126BW00Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "af2240a61da7fd127d8bcc44f172097b07bc1de2a4b5a06f01ae8ea54ade642d",
+      "null": false
+    },
+    {
+      "code": "30127BN00Y",
+      "group": "BA-GEN-YR2-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Clinical problems: Thorax"
+        },
+        {
+          "language": "NL",
+          "value": "Vraagstukken Borst en Nier"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=30127BN00Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "af8946a8baee44a922b03b3a8bc569b6f7d8bdd24f37372a6ab00728ebd6cd2b",
+      "null": false
+    },
+    {
+      "code": "3013AWV20Y",
+      "group": "BA-GEN-YR3-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Academic and Scientific Development"
+        },
+        {
+          "language": "NL",
+          "value": "Lijn Academische en Wetenschappelijk Vorming"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=3013AWV20Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "61f75e62d282dfa25d9ff975c308bb36e3d95bf323641aa645984cf0d3cb2d46",
+      "null": false,
+      "inspection": "Module metadata retrieved. No descriptions field; the diagnostic error was local parsing, not retrieval failure."
+    },
+    {
+      "code": "3013VGTJ3Y",
+      "group": "BA-GEN-YR3-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Progress examination Year 3"
+        },
+        {
+          "language": "NL",
+          "value": "Voortgangstoets Jaar 3"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=3013VGTJ3Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "fff1130575b33154d8d00c5c6ab1aa9269023b6ec4d61caec29328e32ad5d2d1",
+      "null": false
+    },
+    {
+      "code": "30131VVL1Y",
+      "group": "BA-GEN-YR3-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Clinical problems: from reproduction to adulthood"
+        },
+        {
+          "language": "NL",
+          "value": "Vraagstukken Voortplanting & Vroege Levensfase"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=30131VVL1Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "c4ef40aa5f99ffd324533ef8236cab4dbcafef2f96aed0005a58ba313e546adf",
+      "null": false
+    },
+    {
+      "code": "30134VLL1Y",
+      "group": "BA-GEN-YR3-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Clinical problems in ageing: diversity and choices"
+        },
+        {
+          "language": "NL",
+          "value": "Vraagstukken Latere Levensfase: diversiteit en keuzes"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=30134VLL1Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "10866e76d43996721dcb83a37e69fb633fe07873ed68b832fc16a92813bca047",
+      "null": false
+    },
+    {
+      "code": "30135SZ01Y",
+      "group": "BA-GEN-YR3-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Clinical problems: Acute care"
+        },
+        {
+          "language": "NL",
+          "value": "Vraagstukken Spoedeisende Zorg"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=30135SZ01Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "5cbbf332e75a50733a66c1488bc16034780d7b87d1b92e4d829f866b070cd258",
+      "null": false
+    },
+    {
+      "code": "3013PH001Y",
+      "group": "BA-GEN-YR3-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Issues Mental health and Hormones"
+        },
+        {
+          "language": "NL",
+          "value": "Vraagstukken Psychische gezondheid en Hormonen"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=3013PH001Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "700f0bd600eab083072e3eac2f66f09948b14fe10ad5ead930c6cc132c4de679",
+      "null": false
+    },
+    {
+      "code": "30136LPV1Y",
+      "group": "BA-GEN-YR3-R",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Line Professional Skills year 3"
+        },
+        {
+          "language": "NL",
+          "value": "Lijn Professionele Vaardigheden jaar 3"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=30136LPV1Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "null": true
+    },
+    {
+      "code": "3013IS000Y",
+      "group": "BA-GEN-YR3-THEMA",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Interprofessional collaboration"
+        },
+        {
+          "language": "NL",
+          "value": "Themaweek Interprofessioneel Samenwerken"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=3013IS000Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "248d3a2e93afc3e6a9b8ac00252829b42b4476dc206819f4844d5b565d03d20d",
+      "null": false,
+      "inspection": "Module metadata retrieved. No descriptions field; the diagnostic error was local parsing, not retrieval failure."
+    },
+    {
+      "code": "30132TW01Y",
+      "group": "BA-GEN-YR3-THEMA",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Theme weeks Healthcare and career orientation / Interprofessional collaboration"
+        },
+        {
+          "language": "NL",
+          "value": "Themaweken gezondheidszorg en beroepsoriëntatie / Interprofessionele samenwerking"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=30132TW01Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "null": true
+    },
+    {
+      "code": "3013TGB02Y",
+      "group": "BA-GEN-YR3-THEMA",
+      "names": [
+        {
+          "language": "EN",
+          "value": "Theme week Healthcare and career orientation year 3"
+        },
+        {
+          "language": "NL",
+          "value": "Themaweek Gezondheidszorg en beroepsoriëntatie jaar 3"
+        }
+      ],
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=3013TGB02Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "null": true
+    }
+  ],
+  "officialAlternatives": [
+    {
+      "id": "lpv-nl",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=30136LPV1Y&type=MODULE&year=2261&language=nl",
+      "status": 200,
+      "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "bytes": 4,
+      "null": true,
+      "pdf": false
+    },
+    {
+      "id": "lpv-prior",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=30136LPV1Y&type=MODULE&year=2251&language=en",
+      "status": 200,
+      "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "bytes": 4,
+      "null": true,
+      "pdf": false
+    },
+    {
+      "id": "curriculum",
+      "url": "https://www.student.universiteitleiden.nl/binaries/content/assets/geneeskunde-lumc/regels-en-richtlijnen-gnk/het-curriculum.pdf",
+      "error": "HTTP Error 503: Service Unavailable"
+    }
+  ],
+  "historicalFormalSource": {
+    "url": "https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geneeskunde-lumc/onderwijs--en-examenreglement/25-26/oer-ba-bw-en-gnk-2025-2026-def.pdf",
+    "edition": "2025–2026v1.1",
+    "inspection": "OfficialPDFwebreader37pages; appendixGeneeskundeCurriculum2023newthird-yearintroducedSep2025,table36–37,footnote19changesplanetaryhealthtointerprofessionalthemefrom2026–27. Article8.3oneacademicyearvalidity meansnotautomatic2026–27authority. Appendixclinical/professional andfinalwork clauses usefulleads,not inheritedcurrentapproval.",
+    "finalPassValidityCheck": "Reconsidered Article 8.3 on page 21: one-academic-year validity; Article 8.4 begins 1 September 2025. Future intake chapter and the explicit 2026 theme footnote do not certify all 2026–2027 endpoint/LPV3 rules."
+  },
+  "componentReview": "Currentcataloguecreditsupports31nonduplicatedcomponents173EC: firstyear60,secondyear60,third-yearclinicalblocks30,VGT3=2,AWV3=3,themeparent3 andrestrictedhalf-minor15. Nochildzero-credit/AWVexchangevariant orpremasterintrogroup added. Sevenof180EC remainunallocated; not assigned toLPV3 byarithmetic. MissingLPV3/finalwork/halfminorconditions andcohortbridge stillblock acomplete academicpathway. CurrentLPV2 requirespassedLPV1; LPV3entry partlyresolvedfromLPV2: positiveLPV2 plusatleast2ofAbdomen/Locomotion/ThoraxKidney passed, noassumedexception. Currentfullordinaryfirst2years meets these ifpassed, but currentLPV3assessment/credits remain unavailable.",
+  "retainedFirstTwoYears": "EverycurrentleafcreditcheckedagainstcurrentmoduleJSON; groupAWV/PGER/themes countedonce,zerochild/exchangevariantnotstacked. Currentleaf30123PD10Y confirms2EC butlacksdescriptions: localdiagnosticKeyErrordoesnotnegatecreditmetadata or establishsystemic/sourcefailure.",
+  "newFindings": [
+    "Currentthird-year35ECmodulemetadata nowavailable; staleprogramme-follows narrative alone cannotjustify withholdingall60EC. Addedcurrent35,theme3,parenthalfminor15.",
+    "Zorgstage EnglishmetadataProfessionalDevelopment concealsactual3ECsupervisedcareplacement; displayedofficialDutchname andcare-note nowaccurate. LPV1clinicalskills andLPV2/LPV3progression independentlyread fromcurrentmodulebody.",
+    "LPV3 EN/NL/prior APIsnull,AWV3only3ECmetadatawithoutspecification; finalwork currentguidelegacydistributedendpoint vsformalCurriculum2023differentdefinition unresolved. Do notimporthistoricalLPV3=7orCATendpoint ascurrent merelytoclose180. Halfminor15currentrestrictedblockcredit,notunrestrictedminor orapprovedindividualselection."
+  ],
+  "unresolved": "Verify the current credit/assessment specification for LPV3 (30136LPV1Y), the applicable final-work definition and progression framework, and half-minor admission/approval conditions, or an explicit authoritative cohort bridge. Current LPV3 API responses in EN/NL and prior year are null; AWV3 has3EC metadata but no content/assessment descriptions. The 2025–26 OER defines Curriculum2023 and a2026theme transition but explicitly has one-academic-year validity; do not presume it governs all2026–27requirements. Current general third-year text still says programme follows and uses a distributed endpoint that needs reconciliation with the formal/current course records. The remaining7EC are not allocated by subtraction to an unverified LPV3 weight.",
+  "sourceRetry": {
+    "unsuccessfulExecutions": 1,
+    "deferred": false,
+    "reason": "EssentialLPV3/finalwork/currentconditionsevidenceunavailableafterofficialalternatives; not a generictransporttimeout,localRabsence,missingUCRplanninghorizonoracademicno-match."
+  },
+  "registryCorrections": [
+    {
+      "row": 13329,
+      "before": {
+        "source_interest_excel_row": "13329",
+        "source_excel_row": "309",
+        "OPLEIDINGSEENHEIDCODE": "1001O5903",
+        "ONDERWIJSAANBIEDER_NAAM": "Universiteit Leiden",
+        "ERKENDEOPLEIDINGSCODE": "56551",
+        "NAAM_LANG": "Geneeskunde",
+        "student_interest": "movement-related medical problems",
+        "evidence": "The official programme material uses movement-related medical problems as a concrete course topic, question, case or example within the bachelor.",
+        "source_title": "Geneeskunde - studieprogramma",
+        "source_url": "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/geneeskunde/over-de-opleiding/studieprogramma",
+        "strength": "Explicit",
+        "interest_relationship": "Illustrative or temporary topic",
+        "counselor_programme_id": "cp-000295",
+        "target_mapping_status": "mapped"
+      },
+      "after": {
+        "source_interest_excel_row": "13329",
+        "source_excel_row": "309",
+        "OPLEIDINGSEENHEIDCODE": "1001O5903",
+        "ONDERWIJSAANBIEDER_NAAM": "Universiteit Leiden",
+        "ERKENDEOPLEIDINGSCODE": "56551",
+        "NAAM_LANG": "Geneeskunde",
+        "student_interest": "movement-related medical problems",
+        "evidence": "Mandatory9EC ClinicalProblemsLocomotion. This is stable curricular/methodological support rather than a temporary illustrative case; it is not an independent programme generator.",
+        "source_title": "Leiden Medicine current2026–2027 catalogue andmodule content",
+        "source_url": "https://studiegids.universiteitleiden.nl/api/product?code=30126BW00Y&type=MODULE&year=2261&language=en",
+        "strength": "Explicit",
+        "interest_relationship": "Curricular topic",
+        "counselor_programme_id": "cp-000295",
+        "target_mapping_status": "mapped"
+      }
+    },
+    {
+      "row": 13330,
+      "before": {
+        "source_interest_excel_row": "13330",
+        "source_excel_row": "309",
+        "OPLEIDINGSEENHEIDCODE": "1001O5903",
+        "ONDERWIJSAANBIEDER_NAAM": "Universiteit Leiden",
+        "ERKENDEOPLEIDINGSCODE": "56551",
+        "NAAM_LANG": "Geneeskunde",
+        "student_interest": "abdominal disorders",
+        "evidence": "The official programme material uses abdominal disorders as a concrete course topic, question, case or example within the bachelor.",
+        "source_title": "Geneeskunde - studieprogramma",
+        "source_url": "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/geneeskunde/over-de-opleiding/studieprogramma",
+        "strength": "Explicit",
+        "interest_relationship": "Illustrative or temporary topic",
+        "counselor_programme_id": "cp-000295",
+        "target_mapping_status": "mapped"
+      },
+      "after": {
+        "source_interest_excel_row": "13330",
+        "source_excel_row": "309",
+        "OPLEIDINGSEENHEIDCODE": "1001O5903",
+        "ONDERWIJSAANBIEDER_NAAM": "Universiteit Leiden",
+        "ERKENDEOPLEIDINGSCODE": "56551",
+        "NAAM_LANG": "Geneeskunde",
+        "student_interest": "abdominal disorders",
+        "evidence": "Mandatory8EC ClinicalProblemsAbdomen. This is stable curricular/methodological support rather than a temporary illustrative case; it is not an independent programme generator.",
+        "source_title": "Leiden Medicine current2026–2027 catalogue andmodule content",
+        "source_url": "https://studiegids.universiteitleiden.nl/api/product?code=30125BU10Y&type=MODULE&year=2261&language=en",
+        "strength": "Explicit",
+        "interest_relationship": "Curricular topic",
+        "counselor_programme_id": "cp-000295",
+        "target_mapping_status": "mapped"
+      }
+    },
+    {
+      "row": 13331,
+      "before": {
+        "source_interest_excel_row": "13331",
+        "source_excel_row": "309",
+        "OPLEIDINGSEENHEIDCODE": "1001O5903",
+        "ONDERWIJSAANBIEDER_NAAM": "Universiteit Leiden",
+        "ERKENDEOPLEIDINGSCODE": "56551",
+        "NAAM_LANG": "Geneeskunde",
+        "student_interest": "chest and kidney problems",
+        "evidence": "The official programme material uses chest and kidney problems as a concrete course topic, question, case or example within the bachelor.",
+        "source_title": "Geneeskunde - studieprogramma",
+        "source_url": "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/geneeskunde/over-de-opleiding/studieprogramma",
+        "strength": "Explicit",
+        "interest_relationship": "Illustrative or temporary topic",
+        "counselor_programme_id": "cp-000295",
+        "target_mapping_status": "mapped"
+      },
+      "after": {
+        "source_interest_excel_row": "13331",
+        "source_excel_row": "309",
+        "OPLEIDINGSEENHEIDCODE": "1001O5903",
+        "ONDERWIJSAANBIEDER_NAAM": "Universiteit Leiden",
+        "ERKENDEOPLEIDINGSCODE": "56551",
+        "NAAM_LANG": "Geneeskunde",
+        "student_interest": "chest and kidney problems",
+        "evidence": "Mandatory9EC ClinicalProblemsThoraxandKidney. This is stable curricular/methodological support rather than a temporary illustrative case; it is not an independent programme generator.",
+        "source_title": "Leiden Medicine current2026–2027 catalogue andmodule content",
+        "source_url": "https://studiegids.universiteitleiden.nl/api/product?code=30127BN00Y&type=MODULE&year=2261&language=en",
+        "strength": "Explicit",
+        "interest_relationship": "Curricular topic",
+        "counselor_programme_id": "cp-000295",
+        "target_mapping_status": "mapped"
+      }
+    },
+    {
+      "row": 13332,
+      "before": {
+        "source_interest_excel_row": "13332",
+        "source_excel_row": "309",
+        "OPLEIDINGSEENHEIDCODE": "1001O5903",
+        "ONDERWIJSAANBIEDER_NAAM": "Universiteit Leiden",
+        "ERKENDEOPLEIDINGSCODE": "56551",
+        "NAAM_LANG": "Geneeskunde",
+        "student_interest": "patient demonstrations and clinical cases",
+        "evidence": "The official programme material uses patient demonstrations and clinical cases as a concrete course topic, question, case or example within the bachelor.",
+        "source_title": "Geneeskunde - studieprogramma",
+        "source_url": "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/geneeskunde/over-de-opleiding/studieprogramma",
+        "strength": "Explicit",
+        "interest_relationship": "Illustrative or temporary topic",
+        "counselor_programme_id": "cp-000295",
+        "target_mapping_status": "mapped"
+      },
+      "after": {
+        "source_interest_excel_row": "13332",
+        "source_excel_row": "309",
+        "OPLEIDINGSEENHEIDCODE": "1001O5903",
+        "ONDERWIJSAANBIEDER_NAAM": "Universiteit Leiden",
+        "ERKENDEOPLEIDINGSCODE": "56551",
+        "NAAM_LANG": "Geneeskunde",
+        "student_interest": "patient demonstrations and clinical cases",
+        "evidence": "Currentclinicalblocks explicitlyusepatientdemonstrations,clinicalreasoningandcase-basedassessment. This is stable curricular/methodological support rather than a temporary illustrative case; it is not an independent programme generator.",
+        "source_title": "Leiden Medicine current2026–2027 catalogue andmodule content",
+        "source_url": "https://studiegids.universiteitleiden.nl/api/product?code=30135SZ01Y&type=MODULE&year=2261&language=en",
+        "strength": "Explicit",
+        "interest_relationship": "Curricular topic",
+        "counselor_programme_id": "cp-000295",
+        "target_mapping_status": "mapped"
+      }
+    },
+    {
+      "row": 13333,
+      "before": {
+        "source_interest_excel_row": "13333",
+        "source_excel_row": "309",
+        "OPLEIDINGSEENHEIDCODE": "1001O5903",
+        "ONDERWIJSAANBIEDER_NAAM": "Universiteit Leiden",
+        "ERKENDEOPLEIDINGSCODE": "56551",
+        "NAAM_LANG": "Geneeskunde",
+        "student_interest": "learning from a care placement",
+        "evidence": "The official programme material uses learning from a care placement as a concrete course topic, question, case or example within the bachelor.",
+        "source_title": "Geneeskunde - studieprogramma",
+        "source_url": "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/geneeskunde/over-de-opleiding/studieprogramma",
+        "strength": "Explicit",
+        "interest_relationship": "Illustrative or temporary topic",
+        "counselor_programme_id": "cp-000295",
+        "target_mapping_status": "mapped"
+      },
+      "after": {
+        "source_interest_excel_row": "13333",
+        "source_excel_row": "309",
+        "OPLEIDINGSEENHEIDCODE": "1001O5903",
+        "ONDERWIJSAANBIEDER_NAAM": "Universiteit Leiden",
+        "ERKENDEOPLEIDINGSCODE": "56551",
+        "NAAM_LANG": "Geneeskunde",
+        "student_interest": "learning from a care placement",
+        "evidence": "Mandatory3EC Zorgstage supervisedcareplacementwithpatientcommunication,careactivity,reflectionandassessment. This is stable curricular/methodological support rather than a temporary illustrative case; it is not an independent programme generator.",
+        "source_title": "Leiden Medicine current2026–2027 catalogue andmodule content",
+        "source_url": "https://studiegids.universiteitleiden.nl/api/product?code=3011ZGS00Y&type=MODULE&year=2261&language=en",
+        "strength": "Explicit",
+        "interest_relationship": "Curricular topic",
+        "counselor_programme_id": "cp-000295",
+        "target_mapping_status": "mapped"
+      }
+    }
+  ]
+}
