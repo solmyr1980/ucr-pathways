@@ -2001,10 +2001,10 @@
       "id": "cp-000054",
       "state": "approved",
       "stageOutcomes": {
+        "4": "correct",
         "1": "retain",
         "2": "retain",
         "3": "correct",
-        "4": "correct",
         "5": "correct",
         "6": "retain"
       },
@@ -2053,10 +2053,10 @@
       "id": "cp-000057",
       "state": "approved",
       "stageOutcomes": {
+        "4": "correct",
         "1": "retain",
         "2": "retain",
         "3": "retain",
-        "4": "correct",
         "5": "retain",
         "6": "retain"
       },
@@ -2154,11 +2154,11 @@
       "id": "cp-000062",
       "state": "approved",
       "stageOutcomes": {
-        "1": "correct",
-        "2": "retain",
-        "3": "correct",
         "4": "correct",
         "5": "correct",
+        "1": "correct",
+        "3": "correct",
+        "2": "retain",
         "6": "retain"
       },
       "sharedIssueIds": [],
@@ -5192,10 +5192,10 @@
       "id": "cp-000287",
       "state": "approved",
       "stageOutcomes": {
+        "4": "correct",
         "1": "retain",
         "2": "retain",
         "3": "retain",
-        "4": "correct",
         "5": "retain",
         "6": "retain"
       },
@@ -5278,9 +5278,9 @@
       "id": "cp-000292",
       "state": "in-progress",
       "stageOutcomes": {
+        "4": "correct",
         "1": "correct",
-        "2": "correct",
-        "4": "correct"
+        "2": "correct"
       },
       "sharedIssueIds": [],
       "unresolved": [],
@@ -13243,7 +13243,7 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "blocked-publication",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
@@ -13605,11 +13605,12 @@
           "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
           "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
         },
-        "nextAction": "Publication handoff required for prepared CP292 decision/canonical, two registry rows and derived review-interest entries. Two connector transfer attempts failed before commit; preserve current main and merge only own delta. After validated publication and CI, finish remaining course/concept, descriptions/audience and source-first final review. CP292 remains incomplete.",
+        "nextAction": "Verify published files and applicable CI, then finish remaining interest/course/description/audience checks and separate source-first final review. No approval is granted by this recovery.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown",
         "state": "in-progress",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000292/substantive-content-repair.json"
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000292/publication-recovery.json",
+        "recoveryAuthorisedOn": "2026-11-04"
       },
       "checkpointHistory": [
         {
@@ -17843,6 +17844,37 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-11-04",
+          "reason": "User authorised publication recovery and resumption.",
+          "snapshot": {
+            "status": "blocked-publication",
+            "lastCheckpoint": {
+              "executionId": "restart-B-cp292-20261104T0356Z",
+              "worker": "B",
+              "caseId": "cp-000292",
+              "claimedAt": "2026-11-04T03:56:35Z",
+              "reviewedInputCommit": "bc51c157735f7ac8e429774314df6ef05b3fb698",
+              "inputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000292.json": "3fafa8ca8178fb02a456d62f8f02cd0af5833cbb",
+                "data/counselor/comparisons/cp-000292.json": "8ae21a55640015df9bb1cfda4902f175aa9f0ea6",
+                "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Publication handoff required for prepared CP292 decision/canonical, two registry rows and derived review-interest entries. Two connector transfer attempts failed before commit; preserve current main and merge only own delta. After validated publication and CI, finish remaining course/concept, descriptions/audience and source-first final review. CP292 remains incomplete.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown",
+              "state": "in-progress",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000292/substantive-content-repair.json"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -18361,7 +18393,13 @@
           "officialAlternative": "Current official overview/detail pages,current24module records and transition lead inspected. Routine and stronger official-domain searches found outgoing OER/transitions/timetables,not an applicable complete revised third year. Linked student programme page unavailable; no repeated access loop,login probe,university contact or imported outgoing curriculum. Criminal Law eligibility omission remains explicit.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000284/source-first-checkpoint.json"
         }
-      ]
+      ],
+      "publicationRecovery": {
+        "caseId": "cp-000292",
+        "consecutiveFailedExecutions": 0,
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000292/publication-recovery.json",
+        "status": "repair-prepared"
+      }
     }
   },
   "splitRule": "First contiguous 219 baseline entries to A; last contiguous 219 to B. Explicit ID lists are authoritative; do not infer assignments from numeric ID ranges.",
@@ -19342,7 +19380,7 @@
     "reporting": "Record only directly exposed runtime metadata; otherwise unknown. Never infer task model from conversation model, elapsed time or self-description."
   },
   "executionRule": "One whole assigned case per execution. Resume earliest unfinished non-deferred case before next unstarted own assignment. Follow the current six-stage protocol and caseReviewPolicy: retain academic gates and require academic, mechanical and content final checks; no per-case R/Shiny/browser execution. New case evidence only. Academic work on disjoint assignments may proceed concurrently; only fresh-parent GitHub publication is serialized.",
-  "writerPolicy": "Serialize publication only: fetch fresh main and every changed path; apply only own case/worker delta to current data; atomically commit on that exact parent via authenticated GitHub connector, non-forced fast-forward with expected-parent guard. On conflict refresh, merge, revalidate and rebuild. Never publish a stale whole shared file or overwrite another worker. Separate local checkouts, ports and render paths.",
+  "writerPolicy": "Serialize publication only: fetch fresh main and every changed path; apply only own case/worker delta to current data; atomically commit on that exact parent via authenticated GitHub connector, non-forced fast-forward with expected-parent guard. On conflict refresh, merge, revalidate and rebuild. Never publish a stale whole shared file or overwrite another worker. Separate local checkouts, ports and render paths. Use scripts/github-publication.cjs and complete verified Git checkout bytes for shared files; verify uploaded blob hashes. Recoverable technical errors follow publicationRecoveryPolicy and keep schedules enabled.",
   "sourceRetryRule": "Within this new audit, two unsuccessful executions for the same essential source evidence permit deferral, not final approval. Seek a reasonable official alternative once. One separate revisit per deferred case after own non-deferred queue or when new essential evidence is available; technical interruptions resume same case. No old counts inherited.",
   "releaseAuthority": false,
   "counselorDeploymentAuthority": false,
@@ -19558,5 +19596,14 @@
       },
       "reopenedOn": "2026-10-29"
     }
-  ]
+  ],
+  "publicationRecoveryPolicy": {
+    "authority": "User authorised on 2026-11-04; Master Specification 12.1",
+    "maxAttemptsPerExecution": 2,
+    "escalateAfterConsecutiveFailedExecutions": 3,
+    "keepScheduleEnabledOnRecoverableFailure": true,
+    "checkpoint": "Durable scoped patch and base/result hashes; scratch-only artifacts are insufficient.",
+    "resume": "Same unfinished case with fresh parent and validation.",
+    "sourceFailureCounts": "Separate; technical failures do not consume source retries."
+  }
 }

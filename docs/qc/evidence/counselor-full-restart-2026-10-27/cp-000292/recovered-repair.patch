@@ -1,0 +1,749 @@
+diff --git a/data/counselor/comparisons/cp-000292.json b/data/counselor/comparisons/cp-000292.json
+index 8ae21a5..6401b86 100644
+--- a/data/counselor/comparisons/cp-000292.json
++++ b/data/counselor/comparisons/cp-000292.json
+@@ -534,8 +534,8 @@
+                 "credits": 7.5
+               },
+               {
+-                "code": "GOSHIST312",
+-                "name": "History Research Seminar",
++                "code": "GOSPOLI312",
++                "name": "Public Policy Analysis",
+                 "level": 3,
+                 "credits": 7.5
+               },
+@@ -726,7 +726,7 @@
+               },
+               {
+                 "code": "HCBPSYC313",
+-                "name": "Advanced Research Seminar",
++                "name": "Advanced Research Methods & Statistics",
+                 "level": 3,
+                 "credits": 7.5
+               },
+@@ -1372,7 +1372,7 @@
+           }
+         ],
+         "labelRationale": "The curriculum forms a coherent normative sequence in ethics, political philosophy, justice, law, institutions, social movements and public reasoning.",
+-        "distinctnessRationale": "Compared with the closest match, this route replaces ten courses in archaeology, literature, general history and rhetoric with comparative politics, criminal and constitutional law, EU law, modern and contemporary sociology, environmental justice, gender history and an advanced history research seminar. The result prioritises normative public questions and institutions rather than broad philosophical and intellectual history."
++        "distinctnessRationale": "Compared with the closest match, this route replaces ten courses in archaeology, literature, general history and rhetoric with comparative politics, criminal and constitutional law, EU law, modern and contemporary sociology, environmental justice, gender history and public policy analysis. The result prioritises normative public questions and institutions rather than broad philosophical and intellectual history."
+       },
+       {
+         "programmeId": "ucr-3",
+@@ -1439,7 +1439,7 @@
+           }
+         ],
+         "labelRationale": "The curriculum links philosophy of mind, logic and free will with cognition, psycholinguistics, empirical research, AI and machine learning.",
+-        "distinctnessRationale": "Compared with the closest match, this route replaces twelve courses in political philosophy, law, history, archaeology, literature and international politics with brain and behaviour, neurobiology, perception and action, psycholinguistics, social and experimental psychology, higher cognition, programming, machine learning, AI ethics and an advanced psychology research seminar. Compared with the ethics route, it replaces law, institutions and social theory with sustained study of mind, language and science."
++        "distinctnessRationale": "Compared with the closest match, this route replaces twelve courses in political philosophy, law, history, archaeology, literature and international politics with brain and behaviour, neurobiology, perception and action, psycholinguistics, social and experimental psychology, higher cognition, programming, machine learning, AI ethics and advanced research methods and statistics. Compared with the ethics route, it replaces law, institutions and social theory with sustained study of mind, language and science."
+       }
+     ],
+     "interestSelection": {
+@@ -1591,7 +1591,7 @@
+         {
+           "registryRow": 13141,
+           "sourceInterestExcelRow": 13141,
+-          "studentInterest": "Philosophy of Humans, Technology and Culture specialisation",
++          "studentInterest": "Continental Philosophy specialisation",
+           "interestRelationship": "Stable study direction",
+           "targetMappingStatus": "mapped",
+           "constructionRole": "generator-eligible"
+@@ -1607,10 +1607,10 @@
+         {
+           "registryRow": 13143,
+           "sourceInterestExcelRow": 13143,
+-          "studentInterest": "Global and Comparative Perspectives specialisation",
+-          "interestRelationship": "Stable study direction",
++          "studentInterest": "Comparative philosophy across philosophical traditions",
++          "interestRelationship": "Curricular topic",
+           "targetMappingStatus": "mapped",
+-          "constructionRole": "generator-eligible"
++          "constructionRole": "support-only"
+         },
+         {
+           "registryRow": 13144,
+@@ -2112,8 +2112,7 @@
+         13137,
+         13138,
+         13139,
+-        13141,
+-        13143
++        13141
+       ],
+       "candidateAssessments": [
+         {
+@@ -2603,13 +2602,13 @@
+               "rationale": "Histories of Gender traces gendered identities and marginalisation through historical interpretation. It implements the explicit academic basis “History of philosophy across ancient, medieval, modern and contemporary traditions” and “Logic, critical argumentation, philosophical text analysis, writing and research methods” and “Global and Comparative Perspectives across Western and non-Western traditions”."
+             },
+             {
+-              "courseCode": "GOSHIST312",
++              "courseCode": "GOSPOLI312",
+               "basisLabels": [
+-                "History of philosophy across ancient, medieval, modern and contemporary traditions",
+-                "Logic, critical argumentation, philosophical text analysis, writing and research methods",
+-                "Global and Comparative Perspectives across Western and non-Western traditions"
++                "Ethics, moral judgment, justice, political and social philosophy",
++                "Ethics and Political Philosophy as a focused direction in moral judgment, justice and institutions",
++                "What makes economic and political institutions just?"
+               ],
+-              "rationale": "History Research Seminar provides advanced source evaluation, argument and independent historical research. It implements the explicit academic basis “History of philosophy across ancient, medieval, modern and contemporary traditions” and “Logic, critical argumentation, philosophical text analysis, writing and research methods” and “Global and Comparative Perspectives across Western and non-Western traditions”."
++              "rationale": "Public Policy Analysis examines policy-making phases, alternative policy concepts and decisions across global, national and international arenas. It implements the explicit academic basis “Ethics, moral judgment, justice, political and social philosophy” and “Ethics and Political Philosophy as a focused direction in moral judgment, justice and institutions” and “What makes economic and political institutions just?”."
+             },
+             {
+               "courseCode": "DISARIN111",
+@@ -2878,7 +2877,7 @@
+                 "What are the nature and limits of reliable knowledge?",
+                 "How should philosophy assess science, culture and contemporary technology?"
+               ],
+-              "rationale": "Advanced Research Seminar provides advanced research practice for investigating questions about mind and behaviour. It implements the explicit academic basis “Knowledge, metaphysics, mind, language, reality and free will” and “Philosophy of science, scientific knowledge and objectivity” and “Theoretical Philosophy as a focused direction in knowledge, mind, language and reality” and “What are the nature and limits of reliable knowledge?” and “How should philosophy assess science, culture and contemporary technology?”."
++              "rationale": "Advanced Research Methods & Statistics develops systematic review and meta-analysis skills, including bias assessment, effect sizes and analysis in R. It implements the explicit academic basis “Knowledge, metaphysics, mind, language, reality and free will” and “Philosophy of science, scientific knowledge and objectivity” and “Theoretical Philosophy as a focused direction in knowledge, mind, language and reality” and “What are the nature and limits of reliable knowledge?” and “How should philosophy assess science, culture and contemporary technology?”."
+             },
+             {
+               "courseCode": "MCCLITR312",
+@@ -2918,24 +2917,6 @@
+       "ucrCourseCode": "GOSPHIL111",
+       "rationale": "Both introduce foundational Western philosophical traditions, including ancient thinkers; UCR is a broader historical survey."
+     },
+-    {
+-      "componentId": "y1-modern-1",
+-      "matchType": "substantive-match",
+-      "ucrCourseCode": "GOSHIST111",
+-      "rationale": "Both situate modern ideas in their historical context; UCR is general modern history rather than history of philosophy."
+-    },
+-    {
+-      "componentId": "thesis",
+-      "matchType": "substantive-match",
+-      "ucrCourseCode": "GOSHIST312",
+-      "rationale": "Both require sustained independent humanities research and a substantial evidence-based academic argument; UCR is a research seminar rather than a compulsory philosophy thesis."
+-    },
+-    {
+-      "componentId": "y1-medieval",
+-      "matchType": "substantive-match",
+-      "ucrCourseCode": "MCCLITR112",
+-      "rationale": "Both develop close interpretation of historically situated texts; UCR is literature-focused and does not reproduce medieval philosophy."
+-    },
+     {
+       "componentId": "y2-normative-ethics",
+       "matchType": "substantive-match",
+@@ -2948,12 +2929,6 @@
+       "ucrCourseCode": "GOSPOLI111",
+       "rationale": "Both introduce major political-philosophical concepts and arguments; UCR is thematic rather than a dedicated historical survey."
+     },
+-    {
+-      "componentId": "y2-political",
+-      "matchType": "substantive-match",
+-      "ucrCourseCode": "GOSPOLI212",
+-      "rationale": "Both develop political-theoretical analysis of authority, order and justice; UCR applies it to international relations."
+-    },
+     {
+       "componentId": "y2-global-justice",
+       "matchType": "substantive-match",
+@@ -2995,30 +2970,6 @@
+       "ucrCourseCode": "MCCCOMM111",
+       "rationale": "Both develop argument analysis, academic reasoning, writing, oral communication and critical engagement with claims."
+     },
+-    {
+-      "componentId": "y2-core-naming",
+-      "matchType": "substantive-match",
+-      "ucrCourseCode": "MCCCOMM211",
+-      "rationale": "Both analyse how language produces meaning; UCR focuses on style and rhetoric rather than analytic philosophy of reference."
+-    },
+-    {
+-      "componentId": "y2-core-moral-political",
+-      "matchType": "substantive-match",
+-      "ucrCourseCode": "MCCCOMM213",
+-      "rationale": "Both require advanced argumentation about contested public and normative questions; UCR centres applied rhetoric."
+-    },
+-    {
+-      "componentId": "y1-modern-2",
+-      "matchType": "substantive-match",
+-      "ucrCourseCode": "MCCLITR312",
+-      "rationale": "Both examine competing traditions of interpretation and meaning; UCR is literary-theoretical rather than a history-of-philosophy survey."
+-    },
+-    {
+-      "componentId": "y2-science",
+-      "matchType": "substantive-match",
+-      "ucrCourseCode": "GOSSOCI212",
+-      "rationale": "Both address systematic inquiry and the status of evidence; UCR teaches qualitative methodology rather than philosophy of science."
+-    },
+     {
+       "componentId": "y1-ethics",
+       "matchType": "unmatched",
+@@ -3043,6 +2994,46 @@
+       "componentId": "elective-space",
+       "matchType": "unmatched",
+       "rationale": "The selected UCR courses do not directly cover this Leiden component’s specific philosophical subject or educational function; it remains a visible curricular difference."
++    },
++    {
++      "componentId": "y1-modern-1",
++      "matchType": "unmatched",
++      "rationale": "General modern history does not directly teach the philosophical arguments and texts of this history-of-philosophy component."
++    },
++    {
++      "componentId": "thesis",
++      "matchType": "unmatched",
++      "rationale": "General historical or policy research is not a sufficient subject-specific counterpart to the required independent philosophy thesis. Optional independent research is shown separately from the scheduled curriculum."
++    },
++    {
++      "componentId": "y1-medieval",
++      "matchType": "unmatched",
++      "rationale": "Literary close reading and a cross-period canon do not establish study of medieval philosophical doctrines or arguments."
++    },
++    {
++      "componentId": "y2-political",
++      "matchType": "unmatched",
++      "rationale": "International-relations explanatory theories do not adequately represent this specialist normative political-philosophy component."
++    },
++    {
++      "componentId": "y2-core-naming",
++      "matchType": "unmatched",
++      "rationale": "Stylistic analysis of literary meaning is distinct from the analytic philosophical questions of naming, reference and necessity."
++    },
++    {
++      "componentId": "y2-core-moral-political",
++      "matchType": "unmatched",
++      "rationale": "Primary-school rhetorical instruction and public-speaking practice are distinct from advanced moral and political philosophy."
++    },
++    {
++      "componentId": "y1-modern-2",
++      "matchType": "unmatched",
++      "rationale": "Literary theories of meaning and interpretation do not reproduce the specific modern philosophical sequence."
++    },
++    {
++      "componentId": "y2-science",
++      "matchType": "unmatched",
++      "rationale": "Qualitative data-collection and analysis skills do not by themselves constitute philosophy of science or philosophical inquiry into scientific knowledge."
+     }
+   ],
+   "blocks": [
+@@ -3080,11 +3071,6 @@
+               "text": "Modern History",
+               "credits": 7.5,
+               "courseCode": "GOSHIST111"
+-            },
+-            "comparator": {
+-              "text": "History of Modern Philosophy I",
+-              "credits": 5,
+-              "componentId": "y1-modern-1"
+             }
+           }
+         },
+@@ -3106,44 +3092,6 @@
+             }
+           }
+         },
+-        {
+-          "cells": {
+-            "ucr-2": {
+-              "text": "History Research Seminar",
+-              "credits": 7.5,
+-              "courseCode": "GOSHIST312"
+-            },
+-            "comparator": {
+-              "text": "BA Thesis Philosophy",
+-              "credits": 10,
+-              "componentId": "thesis",
+-              "note": "10 EC thesis including the thesis seminar. Entry requires 120 degree EC and the chosen specialisation core course or a qualifying seminar at level 200 or above. Seminar registration is compulsory; the supervisor and second reader assess the written thesis."
+-            }
+-          }
+-        },
+-        {
+-          "comparisonOnly": "optional-independent-research",
+-          "cells": {
+-            "ucr-1": {
+-              "text": "Optional independent research",
+-              "credits": 15,
+-              "comparisonOnly": true,
+-              "comparisonElementId": "optional-independent-research"
+-            },
+-            "ucr-2": {
+-              "text": "Optional independent research",
+-              "credits": 15,
+-              "comparisonOnly": true,
+-              "comparisonElementId": "optional-independent-research"
+-            },
+-            "ucr-3": {
+-              "text": "Optional independent research",
+-              "credits": 15,
+-              "comparisonOnly": true,
+-              "comparisonElementId": "optional-independent-research"
+-            }
+-          }
+-        },
+         {
+           "cells": {
+             "ucr-1": {
+@@ -3168,11 +3116,6 @@
+               "text": "Great Literary Works",
+               "credits": 7.5,
+               "courseCode": "MCCLITR112"
+-            },
+-            "comparator": {
+-              "text": "Medieval Philosophy",
+-              "credits": 5,
+-              "componentId": "y1-medieval"
+             }
+           }
+         },
+@@ -3254,11 +3197,6 @@
+               "text": "Theory of International Relations",
+               "credits": 7.5,
+               "courseCode": "GOSPOLI212"
+-            },
+-            "comparator": {
+-              "text": "Political Philosophy",
+-              "credits": 5,
+-              "componentId": "y2-political"
+             }
+           }
+         },
+@@ -3394,6 +3332,15 @@
+               "componentId": "y3-virtue"
+             }
+           }
++        },
++        {
++          "cells": {
++            "ucr-2": {
++              "text": "Public Policy Analysis",
++              "credits": 7.5,
++              "courseCode": "GOSPOLI312"
++            }
++          }
+         }
+       ]
+     },
+@@ -3591,11 +3538,6 @@
+               "text": "Style & Meaning",
+               "credits": 7.5,
+               "courseCode": "MCCCOMM211"
+-            },
+-            "comparator": {
+-              "text": "Core Course: Naming and Necessity",
+-              "credits": 5,
+-              "componentId": "y2-core-naming"
+             }
+           }
+         },
+@@ -3610,11 +3552,6 @@
+               "text": "Rhetoric in Action",
+               "credits": 7.5,
+               "courseCode": "MCCCOMM213"
+-            },
+-            "comparator": {
+-              "text": "Core Course: Advanced Moral and Political Philosophy",
+-              "credits": 5,
+-              "componentId": "y2-core-moral-political"
+             }
+           }
+         },
+@@ -3657,11 +3594,6 @@
+               "text": "Perspectives on Literary Meaning",
+               "credits": 7.5,
+               "courseCode": "MCCLITR312"
+-            },
+-            "comparator": {
+-              "text": "History of Modern Philosophy II",
+-              "credits": 10,
+-              "componentId": "y1-modern-2"
+             }
+           }
+         },
+@@ -3676,11 +3608,6 @@
+               "text": "Qualitative Research Methodology",
+               "credits": 7.5,
+               "courseCode": "GOSSOCI212"
+-            },
+-            "comparator": {
+-              "text": "Philosophy of Science",
+-              "credits": 5,
+-              "componentId": "y2-science"
+             }
+           }
+         },
+@@ -3696,7 +3623,7 @@
+         {
+           "cells": {
+             "ucr-3": {
+-              "text": "Advanced Research Seminar",
++              "text": "Advanced Research Methods & Statistics",
+               "credits": 7.5,
+               "courseCode": "HCBPSYC313"
+             }
+@@ -3781,6 +3708,97 @@
+               "note": "Genuine general elective space."
+             }
+           }
++        },
++        {
++          "cells": {
++            "comparator": {
++              "text": "History of Modern Philosophy I",
++              "credits": 5,
++              "componentId": "y1-modern-1"
++            }
++          }
++        },
++        {
++          "cells": {
++            "comparator": {
++              "text": "BA Thesis Philosophy",
++              "credits": 10,
++              "componentId": "thesis",
++              "note": "10 EC thesis including the thesis seminar. Entry requires 120 degree EC and the chosen specialisation core course or a qualifying seminar at level 200 or above. Seminar registration is compulsory; the supervisor and second reader assess the written thesis."
++            },
++            "ucr-1": {
++              "text": "Optional independent research",
++              "credits": 15,
++              "comparisonOnly": true,
++              "comparisonElementId": "optional-independent-research"
++            },
++            "ucr-2": {
++              "text": "Optional independent research",
++              "credits": 15,
++              "comparisonOnly": true,
++              "comparisonElementId": "optional-independent-research"
++            },
++            "ucr-3": {
++              "text": "Optional independent research",
++              "credits": 15,
++              "comparisonOnly": true,
++              "comparisonElementId": "optional-independent-research"
++            }
++          }
++        },
++        {
++          "cells": {
++            "comparator": {
++              "text": "Medieval Philosophy",
++              "credits": 5,
++              "componentId": "y1-medieval"
++            }
++          }
++        },
++        {
++          "cells": {
++            "comparator": {
++              "text": "Political Philosophy",
++              "credits": 5,
++              "componentId": "y2-political"
++            }
++          }
++        },
++        {
++          "cells": {
++            "comparator": {
++              "text": "Core Course: Naming and Necessity",
++              "credits": 5,
++              "componentId": "y2-core-naming"
++            }
++          }
++        },
++        {
++          "cells": {
++            "comparator": {
++              "text": "Core Course: Advanced Moral and Political Philosophy",
++              "credits": 5,
++              "componentId": "y2-core-moral-political"
++            }
++          }
++        },
++        {
++          "cells": {
++            "comparator": {
++              "text": "History of Modern Philosophy II",
++              "credits": 10,
++              "componentId": "y1-modern-2"
++            }
++          }
++        },
++        {
++          "cells": {
++            "comparator": {
++              "text": "Philosophy of Science",
++              "credits": 5,
++              "componentId": "y2-science"
++            }
++          }
+         }
+       ]
+     }
+@@ -3797,7 +3815,7 @@
+     "text": "Optional independent research",
+     "credits": 15,
+     "researchComponentId": "thesis",
+-    "placement": "adjacent-to-comparator-research",
++    "placement": "parallel-to-comparator-research",
+     "excludedFromProgrammeCredits": true,
+     "excludedFromSchedule": true
+   }
+diff --git a/data/counselor/decisions/cp-000292.json b/data/counselor/decisions/cp-000292.json
+index 3fafa8c..fc08414 100644
+--- a/data/counselor/decisions/cp-000292.json
++++ b/data/counselor/decisions/cp-000292.json
+@@ -553,8 +553,8 @@
+       7.5
+     ],
+     [
+-      "GOSHIST312",
+-      "History Research Seminar",
++      "GOSPOLI312",
++      "Public Policy Analysis",
+       3,
+       7.5
+     ],
+@@ -626,7 +626,7 @@
+     ],
+     [
+       "HCBPSYC313",
+-      "Advanced Research Seminar",
++      "Advanced Research Methods & Statistics",
+       3,
+       7.5
+     ]
+@@ -748,7 +748,7 @@
+         13169
+       ],
+       "labelReason": "The curriculum forms a coherent normative sequence in ethics, political philosophy, justice, law, institutions, social movements and public reasoning.",
+-      "distinctness": "Compared with the closest match, this route replaces ten courses in archaeology, literature, general history and rhetoric with comparative politics, criminal and constitutional law, EU law, modern and contemporary sociology, environmental justice, gender history and an advanced history research seminar. The result prioritises normative public questions and institutions rather than broad philosophical and intellectual history.",
++      "distinctness": "Compared with the closest match, this route replaces ten courses in archaeology, literature, general history and rhetoric with comparative politics, criminal and constitutional law, EU law, modern and contemporary sociology, environmental justice, gender history and public policy analysis. The result prioritises normative public questions and institutions rather than broad philosophical and intellectual history.",
+       "semesters": [
+         [
+           "ACCPPDE101",
+@@ -782,7 +782,7 @@
+         ],
+         [
+           "GOSHIST112",
+-          "GOSHIST312",
++          "GOSPOLI312",
+           "DISARIN111",
+           "MCCCOMM213"
+         ]
+@@ -826,7 +826,7 @@
+         13170
+       ],
+       "labelReason": "The curriculum links philosophy of mind, logic and free will with cognition, psycholinguistics, empirical research, AI and machine learning.",
+-      "distinctness": "Compared with the closest match, this route replaces twelve courses in political philosophy, law, history, archaeology, literature and international politics with brain and behaviour, neurobiology, perception and action, psycholinguistics, social and experimental psychology, higher cognition, programming, machine learning, AI ethics and an advanced psychology research seminar. Compared with the ethics route, it replaces law, institutions and social theory with sustained study of mind, language and science.",
++      "distinctness": "Compared with the closest match, this route replaces twelve courses in political philosophy, law, history, archaeology, literature and international politics with brain and behaviour, neurobiology, perception and action, psycholinguistics, social and experimental psychology, higher cognition, programming, machine learning, AI ethics and advanced research methods and statistics. Compared with the ethics route, it replaces law, institutions and social theory with sustained study of mind, language and science.",
+       "semesters": [
+         [
+           "ACCPPDE101",
+@@ -950,8 +950,7 @@
+     13137,
+     13138,
+     13139,
+-    13141,
+-    13143
++    13141
+   ],
+   "trace": [
+     [
+@@ -1288,13 +1287,13 @@
+       "traces gendered identities and marginalisation through historical interpretation"
+     ],
+     [
+-      "GOSHIST312",
++      "GOSPOLI312",
+       [
+-        "c0",
+-        "c3",
+-        "a2"
++        "c1",
++        "a0",
++        "q2"
+       ],
+-      "provides advanced source evaluation, argument and independent historical research"
++      "examines policy-making phases, alternative policy concepts and decisions across global, national and international arenas"
+     ],
+     [
+       "DISARIN111",
+@@ -1424,7 +1423,7 @@
+         "q1",
+         "q3"
+       ],
+-      "provides advanced research practice for investigating questions about mind and behaviour"
++      "develops systematic review and meta-analysis skills, including bias assessment, effect sizes and analysis in R"
+     ]
+   ],
+   "blocks": [
+@@ -1439,8 +1438,8 @@
+         ],
+         [
+           "GOSHIST111",
+-          "y1-modern-1",
+-          "Both situate modern ideas in their historical context; UCR is general modern history rather than history of philosophy."
++          null,
++          null
+         ],
+         [
+           "GOSHIST112",
+@@ -1452,11 +1451,6 @@
+           null,
+           null
+         ],
+-        [
+-          "GOSHIST312",
+-          "thesis",
+-          "Both require sustained independent humanities research and a substantial evidence-based academic argument; UCR is a research seminar rather than a compulsory philosophy thesis."
+-        ],
+         [
+           "MCCHEAM112",
+           null,
+@@ -1469,8 +1463,8 @@
+         ],
+         [
+           "MCCLITR112",
+-          "y1-medieval",
+-          "Both develop close interpretation of historically situated texts; UCR is literature-focused and does not reproduce medieval philosophy."
++          null,
++          null
+         ],
+         [
+           "MCCLITR211",
+@@ -1500,8 +1494,8 @@
+         ],
+         [
+           "GOSPOLI212",
+-          "y2-political",
+-          "Both develop political-theoretical analysis of authority, order and justice; UCR applies it to international relations."
++          null,
++          null
+         ],
+         [
+           "GOSPOLI311",
+@@ -1562,6 +1556,11 @@
+           null,
+           "y3-virtue",
+           "The current Leiden course studies Islamic moral philosophy, self-cultivation and practical wisdom. The selected UCR courses offer related ethical reasoning but do not reproduce this specialised tradition."
++        ],
++        [
++          "GOSPOLI312",
++          null,
++          null
+         ]
+       ]
+     ],
+@@ -1637,13 +1636,13 @@
+         ],
+         [
+           "MCCCOMM211",
+-          "y2-core-naming",
+-          "Both analyse how language produces meaning; UCR focuses on style and rhetoric rather than analytic philosophy of reference."
++          null,
++          null
+         ],
+         [
+           "MCCCOMM213",
+-          "y2-core-moral-political",
+-          "Both require advanced argumentation about contested public and normative questions; UCR centres applied rhetoric."
++          null,
++          null
+         ],
+         [
+           "MCCCOMM311",
+@@ -1657,13 +1656,13 @@
+         ],
+         [
+           "MCCLITR312",
+-          "y1-modern-2",
+-          "Both examine competing traditions of interpretation and meaning; UCR is literary-theoretical rather than a history-of-philosophy survey."
++          null,
++          null
+         ],
+         [
+           "GOSSOCI212",
+-          "y2-science",
+-          "Both address systematic inquiry and the status of evidence; UCR teaches qualitative methodology rather than philosophy of science."
++          null,
++          null
+         ],
+         [
+           "HCBPSYC211",
+@@ -1715,6 +1714,46 @@
+           null,
+           "elective-space",
+           "The selected UCR courses do not directly cover this Leiden component’s specific philosophical subject or educational function; it remains a visible curricular difference."
++        ],
++        [
++          null,
++          "y1-modern-1",
++          "General modern history does not directly teach the philosophical arguments and texts of this history-of-philosophy component."
++        ],
++        [
++          null,
++          "thesis",
++          "General historical or policy research is not a sufficient subject-specific counterpart to the required independent philosophy thesis. Optional independent research is shown separately from the scheduled curriculum."
++        ],
++        [
++          null,
++          "y1-medieval",
++          "Literary close reading and a cross-period canon do not establish study of medieval philosophical doctrines or arguments."
++        ],
++        [
++          null,
++          "y2-political",
++          "International-relations explanatory theories do not adequately represent this specialist normative political-philosophy component."
++        ],
++        [
++          null,
++          "y2-core-naming",
++          "Stylistic analysis of literary meaning is distinct from the analytic philosophical questions of naming, reference and necessity."
++        ],
++        [
++          null,
++          "y2-core-moral-political",
++          "Primary-school rhetorical instruction and public-speaking practice are distinct from advanced moral and political philosophy."
++        ],
++        [
++          null,
++          "y1-modern-2",
++          "Literary theories of meaning and interpretation do not reproduce the specific modern philosophical sequence."
++        ],
++        [
++          null,
++          "y2-science",
++          "Qualitative data-collection and analysis skills do not by themselves constitute philosophy of science or philosophical inquiry into scientific knowledge."
+         ]
+       ]
+     ]
+diff --git a/data/counselor/review-interests.json b/data/counselor/review-interests.json
+index d7341f5..daabb1f 100644
+--- a/data/counselor/review-interests.json
++++ b/data/counselor/review-interests.json
+@@ -99075,7 +99075,7 @@
+     },
+     {
+       "programmeProviderId": "cp-000292",
+-      "interest": "Philosophy of Humans, Technology and Culture specialisation",
++      "interest": "Continental Philosophy specialisation",
+       "relationship": "Stable study direction",
+       "strength": "Explicit",
+       "sourceInterestExcelRow": 13141,
+@@ -99091,8 +99091,8 @@
+     },
+     {
+       "programmeProviderId": "cp-000292",
+-      "interest": "Global and Comparative Perspectives specialisation",
+-      "relationship": "Stable study direction",
++      "interest": "Comparative philosophy across philosophical traditions",
++      "relationship": "Curricular topic",
+       "strength": "Explicit",
+       "sourceInterestExcelRow": 13143,
+       "targetMappingStatus": "mapped"
+diff --git a/data/registry/programme_interests.csv b/data/registry/programme_interests.csv
+index e8e259c..a6463ef 100644
+--- a/data/registry/programme_interests.csv
++++ b/data/registry/programme_interests.csv
+@@ -13138,9 +13138,9 @@ source_interest_excel_row,source_excel_row,OPLEIDINGSEENHEIDCODE,ONDERWIJSAANBIE
+ 13138,306,1001O5837,Universiteit Leiden,56081,Filosofie,philosophy in relation to contemporary social challenges,"The official programme presents philosophy in relation to contemporary social challenges as a central field, question, challenge, or academic application of the bachelor's degree.",Bachelor Filosofie || Waarom Universiteit Leiden || Opleidingsprogramma Filosofie — Universiteit Leiden,https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie || https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie/waarom-universiteit-leiden || https://www.student.universiteitleiden.nl/je-opleiding/opleidingsprogramma/geesteswetenschappen/wijsbegeerte-ba,Explicit,Direct programme interest,cp-000292,mapped
+ 13139,306,1001O5837,Universiteit Leiden,56081,Filosofie,History of Philosophy specialisation,"The official programme explicitly identifies History of Philosophy specialisation as a named substantive specialisation, route, or graduation direction within the bachelor's degree.",Bachelor Filosofie || Waarom Universiteit Leiden || Opleidingsprogramma Filosofie — Universiteit Leiden,https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie || https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie/waarom-universiteit-leiden || https://www.student.universiteitleiden.nl/je-opleiding/opleidingsprogramma/geesteswetenschappen/wijsbegeerte-ba,Explicit,Stable study direction,cp-000292,mapped
+ 13140,306,1001O5837,Universiteit Leiden,56081,Filosofie,Theoretical Philosophy specialisation,"The official programme explicitly identifies Theoretical Philosophy specialisation as a named substantive specialisation, route, or graduation direction within the bachelor's degree.",Bachelor Filosofie || Waarom Universiteit Leiden || Opleidingsprogramma Filosofie — Universiteit Leiden,https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie || https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie/waarom-universiteit-leiden || https://www.student.universiteitleiden.nl/je-opleiding/opleidingsprogramma/geesteswetenschappen/wijsbegeerte-ba,Explicit,Stable study direction,cp-000292,mapped
+-13141,306,1001O5837,Universiteit Leiden,56081,Filosofie,"Philosophy of Humans, Technology and Culture specialisation","The official programme explicitly identifies Philosophy of Humans, Technology and Culture specialisation as a named substantive specialisation, route, or graduation direction within the bachelor's degree.",Bachelor Filosofie || Waarom Universiteit Leiden || Opleidingsprogramma Filosofie — Universiteit Leiden,https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie || https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie/waarom-universiteit-leiden || https://www.student.universiteitleiden.nl/je-opleiding/opleidingsprogramma/geesteswetenschappen/wijsbegeerte-ba,Explicit,Stable study direction,cp-000292,mapped
++13141,306,1001O5837,Universiteit Leiden,56081,Filosofie,Continental Philosophy specialisation,The current official 2026-2027 Dutch Philosophy curriculum identifies Continental Philosophy as one of its four graduation specialisations.,Filosofie BA 2026-2027 — Leiden University Prospectus,https://studiegids.universiteitleiden.nl/api/product?code=BA-FIL&type=STUDY&year=2261&language=en,Explicit,Stable study direction,cp-000292,mapped
+ 13142,306,1001O5837,Universiteit Leiden,56081,Filosofie,Ethics and Political Philosophy specialisation,"The official programme explicitly identifies Ethics and Political Philosophy specialisation as a named substantive specialisation, route, or graduation direction within the bachelor's degree.",Bachelor Filosofie || Waarom Universiteit Leiden || Opleidingsprogramma Filosofie — Universiteit Leiden,https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie || https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie/waarom-universiteit-leiden || https://www.student.universiteitleiden.nl/je-opleiding/opleidingsprogramma/geesteswetenschappen/wijsbegeerte-ba,Explicit,Stable study direction,cp-000292,mapped
+-13143,306,1001O5837,Universiteit Leiden,56081,Filosofie,Global and Comparative Perspectives specialisation,"The official programme explicitly identifies Global and Comparative Perspectives specialisation as a named substantive specialisation, route, or graduation direction within the bachelor's degree.",Bachelor Filosofie || Waarom Universiteit Leiden || Opleidingsprogramma Filosofie — Universiteit Leiden,https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie || https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie/waarom-universiteit-leiden || https://www.student.universiteitleiden.nl/je-opleiding/opleidingsprogramma/geesteswetenschappen/wijsbegeerte-ba,Explicit,Stable study direction,cp-000292,mapped
++13143,306,1001O5837,Universiteit Leiden,56081,Filosofie,Comparative philosophy across philosophical traditions,The current official 2026-2027 Dutch Philosophy curriculum includes the compulsory Comparative Philosophy course. This supports a curricular topic.,Filosofie BA 2026-2027 — Leiden University Prospectus,https://studiegids.universiteitleiden.nl/api/product?code=BA-FIL&type=STUDY&year=2261&language=en,Explicit,Curricular topic,cp-000292,mapped
+ 13144,306,1001O5837,Universiteit Leiden,56081,Filosofie,ancient philosophy,"The official bachelor's curriculum, programme description, or current programme-specific course information substantively covers ancient philosophy.",Bachelor Filosofie || Waarom Universiteit Leiden || Opleidingsprogramma Filosofie — Universiteit Leiden,https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie || https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie/waarom-universiteit-leiden || https://www.student.universiteitleiden.nl/je-opleiding/opleidingsprogramma/geesteswetenschappen/wijsbegeerte-ba,Explicit,Curricular topic,cp-000292,mapped
+ 13145,306,1001O5837,Universiteit Leiden,56081,Filosofie,modern philosophy,"The official bachelor's curriculum, programme description, or current programme-specific course information substantively covers modern philosophy.",Bachelor Filosofie || Waarom Universiteit Leiden || Opleidingsprogramma Filosofie — Universiteit Leiden,https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie || https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie/waarom-universiteit-leiden || https://www.student.universiteitleiden.nl/je-opleiding/opleidingsprogramma/geesteswetenschappen/wijsbegeerte-ba,Explicit,Curricular topic,cp-000292,mapped
+ 13146,306,1001O5837,Universiteit Leiden,56081,Filosofie,contemporary philosophy,"The official bachelor's curriculum, programme description, or current programme-specific course information substantively covers contemporary philosophy.",Bachelor Filosofie || Waarom Universiteit Leiden || Opleidingsprogramma Filosofie — Universiteit Leiden,https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie || https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie/waarom-universiteit-leiden || https://www.student.universiteitleiden.nl/je-opleiding/opleidingsprogramma/geesteswetenschappen/wijsbegeerte-ba,Explicit,Curricular topic,cp-000292,mapped

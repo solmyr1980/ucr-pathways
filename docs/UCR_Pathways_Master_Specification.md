@@ -415,10 +415,14 @@ Human escalation is mandatory when any of the following applies:
 - the operation would require reconstructing a large or complex file from partial responses;
 - an integrity, hash or equivalent validation check fails;
 - the required repository action is unavailable through the active connector or toolset;
-- two reasonable attempts at the same repository or file operation fail; or
+- two reasonable attempts at the same repository or file operation fail, subject to the scheduled-work exception below; or
 - a short human action would materially reduce the risk or complexity compared with continued automated workaround attempts.
 
-The first integrity failure or the second failed attempt at the same operation is a mandatory stop-and-escalate point. Human assistance is a normal part of the workflow, not a failure state.
+The first integrity failure is a mandatory stop-and-escalate point for the affected write. Outside scheduled work, the second failed attempt at the same operation also requires escalation.
+
+For scheduled work, two recoverable technical failures end the current execution after a durable checkpoint and a clear report. Keep the existing schedule enabled and resume the same unfinished case on its next run, with fresh inputs and a verified publication procedure. A timeout, incomplete response, response-format error or local parsing exception does not establish corrupted repository data. After three consecutive executions fail to publish the same case, escalate with the exact errors and durable repair location. Continue safe recovery checks on the existing schedule while escalation is outstanding. Reset that counter after verified publication. Technical retries do not count as unsuccessful academic source retrieval or grant case approval.
+
+Disable a scheduled task only on explicit user instruction, exhaustion of its authorised assignment and revisits, or an evidenced systemic integrity or safety problem that makes further execution unsafe. Record and report the exact reason immediately. A recoverable publication failure alone does not authorise disabling the task. Preserve a user-requested hold until the user lifts it.
 
 A handoff request must state exactly:
 

@@ -12,6 +12,7 @@
 - When the user says to push or upload work in this project without naming another destination, use `solmyr1980/ucr-pathways:main`.
 - Immediately before writing, verify the current remote `main` SHA. Create one atomic commit on that parent and update `main` only as a fast-forward.
 - After writing, verify that remote `main` points to the new commit and report the GitHub commit link.
+- Use `scripts/github-publication.cjs` for Work commits. Read large shared files from a complete Git checkout verified against the fresh parent, transfer complete bytes programmatically, and verify Git blob SHAs. Follow the review protocol for durable repair checkpoints and Master Specification §12.1 for scheduled retries. Recoverable publication errors end the execution and keep its schedule enabled.
 
 ## Validation
 
