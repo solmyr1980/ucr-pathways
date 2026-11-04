@@ -2437,12 +2437,14 @@
         "3": "retain",
         "4": "retain",
         "5": "retain",
-        "6": "retain"
+        "6": "blocked"
       },
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
+      "implementationCommits": [
+        "3678836568ee6558b7aab0ec90bfa868204b0da8"
+      ],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000074.json"
     },
@@ -7178,7 +7180,7 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
@@ -7186,28 +7188,7 @@
         "minute": 30
       },
       "nextCase": "cp-000074",
-      "activeClaim": {
-        "executionId": "restart-A-cp074-20261104T1729Z",
-        "worker": "A",
-        "caseId": "cp-000074",
-        "claimedAt": "2026-11-04T17:29:41.118673+00:00",
-        "reviewedInputCommit": "008a65e719d13fb547be6a51d9d20bbc5877a497",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000074.json": "baa84d014e3c9d9e7886e3077369bf348ab7ce22",
-          "data/counselor/comparisons/cp-000074.json": "3ea7c3eecee15c7aea123c2f9b9b0ec69472de7f",
-          "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify current Radboud Dentistry annual curriculum, progression and all target interests; test strongest UCR response using current actual course evidence, repair material defects, then content and source-first final checks.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -7682,18 +7663,18 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000073",
-        "executionId": "restart-A-cp073-20261104T1627Z",
-        "state": "approved",
-        "academicDisposition": "no-defensible-ucr-match",
-        "reviewedInputCommit": "dc5f3a5050bd67210141697de9e1981c457e7531",
+        "caseId": "cp-000074",
+        "executionId": "restart-A-cp074-20261104T1729Z",
+        "state": "in-progress",
+        "reviewedInputCommit": "3678836568ee6558b7aab0ec90bfa868204b0da8",
         "inputBlobs": {
-          "canonical": "2ba595f103ae65fa4982fd792dcc03695abd70cc",
-          "decision": "b829fdcb3d0dd8d3c2939d69a544866b715ef182"
+          "canonical": "fa483e0bfb0c1eae720ede5f34a867b782a4b162",
+          "decision": "2f79f55fd578d3e15169d4206b6998726cd89419"
         },
-        "verifiedAt": "2026-11-04T16:32:44.348059+00:00",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000073/source-first-final-pass.json",
-        "nextAction": "Complete as verified no-defensible-ucr-match. Worker A resumes CP074 next execution; finalrelease and deployment remain unauthorised.",
+        "verifiedAt": "2026-11-04T17:36:13.223909+00:00",
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-first-final-pass.json",
+        "nextAction": "ResumeCP074: verify allthree repairCI runs for3678836568ee6558b7aab0ec90bfa868204b0da8 and applicablecheckpointCI; confirm reviewedinputhashes unchanged, then approveonlyafterallgatespass. Preserve valid source-firstacademic/contentfindings; noCP075advance and nosourcefailureincrement.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -12752,6 +12733,50 @@
                 "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
               },
               "nextAction": "Verify current Radboud Linguistics external route, all target interests and strongest UCR response; retain sound research only after source inspection, then complete content and source-first final checks.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
+        },
+        {
+          "preservedOn": "2026-11-04T17:36:13.223909+00:00",
+          "reason": "Preserve previouscheckpoint and ownliveclaim before CP074finalverification checkpoint.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000073",
+              "executionId": "restart-A-cp073-20261104T1627Z",
+              "state": "approved",
+              "academicDisposition": "no-defensible-ucr-match",
+              "reviewedInputCommit": "dc5f3a5050bd67210141697de9e1981c457e7531",
+              "inputBlobs": {
+                "canonical": "2ba595f103ae65fa4982fd792dcc03695abd70cc",
+                "decision": "b829fdcb3d0dd8d3c2939d69a544866b715ef182"
+              },
+              "verifiedAt": "2026-11-04T16:32:44.348059+00:00",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000073/source-first-final-pass.json",
+              "nextAction": "Complete as verified no-defensible-ucr-match. Worker A resumes CP074 next execution; finalrelease and deployment remain unauthorised.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp074-20261104T1729Z",
+              "worker": "A",
+              "caseId": "cp-000074",
+              "claimedAt": "2026-11-04T17:29:41.118673+00:00",
+              "reviewedInputCommit": "008a65e719d13fb547be6a51d9d20bbc5877a497",
+              "inputBlobs": {
+                "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000074.json": "baa84d014e3c9d9e7886e3077369bf348ab7ce22",
+                "data/counselor/comparisons/cp-000074.json": "3ea7c3eecee15c7aea123c2f9b9b0ec69472de7f",
+                "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Verify current Radboud Dentistry annual curriculum, progression and all target interests; test strongest UCR response using current actual course evidence, repair material defects, then content and source-first final checks.",
               "runtimeModel": "unknown",
               "runtimeReasoningEffort": "unknown"
             }
