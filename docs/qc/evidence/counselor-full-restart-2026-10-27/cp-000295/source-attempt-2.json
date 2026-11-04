@@ -1,0 +1,100 @@
+{
+  "caseId": "cp-000295",
+  "executionId": "restart-B-cp295-source2-20261104T2258Z",
+  "checkedOn": "2026-11-04T23:02:00.580081+00:00",
+  "sourceExecution": 2,
+  "inputBlobs": {
+    "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000295.json": "0c924e318c2a3e792a933a1f468a9ae747e6873b",
+    "data/counselor/comparisons/cp-000295.json": "418969bac1f8ad9791dee78e8d6190f1ae436b8c",
+    "data/registry/programme_interests.csv": "b4d9dd67d0bb7b43d7e14fc3d45e32180249bea3",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "canonical": "418969bac1f8ad9791dee78e8d6190f1ae436b8c",
+    "decision": "0c924e318c2a3e792a933a1f468a9ae747e6873b"
+  },
+  "retrievals": [
+    {
+      "id": "programme",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=BA-GEN&type=STUDY&year=2261&language=en",
+      "status": 200,
+      "bytes": 90216,
+      "sha256": "b2906dc5d83b0292aabe9738efc1ba6e8cedc74165f3638c2f26a07d58e87fad",
+      "jsonNull": false
+    },
+    {
+      "id": "lpv3-en",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=30136LPV1Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 4,
+      "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "jsonNull": true
+    },
+    {
+      "id": "lpv3-nl",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=30136LPV1Y&type=MODULE&year=2261&language=nl",
+      "status": 200,
+      "bytes": 4,
+      "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "jsonNull": true
+    },
+    {
+      "id": "awv3",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=3013AWV20Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 16999,
+      "sha256": "61f75e62d282dfa25d9ff975c308bb36e3d95bf323641aa645984cf0d3cb2d46",
+      "jsonNull": false
+    },
+    {
+      "id": "regulations",
+      "url": "https://www.student.universiteitleiden.nl/vr/geneeskunde/onderwijs-en-examenregeling",
+      "status": 200,
+      "bytes": 21993,
+      "sha256": "6018a6cdbc0d6a70934427e285213255f5edd46293452ec0f675d8fc00c244c1",
+      "jsonNull": false,
+      "inspection": "HTTP200 access-block HTML, not the requested regulations/PDF. The independent official web-reader alternative was used where available."
+    },
+    {
+      "id": "minor-info",
+      "url": "https://www.student.universiteitleiden.nl/binaries/content/assets/geneeskunde-lumc/halve-minoren/vrijekeuzeruimte_info-document_250312.pdf",
+      "status": 200,
+      "bytes": 21993,
+      "sha256": "6b7f73043fa398593ab386794de1dd9da433d80897603b912390a101d9363f99",
+      "jsonNull": false,
+      "inspection": "HTTP200 access-block HTML, not the requested regulations/PDF. The independent official web-reader alternative was used where available."
+    }
+  ],
+  "officialAlternative": {
+    "url": "https://www.student.universiteitleiden.nl/binaries/content/assets/geneeskunde-lumc/halve-minoren/vrijekeuzeruimte_info-document_250312.pdf",
+    "inspection": "Official web-reader inspected 11-page PDF. Cover explicitly says minor study in2025–2026, version12March2025. Pages2–3 address BW students;81EC/IMM+IAI thresholds and BW examination-board permissions are not current Medicine rules. It directs students to Half-Minors Brightspace and warns that GNK and BW rules differ. No current authoritative bridge established.",
+    "status": "Historical/contextual only; not current Medicine admission authority."
+  },
+  "targetedOfficialSearches": [
+    "Leiden Geneeskunde 2026–2027 OER/examenregeling using two search systems",
+    "Exact LPV3 course code and current professional-skills title",
+    "LUMC half-minor current entry/approval information"
+  ],
+  "findings": [
+    "Fresh BA-GEN2026–2027 root is byte-identical to first execution: SHA256 b2906dc5d83b0292aabe9738efc1ba6e8cedc74165f3638c2f26a07d58e87fad. No newly published third-year specification or applicable current endpoint rule.",
+    "Both fresh LPV3 responses are four-byte JSON null with SHA25674234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b. Existing root identifies LPV3 but does not supply its credits/assessment.",
+    "AWV3 module again has3EC and zero description entries. This is missing specification, not a parsing or systemic integrity error.",
+    "Existing2025–2026 OER/cohort investigation retained; targeted search did not establish a2026–2027 adopted replacement or bridge. Exact source gap is essential to full pathway and comparison disposition."
+  ],
+  "reuse": {
+    "unchanged": [
+      "decision/canonical partial exception",
+      "all30 exact-target interest rows including5 prior corrections",
+      "151-course workbook and provisional24-course feasible response",
+      "academic course-contribution review and no active UCR selection",
+      "reader-facing partial status/limits, source link selection and unchanged renderer"
+    ],
+    "registryNote": "Whole registry changed only through other target work since prior checkpoint; CP295 target rows are byte-equivalent as parsed CSV records. No unrelated case/cache review reopened."
+  },
+  "unresolved": "Current LPV3 (30136LPV1Y) remains null in both English and Dutch; its credits and assessment cannot be certified. Current AWV3 confirms 3 EC but supplies no assessment/content specification. Applicable final-work and half-minor/progression conditions, or an authoritative cohort bridge, remain unverified. The 2025–2026 OER has one-academic-year validity; the March 2025 minor document concerns 2025–2026 and contains Biomedical Sciences conditions that cannot be transferred to current Medicine. The supported allocation remains 173 EC; the remaining 7 EC are not assigned by subtraction.",
+  "retryDisposition": "Second unsuccessful essential-source execution in this audit. Deferral permitted after publication/CI verification; not approval or a no-match. One separate revisit remains unused."
+}
