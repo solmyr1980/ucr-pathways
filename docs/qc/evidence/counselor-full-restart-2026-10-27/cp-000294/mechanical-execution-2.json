@@ -1,0 +1,62 @@
+{
+  "caseId": "cp-000294",
+  "checkedOn": "2026-11-04T21:07:06.198376+00:00",
+  "inputBlobs": {
+    "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000294.json": "43707bd0983e33589d1e0cdd5948385c015d4d7e",
+    "data/counselor/comparisons/cp-000294.json": "b25781b24629fb5690debf07d09fbfff34290324",
+    "data/registry/programme_interests.csv": "fb3296d45e7556a612c7c2e443ffd483bbc29544",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "canonical": "b25781b24629fb5690debf07d09fbfff34290324",
+    "decision": "43707bd0983e33589d1e0cdd5948385c015d4d7e"
+  },
+  "commands": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000294.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "outputSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000294.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass full JSON Schema validation.",
+      "outputSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "result": "cp-000459.json: final counselor methodology rules OK",
+      "outputSha256": "fc8441ac9129b25201bb8fde46344a3dfec03ecc4e1e22d3dcf06d9f50253269"
+    },
+    {
+      "command": "npm run validate:counselor-review",
+      "exitCode": 0,
+      "result": "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+      "outputSha256": "9cdc82c30ce21ebe3a169c66afb6ec7ca95b122741df4a50df822f14484914fc"
+    },
+    {
+      "command": "npm run validate:registry-interests",
+      "exitCode": 0,
+      "result": "Valid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.",
+      "outputSha256": "701db7916631b535a59f2dddfa14aa18e7600fbf399175359b4f2478be617cc7"
+    },
+    {
+      "command": "python scripts/validate-comprehensive-reaudit.py",
+      "exitCode": 0,
+      "result": "Re-audit register consistent: 438 baseline targets; {'approved': 94, 'inProgress': 37, 'reviewedWithBlockers': 0, 'notStarted': 307, 'pilotStarted': 4}; 131 case evidence files. No academic approval inferred.",
+      "outputSha256": "623d606f46b9c3540ba4070cfaaa27c2b387103c4a962ab739d94d37c5055378"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs decision --output /tmp/cp294/retry2-canonical.json; exact bytes comparison",
+      "exitCode": 0,
+      "result": "Byte-exact canonical replay; exception no optionalresearch/schedule invented."
+    }
+  ],
+  "applicableCI": []
+}
