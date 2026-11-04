@@ -2430,14 +2430,14 @@
     },
     {
       "id": "cp-000074",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
         "3": "retain",
         "4": "retain",
         "5": "retain",
-        "6": "blocked"
+        "6": "retain"
       },
       "sharedIssueIds": [],
       "unresolved": [],
@@ -2445,8 +2445,9 @@
       "implementationCommits": [
         "3678836568ee6558b7aab0ec90bfa868204b0da8"
       ],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000074.json"
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000074.json",
+      "academicDisposition": "no-defensible-ucr-match"
     },
     {
       "id": "cp-000075",
@@ -6973,8 +6974,8 @@
     }
   ],
   "progress": {
-    "approved": 91,
-    "inProgress": 37,
+    "approved": 92,
+    "inProgress": 36,
     "reviewedWithBlockers": 0,
     "notStarted": 310,
     "pilotStarted": 4
@@ -7206,36 +7207,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000074",
-      "activeClaim": {
-        "executionId": "restart-A-cp074-resume-20261104T1832Z",
-        "worker": "A",
-        "caseId": "cp-000074",
-        "claimedAt": "2026-11-04T18:32:48.537788+00:00",
-        "reviewedInputCommit": "cd36ef55c6dcdd06497817083f84dfb95475dac1",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000074.json": "2f79f55fd578d3e15169d4206b6998726cd89419",
-          "data/counselor/comparisons/cp-000074.json": "fa483e0bfb0c1eae720ede5f34a867b782a4b162",
-          "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify applicable repair/checkpoint CI and unchanged input hashes; preserve valid six-stage source-first research, close mechanical gate and approve only if all checks pass.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000075",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -7290,7 +7270,8 @@
         "cp-000068",
         "cp-000070",
         "cp-000071",
-        "cp-000073"
+        "cp-000073",
+        "cp-000074"
       ],
       "completedDispositions": [
         {
@@ -7670,6 +7651,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000073.json",
           "academicDisposition": "no-defensible-ucr-match",
           "verifiedOn": "2026-11-04"
+        },
+        {
+          "caseId": "cp-000074",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000074.json",
+          "academicDisposition": "no-defensible-ucr-match",
+          "verifiedOn": "2026-11-04"
         }
       ],
       "deferredCases": [
@@ -7711,17 +7699,18 @@
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
         "caseId": "cp-000074",
-        "executionId": "restart-A-cp074-20261104T1729Z",
-        "state": "in-progress",
-        "reviewedInputCommit": "3678836568ee6558b7aab0ec90bfa868204b0da8",
+        "executionId": "restart-A-cp074-resume-20261104T1832Z",
+        "state": "approved",
+        "academicDisposition": "no-defensible-ucr-match",
+        "reviewedInputCommit": "77fe6d203717e943cbb0b440ed5b7c9387e41666",
         "inputBlobs": {
           "canonical": "fa483e0bfb0c1eae720ede5f34a867b782a4b162",
           "decision": "2f79f55fd578d3e15169d4206b6998726cd89419"
         },
-        "verifiedAt": "2026-11-04T17:36:13.223909+00:00",
+        "verifiedAt": "2026-11-04T18:35:11.325859+00:00",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-first-final-pass.json",
-        "nextAction": "ResumeCP074: verify allthree repairCI runs for3678836568ee6558b7aab0ec90bfa868204b0da8 and applicablecheckpointCI; confirm reviewedinputhashes unchanged, then approveonlyafterallgatespass. Preserve valid source-firstacademic/contentfindings; noCP075advance and nosourcefailureincrement.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/completion-verification.json",
+        "nextAction": "CP074 complete as verified no-defensible-UCR-match. Worker A resumes CP075 next execution.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -12824,6 +12813,50 @@
                 "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
               },
               "nextAction": "Verify current Radboud Dentistry annual curriculum, progression and all target interests; test strongest UCR response using current actual course evidence, repair material defects, then content and source-first final checks.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
+        },
+        {
+          "preservedOn": "2026-11-04T18:35:11.325859+00:00",
+          "reason": "Preserve previous incomplete checkpoint and this execution claim before final completion.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000074",
+              "executionId": "restart-A-cp074-20261104T1729Z",
+              "state": "in-progress",
+              "reviewedInputCommit": "3678836568ee6558b7aab0ec90bfa868204b0da8",
+              "inputBlobs": {
+                "canonical": "fa483e0bfb0c1eae720ede5f34a867b782a4b162",
+                "decision": "2f79f55fd578d3e15169d4206b6998726cd89419"
+              },
+              "verifiedAt": "2026-11-04T17:36:13.223909+00:00",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-first-final-pass.json",
+              "nextAction": "ResumeCP074: verify allthree repairCI runs for3678836568ee6558b7aab0ec90bfa868204b0da8 and applicablecheckpointCI; confirm reviewedinputhashes unchanged, then approveonlyafterallgatespass. Preserve valid source-firstacademic/contentfindings; noCP075advance and nosourcefailureincrement.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp074-resume-20261104T1832Z",
+              "worker": "A",
+              "caseId": "cp-000074",
+              "claimedAt": "2026-11-04T18:32:48.537788+00:00",
+              "reviewedInputCommit": "cd36ef55c6dcdd06497817083f84dfb95475dac1",
+              "inputBlobs": {
+                "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000074.json": "2f79f55fd578d3e15169d4206b6998726cd89419",
+                "data/counselor/comparisons/cp-000074.json": "fa483e0bfb0c1eae720ede5f34a867b782a4b162",
+                "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Verify applicable repair/checkpoint CI and unchanged input hashes; preserve valid six-stage source-first research, close mechanical gate and approve only if all checks pass.",
               "runtimeModel": "unknown",
               "runtimeReasoningEffort": "unknown"
             }

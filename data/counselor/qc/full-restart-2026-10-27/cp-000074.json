@@ -1,11 +1,11 @@
 {
   "id": "cp-000074",
-  "reviewedInputCommit": "3678836568ee6558b7aab0ec90bfa868204b0da8",
+  "reviewedInputCommit": "77fe6d203717e943cbb0b440ed5b7c9387e41666",
   "inputBlobs": {
     "canonical": "fa483e0bfb0c1eae720ede5f34a867b782a4b162",
     "decision": "2f79f55fd578d3e15169d4206b6998726cd89419"
   },
-  "state": "in-progress",
+  "state": "approved",
   "stages": {
     "1": {
       "outcome": "correct",
@@ -15,15 +15,19 @@
       ],
       "actions": [
         {
-          "state": "implemented",
+          "state": "verified",
           "scope": "Correct stale routebasis and refresh actualUCRclinical/research contribution evidence; no programme reconstruction.",
-          "implementationCommit": "3678836568ee6558b7aab0ec90bfa868204b0da8"
+          "implementationCommit": "3678836568ee6558b7aab0ec90bfa868204b0da8",
+          "verificationEvidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/completion-verification.json"
+          ]
         }
       ],
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-first-final-pass.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/published-verification.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/published-verification.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/completion-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
@@ -38,7 +42,8 @@
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-first-final-pass.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/published-verification.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/published-verification.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/completion-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
@@ -53,7 +58,8 @@
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/comparability-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-first-final-pass.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/published-verification.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/published-verification.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/completion-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
@@ -68,7 +74,8 @@
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/comparability-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-first-final-pass.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/published-verification.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/published-verification.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/completion-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
@@ -83,14 +90,15 @@
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/content-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-first-final-pass.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/published-verification.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/published-verification.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/completion-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
     },
     "6": {
-      "outcome": "blocked",
-      "finding": "Source-first academic/content review complete; localchecks and publishedbytes pass. AllthreeapplicablerepairCI workflows queued; no approval or academicfailure inferred.",
+      "outcome": "retain",
+      "finding": "Published exact reviewed inputs, byte-exact replay, current local validators and applicable repair/checkpoint CI all pass. Valid same-audit source-first academic and content findings retained under unchanged input hashes.",
       "preserved": [
         "Verified currentexternalstructure, justifiedno-match and accurateaudience content."
       ],
@@ -98,11 +106,10 @@
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/content-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-first-final-pass.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/published-verification.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/published-verification.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/completion-verification.json"
       ],
-      "blockedBy": [
-        "ApplicablepublishedrepairCI queued."
-      ],
+      "blockedBy": [],
       "reassessStages": []
     }
   },
@@ -112,10 +119,59 @@
   "implementationCommits": [
     "3678836568ee6558b7aab0ec90bfa868204b0da8"
   ],
-  "finalReview": null,
+  "finalReview": {
+    "reviewerOrPass": "Worker A; separately identified source-first final pass by the same AI",
+    "independenceMethod": "After freezing and publishing the repair, returned first to actual adopted OER Article10 defining outcomes and Article15openchoice,examprogramme/progression/research requirements, then the current UCR pathology, laboratory, healthpsychology, psychodiagnostics and originalsurvey evidence. Challenged whether those genuine direct clinical/research contributions form an academically meaningful dental response before rereading the finished audience/29components. Same AI as author; no independent person or human review claimed. On resumption, confirmed all exact reviewed hashes unchanged. Same-audit substantive pass retained; completion verification closes the formerly pending CI gate.",
+    "verificationPolicy": "record-content-review-2026-10-31",
+    "inputBlobs": {
+      "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+      "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+      "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+      "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+      "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+      "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+      "data/counselor/decisions/cp-000074.json": "2f79f55fd578d3e15169d4206b6998726cd89419",
+      "data/counselor/comparisons/cp-000074.json": "fa483e0bfb0c1eae720ede5f34a867b782a4b162",
+      "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
+      "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+      "canonical": "fa483e0bfb0c1eae720ede5f34a867b782a4b162",
+      "decision": "2f79f55fd578d3e15169d4206b6998726cd89419"
+    },
+    "reviewedOn": "2026-11-04",
+    "reviewedCommit": "77fe6d203717e943cbb0b440ed5b7c9387e41666",
+    "sourceEvidenceRefs": [
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json",
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-first-final-pass.json"
+    ],
+    "checks": {
+      "academic": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/comparability-review.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/completion-verification.json"
+        ]
+      },
+      "content": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/content-review.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/completion-verification.json"
+        ]
+      },
+      "mechanical": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/mechanical-verification.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/published-verification.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/completion-verification.json"
+        ]
+      }
+    }
+  },
   "schemaVersion": "2.0",
   "auditId": "counselor-full-restart-2026-10-27",
-  "presentationApproval": false,
+  "presentationApproval": true,
   "evidenceSources": [
     {
       "url": "https://www.ru.nl/opleidingen/bachelors/tandheelkunde",
@@ -169,9 +225,11 @@
     },
     "nextAction": "Verify applicable repair/checkpoint CI and unchanged input hashes; preserve valid six-stage source-first research, close mechanical gate and approve only if all checks pass.",
     "runtimeModel": "unknown",
-    "runtimeReasoningEffort": "unknown"
+    "runtimeReasoningEffort": "unknown",
+    "endedAt": "2026-11-04T18:35:11.325859+00:00",
+    "result": "approved no-defensible-ucr-match"
   },
-  "nextAction": "Verify applicable repair/checkpoint CI and unchanged input hashes; preserve valid six-stage source-first research, close mechanical gate and approve only if all checks pass.",
+  "nextAction": "CP074 complete as verified no-defensible-UCR-match. Worker A resumes CP075 next execution.",
   "reviewHistory": [
     {
       "preservedOn": "2026-11-04T17:32:48.111813+00:00",
@@ -433,6 +491,473 @@
         ]
       },
       "originalFileSha256": "fa87953ef4c5bce6a1f0e22045dba22d4bf9d5e5b9612d25f69a8760d2f90445"
+    },
+    {
+      "preservedOn": "2026-11-04T18:35:11.325859+00:00",
+      "reason": "Preserve pending-CI case and resumed claim before verified completion; retain valid same-audit research.",
+      "originalFileSha256": "4f412b46a6a983cd87a0edaec18c512d5b7309a2d38bbfc5899e72821cc22bf8",
+      "snapshot": {
+        "id": "cp-000074",
+        "reviewedInputCommit": "3678836568ee6558b7aab0ec90bfa868204b0da8",
+        "inputBlobs": {
+          "canonical": "fa483e0bfb0c1eae720ede5f34a867b782a4b162",
+          "decision": "2f79f55fd578d3e15169d4206b6998726cd89419"
+        },
+        "state": "in-progress",
+        "stages": {
+          "1": {
+            "outcome": "correct",
+            "finding": "Currentexternalidentity,29components and180ECannualroute verified; repair stale3ECroutebasis to4.5EC.",
+            "preserved": [
+              "Verified currentexternalstructure, justifiedno-match and accurateaudience content."
+            ],
+            "actions": [
+              {
+                "state": "implemented",
+                "scope": "Correct stale routebasis and refresh actualUCRclinical/research contribution evidence; no programme reconstruction.",
+                "implementationCommit": "3678836568ee6558b7aab0ec90bfa868204b0da8"
+              }
+            ],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-first-final-pass.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/published-verification.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "2": {
+            "outcome": "retain",
+            "finding": "All37exacttargetrows reconciled with currentofficialevidence;20generator/10support/7search retained.",
+            "preserved": [
+              "Verified currentexternalstructure, justifiedno-match and accurateaudience content."
+            ],
+            "actions": [],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-first-final-pass.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/published-verification.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "3": {
+            "outcome": "retain",
+            "finding": "Strongest biomedicalresponse and patientcare diagnosticcandidate fail programme-level dental response after full currentcourse challenge.",
+            "preserved": [
+              "Verified currentexternalstructure, justifiedno-match and accurateaudience content."
+            ],
+            "actions": [],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-first-final-pass.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/published-verification.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "4": {
+            "outcome": "retain",
+            "finding": "No activeUCRprogrammes/alignments to repair; actual partial biomedical/lab/clinicalskills recognised; historical offerings not used for academic no-match.",
+            "preserved": [
+              "Verified currentexternalstructure, justifiedno-match and accurateaudience content."
+            ],
+            "actions": [],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-first-final-pass.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/published-verification.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "5": {
+            "outcome": "retain",
+            "finding": "Allreader-facing content and29component labels/credits retained as accurate after contextual reading.",
+            "preserved": [
+              "Verified currentexternalstructure, justifiedno-match and accurateaudience content."
+            ],
+            "actions": [],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/content-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-first-final-pass.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/published-verification.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "6": {
+            "outcome": "blocked",
+            "finding": "Source-first academic/content review complete; localchecks and publishedbytes pass. AllthreeapplicablerepairCI workflows queued; no approval or academicfailure inferred.",
+            "preserved": [
+              "Verified currentexternalstructure, justifiedno-match and accurateaudience content."
+            ],
+            "actions": [],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/content-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-first-final-pass.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/published-verification.json"
+            ],
+            "blockedBy": [
+              "ApplicablepublishedrepairCI queued."
+            ],
+            "reassessStages": []
+          }
+        },
+        "sharedIssueIds": [],
+        "unresolved": [],
+        "downstreamReassessments": [],
+        "implementationCommits": [
+          "3678836568ee6558b7aab0ec90bfa868204b0da8"
+        ],
+        "finalReview": null,
+        "schemaVersion": "2.0",
+        "auditId": "counselor-full-restart-2026-10-27",
+        "presentationApproval": false,
+        "evidenceSources": [
+          {
+            "url": "https://www.ru.nl/opleidingen/bachelors/tandheelkunde",
+            "checkedOn": "2026-11-04",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json"
+          },
+          {
+            "url": "https://www.ru.nl/opleidingen/bachelors/tandheelkunde/studieprogramma",
+            "checkedOn": "2026-11-04",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json"
+          },
+          {
+            "url": "https://www.ru.nl/opleidingen/bachelors/tandheelkunde/studieprogramma-van-tandheelkunde/studieprogramma-bachelor-tandheelkunde-jaar-1",
+            "checkedOn": "2026-11-04",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json"
+          },
+          {
+            "url": "https://www.ru.nl/opleidingen/bachelors/tandheelkunde/studieprogramma-van-tandheelkunde/studieprogramma-bachelor-tandheelkunde-jaar-2",
+            "checkedOn": "2026-11-04",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json"
+          },
+          {
+            "url": "https://www.ru.nl/opleidingen/bachelors/tandheelkunde/studieprogramma-van-tandheelkunde/studieprogramma-bachelor-tandheelkunde-jaar-3",
+            "checkedOn": "2026-11-04",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json"
+          },
+          {
+            "url": "https://www.ru.nl/sites/default/files/2026-06/oer-ba-thk-2627.pdf",
+            "checkedOn": "2026-11-04",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json"
+          }
+        ],
+        "renderedEvidence": [],
+        "executionClaim": {
+          "executionId": "restart-A-cp074-resume-20261104T1832Z",
+          "worker": "A",
+          "caseId": "cp-000074",
+          "claimedAt": "2026-11-04T18:32:48.537788+00:00",
+          "reviewedInputCommit": "cd36ef55c6dcdd06497817083f84dfb95475dac1",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000074.json": "2f79f55fd578d3e15169d4206b6998726cd89419",
+            "data/counselor/comparisons/cp-000074.json": "fa483e0bfb0c1eae720ede5f34a867b782a4b162",
+            "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify applicable repair/checkpoint CI and unchanged input hashes; preserve valid six-stage source-first research, close mechanical gate and approve only if all checks pass.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown"
+        },
+        "nextAction": "Verify applicable repair/checkpoint CI and unchanged input hashes; preserve valid six-stage source-first research, close mechanical gate and approve only if all checks pass.",
+        "reviewHistory": [
+          {
+            "preservedOn": "2026-11-04T17:32:48.111813+00:00",
+            "reason": "Preserve initial execution claim before bounded repair and academic/content findings.",
+            "snapshot": {
+              "id": "cp-000074",
+              "reviewedInputCommit": "008a65e719d13fb547be6a51d9d20bbc5877a497",
+              "inputBlobs": {
+                "canonical": "3ea7c3eecee15c7aea123c2f9b9b0ec69472de7f",
+                "decision": "baa84d014e3c9d9e7886e3077369bf348ab7ce22"
+              },
+              "state": "in-progress",
+              "stages": {},
+              "sharedIssueIds": [],
+              "unresolved": [],
+              "downstreamReassessments": [],
+              "implementationCommits": [],
+              "finalReview": null,
+              "schemaVersion": "2.0",
+              "auditId": "counselor-full-restart-2026-10-27",
+              "presentationApproval": false,
+              "evidenceSources": [],
+              "renderedEvidence": [],
+              "executionClaim": {
+                "executionId": "restart-A-cp074-20261104T1729Z",
+                "worker": "A",
+                "caseId": "cp-000074",
+                "claimedAt": "2026-11-04T17:29:41.118673+00:00",
+                "reviewedInputCommit": "008a65e719d13fb547be6a51d9d20bbc5877a497",
+                "inputBlobs": {
+                  "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                  "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                  "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                  "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                  "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                  "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                  "data/counselor/decisions/cp-000074.json": "baa84d014e3c9d9e7886e3077369bf348ab7ce22",
+                  "data/counselor/comparisons/cp-000074.json": "3ea7c3eecee15c7aea123c2f9b9b0ec69472de7f",
+                  "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
+                  "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+                },
+                "nextAction": "Verify current Radboud Dentistry annual curriculum, progression and all target interests; test strongest UCR response using current actual course evidence, repair material defects, then content and source-first final checks.",
+                "runtimeModel": "unknown",
+                "runtimeReasoningEffort": "unknown"
+              },
+              "nextAction": "Verify current Radboud Dentistry annual curriculum, progression and all target interests; test strongest UCR response using current actual course evidence, repair material defects, then content and source-first final checks."
+            },
+            "originalFileSha256": "56d5d42bad3c8107b3084479e33176c1faa44db3f7876f40b45da6adcddb45b8"
+          },
+          {
+            "preservedOn": "2026-11-04T17:36:13.223909+00:00",
+            "reason": "Preserve publishedrepair and sixstagefindings before source-first finalverification and CI disposition.",
+            "snapshot": {
+              "id": "cp-000074",
+              "reviewedInputCommit": "72c5d725c55d7b218bc2dcd9d72d83391a2df664",
+              "inputBlobs": {
+                "canonical": "fa483e0bfb0c1eae720ede5f34a867b782a4b162",
+                "decision": "2f79f55fd578d3e15169d4206b6998726cd89419"
+              },
+              "state": "in-progress",
+              "stages": {
+                "1": {
+                  "outcome": "correct",
+                  "finding": "Currentexternalidentity,29components and180ECannualroute verified; repair stale3ECroutebasis to4.5EC.",
+                  "preserved": [
+                    "Verified currentexternalstructure, justifiedno-match and accurateaudience content."
+                  ],
+                  "actions": [
+                    {
+                      "state": "proposed",
+                      "scope": "Correct stale routebasis and refresh actualUCRclinical/research contribution evidence; no programme reconstruction."
+                    }
+                  ],
+                  "evidence": [
+                    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json"
+                  ],
+                  "blockedBy": [],
+                  "reassessStages": []
+                },
+                "2": {
+                  "outcome": "retain",
+                  "finding": "All37exacttargetrows reconciled with currentofficialevidence;20generator/10support/7search retained.",
+                  "preserved": [
+                    "Verified currentexternalstructure, justifiedno-match and accurateaudience content."
+                  ],
+                  "actions": [],
+                  "evidence": [
+                    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json"
+                  ],
+                  "blockedBy": [],
+                  "reassessStages": []
+                },
+                "3": {
+                  "outcome": "retain",
+                  "finding": "Strongest biomedicalresponse and patientcare diagnosticcandidate fail programme-level dental response after full currentcourse challenge.",
+                  "preserved": [
+                    "Verified currentexternalstructure, justifiedno-match and accurateaudience content."
+                  ],
+                  "actions": [],
+                  "evidence": [
+                    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/comparability-review.json"
+                  ],
+                  "blockedBy": [],
+                  "reassessStages": []
+                },
+                "4": {
+                  "outcome": "retain",
+                  "finding": "No activeUCRprogrammes/alignments to repair; actual partial biomedical/lab/clinicalskills recognised; historical offerings not used for academic no-match.",
+                  "preserved": [
+                    "Verified currentexternalstructure, justifiedno-match and accurateaudience content."
+                  ],
+                  "actions": [],
+                  "evidence": [
+                    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/comparability-review.json"
+                  ],
+                  "blockedBy": [],
+                  "reassessStages": []
+                },
+                "5": {
+                  "outcome": "retain",
+                  "finding": "Allreader-facing content and29component labels/credits retained as accurate after contextual reading.",
+                  "preserved": [
+                    "Verified currentexternalstructure, justifiedno-match and accurateaudience content."
+                  ],
+                  "actions": [],
+                  "evidence": [
+                    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/content-review.json"
+                  ],
+                  "blockedBy": [],
+                  "reassessStages": []
+                },
+                "6": {
+                  "outcome": "retain",
+                  "finding": "Record/content checked; final approval awaits publishedrepair/CI and separate source-first final pass.",
+                  "preserved": [
+                    "Verified currentexternalstructure, justifiedno-match and accurateaudience content."
+                  ],
+                  "actions": [],
+                  "evidence": [
+                    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/content-review.json"
+                  ],
+                  "blockedBy": [],
+                  "reassessStages": []
+                }
+              },
+              "sharedIssueIds": [],
+              "unresolved": [],
+              "downstreamReassessments": [],
+              "implementationCommits": [],
+              "finalReview": null,
+              "schemaVersion": "2.0",
+              "auditId": "counselor-full-restart-2026-10-27",
+              "presentationApproval": false,
+              "evidenceSources": [
+                {
+                  "url": "https://www.ru.nl/opleidingen/bachelors/tandheelkunde",
+                  "checkedOn": "2026-11-04",
+                  "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json"
+                },
+                {
+                  "url": "https://www.ru.nl/opleidingen/bachelors/tandheelkunde/studieprogramma",
+                  "checkedOn": "2026-11-04",
+                  "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json"
+                },
+                {
+                  "url": "https://www.ru.nl/opleidingen/bachelors/tandheelkunde/studieprogramma-van-tandheelkunde/studieprogramma-bachelor-tandheelkunde-jaar-1",
+                  "checkedOn": "2026-11-04",
+                  "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json"
+                },
+                {
+                  "url": "https://www.ru.nl/opleidingen/bachelors/tandheelkunde/studieprogramma-van-tandheelkunde/studieprogramma-bachelor-tandheelkunde-jaar-2",
+                  "checkedOn": "2026-11-04",
+                  "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json"
+                },
+                {
+                  "url": "https://www.ru.nl/opleidingen/bachelors/tandheelkunde/studieprogramma-van-tandheelkunde/studieprogramma-bachelor-tandheelkunde-jaar-3",
+                  "checkedOn": "2026-11-04",
+                  "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json"
+                },
+                {
+                  "url": "https://www.ru.nl/sites/default/files/2026-06/oer-ba-thk-2627.pdf",
+                  "checkedOn": "2026-11-04",
+                  "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000074/source-interest-review.json"
+                }
+              ],
+              "renderedEvidence": [],
+              "executionClaim": {
+                "executionId": "restart-A-cp074-20261104T1729Z",
+                "worker": "A",
+                "caseId": "cp-000074",
+                "claimedAt": "2026-11-04T17:29:41.118673+00:00",
+                "reviewedInputCommit": "008a65e719d13fb547be6a51d9d20bbc5877a497",
+                "inputBlobs": {
+                  "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                  "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                  "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                  "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                  "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                  "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                  "data/counselor/decisions/cp-000074.json": "baa84d014e3c9d9e7886e3077369bf348ab7ce22",
+                  "data/counselor/comparisons/cp-000074.json": "3ea7c3eecee15c7aea123c2f9b9b0ec69472de7f",
+                  "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
+                  "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+                },
+                "nextAction": "Verify current Radboud Dentistry annual curriculum, progression and all target interests; test strongest UCR response using current actual course evidence, repair material defects, then content and source-first final checks.",
+                "runtimeModel": "unknown",
+                "runtimeReasoningEffort": "unknown"
+              },
+              "nextAction": "Publish bounded route/evidence repair with exactcanonicalpair; verify blobs andCI, then separate same-AI source-first final pass and finaldisposition.",
+              "reviewHistory": [
+                {
+                  "preservedOn": "2026-11-04T17:32:48.111813+00:00",
+                  "reason": "Preserve initial execution claim before bounded repair and academic/content findings.",
+                  "snapshot": {
+                    "id": "cp-000074",
+                    "reviewedInputCommit": "008a65e719d13fb547be6a51d9d20bbc5877a497",
+                    "inputBlobs": {
+                      "canonical": "3ea7c3eecee15c7aea123c2f9b9b0ec69472de7f",
+                      "decision": "baa84d014e3c9d9e7886e3077369bf348ab7ce22"
+                    },
+                    "state": "in-progress",
+                    "stages": {},
+                    "sharedIssueIds": [],
+                    "unresolved": [],
+                    "downstreamReassessments": [],
+                    "implementationCommits": [],
+                    "finalReview": null,
+                    "schemaVersion": "2.0",
+                    "auditId": "counselor-full-restart-2026-10-27",
+                    "presentationApproval": false,
+                    "evidenceSources": [],
+                    "renderedEvidence": [],
+                    "executionClaim": {
+                      "executionId": "restart-A-cp074-20261104T1729Z",
+                      "worker": "A",
+                      "caseId": "cp-000074",
+                      "claimedAt": "2026-11-04T17:29:41.118673+00:00",
+                      "reviewedInputCommit": "008a65e719d13fb547be6a51d9d20bbc5877a497",
+                      "inputBlobs": {
+                        "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                        "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                        "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                        "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                        "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                        "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                        "data/counselor/decisions/cp-000074.json": "baa84d014e3c9d9e7886e3077369bf348ab7ce22",
+                        "data/counselor/comparisons/cp-000074.json": "3ea7c3eecee15c7aea123c2f9b9b0ec69472de7f",
+                        "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
+                        "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+                      },
+                      "nextAction": "Verify current Radboud Dentistry annual curriculum, progression and all target interests; test strongest UCR response using current actual course evidence, repair material defects, then content and source-first final checks.",
+                      "runtimeModel": "unknown",
+                      "runtimeReasoningEffort": "unknown"
+                    },
+                    "nextAction": "Verify current Radboud Dentistry annual curriculum, progression and all target interests; test strongest UCR response using current actual course evidence, repair material defects, then content and source-first final checks."
+                  },
+                  "originalFileSha256": "56d5d42bad3c8107b3084479e33176c1faa44db3f7876f40b45da6adcddb45b8"
+                }
+              ]
+            },
+            "originalFileSha256": "fa87953ef4c5bce6a1f0e22045dba22d4bf9d5e5b9612d25f69a8760d2f90445"
+          }
+        ],
+        "executionHistory": [
+          {
+            "executionId": "restart-A-cp074-20261104T1729Z",
+            "worker": "A",
+            "caseId": "cp-000074",
+            "claimedAt": "2026-11-04T17:29:41.118673+00:00",
+            "reviewedInputCommit": "008a65e719d13fb547be6a51d9d20bbc5877a497",
+            "inputBlobs": {
+              "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+              "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+              "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+              "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+              "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+              "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+              "data/counselor/decisions/cp-000074.json": "baa84d014e3c9d9e7886e3077369bf348ab7ce22",
+              "data/counselor/comparisons/cp-000074.json": "3ea7c3eecee15c7aea123c2f9b9b0ec69472de7f",
+              "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
+              "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+            },
+            "nextAction": "Verify current Radboud Dentistry annual curriculum, progression and all target interests; test strongest UCR response using current actual course evidence, repair material defects, then content and source-first final checks.",
+            "runtimeModel": "unknown",
+            "runtimeReasoningEffort": "unknown"
+          }
+        ]
+      }
     }
   ],
   "executionHistory": [
@@ -458,5 +983,6 @@
       "runtimeModel": "unknown",
       "runtimeReasoningEffort": "unknown"
     }
-  ]
+  ],
+  "academicDisposition": "no-defensible-ucr-match"
 }
