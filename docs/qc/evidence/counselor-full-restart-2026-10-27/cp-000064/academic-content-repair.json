@@ -1,0 +1,1407 @@
+{
+  "caseId": "cp-000064",
+  "auditId": "counselor-full-restart-2026-10-27",
+  "reviewedOn": "2026-11-04",
+  "executionId": "restart-A-cp064-20261104T0526Z",
+  "reviewedInputCommit": "4d4b8136de9c77fac57b8ff4f7cd020e30e5cea0",
+  "inputBlobs": {
+    "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+    "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+    "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000064.json": "7c510fa85c661e4d8947d44ea8da012503abdd0b",
+    "data/counselor/comparisons/cp-000064.json": "c63030a6ef9737f0fc3cca9008641180360a2552",
+    "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
+    "pilot/shiny/data/courses/DIS.json": "5774e2104a8310aa2925fc2aada2adac0c53bb95",
+    "pilot/shiny/data/courses/ENS.json": "da5d9225d6682419998c3cf20837727a5fa39cbf",
+    "pilot/shiny/data/courses/GOS.json": "49da38b390637fa113a95b835a4d9bbda854ef83",
+    "pilot/shiny/data/courses/HCB.json": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad",
+    "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa",
+    "canonical": "c63030a6ef9737f0fc3cca9008641180360a2552",
+    "decision": "7c510fa85c661e4d8947d44ea8da012503abdd0b"
+  },
+  "sourceRetrieval": [
+    {
+      "id": 0,
+      "url": "https://www.ru.nl/en/education/bachelors/philosophy-politics-and-society",
+      "status": 200,
+      "effectiveUrl": "https://www.ru.nl/en/education/bachelors/philosophy-politics-and-society",
+      "sha256": "cf19e7d815a99229308e6fba9b8437adc136ed3de99c789f36485d20ade8a306",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "id": 1,
+      "url": "https://www.ru.nl/en/education/bachelors/philosophy-politics-and-society/philosophy-politics-and-society-study-programme",
+      "status": 200,
+      "effectiveUrl": "https://www.ru.nl/en/education/bachelors/philosophy-politics-and-society/curriculum-and-courses",
+      "sha256": "8baa2d287f5c01d6b3ad39ad67b1eb7dc9e46d0b4f8032f2c4276aadd4f643b2",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "id": 2,
+      "url": "https://www.ru.nl/en/education/bachelors/philosophy-politics-and-society/curriculum-and-courses/study-programme-bachelor-philosophy-politics-and-society-year-1",
+      "status": 200,
+      "effectiveUrl": "https://www.ru.nl/en/education/bachelors/philosophy-politics-and-society/curriculum-and-courses/year-1",
+      "sha256": "a4275921d9c61cf6e03755a302ab74d5c4f65847d650bd4cc582e713a3437a83",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "id": 3,
+      "url": "https://www.ru.nl/en/education/bachelors/philosophy-politics-and-society/curriculum-and-courses/study-programme-bachelor-philosophy-politics-and-society-year-2",
+      "status": 200,
+      "effectiveUrl": "https://www.ru.nl/en/education/bachelors/philosophy-politics-and-society/curriculum-and-courses/year-2",
+      "sha256": "c7ec93322264d015caca50e7dd969684d855728d0b81ed513c02f80e03624d13",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "id": 4,
+      "url": "https://www.ru.nl/en/education/bachelors/philosophy-politics-and-society/curriculum-and-courses/study-programme-bachelor-philosophy-politics-and-society-year-3",
+      "status": 200,
+      "effectiveUrl": "https://www.ru.nl/en/education/bachelors/philosophy-politics-and-society/curriculum-and-courses/year-3",
+      "sha256": "233aebde592143b5f4b0900f60969efa5e093215d32a836ebf0f856289bbd5f5",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "id": 5,
+      "url": "https://www.ru.nl/en/education/bachelors/philosophy-politics-and-society/philosophy-politics-and-society-study-programme/modules-philosophy-politics-and-society",
+      "status": 200,
+      "effectiveUrl": "https://www.ru.nl/en/education/bachelors/philosophy-politics-and-society/curriculum-and-courses/modules-philosophy-politics-and-society",
+      "sha256": "040add8d792e4aa6d80ab568bac3143bbe545618a2cbc7c042f23994560b1633",
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "id": 6,
+      "url": "https://www.ru.nl/en/ru-files/oer-2026-2027-en-bachelor-philosophy",
+      "status": 200,
+      "effectiveUrl": "https://www.ru.nl/sites/default/files/2026-08/oer-2026-2027-en-bachelor-philosophy-def.pdf",
+      "sha256": "642664ceb9115e6dd69d3082c284214d1b225d9c56d9bcaac86d2b47f415d78f",
+      "type": "application/pdf"
+    },
+    {
+      "id": 7,
+      "url": "https://www.ru.nl/ru-bestanden/oer-2026-2027-bachelor-filosofie",
+      "status": 200,
+      "effectiveUrl": "https://www.ru.nl/sites/default/files/2026-08/oer-2026-2027-bachelor-filosofie-def.pdf",
+      "sha256": "ece06674881078bb7d9e50761d800bce603adc9ba6b04f0a88ca649196412d03",
+      "type": "application/pdf"
+    },
+    {
+      "id": 8,
+      "url": "https://www.ru.nl/en/education/bachelors/philosophy-politics-and-society/career-prospects",
+      "status": 200,
+      "effectiveUrl": "https://www.ru.nl/en/education/bachelors/philosophy-politics-and-society/career-prospects",
+      "sha256": "2e809b74bedbbeca417ac2bae88200f1ed0572164c2e70b750cbd74b3e0aca85",
+      "type": "text/html; charset=utf-8"
+    }
+  ],
+  "externalReview": {
+    "controllingSource": "Current adopted English and Dutch2026–2027OER; fresh hashes642664ceb9115e6dd69d3082c284214d1b225d9c56d9bcaac86d2b47f415d78f andece06674881078bb7d9e50761d800bce603adc9ba6b04f0a88ca649196412d03 equal the retained documents.",
+    "identity": "English full-time Philosophy,PPS specialisation56081/RIO1015O6460; ordinary applicable2026–2027 framework.",
+    "creditAndRoute": "22components total180EC:60first-yearcompulsory+20laterrequired+10thesis+fourcomplete15ECmodules+30approvedopenchoice. First-listed distinct semester-compatible modules instantiated; no stacking or double counting. GlobalJustice/MentalHealth in autumn,Democracy/Digital in spring; two15ECelective blocks remain genuinely open.",
+    "progression": "Re-read retained underlying2026Project and PhilosophyInPractice records, not prior approval. Passed writing workshop→Project→thesis; required seminar/practicum attendance; regular thesissemester2 and stated exceptions forsemester1. Project individual/group assessments andPracticecareerportfolio remain distinct from the UCR projects. RADAr0required; adopted44ECBSA controls over prospective45.",
+    "sections": [
+      "OER1–2",
+      "OER8/10",
+      "AppendixII ordinaryPPS programme and module tables",
+      "AppendixIII study advice",
+      "AppendixIV2026–2027transition body"
+    ],
+    "retainedUnderlyingSources": [
+      "docs/qc/evidence/counselor-corpus-B-cp064-2026-10-25/source-retrieval-execution-2-resolved.json",
+      "docs/qc/evidence/counselor-corpus-B-cp064-2026-10-25/external-conditions.json",
+      "docs/qc/evidence/counselor-corpus-B-cp064-2026-10-25/edition-and-progression-checkpoint.json"
+    ],
+    "boundedCorrection": "Use the adopted first-year title Rhetoric and Debate for the same stable component. Other sound external reconstruction remains unchanged; old footer dates do not override the explicitly applicable body."
+  },
+  "conceptReassessment": {
+    "preserved": "Primary philosophy/public-institutions and second philosophy/environment/public-communication concepts retain direct philosophy and specific applied study. Their6course/45ECdifference reflects actual academic priorities.",
+    "newThird": {
+      "concept": "A philosophical and mental-health route studies mind, emotion, agency and moral responsibility alongside historical and biopsychosocial approaches to mental disorder, clinical assessment and treatment. Cognitive science, empirical methods and social theory make competing accounts of mental life available for critical inquiry. Clinical courses provide complementary psychological study rather than a dedicated philosophy-of-psychiatry or neurodiversity sequence, and do not confer a clinical qualification.",
+      "basis": [
+        "c0",
+        "c1",
+        "c2",
+        "a1"
+      ],
+      "evidence": [
+        "s5",
+        "s6",
+        3023,
+        3033,
+        3034,
+        3035
+      ],
+      "sourceWorkbook": "22783315e6d5510522d16a72281859dd62a05294",
+      "judgment": "Third mental-health concept considered before its course implementation; evaluate genuine response and scope rather than merely course-count difference."
+    },
+    "reason": "The current psychopathology profile explicitly includes historical views, classification and biopsychosocial explanations. Together with actual philosophy of mind, emotions, agency, ethics and clinical/cognitive content, it supports a distinct philosophical/mental-health response. It does not assert a complete psychiatric-philosophy or neurodiversity module, nor clinical qualification. A missing specialist title is not treated as sufficient rejection evidence.",
+    "implementationChanges": "The proposed schedule exposed two offering conflicts. Psycholinguistics moved to its documentedSpring2027term; AIethics moved toSpring2029. The broader neurobiology option was reconsidered: brain/behaviour and cognitive study already supply biological foundations, while Logic/DiscreteMathematics adds substantive formal reasoning. This keeps the concept coherent under actual offerings without restoring superseded planning data.",
+    "remainingCandidates": "Split the previously grouped animal/sociality, intercultural/decolonial and gender/feminist interests into three separately named candidates with their own generators/support. All remain evidenced; maximum-reached records the ceiling after three supported alternatives, not a fabricated failure of those directions."
+  },
+  "interestReview": [
+    {
+      "row": 3015,
+      "interest": "how philosophical ideas shape politics and society",
+      "role": "generator-eligible",
+      "owner": "closest-core",
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3016,
+      "interest": "using philosophy to understand contemporary public problems",
+      "role": "generator-eligible",
+      "owner": "closest-core",
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3017,
+      "interest": "political philosophy and the nature of power",
+      "role": "generator-eligible",
+      "owner": "closest-core",
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3018,
+      "interest": "ethics and difficult moral decisions",
+      "role": "generator-eligible",
+      "owner": "closest-core",
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3019,
+      "interest": "the history of Western philosophical thought",
+      "role": "generator-eligible",
+      "owner": "closest-core",
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3020,
+      "interest": "what makes a society fair",
+      "role": "generator-eligible",
+      "owner": "closest-core",
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3021,
+      "interest": "the relationship between technology and society",
+      "role": "generator-eligible",
+      "owner": "closest-core",
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3022,
+      "interest": "global justice and human rights",
+      "role": "generator-eligible",
+      "owner": "Global justice, human rights and democracy",
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3023,
+      "interest": "mental health and psychiatric crisis",
+      "role": "generator-eligible",
+      "owner": "Mental health, selfhood and psychiatric crisis",
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3024,
+      "interest": "ecology and environmental sustainability",
+      "role": "generator-eligible",
+      "owner": "Technology, ecological change and political ethics",
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3025,
+      "interest": "human sociality and the politics of animal life",
+      "role": "generator-eligible",
+      "owner": "Human sociality and animal life",
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3026,
+      "interest": "intercultural and decolonial philosophy",
+      "role": "generator-eligible",
+      "owner": "Intercultural and decolonial philosophy",
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3027,
+      "interest": "gender, sexuality and feminist philosophy",
+      "role": "generator-eligible",
+      "owner": "Gender, sexuality and feminist philosophy",
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3028,
+      "interest": "the ethics and politics of digital technology",
+      "role": "generator-eligible",
+      "owner": "Technology, ecological change and political ethics",
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3029,
+      "interest": "the future of democracy",
+      "role": "generator-eligible",
+      "owner": "Global justice, human rights and democracy",
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3030,
+      "interest": "global distributive justice",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3031,
+      "interest": "the philosophy of international law",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3032,
+      "interest": "the ethics of war and peace",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3033,
+      "interest": "neurodiversity and mental difference",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3034,
+      "interest": "how ideas about psychiatric illness have changed",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3035,
+      "interest": "whether mental health is philosophical, psychological or neurological",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3036,
+      "interest": "political ideas about nature",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3037,
+      "interest": "environmental ethics",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3038,
+      "interest": "imagining futures beyond human-centred thinking",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3039,
+      "interest": "rethinking the relationship between humans and animals",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3040,
+      "interest": "the evolutionary and philosophical roots of social life",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3041,
+      "interest": "biopolitics and the governance of life",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3042,
+      "interest": "Orientalism and cultural representation",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3043,
+      "interest": "Latin American and Caribbean decolonial thought",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3044,
+      "interest": "transgender perspectives and changing ideas of gender",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3045,
+      "interest": "classic feminist philosophical writing",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3046,
+      "interest": "the connections between race, gender and sexuality",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3047,
+      "interest": "digital surveillance and privacy",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3048,
+      "interest": "the ethics and politics of artificial intelligence",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3049,
+      "interest": "countering threats to democracy",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3050,
+      "interest": "comparing different forms of democracy",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3051,
+      "interest": "who counts as the people in a democracy",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3052,
+      "interest": "counter-democracy and public resistance",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3053,
+      "interest": "rhetoric, persuasion and public argument",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3054,
+      "interest": "analysing philosophical texts and arguments",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3055,
+      "interest": "ancient and medieval philosophy",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3056,
+      "interest": "modern and contemporary philosophy",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3057,
+      "interest": "the philosophy of science and scientific knowledge",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3058,
+      "interest": "metaphysics and the nature of reality",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3059,
+      "interest": "philosophical anthropology and what makes us human",
+      "role": "support-only",
+      "owner": null,
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3060,
+      "interest": "writing and defending philosophical arguments",
+      "role": "generator-eligible",
+      "owner": "closest-core",
+      "finding": "Current exact-target programme/OER/module evidence confirms substance; optional module directions are not universal requirements."
+    },
+    {
+      "row": 3061,
+      "interest": "public-policy analysis and advice",
+      "role": "search-only",
+      "owner": null,
+      "finding": "Current career page explicitly conditions possibilities on further study/specialisation. Search-only; no construction, employment or admission guarantee."
+    },
+    {
+      "row": 3062,
+      "interest": "journalism and public debate",
+      "role": "search-only",
+      "owner": null,
+      "finding": "Current career page explicitly conditions possibilities on further study/specialisation. Search-only; no construction, employment or admission guarantee."
+    },
+    {
+      "row": 3063,
+      "interest": "working for think tanks and civil-society organisations",
+      "role": "search-only",
+      "owner": null,
+      "finding": "Current career page explicitly conditions possibilities on further study/specialisation. Search-only; no construction, employment or admission guarantee."
+    },
+    {
+      "row": 3064,
+      "interest": "postgraduate philosophical research",
+      "role": "search-only",
+      "owner": null,
+      "finding": "Current career page explicitly conditions possibilities on further study/specialisation. Search-only; no construction, employment or admission guarantee."
+    }
+  ],
+  "courseContributions": {
+    "ACCPPDE101": {
+      "currentName": "Personal & Professional Development",
+      "sourceField": "profile",
+      "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+      "finding": "Mandatory Year1PPD; academic writing, personal reflection and community engagement.",
+      "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "GOSPHIL111": {
+      "currentName": "Introduction to Western Philosophy",
+      "sourceField": "profile",
+      "sourceSha256": "b5a60e7c2084fce0b33730785d12b2b6664b881528c58cd63a51c255f3da3668",
+      "finding": "Actual 2500-year Western philosophy themes, theoretical tools and rigorous critical argument. Substantive philosophical foundation; not three dedicated history courses, philosophy of science or a full metaphysics sequence.",
+      "descriptionSha256": "106757f58621c7e76a4a39253f24296f54e95a15c500cf3571b6fbdaffbdc220",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "GOSPOLI111": {
+      "currentName": "Introduction to Political Philosophy",
+      "sourceField": "profile",
+      "sourceSha256": "b82d5b7efaf1e222b9ec94652bba7beb367919298b5ae983d3f07f072f142130",
+      "finding": "Classical/contemporary thinkers, political power and authority, intellectual presuppositions and normative/empirical connections. Direct political philosophy and argument.",
+      "descriptionSha256": "ea3b0a363bec6cacab1a13c186f6c97bbbf5d5ce40d4cf5cdb1a67491d47a19c",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "GOSSOCI111": {
+      "currentName": "Introduction to Sociology",
+      "sourceField": "profile",
+      "sourceSha256": "2c5e6511dd8d9aecb821cd421fce68fe511220de4b6da15349b60282efad36ac",
+      "finding": "Social institutions and classical/decolonial sociological context, race, gender and class. Sociological foundation, not the full Social and Cultural Philosophy unit.",
+      "descriptionSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "GOSPHIL212": {
+      "currentName": "Ethics",
+      "sourceField": "profile",
+      "sourceSha256": "6d4bf415a51b5b6fb41f341d23fe8b8ce483263f17505e77d1a4ae37299fe30f",
+      "finding": "Moral theories, feminist contributions, practical ethics, equality, animals, climate and historical injustice; independent argumentative essay/project. Direct substantial ethics and philosophical methods.",
+      "descriptionSha256": "d17cd0a6631823a666c2978b81f52bc5e8b5c8e52ed68edccb3fa37073146e5b",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "GOSPOLI212": {
+      "currentName": "Theory of International Relations",
+      "sourceField": "profile",
+      "sourceSha256": "0f83c15b507fb2c91b8001182f4a8a94e42ee1673da8396a51bb4a3556d47116",
+      "finding": "IR schools/theories and current geopolitical applications, group presentations and Security Council simulation. Political context, not normative international law or philosophical Project.",
+      "descriptionSha256": "04498c2b83c05d39830633ba46b62b3691d10af2bb8320e5413d0f75963fbc80",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "GOSSOCI212": {
+      "currentName": "Qualitative Research Methodology",
+      "sourceField": "profile",
+      "sourceSha256": "6531d96f817df19cfa773d8d8004f44da6041eeab39acfce1462438728cd1eeb",
+      "finding": "Actual qualitative design, data, interpretation, dissemination, positionality and group research. Empirical methods, not philosophical textual analysis; retained as complementary inquiry.",
+      "descriptionSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "MCCCOMM211": {
+      "currentName": "Style & Meaning",
+      "sourceField": "profile",
+      "sourceSha256": "d080043304ce78e0dfb21e7626ed39788487ac6407c4b6b9b8dd65a1ccc3cb3c",
+      "finding": "Primarily literary stylistics with nonfiction applications, linguistic choices and interpretation. Complementary language analysis; not philosophical writing workshop.",
+      "descriptionSha256": "1403b3e8bbe5009d3f3736ca1f68055e9a004b02908527fba7a6c0dbbb12be33",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "GOSPOLI112": {
+      "currentName": "Foundations of Comparative Politics",
+      "sourceField": "profile",
+      "sourceSha256": "b14ff261dc7cdd6216e38bf1f80cf7517ed1e0492cf1e0a5df3cae68da367ad2",
+      "finding": "Comparative political institutions and empirical analysis of democracy, authoritarianism, parties, media and globalisation. Political-science complement; not a full philosophy-of-democracy module.",
+      "descriptionSha256": "72f9efff37e62fdc1cb0ddf27e595e7b3c526eb132dad86622cf55738204a4ee",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "GOSSOCI214": {
+      "currentName": "Modern Sociology",
+      "sourceField": "profile",
+      "sourceSha256": "bce454b9799c5d4080546b19d140a9a14b3154d77b359d80df1bd0113a678dd3",
+      "finding": "Modern sociology, imperial/colonial context, theory and modernity. Placed before contemporary social theory in both retained routes to respect its assumed content sequence.",
+      "descriptionSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "GOSGATE102": {
+      "currentName": "Law, Society & Justice",
+      "sourceField": "profile",
+      "sourceSha256": "e3ee6c30cefe40d0410e4896ebe9e340104aad5931f93baad84dd2e4cfcd8c3e",
+      "finding": "Legal systems and cases plus social/normative law-and-justice questions. Complementary interdisciplinary application, not a full philosophical module.",
+      "descriptionSha256": "035b12c51282127288b99b6ba3cb906896d0fabff1cdf5153709df2d32006391",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "MCCCOMM111": {
+      "currentName": "The Art of Rhetorical Communication",
+      "sourceField": "profile",
+      "sourceSha256": "a1075e2aff565380f637a1ee31ac79c668477b11b15a7f853230b303cf44485f",
+      "finding": "Self-contained classical rhetoric, argumentation canons and essay/presentation skills. Actual autumn offering; replaces advanced persuasion in primary. Partial rhetorical correspondence, not all PPS logic/textual methods.",
+      "descriptionSha256": "34ab73cc0cae33e2a0e47ba5df0ee55c9b0e5f2d4e21ae97ea18667a96400c4c",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "GOSPHIL214": {
+      "currentName": "Philosophy of Mind",
+      "sourceField": "profile",
+      "sourceSha256": "42cc323c4b4e84b11a1708e36ad6dda7fd16c15ecd251b55bd2ff26c805874f1",
+      "finding": "Historical/contemporary philosophy of mind, selves, Buddhist self-theory, mind-body debate, consciousness, AI and animal minds. Direct philosophical substance; not a dedicated general metaphysics or intercultural-philosophy sequence.",
+      "descriptionSha256": "cd2e55eb0c7f8a45220107e2f961346ef9960975db1d457cb213c6bf58ef25a6",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "GOSLAWJ212": {
+      "currentName": "Introduction to Public International Law",
+      "sourceField": "profile",
+      "sourceSha256": "0f8c6da05a320590248fdd068ef7492aa4a552af12c9e621a746cfcdf1ad4f41",
+      "finding": "Public international legal sources, force, war, refugee/environmental law and treaty politics. Legal complement, not Philosophy of International Law equivalence.",
+      "descriptionSha256": "69f757ece2c00572df432e6ab9cc82f74c14f17c69dd6726bf3e86264049390a",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "GOSPOLI313": {
+      "currentName": "Peace & Conflict",
+      "sourceField": "profile",
+      "sourceSha256": "414e04bed3b7b37017b0ce93ba0aa469530684e0623175ca2ff1784b4a84515a",
+      "finding": "Conflict theories, inequality, colonial/identity grievances and peacebuilding through travelling concepts. Applied context for ethical/political reflection, not dedicated philosophical ethics of war.",
+      "descriptionSha256": "5ad720fcdadf602282307eef8fe7eaf83c3b00264a2ee4752e123cda89606fdf",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "DISARIN111": {
+      "currentName": "AI Ethics",
+      "sourceField": "profile",
+      "sourceSha256": "cb43b0c596757e7e4f5f93392738ac9d23f450d75d7dd7698bbb59ee1557333a",
+      "finding": "Actual philosophical and psychological inquiry into AI fairness, bias, privacy, accountability, moral status, agency and existential/political implications. Direct philosophical substance, not a full technology/surveillance module.",
+      "descriptionSha256": "573776c86616fbb9aa39c644ba0abcae2cb7c073febebe3b0203c329264cbeb3",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "GOSPHIL313": {
+      "currentName": "Free Will, Time & the Self",
+      "sourceField": "profile",
+      "sourceSha256": "8ede95519886b8537fbb9f41421eb40c5fefdc537f47f7463c89a8bcbf25202b",
+      "finding": "Current profile documents philosophical argument about free will, responsibility, luck, time, agency and selfhood, including historical perspectives and independent argumentative essays. Direct advanced philosophy; not a complete dedicated metaphysics sequence.",
+      "descriptionSha256": "f283131b5046b0c00827f9ee0b30524e1beac4aa954b5a8d9d6968408595aa65",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "GOSPOLI311": {
+      "currentName": "European Union Politics",
+      "sourceField": "profile",
+      "sourceSha256": "42788a5dd28eccc535d20a771b88a601c20af300b1102ef637945a852f156fe0",
+      "finding": "EU actors, institutions, decisions and legislative-dossier/interest-group research. Applied political inquiry, not philosophical history.",
+      "descriptionSha256": "97411c9c43963bfc500f8c6494383d57cfd36eeb9c57f554e94ba2d6e35c4253",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "GOSSOCI311": {
+      "currentName": "New Issues in Contemporary Social Theory",
+      "sourceField": "profile",
+      "sourceSha256": "f54abdf8a1ca13792cdc4bc2d390f202721dd6280b0cae44aa0609c2db02dbbf",
+      "finding": "Gramsci, Habermas, Fraser, civil society, solidarity, global/decolonial critiques and NGO/CSO research. Actual profile assumes introductory and modern sociology; both now precede it. Not history of contemporary philosophy.",
+      "descriptionSha256": "367314c88b9f1c559ccd023159845f9624f353f78d898bc66b690ebe3392336b",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "GOSLAWJ111": {
+      "currentName": "Human Rights: Law & Philosophy",
+      "sourceField": "profile",
+      "sourceSha256": "48e9acda58ff6a7860c4114b8d149a6f645cef5f3f456a30ca1f184348f4ffd8",
+      "finding": "Positive human-rights law and philosophical/historical rights, natural law, Plato/Aquinas/Hobbes/Locke and cases. Genuine mixed philosophical/legal contribution, not full global-distributive-justice module.",
+      "descriptionSha256": "1ed6ae8d1c72724248e9a340650eef63f02eaf747b2175254ce1ca96fc82ab62",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "GOSPHIL311": {
+      "currentName": "Philosophy of Emotion",
+      "sourceField": "profile",
+      "sourceSha256": "ed2dcaf02f7328cf276ef773da037a8d8c758eb8c32828ece67c4ac7fcb3b702",
+      "finding": "Philosophy of emotion: nature, rationality, moral motivation, politics and art through historical/contemporary sources. Direct advanced philosophical inquiry, not generic sociology or a thesis.",
+      "descriptionSha256": "62324bef464be860edac1d19bc42cc912320da6e34d73f0104c1242f1441c115",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "GOSLAWJ213": {
+      "currentName": "Comparative Constitutional Law",
+      "sourceField": "profile",
+      "sourceSha256": "3749867e8b6ef513149437432c78c9a25f6a6964e62399088abd19dddf6c47b1",
+      "finding": "Comparative constitutional/administrative principles, powers, democracy, rights and rule of law. Legal and institutional inquiry, not philosophical metaphysics or a complete democracy module.",
+      "descriptionSha256": "1845c8f87e0e1295bfe5b43ee7ea5c3902c6690b455726ad6c44b66c78ae8a6a",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "ENSDELT312": {
+      "currentName": "Governance of Sustainability",
+      "sourceField": "profile",
+      "sourceSha256": "f4cf9494a23b75f3fb3fe9090c62b9c8af908dc62a825c17f6547cfb48caf0a7",
+      "finding": "Actual governance actors, interests, public opinion and enforcement with problem-based food/water/energy/climate cases. Applied political context, not career-portfolio Philosophy in Practice.",
+      "descriptionSha256": "746711aaebf20395c0fd5695fb91c5951f611715825c91ca6da251c5d890e362",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "GOSSOCI215": {
+      "currentName": "Social Movements & Environmental Justice",
+      "sourceField": "description2",
+      "sourceSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+      "finding": "Social-movement theory and environmental-justice cases, feminism, anticolonialism and civic engagement. Applied societal context, not a complete decolonial/feminist philosophy sequence.",
+      "descriptionSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "ENSSUST111": {
+      "currentName": "Climate Change",
+      "sourceField": "profile",
+      "sourceSha256": "92a8d5a238274193e7d9163f689556026c415afc95cebb8ecc4b5215f17bbeb4",
+      "finding": "Climate drivers, natural and social impacts, justice, governance and mitigation/adaptation. Scientific context for ethical inquiry; not all its credit is philosophical study.",
+      "descriptionSha256": "51b7423fe905aaf8f483ff6389d1685b21b8a2fb0a4b9b41d99b59e42808a974",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "MCCMEDI111": {
+      "currentName": "Introduction to Film & Media",
+      "sourceField": "profile",
+      "sourceSha256": "5755fae4aad203737db42f373976a1a3540befa537d34b2f7992c241ca2092f3",
+      "finding": "Substantial film history, form and cultural analysis, with a brief wider-media introduction. Actual foundation for retained environmental media and documentary study.",
+      "descriptionSha256": "07d87ceb8396fdb190b165e8c6c602ac572c9aca7393cd25c4ddddb5f19ccb8a",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "MCCCOMM212": {
+      "currentName": "Communicating the Climate Crisis",
+      "sourceField": "description2",
+      "sourceSha256": "5209c82495a070f3b1df9fc7f24e1046a8b13e562e2f8fdec4e8bd64becb3a13",
+      "finding": "Climate communication, contested texts/media and a public-debate project. Direct environmental communication contribution, not a complete environmental-ethics module.",
+      "descriptionSha256": "5209c82495a070f3b1df9fc7f24e1046a8b13e562e2f8fdec4e8bd64becb3a13",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "MCCMEDI212": {
+      "currentName": "Media & the Environment",
+      "sourceField": "profile",
+      "sourceSha256": "dcd76c7102e42bcb899b20649a23924f751b2ce55bca6ba24a06b76a101475c1",
+      "finding": "Substantive environmental humanities: Anthropocene, animals, deep time, indigenous/decolonial media, agency, scale and responsibility; final paper/media project. Central to environmental route.",
+      "descriptionSha256": "2b61dab9e75d070fa82a001dfc59db49798910b47c0f9bb203e19eaaec9565c6",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "MCCMEDI311": {
+      "currentName": "Media & Race",
+      "sourceField": "profile",
+      "sourceSha256": "3047a3489ffc4f90cde2a5d32b641f66255b1616a1599ed60e121e6306d5fda8",
+      "finding": "US race, history, representation, oppression/resistance and research podcasts. Distinct media/power contribution, not generic global philosophy or environmental science.",
+      "descriptionSha256": "05aa4bb52a50700caa428fbe8cbb10a8fb321a9da4087a93a95e30883998a618",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "MCCMEDI312": {
+      "currentName": "The Documentary",
+      "sourceField": "profile",
+      "sourceSha256": "d8ce7c931003ce12a3a81c610feeda88ceed97ae0297b4a9bafa1001fe843803",
+      "finding": "Documentary history, social contexts, ethics/aesthetics, short documentary production and essay exam. Builds coherently on film/media study; practical representation work, not PPS thesis or general philosophy.",
+      "descriptionSha256": "223f9d67569f492466d7fe0e444249d55688d2d867669711ff057617aa16f2fe",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "HCBGATE102": {
+      "currentName": "Introduction to Brain & Behavior",
+      "sourceField": "profile",
+      "sourceSha256": "6d605699b0fd169d061934b859575ea92f2ae8c41c05147cf1d7137c8cf49859",
+      "finding": "Psychological and neuroscientific accounts of learning, personality, mental disorders and treatments establish the empirical foundation for evaluating accounts of mind and illness.",
+      "descriptionSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "HCBPSYC111": {
+      "currentName": "Social Psychology",
+      "sourceField": "profile",
+      "sourceSha256": "98dd42b7632703daa8f8cae1c9428810869e3183e59ea31d8ab2271bf1205c75",
+      "finding": "Social cognition, self-concepts, influence, prejudice and interpersonal relationships provide concrete psychological accounts of mental life in social settings.",
+      "descriptionSha256": "1300df4b478a5fb06ea11b1aab33dd1ec75a582dd6b48f104df9218b2000aa22",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "BENGATE102": {
+      "currentName": "Research Methods & Statistics",
+      "sourceField": "profile",
+      "sourceSha256": "9d88751452d5c0a6888ac7901a73d1a848617dee2b587d4df64815fc39ad8813",
+      "finding": "Research design, operationalisation, measurement and inference supply methods for critically evaluating empirical mental-health claims.",
+      "descriptionSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "HCBPSYC211": {
+      "currentName": "Statistics & Experimental Methods",
+      "sourceField": "profile",
+      "sourceSha256": "bf482d4e283320560451930d2822162ada50a7697ded31de54eb7b021694adbc",
+      "finding": "Multivariable models, experimental designs and assumption checks support critical appraisal of behavioural and clinical evidence.",
+      "descriptionSha256": "ef41b0b732a8e9502a0d7e14ceef47bb91ca971854bb1a26b6a8ed5e6c9b6111",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "HCBCOGN311": {
+      "currentName": "Higher Order Functions",
+      "sourceField": "profile",
+      "sourceSha256": "f6033f78b541acd4a5788e843aa744855b5a99d2841ce90ebdd17797944c5d42",
+      "finding": "Attention, memory, emotion, consciousness and brain dysfunction supply specific cognitive mechanisms for philosophical questions about mental life.",
+      "descriptionSha256": "42d96460b731996549fb6525fa622439622a99854e4db744eabc7c61a5e19598",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "HCBPSYC212": {
+      "currentName": "Psychopathology",
+      "sourceField": "profile",
+      "sourceSha256": "659354853b4cf2eb38461623c31bf75a06cffbad9c0ebfba318acac667f3e531",
+      "finding": "Historical views, psychiatric classification and biopsychosocial explanations across the lifespan directly support inquiry into competing accounts of mental disorder; no complete neurodiversity or psychiatric-philosophy sequence is claimed.",
+      "descriptionSha256": "1d5842372801f7a26c96be137ebcaac5427d3542563b705bd9679e6726a5550d",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "HCBPSYC314": {
+      "currentName": "Lifespan Developmental Psychology",
+      "sourceField": "profile",
+      "sourceSha256": "b7108c9195e152f16dd2afa551f26c8c9ee9ed03a2b6d6bb95737d197ba5b139",
+      "finding": "Developmental theories, attachment, ageing and developmental psychopathology supply a lifespan account of mental life and care; adult interview work is not child clinical training.",
+      "descriptionSha256": "83bc9b3a3f25b826775e694d59d5a8673158b9fd3bced3778ac1efb9b4da6289",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "DISARIN212": {
+      "currentName": "Logic & Discrete Mathematics",
+      "sourceField": "profile",
+      "sourceSha256": "93a52b9fe674b9db0732d6f9451146621be7c59068bdf70219256b67ba3b03c2",
+      "finding": "Propositional and predicate logic, quantifiers and proof provide formal argument-analysis tools for the philosophical reasoning strand. Discrete mathematics and computation extend beyond that function; no equivalence to full philosophical textual methods is claimed.",
+      "descriptionSha256": "8dd0a9f18c414a2e9f92c9a3d1871ac7b1c5b8eecf2f00d4cf112b8b7d059c76",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "HCBPSYC311": {
+      "currentName": "Medical & Health Psychology",
+      "sourceField": "profile",
+      "sourceSha256": "c9753f8e333632af538773e50407750fccbb4473a8ce563143713152b8984e45",
+      "finding": "Biopsychosocial health, stress, pain, illness and cultural/clinical-health formulation support analysis of how lived and social contexts affect health and care.",
+      "descriptionSha256": "94dc6e3d2d536c131d5e6212208e40ffb57a3ec301655d3c526eaf6be0a23c52",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "HCBPSYC312": {
+      "currentName": "Psychodiagnostics & Psychotherapies",
+      "sourceField": "profile",
+      "sourceSha256": "b1bc649543fcb4a63180fc7ccc90801681d03545c15b14ec1a2b0f9fa9dc02d5",
+      "finding": "Clinical assessment, test validity, diagnostic integration and major psychotherapies provide substantive psychological knowledge of mental-health classification and intervention; this is introductory training, not professional qualification.",
+      "descriptionSha256": "602c736beb4dfef7c58f9197a72b6a10c4ea2989e5703a07be7ae19a9e054d26",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "HCBPSYC313": {
+      "currentName": "Advanced Research Methods & Statistics",
+      "sourceField": "profile",
+      "sourceSha256": "eb24b7cc21c239bb763218b5b09a429739925fa1a8206c390c2f07c75f528c1d",
+      "finding": "Systematic review, risk-of-bias assessment, effect sizes and R meta-analysis provide research-synthesis methods for evaluating empirical mental-health claims.",
+      "descriptionSha256": "f9bb29521ce24ffbe4d0eef2398221f54d99cbd72801c53bf1db0de6b3c4c799",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    },
+    "HCBCOGN312": {
+      "currentName": "Psycholinguistics",
+      "sourceField": "description2",
+      "sourceSha256": "8b48cfd32534496954068f0d33edc9cd03d1856a6e075c0364ae1ec55dad27ec",
+      "finding": "The description explicitly supports language processing, acquisition, impairment and thought-language relationships, offering a specific cognitive contribution to accounts of mental life.",
+      "descriptionSha256": "8b48cfd32534496954068f0d33edc9cd03d1856a6e075c0364ae1ec55dad27ec",
+      "descriptionReview": "Read complete displayed text against current available evidence; supported subject/method claims. Unchanged shared description and historical provenance retained."
+    }
+  },
+  "placements": [
+    {
+      "alternative": 1,
+      "code": "ACCPPDE101",
+      "term": "2026h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "GOSPHIL111",
+      "term": "2026h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "GOSPOLI111",
+      "term": "2026h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "GOSSOCI111",
+      "term": "2026h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "GOSPHIL212",
+      "term": "2027h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "GOSPOLI212",
+      "term": "2027h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "GOSSOCI212",
+      "term": "2027h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "MCCCOMM211",
+      "term": "2027h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "GOSPOLI112",
+      "term": "2027h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "GOSSOCI214",
+      "term": "2027h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "GOSGATE102",
+      "term": "2027h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "MCCCOMM111",
+      "term": "2027h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "GOSPHIL214",
+      "term": "2028h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "GOSLAWJ212",
+      "term": "2028h1",
+      "offering": "X",
+      "formalPrerequisite": "GOSGATE102"
+    },
+    {
+      "alternative": 1,
+      "code": "GOSPOLI313",
+      "term": "2028h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "DISARIN111",
+      "term": "2028h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "GOSPHIL313",
+      "term": "2028h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "GOSPOLI311",
+      "term": "2028h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "GOSSOCI311",
+      "term": "2028h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "GOSLAWJ111",
+      "term": "2028h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "GOSPHIL311",
+      "term": "2029h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "GOSLAWJ213",
+      "term": "2029h1",
+      "offering": "X",
+      "formalPrerequisite": "GOSGATE102"
+    },
+    {
+      "alternative": 1,
+      "code": "ENSDELT312",
+      "term": "2029h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 1,
+      "code": "GOSSOCI215",
+      "term": "2029h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "ACCPPDE101",
+      "term": "2026h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "GOSPHIL111",
+      "term": "2026h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "GOSPOLI111",
+      "term": "2026h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "GOSSOCI111",
+      "term": "2026h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "GOSPHIL212",
+      "term": "2027h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "GOSPOLI212",
+      "term": "2027h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "GOSSOCI212",
+      "term": "2027h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "DISARIN111",
+      "term": "2027h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "GOSPOLI112",
+      "term": "2027h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "GOSSOCI214",
+      "term": "2027h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "ENSSUST111",
+      "term": "2027h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "MCCMEDI111",
+      "term": "2027h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "GOSPHIL214",
+      "term": "2028h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "MCCCOMM212",
+      "term": "2028h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "MCCMEDI212",
+      "term": "2028h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "ENSDELT312",
+      "term": "2028h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "GOSPHIL313",
+      "term": "2028h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "GOSSOCI311",
+      "term": "2028h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "MCCMEDI311",
+      "term": "2028h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "GOSLAWJ111",
+      "term": "2028h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "GOSPHIL311",
+      "term": "2029h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "GOSPOLI313",
+      "term": "2029h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "GOSSOCI215",
+      "term": "2029h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 2,
+      "code": "MCCMEDI312",
+      "term": "2029h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 3,
+      "code": "ACCPPDE101",
+      "term": "2026h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 3,
+      "code": "GOSPHIL111",
+      "term": "2026h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 3,
+      "code": "GOSPOLI111",
+      "term": "2026h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 3,
+      "code": "HCBGATE102",
+      "term": "2026h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 3,
+      "code": "GOSPHIL212",
+      "term": "2027h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 3,
+      "code": "GOSPHIL214",
+      "term": "2027h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 3,
+      "code": "HCBCOGN312",
+      "term": "2027h1",
+      "offering": "X",
+      "formalPrerequisite": "HCBGATE102"
+    },
+    {
+      "alternative": 3,
+      "code": "BENGATE102",
+      "term": "2027h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 3,
+      "code": "HCBPSYC211",
+      "term": "2027h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 3,
+      "code": "GOSSOCI111",
+      "term": "2027h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 3,
+      "code": "HCBCOGN311",
+      "term": "2027h2",
+      "offering": "X",
+      "formalPrerequisite": "HCBGATE102"
+    },
+    {
+      "alternative": 3,
+      "code": "MCCCOMM111",
+      "term": "2027h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 3,
+      "code": "HCBPSYC212",
+      "term": "2028h1",
+      "offering": "X",
+      "formalPrerequisite": "HCBGATE102"
+    },
+    {
+      "alternative": 3,
+      "code": "HCBPSYC314",
+      "term": "2028h1",
+      "offering": "X",
+      "formalPrerequisite": "HCBGATE102"
+    },
+    {
+      "alternative": 3,
+      "code": "HCBPSYC111",
+      "term": "2028h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 3,
+      "code": "GOSSOCI212",
+      "term": "2028h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 3,
+      "code": "GOSPHIL313",
+      "term": "2028h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 3,
+      "code": "HCBPSYC311",
+      "term": "2028h2",
+      "offering": "X",
+      "formalPrerequisite": "HCBGATE102"
+    },
+    {
+      "alternative": 3,
+      "code": "DISARIN212",
+      "term": "2028h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 3,
+      "code": "GOSSOCI214",
+      "term": "2028h2",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 3,
+      "code": "GOSPHIL311",
+      "term": "2029h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    },
+    {
+      "alternative": 3,
+      "code": "HCBPSYC312",
+      "term": "2029h1",
+      "offering": "X",
+      "formalPrerequisite": "HCBGATE102"
+    },
+    {
+      "alternative": 3,
+      "code": "HCBPSYC313",
+      "term": "2029h1",
+      "offering": "X",
+      "formalPrerequisite": "HCBGATE102"
+    },
+    {
+      "alternative": 3,
+      "code": "DISARIN111",
+      "term": "2029h1",
+      "offering": "X",
+      "formalPrerequisite": "NONE"
+    }
+  ],
+  "distinctness": [
+    {
+      "pair": [
+        1,
+        2
+      ],
+      "exclusiveCoursesEach": 6,
+      "exclusiveECeach": 45.0,
+      "finding": "Different political/legal, environmental/media or mental-health/cognitive priorities generate these differences; shared philosophical foundations do not erase the distinct applications."
+    },
+    {
+      "pair": [
+        1,
+        3
+      ],
+      "exclusiveCoursesEach": 12,
+      "exclusiveECeach": 90.0,
+      "finding": "Different political/legal, environmental/media or mental-health/cognitive priorities generate these differences; shared philosophical foundations do not erase the distinct applications."
+    },
+    {
+      "pair": [
+        2,
+        3
+      ],
+      "exclusiveCoursesEach": 13,
+      "exclusiveECeach": 97.5,
+      "finding": "Different political/legal, environmental/media or mental-health/cognitive priorities generate these differences; shared philosophical foundations do not erase the distinct applications."
+    }
+  ],
+  "alignmentReview": {
+    "method": "Re-read every shared and unmatched row. Meaningful philosophical history/politicalthought/ethics/rhetoric/anthropology connections retained with explicit scope differences. General legal, social, research or career functions are not forced into specialist philosophical rows.",
+    "mentalHealth": "HCBPSYC212nowaligns with the integrated15ECMentalHealthmodule because historical and diagnostic concepts/biopsychosocial models are an identifiable important part. Neurodiversity and dedicated philosophical psychiatry remain outside its claimed scope. It is one partial course relationship, not15ECequivalence.",
+    "gaps": "Dedicated philosophy of science, social/cultural philosophy, later philosophical history, textual/writing methods, broad metaphysics,Project,Words,globaljustice/democracymodules,Practice andthesis remain separate where no course meets the relationship standard. Other complete modules and30ECopenchoice retain their real credits.",
+    "optionalResearch": "One comparison-only15ECresearch element per UCRprogramme parallel to the required thesis, excluded from each scheduled180EC and24courses."
+  },
+  "contentReview": {
+    "policy": "record-content-review-2026-10-31",
+    "presentationMode": "normal",
+    "rendererMapping": "app.R821be611428fc28490c679783be464455ad00aa1: summary selects audience descriptions/curriculum labels/limits and canonical concepts by conceptProgrammeIds; table displays titles/course/componentnames/credits and only audience.cellNotes; selected canonical notes use noteTypes. Component notes are reviewed for external-only view, not an internal fallback. Modals load cached descriptions by course-code department.",
+    "fieldPaths": [
+      "comparator.name/institution/primarySourceUrl",
+      "comparator.components[*].name/credits",
+      "programmes[*].label",
+      "academicRationale.alternatives[*].concept",
+      "blocks[*].title/rows[*].cells[*].text/credits",
+      "audience.*",
+      "notes[*].text",
+      "optionalIndependentResearch",
+      "selectedcode-keyedcourseDescriptions"
+    ],
+    "findings": "Read all42selected descriptions and every reader-facing title,concept,explanation,limitation,source link andselected note. Third label describes philosophy/clinical/cognitive composition and disclaims qualification; scope gaps remain visible. Removed internal source-discrepancy and production-reasoning language from audience notes. All references resolve, including ucr-3. Officiallinksreturned200; fixedUCRcourses/ProgramBuilder destinations retain unchanged verified shared behaviour.",
+    "runtime": "NoShiny launch/browser installation/screenshots/live modals; noappcodechanged. Representative actual rendering remains required before final release."
+  },
+  "mechanical": {
+    "feasibility": "passed all3programmes;24unique180EC/fourperterm/Year1PPD/formalprerequisites/offerings",
+    "schema": "strictfullJSONschemapassed",
+    "replay": "productioncompilerbyte-exact to canonical",
+    "operational": "npm run validate:counselor exit0",
+    "operationalLogSha256": "75d2ee86670411f390b618683c8b0cd873ccd9ed0c857ce02756aff3b033a9c8",
+    "descriptions": "Shared provenance validatorpassed86reviewedentries; all42selected texts substantivelyread; no cacheedit required",
+    "sourceScope": "No workbook,appcode,registry or discovery-index modification."
+  }
+}

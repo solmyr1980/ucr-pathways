@@ -2195,13 +2195,34 @@
     },
     {
       "id": "cp-000064",
-      "state": "not-started",
-      "stageOutcomes": {},
+      "state": "in-progress",
+      "stageOutcomes": {
+        "1": "correct",
+        "2": "correct",
+        "3": "correct",
+        "4": "correct",
+        "5": "correct"
+      },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [],
+      "downstreamReassessments": [
+        {
+          "trigger": "Third mental-health alternative and bounded audience/title changes",
+          "scope": "Reassess finished courses,alignment,labels,all42descriptions,credits,distinctness and independent source-first pass after publication.",
+          "stages": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "evidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000064/academic-content-repair.json"
+          ]
+        }
+      ],
       "implementationCommits": [],
-      "presentationApproval": false
+      "presentationApproval": false,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000064.json"
     },
     {
       "id": "cp-000065",
@@ -6796,9 +6817,9 @@
   ],
   "progress": {
     "approved": 82,
-    "inProgress": 34,
+    "inProgress": 35,
     "reviewedWithBlockers": 0,
-    "notStarted": 322,
+    "notStarted": 321,
     "pilotStarted": 4
   },
   "batches": [],
@@ -7464,21 +7485,20 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000063",
-        "executionId": "restart-A-cp063-20261104T0428Z",
-        "state": "approved",
-        "academicDisposition": "no-defensible-ucr-match",
-        "reviewedInputCommit": "ee7d539f1d55765517f64fa3ed65630e8e57dcb9",
+        "executionId": "restart-A-cp064-20261104T0526Z",
+        "worker": "A",
+        "caseId": "cp-000064",
+        "claimedAt": "2026-11-04T05:25:55Z",
+        "reviewedInputCommit": "4d4b8136de9c77fac57b8ff4f7cd020e30e5cea0",
         "inputBlobs": {
-          "canonical": "e73f5441a6749f3fb27209e6704a915b5c77e8f6",
-          "decision": "da535c33a1fab3eb25088c5b92e81116182b84f4"
+          "canonical": "c63030a6ef9737f0fc3cca9008641180360a2552",
+          "decision": "7c510fa85c661e4d8947d44ea8da012503abdd0b"
         },
-        "verifiedAt": "2026-11-04",
-        "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000063/source-first-final-pass.json",
-        "nextAction": "CP063complete as a verified no-defensible-UCR-match exception. Resume CP064 next execution; no final release/discovery/deployment authorised.",
+        "nextAction": "Publish/verify repaired three-alternative pair and applicable CI; then complete separate same-AI source-first final review and final disposition.",
         "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
+        "runtimeReasoningEffort": "unknown",
+        "state": "in-progress",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000064/academic-content-repair.json"
       },
       "checkpointHistory": [
         {
@@ -11717,6 +11737,29 @@
                 "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
               },
               "nextAction": "Verify current PWPO external curriculum, all interests and strongest UCR response; complete six-stage source-first academic and content review.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
+        },
+        {
+          "preservedOn": "2026-11-04",
+          "reason": "Preserve prior checkpoint before CP064 repair checkpoint.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000063",
+              "executionId": "restart-A-cp063-20261104T0428Z",
+              "state": "approved",
+              "academicDisposition": "no-defensible-ucr-match",
+              "reviewedInputCommit": "ee7d539f1d55765517f64fa3ed65630e8e57dcb9",
+              "inputBlobs": {
+                "canonical": "e73f5441a6749f3fb27209e6704a915b5c77e8f6",
+                "decision": "da535c33a1fab3eb25088c5b92e81116182b84f4"
+              },
+              "verifiedAt": "2026-11-04",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000063/source-first-final-pass.json",
+              "nextAction": "CP063complete as a verified no-defensible-UCR-match exception. Resume CP064 next execution; no final release/discovery/deployment authorised.",
               "runtimeModel": "unknown",
               "runtimeReasoningEffort": "unknown"
             }
