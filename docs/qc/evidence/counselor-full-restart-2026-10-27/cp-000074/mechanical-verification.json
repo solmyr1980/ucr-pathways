@@ -1,0 +1,37 @@
+{
+  "caseId": "cp-000074",
+  "checkedOn": "2026-11-04",
+  "inputBlobs": {
+    "data/counselor/decisions/cp-000074.json": "2f79f55fd578d3e15169d4206b6998726cd89419",
+    "data/counselor/comparisons/cp-000074.json": "fa483e0bfb0c1eae720ede5f34a867b782a4b162",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294"
+  },
+  "checks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000074.json",
+      "exitCode": 0,
+      "result": "Exceptionpasses; noUCRschedule fabricated."
+    },
+    {
+      "command": "PYTHONPATH=/tmp/cp292-resume/python-deps python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000074.json",
+      "exitCode": 0,
+      "result": "FullJSONSchema passes."
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "logSha256": "75d2ee86670411f390b618683c8b0cd873ccd9ed0c857ce02756aff3b033a9c8"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000074.json --output /tmp/cp074/replay.json; bytecomparison",
+      "exitCode": 0,
+      "result": "Exactcanonicalbytes match."
+    },
+    {
+      "command": "python scripts/validate-comprehensive-reaudit.py --sync",
+      "exitCode": 0,
+      "result": "438scope consistent; noacademicapproval inferred."
+    }
+  ],
+  "boundary": "Noappcode/runtime/R/browser/modal/screenshotchange; nofinaldiscovery/deploymentauthorisation."
+}
