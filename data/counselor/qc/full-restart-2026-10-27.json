@@ -2259,13 +2259,31 @@
     },
     {
       "id": "cp-000067",
-      "state": "not-started",
-      "stageOutcomes": {},
+      "state": "in-progress",
+      "stageOutcomes": {
+        "1": "retain",
+        "2": "retain",
+        "3": "correct",
+        "4": "correct",
+        "5": "correct"
+      },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [],
+      "downstreamReassessments": [
+        {
+          "trigger": "Offering repairs and clarified banking contribution",
+          "scope": "Verify finished schedules,course contribution,unchanged distinctness/alignment,reader text and separate source-first final pass.",
+          "stages": [
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
       "implementationCommits": [],
-      "presentationApproval": false
+      "presentationApproval": false,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000067.json"
     },
     {
       "id": "cp-000068",
@@ -6830,9 +6848,9 @@
   ],
   "progress": {
     "approved": 85,
-    "inProgress": 34,
+    "inProgress": 35,
     "reviewedWithBlockers": 0,
-    "notStarted": 319,
+    "notStarted": 318,
     "pilotStarted": 4
   },
   "batches": [],
@@ -7522,21 +7540,15 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000066",
-        "executionId": "restart-A-cp066-20261104T0730Z",
-        "state": "approved",
-        "academicDisposition": "comparison",
-        "reviewedInputCommit": "32cf6576a4d3b9407bc65c6d00885faae295b56f",
+        "caseId": "cp-000067",
+        "executionId": "restart-A-cp067-20261104T0826Z",
+        "state": "in-progress",
+        "nextAction": "Verify published repair and applicable CI; complete separate same-AI source-first final academic/content verification and disposition.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000067/academic-content-review.json",
         "inputBlobs": {
-          "canonical": "3b38826940c717da36ba6e1cee528f48279844f6",
-          "decision": "3986b015a9f22c7d231184cab33343496de02af7"
-        },
-        "verifiedAt": "2026-11-04T07:41:31.968348+00:00",
-        "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000066/source-first-final-pass.json",
-        "nextAction": "CP066 complete as a verified two-alternative Psychology comparison. Resume cp-000067 next execution; release/discovery/deployment remain unauthorised.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
+          "canonical": "85adc3edbe4c53337a1e8664d0350926a1417c79",
+          "decision": "fe8975123ea8334db63f07df6520eeb59ed4ffe5"
+        }
       },
       "checkpointHistory": [
         {
@@ -12049,6 +12061,51 @@
                 "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
               },
               "nextAction": "Verify Psychology cohort/source/progression, all interests and UCR alternatives through six stages, affected repair and separate source-first final academic/content verification.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
+        },
+        {
+          "preservedOn": "2026-11-04",
+          "reason": "Preserve own checkpoint and claim before case update.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000066",
+              "executionId": "restart-A-cp066-20261104T0730Z",
+              "state": "approved",
+              "academicDisposition": "comparison",
+              "reviewedInputCommit": "32cf6576a4d3b9407bc65c6d00885faae295b56f",
+              "inputBlobs": {
+                "canonical": "3b38826940c717da36ba6e1cee528f48279844f6",
+                "decision": "3986b015a9f22c7d231184cab33343496de02af7"
+              },
+              "verifiedAt": "2026-11-04T07:41:31.968348+00:00",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000066/source-first-final-pass.json",
+              "nextAction": "CP066 complete as a verified two-alternative Psychology comparison. Resume cp-000067 next execution; release/discovery/deployment remain unauthorised.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp067-20261104T0826Z",
+              "worker": "A",
+              "caseId": "cp-000067",
+              "claimedAt": "2026-11-04T08:27:32.414580+00:00",
+              "reviewedInputCommit": "b2ae867259b71e25eaff61c69475c4c517f26b52",
+              "inputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000067.json": "de9c23d34eaa1e45beba6587278923538d8877ff",
+                "data/counselor/comparisons/cp-000067.json": "7ad7394e183d43730de1de9ff8619c6430797abc",
+                "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Verify Law identity, coherent current curriculum and progression; review all interests and current legal/course evidence, repair schedules and reassess concepts/alignment/content, then separate source-first final verification.",
               "runtimeModel": "unknown",
               "runtimeReasoningEffort": "unknown"
             }

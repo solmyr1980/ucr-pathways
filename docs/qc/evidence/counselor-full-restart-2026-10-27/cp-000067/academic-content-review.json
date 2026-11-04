@@ -1,0 +1,1977 @@
+{
+  "caseId": "cp-000067",
+  "auditId": "counselor-full-restart-2026-10-27",
+  "executionId": "restart-A-cp067-20261104T0826Z",
+  "reviewedOn": "2026-11-04T08:31:59.165409+00:00",
+  "reviewedInputCommit": "b2ae867259b71e25eaff61c69475c4c517f26b52",
+  "inputBlobs": {
+    "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+    "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+    "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000067.json": "fe8975123ea8334db63f07df6520eeb59ed4ffe5",
+    "data/counselor/comparisons/cp-000067.json": "85adc3edbe4c53337a1e8664d0350926a1417c79",
+    "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "canonical": "85adc3edbe4c53337a1e8664d0350926a1417c79",
+    "decision": "fe8975123ea8334db63f07df6520eeb59ed4ffe5",
+    "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
+    "pilot/shiny/data/courses/ENS.json": "da5d9225d6682419998c3cf20837727a5fa39cbf",
+    "pilot/shiny/data/courses/GOS.json": "49da38b390637fa113a95b835a4d9bbda854ef83",
+    "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa"
+  },
+  "freshSources": [
+    {
+      "id": 0,
+      "url": "https://www.ru.nl/sites/default/files/2026-09/oer_2026-2027-fdr.pdf",
+      "effectiveUrl": "https://www.ru.nl/sites/default/files/2026-09/oer_2026-2027-fdr.pdf",
+      "status": 200,
+      "bytes": 1184776,
+      "sha256": "0038b9a0e05aa5e751ce6540f2f5037d1b8c46405219e51326c89c23affb06d9"
+    },
+    {
+      "id": 1,
+      "url": "https://www.ru.nl/studenten/onderwijs-volgen/regels-en-richtlijnen/onderwijs-en-examenregelingen/rechtsgeleerdheid",
+      "effectiveUrl": "https://www.ru.nl/studenten/onderwijs-volgen/regels-en-richtlijnen/onderwijs-en-examenregelingen/rechtsgeleerdheid",
+      "status": 200,
+      "bytes": 47964,
+      "sha256": "773f402a6c5cb2537d64c7188d02c8483cc95bb66d546e5c166fc8344637896c"
+    },
+    {
+      "id": 2,
+      "url": "https://www.ru.nl/opleidingen/bachelors/rechtsgeleerdheid",
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/rechtsgeleerdheid",
+      "status": 200,
+      "bytes": 61680,
+      "sha256": "c36dc0d458c5b2ca382fd9fc50b924f67e7f17e9748aadb3ac0b9afc6744f656"
+    },
+    {
+      "id": 3,
+      "url": "https://www.ru.nl/opleidingen/bachelors/rechtsgeleerdheid/studieprogramma",
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/rechtsgeleerdheid/studieprogramma",
+      "status": 200,
+      "bytes": 45578,
+      "sha256": "066c986c5d599a595a021227045dfdb6e77ee39c381d40fdd6ff10f760aceafd"
+    },
+    {
+      "id": 4,
+      "url": "https://www.ru.nl/opleidingen/bachelors/rechtsgeleerdheid/studieprogramma/jaar-1",
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/rechtsgeleerdheid/studieprogramma/jaar-1",
+      "status": 200,
+      "bytes": 61661,
+      "sha256": "d20a8f3efe774102ce19c44c1afb6056075e06c905fd56c1d784386f77c532f9"
+    },
+    {
+      "id": 5,
+      "url": "https://www.ru.nl/opleidingen/bachelors/rechtsgeleerdheid/studieprogramma/jaar-2",
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/rechtsgeleerdheid/studieprogramma/jaar-2",
+      "status": 200,
+      "bytes": 65049,
+      "sha256": "799a508bdc993023e739653e1ee5325c8cbdad959230a792ed299345004d7562"
+    },
+    {
+      "id": 6,
+      "url": "https://www.ru.nl/opleidingen/bachelors/rechtsgeleerdheid/studieprogramma/jaar-3",
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/rechtsgeleerdheid/studieprogramma/jaar-3",
+      "status": 200,
+      "bytes": 80369,
+      "sha256": "12a97d59a609fb72e521134892afd259867177be09ad539fb79cc1d5989cdb0b"
+    },
+    {
+      "id": 7,
+      "url": "https://www.ru.nl/opleidingen/bachelors/rechtsgeleerdheid/wat-kun-je-ermee",
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/rechtsgeleerdheid/wat-kun-je-ermee",
+      "status": 200,
+      "bytes": 41810,
+      "sha256": "64d55fb3d5011e7ca83b8f6ebbc083d5fd657a730e625862c2ea4b4c02377772"
+    },
+    {
+      "id": 8,
+      "url": "https://www.ru.nl/ru-bestanden/bachelorthesisreglement",
+      "effectiveUrl": "https://www.ru.nl/sites/default/files/2026-08/bachelorthesisreglement-2026-2027.pdf",
+      "status": 200,
+      "bytes": 277257,
+      "sha256": "2a639dd96dc2fdfff19c05e1b0ff049cf1e5f51eadf5c3030251e290ffdf453b"
+    },
+    {
+      "id": 9,
+      "url": "https://www.ru.nl/ru-bestanden/regeling-actievedeelnameverplichting-bachelor-fdr",
+      "effectiveUrl": "https://www.ru.nl/sites/default/files/2026-08/def_regeling_verplicht_werkgroeponderwijs_2026_2027-studenten_0.pdf",
+      "status": 200,
+      "bytes": 179075,
+      "sha256": "169e1e131ad34612bbf8b2de1f9a29a744face4a1fc5f4120fc6df825561ecc5"
+    }
+  ],
+  "external": {
+    "identity": "Radboud Dutch full-time LLB50700 Rechtsgeleerdheid, not European Law School, Notarial Law, part-time or combined degree. Current annual2026–27 ordinary framework selected before UCR fit.",
+    "sourceReuse": "Fresh OER hash0038b9a0e05aa5e751ce6540f2f5037d1b8c46405219e51326c89c23affb06d9 equals retained document. Independently read actual AnnexVI Article1pp52–53, AnnexVIII Article1pp76–77, entry/BSA rules, and newly retrieved full2026–27 thesis and prepared-attendance regulations. Earlier approvals are not proof.",
+    "credits": "32components,60+60+60=180distinctEC.162required/18restricted:5labour-or-tax-or-family,4tenancy-or-financial-or-IP,4AI-law-or-economy/reporting,4perspective+1matchingessay. First-listed Labour,Tenancy,AI,Criminology/essay chosen neutrally. No open/minor block or reserved exchange semester; alternatives not stacked.",
+    "progression": "Mandatory first-year tutoring adds no credits; academic language is a separate1ECunit. Later years require fullB1 or45B1EC plus component prerequisites. Constitutional/administrative,criminal andprivate foundations precede their later legal sequences; advancedEU requires both introEU and introInternationalLaw. Thesis follows language/skillsI/skillsII, with programme registration and topic-dependent announced conditions; about3months,atleast2groupmeetings,4000–5000words,revision rules. No individual thesis-topic entitlement claimed. Active prepared first-year attendance conditions and exceptions apply; normalBSA45EC.",
+    "researchBoundary": "Positive-law research3EC,perspective essay1EC and legal thesis5EC are legal research. Empirical/statistical work and general rhetoric are complementary, not replacement doctrinal source handling. Part-time13ECreplacement not selected. FiscalLaw master prerequisites in unselected tax/economy-reporting choices are not promised.",
+    "underlyingRefs": [
+      "docs/qc/evidence/counselor-corpus-A-cp067-2026-10-25/source-verification.json",
+      "docs/qc/evidence/counselor-corpus-A-cp067-2026-10-25/external-progression.json"
+    ]
+  },
+  "interestReview": [
+    {
+      "registryRow": 3145,
+      "sourceInterestExcelRow": 3145,
+      "studentInterest": "how laws shape society",
+      "interestRelationship": "Direct programme interest",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3146,
+      "sourceInterestExcelRow": 3146,
+      "studentInterest": "interpreting laws and legal decisions",
+      "interestRelationship": "Direct programme interest",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3147,
+      "sourceInterestExcelRow": 3147,
+      "studentInterest": "legal reasoning and persuasive argumentation",
+      "interestRelationship": "Direct programme interest",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3148,
+      "sourceInterestExcelRow": 3148,
+      "studentInterest": "justice and the role of law in society",
+      "interestRelationship": "Direct programme interest",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3149,
+      "sourceInterestExcelRow": 3149,
+      "studentInterest": "relationships between citizens and government",
+      "interestRelationship": "Direct programme interest",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3150,
+      "sourceInterestExcelRow": 3150,
+      "studentInterest": "legal relationships between individuals and businesses",
+      "interestRelationship": "Direct programme interest",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3151,
+      "sourceInterestExcelRow": 3151,
+      "studentInterest": "public law",
+      "interestRelationship": "Stable study direction",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3152,
+      "sourceInterestExcelRow": 3152,
+      "studentInterest": "private law",
+      "interestRelationship": "Stable study direction",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3153,
+      "sourceInterestExcelRow": 3153,
+      "studentInterest": "constitutional law and democratic institutions",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3154,
+      "sourceInterestExcelRow": 3154,
+      "studentInterest": "administrative law and government decisions",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3155,
+      "sourceInterestExcelRow": 3155,
+      "studentInterest": "international law",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3156,
+      "sourceInterestExcelRow": 3156,
+      "studentInterest": "European Union law",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3157,
+      "sourceInterestExcelRow": 3157,
+      "studentInterest": "criminal law",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3158,
+      "sourceInterestExcelRow": 3158,
+      "studentInterest": "criminal procedure and prosecution",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3159,
+      "sourceInterestExcelRow": 3159,
+      "studentInterest": "legal philosophy and foundational questions of justice",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3160,
+      "sourceInterestExcelRow": 3160,
+      "studentInterest": "comparative constitutional and legal history",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3161,
+      "sourceInterestExcelRow": 3161,
+      "studentInterest": "employment and labour law",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3162,
+      "sourceInterestExcelRow": 3162,
+      "studentInterest": "tax law and public revenue",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3163,
+      "sourceInterestExcelRow": 3163,
+      "studentInterest": "family law and personal legal status",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3164,
+      "sourceInterestExcelRow": 3164,
+      "studentInterest": "civil litigation and court procedure",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3165,
+      "sourceInterestExcelRow": 3165,
+      "studentInterest": "commercial law and business transactions",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3166,
+      "sourceInterestExcelRow": 3166,
+      "studentInterest": "the ethics of legal professionals",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3167,
+      "sourceInterestExcelRow": 3167,
+      "studentInterest": "tenancy law and housing disputes",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3168,
+      "sourceInterestExcelRow": 3168,
+      "studentInterest": "financial law and financial markets",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3169,
+      "sourceInterestExcelRow": 3169,
+      "studentInterest": "intellectual-property law",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3170,
+      "sourceInterestExcelRow": 3170,
+      "studentInterest": "artificial intelligence and the law",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3171,
+      "sourceInterestExcelRow": 3171,
+      "studentInterest": "company accounts and financial-reporting law",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3172,
+      "sourceInterestExcelRow": 3172,
+      "studentInterest": "criminology and criminal behaviour",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3173,
+      "sourceInterestExcelRow": 3173,
+      "studentInterest": "law and sociological change",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3174,
+      "sourceInterestExcelRow": 3174,
+      "studentInterest": "researching legislation and case law",
+      "interestRelationship": "Direct programme interest",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3175,
+      "sourceInterestExcelRow": 3175,
+      "studentInterest": "presenting arguments in a simulated courtroom",
+      "interestRelationship": "Illustrative or temporary topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "search-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3176,
+      "sourceInterestExcelRow": 3176,
+      "studentInterest": "working as an advocate",
+      "interestRelationship": "Outcome or individual trajectory",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "search-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3177,
+      "sourceInterestExcelRow": 3177,
+      "studentInterest": "becoming a judge",
+      "interestRelationship": "Outcome or individual trajectory",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "search-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3178,
+      "sourceInterestExcelRow": 3178,
+      "studentInterest": "working as a public prosecutor",
+      "interestRelationship": "Outcome or individual trajectory",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "search-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3179,
+      "sourceInterestExcelRow": 3179,
+      "studentInterest": "corporate legal practice",
+      "interestRelationship": "Outcome or individual trajectory",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "search-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3180,
+      "sourceInterestExcelRow": 3180,
+      "studentInterest": "government legal advice and policymaking",
+      "interestRelationship": "Outcome or individual trajectory",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "search-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3181,
+      "sourceInterestExcelRow": 3181,
+      "studentInterest": "mediation and resolving legal disputes",
+      "interestRelationship": "Outcome or individual trajectory",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "search-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    },
+    {
+      "registryRow": 3182,
+      "sourceInterestExcelRow": 3182,
+      "studentInterest": "postgraduate specialisation in Dutch law",
+      "interestRelationship": "Outcome or individual trajectory",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "search-only",
+      "reviewFinding": "Reconsidered against exact-target official overview, applicable OER and actual legal-course substance. Restricted choices remain optional within their required slots; outcomes and illustrative topics do not generate programmes."
+    }
+  ],
+  "interestCounts": {
+    "generator-eligible": 9,
+    "support-only": 21,
+    "search-only": 8
+  },
+  "interestOwnership": {
+    "finding": "All38rows3145–3182 reconciled.9generators:7closest-core and3150/3152generate the business/private-law direction.21support topics and8search-only illustrative/outcome rows do not generate extra routes. Simulation3175remains a real required curriculum activity even though its interest role is illustrative. Specific legal topics and career outcomes do not promise qualification or admission.",
+    "candidate": [
+      {
+        "label": "Law, business and economic institutions",
+        "basisType": "programme-interest-cluster",
+        "generating": [
+          3150,
+          3152
+        ],
+        "supporting": [
+          3163,
+          3164,
+          3165,
+          3167,
+          3168,
+          3169,
+          3171
+        ],
+        "evidence": [
+          "s2",
+          "s3",
+          "s4",
+          3150,
+          3152
+        ],
+        "outcome": "ucr-2",
+        "assessment": "Retained with explicit60ECsharedlegalcoreandfivecourse37.5ECbusiness/economicdifference. Finance/accounting/economicsandglobalbusinessarecontextandempiricaltools,notadditionalDutchlegaldoctrine."
+      }
+    ],
+    "stopping": {
+      "stoppingReason": "not-substantively-distinct",
+      "assessment": "Two qualified responses survive content/weight/feasibility review. Eight direct legal courses60ECcovermultipledefininggeneral-lawfields,so this is substantive legal study rather than a coherent adjacent programme alone. This differs from the specialist NotarialLaw finding. Same60EClegalcore/19sharedcourses makes routes closely related; five37.5ECcontextcourses support one business/economic alternative. Third public/justice/philosophy route would rearrange the same core. No specialist Dutch procedure,legalhistory,AI-law,tax,financial-law or professional qualification is manufactured."
+    }
+  },
+  "conceptReview": {
+    "definingSubstance": "Eight courses/60EC provide actual legal systems,legal interpretation/case reasoning,human rights,criminal liability,constitutional/administrative,public international,EU,comparative private and cross-border commercial law. IRAC briefs,legal advice and arguments,comparative legal writing and arbitration are substantive legal methods. Thus the response is not merely coherent politics/business adjacent to law. The Dutch cumulative doctrinal/procedural/history/moot/thesis structure is materially deeper and remains explicit. No law-course quota or earlier specialist-law disposition was used as proof.",
+    "primary": "Politics,society,justice,governance,rhetoric and empirical research add public-institutional context to the shared legal foundation.",
+    "business": "Economics,financial statements,banking and global-business institutions add a coherent commercial/economic lens; these do not add Dutch company,tax,banking or financial-reporting doctrine. Current Money,Banking&Finance explicitly covers banks/centralbanks,financialregulation and a bank simulation with financial analysis; its contribution is updated from the narrower old generic-financial-decisions trace.",
+    "distinctness": "Five exclusive courses/37.5EC per route,19shared/142.5EC. Political philosophy,EU politics,peace/conflict,movements and sustainability governance versus economics,microeconomics,globalbusiness,econometrics and banking. Real contextual/methodological priorities, not arbitrary swaps.",
+    "third": "Generator coverage is complete. A proposed further public/justice/philosophy direction would recycle the same legal/public/social core rather than establish an additional materially distinct programme. Three is a ceiling, not a target."
+  },
+  "courseReview": {
+    "ACCPPDE101": {
+      "courseEvidence": {
+        "dep": "ACC",
+        "track": "PPDE",
+        "osiris": "ACCPPDE101",
+        "description2": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+        "name": "Personal & Professional Development",
+        "preq1": "NONE",
+        "deplabel": "Academic Core",
+        "tracklabel": "Personal & Professional Development",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": "X",
+        "2027h2": "X",
+        "2028h1": "X",
+        "2028h2": "X",
+        "2029h1": "X",
+        "outline_source": "ACCPPDE1011.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Develops academic writing and research-literacy skills alongside personal development and civic engagement. Students locate and evaluate scholarly sources, synthesize literature, formulate research questions and arguments, and construct a research-paper introduction. A community-engaged project with a societal partner connects these skills to collaboration, reflection and practical contribution. Personal development planning addresses learning goals, self-efficacy, and stress and time management; the course also considers responsible academic use of AI.",
+        "discipline": "Academic writing",
+        "topics": "Scholarly sources and research questions; Argumentation and thesis statements; Literature synthesis; Academic integrity and referencing; Community engagement; Personal learning goals and reflective learning; Collaborative learning; Self-efficacy; Stress and time management; Responsible use of AI",
+        "methods": "Scholarly literature searching and source evaluation; Literature synthesis; CARS model for research introductions; Reflective development planning; Community project co-design"
+      },
+      "contribution": "First-year PPD develops general academic research literacy, communication and civic reflection.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+      "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "GOSGATE102": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "GATE",
+        "osiris": "GOSGATE102",
+        "description2": "Examines law from legal, socio‑scientific and normative perspectives. Explores definitions, legal traditions and fields of law, investigates the relationship between law and society and the concept of justice, and includes case law, excursion to international legal organisations, interviews with practitioners and a moot court session.",
+        "name": "Law, Society & Justice",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Gateway",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSGATE1021.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Introduces law through legal, social and normative perspectives. Students compare major legal traditions and survey public and private law, including constitutional, criminal, international, human-rights, property, contract and tort law. The second part examines justice, social control and change, race and gender. Case briefs, legal interpretation, demand letters and mock trials apply legal reasoning; a family-law topic supports the design of a small socio-legal research proposal.",
+        "discipline": "Law; Socio-legal studies; Legal philosophy",
+        "topics": "Legal positivism and empirical and normative perspectives; Common-law and civil-law traditions; Constitutional and administrative law; Criminal law; International law and human rights; Property, contract and tort law; Justice; Law and social control; Law and social change; Race and gender in law; Family law",
+        "methods": "Legal interpretation; Case-law research and IRAC case briefing; Demand-letter drafting; Mock-trial legal argumentation; Socio-legal research design; Literature review"
+      },
+      "contribution": "Definitions/legal systems and public/private fields, cases and trial simulations, followed by social/normative law-and-justice inquiry. Direct legal gateway with real skills, not the full Dutch foundational sequence.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Law, Society & Justice examines legal, social and normative perspectives on law. Students compare legal traditions and study public and private law, human rights, justice, social control and change, race and gender. Case briefs, demand letters and mock trials develop legal reasoning, while a family-law topic supports the design of a socio-legal research proposal.",
+      "descriptionSha256": "035b12c51282127288b99b6ba3cb906896d0fabff1cdf5153709df2d32006391",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "GOSLAWJ111": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "LAWJ",
+        "osiris": "GOSLAWJ111",
+        "description2": "Offers a legal, historical and philosophical approach to human rights. Studies classical and modern philosophers, traces the rise of human rights, examines the US Bill of Rights and the French Declaration, and discusses human rights treaties.",
+        "name": "Human Rights: Law & Philosophy",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Law",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSLAWJ1111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Studies human rights both as positive law and as philosophical claims. Students examine the UDHR, European and UN protection systems, monitoring institutions and landmark cases alongside natural law, natural rights, legal positivism and critiques of universality. Historical and philosophical texts frame debates about dignity, life and reproductive rights, punishment, religious freedom, expression and democracy. Close engagement with legal and philosophical arguments supports independent moral positions.",
+        "discipline": "Human rights law; Legal philosophy; Ethics",
+        "topics": "Human-rights generations and justifications; UDHR and its formation; UN and European human-rights protection; Natural law and natural rights; Legal positivism and cultural relativism; Universality and statelessness; Human dignity; Right to life and reproductive rights; Torture and punishment; Freedom of religion; Freedom of expression; Democracy",
+        "methods": "Treaty and legal-text analysis; Judicial and treaty-body case-law research; Case-law analysis; Philosophical text and argument analysis"
+      },
+      "contribution": "Human-rights positive law, treaties, monitoring, case law, history and legal philosophy. Direct rights/justice inquiry, not professional legal ethics or a universal substitute for all jurisprudence.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Offers a legal, historical and philosophical approach to human rights. Studies classical and modern philosophers, traces the rise of human rights, examines the US Bill of Rights and the French Declaration, and discusses human rights treaties.",
+      "descriptionSha256": "1ed6ae8d1c72724248e9a340650eef63f02eaf747b2175254ce1ca96fc82ab62",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "BENGATE101": {
+      "courseEvidence": {
+        "dep": "BEN",
+        "track": "GATE",
+        "osiris": "BENGATE101",
+        "description2": "Through experiential learning, students turn their own bold ideas into new ventures. No prior business expertise is required as teams work on a startup project from ideation to final pitch while gaining business and entrepreneurial skills in areas such as design thinking, business model and customer validation. The class fosters creativity and collaboration to drive business and social innovation.",
+        "name": "Entrepreneurship & Business Foundations",
+        "preq1": "NONE",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Gateway",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "BENGATE1011.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Introduces entrepreneurship and core business functions through the development of a startup concept. Students use design thinking to discover customer needs, define a problem, generate and prototype solutions, and construct value propositions and business models. Marketing, finance, operations, human resources and funding inform a coherent business plan and investor pitch. Entrepreneurial cases and a startup simulation examine decision-making, early growth and business lifecycles, with attention to societal impact and sustainability.",
+        "discipline": "Entrepreneurship; Business management",
+        "topics": "Entrepreneurial mindset and pathways; Business environments, ownership and competition; Customer needs; Value propositions; Business models; Marketing and sales; Finance and accounting; Venture funding; Operations and human resources; Competitive positioning; Startup growth and business lifecycles; Sustainability and societal impact",
+        "methods": "Design thinking; Customer-needs discovery; Ideation and prototyping; Value Proposition Canvas; Business Model Canvas; Business planning; SWOT and risk assessment; Startup simulation"
+      },
+      "contribution": "Actual venture ideation, design thinking, market validation and business planning. Foundation for transnational business law, not incorporation or business-structure legal training.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Through experiential learning, students turn their own bold ideas into new ventures. No prior business expertise is required as teams work on a startup project from ideation to final pitch while gaining business and entrepreneurial skills in areas such as design thinking, business model and customer validation. The class fosters creativity and collaboration to drive business and social innovation.",
+      "descriptionSha256": "be06c9c110a9f2b97e6488ea6896b76949da3932009e02cd6af21a9a379b9160",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "GOSLAWJ212": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "LAWJ",
+        "osiris": "GOSLAWJ212",
+        "description2": "Introduces rules, institutions and politics of public international law. Covers treaties, the UN, armed conflict, war crimes, refugee protection and climate change. Students analyse cases, debate issues and produce a podcast connecting law to global challenges.",
+        "name": "Introduction to Public International Law",
+        "preq1": "GOSGATE102",
+        "deplabel": "Government & Society",
+        "tracklabel": "Law",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "GOSLAWJ212.pdf",
+        "outline_semester": "2026h1",
+        "profile": "Introduces public international law through its sources, theories, institutions and relationship to domestic legal systems. Legal principles are applied to responsibility, force, armed conflict, international crime, human rights, economic relations and environmental protection. The later course examines self-determination, Third World approaches, soft law, compliance and treaty politics. Case exercises develop legal reasoning, while a research podcast critically investigates a political dimension of international law.",
+        "discipline": "Public international law; Socio-legal studies",
+        "topics": "Sources and theories of international law; Treaty law; International legal subjects; Jurisdiction and immunities; Domestic courts and international law; State responsibility; Use of force; UN reform; Armed conflict and international criminal law; International human rights and economic law; Environmental law; Self-determination; Third World Approaches to International Law; Soft law, compliance and effectiveness; Global environmental treaties",
+        "methods": "Identification and interpretation of international legal instruments; Judgment and case-law analysis; Application of legal principles to factual scenarios; Legal, empirical and normative critique; Research podcast development"
+      },
+      "contribution": "Sources/subjects of public international law, force, armed conflict, international criminal/refugee/environmental law and treaty politics. Direct international legal substance, distinct from political IR.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Introduction to Public International Law examines its sources, theories, institutions and relationship to domestic law. Topics include responsibility, force, armed conflict, international crime, human rights, economic relations and environmental protection, followed by self-determination, Third World approaches, compliance and treaty politics. Case exercises and a research podcast develop legal reasoning and critical analysis.",
+      "descriptionSha256": "69f757ece2c00572df432e6ab9cc82f74c14f17c69dd6726bf3e86264049390a",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "GOSLAWJ213": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "LAWJ",
+        "osiris": "GOSLAWJ213",
+        "description2": "Explores constitutional law and state organisation, using a comparative approach. Covers constitutionalism, separation of powers, judicial review, federalism and fundamental rights, and discusses constitution‑making, religious constitutions and constitutional backsliding.",
+        "name": "Comparative Constitutional Law",
+        "preq1": "GOSGATE102",
+        "deplabel": "Government & Society",
+        "tracklabel": "Law",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "GOSLAWJ213.pdf",
+        "outline_semester": "2026h1",
+        "profile": "Compares constitutional structures, institutions and rights across legal systems and introduces administrative law. Students examine constitutional features, federalism, legislatures, executive relationships, courts, judicial review and human rights. The administrative component addresses public participation, remedies and procedural fairness. A staged booklet compares two constitutions, supported by legal interpretation, case-law analysis and application of principles to hypothetical facts.",
+        "discipline": "Comparative constitutional law; Administrative law",
+        "topics": "Constitutional origins and fundamental features; Federalism and decentralization; Parliaments and lawmaking; Governments and heads of state; Court systems and judicial review; Constitutional rights; EU constitutional order; Administrative-law functions; Public participation; Administrative remedies; Procedural fairness, discretion and legitimate expectations",
+        "methods": "Comparative constitutional analysis; Constitutional and legislative interpretation; Case-law analysis; Application of legal principles to hypothetical facts; Structured comparative legal writing"
+      },
+      "contribution": "Comparative constitutional and administrative principles across five legal systems, state powers, democracy and rights. Direct public-law substance; not deep Dutch administrative procedure.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Comparative Constitutional Law compares constitutional structures, institutions and rights across legal systems and introduces administrative law. Students study federalism, legislatures, executive relationships, courts, judicial review, human rights, public participation and procedural fairness. A staged booklet compares two constitutions, supported by legal interpretation, case-law analysis and hypothetical cases.",
+      "descriptionSha256": "1845c8f87e0e1295bfe5b43ee7ea5c3902c6690b455726ad6c44b66c78ae8a6a",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "BENGATE102": {
+      "courseEvidence": {
+        "dep": "BEN",
+        "track": "GATE",
+        "osiris": "BENGATE102",
+        "description2": "Research Methods & Statistics gives you a strong foundation in how business management—and social and behavioral sciences—move from mere practices to true fields of scientific study. You’ll learn how to plan research logically, from designing studies to working with real data using experimental and survey techniques. You’ll also study descriptive and inferential statistics, with a brief intro to multivariate tools.",
+        "name": "Research Methods & Statistics",
+        "preq1": "NONE",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Gateway",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "BENGATE102.docx",
+        "outline_semester": "2026h1",
+        "profile": "Introduces empirical research design and statistical analysis, followed by a substantial student research project. Students study operationalization, measurement quality, sampling, surveys and experimental and nonexperimental designs, then descriptive statistics, estimation, hypothesis testing and introductory regression. R and R Commander support data display and analysis. Project teams develop instruments and a research plan, collect and analyze data, and report results under explicit research-ethics and privacy requirements.",
+        "discipline": "Research methodology; Applied statistics",
+        "topics": "Scientific inquiry and hypotheses; Operationalization and measurement; Reliability and validity; Survey construction and sampling; Randomized and quasi-experimental designs; Nonexperimental and qualitative research; Descriptive statistics; Sampling distributions and estimation; Hypothesis testing and confidence intervals; Association and regression; Research ethics and anonymous data collection",
+        "methods": "Survey design; Probability and nonprobability sampling; Experimental and nonexperimental research design; R and R Commander data analysis; Descriptive statistics and visualization; Scale-reliability analysis; One- and two-sample mean tests; ANOVA; Chi-square tests; Correlation and regression; Empirical data collection and analysis"
+      },
+      "contribution": "Actual research design, sampling, statistics and a group project. Complementary empirical methods; no equivalence to positive-law research.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Research Methods & Statistics introduces research design, operationalisation, measurement, sampling, surveys and experiments. Students study descriptive statistics, estimation, hypothesis testing and introductory regression using R and R Commander. A group project develops a research plan and instruments, collects and analyses data, and reports findings under research-ethics and privacy requirements.",
+      "descriptionSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "GOSSOCI212": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "SOCI",
+        "osiris": "GOSSOCI212",
+        "description2": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+        "name": "Qualitative Research Methodology",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Sociology",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "GOSSOCI212.docx",
+        "outline_semester": "2026h1",
+        "profile": "Develops qualitative inquiry from research design and preparation through data collection, management, analysis and dissemination. Students examine methodological foundations, ethics, positionality and reflexivity alongside interviews, focus groups, ethnography, documentary and visual approaches. Coding, thematic interpretation and NVivo support analysis. Research teams formulate a question, collect and analyze qualitative evidence, and report their methodological decisions, findings and limitations in staged assignments.",
+        "discipline": "Qualitative research methodology; Social research",
+        "topics": "Qualitative knowledge and research design; Ethics, positionality and reflexivity; Mixed methods; Participatory research; Interview and focus-group approaches; Ethnography and participant observation; Documentary and archival sources; Visual and participatory media; Coding and thematic interpretation; Qualitative research dissemination",
+        "methods": "Qualitative research design; Interviews; Focus groups; Ethnography and participant observation; Documentary and archival analysis; Visual-data analysis; Participatory video and drawing; Transcription; Qualitative coding; Thematic analysis; NVivo-supported analysis; Reflexive methodological evaluation"
+      },
+      "contribution": "Qualitative research design, collection, analysis, positionality and group inquiry. Sound empirical complement retained in both schedules; it does not replace positive-law legal methods.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+      "descriptionSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "GOSLAWJ211": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "LAWJ",
+        "osiris": "GOSLAWJ211",
+        "description2": "Examines moral and legal justifications for criminalisation and punishment. Investigates guiding principles of criminal law and justice, including criminal accountability, guilt, legality and fundamental principles, and applies theory through a simulated legal aid clinic.",
+        "name": "Criminal Law & Criminal Justice",
+        "preq1": "GOSGATE102",
+        "deplabel": "Government & Society",
+        "tracklabel": "Law",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": null,
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSLAWJ2111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Examines the principles of criminal liability and the legal and moral bases of criminal justice. Students study criminal acts, causation and mental elements, legality, punishment, criminalization, justifications, excuses, inchoate offences and participation. A simulated legal-aid clinic applies doctrine to hypothetical facts through advice memoranda and oral argument. A criminology or organized-crime research proposal develops a literature review and methodology.",
+        "discipline": "Criminal law; Criminal justice; Criminology",
+        "topics": "Criminal accountability; Actus reus and causation; Intent, recklessness and negligence; Legality and presumption of innocence; Theories of punishment; Criminalization and its limits; Justifications and excuses; Preparation and attempt; Participation in crime; Corporate criminal liability; Criminology and organized crime",
+        "methods": "Comparative criminal-law analysis; Case-law analysis; Application of legal principles to hypothetical facts; Legal-advice memorandum writing; Simulated legal-aid argumentation; Criminological research design and literature review"
+      },
+      "contribution": "Criminal accountability, guilt, justifications, legality, punishment, reading legal texts/cases and simulated legal-aid clinic. Direct criminal legal substance; not the repeated Dutch procedure I/II sequence.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Examines moral and legal justifications for criminalisation and punishment. Investigates guiding principles of criminal law and justice, including criminal accountability, guilt, legality and fundamental principles, and applies theory through a simulated legal aid clinic.",
+      "descriptionSha256": "2f3f39fa5669778e9494699766d57580e59a890b3a3fc7527281d3973a63339f",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "GOSPOLI111": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "POLI",
+        "osiris": "GOSPOLI111",
+        "description2": "Introduces political philosophy. Examines concepts such as authority, freedom, equality, democracy, human rights, pluralism, multiculturalism, poverty and environmental issues through classical and contemporary texts. Emphasises essay writing and presentations.",
+        "name": "Introduction to Political Philosophy",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Political Science",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSPOLI1111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Surveys political thought from classical antiquity to contemporary debates, including European and non-European thinkers. Students examine views of human nature, society, rights and authority in their historical contexts and compare their proposed solutions with current political problems. Close study of original texts, an individual essay and a group project developing a coherent political philosophy connect historical interpretation to normative argument.",
+        "discipline": "Political philosophy; History of political thought",
+        "topics": "Society, rights and political authority; Classical political thought; Sovereignty and political realism; Enlightenment and revolution; Liberalism and conservatism; Feminism; Nationalism; Socialism and communism; Empire, race and decolonization; Welfare state and libertarianism; Neoliberalism; Justice",
+        "methods": "Political-text interpretation; Historical contextualization of political ideas; Comparative political argument analysis; Assumption identification; Normative political-theory construction"
+      },
+      "contribution": "Political authority and legitimacy through classical/contemporary thinkers. Context for constitutional order, not the 13 EC Dutch/comparative constitutional-law course.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Introduction to Political Philosophy examines political thought from classical antiquity to contemporary debates, including European and non-European thinkers. Students study views of human nature, society, rights and authority in historical context and compare their arguments with current political problems. Original texts, an essay and a group project develop interpretation and normative argument.",
+      "descriptionSha256": "ea3b0a363bec6cacab1a13c186f6c97bbbf5d5ce40d4cf5cdb1a67491d47a19c",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "GOSSOCI111": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "SOCI",
+        "osiris": "GOSSOCI111",
+        "description2": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+        "name": "Introduction to Sociology",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Sociology",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSSOCI1111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Introduces sociological reasoning through classical theories, their historical settings and perspectives that address exclusions from the discipline. Students connect solidarity, modernity, identity, social boundaries, networks and stratification to race, gender, migration and inequality in education and work. An individual analysis applies a course concept to contemporary social life without original data collection. A group paper develops a sociological question and analyzes a social problem using theory and academic literature.",
+        "discipline": "Sociology",
+        "topics": "Sociological imagination and knowledge; Social structure and socialization; Classical social theory; Colonialism and the formation of sociology; Solidarity and modernity; Identity, belonging and othering; Groups and social networks; Capital, class and mobility; Race and gender inequality; Global inequality and migration; Education and labour-market inequality",
+        "methods": "Theory-guided sociological case analysis; Comparative analysis of sociological perspectives; Library-based social-science research; Sociological research-question formulation"
+      },
+      "contribution": "Social institutions, inequality and classical/colonial sociological theories. Social context for law, not a law-sociology specialisation.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+      "descriptionSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "BENBUSI112": {
+      "courseEvidence": {
+        "dep": "BEN",
+        "track": "BUSI",
+        "osiris": "BENBUSI112",
+        "description2": "This course describes the most widely accepted accounting theory and practice with an emphasis on using and analyzing the information in financial statements. Students learn how to comprehend a typical corporate annual report and to use accounting as a tool in understanding how economic events affect business.",
+        "name": "Accounting & Corporate Finance",
+        "preq1": "NONE",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Business",
+        "2025h2": null,
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "BENBUSI1121.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Introduces financial accounting, management accounting and investment appraisal, including accounting's social role and accountability implications. Students record transactions, prepare and interpret financial statements, and analyze performance and financing. The course then examines costing, pricing, budgeting, organizational control and sustainable management accounting. Investment decisions are evaluated using accounting and discounted-cash-flow measures. A case study analyzes the misuse of an accounting principle and its financial-statement effects.",
+        "discipline": "Financial accounting; Management accounting; Corporate finance",
+        "topics": "Accounting and accountability; Financial reporting frameworks; Accrual accounting; Assets, liabilities and equity; Financial statements and cash flows; Accounting judgements and estimates; Costing and pricing; Budgeting and performance indicators; Organizational control; Sustainable management accounting; Investment appraisal; Accounting misuse",
+        "methods": "Double-entry bookkeeping; Year-end accounting adjustments; Financial-statement preparation; Financial-ratio analysis; Variance analysis; Accounting rate of return and payback calculations; Net present value and internal rate of return; Cost-of-capital analysis; Accounting case analysis"
+      },
+      "contribution": "Financial-statement and annual-report analysis/accounting practice. Genuine business context, not Dutch company-accounting law.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "This course describes the most widely accepted accounting theory and practice with an emphasis on using and analyzing the information in financial statements. Students learn how to comprehend a typical corporate annual report and to use accounting as a tool in understanding how economic events affect business.",
+      "descriptionSha256": "95cd6567c849e07c7c327d9b874e1c22931ddd720596ff41693cd3a11cdad5af",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "GOSLAWJ312": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "LAWJ",
+        "osiris": "GOSLAWJ312",
+        "description2": "Introduces the EU legal order. Studies institutions, framework, citizenship and the internal market using problem‑based exercises and guest lectures.",
+        "name": "Foundations of European Union Law",
+        "preq1": "GOSGATE102",
+        "deplabel": "Government & Society",
+        "tracklabel": "Law",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "GOSLAWJ312.docx",
+        "outline_semester": "2026h1",
+        "profile": "Introduces the EU legal order through its institutions, sources, competences and relationship to member-state law. Students study supremacy, legal effect, liability and judicial remedies before applying citizenship and free-movement law to concrete problems. Structured legal cases and research into current judgments develop interpretation and comparison across EU and domestic settings. Digital regulation and the green transition provide a contemporary application.",
+        "discipline": "European Union law; Public law",
+        "topics": "European integration and institutions; EU legal sources and fundamental rights; Competences, subsidiarity and proportionality; Supremacy; Direct and indirect effect; State liability; Preliminary rulings; Review of EU acts and enforcement; EU citizenship; Free movement of persons, workers and goods; Establishment and services; Digital-market regulation and green transition",
+        "methods": "EU legal-source research; Case-law analysis; Comparative interpretation of EU and national law; Application of free-movement principles to factual scenarios; Structured legal problem analysis"
+      },
+      "contribution": "EU institutions/procedures, fundamental rights, citizenship, internal-market freedoms, research and PBL cases. Direct substantive/procedural EU legal study; not two full target EU units or Dutch litigation training.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Introduces the EU legal order. Studies institutions, framework, citizenship and the internal market using problem‑based exercises and guest lectures.",
+      "descriptionSha256": "fea5f72e90d46266e5f1eb6bdfeb2ee451f21334ff92ecd9dc947792b4add6b6",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "BENBUSI311": {
+      "courseEvidence": {
+        "dep": "BEN",
+        "track": "BUSI",
+        "osiris": "BENBUSI311",
+        "description2": "Businesses and entrepreneurs are confronted with legal complexity not only at the domestic level but particularly across divergent legal systems. This course presents a survey of the most essential fields of business law: contracts law, company law, trade law, intellectual property, and dispute resolution. An ultimate aim of the course is to critically examine the impact of globalization and digitization on the development of business law.",
+        "name": "Transnational Business Law",
+        "preq1": "BENGATE101",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Business",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": null,
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": null,
+        "outline_source": "BENBUSI311.pdf",
+        "outline_semester": "2026h1",
+        "profile": "Studies legal frameworks governing cross-border business transactions, combining comparative and international perspectives with practical legal problem-solving. Topics include trade regulation, contracts and international sales, transport and documentary transactions, finance, services, intellectual property, foreign investment and digital commerce. Advisory assignments assess contractual outcomes, risk allocation, intellectual-property protection and e-commerce compliance. A simulated arbitration develops written legal argument and oral advocacy.",
+        "discipline": "International business law; Comparative law; Commercial law",
+        "topics": "International trade regulation; Comparative and international contract law; International sales; Transport of goods and Incoterms; Documentary transactions; International trade finance; Employment and sale of services; Intellectual-property protection; International commercial dispute resolution; Foreign direct investment; E-commerce and digital economy regulation",
+        "methods": "Comparative legal analysis; Application of legal rules to commercial scenarios; Transport-risk allocation analysis; Intellectual-property strategy assessment; E-commerce legal-compliance analysis; Arbitration memorandum drafting and simulated advocacy"
+      },
+      "contribution": "Actual cross-border contracts, transactions, sales, intellectual property, investment, comparative law and arbitration simulation. Direct commercial legal substance, not Dutch company law or the full civil-law sequence.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Transnational Business Law studies legal frameworks for cross-border business, including contracts, trade, intellectual property, foreign investment and digital commerce. Comparative and international perspectives support analysis of legal risks through discussions, problem-based assignments and an arbitration simulation.",
+      "descriptionSha256": "44f7635bd8da8902ebff96a2cb8c950fd59683bb52cc5e7f6a8e25e61ae83152",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "BENECON311": {
+      "courseEvidence": {
+        "dep": "BEN",
+        "track": "ECON",
+        "osiris": "BENECON311",
+        "description2": "Investigate the role of government in the economy, focusing on how public policy influences efficiency and equity. The course covers taxation, public goods, externalities, and government spending. Combining theoretical models with empirical evidence, it evaluates how different policies affect societal welfare.",
+        "name": "Public Economics",
+        "preq1": "BENGATE102",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Economics",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": null,
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": null,
+        "outline_source": "BENECON311.pdf",
+        "outline_semester": "2026h1",
+        "profile": "Examines government intervention through the efficiency and equity effects of public policy. Market failure, public goods and externalities provide foundations for studying public production, collective choice, spending and taxation. Health, education, welfare and social insurance illustrate expenditure and redistribution questions. Students apply economic models, interpret data and graphs, evaluate research and develop a research proposal and paper.",
+        "discipline": "Public economics; Political economy",
+        "topics": "Role and size of government; Market efficiency and failure; Public goods; Externalities; Efficiency and equity; Public production; Public choice; Public expenditure; Health and education policy; Welfare programs; Social insurance; Taxation and redistribution",
+        "methods": "Economic model-based policy analysis; Efficiency and equity assessment; Interpretation of economic data and graphs; Critical evaluation of public-economics research"
+      },
+      "contribution": "Taxation, redistribution, spending, market failure and political economy. Policy/economic analysis of public revenue, not Dutch tax legislation.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Investigate the role of government in the economy, focusing on how public policy influences efficiency and equity. The course covers taxation, public goods, externalities, and government spending. Combining theoretical models with empirical evidence, it evaluates how different policies affect societal welfare.",
+      "descriptionSha256": "7a4ba78a0cfe9e6eb397bc2a538e91ff9a12eaecf7737f2cfbb377ac04d4aa84",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "GOSPHIL212": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "PHIL",
+        "osiris": "GOSPHIL212",
+        "description2": "Explores theories of moral reasoning—virtue ethics, deontology, utilitarianism—and discusses moral knowledge, motivation, responsibility and the relation between happiness and pleasure. Applies theories to practical issues such as animal rights, privacy, future generations, war, punishment, disability and equality.",
+        "name": "Ethics",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Philosophy",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "GOSPHIL212.pdf",
+        "outline_semester": "2026h1",
+        "profile": "Studies moral reasoning through historical and contemporary ethical theories and close philosophical reading. Utilitarianism, consequentialism, Kantian ethics, virtue ethics, contractarianism and feminist ethics lead into Nietzsche's genealogy, Murdoch's account of goodness and Nagel's treatments of value, perspective, death and meaning. Reflection and research essays require interpretation, argument evaluation and an independent position on ethical theory or a practical ethical problem.",
+        "discipline": "Moral philosophy; Metaethics; Practical ethics",
+        "topics": "Divine command and human nature; Moral relativism and universalism; Utilitarianism and consequentialism; Kantian ethics; Virtue ethics; Social contract and intuitionism; Feminist and care ethics; Nietzschean genealogy and nihilism; Murdoch's sovereignty of good; Moral value and perspective; Death, absurdity and meaning; Ethical theory and practical judgment",
+        "methods": "Close philosophical text analysis; Reconstruction and critical evaluation of moral arguments; Comparison of ethical theories; Conceptual analysis; Independent philosophical argument development"
+      },
+      "contribution": "Normative/practical ethics, moral responsibility and independent argumentative essay. Supports ethical reasoning, not the particular professional duties of Dutch lawyers.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Ethics examines moral reasoning through historical and contemporary theories and close philosophical reading. Students study utilitarianism, Kantian ethics, virtue ethics, contractarianism and feminist ethics, alongside Nietzsche, Murdoch and Nagel. Reflection and research essays develop interpretation, argument evaluation and an independent position on ethical theory or a practical ethical problem.",
+      "descriptionSha256": "d17cd0a6631823a666c2978b81f52bc5e8b5c8e52ed68edccb3fa37073146e5b",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "GOSLAWJ311": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "LAWJ",
+        "osiris": "GOSLAWJ311",
+        "description2": "Examines principles of property law, tort law, contract law and other fields within private law. Uses comparisons of legal systems in four countries to explore rights and obligations arising from daily interactions.",
+        "name": "Principles of Private Law",
+        "preq1": "GOSGATE102",
+        "deplabel": "Government & Society",
+        "tracklabel": "Law",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSLAWJ3111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Examines property, tort and contract law through comparison of legal systems, primarily Germany, France, England, China and the United States. Students analyze rights and obligations, ownership, nuisance, negligence, contract formation and fairness, remedies and related policy pressures. Legal issue briefs apply the IRAC method. An issue-based comparative contract-law paper and simulated mediation develop comparative analysis, legal argument and negotiation.",
+        "discipline": "Private law; Comparative law",
+        "topics": "Possession and ownership; Nuisance and property restrictions; Easements, covenants and servitudes; Necessity; Tort structure, intent and negligence; Duties to act; Offer and acceptance; Pre-contractual liability and mistake; Contract fairness and excuse; Specific performance and damages; Unjust enrichment; Mediation and dispute resolution; Private law and public policy",
+        "methods": "Functional comparative legal analysis; IRAC legal briefing; Case-law analysis; Application of doctrine to hypothetical facts; Comparative contract-law research; Mediation-position drafting; Simulated mediation and negotiation"
+      },
+      "contribution": "Comparative property, contract, tort and private-law principles, primarily Germany/France/England/China/US. Direct private-law study; no Dutch civil I/II, tenancy, family or company-law specialisation inferred.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Examines principles of property, tort and contract law and other selected areas of private law. It compares legal systems including Germany, France, England, China and the United States, and considers the social, economic and political pressures underlying legal principles.",
+      "descriptionSha256": "fbda22bacd9de706683dd2809f68f744f94591b49e8a0761e6378a68f3e8e4c3",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "GOSPOLI311": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "POLI",
+        "osiris": "GOSPOLI311",
+        "description2": "Introduces EU politics. Outlines actors, institutions and decision‑making rules; examines responses to crises; and employs various approaches to study EU politics and policy‑making.",
+        "name": "European Union Politics",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Political Science",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSPOLI3111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Studies EU institutions, political actors, integration and policymaking, linking formal rules to current political issues. Students analyze representation, legitimacy, interests, agenda setting, decision-making and implementation. A substantial empirical project examines European Parliament committee amendments, connecting MEP ideology and possible interest-group influence to amendment activity. Students develop a project plan, code amendments, assess salience and trace legislative processes.",
+        "discipline": "European Union politics; Political science; Public policy",
+        "topics": "European integration; EU institutions and decision rules; EU legitimacy and democracy; Public opinion; Parties and European Parliament; Interest representation and lobbying; Agenda setting; EU legislation and implementation; MEP roles and committee behaviour; Political ideology and amendments; Policy salience",
+        "methods": "EU policy and legislative-document research; Process tracing; Systematic amendment coding; Ideology and amendment-activity analysis; Salience assessment; Comparative news-source analysis"
+      },
+      "contribution": "EU actors, decisions, interests and actual legislative-dossier group research. Political/institutional inquiry, not advanced European legal doctrine.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "European Union Politics examines EU institutions, actors, integration and policymaking, including representation, legitimacy and decision-making. An empirical project investigates European Parliament committee amendments, relating MEP ideology and possible interest-group influence to amendment activity. Students plan the research, code amendments, assess salience and trace legislative processes.",
+      "descriptionSha256": "97411c9c43963bfc500f8c6494383d57cfd36eeb9c57f554e94ba2d6e35c4253",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "GOSSOCI311": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "SOCI",
+        "osiris": "GOSSOCI311",
+        "description2": "Examines contemporary sociological debates about civil society through critical tradition, neo‑functionalism and decolonial critiques. Includes research group projects with NGOs or civil society organizations that translate conceptual insights into empirical analysis.",
+        "name": "New Issues in Contemporary Social Theory",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Sociology",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSSOCI3111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Focuses on civil society through critical, neo-functionalist and decolonial social theory. Students examine social trust, capital, hegemony, public spheres, solidarity, social movements and civil repair across political and regional contexts. An experience report relates personal engagement or observation to course concepts. An individual research project uses theoretical and empirical sources to analyze a civil-society organization, movement, initiative or related phenomenon.",
+        "discipline": "Sociology; Social theory; Civil society studies",
+        "topics": "Civil society; Social trust and social capital; Hegemony; Critical theory; Public spheres, digital publics and counterpublics; Solidarity and civil repair; Civil sphere; Social movements and intersectionality; Migrant solidarity; Civil society under authoritarianism; Decolonial critique; Public sociology",
+        "methods": "Comparative social-theory analysis; Theory-guided empirical case analysis; Document and secondary-source analysis; Structured reflection on civil-society engagement or observation; Sociological research design"
+      },
+      "contribution": "Civil society, public sphere, solidarity and NGO/CSO community research. Actual contemporary social theory, not historical development of private law.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "New Issues in Contemporary Social Theory studies civil society through critical, neo-functionalist and decolonial perspectives. Topics include trust, social capital, public spheres, solidarity, social movements and civil repair. An experience report connects engagement or observation to course concepts, while an individual project uses theoretical and empirical sources to analyse a civil-society organisation, movement or initiative.",
+      "descriptionSha256": "367314c88b9f1c559ccd023159845f9624f353f78d898bc66b690ebe3392336b",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "MCCCOMM111": {
+      "courseEvidence": {
+        "dep": "MCC",
+        "track": "COMM",
+        "osiris": "MCCCOMM111",
+        "description2": "Teaches how to craft persuasive messages, influence opinions, inspire action and connect people. Draws on historical communicators from Aristotle to Barack Obama and applies stylistic techniques to students’ own writing and speaking.",
+        "name": "The Art of Rhetorical Communication",
+        "preq1": "NONE",
+        "deplabel": "Media, Culture & Communication",
+        "tracklabel": "Communication",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "MCCCOMM1111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Teaches rhetorical analysis and persuasive communication through classical history, theory and practice. Students study Greek and Roman rhetoric, the five canons, types of discourse, persuasive appeals, argumentation and fallacies. Written exercises, debates and public speeches develop invention, arrangement, style, memory and delivery. An applied project creates narrative and storytelling material for an immersive educational setting concerned with Zeeland's climate and community.",
+        "discipline": "Rhetoric; Communication studies",
+        "topics": "Greek and Roman rhetoric; Deliberative, forensic and epideictic discourse; Logos, ethos and pathos; Invention, arrangement, style, memory and delivery; Argumentation and fallacies; Tropes and schemes; Stasis and enthymemes; Persuasive speech; Narrative and storytelling; Immersive educational communication",
+        "methods": "Rhetorical text analysis; Stasis analysis; Argument invention and arrangement; Stylistic analysis and composition; Structured debate; Persuasive speechwriting and delivery; Educational storytelling design"
+      },
+      "contribution": "Classical rhetoric, canons and types of argumentation, academic essay/oral presentation skills and rhetorical analysis. Self-contained writing/speaking contribution; no Dutch courtroom/procedure or legal-research qualification.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "The Art of Rhetorical Communication develops rhetorical analysis, academic writing and oral presentation. Students examine classical Western roots and the canons of rhetoric, and learn to construct, organise and support persuasive arguments. Historical and contemporary examples connect rhetorical theory with practical communication.",
+      "descriptionSha256": "34ab73cc0cae33e2a0e47ba5df0ee55c9b0e5f2d4e21ae97ea18667a96400c4c",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "GOSPOLI313": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "POLI",
+        "osiris": "GOSPOLI313",
+        "description2": "Introduces Peace & Conflict Studies. Examines definitions of peace and conflict; analyzes conflict causation, violence typologies and radicalisation; applies reconciliation and conflict‑transformation models to real‑world scenarios through lectures and portfolio work.",
+        "name": "Peace & Conflict",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Political Science",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "GOSPOLI313.pdf",
+        "outline_semester": "2026h1",
+        "profile": "Examines causes and dynamics of conflict and approaches to peace through legal, sociological, political and historical perspectives. Structural inequality, identity and colonial legacies are connected to international security, humanitarian law, human rights, peacebuilding and transitional justice. Students compare travelling concepts across disciplines, produce an interdisciplinary podcast, and develop an evidence-based policy brief with a research dossier. Positionality reflection addresses how assumptions shape inquiry.",
+        "discipline": "Peace and conflict studies; International relations; Sociology; International law",
+        "topics": "Conflict theories and structural violence; Identity and historical grievances; Colonialism and forced migration; International peace and security; Humanitarian law and human rights; Positive, negative and hybrid peace; Local peacebuilding; Frozen conflicts; Counterterrorism and rule of law; Transitional justice; Gender and conflict; Development and peacebuilding; Reconciliation, arts and religion; Global South perspectives; Travelling concepts and researcher positionality",
+        "methods": "Interdisciplinary Research Process; Cross-disciplinary travelling-concept analysis; Conflict case analysis; Context and stakeholder mapping; Annotated bibliography and evidence synthesis; Policy-option appraisal; Policy-brief and background-dossier development; Researcher positionality analysis; Comparative research podcast production"
+      },
+      "contribution": "Violence, structural/identity/colonial causes and peacebuilding. Societal conflict inquiry, not criminal procedure or crime-law doctrine.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Peace & Conflict examines conflict and approaches to peace through legal, sociological, political and historical perspectives. Structural inequality, identity and colonial legacies connect to international security, humanitarian law, human rights, peacebuilding and transitional justice. An interdisciplinary podcast, policy brief and research dossier develop analysis, while reflection examines how assumptions shape inquiry.",
+      "descriptionSha256": "5ad720fcdadf602282307eef8fe7eaf83c3b00264a2ee4752e123cda89606fdf",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "GOSSOCI215": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "SOCI",
+        "osiris": "GOSSOCI215",
+        "description2": "Focuses on social movement theories and environmental justice. Uses case studies from the Environmental Justice Atlas and integrates perspectives such as feminism, anti‑colonialism, degrowth and environmental peacebuilding to encourage civic engagement.",
+        "name": "Social Movements & Environmental Justice",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Sociology",
+        "2025h2": null,
+        "2026h1": null,
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "contribution": "Movement theories and Environmental Justice Atlas cases, feminism, anticolonialism and environmental peacebuilding. Societal justice context, not environmental litigation.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Focuses on social movement theories and environmental justice. Uses case studies from the Environmental Justice Atlas and integrates perspectives such as feminism, anti‑colonialism, degrowth and environmental peacebuilding to encourage civic engagement.",
+      "descriptionSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "GOSPOLI212": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "POLI",
+        "osiris": "GOSPOLI212",
+        "description2": "Introduces basic theories of international relations and applies them to contemporary issues such as climate change, energy, humanitarian intervention, global crises and international relations between North-South and South-South actors. Includes a UN Security Council negotiation simulation.",
+        "name": "Theory of International Relations",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Political Science",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "GOSPOLI212.docx",
+        "outline_semester": "2026h1",
+        "profile": "Introduces international relations and geopolitics through competing theoretical approaches and historical and contemporary cases. Students study realism, liberalism, Marxism, constructivism, critical theory and foreign-policy analysis. Case research connects theories to conflicts, colonial relationships, economic competition and climate politics. A UN Security Council simulation requires country-position research, strategy and position papers, negotiation and collaborative resolution drafting.",
+        "discipline": "International relations; Geopolitics; Political science",
+        "topics": "International state system and non-state actors; Classical and contemporary geopolitics; Realism and neorealism; Liberalism and neoliberalism; Marxism and world-systems theory; Constructivism and critical theory; Foreign-policy decision-making; War and great-power competition; Colonialism and economic relations; Climate politics; UN Security Council diplomacy",
+        "methods": "Theory-guided international case analysis; Historical-source analysis; Comparative foreign-policy analysis; Country-position and strategy research; Diplomatic negotiation simulation; Position-paper and resolution drafting"
+      },
+      "contribution": "IR theories, geopolitics, international institutions and Security Council simulation. Institutional context, not public international law by itself.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Theory of International Relations introduces competing approaches to international relations and geopolitics, including realism, liberalism, Marxism, constructivism and critical theory. Students apply theories to historical and contemporary cases. A United Nations Security Council simulation develops country-position research, negotiation and collaborative resolution drafting.",
+      "descriptionSha256": "04498c2b83c05d39830633ba46b62b3691d10af2bb8320e5413d0f75963fbc80",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "ENSDELT312": {
+      "courseEvidence": {
+        "dep": "ENS",
+        "track": "DELT",
+        "osiris": "ENSDELT312",
+        "description2": "This course examines sustainability through the lens of governance: “a process of rule-making and collective decision-making that includes both governmental and non-governmental actors in shaping public policy” (Fenger & Bekkers, 2016). Taking this lens, we ask questions such as how are sustainability policies on the local, national, and international level made and enforced? Which actors represent which interests, and which are most influential? How is public opinion on sustainability shaped, and how does public opinion shape politics? What, at the end of the day, determines effective policy for sustainability? By the end of this course, you will have gained a deep appreciation of the complexity of the governance dimension of sustainability, and have developed the theoretical and practical understanding to critically assess mainstream policy decisions.",
+        "name": "Governance of Sustainability",
+        "preq1": "NONE",
+        "deplabel": "Environment & Sustainability",
+        "tracklabel": "Delta Challenges",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "ENSDELT312.docx",
+        "outline_semester": "2026h1",
+        "profile": "Analyzes sustainability as a problem of collective decision-making involving governments, markets and civil society. Concepts of institutions, power, participation, justice and problem complexity frame competing technological and systemic responses. Structured cases examine food, freshwater, energy and climate mitigation. Students apply governance frameworks to a Zeeland issue, consult relevant organizations or experts, and produce policy advice or an evaluation assessing effectiveness, feasibility and stakeholder interests.",
+        "discipline": "Environmental governance; Public policy; Political science",
+        "topics": "Institutions, actors and power; Collective action and common-pool resources; Governance modes and networks; Techno-optimism and ecological limits; Climate justice; Populism and environmental politics; Wicked and long-term problems; Public participation; Food, water and energy governance; Markets, public goods and externalities; Adaptive and global governance; Climate mitigation; Policy effectiveness and feasibility",
+        "methods": "Governance-framework application; Problem diagnosis and causal analysis; Stakeholder and policy-option matrices; Policy evaluation; Policy-advice memo development; Stakeholder and expert interviewing; Comparative analysis of normative policy perspectives"
+      },
+      "contribution": "Rule-making actors, interests, public opinion and policy enforcement through concrete sustainability cases. Genuine governance study, not environmental legal doctrine or administrative procedure.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "This course examines sustainability through the lens of governance: “a process of rule-making and collective decision-making that includes both governmental and non-governmental actors in shaping public policy” (Fenger & Bekkers, 2016). Taking this lens, we ask questions such as how are sustainability policies on the local, national, and international level made and enforced? Which actors represent which interests, and which are most influential? How is public opinion on sustainability shaped, and how does public opinion shape politics? What, at the end of the day, determines effective policy for sustainability? By the end of this course, you will have gained a deep appreciation of the complexity of the governance dimension of sustainability, and have developed the theoretical and practical understanding to critically assess mainstream policy decisions.",
+      "descriptionSha256": "746711aaebf20395c0fd5695fb91c5951f611715825c91ca6da251c5d890e362",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "BENECON111": {
+      "courseEvidence": {
+        "dep": "BEN",
+        "track": "ECON",
+        "osiris": "BENECON111",
+        "description2": "Explore how individuals, firms, and societies make economic decisions. This course introduces key concepts from both microeconomics and macroeconomics, including markets, incentives, and the principles of supply and demand, and provides a foundation for analyzing real-world economic issues.",
+        "name": "Introduction to Economics",
+        "preq1": "NONE",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Economics",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": null,
+        "2028h1": null,
+        "2028h2": null,
+        "2029h1": null,
+        "outline_source": "BENECON1111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Introduces microeconomic principles and short-run macroeconomic analysis. The microeconomic component examines supply and demand, strategic interaction, consumer choice, production, costs and competitive markets. The macroeconomic component introduces output, unemployment and inflation, then relates goods and financial markets through the IS-LM model. Students use algebra and graphs to explain economic behaviour and apply models to economic issues.",
+        "discipline": "Microeconomics; Macroeconomics",
+        "topics": "Supply and demand; Game theory; Rational consumer choice; Individual and market demand; Production and costs; Perfect competition; Aggregate output; Unemployment and inflation; Goods and financial markets; IS-LM model",
+        "methods": "Algebraic and graphical economic analysis; Supply-and-demand analysis; Game-theoretic analysis; IS-LM modelling"
+      },
+      "contribution": "Actual micro/macro foundations, game theory, consumer/firm behaviour, output, inflation and financial markets. Economic context for legal institutions, not legal doctrine.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Explore how individuals, firms, and societies make economic decisions. This course introduces key concepts from both microeconomics and macroeconomics, including markets, incentives, and the principles of supply and demand, and provides a foundation for analyzing real-world economic issues.",
+      "descriptionSha256": "2278892bd9c8b20df80deb4bd04a3bf00a3fe4cc79099b153861afa0f69110e8",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "BENECON212": {
+      "courseEvidence": {
+        "dep": "BEN",
+        "track": "ECON",
+        "osiris": "BENECON212",
+        "description2": "Study how consumers and producers make decisions under scarcity. Explore key concepts such as rational choice, decision-making under uncertainty, and non-egoistic preferences. Analyze market structures, strategic interactions, and factor markets. Learn how markets function and examine the impact of regulation. Develop analytical tools to better understand behavior and engage with empirical research.",
+        "name": "Microeconomics & Behavior",
+        "preq1": "BENGATE102",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Economics",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "BENECON212.pdf",
+        "outline_semester": "2026h1",
+        "profile": "Develops microeconomic theory through consumer behaviour, imperfectly competitive markets and economy-wide allocation. Students examine choice under uncertainty, non-egoistic preferences and cognitive limitations, then monopoly, strategic behaviour and labour and capital markets. General equilibrium, efficiency, externalities and government complete the analysis. Algebraic problem-solving and graphical analysis are connected to the interpretation and evaluation of research papers.",
+        "discipline": "Microeconomics; Behavioural economics",
+        "topics": "Choice under uncertainty; Non-egoistic preferences; Cognitive limitations; Monopoly; Imperfect competition and strategic behaviour; Labour markets; Capital markets; General equilibrium; Market efficiency; Externalities; Government intervention",
+        "methods": "Algebraic microeconomic analysis; Graphical economic analysis; Critical evaluation of economic research"
+      },
+      "contribution": "Consumer behaviour, uncertainty, imperfect competition, factor markets, welfare and externalities. Economic analysis, not a dedicated contract-law or financial-law course.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Study how consumers and producers make decisions under scarcity. Explore key concepts such as rational choice, decision-making under uncertainty, and non-egoistic preferences. Analyze market structures, strategic interactions, and factor markets. Learn how markets function and examine the impact of regulation. Develop analytical tools to better understand behavior and engage with empirical research.",
+      "descriptionSha256": "bb7e873ebcf0737250b0602678e531aaf080f101cfda442ebc4abcd4574d4250",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "BENENTR312": {
+      "courseEvidence": {
+        "dep": "BEN",
+        "track": "ENTR",
+        "osiris": "BENENTR312",
+        "description2": "This course examines the institutional, political and cultural forces shaping global businesses. It first explores how international companies operate, then centers on key global challenges including cross-border governance, corporate responsibility, geopolitical strategies and global trade. It provides a comprehensive understanding of today’s complex international business environment.",
+        "name": "International Business & Governance",
+        "preq1": "BENGATE101",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Entrepreneurship",
+        "2025h2": null,
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "BENENTR3121.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Examines how international trade, globalization and political, sociocultural and technological forces shape firms' cross-border decisions. Economic foundations include trade theories, foreign direct investment, foreign exchange and the monetary system. Students analyze governance, responsibility and trade-policy conflicts, investigate an international-business question, and develop an evidence-based market-entry strategy covering country attractiveness and business functions. A tariff case applies game theory to stakeholder choices and negotiation.",
+        "discipline": "International business; International economics; Strategic management",
+        "topics": "Globalization; International trade theories; Foreign direct investment; Foreign exchange and international monetary systems; Trade policy and economic integration; Cross-border governance; Corporate responsibility; Sociocultural and technological business environments; International business strategy; Market entry; Marketing, supply chains and human resources; Economic warfare",
+        "methods": "Trade-policy case analysis; Game-theoretic stakeholder analysis; Secondary-data analysis and visualization; Country and market-attractiveness assessment; Market-entry strategy development; Research-question formulation and evidence evaluation"
+      },
+      "contribution": "Institutional, political and cultural global-business governance, responsibility, geopolitics and trade. Business context, not Dutch company-law doctrine.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "This course examines the institutional, political and cultural forces shaping global businesses. It first explores how international companies operate, then centers on key global challenges including cross-border governance, corporate responsibility, geopolitical strategies and global trade. It provides a comprehensive understanding of today’s complex international business environment.",
+      "descriptionSha256": "856a96cf250de7952f8c7b224afd49ef702d16f3c4788647a561611357173349",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "BENECON312": {
+      "courseEvidence": {
+        "dep": "BEN",
+        "track": "ECON",
+        "osiris": "BENECON312",
+        "description2": "Econometrics supplies tools to analyze data to answer questions of causality and prediction. In this course you learn three estimators—Ordinary Least Squares, Generalized Least Squares, and Instrumental Variables—and three tests—t-test, F-test, and LM-test. Understanding the basic rules of econometrics, particularly the sampling distribution concept, is key, and the course uses Monte Carlo simulations in Stata to visualize it. Tools are applied to estimate economic relationships and make predictions, and students write an empirical paper.",
+        "name": "Econometrics",
+        "preq1": "BENGATE102",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Economics",
+        "2025h2": null,
+        "2026h1": null,
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": null,
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "contribution": "OLS/GLS/IV, tests, Monte Carlo/Stata and an empirical paper. Advanced empirical inquiry, not statutory/case-law methodology or a Dutch legal thesis.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Econometrics supplies tools to analyze data to answer questions of causality and prediction. In this course you learn three estimators—Ordinary Least Squares, Generalized Least Squares, and Instrumental Variables—and three tests—t-test, F-test, and LM-test. Understanding the basic rules of econometrics, particularly the sampling distribution concept, is key, and the course uses Monte Carlo simulations in Stata to visualize it. Tools are applied to estimate economic relationships and make predictions, and students write an empirical paper.",
+      "descriptionSha256": "3754e43821eb3db5407d6eded2b8e70021b3eb45d2284acfae505d85d85baea9",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    },
+    "BENBUSI312": {
+      "courseEvidence": {
+        "dep": "BEN",
+        "track": "BUSI",
+        "osiris": "BENBUSI312",
+        "description2": "We study financial markets (stocks, bonds, derivatives) and financial institutions (commercial banks and central banks). We address such questions as: Can you outperform the stock market? Why are banks inherently fragile? What do central banks do? What causes financial crises? Throughout the semester, student teams participate in a business simulation, the Stanford Banking Game. Each team manages a virtual bank and tries to maximize its share price.",
+        "name": "Money, Banking & Finance",
+        "preq1": "BENGATE101",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Business",
+        "2025h2": null,
+        "2026h1": null,
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "BENBUSI312.pdf",
+        "outline_semester": "2027h1",
+        "profile": "Examines financial markets and institutions, including the pricing of bonds, stocks and derivatives, interest rates and their risk and term structure, commercial-bank balance sheets and performance, financial structure and regulation, banking fragility and financial crises, central banks, money creation and monetary policy. Students apply algebraic and graphical analysis to financial and monetary problems. In the Stanford Banking Game they manage a simulated bank, analyse performance in Excel dashboards, forecast financial statements, and make evidence-based decisions about loans, deposits, capital, liquidity and risk. A small research project extends a selected financial or monetary research article through additional literature, a case study or updated evidence.",
+        "discipline": "Finance; Monetary economics; Banking",
+        "topics": "Financial markets and institutions; Bond, stock and derivative pricing; Interest-rate determination; Interest-rate risk and the term structure; Commercial-bank balance sheets and performance; Bank capital, liquidity and risk management; Financial structure and regulation; Banking fragility; Financial crises in advanced and emerging economies; Central banking; Money supply; Monetary-policy tools and conduct",
+        "methods": "Algebraic and graphical financial analysis; Balance-sheet analysis; Duration gap analysis; Bank-management simulation (Stanford Banking Game); Excel-based financial dashboard construction and performance analysis; Financial-statement forecasting; Research-article extension using literature comparison, case study or updated data"
+      },
+      "contribution": "Financial markets, asset pricing, bank balance sheets, banking fragility, central banks and monetary policy. Students manage a simulated bank, analyse financial data and extend a research article. Actual finance and banking content supports the business/economic lens; this is not Dutch financial law, statutory banking regulation or legal professional training.",
+      "judgment": "Read available course evidence. The stated direct or complementary role is supported within its limits; a legal topic or simulation does not establish Dutch professional equivalence.",
+      "selectedDescription": "Examines financial markets, commercial banks and central banks, including interest rates, financial regulation, financial crises and monetary policy. Students analyse financial problems and manage a simulated bank in the Stanford Banking Game, using Excel dashboards and financial forecasts to inform decisions about loans, deposits, capital, liquidity and risk.",
+      "descriptionSha256": "dd318ab8d5a96197622f9002a480483d9f49dca92bc4f69000cb2b409994d82b",
+      "descriptionReview": "Complete selected text read against current evidence. Unchanged shared provenance/content review remains valid."
+    }
+  },
+  "placements": [
+    {
+      "programmeId": "ucr-1",
+      "term": "2026h2",
+      "courseCode": "ACCPPDE101",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2026h2",
+      "courseCode": "GOSGATE102",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2026h2",
+      "courseCode": "GOSLAWJ111",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2026h2",
+      "courseCode": "BENGATE101",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h1",
+      "courseCode": "GOSLAWJ212",
+      "offering": "X",
+      "prerequisite": "GOSGATE102"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h1",
+      "courseCode": "GOSLAWJ213",
+      "offering": "X",
+      "prerequisite": "GOSGATE102"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h1",
+      "courseCode": "BENGATE102",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h1",
+      "courseCode": "GOSSOCI212",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h2",
+      "courseCode": "GOSPOLI311",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h2",
+      "courseCode": "GOSPOLI111",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h2",
+      "courseCode": "GOSSOCI111",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h2",
+      "courseCode": "BENBUSI112",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h1",
+      "courseCode": "GOSLAWJ312",
+      "offering": "X",
+      "prerequisite": "GOSGATE102"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h1",
+      "courseCode": "BENBUSI311",
+      "offering": "X",
+      "prerequisite": "BENGATE101"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h1",
+      "courseCode": "BENECON311",
+      "offering": "X",
+      "prerequisite": "BENGATE102"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h1",
+      "courseCode": "GOSPHIL212",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h2",
+      "courseCode": "GOSLAWJ311",
+      "offering": "X",
+      "prerequisite": "GOSGATE102"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h2",
+      "courseCode": "GOSLAWJ211",
+      "offering": "X",
+      "prerequisite": "GOSGATE102"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h2",
+      "courseCode": "GOSSOCI311",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h2",
+      "courseCode": "MCCCOMM111",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2029h1",
+      "courseCode": "GOSPOLI313",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2029h1",
+      "courseCode": "GOSSOCI215",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2029h1",
+      "courseCode": "GOSPOLI212",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2029h1",
+      "courseCode": "ENSDELT312",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2026h2",
+      "courseCode": "ACCPPDE101",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2026h2",
+      "courseCode": "GOSGATE102",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2026h2",
+      "courseCode": "BENGATE101",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2026h2",
+      "courseCode": "BENECON111",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h1",
+      "courseCode": "GOSLAWJ212",
+      "offering": "X",
+      "prerequisite": "GOSGATE102"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h1",
+      "courseCode": "GOSLAWJ213",
+      "offering": "X",
+      "prerequisite": "GOSGATE102"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h1",
+      "courseCode": "BENGATE102",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h1",
+      "courseCode": "GOSSOCI212",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h2",
+      "courseCode": "BENENTR312",
+      "offering": "X",
+      "prerequisite": "BENGATE101"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h2",
+      "courseCode": "BENBUSI112",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h2",
+      "courseCode": "GOSLAWJ111",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h2",
+      "courseCode": "GOSSOCI111",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h1",
+      "courseCode": "BENBUSI311",
+      "offering": "X",
+      "prerequisite": "BENGATE101"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h1",
+      "courseCode": "BENECON212",
+      "offering": "X",
+      "prerequisite": "BENGATE102"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h1",
+      "courseCode": "BENECON311",
+      "offering": "X",
+      "prerequisite": "BENGATE102"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h1",
+      "courseCode": "GOSPHIL212",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h2",
+      "courseCode": "GOSLAWJ311",
+      "offering": "X",
+      "prerequisite": "GOSGATE102"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h2",
+      "courseCode": "GOSLAWJ211",
+      "offering": "X",
+      "prerequisite": "GOSGATE102"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h2",
+      "courseCode": "GOSSOCI311",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h2",
+      "courseCode": "MCCCOMM111",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2029h1",
+      "courseCode": "GOSLAWJ312",
+      "offering": "X",
+      "prerequisite": "GOSGATE102"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2029h1",
+      "courseCode": "BENECON312",
+      "offering": "X",
+      "prerequisite": "BENGATE102"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2029h1",
+      "courseCode": "BENBUSI312",
+      "offering": "X",
+      "prerequisite": "BENGATE101"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2029h1",
+      "courseCode": "GOSPOLI212",
+      "offering": "X",
+      "prerequisite": "NONE"
+    }
+  ],
+  "preparation": "Business gateway precedes business law/international business/finance, general statistics precedes advanced economics; secondary introductory economics now precedes microeconomics. IntroSociology precedes advanced civil-society theory and qualitative methods supports its research. Modern Sociology would be useful additional preparation but is not a formal prerequisite; preserving this otherwise valid law-focused programme with introductory sociological and methodological preparation is reasonable under the open curriculum. No advisory preference is treated as an independent failure.",
+  "repairs": [
+    "Both Criminal Law placements moved from unplannedFall2027 to plannedFall2028 after the legal gateway. Primary EU Politics moves toFall2027.",
+    "Secondary IntroEconomics moves to its sole plannedFall2026 slot;HumanRights moves toFall2027;InternationalBusiness moves toFall2027 after business gateway. No course selection changed.",
+    "Updated Money,Banking&Finance contribution and the business concept to actual banking/monetary content while retaining the law-versus-finance boundary."
+  ],
+  "alignment": {
+    "all32Entries": [
+      {
+        "componentId": "y1-02",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "GOSGATE102",
+        "rationale": "Direct introduction to legal systems, fields, cases and trial simulations; Radboud develops a larger Dutch legal foundation."
+      },
+      {
+        "componentId": "y1-08",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "GOSLAWJ111",
+        "rationale": "Human-rights law, natural-law history and philosophical rights/justice questions provide a partial jurisprudential lens; not the whole legal-philosophy course."
+      },
+      {
+        "componentId": "y1-04",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "GOSLAWJ212",
+        "rationale": "Direct public international legal sources, subjects, institutions and obligations, with differing scope."
+      },
+      {
+        "componentId": "y1-03",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "GOSLAWJ213",
+        "rationale": "Direct constitutional and administrative principles studied comparatively; the target centres on Dutch law and later adds specialised procedure."
+      },
+      {
+        "componentId": "y1-10",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "GOSLAWJ211",
+        "rationale": "Criminal responsibility, legality, punishment, case analysis and a legal-aid simulation provide genuine legal study; Dutch procedure I/II remains separate."
+      },
+      {
+        "componentId": "y1-06",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "GOSLAWJ312",
+        "rationale": "Substantive EU legal institutions, procedures, rights and freedoms; this one UCR course is not counted as both target EU requirements."
+      },
+      {
+        "componentId": "y3-02",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "BENBUSI311",
+        "rationale": "Comparative cross-border contracts and business transactions offer a partial private/commercial legal connection; not Dutch Civil Law I or the Civil I/II sequence."
+      },
+      {
+        "componentId": "y3-07",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "GOSPHIL212",
+        "rationale": "General moral theory and practical ethical argument support normative reasoning; professional duties of Dutch lawyers remain distinct."
+      },
+      {
+        "componentId": "y1-05",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "GOSLAWJ311",
+        "rationale": "Property, contract and tort principles provide real private-law study through a comparative approach rather than Dutch civil-law coverage."
+      },
+      {
+        "componentId": "y1-07",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "MCCCOMM111",
+        "rationale": "Self-contained rhetorical writing and speaking support academic argument; doctrinal research, legal source handling and the entire legal-skills unit remain different."
+      },
+      {
+        "componentId": "y1-01",
+        "matchType": "unmatched",
+        "rationale": "Required 1 EC academic-language course. Mandatory first-year tutoring participation adds no credits."
+      },
+      {
+        "componentId": "y1-09",
+        "matchType": "unmatched",
+        "rationale": "Compulsory credited legal-practice or moot-court component."
+      },
+      {
+        "componentId": "y2-01",
+        "matchType": "unmatched",
+        "rationale": "Required 6 EC after first-year State and Administrative Law."
+      },
+      {
+        "componentId": "y2-02",
+        "matchType": "unmatched",
+        "rationale": "No single selected UCR course adequately represents this separately credited legal requirement."
+      },
+      {
+        "componentId": "y2-03",
+        "matchType": "unmatched",
+        "rationale": "Required 7 EC after first-year Criminal and Procedural Law."
+      },
+      {
+        "componentId": "y2-04",
+        "matchType": "unmatched",
+        "rationale": "Required 13 EC Dutch and comparative constitutional law after first-year State and Administrative Law."
+      },
+      {
+        "componentId": "y2-05",
+        "matchType": "unmatched",
+        "rationale": "Required 6 EC after first-year State and Administrative Law."
+      },
+      {
+        "componentId": "y2-06",
+        "matchType": "unmatched",
+        "rationale": "No single selected UCR course adequately represents this separately credited legal requirement."
+      },
+      {
+        "componentId": "y2-07",
+        "matchType": "unmatched",
+        "rationale": "Required 1 EC simulated administrative-law practice after first-year State and Administrative Law."
+      },
+      {
+        "componentId": "y2-08",
+        "matchType": "unmatched",
+        "rationale": "Required 7 EC after first-year Criminal and Procedural Law."
+      },
+      {
+        "componentId": "y2-09",
+        "matchType": "unmatched",
+        "rationale": "Required 3 EC positive-law research, distinct from empirical social-science methodology."
+      },
+      {
+        "componentId": "y2-10",
+        "matchType": "unmatched",
+        "rationale": "One restricted 5 EC choice: Labour Law selected; Introduction to Tax Law or Persons and Family Law are alternatives."
+      },
+      {
+        "componentId": "y3-01",
+        "matchType": "unmatched",
+        "rationale": "Required 5 EC civil procedure after first-year Private Law."
+      },
+      {
+        "componentId": "y3-03",
+        "matchType": "unmatched",
+        "rationale": "Required 4 EC after both introductory European and introductory International Law."
+      },
+      {
+        "componentId": "y3-04",
+        "matchType": "unmatched",
+        "rationale": "Required 3 EC civil-law practical component after first-year Private Law."
+      },
+      {
+        "componentId": "y3-05",
+        "matchType": "unmatched",
+        "rationale": "Required 5 EC legal thesis after Academic Language Skills, Academic Skills and Academic Skills II. Programme and topic registration apply; about three months, at least two group meetings and 4,000–5,000 words."
+      },
+      {
+        "componentId": "y3-06",
+        "matchType": "unmatched",
+        "rationale": "Required 10 EC after first-year Private Law."
+      },
+      {
+        "componentId": "y3-08",
+        "matchType": "unmatched",
+        "rationale": "Required 7 EC company law after first-year Private Law."
+      },
+      {
+        "componentId": "y3-09",
+        "matchType": "unmatched",
+        "rationale": "One restricted 4 EC choice: Tenancy Law selected; Financial Law or Intellectual Property Law are alternatives."
+      },
+      {
+        "componentId": "y3-10",
+        "matchType": "unmatched",
+        "rationale": "One restricted 4 EC integration course: AI and Law selected. Economics and Financial-Reporting Law is an alternative and is required for the stated fiscal-law master route."
+      },
+      {
+        "componentId": "y3-11",
+        "matchType": "unmatched",
+        "rationale": "Selected 4 EC Criminology perspective, paired with its 1 EC research essay. Legal philosophy and sociology of law are alternatives, not additional requirements."
+      },
+      {
+        "componentId": "y3-12",
+        "matchType": "unmatched",
+        "rationale": "The matching 1 EC criminology research essay is part of the selected 5 EC perspective-and-essay pair."
+      }
+    ],
+    "judgment": "Read every positive and unmatched relationship. Introlegal systems,comparative public/private,international/EU,criminal andcommercial contracts are substantive partial content connections. HumanRights supplies a partial jurisprudential lens; general ethics/rhetoric supply bounded ethical/argument support, not Dutch professional duties or all legal methods. Transnational contracts can relate to CivilI without implying Dutch company law. No course is counted twice to erase a separately credited foundation/advanced unit. Moots,doctrinal/procedural sequences,legalhistory,restricted subjects andlegal thesis remain meaningful gaps; empirical methods are not a legal thesis substitute.",
+    "optionalResearch": "One15ECoptionalcomparison-only research element perUCRroute parallel to5EClegal thesis, excluded from each24course180ECschedule."
+  },
+  "content": {
+    "policy": "record-content-review-2026-10-31",
+    "presentationMode": "normal",
+    "mapping": "Unchanged app.R821be611428fc28490c679783be464455ad00aa1 selects audience descriptions/limits and canonical concepts byIDs;table blocktitles/names/credits and audience.cellNotes;notes selected bynoteTypes;componentNotes for external-only view;modal department code-keyed descriptions.",
+    "fieldPaths": [
+      "comparator.name/institution/primarySourceUrl",
+      "comparator.components[*].name/credits",
+      "programmes[*].label",
+      "academicRationale.alternatives[*].concept",
+      "blocks[*].title/rows[*].cells[*].text/credits",
+      "audience.*",
+      "notes[*].text",
+      "optionalIndependentResearch",
+      "selectedCourseDescriptions"
+    ],
+    "judgment": "All titles,concepts,programme/status explanations,labels,notes,source links and29selected descriptions read in the established mapping. Complete32component audience list andbothconceptIDs resolve. Required/selected/open-space and professional/admission limits are useful and explicit. No internal provenance enters selected display fields. All10official URLs returned200. Noappcode,R/Shiny/browser installation,screenshots orlive modals.",
+    "descriptionCodes": [
+      "ACCPPDE101",
+      "GOSGATE102",
+      "GOSLAWJ111",
+      "BENGATE101",
+      "GOSLAWJ212",
+      "GOSLAWJ213",
+      "BENGATE102",
+      "GOSSOCI212",
+      "GOSLAWJ211",
+      "GOSPOLI111",
+      "GOSSOCI111",
+      "BENBUSI112",
+      "GOSLAWJ312",
+      "BENBUSI311",
+      "BENECON311",
+      "GOSPHIL212",
+      "GOSLAWJ311",
+      "GOSPOLI311",
+      "GOSSOCI311",
+      "MCCCOMM111",
+      "GOSPOLI313",
+      "GOSSOCI215",
+      "GOSPOLI212",
+      "ENSDELT312",
+      "BENECON111",
+      "BENECON212",
+      "BENENTR312",
+      "BENECON312",
+      "BENBUSI312"
+    ]
+  },
+  "mechanical": {
+    "feasibility": "Both24course180ECschedules pass4perterm,Year1PPD,formalprerequisites,plannedofferings andadvancedfloor.",
+    "schema": "Fullschema passed.",
+    "replay": "Productioncompiler reproduces canonical bytes.",
+    "descriptions": "86shared provenance entries passed;29selected texts read.",
+    "operational": "npm run validate:counselor passed."
+  }
+}
