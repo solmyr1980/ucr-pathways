@@ -1,0 +1,32 @@
+{
+  "caseId": "cp-000071",
+  "phase": "prepublication repaired exact pair",
+  "inputBlobs": {
+    "data/counselor/decisions/cp-000071.json": "30d1ac36fbefd245a6a54beb46041ba94c62a14e",
+    "data/counselor/comparisons/cp-000071.json": "46beb159f97057ea803de0f251e395b43d150651",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294"
+  },
+  "feasibility": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+  "strictSchema": "1 canonical records pass full JSON Schema validation.",
+  "operational": {
+    "command": "npm run validate:counselor",
+    "exitCode": 0,
+    "logSha256": "75d2ee86670411f390b618683c8b0cd873ccd9ed0c857ce02756aff3b033a9c8",
+    "caseLine": "Valid counselor production record: cp-000071.json"
+  },
+  "reviewIndexes": "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+  "descriptions": "98 reviewed descriptions pass declared name/source/text fidelity;30selected descriptions substantively reviewed/reused with own evidence.",
+  "byteExactReplay": {
+    "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000071.json --output /tmp/a71/replay.json; cmp canonical replay",
+    "passed": true,
+    "canonicalSha256": "d3fbe775b303924ad3967ebdba84ff14cab2274805077abe2639ebeb169438bb"
+  },
+  "ucrCourseLink": {
+    "url": "https://ucr.nl/education/courses/",
+    "status": 200,
+    "redirect": "https://ucr.nl/education/courses/",
+    "sha256": "e1628c8ab69023ede2c1d672b07e576928d7871ae4d5248dd0cd483c77d465ba"
+  },
+  "reaudit": "--sync passes438scope/219assignments;88approvedbeforecasefinalverification; queueunchanged andnoapprovalinferred.",
+  "testsBoundary": "Data/descriptionprovenanceonly;noappcode/behaviourchanges, noR/browser/runtimeregressionor release."
+}
