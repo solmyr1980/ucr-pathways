@@ -46,7 +46,7 @@
       "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie/over-de-opleiding/studieprogramma",
       "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/filosofie"
     ],
-    "sourceNotes": "The current official 2026-2027 prospectus API reconstructs the full-time 180-EC Dutch-taught curriculum. The 60-EC first year and 30-EC second-year common core are compulsory. The normalized target does not name one of the four Dutch graduation specialisations, so Ethics and Political Philosophy is selected by the documented official-order tie break. For that route, Normative Ethics and Global Justice form the 20-EC second-year thematic selection; Advanced Moral and Political Philosophy plus Naming and Necessity form a valid 10-EC core-course selection; and Philosophy of Technology plus Metaethics form the 20-EC third-year thematic selection. A 10-EC thesis and 30 EC of genuine elective space complete the degree. The part-time programme is officially described as content-identical but paced over 4.5 years, so the full-time curriculum is the neutral normalized structure.",
+    "sourceNotes": "The current official 2026-2027 prospectus API reconstructs the full-time 180-EC Dutch-taught curriculum. The 60-EC first year and 30-EC second-year common core are compulsory. The normalized target does not name one of the four Dutch graduation specialisations, so Ethics and Political Philosophy is selected by the documented official-order tie break. For that route, Normative Ethics and Global Justice form the 20-EC second-year thematic selection; Advanced Moral and Political Philosophy plus Naming and Necessity form a valid 10-EC core-course selection; and Virtue Ethics and Continental Political Philosophy form the 20-EC spring thematic selection. These are the first two spring options in the official Ethics and Political Philosophy group. The autumn semester holds the 30 EC elective space. The illustrated route completes 90 compulsory EC including Ethics, Philosophical Skills and Political Philosophy before its specialisation study. A 10-EC spring thesis and 30 EC of genuine elective space complete the degree. The part-time programme is officially described as content-identical but paced over 4.5 years, so the full-time curriculum is the neutral normalized structure.",
     "components": [
       {
         "id": "y1-culture",
@@ -144,19 +144,20 @@
         "credits": 5
       },
       {
-        "id": "y3-technology",
-        "name": "Philosophy of Technology",
+        "id": "y3-virtue",
+        "name": "Virtue Ethics",
         "credits": 10
       },
       {
-        "id": "y3-metaethics",
-        "name": "Metaethics",
+        "id": "y3-continental",
+        "name": "Continental Political Philosophy",
         "credits": 10
       },
       {
         "id": "thesis",
         "name": "BA Thesis Philosophy",
-        "credits": 10
+        "credits": 10,
+        "note": "10 EC thesis including the thesis seminar. Entry requires 120 degree EC and the chosen specialisation core course or a qualifying seminar at level 200 or above. Seminar registration is compulsory; the supervisor and second reader assess the written thesis."
       },
       {
         "id": "elective-space",
@@ -2960,10 +2961,9 @@
       "rationale": "Both examine justice and rights beyond the state; UCR approaches the topic through human-rights law and philosophy."
     },
     {
-      "componentId": "y3-technology",
-      "matchType": "substantive-match",
-      "ucrCourseCode": "DISARIN111",
-      "rationale": "Both evaluate philosophical and ethical questions raised by contemporary digital technology and artificial intelligence."
+      "componentId": "y3-virtue",
+      "matchType": "unmatched",
+      "rationale": "The current Leiden course studies Islamic moral philosophy, self-cultivation and practical wisdom. The selected UCR courses offer related ethical reasoning but do not reproduce this specialised tradition."
     },
     {
       "componentId": "y1-epistemology",
@@ -3035,9 +3035,9 @@
       "rationale": "The selected UCR courses do not directly cover this Leiden component’s specific philosophical subject or educational function; it remains a visible curricular difference."
     },
     {
-      "componentId": "y3-metaethics",
+      "componentId": "y3-continental",
       "matchType": "unmatched",
-      "rationale": "The selected UCR courses do not directly cover this Leiden component’s specific philosophical subject or educational function; it remains a visible curricular difference."
+      "rationale": "Leiden examines political agency and historical social relations through Marxist and phenomenological traditions. General cognition and psychology do not reproduce this political-philosophy seminar."
     },
     {
       "componentId": "elective-space",
@@ -3116,7 +3116,8 @@
             "comparator": {
               "text": "BA Thesis Philosophy",
               "credits": 10,
-              "componentId": "thesis"
+              "componentId": "thesis",
+              "note": "10 EC thesis including the thesis seminar. Entry requires 120 degree EC and the chosen specialisation core course or a qualifying seminar at level 200 or above. Seminar registration is compulsory; the supervisor and second reader assess the written thesis."
             }
           }
         },
@@ -3382,11 +3383,15 @@
               "text": "AI Ethics",
               "credits": 7.5,
               "courseCode": "DISARIN111"
-            },
+            }
+          }
+        },
+        {
+          "cells": {
             "comparator": {
-              "text": "Philosophy of Technology",
+              "text": "Virtue Ethics",
               "credits": 10,
-              "componentId": "y3-technology"
+              "componentId": "y3-virtue"
             }
           }
         }
@@ -3761,9 +3766,9 @@
         {
           "cells": {
             "comparator": {
-              "text": "Metaethics",
+              "text": "Continental Political Philosophy",
               "credits": 10,
-              "componentId": "y3-metaethics"
+              "componentId": "y3-continental"
             }
           }
         },
