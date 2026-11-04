@@ -7156,36 +7156,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000072",
-      "activeClaim": {
-        "executionId": "restart-A-cp072-retry2-20261104T1525Z",
-        "worker": "A",
-        "caseId": "cp-000072",
-        "claimedAt": "2026-11-04T15:27:04.099057+00:00",
-        "reviewedInputCommit": "ee445049c9bb274eea358ed06f4022ffcdf6bfef",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000072.json": "41dc38b753a301d52906b395e93e9215db600665",
-          "data/counselor/comparisons/cp-000072.json": "bb30f20ed0c52b713eeed96465292ef0e77c877c",
-          "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "ResumeCP072 exactsourcequestions: seek officialcohortalternation/replacement,abroadallocationandthesisseminarfulfilment. Preserve verifiedinterests/content and151courseworkbook; ifsecond unsuccessfulacademicexecution recordpermitteddeferralwithoutapproval.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000073",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -7629,7 +7608,8 @@
         "cp-000055",
         "cp-000056",
         "cp-000060",
-        "cp-000069"
+        "cp-000069",
+        "cp-000072"
       ],
       "sourceRetrievalFailuresByCase": {
         "cp-000013": 2,
@@ -7647,22 +7627,23 @@
         "cp-000056": 2,
         "cp-000060": 2,
         "cp-000069": 2,
-        "cp-000072": 1
+        "cp-000072": 2
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
         "caseId": "cp-000072",
-        "executionId": "restart-A-cp072-20261104T1427Z",
+        "executionId": "restart-A-cp072-retry2-20261104T1525Z",
         "state": "in-progress",
-        "reviewedInputCommit": "96294cdab92a198c88380fab4a9828f18f733f71",
+        "operationalDisposition": "deferred-incomplete",
+        "reviewedInputCommit": "c305dc97cfe63f1c5afee159a6c473547d51ba0e",
         "inputBlobs": {
           "canonical": "bb30f20ed0c52b713eeed96465292ef0e77c877c",
           "decision": "41dc38b753a301d52906b395e93e9215db600665"
         },
-        "checkpointedAt": "2026-11-04T14:32:59.293336+00:00",
-        "unsuccessfulSourceExecutions": 1,
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000072/source-first-checkpoint.json",
-        "nextAction": "ResumeCP072next execution and seek applicableofficialclarification oftheexactlistedrequirements; preserve supportedsubset/research. Aftertwo unsuccessfulnewauditexecutions deferralispermitted,notapproval. No newcase or no-match now.",
+        "checkpointedAt": "2026-11-04T15:29:18.968997+00:00",
+        "unsuccessfulSourceExecutions": 2,
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000072/source-attempt-2.json",
+        "nextAction": "ResumeCP073next execution. RevisitCP072onlyunderrecordedsourceRetryRule; obtainapplicableunique180ECcohort/alternationallocation,abroadreplacementandapprovedthesisseminarfulfilment, thencloseaffectedstagesandfinalsource-firstacademic/mechanical/contentchecks.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -12636,6 +12617,50 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-11-04T15:29:18.968997+00:00",
+          "reason": "Preserve own prior checkpoint and claim before operationaldeferral.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000072",
+              "executionId": "restart-A-cp072-20261104T1427Z",
+              "state": "in-progress",
+              "reviewedInputCommit": "96294cdab92a198c88380fab4a9828f18f733f71",
+              "inputBlobs": {
+                "canonical": "bb30f20ed0c52b713eeed96465292ef0e77c877c",
+                "decision": "41dc38b753a301d52906b395e93e9215db600665"
+              },
+              "checkpointedAt": "2026-11-04T14:32:59.293336+00:00",
+              "unsuccessfulSourceExecutions": 1,
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000072/source-first-checkpoint.json",
+              "nextAction": "ResumeCP072next execution and seek applicableofficialclarification oftheexactlistedrequirements; preserve supportedsubset/research. Aftertwo unsuccessfulnewauditexecutions deferralispermitted,notapproval. No newcase or no-match now.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp072-retry2-20261104T1525Z",
+              "worker": "A",
+              "caseId": "cp-000072",
+              "claimedAt": "2026-11-04T15:27:04.099057+00:00",
+              "reviewedInputCommit": "ee445049c9bb274eea358ed06f4022ffcdf6bfef",
+              "inputBlobs": {
+                "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000072.json": "41dc38b753a301d52906b395e93e9215db600665",
+                "data/counselor/comparisons/cp-000072.json": "bb30f20ed0c52b713eeed96465292ef0e77c877c",
+                "data/registry/programme_interests.csv": "a6463ef4fba404fa3b6c9b98436a75ff43ce0b0f",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "ResumeCP072 exactsourcequestions: seek officialcohortalternation/replacement,abroadallocationandthesisseminarfulfilment. Preserve verifiedinterests/content and151courseworkbook; ifsecond unsuccessfulacademicexecution recordpermitteddeferralwithoutapproval.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -12886,6 +12911,14 @@
           "essentialEvidence": "Provide a coherent applicable180uniqueEC Spanish pathway resolving repeated LET-RTCBS223,LET-RTCBS218-A andLET-RTCBS224 acrossB1/B2/B3, with authoritative alternation/replacement allocation. Clarify currentB3 researchstage5+restricted10 versus prospective15ECabroad, includingoverseasapproval/substitution. Establish the approvedreplacement/fulfilment of Seminario de investigación requiredbefore the10ECthesis. Do not infer repeatcredit,adviserapproval or fillthe25EC diagnosticdifference with inventedcourses.",
           "officialAlternative": "Currentfacultyindex examined: forpost2016entrants currentOERcontrols;2026–27RTC link is samecurrentdocument. Targetedofficial-domainsearch sought2026amendment/cohortalternation andseminarreplacement. It foundolderregulations andcurrentindex,notanapplicablecorrection. Old2024/2025tables notusedtoassemblea2026path. ProspectiveB1explicit2027–28,B2explicit2028–29,B3explicit2029–30andindicative; donotresolveannual2026path.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000072/source-first-checkpoint.json"
+        },
+        {
+          "caseId": "cp-000072",
+          "executionId": "restart-A-cp072-retry2-20261104T1525Z",
+          "checkedOn": "2026-11-04",
+          "essentialEvidence": "Provide a coherent applicable180uniqueEC Spanish pathway resolving repeated LET-RTCBS223,LET-RTCBS218-A andLET-RTCBS224 acrossB1/B2/B3, with authoritative alternation/replacement allocation. Clarify currentB3 researchstage5+restricted10 versus prospective15ECabroad, includingoverseasapproval/substitution. Establish the approvedreplacement/fulfilment of Seminario de investigación requiredbefore the10ECthesis. Do not infer repeatcredit,adviserapproval or fillthe25EC diagnosticdifference with inventedcourses.",
+          "officialAlternative": "FreshfacultyOERindexandtargetedofficialsearchinspected. Currentfacultyfree-spaceguidanceforcohort2024+explicitlyshows30freeECand20major+10thesis whenabroad, butlabelsit simplified andrefersFrans/Spaansstudentstoadviser/OERforreplacementofmissedsemester1majorcourses. It suppliesnomappingforthe25ECrepeatedcourseallocationorapprovedseminarreplacement. FutureB3prospectivepageexplicit2029–2030indicative15ECabroadcannotreplacecurrent2026annualstage/choiceallocation. No inventedcredits, repeatcredit,approvalorcohortbridge.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000072/source-attempt-2.json"
         }
       ],
       "deferralHistory": [
@@ -13036,6 +13069,16 @@
           "unsuccessfulExecutions": 2,
           "reason": "Obtain applicable STC third-year requirements and exact final-work/whitepaper outcomes, assessment and entry/progression conditions, plus the selected French minor package and its mandatory course conditions. Current2026–27 OER contains STC B1/B2 only; prospective B3 is explicitly2029–30 indicative. Do not substitute adjacent ACW/ACS rules.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000069/source-attempt-2.json",
+          "revisitStatus": "pending; not consumed",
+          "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
+        },
+        {
+          "caseId": "cp-000072",
+          "deferredOn": "2026-11-04",
+          "executionId": "restart-A-cp072-retry2-20261104T1525Z",
+          "unsuccessfulExecutions": 2,
+          "reason": "Provide a coherent applicable180uniqueEC Spanish pathway resolving repeated LET-RTCBS223,LET-RTCBS218-A andLET-RTCBS224 acrossB1/B2/B3, with authoritative alternation/replacement allocation. Clarify currentB3 researchstage5+restricted10 versus prospective15ECabroad, includingoverseasapproval/substitution. Establish the approvedreplacement/fulfilment of Seminario de investigación requiredbefore the10ECthesis. Do not infer repeatcredit,adviserapproval or fillthe25EC diagnosticdifference with inventedcourses.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000072/source-attempt-2.json",
           "revisitStatus": "pending; not consumed",
           "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
         }
