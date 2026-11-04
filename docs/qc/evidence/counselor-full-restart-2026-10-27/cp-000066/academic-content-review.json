@@ -1,0 +1,2165 @@
+{
+  "caseId": "cp-000066",
+  "auditId": "counselor-full-restart-2026-10-27",
+  "executionId": "restart-A-cp066-20261104T0730Z",
+  "reviewedOn": "2026-11-04T07:35:39.692103+00:00",
+  "reviewedInputCommit": "bd22a261d22af7c63e40de99df7e097f6d737f46",
+  "inputBlobs": {
+    "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+    "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+    "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000066.json": "680c1de6029636388d891044ad54505c638664ba",
+    "data/counselor/comparisons/cp-000066.json": "b84ebeb7f270f25170cfe4ae32e3d60737d91194",
+    "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "canonical": "b84ebeb7f270f25170cfe4ae32e3d60737d91194",
+    "decision": "680c1de6029636388d891044ad54505c638664ba",
+    "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
+    "pilot/shiny/data/courses/GOS.json": "49da38b390637fa113a95b835a4d9bbda854ef83",
+    "pilot/shiny/data/courses/HCB.json": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad",
+    "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa"
+  },
+  "freshSources": [
+    {
+      "id": 0,
+      "url": "https://www.ru.nl/sites/default/files/2026-08/fsw-oer-2026-2027-psychologie-bachelor.pdf",
+      "effectiveUrl": "https://www.ru.nl/sites/default/files/2026-08/fsw-oer-2026-2027-psychologie-bachelor.pdf",
+      "status": 200,
+      "bytes": 801835,
+      "sha256": "d292146162ba77abc3786f9582e500d6ccab67d2f950f0a7ac4eccd608160c98"
+    },
+    {
+      "id": 1,
+      "url": "https://www.ru.nl/opleidingen/bachelors/psychologie/studieprogramma",
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/psychologie/studieprogramma",
+      "status": 200,
+      "bytes": 46275,
+      "sha256": "c8af3da8093c8fdbcf45a8ce1c78ad1c07da892bb50cc0d0f696bad98c1982ef"
+    },
+    {
+      "id": 2,
+      "url": "https://www.ru.nl/opleidingen/bachelors/psychologie/studieprogramma/studieprogramma-bachelor-psychologie-jaar-1",
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/psychologie/studieprogramma/jaar-1",
+      "status": 200,
+      "bytes": 66898,
+      "sha256": "6b9a136eec99772fa467c1f565d4967d60592e8bd065ed9022c86bd23b3c4628"
+    },
+    {
+      "id": 3,
+      "url": "https://www.ru.nl/opleidingen/bachelors/psychologie/studieprogramma/studieprogramma-bachelor-psychologie-jaar-2",
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/psychologie/studieprogramma/jaar-2",
+      "status": 200,
+      "bytes": 68142,
+      "sha256": "73fa7f81d8e6410ce627944ea72860c4cc432877f9754d16a5c9a14268ee3a06"
+    },
+    {
+      "id": 4,
+      "url": "https://www.ru.nl/opleidingen/bachelors/psychologie/studieprogramma/studieprogramma-bachelor-psychologie-jaar-3",
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/psychologie/studieprogramma/jaar-3",
+      "status": 200,
+      "bytes": 145867,
+      "sha256": "42f8fb350e059badea4c3f5fe097a44607ca3b9d7c313e298f63bb6465aa3111"
+    },
+    {
+      "id": 5,
+      "url": "https://www.ru.nl/sites/default/files/2024-07/fsw-oer-2024-2025-nl-PSYCH%20bachelor.pdf",
+      "effectiveUrl": "https://www.ru.nl/sites/default/files/2024-07/fsw-oer-2024-2025-nl-PSYCH%20bachelor.pdf",
+      "status": 200,
+      "bytes": 952034,
+      "sha256": "cb441321bd3a31d80b06d803db35d4dc45de73e6f9cceae5cf2ecd93b5025f43"
+    },
+    {
+      "id": 6,
+      "url": "https://www.ru.nl/sites/default/files/2025-08/fsw-oer-2025-2026-psychologie-bachelor.pdf",
+      "effectiveUrl": "https://www.ru.nl/sites/default/files/2025-08/fsw-oer-2025-2026-psychologie-bachelor.pdf",
+      "status": 200,
+      "bytes": 867082,
+      "sha256": "df7f2dab0f6e367651ee3db88a118c8f84b14726a4882f2e05fe985baf518216"
+    },
+    {
+      "id": 7,
+      "url": "https://www.ru.nl/sites/default/files/2025-08/fsw-eer-2025-2026-psychologie-bachelor-en.pdf",
+      "effectiveUrl": "https://www.ru.nl/sites/default/files/2025-08/fsw-eer-2025-2026-psychologie-bachelor-en.pdf",
+      "status": 200,
+      "bytes": 810488,
+      "sha256": "0e54cf6492b4675b44bdaed9f9094afc2b8bc2db93bd2ce1aee96a3b4d74e199"
+    },
+    {
+      "id": 8,
+      "url": "https://www.ru.nl/opleidingen/bachelors/psychologie",
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/psychologie",
+      "status": 200,
+      "bytes": 65185,
+      "sha256": "3480f61b182ec76ec403b82f5f2c6569d8f8ff140a4d4a527a021c2663f19cd7"
+    },
+    {
+      "id": 9,
+      "url": "https://www.ru.nl/opleidingen/bachelors/psychologie/na-je-studie",
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/psychologie/na-je-studie",
+      "status": 200,
+      "bytes": 47023,
+      "sha256": "0c519072f63bd38f6c0fcab17f6e62bea1738ab81e2848b741b4d7fd3c146a03"
+    }
+  ],
+  "external": {
+    "identity": "Radboud BSc Psychology,56604/RIO1001O5936. The Dutch registry target uses the bilingual Dutch/English programme; it is distinct from the fully English variant.",
+    "cohort": "One coherent2024-entry cohort: B1 adopted2024–25, B2 adopted2025–26, B3 current2026–27 preSeptember2025 framework. Brain & Cognition is the neutral first-listed domain. No reformed2026B1/B2 is mixed into older B3.",
+    "sourcesReconsidered": "All four newly retrieved OER hashes equal the retained documents. Read actual2024B1 table/participant and language rules,2025Dutch/English B2 tables/core themes, current pre2025 B3 requirements/domain menu, transition table and entry rules. Previous approvals and rendered evidence were not reused as proof.",
+    "credit": "37 components;60+60+60=180uniqueEC,124compulsory/40restricted/16genuineopen. TwoB2themes in different periods and one4EC B3elective in B2. That elective is not repeated among the threeB3domain electives. B3 two6ECdomain courses including matching domain, three4ECelectives,4ECmethods,4ECethics,12ECthesis,16open.",
+    "conflictResolution": "D&H practical1EC explicitly established by current transition tablePSB2DH10EB and same-year2025English table; not inferred from arithmetic. Prospective60.5EC including0.5career unit is not adopted; current B3career0EC remains mandatory.",
+    "progression": "B1 participant24hours or approved1ECreplacement inside60EC. RADArNL0ECmandatory;2024equivalent-university-test exemption applies to that first year. B2in2025positiveBSA with documented exceptions; currentB3positiveBSA. Statistics1 precedes Stats2/DataAnalysis/Psychometrics; latter two assumeStats2. RP2 requiresStats1/Methods/RP1 and matching first-semester Emotion variant. ConversationalSkills assumes FreeAttitudeInterview. Ethics90ECpsychology. AppliedmethodsStats1,assumesStats2/Psychometrics. Thesis119EC includingStats2,RP2 andfullB1 withparticipation; assumes furthermethods; matching domain or Boardpermission. Exchange fullB1 sixmonths beforedeparture, registration/capacity conditions apply. NormalBSA42EC.",
+    "underlyingRefs": [
+      "docs/qc/evidence/counselor-corpus-B-cp066-2026-10-25/source-verification.json",
+      "docs/qc/evidence/counselor-corpus-B-cp066-2026-10-25/coherent-cohort-reconstruction-candidate.json"
+    ]
+  },
+  "interestReview": [
+    {
+      "registryRow": 3105,
+      "sourceInterestExcelRow": 3105,
+      "studentInterest": "why people think, feel and behave the way they do",
+      "interestRelationship": "Direct programme interest",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3106,
+      "sourceInterestExcelRow": 3106,
+      "studentInterest": "how friendships and relationships affect us",
+      "interestRelationship": "Direct programme interest",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3107,
+      "sourceInterestExcelRow": 3107,
+      "studentInterest": "why gaming or unhealthy snacking becomes addictive",
+      "interestRelationship": "Direct programme interest",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3108,
+      "sourceInterestExcelRow": 3108,
+      "studentInterest": "what motivates people to study or exercise",
+      "interestRelationship": "Direct programme interest",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3109,
+      "sourceInterestExcelRow": 3109,
+      "studentInterest": "understanding and improving mental health",
+      "interestRelationship": "Direct programme interest",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3110,
+      "sourceInterestExcelRow": 3110,
+      "studentInterest": "psychological research and scientific investigation",
+      "interestRelationship": "Direct programme interest",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3111,
+      "sourceInterestExcelRow": 3111,
+      "studentInterest": "the brain and human cognition",
+      "interestRelationship": "Stable study direction",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3112,
+      "sourceInterestExcelRow": 3112,
+      "studentInterest": "human development and mental health",
+      "interestRelationship": "Stable study direction",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3113,
+      "sourceInterestExcelRow": 3113,
+      "studentInterest": "behaviour and the social environment",
+      "interestRelationship": "Stable study direction",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3114,
+      "sourceInterestExcelRow": 3114,
+      "studentInterest": "cognitive neuropsychology",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3115,
+      "sourceInterestExcelRow": 3115,
+      "studentInterest": "how attitudes and motivation influence behaviour",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3116,
+      "sourceInterestExcelRow": 3116,
+      "studentInterest": "health psychology and behavioural wellbeing",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3117,
+      "sourceInterestExcelRow": 3117,
+      "studentInterest": "emotions and psychological disorders",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3118,
+      "sourceInterestExcelRow": 3118,
+      "studentInterest": "the psychology of sexuality",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3119,
+      "sourceInterestExcelRow": 3119,
+      "studentInterest": "the neurophysiology of thinking and behaviour",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3120,
+      "sourceInterestExcelRow": 3120,
+      "studentInterest": "human movement and sport psychology",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3121,
+      "sourceInterestExcelRow": 3121,
+      "studentInterest": "clinical psychological assessment and decision-making",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3122,
+      "sourceInterestExcelRow": 3122,
+      "studentInterest": "the psychology of climate change",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3123,
+      "sourceInterestExcelRow": 3123,
+      "studentInterest": "how psychiatric medicines affect mental disorders",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3124,
+      "sourceInterestExcelRow": 3124,
+      "studentInterest": "the psychology of happiness",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3125,
+      "sourceInterestExcelRow": 3125,
+      "studentInterest": "risks and opportunities in early childhood development",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3126,
+      "sourceInterestExcelRow": 3126,
+      "studentInterest": "the evolutionary origins of human behaviour",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3127,
+      "sourceInterestExcelRow": 3127,
+      "studentInterest": "how family and culture affect mental wellbeing",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3128,
+      "sourceInterestExcelRow": 3128,
+      "studentInterest": "recognising psychological disorders across the lifespan",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3129,
+      "sourceInterestExcelRow": 3129,
+      "studentInterest": "evaluating effective psychological support",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3130,
+      "sourceInterestExcelRow": 3130,
+      "studentInterest": "cognitive, motor and moral development",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3131,
+      "sourceInterestExcelRow": 3131,
+      "studentInterest": "how social surroundings shape behaviour",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3132,
+      "sourceInterestExcelRow": 3132,
+      "studentInterest": "memory, attention and information processing",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3133,
+      "sourceInterestExcelRow": 3133,
+      "studentInterest": "statistical analysis of psychological research",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3134,
+      "sourceInterestExcelRow": 3134,
+      "studentInterest": "designing psychological experiments",
+      "interestRelationship": "Curricular topic",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "support-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3135,
+      "sourceInterestExcelRow": 3135,
+      "studentInterest": "clinical psychology and psychological treatment",
+      "interestRelationship": "Direct programme interest",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3136,
+      "sourceInterestExcelRow": 3136,
+      "studentInterest": "work and organisational psychology",
+      "interestRelationship": "Direct programme interest",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3137,
+      "sourceInterestExcelRow": 3137,
+      "studentInterest": "psychology in education and schools",
+      "interestRelationship": "Direct programme interest",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3138,
+      "sourceInterestExcelRow": 3138,
+      "studentInterest": "neurorehabilitation and recovering cognitive functions",
+      "interestRelationship": "Direct programme interest",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "generator-eligible",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3139,
+      "sourceInterestExcelRow": 3139,
+      "studentInterest": "becoming a healthcare psychologist",
+      "interestRelationship": "Outcome or individual trajectory",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "search-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3140,
+      "sourceInterestExcelRow": 3140,
+      "studentInterest": "working in mental-health services",
+      "interestRelationship": "Outcome or individual trajectory",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "search-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3141,
+      "sourceInterestExcelRow": 3141,
+      "studentInterest": "psychological work in education",
+      "interestRelationship": "Outcome or individual trajectory",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "search-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3142,
+      "sourceInterestExcelRow": 3142,
+      "studentInterest": "workplace and organisational consulting",
+      "interestRelationship": "Outcome or individual trajectory",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "search-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3143,
+      "sourceInterestExcelRow": 3143,
+      "studentInterest": "postgraduate specialisation in clinical psychology",
+      "interestRelationship": "Outcome or individual trajectory",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "search-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    },
+    {
+      "registryRow": 3144,
+      "sourceInterestExcelRow": 3144,
+      "studentInterest": "postgraduate cognitive-neuroscience research",
+      "interestRelationship": "Outcome or individual trajectory",
+      "targetMappingStatus": "mapped",
+      "constructionRole": "search-only",
+      "reviewFinding": "Current exact-target programme, applicable OER and domain evidence corroborate this role. Career/individual outcomes do not generate a programme; optional specialisms are not universal requirements."
+    }
+  ],
+  "interestOwnership": {
+    "finding": "13 generator interests:9closest-core, clinical3135covered by closest, organisational3136generates ucr-2, school3137and rehabilitation3138 receive separate substantive assessments.21curricular support rows and6outcomes/search rows are retained. All40exact-target rows3105–3144 reconciled.",
+    "candidates": [
+      {
+        "label": "Developmental mental health and clinical assessment",
+        "basisType": "programme-interest-cluster",
+        "generating": [
+          3135
+        ],
+        "supporting": [
+          3109,
+          3112,
+          3116,
+          3117,
+          3121,
+          3128,
+          3129,
+          3130
+        ],
+        "evidence": [
+          "s0",
+          "s4",
+          3109,
+          3112,
+          3135
+        ],
+        "outcome": "covered-by-closest-match",
+        "reason": "The broad route already contains the same abnormal, lifespan, health, diagnostic and youth psychology. Four alternative biomedical/public-health/ethics courses do not add a sustained distinct clinical psychology direction; withdrawn without implying clinical qualification."
+      },
+      {
+        "label": "Social and organisational psychology",
+        "basisType": "programme-interest-cluster",
+        "generating": [
+          3136
+        ],
+        "supporting": [
+          3115,
+          3131
+        ],
+        "evidence": [
+          "s0",
+          "s1",
+          3136
+        ],
+        "outcome": "ucr-2"
+      },
+      {
+        "label": "Psychology in education and schools",
+        "basisType": "programme-interest-cluster",
+        "generating": [
+          3137
+        ],
+        "supporting": [
+          3125,
+          3130
+        ],
+        "evidence": [
+          "s2",
+          3137
+        ],
+        "outcome": "not-coherent",
+        "reason": "Lifespan development and Youth Resilience supply real developmental and school-prevention substance; Rhetoric in Action supplies community-engaged school pedagogy, and Leading Under Pressure contributes belonging/inclusion and psychological measurement. These useful elements are already in the retained routes, especially the social route. A proposed school direction would reuse that same developmental/social/prevention/communication set rather than establish a sustained distinct programme of learning, educational assessment and school intervention. The current psychology/cognition pool was examined without excluding description-only courses. Not rejected merely for lacking a teaching credential."
+      },
+      {
+        "label": "Neurorehabilitation and recovery of cognitive function",
+        "basisType": "programme-interest-cluster",
+        "generating": [
+          3138
+        ],
+        "supporting": [
+          3114,
+          3119,
+          3132
+        ],
+        "evidence": [
+          "s2",
+          "s4",
+          3138
+        ],
+        "outcome": "not-coherent",
+        "reason": "Actual neurobiology, cognitive functions, perception and language offer substantive cognitive study, already in the closest route. They do not supply sustained rehabilitation assessment, recovery or intervention study. No distinct rehabilitation concept is established by adjacent neuroscience alone; absence of a professional title or licence is not the rejection criterion."
+      }
+    ],
+    "stopping": {
+      "stoppingReason": "not-substantively-distinct",
+      "assessment": "Two coherent substantial responses retained. The clinical candidate duplicates the primary psychology core; its biomedical substitutions do not establish distinct clinical study. Education and rehabilitation candidates lack sustained defining content. No third alternative is justified."
+    }
+  },
+  "conceptReview": {
+    "closest": "Sustained neural/cognitive/social/developmental/clinical psychology and actual psychological methods provide a material response to the target’s defining substance. General cell biology supports biological foundations but is not counted as psychology. Philosophy, rhetoric and sociology remain complementary; clinical assessment or cognitive study is not professional registration.",
+    "social": "Organisational psychology plus actual emotion/inclusion survey work and social, clinical and developmental psychology support the related organisational concept. Leadership/rhetoric/negotiation/literary stylistics remain complementary applications. The new Leading Under Pressure profile materially strengthens actual psychological research, not a reason to reclassify every leadership course as psychology.",
+    "distinctness": "Eight exclusive courses/60EC per route,16shared. Cognitive/neurobiological/perception/language/health/philosophy versus sustained organisations,leadership,negotiation andcommunication. Substantive priorities produce the differences.",
+    "schoolAndRehabilitation": "Reviewed all current psychology/cognition offerings and school-related selected evidence. Lifespan, youth prevention, school rhetoric and belonging support useful applications already in retained routes, especially the social route; they do not establish a further substantively distinct school programme. Brain/perception/language cannot establish a recovery/intervention sequence. No rejection rests solely on a degree title, licence or planning absence."
+  },
+  "courseReview": {
+    "ACCPPDE101": {
+      "courseEvidence": {
+        "dep": "ACC",
+        "track": "PPDE",
+        "osiris": "ACCPPDE101",
+        "description2": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+        "name": "Personal & Professional Development",
+        "preq1": "NONE",
+        "deplabel": "Academic Core",
+        "tracklabel": "Personal & Professional Development",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": "X",
+        "2027h2": "X",
+        "2028h1": "X",
+        "2028h2": "X",
+        "2029h1": "X",
+        "outline_source": "ACCPPDE1011.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Develops academic writing and research-literacy skills alongside personal development and civic engagement. Students locate and evaluate scholarly sources, synthesize literature, formulate research questions and arguments, and construct a research-paper introduction. A community-engaged project with a societal partner connects these skills to collaboration, reflection and practical contribution. Personal development planning addresses learning goals, self-efficacy, and stress and time management; the course also considers responsible academic use of AI.",
+        "discipline": "Academic writing",
+        "topics": "Scholarly sources and research questions; Argumentation and thesis statements; Literature synthesis; Academic integrity and referencing; Community engagement; Personal learning goals and reflective learning; Collaborative learning; Self-efficacy; Stress and time management; Responsible use of AI",
+        "methods": "Scholarly literature searching and source evaluation; Literature synthesis; CARS model for research introductions; Reflective development planning; Community project co-design"
+      },
+      "contribution": "First-year PPD supplies academic research literacy, reflection and civic development.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+      "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "HCBGATE102": {
+      "courseEvidence": {
+        "dep": "HCB",
+        "track": "GATE",
+        "osiris": "HCBGATE102",
+        "description2": "Explores why people behave as they do and how brain injuries affect mental processes. Discusses nature and nurture, introduces brain anatomy and psychological theories, and provides a gateway to cognitive science and clinical psychology.",
+        "name": "Introduction to Brain & Behavior",
+        "preq1": "NONE",
+        "deplabel": "Health, Cognition & Behavior",
+        "tracklabel": "Gateway",
+        "2025h2": "X",
+        "2026h1": "X",
+        "2026h2": "X",
+        "2027h1": "X",
+        "2027h2": "X",
+        "2028h1": "X",
+        "2028h2": "X",
+        "2029h1": "X",
+        "outline_source": "HCBGATE1021.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Introduces psychological and neuroscientific explanations of behaviour and mental processes. Students study neural signalling, brain anatomy and development, learning, intelligence, personality, social influence, mental disorders and treatments. Several sessions introduce behavioural, imaging and electrophysiological approaches to neuroscience and their combined use. Interdisciplinary research-article and case analysis connects psychological processes to neural mechanisms and clinical questions.",
+        "discipline": "Psychology; Cognitive neuroscience; Clinical psychology",
+        "topics": "Brain and behaviour; Neural signalling and action potentials; Functional neuroanatomy; Brain development and hemispheric specialization; Associative, non-associative and social learning; Intelligence; Personality and self-concepts; Social influence; Mental disorders and DSM-5-TR; Psychological treatment; Neuroimaging, electrophysiology and converging methods",
+        "methods": "Psychological and neuroscientific research appraisal; Interdisciplinary case-study analysis"
+      },
+      "contribution": "Foundational psychology and neural function, nature/nurture and methods; substantial introductory contribution.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Explores why people behave as they do and how brain injuries affect mental processes. Discusses nature and nurture, introduces brain anatomy and psychological theories, and provides a gateway to cognitive science and clinical psychology.",
+      "descriptionSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "GOSSOCI111": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "SOCI",
+        "osiris": "GOSSOCI111",
+        "description2": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+        "name": "Introduction to Sociology",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Sociology",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSSOCI1111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Introduces sociological reasoning through classical theories, their historical settings and perspectives that address exclusions from the discipline. Students connect solidarity, modernity, identity, social boundaries, networks and stratification to race, gender, migration and inequality in education and work. An individual analysis applies a course concept to contemporary social life without original data collection. A group paper develops a sociological question and analyzes a social problem using theory and academic literature.",
+        "discipline": "Sociology",
+        "topics": "Sociological imagination and knowledge; Social structure and socialization; Classical social theory; Colonialism and the formation of sociology; Solidarity and modernity; Identity, belonging and othering; Groups and social networks; Capital, class and mobility; Race and gender inequality; Global inequality and migration; Education and labour-market inequality",
+        "methods": "Theory-guided sociological case analysis; Comparative analysis of sociological perspectives; Library-based social-science research; Sociological research-question formulation"
+      },
+      "contribution": "Classical sociology, race/gender/class and historical context; social complement, not social psychology.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+      "descriptionSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "HCBGATE101": {
+      "courseEvidence": {
+        "dep": "HCB",
+        "track": "GATE",
+        "osiris": "HCBGATE101",
+        "description2": "Introduces biochemistry, macromolecules, cells, organ systems, DNA and cell function. Connects fundamentals to health and disease and serves as a starting point for medicine, biomedical science, life science or public health; no lab experience needed.",
+        "name": "Foundation of Life, Health & Biomedicine",
+        "preq1": "NONE",
+        "deplabel": "Health, Cognition & Behavior",
+        "tracklabel": "Gateway",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "HCBGATE1011.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Introduces the molecular and cellular foundations of life and biomedical science. Students study biological molecules, cells and membranes, communication, enzymes and energy metabolism, cell division, DNA and heredity, gene expression, genomes and biotechnology. Scientific experiments and papers are analyzed through short teaching contributions and a research-based mini-symposium. A responsive final component selects additional life- and biomedical-science topics with the class.",
+        "discipline": "Cell biology; Molecular biology; Biochemistry; Biomedical science",
+        "topics": "Biological molecules and chemistry of life; Cells, organelles and membranes; Cellular communication; Enzymes and energy metabolism; Cell cycle and division; DNA and heredity; Gene mutation and molecular medicine; Gene-expression regulation and epigenetics; Genomes; Recombinant DNA and biotechnology",
+        "methods": "Scientific-literature searching and synthesis; Analysis of published biological experiments"
+      },
+      "contribution": "Cells, molecular biology and physiology provide biological background; no psychology equivalence.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Introduces the molecular and cellular foundations of life and biomedical science. Topics include biological molecules, cells and membranes, communication, metabolism, cell division, heredity, gene expression and biotechnology. Students analyse scientific experiments and papers through teaching contributions and a research-based mini-symposium, with additional topics selected with the class.",
+      "descriptionSha256": "12ff60a52ad56e3df4604fcc60c5982e9cf5e111eb66a6b7eac99bfd23ca4e28",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "HCBPSYC111": {
+      "courseEvidence": {
+        "dep": "HCB",
+        "track": "PSYC",
+        "osiris": "HCBPSYC111",
+        "description2": "Covers main theories, findings and principles of social psychology, emphasising its scientific approach to understanding how people’s feelings, thoughts and behaviour are influenced by the presence of others.",
+        "name": "Social Psychology",
+        "preq1": "NONE",
+        "deplabel": "Health, Cognition & Behavior",
+        "tracklabel": "Psychology",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "HCBPSYC111.docx",
+        "outline_semester": "2026h1",
+        "profile": "Introduces the scientific study of how thoughts, feelings and behaviour are shaped by other people and social situations. Social cognition, the self, influence and persuasion lead into group processes, prejudice, aggression, prosocial behaviour, attraction and close relationships. Students critically examine empirical research, synthesize findings from journal articles, formulate theory-guided questions and design a feasible study. The final project proposes research rather than conducting an empirical investigation.",
+        "discipline": "Social psychology",
+        "topics": "Social cognition and person perception; The self and self-motives; Social influence; Persuasion, attitudes and behaviour; Group processes; Prejudice, stereotyping and discrimination; Prejudice reduction; Interpersonal aggression; Prosocial behaviour; Interpersonal attraction and close relationships",
+        "methods": "Critical appraisal of empirical social-psychology research; Literature synthesis; Theory-guided hypothesis formulation; Research design for a proposed social-psychology study"
+      },
+      "contribution": "Social cognition, self, influence, persuasion, group processes, prejudice, aggression and relationships; critical empirical reading and a proposed study, not original data collection.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Covers main theories, findings and principles of social psychology, emphasising its scientific approach to understanding how people’s feelings, thoughts and behaviour are influenced by the presence of others.",
+      "descriptionSha256": "1300df4b478a5fb06ea11b1aab33dd1ec75a582dd6b48f104df9218b2000aa22",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "BENGATE102": {
+      "courseEvidence": {
+        "dep": "BEN",
+        "track": "GATE",
+        "osiris": "BENGATE102",
+        "description2": "Research Methods & Statistics gives you a strong foundation in how business management—and social and behavioral sciences—move from mere practices to true fields of scientific study. You’ll learn how to plan research logically, from designing studies to working with real data using experimental and survey techniques. You’ll also study descriptive and inferential statistics, with a brief intro to multivariate tools.",
+        "name": "Research Methods & Statistics",
+        "preq1": "NONE",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Gateway",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "BENGATE102.docx",
+        "outline_semester": "2026h1",
+        "profile": "Introduces empirical research design and statistical analysis, followed by a substantial student research project. Students study operationalization, measurement quality, sampling, surveys and experimental and nonexperimental designs, then descriptive statistics, estimation, hypothesis testing and introductory regression. R and R Commander support data display and analysis. Project teams develop instruments and a research plan, collect and analyze data, and report results under explicit research-ethics and privacy requirements.",
+        "discipline": "Research methodology; Applied statistics",
+        "topics": "Scientific inquiry and hypotheses; Operationalization and measurement; Reliability and validity; Survey construction and sampling; Randomized and quasi-experimental designs; Nonexperimental and qualitative research; Descriptive statistics; Sampling distributions and estimation; Hypothesis testing and confidence intervals; Association and regression; Research ethics and anonymous data collection",
+        "methods": "Survey design; Probability and nonprobability sampling; Experimental and nonexperimental research design; R and R Commander data analysis; Descriptive statistics and visualization; Scale-reliability analysis; One- and two-sample mean tests; ANOVA; Chi-square tests; Correlation and regression; Empirical data collection and analysis"
+      },
+      "contribution": "Research design, sampling, introductory statistics and group project; general empirical foundation, not successive psychology practica.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Research Methods & Statistics introduces research design, operationalisation, measurement, sampling, surveys and experiments. Students study descriptive statistics, estimation, hypothesis testing and introductory regression using R and R Commander. A group project develops a research plan and instruments, collects and analyses data, and reports findings under research-ethics and privacy requirements.",
+      "descriptionSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "HCBCOGN112": {
+      "courseEvidence": {
+        "dep": "HCB",
+        "track": "COGN",
+        "osiris": "HCBCOGN112",
+        "description2": "Examines evolution and complexity of brains. Explores animal cognition, welfare and research ethics and studies how brain regions and rhythms regulate behaviour through interactive assignments.",
+        "name": "Neurobiology",
+        "preq1": "NONE",
+        "deplabel": "Health, Cognition & Behavior",
+        "tracklabel": "Cognitive Science",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "HCBCOGN112.pdf",
+        "outline_semester": "2026h1",
+        "profile": "Studies nervous systems and behaviour from comparative, evolutionary and physiological perspectives. Brain anatomy and laboratory introductions support analysis of animal behaviour, research models and welfare. The second part connects regulatory behaviour and biological rhythms to sleep, lifestyle drugs, mood and eating disorders. Comparative-anatomy work and a literature-based disorder report apply neurobiological concepts while animal-research assignments examine reduction, refinement and replacement.",
+        "discipline": "Neurobiology; Behavioural biology; Comparative neuroscience",
+        "topics": "Nervous-system evolution and comparative anatomy; Brain cells and morphology; Cerebral circulation and nerves; Animal behaviour and welfare; Sentience and research ethics; Reduction, refinement and replacement; Enrichment and brain development; Regulatory and sexual behaviour; Lifestyle drugs; Circadian rhythms and sleep; Sleeping and eating disorders; Depression and anxiety; Gut-brain axis; Hypothalamus and pineal gland; Dying brain and consciousness",
+        "methods": "Comparative brain-anatomy analysis; Introductory microscopy and cell staining; Brain-model comparison; Ethical appraisal of animal research and the 3Rs; Literature-based analysis of neurobiological disorders"
+      },
+      "contribution": "Comparative and animal neurobiology, biorhythms, models and laboratory techniques; not human neurorehabilitation.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Neurobiology studies nervous systems and behaviour through comparative anatomy, evolution and physiology. Students examine animal behaviour, research models, welfare and research ethics, then connect biological rhythms and regulatory behaviour to sleep, lifestyle drugs, mood and eating disorders. Comparative-anatomy work and a literature-based report apply neurobiological concepts.",
+      "descriptionSha256": "e17b6afb9badd04addc522b9ea98346fd18d4aa31df815d0b792950fa6ab940a",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "GOSSOCI212": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "SOCI",
+        "osiris": "GOSSOCI212",
+        "description2": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+        "name": "Qualitative Research Methodology",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Sociology",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "GOSSOCI212.docx",
+        "outline_semester": "2026h1",
+        "profile": "Develops qualitative inquiry from research design and preparation through data collection, management, analysis and dissemination. Students examine methodological foundations, ethics, positionality and reflexivity alongside interviews, focus groups, ethnography, documentary and visual approaches. Coding, thematic interpretation and NVivo support analysis. Research teams formulate a question, collect and analyze qualitative evidence, and report their methodological decisions, findings and limitations in staged assignments.",
+        "discipline": "Qualitative research methodology; Social research",
+        "topics": "Qualitative knowledge and research design; Ethics, positionality and reflexivity; Mixed methods; Participatory research; Interview and focus-group approaches; Ethnography and participant observation; Documentary and archival sources; Visual and participatory media; Coding and thematic interpretation; Qualitative research dissemination",
+        "methods": "Qualitative research design; Interviews; Focus groups; Ethnography and participant observation; Documentary and archival analysis; Visual-data analysis; Participatory video and drawing; Transcription; Qualitative coding; Thematic analysis; NVivo-supported analysis; Reflexive methodological evaluation"
+      },
+      "contribution": "Qualitative design/data/interpretation and group inquiry; complementary methods, not clinical interview practice.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+      "descriptionSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "HCBPSYC211": {
+      "courseEvidence": {
+        "dep": "HCB",
+        "track": "PSYC",
+        "osiris": "HCBPSYC211",
+        "description2": "The course is necessary for students who want to pursue master programs in psychology and adjacent disciplines, as well as research masters in the medical domain. It is highly recommended also for all those who want to be researchers in other domains. In addition to technical training, the course emphasizes clear academic communication. It will equip you with the skills necessary to apply advanced statistical techniques to real-world research problems. With a focus on practical application through case studies and data analysis projects, You will be able to choose the appropriate statistical model for various research scenarios and address common challenges in data interpretation.",
+        "name": "Statistics & Experimental Methods",
+        "preq1": "NONE",
+        "deplabel": "Health, Cognition & Behavior",
+        "tracklabel": "Psychology",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "HCBPSYC2111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Develops experimental-design knowledge and practical statistical analysis for health and behavioural research. Students choose, fit, diagnose and interpret multivariable models, comparing means, analyzing categorical outcomes and studying latent constructs. R, primarily through R Commander, supports repeated practical exercises; SPSS is an optional alternative. Data-analysis papers and a poster connect research questions and hypotheses to appropriate models, assumption checks, substantive interpretation and APA reporting.",
+        "discipline": "Applied statistics; Behavioural research methods; Health research methods",
+        "topics": "Experimental, nonexperimental and quasi-experimental designs; Statistical inference; Correlation and regression; Model assumptions and diagnostics; Group comparisons; Covariate adjustment; Factorial, repeated-measures and mixed designs; Categorical outcomes; Latent constructs and scale reliability; Effect size and power; Statistical reporting",
+        "methods": "R and R Commander data analysis; Multiple linear regression and dummy coding; Regression diagnostics; t-tests and nonparametric alternatives; ANOVA and ANCOVA; Factorial, repeated-measures and mixed-design ANOVA; Logistic regression; Exploratory factor analysis; Principal component analysis; Cronbach's alpha; APA statistical reporting"
+      },
+      "contribution": "Multivariate regression, factor analysis, AN(C)OVA, logistic and nonparametric statistics; applied data analysis, not a whole psychometrics sequence.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Develops experimental-design knowledge and practical statistical analysis for health and behavioural research. Students choose, fit, diagnose and interpret multivariable models for group comparisons, categorical outcomes and latent constructs. R, primarily through R Commander, supports practical exercises; data-analysis papers and a poster connect research questions to appropriate models, assumption checks and clear reporting.",
+      "descriptionSha256": "ef41b0b732a8e9502a0d7e14ceef47bb91ca971854bb1a26b6a8ed5e6c9b6111",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "HCBCOGN311": {
+      "courseEvidence": {
+        "dep": "HCB",
+        "track": "COGN",
+        "osiris": "HCBCOGN311",
+        "description2": "Deepens understanding of neurophysiology and neuroanatomy. Explores higher‑level cognitive functions—memory, emotion, social cognition, executive functioning and language—and engages with current research while designing experiments.",
+        "name": "Higher Order Functions",
+        "preq1": "HCBGATE102",
+        "deplabel": "Health, Cognition & Behavior",
+        "tracklabel": "Cognitive Science",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "HCBCOGN3111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Deepens understanding of neuroanatomy, neurophysiology and the experimental study of higher cognitive functions. Students examine attention, memory, emotion, cognitive control, social cognition, pain and consciousness, connecting brain function and dysfunction to behaviour. An attentional-blink experiment provides direct engagement with empirical work. A team research proposal requires literature analysis, a feasible experimental design and ethical reflection, supported by peer review.",
+        "discipline": "Cognitive neuroscience; Cognitive science; Neuropsychology",
+        "topics": "Neurotransmission and psychoactive drugs; Brain structure and hemispheric specialization; Attention and attentional blink; Memory and long-term potentiation; Emotion; Cognitive control and executive functions; Social cognition; Pain; Consciousness; Brain-behaviour relationships; Neuroscience research ethics",
+        "methods": "Cognitive-neuroscience experimental design; Attentional-blink experiment; Critical analysis of scientific literature and empirical data; Research-proposal development; Scientific peer review"
+      },
+      "contribution": "Memory, emotion, attention, consciousness and cognitive control with experiment evaluation/design; direct higher cognition after gateway.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Higher Order Functions deepens knowledge of neurophysiology, neuroanatomy and experimental cognitive neuroscience. Topics include attention, memory, emotion, cognitive control, social cognition, pain and consciousness. An attentional-blink experiment and a team research proposal develop engagement with empirical research, experimental design and ethical reflection.",
+      "descriptionSha256": "42d96460b731996549fb6525fa622439622a99854e4db744eabc7c61a5e19598",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "HCBPSYC311": {
+      "courseEvidence": {
+        "dep": "HCB",
+        "track": "PSYC",
+        "osiris": "HCBPSYC311",
+        "description2": "Uses a biopsychosocial approach to explore how biological, psychological and socio‑cultural factors influence health and illness. Covers theories, research and interventions and focuses on the role of psychological expertise in medical settings.",
+        "name": "Medical & Health Psychology",
+        "preq1": "HCBGATE102",
+        "deplabel": "Health, Cognition & Behavior",
+        "tracklabel": "Psychology",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "HCBPSYC311.pdf",
+        "outline_semester": "2025h2",
+        "profile": "Examines health and illness through interactions among biological, psychological and sociocultural factors. Health inequalities, behaviour and prevention lead into stress, symptoms, pain, medical consultation and treatment decisions. Chronic illness is considered from patients', families' and healthcare professionals' perspectives. Students analyze research, interventions and clinical cases, practice interviewing with attention to culture, and apply clinical-health formulation to understand support and quality of life in medical settings.",
+        "discipline": "Health psychology; Medical psychology; Clinical health psychology",
+        "topics": "Biopsychosocial model; Health inequalities; Health-risk and protective behaviours; Behaviour-change models; Prevention; Stress and coping; Symptom perception; Somatic symptom disorders; Medical consultation; Shared decision-making; Doctor–patient communication; Pain; Chronic illness; Family and caregiver experiences; Quality of life; Cultural competence; Support for healthcare professionals",
+        "methods": "Psychological case-study analysis; Critical appraisal of health-psychology research and interventions; Clinical-health case formulation; Interviewing-skills practice; Cultural Formulation Interview analysis"
+      },
+      "contribution": "Biopsychosocial health/illness, stress and medical-setting interventions; health psychology, not cognitive neuropsychology equivalent.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Uses a biopsychosocial approach to explore how biological, psychological and socio‑cultural factors influence health and illness. Covers theories, research and interventions and focuses on the role of psychological expertise in medical settings.",
+      "descriptionSha256": "94dc6e3d2d536c131d5e6212208e40ffb57a3ec301655d3c526eaf6be0a23c52",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "HCBCOGN212": {
+      "courseEvidence": {
+        "dep": "HCB",
+        "track": "COGN",
+        "osiris": "HCBCOGN212",
+        "description2": "Explores neural mechanisms behind perception and action. Examines how the brain processes sensory information and guides goal‑directed behaviour using methods from cognitive neuroscience and neuropsychology.",
+        "name": "Perception & Action",
+        "preq1": "HCBGATE102",
+        "deplabel": "Health, Cognition & Behavior",
+        "tracklabel": "Cognitive Science",
+        "2025h2": null,
+        "2026h1": null,
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "contribution": "Neural perception and action; direct cognitive content, description-only evidence does not establish broad consciousness or rehabilitation training.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Explores neural mechanisms behind perception and action. Examines how the brain processes sensory information and guides goal‑directed behaviour using methods from cognitive neuroscience and neuropsychology.",
+      "descriptionSha256": "d5057fb9cd7115d620719855269abccdb6cd5c3585d55631b2c6322bc0346aab",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "HCBPSYC212": {
+      "courseEvidence": {
+        "dep": "HCB",
+        "track": "PSYC",
+        "osiris": "HCBPSYC212",
+        "description2": "The Psychopathology course offers a deep dive into the factors shaping mental health across the lifespan. Students will develop critical thinking skills, explore the bio-psycho-social approach, and gain a comprehensive understanding of mental health and its disorders. Through key concepts, research findings, and psychological assessment techniques, this course empowers individuals to promote wellness and make a meaningful impact in both personal and professional spheres.",
+        "name": "Psychopathology",
+        "preq1": "HCBGATE102",
+        "deplabel": "Health, Cognition & Behavior",
+        "tracklabel": "Psychology",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "HCBPSYC212.pdf",
+        "outline_semester": "2026h1",
+        "profile": "Examines mental health and psychopathology across the lifespan using a biopsychosocial perspective. Historical views, classification and assessment frame biological, psychological, cultural and social explanations of disorders and treatment. Case-based work applies diagnostic concepts to varied presentations. A structured literature-based essay investigates a focused mental-health question through explicit searching, source selection, evidence appraisal and synthesis, with optional use of PRISMA reporting tools.",
+        "discipline": "Abnormal psychology; Clinical psychology; Psychopathology",
+        "topics": "Mental-disorder concepts and stigma; Historical and contemporary psychopathology; Biopsychosocial causation; Clinical assessment and diagnostic classification; Stress and health; Anxiety and obsessive-compulsive disorders; Mood disorders; Somatic and dissociative disorders; Psychotic disorders; Eating and personality disorders; Substance-related and neurocognitive disorders; Sexuality and mental health; Childhood and adolescent disorders; Forensic psychology; Culture and emotion regulation",
+        "methods": "Diagnostic case analysis; Application and critique of DSM criteria; Biopsychosocial case formulation; Structured literature searching and screening; Source-quality appraisal; Evidence synthesis; Critical evaluation of etiological and intervention models"
+      },
+      "contribution": "Lifespan psychopathology, diagnostic classification and biopsychosocial treatment concepts; no clinical qualification.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Provides a deep dive into factors shaping mental health. Teaches critical thinking, explores the bio‑psycho‑social approach and covers mental disorders, research findings and assessment techniques.",
+      "descriptionSha256": "1d5842372801f7a26c96be137ebcaac5427d3542563b705bd9679e6726a5550d",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "HCBPSYC314": {
+      "courseEvidence": {
+        "dep": "HCB",
+        "track": "PSYC",
+        "osiris": "HCBPSYC314",
+        "description2": "Explores human development across the lifespan. Examines physical, cognitive, emotional and social changes from prenatal life to old age and develops critical thinking about factors influencing individual uniqueness.",
+        "name": "Lifespan Developmental Psychology",
+        "preq1": "HCBGATE102",
+        "deplabel": "Health, Cognition & Behavior",
+        "tracklabel": "Psychology",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "HCBPSYC314.pdf",
+        "outline_semester": "2026h1",
+        "profile": "Examines physical, cognitive, emotional, social and personality development from prenatal life through old age and death. Biological and environmental influences are considered alongside attachment, education, relationships, cultural differences and developmental psychopathology. Students connect theoretical perspectives to case studies, assessment and interventions at different life stages. A life-story interview with an adult over fifty applies developmental concepts through interviewing, analysis and a written report.",
+        "discipline": "Developmental psychology; Lifespan psychology",
+        "topics": "Developmental theories; Genetics and environment; Prenatal development and birth; Infancy and attachment; Cognitive and psychomotor development; Early and middle childhood; Play and education; Adolescence and psychopathology; Emerging and early adulthood; Middle and late adulthood; Relationships and personality development; Care and developmental interventions; Death, dying, grief and bereavement",
+        "methods": "Life-story interviewing; Theory-guided lifespan interview analysis; Developmental case-study analysis; Critical appraisal of developmental research and assessment reports"
+      },
+      "contribution": "Physical, cognitive, emotional and social development across life; not a complete educational psychology sequence.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Explores human development across the lifespan. Examines physical, cognitive, emotional and social changes from prenatal life to old age and develops critical thinking about factors influencing individual uniqueness.",
+      "descriptionSha256": "83bc9b3a3f25b826775e694d59d5a8673158b9fd3bced3778ac1efb9b4da6289",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "HCBPSYC313": {
+      "courseEvidence": {
+        "dep": "HCB",
+        "track": "PSYC",
+        "osiris": "HCBPSYC313",
+        "description2": "This course guides you through combining results from multiple studies using systematic reviews and meta-analysis a method now essential in psychology, medicine, social science and other disciplines. Want to know what really works? Gain hands-on skills in research synthesis that inform evidence-based policy and practice. You’ll search literature, manage data, and present findings that matter. Learn to calculate effect sizes, synthesize results and assess bias using R.",
+        "name": "Advanced Research Methods & Statistics",
+        "preq1": "HCBGATE102",
+        "deplabel": "Health, Cognition & Behavior",
+        "tracklabel": "Psychology",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "HCBPSYC313.docx",
+        "outline_semester": "2026h1",
+        "profile": "Teaches systematic review and meta-analysis for synthesizing evidence in medical, behavioural and related research. Students define review questions, search and select studies, extract and code findings, assess bias and compute effect sizes. Hands-on R work fits fixed- and random-effects models, examines heterogeneity and moderators, conducts meta-regression and investigates publication bias. A group project completes a small meta-analysis and presents its methods and results in a research poster.",
+        "discipline": "Evidence synthesis; Meta-analysis; Applied statistics; Research methodology",
+        "topics": "Systematic-review purpose and limitations; Review protocols and scope; Literature searching and inclusion criteria; Data extraction and study coding; Risk of bias; Effect-size types and transformations; Fixed- and random-effects models; Effect heterogeneity; Moderators and subgroup differences; Meta-regression; Publication bias; Research synthesis and reporting",
+        "methods": "Systematic literature review; Database searching and study screening; Study-data extraction and coding; Critical risk-of-bias appraisal; R programming and data management; Effect-size calculation and conversion; Fixed- and random-effects meta-analysis; Moderator and subgroup analysis; Meta-regression; Publication-bias analysis; Meta-analytic visualization and reporting"
+      },
+      "contribution": "Systematic reviews and meta-analysis in R; existing-study synthesis, not independent primary-data psychology thesis or RP2 replacement.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Advanced Research Methods & Statistics introduces systematic reviews and meta-analysis to synthesise results across studies. Students use R to conduct analyses, work with data structures and packages, estimate treatment effects and examine their consistency across studies. Presentations and active research tasks develop evidence-synthesis skills.",
+      "descriptionSha256": "f9bb29521ce24ffbe4d0eef2398221f54d99cbd72801c53bf1db0de6b3c4c799",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "HCBPSYC315": {
+      "courseEvidence": {
+        "dep": "HCB",
+        "track": "PSYC",
+        "osiris": "HCBPSYC315",
+        "description2": "Interdisciplinary course combining psychology and other social sciences in which students will have an opportunity to participate in an actual international research project and develop evidence-based materials for youth leaders and educators aimed at strengthening young people’s resilience to radicalization by promoting democratic school culture, emotionally supportive learning environments, empathy, civic engagement, and mental well-being.",
+        "name": "Youth Resilience to Extremism",
+        "preq1": "NONE",
+        "deplabel": "Health, Cognition & Behavior",
+        "tracklabel": "Psychology",
+        "2025h2": null,
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "HCBPSYC3151.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Examines youth radicalization and educational prevention through psychology, education, sociology, political science and peace education. Models of radicalization and adolescent risk and protective factors lead into inclusive school climates, belonging, social-emotional learning, dialogue, media literacy and civic agency. Students translate primary research into teacher-training materials and a youth toolkit for an international school project, then revise the resources using feedback from intended recipients.",
+        "discipline": "Psychology; Education; Sociology; Political science; Peace education",
+        "topics": "Radicalization, violent extremism and terrorism; Developmental and psychosocial pathways; Risk and protective factors; School climate and belonging; Identity and peer influence; Social-emotional learning and well-being; Empathy and perspective-taking; Conflict resolution and intercultural dialogue; Mental-health literacy and referral; Digital literacy and misinformation; Youth leadership and democratic participation; Counter- and alternative narratives",
+        "methods": "Primary-research synthesis; Intervention-evidence appraisal; Case and classroom-scenario analysis; Inclusive educational-resource design; Alternative-narrative development; Recipient-feedback collection and iterative revision; Ethical appraisal of prevention tools"
+      },
+      "contribution": "Youth radicalization, educational prevention, inclusive school climates, belonging and civic agency. Research-based teacher-training materials and a youth toolkit are revised using recipient feedback. Genuine applied school/prevention study, narrower than a full educational or clinical psychology curriculum.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Interdisciplinary course combining psychology and other social sciences in which students will have an opportunity to participate in an actual international research project and develop evidence-based materials for youth leaders and educators aimed at strengthening young people’s resilience to radicalization by promoting democratic school culture, emotionally supportive learning environments, empathy, civic engagement, and mental well-being.",
+      "descriptionSha256": "9025fab0b73095d3db8b25aeb6f5922038e322132aa2cceffc415146926d1bf0",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "GOSSOCI311": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "SOCI",
+        "osiris": "GOSSOCI311",
+        "description2": "Examines contemporary sociological debates about civil society through critical tradition, neo‑functionalism and decolonial critiques. Includes research group projects with NGOs or civil society organizations that translate conceptual insights into empirical analysis.",
+        "name": "New Issues in Contemporary Social Theory",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Sociology",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSSOCI3111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Focuses on civil society through critical, neo-functionalist and decolonial social theory. Students examine social trust, capital, hegemony, public spheres, solidarity, social movements and civil repair across political and regional contexts. An experience report relates personal engagement or observation to course concepts. An individual research project uses theoretical and empirical sources to analyze a civil-society organization, movement, initiative or related phenomenon.",
+        "discipline": "Sociology; Social theory; Civil society studies",
+        "topics": "Civil society; Social trust and social capital; Hegemony; Critical theory; Public spheres, digital publics and counterpublics; Solidarity and civil repair; Civil sphere; Social movements and intersectionality; Migrant solidarity; Civil society under authoritarianism; Decolonial critique; Public sociology",
+        "methods": "Comparative social-theory analysis; Theory-guided empirical case analysis; Document and secondary-source analysis; Structured reflection on civil-society engagement or observation; Sociological research design"
+      },
+      "contribution": "Civil-society, solidarity, decolonial social theory and NGO inquiry; retained only in social route after Intro/Modern Sociology. Formal NONE does not remove preparation needs.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "New Issues in Contemporary Social Theory studies civil society through critical, neo-functionalist and decolonial perspectives. Topics include trust, social capital, public spheres, solidarity, social movements and civil repair. An experience report connects engagement or observation to course concepts, while an individual project uses theoretical and empirical sources to analyse a civil-society organisation, movement or initiative.",
+      "descriptionSha256": "367314c88b9f1c559ccd023159845f9624f353f78d898bc66b690ebe3392336b",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "MCCCOMM311": {
+      "courseEvidence": {
+        "dep": "MCC",
+        "track": "COMM",
+        "osiris": "MCCCOMM311",
+        "description2": "Explores ethical persuasion and climate communication. Students learn persuasive communication models and frameworks and collaborate with climate scientists at the Delta Climate Centre to produce sustainability messaging on water, food and energy.",
+        "name": "Persuasive Communication",
+        "preq1": "NONE",
+        "deplabel": "Media, Culture & Communication",
+        "tracklabel": "Communication",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "MCCCOMM3111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Examines contemporary persuasion through communication studies, social psychology and ethical analysis, then applies it in community-engaged work. Students study coactive persuasion, framing, argumentation, cognitive shortcuts and verbal and nonverbal communication. Projects with the Delta Climate Centre and Vlissingen municipality develop communication encouraging sustainable and circular lifestyles. An individual research paper evaluates selected persuasion tools through literature review, field research diaries and reflective analysis of their use.",
+        "discipline": "Communication studies; Social psychology; Applied ethics",
+        "topics": "Persuasion models and psychology; Ethics of persuasion; Coactive persuasion; Verbal and nonverbal communication; Message framing; Argumentation; Cognitive shortcuts and nudging; Science and sustainability communication; Circular lifestyles; Community-engaged communication",
+        "methods": "Persuasive-message design; Communication consulting and implementation; Literature review; Qualitative research diaries; Action research; Reflective case-study analysis; Gibbs reflective cycle"
+      },
+      "contribution": "Rhetoric, social-psychological/neuroscientific persuasion, framing/nudging and community communication; after introductory rhetoric, not general psychological laboratory training.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Persuasive Communication studies persuasion through communication studies, social psychology and ethical analysis. Students examine framing, argumentation, cognitive shortcuts and verbal and nonverbal communication. Community-engaged projects develop communication encouraging sustainable and circular lifestyles, while an individual research paper evaluates selected persuasion tools.",
+      "descriptionSha256": "781fa29248cce6025d8aa8887d300c8f0d64941a8b4a9b2dd193783c098deacc",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "GOSPHIL313": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "PHIL",
+        "osiris": "GOSPHIL313",
+        "description2": "Investigates concepts of free will, the role of luck and openness of the future. Explores relations between free will, time and the self across multiple modules and contemporary debates.",
+        "name": "Free Will, Time & the Self",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Philosophy",
+        "2025h2": null,
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSPHIL3131.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Explores free will and agency in relation to time and the self. Historical Greek and Indian perspectives introduce debates about fatalism, determinism, compatibility and moral responsibility; later topics include scientific challenges, addiction, luck and agency in games. The second part examines the reality and experience of time, physics and temporal asymmetries, then developing research linking time, action and selfhood. Essays require close source analysis and an independent argument.",
+        "discipline": "Philosophy of action; Metaphysics; Philosophy of time",
+        "topics": "Free will and fatalism; Foreknowledge and determinism; Compatibilism and rival theories; Moral responsibility; Greek and Indian accounts of agency; Scientific perspectives on free will; Addiction and the self; Moral luck; Games and agency; Value capture; Reality and experience of time; Time and physics; Temporal asymmetries and bias; Time, action and selfhood",
+        "methods": "Conceptual analysis; Close philosophical reading; Argument reconstruction and evaluation; Literature-based philosophical research"
+      },
+      "contribution": "Historical and contemporary conceptual inquiry into agency, responsibility, addiction, luck, time and selfhood; independent philosophical argument complements psychology rather than replacing general theoretical psychology.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Investigates concepts of free will, the role of luck and openness of the future. Explores relations between free will, time and the self across multiple modules and contemporary debates.",
+      "descriptionSha256": "f283131b5046b0c00827f9ee0b30524e1beac4aa954b5a8d9d6968408595aa65",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "HCBCOGN312": {
+      "courseEvidence": {
+        "dep": "HCB",
+        "track": "COGN",
+        "osiris": "HCBCOGN312",
+        "description2": "Psycholinguistics is the study of the neurobiological and psychological factors that enable us to acquire, use, and understand language. Modern research draws on cognitive psychology, neuroscience, and computer science to investigate how language is processed. The course focuses primarily, though not exclusively, on the neuroscience of language. Students examine theoretical and experimental issues in speech production and comprehension, language impairments, the relationship between thought and language, and the evolution and acquisition of language. They also gain hands-on experience with experimental approaches to the study of language and develop an understanding of human linguistic capacity as a subject of multidisciplinary research. Topics covered: What is language? Evolutionary aspects of language and animal communication; language and thought; aphasia; language acquisition; bilingualism; speech comprehension; semantics; reading and dyslexia; speech production.",
+        "name": "Psycholinguistics",
+        "preq1": "HCBGATE102",
+        "deplabel": "Health, Cognition & Behavior",
+        "tracklabel": "Cognitive Science",
+        "2025h2": null,
+        "2026h1": null,
+        "2026h2": null,
+        "2027h1": "X"
+      },
+      "contribution": "Language production/comprehension, aphasia, development and experimental approaches; direct psycholinguistics, not rehabilitation sequence.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Psycholinguistics is the study of the neurobiological and psychological factors that enable us to acquire, use, and understand language. Modern research draws on cognitive psychology, neuroscience, and computer science to investigate how language is processed. The course focuses primarily, though not exclusively, on the neuroscience of language. Students examine theoretical and experimental issues in speech production and comprehension, language impairments, the relationship between thought and language, and the evolution and acquisition of language. They also gain hands-on experience with experimental approaches to the study of language and develop an understanding of human linguistic capacity as a subject of multidisciplinary research. Topics covered: What is language? Evolutionary aspects of language and animal communication; language and thought; aphasia; language acquisition; bilingualism; speech comprehension; semantics; reading and dyslexia; speech production.",
+      "descriptionSha256": "8b48cfd32534496954068f0d33edc9cd03d1856a6e075c0364ae1ec55dad27ec",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "HCBPSYC312": {
+      "courseEvidence": {
+        "dep": "HCB",
+        "track": "PSYC",
+        "osiris": "HCBPSYC312",
+        "description2": "Introduces key theories, methods and practices in psychodiagnostics and psychotherapy. Covers psychological assessment techniques and psychotherapeutic approaches and builds practical competencies and clinical skills.",
+        "name": "Psychodiagnostics & Psychotherapies",
+        "preq1": "HCBGATE102",
+        "deplabel": "Health, Cognition & Behavior",
+        "tracklabel": "Psychology",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "HCBPSYC312.pdf",
+        "outline_semester": "2026h1",
+        "profile": "Introduces clinical psychological assessment and major psychotherapeutic approaches across the lifespan. Students study ethics, diagnostic systems, test reliability and validity, interviews, personality and cognitive assessment, then psychodynamic, behavioural, cognitive, humanistic, systemic and integrative treatments. Training sessions develop introductory administration, scoring and interpretation skills. A psychodiagnostic case report integrates findings and treatment recommendations, while self-monitoring examines developing clinical skills.",
+        "discipline": "Clinical psychology; Psychological assessment; Psychotherapy",
+        "topics": "Clinical attitude and ethics; Diagnostic classification; Reliability and validity; Clinical interviews; Personality inventories and projective techniques; Cognitive and neuropsychological assessment; Behavioural and biological assessment; Psychological reporting; Psychodynamic and behavioural therapies; Cognitive therapy and CBT; Person-centered and family therapies; Integrative psychotherapy; Treatment outcomes and evidence; Child and adolescent clinical psychology",
+        "methods": "Clinical interviewing practice; Introductory psychological-test administration, scoring and interpretation; Psychometric appraisal; Behavioural observation; Integration of assessment data; Psychodiagnostic report writing; Clinical case and therapy-session analysis; Reflective monitoring of clinical skills"
+      },
+      "contribution": "Psychological assessment and psychotherapy approaches across ages; conceptual clinical coursework, not supervised clinical licence training.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Introduces concepts, methods and ethical issues in clinical psychological assessment and psychotherapy. Students compare approaches to assessment and treatment across age groups and learn to evaluate information critically.",
+      "descriptionSha256": "602c736beb4dfef7c58f9197a72b6a10c4ea2989e5703a07be7ae19a9e054d26",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "GOSPHIL311": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "PHIL",
+        "osiris": "GOSPHIL311",
+        "description2": "Explores emotions from a philosophical perspective. Discusses nature and rationality of emotions, their role in ethics and art, and draws on historical and contemporary sources.",
+        "name": "Philosophy of Emotion",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Philosophy",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "GOSPHIL311.pdf",
+        "outline_semester": "2025h2",
+        "profile": "Examines what emotions are and how they shape knowledge, decision-making, ethics, social life and politics. Feeling, cognitive and perceptual theories are compared with historical, phenomenological and contemporary accounts. Love, fear, grief, moods and political anger provide focused cases, alongside emotions in art and their changing relation to time. Students analyze texts and emotional vignettes and develop an independent philosophical paper or a project combining argument with creative work.",
+        "discipline": "Philosophy of emotion; Philosophy of mind; Ethics; Political philosophy; Aesthetics",
+        "topics": "Feeling, cognitive and perceptual theories of emotion; Ancient Greek and Indian accounts of emotion; Epistemic emotions; Emotion and decision-making; Love; Fear and existential anxiety; Mood and grief; Moral emotions; Gender and emotion; Political love and anger; Racial injustice; Temporality of emotion; Emotion and artistic expression",
+        "methods": "Close philosophical reading; Conceptual and argumentative analysis; Phenomenological description of emotional experience; Critical comparison of emotion theories"
+      },
+      "contribution": "Philosophy of emotion, rationality, ethics and art; conceptual complement, not empirical affective-science equivalent.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Explores emotions from a philosophical perspective. Discusses nature and rationality of emotions, their role in ethics and art, and draws on historical and contemporary sources.",
+      "descriptionSha256": "62324bef464be860edac1d19bc42cc912320da6e34d73f0104c1242f1441c115",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "GOSPHIL214": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "PHIL",
+        "osiris": "GOSPHIL214",
+        "description2": "Examines historical and modern work on the philosophy of mind. Discusses Descartes’ dualism, the nature of consciousness, AI and animal minds, personal identity, transformative experiences and the influence of technology on experience.",
+        "name": "Philosophy of Mind",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Philosophy",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "GOSPHIL214.pdf",
+        "outline_semester": "2026h1",
+        "profile": "Examines minds, selves and conscious experience through historical and contemporary philosophy. Personal identity and self-knowledge are considered alongside Buddhist accounts and neuropsychological cases. Behaviourism, physicalism, functionalism and their critics frame the mind-body problem. Later inquiries address machine consciousness, virtual worlds, dreaming, perception, transformative experience and the value of experience. Essays develop independent philosophical interpretations and arguments.",
+        "discipline": "Philosophy of mind; Metaphysics; Philosophy of cognitive science",
+        "topics": "Persons and personal identity; Psychological and narrative theories of identity; Buddhist non-self; Split-brain cases and self-knowledge; Behaviourism; Physicalism and functionalism; Mind-body problem; Content externalism and internalism; AI intelligence and consciousness; Virtual reality; Dreaming and perception; Transformative experience; Value of conscious experience; Animal minds",
+        "methods": "Close philosophical reading; Conceptual analysis; Reconstruction and evaluation of arguments; Comparison of theories of mind; Literature-based philosophical research"
+      },
+      "contribution": "Mind, consciousness, personal identity and mind-body explanations; qualified conceptual alignment.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Examines historical and modern work on the philosophy of mind. Discusses Descartes’ dualism, the nature of consciousness, AI and animal minds, personal identity, transformative experiences and the influence of technology on experience.",
+      "descriptionSha256": "cd2e55eb0c7f8a45220107e2f961346ef9960975db1d457cb213c6bf58ef25a6",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "BENLEAD111": {
+      "courseEvidence": {
+        "dep": "BEN",
+        "track": "LEAD",
+        "osiris": "BENLEAD111",
+        "description2": "Personal Leadership provides a comprehensive introduction to leadership theory and practice, designed to help students discover their unique leadership style through self-awareness and practical skill-building. Through interactive workshops, reflective exercises, and real-world applications, students engage deeply with core leadership principles and develop the tools needed to lead confidently in any setting.",
+        "name": "Personal Leadership",
+        "preq1": "NONE",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Leadership",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "BENLEAD1111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Introduces leadership through self-leadership, leadership theory and emotional intelligence. Covey's habits provide a framework for personal vision, prioritization and collaboration, alongside transformational, authentic, situational and adaptive leadership perspectives. Students analyze personality and emotional-intelligence profiles in relation to group dynamics, examine leadership cases, and construct a personal development plan with actionable goals. Assessment tools support educational reflection rather than diagnosis, and the outline acknowledges differences in their scientific support.",
+        "discipline": "Leadership studies; Psychology",
+        "topics": "Self-leadership and self-awareness; Covey's seven habits; Emotional intelligence and emotion regulation; Personality and group dynamics; Transformational and authentic leadership; Situational and adaptive leadership; Evolutionary perspectives on leadership; Goal setting and prioritization; Conflict resolution and negotiation; Trust and collaboration",
+        "methods": "Leadership theory and case analysis; Reflective personality and emotional-intelligence assessments; Eisenhower prioritization matrix; SMART goal setting; Leadership-development planning; Leadership simulations"
+      },
+      "contribution": "Leadership, self-awareness, emotional intelligence and practice; organisational complement.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Personal Leadership provides a comprehensive introduction to leadership theory and practice, designed to help students discover their unique leadership style through self-awareness and practical skill-building. Through interactive workshops, reflective exercises, and real-world applications, students engage deeply with core leadership principles and develop the tools needed to lead confidently in any setting.",
+      "descriptionSha256": "660a40cb125d3149393643099818a9e9b4c63d66ea9e5092af0c66f0bf84280c",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "BENLEAD112": {
+      "courseEvidence": {
+        "dep": "BEN",
+        "track": "LEAD",
+        "osiris": "BENLEAD112",
+        "description2": "This course blends theory with practice from both fiction and the real world, helping you develop essential leadership skills. Learn how to inspire teams, sharpen your communication, take ethical decisions, and lead with confidence.",
+        "name": "Leadership Communication",
+        "preq1": "NONE",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Leadership",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "BENLEAD112.docx",
+        "outline_semester": "2026h1",
+        "profile": "Studies leadership communication through leadership theory, persuasion and practical rhetorical work. Students compare contemporary leadership approaches and examine emotional intelligence, gender, culture and ethics. Literary characters, film and speeches provide material for analyzing effective and ineffective leadership. Students interview a real leader, analyze the leader's communication challenge in an advisory report, and develop a public address presenting their own ethical leadership vision.",
+        "discipline": "Leadership studies; Communication studies; Rhetoric",
+        "topics": "Leadership models and approaches; Transformational, authentic and adaptive leadership; Servant leadership and followership; Emotional intelligence; Leadership ethics; Gender and culture in leadership; Persuasion and organizational communication; Leadership in literature and film; Storytelling and public speaking; Personal leadership vision",
+        "methods": "Leadership-theory application; Literary and film-based leadership analysis; Professional interviewing and note collection; Leadership-discourse analysis; Communication-advisory report development; Rhetorical speechwriting and storytelling"
+      },
+      "contribution": "Leadership communication, gender/ethics/culture and emotional intelligence; not psychological diagnosis.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "This course blends theory with practice from both fiction and the real world, helping you develop essential leadership skills. Learn how to inspire teams, sharpen your communication, take ethical decisions, and lead with confidence.",
+      "descriptionSha256": "74e05eabc35da5635ed47bbc9360aa194b2b6bcf6b448f6b60aa521ba3d7db93",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "GOSSOCI214": {
+      "courseEvidence": {
+        "dep": "GOS",
+        "track": "SOCI",
+        "osiris": "GOSSOCI214",
+        "description2": "Examines the trajectory of sociology within the culture of imperialism and colonial responses. Studies leading social theories and debates about modernity and critically engages with sociological discourses.",
+        "name": "Modern Sociology",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Sociology",
+        "2025h2": null,
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSSOCI2141.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Examines twentieth-century and contemporary social theory alongside critical accounts of modernity, colonialism and disciplinary exclusion. Functionalism, critical theory, Black feminist thought, phenomenology, symbolic interactionism and Bourdieu's work are read with postcolonial, decolonial and Indigenous perspectives. Students compare theories and apply them to empirical cases, including visual material. An individual research paper develops a theoretically grounded interpretation of a selected social phenomenon.",
+        "discipline": "Sociology; Social theory",
+        "topics": "Modernity and Eurocentrism; Functionalism; Frankfurt School critical theory; Black feminist thought and intersectionality; Social construction of reality; Symbolic interactionism; Stigma and othering; Social space, capital and art; Coloniality and postcolonialism; Decolonial and Indigenous sociology; Gender and power",
+        "methods": "Close reading of social theory; Comparative theoretical analysis; Theory-guided empirical case analysis; Visual sociological analysis; Literature-based sociological research"
+      },
+      "contribution": "Modern sociological theory and imperial/colonial context; social complement and necessary preparation for advanced social theory.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Examines the trajectory of sociology within the culture of imperialism and colonial responses. Studies leading social theories and debates about modernity and critically engages with sociological discourses.",
+      "descriptionSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "BENLEAD311": {
+      "courseEvidence": {
+        "dep": "BEN",
+        "track": "LEAD",
+        "osiris": "BENLEAD311",
+        "description2": "This course offers Liberal Arts and Sciences students a deep dive into the psychological, social, and structural dynamics that shape workplaces. Through interactive case discussions, simulations, and real-world insights, students develop critical skills in motivation, leadership, group dynamics, and culture. By synthesizing research and applying theory to practice, participants gain the tools to navigate and influence diverse organizational environments effectively.",
+        "name": "Psychology of Organizations & Leadership",
+        "preq1": "BENGATE102",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Leadership",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "BENLEAD3111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Examines organizational behaviour at individual, group and organizational levels. Topics connect personality, perception, emotions and motivation to teams, leadership, power, conflict, structure, culture and change. Students design research plans for organizational cases and conduct a brief systematic literature review using PRISMA reporting tools. Workshops develop literature searching, study selection, source appraisal and synthesis, linking organizational-psychology evidence to practical questions and recommendations.",
+        "discipline": "Organizational psychology; Organizational behaviour; Management",
+        "topics": "Diversity, equity and inclusion; Job attitudes and satisfaction; Emotions, stress and workplace health; Personality and individual differences; Perception and decision-making; Motivation; Group behaviour and work teams; Human resource systems; Communication, conflict and negotiation; Leadership, power and politics; Organizational structure; Organizational culture and change",
+        "methods": "Organizational case analysis; Research design and hypothesis formulation; Systematic literature review; PRISMA flow diagrams and checklists; Database searching and study screening; Source-quality appraisal and evidence synthesis"
+      },
+      "contribution": "Motivation, attitudes, group dynamics, culture, power/conflict and organisational change; direct organisational behaviour contribution.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Psychology of Organizations & Leadership examines the psychological, social and structural dynamics of organisations. Case discussions and research-based frameworks address motivation, leadership, group dynamics, organisational culture, power, conflict and change.",
+      "descriptionSha256": "668a9f550a115ab294eb553586c70cf6e941271625ed97b1527613ed53b1aadf",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "MCCCOMM111": {
+      "courseEvidence": {
+        "dep": "MCC",
+        "track": "COMM",
+        "osiris": "MCCCOMM111",
+        "description2": "Teaches how to craft persuasive messages, influence opinions, inspire action and connect people. Draws on historical communicators from Aristotle to Barack Obama and applies stylistic techniques to students’ own writing and speaking.",
+        "name": "The Art of Rhetorical Communication",
+        "preq1": "NONE",
+        "deplabel": "Media, Culture & Communication",
+        "tracklabel": "Communication",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "MCCCOMM1111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Teaches rhetorical analysis and persuasive communication through classical history, theory and practice. Students study Greek and Roman rhetoric, the five canons, types of discourse, persuasive appeals, argumentation and fallacies. Written exercises, debates and public speeches develop invention, arrangement, style, memory and delivery. An applied project creates narrative and storytelling material for an immersive educational setting concerned with Zeeland's climate and community.",
+        "discipline": "Rhetoric; Communication studies",
+        "topics": "Greek and Roman rhetoric; Deliberative, forensic and epideictic discourse; Logos, ethos and pathos; Invention, arrangement, style, memory and delivery; Argumentation and fallacies; Tropes and schemes; Stasis and enthymemes; Persuasive speech; Narrative and storytelling; Immersive educational communication",
+        "methods": "Rhetorical text analysis; Stasis analysis; Argument invention and arrangement; Stylistic analysis and composition; Structured debate; Persuasive speechwriting and delivery; Educational storytelling design"
+      },
+      "contribution": "Rhetoric and argumentation with writing/speaking practice; genuine preparation for advanced persuasion and Rhetoric in Action.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "The Art of Rhetorical Communication develops rhetorical analysis, academic writing and oral presentation. Students examine classical Western roots and the canons of rhetoric, and learn to construct, organise and support persuasive arguments. Historical and contemporary examples connect rhetorical theory with practical communication.",
+      "descriptionSha256": "34ab73cc0cae33e2a0e47ba5df0ee55c9b0e5f2d4e21ae97ea18667a96400c4c",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "BENLEAD312": {
+      "courseEvidence": {
+        "dep": "BEN",
+        "track": "LEAD",
+        "osiris": "BENLEAD312",
+        "description2": "How do you get to yes? In this course you will learn how to craft persuasive arguments, deploy the right language, negotiate more effectively, and influence decisions with confidence—whether in business, leadership, or life.",
+        "name": "Negotiation & Strategic Thinking",
+        "preq1": "BENGATE102",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Leadership",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": null,
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": null,
+        "outline_source": "BENLEAD312.docx",
+        "outline_semester": "2026h1",
+        "profile": "Develops negotiation as an analytical practice and interpersonal skill. Students learn interest-based bargaining, BATNA and ZOPA, value creation, framing, concessions and strategies for handling power, emotions and difficult counterparts. Social-psychological and communication perspectives connect negotiation to trust, ethics, culture and relationships. Frequent simulations and narrative analysis lead to an annotated negotiation film and the design, teaching and evaluation of a negotiation scenario grounded in Delta Climate Center themes.",
+        "discipline": "Negotiation studies; Strategic management; Social psychology; Communication studies",
+        "topics": "Interests versus positions; BATNA and ZOPA; Mutual gains and objective criteria; Dual-concern model; Anchoring, framing and concessions; Trade-offs and logrolling; Cognitive biases and influence; Power and emotions; Trust, reputation and ethics; Cross-cultural and organizational negotiation; Negotiation implementation and withdrawal; Stakeholder interests",
+        "methods": "BATNA and ZOPA analysis; Stakeholder-interest mapping; Interest-based negotiation; Negotiation simulations; Narrative and film analysis of bargaining; Negotiation-scene scripting and annotation; Scenario design and reflective evaluation"
+      },
+      "contribution": "BATNA/ZOPA, simulations, strategic bargaining and social influence; applied workplace complement, not psychological assessment.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "How do you get to yes? In this course you will learn how to craft persuasive arguments, deploy the right language, negotiate more effectively, and influence decisions with confidence—whether in business, leadership, or life.",
+      "descriptionSha256": "06c968d26aee6cb3bd4d3c0081ae191dc96766a1e08ccde5336c2d581e6e5f43",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "MCCCOMM211": {
+      "courseEvidence": {
+        "dep": "MCC",
+        "track": "COMM",
+        "osiris": "MCCCOMM211",
+        "description2": "Explores how linguistic choices inform meaning and interpretation in literary and non-fiction contexts. Introduces theoretical frameworks for close reading and addresses power dynamics, obligation, uncertainty and ideological undertones in language.",
+        "name": "Style & Meaning",
+        "preq1": "NONE",
+        "deplabel": "Media, Culture & Communication",
+        "tracklabel": "Communication",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "MCCCOMM211.docx",
+        "outline_semester": "2026h1",
+        "profile": "Studies how linguistic choices produce meaning and interpretive effects, principally in literary texts but also in nonfiction. Students connect linguistic description to interpretation across grammar, discourse and cognition. Stylistic frameworks address foregrounding, dialogue, narration, modality, transitivity, deixis, schemas, construal and text worlds. Frequent analysis exercises lead to an original, research-supported stylistic analysis of a selected text.",
+        "discipline": "Stylistics; Linguistics; Literary studies; Cognitive poetics",
+        "topics": "Foregrounding and deviation; Morphology, syntax and lexical semantics; Register and cohesion; Dialogue and turn-taking; Cooperative principle; Speech and thought presentation; Modality and point of view; Transitivity and ideology; Narrative urgency; Figure and ground; Deixis and deictic shift; Schemas, scripts and prototypes; Cognitive grammar and construal; Text-world theory; Negation and lacuna",
+        "methods": "Linguistic stylistic analysis; Close textual analysis; Discourse and conversation analysis; Speech and thought presentation analysis; Modality and transitivity analysis; Deictic and cognitive-grammar analysis; Text-world analysis; Framework-based interpretation supported by retrievable textual evidence"
+      },
+      "contribution": "Primarily literary stylistics and linguistic choices, with some non-fiction application; do not relabel as organisational psychology.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Style & Meaning studies stylistics: how linguistic choices produce meaning and interpretive effects, principally in literary texts and also in nonfiction. Students connect grammar, discourse and cognition with interpretation through frameworks for dialogue, narration, modality, deixis and text worlds. Analysis exercises lead to an original research-supported stylistic analysis.",
+      "descriptionSha256": "1403b3e8bbe5009d3f3736ca1f68055e9a004b02908527fba7a6c0dbbb12be33",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "BENLEAD211": {
+      "courseEvidence": {
+        "dep": "BEN",
+        "track": "LEAD",
+        "osiris": "BENLEAD211",
+        "description2": "What does it take to lead effectively through pressure, conflict, and diversity? Explore how emotion, identity, belonging, and inclusion shape leadership, teamwork, and performance. Design and conduct an original empirical study while building career-ready skills in research design, data analysis, teamwork, ethical decision-making, and scientific communication.",
+        "name": "Psychology of Leading Under Pressure",
+        "preq1": "BENGATE102",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Leadership",
+        "2025h2": null,
+        "2026h1": null,
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "BENLEAD211.pdf",
+        "outline_semester": "2027h1",
+        "profile": "Examines how emotion regulation, emotional intelligence, emotional expression and suppression, emotional labor, belonging, identity safety and psychological safety shape leadership and social interaction under conflict, exclusion and interpersonal uncertainty. It emphasises inclusive leadership and ethnic, cultural, sexual and gender minority experiences, with digital emotion regulation as a further strand. Students conduct a supervised quantitative survey project: formulating theory-driven hypotheses, selecting established psychological measures, designing and piloting a Qualtrics survey, recruiting participants ethically, collecting original data and preparing a clean dataset. Individual work applies descriptive statistics, reliability analysis, correlations, group comparisons and introductory multiple regression in SPSS or RStudio, and interprets findings and limitations in empirical reports and evidence-based leadership recommendations.",
+        "discipline": "Leadership studies; Social psychology; Work and organizational psychology; Psychological measurement; Quantitative social research",
+        "topics": "Emotion regulation strategies; Emotional intelligence; Emotional expression and suppression; Emotional labor; Inclusive leadership; Belonging and identity safety; Psychological safety; Ethnic, cultural, sexual and gender minority experiences; Digital emotion regulation; Psychological measurement, reliability and validity; Ethical survey research in diverse populations; Interpretation and limitations of quantitative evidence; Evidence-based leadership recommendations",
+        "methods": "Theory-driven hypothesis formulation; Quantitative survey research; Established psychological measure selection and evaluation; Qualtrics survey construction and piloting; Ethical participant recruitment and original data collection; Codebook development, reverse coding and scale scoring; Data cleaning and missing-data documentation; Descriptive statistics; Reliability analysis; Correlation analysis; Group comparisons; Introductory multiple regression in SPSS or RStudio; APA-style empirical reporting"
+      },
+      "contribution": "Emotion regulation, belonging, identity and psychological safety in inclusive leadership. Students design and pilot a quantitative survey, use established psychological measures, collect original data, assess reliability and analyse results in SPSS or R. Direct applied social/organizational psychology and empirical research, not merely diversity case discussion.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Examines how emotion regulation, emotional intelligence, belonging, identity safety and psychological safety shape leadership in diverse contexts, with particular attention to minority experiences. Students design and pilot a quantitative survey, collect data ethically, and use SPSS or RStudio for descriptive statistics, reliability analysis, correlations, group comparisons and introductory multiple regression. They interpret the findings and develop evidence-based leadership recommendations.",
+      "descriptionSha256": "b5bfb901eaf1286ca42a21c22a4c5c86a619c00526eb11286f93c2244de3295b",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    },
+    "MCCCOMM213": {
+      "courseEvidence": {
+        "dep": "MCC",
+        "track": "COMM",
+        "osiris": "MCCCOMM213",
+        "description2": "Develops persuasive speaking skills by applying rhetorical theory in the real world. Students work with local primary school children, building public-speaking skills and empowering them to find their voices.",
+        "name": "Rhetoric in Action",
+        "preq1": "NONE",
+        "deplabel": "Media, Culture & Communication",
+        "tracklabel": "Communication",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": null,
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "MCCCOMM213.docx",
+        "outline_semester": "2026h1",
+        "profile": "Applies rhetoric through community-engaged work with local primary-school children. Students develop their own public-speaking, debating and storytelling skills, then design and iteratively refine age-appropriate teaching activities with school partners. On-site coaching and a final public-speaking event connect rhetorical education to civic participation and confidence. Structured reflection examines reciprocity, cultural sensitivity, personal development and the practical challenges of community-engaged teaching.",
+        "discipline": "Rhetoric; Communication education; Community-engaged pedagogy",
+        "topics": "Public work of rhetoric; Community-engaged learning and reciprocity; Public speaking and debate; Storytelling; Children's rhetorical confidence and civic participation; Rhetorical teaching and coaching; Cultural sensitivity; Collaboration with community partners; Experiential and reflective learning",
+        "methods": "Public-speaking and debate coaching; Storytelling exercises; Iterative design and revision of teaching materials; Practice-based rhetorical instruction; Gibbs reflective-cycle analysis; Public-speaking event design and evaluation"
+      },
+      "contribution": "Public-speaking/debating education for primary-school children; requires introductory rhetoric, not educational psychology or a psychology internship.",
+      "judgment": "Read the available course evidence. Its stated direct or complementary role is supported within the identified limits.",
+      "selectedDescription": "Develops persuasive speaking skills by applying rhetorical theory in the real world. Students work with local primary school children, building public-speaking skills and empowering them to find their voices.",
+      "descriptionSha256": "a481c86f7c34da2d13a0785165435e6761cd1a65cf18efd83c40b7795ee5ff29",
+      "descriptionReview": "Read the complete selected text against current evidence. Unchanged shared provenance review retained."
+    }
+  },
+  "placements": [
+    {
+      "programmeId": "ucr-1",
+      "term": "2026h2",
+      "courseCode": "ACCPPDE101",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2026h2",
+      "courseCode": "HCBGATE102",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2026h2",
+      "courseCode": "GOSSOCI111",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2026h2",
+      "courseCode": "HCBGATE101",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h1",
+      "courseCode": "HCBPSYC111",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h1",
+      "courseCode": "BENGATE102",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h1",
+      "courseCode": "HCBCOGN112",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h1",
+      "courseCode": "HCBCOGN312",
+      "offering": "X",
+      "prerequisite": "HCBGATE102"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h2",
+      "courseCode": "HCBPSYC211",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h2",
+      "courseCode": "HCBCOGN311",
+      "offering": "X",
+      "prerequisite": "HCBGATE102"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h2",
+      "courseCode": "HCBPSYC311",
+      "offering": "X",
+      "prerequisite": "HCBGATE102"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h2",
+      "courseCode": "MCCCOMM111",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h1",
+      "courseCode": "HCBCOGN212",
+      "offering": "X",
+      "prerequisite": "HCBGATE102"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h1",
+      "courseCode": "HCBPSYC212",
+      "offering": "X",
+      "prerequisite": "HCBGATE102"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h1",
+      "courseCode": "HCBPSYC314",
+      "offering": "X",
+      "prerequisite": "HCBGATE102"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h1",
+      "courseCode": "HCBPSYC313",
+      "offering": "X",
+      "prerequisite": "HCBGATE102"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h2",
+      "courseCode": "HCBPSYC315",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h2",
+      "courseCode": "GOSSOCI214",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h2",
+      "courseCode": "MCCCOMM311",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h2",
+      "courseCode": "GOSPHIL313",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2029h1",
+      "courseCode": "GOSSOCI212",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2029h1",
+      "courseCode": "HCBPSYC312",
+      "offering": "X",
+      "prerequisite": "HCBGATE102"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2029h1",
+      "courseCode": "GOSPHIL311",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2029h1",
+      "courseCode": "GOSPHIL214",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2026h2",
+      "courseCode": "ACCPPDE101",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2026h2",
+      "courseCode": "HCBGATE102",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2026h2",
+      "courseCode": "GOSSOCI111",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2026h2",
+      "courseCode": "BENLEAD111",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h1",
+      "courseCode": "HCBPSYC111",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h1",
+      "courseCode": "BENGATE102",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h1",
+      "courseCode": "GOSSOCI212",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h1",
+      "courseCode": "BENLEAD112",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h2",
+      "courseCode": "HCBPSYC211",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h2",
+      "courseCode": "GOSSOCI214",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h2",
+      "courseCode": "BENLEAD311",
+      "offering": "X",
+      "prerequisite": "BENGATE102"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h2",
+      "courseCode": "MCCCOMM111",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h1",
+      "courseCode": "HCBPSYC212",
+      "offering": "X",
+      "prerequisite": "HCBGATE102"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h1",
+      "courseCode": "HCBPSYC314",
+      "offering": "X",
+      "prerequisite": "HCBGATE102"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h1",
+      "courseCode": "BENLEAD312",
+      "offering": "X",
+      "prerequisite": "BENGATE102"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h1",
+      "courseCode": "MCCCOMM211",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h2",
+      "courseCode": "HCBPSYC315",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h2",
+      "courseCode": "GOSSOCI311",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h2",
+      "courseCode": "MCCCOMM311",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h2",
+      "courseCode": "GOSPHIL313",
+      "offering": "X",
+      "prerequisite": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2029h1",
+      "courseCode": "HCBPSYC313",
+      "offering": "X",
+      "prerequisite": "HCBGATE102"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2029h1",
+      "courseCode": "HCBPSYC312",
+      "offering": "X",
+      "prerequisite": "HCBGATE102"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2029h1",
+      "courseCode": "BENLEAD211",
+      "offering": "X",
+      "prerequisite": "BENGATE102"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2029h1",
+      "courseCode": "MCCCOMM213",
+      "offering": "X",
+      "prerequisite": "NONE"
+    }
+  ],
+  "repairs": [
+    "Primary: Psycholinguistics moved fromSpring2029 to its sole plannedSpring2027; qualitative methods moved toSpring2029. Brain gateway precedes language and cognitive study; general statistics precedes psychological statistics; no selection changed.",
+    "Updated three official names:Psychopathology,Advanced Research Methods & Statistics,Psychology of Leading Under Pressure.",
+    "Updated current psychological/social/youth/philosophy contributions and substantive school/rehabilitation candidate reasons.",
+    "Leading Under Pressure now has a partial ResearchPracticum1 relationship for actual psychological survey design, established measures, original data, reliability and reporting. Not full practicum or experimental sequence equivalence.",
+    "Cleaned source-investigation copy from audience credit/language notes and removed internal third-programme generation reasoning; clarified empirical survey contribution and qualification/admission limits."
+  ],
+  "alignment": {
+    "all37Entries": [
+      {
+        "componentId": "y1-01",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "HCBGATE102",
+        "rationale": "Both introduce psychological explanations, with UCR emphasising brain and behaviour rather than the full general psychology survey."
+      },
+      {
+        "componentId": "y1-02",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "BENGATE102",
+        "rationale": "General design and empirical methods overlap; the UCR course also includes statistics and a cross-disciplinary group project."
+      },
+      {
+        "componentId": "y1-03",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "ACCPPDE101",
+        "rationale": "Both include academic writing and communication, but UCR is general personal and academic development, not psychologist professional practice."
+      },
+      {
+        "componentId": "y1-04",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y1-05",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "HCBPSYC111",
+        "rationale": "Social influences on behaviour overlap; UCR social psychology is narrower than the full behaviour-and-environment domain."
+      },
+      {
+        "componentId": "y1-06",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y1-07",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y1-08",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "HCBPSYC314",
+        "rationale": "Both study development and mental wellbeing; UCR spans the lifespan and is not a replacement for separately credited practical work."
+      },
+      {
+        "componentId": "y1-09",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "BENLEAD211",
+        "rationale": "A supervised psychological survey project uses established measures, original data collection, reliability analysis and empirical reporting. This provides related practical research training, while Radboud’s full practicum and successive experimental research sequence remain broader."
+      },
+      {
+        "componentId": "y1-10",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "HCBCOGN112",
+        "rationale": "Related neurobiological foundations; UCR emphasises comparative biology and animal models rather than the full introductory brain/cognition domain."
+      },
+      {
+        "componentId": "y1-11",
+        "matchType": "unmatched",
+        "rationale": "Required participant hours or approved replacement are not reproduced by ordinary UCR coursework."
+      },
+      {
+        "componentId": "y2-01",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y2-02",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y2-03",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "HCBPSYC212",
+        "rationale": "Both cover psychopathology across ages; the separate Radboud practical remains unmatched."
+      },
+      {
+        "componentId": "y2-04",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y2-05",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y2-06",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "BENLEAD311",
+        "rationale": "Both study motivation, group behaviour and organisational context; UCR adds leadership, without replacing the separate practical."
+      },
+      {
+        "componentId": "y2-07",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y2-08",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "HCBPSYC211",
+        "rationale": "Related advanced statistics and model application; credit and scope differ, and separate Radboud data analysis/psychometrics remain distinct."
+      },
+      {
+        "componentId": "y2-09",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y2-10",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y2-11",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y2-12",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y2-13",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y2-14",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y2-15",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "GOSPHIL214",
+        "rationale": "Related mind-body and consciousness questions; UCR is philosophy of mind, not the whole psychology curriculum."
+      },
+      {
+        "componentId": "y2-16",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y2-17",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "HCBCOGN212",
+        "rationale": "Perception and neural action overlap; the selected Radboud elective also addresses consciousness."
+      },
+      {
+        "componentId": "y3-01",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "HCBCOGN311",
+        "rationale": "Higher cognition and cognitive-neuroscience experiments overlap; this is not a complete cognitive-neuropsychology equivalent."
+      },
+      {
+        "componentId": "y3-02",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "MCCCOMM311",
+        "rationale": "Related attitudes, framing and persuasion using social psychology and neuroscience; UCR has a narrower communication and community-practice emphasis."
+      },
+      {
+        "componentId": "y3-03",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y3-04",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y3-05",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y3-06",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y3-07",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      },
+      {
+        "componentId": "y3-08",
+        "matchType": "unmatched",
+        "rationale": "Genuine open elective space; no fixed UCR equivalence is imposed."
+      },
+      {
+        "componentId": "y3-09",
+        "matchType": "unmatched",
+        "rationale": "No single retained UCR course closely represents this separately credited component. Professional practica, psychometrics, applied domain methods and the independent thesis remain distinct."
+      }
+    ],
+    "judgment": "Reviewed every positive and unmatched component and block. General methods/PPD are partial foundations, not entire psychology skills tracks. HigherCognition partially relates to cognitive neuropsychology, not rehabilitation. Perception is not full consciousness curriculum. Persuasion supplies attitude/social influence, not all cognition/motivation. New applied psychological survey is a meaningful research relationship; reliability analysis alone is not the separately credited full psychometrics course. Practica, professional skills,domain methods,thesis and other gaps remain explicit. Open16EC is genuine space, not invented content.",
+    "optionalResearch": "One15ECoptionalcomparison element perUCRprogramme parallel to12ECthesis, excluded from each24course180ECschedule."
+  },
+  "content": {
+    "policy": "record-content-review-2026-10-31",
+    "presentationMode": "normal",
+    "mapping": "Unchanged app.R821be611428fc28490c679783be464455ad00aa1 selects audience descriptions/limits and canonical concepts byIDs; table blocktitles/names/credits and audience.cellNotes; notes selected bynoteTypes; componentNotes for external-only view; modal department code-keyed descriptions.",
+    "fieldPaths": [
+      "comparator.name/institution/primarySourceUrl",
+      "comparator.components[*].name/credits",
+      "programmes[*].label",
+      "academicRationale.alternatives[*].concept",
+      "blocks[*].title/rows[*].cells[*].text/credits",
+      "audience.*",
+      "notes[*].text",
+      "optionalIndependentResearch",
+      "selectedCourseDescriptions"
+    ],
+    "judgment": "Read all reader-facing titles, concepts, explanations, audience references, notes, source links, labels and32selected descriptions. Complete37component audience list andbothconceptIDs resolve. Current course names align with workbook; descriptions support scope without invented enrichment. Source distinctions/provenance remain internal. All10official links returned200. Noappcode/runtime/browser/R/screenshots/live-modalwork.",
+    "descriptionCodes": [
+      "ACCPPDE101",
+      "HCBGATE102",
+      "GOSSOCI111",
+      "HCBGATE101",
+      "HCBPSYC111",
+      "BENGATE102",
+      "HCBCOGN112",
+      "GOSSOCI212",
+      "HCBPSYC211",
+      "HCBCOGN311",
+      "HCBPSYC311",
+      "HCBCOGN212",
+      "HCBPSYC212",
+      "HCBPSYC314",
+      "HCBPSYC313",
+      "HCBPSYC315",
+      "GOSSOCI311",
+      "MCCCOMM311",
+      "GOSPHIL313",
+      "HCBCOGN312",
+      "HCBPSYC312",
+      "GOSPHIL311",
+      "GOSPHIL214",
+      "BENLEAD111",
+      "BENLEAD112",
+      "GOSSOCI214",
+      "BENLEAD311",
+      "MCCCOMM111",
+      "BENLEAD312",
+      "MCCCOMM211",
+      "BENLEAD211",
+      "MCCCOMM213"
+    ]
+  },
+  "mechanical": {
+    "feasibility": "Passed both24course180ECschedules,4perterm,Year1PPD,formalprerequisites,plannedofferings andadvancedfloor.",
+    "schema": "Fullschema passed.",
+    "descriptions": "86sharedprovenanceentries passed; all32selected texts read.",
+    "operational": "npm run validate:counselor passed.",
+    "replay": "Production compiler reproduces repaired canonical bytes."
+  }
+}
