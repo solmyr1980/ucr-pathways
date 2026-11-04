@@ -2,7 +2,7 @@
   "caseId": "cp-000292",
   "recoveredOn": "2026-11-04",
   "baseCommit": "6484d4378efffbfe71cf5f17284b54ed0169ebd6",
-  "state": "repair-ready-for-publication",
+  "state": "published",
   "recoveryBasis": "The scratch archive and unpublished blob objects could not be recovered. Reconstructed the documented eight alignment removals, course replacement, methods-course correction and two interest corrections from the published substantive-content-repair.json findings. This is a reconstruction of the documented changes, not a claim of byte identity with the missing archive.",
   "findingsRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000292/substantive-content-repair.json",
   "patch": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000292/recovered-repair.patch",
@@ -36,8 +36,18 @@
     "interestRegistry": "npm run validate:registry-interests passed",
     "derivedIndexes": "npm run validate:counselor-review passed",
     "compilerReplay": "byte-exact reproduction of canonical record passed",
-    "publicationHelper": "five regression tests passed, including malformed/nested responses, SHA mismatch, stale parent and lost update response"
+    "publicationHelper": "six regression tests passed; complete-byte transfer, nested/malformed responses, SHA mismatch, stale parent and lost update response"
   },
   "academicStatus": "incomplete",
-  "nextAction": "Verify published files and applicable CI, then finish remaining interest/course/description/audience checks and separate source-first final review. No approval is granted by this recovery."
+  "nextAction": "Verify published files and applicable CI, then finish remaining interest/course/description/audience checks and separate source-first final review. No approval is granted by this recovery.",
+  "publication": {
+    "commit": "331652de4acca64314438d12801d0b5aa536061a",
+    "allPublishedBlobHashes": "14 touched paths verified against commit tree",
+    "compilerCI": "https://github.com/solmyr1980/ucr-pathways/actions/runs/41853862288",
+    "compilerCIStatus": "success",
+    "reviewIndexCI": "https://github.com/solmyr1980/ucr-pathways/actions/runs/41853862222",
+    "reviewIndexCIStatus": "success",
+    "initialShinyCI": "https://github.com/solmyr1980/ucr-pathways/actions/runs/41853862225",
+    "initialShinyCIFinding": "Passed record, registry, audit, feasibility/schema and audience validations. Failed a stale summary test expecting two UCR alternatives for CP002, whose current canonical record has three. Follow-up changes the summary assertion to compare displayed programme IDs with all selected IDs; app code is untouched."
+  }
 }

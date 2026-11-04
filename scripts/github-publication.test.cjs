@@ -1,6 +1,6 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { payload, publish } = require('./github-publication.cjs');
+const { payload, prepareEntries, publish } = require('./github-publication.cjs');
 const parent = 'a'.repeat(40), tree = 'b'.repeat(40), blob = 'c'.repeat(40), commit = 'd'.repeat(40);
 const envelope = value => ({ structuredContent: { structuredContent: value } });
 
@@ -33,6 +33,13 @@ function fixture({ mismatch = false, advanced = false, lostUpdate = false } = {}
   };
 }
 const request = { repository: 'owner/repo', parentSha: parent, baseTreeSha: tree, message: 'test', entries: [{ path: 'data/test.json', content: 'e30K', sha: blob }] };
+
+test('transfers complete local bytes and rejects truncation or a changed local blob', async () => {
+  const descriptor = [{ path: 'data/test.json', size: 3, sha: blob }];
+  assert.equal((await prepareEntries({ exec_command: async () => ({ exit_code: 0, output: 'e30K' }) }, '/repo', descriptor))[0].content, 'e30K');
+  await assert.rejects(prepareEntries({ exec_command: async () => ({ exit_code: 0, output: 'e30' }) }, '/repo', descriptor), /Incomplete/);
+  await assert.rejects(prepareEntries({ exec_command: async () => ({ exit_code: 1, output: 'Local blob changed' }) }, '/repo', descriptor), /Incomplete/);
+});
 
 test('publishes verified blobs in one guarded commit', async () => {
   const tools = fixture();

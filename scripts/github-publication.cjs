@@ -30,6 +30,32 @@ function payload(result) {
   throw new Error('GitHub response has no usable object or SHA');
 }
 
+async function prepareEntries(tools, root, entries) {
+  const quote = value => `'${String(value).replace(/'/g, "'\\''")}'`;
+  const chunkSize = 786432; // Divisible by three, so base64 chunks concatenate exactly.
+  const program = 'import base64,hashlib,pathlib,sys; b=pathlib.Path(sys.argv[1]).read_bytes(); actual=hashlib.sha1(b"blob "+str(len(b)).encode()+b"\\0"+b).hexdigest(); assert actual==sys.argv[4], "Local blob changed"; start=int(sys.argv[2]); size=int(sys.argv[3]); print(base64.b64encode(b[start:start+size]).decode(),end="")';
+  const prepared = [];
+  for (const entry of entries) {
+    if (!entry.path || entry.path.startsWith('/') || entry.path.split('/').includes('..') || !Number.isSafeInteger(entry.size) || entry.size < 1) {
+      throw new Error(`Invalid local file descriptor: ${entry.path}`);
+    }
+    const chunks = [];
+    for (let offset = 0; offset < entry.size; offset += chunkSize) {
+      const result = await tools.exec_command({
+        cmd: `python3 -c ${quote(program)} ${quote(entry.path)} ${offset} ${chunkSize} ${quote(entry.sha)}`,
+        workdir: root, max_output_tokens: 600000
+      });
+      const expected = 4 * Math.ceil(Math.min(chunkSize, entry.size - offset) / 3);
+      if (result.exit_code !== 0 || result.output?.length !== expected || !/^[A-Za-z0-9+/]*={0,2}$/.test(result.output)) {
+        throw new Error(`Incomplete or invalid local byte transfer: ${entry.path}`);
+      }
+      chunks.push(result.output);
+    }
+    prepared.push({ ...entry, content: chunks.join('') });
+  }
+  return prepared;
+}
+
 async function publish(tools, { repository, parentSha, baseTreeSha, entries, message }) {
   if (!/^[a-f0-9]{40}$/.test(parentSha) || !/^[a-f0-9]{40}$/.test(baseTreeSha)) {
     throw new Error('Publication requires verified parent and base tree SHAs');
@@ -86,4 +112,4 @@ async function publish(tools, { repository, parentSha, baseTreeSha, entries, mes
   return { sha: commit.sha, treeSha: tree.sha, paths: [...paths] };
 }
 
-module.exports = { payload, publish };
+module.exports = { payload, prepareEntries, publish };

@@ -93,11 +93,14 @@ acceptance_records <- lapply(sprintf("cp-%06d", 1:4), function(id) {
   record$audience <- list(schemaVersion = "1.0", conceptProgrammeIds = lapply(Filter(counselor$is_ucr_programme, record$programmes), function(x) x$id), curriculum = list(status = "complete", componentIds = lapply(record$comparator$components, function(x) x$id), routeLabel = record$comparator$route))
   record
 })
-expected_ucr_counts <- c(2L, 2L, 0L, 3L)
 for (index in seq_along(acceptance_records)) {
   record <- acceptance_records[[index]]
   ucr_programmes <- counselor$ucr_programmes_for_summary(record)
-  stopifnot(length(ucr_programmes) == expected_ucr_counts[[index]])
+  # Each record above selects all its current UCR alternatives for this test.
+  stopifnot(setequal(
+    vapply(ucr_programmes, function(programme) programme$id, character(1)),
+    unlist(record$audience$conceptProgrammeIds, use.names = FALSE)
+  ))
   if (identical(record$recordStatus, "exception")) {
     stopifnot(identical(record$exception$type, "no-defensible-ucr-match"))
     exception_html <- as.character(counselor$render_comparison(record))
