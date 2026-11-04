@@ -2216,13 +2216,31 @@
     },
     {
       "id": "cp-000065",
-      "state": "not-started",
-      "stageOutcomes": {},
+      "state": "in-progress",
+      "stageOutcomes": {
+        "1": "retain",
+        "2": "retain",
+        "3": "correct",
+        "4": "correct",
+        "5": "correct"
+      },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [],
+      "downstreamReassessments": [
+        {
+          "trigger": "Schedule/name/stopping/notes repair",
+          "scope": "Published inputs,affected academic/content andsource-firstfinalverification",
+          "stages": [
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
       "implementationCommits": [],
-      "presentationApproval": false
+      "presentationApproval": false,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000065.json"
     },
     {
       "id": "cp-000066",
@@ -6807,9 +6825,9 @@
   ],
   "progress": {
     "approved": 83,
-    "inProgress": 34,
+    "inProgress": 35,
     "reviewedWithBlockers": 0,
-    "notStarted": 321,
+    "notStarted": 320,
     "pilotStarted": 4
   },
   "batches": [],
@@ -7483,21 +7501,15 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000064",
-        "executionId": "restart-A-cp064-20261104T0526Z",
-        "state": "approved",
-        "academicDisposition": "comparison",
-        "reviewedInputCommit": "b2d04fa373c03d31d8ac6d68436d1e6d9088758e",
+        "caseId": "cp-000065",
+        "executionId": "restart-A-cp065-20261104T0633Z",
+        "state": "in-progress",
+        "nextAction": "Verify repaired publication and CI; then separate same-AI source-first final academic/content pass and disposition.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000065/academic-content-review.json",
         "inputBlobs": {
-          "canonical": "c63030a6ef9737f0fc3cca9008641180360a2552",
-          "decision": "7c510fa85c661e4d8947d44ea8da012503abdd0b"
-        },
-        "verifiedAt": "2026-11-04T05:43:29.309967+00:00",
-        "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000064/source-first-final-pass.json",
-        "nextAction": "CP064 complete as a verified three-alternative comparison. Resume cp-000065 next execution; release/discovery/deployment remain unauthorised.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
+          "canonical": "2eb5345046cfaad47854a8bb27b1f0e69d958fe6",
+          "decision": "c14c6cbbf205213986a23dfb550e717441b4ce3f"
+        }
       },
       "checkpointHistory": [
         {
@@ -11803,6 +11815,51 @@
                 "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
               },
               "nextAction": "Review current PPS external requirements, all interests and both UCR alternatives through full academic/content/source-first gates.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
+        },
+        {
+          "preservedOn": "2026-11-04",
+          "reason": "Preserve prior checkpoint and own claim before case update.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000064",
+              "executionId": "restart-A-cp064-20261104T0526Z",
+              "state": "approved",
+              "academicDisposition": "comparison",
+              "reviewedInputCommit": "b2d04fa373c03d31d8ac6d68436d1e6d9088758e",
+              "inputBlobs": {
+                "canonical": "c63030a6ef9737f0fc3cca9008641180360a2552",
+                "decision": "7c510fa85c661e4d8947d44ea8da012503abdd0b"
+              },
+              "verifiedAt": "2026-11-04T05:43:29.309967+00:00",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000064/source-first-final-pass.json",
+              "nextAction": "CP064 complete as a verified three-alternative comparison. Resume cp-000065 next execution; release/discovery/deployment remain unauthorised.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp065-20261104T0633Z",
+              "worker": "A",
+              "caseId": "cp-000065",
+              "claimedAt": "2026-11-04T06:34:41.179579+00:00",
+              "reviewedInputCommit": "ab98cb0db321b462850aa6e5f209af3cd4e35579",
+              "inputBlobs": {
+                "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+                "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+                "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000065.json": "97f3be33f091f2c713e8c0735681f18fd8f9d9b9",
+                "data/counselor/comparisons/cp-000065.json": "564c5d553678e23c521a4ee1ac3b1d6732ed6124",
+                "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Verify current Political Science cohort/route, credit and transition/progression evidence, then all interests, UCR course contributions, alignment, content and separate source-first final pass.",
               "runtimeModel": "unknown",
               "runtimeReasoningEffort": "unknown"
             }

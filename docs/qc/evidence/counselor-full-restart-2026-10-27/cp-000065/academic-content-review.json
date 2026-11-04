@@ -1,0 +1,2163 @@
+{
+  "caseId": "cp-000065",
+  "auditId": "counselor-full-restart-2026-10-27",
+  "executionId": "restart-A-cp065-20261104T0633Z",
+  "reviewedOn": "2026-11-04T06:39:56.942806+00:00",
+  "reviewedInputCommit": "ab98cb0db321b462850aa6e5f209af3cd4e35579",
+  "inputBlobs": {
+    "AGENTS.md": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+    "docs/UCR_Pathways_Production_Instructions.md": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+    "docs/UCR_Pathways_Master_Specification.md": "36bb398d7e28f6674970178004a5b52191e3b786",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000065.json": "c14c6cbbf205213986a23dfb550e717441b4ce3f",
+    "data/counselor/comparisons/cp-000065.json": "2eb5345046cfaad47854a8bb27b1f0e69d958fe6",
+    "data/registry/programme_interests.csv": "e8e259c3492ed840d8427cf41f583e9634c08853",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "canonical": "2eb5345046cfaad47854a8bb27b1f0e69d958fe6",
+    "decision": "c14c6cbbf205213986a23dfb550e717441b4ce3f",
+    "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
+    "pilot/shiny/data/courses/ENS.json": "da5d9225d6682419998c3cf20837727a5fa39cbf",
+    "pilot/shiny/data/courses/GOS.json": "49da38b390637fa113a95b835a4d9bbda854ef83",
+    "pilot/shiny/data/courses/HCB.json": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad",
+    "pilot/shiny/data/courses/MCC.json": "40abb17fa504a1be3569ce40017b0ac88db24cfa"
+  },
+  "sources": [
+    {
+      "id": 0,
+      "url": "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+      "effectiveUrl": "https://www.ru.nl/sites/default/files/2026-09/oer-2026-2027-bsc-politicologie_0.pdf",
+      "status": 200,
+      "sha256": "abea9d57c0e6ce15776c09c2ae4d5d7a4fa92a2f86cfc4e7b18a406237c057a4",
+      "bytes": 1070119
+    },
+    {
+      "id": 1,
+      "url": "https://www.ru.nl/sites/default/files/2025-08/oer-bsc-politicologie-2025-20261.pdf",
+      "effectiveUrl": "https://www.ru.nl/sites/default/files/2025-08/oer-bsc-politicologie-2025-20261.pdf",
+      "status": 200,
+      "sha256": "d90b4863d4c410753a8976097045e64504fb28307e9a68b76de12d1ac530ae52",
+      "bytes": 842186
+    },
+    {
+      "id": 2,
+      "url": "https://www.ru.nl/sites/default/files/2024-09/OER%20BSc%20Politicologie%202024-2025.pdf",
+      "effectiveUrl": "https://www.ru.nl/sites/default/files/2024-09/OER%20BSc%20Politicologie%202024-2025.pdf",
+      "status": 200,
+      "sha256": "a238e943f77b7c34f3aea3ad4f9869ecd8178d490fe223100b478a7764d39c03",
+      "bytes": 797765
+    },
+    {
+      "id": 3,
+      "url": "https://www.ru.nl/studenten/onderwijs-volgen/regels-en-richtlijnen/onderwijs-en-examenregelingen/managementwetenschappen",
+      "effectiveUrl": "https://www.ru.nl/studenten/onderwijs-volgen/regels-en-richtlijnen/onderwijs-en-examenregelingen/managementwetenschappen",
+      "status": 200,
+      "sha256": "fc23c3e6f3d3ab0a9ae8f8231160612226e3a8ebbfb2d8cde72370cb38a5e6f3",
+      "bytes": 56719
+    },
+    {
+      "id": 4,
+      "url": "https://www.ru.nl/opleidingen/bachelors/politicologie",
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/politicologie",
+      "status": 200,
+      "sha256": "5191310337c83e99268b5baab7305deb28a49fcd5cdd155ecc76afa64043a584",
+      "bytes": 68995
+    },
+    {
+      "id": 5,
+      "url": "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie",
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma",
+      "status": 200,
+      "sha256": "46f0371b3fa42678422b50701aa6b68ac35be962eb327ce4aef431ba1adad961",
+      "bytes": 50810
+    },
+    {
+      "id": 6,
+      "url": "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-1",
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma/jaar-1",
+      "status": 200,
+      "sha256": "67747f9e84593b43d3fbb1f18bf306a041851e4b343e8b657cd8d25eacc7596a",
+      "bytes": 59415
+    },
+    {
+      "id": 7,
+      "url": "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-2",
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma/jaar-2",
+      "status": 200,
+      "sha256": "5d4284b0e08ef00f27417d1cf0bbae3d91959c4d3e8a96db6cf43714302777dd",
+      "bytes": 54267
+    },
+    {
+      "id": 8,
+      "url": "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-3",
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma/jaar-3",
+      "status": 200,
+      "sha256": "93ba3bb0bc1619806156fefe424d47b9ad591c910e987d79cd9044c7b773bf4c",
+      "bytes": 51454
+    },
+    {
+      "id": 9,
+      "url": "https://www.ru.nl/opleidingen/bachelors/politicologie/na-je-studie",
+      "effectiveUrl": "https://www.ru.nl/opleidingen/bachelors/politicologie/na-je-studie",
+      "status": 200,
+      "sha256": "18655e2f31c6f39f3779b60c0cd542d20dae458ab568653917961b6e2ad262e3",
+      "bytes": 44636
+    }
+  ],
+  "external": {
+    "identity": "Radboud Dutch/full-time BSc56606,2025-entry Macht en Democratie. CurrentAppendix3pp32–34 distinguishes2026B1/pre2026B2/B3; neutral first-listed route, not selected forUCRfit. Retain2025B1with documented transitions, not new2026B1 mixed with older later years.",
+    "credit": "26components,180uniqueEC:60+60+60;156required/24genuineopenchoice.Three6ECprojects,12ECthesis. Optionalinternship within24EC,not extra.",
+    "sourceReuse": "Fresh currentOER SHA256abea9d57c0e6ce15776c09c2ae4d5d7a4fa92a2f86cfc4e7b18a406237c057a4 and prior2025/2024OER hashes equal retained documents. CurrentAppendix3/4 and actual2024Article41 reread. Old approvals not reused. Actual retained2026catalogue records independently read.",
+    "progression": {
+      "records": [
+        {
+          "code": "MAN-BIM323A",
+          "year": 2026,
+          "id": 172588,
+          "url": "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172588?taal=NL",
+          "conditions": [
+            {
+              "title": "Inhoud",
+              "text": "De bachelorthesis houdt in dat de student zelfstandig op een wetenschappelijke wijze empirisch dan wel politiek theoretisch onderzoek uitvoert op een concreet omschreven, door hem/haar zelf gekozen politiek/politicologisch relevant probleem en daar op een wetenschappelijk verantwoorde wijze verslag van aflegt. Dit betekent dat de student naar eigen keuze een probleemstelling formuleert over een thema dat op het gebied ligt van de Internationale Betrekkingen, Conflictstudies, Nationale of Vergelijkende Politicologie, of Politieke Theorie. Termijnen onder voorbehoud: tijdens (ongeveer) de weken 8-14 denkt u na over de keuze van uw thesisonderwerp en spreekt u uw plannen door met uw begeleider. U schrijft een opzet, legt die aan de begeleider voor, en zo nodig wordt deze opzet bijgesteld en verbeterd. In (ongeveer) week 14 dient u een goedgekeurde opzet te hebben. In (ongeveer) de weken 14-24 werkt u uw opzet zelfstandig uit tot een volledige thesis. Het is in principe niet de bedoeling dat voor het schrijven van de bachelorthesis nieuwe dataverzameling wordt verricht, maar bestaande databases mogen wel gebruikt worden. Uiterlijk in week 22 levert u een conceptversie in; uiterlijk in week 24 levert u de definitieve versie in."
+            },
+            {
+              "title": "Doel",
+              "text": "Het uitgangspunt van de bachelorthesis is dat iedere student in staat dient te zijn om goed om te gaan met en kritisch na te denken over hetgeen dat hij/zij heeft bestudeerd en geleerd in de semesters 1.1 t/m 3.1 van de bachelor-opleiding politicologie. De student laat zien dat hij/zij hiertoe in staat is, en wel door middel van deze individuele thesis. De bachelorthesis heeft de vorm van een empirisch dan wel politiek theoretisch onderzoek op een concreet omschreven, door de student zelf gekozen politiek/politicologisch relevant probleem."
+            },
+            {
+              "title": "Voorkennis",
+              "text": "De voorgaande vijf semesters politicologie. Minimale ingangseisen: om te mogen starten met de Bachelorthesis dient de student 90 EC van het Bachelorprogramma Politicologie met succes te hebben afgerond, inclusief de cursussen Academische Vaardigheden (Politicologie), Onderzoeks- en interventiemethodologie A (Politicologie) en Onderzoeks- en interventiemethodologie B (Politicologie)."
+            },
+            {
+              "title": "Toetsinformatie",
+              "text": "Werkstuk. Indien de student gebruik maakt van data voor de bachelorthesis, kan de bachelorthesis alleen met goed gevolg worden afgesloten als deze data door de student is gearchiveerd is conform de instructies."
+            }
+          ]
+        },
+        {
+          "code": "MAN-BPRA204A",
+          "year": 2026,
+          "id": 172866,
+          "url": "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172866?taal=NL",
+          "conditions": [
+            {
+              "title": "Inhoud",
+              "text": "'Storytelling, cherry picking and unwarranted generalisations.' Over the years qualitative research has received some bad press. In comparison to the massive textbooks and rigorous guidelines that accompany large scale statistical analyses, qualitative research methodology is said to be soft, its results descriptive and its evidence anecdotal. Yet, there are few who deny that qualitative research projects form the backbone of many social sciences. Case studies provide the basis for much of our theorising. And what we know about causal mechanisms stems from in-depth studies and process-tracing analyses. Provided of course such methods are used correctly…This course is based on two principles: A qualitative research methods course is not a cooking class One cannot meaningfully discuss form without content. To elaborate on the first; conducting empirical research implies a constant willingness to reflect on the approach you have opted for. Such a methodology is case-bound and context-bound, which means that you have to engage in a constant dialogue with your peers about your approach in light of the approaches of others. With regard to the second principle; this course teaches qualitative research methodology in the field of comparative politics. It will address the various elements of qualitative methodology: research design, concepts and operationalisation, case and source selection, methods for collecting and analysing data. We will discuss these elements using current examples of research in comparative politics covering different world regions, including best practice studies from Africa, Europe and Latin America. In doing so, we will encounter the dominant qualitative methods and techniques that political science students need to master in order to be able to conduct political science research."
+            },
+            {
+              "title": "Doel",
+              "text": "After completing the course, students will… have gained a basic understanding of and had the chance to practice the principles of academic reading and writing ( academic reading and writing skills ) be able to formulate their own research question, research design and hypotheses, and to think of appropriate ways to analyse them using one of the discussed research methods, and then to perform their own empirical research ( connecting theory with method ). be able to explain the principles behind, and the advantages and drawbacks of several basic qualitative research methods and techniques that are commonly used in political science research ( method familiarisation ). be able to use these methods, collect and process several types of data, interpret the findings and draw sufficient conclusions from these findings ( method application ). be capable of arguing why this is the appropriate tool or method to use ( reflecting on method usage )."
+            },
+            {
+              "title": "Voorkennis",
+              "text": "Students should have basic language skills in English."
+            },
+            {
+              "title": "Toetsinformatie",
+              "text": "The examination method in this course is threefold: 70% of the course grade result from a written exam at the end of block 1 (with a possible re-sit in block 2) 30% of the course grade result from a group assignment which is due in block 1 (with a possible re-sit in block 2) To pass this course, both the exam and the group assignment need to receive a minimum grade of at least a 5.5. Partial grades can only be retained for ONE year, i.e. until the next academic year. Optionally, students can gain participation bonus points on their grade during the course (no re-sit option). The participation bonus grade cannot be retained and only counts for the current academic year."
+            }
+          ]
+        },
+        {
+          "code": "MAN-BPRA205A",
+          "year": 2026,
+          "id": 172867,
+          "url": "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172867?taal=NL",
+          "conditions": [
+            {
+              "title": "Inhoud",
+              "text": "Regression analysis is an incredibly widely used method of inquiry in many scientific fields, including political science. Flip through the issues of many major scientific journals, and you will commonly encounter some type of regression analysis as the method of choice in the articles. Even scientific studies that do not use regression methods often still require some understanding of regression methods. This is not only true for other statistical methods, but also for many so-called qualitative research methods. For instance, strategies for case-selection in case study research are sometimes justified by regression-based reasoning. Other qualitative research methods are sometimes justified explicitly as alternatives to regression analysis, and thus require a good understanding of the strengths and weaknesses of this method. In short, it is nowadays virtually impossible to become a scientist in our field without a good understanding of regression analysis. The method is also widely used in applied research and is frequently is employed as a basis for policy advise, and hence of great importance to professionals concerned with policy choices and policy evaluation. Political Science Research Methods II (PSRM II) addresses the use of linear and logistic regression analysis in theory-driven research. It teaches you how regression analysis works, how it can be used to tackle substantive research questions, but also what its limitations are. In this way, the course builds on the knowledge and skills that you have acquired in your previous introductory methods and statistics courses. You will apply the knowledge and skills learned in PSRM II directly in the course Project 3: Democracy and Representation."
+            },
+            {
+              "title": "Doel",
+              "text": "After completing the course, you will: have gained insight into the use and theory of regression analysis in the context of theory-testing political science research know how to interpret (simple and multiple) linear and logistic regression models know how to interpret these models when they include continuous and categorical predictor variables know how to interpret these models when they include non-linear effects (through the inclusion of polynomial, exponential and logarithmic functions) know how to interpret these models when they are used for moderation and mediation analysis have gained insight into the benefits and limitations of regression analysis for making inferential statements, including statements about causality understand how these limitations are related to uncertainty in (frequentist) inferential statistics in general, and to the assumptions associated with regression models in particular have practical knowledge of the application of different types of regression analysis and related data challenges such as dealing with outliers and collinearity know how to practically prepare your data and execute various types of regression analysis in scientifically reproducable manner with syntax commands be able to interpret the computer output of the relevant statistics know how to present your findings in clear and well-structured tables"
+            },
+            {
+              "title": "Voorkennis",
+              "text": "For bachelor students: statistics and methods courses taught in the first year, in particular 'Ontwerp en Methoden van Politicologisch Onderzoek', 'Statistiek voor Politicologen', and 'Project 1'. For pre-master students: statistics and methods courses taught in your previous studies and in the first semester of the pre-master, in particular Statistics. Students who lack appropriate foreknowledge should be aware that they will be unlikely to pass PSRM II."
+            },
+            {
+              "title": "Toetsinformatie",
+              "text": "The final grade is determined by a written exam held during exam week; the passing of weekly assignments is a prerequisite for passing the course. The written exam consists of multiple-choice questions and is graded with chance-correction. It is not allowed to use the book, notes or other additional resources during the written exam. It is allowed to use a simple scientific calculator and a dictionary. For students that have passed the weekly assignments, the final grade will be determined by the written exam, with a grade >=5.5 representing a passing grade. Students that have not passed at least 6 of the 7 assignments by the end of the course do not pass the course. The final grade will be registered in Osiris. Partial results from previous years are not valid."
+            }
+          ]
+        },
+        {
+          "code": "MAN-BIN117PO",
+          "year": 2026,
+          "id": 172562,
+          "url": "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172562?taal=NL",
+          "conditions": [
+            {
+              "title": "Inhoud",
+              "text": "Het vak AV is gericht op het verwerven van en oefenen in een aantal basale wetenschappelijke vaardigheden, die nodig zijn om met succes een academische studie als politicologie te doorlopen en om later als academicus en academisch geschoold professional te kunnen functioneren."
+            },
+            {
+              "title": "Doel",
+              "text": "Na afronding van deze cursus kun je: Academisch denken . Daartoe leer je: Concepten herkennen, beschrijven wat hun rol is binnen een wetenschappelijk onderzoek, en gebruikmaken van concepten in jouw eigen onderzoek. Theorieën herkennen, beschrijven wat hun rol is binnen een wetenschappelijk onderzoek, en gebruikmaken van theorieën in jouw eigen onderzoek. Empirische gegevens herkennen, beschrijven wat hun rol is binnen een wetenschappelijk onderzoek. Herkennen waar een wetenschappelijke onderzoeksvraag aan moet voldoen, en een wetenschappelijke vraag opstellen voor jouw eigen onderzoek. Gebruikmaken van empirische gegevens om jouw onderzoeksvraag te beantwoorden. Academisch lezen . Daartoe leer je: De hoofdgedachte in wetenschappelijke stukken herkennen en samenvatten. De bouwstenen van wetenschappelijke stukken herkennen en onderscheiden. Literatuur zoeken en beoordelen op relevantie en toepasbaarheid. Academisch schrijven . Daartoe leer je: Academische en journalistieke schrijfstijl onderscheiden, en jouw eigen academische schrijfstijl te ontwikkelen. Helder en precies formuleren. Een logische en consistente argumentatie opbouwen. Op wetenschappelijke wijze verwijzen naar bronnen (volgens APA-stijl). Academisch handelen . Daartoe leer je: Voldoen aan de verwachtingen ten aanzien van de voorbereiding op en het gedrag binnen onderwijsbijeenkomsten. Fraude en plagiaat voorkomen, in eigen werk en in samenwerken. Op academische wijze spreken over politieke actualiteit en jouw eigen onderzoek. Constructieve feedback ontvangen. Constructieve feedback geven."
+            },
+            {
+              "title": "Voorkennis",
+              "text": "Geen."
+            },
+            {
+              "title": "Toetsinformatie",
+              "text": "De toetsing van Academische Vaardigheden bestaat uit zes onderdelen: 1. Onderzoeksopdracht (weging 50%) 2. Basisopdrachten (weging 20%) 3. Actualiteitenopdracht (weging 15%) 4. Conferentie (weging 15%) 5. Actieve participatie (deelname verplicht) 6. RADAr taaltoets (deelname verplicht) Het eindcijfer wordt bepaald aan de hand van het gewogen gemiddelde van onderdeel 1 t/m 4, met de volgende aanvullende voorwaarden: - Onderdeel 1 is met tenminste een 5,5 beoordeeld. - Onderdeel 5 is voldaan. - Onderdeel 6 is voldaan Onderdeel 1, 2 en 3 zijn herkansbaar. Deelresultaten uit voorgaande collegejaren zijn niet geldig."
+            }
+          ]
+        }
+      ],
+      "verifiedRecords": 4,
+      "currentOERConditions": "Appendix4 fully checked: thesis90EC+Skills+OIM-A/B,HistoryThoughtassignmentpass,ForeignPolicy4/6blogs,IndoPacificattendance,selectedEUprojectrouteenrolment. OptionalConflictbranchentryrulesnotstacked.",
+      "legacyReconciliation": "2024–25Article41p21 explicitly mapsOIM-A(MAN-BPRA145)→BPRA180 andOIM-B(MAN-BPRA146)→BPRA181. 2025Article41p21 repeatsA→180. Actualcurrentthesisretainsoldnames; replaceonlyundertheseexplicitrules,notwithMethodsI/II. CurrentMethodsIqualitative,MethodsIIquantitative; bothactualrecordsread.",
+      "noncredit": "ActualBIN117PO:RADArparticipation andactiveparticipation required,zeroadditionalEC;researchassignment5.5andothergradedcomponents.",
+      "thesis": "Individualempirical/politicaltheoreticalproblem,approvedproposal,basednormallyonexistingdata;dataarchivingmandatoryifused.",
+      "unresolved": []
+    },
+    "evidenceRefs": [
+      "docs/qc/evidence/counselor-corpus-A-cp065-2026-10-25/source-verification.json",
+      "docs/qc/evidence/counselor-corpus-A-cp065-2026-10-25/external-progression.json"
+    ],
+    "finding": "Explicit OIM-A→BPRA180/OIM-B→BPRA181 replacement supports legacythesis90EC+skills/design/statistics. Approvedproposal and dataarchiving apply. SkillsRADAr/participation noncredit;MethodsIboth5.5,MethodsII6/7assignments;HistoryThoughtassignments,ForeignPolicy4/6blogs,IndoPacificattendance. BSA42EC."
+  },
+  "interestRows": [
+    {
+      "row": 3065,
+      "studentInterest": "how power shapes political decisions",
+      "relationship": "Direct programme interest",
+      "outcome": "retain",
+      "constructionRole": "generator-eligible",
+      "constructionOwner": "ucr-1",
+      "finding": "Confirmed by official programme identity and four academic fields. Actual UCR politics, theory, institutions, conflict and research provide a qualified substantive response.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie"
+      ]
+    },
+    {
+      "row": 3066,
+      "studentInterest": "why political conflicts arise",
+      "relationship": "Direct programme interest",
+      "outcome": "retain",
+      "constructionRole": "generator-eligible",
+      "constructionOwner": "ucr-2",
+      "finding": "Confirmed by official programme identity and four academic fields. Actual UCR politics, theory, institutions, conflict and research provide a qualified substantive response.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie"
+      ]
+    },
+    {
+      "row": 3067,
+      "studentInterest": "how democracies work differently around the world",
+      "relationship": "Direct programme interest",
+      "outcome": "retain",
+      "constructionRole": "generator-eligible",
+      "constructionOwner": "ucr-1",
+      "finding": "Confirmed by official programme identity and four academic fields. Actual UCR politics, theory, institutions, conflict and research provide a qualified substantive response.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie"
+      ]
+    },
+    {
+      "row": 3068,
+      "studentInterest": "war, peace and international cooperation",
+      "relationship": "Direct programme interest",
+      "outcome": "retain",
+      "constructionRole": "generator-eligible",
+      "constructionOwner": "ucr-2",
+      "finding": "Confirmed by official programme identity and four academic fields. Actual UCR politics, theory, institutions, conflict and research provide a qualified substantive response.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie"
+      ]
+    },
+    {
+      "row": 3069,
+      "studentInterest": "political polarisation",
+      "relationship": "Direct programme interest",
+      "outcome": "retain",
+      "constructionRole": "generator-eligible",
+      "constructionOwner": "ucr-1",
+      "finding": "Confirmed by official programme identity and four academic fields. Actual UCR politics, theory, institutions, conflict and research provide a qualified substantive response.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie"
+      ]
+    },
+    {
+      "row": 3070,
+      "studentInterest": "populism and challenges to democracy",
+      "relationship": "Direct programme interest",
+      "outcome": "retain",
+      "constructionRole": "generator-eligible",
+      "constructionOwner": "ucr-1",
+      "finding": "Confirmed by official programme identity and four academic fields. Actual UCR politics, theory, institutions, conflict and research provide a qualified substantive response.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie"
+      ]
+    },
+    {
+      "row": 3071,
+      "studentInterest": "climate activism and political protest",
+      "relationship": "Direct programme interest",
+      "outcome": "retain",
+      "constructionRole": "generator-eligible",
+      "constructionOwner": "ucr-1",
+      "finding": "Confirmed by official programme identity and four academic fields. Actual UCR politics, theory, institutions, conflict and research provide a qualified substantive response.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie"
+      ]
+    },
+    {
+      "row": 3072,
+      "studentInterest": "the politics of freedom, justice and representation",
+      "relationship": "Direct programme interest",
+      "outcome": "retain",
+      "constructionRole": "generator-eligible",
+      "constructionOwner": "ucr-1",
+      "finding": "Confirmed by official programme identity and four academic fields. Actual UCR politics, theory, institutions, conflict and research provide a qualified substantive response.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie"
+      ]
+    },
+    {
+      "row": 3073,
+      "studentInterest": "political parties and political movements",
+      "relationship": "Direct programme interest",
+      "outcome": "retain",
+      "constructionRole": "generator-eligible",
+      "constructionOwner": "ucr-1",
+      "finding": "Confirmed by official programme identity and four academic fields. Actual UCR politics, theory, institutions, conflict and research provide a qualified substantive response.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie"
+      ]
+    },
+    {
+      "row": 3074,
+      "studentInterest": "political theory",
+      "relationship": "Stable study direction",
+      "outcome": "retain",
+      "constructionRole": "generator-eligible",
+      "constructionOwner": "ucr-1",
+      "finding": "Confirmed by official programme identity and four academic fields. Actual UCR politics, theory, institutions, conflict and research provide a qualified substantive response.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie"
+      ]
+    },
+    {
+      "row": 3075,
+      "studentInterest": "comparative politics",
+      "relationship": "Stable study direction",
+      "outcome": "retain",
+      "constructionRole": "generator-eligible",
+      "constructionOwner": "ucr-1",
+      "finding": "Confirmed by official programme identity and four academic fields. Actual UCR politics, theory, institutions, conflict and research provide a qualified substantive response.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie"
+      ]
+    },
+    {
+      "row": 3076,
+      "studentInterest": "international relations",
+      "relationship": "Stable study direction",
+      "outcome": "retain",
+      "constructionRole": "generator-eligible",
+      "constructionOwner": "ucr-2",
+      "finding": "Confirmed by official programme identity and four academic fields. Actual UCR politics, theory, institutions, conflict and research provide a qualified substantive response.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie"
+      ]
+    },
+    {
+      "row": 3077,
+      "studentInterest": "conflict studies and political violence",
+      "relationship": "Stable study direction",
+      "outcome": "retain",
+      "constructionRole": "generator-eligible",
+      "constructionOwner": "ucr-2",
+      "finding": "Confirmed by official programme identity and four academic fields. Actual UCR politics, theory, institutions, conflict and research provide a qualified substantive response.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie"
+      ]
+    },
+    {
+      "row": 3078,
+      "studentInterest": "researching political and social problems",
+      "relationship": "Direct programme interest",
+      "outcome": "retain",
+      "constructionRole": "generator-eligible",
+      "constructionOwner": "ucr-1",
+      "finding": "Confirmed by official programme identity and four academic fields. Actual UCR politics, theory, institutions, conflict and research provide a qualified substantive response.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie"
+      ]
+    },
+    {
+      "row": 3079,
+      "studentInterest": "Dutch political institutions and political history",
+      "relationship": "Curricular topic",
+      "outcome": "correct",
+      "constructionRole": "support-only",
+      "constructionOwner": null,
+      "finding": "Confirmed curricular topic, not an additional mandatory direction. Coherent2025cohort and selected branch govern; prospective redesign is not stacked.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-1"
+      ]
+    },
+    {
+      "row": 3080,
+      "studentInterest": "analysing and transforming political conflict",
+      "relationship": "Curricular topic",
+      "outcome": "correct",
+      "constructionRole": "support-only",
+      "constructionOwner": null,
+      "finding": "Confirmed curricular topic, not an additional mandatory direction. Coherent2025cohort and selected branch govern; prospective redesign is not stacked. Prospective wording is supported as a programme interest, but its exact new course/choice is not imposed on the earlier cohort.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-1"
+      ]
+    },
+    {
+      "row": 3081,
+      "studentInterest": "international organisations and global governance",
+      "relationship": "Curricular topic",
+      "outcome": "correct",
+      "constructionRole": "support-only",
+      "constructionOwner": null,
+      "finding": "Confirmed curricular topic, not an additional mandatory direction. Coherent2025cohort and selected branch govern; prospective redesign is not stacked.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-1"
+      ]
+    },
+    {
+      "row": 3082,
+      "studentInterest": "global political economy",
+      "relationship": "Curricular topic",
+      "outcome": "correct",
+      "constructionRole": "support-only",
+      "constructionOwner": null,
+      "finding": "Confirmed curricular topic, not an additional mandatory direction. Coherent2025cohort and selected branch govern; prospective redesign is not stacked. Prospective wording is supported as a programme interest, but its exact new course/choice is not imposed on the earlier cohort.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-1"
+      ]
+    },
+    {
+      "row": 3083,
+      "studentInterest": "European integration and disintegration",
+      "relationship": "Curricular topic",
+      "outcome": "correct",
+      "constructionRole": "support-only",
+      "constructionOwner": null,
+      "finding": "Confirmed curricular topic, not an additional mandatory direction. Coherent2025cohort and selected branch govern; prospective redesign is not stacked. Prospective wording is supported as a programme interest, but its exact new course/choice is not imposed on the earlier cohort.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-1"
+      ]
+    },
+    {
+      "row": 3084,
+      "studentInterest": "quantitative political research and statistics",
+      "relationship": "Curricular topic",
+      "outcome": "correct",
+      "constructionRole": "support-only",
+      "constructionOwner": null,
+      "finding": "Confirmed curricular topic, not an additional mandatory direction. Coherent2025cohort and selected branch govern; prospective redesign is not stacked. Current MethodsII is quantitative; introductory statistics and later regression are separately required.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-1"
+      ]
+    },
+    {
+      "row": 3085,
+      "studentInterest": "qualitative political-research methods",
+      "relationship": "Curricular topic",
+      "outcome": "correct",
+      "constructionRole": "support-only",
+      "constructionOwner": null,
+      "finding": "Confirmed curricular topic, not an additional mandatory direction. Coherent2025cohort and selected branch govern; prospective redesign is not stacked. Current MethodsI is qualitative, contrary to the prospective ordering.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-2"
+      ]
+    },
+    {
+      "row": 3086,
+      "studentInterest": "how political parties develop and change",
+      "relationship": "Curricular topic",
+      "outcome": "correct",
+      "constructionRole": "support-only",
+      "constructionOwner": null,
+      "finding": "Confirmed curricular topic, not an additional mandatory direction. Coherent2025cohort and selected branch govern; prospective redesign is not stacked.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-2"
+      ]
+    },
+    {
+      "row": 3087,
+      "studentInterest": "identity, inequality and political power",
+      "relationship": "Curricular topic",
+      "outcome": "correct",
+      "constructionRole": "support-only",
+      "constructionOwner": null,
+      "finding": "Confirmed curricular topic, not an additional mandatory direction. Coherent2025cohort and selected branch govern; prospective redesign is not stacked. Prospective wording is supported as a programme interest, but its exact new course/choice is not imposed on the earlier cohort.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-2"
+      ]
+    },
+    {
+      "row": 3088,
+      "studentInterest": "European Union governance",
+      "relationship": "Curricular topic",
+      "outcome": "correct",
+      "constructionRole": "support-only",
+      "constructionOwner": null,
+      "finding": "Confirmed curricular topic, not an additional mandatory direction. Coherent2025cohort and selected branch govern; prospective redesign is not stacked. Prospective wording is supported as a programme interest, but its exact new course/choice is not imposed on the earlier cohort.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-2"
+      ]
+    },
+    {
+      "row": 3089,
+      "studentInterest": "the European Union’s external relations",
+      "relationship": "Curricular topic",
+      "outcome": "correct",
+      "constructionRole": "support-only",
+      "constructionOwner": null,
+      "finding": "Confirmed curricular topic, not an additional mandatory direction. Coherent2025cohort and selected branch govern; prospective redesign is not stacked. Prospective wording is supported as a programme interest, but its exact new course/choice is not imposed on the earlier cohort.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-2"
+      ]
+    },
+    {
+      "row": 3090,
+      "studentInterest": "the history of political thought",
+      "relationship": "Curricular topic",
+      "outcome": "correct",
+      "constructionRole": "support-only",
+      "constructionOwner": null,
+      "finding": "Confirmed curricular topic, not an additional mandatory direction. Coherent2025cohort and selected branch govern; prospective redesign is not stacked.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-2"
+      ]
+    },
+    {
+      "row": 3091,
+      "studentInterest": "democratisation and democratic backsliding",
+      "relationship": "Curricular topic",
+      "outcome": "correct",
+      "constructionRole": "support-only",
+      "constructionOwner": null,
+      "finding": "Confirmed curricular topic, not an additional mandatory direction. Coherent2025cohort and selected branch govern; prospective redesign is not stacked. Prospective wording is supported as a programme interest, but its exact new course/choice is not imposed on the earlier cohort.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-2"
+      ]
+    },
+    {
+      "row": 3092,
+      "studentInterest": "social justice and political inequality",
+      "relationship": "Curricular topic",
+      "outcome": "correct",
+      "constructionRole": "support-only",
+      "constructionOwner": null,
+      "finding": "Confirmed curricular topic, not an additional mandatory direction. Coherent2025cohort and selected branch govern; prospective redesign is not stacked. Prospective wording is supported as a programme interest, but its exact new course/choice is not imposed on the earlier cohort.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-2"
+      ]
+    },
+    {
+      "row": 3093,
+      "studentInterest": "foreign-policy analysis",
+      "relationship": "Curricular topic",
+      "outcome": "correct",
+      "constructionRole": "support-only",
+      "constructionOwner": null,
+      "finding": "Confirmed curricular topic, not an additional mandatory direction. Coherent2025cohort and selected branch govern; prospective redesign is not stacked.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-2"
+      ]
+    },
+    {
+      "row": 3094,
+      "studentInterest": "geopolitics, borders and migration",
+      "relationship": "Curricular topic",
+      "outcome": "correct",
+      "constructionRole": "support-only",
+      "constructionOwner": null,
+      "finding": "Confirmed curricular topic, not an additional mandatory direction. Coherent2025cohort and selected branch govern; prospective redesign is not stacked. Prospective wording is supported as a programme interest, but its exact new course/choice is not imposed on the earlier cohort.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-3"
+      ]
+    },
+    {
+      "row": 3095,
+      "studentInterest": "authoritarianism and autocratic government",
+      "relationship": "Curricular topic",
+      "outcome": "correct",
+      "constructionRole": "support-only",
+      "constructionOwner": null,
+      "finding": "Confirmed curricular topic, not an additional mandatory direction. Coherent2025cohort and selected branch govern; prospective redesign is not stacked. Prospective wording is supported as a programme interest, but its exact new course/choice is not imposed on the earlier cohort.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-3"
+      ]
+    },
+    {
+      "row": 3096,
+      "studentInterest": "the political ethics of international affairs",
+      "relationship": "Curricular topic",
+      "outcome": "correct",
+      "constructionRole": "support-only",
+      "constructionOwner": null,
+      "finding": "Confirmed curricular topic, not an additional mandatory direction. Coherent2025cohort and selected branch govern; prospective redesign is not stacked. Prospective wording is supported as a programme interest, but its exact new course/choice is not imposed on the earlier cohort.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-3"
+      ]
+    },
+    {
+      "row": 3097,
+      "studentInterest": "political developments in the Indo-Pacific",
+      "relationship": "Illustrative or temporary topic",
+      "outcome": "correct",
+      "constructionRole": "support-only",
+      "constructionOwner": null,
+      "finding": "Confirmed curricular topic, not an additional mandatory direction. Coherent2025cohort and selected branch govern; prospective redesign is not stacked. Required Indo-Pacific regional study is real; UCR’s incidental regional examples do not replace it.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/studieprogramma-bachelor-politicologie/studieprogramma-bachelor-politicologie-jaar-3"
+      ]
+    },
+    {
+      "row": 3098,
+      "studentInterest": "policy analysis and public administration",
+      "relationship": "Outcome or individual trajectory",
+      "outcome": "correct",
+      "constructionRole": "search-only",
+      "constructionOwner": null,
+      "finding": "Official possible career or postgraduate outcome only. Further qualification, selection or master requirements may apply; no UCR employment/teaching/admission guarantee.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/na-je-studie"
+      ]
+    },
+    {
+      "row": 3099,
+      "studentInterest": "advising political parties and elected officials",
+      "relationship": "Outcome or individual trajectory",
+      "outcome": "correct",
+      "constructionRole": "search-only",
+      "constructionOwner": null,
+      "finding": "Official possible career or postgraduate outcome only. Further qualification, selection or master requirements may apply; no UCR employment/teaching/admission guarantee.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/na-je-studie"
+      ]
+    },
+    {
+      "row": 3100,
+      "studentInterest": "working for human-rights organisations",
+      "relationship": "Outcome or individual trajectory",
+      "outcome": "correct",
+      "constructionRole": "search-only",
+      "constructionOwner": null,
+      "finding": "Official possible career or postgraduate outcome only. Further qualification, selection or master requirements may apply; no UCR employment/teaching/admission guarantee.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/na-je-studie"
+      ]
+    },
+    {
+      "row": 3101,
+      "studentInterest": "political journalism and public communication",
+      "relationship": "Outcome or individual trajectory",
+      "outcome": "correct",
+      "constructionRole": "search-only",
+      "constructionOwner": null,
+      "finding": "Official possible career or postgraduate outcome only. Further qualification, selection or master requirements may apply; no UCR employment/teaching/admission guarantee.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/na-je-studie"
+      ]
+    },
+    {
+      "row": 3102,
+      "studentInterest": "campaign strategy and political advocacy",
+      "relationship": "Outcome or individual trajectory",
+      "outcome": "correct",
+      "constructionRole": "search-only",
+      "constructionOwner": null,
+      "finding": "Official possible career or postgraduate outcome only. Further qualification, selection or master requirements may apply; no UCR employment/teaching/admission guarantee.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/na-je-studie"
+      ]
+    },
+    {
+      "row": 3103,
+      "studentInterest": "teaching social studies and politics",
+      "relationship": "Outcome or individual trajectory",
+      "outcome": "correct",
+      "constructionRole": "search-only",
+      "constructionOwner": null,
+      "finding": "Official possible career or postgraduate outcome only. Further qualification, selection or master requirements may apply; no UCR employment/teaching/admission guarantee. Teaching is an outcome requiring further educational preparation, not a bachelor teaching licence.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/na-je-studie"
+      ]
+    },
+    {
+      "row": 3104,
+      "studentInterest": "postgraduate specialisation in political science",
+      "relationship": "Outcome or individual trajectory",
+      "outcome": "correct",
+      "constructionRole": "search-only",
+      "constructionOwner": null,
+      "finding": "Official possible career or postgraduate outcome only. Further qualification, selection or master requirements may apply; no UCR employment/teaching/admission guarantee. GlobalPoliticalEconomy has extra admission conditions; research master is selective.",
+      "sourceUrls": [
+        "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-politicologie",
+        "https://www.ru.nl/opleidingen/bachelors/politicologie/na-je-studie"
+      ]
+    }
+  ],
+  "interestFinding": "All40exact-target rows3065–3104 read:14generator(10closest/4international),18support,8search. Regional3097remains illustrative interest, while requiredIndoPacific module is explicit. Career/master/teaching outcomes are not generators or guarantees.",
+  "concepts": {
+    "primary": "Direct comparative politics/democratisation,politicalthought,EUempiricalproject,IR/conflict,law,civilsociety/movements and methods materially answer defining politics/research substance. Radboud cumulativeprojects/thesis remain gaps.",
+    "second": "Military/imperialhistory,economics and extremismprevention sustain internationalpower/conflict direction; economics is complementary, notfullpoliticaleconomy.",
+    "distinctness": "Exactly4exclusivecourses/30ECeach;20shared. Economics/macro/war/extremism versus modernsociology,constitutionalLaw,rhetoric,persuasion are substantive priorities, notarbitraryswaps.",
+    "stopping": "Two substantive responses retain direct comparative politics, political theory, international relations, political research and a coherent applied focus. All14 generator interests have an explicit owner. A proposed additional democracy/justice/theory direction would repeat the existing comparative politics, constitutional law, sociology and movements core, rather than organise a materially distinct response. The international route differs in four courses/30EC through economics, international macroeconomics, war history and extremism prevention. Missing planning alone is not used to reject an academic concept. No professional-equivalence or admission promise."
+  },
+  "courses": {
+    "ACCPPDE101": {
+      "currentEvidence": {
+        "dep": "ACC",
+        "track": "PPDE",
+        "osiris": "ACCPPDE101",
+        "description2": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+        "name": "Personal & Professional Development",
+        "preq1": "NONE",
+        "deplabel": "Academic Core",
+        "tracklabel": "Personal & Professional Development",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": "X",
+        "2027h2": "X",
+        "2028h1": "X",
+        "2028h2": "X",
+        "2029h1": "X",
+        "outline_source": "ACCPPDE1011.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Develops academic writing and research-literacy skills alongside personal development and civic engagement. Students locate and evaluate scholarly sources, synthesize literature, formulate research questions and arguments, and construct a research-paper introduction. A community-engaged project with a societal partner connects these skills to collaboration, reflection and practical contribution. Personal development planning addresses learning goals, self-efficacy, and stress and time management; the course also considers responsible academic use of AI.",
+        "discipline": "Academic writing",
+        "topics": "Scholarly sources and research questions; Argumentation and thesis statements; Literature synthesis; Academic integrity and referencing; Community engagement; Personal learning goals and reflective learning; Collaborative learning; Self-efficacy; Stress and time management; Responsible use of AI",
+        "methods": "Scholarly literature searching and source evaluation; Literature synthesis; CARS model for research introductions; Reflective development planning; Community project co-design"
+      },
+      "contribution": "PPD: required first-year academic/source work, personal and civic development.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+      "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "GOSPOLI112": {
+      "currentEvidence": {
+        "dep": "GOS",
+        "track": "POLI",
+        "osiris": "GOSPOLI112",
+        "description2": "Provides analytical tools to compare political systems and democracies. Examines phenomena like democratic backsliding, decline of political parties, rise of populism, media changes, non‑majoritarian institutions and globalization’s impact on domestic politics.",
+        "name": "Foundations of Comparative Politics",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Political Science",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSPOLI1121.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Introduces empirical comparison of political systems, with democracy, democratization and autocratization as central concerns. Students study political institutions, rules, actors and behaviour, including parties, elections, participation, polarization, interest groups and policy. Research exercises operationalize and measure democracy using V-Dem data and compare academic literature-search tools. A qualitative or quantitative research memo answers a theoretically grounded comparative-politics question through empirical analysis.",
+        "discipline": "Comparative politics; Political science",
+        "topics": "Democracy and authoritarianism; Democratization and democratic backsliding; States, nations and nationalism; Constitutions and courts; Executives, legislatures and bureaucracies; Political economy; Parties and party systems; Populism and technocracy; Elections and electoral systems; Political culture and polarization; Political participation; Interest groups and public policy",
+        "methods": "Theory-driven qualitative and quantitative research; Concept operationalization and democracy measurement; V-Dem data analysis; Comparative case analysis; Academic literature searching with OpenAlex and AI tools; Empirical election analysis; Research-question formulation"
+      },
+      "contribution": "Theory-driven qualitative/quantitative comparative political analysis; institutions, democracy/autocracy, parties and backsliding. Direct defining political-science substance.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Provides analytical tools to compare political systems and democracies. Examines phenomena like democratic backsliding, decline of political parties, rise of populism, media changes, non‑majoritarian institutions and globalization’s impact on domestic politics.",
+      "descriptionSha256": "72f9efff37e62fdc1cb0ddf27e595e7b3c526eb132dad86622cf55738204a4ee",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "GOSPOLI111": {
+      "currentEvidence": {
+        "dep": "GOS",
+        "track": "POLI",
+        "osiris": "GOSPOLI111",
+        "description2": "Introduces political philosophy. Examines concepts such as authority, freedom, equality, democracy, human rights, pluralism, multiculturalism, poverty and environmental issues through classical and contemporary texts. Emphasises essay writing and presentations.",
+        "name": "Introduction to Political Philosophy",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Political Science",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSPOLI1111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Surveys political thought from classical antiquity to contemporary debates, including European and non-European thinkers. Students examine views of human nature, society, rights and authority in their historical contexts and compare their proposed solutions with current political problems. Close study of original texts, an individual essay and a group project developing a coherent political philosophy connect historical interpretation to normative argument.",
+        "discipline": "Political philosophy; History of political thought",
+        "topics": "Society, rights and political authority; Classical political thought; Sovereignty and political realism; Enlightenment and revolution; Liberalism and conservatism; Feminism; Nationalism; Socialism and communism; Empire, race and decolonization; Welfare state and libertarianism; Neoliberalism; Justice",
+        "methods": "Political-text interpretation; Historical contextualization of political ideas; Comparative political argument analysis; Assumption identification; Normative political-theory construction"
+      },
+      "contribution": "Actual classical-to-contemporary political theories, authority/power justification, empirical/normative comparison, essays and presentations. Direct political-theory foundation.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Introduction to Political Philosophy examines political thought from classical antiquity to contemporary debates, including European and non-European thinkers. Students study views of human nature, society, rights and authority in historical context and compare their arguments with current political problems. Original texts, an essay and a group project develop interpretation and normative argument.",
+      "descriptionSha256": "ea3b0a363bec6cacab1a13c186f6c97bbbf5d5ce40d4cf5cdb1a67491d47a19c",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "GOSSOCI111": {
+      "currentEvidence": {
+        "dep": "GOS",
+        "track": "SOCI",
+        "osiris": "GOSSOCI111",
+        "description2": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+        "name": "Introduction to Sociology",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Sociology",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSSOCI1111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Introduces sociological reasoning through classical theories, their historical settings and perspectives that address exclusions from the discipline. Students connect solidarity, modernity, identity, social boundaries, networks and stratification to race, gender, migration and inequality in education and work. An individual analysis applies a course concept to contemporary social life without original data collection. A group paper develops a sociological question and analyzes a social problem using theory and academic literature.",
+        "discipline": "Sociology",
+        "topics": "Sociological imagination and knowledge; Social structure and socialization; Classical social theory; Colonialism and the formation of sociology; Solidarity and modernity; Identity, belonging and othering; Groups and social networks; Capital, class and mobility; Race and gender inequality; Global inequality and migration; Education and labour-market inequality",
+        "methods": "Theory-guided sociological case analysis; Comparative analysis of sociological perspectives; Library-based social-science research; Sociological research-question formulation"
+      },
+      "contribution": "Sociological concepts, institutions, classical/colonial theory, race and gender. Social context for politics rather than political-science equivalence.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+      "descriptionSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "BENGATE102": {
+      "currentEvidence": {
+        "dep": "BEN",
+        "track": "GATE",
+        "osiris": "BENGATE102",
+        "description2": "Research Methods & Statistics gives you a strong foundation in how business management—and social and behavioral sciences—move from mere practices to true fields of scientific study. You’ll learn how to plan research logically, from designing studies to working with real data using experimental and survey techniques. You’ll also study descriptive and inferential statistics, with a brief intro to multivariate tools.",
+        "name": "Research Methods & Statistics",
+        "preq1": "NONE",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Gateway",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "BENGATE102.docx",
+        "outline_semester": "2026h1",
+        "profile": "Introduces empirical research design and statistical analysis, followed by a substantial student research project. Students study operationalization, measurement quality, sampling, surveys and experimental and nonexperimental designs, then descriptive statistics, estimation, hypothesis testing and introductory regression. R and R Commander support data display and analysis. Project teams develop instruments and a research plan, collect and analyze data, and report results under explicit research-ethics and privacy requirements.",
+        "discipline": "Research methodology; Applied statistics",
+        "topics": "Scientific inquiry and hypotheses; Operationalization and measurement; Reliability and validity; Survey construction and sampling; Randomized and quasi-experimental designs; Nonexperimental and qualitative research; Descriptive statistics; Sampling distributions and estimation; Hypothesis testing and confidence intervals; Association and regression; Research ethics and anonymous data collection",
+        "methods": "Survey design; Probability and nonprobability sampling; Experimental and nonexperimental research design; R and R Commander data analysis; Descriptive statistics and visualization; Scale-reliability analysis; One- and two-sample mean tests; ANOVA; Chi-square tests; Correlation and regression; Empirical data collection and analysis"
+      },
+      "contribution": "Actual research design, sampling, descriptive/inferential statistics and group empirical project; substantive introductory empirical methods, not advanced political regression alone.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Research Methods & Statistics introduces research design, operationalisation, measurement, sampling, surveys and experiments. Students study descriptive statistics, estimation, hypothesis testing and introductory regression using R and R Commander. A group project develops a research plan and instruments, collects and analyses data, and reports findings under research-ethics and privacy requirements.",
+      "descriptionSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "GOSPOLI212": {
+      "currentEvidence": {
+        "dep": "GOS",
+        "track": "POLI",
+        "osiris": "GOSPOLI212",
+        "description2": "Introduces basic theories of international relations and applies them to contemporary issues such as climate change, energy, humanitarian intervention, global crises and international relations between North-South and South-South actors. Includes a UN Security Council negotiation simulation.",
+        "name": "Theory of International Relations",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Political Science",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "GOSPOLI212.docx",
+        "outline_semester": "2026h1",
+        "profile": "Introduces international relations and geopolitics through competing theoretical approaches and historical and contemporary cases. Students study realism, liberalism, Marxism, constructivism, critical theory and foreign-policy analysis. Case research connects theories to conflicts, colonial relationships, economic competition and climate politics. A UN Security Council simulation requires country-position research, strategy and position papers, negotiation and collaborative resolution drafting.",
+        "discipline": "International relations; Geopolitics; Political science",
+        "topics": "International state system and non-state actors; Classical and contemporary geopolitics; Realism and neorealism; Liberalism and neoliberalism; Marxism and world-systems theory; Constructivism and critical theory; Foreign-policy decision-making; War and great-power competition; Colonialism and economic relations; Climate politics; UN Security Council diplomacy",
+        "methods": "Theory-guided international case analysis; Historical-source analysis; Comparative foreign-policy analysis; Country-position and strategy research; Diplomatic negotiation simulation; Position-paper and resolution drafting"
+      },
+      "contribution": "IR theories applied to historic/contemporary cases, group presentation and UN Security Council simulation. Direct IR foundation; incidental South China Sea reference does not establish the dedicated Indo-Pacific module.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Theory of International Relations introduces competing approaches to international relations and geopolitics, including realism, liberalism, Marxism, constructivism and critical theory. Students apply theories to historical and contemporary cases. A United Nations Security Council simulation develops country-position research, negotiation and collaborative resolution drafting.",
+      "descriptionSha256": "04498c2b83c05d39830633ba46b62b3691d10af2bb8320e5413d0f75963fbc80",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "GOSSOCI212": {
+      "currentEvidence": {
+        "dep": "GOS",
+        "track": "SOCI",
+        "osiris": "GOSSOCI212",
+        "description2": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+        "name": "Qualitative Research Methodology",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Sociology",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "GOSSOCI212.docx",
+        "outline_semester": "2026h1",
+        "profile": "Develops qualitative inquiry from research design and preparation through data collection, management, analysis and dissemination. Students examine methodological foundations, ethics, positionality and reflexivity alongside interviews, focus groups, ethnography, documentary and visual approaches. Coding, thematic interpretation and NVivo support analysis. Research teams formulate a question, collect and analyze qualitative evidence, and report their methodological decisions, findings and limitations in staged assignments.",
+        "discipline": "Qualitative research methodology; Social research",
+        "topics": "Qualitative knowledge and research design; Ethics, positionality and reflexivity; Mixed methods; Participatory research; Interview and focus-group approaches; Ethnography and participant observation; Documentary and archival sources; Visual and participatory media; Coding and thematic interpretation; Qualitative research dissemination",
+        "methods": "Qualitative research design; Interviews; Focus groups; Ethnography and participant observation; Documentary and archival analysis; Visual-data analysis; Participatory video and drawing; Transcription; Qualitative coding; Thematic analysis; NVivo-supported analysis; Reflexive methodological evaluation"
+      },
+      "contribution": "Actual qualitative design, data collection, analysis, dissemination and group study with positionality reflection. Substantive methods, correctly paired to current qualitative Methods I, not prospective Methods II.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+      "descriptionSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "HCBPSYC111": {
+      "currentEvidence": {
+        "dep": "HCB",
+        "track": "PSYC",
+        "osiris": "HCBPSYC111",
+        "description2": "Covers main theories, findings and principles of social psychology, emphasising its scientific approach to understanding how people’s feelings, thoughts and behaviour are influenced by the presence of others.",
+        "name": "Social Psychology",
+        "preq1": "NONE",
+        "deplabel": "Health, Cognition & Behavior",
+        "tracklabel": "Psychology",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "HCBPSYC111.docx",
+        "outline_semester": "2026h1",
+        "profile": "Introduces the scientific study of how thoughts, feelings and behaviour are shaped by other people and social situations. Social cognition, the self, influence and persuasion lead into group processes, prejudice, aggression, prosocial behaviour, attraction and close relationships. Students critically examine empirical research, synthesize findings from journal articles, formulate theory-guided questions and design a feasible study. The final project proposes research rather than conducting an empirical investigation.",
+        "discipline": "Social psychology",
+        "topics": "Social cognition and person perception; The self and self-motives; Social influence; Persuasion, attitudes and behaviour; Group processes; Prejudice, stereotyping and discrimination; Prejudice reduction; Interpersonal aggression; Prosocial behaviour; Interpersonal attraction and close relationships",
+        "methods": "Critical appraisal of empirical social-psychology research; Literature synthesis; Theory-guided hypothesis formulation; Research design for a proposed social-psychology study"
+      },
+      "contribution": "Social cognition, attitudes, groups and influence; useful behavioural context, not political behaviour research training alone.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Covers main theories, findings and principles of social psychology, emphasising its scientific approach to understanding how people’s feelings, thoughts and behaviour are influenced by the presence of others.",
+      "descriptionSha256": "1300df4b478a5fb06ea11b1aab33dd1ec75a582dd6b48f104df9218b2000aa22",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "GOSLAWJ111": {
+      "currentEvidence": {
+        "dep": "GOS",
+        "track": "LAWJ",
+        "osiris": "GOSLAWJ111",
+        "description2": "Offers a legal, historical and philosophical approach to human rights. Studies classical and modern philosophers, traces the rise of human rights, examines the US Bill of Rights and the French Declaration, and discusses human rights treaties.",
+        "name": "Human Rights: Law & Philosophy",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Law",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSLAWJ1111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Studies human rights both as positive law and as philosophical claims. Students examine the UDHR, European and UN protection systems, monitoring institutions and landmark cases alongside natural law, natural rights, legal positivism and critiques of universality. Historical and philosophical texts frame debates about dignity, life and reproductive rights, punishment, religious freedom, expression and democracy. Close engagement with legal and philosophical arguments supports independent moral positions.",
+        "discipline": "Human rights law; Legal philosophy; Ethics",
+        "topics": "Human-rights generations and justifications; UDHR and its formation; UN and European human-rights protection; Natural law and natural rights; Legal positivism and cultural relativism; Universality and statelessness; Human dignity; Right to life and reproductive rights; Torture and punishment; Freedom of religion; Freedom of expression; Democracy",
+        "methods": "Treaty and legal-text analysis; Judicial and treaty-body case-law research; Case-law analysis; Philosophical text and argument analysis"
+      },
+      "contribution": "Human-rights treaties, monitoring, case law and philosophical/historical rights arguments. Genuine political justice/legal content, not full political science.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Offers a legal, historical and philosophical approach to human rights. Studies classical and modern philosophers, traces the rise of human rights, examines the US Bill of Rights and the French Declaration, and discusses human rights treaties.",
+      "descriptionSha256": "1ed6ae8d1c72724248e9a340650eef63f02eaf747b2175254ce1ca96fc82ab62",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "GOSSOCI214": {
+      "currentEvidence": {
+        "dep": "GOS",
+        "track": "SOCI",
+        "osiris": "GOSSOCI214",
+        "description2": "Examines the trajectory of sociology within the culture of imperialism and colonial responses. Studies leading social theories and debates about modernity and critically engages with sociological discourses.",
+        "name": "Modern Sociology",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Sociology",
+        "2025h2": null,
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSSOCI2141.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Examines twentieth-century and contemporary social theory alongside critical accounts of modernity, colonialism and disciplinary exclusion. Functionalism, critical theory, Black feminist thought, phenomenology, symbolic interactionism and Bourdieu's work are read with postcolonial, decolonial and Indigenous perspectives. Students compare theories and apply them to empirical cases, including visual material. An individual research paper develops a theoretically grounded interpretation of a selected social phenomenon.",
+        "discipline": "Sociology; Social theory",
+        "topics": "Modernity and Eurocentrism; Functionalism; Frankfurt School critical theory; Black feminist thought and intersectionality; Social construction of reality; Symbolic interactionism; Stigma and othering; Social space, capital and art; Coloniality and postcolonialism; Decolonial and Indigenous sociology; Gender and power",
+        "methods": "Close reading of social theory; Comparative theoretical analysis; Theory-guided empirical case analysis; Visual sociological analysis; Literature-based sociological research"
+      },
+      "contribution": "Modernity, imperialism and social theory; complements political/social inequality, not a dedicated electoral/party course.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Examines the trajectory of sociology within the culture of imperialism and colonial responses. Studies leading social theories and debates about modernity and critically engages with sociological discourses.",
+      "descriptionSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "GOSGATE102": {
+      "currentEvidence": {
+        "dep": "GOS",
+        "track": "GATE",
+        "osiris": "GOSGATE102",
+        "description2": "Examines law from legal, socio‑scientific and normative perspectives. Explores definitions, legal traditions and fields of law, investigates the relationship between law and society and the concept of justice, and includes case law, excursion to international legal organisations, interviews with practitioners and a moot court session.",
+        "name": "Law, Society & Justice",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Gateway",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSGATE1021.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Introduces law through legal, social and normative perspectives. Students compare major legal traditions and survey public and private law, including constitutional, criminal, international, human-rights, property, contract and tort law. The second part examines justice, social control and change, race and gender. Case briefs, legal interpretation, demand letters and mock trials apply legal reasoning; a family-law topic supports the design of a small socio-legal research proposal.",
+        "discipline": "Law; Socio-legal studies; Legal philosophy",
+        "topics": "Legal positivism and empirical and normative perspectives; Common-law and civil-law traditions; Constitutional and administrative law; Criminal law; International law and human rights; Property, contract and tort law; Justice; Law and social control; Law and social change; Race and gender in law; Family law",
+        "methods": "Legal interpretation; Case-law research and IRAC case briefing; Demand-letter drafting; Mock-trial legal argumentation; Socio-legal research design; Literature review"
+      },
+      "contribution": "Law, society and justice with legal systems and case/trial work; institutional context and legal preparation, not empirical comparative politics by itself.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Law, Society & Justice examines legal, social and normative perspectives on law. Students compare legal traditions and study public and private law, human rights, justice, social control and change, race and gender. Case briefs, demand letters and mock trials develop legal reasoning, while a family-law topic supports the design of a socio-legal research proposal.",
+      "descriptionSha256": "035b12c51282127288b99b6ba3cb906896d0fabff1cdf5153709df2d32006391",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "MCCCOMM111": {
+      "currentEvidence": {
+        "dep": "MCC",
+        "track": "COMM",
+        "osiris": "MCCCOMM111",
+        "description2": "Teaches how to craft persuasive messages, influence opinions, inspire action and connect people. Draws on historical communicators from Aristotle to Barack Obama and applies stylistic techniques to students’ own writing and speaking.",
+        "name": "The Art of Rhetorical Communication",
+        "preq1": "NONE",
+        "deplabel": "Media, Culture & Communication",
+        "tracklabel": "Communication",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "MCCCOMM1111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Teaches rhetorical analysis and persuasive communication through classical history, theory and practice. Students study Greek and Roman rhetoric, the five canons, types of discourse, persuasive appeals, argumentation and fallacies. Written exercises, debates and public speeches develop invention, arrangement, style, memory and delivery. An applied project creates narrative and storytelling material for an immersive educational setting concerned with Zeeland's climate and community.",
+        "discipline": "Rhetoric; Communication studies",
+        "topics": "Greek and Roman rhetoric; Deliberative, forensic and epideictic discourse; Logos, ethos and pathos; Invention, arrangement, style, memory and delivery; Argumentation and fallacies; Tropes and schemes; Stasis and enthymemes; Persuasive speech; Narrative and storytelling; Immersive educational communication",
+        "methods": "Rhetorical text analysis; Stasis analysis; Argument invention and arrangement; Stylistic analysis and composition; Structured debate; Persuasive speechwriting and delivery; Educational storytelling design"
+      },
+      "contribution": "Classical rhetoric, argument, academic writing and speaking. Real communication skills; does not substitute the whole political-science academic-skills research module.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "The Art of Rhetorical Communication develops rhetorical analysis, academic writing and oral presentation. Students examine classical Western roots and the canons of rhetoric, and learn to construct, organise and support persuasive arguments. Historical and contemporary examples connect rhetorical theory with practical communication.",
+      "descriptionSha256": "34ab73cc0cae33e2a0e47ba5df0ee55c9b0e5f2d4e21ae97ea18667a96400c4c",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "GOSPOLI313": {
+      "currentEvidence": {
+        "dep": "GOS",
+        "track": "POLI",
+        "osiris": "GOSPOLI313",
+        "description2": "Introduces Peace & Conflict Studies. Examines definitions of peace and conflict; analyzes conflict causation, violence typologies and radicalisation; applies reconciliation and conflict‑transformation models to real‑world scenarios through lectures and portfolio work.",
+        "name": "Peace & Conflict",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Political Science",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "GOSPOLI313.pdf",
+        "outline_semester": "2026h1",
+        "profile": "Examines causes and dynamics of conflict and approaches to peace through legal, sociological, political and historical perspectives. Structural inequality, identity and colonial legacies are connected to international security, humanitarian law, human rights, peacebuilding and transitional justice. Students compare travelling concepts across disciplines, produce an interdisciplinary podcast, and develop an evidence-based policy brief with a research dossier. Positionality reflection addresses how assumptions shape inquiry.",
+        "discipline": "Peace and conflict studies; International relations; Sociology; International law",
+        "topics": "Conflict theories and structural violence; Identity and historical grievances; Colonialism and forced migration; International peace and security; Humanitarian law and human rights; Positive, negative and hybrid peace; Local peacebuilding; Frozen conflicts; Counterterrorism and rule of law; Transitional justice; Gender and conflict; Development and peacebuilding; Reconciliation, arts and religion; Global South perspectives; Travelling concepts and researcher positionality",
+        "methods": "Interdisciplinary Research Process; Cross-disciplinary travelling-concept analysis; Conflict case analysis; Context and stakeholder mapping; Annotated bibliography and evidence synthesis; Policy-option appraisal; Policy-brief and background-dossier development; Researcher positionality analysis; Comparative research podcast production"
+      },
+      "contribution": "Conflict causation, violence, peacebuilding, structural/identity/colonial perspectives and travelling concepts. Direct conflict-studies substance; no military-history-as-peacebuilding claim.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Peace & Conflict examines conflict and approaches to peace through legal, sociological, political and historical perspectives. Structural inequality, identity and colonial legacies connect to international security, humanitarian law, human rights, peacebuilding and transitional justice. An interdisciplinary podcast, policy brief and research dossier develop analysis, while reflection examines how assumptions shape inquiry.",
+      "descriptionSha256": "5ad720fcdadf602282307eef8fe7eaf83c3b00264a2ee4752e123cda89606fdf",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "GOSLAWJ212": {
+      "currentEvidence": {
+        "dep": "GOS",
+        "track": "LAWJ",
+        "osiris": "GOSLAWJ212",
+        "description2": "Introduces rules, institutions and politics of public international law. Covers treaties, the UN, armed conflict, war crimes, refugee protection and climate change. Students analyse cases, debate issues and produce a podcast connecting law to global challenges.",
+        "name": "Introduction to Public International Law",
+        "preq1": "GOSGATE102",
+        "deplabel": "Government & Society",
+        "tracklabel": "Law",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "GOSLAWJ212.pdf",
+        "outline_semester": "2026h1",
+        "profile": "Introduces public international law through its sources, theories, institutions and relationship to domestic legal systems. Legal principles are applied to responsibility, force, armed conflict, international crime, human rights, economic relations and environmental protection. The later course examines self-determination, Third World approaches, soft law, compliance and treaty politics. Case exercises develop legal reasoning, while a research podcast critically investigates a political dimension of international law.",
+        "discipline": "Public international law; Socio-legal studies",
+        "topics": "Sources and theories of international law; Treaty law; International legal subjects; Jurisdiction and immunities; Domestic courts and international law; State responsibility; Use of force; UN reform; Armed conflict and international criminal law; International human rights and economic law; Environmental law; Self-determination; Third World Approaches to International Law; Soft law, compliance and effectiveness; Global environmental treaties",
+        "methods": "Identification and interpretation of international legal instruments; Judgment and case-law analysis; Application of legal principles to factual scenarios; Legal, empirical and normative critique; Research podcast development"
+      },
+      "contribution": "International law sources, use of force, armed conflict, refugee/environmental law, self-determination and treaty politics. Strong interdisciplinary IR/legal contribution.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Introduction to Public International Law examines its sources, theories, institutions and relationship to domestic law. Topics include responsibility, force, armed conflict, international crime, human rights, economic relations and environmental protection, followed by self-determination, Third World approaches, compliance and treaty politics. Case exercises and a research podcast develop legal reasoning and critical analysis.",
+      "descriptionSha256": "69f757ece2c00572df432e6ab9cc82f74c14f17c69dd6726bf3e86264049390a",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "GOSLAWJ213": {
+      "currentEvidence": {
+        "dep": "GOS",
+        "track": "LAWJ",
+        "osiris": "GOSLAWJ213",
+        "description2": "Explores constitutional law and state organisation, using a comparative approach. Covers constitutionalism, separation of powers, judicial review, federalism and fundamental rights, and discusses constitution‑making, religious constitutions and constitutional backsliding.",
+        "name": "Comparative Constitutional Law",
+        "preq1": "GOSGATE102",
+        "deplabel": "Government & Society",
+        "tracklabel": "Law",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "GOSLAWJ213.pdf",
+        "outline_semester": "2026h1",
+        "profile": "Compares constitutional structures, institutions and rights across legal systems and introduces administrative law. Students examine constitutional features, federalism, legislatures, executive relationships, courts, judicial review and human rights. The administrative component addresses public participation, remedies and procedural fairness. A staged booklet compares two constitutions, supported by legal interpretation, case-law analysis and application of principles to hypothetical facts.",
+        "discipline": "Comparative constitutional law; Administrative law",
+        "topics": "Constitutional origins and fundamental features; Federalism and decentralization; Parliaments and lawmaking; Governments and heads of state; Court systems and judicial review; Constitutional rights; EU constitutional order; Administrative-law functions; Public participation; Administrative remedies; Procedural fairness, discretion and legitimate expectations",
+        "methods": "Comparative constitutional analysis; Constitutional and legislative interpretation; Case-law analysis; Application of legal principles to hypothetical facts; Structured comparative legal writing"
+      },
+      "contribution": "Comparative constitutional structures, separation of powers and legal constraints on government. Substantive domestic institutional lens, distinct from empirical democratisation research.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Comparative Constitutional Law compares constitutional structures, institutions and rights across legal systems and introduces administrative law. Students study federalism, legislatures, executive relationships, courts, judicial review, human rights, public participation and procedural fairness. A staged booklet compares two constitutions, supported by legal interpretation, case-law analysis and hypothetical cases.",
+      "descriptionSha256": "1845c8f87e0e1295bfe5b43ee7ea5c3902c6690b455726ad6c44b66c78ae8a6a",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "GOSPHIL212": {
+      "currentEvidence": {
+        "dep": "GOS",
+        "track": "PHIL",
+        "osiris": "GOSPHIL212",
+        "description2": "Explores theories of moral reasoning—virtue ethics, deontology, utilitarianism—and discusses moral knowledge, motivation, responsibility and the relation between happiness and pleasure. Applies theories to practical issues such as animal rights, privacy, future generations, war, punishment, disability and equality.",
+        "name": "Ethics",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Philosophy",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "GOSPHIL212.pdf",
+        "outline_semester": "2026h1",
+        "profile": "Studies moral reasoning through historical and contemporary ethical theories and close philosophical reading. Utilitarianism, consequentialism, Kantian ethics, virtue ethics, contractarianism and feminist ethics lead into Nietzsche's genealogy, Murdoch's account of goodness and Nagel's treatments of value, perspective, death and meaning. Reflection and research essays require interpretation, argument evaluation and an independent position on ethical theory or a practical ethical problem.",
+        "discipline": "Moral philosophy; Metaethics; Practical ethics",
+        "topics": "Divine command and human nature; Moral relativism and universalism; Utilitarianism and consequentialism; Kantian ethics; Virtue ethics; Social contract and intuitionism; Feminist and care ethics; Nietzschean genealogy and nihilism; Murdoch's sovereignty of good; Moral value and perspective; Death, absurdity and meaning; Ethical theory and practical judgment",
+        "methods": "Close philosophical text analysis; Reconstruction and critical evaluation of moral arguments; Comparison of ethical theories; Conceptual analysis; Independent philosophical argument development"
+      },
+      "contribution": "Normative theory, equality, poverty, climate/historical injustice and argumentative research essay. Genuine ethical reasoning, not political-practice equivalence.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Ethics examines moral reasoning through historical and contemporary theories and close philosophical reading. Students study utilitarianism, Kantian ethics, virtue ethics, contractarianism and feminist ethics, alongside Nietzsche, Murdoch and Nagel. Reflection and research essays develop interpretation, argument evaluation and an independent position on ethical theory or a practical ethical problem.",
+      "descriptionSha256": "d17cd0a6631823a666c2978b81f52bc5e8b5c8e52ed68edccb3fa37073146e5b",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "GOSPOLI311": {
+      "currentEvidence": {
+        "dep": "GOS",
+        "track": "POLI",
+        "osiris": "GOSPOLI311",
+        "description2": "Introduces EU politics. Outlines actors, institutions and decision‑making rules; examines responses to crises; and employs various approaches to study EU politics and policy‑making.",
+        "name": "European Union Politics",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Political Science",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSPOLI3111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Studies EU institutions, political actors, integration and policymaking, linking formal rules to current political issues. Students analyze representation, legitimacy, interests, agenda setting, decision-making and implementation. A substantial empirical project examines European Parliament committee amendments, connecting MEP ideology and possible interest-group influence to amendment activity. Students develop a project plan, code amendments, assess salience and trace legislative processes.",
+        "discipline": "European Union politics; Political science; Public policy",
+        "topics": "European integration; EU institutions and decision rules; EU legitimacy and democracy; Public opinion; Parties and European Parliament; Interest representation and lobbying; Agenda setting; EU legislation and implementation; MEP roles and committee behaviour; Political ideology and amendments; Policy salience",
+        "methods": "EU policy and legislative-document research; Process tracing; Systematic amendment coding; Ideology and amendment-activity analysis; Salience assessment; Comparative news-source analysis"
+      },
+      "contribution": "EU actors/institutions/decision rules, Navigating the EU source work and actual group research on legislative dossiers, interests and MEPs. Direct politics/research contribution; stronger project relationship than an EU-law substitution.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "European Union Politics examines EU institutions, actors, integration and policymaking, including representation, legitimacy and decision-making. An empirical project investigates European Parliament committee amendments, relating MEP ideology and possible interest-group influence to amendment activity. Students plan the research, code amendments, assess salience and trace legislative processes.",
+      "descriptionSha256": "97411c9c43963bfc500f8c6494383d57cfd36eeb9c57f554e94ba2d6e35c4253",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "GOSSOCI311": {
+      "currentEvidence": {
+        "dep": "GOS",
+        "track": "SOCI",
+        "osiris": "GOSSOCI311",
+        "description2": "Examines contemporary sociological debates about civil society through critical tradition, neo‑functionalism and decolonial critiques. Includes research group projects with NGOs or civil society organizations that translate conceptual insights into empirical analysis.",
+        "name": "New Issues in Contemporary Social Theory",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Sociology",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSSOCI3111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Focuses on civil society through critical, neo-functionalist and decolonial social theory. Students examine social trust, capital, hegemony, public spheres, solidarity, social movements and civil repair across political and regional contexts. An experience report relates personal engagement or observation to course concepts. An individual research project uses theoretical and empirical sources to analyze a civil-society organization, movement, initiative or related phenomenon.",
+        "discipline": "Sociology; Social theory; Civil society studies",
+        "topics": "Civil society; Social trust and social capital; Hegemony; Critical theory; Public spheres, digital publics and counterpublics; Solidarity and civil repair; Civil sphere; Social movements and intersectionality; Migrant solidarity; Civil society under authoritarianism; Decolonial critique; Public sociology",
+        "methods": "Comparative social-theory analysis; Theory-guided empirical case analysis; Document and secondary-source analysis; Structured reflection on civil-society engagement or observation; Sociological research design"
+      },
+      "contribution": "Actual civil society, Gramsci/Habermas/Fraser, solidarity/migration and CEL observation of an NGO/CSO. Substantive civil-society research; not a full identity omnibus or the electoral regression project.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "New Issues in Contemporary Social Theory studies civil society through critical, neo-functionalist and decolonial perspectives. Topics include trust, social capital, public spheres, solidarity, social movements and civil repair. An experience report connects engagement or observation to course concepts, while an individual project uses theoretical and empirical sources to analyse a civil-society organisation, movement or initiative.",
+      "descriptionSha256": "367314c88b9f1c559ccd023159845f9624f353f78d898bc66b690ebe3392336b",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "MCCCOMM311": {
+      "currentEvidence": {
+        "dep": "MCC",
+        "track": "COMM",
+        "osiris": "MCCCOMM311",
+        "description2": "Explores ethical persuasion and climate communication. Students learn persuasive communication models and frameworks and collaborate with climate scientists at the Delta Climate Centre to produce sustainability messaging on water, food and energy.",
+        "name": "Persuasive Communication",
+        "preq1": "NONE",
+        "deplabel": "Media, Culture & Communication",
+        "tracklabel": "Communication",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "MCCCOMM3111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Examines contemporary persuasion through communication studies, social psychology and ethical analysis, then applies it in community-engaged work. Students study coactive persuasion, framing, argumentation, cognitive shortcuts and verbal and nonverbal communication. Projects with the Delta Climate Centre and Vlissingen municipality develop communication encouraging sustainable and circular lifestyles. An individual research paper evaluates selected persuasion tools through literature review, field research diaries and reflective analysis of their use.",
+        "discipline": "Communication studies; Social psychology; Applied ethics",
+        "topics": "Persuasion models and psychology; Ethics of persuasion; Coactive persuasion; Verbal and nonverbal communication; Message framing; Argumentation; Cognitive shortcuts and nudging; Science and sustainability communication; Circular lifestyles; Community-engaged communication",
+        "methods": "Persuasive-message design; Communication consulting and implementation; Literature review; Qualitative research diaries; Action research; Reflective case-study analysis; Gibbs reflective cycle"
+      },
+      "contribution": "Framing, nudging, persuasion ethics and real community communication projects. Meaningful political communication lens, broader than politics and not a campaign-employment guarantee.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Persuasive Communication studies persuasion through communication studies, social psychology and ethical analysis. Students examine framing, argumentation, cognitive shortcuts and verbal and nonverbal communication. Community-engaged projects develop communication encouraging sustainable and circular lifestyles, while an individual research paper evaluates selected persuasion tools.",
+      "descriptionSha256": "781fa29248cce6025d8aa8887d300c8f0d64941a8b4a9b2dd193783c098deacc",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "GOSHIST211": {
+      "currentEvidence": {
+        "dep": "GOS",
+        "track": "HIST",
+        "osiris": "GOSHIST211",
+        "description2": "Examines the rise and fall of empires and the contested concept of empire. Discusses oppressive and benevolent features of empires, covers key theories on empires and power politics and analyses major historical examples.",
+        "name": "History of Empires",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "History",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "GOSHIST2111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Examines empires comparatively across global history, from ancient Persia, Rome and China to early-modern and modern imperial powers and contemporary claims to imperial status. Students analyze expansion, administration, military and economic systems, legitimacy, ideology, culture, decline and legacies. The course combines theories of empire with historically specific cases, historiographical discussion, source analysis and an independently developed research essay.",
+        "discipline": "Global history; Imperial history",
+        "topics": "Concepts and theories of empire; Imperial rise, expansion and decline; Administration and succession; Military and economic structures; Imperial ideologies and legitimacy; Culture and empire; Ancient and medieval empires; European overseas empires; Modern Asian and Eurasian empires; American power; Contemporary and future empires; Imperial legacies",
+        "methods": "Comparative historical analysis; Historiographical analysis; Primary- and secondary-source analysis; Historical research-question development"
+      },
+      "contribution": "Historical empires, theories of power and great-power rise/fall; substantive international power context, not a dedicated contemporary foreign-policy module.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "History of Empires examines empires across global history and competing theories of empire. Students study expansion, administration, military and economic systems, legitimacy, ideology, culture, decline and legacies. Historical cases, source analysis and an independent research essay connect theoretical interpretation with specific imperial experiences.",
+      "descriptionSha256": "76faf04e8e855ae9ca1735ccf5a7e8ac76bf21911b771190f9286303745ad4a3",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "GOSSOCI215": {
+      "currentEvidence": {
+        "dep": "GOS",
+        "track": "SOCI",
+        "osiris": "GOSSOCI215",
+        "description2": "Focuses on social movement theories and environmental justice. Uses case studies from the Environmental Justice Atlas and integrates perspectives such as feminism, anti‑colonialism, degrowth and environmental peacebuilding to encourage civic engagement.",
+        "name": "Social Movements & Environmental Justice",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "Sociology",
+        "2025h2": null,
+        "2026h1": null,
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "contribution": "Movement theory, Environmental Justice Atlas, feminism, anticolonialism, degrowth and environmental peacebuilding. Genuine activism/movements inquiry.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Focuses on social movement theories and environmental justice. Uses case studies from the Environmental Justice Atlas and integrates perspectives such as feminism, anti‑colonialism, degrowth and environmental peacebuilding to encourage civic engagement.",
+      "descriptionSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "GOSLAWJ312": {
+      "currentEvidence": {
+        "dep": "GOS",
+        "track": "LAWJ",
+        "osiris": "GOSLAWJ312",
+        "description2": "Introduces the EU legal order. Studies institutions, framework, citizenship and the internal market using problem‑based exercises and guest lectures.",
+        "name": "Foundations of European Union Law",
+        "preq1": "GOSGATE102",
+        "deplabel": "Government & Society",
+        "tracklabel": "Law",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "GOSLAWJ312.docx",
+        "outline_semester": "2026h1",
+        "profile": "Introduces the EU legal order through its institutions, sources, competences and relationship to member-state law. Students study supremacy, legal effect, liability and judicial remedies before applying citizenship and free-movement law to concrete problems. Structured legal cases and research into current judgments develop interpretation and comparison across EU and domestic settings. Digital regulation and the green transition provide a contemporary application.",
+        "discipline": "European Union law; Public law",
+        "topics": "European integration and institutions; EU legal sources and fundamental rights; Competences, subsidiarity and proportionality; Supremacy; Direct and indirect effect; State liability; Preliminary rulings; Review of EU acts and enforcement; EU citizenship; Free movement of persons, workers and goods; Establishment and services; Digital-market regulation and green transition",
+        "methods": "EU legal-source research; Case-law analysis; Comparative interpretation of EU and national law; Application of free-movement principles to factual scenarios; Structured legal problem analysis"
+      },
+      "contribution": "EU legal institutions, citizenship and internal-market freedoms through cases/PBL. Genuine European integration/legal complement, not the same as a political group project.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Introduces the EU legal order. Studies institutions, framework, citizenship and the internal market using problem‑based exercises and guest lectures.",
+      "descriptionSha256": "fea5f72e90d46266e5f1eb6bdfeb2ee451f21334ff92ecd9dc947792b4add6b6",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "ENSDELT312": {
+      "currentEvidence": {
+        "dep": "ENS",
+        "track": "DELT",
+        "osiris": "ENSDELT312",
+        "description2": "This course examines sustainability through the lens of governance: “a process of rule-making and collective decision-making that includes both governmental and non-governmental actors in shaping public policy” (Fenger & Bekkers, 2016). Taking this lens, we ask questions such as how are sustainability policies on the local, national, and international level made and enforced? Which actors represent which interests, and which are most influential? How is public opinion on sustainability shaped, and how does public opinion shape politics? What, at the end of the day, determines effective policy for sustainability? By the end of this course, you will have gained a deep appreciation of the complexity of the governance dimension of sustainability, and have developed the theoretical and practical understanding to critically assess mainstream policy decisions.",
+        "name": "Governance of Sustainability",
+        "preq1": "NONE",
+        "deplabel": "Environment & Sustainability",
+        "tracklabel": "Delta Challenges",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "ENSDELT312.docx",
+        "outline_semester": "2026h1",
+        "profile": "Analyzes sustainability as a problem of collective decision-making involving governments, markets and civil society. Concepts of institutions, power, participation, justice and problem complexity frame competing technological and systemic responses. Structured cases examine food, freshwater, energy and climate mitigation. Students apply governance frameworks to a Zeeland issue, consult relevant organizations or experts, and produce policy advice or an evaluation assessing effectiveness, feasibility and stakeholder interests.",
+        "discipline": "Environmental governance; Public policy; Political science",
+        "topics": "Institutions, actors and power; Collective action and common-pool resources; Governance modes and networks; Techno-optimism and ecological limits; Climate justice; Populism and environmental politics; Wicked and long-term problems; Public participation; Food, water and energy governance; Markets, public goods and externalities; Adaptive and global governance; Climate mitigation; Policy effectiveness and feasibility",
+        "methods": "Governance-framework application; Problem diagnosis and causal analysis; Stakeholder and policy-option matrices; Policy evaluation; Policy-advice memo development; Stakeholder and expert interviewing; Comparative analysis of normative policy perspectives"
+      },
+      "contribution": "Actual governance actors, interests, public opinion and policy enforcement, with food/water/energy/climate problem-based cases. Genuine applied political/governance substance, not merely an environmental label.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "This course examines sustainability through the lens of governance: “a process of rule-making and collective decision-making that includes both governmental and non-governmental actors in shaping public policy” (Fenger & Bekkers, 2016). Taking this lens, we ask questions such as how are sustainability policies on the local, national, and international level made and enforced? Which actors represent which interests, and which are most influential? How is public opinion on sustainability shaped, and how does public opinion shape politics? What, at the end of the day, determines effective policy for sustainability? By the end of this course, you will have gained a deep appreciation of the complexity of the governance dimension of sustainability, and have developed the theoretical and practical understanding to critically assess mainstream policy decisions.",
+      "descriptionSha256": "746711aaebf20395c0fd5695fb91c5951f611715825c91ca6da251c5d890e362",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "BENECON312": {
+      "currentEvidence": {
+        "dep": "BEN",
+        "track": "ECON",
+        "osiris": "BENECON312",
+        "description2": "Econometrics supplies tools to analyze data to answer questions of causality and prediction. In this course you learn three estimators—Ordinary Least Squares, Generalized Least Squares, and Instrumental Variables—and three tests—t-test, F-test, and LM-test. Understanding the basic rules of econometrics, particularly the sampling distribution concept, is key, and the course uses Monte Carlo simulations in Stata to visualize it. Tools are applied to estimate economic relationships and make predictions, and students write an empirical paper.",
+        "name": "Econometrics",
+        "preq1": "BENGATE102",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Economics",
+        "2025h2": null,
+        "2026h1": null,
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": null,
+        "2028h2": null,
+        "2029h1": "X"
+      },
+      "contribution": "OLS, GLS and instrumental variables, statistical tests, Monte Carlo/Stata and an empirical paper. Substantive advanced quantitative inquiry; economics examples do not replicate every political-science regression/project requirement.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Econometrics supplies tools to analyze data to answer questions of causality and prediction. In this course you learn three estimators—Ordinary Least Squares, Generalized Least Squares, and Instrumental Variables—and three tests—t-test, F-test, and LM-test. Understanding the basic rules of econometrics, particularly the sampling distribution concept, is key, and the course uses Monte Carlo simulations in Stata to visualize it. Tools are applied to estimate economic relationships and make predictions, and students write an empirical paper.",
+      "descriptionSha256": "3754e43821eb3db5407d6eded2b8e70021b3eb45d2284acfae505d85d85baea9",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "BENECON111": {
+      "currentEvidence": {
+        "dep": "BEN",
+        "track": "ECON",
+        "osiris": "BENECON111",
+        "description2": "Explore how individuals, firms, and societies make economic decisions. This course introduces key concepts from both microeconomics and macroeconomics, including markets, incentives, and the principles of supply and demand, and provides a foundation for analyzing real-world economic issues.",
+        "name": "Introduction to Economics",
+        "preq1": "NONE",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Economics",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": null,
+        "2028h1": null,
+        "2028h2": null,
+        "2029h1": null,
+        "outline_source": "BENECON1111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Introduces microeconomic principles and short-run macroeconomic analysis. The microeconomic component examines supply and demand, strategic interaction, consumer choice, production, costs and competitive markets. The macroeconomic component introduces output, unemployment and inflation, then relates goods and financial markets through the IS-LM model. Students use algebra and graphs to explain economic behaviour and apply models to economic issues.",
+        "discipline": "Microeconomics; Macroeconomics",
+        "topics": "Supply and demand; Game theory; Rational consumer choice; Individual and market demand; Production and costs; Perfect competition; Aggregate output; Unemployment and inflation; Goods and financial markets; IS-LM model",
+        "methods": "Algebraic and graphical economic analysis; Supply-and-demand analysis; Game-theoretic analysis; IS-LM modelling"
+      },
+      "contribution": "Micro/macro foundations, game theory, consumer/firm behaviour and output/inflation/financial markets. Direct economics foundation for the international political-economy response.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Explore how individuals, firms, and societies make economic decisions. This course introduces key concepts from both microeconomics and macroeconomics, including markets, incentives, and the principles of supply and demand, and provides a foundation for analyzing real-world economic issues.",
+      "descriptionSha256": "2278892bd9c8b20df80deb4bd04a3bf00a3fe4cc79099b153861afa0f69110e8",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "GOSHIST213": {
+      "currentEvidence": {
+        "dep": "GOS",
+        "track": "HIST",
+        "osiris": "GOSHIST213",
+        "description2": "Provides a chronological overview of warfare in the Western world from antiquity to the present. Covers weapons, technology, strategy, defence, mercenaries, cavalry, chivalry, Blitzkrieg, guerrilla warfare and nuclear arsenals, illustrating competition for mastery in Western history.",
+        "name": "Ways of War",
+        "preq1": "NONE",
+        "deplabel": "Government & Society",
+        "tracklabel": "History",
+        "2025h2": null,
+        "2026h1": "X",
+        "2026h2": null,
+        "2027h1": "X",
+        "2027h2": null,
+        "2028h1": "X",
+        "2028h2": null,
+        "2029h1": "X",
+        "outline_source": "GOSHIST213.docx",
+        "outline_semester": "2026h1",
+        "profile": "Surveys Western warfare from antiquity to the present and examines the contested claim that a distinctive military trajectory helped produce Western global dominance. Weapons, technology, strategy, tactics, institutions and soldiers' experience are studied across land, sea and air warfare. Research analyzes a strategic text, a commander's performance or a battle from the individual soldier's perspective, using primary sources and historical scholarship.",
+        "discipline": "Military history; Strategic studies; Historiography",
+        "topics": "Western warfare and global power; Ancient infantry and Roman warfare; Medieval warfare; Gunpowder and naval warfare; Overseas conquest; Dynastic and national warfare; Industrialization of war; World wars; Cold War and nuclear strategy; Guerrilla warfare and terrorism; Military leadership; Soldiers' experience, morale and cohesion; Future warfare",
+        "methods": "Primary- and secondary-source analysis; Historiographical critique of strategic texts; Historical analysis of military command; Soldier-centered battle analysis; Analysis of diaries, memoirs and combat accounts"
+      },
+      "contribution": "Western military history, strategy, technology and hegemony; meaningful historical conflict lens, not negotiation or conflict-transformation practice.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Provides a chronological overview of warfare in the Western world from antiquity to the present. Covers weapons, technology, strategy, defence, mercenaries, cavalry, chivalry, Blitzkrieg, guerrilla warfare and nuclear arsenals, illustrating competition for mastery in Western history.",
+      "descriptionSha256": "faa25ace5a261ae12152a9794320ccace2959a37857b92d43cbfe2eb15ff7c27",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "HCBPSYC315": {
+      "currentEvidence": {
+        "dep": "HCB",
+        "track": "PSYC",
+        "osiris": "HCBPSYC315",
+        "description2": "Interdisciplinary course combining psychology and other social sciences in which students will have an opportunity to participate in an actual international research project and develop evidence-based materials for youth leaders and educators aimed at strengthening young people’s resilience to radicalization by promoting democratic school culture, emotionally supportive learning environments, empathy, civic engagement, and mental well-being.",
+        "name": "Youth Resilience to Extremism",
+        "preq1": "NONE",
+        "deplabel": "Health, Cognition & Behavior",
+        "tracklabel": "Psychology",
+        "2025h2": null,
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "HCBPSYC3151.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Examines youth radicalization and educational prevention through psychology, education, sociology, political science and peace education. Models of radicalization and adolescent risk and protective factors lead into inclusive school climates, belonging, social-emotional learning, dialogue, media literacy and civic agency. Students translate primary research into teacher-training materials and a youth toolkit for an international school project, then revise the resources using feedback from intended recipients.",
+        "discipline": "Psychology; Education; Sociology; Political science; Peace education",
+        "topics": "Radicalization, violent extremism and terrorism; Developmental and psychosocial pathways; Risk and protective factors; School climate and belonging; Identity and peer influence; Social-emotional learning and well-being; Empathy and perspective-taking; Conflict resolution and intercultural dialogue; Mental-health literacy and referral; Digital literacy and misinformation; Youth leadership and democratic participation; Counter- and alternative narratives",
+        "methods": "Primary-research synthesis; Intervention-evidence appraisal; Case and classroom-scenario analysis; Inclusive educational-resource design; Alternative-narrative development; Recipient-feedback collection and iterative revision; Ethical appraisal of prevention tools"
+      },
+      "contribution": "Actual international research and evidence-based youth resilience/radicalisation work, democratic school culture and civic engagement. Genuine political-violence prevention research contribution; not a teacher qualification.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Interdisciplinary course combining psychology and other social sciences in which students will have an opportunity to participate in an actual international research project and develop evidence-based materials for youth leaders and educators aimed at strengthening young people’s resilience to radicalization by promoting democratic school culture, emotionally supportive learning environments, empathy, civic engagement, and mental well-being.",
+      "descriptionSha256": "9025fab0b73095d3db8b25aeb6f5922038e322132aa2cceffc415146926d1bf0",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    },
+    "BENECON211": {
+      "currentEvidence": {
+        "dep": "BEN",
+        "track": "ECON",
+        "osiris": "BENECON211",
+        "description2": "Study the economy as a whole through topics such as national income, economic growth, inflation, and unemployment. Understand how governments and central banks use fiscal and monetary policies to influence economic performance over time. The course also explores business cycles, international trade, and economic crises, preparing students to evaluate policy debates and global economic trends.",
+        "name": "International Macroeconomics",
+        "preq1": "BENGATE102",
+        "deplabel": "Business & Entrepreneurship",
+        "tracklabel": "Economics",
+        "2025h2": "X",
+        "2026h1": null,
+        "2026h2": "X",
+        "2027h1": null,
+        "2027h2": "X",
+        "2028h1": null,
+        "2028h2": "X",
+        "2029h1": null,
+        "outline_source": "BENECON2111.pdf",
+        "outline_semester": "2026h2",
+        "profile": "Examines short-, medium- and long-run macroeconomic dynamics and policy, including international dimensions. Students study goods, financial and labour markets, inflation and unemployment, economic growth, expectations and the open economy. IS-LM and IS-LM-PC models connect markets and policy effects. Algebraic and graphical analysis and interpretation of macroeconomic indicators support the evaluation of economic developments and fiscal and monetary policy.",
+        "discipline": "Macroeconomics; International economics",
+        "topics": "Goods and financial markets; Labour markets; Phillips curve; IS-LM and IS-LM-PC models; Economic growth; Saving and capital accumulation; Technological progress; Expectations; Open-economy macroeconomics; Fiscal and monetary policy; Business cycles and economic crises",
+        "methods": "Algebraic and graphical macroeconomic analysis; IS-LM and IS-LM-PC modelling; Macroeconomic data and indicator analysis"
+      },
+      "contribution": "Fiscal/monetary policy, growth, crises and international trade. Meaningful economic institutions/policy context; not the full power-centred international political-economy discipline.",
+      "judgment": "Actual content supports stated direct/complementary role within its limits.",
+      "displayedDescription": "Study the economy as a whole through topics such as national income, economic growth, inflation, and unemployment. Understand how governments and central banks use fiscal and monetary policies to influence economic performance over time. The course also explores business cycles, international trade, and economic crises, preparing students to evaluate policy debates and global economic trends.",
+      "descriptionSha256": "33b36d74db138b4f57c17d242b5ba5dc4d4f8de34149ead79cef4bd1d0f2ccba",
+      "descriptionReview": "Complete text read; unchanged shared provenance/content review retained."
+    }
+  },
+  "placements": [
+    {
+      "programmeId": "ucr-1",
+      "term": "2026h2",
+      "courseCode": "ACCPPDE101",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2026h2",
+      "courseCode": "GOSPOLI112",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2026h2",
+      "courseCode": "GOSPOLI111",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2026h2",
+      "courseCode": "GOSSOCI111",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h1",
+      "courseCode": "BENGATE102",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h1",
+      "courseCode": "GOSPOLI212",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h1",
+      "courseCode": "GOSSOCI212",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h1",
+      "courseCode": "HCBPSYC111",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h2",
+      "courseCode": "GOSLAWJ111",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h2",
+      "courseCode": "GOSSOCI214",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h2",
+      "courseCode": "GOSGATE102",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2027h2",
+      "courseCode": "MCCCOMM111",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h1",
+      "courseCode": "GOSPOLI313",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h1",
+      "courseCode": "GOSLAWJ212",
+      "offering": "X",
+      "preq1": "GOSGATE102"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h1",
+      "courseCode": "GOSLAWJ213",
+      "offering": "X",
+      "preq1": "GOSGATE102"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h1",
+      "courseCode": "GOSPHIL212",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h2",
+      "courseCode": "GOSPOLI311",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h2",
+      "courseCode": "GOSSOCI311",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h2",
+      "courseCode": "MCCCOMM311",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2028h2",
+      "courseCode": "GOSHIST211",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2029h1",
+      "courseCode": "GOSSOCI215",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2029h1",
+      "courseCode": "GOSLAWJ312",
+      "offering": "X",
+      "preq1": "GOSGATE102"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2029h1",
+      "courseCode": "ENSDELT312",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-1",
+      "term": "2029h1",
+      "courseCode": "BENECON312",
+      "offering": "X",
+      "preq1": "BENGATE102"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2026h2",
+      "courseCode": "ACCPPDE101",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2026h2",
+      "courseCode": "GOSPOLI112",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2026h2",
+      "courseCode": "GOSPOLI111",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2026h2",
+      "courseCode": "BENECON111",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h1",
+      "courseCode": "BENGATE102",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h1",
+      "courseCode": "GOSPOLI212",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h1",
+      "courseCode": "GOSSOCI212",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h1",
+      "courseCode": "HCBPSYC111",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h2",
+      "courseCode": "GOSHIST211",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h2",
+      "courseCode": "GOSLAWJ111",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h2",
+      "courseCode": "GOSGATE102",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2027h2",
+      "courseCode": "GOSSOCI111",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h1",
+      "courseCode": "GOSPOLI313",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h1",
+      "courseCode": "GOSLAWJ212",
+      "offering": "X",
+      "preq1": "GOSGATE102"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h1",
+      "courseCode": "GOSHIST213",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h1",
+      "courseCode": "GOSPHIL212",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h2",
+      "courseCode": "GOSPOLI311",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h2",
+      "courseCode": "GOSSOCI311",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h2",
+      "courseCode": "HCBPSYC315",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2028h2",
+      "courseCode": "BENECON211",
+      "offering": "X",
+      "preq1": "BENGATE102"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2029h1",
+      "courseCode": "GOSLAWJ312",
+      "offering": "X",
+      "preq1": "GOSGATE102"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2029h1",
+      "courseCode": "ENSDELT312",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2029h1",
+      "courseCode": "GOSSOCI215",
+      "offering": "X",
+      "preq1": "NONE"
+    },
+    {
+      "programmeId": "ucr-2",
+      "term": "2029h1",
+      "courseCode": "BENECON312",
+      "offering": "X",
+      "preq1": "BENGATE102"
+    }
+  ],
+  "repairs": [
+    "BENECON111onlyFall2026:movefromS3toS1;GOSSOCI111toS3(beforeadvancedcivilsociety).Nochangedselections.",
+    "GOSHIST213currentnameWays of War.",
+    "Stopping rationale no longer invokes absent planning as academic no-match; thesis/design/statistics audience notes cleaned."
+  ],
+  "alignment": {
+    "entries": [
+      {
+        "componentId": "y1-03",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "ACCPPDE101",
+        "rationale": "Academic source work, questions, writing and civic reflection offer a foundation; Radboud adds a specific political research and language-assessment sequence."
+      },
+      {
+        "componentId": "y1-01",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "GOSPOLI112",
+        "rationale": "Direct comparative political institutions, democratic change and political-science concepts provide a substantive foundation."
+      },
+      {
+        "componentId": "y1-07",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "GOSPOLI111",
+        "rationale": "Classical and contemporary political thinkers and the justification of authority provide direct political-theory study."
+      },
+      {
+        "componentId": "y1-02",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "BENGATE102",
+        "rationale": "Research design, operationalisation, sampling, statistics and a group project provide related empirical foundations across disciplines."
+      },
+      {
+        "componentId": "y1-09",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "GOSPOLI212",
+        "rationale": "IR theories, international cooperation and a Security Council simulation provide related institutional and international inquiry."
+      },
+      {
+        "componentId": "y2-01",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "GOSSOCI212",
+        "rationale": "Qualitative design, data collection, interpretation and a group study relate to qualitative political methods, with a sociological context."
+      },
+      {
+        "componentId": "y1-05",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "GOSPOLI313",
+        "rationale": "Conflict causation, violence and peacebuilding provide substantive conflict inquiry at a more advanced interdisciplinary level."
+      },
+      {
+        "componentId": "y3-ethics",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "GOSPHIL212",
+        "rationale": "Ethical theories and applied argumentative research contribute normative reasoning; political practice remains a different focus."
+      },
+      {
+        "componentId": "y2-03",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "GOSPOLI311",
+        "rationale": "EU decision-making and an actual group investigation of legislative dossiers, interests and MEPs offer a substantive political research connection; project scope differs."
+      },
+      {
+        "componentId": "y2-08",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "GOSSOCI311",
+        "rationale": "Civil-society theory and actual community organisation research provide a partial research connection, rather than the target’s democracy-and-representation project."
+      },
+      {
+        "componentId": "y3-communication",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "MCCCOMM311",
+        "rationale": "Persuasion, framing, ethics and community communication projects provide a related applied communication lens extending beyond politics."
+      },
+      {
+        "componentId": "y2-02",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "GOSLAWJ312",
+        "rationale": "EU institutions and legal foundations contribute a legal perspective on integration, rather than its complete political history."
+      },
+      {
+        "componentId": "y2-07",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "BENECON312",
+        "rationale": "Regression estimators, statistical testing, Stata and an empirical paper provide advanced quantitative inquiry. The target also requires logistic regression and direct political project application."
+      },
+      {
+        "componentId": "y1-08",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "BENECON111",
+        "rationale": "Introductory microeconomics and macroeconomics provide related economic foundations; the political-science context differs."
+      },
+      {
+        "componentId": "y3-ipe",
+        "matchType": "substantive-match",
+        "ucrCourseCode": "BENECON211",
+        "rationale": "Fiscal and monetary policy, growth, crises and trade provide an economic lens; power-centred international political economy is broader."
+      },
+      {
+        "componentId": "y1-04",
+        "matchType": "unmatched",
+        "rationale": "Current renamed Dutch politics and history course is an explicitly permitted transition, not an extra unit."
+      },
+      {
+        "componentId": "y1-06",
+        "matchType": "unmatched",
+        "rationale": "Required statistics; the official 2024 transition replaces OIM-B with this unit."
+      },
+      {
+        "componentId": "y1-10",
+        "matchType": "unmatched",
+        "rationale": "Required earlier-cohort research project; current transition provides resits."
+      },
+      {
+        "componentId": "y2-04",
+        "matchType": "unmatched",
+        "rationale": "Assignments must be sufficient under the current rules."
+      },
+      {
+        "componentId": "y2-05",
+        "matchType": "unmatched",
+        "rationale": "No single selected UCR course adequately represents this separately credited requirement."
+      },
+      {
+        "componentId": "y2-06",
+        "matchType": "unmatched",
+        "rationale": "No single selected UCR course adequately represents this separately credited requirement."
+      },
+      {
+        "componentId": "y2-09",
+        "matchType": "unmatched",
+        "rationale": "No single selected UCR course adequately represents this separately credited requirement."
+      },
+      {
+        "componentId": "y2-10",
+        "matchType": "unmatched",
+        "rationale": "At least four of six blog posts must be completed."
+      },
+      {
+        "componentId": "y3-open",
+        "matchType": "unmatched",
+        "rationale": "24 EC open choice, subject to overlap and approval rules. An optional internship may use up to all 24 EC; it is not additional credit."
+      },
+      {
+        "componentId": "y3-indopacific",
+        "matchType": "unmatched",
+        "rationale": "Required regional course for this cohort/route; attendance is compulsory."
+      },
+      {
+        "componentId": "y3-thesis",
+        "matchType": "unmatched",
+        "rationale": "Individual empirical or political-theoretical research. Entry requires 90 EC including academic skills and the two older methods requirements, reconciled with the explicit official replacements. An approved proposal precedes the thesis. Data must be archived as instructed when used."
+      }
+    ],
+    "finding": "Read allpositive/unmatchedrelationships. Directpolitics/theory/IR/conflict andscopedqualitative/regressionconnections retained. EUempiricalprojectstrongerthanlegalstand-in;civilsocietyresearchpartial,notidenticalelectoralregression;persuasionfieldprojectissustainability,notcampaignpractice. MeaningfulDutchpolitics,project1,parties,democratisation,IndoPacificandthesisgapsretained. NoIRcasepromotedtoregionalmodule.24ECchoicepreserved.",
+    "optionalResearch": "One15ECcomparison-onlyresearch element perUCRprogramme,outsidescheduled24courses/180EC,parallelto12ECthesis."
+  },
+  "content": {
+    "policy": "record-content-review-2026-10-31",
+    "presentationMode": "normal",
+    "mapping": "Unchangedapp.R821be611428fc28490c679783be464455ad00aa1 selects audience descriptions/limits andcanonicalconceptsbyIDs;tableblocktitles/names/credits+audience.cellNotes;notesbynoteTypes;componentNotesforexternal-only;modaldepartmentcode-keyeddescriptions.",
+    "fieldPaths": [
+      "comparator.name/institution/primarySourceUrl",
+      "comparator.components[*].name/credits",
+      "programmes[*].label",
+      "academicRationale.alternatives[*].concept",
+      "blocks[*].title/rows[*].cells[*].text/credits",
+      "audience.*",
+      "notes[*].text",
+      "optionalIndependentResearch",
+      "selectedcourseDescriptions"
+    ],
+    "finding": "Alltitles,concepts,explanations,labels,notes,source/UCRlinks and28selecteddescriptions read in mapping context. Complete26componentaudience list/bothconceptIDs resolve. Cohort,openchoice,progression/research limits explicit. All10sources200. Nointernalprovenance inselecteddisplayfields.Noappcode/runtime/browser/R/screenshots/live-modalwork.",
+    "courseCodes": [
+      "ACCPPDE101",
+      "GOSPOLI112",
+      "GOSPOLI111",
+      "GOSSOCI111",
+      "BENGATE102",
+      "GOSPOLI212",
+      "GOSSOCI212",
+      "HCBPSYC111",
+      "GOSLAWJ111",
+      "GOSSOCI214",
+      "GOSGATE102",
+      "MCCCOMM111",
+      "GOSPOLI313",
+      "GOSLAWJ212",
+      "GOSLAWJ213",
+      "GOSPHIL212",
+      "GOSPOLI311",
+      "GOSSOCI311",
+      "MCCCOMM311",
+      "GOSHIST211",
+      "GOSSOCI215",
+      "GOSLAWJ312",
+      "ENSDELT312",
+      "BENECON312",
+      "BENECON111",
+      "GOSHIST213",
+      "HCBPSYC315",
+      "BENECON211"
+    ]
+  },
+  "mechanical": {
+    "feasibility": "passed2x24unique180EC/4perterm/Year1PPD/prerequisites/offerings/advancedfloor",
+    "schema": "fullschema passed",
+    "replay": "productioncompiler byteexact",
+    "descriptions": "86sharedprovenanceentries passed;28selectedtexts read",
+    "operational": "npm run validate:counselor passed"
+  }
+}
