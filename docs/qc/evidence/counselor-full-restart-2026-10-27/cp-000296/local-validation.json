@@ -1,0 +1,75 @@
+{
+  "caseId": "cp-000296",
+  "checkedAt": "2026-11-05T00:19:03.674807+00:00",
+  "inputBlobs": {
+    "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000296.json": "9bb6903862195079d639589cabcad23c1f8a306a",
+    "data/counselor/comparisons/cp-000296.json": "d6b7746a523a26f6b6354035d3a9c6b8b2401168",
+    "data/registry/programme_interests.csv": "b4d9dd67d0bb7b43d7e14fc3d45e32180249bea3",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "canonical": "d6b7746a523a26f6b6354035d3a9c6b8b2401168",
+    "decision": "9bb6903862195079d639589cabcad23c1f8a306a"
+  },
+  "checks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000296.json",
+      "status": "passed",
+      "exitCode": 0,
+      "evidence": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py /tmp/cp296/provisional-canonical.json",
+      "status": "passed",
+      "exitCode": 0,
+      "evidence": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": "PYTHONPATH=/tmp/cp292-resume/python-deps python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000296.json",
+      "status": "passed",
+      "exitCode": 0,
+      "evidence": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "status": "passed",
+      "exitCode": 0,
+      "evidence": "on: final counselor methodology rules OK\ncp-000440.json: final counselor methodology rules OK\ncp-000441.json: final counselor methodology rules OK\ncp-000442.json: final counselor methodology rules OK\ncp-000443.json: final counselor methodology rules OK\ncp-000444.json: final counselor methodology rules OK\ncp-000445.json: final counselor methodology rules OK\ncp-000446.json: final counselor methodology rules OK\ncp-000447.json: final counselor methodology rules OK\ncp-000448.json: final counselor methodology rules OK\ncp-000449.json: final counselor methodology rules OK\ncp-000450.json: final counselor methodology rules OK\ncp-000451.json: final counselor methodology rules OK\ncp-000452.json: final counselor methodology rules OK\ncp-000453.json: final counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": "npm run validate:registry-interests",
+      "status": "passed",
+      "exitCode": 0,
+      "evidence": "\n> validate:registry-interests\n> node scripts/validate-registry-interests.mjs\n\nValid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": "npm run validate:counselor-review",
+      "status": "passed",
+      "exitCode": 0,
+      "evidence": "\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": "python scripts/apply-registry-corrections.py --check",
+      "status": "passed",
+      "exitCode": 0,
+      "evidence": "Registry post-build corrections and alias crosswalks are current\n"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000296.json --output /tmp/cp296/replay-frozen.json",
+      "status": "passed",
+      "exitCode": 0,
+      "evidence": "Built cp-000296 counselor exception record at /tmp/cp296/replay-frozen.json\n"
+    },
+    {
+      "command": "byte-exact decision/canonical replay",
+      "status": "passed",
+      "evidence": "Full bytes of freshly compiled decision output equal canonical."
+    }
+  ],
+  "appCodeChanged": false,
+  "provisionalFeasibilityScope": "Three internal UCR schedules only; historical external fixture does not establish current external curriculum or academic comparability."
+}
