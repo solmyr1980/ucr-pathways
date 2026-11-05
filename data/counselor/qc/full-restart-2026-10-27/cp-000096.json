@@ -2,12 +2,12 @@
   "schemaVersion": "2.0",
   "auditId": "counselor-full-restart-2026-10-27",
   "id": "cp-000096",
-  "reviewedInputCommit": "5d2f4f60e7d3b95d9e253336a7ecc74aee999d3a",
+  "reviewedInputCommit": "7b09f983c709479a7ea9f7eba71e1307d7599ac4",
   "inputBlobs": {
-    "canonical": "39d93553db5a83d077be2544ff5eefa2dd85a5ea",
-    "decision": "3e9c6ba66f728c7ddefc5d5a8981b6ce566a0c9f"
+    "canonical": "7520306086cafdd49e4d925bdb380f9b45122cb0",
+    "decision": "451f9dffd97493d2c0541be21639b72b50380ae5"
   },
-  "state": "in-progress",
+  "state": "approved",
   "stages": {
     "1": {
       "outcome": "retain",
@@ -19,7 +19,8 @@
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/course-comparability-review.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/content-review.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/content-review.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/published-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
@@ -34,7 +35,8 @@
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/course-comparability-review.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/content-review.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/content-review.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/published-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": [],
@@ -390,7 +392,8 @@
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/course-comparability-review.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/content-review.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/content-review.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/published-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
@@ -403,14 +406,20 @@
       ],
       "actions": [
         {
-          "state": "proposed",
-          "scope": "Publish scoped CP096 decision/canonical and evidence, then verify exact bytes and applicable CI."
+          "state": "verified",
+          "scope": "Publish scoped CP096 decision/canonical and evidence, then verify exact bytes and applicable CI.",
+          "implementationCommit": "7b09f983c709479a7ea9f7eba71e1307d7599ac4",
+          "verificationEvidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-first-final-pass.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/published-verification.json"
+          ]
         }
       ],
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/course-comparability-review.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/content-review.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/content-review.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/published-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
@@ -423,28 +432,39 @@
       ],
       "actions": [
         {
-          "state": "proposed",
-          "scope": "Publish scoped CP096 decision/canonical and evidence, then verify exact bytes and applicable CI."
+          "state": "verified",
+          "scope": "Publish scoped CP096 decision/canonical and evidence, then verify exact bytes and applicable CI.",
+          "implementationCommit": "7b09f983c709479a7ea9f7eba71e1307d7599ac4",
+          "verificationEvidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-first-final-pass.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/published-verification.json"
+          ]
         }
       ],
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/course-comparability-review.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/content-review.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/content-review.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/published-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
     },
     "6": {
       "outcome": "correct",
-      "finding": "The separate same-AI source-first pass and frozen-input mechanical and content checks passed. Verify exact published blobs and applicable CI before final approval.",
+      "finding": "All six integrated stages complete. Separate same-AI source-first academic pass, exact frozen-input content review, feasibility/full-schema/description/operational checks, byte-exact replay, all published file blobs and all three applicable repair workflows pass. Case-level content approval only; runtime/final release remain separate.",
       "preserved": [
         "Verified English-track structure, substantive philosophy and unchanged shared descriptions."
       ],
       "actions": [
         {
-          "state": "proposed",
-          "scope": "Publish scoped CP096 decision/canonical and evidence, then verify exact bytes and applicable CI."
+          "state": "verified",
+          "scope": "Publish scoped CP096 decision/canonical and evidence, then verify exact bytes and applicable CI.",
+          "implementationCommit": "7b09f983c709479a7ea9f7eba71e1307d7599ac4",
+          "verificationEvidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-first-final-pass.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/published-verification.json"
+          ]
         }
       ],
       "evidence": [
@@ -452,7 +472,8 @@
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/course-comparability-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/content-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-first-final-pass.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/mechanical-verification.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/mechanical-verification.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/published-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
@@ -461,9 +482,68 @@
   "sharedIssueIds": [],
   "unresolved": [],
   "downstreamReassessments": [],
-  "implementationCommits": [],
-  "finalReview": null,
-  "presentationApproval": false,
+  "implementationCommits": [
+    "7b09f983c709479a7ea9f7eba71e1307d7599ac4"
+  ],
+  "finalReview": {
+    "reviewerOrPass": "Worker A; separately identified source-first final pass by the same AI",
+    "independenceMethod": "Reopened the adopted English-track plan, elective and course records and workbook before comparing the frozen decision and canonical pair. Reconstructed credit and progression and independently tested the nature of the shared philosophical inquiry. The same AI conducted both passes.",
+    "reviewedOn": "2026-11-05",
+    "reviewedCommit": "7b09f983c709479a7ea9f7eba71e1307d7599ac4",
+    "verificationPolicy": "record-content-review-2026-10-31",
+    "inputBlobs": {
+      "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+      "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+      "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+      "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+      "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+      "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+      "data/counselor/decisions/cp-000096.json": "451f9dffd97493d2c0541be21639b72b50380ae5",
+      "data/counselor/comparisons/cp-000096.json": "7520306086cafdd49e4d925bdb380f9b45122cb0",
+      "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+      "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+      "data/counselor/review-programmes.json": "01ad4729b186d15cd890049b6fb7a82a2d608d99",
+      "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+      "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+      "pilot/shiny/data/courses/BEN.json": "1595932255166785ac58524e448c546d4eaaf6fd",
+      "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "pilot/shiny/data/courses/ENS.json": "852c4e87788d0b02c07b4a0d80adb3e299740003",
+      "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+      "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+      "canonical": "7520306086cafdd49e4d925bdb380f9b45122cb0",
+      "decision": "451f9dffd97493d2c0541be21639b72b50380ae5"
+    },
+    "sourceEvidenceRefs": [
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json",
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/course-comparability-review.json",
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-first-final-pass.json"
+    ],
+    "checks": {
+      "academic": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/course-comparability-review.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-first-final-pass.json"
+        ]
+      },
+      "mechanical": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/mechanical-verification.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/published-verification.json"
+        ]
+      },
+      "content": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/content-review.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-first-final-pass.json"
+        ]
+      }
+    }
+  },
+  "presentationApproval": true,
   "evidenceSources": [
     {
       "url": "https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/876a4b2e-62f3-488d-9db2-de552224df79/OER%2026-27%20BA%20Philosophy%20EN.pdf",
@@ -605,10 +685,634 @@
       "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
       "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
     },
-    "nextAction": "Verify current Philosophy curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+    "nextAction": "CP096 verified comparison complete with two qualified UCR alternatives. Resume CP097 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
     "runtimeModel": "unknown",
-    "runtimeReasoningEffort": "unknown"
+    "runtimeReasoningEffort": "unknown",
+    "endedAt": "2026-11-05T17:36:08.479672+00:00",
+    "result": "approved comparison",
+    "implementationCommit": "7b09f983c709479a7ea9f7eba71e1307d7599ac4"
   },
-  "nextAction": "Verify the published CP096 repair and applicable CI, then record final disposition.",
-  "academicDisposition": "comparison"
+  "nextAction": "CP096 verified comparison complete with two qualified UCR alternatives. Resume CP097 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
+  "academicDisposition": "comparison",
+  "reviewHistory": [
+    {
+      "preservedOn": "2026-11-05T17:36:08.479672+00:00",
+      "reason": "Preserve complete proposed repair findings before verified implementation and final approval.",
+      "originalFileSha256": "b87e54d8dc7ffa6b720ee104ecac561b34a8ca4a36c1adbc00e7cd1587ba299a",
+      "snapshot": {
+        "schemaVersion": "2.0",
+        "auditId": "counselor-full-restart-2026-10-27",
+        "id": "cp-000096",
+        "reviewedInputCommit": "5d2f4f60e7d3b95d9e253336a7ecc74aee999d3a",
+        "inputBlobs": {
+          "canonical": "39d93553db5a83d077be2544ff5eefa2dd85a5ea",
+          "decision": "3e9c6ba66f728c7ddefc5d5a8981b6ce566a0c9f"
+        },
+        "state": "in-progress",
+        "stages": {
+          "1": {
+            "outcome": "retain",
+            "finding": "Verified the English-track 180 EC annual ledger, restricted choices and thesis entry.",
+            "preserved": [
+              "Verified English-track structure, substantive philosophy and unchanged shared descriptions."
+            ],
+            "actions": [],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/course-comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/content-review.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "2": {
+            "outcome": "retain",
+            "finding": "Reviewed both mapped source groups and all 84 owned rows.",
+            "preserved": [
+              "Verified English-track structure, substantive philosophy and unchanged shared descriptions."
+            ],
+            "actions": [],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/course-comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/content-review.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": [],
+            "interestRows": [
+              {
+                "row": 4442,
+                "outcome": "retain"
+              },
+              {
+                "row": 4443,
+                "outcome": "retain"
+              },
+              {
+                "row": 4444,
+                "outcome": "retain"
+              },
+              {
+                "row": 4445,
+                "outcome": "retain"
+              },
+              {
+                "row": 4446,
+                "outcome": "retain"
+              },
+              {
+                "row": 4447,
+                "outcome": "retain"
+              },
+              {
+                "row": 4448,
+                "outcome": "retain"
+              },
+              {
+                "row": 4449,
+                "outcome": "retain"
+              },
+              {
+                "row": 4450,
+                "outcome": "retain"
+              },
+              {
+                "row": 4451,
+                "outcome": "retain"
+              },
+              {
+                "row": 4452,
+                "outcome": "retain"
+              },
+              {
+                "row": 4453,
+                "outcome": "retain"
+              },
+              {
+                "row": 4454,
+                "outcome": "retain"
+              },
+              {
+                "row": 4455,
+                "outcome": "retain"
+              },
+              {
+                "row": 4456,
+                "outcome": "retain"
+              },
+              {
+                "row": 4457,
+                "outcome": "retain"
+              },
+              {
+                "row": 4458,
+                "outcome": "retain"
+              },
+              {
+                "row": 4459,
+                "outcome": "retain"
+              },
+              {
+                "row": 4460,
+                "outcome": "retain"
+              },
+              {
+                "row": 4461,
+                "outcome": "retain"
+              },
+              {
+                "row": 4462,
+                "outcome": "retain"
+              },
+              {
+                "row": 4463,
+                "outcome": "retain"
+              },
+              {
+                "row": 4464,
+                "outcome": "retain"
+              },
+              {
+                "row": 4465,
+                "outcome": "retain"
+              },
+              {
+                "row": 4466,
+                "outcome": "retain"
+              },
+              {
+                "row": 4467,
+                "outcome": "retain"
+              },
+              {
+                "row": 4468,
+                "outcome": "retain"
+              },
+              {
+                "row": 4469,
+                "outcome": "retain"
+              },
+              {
+                "row": 4470,
+                "outcome": "retain"
+              },
+              {
+                "row": 4471,
+                "outcome": "retain"
+              },
+              {
+                "row": 4472,
+                "outcome": "retain"
+              },
+              {
+                "row": 4473,
+                "outcome": "retain"
+              },
+              {
+                "row": 4474,
+                "outcome": "retain"
+              },
+              {
+                "row": 4475,
+                "outcome": "retain"
+              },
+              {
+                "row": 4476,
+                "outcome": "retain"
+              },
+              {
+                "row": 4477,
+                "outcome": "retain"
+              },
+              {
+                "row": 4478,
+                "outcome": "retain"
+              },
+              {
+                "row": 4479,
+                "outcome": "retain"
+              },
+              {
+                "row": 4480,
+                "outcome": "retain"
+              },
+              {
+                "row": 4481,
+                "outcome": "retain"
+              },
+              {
+                "row": 4482,
+                "outcome": "retain"
+              },
+              {
+                "row": 4483,
+                "outcome": "retain"
+              },
+              {
+                "row": 4484,
+                "outcome": "retain"
+              },
+              {
+                "row": 4485,
+                "outcome": "retain"
+              },
+              {
+                "row": 4486,
+                "outcome": "retain"
+              },
+              {
+                "row": 4487,
+                "outcome": "retain"
+              },
+              {
+                "row": 4488,
+                "outcome": "retain"
+              },
+              {
+                "row": 4489,
+                "outcome": "retain"
+              },
+              {
+                "row": 4490,
+                "outcome": "retain"
+              },
+              {
+                "row": 4491,
+                "outcome": "retain"
+              },
+              {
+                "row": 4492,
+                "outcome": "retain"
+              },
+              {
+                "row": 4493,
+                "outcome": "retain"
+              },
+              {
+                "row": 4494,
+                "outcome": "retain"
+              },
+              {
+                "row": 4495,
+                "outcome": "retain"
+              },
+              {
+                "row": 4496,
+                "outcome": "retain"
+              },
+              {
+                "row": 4497,
+                "outcome": "retain"
+              },
+              {
+                "row": 4498,
+                "outcome": "retain"
+              },
+              {
+                "row": 4499,
+                "outcome": "retain"
+              },
+              {
+                "row": 4500,
+                "outcome": "retain"
+              },
+              {
+                "row": 4501,
+                "outcome": "retain"
+              },
+              {
+                "row": 4502,
+                "outcome": "retain"
+              },
+              {
+                "row": 4503,
+                "outcome": "retain"
+              },
+              {
+                "row": 4504,
+                "outcome": "retain"
+              },
+              {
+                "row": 4505,
+                "outcome": "retain"
+              },
+              {
+                "row": 4506,
+                "outcome": "retain"
+              },
+              {
+                "row": 4507,
+                "outcome": "retain"
+              },
+              {
+                "row": 4508,
+                "outcome": "retain"
+              },
+              {
+                "row": 4509,
+                "outcome": "retain"
+              },
+              {
+                "row": 4510,
+                "outcome": "retain"
+              },
+              {
+                "row": 4511,
+                "outcome": "retain"
+              },
+              {
+                "row": 4512,
+                "outcome": "retain"
+              },
+              {
+                "row": 4513,
+                "outcome": "retain"
+              },
+              {
+                "row": 4514,
+                "outcome": "retain"
+              },
+              {
+                "row": 4515,
+                "outcome": "retain"
+              },
+              {
+                "row": 4516,
+                "outcome": "retain"
+              },
+              {
+                "row": 4517,
+                "outcome": "retain"
+              },
+              {
+                "row": 4518,
+                "outcome": "retain"
+              },
+              {
+                "row": 4519,
+                "outcome": "retain"
+              },
+              {
+                "row": 4520,
+                "outcome": "retain"
+              },
+              {
+                "row": 4521,
+                "outcome": "retain"
+              },
+              {
+                "row": 4522,
+                "outcome": "retain"
+              },
+              {
+                "row": 4523,
+                "outcome": "retain"
+              },
+              {
+                "row": 4524,
+                "outcome": "retain"
+              },
+              {
+                "row": 4525,
+                "outcome": "retain"
+              }
+            ],
+            "rowOutcomeCounts": {
+              "retain": 84
+            }
+          },
+          "3": {
+            "outcome": "retain",
+            "finding": "Confirmed two philosophically substantive directions and the stopping decision after reassessing adjacent and variant evidence.",
+            "preserved": [
+              "Verified English-track structure, substantive philosophy and unchanged shared descriptions."
+            ],
+            "actions": [],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/course-comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/content-review.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "4": {
+            "outcome": "correct",
+            "finding": "Repaired three placements and updated the subject alignments, contribution and progression findings.",
+            "preserved": [
+              "Verified English-track structure, substantive philosophy and unchanged shared descriptions."
+            ],
+            "actions": [
+              {
+                "state": "proposed",
+                "scope": "Publish scoped CP096 decision/canonical and evidence, then verify exact bytes and applicable CI."
+              }
+            ],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/course-comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/content-review.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "5": {
+            "outcome": "correct",
+            "finding": "Reviewed and clarified titles, notes, concepts, gap wording, links and descriptions.",
+            "preserved": [
+              "Verified English-track structure, substantive philosophy and unchanged shared descriptions."
+            ],
+            "actions": [
+              {
+                "state": "proposed",
+                "scope": "Publish scoped CP096 decision/canonical and evidence, then verify exact bytes and applicable CI."
+              }
+            ],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/course-comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/content-review.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "6": {
+            "outcome": "correct",
+            "finding": "The separate same-AI source-first pass and frozen-input mechanical and content checks passed. Verify exact published blobs and applicable CI before final approval.",
+            "preserved": [
+              "Verified English-track structure, substantive philosophy and unchanged shared descriptions."
+            ],
+            "actions": [
+              {
+                "state": "proposed",
+                "scope": "Publish scoped CP096 decision/canonical and evidence, then verify exact bytes and applicable CI."
+              }
+            ],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/course-comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/content-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-first-final-pass.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/mechanical-verification.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          }
+        },
+        "sharedIssueIds": [],
+        "unresolved": [],
+        "downstreamReassessments": [],
+        "implementationCommits": [],
+        "finalReview": null,
+        "presentationApproval": false,
+        "evidenceSources": [
+          {
+            "url": "https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/876a4b2e-62f3-488d-9db2-de552224df79/OER%2026-27%20BA%20Philosophy%20EN.pdf",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/philosophy",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://vu.nl/en/education/bachelor/philosophy/curriculum",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://vu.nl/nl/onderwijs/bachelor/filosofie/Inhoud",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://vu.nl/nl/onderwijs/bachelor/filosofie",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://vu.nl/nl/onderwijs/bachelor/filosofie/toekomst",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/philosophy/W_BA_PGA",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/philosophy/W_BA_ETEN",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/philosophy/W_BA_PP",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/philosophy/W_BA_PHMI",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/philosophy/W_BA_LGC",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/philosophy/W_BA_ARTP",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/philosophy/W_BA_THES",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/philosophy/W_BA_BSEM3",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/philosophy/W_BA_TXT1",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/philosophy/W_BA_TXT2",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/philosophy/W_BA_ACEN",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/philosophy/W_BA_WPC1",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/philosophy/W_BA_TPCS",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/philosophy/W_BA_CASE",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/philosophy/W_BA_ISCE",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/philosophy/VU_ELT",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/philosophy/W_BA_MEEN",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/philosophy/W_BA_LOG",
+            "checkedOn": "2026-11-05",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000096/source-interest-review.json"
+          }
+        ],
+        "renderedEvidence": [],
+        "executionClaim": {
+          "executionId": "restart-A-cp096-20261105T1730Z",
+          "worker": "A",
+          "caseId": "cp-000096",
+          "claimedAt": "2026-11-05T17:27:31.041104+00:00",
+          "reviewedInputCommit": "5d2f4f60e7d3b95d9e253336a7ecc74aee999d3a",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000096.json": "3e9c6ba66f728c7ddefc5d5a8981b6ce566a0c9f",
+            "data/counselor/comparisons/cp-000096.json": "39d93553db5a83d077be2544ff5eefa2dd85a5ea",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify current Philosophy curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown"
+        },
+        "nextAction": "Verify the published CP096 repair and applicable CI, then record final disposition.",
+        "academicDisposition": "comparison"
+      }
+    }
+  ]
 }
