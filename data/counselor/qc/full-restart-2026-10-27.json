@@ -2575,7 +2575,7 @@
     },
     {
       "id": "cp-000081",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "retain",
         "2": "correct",
@@ -2588,10 +2588,12 @@
       "unresolved": [],
       "downstreamReassessments": [],
       "implementationCommits": [
-        "00b5f6edf01c9bbe6a2e2f99d0b975160a8ad298"
+        "00b5f6edf01c9bbe6a2e2f99d0b975160a8ad298",
+        "d2d28569d3d3aafe806e058da0e09b2c51f20f1e"
       ],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000081.json"
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000081.json",
+      "academicDisposition": "comparison"
     },
     {
       "id": "cp-000082",
@@ -7111,8 +7113,8 @@
     }
   ],
   "progress": {
-    "approved": 99,
-    "inProgress": 39,
+    "approved": 100,
+    "inProgress": 38,
     "reviewedWithBlockers": 0,
     "notStarted": 300,
     "pilotStarted": 4
@@ -7344,36 +7346,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000081",
-      "activeClaim": {
-        "executionId": "restart-A-cp081-20261105T0132Z",
-        "worker": "A",
-        "caseId": "cp-000081",
-        "claimedAt": "2026-11-05T01:32:54.544259+00:00",
-        "reviewedInputCommit": "641b937d866d9193effd5f1a96676f293a09e749",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000081.json": "6d2c3a6f1db5b392d8399f3631177b6aef658fc8",
-          "data/counselor/comparisons/cp-000081.json": "b0b6429147e28a92eac4da71942d50919d5139be",
-          "data/registry/programme_interests.csv": "b4d9dd67d0bb7b43d7e14fc3d45e32180249bea3",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Independently verify current Business Administration curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000082",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -7435,7 +7416,8 @@
         "cp-000077",
         "cp-000078",
         "cp-000079",
-        "cp-000080"
+        "cp-000080",
+        "cp-000081"
       ],
       "completedDispositions": [
         {
@@ -7864,6 +7846,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000080.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-05"
+        },
+        {
+          "caseId": "cp-000081",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000081.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-05"
         }
       ],
       "deferredCases": [
@@ -7904,19 +7893,19 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000080",
-        "executionId": "restart-A-cp080-20261105T0035Z",
+        "caseId": "cp-000081",
+        "executionId": "restart-A-cp081-20261105T0132Z",
         "state": "approved",
         "academicDisposition": "comparison",
-        "reviewedInputCommit": "25d0ea909f84b451ba3949fee34339f4a6feaffb",
+        "reviewedInputCommit": "d2d28569d3d3aafe806e058da0e09b2c51f20f1e",
         "inputBlobs": {
-          "canonical": "c908d75462a40b9ce894c189b7ad4f95f065076b",
-          "decision": "6b7750d84ec4fb13fcebbd6d79e38bc69dc6c87f"
+          "canonical": "2279fa04f323e4e31effd05e6da960d97918dda6",
+          "decision": "44e7938b16d17640e64729e8dc60e5d754c3522e"
         },
-        "verifiedAt": "2026-11-05T00:44:17.571574+00:00",
+        "verifiedAt": "2026-11-05T01:46:45.158425+00:00",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000080/published-verification.json",
-        "nextAction": "CP080 verified comparison complete with three qualified UCR alternatives. Resume CP081 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000081/published-verification.json",
+        "nextAction": "CP081 verified comparison complete with three qualified UCR alternatives. Resume CP082 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -13337,6 +13326,51 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-11-05T01:46:45.158425+00:00",
+          "reason": "Preserve prior worker checkpoint and own active claim before CP081 final disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000080",
+              "executionId": "restart-A-cp080-20261105T0035Z",
+              "state": "approved",
+              "academicDisposition": "comparison",
+              "reviewedInputCommit": "25d0ea909f84b451ba3949fee34339f4a6feaffb",
+              "inputBlobs": {
+                "canonical": "c908d75462a40b9ce894c189b7ad4f95f065076b",
+                "decision": "6b7750d84ec4fb13fcebbd6d79e38bc69dc6c87f"
+              },
+              "verifiedAt": "2026-11-05T00:44:17.571574+00:00",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000080/published-verification.json",
+              "nextAction": "CP080 verified comparison complete with three qualified UCR alternatives. Resume CP081 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp081-20261105T0132Z",
+              "worker": "A",
+              "caseId": "cp-000081",
+              "claimedAt": "2026-11-05T01:32:54.544259+00:00",
+              "reviewedInputCommit": "641b937d866d9193effd5f1a96676f293a09e749",
+              "inputBlobs": {
+                "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000081.json": "6d2c3a6f1db5b392d8399f3631177b6aef658fc8",
+                "data/counselor/comparisons/cp-000081.json": "b0b6429147e28a92eac4da71942d50919d5139be",
+                "data/registry/programme_interests.csv": "b4d9dd67d0bb7b43d7e14fc3d45e32180249bea3",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Independently verify current Business Administration curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -13809,6 +13843,31 @@
           "endedAt": "2026-11-05T00:44:17.571574+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000080/published-verification.json"
+        },
+        {
+          "executionId": "restart-A-cp081-20261105T0132Z",
+          "worker": "A",
+          "caseId": "cp-000081",
+          "claimedAt": "2026-11-05T01:32:54.544259+00:00",
+          "reviewedInputCommit": "641b937d866d9193effd5f1a96676f293a09e749",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000081.json": "6d2c3a6f1db5b392d8399f3631177b6aef658fc8",
+            "data/counselor/comparisons/cp-000081.json": "b0b6429147e28a92eac4da71942d50919d5139be",
+            "data/registry/programme_interests.csv": "b4d9dd67d0bb7b43d7e14fc3d45e32180249bea3",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Independently verify current Business Administration curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-05T01:46:45.158425+00:00",
+          "result": "approved comparison",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000081/published-verification.json"
         }
       ]
     },
@@ -20807,6 +20866,17 @@
       },
       "combinedVerifiedCount": 90,
       "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000073/assessment-9.json"
+    },
+    {
+      "assessmentNumber": 10,
+      "verifiedOn": "2026-11-05",
+      "milestone": 100,
+      "workerVerifiedCounts": {
+        "A": 62,
+        "B": 38
+      },
+      "combinedVerifiedCount": 100,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000081/assessment-10.json"
     }
   ],
   "systemicPause": null,
