@@ -1,0 +1,109 @@
+{
+  "caseId": "cp-000099",
+  "checkedOn": "2026-11-05T21:29:14.348953+00:00",
+  "reviewerOrPass": "Worker A, same AI, separate source-first checkpoint",
+  "independenceMethod": "The same AI reopened the actual current annual regulations and revision document, rederived the verified credit total and checked the exact older course and later guide alternatives before reconsidering the frozen partial record. Course contributions and the complete internal schedule were checked against the current workbook.",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000099.json": "d5a3e2d61a06a61cd60b38907c4f2dc178a131df",
+    "data/counselor/comparisons/cp-000099.json": "a298611416b7a4d166ccae31f17c6daf110c3206",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "61f3cbf6091264aa4fb7627880d345a5624d0fd5",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "canonical": "a298611416b7a4d166ccae31f17c6daf110c3206",
+    "decision": "d5a3e2d61a06a61cd60b38907c4f2dc178a131df"
+  },
+  "academicStatus": "blocked",
+  "mechanicalStatus": "passed",
+  "contentStatus": "passed",
+  "verifiedYearOneCodes": [
+    "AB_1132",
+    "AB_1336",
+    "AB_1339",
+    "AB_1340",
+    "AB_1341",
+    "AB_1342",
+    "AB_1337",
+    "AB_1335",
+    "AB_1338",
+    "AB_1344"
+  ],
+  "commands": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000099.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py /tmp/cp099-second/provisional.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": "PYTHONPATH=/tmp/cp292-resume/python-deps python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000099.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "result": "140 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.\n"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "result": " counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\n"
+    },
+    {
+      "command": "npm run validate:registry-interests",
+      "exitCode": 0,
+      "result": "\n> validate:registry-interests\n> node scripts/validate-registry-interests.mjs\n\nValid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.\n"
+    },
+    {
+      "command": "npm run validate:counselor-review",
+      "exitCode": 0,
+      "result": "\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\n"
+    },
+    {
+      "command": "python scripts/apply-registry-corrections.py --check",
+      "exitCode": 0,
+      "result": "Registry post-build corrections and alias crosswalks are current\n"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000099.json --output /tmp/cp099-second/replay.json",
+      "exitCode": 0,
+      "result": "Built cp-000099 counselor exception record at /tmp/cp099-second/replay.json\n"
+    },
+    {
+      "command": "Byte-exact decision/canonical replay comparison",
+      "exitCode": 0,
+      "verifiedBlob": "a298611416b7a4d166ccae31f17c6daf110c3206"
+    }
+  ],
+  "contentReview": {
+    "fieldPaths": [
+      "comparator name, institution, source links and component titles/notes",
+      "audience programme and comparison explanations",
+      "audience curriculum status, yearLabel, componentIds and limitation",
+      "empty conceptProgrammeIds and noteTypes",
+      "review-programmes display identity"
+    ],
+    "finding": "Read the eleven verified component titles and credits, the lab safety and Dutch language note, the guidance condition, elective note and partial curriculum explanation. Sources remain official and the exact scoped display identity is unchanged. The active partial record selects only VU curriculum; the internal UCR schedule has no reader-facing course-description selection. The programme text correctly identifies the revision and the missing later-year allocation.",
+    "priorEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/content-review.json"
+  },
+  "sourceFirstFinding": "The verified curriculum covers 90 EC. The credit allocation and complete choice rules for year two and the credits and entry requirements for the final research and communication courses still need confirmation for September 2026 entrants.",
+  "evidenceRefs": [
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/source-attempt-2.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/course-comparability-review.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/source-interest-review.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/content-review.json"
+  ],
+  "remainingGate": "Verify published evidence and applicable CI before deferral and queue release."
+}
