@@ -5932,7 +5932,8 @@
         }
       ],
       "implementationCommits": [
-        "00187a963b1750ab0da81672254d325065b35475"
+        "00187a963b1750ab0da81672254d325065b35475",
+        "4e1f415beb5cad8dbc6cf9a7662eeb39aa502280"
       ],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000306.json",
@@ -15405,36 +15406,15 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000306",
-      "activeClaim": {
-        "executionId": "restart-B-cp306-source2-20261105T1500Z",
-        "worker": "B",
-        "caseId": "cp-000306",
-        "claimedAt": "2026-11-05T14:59:09.863968+00:00",
-        "reviewedInputCommit": "a55df9a1d42f541bae9818e22bc7a3c5c33b0faf",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000306.json": "c2bfe9494953d5d5ad8d5c54c193aded4f95e588",
-          "data/counselor/comparisons/cp-000306.json": "970d5e1e2deb246cff75181094eaed324704fba1",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Resume CP306 source attempt two. Confirm the distinct 5 EC that completes year three of Modern Middle East Studies with Arabic for September 2026 entrants. The 2026–2027 study guide lists the same 5 EC course, History of Central Asia & Afghanistan, in required year-two and year-three blocks. Confirm which current taught or abroad/approved alternative route and thesis-entry credit rule apply to those entrants if the solution changes the listed sequence. Then reassess the complete external ledger and final comparability.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000308",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -15816,7 +15796,8 @@
         "cp-000296",
         "cp-000300",
         "cp-000304",
-        "cp-000305"
+        "cp-000305",
+        "cp-000306"
       ],
       "sourceRetrievalFailuresByCase": {
         "cp-000245": 2,
@@ -15851,13 +15832,16 @@
       "lastCheckpoint": {
         "caseId": "cp-000306",
         "executionId": "restart-B-cp306-source2-20261105T1500Z",
-        "state": "in-progress",
+        "state": "deferred",
         "academicDisposition": "external-programme-unresolved",
         "sourceFailureExecutions": 2,
-        "nextAction": "Verify published second-source checkpoint and applicable CI, then defer CP306 as incomplete with its separate revisit unused and resume CP308 next execution.",
+        "nextAction": "CP306 deferred and incomplete after two unsuccessful essential-source executions. Use its one separate revisit after the own non-deferred queue or when new essential evidence becomes available. Confirm the distinct 5 EC completing year three of Modern Middle East Studies with Arabic for September 2026 entrants and associated route or thesis-entry changes. Preserve the 175 EC partial curriculum and feasible internal UCR proposal. Resume CP308 next execution.",
         "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000306/source-attempt-2.json",
         "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
+        "runtimeReasoningEffort": "unknown",
+        "implementationCommit": "4e1f415beb5cad8dbc6cf9a7662eeb39aa502280",
+        "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000306/published-execution-2.json",
+        "CI": "passed"
       },
       "checkpointHistory": [
         {
@@ -21530,6 +21514,16 @@
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000305/source-attempt-2.json",
           "revisitStatus": "pending; not consumed",
           "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
+        },
+        {
+          "caseId": "cp-000306",
+          "deferredOn": "2026-11-05",
+          "executionId": "restart-B-cp306-source2-20261105T1500Z",
+          "unsuccessfulExecutions": 2,
+          "reason": "Confirm the distinct 5 EC that completes year three of Modern Middle East Studies with Arabic for September 2026 entrants. The 2026–2027 study guide lists the same 5 EC course, History of Central Asia & Afghanistan, in required year-two and year-three blocks. Confirm which current taught or abroad/approved alternative route and thesis-entry credit rule apply to those entrants if the solution changes the listed sequence.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000306/source-attempt-2.json",
+          "revisitStatus": "pending; not consumed",
+          "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
         }
       ],
       "reopeningDependencies": [
@@ -22178,6 +22172,31 @@
           "endedAt": "2026-11-05T14:13:44.534730+00:00",
           "result": "incomplete; first source execution",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000306/published-verification.json"
+        },
+        {
+          "executionId": "restart-B-cp306-source2-20261105T1500Z",
+          "worker": "B",
+          "caseId": "cp-000306",
+          "claimedAt": "2026-11-05T14:59:09.863968+00:00",
+          "reviewedInputCommit": "a55df9a1d42f541bae9818e22bc7a3c5c33b0faf",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000306.json": "c2bfe9494953d5d5ad8d5c54c193aded4f95e588",
+            "data/counselor/comparisons/cp-000306.json": "970d5e1e2deb246cff75181094eaed324704fba1",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Resume CP306 source attempt two. Confirm the distinct 5 EC that completes year three of Modern Middle East Studies with Arabic for September 2026 entrants. The 2026–2027 study guide lists the same 5 EC course, History of Central Asia & Afghanistan, in required year-two and year-three blocks. Confirm which current taught or abroad/approved alternative route and thesis-entry credit rule apply to those entrants if the solution changes the listed sequence. Then reassess the complete external ledger and final comparability.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-05T15:03:30.751355+00:00",
+          "result": "deferred; incomplete; second source execution",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000306/published-execution-2.json"
         }
       ],
       "publicationRecoveryHistory": [
