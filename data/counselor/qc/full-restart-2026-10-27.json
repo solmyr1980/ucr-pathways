@@ -5963,7 +5963,7 @@
     },
     {
       "id": "cp-000308",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
@@ -5975,8 +5975,10 @@
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "7e43264f49f131c24526c31db786c48f6096aa01"
+      ],
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000308.json",
       "academicDisposition": "comparison"
     },
@@ -7462,8 +7464,8 @@
     }
   ],
   "progress": {
-    "approved": 119,
-    "inProgress": 44,
+    "approved": 120,
+    "inProgress": 43,
     "reviewedWithBlockers": 0,
     "notStarted": 275,
     "pilotStarted": 4
@@ -15593,36 +15595,15 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000308",
-      "activeClaim": {
-        "executionId": "restart-B-cp308-20261105T1600Z",
-        "worker": "B",
-        "caseId": "cp-000308",
-        "claimedAt": "2026-11-05T15:57:34.314318+00:00",
-        "reviewedInputCommit": "c25897c7273e7e49296452fb2e3fb7f9e36c6dc5",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000308.json": "d4c59424ccb8cf2eb80c1e9525617f91a3435b9a",
-          "data/counselor/comparisons/cp-000308.json": "a83fa280b84937316e85565d1786abff1204063a",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify current Leiden Physics curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000309",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -15667,7 +15648,8 @@
         "cp-000299",
         "cp-000301",
         "cp-000302",
-        "cp-000303"
+        "cp-000303",
+        "cp-000308"
       ],
       "completedDispositions": [
         {
@@ -15977,6 +15959,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000303.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-05"
+        },
+        {
+          "caseId": "cp-000308",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000308.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-05"
         }
       ],
       "deferredCases": [
@@ -16038,18 +16027,21 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000306",
-        "executionId": "restart-B-cp306-source2-20261105T1500Z",
-        "state": "deferred",
-        "academicDisposition": "external-programme-unresolved",
-        "sourceFailureExecutions": 2,
-        "nextAction": "CP306 deferred and incomplete after two unsuccessful essential-source executions. Use its one separate revisit after the own non-deferred queue or when new essential evidence becomes available. Confirm the distinct 5 EC completing year three of Modern Middle East Studies with Arabic for September 2026 entrants and associated route or thesis-entry changes. Preserve the 175 EC partial curriculum and feasible internal UCR proposal. Resume CP308 next execution.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000306/source-attempt-2.json",
+        "caseId": "cp-000308",
+        "executionId": "restart-B-cp308-20261105T1600Z",
+        "state": "approved",
+        "academicDisposition": "comparison",
+        "reviewedInputCommit": "7e43264f49f131c24526c31db786c48f6096aa01",
+        "inputBlobs": {
+          "canonical": "f886ddd78cee7d5efffe6a45bef04bae790f23e4",
+          "decision": "abb081deaf235b09f8548e7df580cd64fc38ef36"
+        },
+        "verifiedAt": "2026-11-05T17:00:01.428519+00:00",
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000308/published-verification.json",
+        "nextAction": "CP308 approved as a one-option comparison with a verified 180 EC Leiden Physics curriculum. Resume CP309 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
         "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown",
-        "implementationCommit": "4e1f415beb5cad8dbc6cf9a7662eeb39aa502280",
-        "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000306/published-execution-2.json",
-        "CI": "passed"
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -21068,6 +21060,48 @@
             "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000306/published-verification.json",
             "CI": "passed"
           }
+        },
+        {
+          "preservedOn": "2026-11-05T17:00:01.428519+00:00",
+          "reason": "Preserve prior worker checkpoint and own active claim before CP308 final disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000306",
+              "executionId": "restart-B-cp306-source2-20261105T1500Z",
+              "state": "deferred",
+              "academicDisposition": "external-programme-unresolved",
+              "sourceFailureExecutions": 2,
+              "nextAction": "CP306 deferred and incomplete after two unsuccessful essential-source executions. Use its one separate revisit after the own non-deferred queue or when new essential evidence becomes available. Confirm the distinct 5 EC completing year three of Modern Middle East Studies with Arabic for September 2026 entrants and associated route or thesis-entry changes. Preserve the 175 EC partial curriculum and feasible internal UCR proposal. Resume CP308 next execution.",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000306/source-attempt-2.json",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown",
+              "implementationCommit": "4e1f415beb5cad8dbc6cf9a7662eeb39aa502280",
+              "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000306/published-execution-2.json",
+              "CI": "passed"
+            },
+            "activeClaim": {
+              "executionId": "restart-B-cp308-20261105T1600Z",
+              "worker": "B",
+              "caseId": "cp-000308",
+              "claimedAt": "2026-11-05T15:57:34.314318+00:00",
+              "reviewedInputCommit": "c25897c7273e7e49296452fb2e3fb7f9e36c6dc5",
+              "inputBlobs": {
+                "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000308.json": "d4c59424ccb8cf2eb80c1e9525617f91a3435b9a",
+                "data/counselor/comparisons/cp-000308.json": "a83fa280b84937316e85565d1786abff1204063a",
+                "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Verify current Leiden Physics curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -21873,11 +21907,12 @@
         }
       ],
       "publicationRecovery": {
-        "caseId": "cp-000299",
+        "caseId": "cp-000308",
         "consecutiveFailedExecutions": 0,
+        "priorFailedExecutions": 1,
         "status": "published",
-        "commit": "b26bce76b5111fcec971f8e9c51010032b9317e5",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000299/published-verification.json"
+        "commit": "7e43264f49f131c24526c31db786c48f6096aa01",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000308/publication-recovery.json"
       },
       "claimHistory": [
         {
@@ -22405,6 +22440,64 @@
           "endedAt": "2026-11-05T15:03:30.751355+00:00",
           "result": "deferred; incomplete; second source execution",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000306/published-execution-2.json"
+        },
+        {
+          "executionId": "restart-B-cp308-20261105T1600Z",
+          "worker": "B",
+          "caseId": "cp-000308",
+          "claimedAt": "2026-11-05T15:57:34.314318+00:00",
+          "reviewedInputCommit": "c25897c7273e7e49296452fb2e3fb7f9e36c6dc5",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000308.json": "d4c59424ccb8cf2eb80c1e9525617f91a3435b9a",
+            "data/counselor/comparisons/cp-000308.json": "a83fa280b84937316e85565d1786abff1204063a",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify current Leiden Physics curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-05T17:00:01.428519+00:00",
+          "result": "approved comparison",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000308/published-verification.json"
+        },
+        {
+          "caseId": "cp-000308",
+          "worker": "B",
+          "executionId": "restart-B-cp308-recovery-20261105T1700Z",
+          "resumesClaim": "restart-B-cp308-20261105T1600Z",
+          "claimedAt": "2026-11-05T16:57:31.205164+00:00",
+          "reviewedInputCommit": "f7b933c1f0275be3a22cfff2f5c259d3f1724bb6",
+          "priorCheckpoint": "libfile_1160153f5110819187cb9ca47f3a3d0d",
+          "previousFailedPublicationExecutions": 1,
+          "academicSourceFailures": 0,
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000308.json": "d4c59424ccb8cf2eb80c1e9525617f91a3435b9a",
+            "data/counselor/comparisons/cp-000308.json": "a83fa280b84937316e85565d1786abff1204063a",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Publish the revalidated CP308 repair and scoped register delta. Verify published bytes and CI before final approval.",
+          "verifiedPatchSha256": "35b2f46b76f1fbca91aa019f0fdbbc6a4df4fc19689ff053845b194511e82495",
+          "originalPatchParent": "967ad968a8fa2541542a23505803430430f67869",
+          "previousError": "GitHub create_blob returned MCP -32603 Internal error in both attempts. Second attempt identified data/counselor/qc/full-restart-2026-10-27.json. Remote main still at claim commit before second attempt. No ref update attempted.",
+          "preservation": "CP308-only patch reapplied, all non-register base and result blobs verified. Shared register regenerated from fresh main.",
+          "endedAt": "2026-11-05T17:00:01.428519+00:00",
+          "result": "recovered publication and approved comparison",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000308/published-verification.json"
         }
       ],
       "publicationRecoveryHistory": [
@@ -22428,6 +22521,13 @@
           "status": "published",
           "commit": "bbe6457b8479258b3ad62a3acc57084779d3b001",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000298/published-verification.json"
+        },
+        {
+          "caseId": "cp-000299",
+          "consecutiveFailedExecutions": 0,
+          "status": "published",
+          "commit": "b26bce76b5111fcec971f8e9c51010032b9317e5",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000299/published-verification.json"
         }
       ]
     }
@@ -23433,6 +23533,17 @@
       },
       "combinedVerifiedCount": 110,
       "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000302/assessment-11.json"
+    },
+    {
+      "assessmentNumber": 12,
+      "verifiedOn": "2026-11-05",
+      "milestone": 120,
+      "workerVerifiedCounts": {
+        "A": 75,
+        "B": 45
+      },
+      "combinedVerifiedCount": 120,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000308/assessment-12.json"
     }
   ],
   "systemicPause": null,
