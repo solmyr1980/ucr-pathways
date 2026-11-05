@@ -1,0 +1,600 @@
+{
+  "caseId": "cp-000091",
+  "checkedAt": "2026-11-05T12:39:25.895129+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000091.json": "005b8c97eadfe4ca5e96944478b799c8ea07d5e9",
+    "data/counselor/comparisons/cp-000091.json": "cc6877fbbed5ae9b2fa94d14e774261d5f5a833e",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "f666aca67501c6c8313301e8315324349a11ae11",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "1595932255166785ac58524e448c546d4eaaf6fd",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+    "canonical": "cc6877fbbed5ae9b2fa94d14e774261d5f5a833e",
+    "decision": "005b8c97eadfe4ca5e96944478b799c8ea07d5e9"
+  },
+  "presentationMode": "comparison with complete reviewed external curriculum",
+  "fieldPaths": [
+    "programmes[].label",
+    "comparator.{name,institution,primarySourceUrl,additionalSourceUrls,components}",
+    "audience.{programmeDescription,comparisonExplanation,curriculum,conceptProgrammeIds,noteTypes}",
+    "academicRationale.alternatives[].concept",
+    "blocks[].title and rows[].cells",
+    "notes[].type and text",
+    "optionalIndependentResearch",
+    "review-programmes.json CP091 display name and institution",
+    "course description cache entries by displayed code"
+  ],
+  "mapping": "pilot/counselor-shiny/app.R maps audience component references and notes, concepts, labels, links, credit-bearing cells and optional research. The course-click handler reads cached descriptions by department and code. Internal source notes and traces have no audience prose fallback.",
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "At VU Amsterdam, Cultural Anthropology and Development Sociology studies how global changes affect everyday life. Students examine identity, power and inequality and learn ethnographic methods through observation, interviews and fieldwork.",
+    "comparisonExplanation": "UCR offers two ways to explore related questions. One combines qualitative social inquiry with history and visual culture. The other studies how public institutions, economic policy and law shape social change.",
+    "conceptProgrammeIds": [
+      "ucr-1",
+      "ucr-2"
+    ],
+    "noteTypes": [
+      "related-fields-not-full-discipline"
+    ],
+    "curriculum": {
+      "status": "complete",
+      "componentIds": [
+        "y1-01",
+        "y1-02",
+        "y1-03",
+        "y1-04",
+        "y1-05",
+        "y1-06",
+        "y1-07",
+        "y1-08",
+        "y1-09",
+        "y1-10",
+        "y2-01",
+        "y2-02",
+        "y2-03",
+        "y2-04",
+        "y2-05",
+        "y2-06",
+        "y2-07",
+        "y2-08",
+        "y2-09",
+        "y2-10",
+        "y3-01",
+        "y3-02",
+        "y3-03",
+        "y3-04"
+      ],
+      "yearLabel": "2026–2027",
+      "routeLabel": "English-language track",
+      "limitation": "The second year shows one example from each of two required choice groups. In the third year, 30 EC are available for elective study. Students need 90 EC from the first two years to begin the bachelor project and complete its fieldwork before taking Anthropology for Society."
+    }
+  },
+  "selectedDescriptionReview": {
+    "ACCPPDE101": {
+      "text": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+        "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Personal & Professional Development"
+      },
+      "file": "pilot/shiny/data/courses/ACC.json"
+    },
+    "BENECON111": {
+      "text": "Explore how individuals, firms, and societies make economic decisions. This course introduces key concepts from both microeconomics and macroeconomics, including markets, incentives, and the principles of supply and demand, and provides a foundation for analyzing real-world economic issues.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "be4f2adfa22005d4d1ebbea0bbfcb36e2acd0e7e75d57f9b87f847d13ad3ef1f",
+        "descriptionSha256": "2278892bd9c8b20df80deb4bd04a3bf00a3fe4cc79099b153861afa0f69110e8",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Economics"
+      },
+      "file": "pilot/shiny/data/courses/BEN.json"
+    },
+    "BENECON311": {
+      "text": "Investigate the role of government in the economy, focusing on how public policy influences efficiency and equity. The course covers taxation, public goods, externalities, and government spending. Combining theoretical models with empirical evidence, it evaluates how different policies affect societal welfare.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "24b0c5c56dc096e519a2295ff82eb44aa56d5601b7302975262d22a475cc96a6",
+        "descriptionSha256": "7a4ba78a0cfe9e6eb397bc2a538e91ff9a12eaecf7737f2cfbb377ac04d4aa84",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Public Economics"
+      },
+      "file": "pilot/shiny/data/courses/BEN.json"
+    },
+    "BENGATE102": {
+      "text": "Research Methods & Statistics introduces research design, operationalisation, measurement, sampling, surveys and experiments. Students study descriptive statistics, estimation, hypothesis testing and introductory regression using R and R Commander. A group project develops a research plan and instruments, collects and analyses data, and reports findings under research-ethics and privacy requirements.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "9d88751452d5c0a6888ac7901a73d1a848617dee2b587d4df64815fc39ad8813",
+        "descriptionSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Research Methods & Statistics"
+      },
+      "file": "pilot/shiny/data/courses/BEN.json"
+    },
+    "DISDATA111": {
+      "text": "Develops foundational skills in data visualization, cleaning and manipulation. Explores spatial and text data and includes hands‑on work with datasets from various disciplines.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "85912cb78bd13d1aa873ef9cca2a8d7e00345543f75d1f07b56d808f1c6702ef",
+        "descriptionSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Data Science"
+      },
+      "file": "pilot/shiny/data/courses/DIS.json"
+    },
+    "GOSGATE102": {
+      "text": "Law, Society & Justice examines legal, social and normative perspectives on law. Students compare legal traditions and study public and private law, human rights, justice, social control and change, race and gender. Case briefs, demand letters and mock trials develop legal reasoning, while a family-law topic supports the design of a socio-legal research proposal.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "e3ee6c30cefe40d0410e4896ebe9e340104aad5931f93baad84dd2e4cfcd8c3e",
+        "descriptionSha256": "035b12c51282127288b99b6ba3cb906896d0fabff1cdf5153709df2d32006391",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Law, Society & Justice"
+      },
+      "file": "pilot/shiny/data/courses/GOS.json"
+    },
+    "GOSHIST111": {
+      "text": "Provides a chronological overview of history from 1815 to the present. Discusses industrialisation, popular sovereignty and national self‑determination, and covers major economic, political and cultural developments including revolutions, world wars and the fall of communism.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Modern History",
+        "sourceField": "description2",
+        "sourceSha256": "cd940abc8f8e43aeb6cedd73b6bf076687f6418ffb3a76c3e1c44ad107e68324",
+        "descriptionSha256": "cd940abc8f8e43aeb6cedd73b6bf076687f6418ffb3a76c3e1c44ad107e68324",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "file": "pilot/shiny/data/courses/GOS.json"
+    },
+    "GOSHIST112": {
+      "text": "Studies gender, storytelling and marginalised lives in the nineteenth- to twenty-first-century American context. Students examine slavery, community activism, representation and lived experience, using sources and projects that connect historical interpretation with contemporary questions.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "0baa8448cd3d1411e11fcaf4f989186d0107f29d5de5696a1a66fdb1dcd9995b",
+        "descriptionSha256": "c39509166e5d7cbbe048b3e537adc64ec621956383820bfd1c904d052f550a28",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Histories of Gender"
+      },
+      "file": "pilot/shiny/data/courses/GOS.json"
+    },
+    "GOSHIST211": {
+      "text": "History of Empires examines empires across global history and competing theories of empire. Students study expansion, administration, military and economic systems, legitimacy, ideology, culture, decline and legacies. Historical cases, source analysis and an independent research essay connect theoretical interpretation with specific imperial experiences.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "bce0c4bf26316aa65a8b70c29f53f82e7c38bf225868dfd278a3cd941ebe4b82",
+        "descriptionSha256": "76faf04e8e855ae9ca1735ccf5a7e8ac76bf21911b771190f9286303745ad4a3",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "History of Empires"
+      },
+      "file": "pilot/shiny/data/courses/GOS.json"
+    },
+    "GOSHIST311": {
+      "text": "Native American Histories studies Indigenous social and cultural histories from the nineteenth century to the present. Boarding schools, institutional violence, family separation and intergenerational trauma are connected to resistance, resurgence, food sovereignty and cultural expression. Storytelling, reciprocity and relational accountability guide collaboration with Indigenous peers and knowledge holders through arts-based work and a public-history project.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "7b8e2fc02b7a6060d94867f6b8abd90c9dfeedcf1b4ef5669dd6ed812938c480",
+        "descriptionSha256": "f8468d34ed634442001394af241313d78361c28755f805ecaf452b1f462ca6f5",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Native American Histories"
+      },
+      "file": "pilot/shiny/data/courses/GOS.json"
+    },
+    "GOSLAWJ111": {
+      "text": "Offers a legal, historical and philosophical approach to human rights. Studies classical and modern philosophers, traces the rise of human rights, examines the US Bill of Rights and the French Declaration, and discusses human rights treaties.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Human Rights: Law & Philosophy",
+        "sourceField": "description2",
+        "sourceSha256": "1ed6ae8d1c72724248e9a340650eef63f02eaf747b2175254ce1ca96fc82ab62",
+        "descriptionSha256": "1ed6ae8d1c72724248e9a340650eef63f02eaf747b2175254ce1ca96fc82ab62",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "file": "pilot/shiny/data/courses/GOS.json"
+    },
+    "GOSLAWJ212": {
+      "text": "Introduction to Public International Law examines its sources, theories, institutions and relationship to domestic law. Topics include responsibility, force, armed conflict, international crime, human rights, economic relations and environmental protection, followed by self-determination, Third World approaches, compliance and treaty politics. Case exercises and a research podcast develop legal reasoning and critical analysis.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "0f8c6da05a320590248fdd068ef7492aa4a552af12c9e621a746cfcdf1ad4f41",
+        "descriptionSha256": "69f757ece2c00572df432e6ab9cc82f74c14f17c69dd6726bf3e86264049390a",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Introduction to Public International Law"
+      },
+      "file": "pilot/shiny/data/courses/GOS.json"
+    },
+    "GOSLAWJ213": {
+      "text": "Comparative Constitutional Law compares constitutional structures, institutions and rights across legal systems and introduces administrative law. Students study federalism, legislatures, executive relationships, courts, judicial review, human rights, public participation and procedural fairness. A staged booklet compares two constitutions, supported by legal interpretation, case-law analysis and hypothetical cases.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "3749867e8b6ef513149437432c78c9a25f6a6964e62399088abd19dddf6c47b1",
+        "descriptionSha256": "1845c8f87e0e1295bfe5b43ee7ea5c3902c6690b455726ad6c44b66c78ae8a6a",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Comparative Constitutional Law"
+      },
+      "file": "pilot/shiny/data/courses/GOS.json"
+    },
+    "GOSLAWJ312": {
+      "text": "Introduces the EU legal order. Studies institutions, framework, citizenship and the internal market using problem‑based exercises and guest lectures.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Foundations of European Union Law",
+        "sourceField": "description2",
+        "sourceSha256": "fea5f72e90d46266e5f1eb6bdfeb2ee451f21334ff92ecd9dc947792b4add6b6",
+        "descriptionSha256": "fea5f72e90d46266e5f1eb6bdfeb2ee451f21334ff92ecd9dc947792b4add6b6",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "file": "pilot/shiny/data/courses/GOS.json"
+    },
+    "GOSPHIL212": {
+      "text": "Ethics examines moral reasoning through historical and contemporary theories and close philosophical reading. Students study utilitarianism, Kantian ethics, virtue ethics, contractarianism and feminist ethics, alongside Nietzsche, Murdoch and Nagel. Reflection and research essays develop interpretation, argument evaluation and an independent position on ethical theory or a practical ethical problem.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6d4bf415a51b5b6fb41f341d23fe8b8ce483263f17505e77d1a4ae37299fe30f",
+        "descriptionSha256": "d17cd0a6631823a666c2978b81f52bc5e8b5c8e52ed68edccb3fa37073146e5b",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Ethics"
+      },
+      "file": "pilot/shiny/data/courses/GOS.json"
+    },
+    "GOSPOLI111": {
+      "text": "Introduction to Political Philosophy examines political thought from classical antiquity to contemporary debates, including European and non-European thinkers. Students study views of human nature, society, rights and authority in historical context and compare their arguments with current political problems. Original texts, an essay and a group project develop interpretation and normative argument.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "b82d5b7efaf1e222b9ec94652bba7beb367919298b5ae983d3f07f072f142130",
+        "descriptionSha256": "ea3b0a363bec6cacab1a13c186f6c97bbbf5d5ce40d4cf5cdb1a67491d47a19c",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Introduction to Political Philosophy"
+      },
+      "file": "pilot/shiny/data/courses/GOS.json"
+    },
+    "GOSPOLI212": {
+      "text": "Theory of International Relations introduces competing approaches to international relations and geopolitics, including realism, liberalism, Marxism, constructivism and critical theory. Students apply theories to historical and contemporary cases. A United Nations Security Council simulation develops country-position research, negotiation and collaborative resolution drafting.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "0f83c15b507fb2c91b8001182f4a8a94e42ee1673da8396a51bb4a3556d47116",
+        "descriptionSha256": "04498c2b83c05d39830633ba46b62b3691d10af2bb8320e5413d0f75963fbc80",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Theory of International Relations"
+      },
+      "file": "pilot/shiny/data/courses/GOS.json"
+    },
+    "GOSPOLI311": {
+      "text": "European Union Politics examines EU institutions, actors, integration and policymaking, including representation, legitimacy and decision-making. An empirical project investigates European Parliament committee amendments, relating MEP ideology and possible interest-group influence to amendment activity. Students plan the research, code amendments, assess salience and trace legislative processes.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "42788a5dd28eccc535d20a771b88a601c20af300b1102ef637945a852f156fe0",
+        "descriptionSha256": "97411c9c43963bfc500f8c6494383d57cfd36eeb9c57f554e94ba2d6e35c4253",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "mode": "edited",
+        "courseName": "European Union Politics"
+      },
+      "file": "pilot/shiny/data/courses/GOS.json"
+    },
+    "GOSPOLI313": {
+      "text": "Peace & Conflict examines conflict and approaches to peace through legal, sociological, political and historical perspectives. Structural inequality, identity and colonial legacies connect to international security, humanitarian law, human rights, peacebuilding and transitional justice. An interdisciplinary podcast, policy brief and research dossier develop analysis, while reflection examines how assumptions shape inquiry.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "414e04bed3b7b37017b0ce93ba0aa469530684e0623175ca2ff1784b4a84515a",
+        "descriptionSha256": "5ad720fcdadf602282307eef8fe7eaf83c3b00264a2ee4752e123cda89606fdf",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Peace & Conflict"
+      },
+      "file": "pilot/shiny/data/courses/GOS.json"
+    },
+    "GOSSOCI111": {
+      "text": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Sociology",
+        "sourceField": "description2",
+        "sourceSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "descriptionSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "file": "pilot/shiny/data/courses/GOS.json"
+    },
+    "GOSSOCI212": {
+      "text": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "6531d96f817df19cfa773d8d8004f44da6041eeab39acfce1462438728cd1eeb",
+        "descriptionSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Qualitative Research Methodology"
+      },
+      "file": "pilot/shiny/data/courses/GOS.json"
+    },
+    "GOSSOCI214": {
+      "text": "Examines the trajectory of sociology within the culture of imperialism and colonial responses. Studies leading social theories and debates about modernity and critically engages with sociological discourses.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Modern Sociology",
+        "sourceField": "description2",
+        "sourceSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+        "descriptionSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "file": "pilot/shiny/data/courses/GOS.json"
+    },
+    "GOSSOCI215": {
+      "text": "Focuses on social movement theories and environmental justice. Uses case studies from the Environmental Justice Atlas and integrates perspectives such as feminism, anti‑colonialism, degrowth and environmental peacebuilding to encourage civic engagement.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Social Movements & Environmental Justice",
+        "sourceField": "description2",
+        "sourceSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+        "descriptionSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "file": "pilot/shiny/data/courses/GOS.json"
+    },
+    "GOSSOCI311": {
+      "text": "New Issues in Contemporary Social Theory studies civil society through critical, neo-functionalist and decolonial perspectives. Topics include trust, social capital, public spheres, solidarity, social movements and civil repair. An experience report connects engagement or observation to course concepts, while an individual project uses theoretical and empirical sources to analyse a civil-society organisation, movement or initiative.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "New Issues in Contemporary Social Theory",
+        "sourceField": "profile",
+        "sourceSha256": "f54abdf8a1ca13792cdc4bc2d390f202721dd6280b0cae44aa0609c2db02dbbf",
+        "descriptionSha256": "367314c88b9f1c559ccd023159845f9624f353f78d898bc66b690ebe3392336b",
+        "mode": "edited",
+        "reviewedOn": "2026-10-31",
+        "reviewNote": "Read the selected current profile and cumulative outline limitation fields. The displayed summary follows its substantive topics and activities; it omits unsupported resource-planning or mandatory NGO group-project claims from superseded cache wording."
+      },
+      "file": "pilot/shiny/data/courses/GOS.json"
+    },
+    "MCCHEAM211": {
+      "text": "Examines the artistic, historical and ethical dimensions of African art. Highlights distinct forms and cultural significance, considers influence on Western modernism and addresses looting, colonial-era acquisitions and repatriation efforts.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "basis": "official course description",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-05",
+        "sourceSha256": "ed4653bd346b3160d0d0bc754a4bfc729ca05927ad44687bd9c77aa452f7ac7f",
+        "descriptionSha256": "ed4653bd346b3160d0d0bc754a4bfc729ca05927ad44687bd9c77aa452f7ac7f",
+        "reviewNote": "Read the unchanged display text against the current official description and actual course evidence. It accurately conveys the supported historical, heritage, museum or material-media focus without claiming archaeological field qualification. No displayed text changed.",
+        "courseName": "African Art & Heritage"
+      },
+      "file": "pilot/shiny/data/courses/MCC.json"
+    },
+    "MCCMEDI111": {
+      "text": "Introduction to Film & Media examines how moving images create meaning through cinematography, editing, sound, narrative and performance. Film history connects early cinema and major movements with feminist and postcolonial interpretation, alongside television, digital platforms and spectatorship. An analytical or creative-analytical project combines close analysis, theory and scholarly research.",
+      "source": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "5755fae4aad203737db42f373976a1a3540befa537d34b2f7992c241ca2092f3",
+        "descriptionSha256": "07d87ceb8396fdb190b165e8c6c602ac572c9aca7393cd25c4ddddb5f19ccb8a",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "reviewedOn": "2026-10-29",
+        "basis": "course outline",
+        "courseName": "Introduction to Film & Media"
+      },
+      "file": "pilot/shiny/data/courses/MCC.json"
+    },
+    "MCCMEDI212": {
+      "text": "Examines representation of environmental concerns through visual culture. Explores the Anthropocene, animal representation, deep time, biocentrism, contested nature, indigenous and postcolonial media; analyzes how media shape environmental understanding; and includes a paper or media project.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Media & the Environment",
+        "sourceField": "description2",
+        "sourceSha256": "2b61dab9e75d070fa82a001dfc59db49798910b47c0f9bb203e19eaaec9565c6",
+        "descriptionSha256": "2b61dab9e75d070fa82a001dfc59db49798910b47c0f9bb203e19eaaec9565c6",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-05",
+        "reviewNote": "CP303 reviewed the existing verbatim description alongside the current course evidence. The text accurately covers ecological representation, visual media and the final paper or media project."
+      },
+      "file": "pilot/shiny/data/courses/MCC.json"
+    },
+    "MCCMEDI311": {
+      "text": "Media & Race investigates storytelling, power, privilege, resistance and systemic racism in American history from the late nineteenth century to the present. Film, photographs, music and other media connect past and present. Students produce research-based podcasts exploring how media sustains oppression and supports resistance.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "3047a3489ffc4f90cde2a5d32b641f66255b1616a1599ed60e121e6306d5fda8",
+        "descriptionSha256": "05aa4bb52a50700caa428fbe8cbb10a8fb321a9da4087a93a95e30883998a618",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Media & Race"
+      },
+      "file": "pilot/shiny/data/courses/MCC.json"
+    },
+    "MCCMEDI312": {
+      "text": "Introduces documentary film from its early development to contemporary forms, analysing historical and social contexts, styles and genres, and ethical and aesthetic questions. Students analyse non-fiction representations and produce a short documentary item.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "d8ce7c931003ce12a3a81c610feeda88ceed97ae0297b4a9bafa1001fe843803",
+        "descriptionSha256": "223f9d67569f492466d7fe0e444249d55688d2d867669711ff057617aa16f2fe",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "The Documentary"
+      },
+      "file": "pilot/shiny/data/courses/MCC.json"
+    }
+  },
+  "linkChecks": [
+    {
+      "index": 0,
+      "url": "https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/0856b273-b534-4c4e-9a61-7cc17662506c/OER%20BSc%20CAO%20EN%202026-2027%20Final_.pdf",
+      "status": 200,
+      "format": "pdf",
+      "sha256": "2b4f03e90ebe857ceae36bae12a9663efbe8a0ae3c6fa72f0e2bcb53e92208bc",
+      "bytes": 663724
+    },
+    {
+      "index": 1,
+      "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/cultural-anthropology-and-development-sociology",
+      "status": 200,
+      "format": "html",
+      "sha256": "0d69af2e7bd4e6aac44323e747483fd0e6986bacf4d21b630aed5155a59c3daa",
+      "bytes": 32399
+    },
+    {
+      "index": 2,
+      "url": "https://vu.nl/en/education/bachelor/cultural-anthropology-and-development-sociology/curriculum",
+      "status": 200,
+      "format": "html",
+      "sha256": "1f6faab28ba868476a9d8c2e8e9a014ad14cc91a5a9051caaaea1e26bec6a908",
+      "bytes": 72803
+    },
+    {
+      "index": 3,
+      "url": "https://research.vu.nl/en/courses/bachelors-project-anthropology-6/",
+      "status": 200,
+      "format": "html",
+      "sha256": "d579a5904263c8a5af78483df4b8de3bc07ac7b2326ec0b260e9b54bf5282e05",
+      "bytes": 24296
+    },
+    {
+      "index": 4,
+      "url": "https://research.vu.nl/en/courses/ethnographic-research-methodology-2-3/",
+      "status": 200,
+      "format": "html",
+      "sha256": "4fe55055d6f72531739608c6e2c7183b4f15d5091c93459d1a9d8967c54273ea",
+      "bytes": 23160
+    },
+    {
+      "index": 5,
+      "url": "https://vu.nl/en/education/bachelor/cultural-anthropology-and-development-sociology",
+      "status": 200,
+      "format": "html",
+      "sha256": "ccb6c77b5be06e72a6192d8f1639b660e9f3b34f81aa88e5b41bc04ca41cac0d",
+      "bytes": 65280
+    },
+    {
+      "index": 6,
+      "url": "https://vu.nl/en/education/bachelor/cultural-anthropology-and-development-sociology/future",
+      "status": 200,
+      "format": "html",
+      "sha256": "d3fa5951bcddb57b291cf66a6be36a378261b54ebafcdae1bc707a0623778a2e",
+      "bytes": 61288
+    },
+    {
+      "index": 7,
+      "url": "https://research.vu.nl/en/courses/anthropology-for-society/",
+      "status": 200,
+      "format": "html",
+      "sha256": "b64872fe46fe50cc3fbaadae4516caf37dde3d3767464396170fbe5f7f706552",
+      "bytes": 25386
+    }
+  ],
+  "finding": "Reviewed all 24 external component titles and choice notes, 29 course titles and cached descriptions, labels, concepts, block titles, partial matches and gaps, explicit audience references, source destinations and the optional research text. The individual ethnographic project and the public output have separate credits. All course descriptions reuse unchanged code/name/text/source reviews."
+}
