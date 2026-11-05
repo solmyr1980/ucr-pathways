@@ -1,0 +1,93 @@
+{
+  "caseId": "cp-000306",
+  "checkedOn": "2026-11-05T15:01:42.428848+00:00",
+  "reviewerOrPass": "Worker B, separately identified source-first checkpoint by the same AI",
+  "independenceMethod": "After freezing exact unchanged partial record and reference inputs, the same AI reopened the programme and module payloads, re-derived duplicate module identity and 175 distinct credits, then checked the current regulations and cohort-specific archive, and then reread the frozen partial record. Reused verified interest, course and presentation work on matching inputs.",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000306.json": "c2bfe9494953d5d5ad8d5c54c193aded4f95e588",
+    "data/counselor/comparisons/cp-000306.json": "970d5e1e2deb246cff75181094eaed324704fba1",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "bfa71e02e9f0942110f50f03b72b7bfb98def5cd",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "canonical": "970d5e1e2deb246cff75181094eaed324704fba1",
+    "decision": "c2bfe9494953d5d5ad8d5c54c193aded4f95e588"
+  },
+  "sourceFirstFinding": "Confirm the distinct 5 EC that completes year three of Modern Middle East Studies with Arabic for September 2026 entrants. The 2026–2027 study guide lists the same 5 EC course, History of Central Asia & Afghanistan, in required year-two and year-three blocks. Confirm which current taught or abroad/approved alternative route and thesis-entry credit rule apply to those entrants if the solution changes the listed sequence.",
+  "academicStatus": "blocked",
+  "mechanicalStatus": "passed",
+  "contentStatus": "passed",
+  "commands": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000306.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py /tmp/cp306/provisional.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "result": "140 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.\n"
+    },
+    {
+      "command": "PYTHONPATH=/tmp/cp292-resume/python-deps python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000306.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "result": " counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\n"
+    },
+    {
+      "command": "npm run validate:registry-interests",
+      "exitCode": 0,
+      "result": "\n> validate:registry-interests\n> node scripts/validate-registry-interests.mjs\n\nValid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.\n"
+    },
+    {
+      "command": "npm run validate:counselor-review",
+      "exitCode": 0,
+      "result": "\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\n"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000306.json --output /tmp/cp306-second/replay.json",
+      "exitCode": 0,
+      "result": "Built cp-000306 counselor exception record at /tmp/cp306-second/replay.json\n"
+    },
+    {
+      "command": "Byte-exact decision/canonical replay comparison",
+      "exitCode": 0
+    }
+  ],
+  "contentReview": {
+    "mode": "External-only partial exception; no active UCR comparison or modal selection",
+    "fieldPaths": [
+      "all 26 component titles and 175 EC inventory",
+      "audience programmeDescription and comparisonExplanation",
+      "partial curriculum componentIds, yearLabel and limitation",
+      "five explicit progression and choice notes",
+      "comparator name, institution and selected source link",
+      "empty conceptProgrammeIds and noteTypes"
+    ],
+    "finding": "The 26 distinct titles and their credits remain unchanged. The reader sees the Arabic progression and restricted choice notes, thesis threshold, the official study guide and the exact 5 EC limitation. UCR selections are not active. The comparative historical, political and economic proposal remains in the evidence; Islamic court art and Arabic and Near Eastern literary material retain substantive but bounded contributions.",
+    "priorEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000306/content-review.json"
+  },
+  "evidenceRefs": [
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000306/source-attempt-2.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000306/source-interest-review.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000306/course-comparability-review.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000306/content-review.json"
+  ],
+  "remainingGate": "Published-file and applicable CI verification before operational deferral and queue release."
+}
