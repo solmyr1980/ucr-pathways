@@ -1,0 +1,82 @@
+{
+  "caseId": "cp-000296",
+  "checkedOn": "2026-11-05T01:01:49.179463+00:00",
+  "reviewerOrPass": "Worker B, separately identified source-first checkpoint by the same AI",
+  "independenceMethod": "After freezing exact unchanged partial record and reference inputs, independently reconsidered the fresh underlying catalogue, forward-year response and adopted OSO Articles2.2/4.2/AppendixF. Same AI, not an independent person. Reused unchanged verified first-two-year, UCR contribution and content reviews with explicit version checks.",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000296.json": "9bb6903862195079d639589cabcad23c1f8a306a",
+    "data/counselor/comparisons/cp-000296.json": "d6b7746a523a26f6b6354035d3a9c6b8b2401168",
+    "data/registry/programme_interests.csv": "b4d9dd67d0bb7b43d7e14fc3d45e32180249bea3",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "canonical": "d6b7746a523a26f6b6354035d3a9c6b8b2401168",
+    "decision": "9bb6903862195079d639589cabcad23c1f8a306a"
+  },
+  "sourceFirstFinding": "Verify the adopted revised third-year 60 EC allocation, final research/thesis structure and entry/progression rules for entrants from 2025 onward, or an authoritative cohort bridge. Current 2026–2027 regulations remove their formal routes and defer the BA3 transition to the 2027–2028 regulations. The current catalogue labels its third year old style; a forward-year request returns the same current record. The retired General History route and its 15 EC thesis/30 EC choice structure cannot be certified for the revised cohort.",
+  "academicStatus": "blocked",
+  "mechanicalStatus": "passed",
+  "contentStatus": "passed",
+  "commands": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000296.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": "PYTHONPATH=/tmp/cp292-resume/python-deps python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000296.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "result": " counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\n"
+    },
+    {
+      "command": "npm run validate:registry-interests",
+      "exitCode": 0,
+      "result": "\n> validate:registry-interests\n> node scripts/validate-registry-interests.mjs\n\nValid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.\n"
+    },
+    {
+      "command": "npm run validate:counselor-review",
+      "exitCode": 0,
+      "result": "\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\n"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000296.json --output /tmp/cp296-second/replay.json",
+      "exitCode": 0,
+      "result": "Built cp-000296 counselor exception record at /tmp/cp296-second/replay.json\n"
+    },
+    {
+      "command": "Byte-exact decision/canonical replay comparison",
+      "exitCode": 0
+    }
+  ],
+  "contentReview": {
+    "mode": "External-only partial exception; no active UCR comparison/modal selection",
+    "fieldPaths": [
+      "all20 component titles and120EC inventory",
+      "audience programmeDescription/comparisonExplanation",
+      "partial curriculum componentIds/yearLabel/limitation",
+      "allfour componentNotes",
+      "comparator name/institution/selected source links",
+      "empty conceptProgrammeIds/noteTypes"
+    ],
+    "finding": "Re-read unchanged audience and20component names/credits. Required/restricted and future-menu limits explicit; no formal route for2025+ or old third-year units displayed. Papyrology, cartography and research seminar notes remain bounded. No complete pathway, approved comparison or no-match. No R/browser/modal/screenshot claim.",
+    "priorEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000296/content-review.json"
+  },
+  "evidenceRefs": [
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000296/source-attempt-2.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000296/source-interest-review.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000296/course-comparability-review.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000296/preserved-proposals.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000296/content-review.json"
+  ],
+  "remainingGate": "Published-file and applicable CI verification before operational deferral and queue release."
+}

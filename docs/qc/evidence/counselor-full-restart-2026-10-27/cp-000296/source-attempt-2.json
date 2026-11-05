@@ -1,0 +1,111 @@
+{
+  "caseId": "cp-000296",
+  "executionId": "restart-B-cp296-source2-20261105T0058Z",
+  "checkedOn": "2026-11-05T01:01:49.179463+00:00",
+  "sourceExecution": 2,
+  "inputBlobs": {
+    "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000296.json": "9bb6903862195079d639589cabcad23c1f8a306a",
+    "data/counselor/comparisons/cp-000296.json": "d6b7746a523a26f6b6354035d3a9c6b8b2401168",
+    "data/registry/programme_interests.csv": "b4d9dd67d0bb7b43d7e14fc3d45e32180249bea3",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "canonical": "d6b7746a523a26f6b6354035d3a9c6b8b2401168",
+    "decision": "9bb6903862195079d639589cabcad23c1f8a306a"
+  },
+  "retrievals": [
+    {
+      "key": "programme",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=BA-GES&type=STUDY&year=2261&language=en",
+      "status": 200,
+      "bytes": 163053,
+      "sha256": "b5f1c5f8d3f56886f8fe68f193bf37b4d77b96016cd70d9803387e969df52cc7",
+      "pdf": false,
+      "returnedYear": {
+        "active": true,
+        "code": "2026-2027",
+        "endDate": "2027-08-31",
+        "englishName": "2026-2027",
+        "externalId": "2261",
+        "id": 54,
+        "importDateTime": "2026-11-04T22:07:02.217362",
+        "localName": "2026-2027",
+        "new": false,
+        "startDate": "2026-09-01",
+        "visible": true
+      }
+    },
+    {
+      "key": "forward",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=BA-GES&type=STUDY&year=2271&language=en",
+      "status": 200,
+      "bytes": 163053,
+      "sha256": "b5f1c5f8d3f56886f8fe68f193bf37b4d77b96016cd70d9803387e969df52cc7",
+      "pdf": false,
+      "returnedYear": {
+        "active": true,
+        "code": "2026-2027",
+        "endDate": "2027-08-31",
+        "englishName": "2026-2027",
+        "externalId": "2261",
+        "id": 54,
+        "importDateTime": "2026-11-04T22:07:02.217362",
+        "localName": "2026-2027",
+        "new": false,
+        "startDate": "2026-09-01",
+        "visible": true
+      }
+    },
+    {
+      "key": "regulations",
+      "url": "https://www.organisatiegids.universiteitleiden.nl/reglementen/geesteswetenschappen/oer/geschiedenis-ba",
+      "status": 200,
+      "bytes": 21993,
+      "sha256": "5a4b921915c030e8caa77f4a653a99941ba4cb0e28df6c11cd79f50cb281a1e9",
+      "pdf": false,
+      "inspection": "Local HTTP200 response is access HTML, not the official content. Actual landing page and ten-page current PDF inspected through official web reader turn622view0, turn623view0 and turn624view0."
+    },
+    {
+      "key": "oso26",
+      "url": "https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-geschiedenis-2026-2027.pdf",
+      "status": 200,
+      "bytes": 21993,
+      "sha256": "d07269d7f08957fa60b505c760c2277ca0c9f010387e27b23b2da19525e00099",
+      "pdf": false,
+      "inspection": "Local HTTP200 response is access HTML, not the official content. Actual landing page and ten-page current PDF inspected through official web reader turn622view0, turn623view0 and turn624view0."
+    }
+  ],
+  "officialAlternative": {
+    "url": "https://www.organisatiegids.universiteitleiden.nl/reglementen/geesteswetenschappen/oer/geschiedenis-ba",
+    "inspection": "Official listing still ends at2026–2027. Its linked current ten-page OSO was inspected: Article2.2 removes routes for2025+ entrants; AppendixF p9 postpones the BA3 transition to the2027–2028 OSO. Old-cohort routes and route-dependent BA3 entry cannot be silently carried into the revised cohort. Two targeted official searches, verified using the stronger search system, established no adopted newer BA3 allocation or current-cohort bridge.",
+    "status": "Current source confirms continued essential gap."
+  },
+  "findings": [
+    "Fresh current and forward-year API responses are163053bytes, byte-identical to the first attempt, with identical SHA256. Forward request still reports2026–2027.",
+    "Catalogue explicitly distinguishes new firsttwo years from the final old-style thirdyear, and says the new BA3 begins2027–2028. Its old15ECthesis/30ECchoice allocation remains historical. The catalogue points to an internal Brightspace programme page; this does not supply inspected public bridge evidence.",
+    "Current regulations again retain old-cohort route rules; they do not establish revised final-year credits, research structure and progression. No invented60EC or mandatory repeated external research of unaffected firsttwo years."
+  ],
+  "reuse": {
+    "unchanged": [
+      "Supported20component120EC first-two-year inventory",
+      "all29 exact-target interest rows and their bounded construction roles",
+      "current151course workbook and actual course-contribution review",
+      "three repaired feasible provisional UCR schedules, kept internal",
+      "reader-facing partial status, all20 titles/credits andfournotes, selected source link and unchanged renderer"
+    ],
+    "evidenceRefs": [
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000296/source-interest-review.json",
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000296/course-comparability-review.json",
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000296/preserved-proposals.json",
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000296/content-review.json",
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000296/local-validation.json",
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000296/published-verification.json"
+    ]
+  },
+  "unresolved": "Verify the adopted revised third-year 60 EC allocation, final research/thesis structure and entry/progression rules for entrants from 2025 onward, or an authoritative cohort bridge. Current 2026–2027 regulations remove their formal routes and defer the BA3 transition to the 2027–2028 regulations. The current catalogue labels its third year old style; a forward-year request returns the same current record. The retired General History route and its 15 EC thesis/30 EC choice structure cannot be certified for the revised cohort.",
+  "retryDisposition": "Second unsuccessful essential-source execution in this audit. Deferral permitted after published-file and CI verification; incomplete, not approval/no-match. Separate revisit remains unused. Technical access HTML and local worksheet dimension handling are not source-failure executions or systemic corruption."
+}
