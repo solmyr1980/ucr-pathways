@@ -2970,13 +2970,35 @@
     {
       "id": "cp-000099",
       "state": "in-progress",
-      "stageOutcomes": {},
+      "stageOutcomes": {
+        "1": "blocked",
+        "2": "retain",
+        "3": "blocked",
+        "4": "correct",
+        "5": "correct",
+        "6": "blocked"
+      },
       "sharedIssueIds": [],
-      "unresolved": [],
-      "downstreamReassessments": [],
+      "unresolved": [
+        "The verified curriculum covers 90 EC. The credit allocation and complete choice rules for year two and the credits and entry requirements for the final research and communication courses still need confirmation for September 2026 entrants."
+      ],
+      "downstreamReassessments": [
+        {
+          "trigger": "Applicable later-year VU credit and progression allocation verified",
+          "scope": "Review full VU ledger, interests, candidate dispositions, alignments and audience record.",
+          "stages": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
       "implementationCommits": [],
       "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000099.json"
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000099.json",
+      "academicDisposition": "external-programme-unresolved"
     },
     {
       "id": "cp-000100",
@@ -7794,7 +7816,7 @@
           "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
           "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
         },
-        "nextAction": "Verify current VU Health and Life Sciences curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+        "nextAction": "Verify published CP099 partial repair and applicable CI, then close this source attempt and resume CP099 with a second source search.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -8462,23 +8484,18 @@
         "cp-000060": 2,
         "cp-000069": 2,
         "cp-000072": 2,
-        "cp-000087": 2
+        "cp-000087": 2,
+        "cp-000099": 1
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000098",
-        "executionId": "restart-A-cp098-20261105T1930Z",
-        "state": "approved",
-        "academicDisposition": "comparison",
-        "reviewedInputCommit": "70a9ec8a3c327c889755ccafb32cbc3abd421b31",
-        "inputBlobs": {
-          "canonical": "02842a575fd907eedcf1142f51ec64a1c8d568ad",
-          "decision": "54c88371bc6715d04daddd6fccd81e5a522d1f30"
-        },
-        "verifiedAt": "2026-11-05T19:41:07.030382+00:00",
-        "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000098/published-verification.json",
-        "nextAction": "CP098 verified comparison complete with three qualified UCR alternatives. Resume CP099 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
+        "caseId": "cp-000099",
+        "executionId": "restart-A-cp099-20261105T2030Z",
+        "state": "in-progress",
+        "academicDisposition": "external-programme-unresolved",
+        "sourceFailureExecutions": 1,
+        "nextAction": "Verify published CP099 partial repair and applicable CI, then close this source attempt and resume CP099 with a second source search.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/source-attempt-1.json",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -14700,6 +14717,27 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-11-05T20:30:15.219992+00:00",
+          "reason": "Preserve prior Worker A checkpoint before first CP099 source attempt.",
+          "snapshot": {
+            "caseId": "cp-000098",
+            "executionId": "restart-A-cp098-20261105T1930Z",
+            "state": "approved",
+            "academicDisposition": "comparison",
+            "reviewedInputCommit": "70a9ec8a3c327c889755ccafb32cbc3abd421b31",
+            "inputBlobs": {
+              "canonical": "02842a575fd907eedcf1142f51ec64a1c8d568ad",
+              "decision": "54c88371bc6715d04daddd6fccd81e5a522d1f30"
+            },
+            "verifiedAt": "2026-11-05T19:41:07.030382+00:00",
+            "verificationPolicy": "record-content-review-2026-10-31",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000098/published-verification.json",
+            "nextAction": "CP098 verified comparison complete with three qualified UCR alternatives. Resume CP099 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
+            "runtimeModel": "unknown",
+            "runtimeReasoningEffort": "unknown"
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -14975,6 +15013,15 @@
           "essentialEvidence": "Confirm the applicable cohort rule for Discourse and Social Interaction, either an adopted corrected prerequisite, a route-wide exemption or an approved replacement and credit allocation for the 2026 entrants.",
           "officialAlternative": "Direct forward-year study guide and course queries returned HTTP 404. VU’s current track page separately lists proposed second-year titles for 2027–2028 and third-year titles for 2028–2029, explicitly subject to change. It omits the gated course from the proposed list but gives neither an adopted replacement, a credit allocation nor a progression bridge. Targeted official-source searches did not establish a published replacement.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000087/source-attempt-2.json"
+        },
+        {
+          "caseId": "cp-000099",
+          "executionId": "restart-A-cp099-20261105T2030Z",
+          "checkedOn": "2026-11-05",
+          "essentialEvidence": "The verified curriculum covers 90 EC. The credit allocation and complete choice rules for year two and the credits and entry requirements for the final research and communication courses still need confirmation for September 2026 entrants.",
+          "officialAlternative": "Official September 2026 revision paper and current study guide inspected. The former provides topics and choice structure without weights. The latter still lists outgoing specialisation credits for later years. Searches for subsequent editions and exact new project and course names did not provide the missing cohort allocation.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/source-attempt-1.json",
+          "nextAction": "Verify published CP099 partial repair and applicable CI, then close this source attempt and resume CP099 with a second source search."
         }
       ],
       "deferralHistory": [
@@ -15693,6 +15740,15 @@
           "essentialEvidence": "Confirm the applicable cohort rule for Discourse and Social Interaction, either an adopted corrected prerequisite, a route-wide exemption or an approved replacement and credit allocation for the 2026 entrants.",
           "officialAlternative": "Direct forward-year study guide and course queries returned HTTP 404. VU’s current track page separately lists proposed second-year titles for 2027–2028 and third-year titles for 2028–2029, explicitly subject to change. It omits the gated course from the proposed list but gives neither an adopted replacement, a credit allocation nor a progression bridge. Targeted official-source searches did not establish a published replacement.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000087/source-attempt-2.json"
+        },
+        {
+          "caseId": "cp-000099",
+          "executionId": "restart-A-cp099-20261105T2030Z",
+          "checkedOn": "2026-11-05",
+          "essentialEvidence": "The verified curriculum covers 90 EC. The credit allocation and complete choice rules for year two and the credits and entry requirements for the final research and communication courses still need confirmation for September 2026 entrants.",
+          "officialAlternative": "Official September 2026 revision paper and current study guide inspected. The former provides topics and choice structure without weights. The latter still lists outgoing specialisation credits for later years. Searches for subsequent editions and exact new project and course names did not provide the missing cohort allocation.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/source-attempt-1.json",
+          "nextAction": "Verify published CP099 partial repair and applicable CI, then close this source attempt and resume CP099 with a second source search."
         }
       ]
     },
