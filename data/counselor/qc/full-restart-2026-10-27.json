@@ -3006,13 +3006,35 @@
     {
       "id": "cp-000100",
       "state": "in-progress",
-      "stageOutcomes": {},
+      "stageOutcomes": {
+        "1": "blocked",
+        "2": "retain",
+        "3": "blocked",
+        "4": "correct",
+        "5": "correct",
+        "6": "blocked"
+      },
       "sharedIssueIds": [],
-      "unresolved": [],
-      "downstreamReassessments": [],
+      "unresolved": [
+        "The verified curriculum covers 150 EC for September 2026 entrants. The credits and applicable progression rules for the remaining third-year methods, professional development, research placement and thesis still need confirmation."
+      ],
+      "downstreamReassessments": [
+        {
+          "trigger": "Applicable later-year VU credit and progression allocation verified",
+          "scope": "Review full VU ledger, interests, candidate dispositions, alignments and audience record.",
+          "stages": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
       "implementationCommits": [],
       "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000100.json"
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000100.json",
+      "academicDisposition": "external-programme-unresolved"
     },
     {
       "id": "cp-000101",
@@ -7846,7 +7868,7 @@
           "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
           "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
         },
-        "nextAction": "Verify current VU Health Sciences curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+        "nextAction": "Verify published CP100 partial repair and applicable CI, then close this first source attempt and resume CP100 with a second source search.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -8516,22 +8538,20 @@
         "cp-000069": 2,
         "cp-000072": 2,
         "cp-000087": 2,
-        "cp-000099": 2
+        "cp-000099": 2,
+        "cp-000100": 1
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000099",
-        "executionId": "restart-A-cp099-source2-20261105T2130Z",
-        "state": "deferred",
+        "caseId": "cp-000100",
+        "executionId": "restart-A-cp100-20261105T2230Z",
+        "state": "in-progress",
         "academicDisposition": "external-programme-unresolved",
-        "sourceFailureExecutions": 2,
-        "nextAction": "CP099 deferred and incomplete after two unsuccessful essential-source executions. Use its one separate revisit after the own non-deferred queue or when new essential evidence becomes available. Confirm the year-two credit and choice allocation and year-three research, preparation and communication credits and progression for September 2026 VU Health and Life Sciences entrants. Preserve the 90 EC partial curriculum and feasible internal UCR proposal. Resume CP100 next execution.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/source-attempt-2.json",
+        "sourceFailureExecutions": 1,
+        "nextAction": "Verify published CP100 partial repair and applicable CI, then close this first source attempt and resume CP100 with a second source search.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000100/source-attempt-1.json",
         "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown",
-        "implementationCommit": "27c7b08271fb60ef3893d08d5c0a9310555511d9",
-        "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/published-execution-2.json",
-        "CI": "passed"
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -14790,6 +14810,24 @@
             "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/published-verification.json",
             "CI": "passed"
           }
+        },
+        {
+          "preservedOn": "2026-11-05T22:29:20.491708+00:00",
+          "reason": "Preserve prior Worker A checkpoint before first CP100 source attempt.",
+          "snapshot": {
+            "caseId": "cp-000099",
+            "executionId": "restart-A-cp099-source2-20261105T2130Z",
+            "state": "deferred",
+            "academicDisposition": "external-programme-unresolved",
+            "sourceFailureExecutions": 2,
+            "nextAction": "CP099 deferred and incomplete after two unsuccessful essential-source executions. Use its one separate revisit after the own non-deferred queue or when new essential evidence becomes available. Confirm the year-two credit and choice allocation and year-three research, preparation and communication credits and progression for September 2026 VU Health and Life Sciences entrants. Preserve the 90 EC partial curriculum and feasible internal UCR proposal. Resume CP100 next execution.",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/source-attempt-2.json",
+            "runtimeModel": "unknown",
+            "runtimeReasoningEffort": "unknown",
+            "implementationCommit": "27c7b08271fb60ef3893d08d5c0a9310555511d9",
+            "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/published-execution-2.json",
+            "CI": "passed"
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -15082,6 +15120,15 @@
           "essentialEvidence": "The verified curriculum covers 90 EC. The credit allocation and complete choice rules for year two and the credits and entry requirements for the final research and communication courses still need confirmation for September 2026 entrants.",
           "officialAlternative": "The revised official curriculum paper gives the six compulsory courses and four choice slots for year two, and the two project paths, preparatory methods and final communication for year three. The preceding study guide uses old named specialisations. The individual 2026–2027 Science Communication listing gives 6 EC for AB_470185, listed in period 5 of the outgoing year-two structure. It cannot establish the credits for the revised final period-6 course. The future programme URLs return HTTP 404.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/source-attempt-2.json"
+        },
+        {
+          "caseId": "cp-000100",
+          "executionId": "restart-A-cp100-20261105T2230Z",
+          "checkedOn": "2026-11-05",
+          "essentialEvidence": "The verified curriculum covers 150 EC for September 2026 entrants. The credits and applicable progression rules for the remaining third-year methods, professional development, research placement and thesis still need confirmation.",
+          "officialAlternative": "The official programme overview names professional development, placement and thesis without the remaining allocation. The 2025–2026 edition is earlier, and nominal future guide URLs returned 404. The current OER separates new-cohort Methodology 5 progression from the old placement gate without a complete future credit table.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000100/source-attempt-1.json",
+          "nextAction": "Verify published CP100 partial repair and applicable CI, then close this first source attempt and resume CP100 with a second source search."
         }
       ],
       "deferralHistory": [
@@ -15877,6 +15924,15 @@
           "essentialEvidence": "The verified curriculum covers 90 EC. The credit allocation and complete choice rules for year two and the credits and entry requirements for the final research and communication courses still need confirmation for September 2026 entrants.",
           "officialAlternative": "The revised official curriculum paper gives the six compulsory courses and four choice slots for year two, and the two project paths, preparatory methods and final communication for year three. The preceding study guide uses old named specialisations. The individual 2026–2027 Science Communication listing gives 6 EC for AB_470185, listed in period 5 of the outgoing year-two structure. It cannot establish the credits for the revised final period-6 course. The future programme URLs return HTTP 404.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/source-attempt-2.json"
+        },
+        {
+          "caseId": "cp-000100",
+          "executionId": "restart-A-cp100-20261105T2230Z",
+          "checkedOn": "2026-11-05",
+          "essentialEvidence": "The verified curriculum covers 150 EC for September 2026 entrants. The credits and applicable progression rules for the remaining third-year methods, professional development, research placement and thesis still need confirmation.",
+          "officialAlternative": "The official programme overview names professional development, placement and thesis without the remaining allocation. The 2025–2026 edition is earlier, and nominal future guide URLs returned 404. The current OER separates new-cohort Methodology 5 progression from the old placement gate without a complete future credit table.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000100/source-attempt-1.json",
+          "nextAction": "Verify published CP100 partial repair and applicable CI, then close this first source attempt and resume CP100 with a second source search."
         }
       ]
     },
