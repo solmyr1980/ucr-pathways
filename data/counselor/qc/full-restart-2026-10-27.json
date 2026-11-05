@@ -2801,7 +2801,7 @@
     },
     {
       "id": "cp-000091",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
@@ -2813,8 +2813,10 @@
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "93af0cd632d7141d7874811680373a8f924c030b"
+      ],
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000091.json",
       "academicDisposition": "comparison"
     },
@@ -7380,8 +7382,8 @@
     }
   ],
   "progress": {
-    "approved": 114,
-    "inProgress": 43,
+    "approved": 115,
+    "inProgress": 42,
     "reviewedWithBlockers": 0,
     "notStarted": 281,
     "pilotStarted": 4
@@ -7613,36 +7615,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000091",
-      "activeClaim": {
-        "executionId": "restart-A-cp091-20261105T1230Z",
-        "worker": "A",
-        "caseId": "cp-000091",
-        "claimedAt": "2026-11-05T12:34:35.753940+00:00",
-        "reviewedInputCommit": "38d790413a0270c0551230b40c348c4643eac636",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000091.json": "17af700baa5be18793bad927795a8c79ae80d31d",
-          "data/counselor/comparisons/cp-000091.json": "db6793eda5b4400f30c970aa8460d8495be3fef7",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify current Cultural Anthropology and Development Sociology curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000092",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -7713,7 +7694,8 @@
         "cp-000086",
         "cp-000088",
         "cp-000089",
-        "cp-000090"
+        "cp-000090",
+        "cp-000091"
       ],
       "completedDispositions": [
         {
@@ -8205,6 +8187,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000090.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-05"
+        },
+        {
+          "caseId": "cp-000091",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000091.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-05"
         }
       ],
       "deferredCases": [
@@ -8247,19 +8236,19 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000090",
-        "executionId": "restart-A-cp090-20261105T1130Z",
+        "caseId": "cp-000091",
+        "executionId": "restart-A-cp091-20261105T1230Z",
         "state": "approved",
         "academicDisposition": "comparison",
-        "reviewedInputCommit": "9573b49bcc10d762b545e58c68b3fe3219ad463d",
+        "reviewedInputCommit": "93af0cd632d7141d7874811680373a8f924c030b",
         "inputBlobs": {
-          "canonical": "beda3f7d2ef773df1fc8e3e8507846648e0b00dd",
-          "decision": "a1f3315140a79648be643feca38763f23b65fcd2"
+          "canonical": "cc6877fbbed5ae9b2fa94d14e774261d5f5a833e",
+          "decision": "005b8c97eadfe4ca5e96944478b799c8ea07d5e9"
         },
-        "verifiedAt": "2026-11-05T11:35:11.487926+00:00",
+        "verifiedAt": "2026-11-05T12:42:32.633893+00:00",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000090/published-verification.json",
-        "nextAction": "CP090 verified comparison complete with one qualified UCR alternative. Resume CP091 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000091/published-verification.json",
+        "nextAction": "CP091 verified comparison complete with two qualified UCR alternatives. Resume CP092 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -14121,6 +14110,51 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-11-05T12:42:32.633893+00:00",
+          "reason": "Preserve prior worker checkpoint and own active claim before CP091 final disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000090",
+              "executionId": "restart-A-cp090-20261105T1130Z",
+              "state": "approved",
+              "academicDisposition": "comparison",
+              "reviewedInputCommit": "9573b49bcc10d762b545e58c68b3fe3219ad463d",
+              "inputBlobs": {
+                "canonical": "beda3f7d2ef773df1fc8e3e8507846648e0b00dd",
+                "decision": "a1f3315140a79648be643feca38763f23b65fcd2"
+              },
+              "verifiedAt": "2026-11-05T11:35:11.487926+00:00",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000090/published-verification.json",
+              "nextAction": "CP090 verified comparison complete with one qualified UCR alternative. Resume CP091 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp091-20261105T1230Z",
+              "worker": "A",
+              "caseId": "cp-000091",
+              "claimedAt": "2026-11-05T12:34:35.753940+00:00",
+              "reviewedInputCommit": "38d790413a0270c0551230b40c348c4643eac636",
+              "inputBlobs": {
+                "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000091.json": "17af700baa5be18793bad927795a8c79ae80d31d",
+                "data/counselor/comparisons/cp-000091.json": "db6793eda5b4400f30c970aa8460d8495be3fef7",
+                "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Verify current Cultural Anthropology and Development Sociology curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -14895,6 +14929,31 @@
           "endedAt": "2026-11-05T11:35:11.487926+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000090/published-verification.json"
+        },
+        {
+          "executionId": "restart-A-cp091-20261105T1230Z",
+          "worker": "A",
+          "caseId": "cp-000091",
+          "claimedAt": "2026-11-05T12:34:35.753940+00:00",
+          "reviewedInputCommit": "38d790413a0270c0551230b40c348c4643eac636",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000091.json": "17af700baa5be18793bad927795a8c79ae80d31d",
+            "data/counselor/comparisons/cp-000091.json": "db6793eda5b4400f30c970aa8460d8495be3fef7",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify current Cultural Anthropology and Development Sociology curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-05T12:42:32.633893+00:00",
+          "result": "approved comparison",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000091/published-verification.json"
         }
       ],
       "sourceRetryLog": [
