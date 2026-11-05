@@ -1,0 +1,67 @@
+{
+  "caseId": "cp-000302",
+  "checkedOn": "2026-11-05T08:04:13.416920+00:00",
+  "inputBlobs": {
+    "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000302.json": "617c7db34a82ba05d23d0221430e95715d46c6a3",
+    "data/counselor/comparisons/cp-000302.json": "75af41687cba48a92765977744e755f143e5cb00",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "9e627cc72ed8a1f89022d64ad7456320f658e5e3",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "canonical": "75af41687cba48a92765977744e755f143e5cb00",
+    "decision": "617c7db34a82ba05d23d0221430e95715d46c6a3"
+  },
+  "commands": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000302.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": "PYTHONPATH=/tmp/cp292-resume/python-deps python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000302.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "result": "136 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.\n"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "result": " counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\n"
+    },
+    {
+      "command": "npm run validate:registry-interests",
+      "exitCode": 0,
+      "result": "\n> validate:registry-interests\n> node scripts/validate-registry-interests.mjs\n\nValid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.\n"
+    },
+    {
+      "command": "npm run validate:counselor-review",
+      "exitCode": 0,
+      "result": "\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\n"
+    },
+    {
+      "command": "python scripts/apply-registry-corrections.py --check",
+      "exitCode": 0,
+      "result": "Registry post-build corrections and alias crosswalks are current\n"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000302.json --output /tmp/cp302/replay-frozen.json",
+      "exitCode": 0,
+      "result": "Built cp-000302 counselor exception record at /tmp/cp302/replay-frozen.json\n"
+    },
+    {
+      "command": "Byte-exact decision/canonical replay comparison",
+      "exitCode": 0
+    }
+  ],
+  "publicationVerification": "Pending publication and applicable CI; no approval yet."
+}
