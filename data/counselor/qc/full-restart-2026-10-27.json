@@ -6053,7 +6053,7 @@
     },
     {
       "id": "cp-000310",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "retain",
         "2": "retain",
@@ -6065,8 +6065,10 @@
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "a025a302f612ccc576d896bd659dad320f39a779"
+      ],
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000310.json",
       "academicDisposition": "comparison"
     },
@@ -7532,8 +7534,8 @@
     }
   ],
   "progress": {
-    "approved": 123,
-    "inProgress": 45,
+    "approved": 124,
+    "inProgress": 44,
     "reviewedWithBlockers": 0,
     "notStarted": 270,
     "pilotStarted": 4
@@ -15897,36 +15899,15 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000310",
-      "activeClaim": {
-        "executionId": "restart-B-cp310-20261105T2000Z",
-        "worker": "B",
-        "caseId": "cp-000310",
-        "claimedAt": "2026-11-05T20:04:51.714277+00:00",
-        "reviewedInputCommit": "910395c0cf9f4db6ac739db098cad8874fc0e040",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000310.json": "dac4c32c90d66e0c508ff7f2b3ff73b22022297d",
-          "data/counselor/comparisons/cp-000310.json": "0d7ad34cddd39e118982c625a5c388acdc67659a",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify current Dutch Language and Culture curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000311",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -15972,7 +15953,8 @@
         "cp-000301",
         "cp-000302",
         "cp-000303",
-        "cp-000308"
+        "cp-000308",
+        "cp-000310"
       ],
       "completedDispositions": [
         {
@@ -16289,6 +16271,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000308.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-05"
+        },
+        {
+          "caseId": "cp-000310",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000310.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-05"
         }
       ],
       "deferredCases": [
@@ -16352,18 +16341,21 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000309",
-        "executionId": "restart-B-cp309-source2-20261105T1900Z",
-        "state": "deferred",
-        "academicDisposition": "external-programme-unresolved",
-        "sourceFailureExecutions": 2,
-        "nextAction": "CP309 deferred and incomplete after two unsuccessful essential-source executions. Use its one separate revisit after the own non-deferred queue or when new essential evidence becomes available. Confirm the distinct 5 EC second-year requirement and reconcile the third-year concentration, term allocation, electives and thesis progression for September 2026 Dutch Studies entrants. Preserve the 115 EC partial curriculum and feasible internal UCR proposal. Resume CP310 next execution.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000309/source-attempt-2.json",
+        "caseId": "cp-000310",
+        "executionId": "restart-B-cp310-20261105T2000Z",
+        "state": "approved",
+        "academicDisposition": "comparison",
+        "reviewedInputCommit": "a025a302f612ccc576d896bd659dad320f39a779",
+        "inputBlobs": {
+          "canonical": "08929e2ca6d2f566b37d047e3db666c95bafa5cc",
+          "decision": "d641f241126edf321377ca61d7e1a7555ca1d417"
+        },
+        "verifiedAt": "2026-11-05T20:14:05.503370+00:00",
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000310/published-verification.json",
+        "nextAction": "CP310 verified comparison complete with two qualified UCR alternatives. Resume CP311 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
         "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown",
-        "implementationCommit": "908e62d450c962750785f4d69068ddbc4a1c6669",
-        "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000309/published-execution-2.json",
-        "CI": "passed"
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -21465,6 +21457,48 @@
             "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000309/published-verification.json",
             "CI": "passed"
           }
+        },
+        {
+          "preservedOn": "2026-11-05T20:14:05.503370+00:00",
+          "reason": "Preserve prior worker checkpoint and own active claim before CP310 final disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000309",
+              "executionId": "restart-B-cp309-source2-20261105T1900Z",
+              "state": "deferred",
+              "academicDisposition": "external-programme-unresolved",
+              "sourceFailureExecutions": 2,
+              "nextAction": "CP309 deferred and incomplete after two unsuccessful essential-source executions. Use its one separate revisit after the own non-deferred queue or when new essential evidence becomes available. Confirm the distinct 5 EC second-year requirement and reconcile the third-year concentration, term allocation, electives and thesis progression for September 2026 Dutch Studies entrants. Preserve the 115 EC partial curriculum and feasible internal UCR proposal. Resume CP310 next execution.",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000309/source-attempt-2.json",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown",
+              "implementationCommit": "908e62d450c962750785f4d69068ddbc4a1c6669",
+              "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000309/published-execution-2.json",
+              "CI": "passed"
+            },
+            "activeClaim": {
+              "executionId": "restart-B-cp310-20261105T2000Z",
+              "worker": "B",
+              "caseId": "cp-000310",
+              "claimedAt": "2026-11-05T20:04:51.714277+00:00",
+              "reviewedInputCommit": "910395c0cf9f4db6ac739db098cad8874fc0e040",
+              "inputBlobs": {
+                "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000310.json": "dac4c32c90d66e0c508ff7f2b3ff73b22022297d",
+                "data/counselor/comparisons/cp-000310.json": "0d7ad34cddd39e118982c625a5c388acdc67659a",
+                "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Verify current Dutch Language and Culture curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -22955,6 +22989,31 @@
           "endedAt": "2026-11-05T19:09:15.791652+00:00",
           "result": "deferred; incomplete; second source execution",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000309/published-execution-2.json"
+        },
+        {
+          "executionId": "restart-B-cp310-20261105T2000Z",
+          "worker": "B",
+          "caseId": "cp-000310",
+          "claimedAt": "2026-11-05T20:04:51.714277+00:00",
+          "reviewedInputCommit": "910395c0cf9f4db6ac739db098cad8874fc0e040",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000310.json": "dac4c32c90d66e0c508ff7f2b3ff73b22022297d",
+            "data/counselor/comparisons/cp-000310.json": "0d7ad34cddd39e118982c625a5c388acdc67659a",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify current Dutch Language and Culture curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-05T20:14:05.503370+00:00",
+          "result": "approved comparison",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000310/published-verification.json"
         }
       ],
       "publicationRecoveryHistory": [
