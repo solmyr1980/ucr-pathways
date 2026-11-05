@@ -2996,7 +2996,8 @@
         }
       ],
       "implementationCommits": [
-        "c1df435ac82b803e2fbe31a8d3bf7b7f568dbc17"
+        "c1df435ac82b803e2fbe31a8d3bf7b7f568dbc17",
+        "27c7b08271fb60ef3893d08d5c0a9310555511d9"
       ],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000099.json",
@@ -7817,36 +7818,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000099",
-      "activeClaim": {
-        "executionId": "restart-A-cp099-source2-20261105T2130Z",
-        "worker": "A",
-        "caseId": "cp-000099",
-        "claimedAt": "2026-11-05T21:27:07.210114+00:00",
-        "reviewedInputCommit": "ed077636468e06dd12c51be3ec1ac37ee51f1064",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000099.json": "d5a3e2d61a06a61cd60b38907c4f2dc178a131df",
-          "data/counselor/comparisons/cp-000099.json": "a298611416b7a4d166ccae31f17c6daf110c3206",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify published CP099 second-source checkpoint and applicable CI, then defer as incomplete and resume CP100 next execution.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000100",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -8492,7 +8472,8 @@
         "cp-000060",
         "cp-000069",
         "cp-000072",
-        "cp-000087"
+        "cp-000087",
+        "cp-000099"
       ],
       "sourceRetrievalFailuresByCase": {
         "cp-000013": 2,
@@ -8518,13 +8499,16 @@
       "lastCheckpoint": {
         "caseId": "cp-000099",
         "executionId": "restart-A-cp099-source2-20261105T2130Z",
-        "state": "in-progress",
+        "state": "deferred",
         "academicDisposition": "external-programme-unresolved",
         "sourceFailureExecutions": 2,
-        "nextAction": "Verify published CP099 second-source checkpoint and applicable CI, then defer as incomplete and resume CP100 next execution.",
+        "nextAction": "CP099 deferred and incomplete after two unsuccessful essential-source executions. Use its one separate revisit after the own non-deferred queue or when new essential evidence becomes available. Confirm the year-two credit and choice allocation and year-three research, preparation and communication credits and progression for September 2026 VU Health and Life Sciences entrants. Preserve the 90 EC partial curriculum and feasible internal UCR proposal. Resume CP100 next execution.",
         "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/source-attempt-2.json",
         "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
+        "runtimeReasoningEffort": "unknown",
+        "implementationCommit": "27c7b08271fb60ef3893d08d5c0a9310555511d9",
+        "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/published-execution-2.json",
+        "CI": "passed"
       },
       "checkpointHistory": [
         {
@@ -15247,6 +15231,16 @@
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000087/source-attempt-2.json",
           "revisitStatus": "pending; not consumed",
           "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
+        },
+        {
+          "caseId": "cp-000099",
+          "deferredOn": "2026-11-05",
+          "executionId": "restart-A-cp099-source2-20261105T2130Z",
+          "unsuccessfulExecutions": 2,
+          "reason": "The verified curriculum covers 90 EC. The credit allocation and complete choice rules for year two and the credits and entry requirements for the final research and communication courses still need confirmation for September 2026 entrants.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/source-attempt-2.json",
+          "revisitStatus": "pending; not consumed",
+          "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
         }
       ],
       "claimHistory": [
@@ -15799,6 +15793,31 @@
           "endedAt": "2026-11-05T20:34:07.779107+00:00",
           "result": "incomplete; first source execution",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/published-verification.json"
+        },
+        {
+          "executionId": "restart-A-cp099-source2-20261105T2130Z",
+          "worker": "A",
+          "caseId": "cp-000099",
+          "claimedAt": "2026-11-05T21:27:07.210114+00:00",
+          "reviewedInputCommit": "ed077636468e06dd12c51be3ec1ac37ee51f1064",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000099.json": "d5a3e2d61a06a61cd60b38907c4f2dc178a131df",
+            "data/counselor/comparisons/cp-000099.json": "a298611416b7a4d166ccae31f17c6daf110c3206",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify published CP099 second-source checkpoint and applicable CI, then defer as incomplete and resume CP100 next execution.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-05T21:30:55.283163+00:00",
+          "result": "deferred; incomplete; second source execution",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000099/published-execution-2.json"
         }
       ],
       "sourceRetryLog": [
