@@ -6162,13 +6162,35 @@
     {
       "id": "cp-000312",
       "state": "in-progress",
-      "stageOutcomes": {},
+      "stageOutcomes": {
+        "1": "blocked",
+        "2": "retain",
+        "3": "blocked",
+        "4": "correct",
+        "5": "correct",
+        "6": "blocked"
+      },
       "sharedIssueIds": [],
-      "unresolved": [],
-      "downstreamReassessments": [],
+      "unresolved": [
+        "The listed courses account for 155 distinct credits after repeated entries are counted once. The remaining credits and entry to the Roman North Africa seminar need confirmation for this route."
+      ],
+      "downstreamReassessments": [
+        {
+          "trigger": "Distinct course allocation and Roman North Africa progression verified",
+          "scope": "Review full Leiden ledger, interests, candidate dispositions, alignments and audience record.",
+          "stages": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
       "implementationCommits": [],
       "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000312.json"
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000312.json",
+      "academicDisposition": "external-programme-unresolved"
     },
     {
       "id": "cp-000313",
@@ -16197,7 +16219,7 @@
           "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
           "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
         },
-        "nextAction": "Verify current Ancient Near Eastern Studies curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+        "nextAction": "Verify published CP312 partial repair and applicable CI, then close the first source attempt and resume CP312.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -16632,22 +16654,20 @@
         "cp-000305": 2,
         "cp-000306": 2,
         "cp-000309": 2,
-        "cp-000311": 2
+        "cp-000311": 2,
+        "cp-000312": 1
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000311",
-        "executionId": "restart-B-cp311-source2-20261105T2200Z",
-        "state": "deferred",
+        "caseId": "cp-000312",
+        "executionId": "restart-B-cp312-20261105T2300Z",
+        "state": "in-progress",
         "academicDisposition": "external-programme-unresolved",
-        "sourceFailureExecutions": 2,
-        "nextAction": "CP311 deferred and incomplete after two unsuccessful essential-source executions. Use its one separate revisit after the own non-deferred queue or when new essential evidence becomes available. Confirm the revised 60 EC third-year course allocation, elective rules, thesis credits, and thesis entry and completion requirements for September 2025 and later Notarial Law entrants. Preserve the 120 EC partial curriculum and feasible internal UCR proposal. Resume CP312 next execution.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000311/source-attempt-2.json",
+        "sourceFailureExecutions": 1,
+        "nextAction": "Verify published CP312 partial repair and applicable CI, then close the first source attempt and resume CP312.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000312/source-attempt-1.json",
         "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown",
-        "implementationCommit": "5a8c0834989d12b32f424b718e4e3cacf2da7575",
-        "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000311/published-execution-2.json",
-        "CI": "passed"
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -21830,6 +21850,24 @@
             "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000311/published-verification.json",
             "CI": "passed"
           }
+        },
+        {
+          "preservedOn": "2026-11-05T23:00:03.471980+00:00",
+          "reason": "Preserve prior Worker B checkpoint before first CP312 source attempt.",
+          "snapshot": {
+            "caseId": "cp-000311",
+            "executionId": "restart-B-cp311-source2-20261105T2200Z",
+            "state": "deferred",
+            "academicDisposition": "external-programme-unresolved",
+            "sourceFailureExecutions": 2,
+            "nextAction": "CP311 deferred and incomplete after two unsuccessful essential-source executions. Use its one separate revisit after the own non-deferred queue or when new essential evidence becomes available. Confirm the revised 60 EC third-year course allocation, elective rules, thesis credits, and thesis entry and completion requirements for September 2025 and later Notarial Law entrants. Preserve the 120 EC partial curriculum and feasible internal UCR proposal. Resume CP312 next execution.",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000311/source-attempt-2.json",
+            "runtimeModel": "unknown",
+            "runtimeReasoningEffort": "unknown",
+            "implementationCommit": "5a8c0834989d12b32f424b718e4e3cacf2da7575",
+            "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000311/published-execution-2.json",
+            "CI": "passed"
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -22266,6 +22304,15 @@
           "essentialEvidence": "The revised curriculum is verified through 120 EC. Leiden’s current catalogue lists a third year for students who started in 2024 or earlier. The revised third-year course credits, elective rules and thesis requirements still need confirmation.",
           "officialAlternative": "Inspected the official 2026–2027 transition PDF through its indexed text because direct retrieval returned an access block. Page 1 describes the revised first and second years, including the split of Obligations and changes to the Property and Company Law modules. Page 2 lists third-year transitions from the 2015–2016 revision and the older Real Estate split. It does not establish the revised third-year ledger or thesis entry. The 2025–2026 transition and archive are earlier, and the official public programme overview supplies topic and thesis context without current cohort credits or progression.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000311/source-attempt-2.json"
+        },
+        {
+          "caseId": "cp-000312",
+          "executionId": "restart-B-cp312-20261105T2300Z",
+          "checkedOn": "2026-11-05",
+          "essentialEvidence": "The listed courses account for 155 distinct credits after repeated entries are counted once. The remaining credits and entry to the Roman North Africa seminar need confirmation for this route.",
+          "officialAlternative": "The official 2025–2026 archive shows different required subjects and splits open study across two semesters. It does not establish replacements for the current duplicate slots. The current overview gives the route scope and thesis requirements without the missing credit and progression allocation. Nominal later API requests returned the current product.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000312/source-attempt-1.json",
+          "nextAction": "Verify published CP312 partial repair and applicable CI, then close the first source attempt and resume CP312."
         }
       ],
       "deferralHistory": [
@@ -22720,6 +22767,15 @@
           "essentialEvidence": "The revised curriculum is verified through 120 EC. Leiden’s current catalogue lists a third year for students who started in 2024 or earlier. The revised third-year course credits, elective rules and thesis requirements still need confirmation.",
           "officialAlternative": "Inspected the official 2026–2027 transition PDF through its indexed text because direct retrieval returned an access block. Page 1 describes the revised first and second years, including the split of Obligations and changes to the Property and Company Law modules. Page 2 lists third-year transitions from the 2015–2016 revision and the older Real Estate split. It does not establish the revised third-year ledger or thesis entry. The 2025–2026 transition and archive are earlier, and the official public programme overview supplies topic and thesis context without current cohort credits or progression.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000311/source-attempt-2.json"
+        },
+        {
+          "caseId": "cp-000312",
+          "executionId": "restart-B-cp312-20261105T2300Z",
+          "checkedOn": "2026-11-05",
+          "essentialEvidence": "The listed courses account for 155 distinct credits after repeated entries are counted once. The remaining credits and entry to the Roman North Africa seminar need confirmation for this route.",
+          "officialAlternative": "The official 2025–2026 archive shows different required subjects and splits open study across two semesters. It does not establish replacements for the current duplicate slots. The current overview gives the route scope and thesis requirements without the missing credit and progression allocation. Nominal later API requests returned the current product.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000312/source-attempt-1.json",
+          "nextAction": "Verify published CP312 partial repair and applicable CI, then close the first source attempt and resume CP312."
         }
       ],
       "publicationRecovery": {
