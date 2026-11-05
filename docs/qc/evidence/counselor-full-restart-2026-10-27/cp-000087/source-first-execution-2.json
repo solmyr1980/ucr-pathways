@@ -1,0 +1,99 @@
+{
+  "reviewerOrPass": "Worker A, separately identified source-first checkpoint by the same AI",
+  "independenceMethod": "The same AI reopened the current official regulations and annual module records and checked the provisional future lists and alternative registration route against the frozen case. Earlier interest, course contribution and content findings were reused on matching input bytes.",
+  "reviewedOn": "2026-11-05",
+  "reviewedCommit": "327e50c3a74ee886a2fb7bfea30b1979c4b174f1",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000087.json": "2d65e23f035ff8814fcd2eda02c9024f27c69cbe",
+    "data/counselor/comparisons/cp-000087.json": "bfa97821fb390853c44ff1ec348694cd991f6f79",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "9e627cc72ed8a1f89022d64ad7456320f658e5e3",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "canonical": "bfa97821fb390853c44ff1ec348694cd991f6f79",
+    "decision": "2d65e23f035ff8814fcd2eda02c9024f27c69cbe"
+  },
+  "checks": {
+    "academic": {
+      "status": "blocked",
+      "finding": "Confirm the applicable cohort rule for Discourse and Social Interaction, either an adopted corrected prerequisite, a route-wide exemption or an approved replacement and credit allocation for the 2026 entrants.",
+      "evidenceRefs": [
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000087/source-attempt-2.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000087/course-comparability-review.json"
+      ]
+    },
+    "mechanical": {
+      "status": "passed",
+      "evidenceRefs": [
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000087/source-first-execution-2.json"
+      ]
+    },
+    "content": {
+      "status": "passed",
+      "evidenceRefs": [
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000087/source-first-execution-2.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000087/content-review.json"
+      ]
+    }
+  },
+  "checkedOn": "2026-11-05T08:30:48.266746+00:00",
+  "commands": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000087.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": "PYTHONPATH=/tmp/cp292-resume/python-deps python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000087.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "result": "136 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.\n"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "result": " counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\n"
+    },
+    {
+      "command": "npm run validate:registry-interests",
+      "exitCode": 0,
+      "result": "\n> validate:registry-interests\n> node scripts/validate-registry-interests.mjs\n\nValid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.\n"
+    },
+    {
+      "command": "npm run validate:counselor-review",
+      "exitCode": 0,
+      "result": "\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\n"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000087.json --output /tmp/cp087-second/replay.json",
+      "exitCode": 0,
+      "result": "Built cp-000087 counselor exception record at /tmp/cp087-second/replay.json\n"
+    },
+    {
+      "command": "Byte-exact decision/canonical replay",
+      "exitCode": 0
+    },
+    {
+      "command": "Course feasibility of the two preserved internal proposals",
+      "exitCode": 0,
+      "result": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+    }
+  ],
+  "findings": [
+    "Source-first comparison of the current route table, course entry and provisional forward list confirms the progression gap. Similar wording, access to a general first-year course and a possible individual exemption do not establish the cohort rule.",
+    "Rechecked the 180 EC partial record, all 26 components and four notes, reader-facing titles, route, explanation and official source links against the same renderer mapping. The curriculum states the actual progression limitation. There are no rendered UCR courses or modals.",
+    "The two preserved UCR proposals still pass actual course feasibility. Their substantive contributions were reviewed on the same workbook and kept internal pending the external rule."
+  ],
+  "remainingGate": "Verify published files and applicable CI, then defer under the active rule."
+}
