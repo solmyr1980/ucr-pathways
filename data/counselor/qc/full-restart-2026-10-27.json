@@ -6100,13 +6100,35 @@
     {
       "id": "cp-000311",
       "state": "in-progress",
-      "stageOutcomes": {},
+      "stageOutcomes": {
+        "1": "blocked",
+        "2": "retain",
+        "3": "blocked",
+        "4": "correct",
+        "5": "correct",
+        "6": "blocked"
+      },
       "sharedIssueIds": [],
-      "unresolved": [],
-      "downstreamReassessments": [],
+      "unresolved": [
+        "The revised curriculum is verified through 120 EC. Leiden’s current catalogue lists a third year for students who started in 2024 or earlier. The revised third-year course credits, elective rules and thesis requirements still need confirmation."
+      ],
+      "downstreamReassessments": [
+        {
+          "trigger": "Revised year-three credits, choices and thesis progression verified",
+          "scope": "Review full Leiden ledger, interests, candidate dispositions, alignments and audience record.",
+          "stages": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
       "implementationCommits": [],
       "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000311.json"
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000311.json",
+      "academicDisposition": "external-programme-unresolved"
     },
     {
       "id": "cp-000312",
@@ -16013,7 +16035,7 @@
           "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
           "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
         },
-        "nextAction": "Verify current Notarial Law curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+        "nextAction": "Verify published CP311 partial repair and applicable CI, then close the first source attempt and resume CP311.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -16446,23 +16468,18 @@
         "cp-000304": 2,
         "cp-000305": 2,
         "cp-000306": 2,
-        "cp-000309": 2
+        "cp-000309": 2,
+        "cp-000311": 1
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000310",
-        "executionId": "restart-B-cp310-20261105T2000Z",
-        "state": "approved",
-        "academicDisposition": "comparison",
-        "reviewedInputCommit": "a025a302f612ccc576d896bd659dad320f39a779",
-        "inputBlobs": {
-          "canonical": "08929e2ca6d2f566b37d047e3db666c95bafa5cc",
-          "decision": "d641f241126edf321377ca61d7e1a7555ca1d417"
-        },
-        "verifiedAt": "2026-11-05T20:14:05.503370+00:00",
-        "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000310/published-verification.json",
-        "nextAction": "CP310 verified comparison complete with two qualified UCR alternatives. Resume CP311 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
+        "caseId": "cp-000311",
+        "executionId": "restart-B-cp311-20261105T2100Z",
+        "state": "in-progress",
+        "academicDisposition": "external-programme-unresolved",
+        "sourceFailureExecutions": 1,
+        "nextAction": "Verify published CP311 partial repair and applicable CI, then close the first source attempt and resume CP311.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000311/source-attempt-1.json",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -21608,6 +21625,27 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-11-05T21:00:32.239554+00:00",
+          "reason": "Preserve prior Worker B checkpoint before first CP311 source attempt.",
+          "snapshot": {
+            "caseId": "cp-000310",
+            "executionId": "restart-B-cp310-20261105T2000Z",
+            "state": "approved",
+            "academicDisposition": "comparison",
+            "reviewedInputCommit": "a025a302f612ccc576d896bd659dad320f39a779",
+            "inputBlobs": {
+              "canonical": "08929e2ca6d2f566b37d047e3db666c95bafa5cc",
+              "decision": "d641f241126edf321377ca61d7e1a7555ca1d417"
+            },
+            "verifiedAt": "2026-11-05T20:14:05.503370+00:00",
+            "verificationPolicy": "record-content-review-2026-10-31",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000310/published-verification.json",
+            "nextAction": "CP310 verified comparison complete with two qualified UCR alternatives. Resume CP311 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
+            "runtimeModel": "unknown",
+            "runtimeReasoningEffort": "unknown"
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -22027,6 +22065,15 @@
           "essentialEvidence": "Confirm the distinct 5 EC second-year requirement for September 2026 entrants, because the current catalogue repeats Humanities in a Digital World from year one. Confirm whether the third-year concentration carries 10 or 15 EC and which term allocation, elective space and thesis progression apply to that cohort.",
           "officialAlternative": "The official 2025–2026 archive has Philosophy of Science in first year, a track-dependent 5 EC second-year course and third-year electives. The current regulations took effect on 1 September 2026. Appendix F applies to 2025–2026 and earlier entrants and substitutes Humanities in a Digital World for an old Culture requirement. Article 4.2 preserves the year-one, year-two and advanced-writing requirements for the thesis and seminar. The official public programme overview, inspected via indexed retrieval after direct access blocking, confirms progression to academic Dutch without resolving the entrant credit allocation. None of these sources specifies a distinct second-year requirement and reconciles the current third-year group totals.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000309/source-attempt-2.json"
+        },
+        {
+          "caseId": "cp-000311",
+          "executionId": "restart-B-cp311-20261105T2100Z",
+          "checkedOn": "2026-11-05",
+          "essentialEvidence": "The revised curriculum is verified through 120 EC. Leiden’s current catalogue lists a third year for students who started in 2024 or earlier. The revised third-year course credits, elective rules and thesis requirements still need confirmation.",
+          "officialAlternative": "The official programme overview supplies specialist subject areas and thesis context but no revised 60 EC year-three matrix. The older official credit table and archive belong to the outgoing programme. Nominal later API years returned the current product.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000311/source-attempt-1.json",
+          "nextAction": "Verify published CP311 partial repair and applicable CI, then close the first source attempt and resume CP311."
         }
       ],
       "deferralHistory": [
@@ -22454,6 +22501,15 @@
           "essentialEvidence": "Confirm the distinct 5 EC second-year requirement for September 2026 entrants, because the current catalogue repeats Humanities in a Digital World from year one. Confirm whether the third-year concentration carries 10 or 15 EC and which term allocation, elective space and thesis progression apply to that cohort.",
           "officialAlternative": "The official 2025–2026 archive has Philosophy of Science in first year, a track-dependent 5 EC second-year course and third-year electives. The current regulations took effect on 1 September 2026. Appendix F applies to 2025–2026 and earlier entrants and substitutes Humanities in a Digital World for an old Culture requirement. Article 4.2 preserves the year-one, year-two and advanced-writing requirements for the thesis and seminar. The official public programme overview, inspected via indexed retrieval after direct access blocking, confirms progression to academic Dutch without resolving the entrant credit allocation. None of these sources specifies a distinct second-year requirement and reconciles the current third-year group totals.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000309/source-attempt-2.json"
+        },
+        {
+          "caseId": "cp-000311",
+          "executionId": "restart-B-cp311-20261105T2100Z",
+          "checkedOn": "2026-11-05",
+          "essentialEvidence": "The revised curriculum is verified through 120 EC. Leiden’s current catalogue lists a third year for students who started in 2024 or earlier. The revised third-year course credits, elective rules and thesis requirements still need confirmation.",
+          "officialAlternative": "The official programme overview supplies specialist subject areas and thesis context but no revised 60 EC year-three matrix. The older official credit table and archive belong to the outgoing programme. Nominal later API years returned the current product.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000311/source-attempt-1.json",
+          "nextAction": "Verify published CP311 partial repair and applicable CI, then close the first source attempt and resume CP311."
         }
       ],
       "publicationRecovery": {
