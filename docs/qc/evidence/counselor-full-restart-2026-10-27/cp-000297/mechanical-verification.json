@@ -1,0 +1,59 @@
+{
+  "caseId": "cp-000297",
+  "checkedOn": "2026-11-05",
+  "inputBlobs": {
+    "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000297.json": "eebd40beb59bf938fbcefa374f9949bf5c7051b4",
+    "data/counselor/comparisons/cp-000297.json": "c65f2b45c35236ed72388a2b835c842e54d4239c",
+    "data/registry/programme_interests.csv": "28fec0003b95cb165f938148c589495f7fc578ce",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-interests.json": "7f474fc671228dcdeae253a3a72134a662941dcc",
+    "canonical": "c65f2b45c35236ed72388a2b835c842e54d4239c",
+    "decision": "eebd40beb59bf938fbcefa374f9949bf5c7051b4"
+  },
+  "checks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000297.json",
+      "status": "passed",
+      "finding": "ExceptionhasnoUCRprogramme;no fabricated schedule."
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py /tmp/cp297/feasibility-only.json",
+      "status": "passed",
+      "finding": "Threeinternalresearchchallenges24courses/4perterm/180EC/year1PPD/currentofferings/noearlierprerequisiteconflicts;advanced7,7,8. Persistedscopedresearchfeasible-challenges.jsoncontainsallschedulesanddirectworkbookchecks."
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000297.json",
+      "status": "passed",
+      "finding": "FullJSONschema."
+    },
+    {
+      "command": "npm run validate:counselor",
+      "status": "passed",
+      "finding": "Allcanonicalproductionrecordsoperationalvalidatorspassed."
+    },
+    {
+      "command": "node scripts/validate-registry-interests.mjs; node scripts/build-counselor-review-index.mjs --check",
+      "status": "passed",
+      "finding": "Exactly3CP297interestmetadataedits;438programmesand21212reviewinterestrows;unrelatedrowsunchanged."
+    },
+    {
+      "command": "node scripts/build-counselor-comparison-v2.mjs <decision> --output <temporary>; cmp <temporary> <canonical>",
+      "status": "passed",
+      "canonicalSha256": "581a10e404f1a9fc4ceea656c554179975f6803bd90ad2eef61f9a1aebd3f22d",
+      "finding": "Byte-exactfreshcompilation;exceptionexternalcomponents27unique180EC."
+    },
+    {
+      "command": "python scripts/validate-comprehensive-reaudit.py --sync",
+      "status": "passed",
+      "finding": "Derivedstateconsistent438;syncdoesnotapproveoradvancequeue."
+    }
+  ],
+  "courseDescriptionValidation": "No selected UCR modal descriptions in finalexception; cache unchanged. No runtime/rendererbehaviour changes.",
+  "applicableCI": "Pending exact repair commit; no approval until publication and CI verified."
+}
