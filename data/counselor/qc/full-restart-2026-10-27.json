@@ -2822,7 +2822,7 @@
     },
     {
       "id": "cp-000092",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
@@ -2834,8 +2834,10 @@
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "51c0af613e6b13bbb893a10a034e16327f325881"
+      ],
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000092.json",
       "academicDisposition": "comparison"
     },
@@ -7392,8 +7394,8 @@
     }
   ],
   "progress": {
-    "approved": 115,
-    "inProgress": 43,
+    "approved": 116,
+    "inProgress": 42,
     "reviewedWithBlockers": 0,
     "notStarted": 280,
     "pilotStarted": 4
@@ -7625,36 +7627,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000092",
-      "activeClaim": {
-        "executionId": "restart-A-cp092-20261105T1330Z",
-        "worker": "A",
-        "caseId": "cp-000092",
-        "claimedAt": "2026-11-05T13:28:53.515261+00:00",
-        "reviewedInputCommit": "1ae4adfc2be615ad89f43d708f10b552a469c99f",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000092.json": "08b6aa20e9c2cf7c7cb39e9d05a811916615cf1b",
-          "data/counselor/comparisons/cp-000092.json": "442abbb6c3df2d4df18d1d3b17f57f736ef5c035",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify current Econometrics and Data Science curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000093",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -7726,7 +7707,8 @@
         "cp-000088",
         "cp-000089",
         "cp-000090",
-        "cp-000091"
+        "cp-000091",
+        "cp-000092"
       ],
       "completedDispositions": [
         {
@@ -8225,6 +8207,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000091.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-05"
+        },
+        {
+          "caseId": "cp-000092",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000092.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-05"
         }
       ],
       "deferredCases": [
@@ -8267,19 +8256,19 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000091",
-        "executionId": "restart-A-cp091-20261105T1230Z",
+        "caseId": "cp-000092",
+        "executionId": "restart-A-cp092-20261105T1330Z",
         "state": "approved",
         "academicDisposition": "comparison",
-        "reviewedInputCommit": "93af0cd632d7141d7874811680373a8f924c030b",
+        "reviewedInputCommit": "51c0af613e6b13bbb893a10a034e16327f325881",
         "inputBlobs": {
-          "canonical": "cc6877fbbed5ae9b2fa94d14e774261d5f5a833e",
-          "decision": "005b8c97eadfe4ca5e96944478b799c8ea07d5e9"
+          "canonical": "34739e11f3c4009550728bc22f4d38926e02777d",
+          "decision": "f235661253607d9631ddd0a11b06dbe0f5b76237"
         },
-        "verifiedAt": "2026-11-05T12:42:32.633893+00:00",
+        "verifiedAt": "2026-11-05T13:36:07.219966+00:00",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000091/published-verification.json",
-        "nextAction": "CP091 verified comparison complete with two qualified UCR alternatives. Resume CP092 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000092/published-verification.json",
+        "nextAction": "CP092 verified comparison complete with two qualified UCR alternatives. Resume CP093 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -14186,6 +14175,51 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-11-05T13:36:07.219966+00:00",
+          "reason": "Preserve prior worker checkpoint and own active claim before CP092 final disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000091",
+              "executionId": "restart-A-cp091-20261105T1230Z",
+              "state": "approved",
+              "academicDisposition": "comparison",
+              "reviewedInputCommit": "93af0cd632d7141d7874811680373a8f924c030b",
+              "inputBlobs": {
+                "canonical": "cc6877fbbed5ae9b2fa94d14e774261d5f5a833e",
+                "decision": "005b8c97eadfe4ca5e96944478b799c8ea07d5e9"
+              },
+              "verifiedAt": "2026-11-05T12:42:32.633893+00:00",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000091/published-verification.json",
+              "nextAction": "CP091 verified comparison complete with two qualified UCR alternatives. Resume CP092 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp092-20261105T1330Z",
+              "worker": "A",
+              "caseId": "cp-000092",
+              "claimedAt": "2026-11-05T13:28:53.515261+00:00",
+              "reviewedInputCommit": "1ae4adfc2be615ad89f43d708f10b552a469c99f",
+              "inputBlobs": {
+                "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000092.json": "08b6aa20e9c2cf7c7cb39e9d05a811916615cf1b",
+                "data/counselor/comparisons/cp-000092.json": "442abbb6c3df2d4df18d1d3b17f57f736ef5c035",
+                "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Verify current Econometrics and Data Science curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -14985,6 +15019,31 @@
           "endedAt": "2026-11-05T12:42:32.633893+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000091/published-verification.json"
+        },
+        {
+          "executionId": "restart-A-cp092-20261105T1330Z",
+          "worker": "A",
+          "caseId": "cp-000092",
+          "claimedAt": "2026-11-05T13:28:53.515261+00:00",
+          "reviewedInputCommit": "1ae4adfc2be615ad89f43d708f10b552a469c99f",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000092.json": "08b6aa20e9c2cf7c7cb39e9d05a811916615cf1b",
+            "data/counselor/comparisons/cp-000092.json": "442abbb6c3df2d4df18d1d3b17f57f736ef5c035",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify current Econometrics and Data Science curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-05T13:36:07.219966+00:00",
+          "result": "approved comparison",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000092/published-verification.json"
         }
       ],
       "sourceRetryLog": [
