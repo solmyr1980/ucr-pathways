@@ -2738,7 +2738,7 @@
     },
     {
       "id": "cp-000088",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
@@ -2750,8 +2750,10 @@
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "3569ab9f21cf55dfb8842e12daa32fadd25f8a44"
+      ],
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000088.json",
       "academicDisposition": "comparison"
     },
@@ -7297,8 +7299,8 @@
     }
   ],
   "progress": {
-    "approved": 111,
-    "inProgress": 41,
+    "approved": 112,
+    "inProgress": 40,
     "reviewedWithBlockers": 0,
     "notStarted": 286,
     "pilotStarted": 4
@@ -7530,36 +7532,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000088",
-      "activeClaim": {
-        "executionId": "restart-A-cp088-20261105T0930Z",
-        "worker": "A",
-        "caseId": "cp-000088",
-        "claimedAt": "2026-11-05T09:32:34.419653+00:00",
-        "reviewedInputCommit": "99965d073d2c5f36ca7d6fe80079b41b2e563590",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000088.json": "4eba48d432e963572cbf8a21cdef8b5b244469fa",
-          "data/counselor/comparisons/cp-000088.json": "e48ce5fe028e2a1c57bf1df0678b712cfee46fc3",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify current Communication Science curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000089",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -7627,7 +7608,8 @@
         "cp-000083",
         "cp-000084",
         "cp-000085",
-        "cp-000086"
+        "cp-000086",
+        "cp-000088"
       ],
       "completedDispositions": [
         {
@@ -8098,6 +8080,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000086.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-05"
+        },
+        {
+          "caseId": "cp-000088",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000088.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-05"
         }
       ],
       "deferredCases": [
@@ -8140,18 +8129,21 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000087",
-        "executionId": "restart-A-cp087-source2-20261105T0830Z",
-        "state": "deferred",
-        "academicDisposition": "external-programme-unresolved",
-        "sourceFailureExecutions": 2,
-        "nextAction": "CP087 deferred and incomplete after two unsuccessful essential-source executions. Use its one separate revisit after the own non-deferred queue or when new essential evidence becomes available. Obtain a corrected prerequisite, applicable route-wide exemption, or adopted replacement and credit allocation for Discourse and Social Interaction for the 2026 entrants. Preserve the 180 EC published allocation and two feasible internal UCR proposals. Resume CP088 next execution.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000087/source-attempt-2.json",
+        "caseId": "cp-000088",
+        "executionId": "restart-A-cp088-20261105T0930Z",
+        "state": "approved",
+        "academicDisposition": "comparison",
+        "reviewedInputCommit": "3569ab9f21cf55dfb8842e12daa32fadd25f8a44",
+        "inputBlobs": {
+          "canonical": "dbaaa96d5126186c6e061273aa9fa44d6dc25e4d",
+          "decision": "1aadb520737a3a217f448cdcc01d948e92ead76b"
+        },
+        "verifiedAt": "2026-11-05T09:41:43.469656+00:00",
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000088/published-verification.json",
+        "nextAction": "CP088 verified comparison complete with two qualified UCR alternatives. Resume CP089 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
         "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown",
-        "implementationCommit": "750add6dbb809db824a983732f8ea620f98f6a31",
-        "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000087/published-execution-2.json",
-        "CI": "passed"
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -13879,6 +13871,48 @@
             "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000087/published-verification.json",
             "CI": "passed"
           }
+        },
+        {
+          "preservedOn": "2026-11-05T09:41:43.469656+00:00",
+          "reason": "Preserve prior worker checkpoint and own active claim before CP088 final disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000087",
+              "executionId": "restart-A-cp087-source2-20261105T0830Z",
+              "state": "deferred",
+              "academicDisposition": "external-programme-unresolved",
+              "sourceFailureExecutions": 2,
+              "nextAction": "CP087 deferred and incomplete after two unsuccessful essential-source executions. Use its one separate revisit after the own non-deferred queue or when new essential evidence becomes available. Obtain a corrected prerequisite, applicable route-wide exemption, or adopted replacement and credit allocation for Discourse and Social Interaction for the 2026 entrants. Preserve the 180 EC published allocation and two feasible internal UCR proposals. Resume CP088 next execution.",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000087/source-attempt-2.json",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown",
+              "implementationCommit": "750add6dbb809db824a983732f8ea620f98f6a31",
+              "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000087/published-execution-2.json",
+              "CI": "passed"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp088-20261105T0930Z",
+              "worker": "A",
+              "caseId": "cp-000088",
+              "claimedAt": "2026-11-05T09:32:34.419653+00:00",
+              "reviewedInputCommit": "99965d073d2c5f36ca7d6fe80079b41b2e563590",
+              "inputBlobs": {
+                "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000088.json": "4eba48d432e963572cbf8a21cdef8b5b244469fa",
+                "data/counselor/comparisons/cp-000088.json": "e48ce5fe028e2a1c57bf1df0678b712cfee46fc3",
+                "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Verify current Communication Science curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -14578,6 +14612,31 @@
           "endedAt": "2026-11-05T08:32:31.871536+00:00",
           "result": "deferred; incomplete; second source execution",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000087/published-execution-2.json"
+        },
+        {
+          "executionId": "restart-A-cp088-20261105T0930Z",
+          "worker": "A",
+          "caseId": "cp-000088",
+          "claimedAt": "2026-11-05T09:32:34.419653+00:00",
+          "reviewedInputCommit": "99965d073d2c5f36ca7d6fe80079b41b2e563590",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000088.json": "4eba48d432e963572cbf8a21cdef8b5b244469fa",
+            "data/counselor/comparisons/cp-000088.json": "e48ce5fe028e2a1c57bf1df0678b712cfee46fc3",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify current Communication Science curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-05T09:41:43.469656+00:00",
+          "result": "approved comparison",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000088/published-verification.json"
         }
       ],
       "sourceRetryLog": [
