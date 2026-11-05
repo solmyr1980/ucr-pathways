@@ -5555,7 +5555,7 @@
     },
     {
       "id": "cp-000298",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "correct",
@@ -5569,10 +5569,12 @@
       "downstreamReassessments": [],
       "implementationCommits": [
         "fd0271db91e3392fdcb565d485cf1e1763174784",
-        "48916dcf74773416e68a1e9f3646f663027a93e7"
+        "48916dcf74773416e68a1e9f3646f663027a93e7",
+        "bbe6457b8479258b3ad62a3acc57084779d3b001"
       ],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000298.json"
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000298.json",
+      "academicDisposition": "comparison"
     },
     {
       "id": "cp-000299",
@@ -7146,8 +7148,8 @@
     }
   ],
   "progress": {
-    "approved": 102,
-    "inProgress": 39,
+    "approved": 103,
+    "inProgress": 38,
     "reviewedWithBlockers": 0,
     "notStarted": 297,
     "pilotStarted": 4
@@ -14207,36 +14209,15 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000298",
-      "activeClaim": {
-        "executionId": "restart-B-cp298-20261105T0302Z",
-        "worker": "B",
-        "caseId": "cp-000298",
-        "claimedAt": "2026-11-05T03:03:45.674941+00:00",
-        "reviewedInputCommit": "1ed18c5e8e3f9e0a33096df64a9749c96f387052",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000298.json": "cfddd425f8bcb73c9dd08963196408b18c2ef6e7",
-          "data/counselor/comparisons/cp-000298.json": "a3943c26b42a861fe0c93e76b69f794b42fbde58",
-          "data/registry/programme_interests.csv": "28fec0003b95cb165f938148c589495f7fc578ce",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Independently verify current Computer Science curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000299",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -14276,7 +14257,8 @@
         "cp-000287",
         "cp-000292",
         "cp-000294",
-        "cp-000297"
+        "cp-000297",
+        "cp-000298"
       ],
       "completedDispositions": [
         {
@@ -14551,6 +14533,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000297.json",
           "academicDisposition": "no-defensible-ucr-match",
           "verifiedOn": "2026-11-05"
+        },
+        {
+          "caseId": "cp-000298",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000298.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-05"
         }
       ],
       "deferredCases": [
@@ -14604,19 +14593,19 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000297",
-        "executionId": "restart-B-cp297-20261105T0158Z",
+        "caseId": "cp-000298",
+        "executionId": "restart-B-cp298-20261105T0302Z",
         "state": "approved",
-        "academicDisposition": "no-defensible-ucr-match",
-        "reviewedInputCommit": "09ad4709441126c8586b1712c837ed9957568778",
+        "academicDisposition": "comparison",
+        "reviewedInputCommit": "bbe6457b8479258b3ad62a3acc57084779d3b001",
         "inputBlobs": {
-          "canonical": "c65f2b45c35236ed72388a2b835c842e54d4239c",
-          "decision": "eebd40beb59bf938fbcefa374f9949bf5c7051b4"
+          "canonical": "378168fb37004dd11e0289765b93d13d90cf439e",
+          "decision": "25d6824791bbfabd2515c615372fef6d8ece6d6b"
         },
-        "verifiedAt": "2026-11-05T02:18:06.712440+00:00",
+        "verifiedAt": "2026-11-05T03:26:14.487574+00:00",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000297/published-verification.json",
-        "nextAction": "CP297 verified no-defensible-ucr-match complete; Leiden complete180EC retained. Resume CP298 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000298/published-verification.json",
+        "nextAction": "CP298 verified comparison complete with one qualified UCR alternative. Resume CP299 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -19257,6 +19246,51 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-11-05T03:26:14.487574+00:00",
+          "reason": "Preserve prior worker checkpoint and own active claim before CP298 final disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000297",
+              "executionId": "restart-B-cp297-20261105T0158Z",
+              "state": "approved",
+              "academicDisposition": "no-defensible-ucr-match",
+              "reviewedInputCommit": "09ad4709441126c8586b1712c837ed9957568778",
+              "inputBlobs": {
+                "canonical": "c65f2b45c35236ed72388a2b835c842e54d4239c",
+                "decision": "eebd40beb59bf938fbcefa374f9949bf5c7051b4"
+              },
+              "verifiedAt": "2026-11-05T02:18:06.712440+00:00",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000297/published-verification.json",
+              "nextAction": "CP297 verified no-defensible-ucr-match complete; Leiden complete180EC retained. Resume CP298 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-B-cp298-20261105T0302Z",
+              "worker": "B",
+              "caseId": "cp-000298",
+              "claimedAt": "2026-11-05T03:03:45.674941+00:00",
+              "reviewedInputCommit": "1ed18c5e8e3f9e0a33096df64a9749c96f387052",
+              "inputBlobs": {
+                "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000298.json": "cfddd425f8bcb73c9dd08963196408b18c2ef6e7",
+                "data/counselor/comparisons/cp-000298.json": "a3943c26b42a861fe0c93e76b69f794b42fbde58",
+                "data/registry/programme_interests.csv": "28fec0003b95cb165f938148c589495f7fc578ce",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Independently verify current Computer Science curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -19886,11 +19920,11 @@
         }
       ],
       "publicationRecovery": {
-        "caseId": "cp-000297",
+        "caseId": "cp-000298",
         "consecutiveFailedExecutions": 0,
         "status": "published",
-        "commit": "09ad4709441126c8586b1712c837ed9957568778",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000297/published-verification.json"
+        "commit": "bbe6457b8479258b3ad62a3acc57084779d3b001",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000298/published-verification.json"
       },
       "claimHistory": [
         {
@@ -20093,6 +20127,31 @@
           "endedAt": "2026-11-05T02:18:06.712440+00:00",
           "result": "approved no-defensible-ucr-match",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000297/published-verification.json"
+        },
+        {
+          "executionId": "restart-B-cp298-20261105T0302Z",
+          "worker": "B",
+          "caseId": "cp-000298",
+          "claimedAt": "2026-11-05T03:03:45.674941+00:00",
+          "reviewedInputCommit": "1ed18c5e8e3f9e0a33096df64a9749c96f387052",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000298.json": "cfddd425f8bcb73c9dd08963196408b18c2ef6e7",
+            "data/counselor/comparisons/cp-000298.json": "a3943c26b42a861fe0c93e76b69f794b42fbde58",
+            "data/registry/programme_interests.csv": "28fec0003b95cb165f938148c589495f7fc578ce",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Independently verify current Computer Science curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-05T03:26:14.487574+00:00",
+          "result": "approved comparison",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000298/published-verification.json"
         }
       ],
       "publicationRecoveryHistory": [
@@ -20102,6 +20161,13 @@
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000292/publication-recovery.json",
           "status": "published",
           "commit": "331652de4acca64314438d12801d0b5aa536061a"
+        },
+        {
+          "caseId": "cp-000297",
+          "consecutiveFailedExecutions": 0,
+          "status": "published",
+          "commit": "09ad4709441126c8586b1712c837ed9957568778",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000297/published-verification.json"
         }
       ]
     }
