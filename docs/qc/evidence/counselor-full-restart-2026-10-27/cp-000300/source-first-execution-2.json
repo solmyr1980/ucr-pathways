@@ -1,0 +1,91 @@
+{
+  "caseId": "cp-000300",
+  "checkedOn": "2026-11-05T06:07:30.438274+00:00",
+  "reviewerOrPass": "Worker B, separately identified source-first checkpoint by the same AI",
+  "independenceMethod": "After freezing exact unchanged partial record and reference inputs, the same AI reopened the programme and module payloads, checked the prior official prospectus against current course entry and group rules, and then reread the frozen partial record. Reused verified interest, course and presentation work on matching inputs.",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000300.json": "d418925c6d74daf2440ff0d85712124bcf536914",
+    "data/counselor/comparisons/cp-000300.json": "782a7b769df49be6d6e6e97cf3e45bdb0e7f981c",
+    "data/registry/programme_interests.csv": "16c0a01ae8e67b0d396cc3cc5e94c8d3ece99cbe",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "canonical": "782a7b769df49be6d6e6e97cf3e45bdb0e7f981c",
+    "decision": "d418925c6d74daf2440ff0d85712124bcf536914"
+  },
+  "sourceFirstFinding": "Confirm the 2026 entrant cohort’s nonduplicated 15 EC third-year restricted choice, entry to the repeated second-year seminars and the current language-course equivalents for thesis admission.",
+  "academicStatus": "blocked",
+  "mechanicalStatus": "passed",
+  "contentStatus": "passed",
+  "commands": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000300.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py /tmp/cp300/provisional.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "result": "136 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.\n"
+    },
+    {
+      "command": "PYTHONPATH=/tmp/cp292-resume/python-deps python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000300.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "result": " counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\n"
+    },
+    {
+      "command": "npm run validate:registry-interests",
+      "exitCode": 0,
+      "result": "\n> validate:registry-interests\n> node scripts/validate-registry-interests.mjs\n\nValid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.\n"
+    },
+    {
+      "command": "npm run validate:counselor-review",
+      "exitCode": 0,
+      "result": "\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\n"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000300.json --output /tmp/cp300-second/replay.json",
+      "exitCode": 0,
+      "result": "Built cp-000300 counselor exception record at /tmp/cp300-second/replay.json\n"
+    },
+    {
+      "command": "Byte-exact decision/canonical replay comparison",
+      "exitCode": 0
+    }
+  ],
+  "contentReview": {
+    "mode": "External-only partial exception; no active UCR comparison/modal selection",
+    "fieldPaths": [
+      "all 24 component titles and 170 EC inventory",
+      "audience programmeDescription and comparisonExplanation",
+      "partial curriculum componentIds, yearLabel and limitation",
+      "all three component notes",
+      "comparator name, institution and selected source link",
+      "empty conceptProgrammeIds and noteTypes"
+    ],
+    "finding": "The partial record reports a 10 EC shortfall in distinct third-year options and unresolved progression. The three open-space, thesis and linguistics notes describe the supported conditions. The renderer selects the official programme link. No UCR concept, course description or alignment is active. The frozen provisional schedule remains internal. The Italian Renaissance course is a direct contribution, while textual, visual and experimental-language methods offer complementary coverage.",
+    "priorEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000300/content-review.json"
+  },
+  "evidenceRefs": [
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000300/source-attempt-2.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000300/source-interest-review.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000300/course-comparability-review.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000300/content-review.json"
+  ],
+  "remainingGate": "Published-file and applicable CI verification before operational deferral and queue release."
+}
