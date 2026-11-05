@@ -1,0 +1,101 @@
+{
+  "caseId": "cp-000304",
+  "inputBlobs": {
+    "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000304.json": "6e5110a0af855b3c247589ab3913029532868581",
+    "data/counselor/comparisons/cp-000304.json": "2e63acda0444db179934555eadfe5c39f345bc84",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "6f2e3e7d9548cf3c1f6327fae5db5fbb137242d2",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "canonical": "2e63acda0444db179934555eadfe5c39f345bc84",
+    "decision": "6e5110a0af855b3c247589ab3913029532868581"
+  },
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "presentationMode": "External programme under review with partial curriculum",
+  "fieldPaths": [
+    "programmes[].label",
+    "comparator.{name,institution,primarySourceUrl,additionalSourceUrls,components}",
+    "audience.{programmeDescription,comparisonExplanation,curriculum,conceptProgrammeIds,noteTypes,componentNotes}",
+    "exception.type",
+    "review-programmes.json discovery label"
+  ],
+  "mapping": "The audience and curriculum functions in pilot/counselor-shiny/app.R select the external overview and partial curriculum, including only explicit component notes. render_exception shows the review status and the official primary source link. No UCR concepts, course descriptions, notes or research cells are selected.",
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "Leiden’s bachelor in Latin American Studies combines Spanish or Portuguese with the study of Latin American history, politics, languages, literature and film. This view shows the first year of the Spanish pathway.",
+    "comparisonExplanation": "The curriculum comparison is still under review. The first year is confirmed, and the later-year course sequence for 2026 entrants needs confirmation.",
+    "conceptProgrammeIds": [],
+    "noteTypes": [],
+    "curriculum": {
+      "status": "partial",
+      "yearLabel": "2026–2027",
+      "routeLabel": "Spanish pathway",
+      "componentIds": [
+        "curr-5621vily",
+        "curr-5651v011y",
+        "curr-5651v012y",
+        "curr-5000vhdw2y",
+        "curr-5651v013y",
+        "curr-5651v016y",
+        "curr-5651vs1y",
+        "curr-5651vs2y"
+      ],
+      "limitation": "The 60 EC shown cover year one. Leiden says students entering in 2026 will study abroad in the first semester of year two. The published course table still places the study-abroad block in the second semester."
+    },
+    "componentNotes": {
+      "curr-5651v013y": "Students complete introductory linguistics or equivalent study before taking this course.",
+      "curr-5651vs2y": "This course normally follows Spanish 1 or equivalent prior study."
+    }
+  },
+  "checkedLinks": [
+    {
+      "index": 0,
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=BA-LAS&type=STUDY&year=2261&language=en",
+      "status": 200,
+      "format": "JSON",
+      "sha256": "3617358c89f90b2cfb4c1418d2db5cefa7698236d07040521bdc28a0b93d517c",
+      "bytes": 77780
+    },
+    {
+      "index": 1,
+      "url": "https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-latijns-amerikastudies-2026-2027.pdf",
+      "status": 200,
+      "format": "html",
+      "sha256": "7c3c5fa27524ac9094293d0b5b471afdf02b4d48b25a131988fb518a6a4aa28e",
+      "bytes": 21993,
+      "retrievalFinding": "Direct request returned access-block HTML. The same official URL was retrieved separately by web search as a readable six-page PDF, adopted effective 1 September 2026. Inspected §§2.3, 2.9, 3.2.9, 4.2.1 and Annex F. The direct-response hash is for the access page."
+    },
+    {
+      "index": 2,
+      "url": "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/latijns-amerikastudies/over-de-opleiding/studieprogramma",
+      "status": 200,
+      "format": "html",
+      "sha256": "27d7e80d9812d5c36c33a06652c8cb84cf1923b73381d37e29674c06f330c34e",
+      "bytes": 21993,
+      "retrievalFinding": "Direct request returned access-block HTML. The same official page was inspected via web retrieval, including programme overview, curriculum scope warning and open elective policy."
+    },
+    {
+      "index": 3,
+      "url": "https://studiegids.universiteitleiden.nl/studies/BA-LAS",
+      "status": 200,
+      "format": "html",
+      "sha256": "0fd377c783fc46cbfeca18738e1c5352526ead33eb5417691c23118afae13af7",
+      "bytes": 31283
+    },
+    {
+      "index": 4,
+      "url": "https://studiegids-archief.leidenuniv.nl/studies/10730/latijns-amerikastudies",
+      "status": 200,
+      "format": "html",
+      "sha256": "b6f6958ced42b405d8fc26b6adfbfb422e3072e85cc4b9424dd556e447494e3d",
+      "bytes": 74445
+    }
+  ],
+  "finding": "Read the eight external titles and credits, two component notes, year, route, display label and institution, description, comparison explanation, limitation, and the official programme source. The public wording reflects the specific placement-semester conflict. No case-level academic or presentation approval is implied."
+}

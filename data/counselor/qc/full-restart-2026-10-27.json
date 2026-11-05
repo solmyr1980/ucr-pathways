@@ -5780,13 +5780,35 @@
     {
       "id": "cp-000304",
       "state": "in-progress",
-      "stageOutcomes": {},
+      "stageOutcomes": {
+        "1": "blocked",
+        "2": "retain",
+        "3": "blocked",
+        "4": "correct",
+        "5": "correct",
+        "6": "blocked"
+      },
       "sharedIssueIds": [],
-      "unresolved": [],
-      "downstreamReassessments": [],
+      "unresolved": [
+        "Obtain an authoritative course and credit allocation for the September 2026 Spanish-path entrants in years two and three. In particular confirm how the 30 EC of year-two taught courses fit after the cohort’s first-semester study abroad and which later-year requirements carry forward."
+      ],
+      "downstreamReassessments": [
+        {
+          "trigger": "Revised cohort allocation verified",
+          "scope": "Reassess interest applicability, comparability, alignments and content",
+          "stages": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
       "implementationCommits": [],
       "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000304.json"
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000304.json",
+      "academicDisposition": "external-programme-unresolved"
     },
     {
       "id": "cp-000305",
@@ -14911,7 +14933,7 @@
           "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
           "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
         },
-        "nextAction": "Verify current Latin American Studies curriculum/progression, all target interests and strongest actual UCR response; repair supported defects then final record/content and separately identified source-first pass.",
+        "nextAction": "Resume CP304 source attempt two. Obtain an authoritative course and credit allocation for the September 2026 Spanish-path entrants in years two and three. In particular confirm how the 30 EC of year-two taught courses fit after the cohort’s first-semester study abroad and which later-year requirements carry forward. Reassess dependent findings and final disposition after confirmation.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -15320,23 +15342,18 @@
         "cp-000294": 1,
         "cp-000295": 2,
         "cp-000296": 2,
-        "cp-000300": 2
+        "cp-000300": 2,
+        "cp-000304": 1
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000303",
-        "executionId": "restart-B-cp303-20261105T0900Z",
-        "state": "approved",
-        "academicDisposition": "comparison",
-        "reviewedInputCommit": "b3e144ae13274dd6c1c073caa1080dc38b163800",
-        "inputBlobs": {
-          "canonical": "d1fec9853de51ae22a1ce5375c2355b7bc99887c",
-          "decision": "972344f5605da996fdeba148a40a4062aefebd08"
-        },
-        "verifiedAt": "2026-11-05T09:10:36.526182+00:00",
-        "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000303/published-verification.json",
-        "nextAction": "CP303 approved as a two-option comparison with a verified 180 EC Leiden Arts and Culture curriculum. Resume CP304 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
+        "caseId": "cp-000304",
+        "executionId": "restart-B-cp304-20261105T1000Z",
+        "state": "in-progress",
+        "academicDisposition": "external-programme-unresolved",
+        "sourceFailureExecutions": 1,
+        "nextAction": "Resume CP304 source attempt two. Obtain an authoritative course and credit allocation for the September 2026 Spanish-path entrants in years two and three. In particular confirm how the 30 EC of year-two taught courses fit after the cohort’s first-semester study abroad and which later-year requirements carry forward. Reassess dependent findings and final disposition after confirmation.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000304/source-attempt-1.json",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -20240,6 +20257,29 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-11-05T10:01:56.813008+00:00",
+          "reason": "Preserve prior Worker B checkpoint before CP304 first source finding.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000303",
+              "executionId": "restart-B-cp303-20261105T0900Z",
+              "state": "approved",
+              "academicDisposition": "comparison",
+              "reviewedInputCommit": "b3e144ae13274dd6c1c073caa1080dc38b163800",
+              "inputBlobs": {
+                "canonical": "d1fec9853de51ae22a1ce5375c2355b7bc99887c",
+                "decision": "972344f5605da996fdeba148a40a4062aefebd08"
+              },
+              "verifiedAt": "2026-11-05T09:10:36.526182+00:00",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000303/published-verification.json",
+              "nextAction": "CP303 approved as a two-option comparison with a verified 180 EC Leiden Arts and Culture curriculum. Resume CP304 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -20591,6 +20631,15 @@
           "essentialEvidence": "Confirm the 2026 entrant cohort’s nonduplicated 15 EC third-year restricted choice, entry to the repeated second-year seminars and the current language-course equivalents for thesis admission.",
           "officialAlternative": "Read the official 2025–2026 archived prospectus, years 1–3. It lists an earlier first-year linguistics sequence, 10 EC each for second-year Italian IIa and IIb, and a different third-year arrangement of two fixed seminars, two monographic options, 30 EC open choice and a 10 EC thesis. Repeated older codes, superficially similar credits and prior offerings do not establish an approved replacement or equivalence for the 2026 entrants. The current regulatory landing and plausible programme PDF returned access-block HTML. Indexed official search surfaced the 2025–2026 programme-specific regulation and faculty rules, without an adopted current bridge.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000300/source-attempt-2.json"
+        },
+        {
+          "caseId": "cp-000304",
+          "executionId": "restart-B-cp304-20261105T1000Z",
+          "checkedOn": "2026-11-05",
+          "essentialEvidence": "Obtain an authoritative course and credit allocation for the September 2026 Spanish-path entrants in years two and three. In particular confirm how the 30 EC of year-two taught courses fit after the cohort’s first-semester study abroad and which later-year requirements carry forward.",
+          "officialAlternative": "Consulted the applicable adopted programme-specific regulations, the official prospective programme description and the previous annual catalogue. These corroborate the change and progression but do not assign the displaced taught courses or establish the revised later-year timetable.",
+          "nextAction": "Resume CP304 source attempt two. Obtain an authoritative course and credit allocation for the September 2026 Spanish-path entrants in years two and three. In particular confirm how the 30 EC of year-two taught courses fit after the cohort’s first-semester study abroad and which later-year requirements carry forward. Reassess dependent findings and final disposition after confirmation.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000304/source-attempt-1.json"
         }
       ],
       "deferralHistory": [
@@ -20910,6 +20959,15 @@
           "essentialEvidence": "Confirm the 2026 entrant cohort’s nonduplicated 15 EC third-year restricted choice, entry to the repeated second-year seminars and the current language-course equivalents for thesis admission.",
           "officialAlternative": "Read the official 2025–2026 archived prospectus, years 1–3. It lists an earlier first-year linguistics sequence, 10 EC each for second-year Italian IIa and IIb, and a different third-year arrangement of two fixed seminars, two monographic options, 30 EC open choice and a 10 EC thesis. Repeated older codes, superficially similar credits and prior offerings do not establish an approved replacement or equivalence for the 2026 entrants. The current regulatory landing and plausible programme PDF returned access-block HTML. Indexed official search surfaced the 2025–2026 programme-specific regulation and faculty rules, without an adopted current bridge.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000300/source-attempt-2.json"
+        },
+        {
+          "caseId": "cp-000304",
+          "executionId": "restart-B-cp304-20261105T1000Z",
+          "checkedOn": "2026-11-05",
+          "essentialEvidence": "Obtain an authoritative course and credit allocation for the September 2026 Spanish-path entrants in years two and three. In particular confirm how the 30 EC of year-two taught courses fit after the cohort’s first-semester study abroad and which later-year requirements carry forward.",
+          "officialAlternative": "Consulted the applicable adopted programme-specific regulations, the official prospective programme description and the previous annual catalogue. These corroborate the change and progression but do not assign the displaced taught courses or establish the revised later-year timetable.",
+          "nextAction": "Resume CP304 source attempt two. Obtain an authoritative course and credit allocation for the September 2026 Spanish-path entrants in years two and three. In particular confirm how the 30 EC of year-two taught courses fit after the cohort’s first-semester study abroad and which later-year requirements carry forward. Reassess dependent findings and final disposition after confirmation.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000304/source-attempt-1.json"
         }
       ],
       "publicationRecovery": {
