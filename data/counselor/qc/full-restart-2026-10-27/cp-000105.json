@@ -2,12 +2,12 @@
   "schemaVersion": "2.0",
   "auditId": "counselor-full-restart-2026-10-27",
   "id": "cp-000105",
-  "reviewedInputCommit": "4605cd53af27c830fc227d86836c7a0113b12239",
+  "reviewedInputCommit": "69fd822644f9ca005538a57c55927f69591b4cbb",
   "inputBlobs": {
-    "canonical": "b66b747218c8bf1be7b0b66b1c6c12f682ba1b8e",
-    "decision": "ffe2cced1b0a040bda03e0017b1c57f9fe3a8ef4"
+    "canonical": "db6c0072966e558167894ff4529855fc9a6adbd9",
+    "decision": "8fe2b62a96311ad5f5977aaf3796a7f310dcbfd0"
   },
-  "state": "in-progress",
+  "state": "approved",
   "stages": {
     "1": {
       "outcome": "retain",
@@ -19,7 +19,8 @@
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/course-comparability-review.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/content-review.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/content-review.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/published-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
@@ -34,7 +35,8 @@
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/course-comparability-review.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/content-review.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/content-review.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/published-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": [],
@@ -358,7 +360,8 @@
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/course-comparability-review.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/content-review.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/content-review.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/published-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
@@ -371,14 +374,20 @@
       ],
       "actions": [
         {
-          "state": "proposed",
-          "scope": "Publish scoped decision/canonical and evidence, then verify published inputs and applicable CI."
+          "state": "verified",
+          "scope": "Publish scoped decision/canonical and evidence, then verify published inputs and applicable CI.",
+          "implementationCommit": "69fd822644f9ca005538a57c55927f69591b4cbb",
+          "verificationEvidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/published-verification.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-first-final-pass.json"
+          ]
         }
       ],
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/course-comparability-review.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/content-review.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/content-review.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/published-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
@@ -391,28 +400,39 @@
       ],
       "actions": [
         {
-          "state": "proposed",
-          "scope": "Publish scoped decision/canonical and evidence, then verify published inputs and applicable CI."
+          "state": "verified",
+          "scope": "Publish scoped decision/canonical and evidence, then verify published inputs and applicable CI.",
+          "implementationCommit": "69fd822644f9ca005538a57c55927f69591b4cbb",
+          "verificationEvidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/published-verification.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-first-final-pass.json"
+          ]
         }
       ],
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/course-comparability-review.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/content-review.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/content-review.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/published-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
     },
     "6": {
       "outcome": "correct",
-      "finding": "Separate source-first pass and local mechanical/content checks. Verify published bytes and applicable CI before disposition.",
+      "finding": "Separate same-AI source-first review, record-content review, schema, course feasibility, operational checks, byte-exact replay and the published pair and applicable CI all passed.",
       "preserved": [
         "Exact IRO route and independently supported course and interest findings."
       ],
       "actions": [
         {
-          "state": "proposed",
-          "scope": "Publish scoped decision/canonical and evidence, then verify published inputs and applicable CI."
+          "state": "verified",
+          "scope": "Publish scoped decision/canonical and evidence, then verify published inputs and applicable CI.",
+          "implementationCommit": "69fd822644f9ca005538a57c55927f69591b4cbb",
+          "verificationEvidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/published-verification.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-first-final-pass.json"
+          ]
         }
       ],
       "evidence": [
@@ -420,7 +440,8 @@
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/course-comparability-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/content-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-first-final-pass.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/mechanical-verification.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/mechanical-verification.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/published-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
@@ -429,9 +450,68 @@
   "sharedIssueIds": [],
   "unresolved": [],
   "downstreamReassessments": [],
-  "implementationCommits": [],
-  "finalReview": null,
-  "presentationApproval": false,
+  "implementationCommits": [
+    "69fd822644f9ca005538a57c55927f69591b4cbb"
+  ],
+  "finalReview": {
+    "reviewerOrPass": "Worker B, same AI, separate source-first pass",
+    "independenceMethod": "The same AI separately reread the adopted Mathematics regulations, current path timetable and exact Bachelor Project module, reconstructed the credit totals, then reconsidered the workbook course evidence and the frozen decision and canonical records.",
+    "reviewedOn": "2026-11-06",
+    "reviewedCommit": "69fd822644f9ca005538a57c55927f69591b4cbb",
+    "verificationPolicy": "record-content-review-2026-10-31",
+    "inputBlobs": {
+      "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+      "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+      "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+      "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+      "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+      "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+      "data/counselor/decisions/cp-000105.json": "8fe2b62a96311ad5f5977aaf3796a7f310dcbfd0",
+      "data/counselor/comparisons/cp-000105.json": "db6c0072966e558167894ff4529855fc9a6adbd9",
+      "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+      "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+      "data/counselor/review-programmes.json": "f805f670ded96dccd20f8efe42dfeeafbcd163d5",
+      "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+      "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+      "pilot/shiny/data/courses/BEN.json": "1595932255166785ac58524e448c546d4eaaf6fd",
+      "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "pilot/shiny/data/courses/ENS.json": "852c4e87788d0b02c07b4a0d80adb3e299740003",
+      "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+      "pilot/shiny/data/courses/HCB.json": "23459da6d1ee2106951372adef085604fdb4d56b",
+      "canonical": "db6c0072966e558167894ff4529855fc9a6adbd9",
+      "decision": "8fe2b62a96311ad5f5977aaf3796a7f310dcbfd0"
+    },
+    "sourceEvidenceRefs": [
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json",
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/course-comparability-review.json",
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-first-final-pass.json"
+    ],
+    "checks": {
+      "academic": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/course-comparability-review.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-first-final-pass.json"
+        ]
+      },
+      "mechanical": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/mechanical-verification.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/published-verification.json"
+        ]
+      },
+      "content": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/content-review.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-first-final-pass.json"
+        ]
+      }
+    }
+  },
+  "presentationApproval": true,
   "evidenceSources": [
     {
       "url": "https://vu.nl/en/education/bachelor/mathematics/curriculum",
@@ -568,10 +648,597 @@
       "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
       "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
     },
-    "nextAction": "Verify VU Mathematics’s current 180 EC route, electives and thesis progression, all target interests and UCR options. Repair any schedule or content conflicts and verify the final record.",
+    "nextAction": "CP105 approved as a comparison with two qualified UCR options. Resume cp-000106 next execution.",
     "runtimeModel": "unknown",
-    "runtimeReasoningEffort": "unknown"
+    "runtimeReasoningEffort": "unknown",
+    "endedAt": "2026-11-06T05:37:07.891886+00:00",
+    "result": "approved comparison",
+    "implementationCommit": "69fd822644f9ca005538a57c55927f69591b4cbb"
   },
-  "nextAction": "Verify the published CP105 comparison pair and evidence against the reviewed bytes and applicable CI, then record the final disposition.",
-  "academicDisposition": "comparison"
+  "nextAction": "CP105 approved as a comparison with two qualified UCR options. Resume cp-000106 next execution.",
+  "academicDisposition": "comparison",
+  "reviewHistory": [
+    {
+      "preservedOn": "2026-11-06T05:37:07.891886+00:00",
+      "reason": "Preserve proposed repair findings before verified final disposition.",
+      "originalFileSha256": "a12f15f7c4677e515df902a526995692f5fd93cd00cf84cd1f0d75b22de23ff6",
+      "snapshot": {
+        "schemaVersion": "2.0",
+        "auditId": "counselor-full-restart-2026-10-27",
+        "id": "cp-000105",
+        "reviewedInputCommit": "4605cd53af27c830fc227d86836c7a0113b12239",
+        "inputBlobs": {
+          "canonical": "b66b747218c8bf1be7b0b66b1c6c12f682ba1b8e",
+          "decision": "ffe2cced1b0a040bda03e0017b1c57f9fe3a8ef4"
+        },
+        "state": "in-progress",
+        "stages": {
+          "1": {
+            "outcome": "retain",
+            "finding": "Verified the adopted 180 EC curriculum and conflict-free Algebra and Geometry example, elective rules and the project entry and assessment.",
+            "preserved": [
+              "Exact IRO route and independently supported course and interest findings."
+            ],
+            "actions": [],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/course-comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/content-review.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "2": {
+            "outcome": "retain",
+            "finding": "Assessed all 76 exact-target interest rows, including repeated source themes, programme directions, examples and career trajectories.",
+            "preserved": [
+              "Exact IRO route and independently supported course and interest findings."
+            ],
+            "actions": [],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/course-comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/content-review.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": [],
+            "interestRows": [
+              {
+                "row": 4859,
+                "outcome": "retain"
+              },
+              {
+                "row": 4860,
+                "outcome": "retain"
+              },
+              {
+                "row": 4861,
+                "outcome": "retain"
+              },
+              {
+                "row": 4862,
+                "outcome": "retain"
+              },
+              {
+                "row": 4863,
+                "outcome": "retain"
+              },
+              {
+                "row": 4864,
+                "outcome": "retain"
+              },
+              {
+                "row": 4865,
+                "outcome": "retain"
+              },
+              {
+                "row": 4866,
+                "outcome": "retain"
+              },
+              {
+                "row": 4867,
+                "outcome": "retain"
+              },
+              {
+                "row": 4868,
+                "outcome": "retain"
+              },
+              {
+                "row": 4869,
+                "outcome": "retain"
+              },
+              {
+                "row": 4870,
+                "outcome": "retain"
+              },
+              {
+                "row": 4871,
+                "outcome": "retain"
+              },
+              {
+                "row": 4872,
+                "outcome": "retain"
+              },
+              {
+                "row": 4873,
+                "outcome": "retain"
+              },
+              {
+                "row": 4874,
+                "outcome": "retain"
+              },
+              {
+                "row": 4875,
+                "outcome": "retain"
+              },
+              {
+                "row": 4876,
+                "outcome": "retain"
+              },
+              {
+                "row": 4877,
+                "outcome": "retain"
+              },
+              {
+                "row": 4878,
+                "outcome": "retain"
+              },
+              {
+                "row": 4879,
+                "outcome": "retain"
+              },
+              {
+                "row": 4880,
+                "outcome": "retain"
+              },
+              {
+                "row": 4881,
+                "outcome": "retain"
+              },
+              {
+                "row": 4882,
+                "outcome": "retain"
+              },
+              {
+                "row": 4883,
+                "outcome": "retain"
+              },
+              {
+                "row": 4884,
+                "outcome": "retain"
+              },
+              {
+                "row": 4885,
+                "outcome": "retain"
+              },
+              {
+                "row": 4886,
+                "outcome": "retain"
+              },
+              {
+                "row": 4887,
+                "outcome": "retain"
+              },
+              {
+                "row": 4888,
+                "outcome": "retain"
+              },
+              {
+                "row": 4889,
+                "outcome": "retain"
+              },
+              {
+                "row": 4890,
+                "outcome": "retain"
+              },
+              {
+                "row": 4891,
+                "outcome": "retain"
+              },
+              {
+                "row": 4892,
+                "outcome": "retain"
+              },
+              {
+                "row": 4893,
+                "outcome": "retain"
+              },
+              {
+                "row": 4894,
+                "outcome": "retain"
+              },
+              {
+                "row": 4895,
+                "outcome": "retain"
+              },
+              {
+                "row": 4896,
+                "outcome": "retain"
+              },
+              {
+                "row": 4897,
+                "outcome": "retain"
+              },
+              {
+                "row": 4898,
+                "outcome": "retain"
+              },
+              {
+                "row": 4899,
+                "outcome": "retain"
+              },
+              {
+                "row": 4900,
+                "outcome": "retain"
+              },
+              {
+                "row": 4901,
+                "outcome": "retain"
+              },
+              {
+                "row": 4902,
+                "outcome": "retain"
+              },
+              {
+                "row": 4903,
+                "outcome": "retain"
+              },
+              {
+                "row": 4904,
+                "outcome": "retain"
+              },
+              {
+                "row": 4905,
+                "outcome": "retain"
+              },
+              {
+                "row": 4906,
+                "outcome": "retain"
+              },
+              {
+                "row": 4907,
+                "outcome": "retain"
+              },
+              {
+                "row": 4908,
+                "outcome": "retain"
+              },
+              {
+                "row": 4909,
+                "outcome": "retain"
+              },
+              {
+                "row": 4910,
+                "outcome": "retain"
+              },
+              {
+                "row": 4911,
+                "outcome": "retain"
+              },
+              {
+                "row": 4912,
+                "outcome": "retain"
+              },
+              {
+                "row": 4913,
+                "outcome": "retain"
+              },
+              {
+                "row": 4914,
+                "outcome": "retain"
+              },
+              {
+                "row": 4915,
+                "outcome": "retain"
+              },
+              {
+                "row": 4916,
+                "outcome": "retain"
+              },
+              {
+                "row": 4917,
+                "outcome": "retain"
+              },
+              {
+                "row": 4918,
+                "outcome": "retain"
+              },
+              {
+                "row": 4919,
+                "outcome": "retain"
+              },
+              {
+                "row": 4920,
+                "outcome": "retain"
+              },
+              {
+                "row": 4921,
+                "outcome": "retain"
+              },
+              {
+                "row": 4922,
+                "outcome": "retain"
+              },
+              {
+                "row": 4923,
+                "outcome": "retain"
+              },
+              {
+                "row": 4924,
+                "outcome": "retain"
+              },
+              {
+                "row": 4925,
+                "outcome": "retain"
+              },
+              {
+                "row": 4926,
+                "outcome": "retain"
+              },
+              {
+                "row": 4927,
+                "outcome": "retain"
+              },
+              {
+                "row": 4928,
+                "outcome": "retain"
+              },
+              {
+                "row": 4929,
+                "outcome": "retain"
+              },
+              {
+                "row": 4930,
+                "outcome": "retain"
+              },
+              {
+                "row": 4931,
+                "outcome": "retain"
+              },
+              {
+                "row": 4932,
+                "outcome": "retain"
+              },
+              {
+                "row": 4933,
+                "outcome": "retain"
+              },
+              {
+                "row": 4934,
+                "outcome": "retain"
+              }
+            ],
+            "rowOutcomeCounts": {
+              "retain": 76
+            }
+          },
+          "3": {
+            "outcome": "retain",
+            "finding": "Confirmed three distinct applied mathematics options and explicit limitations in proof-based disciplinary study.",
+            "preserved": [
+              "Exact IRO route and independently supported course and interest findings."
+            ],
+            "actions": [],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/course-comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/content-review.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "4": {
+            "outcome": "correct",
+            "finding": "Resolved two data-route offering conflicts and added Bayesian decision methods. Reassessed all selected contributions and gaps.",
+            "preserved": [
+              "Exact IRO route and independently supported course and interest findings."
+            ],
+            "actions": [
+              {
+                "state": "proposed",
+                "scope": "Publish scoped decision/canonical and evidence, then verify published inputs and applicable CI."
+              }
+            ],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/course-comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/content-review.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "5": {
+            "outcome": "correct",
+            "finding": "Revised public concepts, explanatory notes and curriculum references. Reviewed every course title, description and official link.",
+            "preserved": [
+              "Exact IRO route and independently supported course and interest findings."
+            ],
+            "actions": [
+              {
+                "state": "proposed",
+                "scope": "Publish scoped decision/canonical and evidence, then verify published inputs and applicable CI."
+              }
+            ],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/course-comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/content-review.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "6": {
+            "outcome": "correct",
+            "finding": "Separate source-first pass and local mechanical/content checks. Verify published bytes and applicable CI before disposition.",
+            "preserved": [
+              "Exact IRO route and independently supported course and interest findings."
+            ],
+            "actions": [
+              {
+                "state": "proposed",
+                "scope": "Publish scoped decision/canonical and evidence, then verify published inputs and applicable CI."
+              }
+            ],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/course-comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/content-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-first-final-pass.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/mechanical-verification.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          }
+        },
+        "sharedIssueIds": [],
+        "unresolved": [],
+        "downstreamReassessments": [],
+        "implementationCommits": [],
+        "finalReview": null,
+        "presentationApproval": false,
+        "evidenceSources": [
+          {
+            "url": "https://vu.nl/en/education/bachelor/mathematics/curriculum",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://assets-us-01.kc-usercontent.com/f55d3574-6c6d-0002-e968-70643a2e365a/b4d69c35-d2cb-457c-ba8f-85294815cdb2/B%20Mathematics%20TER%202026-2027.pdf",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/mathematics",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://vu-bsc-maths.github.io/vu-bsc-maths-github-pages/BScMath_26-27_study_paths.pdf",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://vu.nl/en/education/bachelor/mathematics",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/mathematics/X_401104",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/mathematics/XB_0009",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/mathematics/X_401105",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/mathematics/XB_0104",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/mathematics/X_400581",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/mathematics/X_400416",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/mathematics/X_401039",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/mathematics/XB_0049",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/mathematics/X_400637",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/mathematics/XB_0027",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/mathematics/VU_ELT",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/mathematics/X_400638",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/mathematics/X_400622",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/mathematics/XB_41007",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/mathematics/XB_41008",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/mathematics/XB_0005",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/mathematics/XB_0008",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          },
+          {
+            "url": "https://vu.nl/en/education/bachelor/mathematics/future",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/source-interest-review.json"
+          }
+        ],
+        "renderedEvidence": [],
+        "executionClaim": {
+          "executionId": "restart-A-cp105-20261106T0530Z",
+          "worker": "A",
+          "caseId": "cp-000105",
+          "claimedAt": "2026-11-06T05:31:30.836222+00:00",
+          "reviewedInputCommit": "4605cd53af27c830fc227d86836c7a0113b12239",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000105.json": "ffe2cced1b0a040bda03e0017b1c57f9fe3a8ef4",
+            "data/counselor/comparisons/cp-000105.json": "b66b747218c8bf1be7b0b66b1c6c12f682ba1b8e",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify VU Mathematics’s current 180 EC route, electives and thesis progression, all target interests and UCR options. Repair any schedule or content conflicts and verify the final record.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown"
+        },
+        "nextAction": "Verify the published CP105 comparison pair and evidence against the reviewed bytes and applicable CI, then record the final disposition.",
+        "academicDisposition": "comparison"
+      }
+    }
+  ]
 }

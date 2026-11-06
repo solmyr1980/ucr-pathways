@@ -3125,7 +3125,7 @@
     },
     {
       "id": "cp-000105",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "retain",
         "2": "retain",
@@ -3137,8 +3137,10 @@
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "69fd822644f9ca005538a57c55927f69591b4cbb"
+      ],
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000105.json",
       "academicDisposition": "comparison"
     },
@@ -7750,8 +7752,8 @@
     }
   ],
   "progress": {
-    "approved": 131,
-    "inProgress": 50,
+    "approved": 132,
+    "inProgress": 49,
     "reviewedWithBlockers": 0,
     "notStarted": 257,
     "pilotStarted": 4
@@ -7983,36 +7985,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000105",
-      "activeClaim": {
-        "executionId": "restart-A-cp105-20261106T0530Z",
-        "worker": "A",
-        "caseId": "cp-000105",
-        "claimedAt": "2026-11-06T05:31:30.836222+00:00",
-        "reviewedInputCommit": "4605cd53af27c830fc227d86836c7a0113b12239",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000105.json": "ffe2cced1b0a040bda03e0017b1c57f9fe3a8ef4",
-          "data/counselor/comparisons/cp-000105.json": "b66b747218c8bf1be7b0b66b1c6c12f682ba1b8e",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify VU Mathematics’s current 180 EC route, electives and thesis progression, all target interests and UCR options. Repair any schedule or content conflicts and verify the final record.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000106",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -8095,7 +8076,8 @@
         "cp-000101",
         "cp-000102",
         "cp-000103",
-        "cp-000104"
+        "cp-000104",
+        "cp-000105"
       ],
       "completedDispositions": [
         {
@@ -8671,6 +8653,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000104.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-06"
+        },
+        {
+          "caseId": "cp-000105",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000105.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-06"
         }
       ],
       "deferredCases": [
@@ -8717,19 +8706,19 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000104",
-        "executionId": "restart-A-cp104-20261106T0430Z",
+        "caseId": "cp-000105",
+        "executionId": "restart-A-cp105-20261106T0530Z",
         "state": "approved",
         "academicDisposition": "comparison",
-        "reviewedInputCommit": "8c5854210e6081fad497e863d53d3dee3414ce19",
+        "reviewedInputCommit": "69fd822644f9ca005538a57c55927f69591b4cbb",
         "inputBlobs": {
-          "canonical": "403f3aee7208f742977f829496c15b4e05739777",
-          "decision": "1ede12c501a13c769e5d957f3821ce419e549eec"
+          "canonical": "db6c0072966e558167894ff4529855fc9a6adbd9",
+          "decision": "8fe2b62a96311ad5f5977aaf3796a7f310dcbfd0"
         },
-        "verifiedAt": "2026-11-06T04:40:05.059562+00:00",
+        "verifiedAt": "2026-11-06T05:37:07.891886+00:00",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/published-verification.json",
-        "nextAction": "CP104 approved as a comparison with two qualified UCR options. Resume cp-000105 next execution.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/published-verification.json",
+        "nextAction": "CP105 approved as a comparison with two qualified UCR options. Resume cp-000106 next execution.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -15203,6 +15192,51 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-11-06T05:37:07.891886+00:00",
+          "reason": "Preserve prior worker checkpoint and active claim before CP105 final disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000104",
+              "executionId": "restart-A-cp104-20261106T0430Z",
+              "state": "approved",
+              "academicDisposition": "comparison",
+              "reviewedInputCommit": "8c5854210e6081fad497e863d53d3dee3414ce19",
+              "inputBlobs": {
+                "canonical": "403f3aee7208f742977f829496c15b4e05739777",
+                "decision": "1ede12c501a13c769e5d957f3821ce419e549eec"
+              },
+              "verifiedAt": "2026-11-06T04:40:05.059562+00:00",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/published-verification.json",
+              "nextAction": "CP104 approved as a comparison with two qualified UCR options. Resume cp-000105 next execution.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp105-20261106T0530Z",
+              "worker": "A",
+              "caseId": "cp-000105",
+              "claimedAt": "2026-11-06T05:31:30.836222+00:00",
+              "reviewedInputCommit": "4605cd53af27c830fc227d86836c7a0113b12239",
+              "inputBlobs": {
+                "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000105.json": "ffe2cced1b0a040bda03e0017b1c57f9fe3a8ef4",
+                "data/counselor/comparisons/cp-000105.json": "b66b747218c8bf1be7b0b66b1c6c12f682ba1b8e",
+                "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Verify VU Mathematics’s current 180 EC route, electives and thesis progression, all target interests and UCR options. Repair any schedule or content conflicts and verify the final record.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -16455,6 +16489,31 @@
           "endedAt": "2026-11-06T04:40:05.059562+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/published-verification.json"
+        },
+        {
+          "executionId": "restart-A-cp105-20261106T0530Z",
+          "worker": "A",
+          "caseId": "cp-000105",
+          "claimedAt": "2026-11-06T05:31:30.836222+00:00",
+          "reviewedInputCommit": "4605cd53af27c830fc227d86836c7a0113b12239",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000105.json": "ffe2cced1b0a040bda03e0017b1c57f9fe3a8ef4",
+            "data/counselor/comparisons/cp-000105.json": "b66b747218c8bf1be7b0b66b1c6c12f682ba1b8e",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify VU Mathematics’s current 180 EC route, electives and thesis progression, all target interests and UCR options. Repair any schedule or content conflicts and verify the final record.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-06T05:37:07.891886+00:00",
+          "result": "approved comparison",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000105/published-verification.json"
         }
       ],
       "sourceRetryLog": [
