@@ -6353,13 +6353,23 @@
     {
       "id": "cp-000317",
       "state": "in-progress",
-      "stageOutcomes": {},
+      "stageOutcomes": {
+        "1": "blocked",
+        "2": "retain",
+        "3": "blocked",
+        "4": "correct",
+        "5": "correct",
+        "6": "blocked"
+      },
       "sharedIssueIds": [],
-      "unresolved": [],
+      "unresolved": [
+        "Leiden confirms the first two years of the revised curriculum. The third-year listing is for students who started in 2024 or earlier. The revised third-year courses, elective rules and thesis requirements still need confirmation."
+      ],
       "downstreamReassessments": [],
       "implementationCommits": [],
       "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000317.json"
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000317.json",
+      "academicDisposition": "external-programme-unresolved"
     },
     {
       "id": "cp-000318",
@@ -16822,7 +16832,7 @@
           "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
           "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
         },
-        "nextAction": "Verify Leiden Law’s revised 2026-entry Dutch curriculum, third-year allocation and thesis progression, all target interests and feasible UCR options. Repair any schedule or content conflicts and verify the final record.",
+        "nextAction": "Verify published CP317 partial repair and applicable CI, then close the first source attempt and resume CP317.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -17285,23 +17295,18 @@
         "cp-000309": 2,
         "cp-000311": 2,
         "cp-000312": 2,
-        "cp-000314": 2
+        "cp-000314": 2,
+        "cp-000317": 1
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000316",
-        "executionId": "restart-B-cp316-20261106T0500Z",
-        "state": "approved",
-        "academicDisposition": "comparison",
-        "reviewedInputCommit": "23d7258eedd2cf5165a526a931d4f5e9a9fe391a",
-        "inputBlobs": {
-          "canonical": "31897412987b3a965851016e297aff3e20607e5b",
-          "decision": "d42818bb9e08aec5c314124bea30ad241915a46f"
-        },
-        "verifiedAt": "2026-11-06T05:14:20.573804+00:00",
-        "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000316/published-verification.json",
-        "nextAction": "CP316 approved as a comparison with two qualified UCR options. Resume cp-000317 next execution.",
+        "caseId": "cp-000317",
+        "executionId": "restart-B-cp317-20261106T0600Z",
+        "state": "in-progress",
+        "academicDisposition": "external-programme-unresolved",
+        "sourceFailureExecutions": 1,
+        "nextAction": "Verify published CP317 partial repair and applicable CI, then close the first source attempt and resume CP317.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000317/source-attempt-1.json",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -22690,6 +22695,27 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-11-06T06:06:31.307825+00:00",
+          "reason": "Preserve prior verified Worker B checkpoint.",
+          "snapshot": {
+            "caseId": "cp-000316",
+            "executionId": "restart-B-cp316-20261106T0500Z",
+            "state": "approved",
+            "academicDisposition": "comparison",
+            "reviewedInputCommit": "23d7258eedd2cf5165a526a931d4f5e9a9fe391a",
+            "inputBlobs": {
+              "canonical": "31897412987b3a965851016e297aff3e20607e5b",
+              "decision": "d42818bb9e08aec5c314124bea30ad241915a46f"
+            },
+            "verifiedAt": "2026-11-06T05:14:20.573804+00:00",
+            "verificationPolicy": "record-content-review-2026-10-31",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000316/published-verification.json",
+            "nextAction": "CP316 approved as a comparison with two qualified UCR options. Resume cp-000317 next execution.",
+            "runtimeModel": "unknown",
+            "runtimeReasoningEffort": "unknown"
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -23160,6 +23186,15 @@
           "essentialEvidence": "Leiden’s programme chart accounts for all 180 EC. The course catalogue and regulations annex confirm the first-year requirements. The detailed second- and third-year course records, including seminar and thesis entry requirements, still need confirmation for this route.",
           "officialAlternative": "Exact current 20 EC project entries cover IRO, outgoing POL and outgoing IP. Their first-year completion, 40 EC year-two and methods requirements are route-specific. The older NIP faculty flyer puts economics in year one and Global History in year two, which conflicts with the current chart and formal appendix. The indexed current English regulations name the new NIP and refer mandatory sequence and assessment to the prospectus. Direct fetches of guessed Dutch PDF addresses returned access blocks, so those probes establish no document contents.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000314/source-attempt-2.json"
+        },
+        {
+          "caseId": "cp-000317",
+          "executionId": "restart-B-cp317-20261106T0600Z",
+          "checkedOn": "2026-11-06",
+          "essentialEvidence": "Leiden confirms the first two years of the revised curriculum. The third-year listing is for students who started in 2024 or earlier. The revised third-year courses, elective rules and thesis requirements still need confirmation.",
+          "officialAlternative": "Current regulations and archived official catalogue reviewed, along with later-year catalogue queries.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000317/source-attempt-1.json",
+          "nextAction": "Verify published CP317 partial repair and applicable CI, then close the first source attempt and resume CP317."
         }
       ],
       "deferralHistory": [
@@ -23668,6 +23703,15 @@
           "essentialEvidence": "Leiden’s programme chart accounts for all 180 EC. The course catalogue and regulations annex confirm the first-year requirements. The detailed second- and third-year course records, including seminar and thesis entry requirements, still need confirmation for this route.",
           "officialAlternative": "Exact current 20 EC project entries cover IRO, outgoing POL and outgoing IP. Their first-year completion, 40 EC year-two and methods requirements are route-specific. The older NIP faculty flyer puts economics in year one and Global History in year two, which conflicts with the current chart and formal appendix. The indexed current English regulations name the new NIP and refer mandatory sequence and assessment to the prospectus. Direct fetches of guessed Dutch PDF addresses returned access blocks, so those probes establish no document contents.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000314/source-attempt-2.json"
+        },
+        {
+          "caseId": "cp-000317",
+          "executionId": "restart-B-cp317-20261106T0600Z",
+          "checkedOn": "2026-11-06",
+          "essentialEvidence": "Leiden confirms the first two years of the revised curriculum. The third-year listing is for students who started in 2024 or earlier. The revised third-year courses, elective rules and thesis requirements still need confirmation.",
+          "officialAlternative": "Current regulations and archived official catalogue reviewed, along with later-year catalogue queries.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000317/source-attempt-1.json",
+          "nextAction": "Verify published CP317 partial repair and applicable CI, then close the first source attempt and resume CP317."
         }
       ],
       "publicationRecovery": {
