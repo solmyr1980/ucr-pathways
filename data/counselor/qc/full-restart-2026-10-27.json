@@ -6466,7 +6466,7 @@
     },
     {
       "id": "cp-000319",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
@@ -6477,21 +6477,13 @@
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Current workbook and precise external module/credit evidence",
-          "scope": "Reassessed programme-level comparability, candidate feasibility, displayed curriculum and final checks using current sources.",
-          "stages": [
-            3,
-            4,
-            5,
-            6
-          ]
-        }
+      "downstreamReassessments": [],
+      "implementationCommits": [
+        "01bd016793839399b99af731bc3e901a4251ffd9"
       ],
-      "implementationCommits": [],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000319.json"
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000319.json",
+      "academicDisposition": "no-defensible-ucr-match"
     },
     {
       "id": "cp-000320",
@@ -7865,8 +7857,8 @@
     }
   ],
   "progress": {
-    "approved": 138,
-    "inProgress": 52,
+    "approved": 139,
+    "inProgress": 51,
     "reviewedWithBlockers": 0,
     "notStarted": 248,
     "pilotStarted": 4
@@ -17378,37 +17370,15 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000319",
-      "activeClaim": {
-        "executionId": "restart-B-cp319-20261106T120138Z",
-        "worker": "B",
-        "caseId": "cp-000319",
-        "claimedAt": "2026-11-06T12:01:38.555424+00:00",
-        "reviewedInputCommit": "0b530750a780ef1bfd64871ae86a72bff41eb602",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000319.json": "8e7374e7eaa1a9615e2cdfd405be8421b0037116",
-          "data/counselor/comparisons/cp-000319.json": "04912b2ee4f0d8baa21dc79e6d5353a1c0021034",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify the CP319 repair, exact input blobs and applicable CI on main. If verified, close the dependency and approve the no-defensible-UCR-match disposition.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown",
-        "resumedFrom": "restart-B-cp319-20261106T1100Z"
-      },
+      "nextCase": "cp-000320",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -17458,7 +17428,8 @@
         "cp-000310",
         "cp-000313",
         "cp-000315",
-        "cp-000316"
+        "cp-000316",
+        "cp-000319"
       ],
       "completedDispositions": [
         {
@@ -17803,6 +17774,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000316.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-06"
+        },
+        {
+          "caseId": "cp-000319",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000319.json",
+          "academicDisposition": "no-defensible-ucr-match",
+          "verifiedOn": "2026-11-06"
         }
       ],
       "deferredCases": [
@@ -17878,10 +17856,19 @@
       "lastCheckpoint": {
         "caseId": "cp-000319",
         "executionId": "restart-B-cp319-20261106T120138Z",
-        "state": "in-progress",
-        "reviewedInputCommit": "de1237c682dd042564a30718e0a6aecd8029ba73",
-        "nextAction": "Verify the CP319 repair, exact input blobs and applicable CI on main. If verified, close the dependency and approve the no-defensible-UCR-match disposition.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000319/mechanical-verification.json"
+        "state": "approved",
+        "academicDisposition": "no-defensible-ucr-match",
+        "reviewedInputCommit": "01bd016793839399b99af731bc3e901a4251ffd9",
+        "inputBlobs": {
+          "canonical": "242109df9eb7a640e9e4de9aec3443a8376d4948",
+          "decision": "6f896d130f2f928ccdd149a5bb58e8733184e546"
+        },
+        "verifiedAt": "2026-11-06T12:11:56.964132+00:00",
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000319/published-verification.json",
+        "nextAction": "CP319 approved as no defensible UCR match. Resume cp-000320 next execution.",
+        "runtimeModel": "unknown",
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -23381,6 +23368,23 @@
           "reviewedInputCommit": "de1237c682dd042564a30718e0a6aecd8029ba73",
           "nextAction": "Verify the CP319 repair, exact input blobs and applicable CI on main. If verified, close the dependency and approve the no-defensible-UCR-match disposition.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000319/mechanical-verification.json"
+        },
+        {
+          "caseId": "cp-000319",
+          "executionId": "restart-B-cp319-20261106T120138Z",
+          "state": "approved",
+          "academicDisposition": "no-defensible-ucr-match",
+          "reviewedInputCommit": "01bd016793839399b99af731bc3e901a4251ffd9",
+          "inputBlobs": {
+            "canonical": "242109df9eb7a640e9e4de9aec3443a8376d4948",
+            "decision": "6f896d130f2f928ccdd149a5bb58e8733184e546"
+          },
+          "verifiedAt": "2026-11-06T12:11:56.964132+00:00",
+          "verificationPolicy": "record-content-review-2026-10-31",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000319/published-verification.json",
+          "nextAction": "CP319 approved as no defensible UCR match. Resume cp-000320 next execution.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown"
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -25485,6 +25489,32 @@
           "runtimeModel": "unknown",
           "runtimeReasoningEffort": "unknown",
           "resumedFrom": "restart-B-cp319-20261106T1100Z"
+        },
+        {
+          "executionId": "restart-B-cp319-20261106T120138Z",
+          "worker": "B",
+          "caseId": "cp-000319",
+          "claimedAt": "2026-11-06T12:01:38.555424+00:00",
+          "reviewedInputCommit": "0b530750a780ef1bfd64871ae86a72bff41eb602",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000319.json": "8e7374e7eaa1a9615e2cdfd405be8421b0037116",
+            "data/counselor/comparisons/cp-000319.json": "04912b2ee4f0d8baa21dc79e6d5353a1c0021034",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify the CP319 repair, exact input blobs and applicable CI on main. If verified, close the dependency and approve the no-defensible-UCR-match disposition.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "resumedFrom": "restart-B-cp319-20261106T1100Z",
+          "endedAt": "2026-11-06T12:11:56.964132+00:00",
+          "result": "approved no-defensible-ucr-match",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000319/published-verification.json"
         }
       ],
       "publicationRecoveryHistory": [
