@@ -6320,7 +6320,7 @@
     },
     {
       "id": "cp-000316",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
@@ -6332,8 +6332,10 @@
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "23d7258eedd2cf5165a526a931d4f5e9a9fe391a"
+      ],
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000316.json",
       "academicDisposition": "comparison"
     },
@@ -7739,8 +7741,8 @@
     }
   ],
   "progress": {
-    "approved": 130,
-    "inProgress": 50,
+    "approved": 131,
+    "inProgress": 49,
     "reviewedWithBlockers": 0,
     "notStarted": 258,
     "pilotStarted": 4
@@ -16704,36 +16706,15 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000316",
-      "activeClaim": {
-        "executionId": "restart-B-cp316-20261106T0500Z",
-        "worker": "B",
-        "caseId": "cp-000316",
-        "claimedAt": "2026-11-06T05:05:59.318928+00:00",
-        "reviewedInputCommit": "6f7fe8f3e3d5af55665c33d0e8927eb62852e208",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000316.json": "d4f25b48f4b2c5a2599ccae72f2cc603c2f6a858",
-          "data/counselor/comparisons/cp-000316.json": "9903c1f1629b489c614dbe9b046c1d32fc949179",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify Leiden Psychology’s current Dutch curriculum, specialisation and capstone progression, all target interests and UCR options. Repair any schedule or content conflicts and verify the final record.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000317",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -16782,7 +16763,8 @@
         "cp-000308",
         "cp-000310",
         "cp-000313",
-        "cp-000315"
+        "cp-000315",
+        "cp-000316"
       ],
       "completedDispositions": [
         {
@@ -17120,6 +17102,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000315.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-06"
+        },
+        {
+          "caseId": "cp-000316",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000316.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-06"
         }
       ],
       "deferredCases": [
@@ -17189,19 +17178,19 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000315",
-        "executionId": "restart-B-cp315-20261106T0400Z",
+        "caseId": "cp-000316",
+        "executionId": "restart-B-cp316-20261106T0500Z",
         "state": "approved",
         "academicDisposition": "comparison",
-        "reviewedInputCommit": "ffeb5148b074a86123d91eb3112508c48d4ed459",
+        "reviewedInputCommit": "23d7258eedd2cf5165a526a931d4f5e9a9fe391a",
         "inputBlobs": {
-          "canonical": "a63b4a8bfb1ac8edc64d55c23b590c2378dd515e",
-          "decision": "2350cedf82c24a0b6f47f8553967debde4a202d8"
+          "canonical": "31897412987b3a965851016e297aff3e20607e5b",
+          "decision": "d42818bb9e08aec5c314124bea30ad241915a46f"
         },
-        "verifiedAt": "2026-11-06T04:16:21.132473+00:00",
+        "verifiedAt": "2026-11-06T05:14:20.573804+00:00",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000315/published-verification.json",
-        "nextAction": "CP315 approved as a comparison with two qualified UCR options. Resume cp-000316 next execution.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000316/published-verification.json",
+        "nextAction": "CP316 approved as a comparison with two qualified UCR options. Resume cp-000317 next execution.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -22545,6 +22534,51 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-11-06T05:14:20.573804+00:00",
+          "reason": "Preserve prior worker checkpoint and active claim before CP316 final disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000315",
+              "executionId": "restart-B-cp315-20261106T0400Z",
+              "state": "approved",
+              "academicDisposition": "comparison",
+              "reviewedInputCommit": "ffeb5148b074a86123d91eb3112508c48d4ed459",
+              "inputBlobs": {
+                "canonical": "a63b4a8bfb1ac8edc64d55c23b590c2378dd515e",
+                "decision": "2350cedf82c24a0b6f47f8553967debde4a202d8"
+              },
+              "verifiedAt": "2026-11-06T04:16:21.132473+00:00",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000315/published-verification.json",
+              "nextAction": "CP315 approved as a comparison with two qualified UCR options. Resume cp-000316 next execution.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-B-cp316-20261106T0500Z",
+              "worker": "B",
+              "caseId": "cp-000316",
+              "claimedAt": "2026-11-06T05:05:59.318928+00:00",
+              "reviewedInputCommit": "6f7fe8f3e3d5af55665c33d0e8927eb62852e208",
+              "inputBlobs": {
+                "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000316.json": "d4f25b48f4b2c5a2599ccae72f2cc603c2f6a858",
+                "data/counselor/comparisons/cp-000316.json": "9903c1f1629b489c614dbe9b046c1d32fc949179",
+                "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Verify Leiden Psychology’s current Dutch curriculum, specialisation and capstone progression, all target interests and UCR options. Repair any schedule or content conflicts and verify the final record.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -24392,6 +24426,31 @@
           "endedAt": "2026-11-06T04:16:21.132473+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000315/published-verification.json"
+        },
+        {
+          "executionId": "restart-B-cp316-20261106T0500Z",
+          "worker": "B",
+          "caseId": "cp-000316",
+          "claimedAt": "2026-11-06T05:05:59.318928+00:00",
+          "reviewedInputCommit": "6f7fe8f3e3d5af55665c33d0e8927eb62852e208",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000316.json": "d4f25b48f4b2c5a2599ccae72f2cc603c2f6a858",
+            "data/counselor/comparisons/cp-000316.json": "9903c1f1629b489c614dbe9b046c1d32fc949179",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify Leiden Psychology’s current Dutch curriculum, specialisation and capstone progression, all target interests and UCR options. Repair any schedule or content conflicts and verify the final record.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-06T05:14:20.573804+00:00",
+          "result": "approved comparison",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000316/published-verification.json"
         }
       ],
       "publicationRecoveryHistory": [
