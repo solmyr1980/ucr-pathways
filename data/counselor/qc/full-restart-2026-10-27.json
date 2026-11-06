@@ -6279,7 +6279,8 @@
         }
       ],
       "implementationCommits": [
-        "eb173b75f84e1d847575fb665e3484db69c7f67e"
+        "eb173b75f84e1d847575fb665e3484db69c7f67e",
+        "336d1083320db9f2932b781a8e671d87b0fb3496"
       ],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000314.json",
@@ -16570,36 +16571,15 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000314",
-      "activeClaim": {
-        "executionId": "restart-B-cp314-20261106T0300Z",
-        "worker": "B",
-        "caseId": "cp-000314",
-        "claimedAt": "2026-11-06T02:57:39.985541+00:00",
-        "reviewedInputCommit": "0c2696883f864efedb88da630945997a3248efaf",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000314.json": "c084a59a0a61fd68ce5e296a5676ada64d3d77b4",
-          "data/counselor/comparisons/cp-000314.json": "8a6e1a897b20710391705ef29e0326bf64de8aa5",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify published CP314 second-source checkpoint and applicable CI, then defer as incomplete and resume CP315 next execution.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000315",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -17009,7 +16989,8 @@
         "cp-000306",
         "cp-000309",
         "cp-000311",
-        "cp-000312"
+        "cp-000312",
+        "cp-000314"
       ],
       "sourceRetrievalFailuresByCase": {
         "cp-000245": 2,
@@ -17048,13 +17029,16 @@
       "lastCheckpoint": {
         "caseId": "cp-000314",
         "executionId": "restart-B-cp314-20261106T0300Z",
-        "state": "in-progress",
+        "state": "deferred",
         "academicDisposition": "external-programme-unresolved",
         "sourceFailureExecutions": 2,
-        "nextAction": "Verify published CP314 second-source checkpoint and applicable CI, then defer as incomplete and resume CP315 next execution.",
+        "nextAction": "CP314 deferred and incomplete after two unsuccessful essential-source executions. Use its one separate revisit after the own non-deferred queue or when new essential evidence becomes available. Confirm the seven second-year requirements, eligibility and offerings for five restricted electives and progression and assessment rules for the 10 EC seminar and 20 EC individual thesis for the September 2026 NIP cohort. Preserve the 180 EC partial curriculum and feasible internal UCR proposal. Resume CP315 next execution.",
         "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000314/source-attempt-2.json",
         "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
+        "runtimeReasoningEffort": "unknown",
+        "implementationCommit": "336d1083320db9f2932b781a8e671d87b0fb3496",
+        "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000314/published-execution-2.json",
+        "CI": "passed"
       },
       "checkpointHistory": [
         {
@@ -23116,6 +23100,16 @@
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000312/source-attempt-2.json",
           "revisitStatus": "pending; not consumed",
           "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
+        },
+        {
+          "caseId": "cp-000314",
+          "deferredOn": "2026-11-06",
+          "executionId": "restart-B-cp314-20261106T0300Z",
+          "unsuccessfulExecutions": 2,
+          "reason": "Leiden’s programme chart accounts for all 180 EC. The course catalogue and regulations annex confirm the first-year requirements. The detailed second- and third-year course records, including seminar and thesis entry requirements, still need confirmation for this route.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000314/source-attempt-2.json",
+          "revisitStatus": "pending; not consumed",
+          "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
         }
       ],
       "reopeningDependencies": [
@@ -24141,6 +24135,31 @@
           "endedAt": "2026-11-06T02:05:20.792279+00:00",
           "result": "incomplete; first source execution",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000314/published-verification.json"
+        },
+        {
+          "executionId": "restart-B-cp314-20261106T0300Z",
+          "worker": "B",
+          "caseId": "cp-000314",
+          "claimedAt": "2026-11-06T02:57:39.985541+00:00",
+          "reviewedInputCommit": "0c2696883f864efedb88da630945997a3248efaf",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000314.json": "c084a59a0a61fd68ce5e296a5676ada64d3d77b4",
+            "data/counselor/comparisons/cp-000314.json": "8a6e1a897b20710391705ef29e0326bf64de8aa5",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify published CP314 second-source checkpoint and applicable CI, then defer as incomplete and resume CP315 next execution.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-06T03:02:31.099254+00:00",
+          "result": "deferred; incomplete; second source execution",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000314/published-execution-2.json"
         }
       ],
       "publicationRecoveryHistory": [
