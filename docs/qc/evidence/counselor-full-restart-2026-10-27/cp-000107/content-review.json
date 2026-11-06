@@ -1,0 +1,79 @@
+{
+  "caseId": "cp-000107",
+  "checkedAt": "2026-11-06T07:31:42.257824+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000107.json": "a650e10f334c5132011d0be6e0f33ecbfb9be923",
+    "data/counselor/comparisons/cp-000107.json": "32b18df496cf48f633ca06571505644f1efe8ee4",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "2bf96bf6dec7532b772503de510705da0de8936d",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "canonical": "32b18df496cf48f633ca06571505644f1efe8ee4",
+    "decision": "a650e10f334c5132011d0be6e0f33ecbfb9be923"
+  },
+  "fieldPaths": [
+    "comparator.name and institution, primarySourceUrl, additionalSourceUrls and 27 component names and credits",
+    "audience.programmeDescription, comparisonExplanation, curriculum status/year/route/limitation, component IDs and notes",
+    "exception.type and rendered status fallback; absence of selected concepts, UCR course descriptions and notes"
+  ],
+  "mapping": "render_exception, curriculum_view and render_audience_context in pilot/counselor-shiny/app.R; title, official source and curriculum rows use comparator and audience fields. No UCR description lookup in the exception mode.",
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "VU Medical Natural Sciences brings physics, chemistry, mathematics and computing together with physiology to investigate disease and medical technology. Students learn experimental measurement, molecular analysis and modelling before completing an individual research project.",
+    "comparisonExplanation": "UCR offers biomedical laboratory work, quantitative analysis of medical images, and courses that teach optics and chemical measurement through sustainability applications. VU develops these physical and chemical methods in a sustained sequence of medical experiments and measurement. UCR’s available courses cover parts of that sequence.",
+    "curriculum": {
+      "status": "complete",
+      "componentIds": [
+        "y1-intro",
+        "y1-prac1",
+        "y1-calculus",
+        "y1-biochem",
+        "y1-pathophys1",
+        "y1-clinchem",
+        "y1-mathmethods",
+        "y1-orgchem",
+        "y1-physics",
+        "y1-physhealth",
+        "y1-bioanalytical",
+        "y1-nerveproject",
+        "y2-moldiag",
+        "y2-bioinfo",
+        "y2-thermo",
+        "y2-pathophys2",
+        "y2-diffeq",
+        "y2-society",
+        "y2-quantum",
+        "y2-optics",
+        "y2-statistics",
+        "y2-prac2",
+        "y2-cancerproject",
+        "y3-elective",
+        "y3-thesis",
+        "y3-society-hist",
+        "y3-choice"
+      ],
+      "yearLabel": "2026–2027",
+      "routeLabel": "Common curriculum with Machine Learning as the restricted choice",
+      "limitation": "The curriculum includes 30 EC of open study and an 18 EC individual research project. Language, lab safety and career-study requirements carry no additional credits. Project entry and elective approval rules apply. Clinical physics certification has separate requirements."
+    },
+    "conceptProgrammeIds": [],
+    "noteTypes": [],
+    "componentNotes": {
+      "y1-intro": "A Dutch language requirement applies.",
+      "y1-prac1": "Students must pass lab safety.",
+      "y2-prac2": "Students must pass Study and Career.",
+      "y3-elective": "Open study can include a minor, approved courses, study abroad or an internship.",
+      "y3-thesis": "The individual project includes a literature study, research, a written report and a presentation.",
+      "y3-choice": "Machine Learning is one of three 6 EC choices."
+    }
+  },
+  "selectedDescriptionReview": {},
+  "finding": "Read the exact decision and canonical titles, all selected notes, both audience paragraphs, limitation and supporting links. The 27 titles match the adopted table or describe the approved choice space. Curriculum and the source link resolve through the exception renderer; the two internal plans have no reader-facing course descriptions. English descriptions and scope notes distinguish partial overlap in optical and chemical methods from the missing medically applied sequence."
+}
