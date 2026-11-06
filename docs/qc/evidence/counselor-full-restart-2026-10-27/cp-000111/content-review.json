@@ -1,0 +1,693 @@
+{
+  "caseId": "cp-000111",
+  "checkedAt": "2026-11-06T11:37:43.300280+00:00",
+  "inputBlobs": {
+    "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000111.json": "50e4cfc40dd10679ec9a6aab2cbf6d9faa562900",
+    "data/counselor/comparisons/cp-000111.json": "bd88a2c8ffb33cf06b8696eb6c973a74efd774a5",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "2e54fb23098958da0fad2cd07447883d5800ade4",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "1595932255166785ac58524e448c546d4eaaf6fd",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+  },
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "presentationMode": "comparison",
+  "fieldPaths": [
+    "programmes[].label and courses in six scheduled terms",
+    "comparator.name, primarySourceUrl, additionalSourceUrls and components[].name and credits",
+    "audience.programmeDescription, comparisonExplanation, curriculum.status, componentIds, yearLabel, routeLabel and limitation",
+    "audience.conceptProgrammeIds and corresponding concepts; audience.noteTypes and selected notes; absent componentNotes and cellNotes",
+    "blocks and referenced component and course labels, alignment explanations, optionalIndependentResearch",
+    "review-programmes entry displayName and officialUrl, course cache descriptions keyed by course code"
+  ],
+  "mapping": "Read app.R audience_content, curriculum and concept/notes rendering, comparison row cell references and course-description lookup. Component metadata and alignment rationale were reviewed as stored; only explicit audience notes can render. All selected course descriptions exist and match their previously reviewed cache and source hashes.",
+  "selectedDescriptions": {
+    "ACCPPDE101": {
+      "name": "Personal & Professional Development",
+      "text": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+        "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Personal & Professional Development"
+      },
+      "cache": "pilot/shiny/data/courses/ACC.json",
+      "cacheBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8"
+    },
+    "BENECON111": {
+      "name": "Introduction to Economics",
+      "text": "Explore how individuals, firms, and societies make economic decisions. This course introduces key concepts from both microeconomics and macroeconomics, including markets, incentives, and the principles of supply and demand, and provides a foundation for analyzing real-world economic issues.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "be4f2adfa22005d4d1ebbea0bbfcb36e2acd0e7e75d57f9b87f847d13ad3ef1f",
+        "descriptionSha256": "2278892bd9c8b20df80deb4bd04a3bf00a3fe4cc79099b153861afa0f69110e8",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Economics"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENECON211": {
+      "name": "International Macroeconomics",
+      "text": "Study the economy as a whole through topics such as national income, economic growth, inflation, and unemployment. Understand how governments and central banks use fiscal and monetary policies to influence economic performance over time. The course also explores business cycles, international trade, and economic crises, preparing students to evaluate policy debates and global economic trends.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "International Macroeconomics",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "33b36d74db138b4f57c17d242b5ba5dc4d4f8de34149ead79cef4bd1d0f2ccba",
+        "descriptionSha256": "33b36d74db138b4f57c17d242b5ba5dc4d4f8de34149ead79cef4bd1d0f2ccba",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENECON212": {
+      "name": "Microeconomics & Behavior",
+      "text": "Study how consumers and producers make decisions under scarcity. Explore key concepts such as rational choice, decision-making under uncertainty, and non-egoistic preferences. Analyze market structures, strategic interactions, and factor markets. Learn how markets function and examine the impact of regulation. Develop analytical tools to better understand behavior and engage with empirical research.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Microeconomics & Behavior",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "bb7e873ebcf0737250b0602678e531aaf080f101cfda442ebc4abcd4574d4250",
+        "descriptionSha256": "bb7e873ebcf0737250b0602678e531aaf080f101cfda442ebc4abcd4574d4250",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENECON311": {
+      "name": "Public Economics",
+      "text": "Investigate the role of government in the economy, focusing on how public policy influences efficiency and equity. The course covers taxation, public goods, externalities, and government spending. Combining theoretical models with empirical evidence, it evaluates how different policies affect societal welfare.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "24b0c5c56dc096e519a2295ff82eb44aa56d5601b7302975262d22a475cc96a6",
+        "descriptionSha256": "7a4ba78a0cfe9e6eb397bc2a538e91ff9a12eaecf7737f2cfbb377ac04d4aa84",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Public Economics"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENECON312": {
+      "name": "Econometrics",
+      "text": "Econometrics supplies tools to analyze data to answer questions of causality and prediction. In this course you learn three estimators—Ordinary Least Squares, Generalized Least Squares, and Instrumental Variables—and three tests—t-test, F-test, and LM-test. Understanding the basic rules of econometrics, particularly the sampling distribution concept, is key, and the course uses Monte Carlo simulations in Stata to visualize it. Tools are applied to estimate economic relationships and make predictions, and students write an empirical paper.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Econometrics",
+        "sourceField": "description2",
+        "sourceSha256": "3754e43821eb3db5407d6eded2b8e70021b3eb45d2284acfae505d85d85baea9",
+        "descriptionSha256": "3754e43821eb3db5407d6eded2b8e70021b3eb45d2284acfae505d85d85baea9",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENECON314": {
+      "name": "Behavioral Economics",
+      "text": "This course integrates insights from psychology into economic theory to better understand how people make decisions. Learn how actual behavior deviates from the predictions of traditional economic models due to biases, heuristics, and framing. Through experiments, students will deepen their understanding of decision-making and its implications for economic theory and practice.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Behavioral Economics",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "2ee42da99e32fb8dc397c2e243ef5fdc6c9a09440129e32b46f2affd8c4e7fa0",
+        "descriptionSha256": "2ee42da99e32fb8dc397c2e243ef5fdc6c9a09440129e32b46f2affd8c4e7fa0",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENGATE102": {
+      "name": "Research Methods & Statistics",
+      "text": "Research Methods & Statistics introduces research design, operationalisation, measurement, sampling, surveys and experiments. Students study descriptive statistics, estimation, hypothesis testing and introductory regression using R and R Commander. A group project develops a research plan and instruments, collects and analyses data, and reports findings under research-ethics and privacy requirements.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "9d88751452d5c0a6888ac7901a73d1a848617dee2b587d4df64815fc39ad8813",
+        "descriptionSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Research Methods & Statistics"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "DISARIN212": {
+      "name": "Logic & Discrete Mathematics",
+      "text": "Introduces formal logic, abstract reasoning and proof. Students work with propositions, quantified statements, sets, Boolean algebra, functions and relations, direct and indirect proofs, induction and recursion. A final component models processes and games without chance and investigates winning strategies.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Logic & Discrete Mathematics",
+        "sourceField": "profile",
+        "sourceSha256": "93a52b9fe674b9db0732d6f9451146621be7c59068bdf70219256b67ba3b03c2",
+        "descriptionSha256": "7503057969878a0fa1fccc505095c50f3d6b44d2956afaf35bbad164eb49ed7f",
+        "mode": "edited",
+        "reviewedOn": "2026-11-05",
+        "reviewNote": "Reviewed actual current profile in full; represent formal proof and actual programming/quality-assurance methods, without importing a complete client/deployment engineering sequence."
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISGATE102": {
+      "name": "Mathematical Methods",
+      "text": "Mathematical Methods develops foundational techniques in differentiation, integration, complex numbers and differential equations. Students solve problems analytically and with Mathematica. A project implements, analyses and adapts a dynamic model, requiring interpretation of its behaviour and computational results.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6250945baf68c519d3820bddeaa08cb4b3c71273ddbb9bc31a7dffe6d021af5f",
+        "descriptionSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Mathematical Methods"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISMATH214": {
+      "name": "Advanced Calculus",
+      "text": "Extends elementary calculus to multiple dimensions and differential equations, including complex‑valued functions. Uses computer algebra software to deepen analytical skills for science and data analysis applications.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Advanced Calculus",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "d882aae14f79763a614fdb3b6bd4735f6d83bbbc4ee4d1bef2eaf5b022062265",
+        "descriptionSha256": "d882aae14f79763a614fdb3b6bd4735f6d83bbbc4ee4d1bef2eaf5b022062265",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISMATH314": {
+      "name": "Probability & Statistics",
+      "text": "Provides a foundation in mathematical statistics. Covers probability theory, discrete and continuous distributions, sampling, parameter estimation and simulation; uses computer algebra software to develop theoretical understanding and practical skills.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "64d3f72845189f77627b8aa180a9906d4fd60fe3c5306bbf0ebe7666e612852b",
+        "descriptionSha256": "9d3ee2b42fa7fe2c0e62777da64474690e9fac0ca76929d04c6670dab516d10f",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Probability & Statistics"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "GOSGATE102": {
+      "name": "Law, Society & Justice",
+      "text": "Law, Society & Justice examines legal, social and normative perspectives on law. Students compare legal traditions and study public and private law, human rights, justice, social control and change, race and gender. Case briefs, demand letters and mock trials develop legal reasoning, while a family-law topic supports the design of a socio-legal research proposal.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "e3ee6c30cefe40d0410e4896ebe9e340104aad5931f93baad84dd2e4cfcd8c3e",
+        "descriptionSha256": "035b12c51282127288b99b6ba3cb906896d0fabff1cdf5153709df2d32006391",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Law, Society & Justice"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSHIST111": {
+      "name": "Modern History",
+      "text": "Provides a chronological overview of history from 1815 to the present. Discusses industrialisation, popular sovereignty and national self‑determination, and covers major economic, political and cultural developments including revolutions, world wars and the fall of communism.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Modern History",
+        "sourceField": "description2",
+        "sourceSha256": "cd940abc8f8e43aeb6cedd73b6bf076687f6418ffb3a76c3e1c44ad107e68324",
+        "descriptionSha256": "cd940abc8f8e43aeb6cedd73b6bf076687f6418ffb3a76c3e1c44ad107e68324",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSHIST211": {
+      "name": "History of Empires",
+      "text": "History of Empires examines empires across global history and competing theories of empire. Students study expansion, administration, military and economic systems, legitimacy, ideology, culture, decline and legacies. Historical cases, source analysis and an independent research essay connect theoretical interpretation with specific imperial experiences.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "bce0c4bf26316aa65a8b70c29f53f82e7c38bf225868dfd278a3cd941ebe4b82",
+        "descriptionSha256": "76faf04e8e855ae9ca1735ccf5a7e8ac76bf21911b771190f9286303745ad4a3",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "History of Empires"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSLAWJ111": {
+      "name": "Human Rights: Law & Philosophy",
+      "text": "Offers a legal, historical and philosophical approach to human rights. Studies classical and modern philosophers, traces the rise of human rights, examines the US Bill of Rights and the French Declaration, and discusses human rights treaties.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Human Rights: Law & Philosophy",
+        "sourceField": "description2",
+        "sourceSha256": "1ed6ae8d1c72724248e9a340650eef63f02eaf747b2175254ce1ca96fc82ab62",
+        "descriptionSha256": "1ed6ae8d1c72724248e9a340650eef63f02eaf747b2175254ce1ca96fc82ab62",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSLAWJ212": {
+      "name": "Introduction to Public International Law",
+      "text": "Introduction to Public International Law examines its sources, theories, institutions and relationship to domestic law. Topics include responsibility, force, armed conflict, international crime, human rights, economic relations and environmental protection, followed by self-determination, Third World approaches, compliance and treaty politics. Case exercises and a research podcast develop legal reasoning and critical analysis.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "0f8c6da05a320590248fdd068ef7492aa4a552af12c9e621a746cfcdf1ad4f41",
+        "descriptionSha256": "69f757ece2c00572df432e6ab9cc82f74c14f17c69dd6726bf3e86264049390a",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Introduction to Public International Law"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSLAWJ213": {
+      "name": "Comparative Constitutional Law",
+      "text": "Comparative Constitutional Law compares constitutional structures, institutions and rights across legal systems and introduces administrative law. Students study federalism, legislatures, executive relationships, courts, judicial review, human rights, public participation and procedural fairness. A staged booklet compares two constitutions, supported by legal interpretation, case-law analysis and hypothetical cases.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "3749867e8b6ef513149437432c78c9a25f6a6964e62399088abd19dddf6c47b1",
+        "descriptionSha256": "1845c8f87e0e1295bfe5b43ee7ea5c3902c6690b455726ad6c44b66c78ae8a6a",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Comparative Constitutional Law"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPHIL111": {
+      "name": "Introduction to Western Philosophy",
+      "text": "Introduces central themes from Western philosophy over 2,500 years. Encourages inquiry into the significance of philosophical issues and their relation to other disciplines and teaches theoretical methods used by philosophers.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Western Philosophy",
+        "sourceField": "description2",
+        "sourceSha256": "106757f58621c7e76a4a39253f24296f54e95a15c500cf3571b6fbdaffbdc220",
+        "descriptionSha256": "106757f58621c7e76a4a39253f24296f54e95a15c500cf3571b6fbdaffbdc220",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPHIL212": {
+      "name": "Ethics",
+      "text": "Ethics examines moral reasoning through historical and contemporary theories and close philosophical reading. Students study utilitarianism, Kantian ethics, virtue ethics, contractarianism and feminist ethics, alongside Nietzsche, Murdoch and Nagel. Reflection and research essays develop interpretation, argument evaluation and an independent position on ethical theory or a practical ethical problem.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6d4bf415a51b5b6fb41f341d23fe8b8ce483263f17505e77d1a4ae37299fe30f",
+        "descriptionSha256": "d17cd0a6631823a666c2978b81f52bc5e8b5c8e52ed68edccb3fa37073146e5b",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Ethics"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPHIL214": {
+      "name": "Philosophy of Mind",
+      "text": "Examines historical and modern work on the philosophy of mind. Discusses Descartes’ dualism, the nature of consciousness, AI and animal minds, personal identity, transformative experiences and the influence of technology on experience.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Philosophy of Mind",
+        "sourceField": "description2",
+        "sourceSha256": "cd2e55eb0c7f8a45220107e2f961346ef9960975db1d457cb213c6bf58ef25a6",
+        "descriptionSha256": "cd2e55eb0c7f8a45220107e2f961346ef9960975db1d457cb213c6bf58ef25a6",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPHIL311": {
+      "name": "Philosophy of Emotion",
+      "text": "Explores emotions from a philosophical perspective. Discusses nature and rationality of emotions, their role in ethics and art, and draws on historical and contemporary sources.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Philosophy of Emotion",
+        "sourceField": "description2",
+        "sourceSha256": "62324bef464be860edac1d19bc42cc912320da6e34d73f0104c1242f1441c115",
+        "descriptionSha256": "62324bef464be860edac1d19bc42cc912320da6e34d73f0104c1242f1441c115",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPHIL313": {
+      "name": "Free Will, Time & the Self",
+      "text": "Investigates concepts of free will, the role of luck and openness of the future. Explores relations between free will, time and the self across multiple modules and contemporary debates.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Free Will, Time & the Self",
+        "sourceField": "description2",
+        "sourceSha256": "f283131b5046b0c00827f9ee0b30524e1beac4aa954b5a8d9d6968408595aa65",
+        "descriptionSha256": "f283131b5046b0c00827f9ee0b30524e1beac4aa954b5a8d9d6968408595aa65",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI111": {
+      "name": "Introduction to Political Philosophy",
+      "text": "Introduction to Political Philosophy examines political thought from classical antiquity to contemporary debates, including European and non-European thinkers. Students study views of human nature, society, rights and authority in historical context and compare their arguments with current political problems. Original texts, an essay and a group project develop interpretation and normative argument.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "b82d5b7efaf1e222b9ec94652bba7beb367919298b5ae983d3f07f072f142130",
+        "descriptionSha256": "ea3b0a363bec6cacab1a13c186f6c97bbbf5d5ce40d4cf5cdb1a67491d47a19c",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Introduction to Political Philosophy"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI112": {
+      "name": "Foundations of Comparative Politics",
+      "text": "Provides analytical tools to compare political systems and democracies. Examines phenomena like democratic backsliding, decline of political parties, rise of populism, media changes, non‑majoritarian institutions and globalization’s impact on domestic politics.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Foundations of Comparative Politics",
+        "sourceField": "description2",
+        "sourceSha256": "72f9efff37e62fdc1cb0ddf27e595e7b3c526eb132dad86622cf55738204a4ee",
+        "descriptionSha256": "72f9efff37e62fdc1cb0ddf27e595e7b3c526eb132dad86622cf55738204a4ee",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI212": {
+      "name": "Theory of International Relations",
+      "text": "Theory of International Relations introduces competing approaches to international relations and geopolitics, including realism, liberalism, Marxism, constructivism and critical theory. Students apply theories to historical and contemporary cases. A United Nations Security Council simulation develops country-position research, negotiation and collaborative resolution drafting.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "0f83c15b507fb2c91b8001182f4a8a94e42ee1673da8396a51bb4a3556d47116",
+        "descriptionSha256": "04498c2b83c05d39830633ba46b62b3691d10af2bb8320e5413d0f75963fbc80",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Theory of International Relations"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI311": {
+      "name": "European Union Politics",
+      "text": "European Union Politics examines EU institutions, actors, integration and policymaking, including representation, legitimacy and decision-making. An empirical project investigates European Parliament committee amendments, relating MEP ideology and possible interest-group influence to amendment activity. Students plan the research, code amendments, assess salience and trace legislative processes.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "42788a5dd28eccc535d20a771b88a601c20af300b1102ef637945a852f156fe0",
+        "descriptionSha256": "97411c9c43963bfc500f8c6494383d57cfd36eeb9c57f554e94ba2d6e35c4253",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "mode": "edited",
+        "courseName": "European Union Politics"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI312": {
+      "name": "Public Policy Analysis",
+      "text": "Investigates public policy in the context of globalization. Uses a case study on sugar to examine policy‑making phases and alternative conceptualisations across national and international arenas. Students write policy memos.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "c9f3958d93c55568454749b18f2790f1adf0927a53afbc8d93fb3ce9ca1729e6",
+        "descriptionSha256": "c9f3958d93c55568454749b18f2790f1adf0927a53afbc8d93fb3ce9ca1729e6",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Public Policy Analysis"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI313": {
+      "name": "Peace & Conflict",
+      "text": "Peace & Conflict examines conflict and approaches to peace through legal, sociological, political and historical perspectives. Structural inequality, identity and colonial legacies connect to international security, humanitarian law, human rights, peacebuilding and transitional justice. An interdisciplinary podcast, policy brief and research dossier develop analysis, while reflection examines how assumptions shape inquiry.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "414e04bed3b7b37017b0ce93ba0aa469530684e0623175ca2ff1784b4a84515a",
+        "descriptionSha256": "5ad720fcdadf602282307eef8fe7eaf83c3b00264a2ee4752e123cda89606fdf",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Peace & Conflict"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI111": {
+      "name": "Introduction to Sociology",
+      "text": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Sociology",
+        "sourceField": "description2",
+        "sourceSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "descriptionSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI212": {
+      "name": "Qualitative Research Methodology",
+      "text": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "6531d96f817df19cfa773d8d8004f44da6041eeab39acfce1462438728cd1eeb",
+        "descriptionSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Qualitative Research Methodology"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI214": {
+      "name": "Modern Sociology",
+      "text": "Examines the trajectory of sociology within the culture of imperialism and colonial responses. Studies leading social theories and debates about modernity and critically engages with sociological discourses.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Modern Sociology",
+        "sourceField": "description2",
+        "sourceSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+        "descriptionSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI215": {
+      "name": "Social Movements & Environmental Justice",
+      "text": "Focuses on social movement theories and environmental justice. Uses case studies from the Environmental Justice Atlas and integrates perspectives such as feminism, anti‑colonialism, degrowth and environmental peacebuilding to encourage civic engagement.",
+      "descriptionSource": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Social Movements & Environmental Justice",
+        "sourceField": "description2",
+        "sourceSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+        "descriptionSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "MCCCOMM311": {
+      "name": "Persuasive Communication",
+      "text": "Persuasive Communication studies persuasion through communication studies, social psychology and ethical analysis. Students examine framing, argumentation, cognitive shortcuts and verbal and nonverbal communication. Community-engaged projects develop communication encouraging sustainable and circular lifestyles, while an individual research paper evaluates selected persuasion tools.",
+      "descriptionSource": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "bad6a0cb3dd14e5cb07c4aeb36a102d09309142fdc5bab339f0096830ec5209a",
+        "descriptionSha256": "781fa29248cce6025d8aa8887d300c8f0d64941a8b4a9b2dd193783c098deacc",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "reviewedOn": "2026-10-29",
+        "basis": "course outline",
+        "courseName": "Persuasive Communication"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    }
+  },
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "VU’s Philosophy, Politics and Economics degree examines social questions through philosophical argument, political analysis and economics. Students begin with all three disciplines, specialise in two and apply their learning in a sequence of interdisciplinary courses. A supervised tutorial prepares them for the required individual thesis.",
+    "comparisonExplanation": "UCR offers three ways to combine these fields: philosophy and economics, political economy and global governance, or philosophy and politics. VU adds a dedicated sequence of interdisciplinary applications, specialist coursework and a compulsory supervised thesis.",
+    "curriculum": {
+      "status": "complete",
+      "componentIds": [
+        "y1-ethics",
+        "y1-methods1",
+        "y1-polsci",
+        "y1-ppe1",
+        "y1-histphil",
+        "y1-methods2",
+        "y1-microecon",
+        "y1-comppol",
+        "y1-ppe2",
+        "y1-macroecon",
+        "y2-ppe3",
+        "y2-ppe4",
+        "y2-philsci",
+        "y2-polphil",
+        "y2-microecon2",
+        "y2-macroecon2",
+        "y2-el-ethics2",
+        "y2-el-history2",
+        "y2-el-globaljustice",
+        "y2-el-inttrade",
+        "y3-methods4qual",
+        "y3-tutorial",
+        "y3-openspace",
+        "y3-ppe5",
+        "y3-thesis"
+      ],
+      "yearLabel": "2026–2027",
+      "routeLabel": "Philosophy and Economics tracks",
+      "limitation": "This 180 EC route shows one permitted combination of four second-year electives, qualitative research methods and a 30 EC study-abroad package. VU approves the courses taken abroad. Students complete the required earlier credits before starting the tutorial and thesis."
+    },
+    "conceptProgrammeIds": [
+      "ucr-1",
+      "ucr-2",
+      "ucr-3"
+    ],
+    "noteTypes": [
+      "related-fields-not-full-discipline"
+    ]
+  },
+  "notes": [
+    {
+      "type": "related-fields-not-full-discipline",
+      "placement": "comparison",
+      "text": "The UCR options offer different combinations of philosophy, politics and economics. VU has a dedicated Philosophy of Science course and an integrated PPE in Practice sequence. Its supervised tutorial leads to a required 12 EC thesis. Optional UCR independent research is outside the scheduled 180 EC."
+    }
+  ],
+  "programmeLabels": [
+    "Philosophy, Politics and Economics (PPE) at Vrije Universiteit Amsterdam",
+    "Philosophy & Economics: Ethics, Markets and Public Choice",
+    "Political Economy & Global Governance",
+    "Philosophy & Politics: Agency, Rights and Institutions"
+  ],
+  "optionalIndependentResearch": {
+    "id": "optional-independent-research",
+    "text": "Optional independent research",
+    "credits": 15,
+    "researchComponentId": "y3-thesis",
+    "placement": "parallel-to-comparator-research",
+    "excludedFromProgrammeCredits": true,
+    "excludedFromSchedule": true
+  }
+}
