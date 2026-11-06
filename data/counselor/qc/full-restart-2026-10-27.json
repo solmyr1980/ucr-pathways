@@ -3083,7 +3083,7 @@
     },
     {
       "id": "cp-000103",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "retain",
         "2": "retain",
@@ -3095,8 +3095,10 @@
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "67ea2f1127367021d01cc557583be03d9cd14df6"
+      ],
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000103.json",
       "academicDisposition": "comparison"
     },
@@ -7705,8 +7707,8 @@
     }
   ],
   "progress": {
-    "approved": 127,
-    "inProgress": 50,
+    "approved": 128,
+    "inProgress": 49,
     "reviewedWithBlockers": 0,
     "notStarted": 261,
     "pilotStarted": 4
@@ -7938,36 +7940,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000103",
-      "activeClaim": {
-        "executionId": "restart-A-cp103-20261106T0230Z",
-        "worker": "A",
-        "caseId": "cp-000103",
-        "claimedAt": "2026-11-06T02:34:01.248482+00:00",
-        "reviewedInputCommit": "7a93f8f748aac571c249f9ecac4ea5e2d254367a",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000103.json": "85e37af5ed62403700dfeae428e6a8f310d9bf7a",
-          "data/counselor/comparisons/cp-000103.json": "7d90f0ba0b32a9fc8266e1c6d239e8a5be497516",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify published CP103 repair and applicable CI, then record final disposition.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000104",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -8048,7 +8029,8 @@
         "cp-000097",
         "cp-000098",
         "cp-000101",
-        "cp-000102"
+        "cp-000102",
+        "cp-000103"
       ],
       "completedDispositions": [
         {
@@ -8610,6 +8592,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000102.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-06"
+        },
+        {
+          "caseId": "cp-000103",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000103.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-06"
         }
       ],
       "deferredCases": [
@@ -8656,19 +8645,19 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000102",
-        "executionId": "restart-A-cp102-20261106T0130Z",
+        "caseId": "cp-000103",
+        "executionId": "restart-A-cp103-20261106T0230Z",
         "state": "approved",
         "academicDisposition": "comparison",
-        "reviewedInputCommit": "b5a64ca22134fa6455c6fd14653d322578386cc4",
+        "reviewedInputCommit": "67ea2f1127367021d01cc557583be03d9cd14df6",
         "inputBlobs": {
-          "canonical": "b5397d5ff9805cec5d2ef154b62b927026fb23f1",
-          "decision": "71680e6cdeb5e69584817abf6f0bf7b91959d911"
+          "canonical": "8c02f113cd4d97fbae818a7b2ab4281ce520809f",
+          "decision": "20bb8789ce60561512248a2ca9bc6329f4e32ab2"
         },
-        "verifiedAt": "2026-11-06T01:38:41.789010+00:00",
+        "verifiedAt": "2026-11-06T02:41:39.623794+00:00",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000102/published-verification.json",
-        "nextAction": "CP102 verified comparison complete with three qualified UCR alternatives. Resume CP103 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000103/published-verification.json",
+        "nextAction": "CP103 verified comparison complete with one qualified UCR alternative. Resume CP104 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -15052,6 +15041,51 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-11-06T02:41:39.623794+00:00",
+          "reason": "Preserve prior worker checkpoint and own active claim before CP103 final disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000102",
+              "executionId": "restart-A-cp102-20261106T0130Z",
+              "state": "approved",
+              "academicDisposition": "comparison",
+              "reviewedInputCommit": "b5a64ca22134fa6455c6fd14653d322578386cc4",
+              "inputBlobs": {
+                "canonical": "b5397d5ff9805cec5d2ef154b62b927026fb23f1",
+                "decision": "71680e6cdeb5e69584817abf6f0bf7b91959d911"
+              },
+              "verifiedAt": "2026-11-06T01:38:41.789010+00:00",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000102/published-verification.json",
+              "nextAction": "CP102 verified comparison complete with three qualified UCR alternatives. Resume CP103 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp103-20261106T0230Z",
+              "worker": "A",
+              "caseId": "cp-000103",
+              "claimedAt": "2026-11-06T02:34:01.248482+00:00",
+              "reviewedInputCommit": "7a93f8f748aac571c249f9ecac4ea5e2d254367a",
+              "inputBlobs": {
+                "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000103.json": "85e37af5ed62403700dfeae428e6a8f310d9bf7a",
+                "data/counselor/comparisons/cp-000103.json": "7d90f0ba0b32a9fc8266e1c6d239e8a5be497516",
+                "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Verify published CP103 repair and applicable CI, then record final disposition.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -16230,6 +16264,31 @@
           "endedAt": "2026-11-06T01:38:41.789010+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000102/published-verification.json"
+        },
+        {
+          "executionId": "restart-A-cp103-20261106T0230Z",
+          "worker": "A",
+          "caseId": "cp-000103",
+          "claimedAt": "2026-11-06T02:34:01.248482+00:00",
+          "reviewedInputCommit": "7a93f8f748aac571c249f9ecac4ea5e2d254367a",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000103.json": "85e37af5ed62403700dfeae428e6a8f310d9bf7a",
+            "data/counselor/comparisons/cp-000103.json": "7d90f0ba0b32a9fc8266e1c6d239e8a5be497516",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify published CP103 repair and applicable CI, then record final disposition.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-06T02:41:39.623794+00:00",
+          "result": "approved comparison",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000103/published-verification.json"
         }
       ],
       "sourceRetryLog": [
