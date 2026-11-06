@@ -6267,7 +6267,9 @@
           ]
         }
       ],
-      "implementationCommits": [],
+      "implementationCommits": [
+        "eb173b75f84e1d847575fb665e3484db69c7f67e"
+      ],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000314.json",
       "academicDisposition": "external-programme-unresolved"
@@ -16479,7 +16481,7 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
@@ -16487,28 +16489,7 @@
         "minute": 0
       },
       "nextCase": "cp-000314",
-      "activeClaim": {
-        "executionId": "restart-B-cp314-20261106T0200Z",
-        "worker": "B",
-        "caseId": "cp-000314",
-        "claimedAt": "2026-11-06T01:56:49.677085+00:00",
-        "reviewedInputCommit": "07f84b947e97ed8b7b53e0da6c5c728efe089d78",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000314.json": "7dc41aa27dd29a7a2be2810699e2ae67a6655c2d",
-          "data/counselor/comparisons/cp-000314.json": "96440425de295690765a0e76d1e7dcebe7b8cc1d",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify published CP314 partial repair and applicable CI, then close the first source attempt and resume CP314.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -16960,10 +16941,13 @@
         "state": "in-progress",
         "academicDisposition": "external-programme-unresolved",
         "sourceFailureExecutions": 1,
-        "nextAction": "Verify published CP314 partial repair and applicable CI, then close the first source attempt and resume CP314.",
+        "nextAction": "Resume CP314 with the second official-source attempt. Preserve the verified 180 EC credit structure and 32 interest assessments. Check later-year NIP programme annexes and exact module records for the seven second-year requirements, the eligibility and offerings for the five restricted choices, and the 10 EC seminar and 20 EC thesis entry and assessment rules for September 2026 entrants. Then reassess the full curriculum and UCR comparison.",
         "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000314/source-attempt-1.json",
         "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
+        "runtimeReasoningEffort": "unknown",
+        "implementationCommit": "eb173b75f84e1d847575fb665e3484db69c7f67e",
+        "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000314/published-verification.json",
+        "CI": "passed"
       },
       "checkpointHistory": [
         {
@@ -23991,6 +23975,31 @@
           "endedAt": "2026-11-06T01:14:12.024738+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000313/published-verification.json"
+        },
+        {
+          "executionId": "restart-B-cp314-20261106T0200Z",
+          "worker": "B",
+          "caseId": "cp-000314",
+          "claimedAt": "2026-11-06T01:56:49.677085+00:00",
+          "reviewedInputCommit": "07f84b947e97ed8b7b53e0da6c5c728efe089d78",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000314.json": "7dc41aa27dd29a7a2be2810699e2ae67a6655c2d",
+            "data/counselor/comparisons/cp-000314.json": "96440425de295690765a0e76d1e7dcebe7b8cc1d",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify published CP314 partial repair and applicable CI, then close the first source attempt and resume CP314.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-06T02:05:20.792279+00:00",
+          "result": "incomplete; first source execution",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000314/published-verification.json"
         }
       ],
       "publicationRecoveryHistory": [
