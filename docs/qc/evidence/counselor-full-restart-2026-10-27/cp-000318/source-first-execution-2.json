@@ -1,0 +1,51 @@
+{
+  "caseId": "cp-000318",
+  "checkedOn": "2026-11-06T10:08:21.470833+00:00",
+  "reviewerOrPass": "Worker B, same AI, separate source-first checkpoint",
+  "independenceMethod": "Same AI, separate source-first checkpoint. Recomputed the verified 60 EC from the exact module records and reconsidered the duplicate courses and cohort scope against the formal transition appendix and independent programme page. Rechecked thesis rules, active workbook evidence and the partial exception mapping.",
+  "inputCommit": "44153c51599177057690bd6bd76b18cf227bf71d",
+  "inputBlobs": {
+    "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000318.json": "2d43c2d24c5baaf1e41cbe8950d01e1a4db364db",
+    "data/counselor/comparisons/cp-000318.json": "bd68e3dde265543b126fa8b121344aa0ab49ef5e",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "2e54fb23098958da0fad2cd07447883d5800ade4",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "canonical": "bd68e3dde265543b126fa8b121344aa0ab49ef5e",
+    "decision": "2d43c2d24c5baaf1e41cbe8950d01e1a4db364db"
+  },
+  "evidenceRefs": [
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000318/source-attempt-2.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000318/source-interest-review.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000318/course-comparability-review.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000318/content-review.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000318/published-verification.json"
+  ],
+  "findings": "The revised second- and third-year course and credit tables and restricted-choice eligibility remain unverified for September 2026 entrants. The general thesis gate and annual 15 EC thesis and seminar allocation are documented, but the revised progression through the later years cannot be established.",
+  "comparability": "The feasible 24-course UCR proposal still supports comparative myth, ritual and material interpretation, textual analysis and qualitative research. It does not settle dedicated tradition coverage or sustained sociology and psychology of religion. The missing later-year cohort evidence prevents a final comparison. Retain the 31 interest assessments and the provisional proposal.",
+  "content": "Rechecked ten exact component titles, credits, both progression notes, audience limitation and official source selection through the partial exception mapping. The existing limitation accurately excludes the outgoing year-two table. No UCR plan, concept or course description is displayed.",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "checks": {
+    "academic": "blocked",
+    "mechanical": "passed",
+    "content": "passed"
+  },
+  "commands": [
+    "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000318.json",
+    "python scripts/validate-course-feasibility.py /tmp/cp318/provisional.json",
+    "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000318.json",
+    "python scripts/validate-course-descriptions.py",
+    "npm run validate:counselor",
+    "npm run validate:registry-interests",
+    "npm run validate:counselor-review",
+    "python scripts/apply-registry-corrections.py --check",
+    "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000318.json --output /tmp/cp318-second/replay.json",
+    "cmp /tmp/cp318-second/replay.json data/counselor/comparisons/cp-000318.json"
+  ]
+}
