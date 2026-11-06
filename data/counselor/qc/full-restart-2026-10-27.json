@@ -6366,7 +6366,9 @@
         "Leiden confirms the first two years of the revised curriculum. The third-year listing is for students who started in 2024 or earlier. The revised third-year courses, elective rules and thesis requirements still need confirmation."
       ],
       "downstreamReassessments": [],
-      "implementationCommits": [],
+      "implementationCommits": [
+        "6cd3ec87dcc635dc3e02ed7070ea2f8cf9312adc"
+      ],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000317.json",
       "academicDisposition": "external-programme-unresolved"
@@ -16806,7 +16808,7 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
@@ -16814,28 +16816,7 @@
         "minute": 0
       },
       "nextCase": "cp-000317",
-      "activeClaim": {
-        "executionId": "restart-B-cp317-20261106T0600Z",
-        "worker": "B",
-        "caseId": "cp-000317",
-        "claimedAt": "2026-11-06T06:02:13.015583+00:00",
-        "reviewedInputCommit": "f1f81a45f209811535f505c30e4e77921c579949",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000317.json": "5401180cd6afbf6b3d48d33ff796ccc06f66716e",
-          "data/counselor/comparisons/cp-000317.json": "1466fc43edae680ea0198c048f827759aaa3fb3f",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify published CP317 partial repair and applicable CI, then close the first source attempt and resume CP317.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -17305,10 +17286,13 @@
         "state": "in-progress",
         "academicDisposition": "external-programme-unresolved",
         "sourceFailureExecutions": 1,
-        "nextAction": "Verify published CP317 partial repair and applicable CI, then close the first source attempt and resume CP317.",
+        "nextAction": "Resume CP317 with its second official-source attempt. Verify the revised third-year compulsory and restricted courses and credits, the placement and approval of open study, and thesis credits, entry, and assessment for September 2025 and later entrants. Reassess comparability using the verified first 120 EC and the feasible internal law proposal.",
         "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000317/source-attempt-1.json",
         "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
+        "runtimeReasoningEffort": "unknown",
+        "implementationCommit": "6cd3ec87dcc635dc3e02ed7070ea2f8cf9312adc",
+        "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000317/published-verification.json",
+        "CI": "passed"
       },
       "checkpointHistory": [
         {
@@ -24606,6 +24590,31 @@
           "endedAt": "2026-11-06T05:14:20.573804+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000316/published-verification.json"
+        },
+        {
+          "executionId": "restart-B-cp317-20261106T0600Z",
+          "worker": "B",
+          "caseId": "cp-000317",
+          "claimedAt": "2026-11-06T06:02:13.015583+00:00",
+          "reviewedInputCommit": "f1f81a45f209811535f505c30e4e77921c579949",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000317.json": "5401180cd6afbf6b3d48d33ff796ccc06f66716e",
+            "data/counselor/comparisons/cp-000317.json": "1466fc43edae680ea0198c048f827759aaa3fb3f",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify published CP317 partial repair and applicable CI, then close the first source attempt and resume CP317.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-06T06:09:37.316380+00:00",
+          "result": "first source execution incomplete",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000317/published-verification.json"
         }
       ],
       "publicationRecoveryHistory": [
