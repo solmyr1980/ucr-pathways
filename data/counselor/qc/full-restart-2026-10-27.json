@@ -6209,7 +6209,7 @@
     },
     {
       "id": "cp-000313",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
@@ -6221,8 +6221,10 @@
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "e13266b0a990e200ef779bc485a28415bc63f993"
+      ],
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000313.json",
       "academicDisposition": "comparison"
     },
@@ -7658,8 +7660,8 @@
     }
   ],
   "progress": {
-    "approved": 125,
-    "inProgress": 49,
+    "approved": 126,
+    "inProgress": 48,
     "reviewedWithBlockers": 0,
     "notStarted": 264,
     "pilotStarted": 4
@@ -16365,36 +16367,15 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000313",
-      "activeClaim": {
-        "executionId": "restart-B-cp313-20261106T0100Z",
-        "worker": "B",
-        "caseId": "cp-000313",
-        "claimedAt": "2026-11-06T01:05:06.116046+00:00",
-        "reviewedInputCommit": "9f219d4c0f7192b2e6887224399e5f3e6010101c",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000313.json": "a26b7afdbff37a14a1a4fef37b9fdc114a9cfd03",
-          "data/counselor/comparisons/cp-000313.json": "34f47e87803f75cc109b3f2d944fdd80dae7c7aa",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify published CP313 repair and applicable CI, then record final disposition.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000314",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -16441,7 +16422,8 @@
         "cp-000302",
         "cp-000303",
         "cp-000308",
-        "cp-000310"
+        "cp-000310",
+        "cp-000313"
       ],
       "completedDispositions": [
         {
@@ -16765,6 +16747,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000310.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-05"
+        },
+        {
+          "caseId": "cp-000313",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000313.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-06"
         }
       ],
       "deferredCases": [
@@ -16832,18 +16821,21 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000312",
-        "executionId": "restart-B-cp312-20261106T0000Z",
-        "state": "deferred",
-        "academicDisposition": "external-programme-unresolved",
-        "sourceFailureExecutions": 2,
-        "nextAction": "CP312 deferred and incomplete after two unsuccessful essential-source executions. Use its one separate revisit after the own non-deferred queue or when new essential evidence becomes available. Confirm the distinct 25 EC, the correct Philosophy of Science allocation, broad-route entry to Roman North Africa and the resulting first- and second-year completion conditions for the thesis and thesis seminar. Preserve the 155 EC partial curriculum and feasible internal UCR proposal. Resume CP313 next execution.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000312/source-attempt-2.json",
+        "caseId": "cp-000313",
+        "executionId": "restart-B-cp313-20261106T0100Z",
+        "state": "approved",
+        "academicDisposition": "comparison",
+        "reviewedInputCommit": "e13266b0a990e200ef779bc485a28415bc63f993",
+        "inputBlobs": {
+          "canonical": "e539cbfa81e1467a5f3ff32167638d54784d40c2",
+          "decision": "eb012fbcbeea84353718031ddcb17a95da28aad1"
+        },
+        "verifiedAt": "2026-11-06T01:14:12.024738+00:00",
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000313/published-verification.json",
+        "nextAction": "CP313 verified comparison complete with one qualified UCR alternative. Resume CP314 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
         "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown",
-        "implementationCommit": "8456b7ee1b9049ee96a098304c87d774e94e5d4d",
-        "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000312/published-execution-2.json",
-        "CI": "passed"
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -22062,6 +22054,48 @@
             "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000312/published-verification.json",
             "CI": "passed"
           }
+        },
+        {
+          "preservedOn": "2026-11-06T01:14:12.024738+00:00",
+          "reason": "Preserve prior worker checkpoint and own active claim before CP313 final disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000312",
+              "executionId": "restart-B-cp312-20261106T0000Z",
+              "state": "deferred",
+              "academicDisposition": "external-programme-unresolved",
+              "sourceFailureExecutions": 2,
+              "nextAction": "CP312 deferred and incomplete after two unsuccessful essential-source executions. Use its one separate revisit after the own non-deferred queue or when new essential evidence becomes available. Confirm the distinct 25 EC, the correct Philosophy of Science allocation, broad-route entry to Roman North Africa and the resulting first- and second-year completion conditions for the thesis and thesis seminar. Preserve the 155 EC partial curriculum and feasible internal UCR proposal. Resume CP313 next execution.",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000312/source-attempt-2.json",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown",
+              "implementationCommit": "8456b7ee1b9049ee96a098304c87d774e94e5d4d",
+              "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000312/published-execution-2.json",
+              "CI": "passed"
+            },
+            "activeClaim": {
+              "executionId": "restart-B-cp313-20261106T0100Z",
+              "worker": "B",
+              "caseId": "cp-000313",
+              "claimedAt": "2026-11-06T01:05:06.116046+00:00",
+              "reviewedInputCommit": "9f219d4c0f7192b2e6887224399e5f3e6010101c",
+              "inputBlobs": {
+                "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000313.json": "a26b7afdbff37a14a1a4fef37b9fdc114a9cfd03",
+                "data/counselor/comparisons/cp-000313.json": "34f47e87803f75cc109b3f2d944fdd80dae7c7aa",
+                "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Verify published CP313 repair and applicable CI, then record final disposition.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -23765,6 +23799,31 @@
           "endedAt": "2026-11-06T00:04:18.785228+00:00",
           "result": "deferred; incomplete; second source execution",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000312/published-execution-2.json"
+        },
+        {
+          "executionId": "restart-B-cp313-20261106T0100Z",
+          "worker": "B",
+          "caseId": "cp-000313",
+          "claimedAt": "2026-11-06T01:05:06.116046+00:00",
+          "reviewedInputCommit": "9f219d4c0f7192b2e6887224399e5f3e6010101c",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000313.json": "a26b7afdbff37a14a1a4fef37b9fdc114a9cfd03",
+            "data/counselor/comparisons/cp-000313.json": "34f47e87803f75cc109b3f2d944fdd80dae7c7aa",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify published CP313 repair and applicable CI, then record final disposition.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-06T01:14:12.024738+00:00",
+          "result": "approved comparison",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000313/published-verification.json"
         }
       ],
       "publicationRecoveryHistory": [
