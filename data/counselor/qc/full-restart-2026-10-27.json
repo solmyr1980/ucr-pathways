@@ -3428,7 +3428,7 @@
     },
     {
       "id": "cp-000118",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "retain",
         "2": "correct",
@@ -3439,21 +3439,13 @@
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Current clinical requirements, role classification and presentation",
-          "scope": "Reassessed comparability, feasibility, curriculum coverage, reader-facing copy and final verification.",
-          "stages": [
-            3,
-            4,
-            5,
-            6
-          ]
-        }
+      "downstreamReassessments": [],
+      "implementationCommits": [
+        "eaf397a02e9c2f6f642a673016f58b1a1267e3d8"
       ],
-      "implementationCommits": [],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000118.json"
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000118.json",
+      "academicDisposition": "no-defensible-ucr-match"
     },
     {
       "id": "cp-000119",
@@ -8067,8 +8059,8 @@
     }
   ],
   "progress": {
-    "approved": 147,
-    "inProgress": 56,
+    "approved": 148,
+    "inProgress": 55,
     "reviewedWithBlockers": 0,
     "notStarted": 235,
     "pilotStarted": 4
@@ -8300,37 +8292,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000118",
-      "activeClaim": {
-        "executionId": "restart-A-cp118-20261106T203633Z",
-        "worker": "A",
-        "caseId": "cp-000118",
-        "claimedAt": "2026-11-06T20:36:33.971565+00:00",
-        "reviewedInputCommit": "5f9a985b85528327ebe1daa71185e846fed8e5b2",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000118.json": "c5c2d13379f4923d2a4f5536486618cdd9e88362",
-          "data/counselor/comparisons/cp-000118.json": "9456880b25a835e905b668a6bc7e0dcd3103ec3e",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify the CP118 repair and reviewed inputs on main, confirm applicable CI, then approve the no-defensible-UCR-match disposition.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000119",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -8424,7 +8394,8 @@
         "cp-000114",
         "cp-000115",
         "cp-000116",
-        "cp-000117"
+        "cp-000117",
+        "cp-000118"
       ],
       "completedDispositions": [
         {
@@ -9077,6 +9048,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000117.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-06"
+        },
+        {
+          "caseId": "cp-000118",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000118.json",
+          "academicDisposition": "no-defensible-ucr-match",
+          "verifiedOn": "2026-11-06"
         }
       ],
       "deferredCases": [
@@ -9129,10 +9107,19 @@
       "lastCheckpoint": {
         "caseId": "cp-000118",
         "executionId": "restart-A-cp118-20261106T203633Z",
-        "state": "in-progress",
-        "reviewedInputCommit": "8b75c6360fc948c9c8ef0a1645a47caff4429664",
-        "nextAction": "Verify the CP118 repair and reviewed inputs on main, confirm applicable CI, then approve the no-defensible-UCR-match disposition.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000118/mechanical-verification.json"
+        "state": "approved",
+        "academicDisposition": "no-defensible-ucr-match",
+        "reviewedInputCommit": "eaf397a02e9c2f6f642a673016f58b1a1267e3d8",
+        "inputBlobs": {
+          "canonical": "72ba2c1ce1a9626a7c964b48aad0483a5adce9f7",
+          "decision": "6a238bbfc7df457c86522f8816f749d9bfcedd35"
+        },
+        "verifiedAt": "2026-11-06T20:42:39.061961+00:00",
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000118/published-verification.json",
+        "nextAction": "CP118 approved as having no defensible UCR match. Resume cp-000119 next execution.",
+        "runtimeModel": "unknown",
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -16075,6 +16062,23 @@
           "reviewedInputCommit": "8b75c6360fc948c9c8ef0a1645a47caff4429664",
           "nextAction": "Verify the CP118 repair and reviewed inputs on main, confirm applicable CI, then approve the no-defensible-UCR-match disposition.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000118/mechanical-verification.json"
+        },
+        {
+          "caseId": "cp-000118",
+          "executionId": "restart-A-cp118-20261106T203633Z",
+          "state": "approved",
+          "academicDisposition": "no-defensible-ucr-match",
+          "reviewedInputCommit": "eaf397a02e9c2f6f642a673016f58b1a1267e3d8",
+          "inputBlobs": {
+            "canonical": "72ba2c1ce1a9626a7c964b48aad0483a5adce9f7",
+            "decision": "6a238bbfc7df457c86522f8816f749d9bfcedd35"
+          },
+          "verifiedAt": "2026-11-06T20:42:39.061961+00:00",
+          "verificationPolicy": "record-content-review-2026-10-31",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000118/published-verification.json",
+          "nextAction": "CP118 approved as having no defensible UCR match. Resume cp-000119 next execution.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown"
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -17828,6 +17832,32 @@
           "endedAt": "2026-11-06T19:40:48.273486+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/published-verification.json"
+        },
+        {
+          "executionId": "restart-A-cp118-20261106T203633Z",
+          "worker": "A",
+          "caseId": "cp-000118",
+          "claimedAt": "2026-11-06T20:36:33.971565+00:00",
+          "reviewedInputCommit": "5f9a985b85528327ebe1daa71185e846fed8e5b2",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000118.json": "c5c2d13379f4923d2a4f5536486618cdd9e88362",
+            "data/counselor/comparisons/cp-000118.json": "9456880b25a835e905b668a6bc7e0dcd3103ec3e",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify the CP118 repair and reviewed inputs on main, confirm applicable CI, then approve the no-defensible-UCR-match disposition.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-06T20:42:39.061961+00:00",
+          "result": "approved no-defensible-ucr-match",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000118/published-verification.json"
         }
       ],
       "sourceRetryLog": [
