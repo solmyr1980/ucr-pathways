@@ -8127,36 +8127,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000112",
-      "activeClaim": {
-        "executionId": "restart-A-cp112-20261106T132747Z",
-        "worker": "A",
-        "caseId": "cp-000112",
-        "claimedAt": "2026-11-06T13:27:47.903995+00:00",
-        "reviewedInputCommit": "64f56eeaecdca5abd6cd78e04052d148924f56a2",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000112.json": "1d9abb9cb87cf63f76233acd012d974de5076cb7",
-          "data/counselor/comparisons/cp-000112.json": "727f2c7157edaf425cec7c2d84d56fcf72bb2c31",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Seek an official cohort-specific bridge for the final 30 EC, thesis and mentorship. Preserve the verified partial curriculum and UCR evidence, then resolve or record a second source attempt.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000113",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -8892,7 +8871,8 @@
         "cp-000072",
         "cp-000087",
         "cp-000099",
-        "cp-000100"
+        "cp-000100",
+        "cp-000112"
       ],
       "sourceRetrievalFailuresByCase": {
         "cp-000013": 2,
@@ -8914,21 +8894,21 @@
         "cp-000087": 2,
         "cp-000099": 2,
         "cp-000100": 2,
-        "cp-000112": 1
+        "cp-000112": 2
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
         "caseId": "cp-000112",
-        "executionId": "restart-A-cp112-20261106T123422Z",
-        "state": "in-progress",
-        "reviewedInputCommit": "f0fa679b463997b27bd62dfa85c200bf5c5dfe6f",
+        "executionId": "restart-A-cp112-20261106T132747Z",
+        "state": "deferred",
+        "reviewedInputCommit": "c7035ef5bb9699cc37a2319d1dcffe503a8ace5f",
         "inputBlobs": {
           "canonical": "727f2c7157edaf425cec7c2d84d56fcf72bb2c31",
           "decision": "1d9abb9cb87cf63f76233acd012d974de5076cb7"
         },
-        "verifiedAt": "2026-11-06T12:39:45.606933+00:00",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000112/published-verification.json",
-        "nextAction": "Resume CP112 with a second official-source attempt for the revised Global Politics cohort’s final 30 EC, thesis allocation and progression, and third-year mentorship. Preserve the verified 150 EC and both feasible internal UCR plans."
+        "nextAction": "CP112 deferred and incomplete. At its permitted revisit, verify the final 30 EC, thesis allocation and progression, and third-year mentorship for September 2026 entrants. Preserve the verified 150 EC and two feasible internal UCR plans. Resume cp-000113 next execution.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000112/source-attempt-2.json",
+        "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000112/source-first-execution-2.json"
       },
       "checkpointHistory": [
         {
@@ -15716,6 +15696,19 @@
           "verifiedAt": "2026-11-06T12:39:45.606933+00:00",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000112/published-verification.json",
           "nextAction": "Resume CP112 with a second official-source attempt for the revised Global Politics cohort’s final 30 EC, thesis allocation and progression, and third-year mentorship. Preserve the verified 150 EC and both feasible internal UCR plans."
+        },
+        {
+          "caseId": "cp-000112",
+          "executionId": "restart-A-cp112-20261106T132747Z",
+          "state": "deferred",
+          "reviewedInputCommit": "c7035ef5bb9699cc37a2319d1dcffe503a8ace5f",
+          "inputBlobs": {
+            "canonical": "727f2c7157edaf425cec7c2d84d56fcf72bb2c31",
+            "decision": "1d9abb9cb87cf63f76233acd012d974de5076cb7"
+          },
+          "nextAction": "CP112 deferred and incomplete. At its permitted revisit, verify the final 30 EC, thesis allocation and progression, and third-year mentorship for September 2026 entrants. Preserve the verified 150 EC and two feasible internal UCR plans. Resume cp-000113 next execution.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000112/source-attempt-2.json",
+          "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000112/source-first-execution-2.json"
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -16034,6 +16027,14 @@
           "officialAlternative": "The VU prospectus names Philosophy of Science, Contemporary Political Theory and the Graduation Project. Current catalogue and exact thesis entries document the currently taught capstone, but Appendix III page 29 labels that table for entrants through 2024–2025. The 2027–2028 and 2028–2029 English Study Guide programme URLs returned HTTP 404. Targeted official search found no cohort bridge.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000112/source-attempt-1.json",
           "nextAction": "Resume CP112 with a second official-source attempt for the revised Global Politics cohort’s final 30 EC, thesis allocation and progression, and third-year mentorship. Preserve the verified 150 EC and both feasible internal UCR plans."
+        },
+        {
+          "caseId": "cp-000112",
+          "executionId": "restart-A-cp112-20261106T132747Z",
+          "checkedOn": "2026-11-06",
+          "essentialEvidence": "Confirm the final 30 EC for September 2026 Global Politics entrants, including required components and credits, thesis progression and allocation, and whether third-year mentorship applies.",
+          "officialAlternative": "The VU faculty regulations index points to the Study Guide OER. Article 15.2 and Appendix II of the adopted 2026–2027 Political Science regulations concern replacement rules for earlier entrants and do not provide an English Global Politics final-year table for entrants under the revised curriculum. The Dutch prospectus names the three final courses without entrant-specific credits. The English 2025–2026 and Dutch 2026–2027 guides describe the currently taught 6/6/18 EC components and 0 EC mentorship. The exact S_BTPGP entry confirms 18 EC and entry at 90 programme EC excluding electives and including both Academic Skills workshops. S_MGP3 describes one individual meeting in semester two. Neither entry names the September 2026 cohort. Direct 2027–2028 and 2028–2029 thesis entry URLs returned 404. There is no official bridge to the revised cohort in these sources.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000112/source-attempt-2.json"
         }
       ],
       "deferralHistory": [
@@ -16224,6 +16225,16 @@
           "unsuccessfulExecutions": 2,
           "reason": "The verified curriculum covers 150 EC for September 2026 entrants. The credits and applicable progression rules for the remaining third-year methods, professional development, research placement and thesis still need confirmation.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000100/source-attempt-2.json",
+          "revisitStatus": "pending; not consumed",
+          "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
+        },
+        {
+          "caseId": "cp-000112",
+          "deferredOn": "2026-11-06",
+          "executionId": "restart-A-cp112-20261106T132747Z",
+          "unsuccessfulExecutions": 2,
+          "reason": "Confirm the final 30 EC for September 2026 Global Politics entrants, including required components and credits, thesis progression and allocation, and whether third-year mentorship applies.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000112/source-attempt-2.json",
           "revisitStatus": "pending; not consumed",
           "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
         }
@@ -17243,6 +17254,31 @@
           "nextAction": "Seek an official cohort-specific bridge for the final 30 EC, thesis and mentorship. Preserve the verified partial curriculum and UCR evidence, then resolve or record a second source attempt.",
           "runtimeModel": "unknown",
           "runtimeReasoningEffort": "unknown"
+        },
+        {
+          "executionId": "restart-A-cp112-20261106T132747Z",
+          "worker": "A",
+          "caseId": "cp-000112",
+          "claimedAt": "2026-11-06T13:27:47.903995+00:00",
+          "reviewedInputCommit": "64f56eeaecdca5abd6cd78e04052d148924f56a2",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000112.json": "1d9abb9cb87cf63f76233acd012d974de5076cb7",
+            "data/counselor/comparisons/cp-000112.json": "727f2c7157edaf425cec7c2d84d56fcf72bb2c31",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Seek an official cohort-specific bridge for the final 30 EC, thesis and mentorship. Preserve the verified partial curriculum and UCR evidence, then resolve or record a second source attempt.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-06T13:30:05.602872+00:00",
+          "result": "deferred; incomplete; second source execution",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000112/source-first-execution-2.json"
         }
       ],
       "sourceRetryLog": [
@@ -17305,6 +17341,14 @@
           "officialAlternative": "The VU prospectus names Philosophy of Science, Contemporary Political Theory and the Graduation Project. Current catalogue and exact thesis entries document the currently taught capstone, but Appendix III page 29 labels that table for entrants through 2024–2025. The 2027–2028 and 2028–2029 English Study Guide programme URLs returned HTTP 404. Targeted official search found no cohort bridge.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000112/source-attempt-1.json",
           "nextAction": "Resume CP112 with a second official-source attempt for the revised Global Politics cohort’s final 30 EC, thesis allocation and progression, and third-year mentorship. Preserve the verified 150 EC and both feasible internal UCR plans."
+        },
+        {
+          "caseId": "cp-000112",
+          "executionId": "restart-A-cp112-20261106T132747Z",
+          "checkedOn": "2026-11-06",
+          "essentialEvidence": "Confirm the final 30 EC for September 2026 Global Politics entrants, including required components and credits, thesis progression and allocation, and whether third-year mentorship applies.",
+          "officialAlternative": "The VU faculty regulations index points to the Study Guide OER. Article 15.2 and Appendix II of the adopted 2026–2027 Political Science regulations concern replacement rules for earlier entrants and do not provide an English Global Politics final-year table for entrants under the revised curriculum. The Dutch prospectus names the three final courses without entrant-specific credits. The English 2025–2026 and Dutch 2026–2027 guides describe the currently taught 6/6/18 EC components and 0 EC mentorship. The exact S_BTPGP entry confirms 18 EC and entry at 90 programme EC excluding electives and including both Academic Skills workshops. S_MGP3 describes one individual meeting in semester two. Neither entry names the September 2026 cohort. Direct 2027–2028 and 2028–2029 thesis entry URLs returned 404. There is no official bridge to the revised cohort in these sources.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000112/source-attempt-2.json"
         }
       ]
     },
