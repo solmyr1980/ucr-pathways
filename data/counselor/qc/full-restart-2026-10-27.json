@@ -3104,7 +3104,7 @@
     },
     {
       "id": "cp-000104",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "retain",
         "2": "retain",
@@ -3116,8 +3116,10 @@
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "8c5854210e6081fad497e863d53d3dee3414ce19"
+      ],
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000104.json",
       "academicDisposition": "comparison"
     },
@@ -7728,8 +7730,8 @@
     }
   ],
   "progress": {
-    "approved": 129,
-    "inProgress": 50,
+    "approved": 130,
+    "inProgress": 49,
     "reviewedWithBlockers": 0,
     "notStarted": 259,
     "pilotStarted": 4
@@ -7961,36 +7963,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000104",
-      "activeClaim": {
-        "executionId": "restart-A-cp104-20261106T0430Z",
-        "worker": "A",
-        "caseId": "cp-000104",
-        "claimedAt": "2026-11-06T04:34:14.129911+00:00",
-        "reviewedInputCommit": "d9b7516ff3664d4871e28030b5148c1cee3b0a8f",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000104.json": "38ca234f72cda08c6b931903ce5f487fc2b1fd57",
-          "data/counselor/comparisons/cp-000104.json": "4858053f3852d4fb141d34c179b398b16fe4c5a5",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Resume CP104 after the previous execution disconnected. Verify the 180 EC English route and exact programme interests; move rhetoric to term 3, Histories of Gender to term 4 and From T.V. to TikTok to term 5 in the creative option, correct the travel writing source link, and complete content, source-first, publication and CI checks.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000105",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -8072,7 +8053,8 @@
         "cp-000098",
         "cp-000101",
         "cp-000102",
-        "cp-000103"
+        "cp-000103",
+        "cp-000104"
       ],
       "completedDispositions": [
         {
@@ -8641,6 +8623,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000103.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-06"
+        },
+        {
+          "caseId": "cp-000104",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000104.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-06"
         }
       ],
       "deferredCases": [
@@ -8687,19 +8676,19 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000103",
-        "executionId": "restart-A-cp103-20261106T0230Z",
+        "caseId": "cp-000104",
+        "executionId": "restart-A-cp104-20261106T0430Z",
         "state": "approved",
         "academicDisposition": "comparison",
-        "reviewedInputCommit": "67ea2f1127367021d01cc557583be03d9cd14df6",
+        "reviewedInputCommit": "8c5854210e6081fad497e863d53d3dee3414ce19",
         "inputBlobs": {
-          "canonical": "8c02f113cd4d97fbae818a7b2ab4281ce520809f",
-          "decision": "20bb8789ce60561512248a2ca9bc6329f4e32ab2"
+          "canonical": "403f3aee7208f742977f829496c15b4e05739777",
+          "decision": "1ede12c501a13c769e5d957f3821ce419e549eec"
         },
-        "verifiedAt": "2026-11-06T02:41:39.623794+00:00",
+        "verifiedAt": "2026-11-06T04:40:05.059562+00:00",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000103/published-verification.json",
-        "nextAction": "CP103 verified comparison complete with one qualified UCR alternative. Resume CP104 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/published-verification.json",
+        "nextAction": "CP104 approved as a comparison with two qualified UCR options. Resume cp-000105 next execution.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -15128,6 +15117,51 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-11-06T04:40:05.059562+00:00",
+          "reason": "Preserve prior worker checkpoint and active claim before CP104 final disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000103",
+              "executionId": "restart-A-cp103-20261106T0230Z",
+              "state": "approved",
+              "academicDisposition": "comparison",
+              "reviewedInputCommit": "67ea2f1127367021d01cc557583be03d9cd14df6",
+              "inputBlobs": {
+                "canonical": "8c02f113cd4d97fbae818a7b2ab4281ce520809f",
+                "decision": "20bb8789ce60561512248a2ca9bc6329f4e32ab2"
+              },
+              "verifiedAt": "2026-11-06T02:41:39.623794+00:00",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000103/published-verification.json",
+              "nextAction": "CP103 verified comparison complete with one qualified UCR alternative. Resume CP104 next execution. Final release, discovery publication and deployment remain separately unauthorised.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp104-20261106T0430Z",
+              "worker": "A",
+              "caseId": "cp-000104",
+              "claimedAt": "2026-11-06T04:34:14.129911+00:00",
+              "reviewedInputCommit": "d9b7516ff3664d4871e28030b5148c1cee3b0a8f",
+              "inputBlobs": {
+                "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000104.json": "38ca234f72cda08c6b931903ce5f487fc2b1fd57",
+                "data/counselor/comparisons/cp-000104.json": "4858053f3852d4fb141d34c179b398b16fe4c5a5",
+                "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Resume CP104 after the previous execution disconnected. Verify the 180 EC English route and exact programme interests; move rhetoric to term 3, Histories of Gender to term 4 and From T.V. to TikTok to term 5 in the creative option, correct the travel writing source link, and complete content, source-first, publication and CI checks.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -16355,6 +16389,31 @@
           "runtimeReasoningEffort": "unknown",
           "endedAt": "2026-11-06T04:34:14.129911+00:00",
           "result": "Interrupted by execution environment disconnect; verified previous run ended with no repair publication."
+        },
+        {
+          "executionId": "restart-A-cp104-20261106T0430Z",
+          "worker": "A",
+          "caseId": "cp-000104",
+          "claimedAt": "2026-11-06T04:34:14.129911+00:00",
+          "reviewedInputCommit": "d9b7516ff3664d4871e28030b5148c1cee3b0a8f",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000104.json": "38ca234f72cda08c6b931903ce5f487fc2b1fd57",
+            "data/counselor/comparisons/cp-000104.json": "4858053f3852d4fb141d34c179b398b16fe4c5a5",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Resume CP104 after the previous execution disconnected. Verify the 180 EC English route and exact programme interests; move rhetoric to term 3, Histories of Gender to term 4 and From T.V. to TikTok to term 5 in the creative option, correct the travel writing source link, and complete content, source-first, publication and CI checks.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-06T04:40:05.059562+00:00",
+          "result": "approved comparison",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/published-verification.json"
         }
       ],
       "sourceRetryLog": [
@@ -25349,6 +25408,17 @@
       },
       "combinedVerifiedCount": 120,
       "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000308/assessment-12.json"
+    },
+    {
+      "assessmentNumber": 13,
+      "verifiedOn": "2026-11-06",
+      "milestone": 130,
+      "workerVerifiedCounts": {
+        "A": 82,
+        "B": 48
+      },
+      "combinedVerifiedCount": 130,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/assessment-13.json"
     }
   ],
   "systemicPause": null,

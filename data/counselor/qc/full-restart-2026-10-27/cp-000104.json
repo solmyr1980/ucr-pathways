@@ -2,12 +2,12 @@
   "schemaVersion": "2.0",
   "auditId": "counselor-full-restart-2026-10-27",
   "id": "cp-000104",
-  "reviewedInputCommit": "d9b7516ff3664d4871e28030b5148c1cee3b0a8f",
+  "reviewedInputCommit": "8c5854210e6081fad497e863d53d3dee3414ce19",
   "inputBlobs": {
-    "canonical": "4858053f3852d4fb141d34c179b398b16fe4c5a5",
-    "decision": "38ca234f72cda08c6b931903ce5f487fc2b1fd57"
+    "canonical": "403f3aee7208f742977f829496c15b4e05739777",
+    "decision": "1ede12c501a13c769e5d957f3821ce419e549eec"
   },
-  "state": "in-progress",
+  "state": "approved",
   "stages": {
     "1": {
       "outcome": "retain",
@@ -19,7 +19,8 @@
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/course-comparability-review.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/content-review.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/content-review.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/published-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
@@ -34,7 +35,8 @@
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/course-comparability-review.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/content-review.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/content-review.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/published-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": [],
@@ -218,7 +220,8 @@
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/course-comparability-review.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/content-review.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/content-review.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/published-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
@@ -231,14 +234,20 @@
       ],
       "actions": [
         {
-          "state": "proposed",
-          "scope": "Publish scoped decision/canonical and evidence, then verify published inputs and applicable CI."
+          "state": "verified",
+          "scope": "Publish scoped decision/canonical and evidence, then verify published inputs and applicable CI.",
+          "implementationCommit": "8c5854210e6081fad497e863d53d3dee3414ce19",
+          "verificationEvidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/published-verification.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-first-final-pass.json"
+          ]
         }
       ],
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/course-comparability-review.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/content-review.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/content-review.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/published-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
@@ -251,28 +260,39 @@
       ],
       "actions": [
         {
-          "state": "proposed",
-          "scope": "Publish scoped decision/canonical and evidence, then verify published inputs and applicable CI."
+          "state": "verified",
+          "scope": "Publish scoped decision/canonical and evidence, then verify published inputs and applicable CI.",
+          "implementationCommit": "8c5854210e6081fad497e863d53d3dee3414ce19",
+          "verificationEvidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/published-verification.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-first-final-pass.json"
+          ]
         }
       ],
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/course-comparability-review.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/content-review.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/content-review.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/published-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
     },
     "6": {
       "outcome": "correct",
-      "finding": "Separate source-first pass, exact replay and local checks. Verify published inputs and CI before disposition.",
+      "finding": "Separate same-AI source-first review, record-content review, schema, course feasibility, operational checks, byte-exact replay and the published pair and applicable CI all passed.",
       "preserved": [
         "Exact IRO route and independently supported course and interest findings."
       ],
       "actions": [
         {
-          "state": "proposed",
-          "scope": "Publish scoped decision/canonical and evidence, then verify published inputs and applicable CI."
+          "state": "verified",
+          "scope": "Publish scoped decision/canonical and evidence, then verify published inputs and applicable CI.",
+          "implementationCommit": "8c5854210e6081fad497e863d53d3dee3414ce19",
+          "verificationEvidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/published-verification.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-first-final-pass.json"
+          ]
         }
       ],
       "evidence": [
@@ -280,7 +300,8 @@
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/course-comparability-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/content-review.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-first-final-pass.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/mechanical-verification.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/mechanical-verification.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/published-verification.json"
       ],
       "blockedBy": [],
       "reassessStages": []
@@ -289,9 +310,65 @@
   "sharedIssueIds": [],
   "unresolved": [],
   "downstreamReassessments": [],
-  "implementationCommits": [],
-  "finalReview": null,
-  "presentationApproval": false,
+  "implementationCommits": [
+    "8c5854210e6081fad497e863d53d3dee3414ce19"
+  ],
+  "finalReview": {
+    "reviewerOrPass": "Worker B, same AI, separate source-first pass",
+    "independenceMethod": "The same AI separately reopened the adopted regulations and exact annual guide, read the thesis and travel-writing records, reconstructed the three credit totals, then reconsidered the course evidence and final reader content.",
+    "reviewedOn": "2026-11-06",
+    "reviewedCommit": "8c5854210e6081fad497e863d53d3dee3414ce19",
+    "verificationPolicy": "record-content-review-2026-10-31",
+    "inputBlobs": {
+      "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+      "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+      "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+      "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+      "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+      "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+      "data/counselor/decisions/cp-000104.json": "1ede12c501a13c769e5d957f3821ce419e549eec",
+      "data/counselor/comparisons/cp-000104.json": "403f3aee7208f742977f829496c15b4e05739777",
+      "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+      "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+      "data/counselor/review-programmes.json": "f805f670ded96dccd20f8efe42dfeeafbcd163d5",
+      "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+      "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+      "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+      "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+      "canonical": "403f3aee7208f742977f829496c15b4e05739777",
+      "decision": "1ede12c501a13c769e5d957f3821ce419e549eec"
+    },
+    "sourceEvidenceRefs": [
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json",
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/course-comparability-review.json",
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-first-final-pass.json"
+    ],
+    "checks": {
+      "academic": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/course-comparability-review.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-first-final-pass.json"
+        ]
+      },
+      "mechanical": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/mechanical-verification.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/published-verification.json"
+        ]
+      },
+      "content": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/content-review.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-first-final-pass.json"
+        ]
+      }
+    }
+  },
+  "presentationApproval": true,
   "evidenceSources": [
     {
       "url": "https://vu.nl/en/education/bachelor/literature-and-society",
@@ -503,10 +580,532 @@
       "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
       "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
     },
-    "nextAction": "Resume CP104 after the previous execution disconnected. Verify the 180 EC English route and exact programme interests; move rhetoric to term 3, Histories of Gender to term 4 and From T.V. to TikTok to term 5 in the creative option, correct the travel writing source link, and complete content, source-first, publication and CI checks.",
+    "nextAction": "CP104 approved as a comparison with two qualified UCR options. Resume cp-000105 next execution.",
     "runtimeModel": "unknown",
-    "runtimeReasoningEffort": "unknown"
+    "runtimeReasoningEffort": "unknown",
+    "endedAt": "2026-11-06T04:40:05.059562+00:00",
+    "result": "approved comparison",
+    "implementationCommit": "8c5854210e6081fad497e863d53d3dee3414ce19"
   },
-  "nextAction": "Verify the published CP104 comparison pair and evidence against the reviewed bytes and applicable CI, then record the final disposition.",
-  "academicDisposition": "comparison"
+  "nextAction": "CP104 approved as a comparison with two qualified UCR options. Resume cp-000105 next execution.",
+  "academicDisposition": "comparison",
+  "reviewHistory": [
+    {
+      "preservedOn": "2026-11-06T04:40:05.059562+00:00",
+      "reason": "Preserve proposed repair findings before verified final disposition.",
+      "originalFileSha256": "3bb1d8212fdba392bffc5e26817b0f52917cdd51cf53aab3c954359c5630971b",
+      "snapshot": {
+        "schemaVersion": "2.0",
+        "auditId": "counselor-full-restart-2026-10-27",
+        "id": "cp-000104",
+        "reviewedInputCommit": "d9b7516ff3664d4871e28030b5148c1cee3b0a8f",
+        "inputBlobs": {
+          "canonical": "4858053f3852d4fb141d34c179b398b16fe4c5a5",
+          "decision": "38ca234f72cda08c6b931903ce5f487fc2b1fd57"
+        },
+        "state": "in-progress",
+        "stages": {
+          "1": {
+            "outcome": "retain",
+            "finding": "Verified the adopted English curriculum, 180 EC ledger, restricted language option and specialisation, and capstone progression.",
+            "preserved": [
+              "Exact IRO route and independently supported course and interest findings."
+            ],
+            "actions": [],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/course-comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/content-review.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "2": {
+            "outcome": "retain",
+            "finding": "Reviewed 41 exact-target interests with English, Dutch, illustrative and career evidence distinguished.",
+            "preserved": [
+              "Exact IRO route and independently supported course and interest findings."
+            ],
+            "actions": [],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/course-comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/content-review.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": [],
+            "interestRows": [
+              {
+                "row": 4818,
+                "outcome": "retain"
+              },
+              {
+                "row": 4819,
+                "outcome": "retain"
+              },
+              {
+                "row": 4820,
+                "outcome": "retain"
+              },
+              {
+                "row": 4821,
+                "outcome": "retain"
+              },
+              {
+                "row": 4822,
+                "outcome": "retain"
+              },
+              {
+                "row": 4823,
+                "outcome": "retain"
+              },
+              {
+                "row": 4824,
+                "outcome": "retain"
+              },
+              {
+                "row": 4825,
+                "outcome": "retain"
+              },
+              {
+                "row": 4826,
+                "outcome": "retain"
+              },
+              {
+                "row": 4827,
+                "outcome": "retain"
+              },
+              {
+                "row": 4828,
+                "outcome": "retain"
+              },
+              {
+                "row": 4829,
+                "outcome": "retain"
+              },
+              {
+                "row": 4830,
+                "outcome": "retain"
+              },
+              {
+                "row": 4831,
+                "outcome": "retain"
+              },
+              {
+                "row": 4832,
+                "outcome": "retain"
+              },
+              {
+                "row": 4833,
+                "outcome": "retain"
+              },
+              {
+                "row": 4834,
+                "outcome": "retain"
+              },
+              {
+                "row": 4835,
+                "outcome": "retain"
+              },
+              {
+                "row": 4836,
+                "outcome": "retain"
+              },
+              {
+                "row": 4837,
+                "outcome": "retain"
+              },
+              {
+                "row": 4838,
+                "outcome": "retain"
+              },
+              {
+                "row": 4839,
+                "outcome": "retain"
+              },
+              {
+                "row": 4840,
+                "outcome": "retain"
+              },
+              {
+                "row": 4841,
+                "outcome": "retain"
+              },
+              {
+                "row": 4842,
+                "outcome": "retain"
+              },
+              {
+                "row": 4843,
+                "outcome": "retain"
+              },
+              {
+                "row": 4844,
+                "outcome": "retain"
+              },
+              {
+                "row": 4845,
+                "outcome": "retain"
+              },
+              {
+                "row": 4846,
+                "outcome": "retain"
+              },
+              {
+                "row": 4847,
+                "outcome": "retain"
+              },
+              {
+                "row": 4848,
+                "outcome": "retain"
+              },
+              {
+                "row": 4849,
+                "outcome": "retain"
+              },
+              {
+                "row": 4850,
+                "outcome": "retain"
+              },
+              {
+                "row": 4851,
+                "outcome": "retain"
+              },
+              {
+                "row": 4852,
+                "outcome": "retain"
+              },
+              {
+                "row": 4853,
+                "outcome": "retain"
+              },
+              {
+                "row": 4854,
+                "outcome": "retain"
+              },
+              {
+                "row": 4855,
+                "outcome": "retain"
+              },
+              {
+                "row": 4856,
+                "outcome": "retain"
+              },
+              {
+                "row": 4857,
+                "outcome": "retain"
+              },
+              {
+                "row": 4858,
+                "outcome": "retain"
+              }
+            ],
+            "rowOutcomeCounts": {
+              "retain": 41
+            }
+          },
+          "3": {
+            "outcome": "retain",
+            "finding": "Confirmed two qualified literary options with five distinctive courses each way and assessed the lack of a third coherent specialist direction.",
+            "preserved": [
+              "Exact IRO route and independently supported course and interest findings."
+            ],
+            "actions": [],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/course-comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/content-review.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "4": {
+            "outcome": "correct",
+            "finding": "Resolved the one offering conflict by rotating four courses. Rechecked alignment and contributions of all 29 selections.",
+            "preserved": [
+              "Exact IRO route and independently supported course and interest findings."
+            ],
+            "actions": [
+              {
+                "state": "proposed",
+                "scope": "Publish scoped decision/canonical and evidence, then verify published inputs and applicable CI."
+              }
+            ],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/course-comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/content-review.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "5": {
+            "outcome": "correct",
+            "finding": "Corrected the travel writing source link and revised audience copy, curriculum notes and qualified comparisons.",
+            "preserved": [
+              "Exact IRO route and independently supported course and interest findings."
+            ],
+            "actions": [
+              {
+                "state": "proposed",
+                "scope": "Publish scoped decision/canonical and evidence, then verify published inputs and applicable CI."
+              }
+            ],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/course-comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/content-review.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          },
+          "6": {
+            "outcome": "correct",
+            "finding": "Separate source-first pass, exact replay and local checks. Verify published inputs and CI before disposition.",
+            "preserved": [
+              "Exact IRO route and independently supported course and interest findings."
+            ],
+            "actions": [
+              {
+                "state": "proposed",
+                "scope": "Publish scoped decision/canonical and evidence, then verify published inputs and applicable CI."
+              }
+            ],
+            "evidence": [
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/course-comparability-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/content-review.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-first-final-pass.json",
+              "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/mechanical-verification.json"
+            ],
+            "blockedBy": [],
+            "reassessStages": []
+          }
+        },
+        "sharedIssueIds": [],
+        "unresolved": [],
+        "downstreamReassessments": [],
+        "implementationCommits": [],
+        "finalReview": null,
+        "presentationApproval": false,
+        "evidenceSources": [
+          {
+            "url": "https://vu.nl/en/education/bachelor/literature-and-society",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://vu.nl/nl/onderwijs/bachelor/literatuur-en-samenleving",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://vu.nl/nl/onderwijs/bachelor/literatuur-en-samenleving/traject/literature-and-society/inhoud",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://vu.nl/nl/onderwijs/bachelor/literatuur-en-samenleving/traject/literature-and-society/toekomst",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://vu.nl/nl/onderwijs/bachelor/literatuur-en-samenleving/traject/creatief-schrijven-nederlands/inhoud",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://assets-us-01.kc-usercontent.com:443/f55d3574-6c6d-0002-e968-70643a2e365a/3bea0e52-d3b2-4ea5-9e3a-a39c5f950913/OER%2026-27%20BA%20LS%20NL.pdf",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_AABALES103",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_AABALES104",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_AABALES105",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ALBALES101",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ELBALES105",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ELBALES106",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ELBALES110",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ELBALES111",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ELBALES113",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ELBALES114",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ELBALESAV1",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/courses/2026-2027/L_ELBALES206",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ALBALES206",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ELBALES206",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ELBALES211",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ELBALES213",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ELBALES215",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ELBALES216",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ELBALES217",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ETBAALG002",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ETBAALG003",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ETBAALG009",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ETBAETK209",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_YABAALG201",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ELBALES304",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ELBALES305",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ELBALES307",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ELBALES308",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ELBALES309",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://studiegids.vu.nl/en/Bachelor/2026-2027/literature-and-society/L_ELBALESSCR",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          },
+          {
+            "url": "https://vu.nl/nl/onderwijs/bachelor/literatuur-en-samenleving/traject/creatief-schrijven-nederlands/toekomst",
+            "checkedOn": "2026-11-06",
+            "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000104/source-interest-review.json"
+          }
+        ],
+        "renderedEvidence": [],
+        "executionClaim": {
+          "executionId": "restart-A-cp104-20261106T0430Z",
+          "worker": "A",
+          "caseId": "cp-000104",
+          "claimedAt": "2026-11-06T04:34:14.129911+00:00",
+          "reviewedInputCommit": "d9b7516ff3664d4871e28030b5148c1cee3b0a8f",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000104.json": "38ca234f72cda08c6b931903ce5f487fc2b1fd57",
+            "data/counselor/comparisons/cp-000104.json": "4858053f3852d4fb141d34c179b398b16fe4c5a5",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Resume CP104 after the previous execution disconnected. Verify the 180 EC English route and exact programme interests; move rhetoric to term 3, Histories of Gender to term 4 and From T.V. to TikTok to term 5 in the creative option, correct the travel writing source link, and complete content, source-first, publication and CI checks.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown"
+        },
+        "nextAction": "Verify the published CP104 comparison pair and evidence against the reviewed bytes and applicable CI, then record the final disposition.",
+        "academicDisposition": "comparison"
+      }
+    }
+  ]
 }
