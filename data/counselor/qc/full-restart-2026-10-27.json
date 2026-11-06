@@ -3167,7 +3167,7 @@
     },
     {
       "id": "cp-000107",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "retain",
         "2": "retain",
@@ -3179,8 +3179,10 @@
       "sharedIssueIds": [],
       "unresolved": [],
       "downstreamReassessments": [],
-      "implementationCommits": [],
-      "presentationApproval": false,
+      "implementationCommits": [
+        "fd0cd89e5d26b8e0ad08d66d5b31c8c4e8f33e87"
+      ],
+      "presentationApproval": true,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000107.json",
       "academicDisposition": "no-defensible-ucr-match"
     },
@@ -7786,8 +7788,8 @@
     }
   ],
   "progress": {
-    "approved": 133,
-    "inProgress": 51,
+    "approved": 134,
+    "inProgress": 50,
     "reviewedWithBlockers": 0,
     "notStarted": 254,
     "pilotStarted": 4
@@ -8019,36 +8021,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000107",
-      "activeClaim": {
-        "executionId": "restart-A-cp107-20261107T0730Z",
-        "worker": "A",
-        "caseId": "cp-000107",
-        "claimedAt": "2026-11-06T07:28:01.183856+00:00",
-        "reviewedInputCommit": "7ab731911c0c9a75c684c0d781d087af7ec1d3e1",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000107.json": "caa9411cb720ce99dddc4974f9042cc0ad468c9a",
-          "data/counselor/comparisons/cp-000107.json": "9cd207a2e72155dc84295355579d877ad3cf8330",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify the assigned comparator’s current curriculum and capstone progression, all target interests and UCR options. Repair any schedule or content conflicts and verify the final record.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000108",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -8133,7 +8114,8 @@
         "cp-000103",
         "cp-000104",
         "cp-000105",
-        "cp-000106"
+        "cp-000106",
+        "cp-000107"
       ],
       "completedDispositions": [
         {
@@ -8723,6 +8705,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000106.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-06"
+        },
+        {
+          "caseId": "cp-000107",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000107.json",
+          "academicDisposition": "no-defensible-ucr-match",
+          "verifiedOn": "2026-11-06"
         }
       ],
       "deferredCases": [
@@ -8769,19 +8758,19 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000106",
-        "executionId": "restart-A-cp106-20261106T0630Z",
+        "caseId": "cp-000107",
+        "executionId": "restart-A-cp107-20261107T0730Z",
         "state": "approved",
-        "academicDisposition": "comparison",
-        "reviewedInputCommit": "3b430d05f5f4fc1c52fc75270dfd34dc72b595e5",
+        "academicDisposition": "no-defensible-ucr-match",
+        "reviewedInputCommit": "fd0cd89e5d26b8e0ad08d66d5b31c8c4e8f33e87",
         "inputBlobs": {
-          "canonical": "83c745f796b0734dfd1663f2e80bfa1027c154cf",
-          "decision": "88b08064215bb3e5792349bfa8ae83df95179634"
+          "canonical": "32b18df496cf48f633ca06571505644f1efe8ee4",
+          "decision": "a650e10f334c5132011d0be6e0f33ecbfb9be923"
         },
-        "verifiedAt": "2026-11-06T06:36:55.228619+00:00",
+        "verifiedAt": "2026-11-06T07:34:31.155567+00:00",
         "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000106/published-verification.json",
-        "nextAction": "CP106 approved as a comparison with two qualified UCR options. Resume cp-000107 next execution.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000107/published-verification.json",
+        "nextAction": "CP107 approved as no defensible UCR match. Resume cp-000108 next execution.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -15345,6 +15334,51 @@
               "runtimeReasoningEffort": "unknown"
             }
           }
+        },
+        {
+          "preservedOn": "2026-11-06T07:34:31.155567+00:00",
+          "reason": "Preserve prior worker checkpoint and active claim before CP107 final disposition.",
+          "snapshot": {
+            "lastCheckpoint": {
+              "caseId": "cp-000106",
+              "executionId": "restart-A-cp106-20261106T0630Z",
+              "state": "approved",
+              "academicDisposition": "comparison",
+              "reviewedInputCommit": "3b430d05f5f4fc1c52fc75270dfd34dc72b595e5",
+              "inputBlobs": {
+                "canonical": "83c745f796b0734dfd1663f2e80bfa1027c154cf",
+                "decision": "88b08064215bb3e5792349bfa8ae83df95179634"
+              },
+              "verifiedAt": "2026-11-06T06:36:55.228619+00:00",
+              "verificationPolicy": "record-content-review-2026-10-31",
+              "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000106/published-verification.json",
+              "nextAction": "CP106 approved as a comparison with two qualified UCR options. Resume cp-000107 next execution.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            },
+            "activeClaim": {
+              "executionId": "restart-A-cp107-20261107T0730Z",
+              "worker": "A",
+              "caseId": "cp-000107",
+              "claimedAt": "2026-11-06T07:28:01.183856+00:00",
+              "reviewedInputCommit": "7ab731911c0c9a75c684c0d781d087af7ec1d3e1",
+              "inputBlobs": {
+                "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+                "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+                "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+                "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+                "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+                "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+                "data/counselor/decisions/cp-000107.json": "caa9411cb720ce99dddc4974f9042cc0ad468c9a",
+                "data/counselor/comparisons/cp-000107.json": "9cd207a2e72155dc84295355579d877ad3cf8330",
+                "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+                "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+              },
+              "nextAction": "Verify the assigned comparator’s current curriculum and capstone progression, all target interests and UCR options. Repair any schedule or content conflicts and verify the final record.",
+              "runtimeModel": "unknown",
+              "runtimeReasoningEffort": "unknown"
+            }
+          }
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -16647,6 +16681,31 @@
           "endedAt": "2026-11-06T06:36:55.228619+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000106/published-verification.json"
+        },
+        {
+          "executionId": "restart-A-cp107-20261107T0730Z",
+          "worker": "A",
+          "caseId": "cp-000107",
+          "claimedAt": "2026-11-06T07:28:01.183856+00:00",
+          "reviewedInputCommit": "7ab731911c0c9a75c684c0d781d087af7ec1d3e1",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000107.json": "caa9411cb720ce99dddc4974f9042cc0ad468c9a",
+            "data/counselor/comparisons/cp-000107.json": "9cd207a2e72155dc84295355579d877ad3cf8330",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify the assigned comparator’s current curriculum and capstone progression, all target interests and UCR options. Repair any schedule or content conflicts and verify the final record.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-06T07:34:31.155567+00:00",
+          "result": "approved no-defensible-ucr-match",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000107/published-verification.json"
         }
       ],
       "sourceRetryLog": [
