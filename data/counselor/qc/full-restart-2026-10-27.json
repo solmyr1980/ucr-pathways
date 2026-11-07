@@ -3626,7 +3626,7 @@
     },
     {
       "id": "cp-000127",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "correct",
@@ -3637,32 +3637,14 @@
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Current Maastricht regulations, changed UCR offerings and two closest-option substitutions",
-          "scope": "Reassessed current curriculum, interest candidates, option concepts, feasibility, component alignment and audience content.",
-          "stages": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ]
-        },
-        {
-          "trigger": "Stale closest-option label rationale after course substitution",
-          "scope": "Reassessed course contribution, exact record and unaffected reader fields.",
-          "stages": [
-            3,
-            5,
-            6
-          ]
-        }
+      "downstreamReassessments": [],
+      "implementationCommits": [
+        "7a65fe3daa174ca40c41d058b4a5b2943e3596ff",
+        "477f7b0e5dbc001723072ccf466e12ec6a73bc14"
       ],
-      "implementationCommits": [],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000127.json"
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000127.json",
+      "academicDisposition": "comparison"
     },
     {
       "id": "cp-000128",
@@ -8322,8 +8304,8 @@
     }
   ],
   "progress": {
-    "approved": 161,
-    "inProgress": 59,
+    "approved": 162,
+    "inProgress": 58,
     "reviewedWithBlockers": 0,
     "notStarted": 218,
     "pilotStarted": 6
@@ -8555,37 +8537,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000127",
-      "activeClaim": {
-        "executionId": "restart-A-cp127-20261107T063041Z",
-        "worker": "A",
-        "caseId": "cp-000127",
-        "claimedAt": "2026-11-07T06:30:41.237367+00:00",
-        "reviewedInputCommit": "5f79c179abf8941e5d68efd71da27caa37d2c87f",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000127.json": "0fe25eb051981265a782da6a5c73d94906cde64a",
-          "data/counselor/comparisons/cp-000127.json": "c672154a0139d9c96a35a21699e3ab5f6acabcda",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify both CP127 repairs and exact-head CI, then approve the two qualified UCR options.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000128",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -8685,7 +8645,8 @@
         "cp-000121",
         "cp-000123",
         "cp-000125",
-        "cp-000126"
+        "cp-000126",
+        "cp-000127"
       ],
       "completedDispositions": [
         {
@@ -9380,6 +9341,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000126.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-07"
+        },
+        {
+          "caseId": "cp-000127",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000127.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-07"
         }
       ],
       "deferredCases": [
@@ -9436,10 +9404,19 @@
       "lastCheckpoint": {
         "caseId": "cp-000127",
         "executionId": "restart-A-cp127-20261107T063041Z",
-        "state": "in-progress",
-        "reviewedInputCommit": "7a65fe3daa174ca40c41d058b4a5b2943e3596ff",
-        "nextAction": "Verify both CP127 repairs and exact-head CI, then approve the two qualified UCR options.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000127/label-rationale-reassessment.json"
+        "state": "approved",
+        "academicDisposition": "comparison",
+        "reviewedInputCommit": "477f7b0e5dbc001723072ccf466e12ec6a73bc14",
+        "inputBlobs": {
+          "canonical": "5596f87a060df59335429964eb260ad197ec625a",
+          "decision": "df0496f55a795a1d321504adad8ac2e7a72eeba9"
+        },
+        "verifiedAt": "2026-11-07T06:39:40.911454+00:00",
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000127/published-verification.json",
+        "nextAction": "CP127 approved with two qualified UCR options. Resume cp-000128 next execution.",
+        "runtimeModel": "unknown",
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -16608,6 +16585,23 @@
           "reviewedInputCommit": "7a65fe3daa174ca40c41d058b4a5b2943e3596ff",
           "nextAction": "Verify both CP127 repairs and exact-head CI, then approve the two qualified UCR options.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000127/label-rationale-reassessment.json"
+        },
+        {
+          "caseId": "cp-000127",
+          "executionId": "restart-A-cp127-20261107T063041Z",
+          "state": "approved",
+          "academicDisposition": "comparison",
+          "reviewedInputCommit": "477f7b0e5dbc001723072ccf466e12ec6a73bc14",
+          "inputBlobs": {
+            "canonical": "5596f87a060df59335429964eb260ad197ec625a",
+            "decision": "df0496f55a795a1d321504adad8ac2e7a72eeba9"
+          },
+          "verifiedAt": "2026-11-07T06:39:40.911454+00:00",
+          "verificationPolicy": "record-content-review-2026-10-31",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000127/published-verification.json",
+          "nextAction": "CP127 approved with two qualified UCR options. Resume cp-000128 next execution.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown"
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -18676,6 +18670,32 @@
           "endedAt": "2026-11-07T05:36:41.783677+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000126/published-verification.json"
+        },
+        {
+          "executionId": "restart-A-cp127-20261107T063041Z",
+          "worker": "A",
+          "caseId": "cp-000127",
+          "claimedAt": "2026-11-07T06:30:41.237367+00:00",
+          "reviewedInputCommit": "5f79c179abf8941e5d68efd71da27caa37d2c87f",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000127.json": "0fe25eb051981265a782da6a5c73d94906cde64a",
+            "data/counselor/comparisons/cp-000127.json": "c672154a0139d9c96a35a21699e3ab5f6acabcda",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify both CP127 repairs and exact-head CI, then approve the two qualified UCR options.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-07T06:39:40.911454+00:00",
+          "result": "approved comparison",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000127/published-verification.json"
         }
       ],
       "sourceRetryLog": [
