@@ -7009,9 +7009,12 @@
           ]
         }
       ],
-      "implementationCommits": [],
+      "implementationCommits": [
+        "5712b70760171a1848a72f478b132fc405299f69"
+      ],
       "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000334.json"
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000334.json",
+      "academicDisposition": "external-programme-unresolved"
     },
     {
       "id": "cp-000335",
@@ -18798,7 +18801,7 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
@@ -18806,29 +18809,7 @@
         "minute": 0
       },
       "nextCase": "cp-000334",
-      "activeClaim": {
-        "executionId": "restart-B-cp334-20261107T040522Z",
-        "worker": "B",
-        "caseId": "cp-000334",
-        "claimedAt": "2026-11-07T04:05:22.458096+00:00",
-        "reviewedInputCommit": "9ef756b3927e057bf242e97efc91774693bc9a6a",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000334.json": "f9dd5b86928fcc1bf86806f306fe5c5a121a4133",
-          "data/counselor/comparisons/cp-000334.json": "f31683248d8423f1f0255b94803a378efa0225d1",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify published CP334 decision, canonical, evidence and CI, then record the first source checkpoint and resume CP334 for the current international study, profiling and research progression rules.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -19392,16 +19373,22 @@
         "cp-000317": 2,
         "cp-000318": 2,
         "cp-000322": 2,
-        "cp-000324": 2
+        "cp-000324": 2,
+        "cp-000334": 1
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
         "caseId": "cp-000334",
         "executionId": "restart-B-cp334-20261107T040522Z",
         "state": "in-progress",
-        "reviewedInputCommit": "975d10c7dbd72f74fb935a0781bc2e974fdeea6d",
-        "nextAction": "Verify published CP334 decision, canonical, evidence and CI, then record the first source checkpoint and resume CP334 for the current international study, profiling and research progression rules.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/mechanical-verification.json"
+        "reviewedInputCommit": "5712b70760171a1848a72f478b132fc405299f69",
+        "inputBlobs": {
+          "canonical": "f3005ba4474718b257b4278057974e8620b2c985",
+          "decision": "b2264dd3ed9ecdb8f695b254db7393ed6ae2f44a"
+        },
+        "verifiedAt": "2026-11-07T04:14:25.079751+00:00",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/published-verification.json",
+        "nextAction": "Resume CP334 with the second official-source attempt. Seek current Utrecht B&O evidence for international study, profiling level and overlap constraints, and entry to qualitative research, the public-issues capstone and the thesis. Reuse the verified 180 EC credit table and the two feasible provisional UCR plans."
       },
       "checkpointHistory": [
         {
@@ -25269,6 +25256,19 @@
           "reviewedInputCommit": "975d10c7dbd72f74fb935a0781bc2e974fdeea6d",
           "nextAction": "Verify published CP334 decision, canonical, evidence and CI, then record the first source checkpoint and resume CP334 for the current international study, profiling and research progression rules.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/mechanical-verification.json"
+        },
+        {
+          "caseId": "cp-000334",
+          "executionId": "restart-B-cp334-20261107T040522Z",
+          "state": "in-progress",
+          "reviewedInputCommit": "5712b70760171a1848a72f478b132fc405299f69",
+          "inputBlobs": {
+            "canonical": "f3005ba4474718b257b4278057974e8620b2c985",
+            "decision": "b2264dd3ed9ecdb8f695b254db7393ed6ae2f44a"
+          },
+          "verifiedAt": "2026-11-07T04:14:25.079751+00:00",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/published-verification.json",
+          "nextAction": "Resume CP334 with the second official-source attempt. Seek current Utrecht B&O evidence for international study, profiling level and overlap constraints, and entry to qualitative research, the public-issues capstone and the thesis. Reuse the verified 180 EC credit table and the two feasible provisional UCR plans."
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -25806,6 +25806,15 @@
           "essentialEvidence": "Confirm the distinct final 5 EC for September 2026 entrants in Descriptive Linguistics, including the required Berber/Leti rotation or approved substitute, without counting the same Berber course twice.",
           "officialAlternative": "The active 2026–2027 BA-TWS catalogue lists the same 5 EC 5512VEBE2Y module in the required second-year group BA-TWS-2-A3-V and third-year group BA-TWS-3-A3. The exact Berber entry identifies a biennial offering. Leiden’s archived 2025–2026 prospectus lists Leti under both years and its transition section says Berber and Leti will alternate and both remain obligatory, but addresses earlier students. The exact archived Leti entry gives 5 EC and code 5513VTB05. The current and requested later catalogue module endpoints returned null for the tested Leti codes, and BA-TWS requests for 2027–2028 and 2028–2029 returned the active 2026–2027 catalogue. The published English programme regulations apply from September 2026 but do not specify the rotation, substitution or applicable semester in Article 4.2. The 2027–2028 official programme brochure still identifies Descriptive Linguistics but does not list the required course or rotation. Thus the older notice supplies a credible lead but no current distinct final 5 EC can be verified for September 2026 entrants.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000324/source-attempt-2.json"
+        },
+        {
+          "caseId": "cp-000334",
+          "executionId": "restart-B-cp334-20261107T040522Z",
+          "checkedOn": "2026-11-07",
+          "essentialEvidence": "Verify the 2026–2027 international study requirement, elective level and overlap conditions, and entry requirements for qualitative research, the public-issues capstone and the thesis.",
+          "officialAlternative": "Checked the official regulations landing page and earlier regulation, current study programme and research, thesis, graduation and 2026–2027 elective pages, OSIRIS USG2020, and two plausible current regulation file locations. The current sources verify the credit table and the existence of a formal international study condition. The exact current profiling and course entry rules remain unresolved.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/source-attempt-1.json",
+          "nextAction": "Resume CP334 with the second official-source attempt. Seek current Utrecht B&O evidence for international study, profiling level and overlap constraints, and entry to qualitative research, the public-issues capstone and the thesis. Reuse the verified 180 EC credit table and the two feasible provisional UCR plans."
         }
       ],
       "deferralHistory": [
@@ -26421,6 +26430,15 @@
           "essentialEvidence": "Confirm the distinct final 5 EC for September 2026 entrants in Descriptive Linguistics, including the required Berber/Leti rotation or approved substitute, without counting the same Berber course twice.",
           "officialAlternative": "The active 2026–2027 BA-TWS catalogue lists the same 5 EC 5512VEBE2Y module in the required second-year group BA-TWS-2-A3-V and third-year group BA-TWS-3-A3. The exact Berber entry identifies a biennial offering. Leiden’s archived 2025–2026 prospectus lists Leti under both years and its transition section says Berber and Leti will alternate and both remain obligatory, but addresses earlier students. The exact archived Leti entry gives 5 EC and code 5513VTB05. The current and requested later catalogue module endpoints returned null for the tested Leti codes, and BA-TWS requests for 2027–2028 and 2028–2029 returned the active 2026–2027 catalogue. The published English programme regulations apply from September 2026 but do not specify the rotation, substitution or applicable semester in Article 4.2. The 2027–2028 official programme brochure still identifies Descriptive Linguistics but does not list the required course or rotation. Thus the older notice supplies a credible lead but no current distinct final 5 EC can be verified for September 2026 entrants.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000324/source-attempt-2.json"
+        },
+        {
+          "caseId": "cp-000334",
+          "executionId": "restart-B-cp334-20261107T040522Z",
+          "checkedOn": "2026-11-07",
+          "essentialEvidence": "Verify the 2026–2027 international study requirement, elective level and overlap conditions, and entry requirements for qualitative research, the public-issues capstone and the thesis.",
+          "officialAlternative": "Checked the official regulations landing page and earlier regulation, current study programme and research, thesis, graduation and 2026–2027 elective pages, OSIRIS USG2020, and two plausible current regulation file locations. The current sources verify the credit table and the existence of a formal international study condition. The exact current profiling and course entry rules remain unresolved.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/source-attempt-1.json",
+          "nextAction": "Resume CP334 with the second official-source attempt. Seek current Utrecht B&O evidence for international study, profiling level and overlap constraints, and entry to qualitative research, the public-issues capstone and the thesis. Reuse the verified 180 EC credit table and the two feasible provisional UCR plans."
         }
       ],
       "publicationRecovery": {
@@ -27919,6 +27937,32 @@
           "endedAt": "2026-11-07T03:11:17.513720+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000332/published-verification.json"
+        },
+        {
+          "executionId": "restart-B-cp334-20261107T040522Z",
+          "worker": "B",
+          "caseId": "cp-000334",
+          "claimedAt": "2026-11-07T04:05:22.458096+00:00",
+          "reviewedInputCommit": "9ef756b3927e057bf242e97efc91774693bc9a6a",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000334.json": "f9dd5b86928fcc1bf86806f306fe5c5a121a4133",
+            "data/counselor/comparisons/cp-000334.json": "f31683248d8423f1f0255b94803a378efa0225d1",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify published CP334 decision, canonical, evidence and CI, then record the first source checkpoint and resume CP334 for the current international study, profiling and research progression rules.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-07T04:14:25.079751+00:00",
+          "result": "first source execution incomplete",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/published-verification.json"
         }
       ],
       "publicationRecoveryHistory": [
