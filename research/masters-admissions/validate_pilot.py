@@ -31,7 +31,8 @@ def main():
     sources = index(read_csv('sources.csv'), 'source_id')
     requirements = index(read_csv('admission_requirements.csv'), 'requirement_id')
     fields = Counter(row['field'] for row in programmes.values())
-    require(len(fields) == 6 and set(fields.values()) == {4}, 'Expected four programmes per field')
+    require(sorted(fields.values()) == [6, 6, 7, 7, 7, 7],
+            'Expected the 40-programme sample across six fields')
     require(set(programmes) == set(feasibility), 'Programme and feasibility IDs differ')
     require({row['programme_id'] for row in requirements.values()} == set(programmes),
             'Every programme needs admission requirements')

@@ -1,5 +1,7 @@
 # Dutch master's admissions and UCR curriculum feasibility
 
+This report records the initial 24-programme pilot. See the [expansion review](EXPANSION_REVIEW.md) for the current 40-programme sample and the follow-up on unresolved cases.
+
 ## Pilot results
 
 The pilot covered 24 WO master's programmes at ten universities, with four programmes in each field. The sample includes three research degrees and one double degree. It was selected to test different admissions structures and levels of disciplinary demand. Its proportions describe the sample. The pilot did not use historical admissions decisions or compare its judgments with evaluations of actual UCR transcripts. It therefore establishes feasibility of the research method and leaves predictive accuracy open.
