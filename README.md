@@ -31,6 +31,10 @@ The [UCR Course-Outline Database](course-outline-database/README.md) is a separa
 
 **Extraction and Pathways enrichment are different stages.** Extraction uses only supplied course outlines. The separate merge combines BOS course attributes, YearPlan availability and selected outline evidence into `data/reference/ucr_courses_enriched.xlsx`, the single authoritative Pathways course reference. See [the reference documentation](data/reference/README.md) for source ownership and selection rules. Appending outlines does not itself regenerate that reference or any academic records.
 
+## Research pilot
+
+The [Dutch master’s admissions pilot](research/masters-admissions/README.md) studies admissions evidence and UCR curriculum feasibility.
+
 ## Repository operating rule
 
 Routine approved work is performed directly on `main`.
