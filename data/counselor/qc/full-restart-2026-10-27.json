@@ -7031,7 +7031,8 @@
         }
       ],
       "implementationCommits": [
-        "5712b70760171a1848a72f478b132fc405299f69"
+        "5712b70760171a1848a72f478b132fc405299f69",
+        "9f680aef31b6d2263582f5fe32c4c39cdc0724ec"
       ],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000334.json",
@@ -18885,37 +18886,15 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000334",
-      "activeClaim": {
-        "executionId": "restart-B-cp334-20261107T050257Z",
-        "worker": "B",
-        "caseId": "cp-000334",
-        "claimedAt": "2026-11-07T05:02:57.854902+00:00",
-        "reviewedInputCommit": "d288ec5fd4c36148b33c7eca920a5c2541b8cd46",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000334.json": "b2264dd3ed9ecdb8f695b254db7393ed6ae2f44a",
-          "data/counselor/comparisons/cp-000334.json": "f3005ba4474718b257b4278057974e8620b2c985",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify the published CP334 pair and CI, then record the second unsuccessful progression-source attempt and defer CP334 with a permitted revisit.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000335",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -19442,7 +19421,8 @@
         "cp-000317",
         "cp-000318",
         "cp-000322",
-        "cp-000324"
+        "cp-000324",
+        "cp-000334"
       ],
       "sourceRetrievalFailuresByCase": {
         "cp-000245": 2,
@@ -19480,16 +19460,21 @@
         "cp-000318": 2,
         "cp-000322": 2,
         "cp-000324": 2,
-        "cp-000334": 1
+        "cp-000334": 2
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
         "caseId": "cp-000334",
         "executionId": "restart-B-cp334-20261107T050257Z",
-        "state": "in-progress",
-        "reviewedInputCommit": "12b07faafdb1e4e5473f3452abbe586c7cf9f36c",
-        "nextAction": "Verify the published CP334 pair and CI, then record the second unsuccessful progression-source attempt and defer CP334 with a permitted revisit.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/retry-mechanical-verification.json"
+        "state": "deferred",
+        "reviewedInputCommit": "9f680aef31b6d2263582f5fe32c4c39cdc0724ec",
+        "inputBlobs": {
+          "canonical": "8a5dca83c20afbe85adc03e18f0745745bc879f6",
+          "decision": "beba06a3d43e5cc960a79ff2a5c4109a2402f3d7"
+        },
+        "nextAction": "CP334 deferred and incomplete. At its permitted revisit, verify the current progression conditions for USG2020 and USG3220 and confirm how overlapping profiling courses are treated. Preserve the verified 180 EC credit table, confirmed profiling and capstone rules and both feasible provisional UCR plans. Resume cp-000335 next execution.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/source-attempt-2.json",
+        "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/retry-published-verification.json"
       },
       "checkpointHistory": [
         {
@@ -25378,6 +25363,19 @@
           "reviewedInputCommit": "12b07faafdb1e4e5473f3452abbe586c7cf9f36c",
           "nextAction": "Verify the published CP334 pair and CI, then record the second unsuccessful progression-source attempt and defer CP334 with a permitted revisit.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/retry-mechanical-verification.json"
+        },
+        {
+          "caseId": "cp-000334",
+          "executionId": "restart-B-cp334-20261107T050257Z",
+          "state": "deferred",
+          "reviewedInputCommit": "9f680aef31b6d2263582f5fe32c4c39cdc0724ec",
+          "inputBlobs": {
+            "canonical": "8a5dca83c20afbe85adc03e18f0745745bc879f6",
+            "decision": "beba06a3d43e5cc960a79ff2a5c4109a2402f3d7"
+          },
+          "nextAction": "CP334 deferred and incomplete. At its permitted revisit, verify the current progression conditions for USG2020 and USG3220 and confirm how overlapping profiling courses are treated. Preserve the verified 180 EC credit table, confirmed profiling and capstone rules and both feasible provisional UCR plans. Resume cp-000335 next execution.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/source-attempt-2.json",
+          "verificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/retry-published-verification.json"
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -25924,6 +25922,15 @@
           "officialAlternative": "Checked the official regulations landing page and earlier regulation, current study programme and research, thesis, graduation and 2026–2027 elective pages, OSIRIS USG2020, and two plausible current regulation file locations. The current sources verify the credit table and the existence of a formal international study condition. The exact current profiling and course entry rules remain unresolved.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/source-attempt-1.json",
           "nextAction": "Resume CP334 with the second official-source attempt. Seek current Utrecht B&O evidence for international study, profiling level and overlap constraints, and entry to qualitative research, the public-issues capstone and the thesis. Reuse the verified 180 EC credit table and the two feasible provisional UCR plans."
+        },
+        {
+          "caseId": "cp-000334",
+          "executionId": "restart-B-cp334-20261107T050257Z",
+          "checkedOn": "2026-11-07",
+          "essentialEvidence": "Verify the progression rules that apply to September 2026 entrants for entry to qualitative research (USG2020) and the graduation project and thesis (USG3220). Confirm the precise treatment of any overlapping profiling courses under the applicable regulations.",
+          "officialAlternative": "The current profiling and exchange pages resolve the advanced-level and international study requirements. The 2026–2027 CursusPlanner verifies course-specific capstone prerequisites and confirms the qualitative research and graduation units, but points to the OER for their progression rules. The public regulation index and available thesis handbook offer only earlier editions. The same essential progression evidence is still incomplete.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/source-attempt-2.json",
+          "nextAction": "CP334 deferred and incomplete. At its permitted revisit, verify the current progression conditions for USG2020 and USG3220 and confirm how overlapping profiling courses are treated. Preserve the verified 180 EC credit table, confirmed profiling and capstone rules and both feasible provisional UCR plans. Resume cp-000335 next execution."
         }
       ],
       "deferralHistory": [
@@ -26266,6 +26273,16 @@
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000324/source-attempt-2.json",
           "revisitStatus": "pending; not consumed",
           "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
+        },
+        {
+          "caseId": "cp-000334",
+          "deferredOn": "2026-11-07",
+          "executionId": "restart-B-cp334-20261107T050257Z",
+          "unsuccessfulExecutions": 2,
+          "reason": "Verify the progression rules that apply to September 2026 entrants for entry to qualitative research (USG2020) and the graduation project and thesis (USG3220). Confirm the precise treatment of any overlapping profiling courses under the applicable regulations.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/source-attempt-2.json",
+          "revisitStatus": "pending; not consumed",
+          "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
         }
       ],
       "reopeningDependencies": [
@@ -26548,6 +26565,15 @@
           "officialAlternative": "Checked the official regulations landing page and earlier regulation, current study programme and research, thesis, graduation and 2026–2027 elective pages, OSIRIS USG2020, and two plausible current regulation file locations. The current sources verify the credit table and the existence of a formal international study condition. The exact current profiling and course entry rules remain unresolved.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/source-attempt-1.json",
           "nextAction": "Resume CP334 with the second official-source attempt. Seek current Utrecht B&O evidence for international study, profiling level and overlap constraints, and entry to qualitative research, the public-issues capstone and the thesis. Reuse the verified 180 EC credit table and the two feasible provisional UCR plans."
+        },
+        {
+          "caseId": "cp-000334",
+          "executionId": "restart-B-cp334-20261107T050257Z",
+          "checkedOn": "2026-11-07",
+          "essentialEvidence": "Verify the progression rules that apply to September 2026 entrants for entry to qualitative research (USG2020) and the graduation project and thesis (USG3220). Confirm the precise treatment of any overlapping profiling courses under the applicable regulations.",
+          "officialAlternative": "The current profiling and exchange pages resolve the advanced-level and international study requirements. The 2026–2027 CursusPlanner verifies course-specific capstone prerequisites and confirms the qualitative research and graduation units, but points to the OER for their progression rules. The public regulation index and available thesis handbook offer only earlier editions. The same essential progression evidence is still incomplete.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/source-attempt-2.json",
+          "nextAction": "CP334 deferred and incomplete. At its permitted revisit, verify the current progression conditions for USG2020 and USG3220 and confirm how overlapping profiling courses are treated. Preserve the verified 180 EC credit table, confirmed profiling and capstone rules and both feasible provisional UCR plans. Resume cp-000335 next execution."
         }
       ],
       "publicationRecovery": {
@@ -28072,6 +28098,32 @@
           "endedAt": "2026-11-07T04:14:25.079751+00:00",
           "result": "first source execution incomplete",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/published-verification.json"
+        },
+        {
+          "executionId": "restart-B-cp334-20261107T050257Z",
+          "worker": "B",
+          "caseId": "cp-000334",
+          "claimedAt": "2026-11-07T05:02:57.854902+00:00",
+          "reviewedInputCommit": "d288ec5fd4c36148b33c7eca920a5c2541b8cd46",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000334.json": "b2264dd3ed9ecdb8f695b254db7393ed6ae2f44a",
+            "data/counselor/comparisons/cp-000334.json": "f3005ba4474718b257b4278057974e8620b2c985",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify the published CP334 pair and CI, then record the second unsuccessful progression-source attempt and defer CP334 with a permitted revisit.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-07T05:08:41.555742+00:00",
+          "result": "deferred; incomplete; second source execution",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000334/retry-published-verification.json"
         }
       ],
       "publicationRecoveryHistory": [
