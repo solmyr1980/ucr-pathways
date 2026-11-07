@@ -6881,7 +6881,7 @@
     },
     {
       "id": "cp-000330",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
@@ -6892,22 +6892,13 @@
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Current programme regulations and current UCR course evidence",
-          "scope": "Rechecked interest roles, both feasible test schedules, academic disposition, progression, audience fields and source links.",
-          "stages": [
-            2,
-            3,
-            4,
-            5,
-            6
-          ]
-        }
+      "downstreamReassessments": [],
+      "implementationCommits": [
+        "ebf1c1841d991b107715d989e1d564e98b749488"
       ],
-      "implementationCommits": [],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000330.json"
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000330.json",
+      "academicDisposition": "no-defensible-ucr-match"
     },
     {
       "id": "cp-000331",
@@ -8171,8 +8162,8 @@
     }
   ],
   "progress": {
-    "approved": 154,
-    "inProgress": 57,
+    "approved": 155,
+    "inProgress": 56,
     "reviewedWithBlockers": 0,
     "notStarted": 227,
     "pilotStarted": 6
@@ -18531,37 +18522,15 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000330",
-      "activeClaim": {
-        "executionId": "restart-B-cp330-20261107T005733Z",
-        "worker": "B",
-        "caseId": "cp-000330",
-        "claimedAt": "2026-11-07T00:57:33.383710+00:00",
-        "reviewedInputCommit": "6c64caed1d94d5b3f8ccd2e1f254b260559eb12f",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000330.json": "829b5bf8cc77763933be362b7e2bd2fff96c5399",
-          "data/counselor/comparisons/cp-000330.json": "bf425b5185cf8a9e7e28803fc427315deeae883c",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify the published CP330 decision and canonical pair, exact evidence blobs and applicable CI, then approve the no-defensible-UCR-match disposition.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000331",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -18620,7 +18589,8 @@
         "cp-000326",
         "cp-000327",
         "cp-000328",
-        "cp-000329"
+        "cp-000329",
+        "cp-000330"
       ],
       "completedDispositions": [
         {
@@ -19028,6 +18998,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000329.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-07"
+        },
+        {
+          "caseId": "cp-000330",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000330.json",
+          "academicDisposition": "no-defensible-ucr-match",
+          "verifiedOn": "2026-11-07"
         }
       ],
       "deferredCases": [
@@ -19107,10 +19084,19 @@
       "lastCheckpoint": {
         "caseId": "cp-000330",
         "executionId": "restart-B-cp330-20261107T005733Z",
-        "state": "in-progress",
-        "reviewedInputCommit": "d98b1451e6897c4881128d97cf11799621ac17d2",
-        "nextAction": "Verify the published CP330 decision and canonical pair, exact evidence blobs and applicable CI, then approve the no-defensible-UCR-match disposition.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000330/mechanical-verification.json"
+        "state": "approved",
+        "academicDisposition": "no-defensible-ucr-match",
+        "reviewedInputCommit": "ebf1c1841d991b107715d989e1d564e98b749488",
+        "inputBlobs": {
+          "canonical": "15c51ee9fe84e3df0508883c86634da4f4b738ec",
+          "decision": "fc49dffc93495652afa6576e34bf2b78ef8a0ef3"
+        },
+        "verifiedAt": "2026-11-07T01:05:58.849212+00:00",
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000330/published-verification.json",
+        "nextAction": "CP330 approved as no defensible UCR match. Resume cp-000331 next execution.",
+        "runtimeModel": "unknown",
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -24903,6 +24889,23 @@
           "reviewedInputCommit": "d98b1451e6897c4881128d97cf11799621ac17d2",
           "nextAction": "Verify the published CP330 decision and canonical pair, exact evidence blobs and applicable CI, then approve the no-defensible-UCR-match disposition.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000330/mechanical-verification.json"
+        },
+        {
+          "caseId": "cp-000330",
+          "executionId": "restart-B-cp330-20261107T005733Z",
+          "state": "approved",
+          "academicDisposition": "no-defensible-ucr-match",
+          "reviewedInputCommit": "ebf1c1841d991b107715d989e1d564e98b749488",
+          "inputBlobs": {
+            "canonical": "15c51ee9fe84e3df0508883c86634da4f4b738ec",
+            "decision": "fc49dffc93495652afa6576e34bf2b78ef8a0ef3"
+          },
+          "verifiedAt": "2026-11-07T01:05:58.849212+00:00",
+          "verificationPolicy": "record-content-review-2026-10-31",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000330/published-verification.json",
+          "nextAction": "CP330 approved as no defensible UCR match. Resume cp-000331 next execution.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown"
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -27475,6 +27478,32 @@
           "endedAt": "2026-11-07T00:08:14.707726+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000329/published-verification.json"
+        },
+        {
+          "executionId": "restart-B-cp330-20261107T005733Z",
+          "worker": "B",
+          "caseId": "cp-000330",
+          "claimedAt": "2026-11-07T00:57:33.383710+00:00",
+          "reviewedInputCommit": "6c64caed1d94d5b3f8ccd2e1f254b260559eb12f",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000330.json": "829b5bf8cc77763933be362b7e2bd2fff96c5399",
+            "data/counselor/comparisons/cp-000330.json": "bf425b5185cf8a9e7e28803fc427315deeae883c",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify the published CP330 decision and canonical pair, exact evidence blobs and applicable CI, then approve the no-defensible-UCR-match disposition.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-07T01:05:58.849212+00:00",
+          "result": "approved no-defensible-ucr-match",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000330/published-verification.json"
         }
       ],
       "publicationRecoveryHistory": [
