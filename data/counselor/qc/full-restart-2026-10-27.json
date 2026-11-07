@@ -3754,7 +3754,7 @@
     },
     {
       "id": "cp-000133",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
@@ -3765,22 +3765,13 @@
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Current workbook and renewed comparator and progression review",
-          "scope": "Reassessed interests, strongest UCR candidate, supporting directions, disposition, comparison language and external-only presentation.",
-          "stages": [
-            2,
-            3,
-            4,
-            5,
-            6
-          ]
-        }
+      "downstreamReassessments": [],
+      "implementationCommits": [
+        "727c55090a05872e23a910ba982a2f2bb69b632b"
       ],
-      "implementationCommits": [],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000133.json"
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000133.json",
+      "academicDisposition": "no-defensible-ucr-match"
     },
     {
       "id": "cp-000135",
@@ -8436,8 +8427,8 @@
     }
   ],
   "progress": {
-    "approved": 172,
-    "inProgress": 59,
+    "approved": 173,
+    "inProgress": 58,
     "reviewedWithBlockers": 0,
     "notStarted": 207,
     "pilotStarted": 6
@@ -8669,37 +8660,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000133",
-      "activeClaim": {
-        "executionId": "restart-A-cp133-20261107T122948Z",
-        "worker": "A",
-        "caseId": "cp-000133",
-        "claimedAt": "2026-11-07T12:29:48.948353+00:00",
-        "reviewedInputCommit": "812bdf85e4f5c011e494dc1d9505a292c65f5a52",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000133.json": "7b310aa3348d053fbf45701559739490ff19dc71",
-          "data/counselor/comparisons/cp-000133.json": "61318095fc3335b19b55c8e85541fc138193b715",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify the published CP133 decision, canonical record and evidence against exact-head CI, then record the verified no-match disposition.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000135",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -8805,7 +8774,8 @@
         "cp-000129",
         "cp-000130",
         "cp-000131",
-        "cp-000132"
+        "cp-000132",
+        "cp-000133"
       ],
       "completedDispositions": [
         {
@@ -9542,6 +9512,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000132.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-07"
+        },
+        {
+          "caseId": "cp-000133",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000133.json",
+          "academicDisposition": "no-defensible-ucr-match",
+          "verifiedOn": "2026-11-07"
         }
       ],
       "deferredCases": [
@@ -9598,10 +9575,19 @@
       "lastCheckpoint": {
         "caseId": "cp-000133",
         "executionId": "restart-A-cp133-20261107T122948Z",
-        "state": "in-progress",
-        "reviewedInputCommit": "5f3dc308bcac72d0d975b65add0eb742ada7f340",
-        "nextAction": "Verify the published CP133 decision, canonical record and evidence against exact-head CI, then record the verified no-match disposition.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000133/mechanical-verification.json"
+        "state": "approved",
+        "academicDisposition": "no-defensible-ucr-match",
+        "reviewedInputCommit": "727c55090a05872e23a910ba982a2f2bb69b632b",
+        "inputBlobs": {
+          "canonical": "92aa28cff5d8788d06b472dd583c4e25b004dcd9",
+          "decision": "ed83423241cf614579a8380a60802b23e98a78f0"
+        },
+        "verifiedAt": "2026-11-07T12:36:59.824613+00:00",
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000133/published-verification.json",
+        "nextAction": "CP133 approved as no defensible UCR match. Resume cp-000135 next execution.",
+        "runtimeModel": "unknown",
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -16928,6 +16914,23 @@
           "reviewedInputCommit": "5f3dc308bcac72d0d975b65add0eb742ada7f340",
           "nextAction": "Verify the published CP133 decision, canonical record and evidence against exact-head CI, then record the verified no-match disposition.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000133/mechanical-verification.json"
+        },
+        {
+          "caseId": "cp-000133",
+          "executionId": "restart-A-cp133-20261107T122948Z",
+          "state": "approved",
+          "academicDisposition": "no-defensible-ucr-match",
+          "reviewedInputCommit": "727c55090a05872e23a910ba982a2f2bb69b632b",
+          "inputBlobs": {
+            "canonical": "92aa28cff5d8788d06b472dd583c4e25b004dcd9",
+            "decision": "ed83423241cf614579a8380a60802b23e98a78f0"
+          },
+          "verifiedAt": "2026-11-07T12:36:59.824613+00:00",
+          "verificationPolicy": "record-content-review-2026-10-31",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000133/published-verification.json",
+          "nextAction": "CP133 approved as no defensible UCR match. Resume cp-000135 next execution.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown"
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -19152,6 +19155,32 @@
           "endedAt": "2026-11-07T11:37:17.942713+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000132/published-verification.json"
+        },
+        {
+          "executionId": "restart-A-cp133-20261107T122948Z",
+          "worker": "A",
+          "caseId": "cp-000133",
+          "claimedAt": "2026-11-07T12:29:48.948353+00:00",
+          "reviewedInputCommit": "812bdf85e4f5c011e494dc1d9505a292c65f5a52",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000133.json": "7b310aa3348d053fbf45701559739490ff19dc71",
+            "data/counselor/comparisons/cp-000133.json": "61318095fc3335b19b55c8e85541fc138193b715",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify the published CP133 decision, canonical record and evidence against exact-head CI, then record the verified no-match disposition.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-07T12:36:59.824613+00:00",
+          "result": "approved no-defensible-ucr-match",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000133/published-verification.json"
         }
       ],
       "sourceRetryLog": [
