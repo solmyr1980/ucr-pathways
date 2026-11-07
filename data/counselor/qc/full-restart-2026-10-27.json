@@ -3605,7 +3605,7 @@
     },
     {
       "id": "cp-000126",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
@@ -3616,22 +3616,13 @@
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Dedicated 2026–2027 EER, restricted list, current offering conflicts and AI business replacement",
-          "scope": "Reassessed both plans, academic coverage, alignment, reader wording and final evidence.",
-          "stages": [
-            1,
-            3,
-            4,
-            5,
-            6
-          ]
-        }
+      "downstreamReassessments": [],
+      "implementationCommits": [
+        "90563bff7504738f3628fbc1ca48c8c7c82c9dca"
       ],
-      "implementationCommits": [],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000126.json"
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000126.json",
+      "academicDisposition": "comparison"
     },
     {
       "id": "cp-000127",
@@ -8290,8 +8281,8 @@
     }
   ],
   "progress": {
-    "approved": 159,
-    "inProgress": 59,
+    "approved": 160,
+    "inProgress": 58,
     "reviewedWithBlockers": 0,
     "notStarted": 220,
     "pilotStarted": 6
@@ -8523,37 +8514,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000126",
-      "activeClaim": {
-        "executionId": "restart-A-cp126-20261107T052901Z",
-        "worker": "A",
-        "caseId": "cp-000126",
-        "claimedAt": "2026-11-07T05:29:01.063887+00:00",
-        "reviewedInputCommit": "fc0e883b5e32e7b5471243d0af2ba1d072ad6fb8",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000126.json": "e2ae7e6dfafd685800298d62609eb6a8f11db9e7",
-          "data/counselor/comparisons/cp-000126.json": "2f133d7aec19c344ac10f3f8022a61dcd69f2b1d",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify the published CP126 decision and canonical pair and applicable CI, then close the qualified comparison.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000127",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -8652,7 +8621,8 @@
         "cp-000119",
         "cp-000121",
         "cp-000123",
-        "cp-000125"
+        "cp-000125",
+        "cp-000126"
       ],
       "completedDispositions": [
         {
@@ -9340,6 +9310,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000125.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-07"
+        },
+        {
+          "caseId": "cp-000126",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000126.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-07"
         }
       ],
       "deferredCases": [
@@ -9396,10 +9373,19 @@
       "lastCheckpoint": {
         "caseId": "cp-000126",
         "executionId": "restart-A-cp126-20261107T052901Z",
-        "state": "in-progress",
-        "reviewedInputCommit": "a1d480c83153fd4851a3a028aff679ffd57dc54c",
-        "nextAction": "Verify the published CP126 decision and canonical pair and applicable CI, then close the qualified comparison.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000126/mechanical-verification.json"
+        "state": "approved",
+        "academicDisposition": "comparison",
+        "reviewedInputCommit": "90563bff7504738f3628fbc1ca48c8c7c82c9dca",
+        "inputBlobs": {
+          "canonical": "d4e88dd8d2d825ebc3ac8ab8f8f5d29c2c40e878",
+          "decision": "302ef3257ace630a8569e918f0f26a1376459ff7"
+        },
+        "verifiedAt": "2026-11-07T05:36:41.783677+00:00",
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000126/published-verification.json",
+        "nextAction": "CP126 approved with two qualified UCR options. Resume cp-000127 next execution.",
+        "runtimeModel": "unknown",
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -16535,6 +16521,23 @@
           "reviewedInputCommit": "a1d480c83153fd4851a3a028aff679ffd57dc54c",
           "nextAction": "Verify the published CP126 decision and canonical pair and applicable CI, then close the qualified comparison.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000126/mechanical-verification.json"
+        },
+        {
+          "caseId": "cp-000126",
+          "executionId": "restart-A-cp126-20261107T052901Z",
+          "state": "approved",
+          "academicDisposition": "comparison",
+          "reviewedInputCommit": "90563bff7504738f3628fbc1ca48c8c7c82c9dca",
+          "inputBlobs": {
+            "canonical": "d4e88dd8d2d825ebc3ac8ab8f8f5d29c2c40e878",
+            "decision": "302ef3257ace630a8569e918f0f26a1376459ff7"
+          },
+          "verifiedAt": "2026-11-07T05:36:41.783677+00:00",
+          "verificationPolicy": "record-content-review-2026-10-31",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000126/published-verification.json",
+          "nextAction": "CP126 approved with two qualified UCR options. Resume cp-000127 next execution.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown"
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -18577,6 +18580,32 @@
           "endedAt": "2026-11-07T04:43:29.275859+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/published-verification.json"
+        },
+        {
+          "executionId": "restart-A-cp126-20261107T052901Z",
+          "worker": "A",
+          "caseId": "cp-000126",
+          "claimedAt": "2026-11-07T05:29:01.063887+00:00",
+          "reviewedInputCommit": "fc0e883b5e32e7b5471243d0af2ba1d072ad6fb8",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000126.json": "e2ae7e6dfafd685800298d62609eb6a8f11db9e7",
+            "data/counselor/comparisons/cp-000126.json": "2f133d7aec19c344ac10f3f8022a61dcd69f2b1d",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify the published CP126 decision and canonical pair and applicable CI, then close the qualified comparison.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-07T05:36:41.783677+00:00",
+          "result": "approved comparison",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000126/published-verification.json"
         }
       ],
       "sourceRetryLog": [
@@ -29244,6 +29273,17 @@
       },
       "combinedVerifiedCount": 150,
       "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000119/assessment-15.json"
+    },
+    {
+      "assessmentNumber": 16,
+      "verifiedOn": "2026-11-07",
+      "milestone": 160,
+      "workerVerifiedCounts": {
+        "A": 99,
+        "B": 61
+      },
+      "combinedVerifiedCount": 160,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000126/assessment-16.json"
     }
   ],
   "systemicPause": null,
