@@ -2,7 +2,7 @@
 
 ## Sample and unit of analysis
 
-Select four Dutch research-university master's programmes in each of six broad fields. Use the 21 August 2026 DUO/RIO export. Record the institution-specific programme unit, its recognised programme code (or parent code for a registered variant), the official programme name and the exact route. The counselor registry identifies bachelor's targets and its comparison IDs do not serve as master's identifiers. Include both regular and research degrees, with a deliberate range from interdisciplinary entry to named-degree and specialist requirements. Freeze the sample in the programme dataset and preserve unresolved results.
+Select four Dutch research-university master's programmes in each of six broad fields. Use the 21 August 2026 snapshot of the [DUO/RIO HO Opleidingsoverzicht](https://onderwijsdata.duo.nl/datasets/ho_opleidingsoverzicht), supplied as `DUO_RIO_HO_Opleidingsoverzicht_2026-08-21.csv`. This export covers publicly funded current and planned programmes. Keep programme identity and admissions evidence separate. Record the institution-specific programme unit, its recognised programme code (or parent code for a registered variant), the official programme name and the exact route. The counselor registry identifies bachelor's targets and its comparison IDs do not serve as master's identifiers. Include both regular and research degrees, with a deliberate range from interdisciplinary entry to named-degree and specialist requirements. Freeze the sample in the programme dataset and preserve unresolved results.
 
 ## Admission evidence
 
@@ -23,3 +23,11 @@ Check the extraction model after the first field. Recheck route identity, source
 ## First-field calibration
 
 The first four programmes required distinct route labels. A named degree, a transcript assessment and a pre-master can lead to the same programme under different conditions. Record each separately and use the assessed route for UCR. Store partner-specific rules separately within the European Governance record. For nested requirements, preserve both the overall credit pool and its internal bounds. Record Leiden's introductory research-design course as conditional after admission. The Radboud international route uses different wording and does not replace the Dutch WO route.
+
+## Final coding rules
+
+Use `specified` when the main academic conditions are extractable as a credit rule, a named-degree route or a concrete competency list. Use `mixed` when a decisive component, such as degree equivalence or a portal-only checklist, has no published operational boundary. Use `discretionary` when the core academic sufficiency judgment is broadly stated without a measurable scope. These are ratings of the source, separate from the UCR outcome.
+
+For the 24 assessments, check candidate sets and their prerequisite chains against the six-term cohort horizon, allowing four places per term and reserving PPD in year one. This tests coexistence of the relevant set. For the six worked cases, apply the full 24-course validation and a separate content and coherence review. Treat course-level activities without separately documented credit or duration as evidence of experience. Allocate credit only to the level of subject coverage the source supports.
+
+Use the Dutch programme page's formal entry route over a foreign-applicant page. Use an applicable EER where it resolves a dated criterion, such as the Radboud Cognitive Neuroscience English rule. Preserve an unresolved difference if two official sources disagree, as with Groningen's TOEFL thresholds. A missing course in the YearPlan cannot establish availability. A future admission cycle requires fresh verification.
