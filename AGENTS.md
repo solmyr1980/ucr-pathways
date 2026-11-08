@@ -14,6 +14,10 @@
 - After writing, verify that remote `main` points to the new commit and report the GitHub commit link.
 - Use `scripts/github-publication.cjs` for Work commits. Read large shared files from a complete Git checkout verified against the fresh parent, transfer complete bytes programmatically, and verify Git blob SHAs. Follow the review protocol for durable repair checkpoints and Master Specification §12.1 for scheduled retries. Recoverable publication errors end the execution and keep its schedule enabled.
 
+## Master's admissions database
+
+- Before working on the master's admissions database, read [the subproject instructions](research/masters-admissions/database/AGENTS.md). Keep admissions collection in that directory. Linking admissions to curricula, counselor comparisons or student records is a separate phase.
+
 ## Validation
 
 - Run the relevant repository validators and tests before publishing changes.
