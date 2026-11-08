@@ -1,0 +1,998 @@
+{
+  "caseId": "cp-000367",
+  "checkedAt": "2026-11-08T15:12:34.806238+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000367.json": "5d005d71f0dc70b030121302ab6651a0cbadabdd",
+    "data/counselor/comparisons/cp-000367.json": "774ea012cc48696a4e3683ee7511414dfb63b3a1",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "2068982f4281e7e2715e73a8ffa84ccb9c0fcf95",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json": "d65b11aff73176eaeafe340a8407452f4849634a",
+    "pilot/shiny/data/courses/BEN.json": "1595932255166785ac58524e448c546d4eaaf6fd",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000123/content-review.json": "5c2bde563d51ec7e3b4363c070e9cc52456d1f30",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json": "175487e0b5f55d758ab798a215d4fd730b6e82a9",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json": "8d1a0a818d17af7038794d845c297591f0e9a28c",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000126/content-review.json": "2d95d9ecfcb96db19b6277873d0d02698130fb7f",
+    "pilot/shiny/data/courses/ENS.json": "e09dc60f6737453006ed202fb21bea9b12dc2cf8",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000140/content-review.json": "bebf495d9344cb06e21169c56d3cbb1f74796658",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000136/content-review.json": "192907cd3f053a6352b68116778e9964e5e7a0f2",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json": "8a6a68c211c21ccfc1a781132fb1c0f1f19886d9",
+    "pilot/shiny/data/courses/HCB.json": "23459da6d1ee2106951372adef085604fdb4d56b"
+  },
+  "presentationMode": "caution",
+  "cautionMessage": "UCR offers programmes in related academic fields, but these may differ substantially from the disciplinary programme shown. Important specialist subjects or forms of training may not be available at UCR.",
+  "mapping": {
+    "title and links": "The selection handler uses the index label. The table links the comparator title to the official curriculum page and UCR columns to the UCR course reference. Additional official sources were inspected as case evidence.",
+    "audience.curriculum and academicRationale": "render_audience_context and render_comparison_summary select the 2026–2027 label, the year, the programme explanation and both selected concepts. The existing caution banner is displayed above the table.",
+    "blocks, cells and notes": "render_compare_table and audience_cell_note display block titles, workbook course names, component titles, credit badges and uniquely resolved notes about matches, choices and differences. render_audience_notes selects the comparison note.",
+    "selectedDescriptions": "The course button uses courseCode and exact workbook name. The modal resolves each selected description by department and code, and the content review checked the actual text or reused the exact text with matching source hashes. Every selected code has description text.",
+    "optionalIndependentResearch": "The 15 EC UCR independent research comparison element is separate from the scheduled degree and Utrecht’s required 15 EC chemistry thesis."
+  },
+  "fieldPaths": [
+    "review-programmes.programmes[].displayName",
+    "comparator.name",
+    "comparator.primarySourceUrl",
+    "comparator.additionalSourceUrls",
+    "comparator.components",
+    "comparator.sourceNotes",
+    "audience.programmeDescription",
+    "audience.comparisonExplanation",
+    "audience.curriculum",
+    "audience.conceptProgrammeIds",
+    "academicRationale.alternatives[].concept",
+    "audience.noteTypes",
+    "notes[].text",
+    "programmes[].label",
+    "blocks[].title",
+    "blocks[].rows[].cells",
+    "audience.cellNotes",
+    "optionalIndependentResearch",
+    "pilot/shiny/data/courses/*.json descriptions by courseCode"
+  ],
+  "selectedConcepts": [
+    {
+      "programmeId": "ucr-1",
+      "concept": "Study molecules in living cells and in environmental systems. Connect biochemistry and lab work with soil and water chemistry, resource recovery and product life cycles. Use mathematics and data analysis to study these systems and evaluate renewable energy designs.",
+      "basisLabels": [
+        "Biomolecules, proteins, cells, biochemistry and molecular laboratory investigation",
+        "Materials behaviour, sustainable chemistry, lifecycle impacts, environmental biogeochemistry, energy and resource recovery",
+        "Mathematics, programming, data analysis and computational modelling for molecular and material systems",
+        "Experimental, laboratory, data and research methods for molecular, material and environmental questions"
+      ],
+      "evidence": [
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:15972"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:15973"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:15974"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:15978"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:15979"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:15986"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:15987"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:15988"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.uu.nl/bachelors/scheikunde/studieprogramma"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://students.uu.nl/sites/default/files/Onderwijs%20en%20Examenregeling-Undergraduate%20School%202026-2027-%20opleidingsspecifieke%20bijlagen.pdf"
+        }
+      ],
+      "labelRationale": "The label reflects the main subjects and methods of the selected courses."
+    },
+    {
+      "programmeId": "ucr-2",
+      "concept": "Study how molecules and cells work, how disease disrupts them, and how drugs act in the body. Combine laboratory work, physiology, immunology and pharmacology with statistical analysis and research on treatment effects.",
+      "basisLabels": [
+        "Biomolecules, proteins, cells, biochemistry and molecular laboratory investigation",
+        "Molecular disease mechanisms, medicines and therapeutic research",
+        "Experimental, laboratory, data and research methods for molecular, material and environmental questions",
+        "Mathematics, programming, data analysis and computational modelling for molecular and material systems"
+      ],
+      "evidence": [
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:15975"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:15976"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:15980"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:15981"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:15982"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:15989"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.uu.nl/bachelors/scheikunde/studieprogramma"
+        }
+      ],
+      "labelRationale": "The label reflects the main subjects and methods of the selected courses.",
+      "distinctnessRationale": "Thirteen courses (97.5 EC) differ in each direction. This plan studies drug action, immunity and disease mechanisms. The other plan focuses on environmental chemistry, resources and sustainable systems."
+    }
+  ],
+  "blockTitles": [
+    "Biomolecules, cells, disease and therapeutic research",
+    "Mathematics, data and research methods",
+    "Materials, environmental chemistry, energy and resources",
+    "Product development and academic formation",
+    "Chemistry specialisms, thesis and profiling electives"
+  ],
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "Utrecht’s Chemistry degree studies how substances are structured, how they react and how to investigate them in the lab. First-year courses are mainly in Dutch, intermediate courses use Dutch and English, and advanced courses are taught in English.",
+    "comparisonExplanation": "The Utrecht example combines core chemistry with materials electives. The UCR options connect biochemistry with sustainable resources or with disease and drug research.",
+    "curriculum": {
+      "status": "complete",
+      "componentIds": [
+        "chem-sk-borsp",
+        "chem-sk-bfyan13",
+        "chem-sk-bkwan",
+        "chem-sk-b1acav",
+        "chem-sk-b1dasp",
+        "chem-sk-b1bio",
+        "chem-sk-bwsnk1",
+        "chem-sk-bwsnk2",
+        "chem-sk-b2bmav",
+        "chem-sk-b2wdmm",
+        "chem-sk-bfych",
+        "chem-sk-banv13",
+        "chem-sk-b2bio",
+        "chem-approved-free-profiling-space",
+        "chem-sk-b2sre",
+        "chem-sk-bfyc3",
+        "chem-sk-bvaop",
+        "chem-sk-bthesis",
+        "chem-approved-free-profiling-space-2"
+      ],
+      "yearLabel": "2026–2027",
+      "routeLabel": "Molecules and Materials"
+    },
+    "conceptProgrammeIds": [
+      "ucr-1",
+      "ucr-2"
+    ],
+    "noteTypes": [
+      "related-fields-not-full-discipline"
+    ],
+    "cellNotes": [
+      {
+        "programmeId": "comparator",
+        "reference": "chem-sk-b1bio",
+        "text": "Both examine how the chemistry of biomolecules underlies life. UCR develops protein structure, enzyme action and metabolism."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "chem-sk-b2bmav",
+        "text": "Both develop experimental practice in the chemistry of living systems. UCR uses protein and molecular biology techniques in a life science laboratory."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "chem-sk-bwsnk1",
+        "text": "Both develop calculus as a foundation for scientific work. Utrecht also covers mechanics, work and energy."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "chem-sk-borsp",
+        "text": "Utrecht links organic reaction mechanisms and synthesis with spectroscopy in the lab."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "chem-sk-bfyan13",
+        "text": "Utrecht applies thermodynamics and redox chemistry in chemical experiments."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "chem-sk-bkwan",
+        "text": "Utrecht develops quantum models of chemical structure alongside inorganic chemistry."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "chem-sk-b1acav",
+        "text": "Utrecht develops analytical chemistry techniques through lab investigations."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "chem-sk-bfych",
+        "text": "Utrecht studies the thermodynamics of real gases and liquids."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "chem-approved-free-profiling-space",
+        "text": "Choose profiling electives across the two slots, with at least 15 EC at advanced level in total for this selection."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "chem-sk-b2sre",
+        "text": "Utrecht develops diffraction, scattering and imaging to determine molecular and material structure. UCR introduces crystallography and microscopy in sustainability."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "chem-sk-bfyc3",
+        "text": "Utrecht develops statistical thermodynamics and the study of colloids, polymers and interfaces."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "chem-sk-bvaop",
+        "text": "Utrecht relates the physical chemistry of solids and surfaces to devices such as lasers and solar cells."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "chem-sk-bthesis",
+        "text": "Utrecht requires a 15 EC chemistry thesis. UCR shows optional independent research separately."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "chem-approved-free-profiling-space-2",
+        "text": "Continue the 45 EC of profiling electives."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "chem-sk-b2bio",
+        "text": "Utrecht uses protein function to explore advanced biochemistry in health and disease. UCR covers related cellular and disease processes in several courses."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "chem-sk-bwsnk2",
+        "text": "Utrecht combines mathematics with electromagnetism. UCR studies matrices and related methods in its mathematics courses."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "chem-sk-b2wdmm",
+        "text": "Utrecht applies mathematics to molecular modelling. UCR uses numerical methods to solve more general scientific problems."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "chem-sk-b1dasp",
+        "text": "Utrecht combines data analysis with spectroscopy and chemical structure problems. UCR studies general data analysis and introduces optical spectroscopy in sustainability."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "chem-sk-banv13",
+        "text": "Utrecht studies coordination compounds, solid-state theory and inorganic synthesis. UCR introduces materials and chemical testing in sustainability."
+      }
+    ]
+  },
+  "notes": [
+    {
+      "type": "related-fields-not-full-discipline",
+      "text": "The UCR plans share biochemistry, molecular laboratory work and quantitative methods. Utrecht develops a longer sequence in organic, inorganic, analytical and physical chemistry, with synthesis, spectroscopy and a required chemistry thesis.",
+      "placement": "comparison"
+    }
+  ],
+  "programmeLabels": [
+    "Chemistry at Utrecht University",
+    "Biochemistry, Materials and Sustainable Resources",
+    "Molecular Life Science, Disease and Drug Research"
+  ],
+  "selectedDescriptions": {
+    "ACCPPDE101": {
+      "name": "Personal & Professional Development",
+      "text": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+        "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Personal & Professional Development"
+      },
+      "cache": "pilot/shiny/data/courses/ACC.json",
+      "cacheBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8"
+    },
+    "BENENTR111": {
+      "name": "Consumer Product Design",
+      "text": "You will learn how to function in a ‘real-world’ design and development team for consumer products. We go through the phases of design and development: probe customer needs, translate these into a product concept, develop a fabrication method, analyze sustainability, analyze costs and proceeds. Design and development involves interviewing customers, brainstorming, laboratory experiments, quantitative modeling, constructing a prototype, and considering protection of intellectual property.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Consumer Product Design",
+        "sourceField": "description2",
+        "sourceSha256": "4291c862f893e8d1238b3b2b2e1fc4aedfc59877fcb676414c4e08bcbc764aa5",
+        "descriptionSha256": "4291c862f893e8d1238b3b2b2e1fc4aedfc59877fcb676414c4e08bcbc764aa5",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-05",
+        "reviewNote": "CP089: reviewed the unchanged official description against current course content. The existing text supports the stated scope."
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "DISDATA111": {
+      "name": "Introduction to Data Science",
+      "text": "Develops foundational skills in data visualization, cleaning and manipulation. Explores spatial and text data and includes hands‑on work with datasets from various disciplines.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "85912cb78bd13d1aa873ef9cca2a8d7e00345543f75d1f07b56d808f1c6702ef",
+        "descriptionSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Data Science"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISDATA211": {
+      "name": "Machine Learning",
+      "text": "Machine Learning introduces methods for understanding data and making predictions, including linear regression, classification, resampling, shrinkage, tree-based methods, support vector machines and clustering. Real-world examples illustrate the methods, their strengths and limitations.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6a112d70695b992eb7664e19ed9656612b364e2c28a116980a602eef2687ace6",
+        "descriptionSha256": "ae7fce189f80fcd62e521b78f43d3119e98a2ee78d29f61127a0f6b61faaf862",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Machine Learning"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISGATE101": {
+      "name": "Introduction to Programming",
+      "text": "Introduces programming and computer science. Covers structured programming, data constructs, testing, debugging and object‑oriented programming with Python, and develops computational problem‑solving skills.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "e2014f5db9a4328ff4efaa51f0273169ae1c9427a4ccf85bea5ee463794a80a8",
+        "descriptionSha256": "efe3b89e39a2611d475d27d09b06151a514076321c7453cd31f9cfbbd84248bf",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Programming"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISGATE102": {
+      "name": "Mathematical Methods",
+      "text": "Mathematical Methods develops foundational techniques in differentiation, integration, complex numbers and differential equations. Students solve problems analytically and with Mathematica. A project implements, analyses and adapts a dynamic model, requiring interpretation of its behaviour and computational results.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6250945baf68c519d3820bddeaa08cb4b3c71273ddbb9bc31a7dffe6d021af5f",
+        "descriptionSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Mathematical Methods"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISMATH211": {
+      "name": "Linear Algebra",
+      "text": "Linear Algebra studies systems of equations, matrices, vectors, linear transformations and vector spaces. Students examine eigenvalues, orthogonality, least-squares approximation, quadratic forms and singular value decomposition. Applications include discrete signals, difference equations, Markov chains, dynamical systems, graphics and principal component analysis, with Mathematica supporting analytical problem-solving.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "26ebd64922aa03e17140aa9b6529a98f2428bdf29ab1fa4360f9bd876de4e680",
+        "descriptionSha256": "bd23120a02190d6bcf24aa6c30ce1e454082afae59ba3d81c21d48cfb4194ba4",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Linear Algebra"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISMATH213": {
+      "name": "Computational & Numerical Methods",
+      "text": "Introduces numerical methods such as root‑finding, interpolation, numerical differentiation and integration and solving differential equations. Emphasises algorithm accuracy, stability and efficiency and uses computer algebra software.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "5b5170199e3306247d6581a75787d8106a4fea74a894b55a09713e0a81efbf25",
+        "descriptionSha256": "d7841607963f18cc24d325c614b84d1629dd83cf6194ee3b68dfcf1a90eb8a8c",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Computational & Numerical Methods"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISMATH312": {
+      "name": "Linear Systems",
+      "text": "Linear Systems studies signals and linear time-invariant systems. Students examine impulse and frequency responses, convolution, Fourier series and transforms, and the Laplace and Z transforms, including continuous-time and discrete-time representations.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "00d4504b56b7626ac280f97249ec9bf9ae30cdd910508163982a1ac439e1d9ac",
+        "descriptionSha256": "10c25739200058efd4c2243eba932500f9effe1b118c1d044a336d064da55fba",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Linear Systems"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISMATH314": {
+      "name": "Probability & Statistics",
+      "text": "Provides a foundation in mathematical statistics. Covers probability theory, discrete and continuous distributions, sampling, parameter estimation and simulation; uses computer algebra software to develop theoretical understanding and practical skills.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "64d3f72845189f77627b8aa180a9906d4fd60fe3c5306bbf0ebe7666e612852b",
+        "descriptionSha256": "9d3ee2b42fa7fe2c0e62777da64474690e9fac0ca76929d04c6670dab516d10f",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Probability & Statistics"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "ENSDELT311": {
+      "name": "R3: Recycling, Recovery, Remediation",
+      "text": "Examines strategies and technologies towards a circular economy. Explores resource security and stewardship, develops lab skills and inorganic chemistry knowledge, and connects to themes at the Delta Climate Center.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "R3: Recycling, Recovery, Remediation",
+        "sourceField": "description2",
+        "sourceSha256": "1b0026b1e19169693ebc23ba4ee5b8bb515ce3b67dd06bd33b230b9b04bf262d",
+        "descriptionSha256": "1b0026b1e19169693ebc23ba4ee5b8bb515ce3b67dd06bd33b230b9b04bf262d",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSDELT312": {
+      "name": "Governance of Sustainability",
+      "text": "This course examines sustainability through the lens of governance: “a process of rule-making and collective decision-making that includes both governmental and non-governmental actors in shaping public policy” (Fenger & Bekkers, 2016). Taking this lens, we ask questions such as how are sustainability policies on the local, national, and international level made and enforced? Which actors represent which interests, and which are most influential? How is public opinion on sustainability shaped, and how does public opinion shape politics? What, at the end of the day, determines effective policy for sustainability? By the end of this course, you will have gained a deep appreciation of the complexity of the governance dimension of sustainability, and have developed the theoretical and practical understanding to critically assess mainstream policy decisions.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "f4cf9494a23b75f3fb3fe9090c62b9c8af908dc62a825c17f6547cfb48caf0a7",
+        "descriptionSha256": "746711aaebf20395c0fd5695fb91c5951f611715825c91ca6da251c5d890e362",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Governance of Sustainability"
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSENVI212": {
+      "name": "Soils & Aquifers",
+      "text": "Explores soils and aquifers through fieldwork and lab analyses. Covers soil formation, properties, health and remediation and investigates mapping aquifers for geothermal energy, coastal defence and freshwater resource assessment.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Soils & Aquifers",
+        "sourceField": "description2",
+        "sourceSha256": "728f61f289f212c2de51511af3f1dd5f9d2c09f2cc2c34ee54fb8f69d803b730",
+        "descriptionSha256": "728f61f289f212c2de51511af3f1dd5f9d2c09f2cc2c34ee54fb8f69d803b730",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSENVI213": {
+      "name": "Earth System Science Tools",
+      "text": "Explores interactions among biosphere, hydrosphere, lithosphere and atmosphere. Teaches system modelling, uses proxies and isotope tracers to study past and future climates and includes a field trip focused on greenhouse gas pathways.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Earth System Science Tools",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "2bdebcd3c2db71717ea674b4277de2f62a2d53cdd20acd1aa0fb87b3f20ba0fa",
+        "descriptionSha256": "2bdebcd3c2db71717ea674b4277de2f62a2d53cdd20acd1aa0fb87b3f20ba0fa",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: full displayed officialdescription read; retain within currentdescription support without unstatedmethods/depth or equivalentcourse claims."
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSENVI311": {
+      "name": "Environmental Biogeochemistry",
+      "text": "Examines chemical and biological controls on interactions among water, minerals, rocks and soils. Topics include equilibrium, speciation, redox chemistry, adsorption, weathering and biomineralisation. Laboratory work, geochemical modelling and an environmental project connect these processes to contaminant behaviour, wastewater treatment, remediation and resource recovery.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "b67bd2127ed422a506194829eb9b44e59618136c389bdc8cc2d12a6237a6904c",
+        "descriptionSha256": "d82a1f4ea8c0c272aef64fbb7e08c619a9d12e4c40c868b4319ac6cac6b1ff29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Environmental Biogeochemistry"
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSENVI312": {
+      "name": "Earth's Resources",
+      "text": "Provides in‑depth geoscience research into resource and environmental challenges such as nuclear waste storage, geothermal energy and CO₂ capture. Students conduct literature reviews and produce class reports for presentation to a professional conference.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Earth's Resources",
+        "sourceField": "description2",
+        "sourceSha256": "871074751805d3b118a24dc71bfd4c202c1ad3abe612933aae64e335d917e749",
+        "descriptionSha256": "871074751805d3b118a24dc71bfd4c202c1ad3abe612933aae64e335d917e749",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSGATE101": {
+      "name": "Sustainability Essentials I",
+      "text": "Introduces sustainability through planetary boundaries and scientific tools for understanding human impacts on Earth systems. Students interpret graphs and uncertainty, build simple dynamic models, and study chemical and physical principles relevant to climate, energy and materials. A laboratory project makes and tests starch-based biopolymers.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "82f50723d99a79ffd7371f9f6eebe3e42e760cc7f4f8bbeb032e81fd5acc4184",
+        "descriptionSha256": "3d8021bff00c075753d30587e5e529c4ac8337c828561c59c0c227299a1e04e9",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Sustainability Essentials I"
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSGATE201": {
+      "name": "Sustainability Essentials II",
+      "text": "Develops physical-science foundations for sustainability through waves, chemistry and materials science. Reflective work and a project apply these topics to analysing greenwashing.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "10191be23b197bf2051541f534acdc52bc20762fc7d8889972890e7176afed60",
+        "descriptionSha256": "465a8a129a7b496e5cc7188a77d3e2b04fb5a3c7f3afceae8a56afe6d062285b",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Sustainability Essentials II"
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSSUST111": {
+      "name": "Climate Change",
+      "text": "Focuses on drivers and impacts of anthropogenic climate change on sea level, ocean acidification, ecology and society. Discusses adaptation and mitigation solutions, including renewable energy systems, carbon storage and climate‑adaptive planning, and examines climate governance and justice.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "92a8d5a238274193e7d9163f689556026c415afc95cebb8ecc4b5215f17bbeb4",
+        "descriptionSha256": "51b7423fe905aaf8f483ff6389d1685b21b8a2fb0a4b9b41d99b59e42808a974",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Climate Change"
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSSUST112": {
+      "name": "Life Cycle Analysis & Circular Economy",
+      "text": "Teaches evaluation of environmental impacts of products, processes and services throughout their lifecycle. Emphasises strategic planning for a circular economy through hands‑on learning.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "84952b835c81d99cda8bc29e396c30894abc1d4ee1c6dd8de714344d1c4e3492",
+        "descriptionSha256": "1507c66a61e12992a10ae7eef4194b4994d433c482be61ac982d0a8eb0870afe",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Life Cycle Analysis & Circular Economy"
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSSUST311": {
+      "name": "Renewable System Design",
+      "text": "Teaches assessment of energy usage patterns and strategies for reducing consumption or transitioning to cleaner energy. Explores solar, wind and bioenergy solutions and includes technical and economic analysis; students deliver a report and presentation to a partner company.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "f59be5886c977469ba596b55eae9382fde7efb5a64b50dd70745e2af463641eb",
+        "descriptionSha256": "f59be5886c977469ba596b55eae9382fde7efb5a64b50dd70745e2af463641eb",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Renewable System Design"
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "HCBBIOM111": {
+      "name": "Epidemiology & Public Health",
+      "text": "Introduces epidemiology and the evidence used in public health. It examines disease patterns, risks and changes over time, and how research can inform decisions about population health.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "fc3b09c221d581aa0003b1813767c4ff584789c32cacb797e3bb56abd2970e51",
+        "descriptionSha256": "0ae9e35a4b55c6572c949a617acdd9d0e5a4d3771f41b5a8bcab919ce2f91303",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Epidemiology & Public Health"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBBIOM211": {
+      "name": "Functional Anatomy",
+      "text": "Studies human anatomical structure in relation to function through regional and body-system blocks. Medical images, anatomical drawing, human-specimen material and guided practicals develop spatial reasoning, including observation in a dissection room. Historical, ethical and societal questions accompany these academic learning activities, which do not provide clinical qualification.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "4542a01fac8a44e9e62648574c09642d3421f6b177fec8e95f3df721e4b71a90",
+        "descriptionSha256": "cea7b96fb837d4dd6ebfe08439d4c270a3d7b639ce32ae5c126c61733e872779",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Functional Anatomy"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBBIOM311": {
+      "name": "Pharmacology",
+      "text": "Covers the science of drugs—their origin, composition, kinetics, therapeutic use and toxicity. Discusses drug targets, interactions and kinetics, enabling students to explain therapies in terms of molecular targets and physiological consequences.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Pharmacology",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "a9200df39ef2dfae98fe89bb2fb82742ad3f706b15ecaad186ea6b1fe36900fa",
+        "descriptionSha256": "a9200df39ef2dfae98fe89bb2fb82742ad3f706b15ecaad186ea6b1fe36900fa",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBBIOM312": {
+      "name": "Infection & Immunity",
+      "text": "Explores fundamental processes in immunology such as recognition of self vs non‑self, lymphocyte receptor development and innate and adaptive immune responses. Examines host‑pathogen interactions, inflammation, tissue damage and immunopathology.",
+      "source": {
+        "courseName": "Infection & Immunity",
+        "sourceField": "description2",
+        "sourceSha256": "fe40276b627a7ff86bac21fb86039cf0a43281d27d9f429c7df6b0d4d0987cec",
+        "descriptionSha256": "fe40276b627a7ff86bac21fb86039cf0a43281d27d9f429c7df6b0d4d0987cec"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBBIOM313": {
+      "name": "Mechanisms of Disease",
+      "text": "Examines how normal organ-system function relates to disease. Students connect anatomy and physiology with symptoms, disease mechanisms, diagnosis, treatment and prognosis across digestive, cardiovascular, respiratory, renal, endocrine and nervous systems. Clinical cases and an imaginary-disease assignment develop coherent pathophysiological explanations.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "4d8acb13deb96b3778bdefa44792604f9b8247830d5e0a3817dfc45c9da5e8a1",
+        "descriptionSha256": "03f76444a6b246585aa85e512b35f15719415e8261e05edbf7ad3568c4aa0c89",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Mechanisms of Disease"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBCOGN112": {
+      "name": "Neurobiology",
+      "text": "Neurobiology studies nervous systems and behaviour through comparative anatomy, evolution and physiology. Students examine animal behaviour, research models, welfare and research ethics, then connect biological rhythms and regulatory behaviour to sleep, lifestyle drugs, mood and eating disorders. Comparative-anatomy work and a literature-based report apply neurobiological concepts.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "faf0f85889650abcd1cd20e8038228eb9964ce43c317af9edc586eac043bc30c",
+        "descriptionSha256": "e17b6afb9badd04addc522b9ea98346fd18d4aa31df815d0b792950fa6ab940a",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Neurobiology"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBCOGN212": {
+      "name": "Perception & Action",
+      "text": "Explores neural mechanisms behind perception and action. Examines how the brain processes sensory information and guides goal‑directed behaviour using methods from cognitive neuroscience and neuropsychology.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Perception & Action",
+        "sourceField": "description2",
+        "sourceSha256": "d5057fb9cd7115d620719855269abccdb6cd5c3585d55631b2c6322bc0346aab",
+        "descriptionSha256": "d5057fb9cd7115d620719855269abccdb6cd5c3585d55631b2c6322bc0346aab",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBGATE101": {
+      "name": "Foundation of Life, Health & Biomedicine",
+      "text": "Introduces the molecular and cellular foundations of life and biomedical science. Topics include biological molecules, cells and membranes, communication, metabolism, cell division, heredity, gene expression and biotechnology. Students analyse scientific experiments and papers through teaching contributions and a research-based mini-symposium, with additional topics selected with the class.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "e0b2da3bcb6fa48f717a1cad6591d9594b5145b6c3f4ba362ddc812790ff17f5",
+        "descriptionSha256": "12ff60a52ad56e3df4604fcc60c5982e9cf5e111eb66a6b7eac99bfd23ca4e28",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Foundation of Life, Health & Biomedicine"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBGATE102": {
+      "name": "Introduction to Brain & Behavior",
+      "text": "Explores why people behave as they do and how brain injuries affect mental processes. Discusses nature and nurture, introduces brain anatomy and psychological theories, and provides a gateway to cognitive science and clinical psychology.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Brain & Behavior",
+        "sourceField": "description2",
+        "sourceSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+        "descriptionSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBLIFE211": {
+      "name": "Molecular Cell Biology",
+      "text": "Provides foundation for practical applications in life science. Focuses on cellular biology of eukaryotes and prokaryotes, revisits concepts from introductory courses, examines current research and encourages evaluating reproducibility and modernising methods.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Molecular Cell Biology",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "90f3f9fc225c54575e44aec821bccfbe6e89ca74f0df25466ff8958c80335a1c",
+        "descriptionSha256": "90f3f9fc225c54575e44aec821bccfbe6e89ca74f0df25466ff8958c80335a1c",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBLIFE212": {
+      "name": "Human Physiology",
+      "text": "Studies normal functioning of the human body, covering structure‑function relationships, energy handling, homeostasis, signalling, organ systems and integration of their functions.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Human Physiology",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "60ec8f664bc76e7ba86aeff463b8f4229a7c8c75e9174c3eee6a0efbaf8baf49",
+        "descriptionSha256": "60ec8f664bc76e7ba86aeff463b8f4229a7c8c75e9174c3eee6a0efbaf8baf49",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBLIFE213": {
+      "name": "Biochemistry",
+      "text": "Explores the chemistry of life and biomolecules such as proteins, sugars, lipids and nucleic acids. Discusses metabolic pathways, the role of biomolecules in health and disease and applications in medicine, biotechnology and sustainability.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Biochemistry",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "7885bac69eea60cc521b74834d3c316078aee206955d305472e2c287e2ebd821",
+        "descriptionSha256": "7885bac69eea60cc521b74834d3c316078aee206955d305472e2c287e2ebd821",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBLIFE214": {
+      "name": "Life Science Laboratory",
+      "text": "Introduces biochemical and molecular laboratory work. Covers themes like blood, proteins, bacteria, DNA and bioinformatics and provides a foundation for clinical and biomedical research.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Life Science Laboratory",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "6d3645c7c4b319729041691b93bbd7b6a49e6e45642d846a75508ab15a829e3b",
+        "descriptionSha256": "6d3645c7c4b319729041691b93bbd7b6a49e6e45642d846a75508ab15a829e3b",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBLIFE311": {
+      "name": "Molecular Pathology & Genetics",
+      "text": "Covers general and molecular pathology and genetics. Studies cell injury, death, inflammation, immunity, tissue repair, regeneration, fibrosis and neoplasia, examines genetic mutations and diseases, and discusses genetic testing and ethical considerations.",
+      "source": {
+        "courseName": "Molecular Pathology & Genetics",
+        "sourceField": "description2",
+        "sourceSha256": "c93965cca70f74df45213ec33738850a3d29e868c184fb3803b48d44201e5aa9",
+        "descriptionSha256": "c93965cca70f74df45213ec33738850a3d29e868c184fb3803b48d44201e5aa9"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC211": {
+      "name": "Statistics & Experimental Methods",
+      "text": "Develops experimental-design knowledge and practical statistical analysis for health and behavioural research. Students choose, fit, diagnose and interpret multivariable models for group comparisons, categorical outcomes and latent constructs. R, primarily through R Commander, supports practical exercises; data-analysis papers and a poster connect research questions to appropriate models, assumption checks and clear reporting.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "bf482d4e283320560451930d2822162ada50a7697ded31de54eb7b021694adbc",
+        "descriptionSha256": "ef41b0b732a8e9502a0d7e14ceef47bb91ca971854bb1a26b6a8ed5e6c9b6111",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Statistics & Experimental Methods"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC313": {
+      "name": "Advanced Research Methods & Statistics",
+      "text": "Advanced Research Methods & Statistics introduces systematic reviews and meta-analysis to synthesise results across studies. Students use R to conduct analyses, work with data structures and packages, estimate treatment effects and examine their consistency across studies. Presentations and active research tasks develop evidence-synthesis skills.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-30",
+        "sourceSha256": "eb24b7cc21c239bb763218b5b09a429739925fa1a8206c390c2f07c75f528c1d",
+        "descriptionSha256": "f9bb29521ce24ffbe4d0eef2398221f54d99cbd72801c53bf1db0de6b3c4c799",
+        "reviewNote": "Updated the course title to the current official name. Retained the remaining description after checking it against the unchanged selected profile.",
+        "courseName": "Advanced Research Methods & Statistics"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    }
+  },
+  "sharedDescriptionReviewRefs": {
+    "ACCPPDE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "BENENTR111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000123/content-review.json",
+    "DISDATA111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "DISDATA211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "DISGATE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "DISGATE102": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "DISMATH211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "DISMATH213": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json",
+    "DISMATH312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000126/content-review.json",
+    "DISMATH314": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json",
+    "ENSDELT311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "ENSDELT312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "ENSENVI212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000140/content-review.json",
+    "ENSENVI213": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000136/content-review.json",
+    "ENSENVI311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "ENSENVI312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "ENSGATE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "ENSGATE201": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "ENSSUST111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "ENSSUST112": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "ENSSUST311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "HCBBIOM111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBBIOM211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000123/content-review.json",
+    "HCBBIOM311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBBIOM312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000123/content-review.json",
+    "HCBBIOM313": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "HCBCOGN112": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBCOGN212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBGATE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBGATE102": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBLIFE211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "HCBLIFE212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "HCBLIFE213": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "HCBLIFE214": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "HCBLIFE311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "HCBPSYC211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC313": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json"
+  },
+  "sourceUrls": [
+    "https://www.uu.nl/bachelors/scheikunde/studieprogramma",
+    "https://students.uu.nl/sites/default/files/Onderwijs%20en%20Examenregeling-Undergraduate%20School%202026-2027-%20opleidingsspecifieke%20bijlagen.pdf",
+    "https://students.uu.nl/beta/scheikunde/mijn-studie/studieprogrammas/scheikunde",
+    "https://students.uu.nl/beta/scheikunde/onderwijs/studieprogramma/bachelorthesis",
+    "https://students.uu.nl/beta/scheikunde/mijn-studie/regelingen-en-procedures/onderwijs-en-examenregeling-oer",
+    "https://students.uu.nl/sites/default/files/BETA-Scheikunde-curriculumoverzicht-Cohort%202025.pdf"
+  ],
+  "ucrLinks": [
+    "https://ucr.nl/education/courses/",
+    "https://program.ucr.nl/"
+  ]
+}
