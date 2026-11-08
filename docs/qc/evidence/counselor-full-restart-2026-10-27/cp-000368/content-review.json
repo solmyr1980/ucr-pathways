@@ -1,0 +1,1247 @@
+{
+  "caseId": "cp-000368",
+  "checkedAt": "2026-11-08T16:05:27.142798+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000368.json": "57678e7d750bac38c13ae7ba25ed694ee10fbd5c",
+    "data/counselor/comparisons/cp-000368.json": "95f91cb8fba31810db2a0dbfa6eeb7c115f2ee9d",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "857237f02873ecbc7c47b0c2728ca60299dc396e",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json": "d65b11aff73176eaeafe340a8407452f4849634a",
+    "pilot/shiny/data/courses/BEN.json": "1595932255166785ac58524e448c546d4eaaf6fd",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json": "175487e0b5f55d758ab798a215d4fd730b6e82a9",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000128/content-review.json": "65769382b4c9ca5997d2bb1ba0302a44ff35d00b",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json": "abc6deddd935219ffc0b7c6c1b005a4fd8a9374f",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "pilot/shiny/data/courses/ENS.json": "e09dc60f6737453006ed202fb21bea9b12dc2cf8",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json": "8a6a68c211c21ccfc1a781132fb1c0f1f19886d9",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000136/content-review.json": "192907cd3f053a6352b68116778e9964e5e7a0f2",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000325/content-review.json": "b8b577d30474cc2533701c764bec1169f319d9ef",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000129/content-review.json": "e7d1f5561e6a0fdd53c16f0015f5250d44eb3f98",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000127/content-review.json": "580554d8eecaa3652fd4a85bdf66468bd3fbe589",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000130/content-review.json": "6d9e955464c8583a82311be7fd509d7087b1c13c",
+    "pilot/shiny/data/courses/HCB.json": "23459da6d1ee2106951372adef085604fdb4d56b",
+    "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000156/content-review.json": "158d64b8f15c881d5149b5b1b071abc006f2da57"
+  },
+  "presentationMode": "normal",
+  "mapping": {
+    "title and links": "The selection handler uses the index label. The table links the comparator title to the official curriculum page and UCR columns to the UCR course reference. Additional official sources were inspected as case evidence.",
+    "audience.curriculum and academicRationale": "render_audience_context and render_comparison_summary select the 2026–2027 label, the year, the programme explanation and three selected concepts. Normal comparison mode applies.",
+    "blocks, cells and notes": "render_compare_table and audience_cell_note display block titles, workbook course names, component titles, credit badges and uniquely resolved notes about matches, choices and differences. render_audience_notes selects the comparison note.",
+    "selectedDescriptions": "The course button uses courseCode and exact workbook name. The modal resolves each selected description by department and code, and the content review checked the actual text or reused the exact text with matching source hashes. Every selected code has description text.",
+    "optionalIndependentResearch": "The 15 EC UCR independent research comparison element is separate from the scheduled degree and Utrecht’s required 15 EC empirical thesis."
+  },
+  "fieldPaths": [
+    "review-programmes.programmes[].displayName",
+    "comparator.name",
+    "comparator.primarySourceUrl",
+    "comparator.additionalSourceUrls",
+    "comparator.components",
+    "comparator.sourceNotes",
+    "audience.programmeDescription",
+    "audience.comparisonExplanation",
+    "audience.curriculum",
+    "audience.conceptProgrammeIds",
+    "academicRationale.alternatives[].concept",
+    "audience.noteTypes",
+    "notes[].text",
+    "programmes[].label",
+    "blocks[].title",
+    "blocks[].rows[].cells",
+    "audience.cellNotes",
+    "optionalIndependentResearch",
+    "pilot/shiny/data/courses/*.json descriptions by courseCode"
+  ],
+  "selectedConcepts": [
+    {
+      "programmeId": "ucr-1",
+      "concept": "Study how people and institutions shape places and respond to environmental change. Combine social research and economics with geographic data, Earth observation, delta management and applied spatial planning.",
+      "basisLabels": [
+        "Human geography and spatial planning across local, national and global scales",
+        "Urban change, housing, mobility, inequality and inclusive public space",
+        "Spatial, quantitative, qualitative and mixed-method research using geographic data and field evidence",
+        "Planning, governance and practical intervention in contested uses of space",
+        "Independent place-based research culminating in a bachelor thesis",
+        "Migration, global development, mobility and transnational places",
+        "Inclusive cities, wellbeing, equality and access",
+        "Climate adaptation, sustainable cities, regions and environmental transitions",
+        "How can cities and regions become more sustainable, inclusive and resilient?",
+        "How do global trends, migration and political-economic change reshape local places?",
+        "How can spatial data, field research and stakeholder evidence support defensible planning decisions?"
+      ],
+      "evidence": [
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.uu.nl/bachelors/sociale-geografie-en-planologie/studieprogramma"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.uu.nl/bachelors/sociale-geografie-en-planologie"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16032"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16033"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16034"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16035"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16036"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16037"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16038"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16039"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16040"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16041"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16042"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16043"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16044"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16045"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16046"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16047"
+        }
+      ],
+      "labelRationale": "The title reflects the main question and selected course contributions."
+    },
+    {
+      "programmeId": "ucr-2",
+      "concept": "Study how empire, conflict, economic change and migration connect places across borders. Explore how these forces shape communities and identities through political analysis, cultural history and social research.",
+      "basisLabels": [
+        "Human geography and spatial planning across local, national and global scales",
+        "Urban change, housing, mobility, inequality and inclusive public space",
+        "Spatial, quantitative, qualitative and mixed-method research using geographic data and field evidence",
+        "Planning, governance and practical intervention in contested uses of space",
+        "Independent place-based research culminating in a bachelor thesis",
+        "Migration, global development, mobility and transnational places",
+        "Inclusive cities, wellbeing, equality and access",
+        "Climate adaptation, sustainable cities, regions and environmental transitions",
+        "How can cities and regions become more sustainable, inclusive and resilient?",
+        "How do global trends, migration and political-economic change reshape local places?",
+        "How can spatial data, field research and stakeholder evidence support defensible planning decisions?"
+      ],
+      "evidence": [
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.uu.nl/bachelors/sociale-geografie-en-planologie/studieprogramma"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.uu.nl/bachelors/sociale-geografie-en-planologie"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16048"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16036"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16037"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16044"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16057"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16063"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16066"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16067"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16068"
+        }
+      ],
+      "labelRationale": "The title reflects the main question and selected course contributions.",
+      "distinctnessRationale": "This plan differs by 13 courses from the broad plan and by 8 courses from the other focused plan, in each direction."
+    },
+    {
+      "programmeId": "ucr-3",
+      "concept": "Study how public decisions shape access to housing, services and a healthy environment. Connect social inequality and community action with public economics, rights, comparative institutions and policy communication.",
+      "basisLabels": [
+        "Human geography and spatial planning across local, national and global scales",
+        "Urban change, housing, mobility, inequality and inclusive public space",
+        "Spatial, quantitative, qualitative and mixed-method research using geographic data and field evidence",
+        "Planning, governance and practical intervention in contested uses of space",
+        "Independent place-based research culminating in a bachelor thesis",
+        "Migration, global development, mobility and transnational places",
+        "Inclusive cities, wellbeing, equality and access",
+        "Climate adaptation, sustainable cities, regions and environmental transitions",
+        "How can cities and regions become more sustainable, inclusive and resilient?",
+        "How do global trends, migration and political-economic change reshape local places?",
+        "How can spatial data, field research and stakeholder evidence support defensible planning decisions?"
+      ],
+      "evidence": [
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.uu.nl/bachelors/sociale-geografie-en-planologie/studieprogramma"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.uu.nl/bachelors/sociale-geografie-en-planologie"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16049"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16034"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16038"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16040"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16042"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16046"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16053"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16054"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16060"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16069"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16070"
+        }
+      ],
+      "labelRationale": "The title reflects the main question and selected course contributions.",
+      "distinctnessRationale": "This plan differs by 10 courses from the broad plan and by 8 courses from the other focused plan, in each direction."
+    }
+  ],
+  "blockTitles": [
+    "Space, planning and environmental change",
+    "Society, inequality and urban life",
+    "Governance, policy, law and political economy",
+    "Globalisation, mobility, heritage and place",
+    "Spatial, quantitative, qualitative and research methods",
+    "Choice space and professional development"
+  ],
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "Study how people, institutions and environmental change shape cities and regions. Utrecht teaches mainly in Dutch, with some courses in English.",
+    "comparisonExplanation": "The Utrecht example follows the Migration and Global Development track. The UCR options emphasize spatial sustainability, migration and global development, or urban governance.",
+    "curriculum": {
+      "status": "complete",
+      "componentIds": [
+        "y1-city",
+        "y1-space",
+        "y1-global",
+        "y1-spatial-data",
+        "y1-delta",
+        "y1-social-research",
+        "y1-foundations",
+        "y1-borders",
+        "track-theory",
+        "track-themes",
+        "track-mixed",
+        "track-practice",
+        "major-elective1",
+        "major-elective2",
+        "profile",
+        "y3-science-society",
+        "y3-analysis",
+        "y3-research-design",
+        "y3-thesis"
+      ],
+      "yearLabel": "2026–2027",
+      "routeLabel": "Migration and Global Development"
+    },
+    "conceptProgrammeIds": [
+      "ucr-1",
+      "ucr-2",
+      "ucr-3"
+    ],
+    "noteTypes": [
+      "missing-specialist-components"
+    ],
+    "cellNotes": [
+      {
+        "programmeId": "comparator",
+        "reference": "y1-delta",
+        "text": "Both use delta environments to study water management, environmental risk and adaptation."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-space",
+        "text": "Utrecht studies how planning decisions mediate competing claims on land."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-spatial-data",
+        "text": "Both use geographic data and maps to investigate spatial change. UCR emphasizes GIS and Earth observation."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "major-elective1",
+        "text": "Utrecht examines planning theories. UCR applies spatial tools to environmental problems."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "major-elective2",
+        "text": "Utrecht studies how places are represented in media. UCR examines race, power and representation in media."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-city",
+        "text": "Utrecht studies urban change through human geography and planning. UCR introduces broader social structures and inequality."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-foundations",
+        "text": "Utrecht introduces the intellectual foundations of geography and planning."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "track-theory",
+        "text": "Utrecht develops theories linking migration and development across regions. UCR studies broader theories of international relations."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-global",
+        "text": "Utrecht studies uneven development and connections between places. UCR examines global relationships through the history of empire."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "track-themes",
+        "text": "Utrecht examines debates about migration, mobility and regional development."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "track-practice",
+        "text": "Utrecht applies migration research in a specialist practice lab."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-borders",
+        "text": "Utrecht combines study of European borders with geographical fieldwork."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-analysis",
+        "text": "Utrecht develops analysis for geographical research. UCR teaches econometric methods."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-social-research",
+        "text": "Both develop empirical research design, measurement and data analysis. Utrecht applies these methods to socio-spatial questions."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "track-mixed",
+        "text": "Utrecht integrates methods in a project within the migration track. UCR develops qualitative research and quantitative analysis in separate courses."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-research-design",
+        "text": "Utrecht prepares students to design a geography or planning thesis."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-science-society",
+        "text": "Utrecht connects geographical research with its role in society."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-thesis",
+        "text": "Utrecht requires a 15 EC empirical thesis. The UCR comparison shows optional independent research separately."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "profile",
+        "text": "Choose 45 EC of electives, with at least 15 EC at intermediate level or above. Options include an eligible minor, study abroad or a placement."
+      }
+    ]
+  },
+  "notes": [
+    {
+      "type": "missing-specialist-components",
+      "placement": "comparison",
+      "text": "Utrecht requires a sequence in human geography and planning, including a themed field or practice project and an empirical thesis. The UCR options draw on social science, environmental methods and policy to study related questions."
+    }
+  ],
+  "programmeLabels": [
+    "Human Geography and Planning at Utrecht University",
+    "Cities, Communities and Spatial Sustainability",
+    "Migration, Global Development and Place",
+    "Urban Governance, Inequality and Policy"
+  ],
+  "selectedDescriptions": {
+    "ACCPPDE101": {
+      "name": "Personal & Professional Development",
+      "text": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+        "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Personal & Professional Development"
+      },
+      "cache": "pilot/shiny/data/courses/ACC.json",
+      "cacheBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8"
+    },
+    "BENECON111": {
+      "name": "Introduction to Economics",
+      "text": "Explore how individuals, firms, and societies make economic decisions. This course introduces key concepts from both microeconomics and macroeconomics, including markets, incentives, and the principles of supply and demand, and provides a foundation for analyzing real-world economic issues.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "be4f2adfa22005d4d1ebbea0bbfcb36e2acd0e7e75d57f9b87f847d13ad3ef1f",
+        "descriptionSha256": "2278892bd9c8b20df80deb4bd04a3bf00a3fe4cc79099b153861afa0f69110e8",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Economics"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENECON211": {
+      "name": "International Macroeconomics",
+      "text": "Study the economy as a whole through topics such as national income, economic growth, inflation, and unemployment. Understand how governments and central banks use fiscal and monetary policies to influence economic performance over time. The course also explores business cycles, international trade, and economic crises, preparing students to evaluate policy debates and global economic trends.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "International Macroeconomics",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "33b36d74db138b4f57c17d242b5ba5dc4d4f8de34149ead79cef4bd1d0f2ccba",
+        "descriptionSha256": "33b36d74db138b4f57c17d242b5ba5dc4d4f8de34149ead79cef4bd1d0f2ccba",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENECON311": {
+      "name": "Public Economics",
+      "text": "Investigate the role of government in the economy, focusing on how public policy influences efficiency and equity. The course covers taxation, public goods, externalities, and government spending. Combining theoretical models with empirical evidence, it evaluates how different policies affect societal welfare.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "24b0c5c56dc096e519a2295ff82eb44aa56d5601b7302975262d22a475cc96a6",
+        "descriptionSha256": "7a4ba78a0cfe9e6eb397bc2a538e91ff9a12eaecf7737f2cfbb377ac04d4aa84",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Public Economics"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENECON312": {
+      "name": "Econometrics",
+      "text": "Econometrics supplies tools to analyze data to answer questions of causality and prediction. In this course you learn three estimators—Ordinary Least Squares, Generalized Least Squares, and Instrumental Variables—and three tests—t-test, F-test, and LM-test. Understanding the basic rules of econometrics, particularly the sampling distribution concept, is key, and the course uses Monte Carlo simulations in Stata to visualize it. Tools are applied to estimate economic relationships and make predictions, and students write an empirical paper.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Econometrics",
+        "sourceField": "description2",
+        "sourceSha256": "3754e43821eb3db5407d6eded2b8e70021b3eb45d2284acfae505d85d85baea9",
+        "descriptionSha256": "3754e43821eb3db5407d6eded2b8e70021b3eb45d2284acfae505d85d85baea9",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENGATE102": {
+      "name": "Research Methods & Statistics",
+      "text": "Research Methods & Statistics introduces research design, operationalisation, measurement, sampling, surveys and experiments. Students study descriptive statistics, estimation, hypothesis testing and introductory regression using R and R Commander. A group project develops a research plan and instruments, collects and analyses data, and reports findings under research-ethics and privacy requirements.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "9d88751452d5c0a6888ac7901a73d1a848617dee2b587d4df64815fc39ad8813",
+        "descriptionSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Research Methods & Statistics"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENLEAD211": {
+      "name": "Psychology of Leading Under Pressure",
+      "text": "Examines how emotion regulation, emotional intelligence, belonging, identity safety and psychological safety shape leadership in diverse contexts, with particular attention to minority experiences. Students design and pilot a quantitative survey, collect data ethically, and use SPSS or RStudio for descriptive statistics, reliability analysis, correlations, group comparisons and introductory multiple regression. They interpret the findings and develop evidence-based leadership recommendations.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "999ba5b05cd61f55317070b1224b8b12e159ec2100773c4e4a14a721e01b3853",
+        "descriptionSha256": "b5bfb901eaf1286ca42a21c22a4c5c86a619c00526eb11286f93c2244de3295b",
+        "mode": "edited",
+        "reviewedOn": "2026-10-30",
+        "reviewNote": "Reviewed against the Spring 2027 profile and official description. Omits conditional company collaboration and optional factor analysis; no evidence-source commentary appears in the display text.",
+        "courseName": "Psychology of Leading Under Pressure"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "DISDATA111": {
+      "name": "Introduction to Data Science",
+      "text": "Develops foundational skills in data visualization, cleaning and manipulation. Explores spatial and text data and includes hands‑on work with datasets from various disciplines.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "85912cb78bd13d1aa873ef9cca2a8d7e00345543f75d1f07b56d808f1c6702ef",
+        "descriptionSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Data Science"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "ENSDELT211": {
+      "name": "Living with Water",
+      "text": "Studies water risks and opportunities in deltas, using Zeeland as a central case. Flooding, freshwater scarcity, salinisation, subsidence and pollution are connected to infrastructure, history, governance, law and justice. Students evaluate engineered and nature-based responses, then apply these ideas through site-based inquiry and a project on delta adaptation.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6bc06d8eab4fbe5bd42de4764d7f92dee7335af1186c736cce876e23c2e44360",
+        "descriptionSha256": "c6f1c8e47fbc4bf63763a5360356732043355009a05991ce7099da0a8babeede",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Living with Water"
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSDELT311": {
+      "name": "R3: Recycling, Recovery, Remediation",
+      "text": "Examines strategies and technologies towards a circular economy. Explores resource security and stewardship, develops lab skills and inorganic chemistry knowledge, and connects to themes at the Delta Climate Center.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "R3: Recycling, Recovery, Remediation",
+        "sourceField": "description2",
+        "sourceSha256": "1b0026b1e19169693ebc23ba4ee5b8bb515ce3b67dd06bd33b230b9b04bf262d",
+        "descriptionSha256": "1b0026b1e19169693ebc23ba4ee5b8bb515ce3b67dd06bd33b230b9b04bf262d",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSDELT312": {
+      "name": "Governance of Sustainability",
+      "text": "This course examines sustainability through the lens of governance: “a process of rule-making and collective decision-making that includes both governmental and non-governmental actors in shaping public policy” (Fenger & Bekkers, 2016). Taking this lens, we ask questions such as how are sustainability policies on the local, national, and international level made and enforced? Which actors represent which interests, and which are most influential? How is public opinion on sustainability shaped, and how does public opinion shape politics? What, at the end of the day, determines effective policy for sustainability? By the end of this course, you will have gained a deep appreciation of the complexity of the governance dimension of sustainability, and have developed the theoretical and practical understanding to critically assess mainstream policy decisions.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "f4cf9494a23b75f3fb3fe9090c62b9c8af908dc62a825c17f6547cfb48caf0a7",
+        "descriptionSha256": "746711aaebf20395c0fd5695fb91c5951f611715825c91ca6da251c5d890e362",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Governance of Sustainability"
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSENVI211": {
+      "name": "Earth Observation",
+      "text": "Provides hands‑on experience with GIS and data integration using geospatial data from satellites and drones. Uncovers how human actions impact ecosystems and climate and promotes sustainable practices through research projects.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Earth Observation",
+        "sourceField": "description2",
+        "sourceSha256": "6fbd8c5d02f8063c3dac1b38756526174ea242188eff49eb08bf76e17c4d4b97",
+        "descriptionSha256": "6fbd8c5d02f8063c3dac1b38756526174ea242188eff49eb08bf76e17c4d4b97",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSENVI213": {
+      "name": "Earth System Science Tools",
+      "text": "Explores interactions among biosphere, hydrosphere, lithosphere and atmosphere. Teaches system modelling, uses proxies and isotope tracers to study past and future climates and includes a field trip focused on greenhouse gas pathways.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Earth System Science Tools",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "2bdebcd3c2db71717ea674b4277de2f62a2d53cdd20acd1aa0fb87b3f20ba0fa",
+        "descriptionSha256": "2bdebcd3c2db71717ea674b4277de2f62a2d53cdd20acd1aa0fb87b3f20ba0fa",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: full displayed officialdescription read; retain within currentdescription support without unstatedmethods/depth or equivalentcourse claims."
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSGATE101": {
+      "name": "Sustainability Essentials I",
+      "text": "Introduces sustainability through planetary boundaries and scientific tools for understanding human impacts on Earth systems. Students interpret graphs and uncertainty, build simple dynamic models, and study chemical and physical principles relevant to climate, energy and materials. A laboratory project makes and tests starch-based biopolymers.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "82f50723d99a79ffd7371f9f6eebe3e42e760cc7f4f8bbeb032e81fd5acc4184",
+        "descriptionSha256": "3d8021bff00c075753d30587e5e529c4ac8337c828561c59c0c227299a1e04e9",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Sustainability Essentials I"
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSGATE201": {
+      "name": "Sustainability Essentials II",
+      "text": "Develops physical-science foundations for sustainability through waves, chemistry and materials science. Reflective work and a project apply these topics to analysing greenwashing.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "10191be23b197bf2051541f534acdc52bc20762fc7d8889972890e7176afed60",
+        "descriptionSha256": "465a8a129a7b496e5cc7188a77d3e2b04fb5a3c7f3afceae8a56afe6d062285b",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Sustainability Essentials II"
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSSUST111": {
+      "name": "Climate Change",
+      "text": "Focuses on drivers and impacts of anthropogenic climate change on sea level, ocean acidification, ecology and society. Discusses adaptation and mitigation solutions, including renewable energy systems, carbon storage and climate‑adaptive planning, and examines climate governance and justice.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "92a8d5a238274193e7d9163f689556026c415afc95cebb8ecc4b5215f17bbeb4",
+        "descriptionSha256": "51b7423fe905aaf8f483ff6389d1685b21b8a2fb0a4b9b41d99b59e42808a974",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Climate Change"
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSSUST315": {
+      "name": "Spatial Planning",
+      "text": "Explores spatial engineering and geospatial technologies like GIS and remote sensing for addressing global challenges such as natural disasters, food shortages, resource decline and pollution. Emphasises hands‑on projects in disaster response, sustainable agriculture and environmental monitoring.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Spatial Planning",
+        "sourceField": "description2",
+        "sourceSha256": "6791725634c0221365e4ba853217c06dbb4450ca4274eb714fc4d920f29c8619",
+        "descriptionSha256": "6791725634c0221365e4ba853217c06dbb4450ca4274eb714fc4d920f29c8619",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "GOSGATE102": {
+      "name": "Law, Society & Justice",
+      "text": "Law, Society & Justice examines legal, social and normative perspectives on law. Students compare legal traditions and study public and private law, human rights, justice, social control and change, race and gender. Case briefs, demand letters and mock trials develop legal reasoning, while a family-law topic supports the design of a socio-legal research proposal.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "e3ee6c30cefe40d0410e4896ebe9e340104aad5931f93baad84dd2e4cfcd8c3e",
+        "descriptionSha256": "035b12c51282127288b99b6ba3cb906896d0fabff1cdf5153709df2d32006391",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Law, Society & Justice"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSHIST211": {
+      "name": "History of Empires",
+      "text": "History of Empires examines empires across global history and competing theories of empire. Students study expansion, administration, military and economic systems, legitimacy, ideology, culture, decline and legacies. Historical cases, source analysis and an independent research essay connect theoretical interpretation with specific imperial experiences.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "bce0c4bf26316aa65a8b70c29f53f82e7c38bf225868dfd278a3cd941ebe4b82",
+        "descriptionSha256": "76faf04e8e855ae9ca1735ccf5a7e8ac76bf21911b771190f9286303745ad4a3",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "History of Empires"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSHIST311": {
+      "name": "Native American Histories",
+      "text": "Native American Histories studies Indigenous social and cultural histories from the nineteenth century to the present. Boarding schools, institutional violence, family separation and intergenerational trauma are connected to resistance, resurgence, food sovereignty and cultural expression. Storytelling, reciprocity and relational accountability guide collaboration with Indigenous peers and knowledge holders through arts-based work and a public-history project.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "7b8e2fc02b7a6060d94867f6b8abd90c9dfeedcf1b4ef5669dd6ed812938c480",
+        "descriptionSha256": "f8468d34ed634442001394af241313d78361c28755f805ecaf452b1f462ca6f5",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Native American Histories"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSHIST312": {
+      "name": "Researching the “American Century”",
+      "text": "Guides students through the full arc of historical inquiry, from formulating research questions to engaging critically with sources. Emphasises methodological rigour and interdisciplinary thinking and culminates in a substantial research paper.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "sourceSha256": "ec69dff9b78d3978fff3f1724dc3a2256eb5e2c589b7beff8e13b46a9171908a",
+        "descriptionSha256": "ec69dff9b78d3978fff3f1724dc3a2256eb5e2c589b7beff8e13b46a9171908a",
+        "mode": "verbatim",
+        "reviewedOn": "2026-10-30",
+        "reviewNote": "By user decision of 30 October 2026, the historical Walcheren outline is excluded from the enriched reference. Uses the unchanged official description verbatim; claims are limited to the historical inquiry, source criticism and research methods it supports. No replacement outline is required for this current use.",
+        "courseName": "Researching the “American Century”"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSLAWJ111": {
+      "name": "Human Rights: Law & Philosophy",
+      "text": "Offers a legal, historical and philosophical approach to human rights. Studies classical and modern philosophers, traces the rise of human rights, examines the US Bill of Rights and the French Declaration, and discusses human rights treaties.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Human Rights: Law & Philosophy",
+        "sourceField": "description2",
+        "sourceSha256": "1ed6ae8d1c72724248e9a340650eef63f02eaf747b2175254ce1ca96fc82ab62",
+        "descriptionSha256": "1ed6ae8d1c72724248e9a340650eef63f02eaf747b2175254ce1ca96fc82ab62",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSLAWJ212": {
+      "name": "Introduction to Public International Law",
+      "text": "Introduction to Public International Law examines its sources, theories, institutions and relationship to domestic law. Topics include responsibility, force, armed conflict, international crime, human rights, economic relations and environmental protection, followed by self-determination, Third World approaches, compliance and treaty politics. Case exercises and a research podcast develop legal reasoning and critical analysis.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "0f8c6da05a320590248fdd068ef7492aa4a552af12c9e621a746cfcdf1ad4f41",
+        "descriptionSha256": "69f757ece2c00572df432e6ab9cc82f74c14f17c69dd6726bf3e86264049390a",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Introduction to Public International Law"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSLAWJ213": {
+      "name": "Comparative Constitutional Law",
+      "text": "Comparative Constitutional Law compares constitutional structures, institutions and rights across legal systems and introduces administrative law. Students study federalism, legislatures, executive relationships, courts, judicial review, human rights, public participation and procedural fairness. A staged booklet compares two constitutions, supported by legal interpretation, case-law analysis and hypothetical cases.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "3749867e8b6ef513149437432c78c9a25f6a6964e62399088abd19dddf6c47b1",
+        "descriptionSha256": "1845c8f87e0e1295bfe5b43ee7ea5c3902c6690b455726ad6c44b66c78ae8a6a",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Comparative Constitutional Law"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSLAWJ311": {
+      "name": "Principles of Private Law",
+      "text": "Examines principles of property, tort and contract law and other selected areas of private law. It compares legal systems including Germany, France, England, China and the United States, and considers the social, economic and political pressures underlying legal principles.",
+      "source": {
+        "sourceField": "profile",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "0526ec21b25b5d4ec3d9d2477cdb942f8433c9a510bca44971def44c33e2f913",
+        "descriptionSha256": "fbda22bacd9de706683dd2809f68f744f94591b49e8a0761e6378a68f3e8e4c3",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Principles of Private Law"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI112": {
+      "name": "Foundations of Comparative Politics",
+      "text": "Provides analytical tools to compare political systems and democracies. Examines phenomena like democratic backsliding, decline of political parties, rise of populism, media changes, non‑majoritarian institutions and globalization’s impact on domestic politics.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Foundations of Comparative Politics",
+        "sourceField": "description2",
+        "sourceSha256": "72f9efff37e62fdc1cb0ddf27e595e7b3c526eb132dad86622cf55738204a4ee",
+        "descriptionSha256": "72f9efff37e62fdc1cb0ddf27e595e7b3c526eb132dad86622cf55738204a4ee",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI212": {
+      "name": "Theory of International Relations",
+      "text": "Theory of International Relations introduces competing approaches to international relations and geopolitics, including realism, liberalism, Marxism, constructivism and critical theory. Students apply theories to historical and contemporary cases. A United Nations Security Council simulation develops country-position research, negotiation and collaborative resolution drafting.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "0f83c15b507fb2c91b8001182f4a8a94e42ee1673da8396a51bb4a3556d47116",
+        "descriptionSha256": "04498c2b83c05d39830633ba46b62b3691d10af2bb8320e5413d0f75963fbc80",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Theory of International Relations"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI311": {
+      "name": "European Union Politics",
+      "text": "European Union Politics examines EU institutions, actors, integration and policymaking, including representation, legitimacy and decision-making. An empirical project investigates European Parliament committee amendments, relating MEP ideology and possible interest-group influence to amendment activity. Students plan the research, code amendments, assess salience and trace legislative processes.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "42788a5dd28eccc535d20a771b88a601c20af300b1102ef637945a852f156fe0",
+        "descriptionSha256": "97411c9c43963bfc500f8c6494383d57cfd36eeb9c57f554e94ba2d6e35c4253",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "mode": "edited",
+        "courseName": "European Union Politics"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI312": {
+      "name": "Public Policy Analysis",
+      "text": "Investigates public policy in the context of globalization. Uses a case study on sugar to examine policy‑making phases and alternative conceptualisations across national and international arenas. Students write policy memos.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "c9f3958d93c55568454749b18f2790f1adf0927a53afbc8d93fb3ce9ca1729e6",
+        "descriptionSha256": "c9f3958d93c55568454749b18f2790f1adf0927a53afbc8d93fb3ce9ca1729e6",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Public Policy Analysis"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI313": {
+      "name": "Peace & Conflict",
+      "text": "Peace & Conflict examines conflict and approaches to peace through legal, sociological, political and historical perspectives. Structural inequality, identity and colonial legacies connect to international security, humanitarian law, human rights, peacebuilding and transitional justice. An interdisciplinary podcast, policy brief and research dossier develop analysis, while reflection examines how assumptions shape inquiry.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "414e04bed3b7b37017b0ce93ba0aa469530684e0623175ca2ff1784b4a84515a",
+        "descriptionSha256": "5ad720fcdadf602282307eef8fe7eaf83c3b00264a2ee4752e123cda89606fdf",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Peace & Conflict"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI111": {
+      "name": "Introduction to Sociology",
+      "text": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Sociology",
+        "sourceField": "description2",
+        "sourceSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "descriptionSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI212": {
+      "name": "Qualitative Research Methodology",
+      "text": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "6531d96f817df19cfa773d8d8004f44da6041eeab39acfce1462438728cd1eeb",
+        "descriptionSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Qualitative Research Methodology"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI214": {
+      "name": "Modern Sociology",
+      "text": "Examines the trajectory of sociology within the culture of imperialism and colonial responses. Studies leading social theories and debates about modernity and critically engages with sociological discourses.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Modern Sociology",
+        "sourceField": "description2",
+        "sourceSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+        "descriptionSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI215": {
+      "name": "Social Movements & Environmental Justice",
+      "text": "Focuses on social movement theories and environmental justice. Uses case studies from the Environmental Justice Atlas and integrates perspectives such as feminism, anti‑colonialism, degrowth and environmental peacebuilding to encourage civic engagement.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Social Movements & Environmental Justice",
+        "sourceField": "description2",
+        "sourceSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+        "descriptionSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI311": {
+      "name": "New Issues in Contemporary Social Theory",
+      "text": "New Issues in Contemporary Social Theory studies civil society through critical, neo-functionalist and decolonial perspectives. Topics include trust, social capital, public spheres, solidarity, social movements and civil repair. An experience report connects engagement or observation to course concepts, while an individual project uses theoretical and empirical sources to analyse a civil-society organisation, movement or initiative.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "New Issues in Contemporary Social Theory",
+        "sourceField": "profile",
+        "sourceSha256": "f54abdf8a1ca13792cdc4bc2d390f202721dd6280b0cae44aa0609c2db02dbbf",
+        "descriptionSha256": "367314c88b9f1c559ccd023159845f9624f353f78d898bc66b690ebe3392336b",
+        "mode": "edited",
+        "reviewedOn": "2026-10-31",
+        "reviewNote": "Read the selected current profile and cumulative outline limitation fields. The displayed summary follows its substantive topics and activities; it omits unsupported resource-planning or mandatory NGO group-project claims from superseded cache wording."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "HCBPSYC111": {
+      "name": "Social Psychology",
+      "text": "Covers main theories, findings and principles of social psychology, emphasising its scientific approach to understanding how people’s feelings, thoughts and behaviour are influenced by the presence of others.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Social Psychology",
+        "sourceField": "description2",
+        "sourceSha256": "1300df4b478a5fb06ea11b1aab33dd1ec75a582dd6b48f104df9218b2000aa22",
+        "descriptionSha256": "1300df4b478a5fb06ea11b1aab33dd1ec75a582dd6b48f104df9218b2000aa22",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC315": {
+      "name": "Youth Resilience to Extremism",
+      "text": "Interdisciplinary course combining psychology and other social sciences in which students will have an opportunity to participate in an actual international research project and develop evidence-based materials for youth leaders and educators aimed at strengthening young people’s resilience to radicalization by promoting democratic school culture, emotionally supportive learning environments, empathy, civic engagement, and mental well-being.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Youth Resilience to Extremism",
+        "sourceField": "description2",
+        "sourceSha256": "9025fab0b73095d3db8b25aeb6f5922038e322132aa2cceffc415146926d1bf0",
+        "descriptionSha256": "9025fab0b73095d3db8b25aeb6f5922038e322132aa2cceffc415146926d1bf0",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "MCCCOMM212": {
+      "name": "Communicating the Climate Crisis",
+      "text": "Examines how the climate crisis is communicated and contested. Analyzes texts, films, exhibitions, protest art, slogans and social media alongside theory and case studies, teaching students to dissect arguments and culminating in a project where students enter the debate.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Communicating the Climate Crisis",
+        "sourceField": "description2",
+        "sourceSha256": "5209c82495a070f3b1df9fc7f24e1046a8b13e562e2f8fdec4e8bd64becb3a13",
+        "descriptionSha256": "5209c82495a070f3b1df9fc7f24e1046a8b13e562e2f8fdec4e8bd64becb3a13",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCCOMM311": {
+      "name": "Persuasive Communication",
+      "text": "Persuasive Communication studies persuasion through communication studies, social psychology and ethical analysis. Students examine framing, argumentation, cognitive shortcuts and verbal and nonverbal communication. Community-engaged projects develop communication encouraging sustainable and circular lifestyles, while an individual research paper evaluates selected persuasion tools.",
+      "source": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "bad6a0cb3dd14e5cb07c4aeb36a102d09309142fdc5bab339f0096830ec5209a",
+        "descriptionSha256": "781fa29248cce6025d8aa8887d300c8f0d64941a8b4a9b2dd193783c098deacc",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "reviewedOn": "2026-10-29",
+        "basis": "course outline",
+        "courseName": "Persuasive Communication"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCHEAM211": {
+      "name": "African Art & Heritage",
+      "text": "Examines the artistic, historical and ethical dimensions of African art. Highlights distinct forms and cultural significance, considers influence on Western modernism and addresses looting, colonial-era acquisitions and repatriation efforts.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "basis": "official course description",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-05",
+        "sourceSha256": "ed4653bd346b3160d0d0bc754a4bfc729ca05927ad44687bd9c77aa452f7ac7f",
+        "descriptionSha256": "ed4653bd346b3160d0d0bc754a4bfc729ca05927ad44687bd9c77aa452f7ac7f",
+        "reviewNote": "Read the unchanged display text against the current official description and actual course evidence. It accurately conveys the supported historical, heritage, museum or material-media focus without claiming archaeological field qualification. No displayed text changed.",
+        "courseName": "African Art & Heritage"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCHEAM212": {
+      "name": "Renaissance Italy & Global Mediterranean",
+      "text": "This course examines the painting, sculpture, and architecture of Renaissance Italy and the extensive artistic connections that linked the Italian peninsula to other regions of the world. By exploring a range of geographical contexts, from the Islamic courts of the Eastern Mediterranean and the commercial routes connecting Europe, Asia, and Africa to the newly encountered territories of the Americas, students will examine how trade, colonization, and cross-cultural exchange shaped the production and meaning of Renaissance art.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "description2",
+        "basis": "course description only",
+        "mode": "verbatim",
+        "reviewedOn": "2026-10-29",
+        "descriptionSha256": "b4a13abe5a07928b0cdab488caa90995438a5cbe2a84a8ee8c90bdac01f4f1fe",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "sourceSha256": "b4a13abe5a07928b0cdab488caa90995438a5cbe2a84a8ee8c90bdac01f4f1fe",
+        "courseName": "Renaissance Italy & Global Mediterranean"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCMEDI311": {
+      "name": "Media & Race",
+      "text": "Media & Race investigates storytelling, power, privilege, resistance and systemic racism in American history from the late nineteenth century to the present. Film, photographs, music and other media connect past and present. Students produce research-based podcasts exploring how media sustains oppression and supports resistance.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "3047a3489ffc4f90cde2a5d32b641f66255b1616a1599ed60e121e6306d5fda8",
+        "descriptionSha256": "05aa4bb52a50700caa428fbe8cbb10a8fb321a9da4087a93a95e30883998a618",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Media & Race"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    }
+  },
+  "sharedDescriptionReviewRefs": {
+    "ACCPPDE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "BENECON111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "BENECON211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000128/content-review.json",
+    "BENECON311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "BENECON312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "BENGATE102": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "BENLEAD211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "DISDATA111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "ENSDELT211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "ENSDELT311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "ENSDELT312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "ENSENVI211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "ENSENVI213": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000136/content-review.json",
+    "ENSGATE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "ENSGATE201": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "ENSSUST111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "ENSSUST315": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000325/content-review.json",
+    "GOSGATE102": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "GOSHIST211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000129/content-review.json",
+    "GOSHIST311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "GOSHIST312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "GOSLAWJ111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000127/content-review.json",
+    "GOSLAWJ212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "GOSLAWJ213": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000130/content-review.json",
+    "GOSLAWJ311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000130/content-review.json",
+    "GOSPOLI112": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "GOSPOLI212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000129/content-review.json",
+    "GOSPOLI311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "GOSPOLI312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000127/content-review.json",
+    "GOSPOLI313": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "GOSSOCI111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSSOCI212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSSOCI214": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "GOSSOCI215": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "GOSSOCI311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "HCBPSYC111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC315": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "MCCCOMM212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCCOMM311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "MCCHEAM211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000156/content-review.json",
+    "MCCHEAM212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000156/content-review.json",
+    "MCCMEDI311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json"
+  },
+  "sourceUrls": [
+    "https://www.uu.nl/bachelors/sociale-geografie-en-planologie/studieprogramma",
+    "https://www.uu.nl/bachelors/sociale-geografie-en-planologie",
+    "https://students.uu.nl/geo/sgpl/onderwijs/major",
+    "https://students.uu.nl/media/29031",
+    "https://students.uu.nl/sites/default/files/Cursuskalender%20bachelor%20SGPL_definitief%20maart%202026.pdf",
+    "https://students.uu.nl/geo/sgpl/onderwijs/studieprogramma"
+  ],
+  "ucrLinks": [
+    "https://ucr.nl/education/courses/",
+    "https://program.ucr.nl/"
+  ]
+}
