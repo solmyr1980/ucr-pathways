@@ -1,0 +1,779 @@
+{
+  "caseId": "cp-000156",
+  "checkedAt": "2026-11-08T11:39:37.148995+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000156.json": "c9fc0e85ba882f6b888e6df2baf04392f1db6087",
+    "data/counselor/comparisons/cp-000156.json": "e6cd2c355cefd17dfe953dd68890fd5fef94ecb5",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "2068982f4281e7e2715e73a8ffa84ccb9c0fcf95",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json": "d65b11aff73176eaeafe340a8407452f4849634a",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000129/content-review.json": "e7d1f5561e6a0fdd53c16f0015f5250d44eb3f98",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json": "8a6a68c211c21ccfc1a781132fb1c0f1f19886d9",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000127/content-review.json": "580554d8eecaa3652fd4a85bdf66468bd3fbe589",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json": "abc6deddd935219ffc0b7c6c1b005a4fd8a9374f",
+    "pilot/shiny/data/courses/HCB.json": "23459da6d1ee2106951372adef085604fdb4d56b",
+    "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000338/content-review.json": "be1db069e4372e9502274ee647cd752c449b45d2",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000345/content-review.json": "3184176a55bc7064e72518dab47115f042f82264",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json": "e740f97a20fff4b407e91fb20c8b0c45efabddb8"
+  },
+  "presentationMode": "caution",
+  "mapping": {
+    "title and links": "The selection handler uses the index label. The table links the comparator title to the official curriculum page and UCR columns to the UCR course reference. Additional official sources were inspected as case evidence.",
+    "audience.curriculum and academicRationale": "render_audience_context and render_comparison_summary select the 2026–2027 label, the elective choices, programme explanation and one selected concept. The caution is displayed above the comparison.",
+    "blocks, cells and notes": "render_compare_table and audience_cell_note display block titles, workbook course names, component titles, credit badges and uniquely resolved notes about matches, choices and differences. render_audience_notes selects the two comparison notes.",
+    "selectedDescriptions": "The course button uses courseCode and exact workbook name. The modal resolves each selected description by department and code, and the content review checked the actual text or reused the exact text with matching source hashes. Every selected code has description text.",
+    "optionalIndependentResearch": "The 15 EC UCR independent research comparison element is separate from the scheduled degree and PThU’s required 15 EC final research project."
+  },
+  "fieldPaths": [
+    "review-programmes.programmes[].displayName",
+    "comparator.name",
+    "comparator.primarySourceUrl",
+    "comparator.additionalSourceUrls",
+    "comparator.components",
+    "comparator.sourceNotes",
+    "audience.programmeDescription",
+    "audience.comparisonExplanation",
+    "audience.curriculum",
+    "audience.conceptProgrammeIds",
+    "academicRationale.alternatives[].concept",
+    "audience.noteTypes",
+    "notes[].text",
+    "programmes[].label",
+    "blocks[].title",
+    "blocks[].rows[].cells",
+    "audience.cellNotes",
+    "optionalIndependentResearch",
+    "pilot/shiny/data/courses/*.json descriptions by courseCode"
+  ],
+  "caution": "UCR offers programmes in related academic fields, but these may differ substantially from the disciplinary programme shown. Important specialist subjects or forms of training may not be available at UCR.",
+  "selectedConcepts": [
+    {
+      "programmeId": "ucr-1",
+      "concept": "Explore how people give meaning to life and how worldviews shape culture and public life. Study philosophical arguments about belief and ethics, interpret myths and art, and use history and social science to investigate identity, rights and conflict.",
+      "basisLabels": [
+        "Christian thought, systematic theology, worldview and questions of meaning",
+        "Historical, biblical and practical theology; religious texts; theology, aesthetics and culture",
+        "Religion, interreligious encounter, media and public life",
+        "Academic, philosophical, historical and interpretive inquiry",
+        "How do worldviews, texts and cultural traditions shape ideas of meaning, identity and the good life?",
+        "How do religious traditions interact with institutions, rights, conflict and contemporary public life?"
+      ],
+      "evidence": [
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.pthu.nl/over-pthu/organisatie/regelingen-en-rechtspositie/oer-bachelor-theologie-2026-2027.pdf"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.pthu.nl/onderwijs/bachelor/theologie-utrecht/"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6683"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6684"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6685"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6686"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6687"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6692"
+        }
+      ],
+      "labelRationale": "The plan connects belief and moral philosophy, cultural interpretation and public life through evidence from several disciplines."
+    }
+  ],
+  "blockTitles": [
+    "Worldviews, texts, history & culture",
+    "Society, rights & public life",
+    "Research, Personal Development and Electives"
+  ],
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "This Dutch-taught bachelor studies Christian theology, faith, meaning and religious practice in the Protestant tradition.",
+    "comparisonExplanation": "The PThU example shows Systematic Theology with biblical languages. The UCR plan explores worldviews through philosophy, cultural history and public life.",
+    "curriculum": {
+      "status": "complete",
+      "componentIds": [
+        "y1-historical-intro",
+        "y1-pthu-publication",
+        "y1-academic-work",
+        "y1-judaism-islam",
+        "y1-systematic-intro",
+        "y1-reformation-history",
+        "y1-argumentation",
+        "y1-practical-intro",
+        "y1-theology-aesthetics-a",
+        "y1-biblical-intro",
+        "y1-theology-aesthetics-b",
+        "y1-philosophy-science",
+        "y1-personal-worldview",
+        "y2-systematic-track",
+        "y2-greek-1",
+        "y2-greek-2",
+        "y2-greek-3",
+        "y2-greek-4",
+        "y2-hebrew-1",
+        "y2-hebrew-2",
+        "y2-hebrew-3",
+        "y2-hebrew-4",
+        "y2-personal-worldview",
+        "y3-minor",
+        "y3-exegesis-languages",
+        "y3-theology-media-current",
+        "y3-final-project"
+      ],
+      "yearLabel": "2026–2027",
+      "routeLabel": "Systematic Theology with Biblical Greek and Hebrew"
+    },
+    "conceptProgrammeIds": [
+      "ucr-1"
+    ],
+    "noteTypes": [
+      "related-fields-not-full-discipline",
+      "missing-specialist-components"
+    ],
+    "cellNotes": [
+      {
+        "programmeId": "comparator",
+        "reference": "y1-historical-intro",
+        "text": "PThU studies the history of Christian theology. UCR uses historical and cultural methods to study institutions and traditions."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-pthu-publication",
+        "text": "PThU students engage with a recent theological publication."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-judaism-islam",
+        "text": "PThU includes focused study of Judaism and Islam. UCR examines related traditions through selected cultural and historical cases."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-systematic-intro",
+        "text": "PThU introduces Christian doctrine and theological ethics. UCR explores belief and moral reasoning through philosophy."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-reformation-history",
+        "text": "PThU studies the Reformation and its role in Protestant history."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-practical-intro",
+        "text": "PThU examines theological practice in settings such as churches and care."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-theology-aesthetics-a",
+        "text": "PThU links theology and aesthetics. UCR studies visual culture and interpretation through art history."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-biblical-intro",
+        "text": "PThU introduces academic study of the Bible. UCR develops broader literary and historical methods."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-theology-aesthetics-b",
+        "text": "PThU develops research at the intersection of theology, aesthetics and culture."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-philosophy-science",
+        "text": "PThU studies the foundations of scholarly inquiry in its theology curriculum."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-systematic-track",
+        "text": "This example uses the 24 EC Systematic Theology track."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-greek-1",
+        "text": "Part of the biblical-language sequence in this example."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-greek-2",
+        "text": "Part of the biblical-language sequence in this example."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-greek-3",
+        "text": "Part of the biblical-language sequence in this example."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-greek-4",
+        "text": "Part of the biblical-language sequence in this example."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-hebrew-1",
+        "text": "Part of the biblical-language sequence in this example."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-hebrew-2",
+        "text": "Part of the biblical-language sequence in this example."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-hebrew-3",
+        "text": "Part of the biblical-language sequence in this example."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-hebrew-4",
+        "text": "Part of the biblical-language sequence in this example."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-exegesis-languages",
+        "text": "This course interprets biblical texts in their original languages. It requires both language sequences."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-theology-media-current",
+        "text": "PThU studies theological voices in contemporary media. UCR examines media representation and public discourse across fields."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-personal-worldview",
+        "text": "PThU connects personal development to faith and worldview. UCR offers general academic and personal development."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-academic-work",
+        "text": "PThU develops academic skills within theology. UCR develops academic inquiry and writing across disciplines."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-argumentation",
+        "text": "Both develop structured argument. The UCR course focuses on rhetoric and audience."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-personal-worldview",
+        "text": "PThU continues its work on personal development and worldview in year two."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-minor",
+        "text": "Choose a 30 EC minor. Study outside PThU requires prior approval."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-final-project",
+        "text": "PThU requires a 15 EC final research project. UCR offers optional independent research outside the scheduled degree."
+      }
+    ]
+  },
+  "notes": [
+    {
+      "type": "related-fields-not-full-discipline",
+      "placement": "comparison",
+      "text": "PThU studies theology in the Protestant Christian tradition. The UCR plan explores belief, meaning and the public role of religion through philosophy, history, the arts and social science."
+    },
+    {
+      "type": "missing-specialist-components",
+      "placement": "comparison",
+      "text": "Theology, biblical exegesis and supervised pastoral practice require dedicated study. PThU also offers a route in which students replace the language and exegesis courses with other theology courses and interreligious practice."
+    }
+  ],
+  "programmeLabels": [
+    "Theology at Protestantse Theologische Universiteit",
+    "Worldviews, Cultural Traditions and Public Life"
+  ],
+  "selectedDescriptions": {
+    "ACCPPDE101": {
+      "name": "Personal & Professional Development",
+      "text": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+        "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Personal & Professional Development"
+      },
+      "cache": "pilot/shiny/data/courses/ACC.json",
+      "cacheBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8"
+    },
+    "GOSHIST211": {
+      "name": "History of Empires",
+      "text": "History of Empires examines empires across global history and competing theories of empire. Students study expansion, administration, military and economic systems, legitimacy, ideology, culture, decline and legacies. Historical cases, source analysis and an independent research essay connect theoretical interpretation with specific imperial experiences.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "bce0c4bf26316aa65a8b70c29f53f82e7c38bf225868dfd278a3cd941ebe4b82",
+        "descriptionSha256": "76faf04e8e855ae9ca1735ccf5a7e8ac76bf21911b771190f9286303745ad4a3",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "History of Empires"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSHIST312": {
+      "name": "Researching the “American Century”",
+      "text": "Guides students through the full arc of historical inquiry, from formulating research questions to engaging critically with sources. Emphasises methodological rigour and interdisciplinary thinking and culminates in a substantial research paper.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "sourceSha256": "ec69dff9b78d3978fff3f1724dc3a2256eb5e2c589b7beff8e13b46a9171908a",
+        "descriptionSha256": "ec69dff9b78d3978fff3f1724dc3a2256eb5e2c589b7beff8e13b46a9171908a",
+        "mode": "verbatim",
+        "reviewedOn": "2026-10-30",
+        "reviewNote": "By user decision of 30 October 2026, the historical Walcheren outline is excluded from the enriched reference. Uses the unchanged official description verbatim; claims are limited to the historical inquiry, source criticism and research methods it supports. No replacement outline is required for this current use.",
+        "courseName": "Researching the “American Century”"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSLAWJ111": {
+      "name": "Human Rights: Law & Philosophy",
+      "text": "Offers a legal, historical and philosophical approach to human rights. Studies classical and modern philosophers, traces the rise of human rights, examines the US Bill of Rights and the French Declaration, and discusses human rights treaties.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Human Rights: Law & Philosophy",
+        "sourceField": "description2",
+        "sourceSha256": "1ed6ae8d1c72724248e9a340650eef63f02eaf747b2175254ce1ca96fc82ab62",
+        "descriptionSha256": "1ed6ae8d1c72724248e9a340650eef63f02eaf747b2175254ce1ca96fc82ab62",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPHIL111": {
+      "name": "Introduction to Western Philosophy",
+      "text": "Introduces central themes from Western philosophy over 2,500 years. Encourages inquiry into the significance of philosophical issues and their relation to other disciplines and teaches theoretical methods used by philosophers.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Western Philosophy",
+        "sourceField": "description2",
+        "sourceSha256": "106757f58621c7e76a4a39253f24296f54e95a15c500cf3571b6fbdaffbdc220",
+        "descriptionSha256": "106757f58621c7e76a4a39253f24296f54e95a15c500cf3571b6fbdaffbdc220",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPHIL212": {
+      "name": "Ethics",
+      "text": "Ethics examines moral reasoning through historical and contemporary theories and close philosophical reading. Students study utilitarianism, Kantian ethics, virtue ethics, contractarianism and feminist ethics, alongside Nietzsche, Murdoch and Nagel. Reflection and research essays develop interpretation, argument evaluation and an independent position on ethical theory or a practical ethical problem.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6d4bf415a51b5b6fb41f341d23fe8b8ce483263f17505e77d1a4ae37299fe30f",
+        "descriptionSha256": "d17cd0a6631823a666c2978b81f52bc5e8b5c8e52ed68edccb3fa37073146e5b",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Ethics"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPHIL214": {
+      "name": "Philosophy of Mind",
+      "text": "Examines historical and modern work on the philosophy of mind. Discusses Descartes’ dualism, the nature of consciousness, AI and animal minds, personal identity, transformative experiences and the influence of technology on experience.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Philosophy of Mind",
+        "sourceField": "description2",
+        "sourceSha256": "cd2e55eb0c7f8a45220107e2f961346ef9960975db1d457cb213c6bf58ef25a6",
+        "descriptionSha256": "cd2e55eb0c7f8a45220107e2f961346ef9960975db1d457cb213c6bf58ef25a6",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI111": {
+      "name": "Introduction to Political Philosophy",
+      "text": "Introduction to Political Philosophy examines political thought from classical antiquity to contemporary debates, including European and non-European thinkers. Students study views of human nature, society, rights and authority in historical context and compare their arguments with current political problems. Original texts, an essay and a group project develop interpretation and normative argument.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "b82d5b7efaf1e222b9ec94652bba7beb367919298b5ae983d3f07f072f142130",
+        "descriptionSha256": "ea3b0a363bec6cacab1a13c186f6c97bbbf5d5ce40d4cf5cdb1a67491d47a19c",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Introduction to Political Philosophy"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI313": {
+      "name": "Peace & Conflict",
+      "text": "Peace & Conflict examines conflict and approaches to peace through legal, sociological, political and historical perspectives. Structural inequality, identity and colonial legacies connect to international security, humanitarian law, human rights, peacebuilding and transitional justice. An interdisciplinary podcast, policy brief and research dossier develop analysis, while reflection examines how assumptions shape inquiry.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "414e04bed3b7b37017b0ce93ba0aa469530684e0623175ca2ff1784b4a84515a",
+        "descriptionSha256": "5ad720fcdadf602282307eef8fe7eaf83c3b00264a2ee4752e123cda89606fdf",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Peace & Conflict"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI111": {
+      "name": "Introduction to Sociology",
+      "text": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Sociology",
+        "sourceField": "description2",
+        "sourceSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "descriptionSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI212": {
+      "name": "Qualitative Research Methodology",
+      "text": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "6531d96f817df19cfa773d8d8004f44da6041eeab39acfce1462438728cd1eeb",
+        "descriptionSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Qualitative Research Methodology"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI311": {
+      "name": "New Issues in Contemporary Social Theory",
+      "text": "New Issues in Contemporary Social Theory studies civil society through critical, neo-functionalist and decolonial perspectives. Topics include trust, social capital, public spheres, solidarity, social movements and civil repair. An experience report connects engagement or observation to course concepts, while an individual project uses theoretical and empirical sources to analyse a civil-society organisation, movement or initiative.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "New Issues in Contemporary Social Theory",
+        "sourceField": "profile",
+        "sourceSha256": "f54abdf8a1ca13792cdc4bc2d390f202721dd6280b0cae44aa0609c2db02dbbf",
+        "descriptionSha256": "367314c88b9f1c559ccd023159845f9624f353f78d898bc66b690ebe3392336b",
+        "mode": "edited",
+        "reviewedOn": "2026-10-31",
+        "reviewNote": "Read the selected current profile and cumulative outline limitation fields. The displayed summary follows its substantive topics and activities; it omits unsupported resource-planning or mandatory NGO group-project claims from superseded cache wording."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "HCBPSYC111": {
+      "name": "Social Psychology",
+      "text": "Covers main theories, findings and principles of social psychology, emphasising its scientific approach to understanding how people’s feelings, thoughts and behaviour are influenced by the presence of others.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Social Psychology",
+        "sourceField": "description2",
+        "sourceSha256": "1300df4b478a5fb06ea11b1aab33dd1ec75a582dd6b48f104df9218b2000aa22",
+        "descriptionSha256": "1300df4b478a5fb06ea11b1aab33dd1ec75a582dd6b48f104df9218b2000aa22",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC315": {
+      "name": "Youth Resilience to Extremism",
+      "text": "Interdisciplinary course combining psychology and other social sciences in which students will have an opportunity to participate in an actual international research project and develop evidence-based materials for youth leaders and educators aimed at strengthening young people’s resilience to radicalization by promoting democratic school culture, emotionally supportive learning environments, empathy, civic engagement, and mental well-being.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Youth Resilience to Extremism",
+        "sourceField": "description2",
+        "sourceSha256": "9025fab0b73095d3db8b25aeb6f5922038e322132aa2cceffc415146926d1bf0",
+        "descriptionSha256": "9025fab0b73095d3db8b25aeb6f5922038e322132aa2cceffc415146926d1bf0",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "MCCCOMM111": {
+      "name": "The Art of Rhetorical Communication",
+      "text": "The Art of Rhetorical Communication develops rhetorical analysis, academic writing and oral presentation. Students examine classical Western roots and the canons of rhetoric, and learn to construct, organise and support persuasive arguments. Historical and contemporary examples connect rhetorical theory with practical communication.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "a1075e2aff565380f637a1ee31ac79c668477b11b15a7f853230b303cf44485f",
+        "descriptionSha256": "34ab73cc0cae33e2a0e47ba5df0ee55c9b0e5f2d4e21ae97ea18667a96400c4c",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "The Art of Rhetorical Communication"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCHEAM111": {
+      "name": "Introduction to Western Art History",
+      "text": "Introduction to Western Art History surveys Western art from late-medieval and Renaissance painting to contemporary practice. Students relate artists, styles and movements to social, religious, political and cultural change. Close examination of paintings develops visual analysis, while a term paper combines study of a painting on location with art-historical evidence.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "b0b6c5f0b0213ab83b291f79e3756c71c643beafd8c0ca0949d8e4d40884cf3b",
+        "descriptionSha256": "765c25eff6810ed380b3cabcb737604f4575420f27744a704d2742a2697804d9",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Introduction to Western Art History"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCHEAM112": {
+      "name": "Introduction to World Archaeology",
+      "text": "Introduction to World Archaeology explores craft production and material culture in ancient societies around the world. Students examine how making objects relates to religious, social and gendered identities, technologies and environmental effects. An experimental educational activity and discussion of contemporary archaeological methods connect interpretation with practice.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "76d0961b1220dfec57d97ddfd7ca09171f32099eb2738fb82207138022bb7b63",
+        "descriptionSha256": "4c7d2d93c985001d8f160f9ff2b1f26ebf413592a97dc76918ef6c5379b3cc90",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Introduction to World Archaeology"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCHEAM211": {
+      "name": "African Art & Heritage",
+      "text": "Examines the artistic, historical and ethical dimensions of African art. Highlights distinct forms and cultural significance, considers influence on Western modernism and addresses looting, colonial-era acquisitions and repatriation efforts.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "basis": "official course description",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-05",
+        "sourceSha256": "ed4653bd346b3160d0d0bc754a4bfc729ca05927ad44687bd9c77aa452f7ac7f",
+        "descriptionSha256": "ed4653bd346b3160d0d0bc754a4bfc729ca05927ad44687bd9c77aa452f7ac7f",
+        "reviewNote": "Read the unchanged display text against the current official description and actual course evidence. It accurately conveys the supported historical, heritage, museum or material-media focus without claiming archaeological field qualification. No displayed text changed.",
+        "courseName": "African Art & Heritage"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCHEAM212": {
+      "name": "Renaissance Italy & Global Mediterranean",
+      "text": "This course examines the painting, sculpture, and architecture of Renaissance Italy and the extensive artistic connections that linked the Italian peninsula to other regions of the world. By exploring a range of geographical contexts, from the Islamic courts of the Eastern Mediterranean and the commercial routes connecting Europe, Asia, and Africa to the newly encountered territories of the Americas, students will examine how trade, colonization, and cross-cultural exchange shaped the production and meaning of Renaissance art.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "description2",
+        "basis": "course description only",
+        "mode": "verbatim",
+        "reviewedOn": "2026-10-29",
+        "descriptionSha256": "b4a13abe5a07928b0cdab488caa90995438a5cbe2a84a8ee8c90bdac01f4f1fe",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "sourceSha256": "b4a13abe5a07928b0cdab488caa90995438a5cbe2a84a8ee8c90bdac01f4f1fe",
+        "courseName": "Renaissance Italy & Global Mediterranean"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCHEAM312": {
+      "name": "Modern Art & Modern Museums",
+      "text": "Examines debates on modern art through various themes. Focuses on the relationship between art and its presentation in museums and exhibitions, exploring curatorial practices and exhibition strategies.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "basis": "official course description",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-05",
+        "sourceSha256": "b54bdd474860787d490d94e2db97b6b63e84eaa1bc93e17452cc2740d59784c6",
+        "descriptionSha256": "b54bdd474860787d490d94e2db97b6b63e84eaa1bc93e17452cc2740d59784c6",
+        "reviewNote": "Read the unchanged display text against the current official description and actual course evidence. It accurately conveys the supported historical, heritage, museum or material-media focus without claiming archaeological field qualification. No displayed text changed.",
+        "courseName": "Modern Art & Modern Museums"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCHEAM316": {
+      "name": "Writing Art's Histories",
+      "text": "This course examines the history of art history as an academic discipline, tracing how scholars have understood and interpreted art from the sixteenth century to the present. Through critical readings of influential texts by figures such as Aby Warburg, Erwin Panofsky, Ernst Gombrich, Michel Foucault, and Jacques Derrida, students explore the major ideas and methodologies that have shaped the field. Topics include art and history, aesthetics, meaning and interpretation, authorship and identity, and the challenges of art history in a globalized world.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "description2",
+        "basis": "course description only",
+        "mode": "verbatim",
+        "reviewedOn": "2026-10-29",
+        "descriptionSha256": "36dd2e030e9138c092efda247642ac6704a1980060151aa3b18437a0b1cc0d93",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "sourceSha256": "36dd2e030e9138c092efda247642ac6704a1980060151aa3b18437a0b1cc0d93",
+        "courseName": "Writing Art's Histories"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCLITR112": {
+      "name": "Great Literary Works",
+      "text": "Provides a chronological overview of literature from the epic of Gilgamesh to post‑modernity. Reads literary and critical texts that explore human experience and teaches how to approach literature’s ambiguities and trace themes across ages.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Great Literary Works",
+        "sourceField": "description2",
+        "sourceSha256": "248ed84f99b7813e881f96219b5572698c50a9014fcb4439863eb95a4871820f",
+        "descriptionSha256": "248ed84f99b7813e881f96219b5572698c50a9014fcb4439863eb95a4871820f",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCLITR211": {
+      "name": "World Myth & Literature",
+      "text": "World Myth & Literature compares mythic narratives across ancient and later traditions, examining transmission, cultural connections and themes such as creation, power, gender, love and loyalty. Greek, Roman, Near Eastern, Indian, Arabic and African materials support literary analysis. A research paper, graphic explanation and creative retelling connect interpretation with narrative practice.",
+      "source": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "1e48b00378b8c6b875a7cb52ee3c43c5a1fa03c6c4345b7ecf5bd82049fb7f83",
+        "descriptionSha256": "44c8274632c55ccd0cd9b3255a54f99595980fdc15c1f30defdd3a6f3d600848",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "courseName": "World Myth & Literature"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCMEDI311": {
+      "name": "Media & Race",
+      "text": "Media & Race investigates storytelling, power, privilege, resistance and systemic racism in American history from the late nineteenth century to the present. Film, photographs, music and other media connect past and present. Students produce research-based podcasts exploring how media sustains oppression and supports resistance.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "3047a3489ffc4f90cde2a5d32b641f66255b1616a1599ed60e121e6306d5fda8",
+        "descriptionSha256": "05aa4bb52a50700caa428fbe8cbb10a8fb321a9da4087a93a95e30883998a618",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Media & Race"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    }
+  },
+  "sharedDescriptionReviewRefs": {
+    "ACCPPDE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSHIST211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000129/content-review.json",
+    "GOSHIST312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "GOSLAWJ111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000127/content-review.json",
+    "GOSPHIL111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "GOSPHIL212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSPHIL214": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSPOLI111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "GOSPOLI313": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "GOSSOCI111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSSOCI212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSSOCI311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "HCBPSYC111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC315": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "MCCCOMM111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "MCCHEAM111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCHEAM112": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCHEAM211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000338/content-review.json",
+    "MCCHEAM212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000345/content-review.json",
+    "MCCHEAM312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCHEAM316": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json",
+    "MCCLITR112": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json",
+    "MCCLITR211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json",
+    "MCCMEDI311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json"
+  },
+  "sourceUrls": [
+    "https://www.pthu.nl/over-pthu/organisatie/regelingen-en-rechtspositie/oer-bachelor-theologie-2026-2027.pdf",
+    "https://www.pthu.nl/onderwijs/bachelor/theologie-utrecht/",
+    "https://www.pthu.nl/over-pthu/organisatie/regelingen-en-rechtspositie/",
+    "https://www.pthu.nl/actueel/agenda/2026/11/meeloopdag-bachelor-theologie/"
+  ],
+  "ucrLinks": [
+    "https://ucr.nl/education/courses/",
+    "https://program.ucr.nl/"
+  ]
+}
