@@ -45,9 +45,12 @@
       "https://www.uu.nl/bachelors/kunstmatige-intelligentie/studieprogramma",
       "https://students.uu.nl/gw/kunstmatige-intelligentie/mijn-studie/studieprogramma",
       "https://students.uu.nl/gw/kunstmatige-intelligentie/mijn-studie/verdiepingspakketten",
-      "https://www.uu.nl/bachelors/kunstmatige-intelligentie/na-de-opleiding"
+      "https://www.uu.nl/bachelors/kunstmatige-intelligentie/na-de-opleiding",
+      "https://students.uu.nl/gw/kunstmatige-intelligentie/mijn-studie/eindwerkstuk",
+      "https://cursusplanner.uu.nl/curriculum/embed/KI-MAJOR-25/V3V-V3KA-V3KB",
+      "https://cursusplanner.uu.nl/course/KI3V12011/2026/1"
     ],
-    "sourceNotes": "The 2026–2027 programme-specific OER defines a 180-EC bachelor comprising a 135-EC AI major and 45-EC profiling space. The major contains two compulsory 30-EC basic packages, 15 EC of disciplinary requirements, 7.5 EC of experimental methods and statistics, a 7.5-EC thesis, and one formal 45-EC depth package. The normalized target does not choose among the three packages, so the first package in the OER, Learning and Computation, is instantiated by the official-order tie-break. For its two bound-choice slots, the first listed eligible B and C courses are used. The profiling space is preserved without inventing a minor, exchange or internship.",
+    "sourceNotes": "The 2026–2027 degree combines a 135 EC major with 45 EC of profiling space. The example follows Learning and Computation, one of three 45 EC depth packages, and illustrates one course from each required choice group. It includes 7.5 EC of experimental methods before the 7.5 EC thesis. With approval, students can write a 15 EC thesis using another 7.5 EC from the profiling space.",
     "components": [
       {
         "id": "basic-logic",
@@ -103,37 +106,37 @@
         "id": "route-ml2",
         "name": "Machine Learning II",
         "credits": 7.5,
-        "note": "First fixed course in the formally selected Learning and Computation package."
+        "note": "Required in Learning and Computation."
       },
       {
         "id": "route-comp-intel",
         "name": "Computationele intelligentie",
         "credits": 7.5,
-        "note": "Second fixed course in the formally selected package."
+        "note": "Required in Learning and Computation."
       },
       {
         "id": "route-nlp",
         "name": "Models for Language Processing",
         "credits": 7.5,
-        "note": "Third fixed course in the formally selected package."
+        "note": "Required in Learning and Computation."
       },
       {
         "id": "route-philosophy",
         "name": "Philosophy of Learning and Computation",
         "credits": 7.5,
-        "note": "Fourth fixed course in the formally selected package."
+        "note": "Required in Learning and Computation."
       },
       {
         "id": "route-choice-logic",
         "name": "Logische methoden voor KI II",
         "credits": 7.5,
-        "note": "First listed eligible course in official bound-choice group B."
+        "note": "Example from choice group B."
       },
       {
         "id": "route-choice-cognition",
         "name": "Experimental Psycholinguistics",
         "credits": 7.5,
-        "note": "First listed eligible course in official bound-choice group C."
+        "note": "Example from choice group C."
       },
       {
         "id": "methods",
@@ -144,13 +147,13 @@
         "id": "thesis",
         "name": "Bacheloreindwerkstuk KI",
         "credits": 7.5,
-        "note": "Compulsory advanced final work."
+        "note": "Utrecht requires a supervised thesis after preparation in experimental methods. UCR offers optional independent research outside these schedules."
       },
       {
         "id": "profile-open",
         "name": "Profileringsruimte",
         "credits": 45,
-        "note": "Genuine profiling space; no subject is prescribed."
+        "note": "Utrecht leaves 45 EC for profiling, such as a minor or electives, subject to programme requirements."
       }
     ]
   },
@@ -166,12 +169,42 @@
       "role": "ucr-alternative",
       "family": "ucr",
       "alternativeKind": "closest-match",
-      "label": "Artificial Intelligence, Cognition & Intelligent Systems",
+      "label": "Artificial Intelligence and Cognitive Science",
       "schedule": {
         "semesters": [
           {
             "label": "Year 1 · Semester 1",
             "term": "2026h2",
+            "courses": [
+              {
+                "code": "HCBGATE102",
+                "name": "Introduction to Brain & Behavior",
+                "level": 1,
+                "credits": 7.5
+              },
+              {
+                "code": "DISDATA111",
+                "name": "Introduction to Data Science",
+                "level": 1,
+                "credits": 7.5
+              },
+              {
+                "code": "DISGATE101",
+                "name": "Introduction to Programming",
+                "level": 1,
+                "credits": 7.5
+              },
+              {
+                "code": "DISARIN212",
+                "name": "Logic & Discrete Mathematics",
+                "level": 2,
+                "credits": 7.5
+              }
+            ]
+          },
+          {
+            "label": "Year 1 · Semester 2",
+            "term": "2027h1",
             "courses": [
               {
                 "code": "ACCPPDE101",
@@ -186,45 +219,15 @@
                 "credits": 7.5
               },
               {
-                "code": "HCBGATE102",
-                "name": "Introduction to Brain & Behavior",
+                "code": "HCBCOGN112",
+                "name": "Neurobiology",
                 "level": 1,
                 "credits": 7.5
               },
               {
-                "code": "DISDATA111",
-                "name": "Introduction to Data Science",
-                "level": 1,
-                "credits": 7.5
-              }
-            ]
-          },
-          {
-            "label": "Year 1 · Semester 2",
-            "term": "2027h1",
-            "courses": [
-              {
-                "code": "DISGATE101",
-                "name": "Introduction to Programming",
-                "level": 1,
-                "credits": 7.5
-              },
-              {
-                "code": "DISARIN212",
-                "name": "Logic & Discrete Mathematics",
-                "level": 2,
-                "credits": 7.5
-              },
-              {
-                "code": "HCBPSYC211",
-                "name": "Statistics & Experimental Methods",
-                "level": 2,
-                "credits": 7.5
-              },
-              {
-                "code": "DISDATA211",
-                "name": "Machine Learning",
-                "level": 2,
+                "code": "HCBCOGN312",
+                "name": "Psycholinguistics",
+                "level": 3,
                 "credits": 7.5
               }
             ]
@@ -234,44 +237,8 @@
             "term": "2027h2",
             "courses": [
               {
-                "code": "DISARIN111",
-                "name": "AI Ethics",
-                "level": 1,
-                "credits": 7.5
-              },
-              {
-                "code": "DISDATA311",
-                "name": "Neural Networks & Deep Learning",
-                "level": 3,
-                "credits": 7.5
-              },
-              {
-                "code": "DISDATA312",
-                "name": "Robotics",
-                "level": 3,
-                "credits": 7.5
-              },
-              {
-                "code": "HCBCOGN112",
-                "name": "Neurobiology",
-                "level": 1,
-                "credits": 7.5
-              }
-            ]
-          },
-          {
-            "label": "Year 2 · Semester 2",
-            "term": "2028h1",
-            "courses": [
-              {
-                "code": "DISARIN211",
-                "name": "Decision-making in AI",
-                "level": 2,
-                "credits": 7.5
-              },
-              {
-                "code": "DISCOMP213",
-                "name": "Software Development",
+                "code": "HCBPSYC211",
+                "name": "Statistics & Experimental Methods",
                 "level": 2,
                 "credits": 7.5
               },
@@ -286,6 +253,42 @@
                 "name": "Higher Order Functions",
                 "level": 3,
                 "credits": 7.5
+              },
+              {
+                "code": "DISMATH314",
+                "name": "Probability & Statistics",
+                "level": 3,
+                "credits": 7.5
+              }
+            ]
+          },
+          {
+            "label": "Year 2 · Semester 2",
+            "term": "2028h1",
+            "courses": [
+              {
+                "code": "DISARIN111",
+                "name": "AI Ethics",
+                "level": 1,
+                "credits": 7.5
+              },
+              {
+                "code": "DISDATA312",
+                "name": "Robotics",
+                "level": 3,
+                "credits": 7.5
+              },
+              {
+                "code": "DISCOMP213",
+                "name": "Software Development",
+                "level": 2,
+                "credits": 7.5
+              },
+              {
+                "code": "DISMATH312",
+                "name": "Linear Systems",
+                "level": 3,
+                "credits": 7.5
               }
             ]
           },
@@ -293,6 +296,42 @@
             "label": "Year 3 · Semester 1",
             "term": "2028h2",
             "courses": [
+              {
+                "code": "DISDATA211",
+                "name": "Machine Learning",
+                "level": 2,
+                "credits": 7.5
+              },
+              {
+                "code": "DISARIN211",
+                "name": "Decision-making in AI",
+                "level": 2,
+                "credits": 7.5
+              },
+              {
+                "code": "DISCOMP311",
+                "name": "Algorithms & Data Structures",
+                "level": 3,
+                "credits": 7.5
+              },
+              {
+                "code": "MCCCOMM311",
+                "name": "Persuasive Communication",
+                "level": 3,
+                "credits": 7.5
+              }
+            ]
+          },
+          {
+            "label": "Year 3 · Semester 2",
+            "term": "2029h1",
+            "courses": [
+              {
+                "code": "DISDATA311",
+                "name": "Neural Networks & Deep Learning",
+                "level": 3,
+                "credits": 7.5
+              },
               {
                 "code": "DISARIN311",
                 "name": "Optimization Methods in AI",
@@ -310,42 +349,6 @@
                 "name": "Perception & Action",
                 "level": 2,
                 "credits": 7.5
-              },
-              {
-                "code": "HCBCOGN312",
-                "name": "Psycholinguistics",
-                "level": 3,
-                "credits": 7.5
-              }
-            ]
-          },
-          {
-            "label": "Year 3 · Semester 2",
-            "term": "2029h1",
-            "courses": [
-              {
-                "code": "DISCOMP311",
-                "name": "Algorithms & Data Structures",
-                "level": 3,
-                "credits": 7.5
-              },
-              {
-                "code": "DISMATH314",
-                "name": "Probability & Statistics",
-                "level": 3,
-                "credits": 7.5
-              },
-              {
-                "code": "HCBPSYC311",
-                "name": "Medical & Health Psychology",
-                "level": 3,
-                "credits": 7.5
-              },
-              {
-                "code": "MCCCOMM311",
-                "name": "Persuasive Communication",
-                "level": 3,
-                "credits": 7.5
               }
             ]
           }
@@ -357,7 +360,7 @@
       "role": "ucr-alternative",
       "family": "ucr",
       "alternativeKind": "related-direction",
-      "label": "Learning, Computational AI & Autonomous Systems",
+      "label": "Machine Learning, Software and Autonomous Systems",
       "schedule": {
         "semesters": [
           {
@@ -365,35 +368,11 @@
             "term": "2026h2",
             "courses": [
               {
-                "code": "BENGATE102",
-                "name": "Research Methods & Statistics",
-                "level": 1,
-                "credits": 7.5
-              },
-              {
-                "code": "DISGATE102",
-                "name": "Mathematical Methods",
-                "level": 1,
-                "credits": 7.5
-              },
-              {
                 "code": "DISDATA111",
                 "name": "Introduction to Data Science",
                 "level": 1,
                 "credits": 7.5
               },
-              {
-                "code": "DISCOMP212",
-                "name": "Database Management Systems",
-                "level": 2,
-                "credits": 7.5
-              }
-            ]
-          },
-          {
-            "label": "Year 1 · Semester 2",
-            "term": "2027h1",
-            "courses": [
               {
                 "code": "ACCPPDE101",
                 "name": "Personal & Professional Development",
@@ -411,11 +390,35 @@
                 "name": "Logic & Discrete Mathematics",
                 "level": 2,
                 "credits": 7.5
+              }
+            ]
+          },
+          {
+            "label": "Year 1 · Semester 2",
+            "term": "2027h1",
+            "courses": [
+              {
+                "code": "BENGATE102",
+                "name": "Research Methods & Statistics",
+                "level": 1,
+                "credits": 7.5
               },
               {
-                "code": "HCBPSYC211",
-                "name": "Statistics & Experimental Methods",
+                "code": "DISGATE102",
+                "name": "Mathematical Methods",
+                "level": 1,
+                "credits": 7.5
+              },
+              {
+                "code": "DISCOMP212",
+                "name": "Database Management Systems",
                 "level": 2,
+                "credits": 7.5
+              },
+              {
+                "code": "DISARIN111",
+                "name": "AI Ethics",
+                "level": 1,
                 "credits": 7.5
               }
             ]
@@ -425,11 +428,35 @@
             "term": "2027h2",
             "courses": [
               {
-                "code": "DISARIN111",
-                "name": "AI Ethics",
-                "level": 1,
+                "code": "HCBPSYC211",
+                "name": "Statistics & Experimental Methods",
+                "level": 2,
                 "credits": 7.5
               },
+              {
+                "code": "DISCOMP311",
+                "name": "Algorithms & Data Structures",
+                "level": 3,
+                "credits": 7.5
+              },
+              {
+                "code": "DISMATH211",
+                "name": "Linear Algebra",
+                "level": 2,
+                "credits": 7.5
+              },
+              {
+                "code": "DISMATH314",
+                "name": "Probability & Statistics",
+                "level": 3,
+                "credits": 7.5
+              }
+            ]
+          },
+          {
+            "label": "Year 2 · Semester 2",
+            "term": "2028h1",
+            "courses": [
               {
                 "code": "DISCOMP213",
                 "name": "Software Development",
@@ -447,23 +474,23 @@
                 "name": "Robotics",
                 "level": 3,
                 "credits": 7.5
+              },
+              {
+                "code": "DISMATH213",
+                "name": "Computational & Numerical Methods",
+                "level": 2,
+                "credits": 7.5
               }
             ]
           },
           {
-            "label": "Year 2 · Semester 2",
-            "term": "2028h1",
+            "label": "Year 3 · Semester 1",
+            "term": "2028h2",
             "courses": [
               {
                 "code": "DISARIN211",
                 "name": "Decision-making in AI",
                 "level": 2,
-                "credits": 7.5
-              },
-              {
-                "code": "DISCOMP311",
-                "name": "Algorithms & Data Structures",
-                "level": 3,
                 "credits": 7.5
               },
               {
@@ -473,16 +500,22 @@
                 "credits": 7.5
               },
               {
-                "code": "DISMATH211",
-                "name": "Linear Algebra",
+                "code": "DISCOMP211",
+                "name": "Networks & Operating Systems",
+                "level": 2,
+                "credits": 7.5
+              },
+              {
+                "code": "BENBUSI211",
+                "name": "Business & Economy in the Age of AI",
                 "level": 2,
                 "credits": 7.5
               }
             ]
           },
           {
-            "label": "Year 3 · Semester 1",
-            "term": "2028h2",
+            "label": "Year 3 · Semester 2",
+            "term": "2029h1",
             "courses": [
               {
                 "code": "DISARIN311",
@@ -503,39 +536,9 @@
                 "credits": 7.5
               },
               {
-                "code": "DISMATH213",
-                "name": "Computational & Numerical Methods",
-                "level": 2,
-                "credits": 7.5
-              }
-            ]
-          },
-          {
-            "label": "Year 3 · Semester 2",
-            "term": "2029h1",
-            "courses": [
-              {
-                "code": "DISCOMP211",
-                "name": "Networks & Operating Systems",
-                "level": 2,
-                "credits": 7.5
-              },
-              {
                 "code": "DISDATA212",
                 "name": "Image Processing & Computer Vision",
                 "level": 2,
-                "credits": 7.5
-              },
-              {
-                "code": "DISMATH314",
-                "name": "Probability & Statistics",
-                "level": 3,
-                "credits": 7.5
-              },
-              {
-                "code": "MCCCOMM311",
-                "name": "Persuasive Communication",
-                "level": 3,
                 "credits": 7.5
               }
             ]
@@ -548,7 +551,7 @@
       "role": "ucr-alternative",
       "family": "ucr",
       "alternativeKind": "related-direction",
-      "label": "Reasoning, Language & Cognitive Systems",
+      "label": "AI, Reasoning and Human Cognition",
       "schedule": {
         "semesters": [
           {
@@ -568,24 +571,6 @@
                 "credits": 7.5
               },
               {
-                "code": "DISGATE102",
-                "name": "Mathematical Methods",
-                "level": 1,
-                "credits": 7.5
-              },
-              {
-                "code": "HCBCOGN112",
-                "name": "Neurobiology",
-                "level": 1,
-                "credits": 7.5
-              }
-            ]
-          },
-          {
-            "label": "Year 1 · Semester 2",
-            "term": "2027h1",
-            "courses": [
-              {
                 "code": "DISGATE101",
                 "name": "Introduction to Programming",
                 "level": 1,
@@ -596,16 +581,34 @@
                 "name": "Statistics & Experimental Methods",
                 "level": 2,
                 "credits": 7.5
+              }
+            ]
+          },
+          {
+            "label": "Year 1 · Semester 2",
+            "term": "2027h1",
+            "courses": [
+              {
+                "code": "DISGATE102",
+                "name": "Mathematical Methods",
+                "level": 1,
+                "credits": 7.5
               },
               {
-                "code": "DISDATA211",
-                "name": "Machine Learning",
-                "level": 2,
+                "code": "HCBCOGN112",
+                "name": "Neurobiology",
+                "level": 1,
                 "credits": 7.5
               },
               {
                 "code": "HCBPSYC314",
                 "name": "Lifespan Developmental Psychology",
+                "level": 3,
+                "credits": 7.5
+              },
+              {
+                "code": "HCBCOGN312",
+                "name": "Psycholinguistics",
                 "level": 3,
                 "credits": 7.5
               }
@@ -614,36 +617,6 @@
           {
             "label": "Year 2 · Semester 1",
             "term": "2027h2",
-            "courses": [
-              {
-                "code": "DISARIN111",
-                "name": "AI Ethics",
-                "level": 1,
-                "credits": 7.5
-              },
-              {
-                "code": "HCBCOGN212",
-                "name": "Perception & Action",
-                "level": 2,
-                "credits": 7.5
-              },
-              {
-                "code": "DISDATA311",
-                "name": "Neural Networks & Deep Learning",
-                "level": 3,
-                "credits": 7.5
-              },
-              {
-                "code": "GOSPHIL214",
-                "name": "Philosophy of Mind",
-                "level": 2,
-                "credits": 7.5
-              }
-            ]
-          },
-          {
-            "label": "Year 2 · Semester 2",
-            "term": "2028h1",
             "courses": [
               {
                 "code": "HCBCOGN311",
@@ -664,9 +637,39 @@
                 "credits": 7.5
               },
               {
-                "code": "GOSPHIL313",
-                "name": "Free Will, Time & the Self",
-                "level": 3,
+                "code": "GOSPHIL111",
+                "name": "Introduction to Western Philosophy",
+                "level": 1,
+                "credits": 7.5
+              }
+            ]
+          },
+          {
+            "label": "Year 2 · Semester 2",
+            "term": "2028h1",
+            "courses": [
+              {
+                "code": "DISARIN111",
+                "name": "AI Ethics",
+                "level": 1,
+                "credits": 7.5
+              },
+              {
+                "code": "HCBCOGN212",
+                "name": "Perception & Action",
+                "level": 2,
+                "credits": 7.5
+              },
+              {
+                "code": "GOSPHIL214",
+                "name": "Philosophy of Mind",
+                "level": 2,
+                "credits": 7.5
+              },
+              {
+                "code": "HCBPSYC111",
+                "name": "Social Psychology",
+                "level": 1,
                 "credits": 7.5
               }
             ]
@@ -676,8 +679,38 @@
             "term": "2028h2",
             "courses": [
               {
-                "code": "HCBCOGN312",
-                "name": "Psycholinguistics",
+                "code": "DISDATA211",
+                "name": "Machine Learning",
+                "level": 2,
+                "credits": 7.5
+              },
+              {
+                "code": "GOSPHIL313",
+                "name": "Free Will, Time & the Self",
+                "level": 3,
+                "credits": 7.5
+              },
+              {
+                "code": "DISCOMP311",
+                "name": "Algorithms & Data Structures",
+                "level": 3,
+                "credits": 7.5
+              },
+              {
+                "code": "DISMATH314",
+                "name": "Probability & Statistics",
+                "level": 3,
+                "credits": 7.5
+              }
+            ]
+          },
+          {
+            "label": "Year 3 · Semester 2",
+            "term": "2029h1",
+            "courses": [
+              {
+                "code": "DISDATA311",
+                "name": "Neural Networks & Deep Learning",
                 "level": 3,
                 "credits": 7.5
               },
@@ -694,38 +727,8 @@
                 "credits": 7.5
               },
               {
-                "code": "HCBPSYC111",
-                "name": "Social Psychology",
-                "level": 1,
-                "credits": 7.5
-              }
-            ]
-          },
-          {
-            "label": "Year 3 · Semester 2",
-            "term": "2029h1",
-            "courses": [
-              {
-                "code": "DISCOMP311",
-                "name": "Algorithms & Data Structures",
-                "level": 3,
-                "credits": 7.5
-              },
-              {
-                "code": "DISMATH314",
-                "name": "Probability & Statistics",
-                "level": 3,
-                "credits": 7.5
-              },
-              {
                 "code": "HCBPSYC313",
-                "name": "Advanced Research Seminar",
-                "level": 3,
-                "credits": 7.5
-              },
-              {
-                "code": "MCCCOMM311",
-                "name": "Persuasive Communication",
+                "name": "Advanced Research Methods & Statistics",
                 "level": 3,
                 "credits": 7.5
               }
@@ -1212,7 +1215,7 @@
     "alternatives": [
       {
         "programmeId": "ucr-1",
-        "concept": "A broad closest feasible Artificial Intelligence programme combining programming, mathematical reasoning, data, machine learning, neural networks, robotics, decision-making and algorithms with cognition, language, ethics, experimental methods and human-centred communication.",
+        "concept": "Study machine learning and intelligent systems alongside human perception, language and cognition. Build programming, mathematics and experimental skills, and use them to explore how machines and people learn and make decisions.",
         "basisLabels": [
           "Artificial intelligence, intelligent agents and computational models",
           "Programming, algorithms, software and computer systems",
@@ -1276,11 +1279,11 @@
             "reference": "programme_interests.csv:15231"
           }
         ],
-        "labelRationale": "The curriculum integrates computational AI with substantial cognitive-science and intelligent-systems study, so the label names all three organising elements."
+        "labelRationale": "Study machine learning and intelligent systems alongside human perception, language and cognition. Build programming, mathematics and experimental skills, and use them to explore how machines and people learn and make decisions."
       },
       {
         "programmeId": "ucr-2",
-        "concept": "A learning-and-computation route centred on programming, algorithms, software, mathematical and statistical modelling, machine learning, deep learning, reinforcement learning, optimisation, robotics, computer vision, databases, networks and autonomous agents.",
+        "concept": "Build models and software for systems that learn, see and act. Develop skills in algorithms, robotics, vision and reinforcement learning, and study how AI is used and governed in business.",
         "basisLabels": [
           "Artificial intelligence, intelligent agents and computational models",
           "Programming, algorithms, software and computer systems",
@@ -1343,12 +1346,12 @@
             "reference": "programme_interests.csv:15246"
           }
         ],
-        "labelRationale": "The curriculum’s dense programming, algorithms, mathematics, machine-learning, optimisation and robotics sequence directly develops Utrecht’s Learning and Computation direction while extending it toward autonomous systems.",
-        "distinctnessRationale": "Compared with the broad closest match and the cognitive route, this curriculum replaces much of the psychology, neuroscience and philosophy content with databases, networks, software development, advanced algorithms, reinforcement learning and numerical methods."
+        "labelRationale": "Build models and software for systems that learn, see and act. Develop skills in algorithms, robotics, vision and reinforcement learning, and study how AI is used and governed in business.",
+        "distinctnessRationale": "The software and autonomous-systems plan adds databases, operating systems, advanced algorithms, numerical methods and reinforcement learning. It focuses on building and testing computational systems rather than developing a sequence in human cognition."
       },
       {
         "programmeId": "ucr-3",
-        "concept": "A reasoning-and-computation route combining logic, algorithms, programming, machine learning and mathematics with language, cognition, neuroscience and philosophy of mind.",
+        "concept": "Study computational reasoning alongside the science and philosophy of mind. Use logic, algorithms and AI models to examine intelligence, and study human perception, language, social cognition and evidence from behavioural research.",
         "basisLabels": [
           "Artificial intelligence, intelligent agents and computational models",
           "Programming, algorithms, software and computer systems",
@@ -1407,8 +1410,8 @@
             "reference": "programme_interests.csv:15248"
           }
         ],
-        "labelRationale": "Logic, algorithms, philosophy and language are combined with computational and cognitive-science foundations, making the programme a feasible interdisciplinary response to Utrecht’s Reasoning and Computation package.",
-        "distinctnessRationale": "Compared with the broad and computational alternatives, this route gives substantially greater weight to neurobiology, lifespan and social psychology, perception, higher cognition, psycholinguistics, philosophy of mind, agency and advanced behavioural research."
+        "labelRationale": "Study computational reasoning alongside the science and philosophy of mind. Use logic, algorithms and AI models to examine intelligence, and study human perception, language, social cognition and evidence from behavioural research.",
+        "distinctnessRationale": "The human cognition plan adds social and developmental psychology, research synthesis and philosophy of mind and agency. These courses support questions about reasoning and human intelligence, alongside foundational formal logic, algorithms and AI."
       }
     ],
     "interestSelection": {
@@ -1939,16 +1942,9 @@
           "programmeId": "ucr-1",
           "progressionAssessment": {
             "status": "passed",
-            "rationale": "Programming, mathematics, data, brain-and-behaviour and research foundations precede advanced algorithms, optimisation, deep learning, robotics, cognition and psycholinguistics. Every formal prerequisite occurs earlier and every course is offered in its assigned term."
+            "rationale": "Programming and mathematics precede software development, robotics and advanced AI. Introductory brain and behaviour precedes the available spring Psycholinguistics course, then neurobiology and the gateway underpin later cognition. Machine learning precedes deep learning."
           },
           "courseTraceability": [
-            {
-              "courseCode": "DISGATE102",
-              "basisLabels": [
-                "Mathematics, logic, probability, statistics and formal modelling"
-              ],
-              "rationale": "Mathematical Methods provides calculus, equations and mathematical problem-solving foundations for AI and modelling. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling”."
-            },
             {
               "courseCode": "HCBGATE102",
               "basisLabels": [
@@ -1980,43 +1976,11 @@
               "rationale": "Logic & Discrete Mathematics develops logic, discrete structures and mathematical reasoning for computer science and algorithms. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling” and “How can intelligent systems learn, reason, decide and act?”."
             },
             {
-              "courseCode": "HCBPSYC211",
+              "courseCode": "DISGATE102",
               "basisLabels": [
-                "Mathematics, logic, probability, statistics and formal modelling",
-                "Experimental design, research methods, academic communication and independent research"
+                "Mathematics, logic, probability, statistics and formal modelling"
               ],
-              "rationale": "Statistics & Experimental Methods develops multivariate statistics and experimental analysis for complex human data. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling” and “Experimental design, research methods, academic communication and independent research”."
-            },
-            {
-              "courseCode": "DISDATA211",
-              "basisLabels": [
-                "Machine learning, neural networks, deep learning and reinforcement learning"
-              ],
-              "rationale": "Machine Learning introduces regression, classification, resampling, support-vector machines, trees and clustering. It implements the explicit academic basis “Machine learning, neural networks, deep learning and reinforcement learning”."
-            },
-            {
-              "courseCode": "DISARIN111",
-              "basisLabels": [
-                "Ethics, philosophy and responsible artificial intelligence",
-                "How should AI systems be designed and evaluated responsibly?"
-              ],
-              "rationale": "AI Ethics examines fairness, bias, privacy, accountability, human agency and the moral status of AI systems. It implements the explicit academic basis “Ethics, philosophy and responsible artificial intelligence” and “How should AI systems be designed and evaluated responsibly?”."
-            },
-            {
-              "courseCode": "DISDATA311",
-              "basisLabels": [
-                "Machine learning, neural networks, deep learning and reinforcement learning",
-                "How can intelligent systems learn, reason, decide and act?"
-              ],
-              "rationale": "Neural Networks & Deep Learning develops neural-network and deep-learning theory and implementation for vision and language applications. It implements the explicit academic basis “Machine learning, neural networks, deep learning and reinforcement learning” and “How can intelligent systems learn, reason, decide and act?”."
-            },
-            {
-              "courseCode": "DISDATA312",
-              "basisLabels": [
-                "Decision-making, optimisation and intelligent autonomous systems",
-                "Learning and computation"
-              ],
-              "rationale": "Robotics develops robotics through kinematics, manipulation, motion planning and collision avoidance. It implements the explicit academic basis “Decision-making, optimisation and intelligent autonomous systems” and “Learning and computation”."
+              "rationale": "Mathematical Methods provides calculus, equations and mathematical problem-solving foundations for AI and modelling. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling”."
             },
             {
               "courseCode": "HCBCOGN112",
@@ -2026,20 +1990,21 @@
               "rationale": "Neurobiology develops neurobiological foundations and experimental understanding of brains and behaviour. It implements the explicit academic basis “Cognition, psychology, neuroscience, perception and learning”."
             },
             {
-              "courseCode": "DISARIN211",
+              "courseCode": "HCBCOGN312",
               "basisLabels": [
-                "Artificial intelligence, intelligent agents and computational models",
-                "How can intelligent systems learn, reason, decide and act?"
+                "Language, linguistics and natural-language processing",
+                "Reasoning, language and computation",
+                "What can computational models reveal about human thought, perception and language?"
               ],
-              "rationale": "Decision-making in AI covers planning, uncertainty, partial observability and optimisation for intelligent agents. It implements the explicit academic basis “Artificial intelligence, intelligent agents and computational models” and “How can intelligent systems learn, reason, decide and act?”."
+              "rationale": "Psycholinguistics examines language production, comprehension and acquisition through psychology and neuroscience. It implements the explicit academic basis “Language, linguistics and natural-language processing” and “Reasoning, language and computation” and “What can computational models reveal about human thought, perception and language?”."
             },
             {
-              "courseCode": "DISCOMP213",
+              "courseCode": "HCBPSYC211",
               "basisLabels": [
-                "Programming, algorithms, software and computer systems",
-                "Learning and computation"
+                "Mathematics, logic, probability, statistics and formal modelling",
+                "Experimental design, research methods, academic communication and independent research"
               ],
-              "rationale": "Software Development develops software design, testing, maintenance and programming across multiple paradigms. It implements the explicit academic basis “Programming, algorithms, software and computer systems” and “Learning and computation”."
+              "rationale": "Statistics & Experimental Methods develops multivariate statistics and experimental analysis for complex human data. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling” and “Experimental design, research methods, academic communication and independent research”."
             },
             {
               "courseCode": "DISMATH211",
@@ -2055,6 +2020,85 @@
                 "What can computational models reveal about human thought, perception and language?"
               ],
               "rationale": "Higher Order Functions examines memory, attention, emotion, consciousness, decision-making and cognitive control. It implements the explicit academic basis “Cognition, psychology, neuroscience, perception and learning” and “What can computational models reveal about human thought, perception and language?”."
+            },
+            {
+              "courseCode": "DISMATH314",
+              "basisLabels": [
+                "Mathematics, logic, probability, statistics and formal modelling"
+              ],
+              "rationale": "Probability & Statistics provides probability theory, distributions, estimation, simulation and statistical inference. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling”."
+            },
+            {
+              "courseCode": "DISARIN111",
+              "basisLabels": [
+                "Ethics, philosophy and responsible artificial intelligence",
+                "How should AI systems be designed and evaluated responsibly?"
+              ],
+              "rationale": "AI Ethics examines fairness, bias, privacy, accountability, human agency and the moral status of AI systems. It implements the explicit academic basis “Ethics, philosophy and responsible artificial intelligence” and “How should AI systems be designed and evaluated responsibly?”."
+            },
+            {
+              "courseCode": "DISDATA312",
+              "basisLabels": [
+                "Decision-making, optimisation and intelligent autonomous systems",
+                "Learning and computation"
+              ],
+              "rationale": "Robotics develops robotics through kinematics, manipulation, motion planning and collision avoidance. It implements the explicit academic basis “Decision-making, optimisation and intelligent autonomous systems” and “Learning and computation”."
+            },
+            {
+              "courseCode": "DISCOMP213",
+              "basisLabels": [
+                "Programming, algorithms, software and computer systems",
+                "Learning and computation"
+              ],
+              "rationale": "Software Development develops software design, testing, maintenance and programming across multiple paradigms. It implements the explicit academic basis “Programming, algorithms, software and computer systems” and “Learning and computation”."
+            },
+            {
+              "courseCode": "DISMATH312",
+              "basisLabels": [
+                "Mathematics, logic, probability, statistics and formal modelling",
+                "Decision-making, optimisation and intelligent autonomous systems"
+              ],
+              "rationale": "Linear Systems Examines signals, sampling, filtering and feedback and provides a mathematical foundation for sensing and control in robotics.. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling” and “Decision-making, optimisation and intelligent autonomous systems”."
+            },
+            {
+              "courseCode": "DISDATA211",
+              "basisLabels": [
+                "Machine learning, neural networks, deep learning and reinforcement learning"
+              ],
+              "rationale": "Machine Learning introduces regression, classification, resampling, support-vector machines, trees and clustering. It implements the explicit academic basis “Machine learning, neural networks, deep learning and reinforcement learning”."
+            },
+            {
+              "courseCode": "DISARIN211",
+              "basisLabels": [
+                "Artificial intelligence, intelligent agents and computational models",
+                "How can intelligent systems learn, reason, decide and act?"
+              ],
+              "rationale": "Decision-making in AI covers planning, uncertainty, partial observability and optimisation for intelligent agents. It implements the explicit academic basis “Artificial intelligence, intelligent agents and computational models” and “How can intelligent systems learn, reason, decide and act?”."
+            },
+            {
+              "courseCode": "DISCOMP311",
+              "basisLabels": [
+                "Programming, algorithms, software and computer systems",
+                "Learning and computation"
+              ],
+              "rationale": "Algorithms & Data Structures develops algorithm design, data structures and experimental performance analysis. It implements the explicit academic basis “Programming, algorithms, software and computer systems” and “Learning and computation”."
+            },
+            {
+              "courseCode": "MCCCOMM311",
+              "basisLabels": [
+                "Decision-making, optimisation and intelligent autonomous systems",
+                "Experimental design, research methods, academic communication and independent research",
+                "How should AI systems be designed and evaluated responsibly?"
+              ],
+              "rationale": "Persuasive Communication develops evidence-based persuasive communication and analysis of influence in public contexts. It implements the explicit academic basis “Decision-making, optimisation and intelligent autonomous systems” and “Experimental design, research methods, academic communication and independent research” and “How should AI systems be designed and evaluated responsibly?”."
+            },
+            {
+              "courseCode": "DISDATA311",
+              "basisLabels": [
+                "Machine learning, neural networks, deep learning and reinforcement learning",
+                "How can intelligent systems learn, reason, decide and act?"
+              ],
+              "rationale": "Neural Networks & Deep Learning develops neural-network and deep-learning theory and implementation for vision and language applications. It implements the explicit academic basis “Machine learning, neural networks, deep learning and reinforcement learning” and “How can intelligent systems learn, reason, decide and act?”."
             },
             {
               "courseCode": "DISARIN311",
@@ -2079,46 +2123,6 @@
                 "What can computational models reveal about human thought, perception and language?"
               ],
               "rationale": "Perception & Action examines neural mechanisms of sensory processing, perception and goal-directed action. It implements the explicit academic basis “Cognition, psychology, neuroscience, perception and learning” and “What can computational models reveal about human thought, perception and language?”."
-            },
-            {
-              "courseCode": "HCBCOGN312",
-              "basisLabels": [
-                "Language, linguistics and natural-language processing",
-                "Reasoning, language and computation",
-                "What can computational models reveal about human thought, perception and language?"
-              ],
-              "rationale": "Psycholinguistics examines language production, comprehension and acquisition through psychology and neuroscience. It implements the explicit academic basis “Language, linguistics and natural-language processing” and “Reasoning, language and computation” and “What can computational models reveal about human thought, perception and language?”."
-            },
-            {
-              "courseCode": "DISCOMP311",
-              "basisLabels": [
-                "Programming, algorithms, software and computer systems",
-                "Learning and computation"
-              ],
-              "rationale": "Algorithms & Data Structures develops algorithm design, data structures and experimental performance analysis. It implements the explicit academic basis “Programming, algorithms, software and computer systems” and “Learning and computation”."
-            },
-            {
-              "courseCode": "DISMATH314",
-              "basisLabels": [
-                "Mathematics, logic, probability, statistics and formal modelling"
-              ],
-              "rationale": "Probability & Statistics provides probability theory, distributions, estimation, simulation and statistical inference. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling”."
-            },
-            {
-              "courseCode": "HCBPSYC311",
-              "basisLabels": [
-                "Cognition, psychology, neuroscience, perception and learning"
-              ],
-              "rationale": "Medical & Health Psychology examines health, behaviour and wellbeing through psychological and biopsychosocial models. It implements the explicit academic basis “Cognition, psychology, neuroscience, perception and learning”."
-            },
-            {
-              "courseCode": "MCCCOMM311",
-              "basisLabels": [
-                "Decision-making, optimisation and intelligent autonomous systems",
-                "Experimental design, research methods, academic communication and independent research",
-                "How should AI systems be designed and evaluated responsibly?"
-              ],
-              "rationale": "Persuasive Communication develops evidence-based persuasive communication and analysis of influence in public contexts. It implements the explicit academic basis “Decision-making, optimisation and intelligent autonomous systems” and “Experimental design, research methods, academic communication and independent research” and “How should AI systems be designed and evaluated responsibly?”."
             }
           ]
         },
@@ -2126,23 +2130,9 @@
           "programmeId": "ucr-2",
           "progressionAssessment": {
             "status": "passed",
-            "rationale": "Research, mathematics, data and database foundations precede programming-intensive software, robotics, algorithms, optimisation, reinforcement learning and deep learning. Programming and Mathematical Methods precede every course that formally requires them, and every course is offered in its assigned term."
+            "rationale": "Programming, data and mathematics precede advanced algorithms and robotics. Probability and linear algebra precede advanced learning, with machine learning before neural networks and reinforcement learning."
           },
           "courseTraceability": [
-            {
-              "courseCode": "BENGATE102",
-              "basisLabels": [
-                "Experimental design, research methods, academic communication and independent research"
-              ],
-              "rationale": "Research Methods & Statistics introduces experimental design, sampling, statistics and an applied research project. It implements the explicit academic basis “Experimental design, research methods, academic communication and independent research”."
-            },
-            {
-              "courseCode": "DISGATE102",
-              "basisLabels": [
-                "Mathematics, logic, probability, statistics and formal modelling"
-              ],
-              "rationale": "Mathematical Methods provides calculus, equations and mathematical problem-solving foundations for AI and modelling. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling”."
-            },
             {
               "courseCode": "DISDATA111",
               "basisLabels": [
@@ -2150,13 +2140,6 @@
                 "Experimental design, research methods, academic communication and independent research"
               ],
               "rationale": "Introduction to Data Science develops data cleaning, manipulation, visualisation and an independent applied data project. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling” and “Experimental design, research methods, academic communication and independent research”."
-            },
-            {
-              "courseCode": "DISCOMP212",
-              "basisLabels": [
-                "Programming, algorithms, software and computer systems"
-              ],
-              "rationale": "Database Management Systems provides relational-database, SQL, normalisation and query-processing foundations. It implements the explicit academic basis “Programming, algorithms, software and computer systems”."
             },
             {
               "courseCode": "DISGATE101",
@@ -2174,12 +2157,25 @@
               "rationale": "Logic & Discrete Mathematics develops logic, discrete structures and mathematical reasoning for computer science and algorithms. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling” and “How can intelligent systems learn, reason, decide and act?”."
             },
             {
-              "courseCode": "HCBPSYC211",
+              "courseCode": "BENGATE102",
               "basisLabels": [
-                "Mathematics, logic, probability, statistics and formal modelling",
                 "Experimental design, research methods, academic communication and independent research"
               ],
-              "rationale": "Statistics & Experimental Methods develops multivariate statistics and experimental analysis for complex human data. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling” and “Experimental design, research methods, academic communication and independent research”."
+              "rationale": "Research Methods & Statistics introduces experimental design, sampling, statistics and an applied research project. It implements the explicit academic basis “Experimental design, research methods, academic communication and independent research”."
+            },
+            {
+              "courseCode": "DISGATE102",
+              "basisLabels": [
+                "Mathematics, logic, probability, statistics and formal modelling"
+              ],
+              "rationale": "Mathematical Methods provides calculus, equations and mathematical problem-solving foundations for AI and modelling. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling”."
+            },
+            {
+              "courseCode": "DISCOMP212",
+              "basisLabels": [
+                "Programming, algorithms, software and computer systems"
+              ],
+              "rationale": "Database Management Systems provides relational-database, SQL, normalisation and query-processing foundations. It implements the explicit academic basis “Programming, algorithms, software and computer systems”."
             },
             {
               "courseCode": "DISARIN111",
@@ -2188,6 +2184,36 @@
                 "How should AI systems be designed and evaluated responsibly?"
               ],
               "rationale": "AI Ethics examines fairness, bias, privacy, accountability, human agency and the moral status of AI systems. It implements the explicit academic basis “Ethics, philosophy and responsible artificial intelligence” and “How should AI systems be designed and evaluated responsibly?”."
+            },
+            {
+              "courseCode": "HCBPSYC211",
+              "basisLabels": [
+                "Mathematics, logic, probability, statistics and formal modelling",
+                "Experimental design, research methods, academic communication and independent research"
+              ],
+              "rationale": "Statistics & Experimental Methods develops multivariate statistics and experimental analysis for complex human data. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling” and “Experimental design, research methods, academic communication and independent research”."
+            },
+            {
+              "courseCode": "DISCOMP311",
+              "basisLabels": [
+                "Programming, algorithms, software and computer systems",
+                "Learning and computation"
+              ],
+              "rationale": "Algorithms & Data Structures develops algorithm design, data structures and experimental performance analysis. It implements the explicit academic basis “Programming, algorithms, software and computer systems” and “Learning and computation”."
+            },
+            {
+              "courseCode": "DISMATH211",
+              "basisLabels": [
+                "Mathematics, logic, probability, statistics and formal modelling"
+              ],
+              "rationale": "Linear Algebra provides matrices, vector spaces, eigenvalues and linear transformations used in computational models. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling”."
+            },
+            {
+              "courseCode": "DISMATH314",
+              "basisLabels": [
+                "Mathematics, logic, probability, statistics and formal modelling"
+              ],
+              "rationale": "Probability & Statistics provides probability theory, distributions, estimation, simulation and statistical inference. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling”."
             },
             {
               "courseCode": "DISCOMP213",
@@ -2215,20 +2241,20 @@
               "rationale": "Robotics develops robotics through kinematics, manipulation, motion planning and collision avoidance. It implements the explicit academic basis “Decision-making, optimisation and intelligent autonomous systems” and “Learning and computation”."
             },
             {
+              "courseCode": "DISMATH213",
+              "basisLabels": [
+                "Mathematics, logic, probability, statistics and formal modelling",
+                "Learning and computation"
+              ],
+              "rationale": "Computational & Numerical Methods develops numerical algorithms, approximation and computational solutions to mathematical problems. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling” and “Learning and computation”."
+            },
+            {
               "courseCode": "DISARIN211",
               "basisLabels": [
                 "Artificial intelligence, intelligent agents and computational models",
                 "How can intelligent systems learn, reason, decide and act?"
               ],
               "rationale": "Decision-making in AI covers planning, uncertainty, partial observability and optimisation for intelligent agents. It implements the explicit academic basis “Artificial intelligence, intelligent agents and computational models” and “How can intelligent systems learn, reason, decide and act?”."
-            },
-            {
-              "courseCode": "DISCOMP311",
-              "basisLabels": [
-                "Programming, algorithms, software and computer systems",
-                "Learning and computation"
-              ],
-              "rationale": "Algorithms & Data Structures develops algorithm design, data structures and experimental performance analysis. It implements the explicit academic basis “Programming, algorithms, software and computer systems” and “Learning and computation”."
             },
             {
               "courseCode": "DISDATA211",
@@ -2238,11 +2264,20 @@
               "rationale": "Machine Learning introduces regression, classification, resampling, support-vector machines, trees and clustering. It implements the explicit academic basis “Machine learning, neural networks, deep learning and reinforcement learning”."
             },
             {
-              "courseCode": "DISMATH211",
+              "courseCode": "DISCOMP211",
               "basisLabels": [
-                "Mathematics, logic, probability, statistics and formal modelling"
+                "Programming, algorithms, software and computer systems",
+                "Learning and computation"
               ],
-              "rationale": "Linear Algebra provides matrices, vector spaces, eigenvalues and linear transformations used in computational models. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling”."
+              "rationale": "Networks & Operating Systems develops understanding of network architectures, operating systems, concurrency and resource management. It implements the explicit academic basis “Programming, algorithms, software and computer systems” and “Learning and computation”."
+            },
+            {
+              "courseCode": "BENBUSI211",
+              "basisLabels": [
+                "Learning and computation",
+                "Ethics, philosophy and responsible artificial intelligence"
+              ],
+              "rationale": "Business & Economy in the Age of AI Examines the use of AI in business and the economy, including automation, agentic systems, corporate governance and regulation. It adds an applied context for responsible AI.. It implements the explicit academic basis “Learning and computation” and “Ethics, philosophy and responsible artificial intelligence”."
             },
             {
               "courseCode": "DISARIN311",
@@ -2271,43 +2306,11 @@
               "rationale": "Neural Networks & Deep Learning develops neural-network and deep-learning theory and implementation for vision and language applications. It implements the explicit academic basis “Machine learning, neural networks, deep learning and reinforcement learning” and “How can intelligent systems learn, reason, decide and act?”."
             },
             {
-              "courseCode": "DISMATH213",
-              "basisLabels": [
-                "Mathematics, logic, probability, statistics and formal modelling",
-                "Learning and computation"
-              ],
-              "rationale": "Computational & Numerical Methods develops numerical algorithms, approximation and computational solutions to mathematical problems. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling” and “Learning and computation”."
-            },
-            {
-              "courseCode": "DISCOMP211",
-              "basisLabels": [
-                "Programming, algorithms, software and computer systems",
-                "Learning and computation"
-              ],
-              "rationale": "Networks & Operating Systems develops understanding of network architectures, operating systems, concurrency and resource management. It implements the explicit academic basis “Programming, algorithms, software and computer systems” and “Learning and computation”."
-            },
-            {
               "courseCode": "DISDATA212",
               "basisLabels": [
                 "Decision-making, optimisation and intelligent autonomous systems"
               ],
               "rationale": "Image Processing & Computer Vision develops image processing, feature detection, tracking, object recognition and computer vision. It implements the explicit academic basis “Decision-making, optimisation and intelligent autonomous systems”."
-            },
-            {
-              "courseCode": "DISMATH314",
-              "basisLabels": [
-                "Mathematics, logic, probability, statistics and formal modelling"
-              ],
-              "rationale": "Probability & Statistics provides probability theory, distributions, estimation, simulation and statistical inference. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling”."
-            },
-            {
-              "courseCode": "MCCCOMM311",
-              "basisLabels": [
-                "Decision-making, optimisation and intelligent autonomous systems",
-                "Experimental design, research methods, academic communication and independent research",
-                "How should AI systems be designed and evaluated responsibly?"
-              ],
-              "rationale": "Persuasive Communication develops evidence-based persuasive communication and analysis of influence in public contexts. It implements the explicit academic basis “Decision-making, optimisation and intelligent autonomous systems” and “Experimental design, research methods, academic communication and independent research” and “How should AI systems be designed and evaluated responsibly?”."
             }
           ]
         },
@@ -2315,7 +2318,7 @@
           "programmeId": "ucr-3",
           "progressionAssessment": {
             "status": "passed",
-            "rationale": "Brain-and-behaviour, neurobiology, mathematics, programming and statistical foundations precede perception, higher cognition, psycholinguistics, deep learning, computer vision, algorithms and advanced research. Every formal prerequisite occurs earlier and every course is offered in its assigned term."
+            "rationale": "Brain and behaviour precedes the available spring Psycholinguistics course and higher cognition. Introductory philosophy precedes philosophy of mind and agency. Experimental statistics precedes research synthesis, and machine learning precedes deep learning."
           },
           "courseTraceability": [
             {
@@ -2324,20 +2327,6 @@
                 "Cognition, psychology, neuroscience, perception and learning"
               ],
               "rationale": "Introduction to Brain & Behavior provides foundations in psychology, neuroscience, cognition, brain anatomy and behavioural research. It implements the explicit academic basis “Cognition, psychology, neuroscience, perception and learning”."
-            },
-            {
-              "courseCode": "DISGATE102",
-              "basisLabels": [
-                "Mathematics, logic, probability, statistics and formal modelling"
-              ],
-              "rationale": "Mathematical Methods provides calculus, equations and mathematical problem-solving foundations for AI and modelling. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling”."
-            },
-            {
-              "courseCode": "HCBCOGN112",
-              "basisLabels": [
-                "Cognition, psychology, neuroscience, perception and learning"
-              ],
-              "rationale": "Neurobiology develops neurobiological foundations and experimental understanding of brains and behaviour. It implements the explicit academic basis “Cognition, psychology, neuroscience, perception and learning”."
             },
             {
               "courseCode": "DISGATE101",
@@ -2355,11 +2344,18 @@
               "rationale": "Statistics & Experimental Methods develops multivariate statistics and experimental analysis for complex human data. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling” and “Experimental design, research methods, academic communication and independent research”."
             },
             {
-              "courseCode": "DISDATA211",
+              "courseCode": "DISGATE102",
               "basisLabels": [
-                "Machine learning, neural networks, deep learning and reinforcement learning"
+                "Mathematics, logic, probability, statistics and formal modelling"
               ],
-              "rationale": "Machine Learning introduces regression, classification, resampling, support-vector machines, trees and clustering. It implements the explicit academic basis “Machine learning, neural networks, deep learning and reinforcement learning”."
+              "rationale": "Mathematical Methods provides calculus, equations and mathematical problem-solving foundations for AI and modelling. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling”."
+            },
+            {
+              "courseCode": "HCBCOGN112",
+              "basisLabels": [
+                "Cognition, psychology, neuroscience, perception and learning"
+              ],
+              "rationale": "Neurobiology develops neurobiological foundations and experimental understanding of brains and behaviour. It implements the explicit academic basis “Cognition, psychology, neuroscience, perception and learning”."
             },
             {
               "courseCode": "HCBPSYC314",
@@ -2369,37 +2365,13 @@
               "rationale": "Lifespan Developmental Psychology examines cognitive, emotional and social development across the lifespan. It implements the explicit academic basis “Cognition, psychology, neuroscience, perception and learning”."
             },
             {
-              "courseCode": "DISARIN111",
+              "courseCode": "HCBCOGN312",
               "basisLabels": [
-                "Ethics, philosophy and responsible artificial intelligence",
-                "How should AI systems be designed and evaluated responsibly?"
-              ],
-              "rationale": "AI Ethics examines fairness, bias, privacy, accountability, human agency and the moral status of AI systems. It implements the explicit academic basis “Ethics, philosophy and responsible artificial intelligence” and “How should AI systems be designed and evaluated responsibly?”."
-            },
-            {
-              "courseCode": "HCBCOGN212",
-              "basisLabels": [
-                "Cognition, psychology, neuroscience, perception and learning",
-                "What can computational models reveal about human thought, perception and language?"
-              ],
-              "rationale": "Perception & Action examines neural mechanisms of sensory processing, perception and goal-directed action. It implements the explicit academic basis “Cognition, psychology, neuroscience, perception and learning” and “What can computational models reveal about human thought, perception and language?”."
-            },
-            {
-              "courseCode": "DISDATA311",
-              "basisLabels": [
-                "Machine learning, neural networks, deep learning and reinforcement learning",
-                "How can intelligent systems learn, reason, decide and act?"
-              ],
-              "rationale": "Neural Networks & Deep Learning develops neural-network and deep-learning theory and implementation for vision and language applications. It implements the explicit academic basis “Machine learning, neural networks, deep learning and reinforcement learning” and “How can intelligent systems learn, reason, decide and act?”."
-            },
-            {
-              "courseCode": "GOSPHIL214",
-              "basisLabels": [
-                "Ethics, philosophy and responsible artificial intelligence",
+                "Language, linguistics and natural-language processing",
                 "Reasoning, language and computation",
                 "What can computational models reveal about human thought, perception and language?"
               ],
-              "rationale": "Philosophy of Mind examines consciousness, the mind-body problem and the possibility of intelligent or conscious machines. It implements the explicit academic basis “Ethics, philosophy and responsible artificial intelligence” and “Reasoning, language and computation” and “What can computational models reveal about human thought, perception and language?”."
+              "rationale": "Psycholinguistics examines language production, comprehension and acquisition through psychology and neuroscience. It implements the explicit academic basis “Language, linguistics and natural-language processing” and “Reasoning, language and computation” and “What can computational models reveal about human thought, perception and language?”."
             },
             {
               "courseCode": "HCBCOGN311",
@@ -2425,6 +2397,54 @@
               "rationale": "Linear Algebra provides matrices, vector spaces, eigenvalues and linear transformations used in computational models. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling”."
             },
             {
+              "courseCode": "GOSPHIL111",
+              "basisLabels": [
+                "Reasoning, language and computation",
+                "Cognition, psychology, neuroscience, perception and learning",
+                "Ethics, philosophy and responsible artificial intelligence"
+              ],
+              "rationale": "Introduction to Western Philosophy Introduces knowledge, causation, mind and consciousness and prepares students to study philosophy of mind and agency.. It implements the explicit academic basis “Reasoning, language and computation” and “Cognition, psychology, neuroscience, perception and learning” and “Ethics, philosophy and responsible artificial intelligence”."
+            },
+            {
+              "courseCode": "DISARIN111",
+              "basisLabels": [
+                "Ethics, philosophy and responsible artificial intelligence",
+                "How should AI systems be designed and evaluated responsibly?"
+              ],
+              "rationale": "AI Ethics examines fairness, bias, privacy, accountability, human agency and the moral status of AI systems. It implements the explicit academic basis “Ethics, philosophy and responsible artificial intelligence” and “How should AI systems be designed and evaluated responsibly?”."
+            },
+            {
+              "courseCode": "HCBCOGN212",
+              "basisLabels": [
+                "Cognition, psychology, neuroscience, perception and learning",
+                "What can computational models reveal about human thought, perception and language?"
+              ],
+              "rationale": "Perception & Action examines neural mechanisms of sensory processing, perception and goal-directed action. It implements the explicit academic basis “Cognition, psychology, neuroscience, perception and learning” and “What can computational models reveal about human thought, perception and language?”."
+            },
+            {
+              "courseCode": "GOSPHIL214",
+              "basisLabels": [
+                "Ethics, philosophy and responsible artificial intelligence",
+                "Reasoning, language and computation",
+                "What can computational models reveal about human thought, perception and language?"
+              ],
+              "rationale": "Philosophy of Mind examines consciousness, the mind-body problem and the possibility of intelligent or conscious machines. It implements the explicit academic basis “Ethics, philosophy and responsible artificial intelligence” and “Reasoning, language and computation” and “What can computational models reveal about human thought, perception and language?”."
+            },
+            {
+              "courseCode": "HCBPSYC111",
+              "basisLabels": [
+                "Cognition, psychology, neuroscience, perception and learning"
+              ],
+              "rationale": "Social Psychology provides scientific analysis of social cognition, attitudes, groups and interpersonal behaviour. It implements the explicit academic basis “Cognition, psychology, neuroscience, perception and learning”."
+            },
+            {
+              "courseCode": "DISDATA211",
+              "basisLabels": [
+                "Machine learning, neural networks, deep learning and reinforcement learning"
+              ],
+              "rationale": "Machine Learning introduces regression, classification, resampling, support-vector machines, trees and clustering. It implements the explicit academic basis “Machine learning, neural networks, deep learning and reinforcement learning”."
+            },
+            {
               "courseCode": "GOSPHIL313",
               "basisLabels": [
                 "Ethics, philosophy and responsible artificial intelligence",
@@ -2433,13 +2453,27 @@
               "rationale": "Free Will, Time & the Self examines agency, free will, personal identity and the self. It implements the explicit academic basis “Ethics, philosophy and responsible artificial intelligence” and “Reasoning, language and computation”."
             },
             {
-              "courseCode": "HCBCOGN312",
+              "courseCode": "DISCOMP311",
               "basisLabels": [
-                "Language, linguistics and natural-language processing",
-                "Reasoning, language and computation",
-                "What can computational models reveal about human thought, perception and language?"
+                "Programming, algorithms, software and computer systems",
+                "Learning and computation"
               ],
-              "rationale": "Psycholinguistics examines language production, comprehension and acquisition through psychology and neuroscience. It implements the explicit academic basis “Language, linguistics and natural-language processing” and “Reasoning, language and computation” and “What can computational models reveal about human thought, perception and language?”."
+              "rationale": "Algorithms & Data Structures develops algorithm design, data structures and experimental performance analysis. It implements the explicit academic basis “Programming, algorithms, software and computer systems” and “Learning and computation”."
+            },
+            {
+              "courseCode": "DISMATH314",
+              "basisLabels": [
+                "Mathematics, logic, probability, statistics and formal modelling"
+              ],
+              "rationale": "Probability & Statistics provides probability theory, distributions, estimation, simulation and statistical inference. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling”."
+            },
+            {
+              "courseCode": "DISDATA311",
+              "basisLabels": [
+                "Machine learning, neural networks, deep learning and reinforcement learning",
+                "How can intelligent systems learn, reason, decide and act?"
+              ],
+              "rationale": "Neural Networks & Deep Learning develops neural-network and deep-learning theory and implementation for vision and language applications. It implements the explicit academic basis “Machine learning, neural networks, deep learning and reinforcement learning” and “How can intelligent systems learn, reason, decide and act?”."
             },
             {
               "courseCode": "DISDATA212",
@@ -2458,42 +2492,11 @@
               "rationale": "Optimization Methods in AI develops search, games, constraint satisfaction and optimisation for rational agents. It implements the explicit academic basis “Artificial intelligence, intelligent agents and computational models” and “Learning and computation” and “How can intelligent systems learn, reason, decide and act?”."
             },
             {
-              "courseCode": "HCBPSYC111",
-              "basisLabels": [
-                "Cognition, psychology, neuroscience, perception and learning"
-              ],
-              "rationale": "Social Psychology provides scientific analysis of social cognition, attitudes, groups and interpersonal behaviour. It implements the explicit academic basis “Cognition, psychology, neuroscience, perception and learning”."
-            },
-            {
-              "courseCode": "DISCOMP311",
-              "basisLabels": [
-                "Programming, algorithms, software and computer systems",
-                "Learning and computation"
-              ],
-              "rationale": "Algorithms & Data Structures develops algorithm design, data structures and experimental performance analysis. It implements the explicit academic basis “Programming, algorithms, software and computer systems” and “Learning and computation”."
-            },
-            {
-              "courseCode": "DISMATH314",
-              "basisLabels": [
-                "Mathematics, logic, probability, statistics and formal modelling"
-              ],
-              "rationale": "Probability & Statistics provides probability theory, distributions, estimation, simulation and statistical inference. It implements the explicit academic basis “Mathematics, logic, probability, statistics and formal modelling”."
-            },
-            {
               "courseCode": "HCBPSYC313",
               "basisLabels": [
                 "Experimental design, research methods, academic communication and independent research"
               ],
-              "rationale": "Advanced Research Seminar develops advanced evidence synthesis, meta-analysis, statistical work and research communication. It implements the explicit academic basis “Experimental design, research methods, academic communication and independent research”."
-            },
-            {
-              "courseCode": "MCCCOMM311",
-              "basisLabels": [
-                "Decision-making, optimisation and intelligent autonomous systems",
-                "Experimental design, research methods, academic communication and independent research",
-                "How should AI systems be designed and evaluated responsibly?"
-              ],
-              "rationale": "Persuasive Communication develops evidence-based persuasive communication and analysis of influence in public contexts. It implements the explicit academic basis “Decision-making, optimisation and intelligent autonomous systems” and “Experimental design, research methods, academic communication and independent research” and “How should AI systems be designed and evaluated responsibly?”."
+              "rationale": "Advanced Research Methods & Statistics develops advanced evidence synthesis, meta-analysis, statistical work and research communication. It implements the explicit academic basis “Experimental design, research methods, academic communication and independent research”."
             }
           ]
         }
@@ -2503,117 +2506,116 @@
   "alternativeSelection": {
     "includedCount": 3,
     "stoppingReason": "maximum-reached",
-    "assessment": "The broad Artificial Intelligence response owns all eight direct programme interests. Utrecht’s three formal 45-EC depth packages then provide independently evidenced related directions. Learning and Computation and Reasoning and Computation each support a distinct feasible UCR curriculum; the Cognitive Processing package is assessed but production stops because three UCR alternatives is the permitted maximum."
+    "assessment": "The closest option integrates computational AI with cognitive science. The learning and computation direction develops software, advanced algorithms and autonomous systems. The reasoning and computation direction develops formal logic and algorithmic thinking alongside human cognition and philosophy, with limited advanced symbolic AI. Cognitive Processing also has direct support in UCR perception, cognition and language courses. These contribute to the closest and human-cognition options. The comparison presents three options."
   },
   "comparisonAlignment": [
     {
       "componentId": "basic-programming",
       "matchType": "substantive-match",
       "ucrCourseCode": "DISGATE101",
-      "rationale": "Both provide foundational programming and computational modelling for later AI study."
+      "rationale": "Both develop programming and computational problem-solving. UCR uses Python."
     },
     {
       "componentId": "route-comp-intel",
       "matchType": "substantive-match",
       "ucrCourseCode": "DISARIN211",
-      "rationale": "Both address computational decision-making for intelligent agents under uncertainty."
+      "rationale": "Both study methods for intelligent systems. UCR focuses on probabilistic decision-making under uncertainty."
     },
     {
       "componentId": "mandatory-algorithms",
       "matchType": "substantive-match",
       "ucrCourseCode": "DISCOMP311",
-      "rationale": "Both directly cover data structures, algorithms and computational complexity."
+      "rationale": "Both study data structures, algorithms and computational complexity."
     },
     {
       "componentId": "basic-ml1",
       "matchType": "substantive-match",
       "ucrCourseCode": "DISDATA211",
-      "rationale": "Both provide a dedicated introduction to machine-learning methods and evaluation."
+      "rationale": "Both teach machine-learning methods and model evaluation. UCR covers regression, classification and unsupervised learning."
     },
     {
       "componentId": "basic-language-models",
       "matchType": "substantive-match",
       "ucrCourseCode": "DISDATA311",
-      "rationale": "UCR develops neural and deep-learning models for language applications; Utrecht provides a dedicated language-models course."
+      "rationale": "UCR studies transformers and language applications within a broader neural networks course. Utrecht provides a dedicated language models course."
     },
     {
       "componentId": "route-ml2",
       "matchType": "substantive-match",
       "ucrCourseCode": "DISARIN312",
-      "rationale": "Reinforcement Learning provides advanced learning theory and implementation within the selected route."
+      "rationale": "UCR develops advanced learning through reinforcement learning and implementing agents. Utrecht’s course covers a broader set of advanced machine-learning methods."
     },
     {
       "componentId": "basic-math",
       "matchType": "substantive-match",
       "ucrCourseCode": "DISGATE102",
-      "rationale": "Both provide mathematical foundations for computational modelling and AI."
+      "rationale": "Both teach mathematics for modelling. UCR focuses on calculus, equations and dynamic models."
     },
     {
       "componentId": "basic-logic",
       "matchType": "substantive-match",
       "ucrCourseCode": "DISARIN212",
-      "rationale": "Both develop formal logic and discrete reasoning for computing and AI."
+      "rationale": "Both develop formal logic for computing and AI. UCR also covers discrete structures and proof techniques."
     },
     {
       "componentId": "methods",
       "matchType": "substantive-match",
       "ucrCourseCode": "HCBPSYC211",
-      "rationale": "Both develop experimental analysis and statistical methods for empirical research."
+      "rationale": "Both develop statistical and experimental methods for empirical research."
     },
     {
       "componentId": "basic-cognitive",
       "matchType": "substantive-match",
       "ucrCourseCode": "HCBGATE102",
-      "rationale": "Both introduce cognition, psychology and neuroscience as foundations for interdisciplinary AI."
+      "rationale": "Both introduce human cognition and ways to study it. UCR also gives an introduction to neuroanatomy and behaviour."
     },
     {
       "componentId": "route-choice-cognition",
       "matchType": "substantive-match",
-      "ucrCourseCode": "HCBCOGN311",
-      "rationale": "Both provide advanced cognitive study; UCR is broader than Utrecht’s experimental psycholinguistics choice."
+      "ucrCourseCode": "HCBCOGN312",
+      "rationale": "Both study language processing and how to investigate it. UCR emphasises the psychology and neuroscience of language."
     },
     {
       "componentId": "route-nlp",
-      "matchType": "substantive-match",
-      "ucrCourseCode": "HCBCOGN312",
-      "rationale": "Both investigate language processing; UCR focuses on human psycholinguistics rather than computational NLP."
+      "matchType": "unmatched",
+      "rationale": "Utrecht builds computational models of language processing. UCR studies language applications within deep learning and human language in psycholinguistics."
     },
     {
       "componentId": "route-philosophy",
       "matchType": "substantive-match",
       "ucrCourseCode": "GOSPHIL214",
-      "rationale": "Both examine philosophical foundations of intelligence, learning and mind."
+      "rationale": "Both consider philosophical questions about intelligence and mind. UCR also studies identity and conscious experience."
     },
     {
       "componentId": "mandatory-philosophy",
       "matchType": "substantive-match",
       "ucrCourseCode": "DISARIN111",
-      "rationale": "Both critically examine philosophical, ethical and societal questions raised by AI."
+      "rationale": "Both consider philosophical questions about AI. UCR focuses on issues such as fairness, privacy, agency and responsibility."
     },
     {
       "componentId": "basic-languages",
       "matchType": "unmatched",
-      "rationale": "The selected UCR courses do not directly reproduce this Utrecht component; it remains a visible curricular difference."
+      "rationale": "Utrecht provides a dedicated course on formal and natural languages. UCR covers related formal tools within logic and algorithms."
     },
     {
       "componentId": "basic-nature",
       "matchType": "unmatched",
-      "rationale": "The selected UCR courses do not directly reproduce this Utrecht component; it remains a visible curricular difference."
+      "rationale": "Utrecht devotes a course to connections between natural processes and computation."
     },
     {
       "componentId": "route-choice-logic",
       "matchType": "unmatched",
-      "rationale": "The selected UCR courses do not directly reproduce this Utrecht component; it remains a visible curricular difference."
+      "rationale": "Utrecht provides a dedicated advanced logic course. UCR develops formal reasoning within logic and algorithms."
     },
     {
       "componentId": "thesis",
       "matchType": "unmatched",
-      "rationale": "The selected UCR courses do not directly reproduce this Utrecht component; it remains a visible curricular difference."
+      "rationale": "Utrecht requires a supervised thesis after preparation in experimental methods. UCR offers optional independent research outside these schedules."
     },
     {
       "componentId": "profile-open",
       "matchType": "unmatched",
-      "rationale": "The selected UCR courses do not directly reproduce this Utrecht component; it remains a visible curricular difference."
+      "rationale": "Utrecht leaves 45 EC for profiling, such as a minor or electives, subject to programme requirements."
     }
   ],
   "blocks": [
@@ -2684,7 +2686,7 @@
               "text": "Computationele intelligentie",
               "credits": 7.5,
               "componentId": "route-comp-intel",
-              "note": "Second fixed course in the formally selected package."
+              "note": "Required in Learning and Computation."
             }
           }
         },
@@ -2814,7 +2816,7 @@
               "text": "Machine Learning II",
               "credits": 7.5,
               "componentId": "route-ml2",
-              "note": "First fixed course in the formally selected Learning and Computation package."
+              "note": "Required in Learning and Computation."
             }
           }
         },
@@ -2998,6 +3000,15 @@
               "courseCode": "BENGATE102"
             }
           }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Linear Systems",
+              "credits": 7.5,
+              "courseCode": "DISMATH312"
+            }
+          }
         }
       ]
     },
@@ -3055,40 +3066,30 @@
         {
           "cells": {
             "ucr-1": {
-              "text": "Higher Order Functions",
+              "text": "Psycholinguistics",
               "credits": 7.5,
-              "courseCode": "HCBCOGN311"
+              "courseCode": "HCBCOGN312"
             },
             "ucr-3": {
-              "text": "Higher Order Functions",
+              "text": "Psycholinguistics",
               "credits": 7.5,
-              "courseCode": "HCBCOGN311"
+              "courseCode": "HCBCOGN312"
             },
             "comparator": {
               "text": "Experimental Psycholinguistics",
               "credits": 7.5,
               "componentId": "route-choice-cognition",
-              "note": "First listed eligible course in official bound-choice group C."
+              "note": "Example from choice group C."
             }
           }
         },
         {
           "cells": {
-            "ucr-1": {
-              "text": "Psycholinguistics",
-              "credits": 7.5,
-              "courseCode": "HCBCOGN312"
-            },
-            "ucr-3": {
-              "text": "Psycholinguistics",
-              "credits": 7.5,
-              "courseCode": "HCBCOGN312"
-            },
             "comparator": {
               "text": "Models for Language Processing",
               "credits": 7.5,
               "componentId": "route-nlp",
-              "note": "Third fixed course in the formally selected package."
+              "note": "Required in Learning and Computation."
             }
           }
         },
@@ -3098,15 +3099,6 @@
               "text": "Social Psychology",
               "credits": 7.5,
               "courseCode": "HCBPSYC111"
-            }
-          }
-        },
-        {
-          "cells": {
-            "ucr-1": {
-              "text": "Medical & Health Psychology",
-              "credits": 7.5,
-              "courseCode": "HCBPSYC311"
             }
           }
         },
@@ -3130,7 +3122,7 @@
               "text": "Philosophy of Learning and Computation",
               "credits": 7.5,
               "componentId": "route-philosophy",
-              "note": "Fourth fixed course in the formally selected package."
+              "note": "Required in Learning and Computation."
             }
           }
         },
@@ -3140,6 +3132,29 @@
               "text": "Free Will, Time & the Self",
               "credits": 7.5,
               "courseCode": "GOSPHIL313"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-1": {
+              "text": "Higher Order Functions",
+              "credits": 7.5,
+              "courseCode": "HCBCOGN311"
+            },
+            "ucr-3": {
+              "text": "Higher Order Functions",
+              "credits": 7.5,
+              "courseCode": "HCBCOGN311"
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-3": {
+              "text": "Introduction to Western Philosophy",
+              "credits": 7.5,
+              "courseCode": "GOSPHIL111"
             }
           }
         }
@@ -3179,23 +3194,13 @@
               "text": "Persuasive Communication",
               "credits": 7.5,
               "courseCode": "MCCCOMM311"
-            },
-            "ucr-2": {
-              "text": "Persuasive Communication",
-              "credits": 7.5,
-              "courseCode": "MCCCOMM311"
-            },
-            "ucr-3": {
-              "text": "Persuasive Communication",
-              "credits": 7.5,
-              "courseCode": "MCCCOMM311"
             }
           }
         },
         {
           "cells": {
             "ucr-3": {
-              "text": "Advanced Research Seminar",
+              "text": "Advanced Research Methods & Statistics",
               "credits": 7.5,
               "courseCode": "HCBPSYC313"
             }
@@ -3244,7 +3249,7 @@
               "text": "Logische methoden voor KI II",
               "credits": 7.5,
               "componentId": "route-choice-logic",
-              "note": "First listed eligible course in official bound-choice group B."
+              "note": "Example from choice group B."
             }
           }
         },
@@ -3254,7 +3259,7 @@
               "text": "Bacheloreindwerkstuk KI",
               "credits": 7.5,
               "componentId": "thesis",
-              "note": "Compulsory advanced final work."
+              "note": "Utrecht requires a supervised thesis after preparation in experimental methods. UCR offers optional independent research outside these schedules."
             },
             "ucr-1": {
               "text": "Optional independent research",
@@ -3282,7 +3287,16 @@
               "text": "Profileringsruimte",
               "credits": 45,
               "componentId": "profile-open",
-              "note": "Genuine profiling space; no subject is prescribed."
+              "note": "Utrecht leaves 45 EC for profiling, such as a minor or electives, subject to programme requirements."
+            }
+          }
+        },
+        {
+          "cells": {
+            "ucr-2": {
+              "text": "Business & Economy in the Age of AI",
+              "credits": 7.5,
+              "courseCode": "BENBUSI211"
             }
           }
         }
@@ -3293,9 +3307,145 @@
     {
       "type": "related-fields-not-full-discipline",
       "placement": "comparison",
-      "text": "Utrecht’s Artificial Intelligence bachelor provides a tightly integrated 180-EC sequence across five contributing disciplines, including dedicated formal and natural languages, language models, automated reasoning, knowledge representation and computational language processing. UCR can assemble strong interdisciplinary AI pathways with substantial programming, algorithms, data, learning, robotics, cognition, ethics and research, but it does not reproduce that complete specialist sequence or Utrecht’s fixed depth-package structure."
+      "text": "Utrecht combines a common AI core with a formal depth package. UCR covers related topics across AI, mathematics, software, cognitive science and philosophy. Utrecht gives more dedicated study to formal languages, advanced logic and computational language processing."
     }
   ],
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "Utrecht’s Artificial Intelligence bachelor studies intelligence in people and machines through computing, mathematics, cognitive science, language and philosophy.",
+    "comparisonExplanation": "The 2026–2027 example follows Utrecht’s Learning and Computation package. The three UCR plans focus on AI and cognitive science, software and autonomous systems, or reasoning and human cognition.",
+    "curriculum": {
+      "status": "complete",
+      "componentIds": [
+        "basic-logic",
+        "basic-cognitive",
+        "basic-programming",
+        "basic-math",
+        "basic-languages",
+        "basic-nature",
+        "basic-language-models",
+        "basic-ml1",
+        "mandatory-algorithms",
+        "mandatory-philosophy",
+        "route-ml2",
+        "route-comp-intel",
+        "route-nlp",
+        "route-philosophy",
+        "route-choice-logic",
+        "route-choice-cognition",
+        "methods",
+        "thesis",
+        "profile-open"
+      ],
+      "yearLabel": "2026–2027",
+      "routeLabel": "Learning and Computation"
+    },
+    "conceptProgrammeIds": [
+      "ucr-1",
+      "ucr-2",
+      "ucr-3"
+    ],
+    "noteTypes": [
+      "related-fields-not-full-discipline"
+    ],
+    "cellNotes": [
+      {
+        "programmeId": "comparator",
+        "reference": "basic-programming",
+        "text": "Both develop programming and computational problem-solving. UCR uses Python."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "route-comp-intel",
+        "text": "Both study methods for intelligent systems. UCR focuses on probabilistic decision-making under uncertainty."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "mandatory-algorithms",
+        "text": "Both study data structures, algorithms and computational complexity."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "basic-ml1",
+        "text": "Both teach machine-learning methods and model evaluation. UCR covers regression, classification and unsupervised learning."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "basic-language-models",
+        "text": "UCR studies transformers and language applications within a broader neural networks course. Utrecht provides a dedicated language models course."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "route-ml2",
+        "text": "UCR develops advanced learning through reinforcement learning and implementing agents. Utrecht’s course covers a broader set of advanced machine-learning methods."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "basic-math",
+        "text": "Both teach mathematics for modelling. UCR focuses on calculus, equations and dynamic models."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "basic-logic",
+        "text": "Both develop formal logic for computing and AI. UCR also covers discrete structures and proof techniques."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "methods",
+        "text": "Both develop statistical and experimental methods for empirical research."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "basic-cognitive",
+        "text": "Both introduce human cognition and ways to study it. UCR also gives an introduction to neuroanatomy and behaviour."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "route-choice-cognition",
+        "text": "Both study language processing and how to investigate it. UCR emphasises the psychology and neuroscience of language."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "route-nlp",
+        "text": "Utrecht builds computational models of language processing. UCR studies language applications within deep learning and human language in psycholinguistics."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "route-philosophy",
+        "text": "Both consider philosophical questions about intelligence and mind. UCR also studies identity and conscious experience."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "mandatory-philosophy",
+        "text": "Both consider philosophical questions about AI. UCR focuses on issues such as fairness, privacy, agency and responsibility."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "basic-languages",
+        "text": "Utrecht provides a dedicated course on formal and natural languages. UCR covers related formal tools within logic and algorithms."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "basic-nature",
+        "text": "Utrecht devotes a course to connections between natural processes and computation."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "route-choice-logic",
+        "text": "Utrecht provides a dedicated advanced logic course. UCR develops formal reasoning within logic and algorithms."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "thesis",
+        "text": "Utrecht requires a supervised thesis after preparation in experimental methods. UCR offers optional independent research outside these schedules."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "profile-open",
+        "text": "Utrecht leaves 45 EC for profiling, such as a minor or electives, subject to programme requirements."
+      }
+    ]
+  },
   "optionalIndependentResearch": {
     "id": "optional-independent-research",
     "text": "Optional independent research",
