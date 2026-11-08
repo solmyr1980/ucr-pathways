@@ -1,0 +1,899 @@
+{
+  "caseId": "cp-000154",
+  "checkedAt": "2026-11-08T09:32:05.013585+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000154.json": "ce89debbdab04562b71969f662d972a23af783b4",
+    "data/counselor/comparisons/cp-000154.json": "59328531179d628c7442a3f6b25c5797efda92a6",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "2068982f4281e7e2715e73a8ffa84ccb9c0fcf95",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json": "d65b11aff73176eaeafe340a8407452f4849634a",
+    "pilot/shiny/data/courses/BEN.json": "1595932255166785ac58524e448c546d4eaaf6fd",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json": "175487e0b5f55d758ab798a215d4fd730b6e82a9",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json": "e740f97a20fff4b407e91fb20c8b0c45efabddb8",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json": "abc6deddd935219ffc0b7c6c1b005a4fd8a9374f",
+    "pilot/shiny/data/courses/HCB.json": "23459da6d1ee2106951372adef085604fdb4d56b",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000123/content-review.json": "5c2bde563d51ec7e3b4363c070e9cc52456d1f30",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000142/content-review.json": "42f3599e27bcef59bf2ee495c224f33951410736",
+    "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+  },
+  "presentationMode": "normal",
+  "mapping": {
+    "title and links": "The selection handler uses the index label. The table links the comparator title to the official curriculum page and UCR columns to the UCR course reference. Additional official sources were inspected as case evidence.",
+    "audience.curriculum and academicRationale": "render_audience_context and render_comparison_summary select the 2026–2027 label, the elective choices, programme explanation and three selected concepts. Normal comparison mode applies.",
+    "blocks, cells and notes": "render_compare_table and audience_cell_note display block titles, workbook course names, component titles, credit badges and uniquely resolved notes about matches, choices and differences. render_audience_notes selects the single comparison note.",
+    "selectedDescriptions": "The course button uses courseCode and exact workbook name. The modal resolves each selected description by department and code, and the content review checked the actual text or reused the exact text with matching source hashes. Every selected code has description text.",
+    "optionalIndependentResearch": "The 15 EC UCR independent research comparison element is separate from the scheduled degree and Open Universiteit’s required 15 EC Psychology thesis."
+  },
+  "fieldPaths": [
+    "review-programmes.programmes[].displayName",
+    "comparator.name",
+    "comparator.primarySourceUrl",
+    "comparator.additionalSourceUrls",
+    "comparator.components",
+    "comparator.sourceNotes",
+    "audience.programmeDescription",
+    "audience.comparisonExplanation",
+    "audience.curriculum",
+    "audience.conceptProgrammeIds",
+    "academicRationale.alternatives[].concept",
+    "audience.noteTypes",
+    "notes[].text",
+    "programmes[].label",
+    "blocks[].title",
+    "blocks[].rows[].cells",
+    "audience.cellNotes",
+    "optionalIndependentResearch",
+    "pilot/shiny/data/courses/*.json descriptions by courseCode"
+  ],
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "This Dutch-taught, part-time degree studies human behavior, cognition, development and mental health through psychological theory and research.",
+    "comparisonExplanation": "Open Universiteit combines compulsory psychology and research courses with minor-course electives and a thesis. The three UCR options emphasize broad psychology, clinical and health questions, or brain and cognition.",
+    "curriculum": {
+      "status": "complete",
+      "componentIds": [
+        "p-intro",
+        "p-science",
+        "p-research",
+        "p-social",
+        "p-development",
+        "p-health",
+        "p-qualitative",
+        "p-clinical1a",
+        "p-psychopathology",
+        "p-work-org",
+        "p-literature",
+        "post-experimental",
+        "post-history",
+        "post-conversation",
+        "post-cross-sectional",
+        "post-cognition",
+        "post-neuro",
+        "post-evolution",
+        "post-psychometrics",
+        "post-longitudinal",
+        "post-psych-conversation",
+        "post-work-health",
+        "post-diagnostics",
+        "minor-choice",
+        "free-space",
+        "thesis"
+      ],
+      "yearLabel": "2026–2027"
+    },
+    "conceptProgrammeIds": [
+      "ucr-1",
+      "ucr-2",
+      "ucr-3"
+    ],
+    "noteTypes": [
+      "related-fields-not-full-discipline"
+    ],
+    "cellNotes": [
+      {
+        "programmeId": "comparator",
+        "reference": "p-intro",
+        "text": "Both introduce psychology through biological, cognitive and behavioural perspectives; OU provides a broader 10-EC disciplinary survey."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "p-social",
+        "text": "Both cover theories and evidence about social influence, cognition and interpersonal behaviour."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "p-clinical1a",
+        "text": "Open Universiteit teaches personality and theoretical approaches in a dedicated clinical course."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "post-conversation",
+        "text": "Open Universiteit teaches structured conversational practice. UCR develops communication through rhetoric and persuasion."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "post-history",
+        "text": "UCR integrates historical context in individual courses but lacks a selected dedicated history-of-psychology module."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "p-work-org",
+        "text": "Both study workplace behavior, motivation and teams. UCR also covers leadership."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "p-research",
+        "text": "Both introduce research design, measurement, experiments and statistics."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "p-qualitative",
+        "text": "Both provide qualitative research design, interviewing and interpretation."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "post-experimental",
+        "text": "Both develop experimental methods and statistical analysis for behavioural research."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "post-cross-sectional",
+        "text": "Both analyze empirical data. Open Universiteit applies this specifically to cross-sectional psychological research."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "post-psychometrics",
+        "text": "Open Universiteit studies psychological measurement and decisions in a dedicated course. UCR develops general quantitative methods."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "p-literature",
+        "text": "Both develop critical synthesis of psychological research. UCR includes evidence appraisal and meta-analysis."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "p-science",
+        "text": "UCR teaches scientific reasoning across its research courses but lacks a separate selected introduction-to-science module."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "post-longitudinal",
+        "text": "UCR includes research design and statistics but lacks a selected dedicated longitudinal-research practicum."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "thesis",
+        "text": "Open Universiteit requires a 15 EC thesis after 120 EC, including all research practicums and the literature study. UCR offers optional independent research outside the scheduled degree."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "p-health",
+        "text": "Both apply psychological theory and evidence to health, stress and illness."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "p-psychopathology",
+        "text": "Both examine mental disorders and psychopathology."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "p-development",
+        "text": "Both examine psychological development across the lifespan."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "post-diagnostics",
+        "text": "Both examine psychological assessment and diagnosis; UCR also covers psychotherapies."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "post-psych-conversation",
+        "text": "UCR includes communication and psychological study but lacks a selected dedicated psychological-interviewing practicum."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "post-work-health",
+        "text": "UCR covers health and social behaviour but lacks a selected dedicated work-and-health psychology module."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "post-evolution",
+        "text": "Open Universiteit applies evolution to psychological questions in a dedicated course. UCR develops related biological foundations."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "post-neuro",
+        "text": "Both study neural mechanisms of behavior. Open Universiteit also teaches psychopharmacology in this course."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "post-cognition",
+        "text": "Both examine the biological and cognitive bases of higher mental functions."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "free-space",
+        "text": "Choose eligible courses for 20 EC of free electives."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "minor-choice",
+        "text": "Choose 25 EC of minor courses. One option is a complete 15 EC minor plus 10 EC from other minor courses."
+      }
+    ]
+  },
+  "notes": [
+    {
+      "type": "related-fields-not-full-discipline",
+      "placement": "comparison",
+      "text": "Both universities offer behavioral, social, cognitive, developmental and health psychology with research methods. Open Universiteit also requires dedicated psychological interviewing, psychometrics and longitudinal research courses and a 15 EC thesis."
+    }
+  ],
+  "programmeLabels": [
+    "Psychology at Open Universiteit",
+    "Psychology, Behavior and Research",
+    "Clinical, Health and Lifespan Psychology",
+    "Brain, Cognition and Behavioral Science"
+  ],
+  "selectedDescriptions": {
+    "ACCPPDE101": {
+      "name": "Personal & Professional Development",
+      "text": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+        "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Personal & Professional Development"
+      },
+      "cache": "pilot/shiny/data/courses/ACC.json",
+      "cacheBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8"
+    },
+    "BENGATE102": {
+      "name": "Research Methods & Statistics",
+      "text": "Research Methods & Statistics introduces research design, operationalisation, measurement, sampling, surveys and experiments. Students study descriptive statistics, estimation, hypothesis testing and introductory regression using R and R Commander. A group project develops a research plan and instruments, collects and analyses data, and reports findings under research-ethics and privacy requirements.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "9d88751452d5c0a6888ac7901a73d1a848617dee2b587d4df64815fc39ad8813",
+        "descriptionSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Research Methods & Statistics"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENLEAD311": {
+      "name": "Psychology of Organizations & Leadership",
+      "text": "Psychology of Organizations & Leadership examines the psychological, social and structural dynamics of organisations. Case discussions and research-based frameworks address motivation, leadership, group dynamics, organisational culture, power, conflict and change.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "a6257b450ccaf3dcad4ed2cff83ec2065a49f8afb6c0549530896581e301fa60",
+        "descriptionSha256": "668a9f550a115ab294eb553586c70cf6e941271625ed97b1527613ed53b1aadf",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Psychology of Organizations & Leadership"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "DISDATA111": {
+      "name": "Introduction to Data Science",
+      "text": "Develops foundational skills in data visualization, cleaning and manipulation. Explores spatial and text data and includes hands‑on work with datasets from various disciplines.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "85912cb78bd13d1aa873ef9cca2a8d7e00345543f75d1f07b56d808f1c6702ef",
+        "descriptionSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Data Science"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISDATA211": {
+      "name": "Machine Learning",
+      "text": "Machine Learning introduces methods for understanding data and making predictions, including linear regression, classification, resampling, shrinkage, tree-based methods, support vector machines and clustering. Real-world examples illustrate the methods, their strengths and limitations.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6a112d70695b992eb7664e19ed9656612b364e2c28a116980a602eef2687ace6",
+        "descriptionSha256": "ae7fce189f80fcd62e521b78f43d3119e98a2ee78d29f61127a0f6b61faaf862",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Machine Learning"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISGATE101": {
+      "name": "Introduction to Programming",
+      "text": "Introduces programming and computer science. Covers structured programming, data constructs, testing, debugging and object‑oriented programming with Python, and develops computational problem‑solving skills.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "e2014f5db9a4328ff4efaa51f0273169ae1c9427a4ccf85bea5ee463794a80a8",
+        "descriptionSha256": "efe3b89e39a2611d475d27d09b06151a514076321c7453cd31f9cfbbd84248bf",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Programming"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "GOSPHIL212": {
+      "name": "Ethics",
+      "text": "Ethics examines moral reasoning through historical and contemporary theories and close philosophical reading. Students study utilitarianism, Kantian ethics, virtue ethics, contractarianism and feminist ethics, alongside Nietzsche, Murdoch and Nagel. Reflection and research essays develop interpretation, argument evaluation and an independent position on ethical theory or a practical ethical problem.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6d4bf415a51b5b6fb41f341d23fe8b8ce483263f17505e77d1a4ae37299fe30f",
+        "descriptionSha256": "d17cd0a6631823a666c2978b81f52bc5e8b5c8e52ed68edccb3fa37073146e5b",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Ethics"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPHIL214": {
+      "name": "Philosophy of Mind",
+      "text": "Examines historical and modern work on the philosophy of mind. Discusses Descartes’ dualism, the nature of consciousness, AI and animal minds, personal identity, transformative experiences and the influence of technology on experience.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Philosophy of Mind",
+        "sourceField": "description2",
+        "sourceSha256": "cd2e55eb0c7f8a45220107e2f961346ef9960975db1d457cb213c6bf58ef25a6",
+        "descriptionSha256": "cd2e55eb0c7f8a45220107e2f961346ef9960975db1d457cb213c6bf58ef25a6",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPHIL311": {
+      "name": "Philosophy of Emotion",
+      "text": "Explores emotions from a philosophical perspective. Discusses nature and rationality of emotions, their role in ethics and art, and draws on historical and contemporary sources.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Philosophy of Emotion",
+        "sourceField": "description2",
+        "sourceSha256": "62324bef464be860edac1d19bc42cc912320da6e34d73f0104c1242f1441c115",
+        "descriptionSha256": "62324bef464be860edac1d19bc42cc912320da6e34d73f0104c1242f1441c115",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI111": {
+      "name": "Introduction to Sociology",
+      "text": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Sociology",
+        "sourceField": "description2",
+        "sourceSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "descriptionSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI212": {
+      "name": "Qualitative Research Methodology",
+      "text": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "6531d96f817df19cfa773d8d8004f44da6041eeab39acfce1462438728cd1eeb",
+        "descriptionSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Qualitative Research Methodology"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI311": {
+      "name": "New Issues in Contemporary Social Theory",
+      "text": "New Issues in Contemporary Social Theory studies civil society through critical, neo-functionalist and decolonial perspectives. Topics include trust, social capital, public spheres, solidarity, social movements and civil repair. An experience report connects engagement or observation to course concepts, while an individual project uses theoretical and empirical sources to analyse a civil-society organisation, movement or initiative.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "New Issues in Contemporary Social Theory",
+        "sourceField": "profile",
+        "sourceSha256": "f54abdf8a1ca13792cdc4bc2d390f202721dd6280b0cae44aa0609c2db02dbbf",
+        "descriptionSha256": "367314c88b9f1c559ccd023159845f9624f353f78d898bc66b690ebe3392336b",
+        "mode": "edited",
+        "reviewedOn": "2026-10-31",
+        "reviewNote": "Read the selected current profile and cumulative outline limitation fields. The displayed summary follows its substantive topics and activities; it omits unsupported resource-planning or mandatory NGO group-project claims from superseded cache wording."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "HCBBIOM111": {
+      "name": "Epidemiology & Public Health",
+      "text": "Introduces epidemiology and the evidence used in public health. It examines disease patterns, risks and changes over time, and how research can inform decisions about population health.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "fc3b09c221d581aa0003b1813767c4ff584789c32cacb797e3bb56abd2970e51",
+        "descriptionSha256": "0ae9e35a4b55c6572c949a617acdd9d0e5a4d3771f41b5a8bcab919ce2f91303",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Epidemiology & Public Health"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBBIOM211": {
+      "name": "Functional Anatomy",
+      "text": "Studies human anatomical structure in relation to function through regional and body-system blocks. Medical images, anatomical drawing, human-specimen material and guided practicals develop spatial reasoning, including observation in a dissection room. Historical, ethical and societal questions accompany these academic learning activities, which do not provide clinical qualification.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "4542a01fac8a44e9e62648574c09642d3421f6b177fec8e95f3df721e4b71a90",
+        "descriptionSha256": "cea7b96fb837d4dd6ebfe08439d4c270a3d7b639ce32ae5c126c61733e872779",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Functional Anatomy"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBBIOM311": {
+      "name": "Pharmacology",
+      "text": "Covers the science of drugs—their origin, composition, kinetics, therapeutic use and toxicity. Discusses drug targets, interactions and kinetics, enabling students to explain therapies in terms of molecular targets and physiological consequences.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Pharmacology",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "a9200df39ef2dfae98fe89bb2fb82742ad3f706b15ecaad186ea6b1fe36900fa",
+        "descriptionSha256": "a9200df39ef2dfae98fe89bb2fb82742ad3f706b15ecaad186ea6b1fe36900fa",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBBIOM313": {
+      "name": "Mechanisms of Disease",
+      "text": "Examines how normal organ-system function relates to disease. Students connect anatomy and physiology with symptoms, disease mechanisms, diagnosis, treatment and prognosis across digestive, cardiovascular, respiratory, renal, endocrine and nervous systems. Clinical cases and an imaginary-disease assignment develop coherent pathophysiological explanations.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "4d8acb13deb96b3778bdefa44792604f9b8247830d5e0a3817dfc45c9da5e8a1",
+        "descriptionSha256": "03f76444a6b246585aa85e512b35f15719415e8261e05edbf7ad3568c4aa0c89",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Mechanisms of Disease"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBCOGN112": {
+      "name": "Neurobiology",
+      "text": "Neurobiology studies nervous systems and behaviour through comparative anatomy, evolution and physiology. Students examine animal behaviour, research models, welfare and research ethics, then connect biological rhythms and regulatory behaviour to sleep, lifestyle drugs, mood and eating disorders. Comparative-anatomy work and a literature-based report apply neurobiological concepts.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "faf0f85889650abcd1cd20e8038228eb9964ce43c317af9edc586eac043bc30c",
+        "descriptionSha256": "e17b6afb9badd04addc522b9ea98346fd18d4aa31df815d0b792950fa6ab940a",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Neurobiology"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBCOGN212": {
+      "name": "Perception & Action",
+      "text": "Explores neural mechanisms behind perception and action. Examines how the brain processes sensory information and guides goal‑directed behaviour using methods from cognitive neuroscience and neuropsychology.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Perception & Action",
+        "sourceField": "description2",
+        "sourceSha256": "d5057fb9cd7115d620719855269abccdb6cd5c3585d55631b2c6322bc0346aab",
+        "descriptionSha256": "d5057fb9cd7115d620719855269abccdb6cd5c3585d55631b2c6322bc0346aab",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBCOGN311": {
+      "name": "Higher Order Functions",
+      "text": "Higher Order Functions deepens knowledge of neurophysiology, neuroanatomy and experimental cognitive neuroscience. Topics include attention, memory, emotion, cognitive control, social cognition, pain and consciousness. An attentional-blink experiment and a team research proposal develop engagement with empirical research, experimental design and ethical reflection.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "f6033f78b541acd4a5788e843aa744855b5a99d2841ce90ebdd17797944c5d42",
+        "descriptionSha256": "42d96460b731996549fb6525fa622439622a99854e4db744eabc7c61a5e19598",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Higher Order Functions"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBCOGN312": {
+      "name": "Psycholinguistics",
+      "text": "Psycholinguistics is the study of the neurobiological and psychological factors that enable us to acquire, use, and understand language. Modern research draws on cognitive psychology, neuroscience, and computer science to investigate how language is processed. The course focuses primarily, though not exclusively, on the neuroscience of language. Students examine theoretical and experimental issues in speech production and comprehension, language impairments, the relationship between thought and language, and the evolution and acquisition of language. They also gain hands-on experience with experimental approaches to the study of language and develop an understanding of human linguistic capacity as a subject of multidisciplinary research. Topics covered: What is language? Evolutionary aspects of language and animal communication; language and thought; aphasia; language acquisition; bilingualism; speech comprehension; semantics; reading and dyslexia; speech production.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Psycholinguistics",
+        "sourceField": "description2",
+        "sourceSha256": "8b48cfd32534496954068f0d33edc9cd03d1856a6e075c0364ae1ec55dad27ec",
+        "descriptionSha256": "8b48cfd32534496954068f0d33edc9cd03d1856a6e075c0364ae1ec55dad27ec",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBGATE101": {
+      "name": "Foundation of Life, Health & Biomedicine",
+      "text": "Introduces the molecular and cellular foundations of life and biomedical science. Topics include biological molecules, cells and membranes, communication, metabolism, cell division, heredity, gene expression and biotechnology. Students analyse scientific experiments and papers through teaching contributions and a research-based mini-symposium, with additional topics selected with the class.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "e0b2da3bcb6fa48f717a1cad6591d9594b5145b6c3f4ba362ddc812790ff17f5",
+        "descriptionSha256": "12ff60a52ad56e3df4604fcc60c5982e9cf5e111eb66a6b7eac99bfd23ca4e28",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Foundation of Life, Health & Biomedicine"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBGATE102": {
+      "name": "Introduction to Brain & Behavior",
+      "text": "Explores why people behave as they do and how brain injuries affect mental processes. Discusses nature and nurture, introduces brain anatomy and psychological theories, and provides a gateway to cognitive science and clinical psychology.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Brain & Behavior",
+        "sourceField": "description2",
+        "sourceSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+        "descriptionSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBLIFE211": {
+      "name": "Molecular Cell Biology",
+      "text": "Provides foundation for practical applications in life science. Focuses on cellular biology of eukaryotes and prokaryotes, revisits concepts from introductory courses, examines current research and encourages evaluating reproducibility and modernising methods.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Molecular Cell Biology",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "90f3f9fc225c54575e44aec821bccfbe6e89ca74f0df25466ff8958c80335a1c",
+        "descriptionSha256": "90f3f9fc225c54575e44aec821bccfbe6e89ca74f0df25466ff8958c80335a1c",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBLIFE212": {
+      "name": "Human Physiology",
+      "text": "Studies normal functioning of the human body, covering structure‑function relationships, energy handling, homeostasis, signalling, organ systems and integration of their functions.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Human Physiology",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "60ec8f664bc76e7ba86aeff463b8f4229a7c8c75e9174c3eee6a0efbaf8baf49",
+        "descriptionSha256": "60ec8f664bc76e7ba86aeff463b8f4229a7c8c75e9174c3eee6a0efbaf8baf49",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBLIFE214": {
+      "name": "Life Science Laboratory",
+      "text": "Introduces biochemical and molecular laboratory work. Covers themes like blood, proteins, bacteria, DNA and bioinformatics and provides a foundation for clinical and biomedical research.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Life Science Laboratory",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "6d3645c7c4b319729041691b93bbd7b6a49e6e45642d846a75508ab15a829e3b",
+        "descriptionSha256": "6d3645c7c4b319729041691b93bbd7b6a49e6e45642d846a75508ab15a829e3b",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBLIFE311": {
+      "name": "Molecular Pathology & Genetics",
+      "text": "Covers general and molecular pathology and genetics. Studies cell injury, death, inflammation, immunity, tissue repair, regeneration, fibrosis and neoplasia, examines genetic mutations and diseases, and discusses genetic testing and ethical considerations.",
+      "source": {
+        "courseName": "Molecular Pathology & Genetics",
+        "sourceField": "description2",
+        "sourceSha256": "c93965cca70f74df45213ec33738850a3d29e868c184fb3803b48d44201e5aa9",
+        "descriptionSha256": "c93965cca70f74df45213ec33738850a3d29e868c184fb3803b48d44201e5aa9"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC111": {
+      "name": "Social Psychology",
+      "text": "Covers main theories, findings and principles of social psychology, emphasising its scientific approach to understanding how people’s feelings, thoughts and behaviour are influenced by the presence of others.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Social Psychology",
+        "sourceField": "description2",
+        "sourceSha256": "1300df4b478a5fb06ea11b1aab33dd1ec75a582dd6b48f104df9218b2000aa22",
+        "descriptionSha256": "1300df4b478a5fb06ea11b1aab33dd1ec75a582dd6b48f104df9218b2000aa22",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC211": {
+      "name": "Statistics & Experimental Methods",
+      "text": "Develops experimental-design knowledge and practical statistical analysis for health and behavioural research. Students choose, fit, diagnose and interpret multivariable models for group comparisons, categorical outcomes and latent constructs. R, primarily through R Commander, supports practical exercises; data-analysis papers and a poster connect research questions to appropriate models, assumption checks and clear reporting.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "bf482d4e283320560451930d2822162ada50a7697ded31de54eb7b021694adbc",
+        "descriptionSha256": "ef41b0b732a8e9502a0d7e14ceef47bb91ca971854bb1a26b6a8ed5e6c9b6111",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Statistics & Experimental Methods"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC212": {
+      "name": "Psychopathology",
+      "text": "Provides a deep dive into factors shaping mental health. Teaches critical thinking, explores the bio‑psycho‑social approach and covers mental disorders, research findings and assessment techniques.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Psychopathology",
+        "sourceField": "description2",
+        "sourceSha256": "58a215aa45c22dd0549bce6f4dba0effecd8fef19ff4453c7d721668071efc81",
+        "descriptionSha256": "1d5842372801f7a26c96be137ebcaac5427d3542563b705bd9679e6726a5550d",
+        "mode": "edited",
+        "reviewedOn": "2026-11-05",
+        "reviewNote": "CP090: the existing shortened description accurately reflects the official description’s biopsychosocial framing, research and assessment content. Retained the displayed text and recorded the current Psychopathology title."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC311": {
+      "name": "Medical & Health Psychology",
+      "text": "Uses a biopsychosocial approach to explore how biological, psychological and socio‑cultural factors influence health and illness. Covers theories, research and interventions and focuses on the role of psychological expertise in medical settings.",
+      "source": {
+        "courseName": "Medical & Health Psychology",
+        "sourceField": "description2",
+        "sourceSha256": "94dc6e3d2d536c131d5e6212208e40ffb57a3ec301655d3c526eaf6be0a23c52",
+        "descriptionSha256": "94dc6e3d2d536c131d5e6212208e40ffb57a3ec301655d3c526eaf6be0a23c52"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC312": {
+      "name": "Psychodiagnostics & Psychotherapies",
+      "text": "Introduces concepts, methods and ethical issues in clinical psychological assessment and psychotherapy. Students compare approaches to assessment and treatment across age groups and learn to evaluate information critically.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "b1bc649543fcb4a63180fc7ccc90801681d03545c15b14ec1a2b0f9fa9dc02d5",
+        "descriptionSha256": "602c736beb4dfef7c58f9197a72b6a10c4ea2989e5703a07be7ae19a9e054d26",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Psychodiagnostics & Psychotherapies"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC313": {
+      "name": "Advanced Research Methods & Statistics",
+      "text": "Advanced Research Methods & Statistics introduces systematic reviews and meta-analysis to synthesise results across studies. Students use R to conduct analyses, work with data structures and packages, estimate treatment effects and examine their consistency across studies. Presentations and active research tasks develop evidence-synthesis skills.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-30",
+        "sourceSha256": "eb24b7cc21c239bb763218b5b09a429739925fa1a8206c390c2f07c75f528c1d",
+        "descriptionSha256": "f9bb29521ce24ffbe4d0eef2398221f54d99cbd72801c53bf1db0de6b3c4c799",
+        "reviewNote": "Updated the course title to the current official name. Retained the remaining description after checking it against the unchanged selected profile.",
+        "courseName": "Advanced Research Methods & Statistics"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC314": {
+      "name": "Lifespan Developmental Psychology",
+      "text": "Explores human development across the lifespan. Examines physical, cognitive, emotional and social changes from prenatal life to old age and develops critical thinking about factors influencing individual uniqueness.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Lifespan Developmental Psychology",
+        "sourceField": "description2",
+        "sourceSha256": "83bc9b3a3f25b826775e694d59d5a8673158b9fd3bced3778ac1efb9b4da6289",
+        "descriptionSha256": "83bc9b3a3f25b826775e694d59d5a8673158b9fd3bced3778ac1efb9b4da6289",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC315": {
+      "name": "Youth Resilience to Extremism",
+      "text": "Interdisciplinary course combining psychology and other social sciences in which students will have an opportunity to participate in an actual international research project and develop evidence-based materials for youth leaders and educators aimed at strengthening young people’s resilience to radicalization by promoting democratic school culture, emotionally supportive learning environments, empathy, civic engagement, and mental well-being.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Youth Resilience to Extremism",
+        "sourceField": "description2",
+        "sourceSha256": "9025fab0b73095d3db8b25aeb6f5922038e322132aa2cceffc415146926d1bf0",
+        "descriptionSha256": "9025fab0b73095d3db8b25aeb6f5922038e322132aa2cceffc415146926d1bf0",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "MCCCOMM311": {
+      "name": "Persuasive Communication",
+      "text": "Persuasive Communication studies persuasion through communication studies, social psychology and ethical analysis. Students examine framing, argumentation, cognitive shortcuts and verbal and nonverbal communication. Community-engaged projects develop communication encouraging sustainable and circular lifestyles, while an individual research paper evaluates selected persuasion tools.",
+      "source": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "bad6a0cb3dd14e5cb07c4aeb36a102d09309142fdc5bab339f0096830ec5209a",
+        "descriptionSha256": "781fa29248cce6025d8aa8887d300c8f0d64941a8b4a9b2dd193783c098deacc",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "reviewedOn": "2026-10-29",
+        "basis": "course outline",
+        "courseName": "Persuasive Communication"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    }
+  },
+  "sharedDescriptionReviewRefs": {
+    "ACCPPDE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "BENGATE102": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "BENLEAD311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "DISDATA111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "DISDATA211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "DISGATE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "GOSPHIL212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSPHIL214": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSPHIL311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json",
+    "GOSSOCI111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSSOCI212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSSOCI311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "HCBBIOM111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBBIOM211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000123/content-review.json",
+    "HCBBIOM311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBBIOM313": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "HCBCOGN112": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBCOGN212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBCOGN311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBCOGN312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000142/content-review.json",
+    "HCBGATE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBGATE102": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBLIFE211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "HCBLIFE212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "HCBLIFE214": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "HCBLIFE311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "HCBPSYC111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC313": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC314": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC315": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "MCCCOMM311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json"
+  },
+  "sourceUrls": [
+    "https://www.ou.nl/opleiding?sku=BPS-2026-2027",
+    "https://vraagenantwoord.ou.nl/privatedata/docs/Jaarrooster_BPS_2627.pdf",
+    "https://www.ou.nl/digitaldownloads/BD481.pdf",
+    "https://www.ou.nl/nl/-/bps-2026-2027_bachelor-psychologie"
+  ],
+  "ucrLinks": [
+    "https://ucr.nl/education/courses/",
+    "https://program.ucr.nl/"
+  ]
+}
