@@ -1,0 +1,999 @@
+{
+  "caseId": "cp-000161",
+  "checkedAt": "2026-11-08T15:32:50.254235+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000161.json": "1773b5c93586f3b756b875364ae45a6d7f645df2",
+    "data/counselor/comparisons/cp-000161.json": "4948699d13b8814acd5ee25cd8a37e1b4222225c",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "2068982f4281e7e2715e73a8ffa84ccb9c0fcf95",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json": "d65b11aff73176eaeafe340a8407452f4849634a",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000123/content-review.json": "5c2bde563d51ec7e3b4363c070e9cc52456d1f30",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json": "175487e0b5f55d758ab798a215d4fd730b6e82a9",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json": "8d1a0a818d17af7038794d845c297591f0e9a28c",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000126/content-review.json": "2d95d9ecfcb96db19b6277873d0d02698130fb7f",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "pilot/shiny/data/courses/HCB.json": "23459da6d1ee2106951372adef085604fdb4d56b"
+  },
+  "presentationMode": "normal",
+  "mapping": {
+    "title and links": "The selection handler uses the index label. The table links the comparator title to the official curriculum page and UCR columns to the UCR course reference. Additional official sources were inspected as case evidence.",
+    "audience.curriculum and academicRationale": "render_audience_context and render_comparison_summary select the 2026–2027 label, the year, the programme explanation and both selected concepts. Normal comparison mode applies.",
+    "blocks, cells and notes": "render_compare_table and audience_cell_note display block titles, workbook course names, component titles, credit badges and uniquely resolved notes about matches, choices and differences. render_audience_notes selects the comparison note.",
+    "selectedDescriptions": "The course button uses courseCode and exact workbook name. The modal resolves each selected description by department and code, and the content review checked the actual text or reused the exact text with matching source hashes. Every selected code has description text.",
+    "optionalIndependentResearch": "The 15 EC UCR independent research comparison element is separate from the scheduled degree and Groningen’s required 20 EC graduation project."
+  },
+  "fieldPaths": [
+    "review-programmes.programmes[].displayName",
+    "comparator.name",
+    "comparator.primarySourceUrl",
+    "comparator.additionalSourceUrls",
+    "comparator.components",
+    "comparator.sourceNotes",
+    "audience.programmeDescription",
+    "audience.comparisonExplanation",
+    "audience.curriculum",
+    "audience.conceptProgrammeIds",
+    "academicRationale.alternatives[].concept",
+    "audience.noteTypes",
+    "notes[].text",
+    "programmes[].label",
+    "blocks[].title",
+    "blocks[].rows[].cells",
+    "audience.cellNotes",
+    "optionalIndependentResearch",
+    "pilot/shiny/data/courses/*.json descriptions by courseCode"
+  ],
+  "selectedConcepts": [
+    {
+      "programmeId": "ucr-1",
+      "concept": "Explore how the body moves and how the brain guides action. Combine anatomy, physiology and neuroscience with programming, statistics and image analysis to study movement and health.",
+      "basisLabels": [
+        "Functional anatomy, human and exercise physiology, physical activity and movement-related health",
+        "Neural control, perception, motor learning and development of movement",
+        "Biomechanics, movement measurement, programming and statistical research methods",
+        "Movement disorders, disability, rehabilitation and evidence-based movement interventions",
+        "Exercise and sport psychology, health behaviour and recovery",
+        "How do anatomy, neural control and measurement explain ordinary and disordered movement?"
+      ],
+      "evidence": [
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.rug.nl/bachelors/bewegingswetenschappen/"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.rug.nl/umcg/education/human-movement-sciences/bachelor/2026-poster-programma-bw-incl-vakcode-1-0.pdf"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://ocasys.rug.nl/current/catalog/programme/BWB"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6828"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6829"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6831"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6832"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6833"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6834"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6835"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6838"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6839"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6840"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6841"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6842"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6843"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6844"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6845"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6846"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6847"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6848"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6849"
+        }
+      ],
+      "labelRationale": "The title reflects the organizing question and the methods taught by the selected courses."
+    },
+    {
+      "programmeId": "ucr-2",
+      "concept": "Explore how health, psychology and social conditions shape physical activity and recovery. Combine anatomy, physiology and neuroscience with health psychology, development and quantitative and qualitative research.",
+      "basisLabels": [
+        "Functional anatomy, human and exercise physiology, physical activity and movement-related health",
+        "Neural control, perception, motor learning and development of movement",
+        "Biomechanics, movement measurement, programming and statistical research methods",
+        "Movement disorders, disability, rehabilitation and evidence-based movement interventions",
+        "Exercise and sport psychology, health behaviour and recovery",
+        "How do exercise, psychology and health behaviour shape movement, ageing and recovery?"
+      ],
+      "evidence": [
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.rug.nl/bachelors/bewegingswetenschappen/"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.rug.nl/umcg/education/human-movement-sciences/bachelor/2026-poster-programma-bw-incl-vakcode-1-0.pdf"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://ocasys.rug.nl/current/catalog/programme/BWB"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6836"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6837"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6844"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6845"
+        }
+      ],
+      "labelRationale": "The title reflects the organizing question and the methods taught by the selected courses.",
+      "distinctnessRationale": "Six courses (45 EC) differ in each direction. The measurement plan develops numerical modeling, signal processing and computer vision. The health and behavior plan adds clinical psychology, metabolism and qualitative inquiry into people’s experiences."
+    }
+  ],
+  "blockTitles": [
+    "Anatomy, physiology, health and rehabilitation",
+    "Neural control and psychological dimensions",
+    "Measurement, mathematics and research"
+  ],
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "This Dutch-taught degree studies how people move, how movement changes with health and age, and how researchers can measure and improve it.",
+    "comparisonExplanation": "Groningen combines the science of movement with specialist laboratory and research training. The UCR options emphasize measurement and neuroscience or health and behavior.",
+    "curriculum": {
+      "status": "complete",
+      "componentIds": [
+        "rug-y1-anatomy",
+        "rug-y1-intro",
+        "rug-y1-methods-stats",
+        "rug-y1-physiology",
+        "rug-y1-psychology",
+        "rug-y1-mathematics",
+        "rug-y1-neurophysiology",
+        "rug-y1-programming",
+        "rug-y1-statistics",
+        "rug-y1-pathology",
+        "rug-y1-biomechanics",
+        "rug-y1-motor-control",
+        "rug-y2-analysis1",
+        "rug-y2-psych-exercise",
+        "rug-y2-perception",
+        "rug-y2-exercise-physiology",
+        "rug-y2-analysis2",
+        "rug-y2-theory",
+        "rug-y2-neuroanatomy1",
+        "rug-y2-statistics",
+        "rug-y2-motor-learning",
+        "rug-y2-neuroanatomy2",
+        "rug-y2-orientation",
+        "rug-y2-skillslab",
+        "rug-y2-monitor",
+        "rug-y3-minor",
+        "rug-y3-active-lifestyle",
+        "rug-y3-neuropsychology",
+        "rug-y3-neuromechanics",
+        "rug-y3-statistics",
+        "rug-y3-interventions",
+        "rug-y3-bap"
+      ],
+      "yearLabel": "2026–2027"
+    },
+    "conceptProgrammeIds": [
+      "ucr-1",
+      "ucr-2"
+    ],
+    "noteTypes": [
+      "different-curricular-structure"
+    ],
+    "cellNotes": [
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y1-intro",
+        "text": "Groningen introduces research questions and professional practice in movement science. UCR’s Personal & Professional Development covers general academic skills."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y3-active-lifestyle",
+        "text": "Groningen studies physical activity and prevention. UCR approaches prevention through population health and epidemiology."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y1-anatomy",
+        "text": "Both use anatomical evidence to link body structure and function. Groningen concentrates on the musculoskeletal system."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y1-pathology",
+        "text": "Groningen studies diseases that affect movement. UCR covers a wider range of disease mechanisms."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y1-physiology",
+        "text": "Both study human physiology, including breathing, circulation, and regulation of body systems."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y2-psych-exercise",
+        "text": "Groningen applies psychology to sport and exercise. UCR focuses on health behavior, prevention and coping with illness."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y1-biomechanics",
+        "text": "Groningen applies mechanics to human movement."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y2-exercise-physiology",
+        "text": "Groningen tests bodily responses to exercise. UCR studies exercise as one topic within general physiology."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y3-interventions",
+        "text": "Groningen designs and evaluates interventions for specific groups."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y3-minor",
+        "text": "Choose an eligible minor, placement or period of study abroad."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y1-neurophysiology",
+        "text": "Groningen covers neuronal function and the sensory and motor systems. UCR introduces neurobiology and brain function."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y2-perception",
+        "text": "Both examine how sensory information guides movement and action."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y3-neuropsychology",
+        "text": "Both study the brain systems involved in attention, memory and higher-order behavior."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y1-psychology",
+        "text": "Both introduce psychological theories of behavior. UCR also introduces the neural systems behind behavior."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y2-motor-learning",
+        "text": "Groningen studies how motor skills develop and are learned. UCR studies broader psychomotor and cognitive development across the lifespan."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y1-motor-control",
+        "text": "Groningen studies models of how the nervous system controls movement."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y2-theory",
+        "text": "Groningen examines theoretical and philosophical questions about movement science."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y2-neuroanatomy1",
+        "text": "Groningen studies the anatomy of neural systems relevant to movement."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y2-neuroanatomy2",
+        "text": "Groningen builds on neuroanatomy to explain motor behavior."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y3-neuromechanics",
+        "text": "Groningen connects the mechanics of movement with neural control."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y2-analysis2",
+        "text": "Groningen develops practical movement measurement and analysis. UCR teaches image processing and feature tracking."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y1-programming",
+        "text": "Both develop programming skills for later analysis. Groningen uses movement data and UCR teaches general programming in Python."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y1-mathematics",
+        "text": "Both develop mathematical tools for scientific problem-solving. Groningen applies them to human movement."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y2-analysis1",
+        "text": "Groningen uses movement measurements in practical work. UCR studies general signal-processing tools."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y3-statistics",
+        "text": "Groningen designs and analyzes movement experiments. UCR studies probability, inference and simulation."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y1-methods-stats",
+        "text": "Both develop experimental design and statistics for research with human participants."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y1-statistics",
+        "text": "Groningen applies descriptive and inferential statistics to movement research."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y2-statistics",
+        "text": "Groningen develops statistical analysis and reporting for movement research."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y2-orientation",
+        "text": "Groningen introduces fields of movement research and professional practice."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y2-skillslab",
+        "text": "Groningen uses specialist equipment to collect and process movement data."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y2-monitor",
+        "text": "This 2 EC component runs across years two and three."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "rug-y3-bap",
+        "text": "Groningen requires a 20 EC research project. The optional UCR research element is shown separately."
+      }
+    ]
+  },
+  "notes": [
+    {
+      "type": "different-curricular-structure",
+      "placement": "comparison",
+      "text": "Groningen builds a specialist sequence in biomechanics, exercise testing and movement analysis, followed by a 20 EC research project. The UCR options combine related study of anatomy, neuroscience and health with different research methods."
+    }
+  ],
+  "programmeLabels": [
+    "Human Movement Sciences at University of Groningen",
+    "Human Movement, Neuroscience and Measurement",
+    "Movement, Health and Behavior"
+  ],
+  "selectedDescriptions": {
+    "ACCPPDE101": {
+      "name": "Personal & Professional Development",
+      "text": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+        "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Personal & Professional Development"
+      },
+      "cache": "pilot/shiny/data/courses/ACC.json",
+      "cacheBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8"
+    },
+    "DISDATA111": {
+      "name": "Introduction to Data Science",
+      "text": "Develops foundational skills in data visualization, cleaning and manipulation. Explores spatial and text data and includes hands‑on work with datasets from various disciplines.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "85912cb78bd13d1aa873ef9cca2a8d7e00345543f75d1f07b56d808f1c6702ef",
+        "descriptionSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Data Science"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISDATA211": {
+      "name": "Machine Learning",
+      "text": "Machine Learning introduces methods for understanding data and making predictions, including linear regression, classification, resampling, shrinkage, tree-based methods, support vector machines and clustering. Real-world examples illustrate the methods, their strengths and limitations.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6a112d70695b992eb7664e19ed9656612b364e2c28a116980a602eef2687ace6",
+        "descriptionSha256": "ae7fce189f80fcd62e521b78f43d3119e98a2ee78d29f61127a0f6b61faaf862",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Machine Learning"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISDATA212": {
+      "name": "Image Processing & Computer Vision",
+      "text": "Image Processing & Computer Vision studies how digital images are represented, processed and interpreted to recognise structures and objects. Topics include colour, image statistics, filtering, segmentation, feature detection, tracking and object classification. Practical work uses Python and OpenCV to develop and benchmark an image-recognition pipeline on previously unseen images.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "67bc3ab96eb177cb9e10d60aa3ceb8dfc61ae6508a196c498124421f7fbba4dd",
+        "descriptionSha256": "2f095c0618ff630b69246b5110663b6517e6627dc322e3d4f0b9e7328279b2b1",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Image Processing & Computer Vision"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISGATE101": {
+      "name": "Introduction to Programming",
+      "text": "Introduces programming and computer science. Covers structured programming, data constructs, testing, debugging and object‑oriented programming with Python, and develops computational problem‑solving skills.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "e2014f5db9a4328ff4efaa51f0273169ae1c9427a4ccf85bea5ee463794a80a8",
+        "descriptionSha256": "efe3b89e39a2611d475d27d09b06151a514076321c7453cd31f9cfbbd84248bf",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Programming"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISGATE102": {
+      "name": "Mathematical Methods",
+      "text": "Mathematical Methods develops foundational techniques in differentiation, integration, complex numbers and differential equations. Students solve problems analytically and with Mathematica. A project implements, analyses and adapts a dynamic model, requiring interpretation of its behaviour and computational results.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6250945baf68c519d3820bddeaa08cb4b3c71273ddbb9bc31a7dffe6d021af5f",
+        "descriptionSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Mathematical Methods"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISMATH211": {
+      "name": "Linear Algebra",
+      "text": "Linear Algebra studies systems of equations, matrices, vectors, linear transformations and vector spaces. Students examine eigenvalues, orthogonality, least-squares approximation, quadratic forms and singular value decomposition. Applications include discrete signals, difference equations, Markov chains, dynamical systems, graphics and principal component analysis, with Mathematica supporting analytical problem-solving.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "26ebd64922aa03e17140aa9b6529a98f2428bdf29ab1fa4360f9bd876de4e680",
+        "descriptionSha256": "bd23120a02190d6bcf24aa6c30ce1e454082afae59ba3d81c21d48cfb4194ba4",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Linear Algebra"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISMATH213": {
+      "name": "Computational & Numerical Methods",
+      "text": "Introduces numerical methods such as root‑finding, interpolation, numerical differentiation and integration and solving differential equations. Emphasises algorithm accuracy, stability and efficiency and uses computer algebra software.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "5b5170199e3306247d6581a75787d8106a4fea74a894b55a09713e0a81efbf25",
+        "descriptionSha256": "d7841607963f18cc24d325c614b84d1629dd83cf6194ee3b68dfcf1a90eb8a8c",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Computational & Numerical Methods"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISMATH312": {
+      "name": "Linear Systems",
+      "text": "Linear Systems studies signals and linear time-invariant systems. Students examine impulse and frequency responses, convolution, Fourier series and transforms, and the Laplace and Z transforms, including continuous-time and discrete-time representations.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "00d4504b56b7626ac280f97249ec9bf9ae30cdd910508163982a1ac439e1d9ac",
+        "descriptionSha256": "10c25739200058efd4c2243eba932500f9effe1b118c1d044a336d064da55fba",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Linear Systems"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISMATH314": {
+      "name": "Probability & Statistics",
+      "text": "Provides a foundation in mathematical statistics. Covers probability theory, discrete and continuous distributions, sampling, parameter estimation and simulation; uses computer algebra software to develop theoretical understanding and practical skills.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "64d3f72845189f77627b8aa180a9906d4fd60fe3c5306bbf0ebe7666e612852b",
+        "descriptionSha256": "9d3ee2b42fa7fe2c0e62777da64474690e9fac0ca76929d04c6670dab516d10f",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Probability & Statistics"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "GOSPHIL214": {
+      "name": "Philosophy of Mind",
+      "text": "Examines historical and modern work on the philosophy of mind. Discusses Descartes’ dualism, the nature of consciousness, AI and animal minds, personal identity, transformative experiences and the influence of technology on experience.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Philosophy of Mind",
+        "sourceField": "description2",
+        "sourceSha256": "cd2e55eb0c7f8a45220107e2f961346ef9960975db1d457cb213c6bf58ef25a6",
+        "descriptionSha256": "cd2e55eb0c7f8a45220107e2f961346ef9960975db1d457cb213c6bf58ef25a6",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI111": {
+      "name": "Introduction to Sociology",
+      "text": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Sociology",
+        "sourceField": "description2",
+        "sourceSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "descriptionSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI212": {
+      "name": "Qualitative Research Methodology",
+      "text": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "6531d96f817df19cfa773d8d8004f44da6041eeab39acfce1462438728cd1eeb",
+        "descriptionSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Qualitative Research Methodology"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "HCBBIOM111": {
+      "name": "Epidemiology & Public Health",
+      "text": "Introduces epidemiology and the evidence used in public health. It examines disease patterns, risks and changes over time, and how research can inform decisions about population health.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "fc3b09c221d581aa0003b1813767c4ff584789c32cacb797e3bb56abd2970e51",
+        "descriptionSha256": "0ae9e35a4b55c6572c949a617acdd9d0e5a4d3771f41b5a8bcab919ce2f91303",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Epidemiology & Public Health"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBBIOM211": {
+      "name": "Functional Anatomy",
+      "text": "Studies human anatomical structure in relation to function through regional and body-system blocks. Medical images, anatomical drawing, human-specimen material and guided practicals develop spatial reasoning, including observation in a dissection room. Historical, ethical and societal questions accompany these academic learning activities, which do not provide clinical qualification.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "4542a01fac8a44e9e62648574c09642d3421f6b177fec8e95f3df721e4b71a90",
+        "descriptionSha256": "cea7b96fb837d4dd6ebfe08439d4c270a3d7b639ce32ae5c126c61733e872779",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Functional Anatomy"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBBIOM313": {
+      "name": "Mechanisms of Disease",
+      "text": "Examines how normal organ-system function relates to disease. Students connect anatomy and physiology with symptoms, disease mechanisms, diagnosis, treatment and prognosis across digestive, cardiovascular, respiratory, renal, endocrine and nervous systems. Clinical cases and an imaginary-disease assignment develop coherent pathophysiological explanations.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "4d8acb13deb96b3778bdefa44792604f9b8247830d5e0a3817dfc45c9da5e8a1",
+        "descriptionSha256": "03f76444a6b246585aa85e512b35f15719415e8261e05edbf7ad3568c4aa0c89",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Mechanisms of Disease"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBCOGN112": {
+      "name": "Neurobiology",
+      "text": "Neurobiology studies nervous systems and behaviour through comparative anatomy, evolution and physiology. Students examine animal behaviour, research models, welfare and research ethics, then connect biological rhythms and regulatory behaviour to sleep, lifestyle drugs, mood and eating disorders. Comparative-anatomy work and a literature-based report apply neurobiological concepts.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "faf0f85889650abcd1cd20e8038228eb9964ce43c317af9edc586eac043bc30c",
+        "descriptionSha256": "e17b6afb9badd04addc522b9ea98346fd18d4aa31df815d0b792950fa6ab940a",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Neurobiology"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBCOGN212": {
+      "name": "Perception & Action",
+      "text": "Explores neural mechanisms behind perception and action. Examines how the brain processes sensory information and guides goal‑directed behaviour using methods from cognitive neuroscience and neuropsychology.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Perception & Action",
+        "sourceField": "description2",
+        "sourceSha256": "d5057fb9cd7115d620719855269abccdb6cd5c3585d55631b2c6322bc0346aab",
+        "descriptionSha256": "d5057fb9cd7115d620719855269abccdb6cd5c3585d55631b2c6322bc0346aab",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBCOGN311": {
+      "name": "Higher Order Functions",
+      "text": "Higher Order Functions deepens knowledge of neurophysiology, neuroanatomy and experimental cognitive neuroscience. Topics include attention, memory, emotion, cognitive control, social cognition, pain and consciousness. An attentional-blink experiment and a team research proposal develop engagement with empirical research, experimental design and ethical reflection.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "f6033f78b541acd4a5788e843aa744855b5a99d2841ce90ebdd17797944c5d42",
+        "descriptionSha256": "42d96460b731996549fb6525fa622439622a99854e4db744eabc7c61a5e19598",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Higher Order Functions"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBGATE101": {
+      "name": "Foundation of Life, Health & Biomedicine",
+      "text": "Introduces the molecular and cellular foundations of life and biomedical science. Topics include biological molecules, cells and membranes, communication, metabolism, cell division, heredity, gene expression and biotechnology. Students analyse scientific experiments and papers through teaching contributions and a research-based mini-symposium, with additional topics selected with the class.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "e0b2da3bcb6fa48f717a1cad6591d9594b5145b6c3f4ba362ddc812790ff17f5",
+        "descriptionSha256": "12ff60a52ad56e3df4604fcc60c5982e9cf5e111eb66a6b7eac99bfd23ca4e28",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Foundation of Life, Health & Biomedicine"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBGATE102": {
+      "name": "Introduction to Brain & Behavior",
+      "text": "Explores why people behave as they do and how brain injuries affect mental processes. Discusses nature and nurture, introduces brain anatomy and psychological theories, and provides a gateway to cognitive science and clinical psychology.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Brain & Behavior",
+        "sourceField": "description2",
+        "sourceSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+        "descriptionSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBLIFE212": {
+      "name": "Human Physiology",
+      "text": "Studies normal functioning of the human body, covering structure‑function relationships, energy handling, homeostasis, signalling, organ systems and integration of their functions.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Human Physiology",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "60ec8f664bc76e7ba86aeff463b8f4229a7c8c75e9174c3eee6a0efbaf8baf49",
+        "descriptionSha256": "60ec8f664bc76e7ba86aeff463b8f4229a7c8c75e9174c3eee6a0efbaf8baf49",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBLIFE213": {
+      "name": "Biochemistry",
+      "text": "Explores the chemistry of life and biomolecules such as proteins, sugars, lipids and nucleic acids. Discusses metabolic pathways, the role of biomolecules in health and disease and applications in medicine, biotechnology and sustainability.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Biochemistry",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "7885bac69eea60cc521b74834d3c316078aee206955d305472e2c287e2ebd821",
+        "descriptionSha256": "7885bac69eea60cc521b74834d3c316078aee206955d305472e2c287e2ebd821",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC111": {
+      "name": "Social Psychology",
+      "text": "Covers main theories, findings and principles of social psychology, emphasising its scientific approach to understanding how people’s feelings, thoughts and behaviour are influenced by the presence of others.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Social Psychology",
+        "sourceField": "description2",
+        "sourceSha256": "1300df4b478a5fb06ea11b1aab33dd1ec75a582dd6b48f104df9218b2000aa22",
+        "descriptionSha256": "1300df4b478a5fb06ea11b1aab33dd1ec75a582dd6b48f104df9218b2000aa22",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC211": {
+      "name": "Statistics & Experimental Methods",
+      "text": "Develops experimental-design knowledge and practical statistical analysis for health and behavioural research. Students choose, fit, diagnose and interpret multivariable models for group comparisons, categorical outcomes and latent constructs. R, primarily through R Commander, supports practical exercises; data-analysis papers and a poster connect research questions to appropriate models, assumption checks and clear reporting.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "bf482d4e283320560451930d2822162ada50a7697ded31de54eb7b021694adbc",
+        "descriptionSha256": "ef41b0b732a8e9502a0d7e14ceef47bb91ca971854bb1a26b6a8ed5e6c9b6111",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Statistics & Experimental Methods"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC212": {
+      "name": "Psychopathology",
+      "text": "Provides a deep dive into factors shaping mental health. Teaches critical thinking, explores the bio‑psycho‑social approach and covers mental disorders, research findings and assessment techniques.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Psychopathology",
+        "sourceField": "description2",
+        "sourceSha256": "58a215aa45c22dd0549bce6f4dba0effecd8fef19ff4453c7d721668071efc81",
+        "descriptionSha256": "1d5842372801f7a26c96be137ebcaac5427d3542563b705bd9679e6726a5550d",
+        "mode": "edited",
+        "reviewedOn": "2026-11-05",
+        "reviewNote": "CP090: the existing shortened description accurately reflects the official description’s biopsychosocial framing, research and assessment content. Retained the displayed text and recorded the current Psychopathology title."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC311": {
+      "name": "Medical & Health Psychology",
+      "text": "Uses a biopsychosocial approach to explore how biological, psychological and socio‑cultural factors influence health and illness. Covers theories, research and interventions and focuses on the role of psychological expertise in medical settings.",
+      "source": {
+        "courseName": "Medical & Health Psychology",
+        "sourceField": "description2",
+        "sourceSha256": "94dc6e3d2d536c131d5e6212208e40ffb57a3ec301655d3c526eaf6be0a23c52",
+        "descriptionSha256": "94dc6e3d2d536c131d5e6212208e40ffb57a3ec301655d3c526eaf6be0a23c52"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC312": {
+      "name": "Psychodiagnostics & Psychotherapies",
+      "text": "Introduces concepts, methods and ethical issues in clinical psychological assessment and psychotherapy. Students compare approaches to assessment and treatment across age groups and learn to evaluate information critically.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "b1bc649543fcb4a63180fc7ccc90801681d03545c15b14ec1a2b0f9fa9dc02d5",
+        "descriptionSha256": "602c736beb4dfef7c58f9197a72b6a10c4ea2989e5703a07be7ae19a9e054d26",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Psychodiagnostics & Psychotherapies"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC313": {
+      "name": "Advanced Research Methods & Statistics",
+      "text": "Advanced Research Methods & Statistics introduces systematic reviews and meta-analysis to synthesise results across studies. Students use R to conduct analyses, work with data structures and packages, estimate treatment effects and examine their consistency across studies. Presentations and active research tasks develop evidence-synthesis skills.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-30",
+        "sourceSha256": "eb24b7cc21c239bb763218b5b09a429739925fa1a8206c390c2f07c75f528c1d",
+        "descriptionSha256": "f9bb29521ce24ffbe4d0eef2398221f54d99cbd72801c53bf1db0de6b3c4c799",
+        "reviewNote": "Updated the course title to the current official name. Retained the remaining description after checking it against the unchanged selected profile.",
+        "courseName": "Advanced Research Methods & Statistics"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC314": {
+      "name": "Lifespan Developmental Psychology",
+      "text": "Explores human development across the lifespan. Examines physical, cognitive, emotional and social changes from prenatal life to old age and develops critical thinking about factors influencing individual uniqueness.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Lifespan Developmental Psychology",
+        "sourceField": "description2",
+        "sourceSha256": "83bc9b3a3f25b826775e694d59d5a8673158b9fd3bced3778ac1efb9b4da6289",
+        "descriptionSha256": "83bc9b3a3f25b826775e694d59d5a8673158b9fd3bced3778ac1efb9b4da6289",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    }
+  },
+  "sharedDescriptionReviewRefs": {
+    "ACCPPDE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "DISDATA111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "DISDATA211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "DISDATA212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000123/content-review.json",
+    "DISGATE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "DISGATE102": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "DISMATH211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "DISMATH213": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json",
+    "DISMATH312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000126/content-review.json",
+    "DISMATH314": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json",
+    "GOSPHIL214": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSSOCI111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSSOCI212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBBIOM111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBBIOM211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000123/content-review.json",
+    "HCBBIOM313": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "HCBCOGN112": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBCOGN212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBCOGN311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBGATE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBGATE102": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBLIFE212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "HCBLIFE213": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "HCBPSYC111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC313": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC314": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json"
+  },
+  "sourceUrls": [
+    "https://www.rug.nl/bachelors/bewegingswetenschappen/",
+    "https://www.rug.nl/umcg/education/human-movement-sciences/bachelor/2026-poster-programma-bw-incl-vakcode-1-0.pdf",
+    "https://ocasys.rug.nl/current/catalog/programme/BWB",
+    "https://www.rug.nl/umcg/education/human-movement-sciences/pdfs/2-ba-onderwijs-en-examenregeling-26-27-v3-1.pdf",
+    "https://ocasys.rug.nl/current/catalog/course/BWB306?legacy=true"
+  ],
+  "ucrLinks": [
+    "https://ucr.nl/education/courses/",
+    "https://program.ucr.nl/"
+  ]
+}
