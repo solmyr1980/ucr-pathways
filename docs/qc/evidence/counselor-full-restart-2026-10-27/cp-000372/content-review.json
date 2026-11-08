@@ -1,0 +1,1262 @@
+{
+  "caseId": "cp-000372",
+  "checkedAt": "2026-11-08T20:02:20.451589+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000372.json": "53016d5870a03df1ccd741d5c1adbf180573e8a9",
+    "data/counselor/comparisons/cp-000372.json": "87efca1ccfb98f16e189d155bb3da40ca0a788c0",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "857237f02873ecbc7c47b0c2728ca60299dc396e",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json": "d65b11aff73176eaeafe340a8407452f4849634a",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json": "abc6deddd935219ffc0b7c6c1b005a4fd8a9374f",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json": "8d1a0a818d17af7038794d845c297591f0e9a28c",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000128/content-review.json": "65769382b4c9ca5997d2bb1ba0302a44ff35d00b",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000123/content-review.json": "5c2bde563d51ec7e3b4363c070e9cc52456d1f30",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json": "175487e0b5f55d758ab798a215d4fd730b6e82a9",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json": "e740f97a20fff4b407e91fb20c8b0c45efabddb8",
+    "pilot/shiny/data/courses/HCB.json": "23459da6d1ee2106951372adef085604fdb4d56b",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000142/content-review.json": "42f3599e27bcef59bf2ee495c224f33951410736",
+    "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000158/content-review.json": "63a4fd7f9db65422c6807684004dd4daeb1c54e4",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json": "8a6a68c211c21ccfc1a781132fb1c0f1f19886d9"
+  },
+  "presentationMode": "normal",
+  "mapping": {
+    "title and links": "The selection handler uses the index label. The table links the comparator title to the official curriculum page and UCR columns to the UCR course reference. The official programme page and supporting URLs were reviewed in their recorded order. Additional official sources were inspected as case evidence.",
+    "audience.curriculum and academicRationale": "render_audience_context and render_comparison_summary select the 2026–2027 label, the year, the programme explanation and three selected concepts. Normal presentation mode applies.",
+    "blocks, cells and notes": "render_compare_table and audience_cell_note display block titles, workbook course names, component titles, credit badges and uniquely resolved notes about matches, choices and differences. render_audience_notes selects the comparison note.",
+    "selectedDescriptions": "The course button uses courseCode and exact workbook name. The modal resolves each selected description by department and code, and the content review checked the actual text or reused the exact text with matching source hashes. Every selected code has description text.",
+    "optionalIndependentResearch": "The 15 EC UCR independent research comparison element is separate from the scheduled degree and Utrecht’s required 7.5 EC linguistics thesis."
+  },
+  "fieldPaths": [
+    "review-programmes.programmes[].displayName",
+    "comparator.name",
+    "comparator.primarySourceUrl",
+    "comparator.additionalSourceUrls",
+    "comparator.components",
+    "comparator.sourceNotes",
+    "audience.programmeDescription",
+    "audience.comparisonExplanation",
+    "audience.curriculum",
+    "audience.conceptProgrammeIds",
+    "academicRationale.alternatives[].concept",
+    "audience.noteTypes",
+    "notes[].text",
+    "programmes[].label",
+    "blocks[].title",
+    "blocks[].rows[].cells",
+    "audience.cellNotes",
+    "optionalIndependentResearch",
+    "pilot/shiny/data/courses/*.json descriptions by courseCode"
+  ],
+  "selectedConcepts": [
+    {
+      "programmeId": "ucr-1",
+      "concept": "Study how people understand and produce language. Connect psycholinguistics, brain science and philosophy of mind with the analysis of meaning, and use research methods to examine evidence about language and cognition.",
+      "basisLabels": [
+        "Linguistic structure, comparison and the scientific study of human language",
+        "Language acquisition, cognition, speech processing and human behaviour",
+        "Empirical, experimental, quantitative and digital methods for language research",
+        "Meaning, communication and language in social context",
+        "Language, society, multilingualism, identity and mediated communication",
+        "Computational linguistics, formal language, artificial intelligence and language models",
+        "How do people acquire, process and understand language?"
+      ],
+      "evidence": [
+        {
+          "sourceType": "official-source",
+          "reference": "https://students.uu.nl/en/hum/linguistics-ba/my-studies/curriculum"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.uu.nl/bachelors/taalwetenschap/studieprogramma"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://cursusplanner.uu.nl/course/TW3V14002/2026/2"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16271"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16272"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16273"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16275"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16281"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16284"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16285"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16286"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16289"
+        }
+      ],
+      "labelRationale": "The title reflects the plan’s main subjects and methods."
+    },
+    {
+      "programmeId": "ucr-2",
+      "concept": "Study how people use language to express identity, persuade others and participate in public life. Explore bilingualism and language processing, analyze rhetoric and narrative, and use qualitative research to examine communication in social settings.",
+      "basisLabels": [
+        "Language acquisition, cognition, speech processing and human behaviour",
+        "Empirical, experimental, quantitative and digital methods for language research",
+        "Meaning, communication and language in social context",
+        "Language, society, multilingualism, identity and mediated communication",
+        "How do language, identity and multilingual communities shape one another?"
+      ],
+      "evidence": [
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.uu.nl/bachelors/taalwetenschap/studieprogramma"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16277"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16282"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16283"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16288"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16295"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16301"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16302"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16303"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16304"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16315"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16317"
+        }
+      ],
+      "labelRationale": "The title reflects the plan’s main subjects and methods.",
+      "distinctnessRationale": "11 courses and 82.5 EC differ each way from option 1. Social theory, public rhetoric, narrative and representation distinguish this plan."
+    },
+    {
+      "programmeId": "ucr-3",
+      "concept": "Study how computing can help model language. Use Python, logic, statistics and machine learning to work with text data, and connect language models with the human processes studied in psycholinguistics.",
+      "basisLabels": [
+        "Language acquisition, cognition, speech processing and human behaviour",
+        "Empirical, experimental, quantitative and digital methods for language research",
+        "Meaning, communication and language in social context",
+        "Computational linguistics, formal language, artificial intelligence and language models",
+        "How can computation and AI model human language?"
+      ],
+      "evidence": [
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.uu.nl/bachelors/taalwetenschap/studieprogramma"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16279"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16280"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16287"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16290"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16296"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16309"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16310"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16311"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16312"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16313"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16319"
+        }
+      ],
+      "labelRationale": "The title reflects the plan’s main subjects and methods.",
+      "distinctnessRationale": "10 courses and 75 EC differ each way from option 1. 17 courses and 127.5 EC differ each way from option 2. Python, logic, mathematics, machine learning and neural language models distinguish this plan."
+    }
+  ],
+  "blockTitles": [
+    "Language, meaning and cognition",
+    "Language, identity and public communication",
+    "Language data, computation and AI",
+    "Research, thesis and electives"
+  ],
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "Study how language works, how people acquire and understand it, and how it varies across communities. Utrecht offers Dutch- and English-language tracks. This example follows the Dutch track.",
+    "comparisonExplanation": "The Utrecht example focuses on language and cognition. The UCR options emphasize cognition and communication, language and identity, or language data and AI.",
+    "curriculum": {
+      "status": "complete",
+      "componentIds": [
+        "core-introduction",
+        "core-psychology",
+        "core-meaning",
+        "core-morphosyntax",
+        "core-sociolinguistics",
+        "core-digital-methods",
+        "core-development",
+        "core-phonetics",
+        "methods-statistics",
+        "phonology-fieldwork",
+        "specialisation-experimental",
+        "specialisation-words",
+        "specialisation-semantics",
+        "specialisation-acquisition",
+        "capstone",
+        "thesis",
+        "profiling-package",
+        "electives"
+      ],
+      "yearLabel": "2026–2027",
+      "routeLabel": "Language and Cognition"
+    },
+    "conceptProgrammeIds": [
+      "ucr-1",
+      "ucr-2",
+      "ucr-3"
+    ],
+    "noteTypes": [
+      "different-curricular-structure",
+      "missing-specialist-components"
+    ],
+    "cellNotes": [
+      {
+        "programmeId": "comparator",
+        "reference": "core-meaning",
+        "text": "Both study how linguistic choices shape meaning. UCR approaches this through stylistics, dialogue and discourse."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "specialisation-experimental",
+        "text": "Both examine human language processing. UCR covers experimental approaches alongside neuroscience, bilingualism and language disorders."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "core-introduction",
+        "text": "Utrecht introduces linguistics as a field of study."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "core-psychology",
+        "text": "Utrecht has a dedicated introduction to language psychology. UCR studies related processes in psycholinguistics and other cognition courses."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "core-morphosyntax",
+        "text": "Utrecht compares how languages build words and sentences. UCR touches on these features in stylistics."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "core-development",
+        "text": "Utrecht studies how language develops. UCR offers broader developmental psychology and psycholinguistics."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "core-phonetics",
+        "text": "Utrecht has a dedicated course on speech sounds and their production and perception."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "specialisation-words",
+        "text": "Utrecht studies word structure in depth."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "specialisation-semantics",
+        "text": "Utrecht has a dedicated course on semantics and pragmatics. UCR examines dialogue and language in context through stylistics."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "specialisation-acquisition",
+        "text": "Utrecht connects theories of language acquisition and grammatical structure."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "core-sociolinguistics",
+        "text": "Utrecht studies language variation in social settings. UCR approaches related questions through sociology and communication."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "core-digital-methods",
+        "text": "Both use digital methods to work with data. UCR covers general data analysis, including text data."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "methods-statistics",
+        "text": "Both develop empirical research and statistical analysis. UCR uses examples from psychology."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "phonology-fieldwork",
+        "text": "Utrecht studies sound systems through linguistic fieldwork. UCR offers broader qualitative research methods."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "capstone",
+        "text": "Utrecht’s capstone develops a proposal for the required thesis."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "thesis",
+        "text": "Utrecht requires a thesis. UCR’s optional research element sits outside the scheduled degree."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "profiling-package",
+        "text": "This is a coherent elective package, such as a minor or a second specialization."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "electives",
+        "text": "Students choose these electives under Utrecht’s degree rules."
+      }
+    ]
+  },
+  "notes": [
+    {
+      "type": "different-curricular-structure",
+      "placement": "comparison",
+      "text": "Utrecht’s degree includes a 120 EC major and 60 EC of electives. Half of the elective credits form a coherent package. Utrecht also requires a basic grammar test."
+    },
+    {
+      "type": "missing-specialist-components",
+      "placement": "comparison",
+      "text": "The UCR options share topics and methods with Utrecht. Utrecht has dedicated courses in phonetics, phonology, grammar and linguistic fieldwork, along with a required thesis."
+    }
+  ],
+  "programmeLabels": [
+    "Linguistics at Utrecht University",
+    "Language, cognition and communication",
+    "Language, identity and public communication",
+    "Language data, computation and AI"
+  ],
+  "selectedDescriptions": {
+    "ACCPPDE101": {
+      "name": "Personal & Professional Development",
+      "text": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+        "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Personal & Professional Development"
+      },
+      "cache": "pilot/shiny/data/courses/ACC.json",
+      "cacheBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8"
+    },
+    "DISARIN111": {
+      "name": "AI Ethics",
+      "text": "AI Ethics examines artificial intelligence from philosophical and psychological perspectives. Topics include fairness, privacy, responsibility, human-value alignment, moral status and political or existential risks. Students apply ethical frameworks to questions about human behaviour and interaction, synthesise research in an analytical psychology project, and produce a research-based podcast.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "cb43b0c596757e7e4f5f93392738ac9d23f450d75d7dd7698bbb59ee1557333a",
+        "descriptionSha256": "573776c86616fbb9aa39c644ba0abcae2cb7c073febebe3b0203c329264cbeb3",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "AI Ethics"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISARIN211": {
+      "name": "Decision-making in AI",
+      "text": "Decision-making in AI examines how intelligent agents make decisions under uncertainty. Students study probability, Bayesian networks, temporal models, expected utility, Markov decision processes, partial observability and bandit problems. Multi-agent decisions and probabilistic programming extend the analysis, supported by equations, numerical examples and scientific papers.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Decision-making in AI",
+        "sourceField": "profile",
+        "sourceSha256": "c93b1f92cb7d5624a47e7af933fe9722fcd6b1e5632025ebe7a704fc49ae05c4",
+        "descriptionSha256": "ac8eef243ef31afb7f65eee5f70e1a2216876057006d890b15e5411f9c05e560",
+        "mode": "edited",
+        "reviewedOn": "2026-10-31",
+        "reviewNote": "Read the selected current profile and cumulative outline limitation fields. The displayed summary follows its substantive topics and activities; it omits unsupported resource-planning or mandatory NGO group-project claims from superseded cache wording."
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISARIN212": {
+      "name": "Logic & Discrete Mathematics",
+      "text": "Introduces formal logic, abstract reasoning and proof. Students work with propositions, quantified statements, sets, Boolean algebra, functions and relations, direct and indirect proofs, induction and recursion. A final component models processes and games without chance and investigates winning strategies.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Logic & Discrete Mathematics",
+        "sourceField": "profile",
+        "sourceSha256": "93a52b9fe674b9db0732d6f9451146621be7c59068bdf70219256b67ba3b03c2",
+        "descriptionSha256": "7503057969878a0fa1fccc505095c50f3d6b44d2956afaf35bbad164eb49ed7f",
+        "mode": "edited",
+        "reviewedOn": "2026-11-05",
+        "reviewNote": "Reviewed actual current profile in full; represent formal proof and actual programming/quality-assurance methods, without importing a complete client/deployment engineering sequence."
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISARIN311": {
+      "name": "Optimization Methods in AI",
+      "text": "Optimization Methods in AI studies search and optimisation for rational agents. Topics include uninformed and heuristic search, local and global optimisation, adversarial search, constraint satisfaction, linear programming and discrete optimisation. Laboratory exercises and projects develop algorithm implementation, evaluation and experimental investigation of small intelligent systems.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "d5a3dfea16ac47ee970bf30fdd60ec4588386e2eac608c5c875069a706dafa4e",
+        "descriptionSha256": "7c40cb1b74b271a8df365cbf7b9bba55b498199996db9ed060335dd81c541a43",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Optimization Methods in AI"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISDATA111": {
+      "name": "Introduction to Data Science",
+      "text": "Develops foundational skills in data visualization, cleaning and manipulation. Explores spatial and text data and includes hands‑on work with datasets from various disciplines.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "85912cb78bd13d1aa873ef9cca2a8d7e00345543f75d1f07b56d808f1c6702ef",
+        "descriptionSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Data Science"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISDATA211": {
+      "name": "Machine Learning",
+      "text": "Machine Learning introduces methods for understanding data and making predictions, including linear regression, classification, resampling, shrinkage, tree-based methods, support vector machines and clustering. Real-world examples illustrate the methods, their strengths and limitations.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6a112d70695b992eb7664e19ed9656612b364e2c28a116980a602eef2687ace6",
+        "descriptionSha256": "ae7fce189f80fcd62e521b78f43d3119e98a2ee78d29f61127a0f6b61faaf862",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Machine Learning"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISDATA212": {
+      "name": "Image Processing & Computer Vision",
+      "text": "Image Processing & Computer Vision studies how digital images are represented, processed and interpreted to recognise structures and objects. Topics include colour, image statistics, filtering, segmentation, feature detection, tracking and object classification. Practical work uses Python and OpenCV to develop and benchmark an image-recognition pipeline on previously unseen images.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "67bc3ab96eb177cb9e10d60aa3ceb8dfc61ae6508a196c498124421f7fbba4dd",
+        "descriptionSha256": "2f095c0618ff630b69246b5110663b6517e6627dc322e3d4f0b9e7328279b2b1",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Image Processing & Computer Vision"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISDATA311": {
+      "name": "Neural Networks & Deep Learning",
+      "text": "Neural Networks & Deep Learning combines theory with practical Python, Keras and TensorFlow implementations. Students build and train networks, study backpropagation, regularisation and model evaluation, and apply deep learning to computer vision, time series and text, including transformers. Projects investigate prediction problems and report experimental results.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "25546292d8643497a8cd9b4bf820608e15e4ae3fdcf04eb764aadcadf460f14f",
+        "descriptionSha256": "ed084f769dcc3b361dcddff3861c96217abcbf5eb57e7859aeb1ad3f949584c7",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Neural Networks & Deep Learning"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISGATE101": {
+      "name": "Introduction to Programming",
+      "text": "Introduces programming and computer science. Covers structured programming, data constructs, testing, debugging and object‑oriented programming with Python, and develops computational problem‑solving skills.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "e2014f5db9a4328ff4efaa51f0273169ae1c9427a4ccf85bea5ee463794a80a8",
+        "descriptionSha256": "efe3b89e39a2611d475d27d09b06151a514076321c7453cd31f9cfbbd84248bf",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Programming"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISGATE102": {
+      "name": "Mathematical Methods",
+      "text": "Mathematical Methods develops foundational techniques in differentiation, integration, complex numbers and differential equations. Students solve problems analytically and with Mathematica. A project implements, analyses and adapts a dynamic model, requiring interpretation of its behaviour and computational results.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6250945baf68c519d3820bddeaa08cb4b3c71273ddbb9bc31a7dffe6d021af5f",
+        "descriptionSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Mathematical Methods"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISMATH211": {
+      "name": "Linear Algebra",
+      "text": "Linear Algebra studies systems of equations, matrices, vectors, linear transformations and vector spaces. Students examine eigenvalues, orthogonality, least-squares approximation, quadratic forms and singular value decomposition. Applications include discrete signals, difference equations, Markov chains, dynamical systems, graphics and principal component analysis, with Mathematica supporting analytical problem-solving.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "26ebd64922aa03e17140aa9b6529a98f2428bdf29ab1fa4360f9bd876de4e680",
+        "descriptionSha256": "bd23120a02190d6bcf24aa6c30ce1e454082afae59ba3d81c21d48cfb4194ba4",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Linear Algebra"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISMATH314": {
+      "name": "Probability & Statistics",
+      "text": "Provides a foundation in mathematical statistics. Covers probability theory, discrete and continuous distributions, sampling, parameter estimation and simulation; uses computer algebra software to develop theoretical understanding and practical skills.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "64d3f72845189f77627b8aa180a9906d4fd60fe3c5306bbf0ebe7666e612852b",
+        "descriptionSha256": "9d3ee2b42fa7fe2c0e62777da64474690e9fac0ca76929d04c6670dab516d10f",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Probability & Statistics"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "GOSPHIL212": {
+      "name": "Ethics",
+      "text": "Ethics examines moral reasoning through historical and contemporary theories and close philosophical reading. Students study utilitarianism, Kantian ethics, virtue ethics, contractarianism and feminist ethics, alongside Nietzsche, Murdoch and Nagel. Reflection and research essays develop interpretation, argument evaluation and an independent position on ethical theory or a practical ethical problem.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6d4bf415a51b5b6fb41f341d23fe8b8ce483263f17505e77d1a4ae37299fe30f",
+        "descriptionSha256": "d17cd0a6631823a666c2978b81f52bc5e8b5c8e52ed68edccb3fa37073146e5b",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Ethics"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPHIL214": {
+      "name": "Philosophy of Mind",
+      "text": "Examines historical and modern work on the philosophy of mind. Discusses Descartes’ dualism, the nature of consciousness, AI and animal minds, personal identity, transformative experiences and the influence of technology on experience.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Philosophy of Mind",
+        "sourceField": "description2",
+        "sourceSha256": "cd2e55eb0c7f8a45220107e2f961346ef9960975db1d457cb213c6bf58ef25a6",
+        "descriptionSha256": "cd2e55eb0c7f8a45220107e2f961346ef9960975db1d457cb213c6bf58ef25a6",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPHIL311": {
+      "name": "Philosophy of Emotion",
+      "text": "Explores emotions from a philosophical perspective. Discusses nature and rationality of emotions, their role in ethics and art, and draws on historical and contemporary sources.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Philosophy of Emotion",
+        "sourceField": "description2",
+        "sourceSha256": "62324bef464be860edac1d19bc42cc912320da6e34d73f0104c1242f1441c115",
+        "descriptionSha256": "62324bef464be860edac1d19bc42cc912320da6e34d73f0104c1242f1441c115",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI111": {
+      "name": "Introduction to Sociology",
+      "text": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Sociology",
+        "sourceField": "description2",
+        "sourceSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "descriptionSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI212": {
+      "name": "Qualitative Research Methodology",
+      "text": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "6531d96f817df19cfa773d8d8004f44da6041eeab39acfce1462438728cd1eeb",
+        "descriptionSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Qualitative Research Methodology"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI214": {
+      "name": "Modern Sociology",
+      "text": "Examines the trajectory of sociology within the culture of imperialism and colonial responses. Studies leading social theories and debates about modernity and critically engages with sociological discourses.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Modern Sociology",
+        "sourceField": "description2",
+        "sourceSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+        "descriptionSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI311": {
+      "name": "New Issues in Contemporary Social Theory",
+      "text": "New Issues in Contemporary Social Theory studies civil society through critical, neo-functionalist and decolonial perspectives. Topics include trust, social capital, public spheres, solidarity, social movements and civil repair. An experience report connects engagement or observation to course concepts, while an individual project uses theoretical and empirical sources to analyse a civil-society organisation, movement or initiative.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "New Issues in Contemporary Social Theory",
+        "sourceField": "profile",
+        "sourceSha256": "f54abdf8a1ca13792cdc4bc2d390f202721dd6280b0cae44aa0609c2db02dbbf",
+        "descriptionSha256": "367314c88b9f1c559ccd023159845f9624f353f78d898bc66b690ebe3392336b",
+        "mode": "edited",
+        "reviewedOn": "2026-10-31",
+        "reviewNote": "Read the selected current profile and cumulative outline limitation fields. The displayed summary follows its substantive topics and activities; it omits unsupported resource-planning or mandatory NGO group-project claims from superseded cache wording."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "HCBCOGN112": {
+      "name": "Neurobiology",
+      "text": "Neurobiology studies nervous systems and behaviour through comparative anatomy, evolution and physiology. Students examine animal behaviour, research models, welfare and research ethics, then connect biological rhythms and regulatory behaviour to sleep, lifestyle drugs, mood and eating disorders. Comparative-anatomy work and a literature-based report apply neurobiological concepts.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "faf0f85889650abcd1cd20e8038228eb9964ce43c317af9edc586eac043bc30c",
+        "descriptionSha256": "e17b6afb9badd04addc522b9ea98346fd18d4aa31df815d0b792950fa6ab940a",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Neurobiology"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBCOGN212": {
+      "name": "Perception & Action",
+      "text": "Explores neural mechanisms behind perception and action. Examines how the brain processes sensory information and guides goal‑directed behaviour using methods from cognitive neuroscience and neuropsychology.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Perception & Action",
+        "sourceField": "description2",
+        "sourceSha256": "d5057fb9cd7115d620719855269abccdb6cd5c3585d55631b2c6322bc0346aab",
+        "descriptionSha256": "d5057fb9cd7115d620719855269abccdb6cd5c3585d55631b2c6322bc0346aab",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBCOGN311": {
+      "name": "Higher Order Functions",
+      "text": "Higher Order Functions deepens knowledge of neurophysiology, neuroanatomy and experimental cognitive neuroscience. Topics include attention, memory, emotion, cognitive control, social cognition, pain and consciousness. An attentional-blink experiment and a team research proposal develop engagement with empirical research, experimental design and ethical reflection.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "f6033f78b541acd4a5788e843aa744855b5a99d2841ce90ebdd17797944c5d42",
+        "descriptionSha256": "42d96460b731996549fb6525fa622439622a99854e4db744eabc7c61a5e19598",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Higher Order Functions"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBCOGN312": {
+      "name": "Psycholinguistics",
+      "text": "Psycholinguistics is the study of the neurobiological and psychological factors that enable us to acquire, use, and understand language. Modern research draws on cognitive psychology, neuroscience, and computer science to investigate how language is processed. The course focuses primarily, though not exclusively, on the neuroscience of language. Students examine theoretical and experimental issues in speech production and comprehension, language impairments, the relationship between thought and language, and the evolution and acquisition of language. They also gain hands-on experience with experimental approaches to the study of language and develop an understanding of human linguistic capacity as a subject of multidisciplinary research. Topics covered: What is language? Evolutionary aspects of language and animal communication; language and thought; aphasia; language acquisition; bilingualism; speech comprehension; semantics; reading and dyslexia; speech production.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Psycholinguistics",
+        "sourceField": "description2",
+        "sourceSha256": "8b48cfd32534496954068f0d33edc9cd03d1856a6e075c0364ae1ec55dad27ec",
+        "descriptionSha256": "8b48cfd32534496954068f0d33edc9cd03d1856a6e075c0364ae1ec55dad27ec",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBGATE102": {
+      "name": "Introduction to Brain & Behavior",
+      "text": "Explores why people behave as they do and how brain injuries affect mental processes. Discusses nature and nurture, introduces brain anatomy and psychological theories, and provides a gateway to cognitive science and clinical psychology.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Brain & Behavior",
+        "sourceField": "description2",
+        "sourceSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+        "descriptionSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC111": {
+      "name": "Social Psychology",
+      "text": "Covers main theories, findings and principles of social psychology, emphasising its scientific approach to understanding how people’s feelings, thoughts and behaviour are influenced by the presence of others.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Social Psychology",
+        "sourceField": "description2",
+        "sourceSha256": "1300df4b478a5fb06ea11b1aab33dd1ec75a582dd6b48f104df9218b2000aa22",
+        "descriptionSha256": "1300df4b478a5fb06ea11b1aab33dd1ec75a582dd6b48f104df9218b2000aa22",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC211": {
+      "name": "Statistics & Experimental Methods",
+      "text": "Develops experimental-design knowledge and practical statistical analysis for health and behavioural research. Students choose, fit, diagnose and interpret multivariable models for group comparisons, categorical outcomes and latent constructs. R, primarily through R Commander, supports practical exercises; data-analysis papers and a poster connect research questions to appropriate models, assumption checks and clear reporting.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "bf482d4e283320560451930d2822162ada50a7697ded31de54eb7b021694adbc",
+        "descriptionSha256": "ef41b0b732a8e9502a0d7e14ceef47bb91ca971854bb1a26b6a8ed5e6c9b6111",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Statistics & Experimental Methods"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC313": {
+      "name": "Advanced Research Methods & Statistics",
+      "text": "Advanced Research Methods & Statistics introduces systematic reviews and meta-analysis to synthesise results across studies. Students use R to conduct analyses, work with data structures and packages, estimate treatment effects and examine their consistency across studies. Presentations and active research tasks develop evidence-synthesis skills.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-30",
+        "sourceSha256": "eb24b7cc21c239bb763218b5b09a429739925fa1a8206c390c2f07c75f528c1d",
+        "descriptionSha256": "f9bb29521ce24ffbe4d0eef2398221f54d99cbd72801c53bf1db0de6b3c4c799",
+        "reviewNote": "Updated the course title to the current official name. Retained the remaining description after checking it against the unchanged selected profile.",
+        "courseName": "Advanced Research Methods & Statistics"
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC314": {
+      "name": "Lifespan Developmental Psychology",
+      "text": "Explores human development across the lifespan. Examines physical, cognitive, emotional and social changes from prenatal life to old age and develops critical thinking about factors influencing individual uniqueness.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Lifespan Developmental Psychology",
+        "sourceField": "description2",
+        "sourceSha256": "83bc9b3a3f25b826775e694d59d5a8673158b9fd3bced3778ac1efb9b4da6289",
+        "descriptionSha256": "83bc9b3a3f25b826775e694d59d5a8673158b9fd3bced3778ac1efb9b4da6289",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "MCCCOMM111": {
+      "name": "The Art of Rhetorical Communication",
+      "text": "The Art of Rhetorical Communication develops rhetorical analysis, academic writing and oral presentation. Students examine classical Western roots and the canons of rhetoric, and learn to construct, organise and support persuasive arguments. Historical and contemporary examples connect rhetorical theory with practical communication.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "a1075e2aff565380f637a1ee31ac79c668477b11b15a7f853230b303cf44485f",
+        "descriptionSha256": "34ab73cc0cae33e2a0e47ba5df0ee55c9b0e5f2d4e21ae97ea18667a96400c4c",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "The Art of Rhetorical Communication"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCCOMM211": {
+      "name": "Style & Meaning",
+      "text": "Style & Meaning studies stylistics: how linguistic choices produce meaning and interpretive effects, principally in literary texts and also in nonfiction. Students connect grammar, discourse and cognition with interpretation through frameworks for dialogue, narration, modality, deixis and text worlds. Analysis exercises lead to an original research-supported stylistic analysis.",
+      "source": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "d080043304ce78e0dfb21e7626ed39788487ac6407c4b6b9b8dd65a1ccc3cb3c",
+        "descriptionSha256": "1403b3e8bbe5009d3f3736ca1f68055e9a004b02908527fba7a6c0dbbb12be33",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "courseName": "Style & Meaning"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCCOMM213": {
+      "name": "Rhetoric in Action",
+      "text": "Develops persuasive speaking skills by applying rhetorical theory in the real world. Students work with local primary school children, building public-speaking skills and empowering them to find their voices.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Rhetoric in Action",
+        "sourceField": "description2",
+        "sourceSha256": "a481c86f7c34da2d13a0785165435e6761cd1a65cf18efd83c40b7795ee5ff29",
+        "descriptionSha256": "a481c86f7c34da2d13a0785165435e6761cd1a65cf18efd83c40b7795ee5ff29",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCCOMM311": {
+      "name": "Persuasive Communication",
+      "text": "Persuasive Communication studies persuasion through communication studies, social psychology and ethical analysis. Students examine framing, argumentation, cognitive shortcuts and verbal and nonverbal communication. Community-engaged projects develop communication encouraging sustainable and circular lifestyles, while an individual research paper evaluates selected persuasion tools.",
+      "source": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "bad6a0cb3dd14e5cb07c4aeb36a102d09309142fdc5bab339f0096830ec5209a",
+        "descriptionSha256": "781fa29248cce6025d8aa8887d300c8f0d64941a8b4a9b2dd193783c098deacc",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "reviewedOn": "2026-10-29",
+        "basis": "course outline",
+        "courseName": "Persuasive Communication"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCCOMM312": {
+      "name": "Creative Communication Laboratory",
+      "text": "Creative Communication Laboratory combines close reading and creative workshops with poetry, rhythm, sound, voice and performance. Students develop traditional or hybrid creative projects grounded in scholarship and aesthetic traditions. Revision and reflection require them to explain their formal, conceptual and procedural choices.",
+      "source": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "d45bc30fbb2ccb16032887c1e925d9781c5e5643f98a1d72845b3bde1a1e8c68",
+        "descriptionSha256": "5784a44bdf47e513fd175105980ac4d21836d78686e6c5dcd79411edf50bb3ec",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "courseName": "Creative Communication Laboratory"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCLITR111": {
+      "name": "Introduction to Literary Studies",
+      "text": "Introduction to Literary Studies introduces practical criticism and literary interpretation. Students examine what literature is, why it is read and studied, formal properties and the constructed character of texts. Fiction, poetry and drama are supplemented by contemporary nonfiction and basic film narration, developing critical terms, tools and techniques.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "a9463cfe73634d354a0603d7a43f487a39c7b11f2ca75198d02980299b54cd46",
+        "descriptionSha256": "4f2e60bcf8d4882bf8b8d7d9a1818f0ba86ecb5f1ee41727237d19fab84722ad",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Introduction to Literary Studies"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCLITR112": {
+      "name": "Great Literary Works",
+      "text": "Provides a chronological overview of literature from the epic of Gilgamesh to post‑modernity. Reads literary and critical texts that explore human experience and teaches how to approach literature’s ambiguities and trace themes across ages.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Great Literary Works",
+        "sourceField": "description2",
+        "sourceSha256": "248ed84f99b7813e881f96219b5572698c50a9014fcb4439863eb95a4871820f",
+        "descriptionSha256": "248ed84f99b7813e881f96219b5572698c50a9014fcb4439863eb95a4871820f",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCLITR211": {
+      "name": "World Myth & Literature",
+      "text": "World Myth & Literature compares mythic narratives across ancient and later traditions, examining transmission, cultural connections and themes such as creation, power, gender, love and loyalty. Greek, Roman, Near Eastern, Indian, Arabic and African materials support literary analysis. A research paper, graphic explanation and creative retelling connect interpretation with narrative practice.",
+      "source": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "1e48b00378b8c6b875a7cb52ee3c43c5a1fa03c6c4345b7ecf5bd82049fb7f83",
+        "descriptionSha256": "44c8274632c55ccd0cd9b3255a54f99595980fdc15c1f30defdd3a6f3d600848",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "courseName": "World Myth & Literature"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCLITR212": {
+      "name": "Life & Travel Writing",
+      "text": "Life & Travel Writing examines memoir, autobiography, diaries, personal essays, travel writing and digital self-presentation. Students explore memory, identity, autobiographical truth, ethics and cultural positioning through close reading and theory. A personal writing portfolio and an independent life-narrative project connect analysis with practice.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "83c6fa2e7a3861bf32bbc34408c5c84e984451c12f05dddb909cdb1656f64c17",
+        "descriptionSha256": "accdee02d696d09f594e471dd133916d99b2a25293754a87e1188a7be6b50739",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Life & Travel Writing"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCLITR311": {
+      "name": "Film & Text",
+      "text": "Film & Text studies relationships between literary and film narratives, adaptation and intertextuality. Students learn methods of film analysis and examine plot, character, setting, image, acting, music and sound, alongside the relationships among adaptors, critics and viewers.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "ce2539bb2ee6c075e7c2ebf97af3f3db50561e3163a348c4e4bfb39bf25ec89c",
+        "descriptionSha256": "1ebd21656cd9546bf8642676f442bb5ce858dc97daead73a9c97bf93ef2ebae7",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Film & Text"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCLITR312": {
+      "name": "Perspectives on Literary Meaning",
+      "text": "Examines how different perspectives—humanist, feminist, Marxist, cultural minority and psychoanalytic—affect reading and interpretation. Students undertake a research project applying selected perspectives to texts.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Perspectives on Literary Meaning",
+        "sourceField": "description2",
+        "sourceSha256": "a215ac77572c64be18665a21cbd133189450d83845296171f8ea0e1aa29570a3",
+        "descriptionSha256": "a215ac77572c64be18665a21cbd133189450d83845296171f8ea0e1aa29570a3",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCMEDI111": {
+      "name": "Introduction to Film & Media",
+      "text": "Introduction to Film & Media examines how moving images create meaning through cinematography, editing, sound, narrative and performance. Film history connects early cinema and major movements with feminist and postcolonial interpretation, alongside television, digital platforms and spectatorship. An analytical or creative-analytical project combines close analysis, theory and scholarly research.",
+      "source": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "5755fae4aad203737db42f373976a1a3540befa537d34b2f7992c241ca2092f3",
+        "descriptionSha256": "07d87ceb8396fdb190b165e8c6c602ac572c9aca7393cd25c4ddddb5f19ccb8a",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "reviewedOn": "2026-10-29",
+        "basis": "course outline",
+        "courseName": "Introduction to Film & Media"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCMEDI112": {
+      "name": "Media Archaeology",
+      "text": "Explores media technologies before digital culture. Studies cassette tapes, typewriters and early printing as material objects that carry meaning; includes hands‑on experiments; no technical background required.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "basis": "official course description",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-05",
+        "sourceSha256": "7ce20d4de324762f0ad56ca3aa58f54f9de55dba3c34041f5b1cd5ddc5ed52e6",
+        "descriptionSha256": "7ce20d4de324762f0ad56ca3aa58f54f9de55dba3c34041f5b1cd5ddc5ed52e6",
+        "reviewNote": "Read the unchanged display text against the current official description and actual course evidence. It accurately conveys the supported historical, heritage, museum or material-media focus without claiming archaeological field qualification. No displayed text changed.",
+        "courseName": "Media Archaeology"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCMEDI212": {
+      "name": "Media & the Environment",
+      "text": "Examines representation of environmental concerns through visual culture. Explores the Anthropocene, animal representation, deep time, biocentrism, contested nature, indigenous and postcolonial media; analyzes how media shape environmental understanding; and includes a paper or media project.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Media & the Environment",
+        "sourceField": "description2",
+        "sourceSha256": "2b61dab9e75d070fa82a001dfc59db49798910b47c0f9bb203e19eaaec9565c6",
+        "descriptionSha256": "2b61dab9e75d070fa82a001dfc59db49798910b47c0f9bb203e19eaaec9565c6",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-05",
+        "reviewNote": "CP303 reviewed the existing verbatim description alongside the current course evidence. The text accurately covers ecological representation, visual media and the final paper or media project."
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCMEDI311": {
+      "name": "Media & Race",
+      "text": "Media & Race investigates storytelling, power, privilege, resistance and systemic racism in American history from the late nineteenth century to the present. Film, photographs, music and other media connect past and present. Students produce research-based podcasts exploring how media sustains oppression and supports resistance.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "3047a3489ffc4f90cde2a5d32b641f66255b1616a1599ed60e121e6306d5fda8",
+        "descriptionSha256": "05aa4bb52a50700caa428fbe8cbb10a8fb321a9da4087a93a95e30883998a618",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Media & Race"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCMEDI312": {
+      "name": "The Documentary",
+      "text": "Introduces documentary film from its early development to contemporary forms, analysing historical and social contexts, styles and genres, and ethical and aesthetic questions. Students analyse non-fiction representations and produce a short documentary item.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "d8ce7c931003ce12a3a81c610feeda88ceed97ae0297b4a9bafa1001fe843803",
+        "descriptionSha256": "223f9d67569f492466d7fe0e444249d55688d2d867669711ff057617aa16f2fe",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "The Documentary"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    }
+  },
+  "sharedDescriptionReviewRefs": {
+    "ACCPPDE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "DISARIN111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "DISARIN211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json",
+    "DISARIN212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000128/content-review.json",
+    "DISARIN311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json",
+    "DISDATA111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "DISDATA211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "DISDATA212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000123/content-review.json",
+    "DISDATA311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "DISGATE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "DISGATE102": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "DISMATH211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "DISMATH314": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json",
+    "GOSPHIL212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSPHIL214": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSPHIL311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json",
+    "GOSSOCI111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSSOCI212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSSOCI214": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "GOSSOCI311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "HCBCOGN112": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBCOGN212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBCOGN311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBCOGN312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000142/content-review.json",
+    "HCBGATE102": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC313": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC314": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "MCCCOMM111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "MCCCOMM211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000158/content-review.json",
+    "MCCCOMM213": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "MCCCOMM311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "MCCCOMM312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCLITR111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCLITR112": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json",
+    "MCCLITR211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json",
+    "MCCLITR212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCLITR311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCLITR312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json",
+    "MCCMEDI111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCMEDI112": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCMEDI212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCMEDI311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "MCCMEDI312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json"
+  },
+  "sourceUrls": [
+    "https://students.uu.nl/en/hum/linguistics-ba/my-studies/curriculum",
+    "https://www.uu.nl/bachelors/taalwetenschap/studieprogramma",
+    "https://cursusplanner.uu.nl/course/TW3V14002/2026/2",
+    "https://students.uu.nl/sites/default/files/GW-OER-BA-2026-2027-Taalwetenschap.pdf",
+    "https://students.uu.nl/gw/taalwetenschap/mijn-studie/studieprogramma",
+    "https://www.uu.nl/bachelors/taalwetenschap",
+    "https://students.uu.nl/gw/taalwetenschap/mijn-studie/eindwerkstuk",
+    "https://www.uu.nl/bachelors/taalwetenschap/na-de-opleiding"
+  ],
+  "ucrLinks": [
+    "https://ucr.nl/education/courses/",
+    "https://program.ucr.nl/"
+  ]
+}
