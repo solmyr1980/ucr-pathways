@@ -1,0 +1,1081 @@
+{
+  "caseId": "cp-000171",
+  "checkedAt": "2026-11-08T23:37:54.655506+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000171.json": "9d22c42b5839777c775992cbc7ca07226bdf8609",
+    "data/counselor/comparisons/cp-000171.json": "360eda202d0bb42746878e912e8b62f46cfd9c23",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "857237f02873ecbc7c47b0c2728ca60299dc396e",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json": "d65b11aff73176eaeafe340a8407452f4849634a",
+    "pilot/shiny/data/courses/ENS.json": "e09dc60f6737453006ed202fb21bea9b12dc2cf8",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000127/content-review.json": "580554d8eecaa3652fd4a85bdf66468bd3fbe589",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json": "abc6deddd935219ffc0b7c6c1b005a4fd8a9374f",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000129/content-review.json": "e7d1f5561e6a0fdd53c16f0015f5250d44eb3f98",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json": "8a6a68c211c21ccfc1a781132fb1c0f1f19886d9",
+    "pilot/shiny/data/courses/HCB.json": "23459da6d1ee2106951372adef085604fdb4d56b",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000142/content-review.json": "42f3599e27bcef59bf2ee495c224f33951410736",
+    "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000132/content-review.json": "5af64d1859fe848969367ca236459c880df6484b",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000158/content-review.json": "63a4fd7f9db65422c6807684004dd4daeb1c54e4",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000156/content-review.json": "158d64b8f15c881d5149b5b1b071abc006f2da57",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json": "e740f97a20fff4b407e91fb20c8b0c45efabddb8"
+  },
+  "presentationMode": "caution",
+  "mapping": {
+    "title and links": "The selection index and comparison heading use the official English title. The comparator header links to the official curriculum and the UCR columns link to courses. The builder link uses the existing CTA.",
+    "audience and concepts": "render_audience_context and render_comparison_summary use the programme description, comparison explanation, year and three option concepts.",
+    "blocks and notes": "render_compare_table displays the workbook titles, grouped course rows, component titles and credits. audience_cell_note resolves comparator IDs and render_audience_notes displays both selected comparison notes.",
+    "descriptions": "Course buttons resolve courseCode and description-cache text. Reviewed each actual text or reused the identical text with matching source hash.",
+    "research": "The optional UCR element is separate from the UCR totals and the required Groningen thesis."
+  },
+  "fieldPaths": [
+    "review-programmes.programmes[].displayName",
+    "comparator.name",
+    "comparator.primarySourceUrl",
+    "comparator.additionalSourceUrls",
+    "comparator.components",
+    "comparator.sourceNotes",
+    "audience",
+    "academicRationale.alternatives[].concept",
+    "notes[].text",
+    "programmes[].label",
+    "blocks[].title",
+    "blocks[].rows[].cells",
+    "optionalIndependentResearch",
+    "pilot/shiny/data/courses/*.json descriptions by courseCode"
+  ],
+  "selectedConcepts": [
+    {
+      "programmeId": "ucr-1",
+      "concept": "Study how language works and how it shapes public life. Begin with everyday Dutch, rhetoric and the study of language and thought. Apply those perspectives to literary texts, media and social debates, with modern European history and EU politics as regional anchors.",
+      "basisLabels": [
+        "Language proficiency, language-and-society analysis, multilingual communication and language-specific academic work",
+        "European cultures, identities, literature, text, media and comparative cultural analysis",
+        "European politics, institutions, social change and contemporary challenges",
+        "How do language, media and communication shape identity and power in European societies?"
+      ],
+      "evidence": [
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.rug.nl/bachelors/european-languages-cultures-and-politics/?lang=en"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.rug.nl/let/onze-faculteit/organisatie/diensten-en-voorzieningen/onderwijsinstituut/oeren/2026-2027/bacheloropleidingen/delen-b/ba-etc-partb-2627.pdf"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://ocasys.rug.nl/2026-2027/catalog/programme/BA-ETC22"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:7115"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:7123"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:7125"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:7126"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:7127"
+        }
+      ],
+      "labelRationale": "Dutch, stylistics, psycholinguistics and rhetoric lead the route. Modern History and European Union Politics provide European context alongside wider cultural and social comparisons."
+    },
+    {
+      "programmeId": "ucr-2",
+      "concept": "Follow stories and images across literature, film and visual art. Move from close reading and Renaissance art to adaptation, documentary and the history of art interpretation. Use these methods to examine how identity and power are represented across societies.",
+      "basisLabels": [
+        "Language proficiency, language-and-society analysis, multilingual communication and language-specific academic work",
+        "European cultures, identities, literature, text, media and comparative cultural analysis",
+        "European politics, institutions, social change and contemporary challenges",
+        "How do literature and cultural expression represent similarities and differences across Europe?"
+      ],
+      "evidence": [
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.rug.nl/bachelors/european-languages-cultures-and-politics/?lang=en"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.rug.nl/let/onze-faculteit/organisatie/diensten-en-voorzieningen/onderwijsinstituut/oeren/2026-2027/bacheloropleidingen/delen-b/ba-etc-partb-2627.pdf"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://ocasys.rug.nl/2026-2027/catalog/programme/BA-ETC22"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:7116"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:7118"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:7119"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:7122"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:7128"
+        }
+      ],
+      "labelRationale": "The route progresses from literary and visual interpretation to research on narratives, film and art. The Italian Renaissance and European documentary traditions add regional examples within a wider cultural comparison.",
+      "distinctnessRationale": "The literature and media and the language and society options differ by 52.5 EC each way. Literary history and criticism, myth, visual art and adaptation take the place of Dutch, psycholinguistics, EU politics and several social science courses."
+    },
+    {
+      "programmeId": "ucr-3",
+      "concept": "Study modern Europe through history, political institutions and conflict. Build from political philosophy and comparative politics to EU decision-making, international relations and research on social change. Use media and literature to explore how public debates take shape.",
+      "basisLabels": [
+        "European cultures, identities, literature, text, media and comparative cultural analysis",
+        "European politics, institutions, social change and contemporary challenges",
+        "How have political institutions and social change shaped modern Europe and its future challenges?"
+      ],
+      "evidence": [
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.rug.nl/bachelors/european-languages-cultures-and-politics/?lang=en"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.rug.nl/let/onze-faculteit/organisatie/diensten-en-voorzieningen/onderwijsinstituut/oeren/2026-2027/bacheloropleidingen/delen-b/ba-etc-partb-2627.pdf"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://ocasys.rug.nl/2026-2027/catalog/programme/BA-ETC22"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:7117"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:7120"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:7121"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:7124"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:7126"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:7129"
+        }
+      ],
+      "labelRationale": "Modern history, European Union Politics and comparative politics anchor the route. Historical and qualitative inquiry, peace studies and social theory support the study of political and social change.",
+      "distinctnessRationale": "The politics option differs by 75 EC from the language option and 75 EC from the literature option in each direction. Its distinctive core is political philosophy, comparative politics, international relations, historical research and conflict."
+    }
+  ],
+  "blockTitles": [
+    "Language, linguistics & communication",
+    "Literature, media & cultural identity",
+    "Modern Europe, politics & society",
+    "Academic skills, Groningen requirements & independent work"
+  ],
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "Groningen’s degree combines study of a major European language with questions about language, literature and politics. The example shown follows German and the European Language and Society profile.",
+    "comparisonExplanation": "The UCR options focus on language and society, literature and media, or modern European politics. The Groningen example includes advanced language study in German.",
+    "curriculum": {
+      "status": "complete",
+      "componentIds": [
+        "y1-german-1",
+        "y1-studying-europe",
+        "y1-intro-language",
+        "y1-intro-culture",
+        "y1-intro-politics",
+        "y1-german-2",
+        "y1-profile-1",
+        "y1-faculty-course",
+        "y2-german-3",
+        "y2-profile-2",
+        "y2-elective",
+        "y2-language-society",
+        "y2-profile-3",
+        "y2-faculty-course",
+        "y2-culture-literature",
+        "y2-politics-society",
+        "y3-minor",
+        "y3-language-specific",
+        "y3-profile-4",
+        "y3-profile-5",
+        "y3-thesis"
+      ],
+      "yearLabel": "2026–2027",
+      "routeLabel": "German major language, European Language and Society profile"
+    },
+    "conceptProgrammeIds": [
+      "ucr-1",
+      "ucr-2",
+      "ucr-3"
+    ],
+    "noteTypes": [
+      "related-fields-not-full-discipline",
+      "missing-specialist-components"
+    ],
+    "cellNotes": [
+      {
+        "programmeId": "comparator",
+        "reference": "y2-profile-2",
+        "text": "Both examine linguistic structure, including word and sentence patterns. UCR applies this to meaning in texts, while Groningen compares the structures of European languages."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-profile-5",
+        "text": "Both study how the mind processes language. Groningen focuses on psycho- and neurolinguistic research methods."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-faculty-course",
+        "text": "Both interpret and produce narratives. UCR works in the specific form of nonfiction film."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-faculty-course",
+        "text": "Both analyse how stories shape identity. UCR focuses on memoir, autobiography and travel writing."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-intro-culture",
+        "text": "Both introduce the interpretation of literature. Groningen places texts in a European cultural context."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-studying-europe",
+        "text": "Both examine modern European history. Groningen also introduces linguistic and political ways to study Europe."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-intro-politics",
+        "text": "Both examine democracy and political institutions. UCR uses a wider comparative scope."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-german-1",
+        "text": "The first German Plus course develops comprehension and communication at intermediate level."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-intro-language",
+        "text": "Groningen introduces European language and society as a dedicated field."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-german-2",
+        "text": "Groningen continues the German sequence through formal written and spoken communication."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-profile-1",
+        "text": "Groningen develops academic skills in the context of the programme profiles."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-german-3",
+        "text": "The third German course develops academic communication at C1."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-elective",
+        "text": "Groningen reserves 10 EC for a choice within the programme’s profile and language options."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-language-society",
+        "text": "Groningen applies linguistic analysis to Standard German."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-profile-3",
+        "text": "Groningen examines first- and second-language learning through theory and research."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-culture-literature",
+        "text": "Groningen analyses literary genres and periods in German."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-politics-society",
+        "text": "Groningen studies German political culture and its European context in the major language."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-minor",
+        "text": "Groningen reserves 30 EC for a minor or approved study abroad."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-language-specific",
+        "text": "This advanced German module brings together linguistics, literature and politics."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-profile-4",
+        "text": "Groningen teaches linguistic research design, corpus or questionnaire work and basic statistical analysis."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-thesis",
+        "text": "Groningen requires a 10 EC thesis. The optional UCR research shown alongside it is separate from the course schedules."
+      }
+    ]
+  },
+  "notes": [
+    {
+      "type": "related-fields-not-full-discipline",
+      "placement": "comparison",
+      "text": "Groningen combines a three-course German proficiency sequence with academic study in German. The UCR options offer introductory Dutch, linguistics, literature, media or European politics in different combinations."
+    },
+    {
+      "type": "missing-specialist-components",
+      "placement": "comparison",
+      "text": "The UCR course options do not include a German proficiency sequence or the specialist modules taught in German. Groningen’s minor and required thesis are shown separately in the curriculum."
+    }
+  ],
+  "programmeLabels": [
+    "European Languages and Cultures at University of Groningen",
+    "Language, culture & society in Europe",
+    "Literature, media & cultural identity",
+    "Modern Europe, politics & social change"
+  ],
+  "cautionText": "UCR offers related academic study, but specialist subjects or forms of training may differ substantially. This comparison does not establish degree equivalence.",
+  "selectedDescriptions": {
+    "ACCPPDE101": {
+      "name": "Personal & Professional Development",
+      "text": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+        "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Personal & Professional Development"
+      },
+      "cache": "pilot/shiny/data/courses/ACC.json",
+      "cacheBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8"
+    },
+    "ENSSUST113": {
+      "name": "Calling Bullshit",
+      "text": "Develops skills to recognise and handle misinformation. Discusses cognitive biases and detection methods, distinguishes real from fake experts, and includes case studies and a video project tackling a misinformation topic.",
+      "source": {
+        "courseName": "Calling Bullshit",
+        "sourceField": "description2",
+        "sourceSha256": "32e4962356505bd59c65220146b675fd407d018925f1ff19f2eb82b0a2276b35",
+        "descriptionSha256": "32e4962356505bd59c65220146b675fd407d018925f1ff19f2eb82b0a2276b35"
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "GOSHIST111": {
+      "name": "Modern History",
+      "text": "Provides a chronological overview of history from 1815 to the present. Discusses industrialisation, popular sovereignty and national self‑determination, and covers major economic, political and cultural developments including revolutions, world wars and the fall of communism.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Modern History",
+        "sourceField": "description2",
+        "sourceSha256": "cd940abc8f8e43aeb6cedd73b6bf076687f6418ffb3a76c3e1c44ad107e68324",
+        "descriptionSha256": "cd940abc8f8e43aeb6cedd73b6bf076687f6418ffb3a76c3e1c44ad107e68324",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSHIST211": {
+      "name": "History of Empires",
+      "text": "History of Empires examines empires across global history and competing theories of empire. Students study expansion, administration, military and economic systems, legitimacy, ideology, culture, decline and legacies. Historical cases, source analysis and an independent research essay connect theoretical interpretation with specific imperial experiences.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "bce0c4bf26316aa65a8b70c29f53f82e7c38bf225868dfd278a3cd941ebe4b82",
+        "descriptionSha256": "76faf04e8e855ae9ca1735ccf5a7e8ac76bf21911b771190f9286303745ad4a3",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "History of Empires"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSHIST213": {
+      "name": "Ways of War",
+      "text": "Provides a chronological overview of warfare in the Western world from antiquity to the present. Covers weapons, technology, strategy, defence, mercenaries, cavalry, chivalry, Blitzkrieg, guerrilla warfare and nuclear arsenals, illustrating competition for mastery in Western history.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "basis": "official course description",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-05",
+        "sourceSha256": "faa25ace5a261ae12152a9794320ccace2959a37857b92d43cbfe2eb15ff7c27",
+        "descriptionSha256": "faa25ace5a261ae12152a9794320ccace2959a37857b92d43cbfe2eb15ff7c27",
+        "reviewNote": "Read the unchanged display text against the current official description and actual course evidence. It accurately conveys the supported historical, heritage, museum or material-media focus without claiming archaeological field qualification. No displayed text changed.",
+        "courseName": "Ways of War"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSHIST312": {
+      "name": "Researching the “American Century”",
+      "text": "Guides students through the full arc of historical inquiry, from formulating research questions to engaging critically with sources. Emphasises methodological rigour and interdisciplinary thinking and culminates in a substantial research paper.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "sourceSha256": "ec69dff9b78d3978fff3f1724dc3a2256eb5e2c589b7beff8e13b46a9171908a",
+        "descriptionSha256": "ec69dff9b78d3978fff3f1724dc3a2256eb5e2c589b7beff8e13b46a9171908a",
+        "mode": "verbatim",
+        "reviewedOn": "2026-10-30",
+        "reviewNote": "By user decision of 30 October 2026, the historical Walcheren outline is excluded from the enriched reference. Uses the unchanged official description verbatim; claims are limited to the historical inquiry, source criticism and research methods it supports. No replacement outline is required for this current use.",
+        "courseName": "Researching the “American Century”"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI111": {
+      "name": "Introduction to Political Philosophy",
+      "text": "Introduction to Political Philosophy examines political thought from classical antiquity to contemporary debates, including European and non-European thinkers. Students study views of human nature, society, rights and authority in historical context and compare their arguments with current political problems. Original texts, an essay and a group project develop interpretation and normative argument.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "b82d5b7efaf1e222b9ec94652bba7beb367919298b5ae983d3f07f072f142130",
+        "descriptionSha256": "ea3b0a363bec6cacab1a13c186f6c97bbbf5d5ce40d4cf5cdb1a67491d47a19c",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Introduction to Political Philosophy"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI112": {
+      "name": "Foundations of Comparative Politics",
+      "text": "Provides analytical tools to compare political systems and democracies. Examines phenomena like democratic backsliding, decline of political parties, rise of populism, media changes, non‑majoritarian institutions and globalization’s impact on domestic politics.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Foundations of Comparative Politics",
+        "sourceField": "description2",
+        "sourceSha256": "72f9efff37e62fdc1cb0ddf27e595e7b3c526eb132dad86622cf55738204a4ee",
+        "descriptionSha256": "72f9efff37e62fdc1cb0ddf27e595e7b3c526eb132dad86622cf55738204a4ee",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI212": {
+      "name": "Theory of International Relations",
+      "text": "Theory of International Relations introduces competing approaches to international relations and geopolitics, including realism, liberalism, Marxism, constructivism and critical theory. Students apply theories to historical and contemporary cases. A United Nations Security Council simulation develops country-position research, negotiation and collaborative resolution drafting.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "0f83c15b507fb2c91b8001182f4a8a94e42ee1673da8396a51bb4a3556d47116",
+        "descriptionSha256": "04498c2b83c05d39830633ba46b62b3691d10af2bb8320e5413d0f75963fbc80",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Theory of International Relations"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI311": {
+      "name": "European Union Politics",
+      "text": "European Union Politics examines EU institutions, actors, integration and policymaking, including representation, legitimacy and decision-making. An empirical project investigates European Parliament committee amendments, relating MEP ideology and possible interest-group influence to amendment activity. Students plan the research, code amendments, assess salience and trace legislative processes.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "42788a5dd28eccc535d20a771b88a601c20af300b1102ef637945a852f156fe0",
+        "descriptionSha256": "97411c9c43963bfc500f8c6494383d57cfd36eeb9c57f554e94ba2d6e35c4253",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "mode": "edited",
+        "courseName": "European Union Politics"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI313": {
+      "name": "Peace & Conflict",
+      "text": "Peace & Conflict examines conflict and approaches to peace through legal, sociological, political and historical perspectives. Structural inequality, identity and colonial legacies connect to international security, humanitarian law, human rights, peacebuilding and transitional justice. An interdisciplinary podcast, policy brief and research dossier develop analysis, while reflection examines how assumptions shape inquiry.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "414e04bed3b7b37017b0ce93ba0aa469530684e0623175ca2ff1784b4a84515a",
+        "descriptionSha256": "5ad720fcdadf602282307eef8fe7eaf83c3b00264a2ee4752e123cda89606fdf",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Peace & Conflict"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI111": {
+      "name": "Introduction to Sociology",
+      "text": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Sociology",
+        "sourceField": "description2",
+        "sourceSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "descriptionSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI212": {
+      "name": "Qualitative Research Methodology",
+      "text": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "6531d96f817df19cfa773d8d8004f44da6041eeab39acfce1462438728cd1eeb",
+        "descriptionSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Qualitative Research Methodology"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI214": {
+      "name": "Modern Sociology",
+      "text": "Examines the trajectory of sociology within the culture of imperialism and colonial responses. Studies leading social theories and debates about modernity and critically engages with sociological discourses.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Modern Sociology",
+        "sourceField": "description2",
+        "sourceSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+        "descriptionSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI215": {
+      "name": "Social Movements & Environmental Justice",
+      "text": "Focuses on social movement theories and environmental justice. Uses case studies from the Environmental Justice Atlas and integrates perspectives such as feminism, anti‑colonialism, degrowth and environmental peacebuilding to encourage civic engagement.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Social Movements & Environmental Justice",
+        "sourceField": "description2",
+        "sourceSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+        "descriptionSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI311": {
+      "name": "New Issues in Contemporary Social Theory",
+      "text": "New Issues in Contemporary Social Theory studies civil society through critical, neo-functionalist and decolonial perspectives. Topics include trust, social capital, public spheres, solidarity, social movements and civil repair. An experience report connects engagement or observation to course concepts, while an individual project uses theoretical and empirical sources to analyse a civil-society organisation, movement or initiative.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "New Issues in Contemporary Social Theory",
+        "sourceField": "profile",
+        "sourceSha256": "f54abdf8a1ca13792cdc4bc2d390f202721dd6280b0cae44aa0609c2db02dbbf",
+        "descriptionSha256": "367314c88b9f1c559ccd023159845f9624f353f78d898bc66b690ebe3392336b",
+        "mode": "edited",
+        "reviewedOn": "2026-10-31",
+        "reviewNote": "Read the selected current profile and cumulative outline limitation fields. The displayed summary follows its substantive topics and activities; it omits unsupported resource-planning or mandatory NGO group-project claims from superseded cache wording."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "HCBCOGN312": {
+      "name": "Psycholinguistics",
+      "text": "Psycholinguistics is the study of the neurobiological and psychological factors that enable us to acquire, use, and understand language. Modern research draws on cognitive psychology, neuroscience, and computer science to investigate how language is processed. The course focuses primarily, though not exclusively, on the neuroscience of language. Students examine theoretical and experimental issues in speech production and comprehension, language impairments, the relationship between thought and language, and the evolution and acquisition of language. They also gain hands-on experience with experimental approaches to the study of language and develop an understanding of human linguistic capacity as a subject of multidisciplinary research. Topics covered: What is language? Evolutionary aspects of language and animal communication; language and thought; aphasia; language acquisition; bilingualism; speech comprehension; semantics; reading and dyslexia; speech production.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Psycholinguistics",
+        "sourceField": "description2",
+        "sourceSha256": "8b48cfd32534496954068f0d33edc9cd03d1856a6e075c0364ae1ec55dad27ec",
+        "descriptionSha256": "8b48cfd32534496954068f0d33edc9cd03d1856a6e075c0364ae1ec55dad27ec",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBGATE102": {
+      "name": "Introduction to Brain & Behavior",
+      "text": "Explores why people behave as they do and how brain injuries affect mental processes. Discusses nature and nurture, introduces brain anatomy and psychological theories, and provides a gateway to cognitive science and clinical psychology.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Brain & Behavior",
+        "sourceField": "description2",
+        "sourceSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+        "descriptionSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "HCBPSYC315": {
+      "name": "Youth Resilience to Extremism",
+      "text": "Interdisciplinary course combining psychology and other social sciences in which students will have an opportunity to participate in an actual international research project and develop evidence-based materials for youth leaders and educators aimed at strengthening young people’s resilience to radicalization by promoting democratic school culture, emotionally supportive learning environments, empathy, civic engagement, and mental well-being.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Youth Resilience to Extremism",
+        "sourceField": "description2",
+        "sourceSha256": "9025fab0b73095d3db8b25aeb6f5922038e322132aa2cceffc415146926d1bf0",
+        "descriptionSha256": "9025fab0b73095d3db8b25aeb6f5922038e322132aa2cceffc415146926d1bf0",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "23459da6d1ee2106951372adef085604fdb4d56b"
+    },
+    "MCCCOMM111": {
+      "name": "The Art of Rhetorical Communication",
+      "text": "The Art of Rhetorical Communication develops rhetorical analysis, academic writing and oral presentation. Students examine classical Western roots and the canons of rhetoric, and learn to construct, organise and support persuasive arguments. Historical and contemporary examples connect rhetorical theory with practical communication.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "a1075e2aff565380f637a1ee31ac79c668477b11b15a7f853230b303cf44485f",
+        "descriptionSha256": "34ab73cc0cae33e2a0e47ba5df0ee55c9b0e5f2d4e21ae97ea18667a96400c4c",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "The Art of Rhetorical Communication"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCCOMM112": {
+      "name": "Dutch",
+      "text": "This course aims to develop basic skills and strategies necessary to successfully handle uncomplicated oral and written communication in Dutch in a variety of social situations that you may encounter in daily life in the Netherlands. The emphasis in the course will be on speaking in Dutch in day-to-day situations on the one hand and understanding Dutch culture on the other hand. At the end of the course students can orally express and write about themselves in Dutch, who they are, describe their family background, and interact with others in a simple way.",
+      "source": {
+        "courseName": "Dutch",
+        "sourceField": "description2",
+        "sourceSha256": "8c2c99d2188bd67ae510460e90e243b1ab3b37333d9200a667a19286bd865113",
+        "descriptionSha256": "8c2c99d2188bd67ae510460e90e243b1ab3b37333d9200a667a19286bd865113"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCCOMM211": {
+      "name": "Style & Meaning",
+      "text": "Style & Meaning studies stylistics: how linguistic choices produce meaning and interpretive effects, principally in literary texts and also in nonfiction. Students connect grammar, discourse and cognition with interpretation through frameworks for dialogue, narration, modality, deixis and text worlds. Analysis exercises lead to an original research-supported stylistic analysis.",
+      "source": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "d080043304ce78e0dfb21e7626ed39788487ac6407c4b6b9b8dd65a1ccc3cb3c",
+        "descriptionSha256": "1403b3e8bbe5009d3f3736ca1f68055e9a004b02908527fba7a6c0dbbb12be33",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "courseName": "Style & Meaning"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCCOMM213": {
+      "name": "Rhetoric in Action",
+      "text": "Develops persuasive speaking skills by applying rhetorical theory in the real world. Students work with local primary school children, building public-speaking skills and empowering them to find their voices.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Rhetoric in Action",
+        "sourceField": "description2",
+        "sourceSha256": "a481c86f7c34da2d13a0785165435e6761cd1a65cf18efd83c40b7795ee5ff29",
+        "descriptionSha256": "a481c86f7c34da2d13a0785165435e6761cd1a65cf18efd83c40b7795ee5ff29",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCCOMM311": {
+      "name": "Persuasive Communication",
+      "text": "Persuasive Communication studies persuasion through communication studies, social psychology and ethical analysis. Students examine framing, argumentation, cognitive shortcuts and verbal and nonverbal communication. Community-engaged projects develop communication encouraging sustainable and circular lifestyles, while an individual research paper evaluates selected persuasion tools.",
+      "source": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "bad6a0cb3dd14e5cb07c4aeb36a102d09309142fdc5bab339f0096830ec5209a",
+        "descriptionSha256": "781fa29248cce6025d8aa8887d300c8f0d64941a8b4a9b2dd193783c098deacc",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "reviewedOn": "2026-10-29",
+        "basis": "course outline",
+        "courseName": "Persuasive Communication"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCCOMM312": {
+      "name": "Creative Communication Laboratory",
+      "text": "Creative Communication Laboratory combines close reading and creative workshops with poetry, rhythm, sound, voice and performance. Students develop traditional or hybrid creative projects grounded in scholarship and aesthetic traditions. Revision and reflection require them to explain their formal, conceptual and procedural choices.",
+      "source": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "d45bc30fbb2ccb16032887c1e925d9781c5e5643f98a1d72845b3bde1a1e8c68",
+        "descriptionSha256": "5784a44bdf47e513fd175105980ac4d21836d78686e6c5dcd79411edf50bb3ec",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "courseName": "Creative Communication Laboratory"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCHEAM212": {
+      "name": "Renaissance Italy & Global Mediterranean",
+      "text": "This course examines the painting, sculpture, and architecture of Renaissance Italy and the extensive artistic connections that linked the Italian peninsula to other regions of the world. By exploring a range of geographical contexts, from the Islamic courts of the Eastern Mediterranean and the commercial routes connecting Europe, Asia, and Africa to the newly encountered territories of the Americas, students will examine how trade, colonization, and cross-cultural exchange shaped the production and meaning of Renaissance art.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "description2",
+        "basis": "course description only",
+        "mode": "verbatim",
+        "reviewedOn": "2026-10-29",
+        "descriptionSha256": "b4a13abe5a07928b0cdab488caa90995438a5cbe2a84a8ee8c90bdac01f4f1fe",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "sourceSha256": "b4a13abe5a07928b0cdab488caa90995438a5cbe2a84a8ee8c90bdac01f4f1fe",
+        "courseName": "Renaissance Italy & Global Mediterranean"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCHEAM316": {
+      "name": "Writing Art's Histories",
+      "text": "This course examines the history of art history as an academic discipline, tracing how scholars have understood and interpreted art from the sixteenth century to the present. Through critical readings of influential texts by figures such as Aby Warburg, Erwin Panofsky, Ernst Gombrich, Michel Foucault, and Jacques Derrida, students explore the major ideas and methodologies that have shaped the field. Topics include art and history, aesthetics, meaning and interpretation, authorship and identity, and the challenges of art history in a globalized world.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "description2",
+        "basis": "course description only",
+        "mode": "verbatim",
+        "reviewedOn": "2026-10-29",
+        "descriptionSha256": "36dd2e030e9138c092efda247642ac6704a1980060151aa3b18437a0b1cc0d93",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "sourceSha256": "36dd2e030e9138c092efda247642ac6704a1980060151aa3b18437a0b1cc0d93",
+        "courseName": "Writing Art's Histories"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCLITR111": {
+      "name": "Introduction to Literary Studies",
+      "text": "Introduction to Literary Studies introduces practical criticism and literary interpretation. Students examine what literature is, why it is read and studied, formal properties and the constructed character of texts. Fiction, poetry and drama are supplemented by contemporary nonfiction and basic film narration, developing critical terms, tools and techniques.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "a9463cfe73634d354a0603d7a43f487a39c7b11f2ca75198d02980299b54cd46",
+        "descriptionSha256": "4f2e60bcf8d4882bf8b8d7d9a1818f0ba86ecb5f1ee41727237d19fab84722ad",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Introduction to Literary Studies"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCLITR112": {
+      "name": "Great Literary Works",
+      "text": "Provides a chronological overview of literature from the epic of Gilgamesh to post‑modernity. Reads literary and critical texts that explore human experience and teaches how to approach literature’s ambiguities and trace themes across ages.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Great Literary Works",
+        "sourceField": "description2",
+        "sourceSha256": "248ed84f99b7813e881f96219b5572698c50a9014fcb4439863eb95a4871820f",
+        "descriptionSha256": "248ed84f99b7813e881f96219b5572698c50a9014fcb4439863eb95a4871820f",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCLITR211": {
+      "name": "World Myth & Literature",
+      "text": "World Myth & Literature compares mythic narratives across ancient and later traditions, examining transmission, cultural connections and themes such as creation, power, gender, love and loyalty. Greek, Roman, Near Eastern, Indian, Arabic and African materials support literary analysis. A research paper, graphic explanation and creative retelling connect interpretation with narrative practice.",
+      "source": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "1e48b00378b8c6b875a7cb52ee3c43c5a1fa03c6c4345b7ecf5bd82049fb7f83",
+        "descriptionSha256": "44c8274632c55ccd0cd9b3255a54f99595980fdc15c1f30defdd3a6f3d600848",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "courseName": "World Myth & Literature"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCLITR212": {
+      "name": "Life & Travel Writing",
+      "text": "Life & Travel Writing examines memoir, autobiography, diaries, personal essays, travel writing and digital self-presentation. Students explore memory, identity, autobiographical truth, ethics and cultural positioning through close reading and theory. A personal writing portfolio and an independent life-narrative project connect analysis with practice.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "83c6fa2e7a3861bf32bbc34408c5c84e984451c12f05dddb909cdb1656f64c17",
+        "descriptionSha256": "accdee02d696d09f594e471dd133916d99b2a25293754a87e1188a7be6b50739",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Life & Travel Writing"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCLITR311": {
+      "name": "Film & Text",
+      "text": "Film & Text studies relationships between literary and film narratives, adaptation and intertextuality. Students learn methods of film analysis and examine plot, character, setting, image, acting, music and sound, alongside the relationships among adaptors, critics and viewers.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "ce2539bb2ee6c075e7c2ebf97af3f3db50561e3163a348c4e4bfb39bf25ec89c",
+        "descriptionSha256": "1ebd21656cd9546bf8642676f442bb5ce858dc97daead73a9c97bf93ef2ebae7",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Film & Text"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCLITR312": {
+      "name": "Perspectives on Literary Meaning",
+      "text": "Examines how different perspectives—humanist, feminist, Marxist, cultural minority and psychoanalytic—affect reading and interpretation. Students undertake a research project applying selected perspectives to texts.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Perspectives on Literary Meaning",
+        "sourceField": "description2",
+        "sourceSha256": "a215ac77572c64be18665a21cbd133189450d83845296171f8ea0e1aa29570a3",
+        "descriptionSha256": "a215ac77572c64be18665a21cbd133189450d83845296171f8ea0e1aa29570a3",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCMEDI111": {
+      "name": "Introduction to Film & Media",
+      "text": "Introduction to Film & Media examines how moving images create meaning through cinematography, editing, sound, narrative and performance. Film history connects early cinema and major movements with feminist and postcolonial interpretation, alongside television, digital platforms and spectatorship. An analytical or creative-analytical project combines close analysis, theory and scholarly research.",
+      "source": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "5755fae4aad203737db42f373976a1a3540befa537d34b2f7992c241ca2092f3",
+        "descriptionSha256": "07d87ceb8396fdb190b165e8c6c602ac572c9aca7393cd25c4ddddb5f19ccb8a",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "reviewedOn": "2026-10-29",
+        "basis": "course outline",
+        "courseName": "Introduction to Film & Media"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCMEDI112": {
+      "name": "Media Archaeology",
+      "text": "Explores media technologies before digital culture. Studies cassette tapes, typewriters and early printing as material objects that carry meaning; includes hands‑on experiments; no technical background required.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "basis": "official course description",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-05",
+        "sourceSha256": "7ce20d4de324762f0ad56ca3aa58f54f9de55dba3c34041f5b1cd5ddc5ed52e6",
+        "descriptionSha256": "7ce20d4de324762f0ad56ca3aa58f54f9de55dba3c34041f5b1cd5ddc5ed52e6",
+        "reviewNote": "Read the unchanged display text against the current official description and actual course evidence. It accurately conveys the supported historical, heritage, museum or material-media focus without claiming archaeological field qualification. No displayed text changed.",
+        "courseName": "Media Archaeology"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCMEDI211": {
+      "name": "From T.V. to TikTok",
+      "text": "From T.V. to TikTok examines American social history and everyday life from the mid-twentieth century through contemporary media. Television, film and digital forms connect storytelling and power with identity and imagined futures. Students compare dominant portrayals with Indigenous self-representation, investigate disability representation, and develop futures-oriented creative projects.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "7a52bea5680a4b6163548f3f444712f60c5842ad1218b9dddcf23fb6b98b924e",
+        "descriptionSha256": "b153371e55e7dca9e8340397a88e7789c65838a99874546900e53ab6b940b884",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "From T.V. to TikTok"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCMEDI311": {
+      "name": "Media & Race",
+      "text": "Media & Race investigates storytelling, power, privilege, resistance and systemic racism in American history from the late nineteenth century to the present. Film, photographs, music and other media connect past and present. Students produce research-based podcasts exploring how media sustains oppression and supports resistance.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "3047a3489ffc4f90cde2a5d32b641f66255b1616a1599ed60e121e6306d5fda8",
+        "descriptionSha256": "05aa4bb52a50700caa428fbe8cbb10a8fb321a9da4087a93a95e30883998a618",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Media & Race"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCMEDI312": {
+      "name": "The Documentary",
+      "text": "Introduces documentary film from its early development to contemporary forms, analysing historical and social contexts, styles and genres, and ethical and aesthetic questions. Students analyse non-fiction representations and produce a short documentary item.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "d8ce7c931003ce12a3a81c610feeda88ceed97ae0297b4a9bafa1001fe843803",
+        "descriptionSha256": "223f9d67569f492466d7fe0e444249d55688d2d867669711ff057617aa16f2fe",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "The Documentary"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    }
+  },
+  "sharedDescriptionReviewRefs": {
+    "ACCPPDE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "ENSSUST113": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000127/content-review.json",
+    "GOSHIST111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "GOSHIST211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000129/content-review.json",
+    "GOSHIST213": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "GOSHIST312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "GOSPOLI111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "GOSPOLI112": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "GOSPOLI212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000129/content-review.json",
+    "GOSPOLI311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "GOSPOLI313": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "GOSSOCI111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSSOCI212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSSOCI214": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "GOSSOCI215": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "GOSSOCI311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "HCBCOGN312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000142/content-review.json",
+    "HCBGATE102": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "HCBPSYC315": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "MCCCOMM111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "MCCCOMM112": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000132/content-review.json",
+    "MCCCOMM211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000158/content-review.json",
+    "MCCCOMM213": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "MCCCOMM311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "MCCCOMM312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCHEAM212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000156/content-review.json",
+    "MCCHEAM316": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json",
+    "MCCLITR111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCLITR112": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json",
+    "MCCLITR211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json",
+    "MCCLITR212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCLITR311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCLITR312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json",
+    "MCCMEDI111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCMEDI112": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCMEDI211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "MCCMEDI311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "MCCMEDI312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json"
+  },
+  "sourceUrls": [
+    "https://www.rug.nl/bachelors/european-languages-cultures-and-politics/?lang=en",
+    "https://www.rug.nl/let/onze-faculteit/organisatie/diensten-en-voorzieningen/onderwijsinstituut/oeren/2026-2027/bacheloropleidingen/delen-b/ba-etc-partb-2627.pdf",
+    "https://ocasys.rug.nl/2026-2027/catalog/programme/BA-ETC22"
+  ],
+  "ucrLinks": [
+    "https://ucr.nl/education/courses/",
+    "https://program.ucr.nl/"
+  ]
+}
