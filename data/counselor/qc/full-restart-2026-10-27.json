@@ -7710,7 +7710,7 @@
     },
     {
       "id": "cp-000355",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "correct",
@@ -7721,23 +7721,13 @@
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Verified the Utrecht curriculum and project, corrected the UCR schedule and updated alignments",
-          "scope": "Rechecked comparator structure, academic interests, UCR contributions and schedules, alignment, candidate outcomes and audience content.",
-          "stages": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ]
-        }
+      "downstreamReassessments": [],
+      "implementationCommits": [
+        "4382a60e7c97be10b7c94b4d696913579b27f47c"
       ],
-      "implementationCommits": [],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000355.json"
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000355.json",
+      "academicDisposition": "comparison"
     },
     {
       "id": "cp-000356",
@@ -8761,8 +8751,8 @@
     }
   ],
   "progress": {
-    "approved": 199,
-    "inProgress": 60,
+    "approved": 200,
+    "inProgress": 59,
     "reviewedWithBlockers": 0,
     "notStarted": 179,
     "pilotStarted": 6
@@ -20686,37 +20676,15 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000355",
-      "activeClaim": {
-        "executionId": "restart-B-cp355-20261108T030319Z",
-        "worker": "B",
-        "caseId": "cp-000355",
-        "claimedAt": "2026-11-08T03:03:19.025927+00:00",
-        "reviewedInputCommit": "b78058a51ff48a9657efb75bf7a1281bfa4f7d42",
-        "inputBlobs": {
-          "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000355.json": "83c5e1abb3f9661bdc61926dfdaa48c5cf9aee99",
-          "data/counselor/comparisons/cp-000355.json": "e43ae26794cabfbf0c5aa0c1993d4bbd8d5f1e95",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify published CP355 files, replay and exact-head CI, then record final disposition and reconcile Assessment 20 across both worker queues.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000356",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -20798,7 +20766,8 @@
         "cp-000351",
         "cp-000352",
         "cp-000353",
-        "cp-000354"
+        "cp-000354",
+        "cp-000355"
       ],
       "completedDispositions": [
         {
@@ -21367,6 +21336,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000354.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-08"
+        },
+        {
+          "caseId": "cp-000355",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000355.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-08"
         }
       ],
       "deferredCases": [
@@ -21448,10 +21424,19 @@
       "lastCheckpoint": {
         "caseId": "cp-000355",
         "executionId": "restart-B-cp355-20261108T030319Z",
-        "state": "in-progress",
-        "reviewedInputCommit": "ead2724e3c86a441015a20cb92c94f72ab7dbdb3",
-        "nextAction": "Verify published CP355 files, replay and exact-head CI, then record final disposition and reconcile Assessment 20 across both worker queues.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000355/mechanical-verification.json"
+        "state": "approved",
+        "academicDisposition": "comparison",
+        "reviewedInputCommit": "4382a60e7c97be10b7c94b4d696913579b27f47c",
+        "inputBlobs": {
+          "canonical": "bf44e982c6ba2178cd0d92389b98b1330624faef",
+          "decision": "36618b469cad82d657ebc1af2f6a54cb80fb2cf1"
+        },
+        "verifiedAt": "2026-11-08T03:10:34.966445+00:00",
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000355/published-verification.json",
+        "nextAction": "CP355 approved with three qualified UCR options. Resume cp-000356 next execution.",
+        "runtimeModel": "unknown",
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -27869,6 +27854,23 @@
           "reviewedInputCommit": "ead2724e3c86a441015a20cb92c94f72ab7dbdb3",
           "nextAction": "Verify published CP355 files, replay and exact-head CI, then record final disposition and reconcile Assessment 20 across both worker queues.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000355/mechanical-verification.json"
+        },
+        {
+          "caseId": "cp-000355",
+          "executionId": "restart-B-cp355-20261108T030319Z",
+          "state": "approved",
+          "academicDisposition": "comparison",
+          "reviewedInputCommit": "4382a60e7c97be10b7c94b4d696913579b27f47c",
+          "inputBlobs": {
+            "canonical": "bf44e982c6ba2178cd0d92389b98b1330624faef",
+            "decision": "36618b469cad82d657ebc1af2f6a54cb80fb2cf1"
+          },
+          "verifiedAt": "2026-11-08T03:10:34.966445+00:00",
+          "verificationPolicy": "record-content-review-2026-10-31",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000355/published-verification.json",
+          "nextAction": "CP355 approved with three qualified UCR options. Resume cp-000356 next execution.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown"
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -31137,6 +31139,32 @@
           "endedAt": "2026-11-08T02:08:31.678623+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000354/published-verification.json"
+        },
+        {
+          "executionId": "restart-B-cp355-20261108T030319Z",
+          "worker": "B",
+          "caseId": "cp-000355",
+          "claimedAt": "2026-11-08T03:03:19.025927+00:00",
+          "reviewedInputCommit": "b78058a51ff48a9657efb75bf7a1281bfa4f7d42",
+          "inputBlobs": {
+            "AGENTS.md": "4050720e5f44fa5a31d283862936db5296c8be03",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000355.json": "83c5e1abb3f9661bdc61926dfdaa48c5cf9aee99",
+            "data/counselor/comparisons/cp-000355.json": "e43ae26794cabfbf0c5aa0c1993d4bbd8d5f1e95",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify published CP355 files, replay and exact-head CI, then record final disposition and reconcile Assessment 20 across both worker queues.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-08T03:10:34.966445+00:00",
+          "result": "approved comparison",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000355/published-verification.json"
         }
       ],
       "publicationRecoveryHistory": [
@@ -32269,6 +32297,17 @@
       },
       "combinedVerifiedCount": 190,
       "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000350/assessment-19.json"
+    },
+    {
+      "assessmentNumber": 20,
+      "verifiedOn": "2026-11-08",
+      "milestone": 200,
+      "workerVerifiedCounts": {
+        "A": 118,
+        "B": 82
+      },
+      "combinedVerifiedCount": 200,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000355/assessment-20.json"
     }
   ],
   "systemicPause": null,
