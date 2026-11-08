@@ -31,6 +31,7 @@ Use these columns in the order shown.
 | `value` | Numeric threshold when published. Leave blank for rules without a numeric value or for an external lookup. |
 | `unit` | Unit of the threshold, such as `EC`, `GPA (1–10)` or `GMAT score`. |
 | `condition` | Short paraphrase of the rule, including any trigger, exception or outcome needed to interpret it. |
+| `source_rule` | Faithful record of the operative published rule. Keep the exact thresholds, units, qualifications, exceptions, and relationships needed to reconstruct it. A precise paraphrase is sufficient. Include the path relative to the workbook and section when the rule relies on retained evidence. |
 | `accepted_evidence` | Evidence the university says it will consider, such as course descriptions, assessed writing or a named test. |
 | `choice_group_id` | Identifier for a choice between options within the same route. |
 | `option_id` | Identifier for one option within that choice. Give each condition in the same option the same identifier. |
@@ -50,11 +51,14 @@ Use these columns in the order shown.
 - Keep recommendations, selection factors and conditional outcomes separate from minimum eligibility conditions. Use `approx` only when the university describes a figure as indicative or approximate. Record a published score matrix as a `lookup` and link to the exact table. Record any separate effect of a higher score on a `conditional_outcome` row.
 - Use `individual_review` when the university explicitly leaves a decision to its admissions committee. Use `not_published` when the relevant official information was found and gives no rule on the point being recorded. Use `unverified` when evidence is missing, inaccessible or conflicting. Identify the open point in `condition`.
 - Use programme-specific official sources and the applicable applicant category. Check formal regulations or linked checklists where they qualify the admissions page. Record the stated intake separately from the date checked. Preserve the applicable cycle and record any unresolved discrepancy. Keep earlier verified intake rows when the rules change for a new intake.
+- Capture source evidence at extraction. Preserve a dated factual extract or a checked transcription in `evidence/` when a linked table, named list, checklist, or complex clause cannot be reconstructed from the row. Record the official URL, locator, date checked, and applicable cycle when stated. Save only the relevant material. For a conflict, retain each source's position and its scope. For inaccessible material, identify the missing detail and mark it unresolved if it can affect the outcome. Preserve earlier evidence versions when a source changes.
+- For each programme, track and intake, review every route in the declared applicant scope against the official sources before marking collection complete. Check the prior qualification, academic conditions, accepted evidence, language, selection, deadlines, application or enrolment conditions, and any bridge. Capture the trigger and limits of each exception or remedy, including nonacademic restrictions. Keep AND/OR combinations explicit. Record how credit pools relate, including any published rules for overlapping or double-counted credits. Record silence on a consequential point without inferring a policy.
+- Reconcile reviewed programmes against the scoped programme list. Keep an explicit record of any route or consequential detail whose source cannot be verified. Use an information row for a gap where the source and the affected route can be identified. A deliberately selected test slice is partial coverage.
 - Keep UCR course matches and applicant eligibility judgments out of this workbook.
 
-## First workbook check
+## Pilot reconstruction checks
 
-Populate these four pilot cases before collecting more programmes.
+Use the original four cases and the additional stress tests to validate collection before scaling.
 
 | Pilot case | Rule the flat rows must reproduce |
 | --- | --- |
@@ -64,3 +68,11 @@ Populate these four pilot cases before collecting more programmes.
 | MA-32, Maastricht International Business, Strategy and Innovation | The portfolio and test options are alternatives. The old GMAT option has both a total-score and a writing-score threshold. The GRE option uses an official matrix. |
 
 Reconstruct each rule from the rows and test at least one boundary or unresolved case. Check that identifiers are unique at the stated level, repeated programme and route fields are consistent, choices and credit pools are intact, and each condition has a verifiable source and location.
+
+| Stress test | Rule to reconstruct from the saved record |
+| --- | --- |
+| MA-07, Radboud Cognitive Neuroscience, Perception, Action and Decision-making | One complete subject combination is required. A pair drawn from different alternatives does not satisfy the track requirement. Competitive selection remains separate. |
+| MA-28, Utrecht Social, Health and Organisational Psychology | The named UCR route and general assessment are distinct. The two discretionary remedies address different gaps. Apply the housing and study-residence-permit restrictions to the pre-master route. |
+| MA-32, Maastricht International Business, Strategy and Innovation | Reproduce the GRE matrix outcomes and exact named qualifications from retained evidence, including the distinction between board review and conditional automatic admission. |
+
+Have a second reviewer reconstruct the tested rules from the worksheet and retained evidence without opening the live sources. Check an eligible case, a near miss and an unresolved case where applicable. Record the tested scope and any remaining coverage gaps before expanding.

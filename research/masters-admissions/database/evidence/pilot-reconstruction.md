@@ -1,0 +1,11 @@
+# Pilot reconstruction check
+
+Checked 2026-11-08. A second reviewer reconstructed the cases below from the workbook and retained evidence without consulting live sources. These are tests of selected rules and routes. They do not establish complete coverage of the universities’ admissions policies.
+
+| Case | Result |
+| --- | --- |
+| Radboud Cognitive Neuroscience, Perception, Action and Decision-making | Biophysics plus neuroscience meets the subject gate. Biophysics plus experimental design and statistics fails it. Overall selection remains an individual decision. The five-year degree-recency rule from the 2026–2027 regulations needs confirmation for a later intake. |
+| Utrecht Social, Health and Organisational Psychology | Two advanced courses totalling 20 EC fail the named UCR route’s three-course requirement. The assessed route has its own conditions. A need for housing excludes a tailored pre-master. A multivariate statistics gap can go to summer school at the committee’s discretion. A missing thesis cannot be remedied this way. The available source does not establish whether the pre-master’s housing and study-permit restrictions apply to summer school. |
+| Maastricht International Business, Strategy and Innovation | A verbal score of 145 and quantitative score of 169 go to board review. Raising the quantitative score to 170 gives conditional automatic admission if the writing minimum and other conditions are met. Reversing the two scores gives an insufficient result. The reviewer also matched Utrecht University’s Banking and Finance pre-master by both institution and name. |
+
+The original four pilot cases retain their prior coverage. The two added programmes cover the tested routes above. The detailed Maastricht Psychology checklist and the International Business portfolio prompts were not independently verified. The Radboud slice omits language and deadlines. Maastricht International Business has incomplete coverage of language, deadlines and the shared requirements for the named and bridge routes. Utrecht’s published norms specify separate credit pools, but the retained record leaves credit overlap unresolved. Recheck any open point that could change an applicant’s outcome before using that route for an eligibility assessment.
