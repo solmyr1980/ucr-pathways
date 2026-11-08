@@ -1,0 +1,944 @@
+{
+  "caseId": "cp-000159",
+  "checkedAt": "2026-11-08T13:32:56.228158+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000159.json": "4affb1c393845dfba5fc704b5711ebed701f060d",
+    "data/counselor/comparisons/cp-000159.json": "085360d539d9789b39eee0a102bb3b0908a2e341",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "data/registry/programmes.csv": "28c293650641df37269e0013aa0347c561cb0e08",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "2068982f4281e7e2715e73a8ffa84ccb9c0fcf95",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json": "d65b11aff73176eaeafe340a8407452f4849634a",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "pilot/shiny/data/courses/ENS.json": "e09dc60f6737453006ed202fb21bea9b12dc2cf8",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json": "175487e0b5f55d758ab798a215d4fd730b6e82a9",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000140/content-review.json": "bebf495d9344cb06e21169c56d3cbb1f74796658",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json": "abc6deddd935219ffc0b7c6c1b005a4fd8a9374f",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000129/content-review.json": "e7d1f5561e6a0fdd53c16f0015f5250d44eb3f98",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json": "8a6a68c211c21ccfc1a781132fb1c0f1f19886d9",
+    "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000158/content-review.json": "63a4fd7f9db65422c6807684004dd4daeb1c54e4",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000156/content-review.json": "158d64b8f15c881d5149b5b1b071abc006f2da57",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000343/content-review.json": "c98d40f4f57f8aef1d7c6a6b90f6caa6596d6ac7",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json": "e740f97a20fff4b407e91fb20c8b0c45efabddb8"
+  },
+  "presentationMode": "caution",
+  "mapping": {
+    "title and links": "The selection handler uses the index label. The table links the comparator title to the official curriculum page and UCR columns to the UCR course reference. Additional official sources were inspected as case evidence.",
+    "audience.curriculum and academicRationale": "render_audience_context and render_comparison_summary select the 2027–2028 label, the year, the programme explanation and the two selected concepts. The caution appears above the comparison.",
+    "blocks, cells and notes": "render_compare_table and audience_cell_note display block titles, workbook course names, component titles, credit badges and uniquely resolved notes about matches, choices and differences. render_audience_notes selects both comparison notes.",
+    "selectedDescriptions": "The course button uses courseCode and exact workbook name. The modal resolves each selected description by department and code, and the content review checked the actual text or reused the exact text with matching source hashes. Every selected code has description text.",
+    "optionalIndependentResearch": "The 15 EC UCR independent research comparison element is separate from the scheduled degree and Groningen’s required 10 EC archaeology thesis."
+  },
+  "fieldPaths": [
+    "review-programmes.programmes[].displayName",
+    "comparator.name",
+    "comparator.primarySourceUrl",
+    "comparator.additionalSourceUrls",
+    "comparator.components",
+    "comparator.sourceNotes",
+    "audience.programmeDescription",
+    "audience.comparisonExplanation",
+    "audience.curriculum",
+    "audience.conceptProgrammeIds",
+    "academicRationale.alternatives[].concept",
+    "audience.noteTypes",
+    "notes[].text",
+    "programmes[].label",
+    "blocks[].title",
+    "blocks[].rows[].cells",
+    "audience.cellNotes",
+    "optionalIndependentResearch",
+    "pilot/shiny/data/courses/*.json descriptions by courseCode"
+  ],
+  "caution": "UCR offers programmes in related academic fields, but these may differ substantially from the disciplinary programme shown. Important specialist subjects or forms of training may not be available at UCR.",
+  "selectedConcepts": [
+    {
+      "programmeId": "ucr-1",
+      "concept": "Study past societies through archaeology, objects, landscapes and texts. Explore Greek archaeology and material culture, then use spatial data, historical sources and visual analysis to investigate how people lived and how the past is interpreted.",
+      "basisLabels": [
+        "Archaeological and material evidence for understanding past societies",
+        "Excavation, material analysis, bioarchaeology and digital archaeological methods",
+        "Mediterranean, north-west European and Arctic societies from the Palaeolithic to the Middle Ages",
+        "Archaeological heritage, material culture and public interpretation",
+        "Archaeological landscapes, human-environment relations and spatial analysis",
+        "Archaeological theory, research design, data analysis and a bachelor thesis",
+        "What can objects, landscapes and material remains reveal about past people and societies?",
+        "How should archaeological heritage be interpreted and communicated today?",
+        "How did societies develop across Mediterranean, European and Arctic settings?"
+      ],
+      "evidence": [
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.rug.nl/let/onze-faculteit/organisatie/diensten-en-voorzieningen/onderwijsinstituut/oeren/2026-2027/bacheloropleidingen/delen-b/ba-archeologie-deelb-2627.pdf"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.rug.nl/bachelors/archaeology/?lang=en"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6760"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6761"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6762"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6763"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6764"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6765"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6766"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6768"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6771"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6772"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6774"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6775"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6776"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6777"
+        }
+      ],
+      "labelRationale": "The completed curriculum is led by three archaeology courses and a broader sequence in ancient societies, material and visual culture, landscapes, heritage and historical research. The label names that related-fields composition without claiming a full Archaeology bachelor."
+    },
+    {
+      "programmeId": "ucr-2",
+      "concept": "Explore how museums and communities preserve, interpret and debate cultural heritage. Connect archaeology and art history with museum practice, restitution, public memory and communication through rhetoric and documentary.",
+      "basisLabels": [
+        "Archaeological and material evidence for understanding past societies",
+        "Mediterranean, north-west European and Arctic societies from the Palaeolithic to the Middle Ages",
+        "Archaeological heritage, material culture and public interpretation",
+        "Archaeological theory, research design, data analysis and a bachelor thesis",
+        "What can objects, landscapes and material remains reveal about past people and societies?",
+        "How should archaeological heritage be interpreted and communicated today?"
+      ],
+      "evidence": [
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.rug.nl/let/onze-faculteit/organisatie/diensten-en-voorzieningen/onderwijsinstituut/oeren/2026-2027/bacheloropleidingen/delen-b/ba-archeologie-deelb-2627.pdf"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.rug.nl/bachelors/archaeology/?lang=en"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:6773"
+        }
+      ],
+      "labelRationale": "The completed curriculum concentrates on museums, heritage ethics, public memory, restitution, community interpretation and documentary communication. The label reflects that institutional and public-facing emphasis.",
+      "distinctnessRationale": "Seven courses differ in each direction. Spatial and soil methods, environmental foundations and ancient texts distinguish the first plan. Rhetoric, sociology, ethics and qualitative research focus the second on public interpretation and institutions."
+    }
+  ],
+  "blockTitles": [
+    "Past societies, material culture & interpretation",
+    "Landscapes, evidence & digital methods",
+    "Heritage, museums & public communication",
+    "Research, historiography & publication",
+    "Academic Development and Electives"
+  ],
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "This mainly Dutch-taught bachelor studies past societies through objects, landscapes, excavation and scientific analysis.",
+    "comparisonExplanation": "The Groningen example shows the redesign scheduled for 2027–2028. The UCR plans explore ancient societies and material culture, or heritage and public memory.",
+    "curriculum": {
+      "status": "complete",
+      "componentIds": [
+        "y1-intro",
+        "y1-greek-roman",
+        "y1-nw-europe",
+        "y1-theory",
+        "y1-bioarch",
+        "y1-materials",
+        "y1-heritage",
+        "y1-fieldwork",
+        "y2-arctic",
+        "y2-material-culture",
+        "y2-complexity",
+        "y2-gis",
+        "y2-botany",
+        "y2-zoology",
+        "y2-osteo",
+        "y2-geo-fieldwork",
+        "y2-integrating",
+        "y3-minor",
+        "y3-theory-practice",
+        "y3-data-design",
+        "y3-impact",
+        "y3-thesis"
+      ],
+      "yearLabel": "2027–2028"
+    },
+    "conceptProgrammeIds": [
+      "ucr-1",
+      "ucr-2"
+    ],
+    "noteTypes": [
+      "related-fields-not-full-discipline",
+      "missing-specialist-components"
+    ],
+    "cellNotes": [
+      {
+        "programmeId": "comparator",
+        "reference": "y1-intro",
+        "text": "Both introduce archaeological interpretation of material evidence and past societies."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-greek-roman",
+        "text": "Both study Greek material evidence. The UCR course focuses on Greek community and democracy."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-nw-europe",
+        "text": "Groningen offers a dedicated regional survey of Northwest Europe."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-theory",
+        "text": "Groningen studies the history and theory of archaeological and anthropological interpretation."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-arctic",
+        "text": "Groningen offers a dedicated study of Arctic cultures."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-material-culture",
+        "text": "Groningen advances from introductory archaeology to specialist analysis of artifacts. UCR introduces related methods through craft and material culture."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-complexity",
+        "text": "Groningen uses archaeological evidence to examine social change. UCR studies related questions through the history of empires."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-bioarch",
+        "text": "Groningen introduces the study of biological remains in archaeological contexts."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-materials",
+        "text": "Groningen studies archaeological materials, conservation and scientific measurement."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-fieldwork",
+        "text": "Groningen students take part in an excavation and report on their findings."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-gis",
+        "text": "Both use GIS and spatial data. UCR applies them to environmental observation."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-botany",
+        "text": "Groningen analyzes plant remains as archaeological evidence."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-zoology",
+        "text": "Groningen analyzes animal remains as archaeological evidence."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-osteo",
+        "text": "Groningen studies human skeletal remains."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-geo-fieldwork",
+        "text": "Groningen combines geoarchaeology with a second fieldwork course. UCR’s soils course develops complementary earth-science methods."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-integrating",
+        "text": "Groningen brings together evidence from several branches of bioarchaeology."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-heritage",
+        "text": "Both connect the classical past to heritage. UCR focuses on ancient democracy."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-theory-practice",
+        "text": "Groningen applies archaeological theory to contemporary questions."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-data-design",
+        "text": "Groningen develops archaeological research design and digital analysis. UCR teaches general data and research methods."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-thesis",
+        "text": "Groningen requires a thesis in archaeology. UCR shows optional independent research separately."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-minor",
+        "text": "Choose a minor outside archaeology or study abroad."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-impact",
+        "text": "Choose a faculty-wide course in humane AI, narrative, global change or cultural heritage."
+      }
+    ]
+  },
+  "notes": [
+    {
+      "type": "related-fields-not-full-discipline",
+      "placement": "comparison",
+      "text": "Groningen offers a sequence in regional archaeology, scientific methods, excavation and archaeological research. The UCR plans explore related questions through material culture, history, heritage and environmental methods."
+    },
+    {
+      "type": "missing-specialist-components",
+      "placement": "comparison",
+      "text": "Both UCR plans include introductory archaeology, Greek archaeology and ancient heritage. Excavation, conservation science, bioarchaeology and an archaeology thesis require further dedicated study."
+    }
+  ],
+  "programmeLabels": [
+    "Archaeology at University of Groningen",
+    "Ancient Societies and Material Culture",
+    "Cultural Heritage, Museums and Public Memory"
+  ],
+  "selectedDescriptions": {
+    "ACCPPDE101": {
+      "name": "Personal & Professional Development",
+      "text": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+        "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Personal & Professional Development"
+      },
+      "cache": "pilot/shiny/data/courses/ACC.json",
+      "cacheBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8"
+    },
+    "DISDATA111": {
+      "name": "Introduction to Data Science",
+      "text": "Develops foundational skills in data visualization, cleaning and manipulation. Explores spatial and text data and includes hands‑on work with datasets from various disciplines.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "85912cb78bd13d1aa873ef9cca2a8d7e00345543f75d1f07b56d808f1c6702ef",
+        "descriptionSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Data Science"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "ENSENVI211": {
+      "name": "Earth Observation",
+      "text": "Provides hands‑on experience with GIS and data integration using geospatial data from satellites and drones. Uncovers how human actions impact ecosystems and climate and promotes sustainable practices through research projects.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Earth Observation",
+        "sourceField": "description2",
+        "sourceSha256": "6fbd8c5d02f8063c3dac1b38756526174ea242188eff49eb08bf76e17c4d4b97",
+        "descriptionSha256": "6fbd8c5d02f8063c3dac1b38756526174ea242188eff49eb08bf76e17c4d4b97",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSENVI212": {
+      "name": "Soils & Aquifers",
+      "text": "Explores soils and aquifers through fieldwork and lab analyses. Covers soil formation, properties, health and remediation and investigates mapping aquifers for geothermal energy, coastal defence and freshwater resource assessment.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Soils & Aquifers",
+        "sourceField": "description2",
+        "sourceSha256": "728f61f289f212c2de51511af3f1dd5f9d2c09f2cc2c34ee54fb8f69d803b730",
+        "descriptionSha256": "728f61f289f212c2de51511af3f1dd5f9d2c09f2cc2c34ee54fb8f69d803b730",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "ENSGATE101": {
+      "name": "Sustainability Essentials I",
+      "text": "Introduces sustainability through planetary boundaries and scientific tools for understanding human impacts on Earth systems. Students interpret graphs and uncertainty, build simple dynamic models, and study chemical and physical principles relevant to climate, energy and materials. A laboratory project makes and tests starch-based biopolymers.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "82f50723d99a79ffd7371f9f6eebe3e42e760cc7f4f8bbeb032e81fd5acc4184",
+        "descriptionSha256": "3d8021bff00c075753d30587e5e529c4ac8337c828561c59c0c227299a1e04e9",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Sustainability Essentials I"
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "GOSHIST111": {
+      "name": "Modern History",
+      "text": "Provides a chronological overview of history from 1815 to the present. Discusses industrialisation, popular sovereignty and national self‑determination, and covers major economic, political and cultural developments including revolutions, world wars and the fall of communism.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Modern History",
+        "sourceField": "description2",
+        "sourceSha256": "cd940abc8f8e43aeb6cedd73b6bf076687f6418ffb3a76c3e1c44ad107e68324",
+        "descriptionSha256": "cd940abc8f8e43aeb6cedd73b6bf076687f6418ffb3a76c3e1c44ad107e68324",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSHIST211": {
+      "name": "History of Empires",
+      "text": "History of Empires examines empires across global history and competing theories of empire. Students study expansion, administration, military and economic systems, legitimacy, ideology, culture, decline and legacies. Historical cases, source analysis and an independent research essay connect theoretical interpretation with specific imperial experiences.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "bce0c4bf26316aa65a8b70c29f53f82e7c38bf225868dfd278a3cd941ebe4b82",
+        "descriptionSha256": "76faf04e8e855ae9ca1735ccf5a7e8ac76bf21911b771190f9286303745ad4a3",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "History of Empires"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSHIST213": {
+      "name": "Ways of War",
+      "text": "Provides a chronological overview of warfare in the Western world from antiquity to the present. Covers weapons, technology, strategy, defence, mercenaries, cavalry, chivalry, Blitzkrieg, guerrilla warfare and nuclear arsenals, illustrating competition for mastery in Western history.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "basis": "official course description",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-05",
+        "sourceSha256": "faa25ace5a261ae12152a9794320ccace2959a37857b92d43cbfe2eb15ff7c27",
+        "descriptionSha256": "faa25ace5a261ae12152a9794320ccace2959a37857b92d43cbfe2eb15ff7c27",
+        "reviewNote": "Read the unchanged display text against the current official description and actual course evidence. It accurately conveys the supported historical, heritage, museum or material-media focus without claiming archaeological field qualification. No displayed text changed.",
+        "courseName": "Ways of War"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSHIST312": {
+      "name": "Researching the “American Century”",
+      "text": "Guides students through the full arc of historical inquiry, from formulating research questions to engaging critically with sources. Emphasises methodological rigour and interdisciplinary thinking and culminates in a substantial research paper.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "sourceSha256": "ec69dff9b78d3978fff3f1724dc3a2256eb5e2c589b7beff8e13b46a9171908a",
+        "descriptionSha256": "ec69dff9b78d3978fff3f1724dc3a2256eb5e2c589b7beff8e13b46a9171908a",
+        "mode": "verbatim",
+        "reviewedOn": "2026-10-30",
+        "reviewNote": "By user decision of 30 October 2026, the historical Walcheren outline is excluded from the enriched reference. Uses the unchanged official description verbatim; claims are limited to the historical inquiry, source criticism and research methods it supports. No replacement outline is required for this current use.",
+        "courseName": "Researching the “American Century”"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPHIL111": {
+      "name": "Introduction to Western Philosophy",
+      "text": "Introduces central themes from Western philosophy over 2,500 years. Encourages inquiry into the significance of philosophical issues and their relation to other disciplines and teaches theoretical methods used by philosophers.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Western Philosophy",
+        "sourceField": "description2",
+        "sourceSha256": "106757f58621c7e76a4a39253f24296f54e95a15c500cf3571b6fbdaffbdc220",
+        "descriptionSha256": "106757f58621c7e76a4a39253f24296f54e95a15c500cf3571b6fbdaffbdc220",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPHIL212": {
+      "name": "Ethics",
+      "text": "Ethics examines moral reasoning through historical and contemporary theories and close philosophical reading. Students study utilitarianism, Kantian ethics, virtue ethics, contractarianism and feminist ethics, alongside Nietzsche, Murdoch and Nagel. Reflection and research essays develop interpretation, argument evaluation and an independent position on ethical theory or a practical ethical problem.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6d4bf415a51b5b6fb41f341d23fe8b8ce483263f17505e77d1a4ae37299fe30f",
+        "descriptionSha256": "d17cd0a6631823a666c2978b81f52bc5e8b5c8e52ed68edccb3fa37073146e5b",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Ethics"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI111": {
+      "name": "Introduction to Sociology",
+      "text": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Sociology",
+        "sourceField": "description2",
+        "sourceSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "descriptionSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI212": {
+      "name": "Qualitative Research Methodology",
+      "text": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "6531d96f817df19cfa773d8d8004f44da6041eeab39acfce1462438728cd1eeb",
+        "descriptionSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Qualitative Research Methodology"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "MCCCOMM111": {
+      "name": "The Art of Rhetorical Communication",
+      "text": "The Art of Rhetorical Communication develops rhetorical analysis, academic writing and oral presentation. Students examine classical Western roots and the canons of rhetoric, and learn to construct, organise and support persuasive arguments. Historical and contemporary examples connect rhetorical theory with practical communication.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "a1075e2aff565380f637a1ee31ac79c668477b11b15a7f853230b303cf44485f",
+        "descriptionSha256": "34ab73cc0cae33e2a0e47ba5df0ee55c9b0e5f2d4e21ae97ea18667a96400c4c",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "The Art of Rhetorical Communication"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCCOMM211": {
+      "name": "Style & Meaning",
+      "text": "Style & Meaning studies stylistics: how linguistic choices produce meaning and interpretive effects, principally in literary texts and also in nonfiction. Students connect grammar, discourse and cognition with interpretation through frameworks for dialogue, narration, modality, deixis and text worlds. Analysis exercises lead to an original research-supported stylistic analysis.",
+      "source": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "d080043304ce78e0dfb21e7626ed39788487ac6407c4b6b9b8dd65a1ccc3cb3c",
+        "descriptionSha256": "1403b3e8bbe5009d3f3736ca1f68055e9a004b02908527fba7a6c0dbbb12be33",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "courseName": "Style & Meaning"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCCOMM213": {
+      "name": "Rhetoric in Action",
+      "text": "Develops persuasive speaking skills by applying rhetorical theory in the real world. Students work with local primary school children, building public-speaking skills and empowering them to find their voices.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Rhetoric in Action",
+        "sourceField": "description2",
+        "sourceSha256": "a481c86f7c34da2d13a0785165435e6761cd1a65cf18efd83c40b7795ee5ff29",
+        "descriptionSha256": "a481c86f7c34da2d13a0785165435e6761cd1a65cf18efd83c40b7795ee5ff29",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCCOMM311": {
+      "name": "Persuasive Communication",
+      "text": "Persuasive Communication studies persuasion through communication studies, social psychology and ethical analysis. Students examine framing, argumentation, cognitive shortcuts and verbal and nonverbal communication. Community-engaged projects develop communication encouraging sustainable and circular lifestyles, while an individual research paper evaluates selected persuasion tools.",
+      "source": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "bad6a0cb3dd14e5cb07c4aeb36a102d09309142fdc5bab339f0096830ec5209a",
+        "descriptionSha256": "781fa29248cce6025d8aa8887d300c8f0d64941a8b4a9b2dd193783c098deacc",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "reviewedOn": "2026-10-29",
+        "basis": "course outline",
+        "courseName": "Persuasive Communication"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCHEAM111": {
+      "name": "Introduction to Western Art History",
+      "text": "Introduction to Western Art History surveys Western art from late-medieval and Renaissance painting to contemporary practice. Students relate artists, styles and movements to social, religious, political and cultural change. Close examination of paintings develops visual analysis, while a term paper combines study of a painting on location with art-historical evidence.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "b0b6c5f0b0213ab83b291f79e3756c71c643beafd8c0ca0949d8e4d40884cf3b",
+        "descriptionSha256": "765c25eff6810ed380b3cabcb737604f4575420f27744a704d2742a2697804d9",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Introduction to Western Art History"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCHEAM112": {
+      "name": "Introduction to World Archaeology",
+      "text": "Introduction to World Archaeology explores craft production and material culture in ancient societies around the world. Students examine how making objects relates to religious, social and gendered identities, technologies and environmental effects. An experimental educational activity and discussion of contemporary archaeological methods connect interpretation with practice.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "76d0961b1220dfec57d97ddfd7ca09171f32099eb2738fb82207138022bb7b63",
+        "descriptionSha256": "4c7d2d93c985001d8f160f9ff2b1f26ebf413592a97dc76918ef6c5379b3cc90",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Introduction to World Archaeology"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCHEAM211": {
+      "name": "African Art & Heritage",
+      "text": "Examines the artistic, historical and ethical dimensions of African art. Highlights distinct forms and cultural significance, considers influence on Western modernism and addresses looting, colonial-era acquisitions and repatriation efforts.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "basis": "official course description",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-05",
+        "sourceSha256": "ed4653bd346b3160d0d0bc754a4bfc729ca05927ad44687bd9c77aa452f7ac7f",
+        "descriptionSha256": "ed4653bd346b3160d0d0bc754a4bfc729ca05927ad44687bd9c77aa452f7ac7f",
+        "reviewNote": "Read the unchanged display text against the current official description and actual course evidence. It accurately conveys the supported historical, heritage, museum or material-media focus without claiming archaeological field qualification. No displayed text changed.",
+        "courseName": "African Art & Heritage"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCHEAM212": {
+      "name": "Renaissance Italy & Global Mediterranean",
+      "text": "This course examines the painting, sculpture, and architecture of Renaissance Italy and the extensive artistic connections that linked the Italian peninsula to other regions of the world. By exploring a range of geographical contexts, from the Islamic courts of the Eastern Mediterranean and the commercial routes connecting Europe, Asia, and Africa to the newly encountered territories of the Americas, students will examine how trade, colonization, and cross-cultural exchange shaped the production and meaning of Renaissance art.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "description2",
+        "basis": "course description only",
+        "mode": "verbatim",
+        "reviewedOn": "2026-10-29",
+        "descriptionSha256": "b4a13abe5a07928b0cdab488caa90995438a5cbe2a84a8ee8c90bdac01f4f1fe",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "sourceSha256": "b4a13abe5a07928b0cdab488caa90995438a5cbe2a84a8ee8c90bdac01f4f1fe",
+        "courseName": "Renaissance Italy & Global Mediterranean"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCHEAM213": {
+      "name": "Greek Archaeology",
+      "text": "The invention of democracy in classical Greece changed the nature of community decision-making, perhaps forever. This process is reflected in the material culture of the period. By examining the archaeology of community & democracy in early-democratic Greece, this course goes in search of ancient lessons for the modern world.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "description2",
+        "sourceSha256": "0328895104c15b00de223466ede08361def400299e13059ff1c1bb374a0f9387",
+        "descriptionSha256": "0328895104c15b00de223466ede08361def400299e13059ff1c1bb374a0f9387",
+        "mode": "verbatim",
+        "reviewedOn": "2026-10-30",
+        "reviewNote": "Reviewed the updated official description. Preserves its stated focus on material culture, community and democracy without adding archaeological methods.",
+        "courseName": "Greek Archaeology"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCHEAM312": {
+      "name": "Modern Art & Modern Museums",
+      "text": "Examines debates on modern art through various themes. Focuses on the relationship between art and its presentation in museums and exhibitions, exploring curatorial practices and exhibition strategies.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "basis": "official course description",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-05",
+        "sourceSha256": "b54bdd474860787d490d94e2db97b6b63e84eaa1bc93e17452cc2740d59784c6",
+        "descriptionSha256": "b54bdd474860787d490d94e2db97b6b63e84eaa1bc93e17452cc2740d59784c6",
+        "reviewNote": "Read the unchanged display text against the current official description and actual course evidence. It accurately conveys the supported historical, heritage, museum or material-media focus without claiming archaeological field qualification. No displayed text changed.",
+        "courseName": "Modern Art & Modern Museums"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCHEAM315": {
+      "name": "Heritage & Ancient Democracy",
+      "text": "In the modern world democracy is associated with participation, rationality and freedom. In this course, we go back to the roots of democracy in ancient Greece, when to a modern observer, it was not very democratic at all: foreigners, slaves and women were excluded from elections and political decision-making. Even so, the inclusion of all classes, also the poor, in politics was after antiquity not achieved until the mid-nineteenth century.\n\n\nAncient commentators criticised Athenian democracy for being too extreme just because of this broad inclusion. They argued that many were too uneducated, too emotional, and too irrational to see through the cheap play on emotions by demagogues and would-be tyrants.\n\n\nThis course investigates how Athenian democracy was built, how it was intertwined with myth and religion, and expressed in art, literature and architecture. It traces the loci of democracy in archaeology, and analyses its temporary collapse in the crisis of the late fifth century BC. Most importantly, we put ourselves in our socio-political ancestors’ shoes by engaging in a simulation of the Athenian assembly, in which we have to make decisions that will change our lives forever. In doing so, we use the ancient heritage of democracy for an experiment in applied sociology – to not only understand, but to feel the meaning of political decision-making.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "description2",
+        "basis": "course description only",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "a95408966f96e596250a6959b38243487142b8a7de0a6ea106f92e1aef2a266c",
+        "descriptionSha256": "2e5884e9952a1f8d5b233cc7ba8208072c4d6255fcc0faa634635425db2ccc3b",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Heritage & Ancient Democracy"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCHEAM316": {
+      "name": "Writing Art's Histories",
+      "text": "This course examines the history of art history as an academic discipline, tracing how scholars have understood and interpreted art from the sixteenth century to the present. Through critical readings of influential texts by figures such as Aby Warburg, Erwin Panofsky, Ernst Gombrich, Michel Foucault, and Jacques Derrida, students explore the major ideas and methodologies that have shaped the field. Topics include art and history, aesthetics, meaning and interpretation, authorship and identity, and the challenges of art history in a globalized world.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "description2",
+        "basis": "course description only",
+        "mode": "verbatim",
+        "reviewedOn": "2026-10-29",
+        "descriptionSha256": "36dd2e030e9138c092efda247642ac6704a1980060151aa3b18437a0b1cc0d93",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "sourceSha256": "36dd2e030e9138c092efda247642ac6704a1980060151aa3b18437a0b1cc0d93",
+        "courseName": "Writing Art's Histories"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCLITR112": {
+      "name": "Great Literary Works",
+      "text": "Provides a chronological overview of literature from the epic of Gilgamesh to post‑modernity. Reads literary and critical texts that explore human experience and teaches how to approach literature’s ambiguities and trace themes across ages.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Great Literary Works",
+        "sourceField": "description2",
+        "sourceSha256": "248ed84f99b7813e881f96219b5572698c50a9014fcb4439863eb95a4871820f",
+        "descriptionSha256": "248ed84f99b7813e881f96219b5572698c50a9014fcb4439863eb95a4871820f",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCLITR211": {
+      "name": "World Myth & Literature",
+      "text": "World Myth & Literature compares mythic narratives across ancient and later traditions, examining transmission, cultural connections and themes such as creation, power, gender, love and loyalty. Greek, Roman, Near Eastern, Indian, Arabic and African materials support literary analysis. A research paper, graphic explanation and creative retelling connect interpretation with narrative practice.",
+      "source": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "1e48b00378b8c6b875a7cb52ee3c43c5a1fa03c6c4345b7ecf5bd82049fb7f83",
+        "descriptionSha256": "44c8274632c55ccd0cd9b3255a54f99595980fdc15c1f30defdd3a6f3d600848",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "courseName": "World Myth & Literature"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCLITR312": {
+      "name": "Perspectives on Literary Meaning",
+      "text": "Examines how different perspectives—humanist, feminist, Marxist, cultural minority and psychoanalytic—affect reading and interpretation. Students undertake a research project applying selected perspectives to texts.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Perspectives on Literary Meaning",
+        "sourceField": "description2",
+        "sourceSha256": "a215ac77572c64be18665a21cbd133189450d83845296171f8ea0e1aa29570a3",
+        "descriptionSha256": "a215ac77572c64be18665a21cbd133189450d83845296171f8ea0e1aa29570a3",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCMEDI112": {
+      "name": "Media Archaeology",
+      "text": "Explores media technologies before digital culture. Studies cassette tapes, typewriters and early printing as material objects that carry meaning; includes hands‑on experiments; no technical background required.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "basis": "official course description",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-05",
+        "sourceSha256": "7ce20d4de324762f0ad56ca3aa58f54f9de55dba3c34041f5b1cd5ddc5ed52e6",
+        "descriptionSha256": "7ce20d4de324762f0ad56ca3aa58f54f9de55dba3c34041f5b1cd5ddc5ed52e6",
+        "reviewNote": "Read the unchanged display text against the current official description and actual course evidence. It accurately conveys the supported historical, heritage, museum or material-media focus without claiming archaeological field qualification. No displayed text changed.",
+        "courseName": "Media Archaeology"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCMEDI311": {
+      "name": "Media & Race",
+      "text": "Media & Race investigates storytelling, power, privilege, resistance and systemic racism in American history from the late nineteenth century to the present. Film, photographs, music and other media connect past and present. Students produce research-based podcasts exploring how media sustains oppression and supports resistance.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "3047a3489ffc4f90cde2a5d32b641f66255b1616a1599ed60e121e6306d5fda8",
+        "descriptionSha256": "05aa4bb52a50700caa428fbe8cbb10a8fb321a9da4087a93a95e30883998a618",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Media & Race"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    "MCCMEDI312": {
+      "name": "The Documentary",
+      "text": "Introduces documentary film from its early development to contemporary forms, analysing historical and social contexts, styles and genres, and ethical and aesthetic questions. Students analyse non-fiction representations and produce a short documentary item.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "d8ce7c931003ce12a3a81c610feeda88ceed97ae0297b4a9bafa1001fe843803",
+        "descriptionSha256": "223f9d67569f492466d7fe0e444249d55688d2d867669711ff057617aa16f2fe",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "The Documentary"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    }
+  },
+  "sharedDescriptionReviewRefs": {
+    "ACCPPDE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "DISDATA111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "ENSENVI211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "ENSENVI212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000140/content-review.json",
+    "ENSGATE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "GOSHIST111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "GOSHIST211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000129/content-review.json",
+    "GOSHIST213": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "GOSHIST312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "GOSPHIL111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "GOSPHIL212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSSOCI111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSSOCI212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "MCCCOMM111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "MCCCOMM211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000158/content-review.json",
+    "MCCCOMM213": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "MCCCOMM311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "MCCHEAM111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCHEAM112": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCHEAM211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000156/content-review.json",
+    "MCCHEAM212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000156/content-review.json",
+    "MCCHEAM213": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCHEAM312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCHEAM315": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000343/content-review.json",
+    "MCCHEAM316": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json",
+    "MCCLITR112": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json",
+    "MCCLITR211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json",
+    "MCCLITR312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000138/content-review.json",
+    "MCCMEDI112": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "MCCMEDI311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "MCCMEDI312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json"
+  },
+  "sourceUrls": [
+    "https://www.rug.nl/bachelors/archaeology/?lang=en",
+    "https://www.rug.nl/let/onze-faculteit/organisatie/diensten-en-voorzieningen/onderwijsinstituut/oeren/2026-2027/bacheloropleidingen/delen-b/ba-archeologie-deelb-2627.pdf"
+  ],
+  "ucrLinks": [
+    "https://ucr.nl/education/courses/",
+    "https://program.ucr.nl/"
+  ]
+}
