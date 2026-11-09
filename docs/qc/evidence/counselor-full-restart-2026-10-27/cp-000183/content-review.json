@@ -1,0 +1,879 @@
+{
+  "caseId": "cp-000183",
+  "checkedAt": "2026-11-09T12:34:23.897247+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000183.json": "b026064ffcb0d59b25a23d531e38f2f1b9ece33d",
+    "data/counselor/comparisons/cp-000183.json": "aa490912ee88c2c39de822fc6371f4d4162d54fa",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "data/registry/programmes.csv": "005f2007f902ffc32066f03394c7a2f4a6126bda",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "2fac8f4e0e9af72ea7b1eba2a75e501320d03e21",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000183/source-review.json": "180a66599ed2a42fbf51aa146b5a957bb5721ce6",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000183/interest-review.json": "5789d0252687c32fe6c2fd367ed382701f83875c",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000183/course-comparability-review.json": "1c9f67530ddf719ed3b9c9d8b50bae121d90b04f",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "1595932255166785ac58524e448c546d4eaaf6fd",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "pilot/shiny/data/courses/ENS.json": "e09dc60f6737453006ed202fb21bea9b12dc2cf8",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000127/content-review.json": "580554d8eecaa3652fd4a85bdf66468bd3fbe589",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json": "175487e0b5f55d758ab798a215d4fd730b6e82a9",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json": "d65b11aff73176eaeafe340a8407452f4849634a",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000129/content-review.json": "e7d1f5561e6a0fdd53c16f0015f5250d44eb3f98",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000130/content-review.json": "6d9e955464c8583a82311be7fd509d7087b1c13c",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json": "abc6deddd935219ffc0b7c6c1b005a4fd8a9374f",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000111/content-review.json": "009c995e935c1c947310f4b3e589ed84ee57ea20",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json": "8a6a68c211c21ccfc1a781132fb1c0f1f19886d9",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000123/content-review.json": "5c2bde563d51ec7e3b4363c070e9cc52456d1f30"
+  },
+  "presentationMode": "normal",
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "The University of Groningen’s International and European Law degree studies legal systems and disputes that cross borders. The broad track focuses on public international law and European Union law.",
+    "comparisonExplanation": "The closest UCR option combines law with politics, history and social research. The second combines law with computing and AI ethics to examine digital governance.",
+    "curriculum": {
+      "status": "complete",
+      "componentIds": [
+        "y1-law-skills",
+        "y1-legal-english",
+        "y1-criminal",
+        "y1-legal-history",
+        "y1-intro-int-eu",
+        "y1-contract-tort",
+        "y1-comparative-constitutional",
+        "y1-intro-tech",
+        "y2-eu-law",
+        "y2-property",
+        "y2-public-int",
+        "y2-law-power",
+        "y2-research-seminar",
+        "y2-admin-market",
+        "y2-markets-regulation",
+        "y2-private-business",
+        "y3-exchange",
+        "y3-commercial-disputes",
+        "y3-competition-digital",
+        "y3-research-colloquium",
+        "y3-eu-judicial",
+        "y3-contemporary-intl"
+      ],
+      "yearLabel": "2026–2027",
+      "routeLabel": "International and European Law"
+    },
+    "conceptProgrammeIds": [
+      "ucr-1",
+      "ucr-2"
+    ],
+    "noteTypes": [
+      "missing-specialist-components"
+    ],
+    "componentNotes": {
+      "y3-exchange": "Students complete 30 EC abroad, including at least 25 EC of approved law courses.",
+      "y3-research-colloquium": "Students write and defend a thesis in English. Entry requires 90 EC of compulsory courses, all first-year courses and the Research Seminar."
+    },
+    "cellNotes": [
+      {
+        "programmeId": "ucr-1",
+        "reference": "GOSGATE102",
+        "text": "Both introduce legal reasoning and legal systems. Groningen uses Dutch law as its main example."
+      },
+      {
+        "programmeId": "ucr-2",
+        "reference": "GOSGATE102",
+        "text": "Both introduce legal reasoning and legal systems. Groningen uses Dutch law as its main example."
+      },
+      {
+        "programmeId": "ucr-1",
+        "reference": "GOSLAWJ211",
+        "text": "Both examine criminal responsibility and apply legal principles to cases."
+      },
+      {
+        "programmeId": "ucr-2",
+        "reference": "GOSLAWJ211",
+        "text": "Both examine criminal responsibility and apply legal principles to cases."
+      },
+      {
+        "programmeId": "ucr-1",
+        "reference": "GOSLAWJ213",
+        "text": "Both compare constitutional institutions, rights and judicial review."
+      },
+      {
+        "programmeId": "ucr-2",
+        "reference": "GOSLAWJ213",
+        "text": "Both compare constitutional institutions, rights and judicial review."
+      },
+      {
+        "programmeId": "ucr-1",
+        "reference": "GOSLAWJ212",
+        "text": "Both examine treaties, jurisdiction, states and international institutions."
+      },
+      {
+        "programmeId": "ucr-2",
+        "reference": "GOSLAWJ212",
+        "text": "Both examine treaties, jurisdiction, states and international institutions."
+      },
+      {
+        "programmeId": "ucr-1",
+        "reference": "GOSLAWJ312",
+        "text": "Both study EU institutions, competences, legal effects and the internal market."
+      },
+      {
+        "programmeId": "ucr-2",
+        "reference": "GOSLAWJ312",
+        "text": "Both study EU institutions, competences, legal effects and the internal market."
+      },
+      {
+        "programmeId": "ucr-1",
+        "reference": "GOSLAWJ311",
+        "text": "Both study contractual obligations and civil liability. UCR also includes property law."
+      },
+      {
+        "programmeId": "ucr-2",
+        "reference": "GOSLAWJ311",
+        "text": "Both study contractual obligations and civil liability. UCR also includes property law."
+      },
+      {
+        "programmeId": "ucr-1",
+        "reference": "BENBUSI311",
+        "text": "Both study cross-border dispute resolution and arbitration. UCR includes this work within a broader business law course."
+      },
+      {
+        "programmeId": "ucr-2",
+        "reference": "BENBUSI311",
+        "text": "Both study cross-border dispute resolution and arbitration. UCR includes this work within a broader business law course."
+      },
+      {
+        "programmeId": "ucr-1",
+        "reference": "GOSPOLI212",
+        "text": "Both use political science to study cooperation, power and international institutions. Groningen applies this approach specifically to the making and effects of law."
+      }
+    ]
+  },
+  "recordTitle": "International and European Law",
+  "indexTitle": "International and European Law",
+  "sourceUrls": [
+    "https://www.rug.nl/rechten/education/english-taught-programmes/llb/schedule-of-courses?lang=en",
+    "https://www.rug.nl/rechten/education/english-taught-programmes/llb/?lang=en",
+    "https://ocasys.rug.nl/2026-2027/catalog/programme/56829-LLB-INT",
+    "https://www.rug.nl/rechten/studiegids/bachelor/international-and-european-law/year-3/research-colloquium?lang=en",
+    "https://www.rug.nl/rechten/studiegids/pdf/roosters-reglementen/ter-llb-programme-2026-2027.pdf",
+    "https://www.rug.nl/rechten/education/law-exchange-programme/requirements-and-duration?lang=en",
+    "https://www.rug.nl/rechten/education/law-exchange-programme/recognition-of-courses/llb-and-llm-students?lang=en",
+    "https://www.rug.nl/rechten/studiegids/pdf/roosters-reglementen/thesis-regulation-2026-2027.pdf",
+    "https://ocasys.rug.nl/2026-2027/catalog/course/RGBIR50110"
+  ],
+  "linkChecks": [
+    {
+      "url": "https://www.rug.nl/rechten/education/english-taught-programmes/llb/schedule-of-courses?lang=en",
+      "retrieved": true,
+      "resolvedUrl": "https://www.rug.nl/rechten/education/english-taught-programmes/llb/schedule-of-courses?lang=en",
+      "bodySha256": "bb36853631e5f6f2a1a8fb497bf1d9c7aec0e3e690b3eaf30e3bb7e4706b30ed"
+    },
+    {
+      "url": "https://www.rug.nl/rechten/education/english-taught-programmes/llb/?lang=en",
+      "retrieved": true,
+      "resolvedUrl": "https://www.rug.nl/rechten/education/english-taught-programmes/llb/?lang=en",
+      "bodySha256": "239a5125d30eebc3fbda876564c2fa6b6e8e08f6fedd5e44699d5263f0a9e8e6"
+    },
+    {
+      "url": "https://ocasys.rug.nl/2026-2027/catalog/programme/56829-LLB-INT",
+      "retrieved": true,
+      "resolvedUrl": "https://ocasys.rug.nl/2026-2027/catalog/programme/56829-LLB-INT",
+      "bodySha256": "11093bf2c60e95b36691c8d418e9207cf9f2b7c846e024849bf1c72664dd3eef"
+    },
+    {
+      "url": "https://www.rug.nl/rechten/studiegids/bachelor/international-and-european-law/year-3/research-colloquium?lang=en",
+      "retrieved": true,
+      "resolvedUrl": "https://www.rug.nl/rechten/studiegids/bachelor/international-and-european-law/year-3/research-colloquium?lang=en",
+      "bodySha256": "324619dfa9e05632a64818061d7aea66f6bda9888b5d1b45db168f3583655bcf"
+    },
+    {
+      "url": "https://www.rug.nl/rechten/studiegids/pdf/roosters-reglementen/ter-llb-programme-2026-2027.pdf",
+      "retrieved": true,
+      "resolvedUrl": "https://www.rug.nl/rechten/studiegids/pdf/roosters-reglementen/ter-llb-programme-2026-2027.pdf",
+      "bodySha256": "437bca96c751bc7dd25ae8ec3f7eaae94c08c3b1569dc7b32e9d34dc59ff9665"
+    },
+    {
+      "url": "https://www.rug.nl/rechten/education/law-exchange-programme/requirements-and-duration?lang=en",
+      "retrieved": true,
+      "resolvedUrl": "https://www.rug.nl/rechten/education/law-exchange-programme/requirements-and-duration?lang=en",
+      "bodySha256": "4e03522748e3a79c0a510dc26009612541d83e19979d893d0cf0cfe06ba7b884"
+    },
+    {
+      "url": "https://www.rug.nl/rechten/education/law-exchange-programme/recognition-of-courses/llb-and-llm-students?lang=en",
+      "retrieved": true,
+      "resolvedUrl": "https://www.rug.nl/rechten/education/law-exchange-programme/recognition-of-courses/llb-and-llm-students?lang=en",
+      "bodySha256": "c797832d71923be54e171ebc587513429a7f19021f06cebfa3b74c9f7914ce9f"
+    },
+    {
+      "url": "https://www.rug.nl/rechten/studiegids/pdf/roosters-reglementen/thesis-regulation-2026-2027.pdf",
+      "retrieved": true,
+      "resolvedUrl": "https://www.rug.nl/rechten/studiegids/pdf/roosters-reglementen/thesis-regulation-2026-2027.pdf",
+      "bodySha256": "d1206b8ae2af0b7d7f858b6707a917067bd0b2f722d438dab87f4b7dacea8a7a"
+    },
+    {
+      "url": "https://ocasys.rug.nl/2026-2027/catalog/course/RGBIR50110",
+      "retrieved": true,
+      "resolvedUrl": "https://ocasys.rug.nl/2026-2027/catalog/course/RGBIR50110",
+      "bodySha256": "11093bf2c60e95b36691c8d418e9207cf9f2b7c846e024849bf1c72664dd3eef"
+    },
+    {
+      "url": "https://ucr.nl/education/courses/",
+      "retrieved": true,
+      "resolvedUrl": "https://ucr.nl/education/courses/",
+      "bodySha256": "8e71f84b4cfa41822073542a5da384e97fdb87080e9ae8c9c89786e2008e97b8"
+    },
+    {
+      "url": "https://program.ucr.nl/",
+      "retrieved": true,
+      "resolvedUrl": "https://program.ucr.nl/intro",
+      "bodySha256": "ab23ff28f6d96da9e94d6b66738342e709d008d7d84b626543045d063a85bb38"
+    }
+  ],
+  "ucrLinks": [
+    "https://ucr.nl/education/courses/",
+    "https://program.ucr.nl/"
+  ],
+  "mapping": {
+    "search and heading": "Review index supplies official programme title. render_comparison_summary uses canonical institution and title and the two checked audience-selected concepts.",
+    "explanation and status": "render_audience_context supplies programme overview, distinction and cohort. render_audience_notes selects the selected specialist-law, exchange and thesis note.",
+    "comparison": "render_compare_table uses block and component titles, credits, labels, schedule-backed course cells and the selected cell notes. Unmatched components remain separate. The approved component notes apply in the external-only rendering.",
+    "research": "Optional independent research uses the separate table element alongside the 10 EC bachelor thesis and is outside the UCR schedules.",
+    "links and descriptions": "Comparator heading links to the official dated schedule. UCR header and footer use course and Program Builder links. Course cells use verified workbook names and descriptions from their department cache. Checked each of the selected descriptions and reused matching reviews where available."
+  },
+  "selectedDescriptions": {
+    "ACCPPDE101": {
+      "name": "Personal & Professional Development",
+      "text": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+        "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Personal & Professional Development"
+      },
+      "cache": "pilot/shiny/data/courses/ACC.json",
+      "cacheBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8"
+    },
+    "BENBUSI211": {
+      "name": "Business & Economy in the Age of AI",
+      "text": "Examines AI's business, economic and societal implications without requiring a technical background. Students study AI's capabilities and limits, applications across business functions and industries, and effects on labour markets, productivity, innovation and inequality. Business cases and scholarly arguments support analysis of governance, regulation and a country's AI readiness and industrial policy.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "descriptionSha256": "dc99e879e62a02957451c99d0ed08cdbc50fc9e07847d0d251210dfd8a973cb1",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "sourceSha256": "142e38261e07fee05e042a882559c77aa357856539a62060518c508d07aa8411",
+        "courseName": "Business & Economy in the Age of AI"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENBUSI311": {
+      "name": "Transnational Business Law",
+      "text": "Transnational Business Law studies legal frameworks for cross-border business, including contracts, trade, intellectual property, foreign investment and digital commerce. Comparative and international perspectives support analysis of legal risks through discussions, problem-based assignments and an arbitration simulation.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "2367a44583d9c31af7aaf5c353fab6a14a537d449a64a724b1e83c69ffa71430",
+        "descriptionSha256": "44f7635bd8da8902ebff96a2cb8c950fd59683bb52cc5e7f6a8e25e61ae83152",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Transnational Business Law"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENENTR212": {
+      "name": "Strategy & Digital Transformation",
+      "text": "The course explores how companies develop strategies and drive responsible digital transformation amid rapid technology change impacting the economy and society. Students develop a strategic plan, from vision to execution, and identify digital value opportunities. Using industry cases, they gain foresight into digital technologies and their impact on strategy, business models and social responsibilities.",
+      "source": null,
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENENTR312": {
+      "name": "International Business & Governance",
+      "text": "Examines how trade, globalisation and political, cultural and technological conditions shape international business decisions. Students analyse governance, responsibility and trade-policy conflicts, investigate a business question, and develop an evidence-based market-entry strategy. A tariff case applies game theory to stakeholder choices.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "International Business & Governance",
+        "sourceField": "profile",
+        "sourceSha256": "da6918202526ec0098e47111934926f7d1566c664db8c074869ce31664b9bb29",
+        "descriptionSha256": "8c0325118e3aa0ccd19df0635d0de578f5dca99c2e32718f87e05b437deb9887",
+        "mode": "edited",
+        "reviewedOn": "2026-11-05",
+        "reviewNote": "Read actual selected current profile; remove confidence/comprehensive-mastery promises and represent concrete methods, projects and limitations proportionately."
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENGATE101": {
+      "name": "Entrepreneurship & Business Foundations",
+      "text": "Through experiential learning, students turn their own bold ideas into new ventures. No prior business expertise is required as teams work on a startup project from ideation to final pitch while gaining business and entrepreneurial skills in areas such as design thinking, business model and customer validation. The class fosters creativity and collaboration to drive business and social innovation.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Entrepreneurship & Business Foundations",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "be06c9c110a9f2b97e6488ea6896b76949da3932009e02cd6af21a9a379b9160",
+        "descriptionSha256": "be06c9c110a9f2b97e6488ea6896b76949da3932009e02cd6af21a9a379b9160",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENGATE102": {
+      "name": "Research Methods & Statistics",
+      "text": "Research Methods & Statistics introduces research design, operationalisation, measurement, sampling, surveys and experiments. Students study descriptive statistics, estimation, hypothesis testing and introductory regression using R and R Commander. A group project develops a research plan and instruments, collects and analyses data, and reports findings under research-ethics and privacy requirements.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "9d88751452d5c0a6888ac7901a73d1a848617dee2b587d4df64815fc39ad8813",
+        "descriptionSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Research Methods & Statistics"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "DISARIN111": {
+      "name": "AI Ethics",
+      "text": "AI Ethics examines artificial intelligence from philosophical and psychological perspectives. Topics include fairness, privacy, responsibility, human-value alignment, moral status and political or existential risks. Students apply ethical frameworks to questions about human behaviour and interaction, synthesise research in an analytical psychology project, and produce a research-based podcast.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "cb43b0c596757e7e4f5f93392738ac9d23f450d75d7dd7698bbb59ee1557333a",
+        "descriptionSha256": "573776c86616fbb9aa39c644ba0abcae2cb7c073febebe3b0203c329264cbeb3",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "AI Ethics"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISCOMP211": {
+      "name": "Networks & Operating Systems",
+      "text": "Introduces computer networks and operating systems. Covers how the internet works and the role of an OS in resource management and application support.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "0df3be0c6e7231c9f7d60a23118e47acce9186e80e974ad039eaed54f0db62c1",
+        "descriptionSha256": "664db0da46ce981d8ad842a2486845292af42f90e564c9eef75b7769f2eba377",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Networks & Operating Systems"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISCOMP212": {
+      "name": "Database Management Systems",
+      "text": "Introduces relational database management systems and SQL. Covers relational database theory, authorization, normalization and query processing.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d",
+        "descriptionSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Database Management Systems"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISDATA111": {
+      "name": "Introduction to Data Science",
+      "text": "Develops foundational skills in data visualization, cleaning and manipulation. Explores spatial and text data and includes hands‑on work with datasets from various disciplines.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "85912cb78bd13d1aa873ef9cca2a8d7e00345543f75d1f07b56d808f1c6702ef",
+        "descriptionSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Data Science"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISDATA211": {
+      "name": "Machine Learning",
+      "text": "Machine Learning introduces methods for understanding data and making predictions, including linear regression, classification, resampling, shrinkage, tree-based methods, support vector machines and clustering. Real-world examples illustrate the methods, their strengths and limitations.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6a112d70695b992eb7664e19ed9656612b364e2c28a116980a602eef2687ace6",
+        "descriptionSha256": "ae7fce189f80fcd62e521b78f43d3119e98a2ee78d29f61127a0f6b61faaf862",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Machine Learning"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISGATE101": {
+      "name": "Introduction to Programming",
+      "text": "Introduces programming and computer science. Covers structured programming, data constructs, testing, debugging and object‑oriented programming with Python, and develops computational problem‑solving skills.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "e2014f5db9a4328ff4efaa51f0273169ae1c9427a4ccf85bea5ee463794a80a8",
+        "descriptionSha256": "efe3b89e39a2611d475d27d09b06151a514076321c7453cd31f9cfbbd84248bf",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Programming"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISGATE102": {
+      "name": "Mathematical Methods",
+      "text": "Mathematical Methods develops foundational techniques in differentiation, integration, complex numbers and differential equations. Students solve problems analytically and with Mathematica. A project implements, analyses and adapts a dynamic model, requiring interpretation of its behaviour and computational results.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6250945baf68c519d3820bddeaa08cb4b3c71273ddbb9bc31a7dffe6d021af5f",
+        "descriptionSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Mathematical Methods"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "ENSDELT312": {
+      "name": "Governance of Sustainability",
+      "text": "This course examines sustainability through the lens of governance: “a process of rule-making and collective decision-making that includes both governmental and non-governmental actors in shaping public policy” (Fenger & Bekkers, 2016). Taking this lens, we ask questions such as how are sustainability policies on the local, national, and international level made and enforced? Which actors represent which interests, and which are most influential? How is public opinion on sustainability shaped, and how does public opinion shape politics? What, at the end of the day, determines effective policy for sustainability? By the end of this course, you will have gained a deep appreciation of the complexity of the governance dimension of sustainability, and have developed the theoretical and practical understanding to critically assess mainstream policy decisions.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "f4cf9494a23b75f3fb3fe9090c62b9c8af908dc62a825c17f6547cfb48caf0a7",
+        "descriptionSha256": "746711aaebf20395c0fd5695fb91c5951f611715825c91ca6da251c5d890e362",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Governance of Sustainability"
+      },
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "e09dc60f6737453006ed202fb21bea9b12dc2cf8"
+    },
+    "GOSGATE102": {
+      "name": "Law, Society & Justice",
+      "text": "Law, Society & Justice examines legal, social and normative perspectives on law. Students compare legal traditions and study public and private law, human rights, justice, social control and change, race and gender. Case briefs, demand letters and mock trials develop legal reasoning, while a family-law topic supports the design of a socio-legal research proposal.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "e3ee6c30cefe40d0410e4896ebe9e340104aad5931f93baad84dd2e4cfcd8c3e",
+        "descriptionSha256": "035b12c51282127288b99b6ba3cb906896d0fabff1cdf5153709df2d32006391",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Law, Society & Justice"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSHIST211": {
+      "name": "History of Empires",
+      "text": "History of Empires examines empires across global history and competing theories of empire. Students study expansion, administration, military and economic systems, legitimacy, ideology, culture, decline and legacies. Historical cases, source analysis and an independent research essay connect theoretical interpretation with specific imperial experiences.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "bce0c4bf26316aa65a8b70c29f53f82e7c38bf225868dfd278a3cd941ebe4b82",
+        "descriptionSha256": "76faf04e8e855ae9ca1735ccf5a7e8ac76bf21911b771190f9286303745ad4a3",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "History of Empires"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSLAWJ111": {
+      "name": "Human Rights: Law & Philosophy",
+      "text": "Offers a legal, historical and philosophical approach to human rights. Studies classical and modern philosophers, traces the rise of human rights, examines the US Bill of Rights and the French Declaration, and discusses human rights treaties.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Human Rights: Law & Philosophy",
+        "sourceField": "description2",
+        "sourceSha256": "1ed6ae8d1c72724248e9a340650eef63f02eaf747b2175254ce1ca96fc82ab62",
+        "descriptionSha256": "1ed6ae8d1c72724248e9a340650eef63f02eaf747b2175254ce1ca96fc82ab62",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSLAWJ211": {
+      "name": "Criminal Law & Criminal Justice",
+      "text": "Examines moral and legal justifications for criminalisation and punishment. Investigates guiding principles of criminal law and justice, including criminal accountability, guilt, legality and fundamental principles, and applies theory through a simulated legal aid clinic.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Criminal Law & Criminal Justice",
+        "sourceField": "description2",
+        "sourceSha256": "2f3f39fa5669778e9494699766d57580e59a890b3a3fc7527281d3973a63339f",
+        "descriptionSha256": "2f3f39fa5669778e9494699766d57580e59a890b3a3fc7527281d3973a63339f",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSLAWJ212": {
+      "name": "Introduction to Public International Law",
+      "text": "Introduction to Public International Law examines its sources, theories, institutions and relationship to domestic law. Topics include responsibility, force, armed conflict, international crime, human rights, economic relations and environmental protection, followed by self-determination, Third World approaches, compliance and treaty politics. Case exercises and a research podcast develop legal reasoning and critical analysis.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "0f8c6da05a320590248fdd068ef7492aa4a552af12c9e621a746cfcdf1ad4f41",
+        "descriptionSha256": "69f757ece2c00572df432e6ab9cc82f74c14f17c69dd6726bf3e86264049390a",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Introduction to Public International Law"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSLAWJ213": {
+      "name": "Comparative Constitutional Law",
+      "text": "Comparative Constitutional Law compares constitutional structures, institutions and rights across legal systems and introduces administrative law. Students study federalism, legislatures, executive relationships, courts, judicial review, human rights, public participation and procedural fairness. A staged booklet compares two constitutions, supported by legal interpretation, case-law analysis and hypothetical cases.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "3749867e8b6ef513149437432c78c9a25f6a6964e62399088abd19dddf6c47b1",
+        "descriptionSha256": "1845c8f87e0e1295bfe5b43ee7ea5c3902c6690b455726ad6c44b66c78ae8a6a",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Comparative Constitutional Law"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSLAWJ311": {
+      "name": "Principles of Private Law",
+      "text": "Examines principles of property, tort and contract law and other selected areas of private law. It compares legal systems including Germany, France, England, China and the United States, and considers the social, economic and political pressures underlying legal principles.",
+      "source": {
+        "sourceField": "profile",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "0526ec21b25b5d4ec3d9d2477cdb942f8433c9a510bca44971def44c33e2f913",
+        "descriptionSha256": "fbda22bacd9de706683dd2809f68f744f94591b49e8a0761e6378a68f3e8e4c3",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Principles of Private Law"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSLAWJ312": {
+      "name": "Foundations of European Union Law",
+      "text": "Introduces the EU legal order. Studies institutions, framework, citizenship and the internal market using problem‑based exercises and guest lectures.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Foundations of European Union Law",
+        "sourceField": "description2",
+        "sourceSha256": "fea5f72e90d46266e5f1eb6bdfeb2ee451f21334ff92ecd9dc947792b4add6b6",
+        "descriptionSha256": "fea5f72e90d46266e5f1eb6bdfeb2ee451f21334ff92ecd9dc947792b4add6b6",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPHIL212": {
+      "name": "Ethics",
+      "text": "Ethics examines moral reasoning through historical and contemporary theories and close philosophical reading. Students study utilitarianism, Kantian ethics, virtue ethics, contractarianism and feminist ethics, alongside Nietzsche, Murdoch and Nagel. Reflection and research essays develop interpretation, argument evaluation and an independent position on ethical theory or a practical ethical problem.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6d4bf415a51b5b6fb41f341d23fe8b8ce483263f17505e77d1a4ae37299fe30f",
+        "descriptionSha256": "d17cd0a6631823a666c2978b81f52bc5e8b5c8e52ed68edccb3fa37073146e5b",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Ethics"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI112": {
+      "name": "Foundations of Comparative Politics",
+      "text": "Provides analytical tools to compare political systems and democracies. Examines phenomena like democratic backsliding, decline of political parties, rise of populism, media changes, non‑majoritarian institutions and globalization’s impact on domestic politics.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Foundations of Comparative Politics",
+        "sourceField": "description2",
+        "sourceSha256": "72f9efff37e62fdc1cb0ddf27e595e7b3c526eb132dad86622cf55738204a4ee",
+        "descriptionSha256": "72f9efff37e62fdc1cb0ddf27e595e7b3c526eb132dad86622cf55738204a4ee",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI212": {
+      "name": "Theory of International Relations",
+      "text": "Theory of International Relations introduces competing approaches to international relations and geopolitics, including realism, liberalism, Marxism, constructivism and critical theory. Students apply theories to historical and contemporary cases. A United Nations Security Council simulation develops country-position research, negotiation and collaborative resolution drafting.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "0f83c15b507fb2c91b8001182f4a8a94e42ee1673da8396a51bb4a3556d47116",
+        "descriptionSha256": "04498c2b83c05d39830633ba46b62b3691d10af2bb8320e5413d0f75963fbc80",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Theory of International Relations"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI311": {
+      "name": "European Union Politics",
+      "text": "European Union Politics examines EU institutions, actors, integration and policymaking, including representation, legitimacy and decision-making. An empirical project investigates European Parliament committee amendments, relating MEP ideology and possible interest-group influence to amendment activity. Students plan the research, code amendments, assess salience and trace legislative processes.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "42788a5dd28eccc535d20a771b88a601c20af300b1102ef637945a852f156fe0",
+        "descriptionSha256": "97411c9c43963bfc500f8c6494383d57cfd36eeb9c57f554e94ba2d6e35c4253",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "mode": "edited",
+        "courseName": "European Union Politics"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI312": {
+      "name": "Public Policy Analysis",
+      "text": "Investigates public policy in the context of globalization. Uses a case study on sugar to examine policy‑making phases and alternative conceptualisations across national and international arenas. Students write policy memos.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "c9f3958d93c55568454749b18f2790f1adf0927a53afbc8d93fb3ce9ca1729e6",
+        "descriptionSha256": "c9f3958d93c55568454749b18f2790f1adf0927a53afbc8d93fb3ce9ca1729e6",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Public Policy Analysis"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSPOLI313": {
+      "name": "Peace & Conflict",
+      "text": "Peace & Conflict examines conflict and approaches to peace through legal, sociological, political and historical perspectives. Structural inequality, identity and colonial legacies connect to international security, humanitarian law, human rights, peacebuilding and transitional justice. An interdisciplinary podcast, policy brief and research dossier develop analysis, while reflection examines how assumptions shape inquiry.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "414e04bed3b7b37017b0ce93ba0aa469530684e0623175ca2ff1784b4a84515a",
+        "descriptionSha256": "5ad720fcdadf602282307eef8fe7eaf83c3b00264a2ee4752e123cda89606fdf",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Peace & Conflict"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI111": {
+      "name": "Introduction to Sociology",
+      "text": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Sociology",
+        "sourceField": "description2",
+        "sourceSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "descriptionSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI212": {
+      "name": "Qualitative Research Methodology",
+      "text": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "6531d96f817df19cfa773d8d8004f44da6041eeab39acfce1462438728cd1eeb",
+        "descriptionSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Qualitative Research Methodology"
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI215": {
+      "name": "Social Movements & Environmental Justice",
+      "text": "Focuses on social movement theories and environmental justice. Uses case studies from the Environmental Justice Atlas and integrates perspectives such as feminism, anti‑colonialism, degrowth and environmental peacebuilding to encourage civic engagement.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Social Movements & Environmental Justice",
+        "sourceField": "description2",
+        "sourceSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+        "descriptionSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "GOSSOCI311": {
+      "name": "New Issues in Contemporary Social Theory",
+      "text": "New Issues in Contemporary Social Theory studies civil society through critical, neo-functionalist and decolonial perspectives. Topics include trust, social capital, public spheres, solidarity, social movements and civil repair. An experience report connects engagement or observation to course concepts, while an individual project uses theoretical and empirical sources to analyse a civil-society organisation, movement or initiative.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "New Issues in Contemporary Social Theory",
+        "sourceField": "profile",
+        "sourceSha256": "f54abdf8a1ca13792cdc4bc2d390f202721dd6280b0cae44aa0609c2db02dbbf",
+        "descriptionSha256": "367314c88b9f1c559ccd023159845f9624f353f78d898bc66b690ebe3392336b",
+        "mode": "edited",
+        "reviewedOn": "2026-10-31",
+        "reviewNote": "Read the selected current profile and cumulative outline limitation fields. The displayed summary follows its substantive topics and activities; it omits unsupported resource-planning or mandatory NGO group-project claims from superseded cache wording."
+      },
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    "MCCCOMM111": {
+      "name": "The Art of Rhetorical Communication",
+      "text": "The Art of Rhetorical Communication develops rhetorical analysis, academic writing and oral presentation. Students examine classical Western roots and the canons of rhetoric, and learn to construct, organise and support persuasive arguments. Historical and contemporary examples connect rhetorical theory with practical communication.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "a1075e2aff565380f637a1ee31ac79c668477b11b15a7f853230b303cf44485f",
+        "descriptionSha256": "34ab73cc0cae33e2a0e47ba5df0ee55c9b0e5f2d4e21ae97ea18667a96400c4c",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "The Art of Rhetorical Communication"
+      },
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    }
+  },
+  "sharedDescriptionReviewRefs": {
+    "GOSLAWJ111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000111/content-review.json",
+    "GOSPOLI112": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000111/content-review.json",
+    "GOSPOLI312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000111/content-review.json",
+    "GOSSOCI111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000111/content-review.json",
+    "GOSSOCI215": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000111/content-review.json",
+    "ACCPPDE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "BENGATE102": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSPHIL212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "MCCCOMM111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "DISDATA111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "GOSSOCI212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "DISDATA211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "BENENTR212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "BENGATE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "DISGATE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "DISGATE102": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "ENSDELT312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "DISARIN111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "DISCOMP212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "GOSGATE102": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "GOSSOCI311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "BENBUSI211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "GOSLAWJ212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "GOSLAWJ312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "GOSPOLI311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "GOSPOLI313": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "BENENTR312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000123/content-review.json",
+    "DISCOMP211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000127/content-review.json",
+    "BENBUSI311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000129/content-review.json",
+    "GOSHIST211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000129/content-review.json",
+    "GOSPOLI212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000129/content-review.json",
+    "GOSLAWJ211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000130/content-review.json",
+    "GOSLAWJ213": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000130/content-review.json",
+    "GOSLAWJ311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000130/content-review.json"
+  }
+}
