@@ -8706,7 +8706,7 @@
     },
     {
       "id": "cp-000385",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
@@ -8717,35 +8717,14 @@
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Psychology route credit and elective entry unresolved",
-          "scope": "Verify full comparability, alignment and reader-facing content after resolving credit allocation and the restricted Psychology elective rules.",
-          "stages": [
-            1,
-            3,
-            4,
-            5,
-            6
-          ]
-        },
-        {
-          "trigger": "Adopted OER resolves the missing six EC and Psychology elective admission",
-          "scope": "Rechecked comparator sequence, UCR concepts, component alignment and record content.",
-          "stages": [
-            1,
-            3,
-            4,
-            5,
-            6
-          ]
-        }
-      ],
+      "downstreamReassessments": [],
       "implementationCommits": [
-        "b64f7dfd2d5ff631fd0fddc2ed985e81bf106880"
+        "b64f7dfd2d5ff631fd0fddc2ed985e81bf106880",
+        "9f07422f39e97d8a98d70a0f196d88b42055c1a9"
       ],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000385.json"
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000385.json",
+      "academicDisposition": "comparison"
     },
     {
       "id": "cp-000386",
@@ -9469,8 +9448,8 @@
     }
   ],
   "progress": {
-    "approved": 253,
-    "inProgress": 64,
+    "approved": 254,
+    "inProgress": 63,
     "reviewedWithBlockers": 0,
     "notStarted": 121,
     "pilotStarted": 6
@@ -23232,37 +23211,15 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000385",
-      "activeClaim": {
-        "executionId": "restart-B-cp385-retry-20261109T100838Z",
-        "worker": "B",
-        "caseId": "cp-000385",
-        "claimedAt": "2026-11-09T10:08:38.649030+00:00",
-        "reviewedInputCommit": "43e77a71b9c5ccf4e0fa3176324232a3d1fdabe7",
-        "inputBlobs": {
-          "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000385.json": "dbdf56cfbacbbc011d81ab2df574b1ce875e0a66",
-          "data/counselor/comparisons/cp-000385.json": "da54baaa88a89fefcd70e3be3c632caaef8189e3",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "data/registry/programmes.csv": "005f2007f902ffc32066f03394c7a2f4a6126bda",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify published CP385 files, byte-exact replay and exact-head CI, then record final disposition.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000386",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -23372,7 +23329,8 @@
         "cp-000380",
         "cp-000381",
         "cp-000382",
-        "cp-000383"
+        "cp-000383",
+        "cp-000385"
       ],
       "completedDispositions": [
         {
@@ -24137,6 +24095,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000383.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-09"
+        },
+        {
+          "caseId": "cp-000385",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000385.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-09"
         }
       ],
       "deferredCases": [
@@ -24223,10 +24188,19 @@
       "lastCheckpoint": {
         "caseId": "cp-000385",
         "executionId": "restart-B-cp385-retry-20261109T100838Z",
-        "state": "in-progress",
-        "reviewedInputCommit": "d6e848922a4e8043aaab57978717dfd52a14113e",
-        "nextAction": "Verify published CP385 files, byte-exact replay and exact-head CI, then record final disposition.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000385/mechanical-verification.json"
+        "state": "approved",
+        "academicDisposition": "comparison",
+        "reviewedInputCommit": "9f07422f39e97d8a98d70a0f196d88b42055c1a9",
+        "inputBlobs": {
+          "canonical": "3c6acaf6eb9c346895af3cd4a1c08fccf3a82c69",
+          "decision": "8359b6f11c72ec2a9792120e840ac5f841054c00"
+        },
+        "verifiedAt": "2026-11-09T10:19:18.742154+00:00",
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000385/full-published-verification.json",
+        "nextAction": "CP385 approved as a verified comparison. Resume cp-000386 next execution.",
+        "runtimeModel": "unknown",
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -31410,6 +31384,23 @@
           "reviewedInputCommit": "d6e848922a4e8043aaab57978717dfd52a14113e",
           "nextAction": "Verify published CP385 files, byte-exact replay and exact-head CI, then record final disposition.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000385/mechanical-verification.json"
+        },
+        {
+          "caseId": "cp-000385",
+          "executionId": "restart-B-cp385-retry-20261109T100838Z",
+          "state": "approved",
+          "academicDisposition": "comparison",
+          "reviewedInputCommit": "9f07422f39e97d8a98d70a0f196d88b42055c1a9",
+          "inputBlobs": {
+            "canonical": "3c6acaf6eb9c346895af3cd4a1c08fccf3a82c69",
+            "decision": "8359b6f11c72ec2a9792120e840ac5f841054c00"
+          },
+          "verifiedAt": "2026-11-09T10:19:18.742154+00:00",
+          "verificationPolicy": "record-content-review-2026-10-31",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000385/full-published-verification.json",
+          "nextAction": "CP385 approved as a verified comparison. Resume cp-000386 next execution.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown"
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -32709,6 +32700,14 @@
           "officialAlternative": "The public overview has older aggregates and does not resolve the more detailed dated catalogue. The transition page addresses older course substitutions and gives no Psychology credit rule for this cohort. The two restricted groups overlap in their three Brain & Cognition courses. Each of these points CLC students to external-department enrolment rules alongside the published Psychology-student prerequisites of 60 first-year Psychology EC and Scientific and Statistical Reasoning. The department guest-elective guidance describes admission by preparation and availability and does not specify how the CLC package applies. The thesis remarks specify 126 EC and completion of CLC core as the absolute minimum, with quantitative projects requiring prior attendance in Advanced Statistics. The project can be listed as a verified required unit, while exact entry in a full route remains to be checked. Psychology remains the public overview first-listed specialisation, selected independently of UCR.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000385/source-attempt-1.json",
           "nextAction": "Resume CP385 with official source attempt two. Find the adopted 2026–2027 CLC programme rules or cohort study plan specifying the single credit award for Cognitive Modelling, the missing 6 EC and the entry and credit rules for the restricted Psychology electives. Recheck thesis progression once the Psychology route is reconciled. Preserve the confirmed curriculum, interest review and workbook-backed provisional schedules."
+        },
+        {
+          "caseId": "cp-000385",
+          "executionId": "restart-B-cp385-retry-20261109T100838Z",
+          "checkedOn": "2026-11-09",
+          "result": "resolved by adopted regulations",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000385/source-attempt-2.json",
+          "nextAction": "CP385 approved as a verified comparison. Resume cp-000386 next execution."
         }
       ],
       "publicationRecovery": {
@@ -35637,6 +35636,32 @@
           "endedAt": "2026-11-09T09:25:36.551052+00:00",
           "result": "incomplete; first source execution",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000385/published-verification.json"
+        },
+        {
+          "executionId": "restart-B-cp385-retry-20261109T100838Z",
+          "worker": "B",
+          "caseId": "cp-000385",
+          "claimedAt": "2026-11-09T10:08:38.649030+00:00",
+          "reviewedInputCommit": "43e77a71b9c5ccf4e0fa3176324232a3d1fdabe7",
+          "inputBlobs": {
+            "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000385.json": "dbdf56cfbacbbc011d81ab2df574b1ce875e0a66",
+            "data/counselor/comparisons/cp-000385.json": "da54baaa88a89fefcd70e3be3c632caaef8189e3",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "data/registry/programmes.csv": "005f2007f902ffc32066f03394c7a2f4a6126bda",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify published CP385 files, byte-exact replay and exact-head CI, then record final disposition.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-09T10:19:18.742154+00:00",
+          "result": "approved comparison",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000385/full-published-verification.json"
         }
       ],
       "publicationRecoveryHistory": [
