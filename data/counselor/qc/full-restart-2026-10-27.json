@@ -8963,7 +8963,7 @@
     },
     {
       "id": "cp-000393",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
@@ -8974,22 +8974,13 @@
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Dated progression and elective confirmation, two offering conflicts, stronger course contributions and narrower alignments",
-          "scope": "Reassessed course composition, alignment, limitations and final review.",
-          "stages": [
-            2,
-            3,
-            4,
-            5,
-            6
-          ]
-        }
+      "downstreamReassessments": [],
+      "implementationCommits": [
+        "773868a0b3798ab6ebbdbb211df87247a626ea83"
       ],
-      "implementationCommits": [],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000393.json"
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000393.json",
+      "academicDisposition": "comparison"
     },
     {
       "id": "cp-000394",
@@ -9633,8 +9624,8 @@
     }
   ],
   "progress": {
-    "approved": 269,
-    "inProgress": 64,
+    "approved": 270,
+    "inProgress": 63,
     "reviewedWithBlockers": 0,
     "notStarted": 105,
     "pilotStarted": 6
@@ -23868,37 +23859,15 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000393",
-      "activeClaim": {
-        "executionId": "restart-B-cp393-20261109T180237Z",
-        "worker": "B",
-        "caseId": "cp-000393",
-        "claimedAt": "2026-11-09T18:02:37.040163+00:00",
-        "reviewedInputCommit": "dd575add94f6a64c2fa58b7dc272fa0b39160184",
-        "inputBlobs": {
-          "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000393.json": "ab58c356efac64d0270907d5ef7dadeeea7d57c5",
-          "data/counselor/comparisons/cp-000393.json": "830dfa74f618b49e3eca81798cde7e3eaa55a61c",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "data/registry/programmes.csv": "005f2007f902ffc32066f03394c7a2f4a6126bda",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Recheck the pilot workflow for this checkpoint and the same reviewed comparison inputs. If it ran successfully, confirm the published bytes, close the verified actions, and record the final disposition and any due milestone. If GitHub reports failure without jobs again, obtain a valid push-context static pilot run on the same inputs before final disposition. Resume CP393.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000394",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -24016,7 +23985,8 @@
         "cp-000389",
         "cp-000390",
         "cp-000391",
-        "cp-000392"
+        "cp-000392",
+        "cp-000393"
       ],
       "completedDispositions": [
         {
@@ -24837,6 +24807,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000392.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-09"
+        },
+        {
+          "caseId": "cp-000393",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000393.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-09"
         }
       ],
       "deferredCases": [
@@ -24923,10 +24900,19 @@
       "lastCheckpoint": {
         "caseId": "cp-000393",
         "executionId": "restart-B-cp393-20261109T180237Z",
-        "state": "in-progress",
+        "state": "approved",
+        "academicDisposition": "comparison",
         "reviewedInputCommit": "773868a0b3798ab6ebbdbb211df87247a626ea83",
-        "nextAction": "Recheck the pilot workflow for this checkpoint and the same reviewed comparison inputs. If it ran successfully, confirm the published bytes, close the verified actions, and record the final disposition and any due milestone. If GitHub reports failure without jobs again, obtain a valid push-context static pilot run on the same inputs before final disposition. Resume CP393.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000393/ci-recovery-follow-up.json"
+        "inputBlobs": {
+          "canonical": "16c000d3aa302d551509d0f2a746f8a73c189da0",
+          "decision": "505a5f9a7ad5dad93ece431a9140ddf9b1d3fe18"
+        },
+        "verifiedAt": "2026-11-09T18:15:07.939170+00:00",
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000393/published-verification.json",
+        "nextAction": "CP393 approved as a verified comparison. Resume cp-000394 next execution.",
+        "runtimeModel": "unknown",
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -32326,6 +32312,23 @@
           "reviewedInputCommit": "773868a0b3798ab6ebbdbb211df87247a626ea83",
           "nextAction": "Recheck the pilot workflow for this checkpoint and the same reviewed comparison inputs. If it ran successfully, confirm the published bytes, close the verified actions, and record the final disposition and any due milestone. If GitHub reports failure without jobs again, obtain a valid push-context static pilot run on the same inputs before final disposition. Resume CP393.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000393/ci-recovery-follow-up.json"
+        },
+        {
+          "caseId": "cp-000393",
+          "executionId": "restart-B-cp393-20261109T180237Z",
+          "state": "approved",
+          "academicDisposition": "comparison",
+          "reviewedInputCommit": "773868a0b3798ab6ebbdbb211df87247a626ea83",
+          "inputBlobs": {
+            "canonical": "16c000d3aa302d551509d0f2a746f8a73c189da0",
+            "decision": "505a5f9a7ad5dad93ece431a9140ddf9b1d3fe18"
+          },
+          "verifiedAt": "2026-11-09T18:15:07.939170+00:00",
+          "verificationPolicy": "record-content-review-2026-10-31",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000393/published-verification.json",
+          "nextAction": "CP393 approved as a verified comparison. Resume cp-000394 next execution.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown"
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -36769,6 +36772,32 @@
           "endedAt": "2026-11-09T17:12:02.993665+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000392/published-verification.json"
+        },
+        {
+          "executionId": "restart-B-cp393-20261109T180237Z",
+          "worker": "B",
+          "caseId": "cp-000393",
+          "claimedAt": "2026-11-09T18:02:37.040163+00:00",
+          "reviewedInputCommit": "dd575add94f6a64c2fa58b7dc272fa0b39160184",
+          "inputBlobs": {
+            "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000393.json": "ab58c356efac64d0270907d5ef7dadeeea7d57c5",
+            "data/counselor/comparisons/cp-000393.json": "830dfa74f618b49e3eca81798cde7e3eaa55a61c",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "data/registry/programmes.csv": "005f2007f902ffc32066f03394c7a2f4a6126bda",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Recheck the pilot workflow for this checkpoint and the same reviewed comparison inputs. If it ran successfully, confirm the published bytes, close the verified actions, and record the final disposition and any due milestone. If GitHub reports failure without jobs again, obtain a valid push-context static pilot run on the same inputs before final disposition. Resume CP393.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-09T18:15:07.939170+00:00",
+          "result": "approved comparison",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000393/published-verification.json"
         }
       ],
       "publicationRecoveryHistory": [
@@ -37978,6 +38007,17 @@
       },
       "combinedVerifiedCount": 260,
       "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000388/assessment-26.json"
+    },
+    {
+      "assessmentNumber": 27,
+      "verifiedOn": "2026-11-09",
+      "milestone": 270,
+      "workerVerifiedCounts": {
+        "A": 152,
+        "B": 118
+      },
+      "combinedVerifiedCount": 270,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000393/assessment-27.json"
     }
   ],
   "systemicPause": null,
