@@ -9126,10 +9126,31 @@
     {
       "id": "cp-000397",
       "state": "in-progress",
-      "stageOutcomes": {},
+      "stageOutcomes": {
+        "1": "blocked",
+        "2": "retain",
+        "3": "blocked",
+        "4": "blocked",
+        "5": "blocked",
+        "6": "blocked"
+      },
       "sharedIssueIds": [],
-      "unresolved": [],
-      "downstreamReassessments": [],
+      "unresolved": [
+        "Confirm whether the faculty-specific entry rule in Fiscal Economics OER B6 is sufficient for regular bachelor access to 3313GEBRVY when the shared Law catalogue lists minor enrolment."
+      ],
+      "downstreamReassessments": [
+        {
+          "trigger": "Fiscal Economics B6 and shared European Tax Law catalogue entry conflict",
+          "scope": "Confirm regular bachelor access before final comparability, implementation and verification. Preserve verified curriculum membership, credit allocations and interest evidence.",
+          "stages": [
+            1,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
       "implementationCommits": [],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000397.json"
@@ -24325,7 +24346,7 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
@@ -24333,29 +24354,7 @@
         "minute": 0
       },
       "nextCase": "cp-000397",
-      "activeClaim": {
-        "executionId": "restart-B-cp397-20261109T230135Z",
-        "worker": "B",
-        "caseId": "cp-000397",
-        "claimedAt": "2026-11-09T23:01:35.116479+00:00",
-        "reviewedInputCommit": "cae476b20c4a555d5a3dc0d23139af23fc573a0d",
-        "inputBlobs": {
-          "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000397.json": "50fb8c4722d3c123ea004c92abe9abe96cd129eb",
-          "data/counselor/comparisons/cp-000397.json": "0202fe2ba98d3f67786067fbb139fba8f16a4ca3",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "data/registry/programmes.csv": "005f2007f902ffc32066f03394c7a2f4a6126bda",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify the dated comparator curriculum and progression, then assess UCR options against the active workbook.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -25400,20 +25399,17 @@
         "cp-000364": 2,
         "cp-000384": 2,
         "cp-000385": 1,
-        "cp-000396": 2
+        "cp-000396": 2,
+        "cp-000397": 1
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000396",
-        "executionId": "restart-B-cp396-20261109T220517Z",
-        "state": "deferred",
-        "reviewedInputCommit": "60e235b7ad7504709121f319d49d0245b1093454",
-        "inputBlobs": {
-          "canonical": "586ac40bee2a431c322ca5a1f399620ecb24f760",
-          "decision": "b6e283844627cdb6b9f90ad45084d9e6e3ff0a17"
-        },
-        "nextAction": "CP396 is deferred and incomplete. At the permitted revisit, verify an updated 2026–2027 course entry, a faculty erratum, or an explicit bachelor registration rule for 3313GEBRVY. Retain the verified curriculum, 69 interest reviews and three feasible UCR trials. Resume cp-000397 next execution.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000396/source-attempt-2.json"
+        "caseId": "cp-000397",
+        "executionId": "restart-B-cp397-20261109T230135Z",
+        "state": "in-progress",
+        "reviewedInputCommit": "84347bdd538fe57174eeb0bf32660ca08c28f3a0",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000397/source-attempt-1.json",
+        "nextAction": "Resume CP397 with source attempt two. Seek the 2026–2027 faculty erratum, course-specific bachelor placement rule, or documented faculty precedence for 3313GEBRVY. Keep the verified 177 EC, all interest rows and three feasible provisional UCR trials. Reassess full comparability and complete final checks once the entry rule is resolved."
       },
       "checkpointHistory": [
         {
@@ -32900,6 +32896,14 @@
           },
           "nextAction": "CP396 is deferred and incomplete. At the permitted revisit, verify an updated 2026–2027 course entry, a faculty erratum, or an explicit bachelor registration rule for 3313GEBRVY. Retain the verified curriculum, 69 interest reviews and three feasible UCR trials. Resume cp-000397 next execution.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000396/source-attempt-2.json"
+        },
+        {
+          "caseId": "cp-000397",
+          "executionId": "restart-B-cp397-20261109T230135Z",
+          "state": "in-progress",
+          "reviewedInputCommit": "84347bdd538fe57174eeb0bf32660ca08c28f3a0",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000397/source-attempt-1.json",
+          "nextAction": "Resume CP397 with source attempt two. Seek the 2026–2027 faculty erratum, course-specific bachelor placement rule, or documented faculty precedence for 3313GEBRVY. Keep the verified 177 EC, all interest rows and three feasible provisional UCR trials. Reassess full comparability and complete final checks once the entry rule is resolved."
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -33518,6 +33522,15 @@
           "officialAlternative": "The dated UvA catalogue has one result for 3313GEBRVY in each of 2025–2026 and 2026–2027. The 2025–2026 entry has no published entry condition. The 2026–2027 entry adds the minor requirement, with no separate enrolment instructions, remarks, changes or bachelor offering. UvA’s 2026–2027 registration guidance guarantees timely applicants a place in compulsory courses but separately requires students to meet the catalogue entry conditions. Its GLASS guidance describes placement priority and does not explain this course’s eligibility. B-5.1(3) gives degree students priority for required courses if capacity is limited, while B-5.2 retains course-specific entry requirements. The degree overview and OER confirm this is a required 3 EC course. Neither priority nor the earlier catalogue verifies the current bachelor exception.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000396/source-attempt-2.json",
           "nextAction": "CP396 is deferred and incomplete. At the permitted revisit, verify an updated 2026–2027 course entry, a faculty erratum, or an explicit bachelor registration rule for 3313GEBRVY. Retain the verified curriculum, 69 interest reviews and three feasible UCR trials. Resume cp-000397 next execution."
+        },
+        {
+          "caseId": "cp-000397",
+          "executionId": "restart-B-cp397-20261109T230135Z",
+          "checkedOn": "2026-11-09",
+          "essentialEvidence": "Confirm whether the faculty-specific entry rule in Fiscal Economics OER B6 is sufficient for regular bachelor access to 3313GEBRVY when the shared Law catalogue lists minor enrolment.",
+          "officialAlternative": "UvA Economics and Business OER B6 Arts. 3.3–3.4, pp. 70–73, lists the compulsory 3 EC EU Tax course and gives two second-year tax prerequisites, both earlier in the degree. Its Part A Art. 4.1(4) refers students to Part B and the catalogue. The dated shared 3313GEBRVY entry expressly identifies minor enrolment and contains no separate bachelor rule. By contrast, the neighbouring International Tax entry expressly admits Fiscal Economics students. The degree’s elective guidance permits individual minor courses subject to their entry requirements. Its practical page confirms degree students register for themselves after year one and must heed course entry requirements. These official alternatives provide substantive evidence for the degree-specific progression but do not explicitly reconcile the conflicting enrolment condition.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000397/source-attempt-1.json",
+          "nextAction": "Resume CP397 with source attempt two. Seek the 2026–2027 faculty erratum, course-specific bachelor placement rule, or documented faculty precedence for 3313GEBRVY. Keep the verified 177 EC, all interest rows and three feasible provisional UCR trials. Reassess full comparability and complete final checks once the entry rule is resolved."
         }
       ],
       "deferralHistory": [
@@ -34253,6 +34266,15 @@
           "officialAlternative": "The dated UvA catalogue has one result for 3313GEBRVY in each of 2025–2026 and 2026–2027. The 2025–2026 entry has no published entry condition. The 2026–2027 entry adds the minor requirement, with no separate enrolment instructions, remarks, changes or bachelor offering. UvA’s 2026–2027 registration guidance guarantees timely applicants a place in compulsory courses but separately requires students to meet the catalogue entry conditions. Its GLASS guidance describes placement priority and does not explain this course’s eligibility. B-5.1(3) gives degree students priority for required courses if capacity is limited, while B-5.2 retains course-specific entry requirements. The degree overview and OER confirm this is a required 3 EC course. Neither priority nor the earlier catalogue verifies the current bachelor exception.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000396/source-attempt-2.json",
           "nextAction": "CP396 is deferred and incomplete. At the permitted revisit, verify an updated 2026–2027 course entry, a faculty erratum, or an explicit bachelor registration rule for 3313GEBRVY. Retain the verified curriculum, 69 interest reviews and three feasible UCR trials. Resume cp-000397 next execution."
+        },
+        {
+          "caseId": "cp-000397",
+          "executionId": "restart-B-cp397-20261109T230135Z",
+          "checkedOn": "2026-11-09",
+          "essentialEvidence": "Confirm whether the faculty-specific entry rule in Fiscal Economics OER B6 is sufficient for regular bachelor access to 3313GEBRVY when the shared Law catalogue lists minor enrolment.",
+          "officialAlternative": "UvA Economics and Business OER B6 Arts. 3.3–3.4, pp. 70–73, lists the compulsory 3 EC EU Tax course and gives two second-year tax prerequisites, both earlier in the degree. Its Part A Art. 4.1(4) refers students to Part B and the catalogue. The dated shared 3313GEBRVY entry expressly identifies minor enrolment and contains no separate bachelor rule. By contrast, the neighbouring International Tax entry expressly admits Fiscal Economics students. The degree’s elective guidance permits individual minor courses subject to their entry requirements. Its practical page confirms degree students register for themselves after year one and must heed course entry requirements. These official alternatives provide substantive evidence for the degree-specific progression but do not explicitly reconcile the conflicting enrolment condition.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000397/source-attempt-1.json",
+          "nextAction": "Resume CP397 with source attempt two. Seek the 2026–2027 faculty erratum, course-specific bachelor placement rule, or documented faculty precedence for 3313GEBRVY. Keep the verified 177 EC, all interest rows and three feasible provisional UCR trials. Reassess full comparability and complete final checks once the entry rule is resolved."
         }
       ],
       "publicationRecovery": {
@@ -37519,6 +37541,32 @@
           "endedAt": "2026-11-09T22:08:30.639032+00:00",
           "result": "deferred; incomplete; second source execution",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000396/source-attempt-2.json"
+        },
+        {
+          "executionId": "restart-B-cp397-20261109T230135Z",
+          "worker": "B",
+          "caseId": "cp-000397",
+          "claimedAt": "2026-11-09T23:01:35.116479+00:00",
+          "reviewedInputCommit": "cae476b20c4a555d5a3dc0d23139af23fc573a0d",
+          "inputBlobs": {
+            "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000397.json": "50fb8c4722d3c123ea004c92abe9abe96cd129eb",
+            "data/counselor/comparisons/cp-000397.json": "0202fe2ba98d3f67786067fbb139fba8f16a4ca3",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "data/registry/programmes.csv": "005f2007f902ffc32066f03394c7a2f4a6126bda",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify the dated comparator curriculum and progression, then assess UCR options against the active workbook.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-09T23:06:52.785046+00:00",
+          "result": "source-retry pending",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000397/source-attempt-1.json"
         }
       ],
       "publicationRecoveryHistory": [
