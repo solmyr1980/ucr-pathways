@@ -1,0 +1,1142 @@
+{
+  "caseId": "cp-000383",
+  "checkedAt": "2026-11-09T06:12:34.393892+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000383.json": "47a18435615a3f3e0d127c71d6865f49c65bda09",
+    "data/counselor/comparisons/cp-000383.json": "74dfa0e94f4f44f4892656ec7e45d7585bb73608",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "data/registry/programmes.csv": "005f2007f902ffc32066f03394c7a2f4a6126bda",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "a3b7ce74f6016be811455c96821c62b2686e0f0f",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "data/counselor/presentation-overrides.json": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json": "d65b11aff73176eaeafe340a8407452f4849634a",
+    "pilot/shiny/data/courses/BEN.json": "1595932255166785ac58524e448c546d4eaaf6fd",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000123/content-review.json": "5c2bde563d51ec7e3b4363c070e9cc52456d1f30",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json": "8a6a68c211c21ccfc1a781132fb1c0f1f19886d9",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json": "175487e0b5f55d758ab798a215d4fd730b6e82a9",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000128/content-review.json": "65769382b4c9ca5997d2bb1ba0302a44ff35d00b",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json": "8d1a0a818d17af7038794d845c297591f0e9a28c",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json": "abc6deddd935219ffc0b7c6c1b005a4fd8a9374f",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000126/content-review.json": "2d95d9ecfcb96db19b6277873d0d02698130fb7f"
+  },
+  "presentationMode": "normal",
+  "mapping": {
+    "title and links": "The selection index and comparison heading use the official English title. The comparator header links to the official curriculum and the UCR columns link to courses. The builder link uses the existing CTA.",
+    "audience and concepts": "render_audience_context and render_comparison_summary use the programme description, comparison explanation, year and three option concepts.",
+    "blocks and notes": "render_compare_table displays the workbook titles, grouped course rows, component titles and credits. audience_cell_note resolves comparator IDs and render_audience_notes displays the selected curricular-structure note.",
+    "descriptions": "Course buttons resolve courseCode and description-cache text. Reviewed each actual text or reused the identical text with matching source hash.",
+    "research": "The optional UCR element is separate from the UCR totals and the required UvA thesis."
+  },
+  "fieldPaths": [
+    "review-programmes.programmes[].displayName",
+    "comparator.name",
+    "comparator.primarySourceUrl",
+    "comparator.additionalSourceUrls",
+    "comparator.components",
+    "comparator.sourceNotes",
+    "audience",
+    "academicRationale.alternatives[].concept",
+    "notes[].text",
+    "programmes[].label",
+    "blocks[].title",
+    "blocks[].rows[].cells",
+    "optionalIndependentResearch",
+    "pilot/shiny/data/courses/*.json descriptions by courseCode"
+  ],
+  "selectedConcepts": [
+    {
+      "programmeId": "ucr-1",
+      "concept": "Builds from mathematics, programming and business foundations to machine learning, algorithms, econometrics and market research. The quantitative courses support work on business decisions and consumer behaviour, while UvA has a longer operations research sequence and dedicated analytics projects.",
+      "basisLabels": [
+        "Mathematics, computing and business analysis integrated to improve organizational decisions",
+        "Calculus, linear algebra, probability, statistics and mathematical optimization for business models",
+        "Programming, data management, machine learning and AI for organizational data",
+        "Business economics, finance and organizational applications of analytics",
+        "Advanced algorithms, computing and mathematical methods for optimization",
+        "Prediction, customer analytics and business strategy informed by data"
+      ],
+      "evidence": [
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.uva.nl/en/programmes/bachelors/business-analytics/study-programme/study-programme.html"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.uva.nl/en/programmes/bachelors/business-analytics/business-analytics.html"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16916"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16921"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16922"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16924"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16925"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16926"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16929"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16930"
+        }
+      ],
+      "labelRationale": "The completed curriculum has substantial quantitative, computational and business study; no one strand alone defines it."
+    },
+    {
+      "programmeId": "ucr-2",
+      "concept": "Studies how to design algorithms, search for good solutions and make decisions under uncertainty. Advanced algorithms, numerical methods, reinforcement learning and software development give this option its technical focus. Business and econometrics provide applications, while UvA goes further into specialist business analytics.",
+      "basisLabels": [
+        "Mathematics, computing and business analysis integrated to improve organizational decisions",
+        "Calculus, linear algebra, probability, statistics and mathematical optimization for business models",
+        "Programming, data management, machine learning and AI for organizational data",
+        "Business economics, finance and organizational applications of analytics",
+        "Advanced algorithms, computing and mathematical methods for optimization"
+      ],
+      "evidence": [
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.uva.nl/en/programmes/bachelors/business-analytics/study-programme/study-programme.html"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.uva.nl/en/programmes/bachelors/business-analytics/business-analytics.html"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16918"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16919"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16920"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16923"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16928"
+        }
+      ],
+      "labelRationale": "Advanced computing, mathematics and AI occupy the curricular differences from the integrated route.",
+      "distinctnessRationale": "Software development, linear systems, advanced calculus and reinforcement learning replace marketing, market research, AI in business and deep learning in the closest option."
+    },
+    {
+      "programmeId": "ucr-3",
+      "concept": "Uses statistics, machine learning and econometrics alongside consumer behaviour, market research and finance. Digital strategy and international business add context for decisions about products and markets. UvA goes further into formal marketing models and operations research.",
+      "basisLabels": [
+        "Mathematics, computing and business analysis integrated to improve organizational decisions",
+        "Calculus, linear algebra, probability, statistics and mathematical optimization for business models",
+        "Programming, data management, machine learning and AI for organizational data",
+        "Business economics, finance and organizational applications of analytics",
+        "Prediction, customer analytics and business strategy informed by data"
+      ],
+      "evidence": [
+        {
+          "sourceType": "official-source",
+          "reference": "https://www.uva.nl/en/programmes/bachelors/business-analytics/study-programme/study-programme.html"
+        },
+        {
+          "sourceType": "official-source",
+          "reference": "https://studiegids.uva.nl/en/programmes/2026/1/5899/40659"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16927"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16936"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16944"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16948"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16955"
+        },
+        {
+          "sourceType": "programme-interest",
+          "reference": "programme_interests.csv:16962"
+        }
+      ],
+      "labelRationale": "The course set has a substantive business and market sequence supported by data and quantitative methods.",
+      "distinctnessRationale": "Microeconomics, digital strategy, international business and banking replace numerical methods, advanced algorithms, AI decision-making and AI optimisation in the closest option."
+    }
+  ],
+  "alignmentNotes": [
+    {
+      "componentId": "y1-prob1",
+      "matchType": "unmatched",
+      "rationale": "Explicitly unmatched after semantic review: no scheduled UCR course was judged a sufficiently direct counterpart to Probability Theory and Statistics 1."
+    },
+    {
+      "componentId": "y1-finance",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "BENBUSI312",
+      "rationale": "Both study the pricing of financial assets and the role of risk. UCR also examines banking and monetary policy."
+    },
+    {
+      "componentId": "y1-ai-privacy",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "BENBUSI211",
+      "rationale": "Both examine responsible uses of AI in organisations. UvA also studies data privacy and cybersecurity directly."
+    },
+    {
+      "componentId": "y2-management-consulting",
+      "matchType": "unmatched",
+      "rationale": "UvA develops consulting skills for analytics work in organisations."
+    },
+    {
+      "componentId": "y2-econometrics",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "BENECON312",
+      "rationale": "Both use regression and statistical inference to estimate economic relationships and make predictions."
+    },
+    {
+      "componentId": "y2-hr-analytics",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "BENLEAD311",
+      "rationale": "Both examine questions about people at work. UCR studies organisational behaviour, while UvA uses HR data to answer those questions."
+    },
+    {
+      "componentId": "y2-accounting",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "BENBUSI112",
+      "rationale": "Both use financial statements and accounting information to assess performance."
+    },
+    {
+      "componentId": "y2-hackathon",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "BENGATE101",
+      "rationale": "Both study venture opportunities, customer needs and business models. UvA applies them in a hackathon."
+    },
+    {
+      "componentId": "y3-open",
+      "matchType": "unmatched",
+      "rationale": "UvA offers a minor, an exchange, electives or an internship combined with electives. The UvA Business Analytics internship carries 12 EC and requires 90 EC already completed."
+    },
+    {
+      "componentId": "y3-marketing-analytics",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "BENENTR311",
+      "rationale": "Both study customer evidence to inform marketing. UvA specifically teaches purchase prediction, choice and marketing-mix models."
+    },
+    {
+      "componentId": "y3-thesis",
+      "matchType": "unmatched",
+      "rationale": "UvA requires this 6 EC project alongside the 6 EC Skills course. UCR’s optional research element sits outside the illustrated schedules."
+    },
+    {
+      "componentId": "y3-thesis-skills",
+      "matchType": "unmatched",
+      "rationale": "This 6 EC course develops design research and thesis writing alongside the Research Project."
+    },
+    {
+      "componentId": "y1-calculus",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "DISGATE102",
+      "rationale": "Both develop differentiation and integration for mathematical modelling."
+    },
+    {
+      "componentId": "y1-linear-algebra",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "DISMATH211",
+      "rationale": "Both cover matrices, linear systems, vector spaces and eigenvalues."
+    },
+    {
+      "componentId": "y1-prob2",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "DISMATH314",
+      "rationale": "Both develop probability distributions and statistical inference. UvA teaches these topics across two courses."
+    },
+    {
+      "componentId": "y2-advanced-linear-algebra",
+      "matchType": "unmatched",
+      "rationale": "UvA requires a second linear algebra course. UCR covers some related topics in Linear Algebra, including eigenvalues and orthogonality."
+    },
+    {
+      "componentId": "y2-or-deterministic",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "DISARIN311",
+      "rationale": "Both teach linear and discrete optimisation. UvA develops operations research models, while UCR also studies search in AI."
+    },
+    {
+      "componentId": "y2-or-stochastic",
+      "matchType": "unmatched",
+      "rationale": "UvA devotes a course to modelling uncertain operations. UCR teaches probabilistic decisions in AI, but has no equivalent operations research sequence in these options."
+    },
+    {
+      "componentId": "y1-better-world",
+      "matchType": "unmatched",
+      "rationale": "UvA introduces optimisation and machine learning together through cases about social problems."
+    },
+    {
+      "componentId": "y1-programming",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "DISGATE101",
+      "rationale": "Both develop Python programming and computational problem solving."
+    },
+    {
+      "componentId": "y1-data-viz",
+      "matchType": "unmatched",
+      "rationale": "UvA devotes a course to visualising and communicating results. UCR includes visualisation in Introduction to Data Science."
+    },
+    {
+      "componentId": "y1-intro-data-science",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "DISDATA111",
+      "rationale": "Both prepare and explore data for analysis. UCR also practises data visualisation."
+    },
+    {
+      "componentId": "y2-algorithms",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "DISCOMP311",
+      "rationale": "Both study data structures, efficient algorithms and computational problem solving."
+    },
+    {
+      "componentId": "y2-machine-learning",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "DISDATA211",
+      "rationale": "Both cover regression, classification, feature engineering and model evaluation."
+    },
+    {
+      "componentId": "y3-language-tech",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "DISDATA311",
+      "rationale": "Both use models for text classification and generation. UvA also teaches retrieval, while UCR covers image and time-series applications."
+    },
+    {
+      "componentId": "y3-systems-data",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "DISCOMP212",
+      "rationale": "Both cover databases. UvA places data management alongside enterprise systems and other digital technologies."
+    }
+  ],
+  "blockTitles": [
+    "Business decisions and applied projects",
+    "Mathematics, statistics and optimization",
+    "Programming, data and AI"
+  ],
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "Business Analytics at UvA uses mathematics, statistics, computing and AI to study how organisations make decisions. Students apply these methods to business problems and carry out a supervised research project.",
+    "comparisonExplanation": "The UCR options explore a balance of business and analytics, a technical focus on algorithms and AI, or a business focus on markets and finance.",
+    "curriculum": {
+      "status": "complete",
+      "componentIds": [
+        "y1-better-world",
+        "y1-calculus",
+        "y1-prob1",
+        "y1-programming",
+        "y1-data-viz",
+        "y1-finance",
+        "y1-linear-algebra",
+        "y1-ai-privacy",
+        "y1-prob2",
+        "y1-intro-data-science",
+        "y2-algorithms",
+        "y2-advanced-linear-algebra",
+        "y2-machine-learning",
+        "y2-or-deterministic",
+        "y2-management-consulting",
+        "y2-econometrics",
+        "y2-hr-analytics",
+        "y2-accounting",
+        "y2-or-stochastic",
+        "y2-hackathon",
+        "y3-open",
+        "y3-language-tech",
+        "y3-marketing-analytics",
+        "y3-systems-data",
+        "y3-thesis",
+        "y3-thesis-skills"
+      ],
+      "yearLabel": "2026–2027"
+    },
+    "conceptProgrammeIds": [
+      "ucr-1",
+      "ucr-2",
+      "ucr-3"
+    ],
+    "noteTypes": [
+      "missing-specialist-components"
+    ],
+    "cellNotes": [
+      {
+        "programmeId": "comparator",
+        "reference": "y2-accounting",
+        "text": "Both use financial statements and accounting information to assess performance."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-ai-privacy",
+        "text": "Both examine responsible uses of AI in organisations. UvA also studies data privacy and cybersecurity directly."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-finance",
+        "text": "Both study the pricing of financial assets and the role of risk. UCR also examines banking and monetary policy."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-econometrics",
+        "text": "Both use regression and statistical inference to estimate economic relationships and make predictions."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-marketing-analytics",
+        "text": "Both study customer evidence to inform marketing. UvA specifically teaches purchase prediction, choice and marketing-mix models."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-hackathon",
+        "text": "Both study venture opportunities, customer needs and business models. UvA applies them in a hackathon."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-hr-analytics",
+        "text": "Both examine questions about people at work. UCR studies organisational behaviour, while UvA uses HR data to answer those questions."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-or-deterministic",
+        "text": "Both teach linear and discrete optimisation. UvA develops operations research models, while UCR also studies search in AI."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-calculus",
+        "text": "Both develop differentiation and integration for mathematical modelling."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-linear-algebra",
+        "text": "Both cover matrices, linear systems, vector spaces and eigenvalues."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-prob2",
+        "text": "Both develop probability distributions and statistical inference. UvA teaches these topics across two courses."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-systems-data",
+        "text": "Both cover databases. UvA places data management alongside enterprise systems and other digital technologies."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-algorithms",
+        "text": "Both study data structures, efficient algorithms and computational problem solving."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-intro-data-science",
+        "text": "Both prepare and explore data for analysis. UCR also practises data visualisation."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-machine-learning",
+        "text": "Both cover regression, classification, feature engineering and model evaluation."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-language-tech",
+        "text": "Both use models for text classification and generation. UvA also teaches retrieval, while UCR covers image and time-series applications."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-programming",
+        "text": "Both develop Python programming and computational problem solving."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-better-world",
+        "text": "UvA introduces optimisation and machine learning together through cases about social problems."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y1-data-viz",
+        "text": "UvA devotes a course to visualising and communicating results. UCR includes visualisation in Introduction to Data Science."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-advanced-linear-algebra",
+        "text": "UvA requires a second linear algebra course. UCR covers some related topics in Linear Algebra, including eigenvalues and orthogonality."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-or-stochastic",
+        "text": "UvA devotes a course to modelling uncertain operations. UCR teaches probabilistic decisions in AI, but has no equivalent operations research sequence in these options."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y2-management-consulting",
+        "text": "UvA develops consulting skills for analytics work in organisations."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-open",
+        "text": "UvA offers a minor, an exchange, electives or an internship combined with electives. The UvA Business Analytics internship carries 12 EC and requires 90 EC already completed."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-thesis",
+        "text": "UvA requires this 6 EC project alongside the 6 EC Skills course. UCR’s optional research element sits outside the illustrated schedules."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "y3-thesis-skills",
+        "text": "This 6 EC course develops design research and thesis writing alongside the Research Project."
+      }
+    ]
+  },
+  "notes": [
+    {
+      "type": "missing-specialist-components",
+      "placement": "comparison",
+      "text": "UvA combines business, computing and mathematics in a dedicated sequence with two operations research courses, specialist projects and a 12 EC thesis made up of two courses. The UCR options offer related study with a different balance of methods and applications."
+    }
+  ],
+  "programmeLabels": [
+    "Business Analytics at University of Amsterdam",
+    "Business analytics across mathematics, data and organisations",
+    "Algorithms, AI and mathematical optimisation",
+    "Data-informed markets, finance and strategy"
+  ],
+  "selectedDescriptions": {
+    "ACCPPDE101": {
+      "name": "Personal & Professional Development",
+      "text": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+        "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Personal & Professional Development"
+      },
+      "cache": "pilot/shiny/data/courses/ACC.json",
+      "cacheBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8"
+    },
+    "BENBUSI112": {
+      "name": "Accounting & Corporate Finance",
+      "text": "Accounting & Corporate Finance introduces financial and management accounting, financial-statement preparation and analysis, costing, pricing, budgeting and organisational control. Students assess investment decisions using accounting measures, discounted cash flow, net present value, internal rate of return and cost of capital. A case study examines the misuse of an accounting principle and its effects on financial statements.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Accounting & Corporate Finance",
+        "sourceField": "profile",
+        "sourceSha256": "d11f004b40eac99c8a834171f44b26a4afda766ad2a8deefe5ce1ace03fb1780",
+        "descriptionSha256": "0aa904ea38ab47e3acb028a9c6e68a41b9210d4317249cd44d402013d52c2f04",
+        "mode": "edited",
+        "reviewedOn": "2026-11-05",
+        "reviewNote": "Read the selected current profile in full; the summary represents accounting, control and investment-appraisal content proportionately, without claiming an entire advanced corporate-finance sequence."
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENBUSI211": {
+      "name": "Business & Economy in the Age of AI",
+      "text": "Examines AI's business, economic and societal implications without requiring a technical background. Students study AI's capabilities and limits, applications across business functions and industries, and effects on labour markets, productivity, innovation and inequality. Business cases and scholarly arguments support analysis of governance, regulation and a country's AI readiness and industrial policy.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "descriptionSha256": "dc99e879e62a02957451c99d0ed08cdbc50fc9e07847d0d251210dfd8a973cb1",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "sourceSha256": "142e38261e07fee05e042a882559c77aa357856539a62060518c508d07aa8411",
+        "courseName": "Business & Economy in the Age of AI"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENBUSI312": {
+      "name": "Money, Banking & Finance",
+      "text": "Examines financial markets, commercial banks and central banks, including interest rates, financial regulation, financial crises and monetary policy. Students analyse financial problems and manage a simulated bank in the Stanford Banking Game, using Excel dashboards and financial forecasts to inform decisions about loans, deposits, capital, liquidity and risk.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "0ee0bc0327ea0165f3b9f13e920ef9311d6b4ed5de8b4a6ed31ef36aaada0623",
+        "descriptionSha256": "dd318ab8d5a96197622f9002a480483d9f49dca92bc4f69000cb2b409994d82b",
+        "mode": "edited",
+        "reviewedOn": "2026-10-30",
+        "reviewNote": "Reviewed against the selected profile and current official description. Describes substantive financial and banking content and the bank-management simulation without treating the source as proof of future delivery.",
+        "courseName": "Money, Banking & Finance"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENECON111": {
+      "name": "Introduction to Economics",
+      "text": "Explore how individuals, firms, and societies make economic decisions. This course introduces key concepts from both microeconomics and macroeconomics, including markets, incentives, and the principles of supply and demand, and provides a foundation for analyzing real-world economic issues.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "be4f2adfa22005d4d1ebbea0bbfcb36e2acd0e7e75d57f9b87f847d13ad3ef1f",
+        "descriptionSha256": "2278892bd9c8b20df80deb4bd04a3bf00a3fe4cc79099b153861afa0f69110e8",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Economics"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENECON212": {
+      "name": "Microeconomics & Behavior",
+      "text": "Study how consumers and producers make decisions under scarcity. Explore key concepts such as rational choice, decision-making under uncertainty, and non-egoistic preferences. Analyze market structures, strategic interactions, and factor markets. Learn how markets function and examine the impact of regulation. Develop analytical tools to better understand behavior and engage with empirical research.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Microeconomics & Behavior",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "bb7e873ebcf0737250b0602678e531aaf080f101cfda442ebc4abcd4574d4250",
+        "descriptionSha256": "bb7e873ebcf0737250b0602678e531aaf080f101cfda442ebc4abcd4574d4250",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENECON312": {
+      "name": "Econometrics",
+      "text": "Econometrics supplies tools to analyze data to answer questions of causality and prediction. In this course you learn three estimators—Ordinary Least Squares, Generalized Least Squares, and Instrumental Variables—and three tests—t-test, F-test, and LM-test. Understanding the basic rules of econometrics, particularly the sampling distribution concept, is key, and the course uses Monte Carlo simulations in Stata to visualize it. Tools are applied to estimate economic relationships and make predictions, and students write an empirical paper.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Econometrics",
+        "sourceField": "description2",
+        "sourceSha256": "3754e43821eb3db5407d6eded2b8e70021b3eb45d2284acfae505d85d85baea9",
+        "descriptionSha256": "3754e43821eb3db5407d6eded2b8e70021b3eb45d2284acfae505d85d85baea9",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENENTR211": {
+      "name": "Marketing & Consumer Engagement",
+      "text": "Marketing & Consumer Engagement examines consumer psychology, marketing strategy, responsible brand development and customer engagement. Students analyse a company strategy, design a brand and investigate a consumer phenomenon using academic literature and primary and secondary evidence. Digital marketing and customer-journey mapping connect analysis with practical recommendations.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "c509ecddc65919fc8585eb008b76451ee2deccb1e3a53395a49dff17348f3e98",
+        "descriptionSha256": "2efbda10043579cfc91b4b70b5769fee4e1e2d7e1496729792874feba75f5fc5",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Marketing & Consumer Engagement"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENENTR212": {
+      "name": "Strategy & Digital Transformation",
+      "text": "The course explores how companies develop strategies and drive responsible digital transformation amid rapid technology change impacting the economy and society. Students develop a strategic plan, from vision to execution, and identify digital value opportunities. Using industry cases, they gain foresight into digital technologies and their impact on strategy, business models and social responsibilities.",
+      "source": {
+        "courseName": "Strategy & Digital Transformation",
+        "sourceField": "description2",
+        "sourceSha256": "cb24661573e745d91032af0f521ca1f350798226bde892b2a1a21d75259734dc",
+        "descriptionSha256": "cb24661573e745d91032af0f521ca1f350798226bde892b2a1a21d75259734dc"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENENTR311": {
+      "name": "Market Research",
+      "text": "See how companies figure out what customers love and what they don’t. You’ll plan and carry out real research, analyze what you find, and share your results. Our course shows you how to gather opinions and turn them into smart business ideas—perfect for future marketers, analysts, or entrepreneurs.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "description2",
+        "sourceSha256": "722a2bd4f37333f708d1a5953a875c744ac6d2f03b61d985505c2d6379264a58",
+        "descriptionSha256": "a1c4bbf2535a78be2903f93e8c44632e83422aa6ec28c0764c723f60b2e77ae1",
+        "mode": "edited",
+        "reviewedOn": "2026-10-30",
+        "reviewNote": "Compared the retained modal with the revised official description. The revision adds promotional wording without changing the substantive account of planning, conducting and analysing market research; the existing concise text remains faithful.",
+        "courseName": "Market Research"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENENTR312": {
+      "name": "International Business & Governance",
+      "text": "Examines how trade, globalisation and political, cultural and technological conditions shape international business decisions. Students analyse governance, responsibility and trade-policy conflicts, investigate a business question, and develop an evidence-based market-entry strategy. A tariff case applies game theory to stakeholder choices.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "International Business & Governance",
+        "sourceField": "profile",
+        "sourceSha256": "da6918202526ec0098e47111934926f7d1566c664db8c074869ce31664b9bb29",
+        "descriptionSha256": "8c0325118e3aa0ccd19df0635d0de578f5dca99c2e32718f87e05b437deb9887",
+        "mode": "edited",
+        "reviewedOn": "2026-11-05",
+        "reviewNote": "Read actual selected current profile; remove confidence/comprehensive-mastery promises and represent concrete methods, projects and limitations proportionately."
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENGATE101": {
+      "name": "Entrepreneurship & Business Foundations",
+      "text": "Through experiential learning, students turn their own bold ideas into new ventures. No prior business expertise is required as teams work on a startup project from ideation to final pitch while gaining business and entrepreneurial skills in areas such as design thinking, business model and customer validation. The class fosters creativity and collaboration to drive business and social innovation.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Entrepreneurship & Business Foundations",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "be06c9c110a9f2b97e6488ea6896b76949da3932009e02cd6af21a9a379b9160",
+        "descriptionSha256": "be06c9c110a9f2b97e6488ea6896b76949da3932009e02cd6af21a9a379b9160",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENGATE102": {
+      "name": "Research Methods & Statistics",
+      "text": "Research Methods & Statistics introduces research design, operationalisation, measurement, sampling, surveys and experiments. Students study descriptive statistics, estimation, hypothesis testing and introductory regression using R and R Commander. A group project develops a research plan and instruments, collects and analyses data, and reports findings under research-ethics and privacy requirements.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "9d88751452d5c0a6888ac7901a73d1a848617dee2b587d4df64815fc39ad8813",
+        "descriptionSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Research Methods & Statistics"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "BENLEAD311": {
+      "name": "Psychology of Organizations & Leadership",
+      "text": "Psychology of Organizations & Leadership examines the psychological, social and structural dynamics of organisations. Case discussions and research-based frameworks address motivation, leadership, group dynamics, organisational culture, power, conflict and change.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "a6257b450ccaf3dcad4ed2cff83ec2065a49f8afb6c0549530896581e301fa60",
+        "descriptionSha256": "668a9f550a115ab294eb553586c70cf6e941271625ed97b1527613ed53b1aadf",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Psychology of Organizations & Leadership"
+      },
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "1595932255166785ac58524e448c546d4eaaf6fd"
+    },
+    "DISARIN211": {
+      "name": "Decision-making in AI",
+      "text": "Decision-making in AI examines how intelligent agents make decisions under uncertainty. Students study probability, Bayesian networks, temporal models, expected utility, Markov decision processes, partial observability and bandit problems. Multi-agent decisions and probabilistic programming extend the analysis, supported by equations, numerical examples and scientific papers.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Decision-making in AI",
+        "sourceField": "profile",
+        "sourceSha256": "c93b1f92cb7d5624a47e7af933fe9722fcd6b1e5632025ebe7a704fc49ae05c4",
+        "descriptionSha256": "ac8eef243ef31afb7f65eee5f70e1a2216876057006d890b15e5411f9c05e560",
+        "mode": "edited",
+        "reviewedOn": "2026-10-31",
+        "reviewNote": "Read the selected current profile and cumulative outline limitation fields. The displayed summary follows its substantive topics and activities; it omits unsupported resource-planning or mandatory NGO group-project claims from superseded cache wording."
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISARIN212": {
+      "name": "Logic & Discrete Mathematics",
+      "text": "Introduces formal logic, abstract reasoning and proof. Students work with propositions, quantified statements, sets, Boolean algebra, functions and relations, direct and indirect proofs, induction and recursion. A final component models processes and games without chance and investigates winning strategies.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Logic & Discrete Mathematics",
+        "sourceField": "profile",
+        "sourceSha256": "93a52b9fe674b9db0732d6f9451146621be7c59068bdf70219256b67ba3b03c2",
+        "descriptionSha256": "7503057969878a0fa1fccc505095c50f3d6b44d2956afaf35bbad164eb49ed7f",
+        "mode": "edited",
+        "reviewedOn": "2026-11-05",
+        "reviewNote": "Reviewed actual current profile in full; represent formal proof and actual programming/quality-assurance methods, without importing a complete client/deployment engineering sequence."
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISARIN311": {
+      "name": "Optimization Methods in AI",
+      "text": "Optimization Methods in AI studies search and optimisation for rational agents. Topics include uninformed and heuristic search, local and global optimisation, adversarial search, constraint satisfaction, linear programming and discrete optimisation. Laboratory exercises and projects develop algorithm implementation, evaluation and experimental investigation of small intelligent systems.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "d5a3dfea16ac47ee970bf30fdd60ec4588386e2eac608c5c875069a706dafa4e",
+        "descriptionSha256": "7c40cb1b74b271a8df365cbf7b9bba55b498199996db9ed060335dd81c541a43",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Optimization Methods in AI"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISARIN312": {
+      "name": "Reinforcement Learning",
+      "text": "Explores reinforcement learning. Covers theoretical frameworks and algorithms and requires students to implement algorithms and build agents using neural networks that learn through trial and error.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "courseName": "Reinforcement Learning",
+        "sourceSha256": "3a9fc4b39d036bd7f6d39c9976254f2a8453f92d975be94b2c4c744546f2f838",
+        "descriptionSha256": "3a9fc4b39d036bd7f6d39c9976254f2a8453f92d975be94b2c4c744546f2f838",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-01",
+        "reviewNote": "CP257: selected course evidence and cached text read in full. Retained concise supported subject/method scope without an invented computing application or project guarantee."
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISCOMP212": {
+      "name": "Database Management Systems",
+      "text": "Introduces relational database management systems and SQL. Covers relational database theory, authorization, normalization and query processing.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d",
+        "descriptionSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Database Management Systems"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISCOMP213": {
+      "name": "Software Development",
+      "text": "Develops software-construction skills in C++ and Haskell, including classes, inheritance, polymorphism, memory management, functions, recursion and types. Laboratories use version control, code review, debugging, testing, documentation and design patterns. Students build and explain programs in both languages.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Software Development",
+        "sourceField": "profile",
+        "sourceSha256": "1b854e8317ed67bde0743278be7341460cc90885a15adb891811bf54d0c3ef8c",
+        "descriptionSha256": "7967bedb773b55d3e88ad04577d2f36592dba405cc598a8702b35857c49d0a09",
+        "mode": "edited",
+        "reviewedOn": "2026-11-05",
+        "reviewNote": "Reviewed actual current profile in full; represent formal proof and actual programming/quality-assurance methods, without importing a complete client/deployment engineering sequence."
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISCOMP311": {
+      "name": "Algorithms & Data Structures",
+      "text": "Teaches design and analysis of algorithms and data structures, emphasizing performance analysis and focusing on prominent algorithms and data structures.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "e1529227dac6db769531df5ba2f0f9d64fad1017c208c5e2d52a0b38a90a78ec",
+        "descriptionSha256": "c1c2acb267bbdf39a07160bb99a1e66219200cb1139174e9c883c4d23d03eca8",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Algorithms & Data Structures"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISCOMP312": {
+      "name": "Advanced Algorithms",
+      "text": "Studies modern algebraic algorithms and optimization methods. Emphasises algorithmic thinking and mathematical modelling of computational problems.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "courseName": "Advanced Algorithms",
+        "sourceSha256": "0859aef6ed3c8ce9b88ab7dc74dd1d434bab4df3a3b6ff6a8f7bce932e738706",
+        "descriptionSha256": "f85668e861319cc548402736465d8f0e51fd49a18a854ed419770e85ca1eef14",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "reviewNote": "CP257: selected course evidence and cached text read in full. Retained concise supported subject/method scope without an invented computing application or project guarantee."
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISDATA111": {
+      "name": "Introduction to Data Science",
+      "text": "Develops foundational skills in data visualization, cleaning and manipulation. Explores spatial and text data and includes hands‑on work with datasets from various disciplines.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "85912cb78bd13d1aa873ef9cca2a8d7e00345543f75d1f07b56d808f1c6702ef",
+        "descriptionSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Data Science"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISDATA211": {
+      "name": "Machine Learning",
+      "text": "Machine Learning introduces methods for understanding data and making predictions, including linear regression, classification, resampling, shrinkage, tree-based methods, support vector machines and clustering. Real-world examples illustrate the methods, their strengths and limitations.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6a112d70695b992eb7664e19ed9656612b364e2c28a116980a602eef2687ace6",
+        "descriptionSha256": "ae7fce189f80fcd62e521b78f43d3119e98a2ee78d29f61127a0f6b61faaf862",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Machine Learning"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISDATA311": {
+      "name": "Neural Networks & Deep Learning",
+      "text": "Neural Networks & Deep Learning combines theory with practical Python, Keras and TensorFlow implementations. Students build and train networks, study backpropagation, regularisation and model evaluation, and apply deep learning to computer vision, time series and text, including transformers. Projects investigate prediction problems and report experimental results.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "25546292d8643497a8cd9b4bf820608e15e4ae3fdcf04eb764aadcadf460f14f",
+        "descriptionSha256": "ed084f769dcc3b361dcddff3861c96217abcbf5eb57e7859aeb1ad3f949584c7",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Neural Networks & Deep Learning"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISGATE101": {
+      "name": "Introduction to Programming",
+      "text": "Introduces programming and computer science. Covers structured programming, data constructs, testing, debugging and object‑oriented programming with Python, and develops computational problem‑solving skills.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "e2014f5db9a4328ff4efaa51f0273169ae1c9427a4ccf85bea5ee463794a80a8",
+        "descriptionSha256": "efe3b89e39a2611d475d27d09b06151a514076321c7453cd31f9cfbbd84248bf",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Programming"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISGATE102": {
+      "name": "Mathematical Methods",
+      "text": "Mathematical Methods develops foundational techniques in differentiation, integration, complex numbers and differential equations. Students solve problems analytically and with Mathematica. A project implements, analyses and adapts a dynamic model, requiring interpretation of its behaviour and computational results.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6250945baf68c519d3820bddeaa08cb4b3c71273ddbb9bc31a7dffe6d021af5f",
+        "descriptionSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Mathematical Methods"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISMATH211": {
+      "name": "Linear Algebra",
+      "text": "Linear Algebra studies systems of equations, matrices, vectors, linear transformations and vector spaces. Students examine eigenvalues, orthogonality, least-squares approximation, quadratic forms and singular value decomposition. Applications include discrete signals, difference equations, Markov chains, dynamical systems, graphics and principal component analysis, with Mathematica supporting analytical problem-solving.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "26ebd64922aa03e17140aa9b6529a98f2428bdf29ab1fa4360f9bd876de4e680",
+        "descriptionSha256": "bd23120a02190d6bcf24aa6c30ce1e454082afae59ba3d81c21d48cfb4194ba4",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Linear Algebra"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISMATH213": {
+      "name": "Computational & Numerical Methods",
+      "text": "Introduces numerical methods such as root‑finding, interpolation, numerical differentiation and integration and solving differential equations. Emphasises algorithm accuracy, stability and efficiency and uses computer algebra software.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "5b5170199e3306247d6581a75787d8106a4fea74a894b55a09713e0a81efbf25",
+        "descriptionSha256": "d7841607963f18cc24d325c614b84d1629dd83cf6194ee3b68dfcf1a90eb8a8c",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Computational & Numerical Methods"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISMATH214": {
+      "name": "Advanced Calculus",
+      "text": "Extends elementary calculus to multiple dimensions and differential equations, including complex‑valued functions. Uses computer algebra software to deepen analytical skills for science and data analysis applications.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Advanced Calculus",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "d882aae14f79763a614fdb3b6bd4735f6d83bbbc4ee4d1bef2eaf5b022062265",
+        "descriptionSha256": "d882aae14f79763a614fdb3b6bd4735f6d83bbbc4ee4d1bef2eaf5b022062265",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISMATH312": {
+      "name": "Linear Systems",
+      "text": "Linear Systems studies signals and linear time-invariant systems. Students examine impulse and frequency responses, convolution, Fourier series and transforms, and the Laplace and Z transforms, including continuous-time and discrete-time representations.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "00d4504b56b7626ac280f97249ec9bf9ae30cdd910508163982a1ac439e1d9ac",
+        "descriptionSha256": "10c25739200058efd4c2243eba932500f9effe1b118c1d044a336d064da55fba",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Linear Systems"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    "DISMATH314": {
+      "name": "Probability & Statistics",
+      "text": "Provides a foundation in mathematical statistics. Covers probability theory, discrete and continuous distributions, sampling, parameter estimation and simulation; uses computer algebra software to develop theoretical understanding and practical skills.",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "64d3f72845189f77627b8aa180a9906d4fd60fe3c5306bbf0ebe7666e612852b",
+        "descriptionSha256": "9d3ee2b42fa7fe2c0e62777da64474690e9fac0ca76929d04c6670dab516d10f",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Probability & Statistics"
+      },
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    }
+  },
+  "sharedDescriptionReviewRefs": {
+    "ACCPPDE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "BENBUSI112": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000123/content-review.json",
+    "BENBUSI211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json",
+    "BENBUSI312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "BENECON111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "BENECON212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000128/content-review.json",
+    "BENECON312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "BENENTR211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000123/content-review.json",
+    "BENENTR212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "BENENTR311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "BENENTR312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000123/content-review.json",
+    "BENGATE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "BENGATE102": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "BENLEAD311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "DISARIN211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json",
+    "DISARIN212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000128/content-review.json",
+    "DISARIN311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json",
+    "DISARIN312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000128/content-review.json",
+    "DISCOMP212": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "DISCOMP213": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000126/content-review.json",
+    "DISCOMP311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json",
+    "DISCOMP312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000128/content-review.json",
+    "DISDATA111": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "DISDATA211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json",
+    "DISDATA311": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json",
+    "DISGATE101": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "DISGATE102": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "DISMATH211": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json",
+    "DISMATH213": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json",
+    "DISMATH214": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000126/content-review.json",
+    "DISMATH312": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000126/content-review.json",
+    "DISMATH314": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json"
+  },
+  "sourceUrls": [
+    "https://www.uva.nl/en/programmes/bachelors/business-analytics/study-programme/study-programme.html",
+    "https://www.uva.nl/en/programmes/bachelors/business-analytics/business-analytics.html",
+    "https://studiegids.uva.nl/en/programmes/2026/1/5899/40659",
+    "https://studiegids.uva.nl/en/courses/2026/1/60762",
+    "https://studiegids.uva.nl/en/courses/2026/1/60753"
+  ],
+  "ucrLinks": [
+    "https://ucr.nl/education/courses/",
+    "https://program.ucr.nl/"
+  ]
+}
