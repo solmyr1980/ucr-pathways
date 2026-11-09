@@ -8,14 +8,142 @@
     "decision": "9251e917c7f157ec777ff806777f6fd80f141a2b"
   },
   "state": "in-progress",
-  "stages": {},
+  "stages": {
+    "1": {
+      "outcome": "retain",
+      "finding": "Verified the 180 EC degree, structured choice, and formal thesis and course progression.",
+      "preserved": [],
+      "actions": [],
+      "evidence": [
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000184/source-review.json"
+      ],
+      "blockedBy": [],
+      "reassessStages": []
+    },
+    "2": {
+      "outcome": "retain",
+      "finding": "Reviewed all 40 target interests and confirmed ownership of the 14 eligible rows.",
+      "preserved": [],
+      "actions": [],
+      "evidence": [
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000184/interest-review.json"
+      ],
+      "blockedBy": [],
+      "reassessStages": []
+    },
+    "3": {
+      "outcome": "correct",
+      "finding": "Reassessed the management, digital business and finance options, including distinctness.",
+      "preserved": [],
+      "actions": [
+        {
+          "state": "proposed",
+          "scope": "Reassessed the management, digital business and finance options, including distinctness."
+        }
+      ],
+      "evidence": [
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000184/source-review.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000184/interest-review.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000184/course-comparability-review.json"
+      ],
+      "blockedBy": [],
+      "reassessStages": []
+    },
+    "4": {
+      "outcome": "correct",
+      "finding": "Resolved seven offering conflicts, strengthened course contributions and reassessed all alignments.",
+      "preserved": [],
+      "actions": [
+        {
+          "state": "proposed",
+          "scope": "Resolved seven offering conflicts, strengthened course contributions and reassessed all alignments."
+        }
+      ],
+      "evidence": [
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000184/course-comparability-review.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000184/mechanical-verification.json"
+      ],
+      "blockedBy": [],
+      "reassessStages": []
+    },
+    "5": {
+      "outcome": "correct",
+      "finding": "Reviewed titles, concepts, notes, links and selected course descriptions.",
+      "preserved": [],
+      "actions": [
+        {
+          "state": "proposed",
+          "scope": "Reviewed titles, concepts, notes, links and selected course descriptions."
+        }
+      ],
+      "evidence": [
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000184/content-review.json"
+      ],
+      "blockedBy": [],
+      "reassessStages": []
+    },
+    "6": {
+      "outcome": "correct",
+      "finding": "Completed separate source-first, mechanical and content checks pending publication and CI verification.",
+      "preserved": [],
+      "actions": [
+        {
+          "state": "proposed",
+          "scope": "Completed separate source-first, mechanical and content checks pending publication and CI verification."
+        }
+      ],
+      "evidence": [
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000184/source-first-final-pass.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000184/mechanical-verification.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000184/content-review.json"
+      ],
+      "blockedBy": [],
+      "reassessStages": []
+    }
+  },
   "sharedIssueIds": [],
   "unresolved": [],
-  "downstreamReassessments": [],
+  "downstreamReassessments": [
+    {
+      "trigger": "Dated source confirmation, active offering conflicts and overbroad alignments",
+      "scope": "Reassessed course composition, alignment, limitations and final review.",
+      "stages": [
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ],
   "implementationCommits": [],
   "finalReview": null,
   "presentationApproval": false,
-  "evidenceSources": [],
+  "evidenceSources": [
+    {
+      "url": "https://www.rug.nl/bachelors/international-business/?lang=en",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000184/source-review.json"
+    },
+    {
+      "url": "https://ocasys.rug.nl/2026-2027/catalog/programme/50019",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000184/source-review.json"
+    },
+    {
+      "url": "https://www.rug.nl/feb/education/handbooks/teaching-examination-regulations",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000184/source-review.json"
+    },
+    {
+      "url": "https://www.rug.nl/feb/fragment/oer-feb-2026-2027-def-fin.pdf",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000184/source-review.json"
+    },
+    {
+      "url": "https://www.rug.nl/feb/fragment/erratum-03-11-2026-oer-ter-2026-2027.pdf",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000184/source-review.json"
+    },
+    {
+      "url": "https://ocasys.rug.nl/2026-2027/catalog/course/EBB737B10",
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000184/source-review.json"
+    }
+  ],
   "renderedEvidence": [],
   "executionClaim": {
     "executionId": "restart-A-cp184-20261109T133724Z",
@@ -36,9 +164,9 @@
       "data/registry/programmes.csv": "005f2007f902ffc32066f03394c7a2f4a6126bda",
       "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
     },
-    "nextAction": "Verify the dated comparator curriculum and progression, then assess UCR options against the active workbook.",
+    "nextAction": "Verify published CP184 files, byte-exact replay and exact-head CI, then record final disposition.",
     "runtimeModel": "unknown",
     "runtimeReasoningEffort": "unknown"
   },
-  "nextAction": "Verify the dated comparator curriculum and progression, then assess UCR options against the active workbook."
+  "nextAction": "Verify published CP184 files, byte-exact replay and exact-head CI, then record final disposition."
 }
