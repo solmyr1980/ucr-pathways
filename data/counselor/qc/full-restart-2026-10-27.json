@@ -4641,10 +4641,28 @@
     {
       "id": "cp-000179",
       "state": "in-progress",
-      "stageOutcomes": {},
+      "stageOutcomes": {
+        "1": "correct",
+        "2": "correct",
+        "3": "reconstruct",
+        "4": "correct",
+        "5": "correct",
+        "6": "correct"
+      },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [],
+      "downstreamReassessments": [
+        {
+          "trigger": "Reassessed programme-level comparability after full source, interest and workbook checks.",
+          "scope": "Reviewed feasible candidates, related curriculum contributions and the reader-facing exception.",
+          "stages": [
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
       "implementationCommits": [],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000179.json"
@@ -9675,7 +9693,7 @@
           "data/registry/programmes.csv": "005f2007f902ffc32066f03394c7a2f4a6126bda",
           "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
         },
-        "nextAction": "Verify the dated comparator curriculum and progression, then assess UCR options against the active workbook.",
+        "nextAction": "Verify published CP179 files, byte-exact replay and exact-head CI, then record final disposition.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -10878,16 +10896,12 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000178",
-        "executionId": "restart-A-cp178-retry-20261109T074509Z",
-        "state": "deferred",
-        "reviewedInputCommit": "ae883f13a6d515264eda19e318155d18ccc00331",
-        "inputBlobs": {
-          "decision": "07de37769dbb09d20a9bc353dbc2f3cbaf4dd748",
-          "canonical": "b37c05b6899b781659f2df2c286190e6108f46b5"
-        },
-        "nextAction": "CP178 is deferred and incomplete. At the permitted revisit, obtain the September 2026 elective and transition rules for the 65 EC allocation, then reassess route progression and alignment. Reuse the verified 115 EC, interest review and provisional UCR work. Resume cp-000179 next execution.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000178/source-attempt-2.json"
+        "caseId": "cp-000179",
+        "executionId": "restart-A-cp179-20261109T090425Z",
+        "state": "in-progress",
+        "reviewedInputCommit": "94dc4b488171969cd506cdbe5eed29176d3c808b",
+        "nextAction": "Verify published CP179 files, byte-exact replay and exact-head CI, then record final disposition.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000179/mechanical-verification.json"
       },
       "checkpointHistory": [
         {
@@ -19229,6 +19243,14 @@
           },
           "nextAction": "CP178 is deferred and incomplete. At the permitted revisit, obtain the September 2026 elective and transition rules for the 65 EC allocation, then reassess route progression and alignment. Reuse the verified 115 EC, interest review and provisional UCR work. Resume cp-000179 next execution.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000178/source-attempt-2.json"
+        },
+        {
+          "caseId": "cp-000179",
+          "executionId": "restart-A-cp179-20261109T090425Z",
+          "state": "in-progress",
+          "reviewedInputCommit": "94dc4b488171969cd506cdbe5eed29176d3c808b",
+          "nextAction": "Verify published CP179 files, byte-exact replay and exact-head CI, then record final disposition.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000179/mechanical-verification.json"
         }
       ],
       "sourceRetrievalFailureHistory": [
