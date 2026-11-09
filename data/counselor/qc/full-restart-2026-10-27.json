@@ -9109,7 +9109,8 @@
       ],
       "implementationCommits": [],
       "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000396.json"
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000396.json",
+      "academicDisposition": "external-programme-unresolved"
     },
     {
       "id": "cp-000397",
@@ -24253,37 +24254,15 @@
         "cp-000459"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000396",
-      "activeClaim": {
-        "executionId": "restart-B-cp396-20261109T220517Z",
-        "worker": "B",
-        "caseId": "cp-000396",
-        "claimedAt": "2026-11-09T22:05:17.815271+00:00",
-        "reviewedInputCommit": "6ab4a9d99c01628897cbb16fcafb2f7e6ce3e7df",
-        "inputBlobs": {
-          "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000396.json": "133aeb06a471d1c7377a6bb79a359fb0c74c3db5",
-          "data/counselor/comparisons/cp-000396.json": "48adc33c246d291410c5cc2ee35ff4ab6d6223d1",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "data/registry/programmes.csv": "005f2007f902ffc32066f03394c7a2f4a6126bda",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Resume CP396 with official source attempt two. Check the bachelor-specific UvA course registration guidance, formal errata or a dated official course variant for 3313GEBRVY. Resolve whether regular Tax Law bachelor enrolment satisfies or replaces the listed minor condition. Retain the 31 verified component identities and credit values, 69 interest rows and feasible provisional UCR trials. Then reassess the provisional tax-law comparability judgment and finish stages 1 and 3–6.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000397",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -25285,7 +25264,8 @@
         "cp-000324",
         "cp-000334",
         "cp-000364",
-        "cp-000384"
+        "cp-000384",
+        "cp-000396"
       ],
       "sourceRetrievalFailuresByCase": {
         "cp-000245": 2,
@@ -25327,16 +25307,20 @@
         "cp-000364": 2,
         "cp-000384": 2,
         "cp-000385": 1,
-        "cp-000396": 1
+        "cp-000396": 2
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
         "caseId": "cp-000396",
-        "executionId": "restart-B-cp396-20261109T205837Z",
-        "state": "in-progress",
-        "reviewedInputCommit": "4d8b40ccf0d23072b74f27430a216214f89d0bd8",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000396/source-attempt-1.json",
-        "nextAction": "Resume CP396 with official source attempt two. Check the bachelor-specific UvA course registration guidance, formal errata or a dated official course variant for 3313GEBRVY. Resolve whether regular Tax Law bachelor enrolment satisfies or replaces the listed minor condition. Retain the 31 verified component identities and credit values, 69 interest rows and feasible provisional UCR trials. Then reassess the provisional tax-law comparability judgment and finish stages 1 and 3–6."
+        "executionId": "restart-B-cp396-20261109T220517Z",
+        "state": "deferred",
+        "reviewedInputCommit": "60e235b7ad7504709121f319d49d0245b1093454",
+        "inputBlobs": {
+          "canonical": "586ac40bee2a431c322ca5a1f399620ecb24f760",
+          "decision": "b6e283844627cdb6b9f90ad45084d9e6e3ff0a17"
+        },
+        "nextAction": "CP396 is deferred and incomplete. At the permitted revisit, verify an updated 2026–2027 course entry, a faculty erratum, or an explicit bachelor registration rule for 3313GEBRVY. Retain the verified curriculum, 69 interest reviews and three feasible UCR trials. Resume cp-000397 next execution.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000396/source-attempt-2.json"
       },
       "checkpointHistory": [
         {
@@ -32811,6 +32795,18 @@
           "reviewedInputCommit": "4d8b40ccf0d23072b74f27430a216214f89d0bd8",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000396/source-attempt-1.json",
           "nextAction": "Resume CP396 with official source attempt two. Check the bachelor-specific UvA course registration guidance, formal errata or a dated official course variant for 3313GEBRVY. Resolve whether regular Tax Law bachelor enrolment satisfies or replaces the listed minor condition. Retain the 31 verified component identities and credit values, 69 interest rows and feasible provisional UCR trials. Then reassess the provisional tax-law comparability judgment and finish stages 1 and 3–6."
+        },
+        {
+          "caseId": "cp-000396",
+          "executionId": "restart-B-cp396-20261109T220517Z",
+          "state": "deferred",
+          "reviewedInputCommit": "60e235b7ad7504709121f319d49d0245b1093454",
+          "inputBlobs": {
+            "canonical": "586ac40bee2a431c322ca5a1f399620ecb24f760",
+            "decision": "b6e283844627cdb6b9f90ad45084d9e6e3ff0a17"
+          },
+          "nextAction": "CP396 is deferred and incomplete. At the permitted revisit, verify an updated 2026–2027 course entry, a faculty erratum, or an explicit bachelor registration rule for 3313GEBRVY. Retain the verified curriculum, 69 interest reviews and three feasible UCR trials. Resume cp-000397 next execution.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000396/source-attempt-2.json"
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -33420,6 +33416,15 @@
           "officialAlternative": "Located the adopted 2026–2027 faculty regulations via the Tax Law bachelor selection and the separate dated programme catalogue. OER B-4.2 and the bachelor catalogue both require the 3 EC course in year three. OER B-5.2 delegates additional course entry requirements to the catalogue. The linked course entry for 3313GEBRVY lists enrolment in the business taxation minor and gives no rule for regular Tax Law bachelor students. The official minor page confirms it shares these courses with the degree but describes minor admission separately. The faculty change overview and supplementary regulations did not identify a bachelor-specific rule or correction.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000396/source-attempt-1.json",
           "nextAction": "Resume CP396 with official source attempt two. Check the bachelor-specific UvA course registration guidance, formal errata or a dated official course variant for 3313GEBRVY. Resolve whether regular Tax Law bachelor enrolment satisfies or replaces the listed minor condition. Retain the 31 verified component identities and credit values, 69 interest rows and feasible provisional UCR trials. Then reassess the provisional tax-law comparability judgment and finish stages 1 and 3–6."
+        },
+        {
+          "caseId": "cp-000396",
+          "executionId": "restart-B-cp396-20261109T220517Z",
+          "checkedOn": "2026-11-09",
+          "essentialEvidence": "Confirm how regular 2026-entry Tax Law bachelor students satisfy the published minor-enrolment condition for compulsory Foundations of European Tax Law (3313GEBRVY).",
+          "officialAlternative": "The dated UvA catalogue has one result for 3313GEBRVY in each of 2025–2026 and 2026–2027. The 2025–2026 entry has no published entry condition. The 2026–2027 entry adds the minor requirement, with no separate enrolment instructions, remarks, changes or bachelor offering. UvA’s 2026–2027 registration guidance guarantees timely applicants a place in compulsory courses but separately requires students to meet the catalogue entry conditions. Its GLASS guidance describes placement priority and does not explain this course’s eligibility. B-5.1(3) gives degree students priority for required courses if capacity is limited, while B-5.2 retains course-specific entry requirements. The degree overview and OER confirm this is a required 3 EC course. Neither priority nor the earlier catalogue verifies the current bachelor exception.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000396/source-attempt-2.json",
+          "nextAction": "CP396 is deferred and incomplete. At the permitted revisit, verify an updated 2026–2027 course entry, a faculty erratum, or an explicit bachelor registration rule for 3313GEBRVY. Retain the verified curriculum, 69 interest reviews and three feasible UCR trials. Resume cp-000397 next execution."
         }
       ],
       "deferralHistory": [
@@ -33792,6 +33797,16 @@
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000384/source-attempt-2.json",
           "revisitStatus": "pending; not consumed",
           "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
+        },
+        {
+          "caseId": "cp-000396",
+          "deferredOn": "2026-11-09",
+          "executionId": "restart-B-cp396-20261109T220517Z",
+          "unsuccessfulExecutions": 2,
+          "reason": "Confirm how regular 2026-entry Tax Law bachelor students satisfy the published minor-enrolment condition for compulsory Foundations of European Tax Law (3313GEBRVY).",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000396/source-attempt-2.json",
+          "revisitStatus": "pending; not consumed",
+          "nextEligibleRevisit": "After own non-deferred queue or new essential evidence"
         }
       ],
       "reopeningDependencies": [
@@ -34136,6 +34151,15 @@
           "officialAlternative": "Located the adopted 2026–2027 faculty regulations via the Tax Law bachelor selection and the separate dated programme catalogue. OER B-4.2 and the bachelor catalogue both require the 3 EC course in year three. OER B-5.2 delegates additional course entry requirements to the catalogue. The linked course entry for 3313GEBRVY lists enrolment in the business taxation minor and gives no rule for regular Tax Law bachelor students. The official minor page confirms it shares these courses with the degree but describes minor admission separately. The faculty change overview and supplementary regulations did not identify a bachelor-specific rule or correction.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000396/source-attempt-1.json",
           "nextAction": "Resume CP396 with official source attempt two. Check the bachelor-specific UvA course registration guidance, formal errata or a dated official course variant for 3313GEBRVY. Resolve whether regular Tax Law bachelor enrolment satisfies or replaces the listed minor condition. Retain the 31 verified component identities and credit values, 69 interest rows and feasible provisional UCR trials. Then reassess the provisional tax-law comparability judgment and finish stages 1 and 3–6."
+        },
+        {
+          "caseId": "cp-000396",
+          "executionId": "restart-B-cp396-20261109T220517Z",
+          "checkedOn": "2026-11-09",
+          "essentialEvidence": "Confirm how regular 2026-entry Tax Law bachelor students satisfy the published minor-enrolment condition for compulsory Foundations of European Tax Law (3313GEBRVY).",
+          "officialAlternative": "The dated UvA catalogue has one result for 3313GEBRVY in each of 2025–2026 and 2026–2027. The 2025–2026 entry has no published entry condition. The 2026–2027 entry adds the minor requirement, with no separate enrolment instructions, remarks, changes or bachelor offering. UvA’s 2026–2027 registration guidance guarantees timely applicants a place in compulsory courses but separately requires students to meet the catalogue entry conditions. Its GLASS guidance describes placement priority and does not explain this course’s eligibility. B-5.1(3) gives degree students priority for required courses if capacity is limited, while B-5.2 retains course-specific entry requirements. The degree overview and OER confirm this is a required 3 EC course. Neither priority nor the earlier catalogue verifies the current bachelor exception.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000396/source-attempt-2.json",
+          "nextAction": "CP396 is deferred and incomplete. At the permitted revisit, verify an updated 2026–2027 course entry, a faculty erratum, or an explicit bachelor registration rule for 3313GEBRVY. Retain the verified curriculum, 69 interest reviews and three feasible UCR trials. Resume cp-000397 next execution."
         }
       ],
       "publicationRecovery": {
@@ -37376,6 +37400,32 @@
           "endedAt": "2026-11-09T21:17:41.938784+00:00",
           "result": "source-retry pending",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000396/source-attempt-1.json"
+        },
+        {
+          "executionId": "restart-B-cp396-20261109T220517Z",
+          "worker": "B",
+          "caseId": "cp-000396",
+          "claimedAt": "2026-11-09T22:05:17.815271+00:00",
+          "reviewedInputCommit": "6ab4a9d99c01628897cbb16fcafb2f7e6ce3e7df",
+          "inputBlobs": {
+            "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000396.json": "133aeb06a471d1c7377a6bb79a359fb0c74c3db5",
+            "data/counselor/comparisons/cp-000396.json": "48adc33c246d291410c5cc2ee35ff4ab6d6223d1",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "data/registry/programmes.csv": "005f2007f902ffc32066f03394c7a2f4a6126bda",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Resume CP396 with official source attempt two. Check the bachelor-specific UvA course registration guidance, formal errata or a dated official course variant for 3313GEBRVY. Resolve whether regular Tax Law bachelor enrolment satisfies or replaces the listed minor condition. Retain the 31 verified component identities and credit values, 69 interest rows and feasible provisional UCR trials. Then reassess the provisional tax-law comparability judgment and finish stages 1 and 3–6.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-09T22:08:30.639032+00:00",
+          "result": "deferred; incomplete; second source execution",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000396/source-attempt-2.json"
         }
       ],
       "publicationRecoveryHistory": [
