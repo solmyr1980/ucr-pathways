@@ -4609,7 +4609,9 @@
           ]
         }
       ],
-      "implementationCommits": [],
+      "implementationCommits": [
+        "d8c361e98223fb2b37e9f0766f28b5bcd8e0f4c9"
+      ],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000176.json"
     },
@@ -9585,7 +9587,7 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
@@ -9593,29 +9595,7 @@
         "minute": 30
       },
       "nextCase": "cp-000176",
-      "activeClaim": {
-        "executionId": "restart-A-cp176-20261109T043415Z",
-        "worker": "A",
-        "caseId": "cp-000176",
-        "claimedAt": "2026-11-09T04:34:15.613221+00:00",
-        "reviewedInputCommit": "570298344855d57ea2b333ec116434c48f6fbe88",
-        "inputBlobs": {
-          "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000176.json": "900e98c722b56050e4d423987839a62ee8f6c5f3",
-          "data/counselor/comparisons/cp-000176.json": "4501f57eab9b7c213d1d6571c15910a745403805",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "data/registry/programmes.csv": "005f2007f902ffc32066f03394c7a2f4a6126bda",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify the published partial record and exact-head CI, then release this claim for CP176 source attempt two.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -10808,8 +10788,8 @@
         "caseId": "cp-000176",
         "executionId": "restart-A-cp176-20261109T043415Z",
         "state": "in-progress",
-        "nextAction": "Verify the published partial record and exact-head CI, then release this claim for CP176 source attempt two.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000176/partial-record-verification.json"
+        "nextAction": "Resume CP176 with source attempt two. Check Groningen’s updated cohort-specific regulations, programme scheme or formal curriculum appendix for the final 20 EC and its relationship to the minor and thesis. Preserve the verified 160 EC and repaired UCR schedules, then reassess the full comparison if resolved.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000176/published-verification.json"
       },
       "checkpointHistory": [
         {
@@ -19093,6 +19073,13 @@
           "state": "in-progress",
           "nextAction": "Verify the published partial record and exact-head CI, then release this claim for CP176 source attempt two.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000176/partial-record-verification.json"
+        },
+        {
+          "caseId": "cp-000176",
+          "executionId": "restart-A-cp176-20261109T043415Z",
+          "state": "in-progress",
+          "nextAction": "Resume CP176 with source attempt two. Check Groningen’s updated cohort-specific regulations, programme scheme or formal curriculum appendix for the final 20 EC and its relationship to the minor and thesis. Preserve the verified 160 EC and repaired UCR schedules, then reassess the full comparison if resolved.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000176/published-verification.json"
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -22423,6 +22410,32 @@
           "endedAt": "2026-11-09T03:32:59.816685+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000175/published-verification.json"
+        },
+        {
+          "executionId": "restart-A-cp176-20261109T043415Z",
+          "worker": "A",
+          "caseId": "cp-000176",
+          "claimedAt": "2026-11-09T04:34:15.613221+00:00",
+          "reviewedInputCommit": "570298344855d57ea2b333ec116434c48f6fbe88",
+          "inputBlobs": {
+            "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000176.json": "900e98c722b56050e4d423987839a62ee8f6c5f3",
+            "data/counselor/comparisons/cp-000176.json": "4501f57eab9b7c213d1d6571c15910a745403805",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "data/registry/programmes.csv": "005f2007f902ffc32066f03394c7a2f4a6126bda",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify the published partial record and exact-head CI, then release this claim for CP176 source attempt two.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-09T04:42:06.381556+00:00",
+          "result": "incomplete; first source execution",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000176/published-verification.json"
         }
       ],
       "sourceRetryLog": [
