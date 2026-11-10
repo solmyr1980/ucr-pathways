@@ -5212,7 +5212,9 @@
           ]
         }
       ],
-      "implementationCommits": [],
+      "implementationCommits": [
+        "29f2a0058914a6109ff804eb6de52841a5753f1e"
+      ],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000211.json",
       "academicDisposition": "external-programme-unresolved"
@@ -10223,7 +10225,7 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
@@ -10231,29 +10233,7 @@
         "minute": 30
       },
       "nextCase": "cp-000211",
-      "activeClaim": {
-        "executionId": "restart-A-cp211-20261110T092832Z",
-        "worker": "A",
-        "caseId": "cp-000211",
-        "claimedAt": "2026-11-10T09:28:32.739165+00:00",
-        "reviewedInputCommit": "3afda44e24cda5fbb39bf4dfe877e83bd3c8433f",
-        "inputBlobs": {
-          "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000211.json": "29c9645d0f0733ce6ef161eed362946018f3325d",
-          "data/counselor/comparisons/cp-000211.json": "974e8f280f10e7f1361fd7cf901204978bae448c",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "data/registry/programmes.csv": "005f2007f902ffc32066f03394c7a2f4a6126bda",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify published CP211 partial record, active and provisional byte-exact replay and exact-head CI, then release the claim for official source attempt two.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -11657,16 +11637,21 @@
         "cp-000135": 2,
         "cp-000149": 2,
         "cp-000176": 1,
-        "cp-000178": 2
+        "cp-000178": 2,
+        "cp-000211": 1
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
         "caseId": "cp-000211",
         "executionId": "restart-A-cp211-20261110T092832Z",
         "state": "in-progress",
-        "reviewedInputCommit": "6d0d70cfbc0615419fff1b3f25dbf9d3b0b6b8db",
-        "nextAction": "Verify published CP211 partial record, active and provisional byte-exact replay and exact-head CI, then release the claim for official source attempt two.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/mechanical-verification.json"
+        "reviewedInputCommit": "29f2a0058914a6109ff804eb6de52841a5753f1e",
+        "inputBlobs": {
+          "decision": "f9b770a7fc8ff869afe906bc2ffd664b1dcca1d3",
+          "canonical": "506e6e0c33ce03bc33490685d70e5eff6f1d7115"
+        },
+        "nextAction": "Resume CP211 with official source attempt two. Seek Groningen’s cohort-specific entry rules, errata or formal equivalence for Statistics, Clinical Linguistics and the Psycholinguistics Project and the two selected graduation seminars. If necessary, test a neutral alternative three-seminar selection only if its entry rules and the required project are independently verified. Reuse the supported 180-EC credit structure, reviewed interests and repaired provisional UCR schedule.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/published-verification.json"
       },
       "checkpointHistory": [
         {
@@ -20666,6 +20651,18 @@
           "reviewedInputCommit": "6d0d70cfbc0615419fff1b3f25dbf9d3b0b6b8db",
           "nextAction": "Verify published CP211 partial record, active and provisional byte-exact replay and exact-head CI, then release the claim for official source attempt two.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/mechanical-verification.json"
+        },
+        {
+          "caseId": "cp-000211",
+          "executionId": "restart-A-cp211-20261110T092832Z",
+          "state": "in-progress",
+          "reviewedInputCommit": "29f2a0058914a6109ff804eb6de52841a5753f1e",
+          "inputBlobs": {
+            "decision": "f9b770a7fc8ff869afe906bc2ffd664b1dcca1d3",
+            "canonical": "506e6e0c33ce03bc33490685d70e5eff6f1d7115"
+          },
+          "nextAction": "Resume CP211 with official source attempt two. Seek Groningen’s cohort-specific entry rules, errata or formal equivalence for Statistics, Clinical Linguistics and the Psycholinguistics Project and the two selected graduation seminars. If necessary, test a neutral alternative three-seminar selection only if its entry rules and the required project are independently verified. Reuse the supported 180-EC credit structure, reviewed interests and repaired provisional UCR schedule.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/published-verification.json"
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -24804,6 +24801,32 @@
           "endedAt": "2026-11-10T08:34:32.743437+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000210/published-verification.json"
+        },
+        {
+          "executionId": "restart-A-cp211-20261110T092832Z",
+          "worker": "A",
+          "caseId": "cp-000211",
+          "claimedAt": "2026-11-10T09:28:32.739165+00:00",
+          "reviewedInputCommit": "3afda44e24cda5fbb39bf4dfe877e83bd3c8433f",
+          "inputBlobs": {
+            "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000211.json": "29c9645d0f0733ce6ef161eed362946018f3325d",
+            "data/counselor/comparisons/cp-000211.json": "974e8f280f10e7f1361fd7cf901204978bae448c",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "data/registry/programmes.csv": "005f2007f902ffc32066f03394c7a2f4a6126bda",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify published CP211 partial record, active and provisional byte-exact replay and exact-head CI, then release the claim for official source attempt two.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-10T09:36:33.699822+00:00",
+          "result": "first essential-source attempt incomplete",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/published-verification.json"
         }
       ],
       "sourceRetryLog": [
@@ -24962,6 +24985,15 @@
           "officialAlternative": "Reopened the 2026–2027 Ocasys scheme and compared programme years, course codes, credits, periods, group types and remarks with the previous retrieval. All material fields match. The Dutch current programme page confirms Planet and Politics but does not establish applicability to September 2026 entrants. Checked the NVAO 2022 review, especially report pages 6 and 12, as an official alternative. It confirms the older two-track architecture, cross-major or programme-wide track choices, and the final 30 EC minor, 20 EC of electives and 10 EC capstone. Its earlier cohort evidence does not supply the applicable choice rules or establish the transition date. Groningen’s central 2026–2027 OER index supplies a model with no programme-specific allocation. The controlling Campus Fryslân appendix was not located.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000178/source-attempt-2.json",
           "nextAction": "CP178 is deferred and incomplete. At the permitted revisit, obtain the September 2026 elective and transition rules for the 65 EC allocation, then reassess route progression and alignment. Reuse the verified 115 EC, interest review and provisional UCR work. Resume cp-000179 next execution."
+        },
+        {
+          "caseId": "cp-000211",
+          "executionId": "restart-A-cp211-20261110T092832Z",
+          "checkedOn": "2026-11-10",
+          "essentialEvidence": "Find a cohort-applicable entry rule or explicit equivalence for the 2026-entry Linguistics Psycholinguistics Project and the Neurolinguistics and Psycholinguistics and Developmental Language Disorders graduation seminars. In particular, reconcile the catalogue’s older Statistics II, clinical subcourse and Psycholinguistics requirements with the redesigned cohort’s Statistics, Clinical Linguistics and Psycholinguistics Project.",
+          "officialAlternative": "Cross-checked the dated assessment plan and public programme page with the adopted OER and nine official Ocasys course entries. Clinical Linguistics explicitly accepts the new Language and Speech Disorders prerequisite from 2027–2028. The assessment plan confirms three portfolio products but does not map entry prerequisites. Ocasys LTX039B10 requires Statistics II, Psycholinguistics and Clinical Linguistics Adults, while LTX050B10 requires Clinical Linguistics Children and Statistics II. OER Article 7.1 uses Clinical Linguistics and Psycholinguistics for Neurolinguistics and Psycholinguistics for the developmental seminar. No cited source makes the older statistics, clinical subcourses and project equivalents applicable to September 2026 entrants. Forward-dated catalogue requests returned 403 and supplied no rule. The published Ocasys transition arrangement maps old clinical teaching to parts of the new combined course for older cohorts, which does not establish formal entry for the new cohort.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/source-attempt-1.json",
+          "nextAction": "Resume CP211 with official source attempt two. Seek Groningen’s cohort-specific entry rules, errata or formal equivalence for Statistics, Clinical Linguistics and the Psycholinguistics Project and the two selected graduation seminars. If necessary, test a neutral alternative three-seminar selection only if its entry rules and the required project are independently verified. Reuse the supported 180-EC credit structure, reviewed interests and repaired provisional UCR schedule."
         }
       ]
     },
