@@ -4,7 +4,9 @@
   "recordStatus": "comparison",
   "sources": [
     "https://www.rug.nl/bachelors/astronomy/?lang=en",
-    "https://www.rug.nl/fse/education/ter/ter-2627-bsc/4-ter-bsc-astronomy-26-27.pdf"
+    "https://www.rug.nl/fse/education/ter/ter-2627-bsc/4-ter-bsc-astronomy-26-27.pdf",
+    "https://ocasys.rug.nl/2026-2027/catalog/course/WBAS901-15",
+    "https://ocasys.rug.nl/2026-2027/catalog/course/WBAS015-05"
   ],
   "comparator": {
     "name": "Astronomy",
@@ -13,9 +15,11 @@
     "academicYear": "2026-2027",
     "route": null,
     "additionalSources": [
-      "s0"
+      "s0",
+      "s2",
+      "s3"
     ],
-    "sourceNotes": "The official 2026-2027 Teaching and Examination Regulations define a mandatory 150-EC Astronomy major and a 30-EC free minor. The pathway below accounts for the complete 180 EC and preserves the genuine 30-EC minor space rather than silently selecting either of the two optional deepening minors or inventing an unrelated minor. The Astronomy and Astronomy Instrumentation and Informatics deepening minors are available choices, not formally distinct routes through the bachelor; no formal route is therefore assigned.",
+    "sourceNotes": "The 2026–2027 regulations define a 150 EC Astronomy major and a 30 EC free minor. Astronomy and Astronomy Instrumentation and Informatics are optional deepening minors within that space. The regulations set the research-project entry requirements.",
     "components": [
       [
         "ast-y1-calculus-1",
@@ -69,7 +73,7 @@
         "ast-y1-observational",
         "Observational Astronomy",
         5,
-        null
+        "Take Introduction to Programming and Computational Methods first. The course includes an observing project with Groningen’s Gratama Telescope."
       ],
       [
         "ast-y1-lab-skills",
@@ -93,7 +97,7 @@
         "ast-y2-numerical-methods",
         "Numerical Methods",
         5,
-        null
+        "Builds on Calculus 1 and Linear Algebra."
       ],
       [
         "ast-y2-galaxies",
@@ -165,13 +169,13 @@
         "ast-y3-minor",
         "Minor",
         30,
-        "Genuine 30-EC free minor space preserved from the official curriculum."
+        "Choose a 30 EC minor. Groningen offers optional deepening minors in Astronomy and in Astronomy Instrumentation and Informatics."
       ],
       [
         "ast-y3-research",
         "Astronomy Bachelor Research Project",
         15,
-        null
+        "Normally requires 150 EC. Third-year Astronomy students who earn 135 EC within their first three years of registration may also start."
       ]
     ]
   },
@@ -180,39 +184,33 @@
     "core": [
       [
         "quantitative",
-        "Calculus, linear algebra, probability, numerical methods and dynamical-system modelling for scientific questions",
+        "Calculus, linear algebra, probability and numerical modelling for scientific problems",
         [
-          "s0",
           "s1",
-          8685,
           8686,
-          8687,
           8689,
           8693,
-          8694,
-          8695,
-          8699,
-          8700
+          8694
         ]
       ],
       [
         "computational",
-        "Programming, algorithms, databases, scientific data, image analysis and machine learning",
+        "Programming, algorithms and analysis of scientific data and images",
         [
           "s0",
           "s1",
-          8686,
           8687,
-          8688,
           8692,
           8703
         ]
       ],
       [
         "instrumentation",
-        "Observation, satellite imagery, signals, robotics, autonomous systems and computational instrumentation",
+        "Wave behaviour, remote sensing, signal processing and computational control as related methods for observation and instrumentation",
         [
           "s0",
+          "s1",
+          "s3",
           8683,
           8684,
           8688,
@@ -223,18 +221,24 @@
       ],
       [
         "research",
-        "Research design, statistical inference and ethical reflection for computational scientific work",
+        "Empirical research design, statistical inference and analysis of measured data",
         [
-          "s0",
           "s1",
           8687,
-          8699,
-          8705,
           8706
         ]
       ]
     ],
-    "adjacent": [],
+    "adjacent": [
+      [
+        "earth-science",
+        "Geology, geophysical measurements and interpretation of Earth observation data",
+        [
+          "s1",
+          8698
+        ]
+      ]
+    ],
     "questions": []
   },
   "courses": [
@@ -245,27 +249,33 @@
       7.5
     ],
     [
-      "DISGATE101",
-      "Introduction to Programming",
+      "BENGATE102",
+      "Research Methods & Statistics",
       1,
       7.5
     ],
     [
-      "DISDATA111",
-      "Introduction to Data Science",
-      1,
+      "DISARIN211",
+      "Decision-making in AI",
+      2,
       7.5
     ],
     [
-      "ENSGATE101",
-      "Sustainability Essentials I",
-      1,
+      "DISARIN212",
+      "Logic & Discrete Mathematics",
+      2,
       7.5
     ],
     [
-      "DISGATE102",
-      "Mathematical Methods",
-      1,
+      "DISARIN311",
+      "Optimization Methods in AI",
+      3,
+      7.5
+    ],
+    [
+      "DISCOMP211",
+      "Networks & Operating Systems",
+      2,
       7.5
     ],
     [
@@ -275,20 +285,20 @@
       7.5
     ],
     [
-      "BENGATE102",
-      "Research Methods & Statistics",
+      "DISCOMP311",
+      "Algorithms & Data Structures",
+      3,
+      7.5
+    ],
+    [
+      "DISDATA111",
+      "Introduction to Data Science",
       1,
       7.5
     ],
     [
-      "DISARIN111",
-      "AI Ethics",
-      1,
-      7.5
-    ],
-    [
-      "DISARIN212",
-      "Logic & Discrete Mathematics",
+      "DISDATA211",
+      "Machine Learning",
       2,
       7.5
     ],
@@ -299,9 +309,27 @@
       7.5
     ],
     [
-      "DISCOMP211",
-      "Networks & Operating Systems",
-      2,
+      "DISDATA311",
+      "Neural Networks & Deep Learning",
+      3,
+      7.5
+    ],
+    [
+      "DISDATA312",
+      "Robotics",
+      3,
+      7.5
+    ],
+    [
+      "DISGATE101",
+      "Introduction to Programming",
+      1,
+      7.5
+    ],
+    [
+      "DISGATE102",
+      "Mathematical Methods",
+      1,
       7.5
     ],
     [
@@ -317,9 +345,9 @@
       7.5
     ],
     [
-      "DISDATA312",
-      "Robotics",
-      3,
+      "DISMATH214",
+      "Advanced Calculus",
+      2,
       7.5
     ],
     [
@@ -329,56 +357,32 @@
       7.5
     ],
     [
-      "ENSENVI211",
-      "Earth Observation",
-      2,
-      7.5
-    ],
-    [
       "DISMATH314",
       "Probability & Statistics",
       3,
       7.5
     ],
     [
-      "DISCOMP311",
-      "Algorithms & Data Structures",
-      3,
+      "ENSENVI111",
+      "Dynamic Earth",
+      1,
       7.5
     ],
     [
-      "DISDATA211",
-      "Machine Learning",
+      "ENSENVI211",
+      "Earth Observation",
       2,
       7.5
     ],
     [
-      "DISARIN211",
-      "Decision-making in AI",
-      2,
+      "ENSGATE101",
+      "Sustainability Essentials I",
+      1,
       7.5
     ],
     [
-      "DISDATA311",
-      "Neural Networks & Deep Learning",
-      3,
-      7.5
-    ],
-    [
-      "DISARIN311",
-      "Optimization Methods in AI",
-      3,
-      7.5
-    ],
-    [
-      "DISARIN312",
-      "Reinforcement Learning",
-      3,
-      7.5
-    ],
-    [
-      "DISMATH214",
-      "Advanced Calculus",
+      "ENSGATE201",
+      "Sustainability Essentials II",
       2,
       7.5
     ]
@@ -389,15 +393,7 @@
       [
         "research"
       ],
-      "develops research design, sampling, measurement and inferential statistics for empirical projects; it is general methods training rather than astronomy research"
-    ],
-    [
-      "DISARIN111",
-      [
-        "research",
-        "instrumentation"
-      ],
-      "examines interpretability, bias, alignment and responsibility in AI, supporting ethical scrutiny of computational and instrument-driven research without replacing astronomy ethics"
+      "Designs empirical studies, checks measurement quality and uses statistical inference in a team project."
     ],
     [
       "DISARIN211",
@@ -405,7 +401,7 @@
         "computational",
         "instrumentation"
       ],
-      "develops planning under uncertainty and partial observability for autonomous computational agents, a concrete method relevant to autonomous systems rather than telescope engineering"
+      "Models decisions under uncertainty and partial observability, extending the programme from observed data to decisions by autonomous agents."
     ],
     [
       "DISARIN212",
@@ -413,60 +409,53 @@
         "quantitative",
         "computational"
       ],
-      "develops logic and discrete structures used in algorithm construction"
+      "Uses logic, sets, relations, induction and recursion to formulate and analyse mathematical and computational problems."
     ],
     [
       "DISARIN311",
       [
-        "computational",
-        "instrumentation"
+        "quantitative",
+        "computational"
       ],
-      "teaches computational search and constrained optimisation for complex systems"
-    ],
-    [
-      "DISARIN312",
-      [
-        "computational",
-        "instrumentation"
-      ],
-      "implements reinforcement-learning agents that learn through trial and error; this supports autonomous-system methods, not physical instrument design"
+      "Implements and evaluates search and numerical optimisation, including local optimisation and constrained problems."
     ],
     [
       "DISCOMP211",
       [
-        "computational",
-        "instrumentation"
+        "computational"
       ],
-      "covers networks, protocols, operating systems and resource management underlying connected scientific-computing and data-acquisition systems"
+      "Investigates data communication and computing infrastructure through network measurements and operating-system performance experiments."
     ],
     [
       "DISCOMP212",
       [
         "computational"
       ],
-      "develops relational database design and query processing for organising large scientific datasets"
+      "Models relational data, constructs SQL queries and normalises databases to organise and retrieve datasets."
     ],
     [
       "DISCOMP311",
       [
-        "computational"
+        "computational",
+        "research"
       ],
-      "develops efficient algorithm and data-structure design for computational analysis"
+      "Designs and tests algorithms, compares running times and reports experimental performance."
     ],
     [
       "DISDATA111",
       [
-        "computational"
+        "computational",
+        "research"
       ],
-      "develops data cleaning, visualisation and manipulation, including spatial data, for scientific datasets"
+      "Imports, cleans, joins and visualises data in R, including spatial data."
     ],
     [
       "DISDATA211",
       [
         "computational",
-        "quantitative"
+        "research"
       ],
-      "implements regression, classification and model evaluation, including documented applications to physics data"
+      "Fits and validates statistical learning models and evaluates prediction on held-out data."
     ],
     [
       "DISDATA212",
@@ -474,43 +463,44 @@
         "computational",
         "instrumentation"
       ],
-      "studies acquisition, processing, feature detection and tracking in digital image data; it does not teach astronomical observing"
+      "Uses spatial and spectral representations, filtering and feature detection to build and test image-processing pipelines."
     ],
     [
       "DISDATA311",
       [
-        "computational"
+        "computational",
+        "research"
       ],
-      "develops neural-network and deep-learning methods for advanced image and data analysis"
+      "Trains and evaluates neural networks, including applications to images and time series."
     ],
     [
       "DISDATA312",
       [
-        "instrumentation",
-        "quantitative"
+        "quantitative",
+        "instrumentation"
       ],
-      "studies kinematics, motion planning, collision avoidance and manipulation as computational robotics rather than hardware construction"
+      "Models robot motion, programmes a robot arm and introduces sensing and control through kinematics and motion planning."
     ],
     [
       "DISGATE101",
       [
         "computational"
       ],
-      "supplies Python programming, testing and debugging for implementing scientific models and data workflows"
+      "Writes, tests and debugs Python programmes for structured computational problems."
     ],
     [
       "DISGATE102",
       [
         "quantitative"
       ],
-      "introduces calculus, matrices, eigenvalues, complex numbers and differential equations used in physical-system models"
+      "Uses single-variable calculus, complex numbers and differential equations in a dynamic modelling project."
     ],
     [
       "DISMATH211",
       [
         "quantitative"
       ],
-      "develops vector spaces, matrices and linear transformations used in coupled models and data transformations"
+      "Uses matrices, vector spaces, linear transformations and eigenvalues, with applications to signals and dynamical systems."
     ],
     [
       "DISMATH213",
@@ -518,14 +508,14 @@
         "quantitative",
         "computational"
       ],
-      "implements numerical methods for equations, interpolation, integration and differential equations"
+      "Implements numerical integration, interpolation, root finding and differential-equation solvers and compares error and stability."
     ],
     [
       "DISMATH214",
       [
         "quantitative"
       ],
-      "extends calculus to multiple dimensions, complex functions and differential equations for scientific modelling"
+      "Extends calculus to multiple variables and differential equations, including complex-valued functions."
     ],
     [
       "DISMATH312",
@@ -533,7 +523,7 @@
         "quantitative",
         "instrumentation"
       ],
-      "analyses signals and linear systems through differential equations, transfer functions, state-space and signal-flow representations"
+      "Models continuous and discrete signals and systems using differential equations, Fourier analysis, sampling and filtering."
     ],
     [
       "DISMATH314",
@@ -541,35 +531,53 @@
         "quantitative",
         "research"
       ],
-      "develops probability, distributions, estimation and simulation for uncertain observations and model parameters"
+      "Uses probability, estimation, hypothesis tests, Bayesian reasoning and simulations to evaluate uncertainty."
     ],
     [
-      "ENSGATE101",
+      "ENSENVI111",
       [
-        "instrumentation",
-        "quantitative"
+        "earth-science",
+        "research"
       ],
-      "provides documented physics, chemistry, materials, mathematics and modelling foundations for technological and environmental systems"
+      "Uses geological observation, field measurements and seismology to interpret Earth processes that provide context for remote sensing."
     ],
     [
       "ENSENVI211",
       [
         "instrumentation",
-        "computational"
+        "computational",
+        "earth-science"
       ],
-      "uses satellite and drone imagery, GIS and data integration in a concrete observation-and-analysis workflow focused on Earth systems"
+      "Processes georeferenced observations and spectral data to study Earth systems through remote sensing and GIS."
+    ],
+    [
+      "ENSGATE101",
+      [
+        "earth-science",
+        "quantitative"
+      ],
+      "Uses uncertainty, dynamic models and practical measurements to study Earth systems and environmental processes."
+    ],
+    [
+      "ENSGATE201",
+      [
+        "instrumentation",
+        "earth-science"
+      ],
+      "Investigates electromagnetic and mechanical waves, interference, Fourier analysis and optical spectroscopy in an environmental and materials context."
     ]
   ],
   "alternatives": [
     {
       "kind": "closest-match",
-      "label": "Mathematical modelling, scientific data & autonomous systems",
-      "concept": "Develop mathematics, numerical modelling, programming, algorithms, databases, statistics, image analysis, machine learning, signals, satellite observation and computational autonomy. This is a related response to the target’s modelling, astronomical-data and instrumentation directions, not an Astronomy or Astrophysics substitute.",
+      "label": "Scientific computing, mathematical modelling & observation data",
+      "concept": "Learn to model systems, analyse data and process images and signals. Apply these skills to Earth observation and explore how robots sense and move.",
       "basis": [
         "quantitative",
         "computational",
         "instrumentation",
-        "research"
+        "research",
+        "earth-science"
       ],
       "evidence": [
         "s0",
@@ -581,7 +589,7 @@
         8688
       ],
       "labelReviewed": true,
-      "labelReason": "The curriculum is dominated by mathematics, computing, data analysis, imaging, signals and autonomous systems, with one satellite-observation application. The label deliberately does not claim astronomy, astrophysics, cosmology or planetary science content.",
+      "labelReason": "Calculus, numerical modelling, statistics, programming, imaging and signal processing anchor the programme. Geology, remote sensing and robotics provide applied settings.",
       "semesters": [
         [
           "ACCPPDE101",
@@ -591,15 +599,15 @@
         ],
         [
           "DISGATE102",
-          "DISCOMP212",
+          "DISDATA212",
           "BENGATE102",
-          "DISARIN111"
+          "ENSGATE201"
         ],
         [
           "DISARIN212",
-          "DISDATA212",
-          "DISCOMP211",
-          "DISMATH211"
+          "DISMATH211",
+          "DISDATA211",
+          "ENSENVI111"
         ],
         [
           "DISMATH213",
@@ -610,19 +618,19 @@
         [
           "DISMATH314",
           "DISCOMP311",
-          "DISDATA211",
+          "DISCOMP211",
           "DISARIN211"
         ],
         [
           "DISDATA311",
           "DISARIN311",
-          "DISARIN312",
+          "DISCOMP212",
           "DISMATH214"
         ]
       ],
       "progression": [
         "passed",
-        "The schedule contains 24 unique courses, four per fixed semester, Personal & Professional Development in Year 1 and six level-300 courses. Every formal prerequisite occurs earlier and every course is available in its assigned term. Programming precedes algorithms, AI planning and optimisation; Mathematical Methods precedes later mathematics, neural networks and robotics; Sustainability Essentials I precedes Earth Observation."
+        "Programming and scientific data foundations come first. Mathematical Methods precedes advanced mathematics and robotics. Sustainability Essentials I precedes waves and materials work in Sustainability Essentials II and precedes Earth Observation. Image processing and machine learning precede deep learning."
       ]
     }
   ],
@@ -685,7 +693,7 @@
   ],
   "selection": {
     "stoppingReason": "not-feasible",
-    "assessment": "One complete related-fields programme passes the evidence, relevance and mechanical gates. It responds to the target’s mathematical modelling, computational analysis, observation-data and instrumentation/informatics directions through actual mathematics, programming, databases, algorithms, statistics, imaging, signals, robotics, satellite observation and autonomous-system content. It is explicitly not presented as Astronomy. A disciplinary astrophysics route cannot supply mechanics, electromagnetism, waves and optics, quantum or thermal physics, stellar and galactic physics, cosmology, radiative processes, hydrodynamics or planetary science. A radio-astronomy and experimental-observation route cannot supply telescopes, radio instrumentation, physical measurement laboratories or astronomy field methods. No padded second programme is produced."
+    "assessment": "One related programme combines numerical modelling, scientific data and observation methods with Earth sensing and robotic applications. A separate astrophysics direction lacks sustained physics and astronomy. A separate radio astronomy direction lacks telescopes, radio measurement and astronomical observing practice. General computing or Earth science can deepen the related programme but would leave those disciplinary gaps in a second option."
   },
   "researchComponentId": "ast-y3-research",
   "blocks": [
@@ -701,32 +709,32 @@
         [
           "DISGATE102",
           "ast-y1-calculus-1",
-          "Both establish calculus and mathematical techniques for later scientific work; UCR is a general mathematics foundation rather than physics-specific training."
+          "Both use single-variable differentiation and integration, Taylor expansions and elementary differential equations. Groningen emphasises physical applications."
         ],
         [
           "DISMATH211",
           "ast-y1-linear-algebra",
-          "Both directly study vectors, matrices, systems of equations and linear transformations."
+          "Both develop matrices, systems of equations, vector spaces, linear maps and eigenvalues."
         ],
         [
           "DISMATH213",
           "ast-y2-numerical-methods",
-          "Both develop numerical methods for scientific equations and models; UCR is not astronomy-specific."
+          "Both implement interpolation, numerical integration, root finding and numerical solutions to differential equations. Groningen uses Python for methods common in astronomical research."
         ],
         [
           "DISMATH214",
           "ast-y1-calculus-2",
-          "Both extend calculus for scientific analysis; the external course is embedded in the physics progression."
+          "Both extend calculus to several variables. Groningen specifically develops vector fields and integral theorems used in physics."
         ],
         [
           "DISMATH312",
           "ast-y1-differential-equations",
-          "Both use differential equations to analyse systems; UCR additionally emphasises signals, state-space and control representations."
+          "Both use differential equations and Fourier analysis to study systems. Groningen also introduces partial differential equations in physics. UCR concentrates on signals, filters and feedback."
         ],
         [
           "DISMATH314",
           "ast-y2-statistics",
-          "Both develop probability and statistical inference for uncertain data; UCR is general rather than astronomy-specific."
+          "Both develop probability, Bayesian inference and hypothesis testing. Groningen applies statistics and error analysis to astronomical data."
         ]
       ]
     ],
@@ -737,7 +745,7 @@
         [
           "DISGATE101",
           "ast-y1-programming",
-          "Both establish programming and computational problem-solving; the external component applies these methods within Astronomy."
+          "Both introduce programming for computational problems. Groningen uses the course as preparation for Observational Astronomy."
         ],
         [
           "DISCOMP211",
@@ -778,7 +786,7 @@
     ],
     [
       "instrumentation",
-      "Observation, signals and autonomous systems",
+      "Waves, observation and autonomous systems",
       [
         [
           "DISARIN211",
@@ -787,11 +795,6 @@
         ],
         [
           "DISARIN311",
-          null,
-          null
-        ],
-        [
-          "DISARIN312",
           null,
           null
         ],
@@ -808,21 +811,26 @@
         [
           "ENSENVI211",
           "ast-y1-observational",
-          "Both use instrument-derived observations and image data; UCR focuses satellite and drone observation of Earth and does not teach telescopes or astronomical observing."
+          "Both work with acquired observations, spectral information and data processing. UCR focuses on Earth remote sensing and mapping. Groningen uses telescopes, photometry and spectroscopy in an astronomical observing project."
+        ],
+        [
+          "ENSGATE201",
+          "ast-y2-waves-optics",
+          "Both investigate wave behaviour and interference through practical work. Groningen gives dedicated treatment to electromagnetic waves, optics and the mathematical description of these phenomena."
+        ],
+        [
+          "ENSENVI111",
+          null,
+          null
         ]
       ]
     ],
     [
       "research",
-      "Research methods, ethics and academic formation",
+      "Research methods and academic skills",
       [
         [
           "BENGATE102",
-          null,
-          null
-        ],
-        [
-          "DISARIN111",
           null,
           null
         ],
@@ -840,92 +848,87 @@
         [
           null,
           "ast-y1-electricity-magnetism",
-          "UCR has no course reproducing the specialist Astronomy or physics content of Electricity and Magnetism."
+          null
         ],
         [
           null,
           "ast-y1-introduction",
-          "UCR has no course reproducing the specialist Astronomy or physics content of Introduction to Astronomy."
+          null
         ],
         [
           null,
           "ast-y1-mechanics-relativity",
-          "UCR has no course reproducing the specialist Astronomy or physics content of Mechanics and Relativity."
+          null
         ],
         [
           null,
           "ast-y1-lab-skills",
-          "UCR has no course reproducing the specialist Astronomy or physics content of Physics Lab: Skills."
+          null
         ],
         [
           null,
           "ast-y2-complex-analysis",
-          "UCR has no course reproducing the specialist Astronomy or physics content of Complex Analysis (for Physics)."
+          null
         ],
         [
           null,
           "ast-y2-planetary-science",
-          "UCR has no course reproducing the specialist Astronomy or physics content of Introduction to Planetary Science."
+          null
         ],
         [
           null,
           "ast-y2-galaxies",
-          "UCR has no course reproducing the specialist Astronomy or physics content of Physics of Galaxies."
+          null
         ],
         [
           null,
           "ast-y2-stars",
-          "UCR has no course reproducing the specialist Astronomy or physics content of Physics of Stars."
+          null
         ],
         [
           null,
           "ast-y2-quantum-1",
-          "UCR has no course reproducing the specialist Astronomy or physics content of Quantum Physics 1."
+          null
         ],
         [
           null,
           "ast-y2-quantum-2",
-          "UCR has no course reproducing the specialist Astronomy or physics content of Quantum Physics 2."
+          null
         ],
         [
           null,
           "ast-y2-radiative-processes",
-          "UCR has no course reproducing the specialist Astronomy or physics content of Radiative Processes in Astrophysics."
+          null
         ],
         [
           null,
           "ast-y2-thermal-physics",
-          "UCR has no course reproducing the specialist Astronomy or physics content of Thermal Physics."
-        ],
-        [
-          null,
-          "ast-y2-waves-optics",
-          "UCR has no course reproducing the specialist Astronomy or physics content of Waves and Optics."
+          null
         ],
         [
           null,
           "ast-y3-electrodynamics",
-          "UCR has no course reproducing the specialist Astronomy or physics content of Advanced Electrodynamics."
+          null
         ],
         [
           null,
           "ast-y3-hydrodynamics",
-          "UCR has no course reproducing the specialist Astronomy or physics content of Astrophysical Hydrodynamics."
+          null
         ],
         [
           null,
           "ast-y3-interstellar-medium",
-          "UCR has no course reproducing the specialist Astronomy or physics content of Interstellar Medium."
+          null
         ],
         [
           null,
           "ast-y3-minor",
-          "The genuine 30-EC free minor remains open and is not assigned invented UCR course identities."
+          "Groningen sets aside 30 EC for a minor. The specific courses depend on the student’s choice."
         ],
         [
           null,
           "ast-y3-research",
-          "The compulsory discipline-specific Astronomy research project is not a scheduled UCR course; optional UCR independent research is comparison-only."
+          "Groningen requires a supervised Astronomy research project. UCR’s optional independent research is outside the scheduled 180 EC."
         ]
       ]
     ]
@@ -933,7 +936,78 @@
   "notes": [
     {
       "type": "related-fields-not-full-discipline",
-      "text": "The UCR programme combines mathematics, scientific computing, databases, image and data analysis, signals, satellite observation, robotics and autonomous-system methods. It does not reproduce the target’s mechanics, electromagnetism, waves and optics, quantum and thermal physics, astronomy, astrophysics, cosmology, planetary science, observational or experimental-physics laboratories, or discipline-specific research project."
+      "text": "The UCR option shares some mathematics, computing, wave physics and methods for analysing observations. Groningen also requires mechanics, electromagnetism, quantum and thermal physics, telescope observing, specialist astronomy courses and a supervised Astronomy research project."
     }
-  ]
+  ],
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "Astronomy at the University of Groningen uses physics, mathematics and observation to study planets, stars, galaxies and the matter between them. Students plan observations, analyse astronomical data and complete an individual research project.",
+    "comparisonExplanation": "UCR offers related training in modelling, signals and image analysis. Its observation work focuses on Earth, while Groningen trains students to use telescopes and investigate astronomical systems.",
+    "curriculum": {
+      "status": "complete",
+      "yearLabel": "2026–2027",
+      "componentIds": [
+        "ast-y1-calculus-1",
+        "ast-y1-calculus-2",
+        "ast-y1-differential-equations",
+        "ast-y1-electricity-magnetism",
+        "ast-y1-introduction",
+        "ast-y1-programming",
+        "ast-y1-linear-algebra",
+        "ast-y1-mechanics-relativity",
+        "ast-y1-observational",
+        "ast-y1-lab-skills",
+        "ast-y2-complex-analysis",
+        "ast-y2-planetary-science",
+        "ast-y2-numerical-methods",
+        "ast-y2-galaxies",
+        "ast-y2-stars",
+        "ast-y2-quantum-1",
+        "ast-y2-quantum-2",
+        "ast-y2-radiative-processes",
+        "ast-y2-statistics",
+        "ast-y2-thermal-physics",
+        "ast-y2-waves-optics",
+        "ast-y3-electrodynamics",
+        "ast-y3-hydrodynamics",
+        "ast-y3-interstellar-medium",
+        "ast-y3-minor",
+        "ast-y3-research"
+      ]
+    },
+    "conceptProgrammeIds": [
+      "ucr-1"
+    ],
+    "noteTypes": [
+      "related-fields-not-full-discipline"
+    ],
+    "componentNotes": {
+      "ast-y1-observational": "Take Introduction to Programming and Computational Methods first. The course includes an observing project with Groningen’s Gratama Telescope.",
+      "ast-y2-numerical-methods": "Builds on Calculus 1 and Linear Algebra.",
+      "ast-y3-research": "Normally requires 150 EC. Third-year Astronomy students who earn 135 EC within their first three years of registration may also start.",
+      "ast-y3-minor": "Choose a 30 EC minor. Groningen offers optional deepening minors in Astronomy and in Astronomy Instrumentation and Informatics."
+    },
+    "cellNotes": [
+      {
+        "programmeId": "comparator",
+        "reference": "ast-y1-observational",
+        "text": "Take Introduction to Programming and Computational Methods first. The course includes an observing project with Groningen’s Gratama Telescope."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "ast-y2-numerical-methods",
+        "text": "Builds on Calculus 1 and Linear Algebra."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "ast-y3-research",
+        "text": "Normally requires 150 EC. Third-year Astronomy students who earn 135 EC within their first three years of registration may also start."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "ast-y3-minor",
+        "text": "Choose a 30 EC minor. Groningen offers optional deepening minors in Astronomy and in Astronomy Instrumentation and Informatics."
+      }
+    ]
+  }
 }
