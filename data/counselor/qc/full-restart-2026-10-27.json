@@ -5466,7 +5466,7 @@
     },
     {
       "id": "cp-000223",
-      "state": "in-progress",
+      "state": "approved",
       "stageOutcomes": {
         "1": "correct",
         "2": "retain",
@@ -5477,22 +5477,13 @@
       },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [
-        {
-          "trigger": "Corrected source basis, reconstructed UCR selections and narrowed alignments",
-          "scope": "Reassessed exact interests, concepts, selected courses, curricular and audience wording, schedules and the source-first basis against current inputs.",
-          "stages": [
-            2,
-            3,
-            4,
-            5,
-            6
-          ]
-        }
+      "downstreamReassessments": [],
+      "implementationCommits": [
+        "7dee67c4b644aff8060bade593d4b6055dc7cb0d"
       ],
-      "implementationCommits": [],
-      "presentationApproval": false,
-      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000223.json"
+      "presentationApproval": true,
+      "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000223.json",
+      "academicDisposition": "comparison"
     },
     {
       "id": "cp-000224",
@@ -10304,8 +10295,8 @@
     }
   ],
   "progress": {
-    "approved": 319,
-    "inProgress": 69,
+    "approved": 320,
+    "inProgress": 68,
     "reviewedWithBlockers": 0,
     "notStarted": 50,
     "pilotStarted": 6
@@ -10537,37 +10528,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000223",
-      "activeClaim": {
-        "executionId": "restart-A-cp223-20261110T232620Z",
-        "worker": "A",
-        "caseId": "cp-000223",
-        "claimedAt": "2026-11-10T23:26:20.846246+00:00",
-        "reviewedInputCommit": "7ea566edd7b6dac8b4a2b8f90382048efc226fb2",
-        "inputBlobs": {
-          "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000223.json": "2dce5d5a92ad7088773dde8ef0ab3a515f8ab866",
-          "data/counselor/comparisons/cp-000223.json": "ae84d1227b73b195250f9f3ccbd51ee3e4ac59a2",
-          "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
-          "data/registry/programmes.csv": "04a0fa4b12e27e8cb5f41be6fc36d52cc0e73455",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Verify published CP223 files, byte-exact replay and exact-head CI, then record final disposition.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000224",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -10746,7 +10715,8 @@
         "cp-000219",
         "cp-000220",
         "cp-000221",
-        "cp-000222"
+        "cp-000222",
+        "cp-000223"
       ],
       "completedDispositions": [
         {
@@ -11994,6 +11964,13 @@
           "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000222.json",
           "academicDisposition": "comparison",
           "verifiedOn": "2026-11-10"
+        },
+        {
+          "caseId": "cp-000223",
+          "state": "approved",
+          "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000223.json",
+          "academicDisposition": "comparison",
+          "verifiedOn": "2026-11-10"
         }
       ],
       "deferredCases": [
@@ -12061,10 +12038,19 @@
       "lastCheckpoint": {
         "caseId": "cp-000223",
         "executionId": "restart-A-cp223-20261110T232620Z",
-        "state": "in-progress",
-        "reviewedInputCommit": "78bc0123664ebae5dc8e70c58273471f6595c1aa",
-        "nextAction": "Verify published CP223 files, byte-exact replay and exact-head CI, then record final disposition.",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000223/mechanical-verification.json"
+        "state": "approved",
+        "academicDisposition": "comparison",
+        "reviewedInputCommit": "7dee67c4b644aff8060bade593d4b6055dc7cb0d",
+        "inputBlobs": {
+          "canonical": "89e4198ebdddfe139152284d4c7c5855a750111e",
+          "decision": "6a70507f5f58e1907f4c20de30e41ea13d7daf04"
+        },
+        "verifiedAt": "2026-11-10T23:34:52.687498+00:00",
+        "verificationPolicy": "record-content-review-2026-10-31",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000223/published-verification.json",
+        "nextAction": "CP223 approved as a verified comparison. Resume cp-000224 next execution.",
+        "runtimeModel": "unknown",
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -21378,6 +21364,23 @@
           "reviewedInputCommit": "78bc0123664ebae5dc8e70c58273471f6595c1aa",
           "nextAction": "Verify published CP223 files, byte-exact replay and exact-head CI, then record final disposition.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000223/mechanical-verification.json"
+        },
+        {
+          "caseId": "cp-000223",
+          "executionId": "restart-A-cp223-20261110T232620Z",
+          "state": "approved",
+          "academicDisposition": "comparison",
+          "reviewedInputCommit": "7dee67c4b644aff8060bade593d4b6055dc7cb0d",
+          "inputBlobs": {
+            "canonical": "89e4198ebdddfe139152284d4c7c5855a750111e",
+            "decision": "6a70507f5f58e1907f4c20de30e41ea13d7daf04"
+          },
+          "verifiedAt": "2026-11-10T23:34:52.687498+00:00",
+          "verificationPolicy": "record-content-review-2026-10-31",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000223/published-verification.json",
+          "nextAction": "CP223 approved as a verified comparison. Resume cp-000224 next execution.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown"
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -25966,6 +25969,32 @@
           "endedAt": "2026-11-10T22:40:53.721186+00:00",
           "result": "approved comparison",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000222/published-verification.json"
+        },
+        {
+          "executionId": "restart-A-cp223-20261110T232620Z",
+          "worker": "A",
+          "caseId": "cp-000223",
+          "claimedAt": "2026-11-10T23:26:20.846246+00:00",
+          "reviewedInputCommit": "7ea566edd7b6dac8b4a2b8f90382048efc226fb2",
+          "inputBlobs": {
+            "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000223.json": "2dce5d5a92ad7088773dde8ef0ab3a515f8ab866",
+            "data/counselor/comparisons/cp-000223.json": "ae84d1227b73b195250f9f3ccbd51ee3e4ac59a2",
+            "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+            "data/registry/programmes.csv": "04a0fa4b12e27e8cb5f41be6fc36d52cc0e73455",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "Verify published CP223 files, byte-exact replay and exact-head CI, then record final disposition.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-10T23:34:52.687498+00:00",
+          "result": "approved comparison",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000223/published-verification.json"
         }
       ],
       "sourceRetryLog": [
@@ -42334,6 +42363,17 @@
       },
       "combinedVerifiedCount": 310,
       "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000414/assessment-31.json"
+    },
+    {
+      "assessmentNumber": 32,
+      "verifiedOn": "2026-11-10",
+      "milestone": 320,
+      "workerVerifiedCounts": {
+        "A": 179,
+        "B": 141
+      },
+      "combinedVerifiedCount": 320,
+      "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000223/assessment-32.json"
     }
   ],
   "systemicPause": null,
