@@ -1,0 +1,469 @@
+{
+  "caseId": "cp-000051",
+  "reviewedOn": "2026-11-11T20:31:28.540452+00:00",
+  "reviewedInputCommit": "a43a359df07e5cc8060e5cc645eb85dde6550708",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000051.json": "5ba78abcd13cadc1fed7b2edb4c2632dafb491c3",
+    "data/counselor/comparisons/cp-000051.json": "ebdca7027e9b2b4e4404743073867a2877740c2d",
+    "data/registry/programme_interests.csv": "f9e4078fe8e5f27296a3159b9052b7cf0a167577",
+    "data/counselor/review-programmes.json": "7ed57bcd5a6996c26ea45930ef506631bea541dd",
+    "data/counselor/review-interests.json": "136bf94b4a9d9385db844ef9ded54835792d2d84",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "scripts/validate-comprehensive-reaudit.py": "7b9a881c8303cd208acee7a0463b1afc5c6b1a6c",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b"
+  },
+  "checks": [
+    {
+      "name": "feasibility",
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "data/counselor/comparisons/cp-000051.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "name": "schema",
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "data/counselor/comparisons/cp-000051.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "name": "operational",
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor"
+      ],
+      "exitCode": 0,
+      "output": "dology rules OK\ncp-000423.json: final counselor methodology rules OK\ncp-000424.json: final counselor methodology rules OK\ncp-000425.json: final counselor methodology rules OK\ncp-000426.json: final counselor methodology rules OK\ncp-000427.json: final counselor methodology rules OK\ncp-000433.json: final counselor methodology rules OK\ncp-000434.json: final counselor methodology rules OK\ncp-000438.json: final counselor methodology rules OK\ncp-000439.json: final counselor methodology rules OK\ncp-000441.json: final counselor methodology rules OK\ncp-000442.json: final counselor methodology rules OK\ncp-000443.json: final counselor methodology rules OK\ncp-000444.json: final counselor methodology rules OK\ncp-000445.json: final counselor methodology rules OK\ncp-000446.json: final counselor methodology rules OK\ncp-000447.json: final counselor methodology rules OK\ncp-000448.json: final counselor methodology rules OK\ncp-000449.json: final counselor methodology rules OK\ncp-000450.json: final counselor methodology rules OK\ncp-000451.json: final counselor methodology rules OK\ncp-000452.json: final counselor methodology rules OK\ncp-000453.json: final counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\n"
+    },
+    {
+      "name": "descriptions",
+      "command": [
+        "python",
+        "scripts/validate-course-descriptions.py"
+      ],
+      "exitCode": 0,
+      "output": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.\n"
+    },
+    {
+      "name": "index",
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor-review"
+      ],
+      "exitCode": 0,
+      "output": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\n"
+    },
+    {
+      "name": "interests",
+      "command": [
+        "npm",
+        "run",
+        "validate:registry-interests"
+      ],
+      "exitCode": 0,
+      "output": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> validate:registry-interests\n> node scripts/validate-registry-interests.mjs\n\nValid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.\n"
+    },
+    {
+      "name": "replay",
+      "command": [
+        "node",
+        "scripts/build-counselor-production.mjs",
+        "data/counselor/decisions/cp-000051.json",
+        "--output",
+        "/tmp/a051/replay.json"
+      ],
+      "exitCode": 0,
+      "output": "Built cp-000051 counselor exception record at /tmp/a051/replay.json\n"
+    }
+  ],
+  "byteExactReplay": true,
+  "canonicalSha256": "d7cf60b0a6e85f2ee79103495020058be4277449df075a7f3ac96efc12ebf30a",
+  "reuse": {
+    "unchangedInputs": [
+      {
+        "path": "data/reference/README.md",
+        "previousBlob": "9284392052033e99503f441a75f7acbaaf66fba1",
+        "currentBlob": "9284392052033e99503f441a75f7acbaaf66fba1"
+      },
+      {
+        "path": "data/reference/ucr_courses_enriched.xlsx",
+        "previousBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "currentBlob": "22783315e6d5510522d16a72281859dd62a05294"
+      },
+      {
+        "path": "data/counselor/decisions/cp-000051.json",
+        "previousBlob": "5ba78abcd13cadc1fed7b2edb4c2632dafb491c3",
+        "currentBlob": "5ba78abcd13cadc1fed7b2edb4c2632dafb491c3"
+      },
+      {
+        "path": "data/counselor/comparisons/cp-000051.json",
+        "previousBlob": "ebdca7027e9b2b4e4404743073867a2877740c2d",
+        "currentBlob": "ebdca7027e9b2b4e4404743073867a2877740c2d"
+      },
+      {
+        "path": "pilot/shared.R",
+        "previousBlob": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+        "currentBlob": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9"
+      },
+      {
+        "path": "pilot/counselor-shiny/app.R",
+        "previousBlob": "821be611428fc28490c679783be464455ad00aa1",
+        "currentBlob": "821be611428fc28490c679783be464455ad00aa1"
+      },
+      {
+        "path": "pilot/shiny/data/courses/ACC.json",
+        "previousBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+        "currentBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8"
+      }
+    ],
+    "changedInputs": [
+      {
+        "path": "AGENTS.md",
+        "previousBlob": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+        "currentBlob": "76518e7fda03edcf43123dd5ae602aea6059d643"
+      },
+      {
+        "path": "docs/UCR_Pathways_Production_Instructions.md",
+        "previousBlob": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+        "currentBlob": "4e6520ec7850ad7a44947314821975a3f2e2bf7c"
+      },
+      {
+        "path": "docs/UCR_Pathways_Master_Specification.md",
+        "previousBlob": "36bb398d7e28f6674970178004a5b52191e3b786",
+        "currentBlob": "389fab2e00428e4abda971792f4bd7b3066e858d"
+      },
+      {
+        "path": "docs/qc/counselor-comprehensive-reaudit-protocol.md",
+        "previousBlob": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+        "currentBlob": "615e34730b27754ae01b20524bb412e6b31f576b"
+      },
+      {
+        "path": "data/registry/programme_interests.csv",
+        "previousBlob": "e8e259c3492ed840d8427cf41f583e9634c08853",
+        "currentBlob": "f9e4078fe8e5f27296a3159b9052b7cf0a167577"
+      },
+      {
+        "path": "data/registry/programmes.csv",
+        "previousBlob": "28c293650641df37269e0013aa0347c561cb0e08",
+        "currentBlob": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245"
+      },
+      {
+        "path": "data/counselor/review-programmes.json",
+        "previousBlob": "b9a1d300dde79e76e555d6b7a6df6444463cdd86",
+        "currentBlob": "7ed57bcd5a6996c26ea45930ef506631bea541dd"
+      },
+      {
+        "path": "data/counselor/review-interests.json",
+        "previousBlob": "d7341f5bf03dcc667f24e53c3bcd9607e831d9d4",
+        "currentBlob": "136bf94b4a9d9385db844ef9ded54835792d2d84"
+      },
+      {
+        "path": "data/counselor/presentation-overrides.json",
+        "previousBlob": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+        "currentBlob": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2"
+      },
+      {
+        "path": "pilot/shiny/data/courses/DIS.json",
+        "previousBlob": "5774e2104a8310aa2925fc2aada2adac0c53bb95",
+        "currentBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+      },
+      {
+        "path": "pilot/shiny/data/courses/ENS.json",
+        "previousBlob": "da5d9225d6682419998c3cf20837727a5fa39cbf",
+        "currentBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+      },
+      {
+        "path": "pilot/shiny/data/courses/GOS.json",
+        "previousBlob": "49da38b390637fa113a95b835a4d9bbda854ef83",
+        "currentBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+      },
+      {
+        "path": "pilot/shiny/data/courses/HCB.json",
+        "previousBlob": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad",
+        "currentBlob": "8af6675a1408cec96ea570100ee89cff97563288"
+      },
+      {
+        "path": "pilot/shiny/data/courses/MCC.json",
+        "previousBlob": "40abb17fa504a1be3569ce40017b0ac88db24cfa",
+        "currentBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+      },
+      {
+        "path": "pilot/shiny/data/courses/BEN.json",
+        "previousBlob": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
+        "currentBlob": "71fb5c570a7c42c35473d8a0483dcc17ec16a665"
+      }
+    ],
+    "scopedChecks": {
+      "data/counselor/review-programmes.json": {
+        "unchanged": true,
+        "entries": 1
+      },
+      "data/counselor/review-interests.json": {
+        "unchanged": true,
+        "entries": 46
+      },
+      "data/registry/programme_interests.csv": {
+        "unchanged": true,
+        "entries": 46
+      },
+      "data/counselor/presentation-overrides.json": {
+        "unchanged": true,
+        "value": {
+          "mode": "external-only"
+        }
+      }
+    },
+    "finding": "Current workbook and active pair are unchanged. All 46 target interests and scoped review-index/override entries are unchanged. Global file changes belong to other cases. Shared description validation passes; no description is selected for display in this partial external-only record. Preserve the actual 24 UCR lead contribution reviews, including description-only evidence, without inferring a no-match. Current governing documents supersede older operational instructions; no historical approval is inherited."
+  },
+  "retainedEvidence": [
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000051/interest-review.json",
+      "sha256": "147ecdaac6ea4401ff915c9fd276ea109db1097672d554e727f9109918c4d5a5"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000051/course-content-review.json",
+      "sha256": "8ae68dba4c9189ae12a6dc2fc7cef65e07d3ef9678a12da7d97eb08365cbce3f"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000051/record-content-review.json",
+      "sha256": "1d2a3b9b90c38ca436895c6189a1cde949035c1497087dc660ff89bde039c703"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000051/source-first-checkpoint.json",
+      "sha256": "d55699f203346eae2aaecc598020fdb60b5a5b21fae7dd9f02cda575828b2c87"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000051/retry2/source-first-final-pass.json",
+      "sha256": "59bbe2bee9b374f2ae01e6009790c2eff55225ecd436d2b277c96c93bf7d9033"
+    }
+  ],
+  "content": {
+    "policy": "record-content-review-2026-10-31",
+    "presentationMode": "partial external-only exception",
+    "fieldToRenderer": [
+      "pilot/shared.R displaymetadata andofficialsourcehref",
+      "pilot/counselor-shiny/app.R explicit audiencecontent,curriculumfilters andcomponentnotes; unselectedsourceNotesremaininternal"
+    ],
+    "reviewedFieldPaths": [
+      "comparator.name/institution",
+      "comparator.components[].name/credits/note",
+      "comparator.primarySourceUrl/additionalSourceUrls",
+      "audience.programmeDescription/comparisonExplanation",
+      "audience.conceptProgrammeIds/noteTypes",
+      "audience.curriculum",
+      "audience.componentNotes"
+    ],
+    "fieldsRead": {
+      "schemaVersion": "1.0",
+      "programmeDescription": "Study how the human brain supports cognition and behaviour, combining biological and psychological knowledge with mathematics, programming, data analysis and neurotechnology. Research projects develop experimental and academic skills.",
+      "comparisonExplanation": "UCR has relevant study in cognition, biology, mathematics and data methods. The published Radboud requirements do not yet establish a complete curriculum for a reliable degree comparison, so only the supported external allocation is shown and UCR alternatives are withheld.",
+      "conceptProgrammeIds": [],
+      "noteTypes": [],
+      "curriculum": {
+        "status": "partial",
+        "componentIds": [
+          "y1-neuro-foundations",
+          "y1-calculus1",
+          "y1-programming1",
+          "y1-neuroscience-action",
+          "y1-neurotechnology",
+          "y1-linear-algebra",
+          "y1-programming2",
+          "y1-research-design",
+          "y1-biological-cognition",
+          "y1-neuroquest1",
+          "y1-writing",
+          "y1-data-science",
+          "y1-neurons",
+          "y1-calculus2",
+          "y1-neuroquest2",
+          "y1-development",
+          "y2-foundations",
+          "y2-stem",
+          "y2-integration",
+          "y2-academic-skills",
+          "y2-development",
+          "y3-research-project",
+          "y3-free-space"
+        ],
+        "yearLabel": "2026–2027",
+        "routeLabel": "Supported allocation; later years still in development",
+        "limitation": "The degree is 180 EC. The published allocation accounts for 164 EC, including 60 EC of provisional second-year learning lines. The remaining 16 EC and the final later-year course structure are not established. This is a partial allocation, not a complete degree pathway."
+      },
+      "componentNotes": {
+        "y1-linear-algebra": "Required first-year course: 3 EC in the adopted regulations and current programme overview.",
+        "y2-foundations": "24 EC provisionally allocated to this second-year learning line. Its final course structure is still in development.",
+        "y2-stem": "18 EC provisionally allocated to this second-year learning line. Its final course structure is still in development.",
+        "y2-integration": "12 EC provisionally allocated to this second-year learning line. Its final course structure is still in development.",
+        "y2-academic-skills": "5 EC provisionally allocated to this second-year learning line. Its final course structure is still in development.",
+        "y2-development": "1 EC provisionally allocated to this second-year learning line. Its final course structure is still in development.",
+        "y3-research-project": "Required 18-EC scientific internship and final research report: formulate hypotheses, conduct an experiment, analyse results and communicate findings.",
+        "y3-free-space": "26 EC of free choices, within neuroscience, technology or STEM, or from other university subjects. The complete third-year structure is still unpublished.",
+        "y1-calculus2": "Calculus 1 knowledge is assumed.",
+        "y1-programming2": "Programming 1 knowledge is assumed.",
+        "y1-data-science": "Programming 1 and 2 knowledge is assumed.",
+        "y1-neuroquest1": "Research Design and Scientific Method knowledge is assumed; taking the writing workshop alongside Neuroquest 1 is strongly advised.",
+        "y1-neuroquest2": "Neuroquest 1 knowledge is assumed; taking Data Science 1 alongside this project is strongly advised.",
+        "y1-neurons": "Knowledge from Foundations of Cognitive Neuroscience and Biological Origins of Cognition is assumed."
+      }
+    },
+    "componentsRead": [
+      {
+        "id": "y1-neuro-foundations",
+        "name": "Foundations of Cognitive Neuroscience",
+        "credits": 6
+      },
+      {
+        "id": "y1-calculus1",
+        "name": "Calculus 1",
+        "credits": 3
+      },
+      {
+        "id": "y1-programming1",
+        "name": "Programming 1",
+        "credits": 3
+      },
+      {
+        "id": "y1-neuroscience-action",
+        "name": "Human Neuroscience in Action",
+        "credits": 3
+      },
+      {
+        "id": "y1-neurotechnology",
+        "name": "Foundations of Neurotechnology",
+        "credits": 6
+      },
+      {
+        "id": "y1-linear-algebra",
+        "name": "Linear Algebra",
+        "credits": 3,
+        "note": "Controlling 2026–2027 OER Article 9.5 assigns3 EC. The prior public-page2-EC observation is historical provenance, not a refreshed current-page claim."
+      },
+      {
+        "id": "y1-programming2",
+        "name": "Programming 2",
+        "credits": 3
+      },
+      {
+        "id": "y1-research-design",
+        "name": "Research Design and Scientific Method",
+        "credits": 2
+      },
+      {
+        "id": "y1-biological-cognition",
+        "name": "Biological Origins of Cognition",
+        "credits": 6
+      },
+      {
+        "id": "y1-neuroquest1",
+        "name": "Neuroquest 1",
+        "credits": 3
+      },
+      {
+        "id": "y1-writing",
+        "name": "Writing Workshop",
+        "credits": 2
+      },
+      {
+        "id": "y1-data-science",
+        "name": "Data Science 1: Probability and Statistics",
+        "credits": 6
+      },
+      {
+        "id": "y1-neurons",
+        "name": "Neurons and Synapses",
+        "credits": 6
+      },
+      {
+        "id": "y1-calculus2",
+        "name": "Calculus 2",
+        "credits": 3
+      },
+      {
+        "id": "y1-neuroquest2",
+        "name": "Neuroquest 2",
+        "credits": 3
+      },
+      {
+        "id": "y1-development",
+        "name": "Personal and Professional Development 1",
+        "credits": 2
+      },
+      {
+        "id": "y2-foundations",
+        "name": "Foundations and Concepts Learning Line",
+        "credits": 24,
+        "note": "Provisional OER allocation: advanced computational, clinical and applied neuroscience."
+      },
+      {
+        "id": "y2-stem",
+        "name": "STEM Skills Learning Line",
+        "credits": 18,
+        "note": "Provisional OER allocation: statistics, signals, data and instrumentation."
+      },
+      {
+        "id": "y2-integration",
+        "name": "Integration and Cooperation Learning Line",
+        "credits": 12,
+        "note": "Provisional OER allocation: team research, experiment, analysis and communication."
+      },
+      {
+        "id": "y2-academic-skills",
+        "name": "Academic and Professional Skills Learning Line",
+        "credits": 5,
+        "note": "Provisional OER allocation: neuroethics, societal application and project work."
+      },
+      {
+        "id": "y2-development",
+        "name": "Personal and Professional Development Learning Line",
+        "credits": 1,
+        "note": "Provisional OER allocation."
+      },
+      {
+        "id": "y3-research-project",
+        "name": "Bachelor Research Project and Thesis",
+        "credits": 18,
+        "note": "The OER identifies a required research internship and final work."
+      },
+      {
+        "id": "y3-free-space",
+        "name": "Free Elective Space",
+        "credits": 26,
+        "note": "The OER permits courses in neuroscience, STEM or other university offerings; the final year-three option structure remains unsettled."
+      }
+    ],
+    "sourceLinksRead": [
+      "https://www.ru.nl/ru-bestanden/fsw-oer-2026-2027-hnw-bachelor",
+      "https://www.ru.nl/opleidingen/bachelors/humane-neurowetenschappen/studieprogramma-van-deze-opleiding",
+      "https://www.ru.nl/opleidingen/bachelors/humane-neurowetenschappen/studieprogramma-van-deze-opleiding/studieprogramma-bachelor-humane-neurowetenschappen-jaar-1",
+      "https://www.ru.nl/opleidingen/bachelors/humane-neurowetenschappen/studieprogramma-van-deze-opleiding/studieprogramma-bachelor-humane-neurowetenschappen-jaar-2",
+      "https://www.ru.nl/opleidingen/bachelors/humane-neurowetenschappen/studieprogramma-van-deze-opleiding/studieprogramma-bachelor-humane-neurowetenschappen-jaar-3",
+      "https://www.ru.nl/opleidingen/bachelors/humane-neurowetenschappen",
+      "https://www.ru.nl/opleidingen/bachelors/humane-neurowetenschappen/ervaringen",
+      "https://www.ru.nl/opleidingen/bachelors/humane-neurowetenschappen/na-je-studie",
+      "https://www.ru.nl/studenten/onderwijs-volgen/regels-en-richtlijnen/onderwijs-en-examenregelingen/sociale-wetenschappen"
+    ],
+    "finding": "Read Human Neuroscience/Radboud title, all23 labels and EC, year/route/status/limitation, programme description/explanation, all14 selected notes and source hrefs using the established renderer mapping. The164 of180 limitation includes provisional second-year60 explicitly. First-year assumed knowledge and strongly advised concurrent study remain bounded; research18 and free26 do not imply missing16. Source identities retain prior verified links; five current controlling/linked sources were freshly retrieved in this revisit. No active UCR concepts, course schedules, alignment, optional research or course-description/modal text is selected. All46 interests and24 candidate contributions are preserved through unchanged workbook/pair and exact target-row/index/override checks; shared146-description validation passes. No app changes, Excel changes, R/browser, screenshots or live modals.",
+    "selectedCourseDescriptionCodes": []
+  }
+}
