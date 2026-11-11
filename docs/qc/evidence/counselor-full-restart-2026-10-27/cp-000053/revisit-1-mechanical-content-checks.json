@@ -1,0 +1,1108 @@
+{
+  "caseId": "cp-000053",
+  "reviewedOn": "2026-11-11T23:32:34.479131+00:00",
+  "reviewedInputCommit": "a2d881756f65fb8546073f28a62d1c853df48ca0",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000053.json": "f9c7b4ac8b5c08663ad8384839a876e5e0393173",
+    "data/counselor/comparisons/cp-000053.json": "4ddc879516fa5dfbd104ce8a5954d328521d770f",
+    "data/registry/programme_interests.csv": "f9e4078fe8e5f27296a3159b9052b7cf0a167577",
+    "data/counselor/review-programmes.json": "31691d651ef8b90e8f523853c585adec4aa8c7bd",
+    "data/counselor/review-interests.json": "136bf94b4a9d9385db844ef9ded54835792d2d84",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000053/provisional-ucr-decision.json": "5f317affe542dca3898a3fcaba127eb1cddea6d3",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "71fb5c570a7c42c35473d8a0483dcc17ec16a665",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "pilot/shiny/data/courses/HCB.json": "8af6675a1408cec96ea570100ee89cff97563288",
+    "pilot/shiny/data/courses/ENS.json": "b323d5993ab47be5389001b547054259cbfdbfa2",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+  },
+  "checks": [
+    {
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "data/counselor/comparisons/cp-000053.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "data/counselor/comparisons/cp-000053.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "/tmp/a053/provisional.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "/tmp/a053/provisional.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor"
+      ],
+      "exitCode": 0,
+      "output": "11.json: final counselor methodology rules OK\ncp-000412.json: final counselor methodology rules OK\ncp-000413.json: final counselor methodology rules OK\ncp-000414.json: final counselor methodology rules OK\ncp-000415.json: final counselor methodology rules OK\ncp-000418.json: final counselor methodology rules OK\ncp-000420.json: final counselor methodology rules OK\ncp-000421.json: final counselor methodology rules OK\ncp-000422.json: final counselor methodology rules OK\ncp-000423.json: final counselor methodology rules OK\ncp-000424.json: final counselor methodology rules OK\ncp-000425.json: final counselor methodology rules OK\ncp-000426.json: final counselor methodology rules OK\ncp-000427.json: final counselor methodology rules OK\ncp-000433.json: final counselor methodology rules OK\ncp-000434.json: final counselor methodology rules OK\ncp-000438.json: final counselor methodology rules OK\ncp-000439.json: final counselor methodology rules OK\ncp-000442.json: final counselor methodology rules OK\ncp-000443.json: final counselor methodology rules OK\ncp-000444.json: final counselor methodology rules OK\ncp-000445.json: final counselor methodology rules OK\ncp-000446.json: final counselor methodology rules OK\ncp-000447.json: final counselor methodology rules OK\ncp-000448.json: final counselor methodology rules OK\ncp-000449.json: final counselor methodology rules OK\ncp-000450.json: final counselor methodology rules OK\ncp-000451.json: final counselor methodology rules OK\ncp-000452.json: final counselor methodology rules OK\ncp-000453.json: final counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-descriptions.py"
+      ],
+      "exitCode": 0,
+      "output": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.\n"
+    }
+  ],
+  "byteExactReplay": true,
+  "reuse": {
+    "unchangedInputs": [
+      {
+        "path": "data/reference/README.md",
+        "previousBlob": "9284392052033e99503f441a75f7acbaaf66fba1",
+        "currentBlob": "9284392052033e99503f441a75f7acbaaf66fba1"
+      },
+      {
+        "path": "data/reference/ucr_courses_enriched.xlsx",
+        "previousBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "currentBlob": "22783315e6d5510522d16a72281859dd62a05294"
+      },
+      {
+        "path": "data/counselor/decisions/cp-000053.json",
+        "previousBlob": "f9c7b4ac8b5c08663ad8384839a876e5e0393173",
+        "currentBlob": "f9c7b4ac8b5c08663ad8384839a876e5e0393173"
+      },
+      {
+        "path": "data/counselor/comparisons/cp-000053.json",
+        "previousBlob": "4ddc879516fa5dfbd104ce8a5954d328521d770f",
+        "currentBlob": "4ddc879516fa5dfbd104ce8a5954d328521d770f"
+      },
+      {
+        "path": "pilot/shared.R",
+        "previousBlob": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+        "currentBlob": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9"
+      },
+      {
+        "path": "pilot/counselor-shiny/app.R",
+        "previousBlob": "821be611428fc28490c679783be464455ad00aa1",
+        "currentBlob": "821be611428fc28490c679783be464455ad00aa1"
+      },
+      {
+        "path": "pilot/shiny/data/courses/ACC.json",
+        "previousBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+        "currentBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8"
+      }
+    ],
+    "changedInputs": [
+      {
+        "path": "AGENTS.md",
+        "previousBlob": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+        "currentBlob": "76518e7fda03edcf43123dd5ae602aea6059d643"
+      },
+      {
+        "path": "docs/UCR_Pathways_Production_Instructions.md",
+        "previousBlob": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+        "currentBlob": "4e6520ec7850ad7a44947314821975a3f2e2bf7c"
+      },
+      {
+        "path": "docs/UCR_Pathways_Master_Specification.md",
+        "previousBlob": "36bb398d7e28f6674970178004a5b52191e3b786",
+        "currentBlob": "389fab2e00428e4abda971792f4bd7b3066e858d"
+      },
+      {
+        "path": "docs/qc/counselor-comprehensive-reaudit-protocol.md",
+        "previousBlob": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+        "currentBlob": "615e34730b27754ae01b20524bb412e6b31f576b"
+      },
+      {
+        "path": "data/registry/programmes.csv",
+        "previousBlob": "28c293650641df37269e0013aa0347c561cb0e08",
+        "currentBlob": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245"
+      },
+      {
+        "path": "data/registry/programme_interests.csv",
+        "previousBlob": "e8e259c3492ed840d8427cf41f583e9634c08853",
+        "currentBlob": "f9e4078fe8e5f27296a3159b9052b7cf0a167577"
+      },
+      {
+        "path": "data/counselor/review-programmes.json",
+        "previousBlob": "d0f41d708ba99bd1d9e689b46f7e53fcd3fa400f",
+        "currentBlob": "31691d651ef8b90e8f523853c585adec4aa8c7bd"
+      },
+      {
+        "path": "data/counselor/review-interests.json",
+        "previousBlob": "d7341f5bf03dcc667f24e53c3bcd9607e831d9d4",
+        "currentBlob": "136bf94b4a9d9385db844ef9ded54835792d2d84"
+      },
+      {
+        "path": "data/counselor/presentation-overrides.json",
+        "previousBlob": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+        "currentBlob": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2"
+      },
+      {
+        "path": "pilot/shiny/data/courses/ENS.json",
+        "previousBlob": "da5d9225d6682419998c3cf20837727a5fa39cbf",
+        "currentBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+      },
+      {
+        "path": "pilot/shiny/data/courses/HCB.json",
+        "previousBlob": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad",
+        "currentBlob": "8af6675a1408cec96ea570100ee89cff97563288"
+      },
+      {
+        "path": "pilot/shiny/data/courses/BEN.json",
+        "previousBlob": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
+        "currentBlob": "71fb5c570a7c42c35473d8a0483dcc17ec16a665"
+      },
+      {
+        "path": "pilot/shiny/data/courses/DIS.json",
+        "previousBlob": "5774e2104a8310aa2925fc2aada2adac0c53bb95",
+        "currentBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+      },
+      {
+        "path": "pilot/shiny/data/courses/MCC.json",
+        "previousBlob": "40abb17fa504a1be3569ce40017b0ac88db24cfa",
+        "currentBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+      },
+      {
+        "path": "pilot/shiny/data/courses/GOS.json",
+        "previousBlob": "49da38b390637fa113a95b835a4d9bbda854ef83",
+        "currentBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+      }
+    ],
+    "scopedChecks": {
+      "data/counselor/review-programmes.json": {
+        "unchanged": true,
+        "entries": 1
+      },
+      "data/counselor/review-interests.json": {
+        "unchanged": true,
+        "entries": 46
+      },
+      "data/registry/programme_interests.csv": {
+        "unchanged": true,
+        "entries": 46
+      },
+      "data/counselor/presentation-overrides.json": {
+        "unchanged": true,
+        "value": {
+          "mode": "normal"
+        }
+      }
+    },
+    "finding": "Current workbook and active pair are unchanged. All 46 target interests and scoped review-index/override entries are unchanged. Global file changes belong to other cases. Shared description validation passes; no description is selected for display in this partial external-only record. Preserve the actual 39 UCR lead contribution reviews, including description-only evidence, without inferring a no-match. Current governing documents supersede older operational instructions; no historical approval is inherited."
+  },
+  "retainedEvidence": [
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000053/interest-review.json",
+      "sha256": "9d3bf95523ef60bcc5497dbd0352f0041b41d5039052e81e15875730a88c75ef"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000053/course-content-review.json",
+      "sha256": "bf384ece1d0c63064f6ebf0046c45b3897b3243834485ef18f810dde1188cf64"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000053/alignment-review.json",
+      "sha256": "ff6b7aede6d999b8808099d44db1acbaf99a0616d4d1b76de189b372428d0c93"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000053/content-review.json",
+      "sha256": "83454cc00b570cd0870382e3ab6d474a4287c51be4ee144ddb49c2871be97239"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000053/selected-description-review.json",
+      "sha256": "4bca5ae95be7dc4e17c2ee5b7c40be5c38b8311f2b1436d5401f29de30b9029c"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000053/provisional-ucr-decision.json",
+      "sha256": "c5817d249793a5a0b1296f08b6135cef31b7fb70a07a6576468aec3222e8b98f"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000053/source-first-checkpoint.json",
+      "sha256": "bd2fd545a8ace456881e1512c0cbbbcea70039387dd3605ed7208ea000776780"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000053/retry2/source-first-final-pass.json",
+      "sha256": "dbcd7986b7aa3763be7b00e254a37fcc363f62cecc62fbc56d7dbf7edec51470"
+    }
+  ],
+  "content": {
+    "verificationPolicy": "record-content-review-2026-10-31",
+    "presentationMode": "partial external-only exception",
+    "fieldToRenderer": {
+      "pilot/counselor-shiny/app.R:282-318": "Audience allowlist,curriculumstatus/IDs/year/route",
+      "pilot/counselor-shiny/app.R:462-493": "ExternalexceptionEnglishidentity,status,source,selectedcomponentnames/notes;no internal fallback",
+      "pilot/counselor-shiny/app.R:321-409": "Concept/notes/cellnotesonlyexplicitlyselected forcomparisons;retainedprovisionalfieldsreadbutnotactive"
+    },
+    "reviewedFieldPaths": [
+      "comparator.name/institution/components[].name/credits",
+      "comparator.primarySourceUrl/additionalSourceUrls",
+      "audience.programmeDescription/comparisonExplanation/curriculum/componentNotes",
+      "audience.conceptProgrammeIds/noteTypes",
+      "prepared selected course-description texts"
+    ],
+    "fieldsRead": {
+      "schemaVersion": "1.0",
+      "programmeDescription": "International Business Administration studies how organisations operate across borders and respond to economic, social and environmental change. It combines management, marketing, finance and organisational research with responsible enterprise.",
+      "comparisonExplanation": "The published curriculum allocates 180 EC, but its thesis-entry rules disagree about the required credits and earlier methods courses. Relevant UCR programmes have been assessed provisionally. A final comparison is withheld until the applicable entry rule can be established.",
+      "curriculum": {
+        "status": "partial",
+        "componentIds": [
+          "y1-intro-business",
+          "y1-responsible",
+          "y1-academic",
+          "y1-quant1",
+          "y1-marketing",
+          "y1-economics",
+          "y1-theory",
+          "y1-entrepreneurship",
+          "y1-ethics",
+          "y1-accounting",
+          "y2-finance",
+          "y2-hrm",
+          "y2-qual",
+          "y2-design",
+          "y2-value-chains",
+          "y2-strategy",
+          "y2-quant2",
+          "y2-analysis",
+          "y2-marketing",
+          "y2-digital",
+          "y3-strategy",
+          "y3-change",
+          "y3-systems",
+          "y3-flex",
+          "y3-thesis"
+        ],
+        "yearLabel": "2026–2027",
+        "routeLabel": "English-taught International Business Administration",
+        "limitation": "The allocation is 150 EC of required study and 30 EC of open study. It is not yet a fully verified degree pathway. The adopted regulations require 90 programme EC and older named methods courses for thesis entry; the current thesis description instead requires 102 EC and names Academic Skills, Quantitative Methods 1 and Sustainable Entrepreneurship. Their application to the renewed curriculum needs clarification."
+      },
+      "componentNotes": {
+        "y3-thesis": "Required 12-EC individual thesis. The regulations and current course entry specify different thresholds and prerequisites; entry remains unverified.",
+        "y3-flex": "30 EC of open study. An optional 18-EC minor, approved exchange or permitted 6-, 12- or 24-EC internship may fit within this space; approval and non-overlap rules apply.",
+        "y1-academic": "Required 6-EC course, with a linked first-year academic English assessment; no additional credits.",
+        "y2-design": "Required 6-EC course. Seminars are mandatory and must be completed for examination entry.",
+        "y3-systems": "Required 6-EC course. Working-group participation and an assignment are examination-entry requirements."
+      }
+    },
+    "componentsRead": [
+      {
+        "id": "y1-intro-business",
+        "name": "Introduction to International Business",
+        "credits": 6
+      },
+      {
+        "id": "y1-responsible",
+        "name": "Introduction to Responsible Organisation",
+        "credits": 6
+      },
+      {
+        "id": "y1-academic",
+        "name": "Academic Skills (Business Administration)",
+        "credits": 6
+      },
+      {
+        "id": "y1-quant1",
+        "name": "Quantitative Methods 1",
+        "credits": 6
+      },
+      {
+        "id": "y1-marketing",
+        "name": "Introduction to Marketing and Strategy",
+        "credits": 6
+      },
+      {
+        "id": "y1-economics",
+        "name": "Economics for Business Administration",
+        "credits": 6
+      },
+      {
+        "id": "y1-theory",
+        "name": "Organisation Theory",
+        "credits": 6
+      },
+      {
+        "id": "y1-entrepreneurship",
+        "name": "Sustainable Entrepreneurship",
+        "credits": 6
+      },
+      {
+        "id": "y1-ethics",
+        "name": "International Business Ethics",
+        "credits": 6
+      },
+      {
+        "id": "y1-accounting",
+        "name": "Accounting & Control (EN)",
+        "credits": 6
+      },
+      {
+        "id": "y2-finance",
+        "name": "Corporate Finance",
+        "credits": 6
+      },
+      {
+        "id": "y2-hrm",
+        "name": "Strategic Human Resource Management",
+        "credits": 6
+      },
+      {
+        "id": "y2-qual",
+        "name": "Qualitative Methods",
+        "credits": 6
+      },
+      {
+        "id": "y2-design",
+        "name": "Organisation Design",
+        "credits": 6
+      },
+      {
+        "id": "y2-value-chains",
+        "name": "Global Value Chains",
+        "credits": 6
+      },
+      {
+        "id": "y2-strategy",
+        "name": "International Strategy",
+        "credits": 6
+      },
+      {
+        "id": "y2-quant2",
+        "name": "Quantitative Methods 2",
+        "credits": 6
+      },
+      {
+        "id": "y2-analysis",
+        "name": "Business Analysis for Responsible Organisations",
+        "credits": 6
+      },
+      {
+        "id": "y2-marketing",
+        "name": "Marketing in an International Context",
+        "credits": 6
+      },
+      {
+        "id": "y2-digital",
+        "name": "Digitalisation and Innovation",
+        "credits": 6
+      },
+      {
+        "id": "y3-strategy",
+        "name": "Advanced Strategy",
+        "credits": 6
+      },
+      {
+        "id": "y3-change",
+        "name": "Organising for Change",
+        "credits": 6
+      },
+      {
+        "id": "y3-systems",
+        "name": "System Theory",
+        "credits": 6
+      },
+      {
+        "id": "y3-flex",
+        "name": "Flexibility window",
+        "credits": 30,
+        "note": "30 EC open study in periods1–2. Optional18ECminor,approvedexternalstudy/exchangeor6/12/24ECinternshipcanfitwithinthisspace;non-overlapandapprovalrulesapply."
+      },
+      {
+        "id": "y3-thesis",
+        "name": "Bachelor’s Thesis IBA",
+        "credits": 12,
+        "note": "Required12EC individualthesis. Current catalogue102EC+AS/QM1/SustainableEntrepreneurship conflicts with adoptedOER90EC+AS/Statistics/MRI. No renewed-cohort equivalence inferred."
+      }
+    ],
+    "sourceLinksRead": [
+      "https://www.ru.nl/ru-bestanden/oer-2026-2027-bsc-bedrijfskunde",
+      "https://www.ru.nl/en/education/bachelors/international-business-administration/study-programme",
+      "https://www.ru.nl/en/education/bachelors/international-business-administration/study-programme/year-1",
+      "https://www.ru.nl/en/education/bachelors/international-business-administration/study-programme/year-2",
+      "https://www.ru.nl/en/education/bachelors/international-business-administration/study-programme/year-3",
+      "https://www.ru.nl/en/education/bachelors/international-business-administration",
+      "https://www.ru.nl/en/education/minors/business-analysts-digital-experts",
+      "https://www.ru.nl/en/education/minors/entrepreneurs-innovators",
+      "https://www.ru.nl/en/education/minors/sustainability-strategists-ethical-leaders",
+      "https://www.ru.nl/en/education/bachelors/international-business-administration/testimonials",
+      "https://www.ru.nl/en/education/bachelors/international-business-administration/career-prospects",
+      "https://www.ru.nl/sites/default/files/2026-08/eer-2026-2027-bsc-bedrijfskunde-eng.pdf",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172584?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172895?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172896?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172893?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172836?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172853?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172940?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172550?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172772?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172774?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172773?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172858?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172674?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172937?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172743?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172563?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172642?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172928?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172856?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172710?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172753?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172621?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172807?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/172659?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/173091?taal=EN",
+      "https://ru.osiris-student.nl/student/osiris/owc/cursussen/173092?taal=EN"
+    ],
+    "preparedDescriptions": [
+      {
+        "code": "ACCPPDE101",
+        "unchanged": true,
+        "text": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "sourceField": "profile",
+          "mode": "edited",
+          "reviewedOn": "2026-11-01",
+          "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+          "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+          "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+          "courseName": "Personal & Professional Development"
+        }
+      },
+      {
+        "code": "BENGATE101",
+        "unchanged": true,
+        "text": "Through experiential learning, students turn their own bold ideas into new ventures. No prior business expertise is required as teams work on a startup project from ideation to final pitch while gaining business and entrepreneurial skills in areas such as design thinking, business model and customer validation. The class fosters creativity and collaboration to drive business and social innovation.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Entrepreneurship & Business Foundations",
+          "sourceField": "description2",
+          "mode": "verbatim",
+          "sourceSha256": "be06c9c110a9f2b97e6488ea6896b76949da3932009e02cd6af21a9a379b9160",
+          "descriptionSha256": "be06c9c110a9f2b97e6488ea6896b76949da3932009e02cd6af21a9a379b9160",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+        }
+      },
+      {
+        "code": "BENECON111",
+        "unchanged": true,
+        "text": "Explore how individuals, firms, and societies make economic decisions. This course introduces key concepts from both microeconomics and macroeconomics, including markets, incentives, and the principles of supply and demand, and provides a foundation for analyzing real-world economic issues.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "sourceField": "profile",
+          "mode": "edited",
+          "reviewedOn": "2026-11-01",
+          "sourceSha256": "be4f2adfa22005d4d1ebbea0bbfcb36e2acd0e7e75d57f9b87f847d13ad3ef1f",
+          "descriptionSha256": "2278892bd9c8b20df80deb4bd04a3bf00a3fe4cc79099b153861afa0f69110e8",
+          "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+          "courseName": "Introduction to Economics"
+        }
+      },
+      {
+        "code": "BENENTR111",
+        "unchanged": true,
+        "text": "You will learn how to function in a ‘real-world’ design and development team for consumer products. We go through the phases of design and development: probe customer needs, translate these into a product concept, develop a fabrication method, analyze sustainability, analyze costs and proceeds. Design and development involves interviewing customers, brainstorming, laboratory experiments, quantitative modeling, constructing a prototype, and considering protection of intellectual property.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Consumer Product Design",
+          "sourceField": "description2",
+          "sourceSha256": "4291c862f893e8d1238b3b2b2e1fc4aedfc59877fcb676414c4e08bcbc764aa5",
+          "descriptionSha256": "4291c862f893e8d1238b3b2b2e1fc4aedfc59877fcb676414c4e08bcbc764aa5",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-05",
+          "reviewNote": "CP089: reviewed the unchanged official description against current course content. The existing text supports the stated scope."
+        }
+      },
+      {
+        "code": "BENGATE102",
+        "unchanged": true,
+        "text": "Research Methods & Statistics introduces research design, operationalisation, measurement, sampling, surveys and experiments. Students study descriptive statistics, estimation, hypothesis testing and introductory regression using R and R Commander. A group project develops a research plan and instruments, collects and analyses data, and reports findings under research-ethics and privacy requirements.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "9d88751452d5c0a6888ac7901a73d1a848617dee2b587d4df64815fc39ad8813",
+          "descriptionSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Research Methods & Statistics"
+        }
+      },
+      {
+        "code": "BENENTR212",
+        "unchanged": true,
+        "text": "The course explores how companies develop strategies and drive responsible digital transformation amid rapid technology change impacting the economy and society. Students develop a strategic plan, from vision to execution, and identify digital value opportunities. Using industry cases, they gain foresight into digital technologies and their impact on strategy, business models and social responsibilities.",
+        "provenance": null
+      },
+      {
+        "code": "BENENTR311",
+        "unchanged": false,
+        "text": "Market Research explores how companies learn about customer preferences. Students plan and carry out research, analyse their findings and present how those findings can inform business decisions.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "sourceField": "description2",
+          "mode": "edited",
+          "reviewedOn": "2026-11-10",
+          "sourceSha256": "722a2bd4f37333f708d1a5953a875c744ac6d2f03b61d985505c2d6379264a58",
+          "descriptionSha256": "cb3e237d777e8c82ef4a2e4ab48652431188d5219ad2a392bb3f77c60dd58db9",
+          "reviewNote": "CP399 reviewed the selected text against current course evidence; wording describes supported academic content and activities.",
+          "courseName": "Market Research"
+        }
+      },
+      {
+        "code": "GOSSOCI212",
+        "unchanged": true,
+        "text": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "sourceField": "profile",
+          "mode": "edited",
+          "reviewedOn": "2026-11-01",
+          "sourceSha256": "6531d96f817df19cfa773d8d8004f44da6041eeab39acfce1462438728cd1eeb",
+          "descriptionSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+          "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+          "courseName": "Qualitative Research Methodology"
+        }
+      },
+      {
+        "code": "BENBUSI112",
+        "unchanged": false,
+        "text": "Accounting & Corporate Finance introduces financial and management accounting, financial-statement preparation and analysis, costing, pricing, budgeting and organisational control. Students assess investment decisions using accounting measures, discounted cash flow, net present value, internal rate of return and cost of capital. A case study examines the misuse of an accounting principle and its effects on financial statements.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Accounting & Corporate Finance",
+          "sourceField": "profile",
+          "sourceSha256": "d11f004b40eac99c8a834171f44b26a4afda766ad2a8deefe5ce1ace03fb1780",
+          "descriptionSha256": "0aa904ea38ab47e3acb028a9c6e68a41b9210d4317249cd44d402013d52c2f04",
+          "mode": "edited",
+          "reviewedOn": "2026-11-05",
+          "reviewNote": "Read the selected current profile in full; the summary represents accounting, control and investment-appraisal content proportionately, without claiming an entire advanced corporate-finance sequence."
+        }
+      },
+      {
+        "code": "GOSSOCI111",
+        "unchanged": true,
+        "text": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Introduction to Sociology",
+          "sourceField": "description2",
+          "sourceSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+          "descriptionSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+        }
+      },
+      {
+        "code": "GOSGATE102",
+        "unchanged": true,
+        "text": "Law, Society & Justice examines legal, social and normative perspectives on law. Students compare legal traditions and study public and private law, human rights, justice, social control and change, race and gender. Case briefs, demand letters and mock trials develop legal reasoning, while a family-law topic supports the design of a socio-legal research proposal.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "e3ee6c30cefe40d0410e4896ebe9e340104aad5931f93baad84dd2e4cfcd8c3e",
+          "descriptionSha256": "035b12c51282127288b99b6ba3cb906896d0fabff1cdf5153709df2d32006391",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Law, Society & Justice"
+        }
+      },
+      {
+        "code": "BENLEAD111",
+        "unchanged": false,
+        "text": "Introduces self-leadership, leadership theory and emotional intelligence. Students use personality and emotional-intelligence profiles to reflect on group dynamics, study leadership cases, and develop a personal plan with practical goals. Assessment tools support educational reflection, with attention to differences in their scientific support.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Personal Leadership",
+          "sourceField": "profile",
+          "sourceSha256": "8e0ba566fe9b80da107897406642f0359ede224958d7e768a01fad409d995a3b",
+          "descriptionSha256": "0fbf6a73d2922455ed57d7c05220bd16a53b28c6f813b8b6e7bff8812f067b2d",
+          "mode": "edited",
+          "reviewedOn": "2026-11-05",
+          "reviewNote": "Read actual selected current profile; remove confidence/comprehensive-mastery promises and represent concrete methods, projects and limitations proportionately."
+        }
+      },
+      {
+        "code": "BENBUSI211",
+        "unchanged": true,
+        "text": "Examines AI's business, economic and societal implications without requiring a technical background. Students study AI's capabilities and limits, applications across business functions and industries, and effects on labour markets, productivity, innovation and inequality. Business cases and scholarly arguments support analysis of governance, regulation and a country's AI readiness and industrial policy.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "descriptionSha256": "dc99e879e62a02957451c99d0ed08cdbc50fc9e07847d0d251210dfd8a973cb1",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "sourceSha256": "142e38261e07fee05e042a882559c77aa357856539a62060518c508d07aa8411",
+          "courseName": "Business & Economy in the Age of AI"
+        }
+      },
+      {
+        "code": "BENBUSI311",
+        "unchanged": true,
+        "text": "Transnational Business Law studies legal frameworks for cross-border business, including contracts, trade, intellectual property, foreign investment and digital commerce. Comparative and international perspectives support analysis of legal risks through discussions, problem-based assignments and an arbitration simulation.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "2367a44583d9c31af7aaf5c353fab6a14a537d449a64a724b1e83c69ffa71430",
+          "descriptionSha256": "44f7635bd8da8902ebff96a2cb8c950fd59683bb52cc5e7f6a8e25e61ae83152",
+          "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+          "courseName": "Transnational Business Law"
+        }
+      },
+      {
+        "code": "BENECON212",
+        "unchanged": true,
+        "text": "Study how consumers and producers make decisions under scarcity. Explore key concepts such as rational choice, decision-making under uncertainty, and non-egoistic preferences. Analyze market structures, strategic interactions, and factor markets. Learn how markets function and examine the impact of regulation. Develop analytical tools to better understand behavior and engage with empirical research.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Microeconomics & Behavior",
+          "sourceField": "description2",
+          "mode": "verbatim",
+          "sourceSha256": "bb7e873ebcf0737250b0602678e531aaf080f101cfda442ebc4abcd4574d4250",
+          "descriptionSha256": "bb7e873ebcf0737250b0602678e531aaf080f101cfda442ebc4abcd4574d4250",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+        }
+      },
+      {
+        "code": "BENLEAD312",
+        "unchanged": true,
+        "text": "How do you get to yes? In this course you will learn how to craft persuasive arguments, deploy the right language, negotiate more effectively, and influence decisions with confidence—whether in business, leadership, or life.",
+        "provenance": null
+      },
+      {
+        "code": "BENECON211",
+        "unchanged": true,
+        "text": "Study the economy as a whole through topics such as national income, economic growth, inflation, and unemployment. Understand how governments and central banks use fiscal and monetary policies to influence economic performance over time. The course also explores business cycles, international trade, and economic crises, preparing students to evaluate policy debates and global economic trends.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "International Macroeconomics",
+          "sourceField": "description2",
+          "mode": "verbatim",
+          "sourceSha256": "33b36d74db138b4f57c17d242b5ba5dc4d4f8de34149ead79cef4bd1d0f2ccba",
+          "descriptionSha256": "33b36d74db138b4f57c17d242b5ba5dc4d4f8de34149ead79cef4bd1d0f2ccba",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+        }
+      },
+      {
+        "code": "BENENTR312",
+        "unchanged": false,
+        "text": "Examines how trade, globalisation and political, cultural and technological conditions shape international business decisions. Students analyse governance, responsibility and trade-policy conflicts, investigate a business question, and develop an evidence-based market-entry strategy. A tariff case applies game theory to stakeholder choices.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "International Business & Governance",
+          "sourceField": "profile",
+          "sourceSha256": "da6918202526ec0098e47111934926f7d1566c664db8c074869ce31664b9bb29",
+          "descriptionSha256": "8c0325118e3aa0ccd19df0635d0de578f5dca99c2e32718f87e05b437deb9887",
+          "mode": "edited",
+          "reviewedOn": "2026-11-05",
+          "reviewNote": "Read actual selected current profile; remove confidence/comprehensive-mastery promises and represent concrete methods, projects and limitations proportionately."
+        }
+      },
+      {
+        "code": "HCBPSYC211",
+        "unchanged": true,
+        "text": "Develops experimental-design knowledge and practical statistical analysis for health and behavioural research. Students choose, fit, diagnose and interpret multivariable models for group comparisons, categorical outcomes and latent constructs. R, primarily through R Commander, supports practical exercises; data-analysis papers and a poster connect research questions to appropriate models, assumption checks and clear reporting.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "sourceSha256": "bf482d4e283320560451930d2822162ada50a7697ded31de54eb7b021694adbc",
+          "descriptionSha256": "ef41b0b732a8e9502a0d7e14ceef47bb91ca971854bb1a26b6a8ed5e6c9b6111",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Statistics & Experimental Methods"
+        }
+      },
+      {
+        "code": "BENLEAD311",
+        "unchanged": true,
+        "text": "Psychology of Organizations & Leadership examines the psychological, social and structural dynamics of organisations. Case discussions and research-based frameworks address motivation, leadership, group dynamics, organisational culture, power, conflict and change.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "a6257b450ccaf3dcad4ed2cff83ec2065a49f8afb6c0549530896581e301fa60",
+          "descriptionSha256": "668a9f550a115ab294eb553586c70cf6e941271625ed97b1527613ed53b1aadf",
+          "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+          "courseName": "Psychology of Organizations & Leadership"
+        }
+      },
+      {
+        "code": "BENBUSI312",
+        "unchanged": true,
+        "text": "Examines financial markets, commercial banks and central banks, including interest rates, financial regulation, financial crises and monetary policy. Students analyse financial problems and manage a simulated bank in the Stanford Banking Game, using Excel dashboards and financial forecasts to inform decisions about loans, deposits, capital, liquidity and risk.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "sourceSha256": "0ee0bc0327ea0165f3b9f13e920ef9311d6b4ed5de8b4a6ed31ef36aaada0623",
+          "descriptionSha256": "dd318ab8d5a96197622f9002a480483d9f49dca92bc4f69000cb2b409994d82b",
+          "mode": "edited",
+          "reviewedOn": "2026-10-30",
+          "reviewNote": "Reviewed against the selected profile and current official description. Describes substantive financial and banking content and the bank-management simulation without treating the source as proof of future delivery.",
+          "courseName": "Money, Banking & Finance"
+        }
+      },
+      {
+        "code": "BENECON312",
+        "unchanged": true,
+        "text": "Econometrics supplies tools to analyze data to answer questions of causality and prediction. In this course you learn three estimators—Ordinary Least Squares, Generalized Least Squares, and Instrumental Variables—and three tests—t-test, F-test, and LM-test. Understanding the basic rules of econometrics, particularly the sampling distribution concept, is key, and the course uses Monte Carlo simulations in Stata to visualize it. Tools are applied to estimate economic relationships and make predictions, and students write an empirical paper.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Econometrics",
+          "sourceField": "description2",
+          "sourceSha256": "3754e43821eb3db5407d6eded2b8e70021b3eb45d2284acfae505d85d85baea9",
+          "descriptionSha256": "3754e43821eb3db5407d6eded2b8e70021b3eb45d2284acfae505d85d85baea9",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+        }
+      },
+      {
+        "code": "BENENTR211",
+        "unchanged": true,
+        "text": "Marketing & Consumer Engagement examines consumer psychology, marketing strategy, responsible brand development and customer engagement. Students analyse a company strategy, design a brand and investigate a consumer phenomenon using academic literature and primary and secondary evidence. Digital marketing and customer-journey mapping connect analysis with practical recommendations.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "c509ecddc65919fc8585eb008b76451ee2deccb1e3a53395a49dff17348f3e98",
+          "descriptionSha256": "2efbda10043579cfc91b4b70b5769fee4e1e2d7e1496729792874feba75f5fc5",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Marketing & Consumer Engagement"
+        }
+      },
+      {
+        "code": "BENLEAD211",
+        "unchanged": true,
+        "text": "Examines how emotion regulation, emotional intelligence, belonging, identity safety and psychological safety shape leadership in diverse contexts, with particular attention to minority experiences. Students design and pilot a quantitative survey, collect data ethically, and use SPSS or RStudio for descriptive statistics, reliability analysis, correlations, group comparisons and introductory multiple regression. They interpret the findings and develop evidence-based leadership recommendations.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "sourceSha256": "999ba5b05cd61f55317070b1224b8b12e159ec2100773c4e4a14a721e01b3853",
+          "descriptionSha256": "b5bfb901eaf1286ca42a21c22a4c5c86a619c00526eb11286f93c2244de3295b",
+          "mode": "edited",
+          "reviewedOn": "2026-10-30",
+          "reviewNote": "Reviewed against the Spring 2027 profile and official description. Omits conditional company collaboration and optional factor analysis; no evidence-source commentary appears in the display text.",
+          "courseName": "Psychology of Leading Under Pressure"
+        }
+      },
+      {
+        "code": "ENSGATE101",
+        "unchanged": true,
+        "text": "Introduces sustainability through planetary boundaries and scientific tools for understanding human impacts on Earth systems. Students interpret graphs and uncertainty, build simple dynamic models, and study chemical and physical principles relevant to climate, energy and materials. A laboratory project makes and tests starch-based biopolymers.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "sourceSha256": "82f50723d99a79ffd7371f9f6eebe3e42e760cc7f4f8bbeb032e81fd5acc4184",
+          "descriptionSha256": "3d8021bff00c075753d30587e5e529c4ac8337c828561c59c0c227299a1e04e9",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Sustainability Essentials I"
+        }
+      },
+      {
+        "code": "ENSGATE201",
+        "unchanged": true,
+        "text": "Develops physical-science foundations for sustainability through waves, chemistry and materials science. Reflective work and a project apply these topics to analysing greenwashing.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "sourceSha256": "10191be23b197bf2051541f534acdc52bc20762fc7d8889972890e7176afed60",
+          "descriptionSha256": "465a8a129a7b496e5cc7188a77d3e2b04fb5a3c7f3afceae8a56afe6d062285b",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+          "courseName": "Sustainability Essentials II"
+        }
+      },
+      {
+        "code": "ENSDELT312",
+        "unchanged": true,
+        "text": "This course examines sustainability through the lens of governance: “a process of rule-making and collective decision-making that includes both governmental and non-governmental actors in shaping public policy” (Fenger & Bekkers, 2016). Taking this lens, we ask questions such as how are sustainability policies on the local, national, and international level made and enforced? Which actors represent which interests, and which are most influential? How is public opinion on sustainability shaped, and how does public opinion shape politics? What, at the end of the day, determines effective policy for sustainability? By the end of this course, you will have gained a deep appreciation of the complexity of the governance dimension of sustainability, and have developed the theoretical and practical understanding to critically assess mainstream policy decisions.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "sourceField": "profile",
+          "mode": "edited",
+          "reviewedOn": "2026-11-01",
+          "sourceSha256": "f4cf9494a23b75f3fb3fe9090c62b9c8af908dc62a825c17f6547cfb48caf0a7",
+          "descriptionSha256": "746711aaebf20395c0fd5695fb91c5951f611715825c91ca6da251c5d890e362",
+          "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+          "courseName": "Governance of Sustainability"
+        }
+      },
+      {
+        "code": "ENSSUST111",
+        "unchanged": true,
+        "text": "Focuses on drivers and impacts of anthropogenic climate change on sea level, ocean acidification, ecology and society. Discusses adaptation and mitigation solutions, including renewable energy systems, carbon storage and climate‑adaptive planning, and examines climate governance and justice.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "sourceField": "profile",
+          "mode": "edited",
+          "reviewedOn": "2026-11-01",
+          "sourceSha256": "92a8d5a238274193e7d9163f689556026c415afc95cebb8ecc4b5215f17bbeb4",
+          "descriptionSha256": "51b7423fe905aaf8f483ff6389d1685b21b8a2fb0a4b9b41d99b59e42808a974",
+          "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+          "courseName": "Climate Change"
+        }
+      },
+      {
+        "code": "ENSSUST112",
+        "unchanged": true,
+        "text": "Teaches evaluation of environmental impacts of products, processes and services throughout their lifecycle. Emphasises strategic planning for a circular economy through hands‑on learning.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "sourceField": "profile",
+          "mode": "edited",
+          "reviewedOn": "2026-11-01",
+          "sourceSha256": "84952b835c81d99cda8bc29e396c30894abc1d4ee1c6dd8de714344d1c4e3492",
+          "descriptionSha256": "1507c66a61e12992a10ae7eef4194b4994d433c482be61ac982d0a8eb0870afe",
+          "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+          "courseName": "Life Cycle Analysis & Circular Economy"
+        }
+      },
+      {
+        "code": "BENECON311",
+        "unchanged": true,
+        "text": "Investigate the role of government in the economy, focusing on how public policy influences efficiency and equity. The course covers taxation, public goods, externalities, and government spending. Combining theoretical models with empirical evidence, it evaluates how different policies affect societal welfare.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "sourceField": "profile",
+          "mode": "edited",
+          "reviewedOn": "2026-11-01",
+          "sourceSha256": "24b0c5c56dc096e519a2295ff82eb44aa56d5601b7302975262d22a475cc96a6",
+          "descriptionSha256": "7a4ba78a0cfe9e6eb397bc2a538e91ff9a12eaecf7737f2cfbb377ac04d4aa84",
+          "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+          "courseName": "Public Economics"
+        }
+      },
+      {
+        "code": "DISGATE101",
+        "unchanged": true,
+        "text": "Introduces programming and computer science. Covers structured programming, data constructs, testing, debugging and object‑oriented programming with Python, and develops computational problem‑solving skills.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "sourceField": "profile",
+          "mode": "edited",
+          "reviewedOn": "2026-11-01",
+          "sourceSha256": "e2014f5db9a4328ff4efaa51f0273169ae1c9427a4ccf85bea5ee463794a80a8",
+          "descriptionSha256": "efe3b89e39a2611d475d27d09b06151a514076321c7453cd31f9cfbbd84248bf",
+          "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+          "courseName": "Introduction to Programming"
+        }
+      },
+      {
+        "code": "DISDATA111",
+        "unchanged": true,
+        "text": "Develops foundational skills in data visualization, cleaning and manipulation. Explores spatial and text data and includes hands‑on work with datasets from various disciplines.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "sourceField": "profile",
+          "mode": "edited",
+          "reviewedOn": "2026-11-01",
+          "sourceSha256": "85912cb78bd13d1aa873ef9cca2a8d7e00345543f75d1f07b56d808f1c6702ef",
+          "descriptionSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+          "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+          "courseName": "Introduction to Data Science"
+        }
+      },
+      {
+        "code": "DISGATE102",
+        "unchanged": true,
+        "text": "Mathematical Methods develops foundational techniques in differentiation, integration, complex numbers and differential equations. Students solve problems analytically and with Mathematica. A project implements, analyses and adapts a dynamic model, requiring interpretation of its behaviour and computational results.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "6250945baf68c519d3820bddeaa08cb4b3c71273ddbb9bc31a7dffe6d021af5f",
+          "descriptionSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Mathematical Methods"
+        }
+      },
+      {
+        "code": "DISCOMP212",
+        "unchanged": true,
+        "text": "Introduces relational database management systems and SQL. Covers relational database theory, authorization, normalization and query processing.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "sourceField": "description2",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-01",
+          "sourceSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d",
+          "descriptionSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d",
+          "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+          "courseName": "Database Management Systems"
+        }
+      },
+      {
+        "code": "DISARIN111",
+        "unchanged": true,
+        "text": "AI Ethics examines artificial intelligence from philosophical and psychological perspectives. Topics include fairness, privacy, responsibility, human-value alignment, moral status and political or existential risks. Students apply ethical frameworks to questions about human behaviour and interaction, synthesise research in an analytical psychology project, and produce a research-based podcast.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "cb43b0c596757e7e4f5f93392738ac9d23f450d75d7dd7698bbb59ee1557333a",
+          "descriptionSha256": "573776c86616fbb9aa39c644ba0abcae2cb7c073febebe3b0203c329264cbeb3",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "AI Ethics"
+        }
+      },
+      {
+        "code": "DISDATA211",
+        "unchanged": true,
+        "text": "Machine Learning introduces methods for understanding data and making predictions, including linear regression, classification, resampling, shrinkage, tree-based methods, support vector machines and clustering. Real-world examples illustrate the methods, their strengths and limitations.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "6a112d70695b992eb7664e19ed9656612b364e2c28a116980a602eef2687ace6",
+          "descriptionSha256": "ae7fce189f80fcd62e521b78f43d3119e98a2ee78d29f61127a0f6b61faaf862",
+          "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+          "courseName": "Machine Learning"
+        }
+      },
+      {
+        "code": "DISDATA311",
+        "unchanged": true,
+        "text": "Neural Networks & Deep Learning combines theory with practical Python, Keras and TensorFlow implementations. Students build and train networks, study backpropagation, regularisation and model evaluation, and apply deep learning to computer vision, time series and text, including transformers. Projects investigate prediction problems and report experimental results.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "25546292d8643497a8cd9b4bf820608e15e4ae3fdcf04eb764aadcadf460f14f",
+          "descriptionSha256": "ed084f769dcc3b361dcddff3861c96217abcbf5eb57e7859aeb1ad3f949584c7",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Neural Networks & Deep Learning"
+        }
+      },
+      {
+        "code": "DISMATH314",
+        "unchanged": true,
+        "text": "Provides a foundation in mathematical statistics. Covers probability theory, discrete and continuous distributions, sampling, parameter estimation and simulation; uses computer algebra software to develop theoretical understanding and practical skills.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "sourceField": "profile",
+          "mode": "edited",
+          "reviewedOn": "2026-11-01",
+          "sourceSha256": "64d3f72845189f77627b8aa180a9906d4fd60fe3c5306bbf0ebe7666e612852b",
+          "descriptionSha256": "9d3ee2b42fa7fe2c0e62777da64474690e9fac0ca76929d04c6670dab516d10f",
+          "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+          "courseName": "Probability & Statistics"
+        }
+      },
+      {
+        "code": "BENECON314",
+        "unchanged": true,
+        "text": "This course integrates insights from psychology into economic theory to better understand how people make decisions. Learn how actual behavior deviates from the predictions of traditional economic models due to biases, heuristics, and framing. Through experiments, students will deepen their understanding of decision-making and its implications for economic theory and practice.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Behavioral Economics",
+          "sourceField": "description2",
+          "mode": "verbatim",
+          "sourceSha256": "2ee42da99e32fb8dc397c2e243ef5fdc6c9a09440129e32b46f2affd8c4e7fa0",
+          "descriptionSha256": "2ee42da99e32fb8dc397c2e243ef5fdc6c9a09440129e32b46f2affd8c4e7fa0",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+        }
+      }
+    ],
+    "activeSelectedCourseDescriptionCodes": [],
+    "finding": "Read InternationalBusinessAdministration/Radboud identity,all25Englishcomponentlabels/credits,year/Englishroute/partialcurriculumlimitation,programme/statusparagraphs,all5selectednotes andsourcehrefs againstunchangedestablishedrenderer mapping. Supported180allocation isnot representedas a fullyverifiedpathway; thesis90/102EC andnamedmethodconflict isplain. Open30/optional18minor/exchange/internship approval/nonoverlap,linkedEnglishassessment andmandatoryseminar/systemsgrouprequirements retained. No activeUCRconcept/schedule/alignment/research/modals selected. Fourchangedpreparedtextsreadagainstcurrentevidence;35unchangedsharedreviews reused. No app,Excel,cache,R/browser,live-modal,screenshot or runtime-renderingclaim."
+  }
+}
