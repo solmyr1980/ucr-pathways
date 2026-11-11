@@ -5551,10 +5551,29 @@
     {
       "id": "cp-000227",
       "state": "in-progress",
-      "stageOutcomes": {},
+      "stageOutcomes": {
+        "1": "reconstruct",
+        "2": "correct",
+        "3": "reconstruct",
+        "4": "reconstruct",
+        "5": "correct",
+        "6": "retain"
+      },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [],
+      "downstreamReassessments": [
+        {
+          "trigger": "Exact ENG registry variant contradicts current admissions and formal language rule",
+          "scope": "Reassessed interest attribution, all prior UCR concepts and schedules, placements, title, links, notes, descriptions selected for display and final disposition. No shared content reopened.",
+          "stages": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
       "implementationCommits": [],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000227.json"
@@ -10633,7 +10652,7 @@
           "data/registry/programmes.csv": "070f7e8a9cc27717ce695ca66d2680080b7e3fc8",
           "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
         },
-        "nextAction": "Verify the dated external curriculum and progression, then assess UCR comparability and repair the case against the current workbook.",
+        "nextAction": "Verify published CP227 files, byte-exact replay and exact-head CI, then record final registry-exception disposition.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -12160,21 +12179,11 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000226",
-        "executionId": "restart-A-cp226-20261111T022951Z",
-        "state": "approved",
-        "academicDisposition": "comparison",
-        "reviewedInputCommit": "1a432fc662ceffe706eb14a4d46d48702c0f51df",
-        "inputBlobs": {
-          "canonical": "09e57368ad2d6fa19c4aabec185feae19bd8f91a",
-          "decision": "84c2e0f866df470bf0e92e858f3e47b285fd58f8"
-        },
-        "verifiedAt": "2026-11-11T02:41:05.706819+00:00",
-        "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000226/published-verification.json",
-        "nextAction": "CP226 approved as a verified comparison. Resume cp-000227 next execution.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
+        "caseId": "cp-000227",
+        "executionId": "restart-A-cp227-20261111T033124Z",
+        "state": "in-progress",
+        "nextAction": "Verify published CP227 files, byte-exact replay and exact-head CI, then record final registry-exception disposition.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000227/mechanical-verification.json"
       },
       "checkpointHistory": [
         {
@@ -21580,6 +21589,13 @@
           "nextAction": "CP226 approved as a verified comparison. Resume cp-000227 next execution.",
           "runtimeModel": "unknown",
           "runtimeReasoningEffort": "unknown"
+        },
+        {
+          "caseId": "cp-000227",
+          "executionId": "restart-A-cp227-20261111T033124Z",
+          "state": "in-progress",
+          "nextAction": "Verify published CP227 files, byte-exact replay and exact-head CI, then record final registry-exception disposition.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000227/mechanical-verification.json"
         }
       ],
       "sourceRetrievalFailureHistory": [
