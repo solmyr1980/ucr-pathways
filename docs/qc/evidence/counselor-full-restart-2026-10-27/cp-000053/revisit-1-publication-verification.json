@@ -1,0 +1,103 @@
+{
+  "caseId": "cp-000053",
+  "verifiedAt": "2026-11-11T23:35:06.481444+00:00",
+  "commit": "9649fe6d0cbc3f11db456e758f05cf2634ede5ed",
+  "parent": "a2d881756f65fb8546073f28a62d1c853df48ca0",
+  "uploadedBlobs": [
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27.json",
+      "size": 2729309,
+      "sha": "01e3a387d24ce3d9303bdc123e9c394f46703580"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27/cp-000053.json",
+      "size": 210748,
+      "sha": "d7b679d685c6e9d4c54271e11d39e04520a4f7fb"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000053/revisit-1-mechanical-content-checks.json",
+      "size": 69470,
+      "sha": "8914ba2213aaf554d95b443aa32fec425b59933a"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000053/revisit-1-source-first-final-pass.json",
+      "size": 3565,
+      "sha": "cc4f080bbd796ecb30c7af836866c98c0232ff74"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000053/revisit-1-source-review.json",
+      "size": 6102,
+      "sha": "d3908ab9988dcfe4397e7d5963310af3b7ed0fac"
+    }
+  ],
+  "allPublishedBytesMatch": true,
+  "byteExactReplay": true,
+  "checks": [
+    {
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "data/counselor/comparisons/cp-000053.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "data/counselor/comparisons/cp-000053.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "/tmp/a053/provisional.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "/tmp/a053/provisional.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor"
+      ],
+      "exitCode": 0,
+      "output": "11.json: final counselor methodology rules OK\ncp-000412.json: final counselor methodology rules OK\ncp-000413.json: final counselor methodology rules OK\ncp-000414.json: final counselor methodology rules OK\ncp-000415.json: final counselor methodology rules OK\ncp-000418.json: final counselor methodology rules OK\ncp-000420.json: final counselor methodology rules OK\ncp-000421.json: final counselor methodology rules OK\ncp-000422.json: final counselor methodology rules OK\ncp-000423.json: final counselor methodology rules OK\ncp-000424.json: final counselor methodology rules OK\ncp-000425.json: final counselor methodology rules OK\ncp-000426.json: final counselor methodology rules OK\ncp-000427.json: final counselor methodology rules OK\ncp-000433.json: final counselor methodology rules OK\ncp-000434.json: final counselor methodology rules OK\ncp-000438.json: final counselor methodology rules OK\ncp-000439.json: final counselor methodology rules OK\ncp-000442.json: final counselor methodology rules OK\ncp-000443.json: final counselor methodology rules OK\ncp-000444.json: final counselor methodology rules OK\ncp-000445.json: final counselor methodology rules OK\ncp-000446.json: final counselor methodology rules OK\ncp-000447.json: final counselor methodology rules OK\ncp-000448.json: final counselor methodology rules OK\ncp-000449.json: final counselor methodology rules OK\ncp-000450.json: final counselor methodology rules OK\ncp-000451.json: final counselor methodology rules OK\ncp-000452.json: final counselor methodology rules OK\ncp-000453.json: final counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-descriptions.py"
+      ],
+      "exitCode": 0,
+      "output": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.\n"
+    }
+  ],
+  "applicableCI": [
+    {
+      "id": 43120728784,
+      "name": "Validate Shiny pilots",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "9649fe6d0cbc3f11db456e758f05cf2634ede5ed",
+      "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/43120728784"
+    }
+  ],
+  "technicalReceipt": "Authenticated helper ref-update response could not be parsed. Fresh main confirmed the commit actually published; allfiveblobSHAs andparentverified. No duplicate publication orsourcefailure recorded.",
+  "disposition": "Deferred and incomplete after permittedrevisit; formalIBA thesis-entryconditions unresolved. Noacademic/presentationapproval orno-match.",
+  "nextAction": "CP053 remains deferred and incomplete after its one permitted revisit. Resume cp-000055 permitted revisit next execution. Preserve unresolved IBA formal-thesis-entry reconciliation and verified allocation/research for authorised post-audit review; no approval or no-match."
+}
