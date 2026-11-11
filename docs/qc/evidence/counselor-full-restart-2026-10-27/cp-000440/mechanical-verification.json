@@ -1,0 +1,599 @@
+{
+  "caseId": "cp-000440",
+  "checkedAt": "2026-11-11T19:10:23.831559+00:00",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000440.json": "a7296194cfa7ef26c63f548a52962670dfaf91e9",
+    "data/counselor/comparisons/cp-000440.json": "87c5d1911cd40bda31a5acf64d6f4c22213044a5",
+    "data/registry/programme_interests.csv": "f9e4078fe8e5f27296a3159b9052b7cf0a167577",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "7ed57bcd5a6996c26ea45930ef506631bea541dd",
+    "data/counselor/review-interests.json": "136bf94b4a9d9385db844ef9ded54835792d2d84",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+    "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+    "pilot/shiny/data/courses/BEN.json": "71fb5c570a7c42c35473d8a0483dcc17ec16a665",
+    "pilot/shiny/data/courses/ENS.json": "b323d5993ab47be5389001b547054259cbfdbfa2",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/HCB.json": "8af6675a1408cec96ea570100ee89cff97563288",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000440/source-review.json": "dfa0a6dce33f61465688197fd0ab13f4e45e3804",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000440/interest-review.json": "46b4a6928c0135f7424dace00ce4008b4d52dd50",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000440/course-content-review.json": "5d987b59df2e4303ac5b9aef574b1d7fbed0d505",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000440/content-review.json": "c140b4a5affe456ad41520e9b1bcb9108cd6f81c"
+  },
+  "checks": {
+    "logs": {
+      "interests.log": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> validate:registry-interests\n> node scripts/validate-registry-interests.mjs\n\nValid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.\n",
+      "descriptions.log": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.\n",
+      "index.log": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\n",
+      "operational.log": ": final counselor methodology rules OK\ncp-000411.json: final counselor methodology rules OK\ncp-000412.json: final counselor methodology rules OK\ncp-000413.json: final counselor methodology rules OK\ncp-000414.json: final counselor methodology rules OK\ncp-000415.json: final counselor methodology rules OK\ncp-000418.json: final counselor methodology rules OK\ncp-000420.json: final counselor methodology rules OK\ncp-000421.json: final counselor methodology rules OK\ncp-000422.json: final counselor methodology rules OK\ncp-000423.json: final counselor methodology rules OK\ncp-000424.json: final counselor methodology rules OK\ncp-000425.json: final counselor methodology rules OK\ncp-000426.json: final counselor methodology rules OK\ncp-000427.json: final counselor methodology rules OK\ncp-000433.json: final counselor methodology rules OK\ncp-000434.json: final counselor methodology rules OK\ncp-000438.json: final counselor methodology rules OK\ncp-000439.json: final counselor methodology rules OK\ncp-000441.json: final counselor methodology rules OK\ncp-000442.json: final counselor methodology rules OK\ncp-000443.json: final counselor methodology rules OK\ncp-000444.json: final counselor methodology rules OK\ncp-000445.json: final counselor methodology rules OK\ncp-000446.json: final counselor methodology rules OK\ncp-000447.json: final counselor methodology rules OK\ncp-000448.json: final counselor methodology rules OK\ncp-000449.json: final counselor methodology rules OK\ncp-000450.json: final counselor methodology rules OK\ncp-000451.json: final counselor methodology rules OK\ncp-000452.json: final counselor methodology rules OK\ncp-000453.json: final counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\n",
+      "schema.log": "1 canonical records pass full JSON Schema validation.\n",
+      "feasibility.log": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n",
+      "build-index.log": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> build:counselor-review\n> node scripts/build-counselor-review-index.mjs\n\nWrote counselor review indexes: 438 programmes, 21212 interest rows.\n",
+      "candidate-schema.log": "1 canonical records pass full JSON Schema validation.\n",
+      "candidate-feasibility.log": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    "candidateSchedules": [
+      {
+        "programme": 1,
+        "courses": 24,
+        "credits": 180,
+        "advanced": 9,
+        "placements": [
+          {
+            "code": "ACCPPDE101",
+            "term": "2026h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENGATE101",
+            "term": "2026h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENENTR111",
+            "term": "2026h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENECON111",
+            "term": "2026h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENGATE102",
+            "term": "2027h1",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENENTR212",
+            "term": "2027h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE101",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENBUSI312",
+            "term": "2027h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE101",
+            "completedEarlier": true
+          },
+          {
+            "code": "DISGATE102",
+            "term": "2027h1",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "DISGATE101",
+            "term": "2027h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENBUSI112",
+            "term": "2027h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "DISDATA111",
+            "term": "2027h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENBUSI211",
+            "term": "2027h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENENTR311",
+            "term": "2028h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE101",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENBUSI311",
+            "term": "2028h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE101",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENLEAD312",
+            "term": "2028h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE102",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENECON311",
+            "term": "2028h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE102",
+            "completedEarlier": true
+          },
+          {
+            "code": "DISARIN211",
+            "term": "2028h2",
+            "offered": true,
+            "formalPrerequisite": "DISGATE101",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENENTR312",
+            "term": "2028h2",
+            "offered": true,
+            "formalPrerequisite": "BENGATE101",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENLEAD311",
+            "term": "2028h2",
+            "offered": true,
+            "formalPrerequisite": "BENGATE102",
+            "completedEarlier": true
+          },
+          {
+            "code": "DISDATA211",
+            "term": "2028h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENECON212",
+            "term": "2029h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE102",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENENTR211",
+            "term": "2029h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE102",
+            "completedEarlier": true
+          },
+          {
+            "code": "DISARIN311",
+            "term": "2029h1",
+            "offered": true,
+            "formalPrerequisite": "DISGATE101",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENECON312",
+            "term": "2029h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE102",
+            "completedEarlier": true
+          }
+        ]
+      },
+      {
+        "programme": 2,
+        "courses": 24,
+        "credits": 180,
+        "advanced": 8,
+        "placements": [
+          {
+            "code": "ACCPPDE101",
+            "term": "2026h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENECON111",
+            "term": "2026h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENGATE101",
+            "term": "2026h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENBUSI112",
+            "term": "2026h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENGATE102",
+            "term": "2027h1",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "DISGATE102",
+            "term": "2027h1",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "DISDATA111",
+            "term": "2027h1",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "GOSSOCI212",
+            "term": "2027h1",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "MCCCOMM311",
+            "term": "2027h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENLEAD311",
+            "term": "2027h2",
+            "offered": true,
+            "formalPrerequisite": "BENGATE102",
+            "completedEarlier": true
+          },
+          {
+            "code": "DISDATA211",
+            "term": "2027h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "DISGATE101",
+            "term": "2027h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENECON212",
+            "term": "2028h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE102",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENENTR211",
+            "term": "2028h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE102",
+            "completedEarlier": true
+          },
+          {
+            "code": "HCBPSYC111",
+            "term": "2028h1",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENLEAD312",
+            "term": "2028h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE102",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENBUSI211",
+            "term": "2028h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENENTR312",
+            "term": "2028h2",
+            "offered": true,
+            "formalPrerequisite": "BENGATE101",
+            "completedEarlier": true
+          },
+          {
+            "code": "DISMATH314",
+            "term": "2028h2",
+            "offered": true,
+            "formalPrerequisite": "DISGATE102",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENECON314",
+            "term": "2028h2",
+            "offered": true,
+            "formalPrerequisite": "BENGATE102",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENENTR111",
+            "term": "2029h1",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENECON312",
+            "term": "2029h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE102",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENENTR311",
+            "term": "2029h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE101",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENENTR212",
+            "term": "2029h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE101",
+            "completedEarlier": true
+          }
+        ]
+      },
+      {
+        "programme": 3,
+        "courses": 24,
+        "credits": 180,
+        "advanced": 8,
+        "placements": [
+          {
+            "code": "BENGATE101",
+            "term": "2026h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENECON111",
+            "term": "2026h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENBUSI112",
+            "term": "2026h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENENTR111",
+            "term": "2026h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "ACCPPDE101",
+            "term": "2027h1",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENGATE102",
+            "term": "2027h1",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "GOSSOCI212",
+            "term": "2027h1",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "GOSSOCI215",
+            "term": "2027h1",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "ENSGATE101",
+            "term": "2027h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "ENSSUST112",
+            "term": "2027h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENECON211",
+            "term": "2027h2",
+            "offered": true,
+            "formalPrerequisite": "BENGATE102",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENBUSI211",
+            "term": "2027h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENENTR211",
+            "term": "2028h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE102",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENECON311",
+            "term": "2028h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE102",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENBUSI311",
+            "term": "2028h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE101",
+            "completedEarlier": true
+          },
+          {
+            "code": "DISDATA111",
+            "term": "2028h1",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENENTR312",
+            "term": "2028h2",
+            "offered": true,
+            "formalPrerequisite": "BENGATE101",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENLEAD311",
+            "term": "2028h2",
+            "offered": true,
+            "formalPrerequisite": "BENGATE102",
+            "completedEarlier": true
+          },
+          {
+            "code": "ENSSUST111",
+            "term": "2028h2",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENECON314",
+            "term": "2028h2",
+            "offered": true,
+            "formalPrerequisite": "BENGATE102",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENENTR311",
+            "term": "2029h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE101",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENBUSI312",
+            "term": "2029h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE101",
+            "completedEarlier": true
+          },
+          {
+            "code": "BENLEAD211",
+            "term": "2029h1",
+            "offered": true,
+            "formalPrerequisite": "BENGATE102",
+            "completedEarlier": true
+          },
+          {
+            "code": "ENSDELT312",
+            "term": "2029h1",
+            "offered": true,
+            "formalPrerequisite": "NONE",
+            "completedEarlier": true
+          }
+        ]
+      }
+    ],
+    "pairwiseDistinctness": [
+      {
+        "left": 1,
+        "right": 2,
+        "uniqueEach": 5,
+        "creditsEach": 37.5
+      },
+      {
+        "left": 1,
+        "right": 3,
+        "uniqueEach": 9,
+        "creditsEach": 67.5
+      },
+      {
+        "left": 2,
+        "right": 3,
+        "uniqueEach": 10,
+        "creditsEach": 75.0
+      }
+    ],
+    "replay": "byte-exact",
+    "academicLimit": "Current BBC thesis guide unresolved; mechanical passing does not certify the external pathway."
+  }
+}
