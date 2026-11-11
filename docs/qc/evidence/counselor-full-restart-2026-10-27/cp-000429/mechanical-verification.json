@@ -1,0 +1,41 @@
+{
+  "caseId": "cp-000429",
+  "checkedAt": "2026-11-11T08:15:03.722633+00:00",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000429.json": "cba591aefdf4bfaebcf25cc27cd97469d8bddd8c",
+    "data/counselor/comparisons/cp-000429.json": "acd1ae18d22a897117b3f04ed861d3d3ce83c439",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "079bfbbb048e5c44d3503f4a331d9b6c2edd4913",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "scripts/validate-comprehensive-reaudit.py": "7b9a881c8303cd208acee7a0463b1afc5c6b1a6c",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000429/source-review.json": "fb29790493dd29c8c7ff408caeca054eba5ca264",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000429/interest-review.json": "d9c8077af66ded9ac79d820cc6a3784b288a77cf",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000429/course-comparability-review.json": "715959c102e93a3e2567e15b1c01ab2c4d732c54",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000429/trial-schedules.json": "5daaca91fcb438fda6e6c9c98e4e1672e798692f",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000429/content-review.json": "60beb3fc234fad039c1fc49bf55cd4fcc2810912"
+  },
+  "checks": {
+    "feasibility": "Active exception and separately all three complete trial schedules pass python scripts/validate-course-feasibility.py. The active exception has no invented UCR schedule.",
+    "schema": "Full canonical JSON schema passed.",
+    "replay": "Temporary decision replay matches canonical bytes exactly.",
+    "operational": "npm run validate:counselor passed all 438 records.",
+    "indexes": "npm run validate:counselor-review passed.",
+    "registry": "npm run validate:registry-interests passed.",
+    "descriptions": "146 declared cache provenance entries validate. No descriptions selected for display.",
+    "scope": "Only own decision/canonical/case/evidence/register delta; workbook, app, other worker and history preserved."
+  }
+}
