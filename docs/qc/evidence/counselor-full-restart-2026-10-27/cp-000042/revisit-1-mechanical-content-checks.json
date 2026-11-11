@@ -1,0 +1,188 @@
+{
+  "caseId": "cp-000042",
+  "reviewedInputCommit": "e047da9ca7fd974eafde2a17e736c0214564dad2",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000042.json": "9bab6e0f4e697ab785c23e9c32e12032a112ee47",
+    "data/counselor/comparisons/cp-000042.json": "197e4cf5d65f1d48f08a1812a8b42555b483e958",
+    "data/registry/programme_interests.csv": "f9e4078fe8e5f27296a3159b9052b7cf0a167577",
+    "data/counselor/review-programmes.json": "a3a922e21140397b8a04141558a29f5f551e52ac",
+    "data/counselor/review-interests.json": "136bf94b4a9d9385db844ef9ded54835792d2d84",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "scripts/validate-comprehensive-reaudit.py": "7b9a881c8303cd208acee7a0463b1afc5c6b1a6c",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b"
+  },
+  "checks": {
+    "descriptions.log": {
+      "status": "passed",
+      "output": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.\n"
+    },
+    "interests.log": {
+      "status": "passed",
+      "output": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> validate:registry-interests\n> node scripts/validate-registry-interests.mjs\n\nValid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.\n"
+    },
+    "index.log": {
+      "status": "passed",
+      "output": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\n"
+    },
+    "operational.log": {
+      "status": "passed",
+      "output": "selor methodology rules OK\ncp-000406.json: final counselor methodology rules OK\ncp-000407.json: final counselor methodology rules OK\ncp-000409.json: final counselor methodology rules OK\ncp-000411.json: final counselor methodology rules OK\ncp-000412.json: final counselor methodology rules OK\ncp-000413.json: final counselor methodology rules OK\ncp-000414.json: final counselor methodology rules OK\ncp-000415.json: final counselor methodology rules OK\ncp-000418.json: final counselor methodology rules OK\ncp-000420.json: final counselor methodology rules OK\ncp-000421.json: final counselor methodology rules OK\ncp-000422.json: final counselor methodology rules OK\ncp-000423.json: final counselor methodology rules OK\ncp-000424.json: final counselor methodology rules OK\ncp-000425.json: final counselor methodology rules OK\ncp-000426.json: final counselor methodology rules OK\ncp-000427.json: final counselor methodology rules OK\ncp-000433.json: final counselor methodology rules OK\ncp-000434.json: final counselor methodology rules OK\ncp-000438.json: final counselor methodology rules OK\ncp-000439.json: final counselor methodology rules OK\ncp-000440.json: final counselor methodology rules OK\ncp-000441.json: final counselor methodology rules OK\ncp-000442.json: final counselor methodology rules OK\ncp-000443.json: final counselor methodology rules OK\ncp-000444.json: final counselor methodology rules OK\ncp-000445.json: final counselor methodology rules OK\ncp-000446.json: final counselor methodology rules OK\ncp-000447.json: final counselor methodology rules OK\ncp-000448.json: final counselor methodology rules OK\ncp-000449.json: final counselor methodology rules OK\ncp-000450.json: final counselor methodology rules OK\ncp-000451.json: final counselor methodology rules OK\ncp-000452.json: final counselor methodology rules OK\ncp-000453.json: final counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\n"
+    },
+    "schema.log": {
+      "status": "passed",
+      "output": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    "feasibility.log": {
+      "status": "passed",
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    "candidate-schema.log": {
+      "status": "passed",
+      "output": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    "candidate-feasibility.log": {
+      "status": "passed",
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    }
+  },
+  "byteExactReplay": true,
+  "reuse": {
+    "AGENTS.md": {
+      "prior": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+      "current": "76518e7fda03edcf43123dd5ae602aea6059d643",
+      "unchanged": false
+    },
+    "docs/UCR_Pathways_Production_Instructions.md": {
+      "prior": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+      "current": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+      "unchanged": false
+    },
+    "docs/UCR_Pathways_Master_Specification.md": {
+      "prior": "36bb398d7e28f6674970178004a5b52191e3b786",
+      "current": "389fab2e00428e4abda971792f4bd7b3066e858d",
+      "unchanged": false
+    },
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": {
+      "prior": "8ee1e67fc9e67326531efb2cf4bf277df32f7e25",
+      "current": "615e34730b27754ae01b20524bb412e6b31f576b",
+      "unchanged": false
+    },
+    "data/reference/README.md": {
+      "prior": "9284392052033e99503f441a75f7acbaaf66fba1",
+      "current": "9284392052033e99503f441a75f7acbaaf66fba1",
+      "unchanged": true
+    },
+    "data/reference/ucr_courses_enriched.xlsx": {
+      "prior": "22783315e6d5510522d16a72281859dd62a05294",
+      "current": "22783315e6d5510522d16a72281859dd62a05294",
+      "unchanged": true
+    },
+    "data/counselor/decisions/cp-000042.json": {
+      "prior": "77904df2308bb5cdf1291d514eb8cac21bc6fda9",
+      "current": "9bab6e0f4e697ab785c23e9c32e12032a112ee47",
+      "unchanged": false
+    },
+    "data/counselor/comparisons/cp-000042.json": {
+      "prior": "cb0eaae62518f7a3dac4d7a9913ab3cd9a036812",
+      "current": "197e4cf5d65f1d48f08a1812a8b42555b483e958",
+      "unchanged": false
+    },
+    "data/registry/programme_interests.csv": {
+      "prior": "f9f9b9e0bdfb166decab46b1e3ea57832964c269",
+      "current": "f9e4078fe8e5f27296a3159b9052b7cf0a167577",
+      "unchanged": false,
+      "exactTargetRowsUnchanged": true,
+      "count": 41
+    },
+    "data/registry/programmes.csv": {
+      "prior": "28c293650641df37269e0013aa0347c561cb0e08",
+      "current": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+      "unchanged": false
+    },
+    "data/counselor/review-programmes.json": {
+      "prior": "dcea361d1097f19030530da74c825bdeccab62fe",
+      "current": "a3a922e21140397b8a04141558a29f5f551e52ac",
+      "unchanged": false,
+      "exactTargetRowsUnchanged": true
+    },
+    "data/counselor/review-interests.json": {
+      "prior": "48ba4938598dee021a53592b307f973f9d0c3626",
+      "current": "136bf94b4a9d9385db844ef9ded54835792d2d84",
+      "unchanged": false,
+      "exactTargetRowsUnchanged": true
+    },
+    "data/counselor/presentation-overrides.json": {
+      "prior": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+      "current": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+      "unchanged": false
+    },
+    "pilot/shared.R": {
+      "prior": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+      "current": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+      "unchanged": true
+    },
+    "pilot/counselor-shiny/app.R": {
+      "prior": "821be611428fc28490c679783be464455ad00aa1",
+      "current": "821be611428fc28490c679783be464455ad00aa1",
+      "unchanged": true
+    },
+    "pilot/shiny/data/courses/ACC.json": {
+      "prior": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+      "current": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+      "unchanged": true
+    },
+    "pilot/shiny/data/courses/BEN.json": {
+      "prior": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
+      "current": "71fb5c570a7c42c35473d8a0483dcc17ec16a665",
+      "unchanged": false
+    },
+    "pilot/shiny/data/courses/DIS.json": {
+      "prior": "5774e2104a8310aa2925fc2aada2adac0c53bb95",
+      "current": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "unchanged": false
+    },
+    "pilot/shiny/data/courses/ENS.json": {
+      "prior": "da5d9225d6682419998c3cf20837727a5fa39cbf",
+      "current": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "unchanged": false
+    },
+    "pilot/shiny/data/courses/GOS.json": {
+      "prior": "49da38b390637fa113a95b835a4d9bbda854ef83",
+      "current": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+      "unchanged": false
+    }
+  },
+  "retainedEvidenceRefs": [
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000042/source-findings.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000042/interest-review.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000042/course-content-review.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000042/content-review.json"
+  ],
+  "content": {
+    "policy": "record-content-review-2026-10-31",
+    "presentationMode": "partial external-only exception",
+    "reviewedFieldPaths": [
+      "comparator.name",
+      "comparator.institution",
+      "comparator.components[].name/credits",
+      "audience.programmeDescription",
+      "audience.comparisonExplanation",
+      "audience.curriculum",
+      "audience.componentNotes",
+      "comparator.primarySourceUrl",
+      "comparator.additionalSourceUrls"
+    ],
+    "finding": "Read Economics and Business Economics/Radboud title,26supported component labels and weights, renewed2025entrant International Economics and Policy label, thesis-entry limitation and all3selected notes. Audience explains that180ECcreditclosure does not certify formal validity. Approvedchoice24, optional12internship, noncreditlanguage/BSA and required12research remain accurately bounded. No active UCR concept, schedule, alignment, optional research or course-description text selected. Unchanged workbook and exact target interest/index entries support reuse of29course contributions and two provisional programmes; shared caches and governance have changed and were checked within the current policy. The translated English names are the only active pair changes. No no-match inferred. Shared unchanged description reviews retained,146provenance entries pass. No app code/R/browser/modal/screenshot work.",
+    "selectedCourseDescriptionCodes": []
+  }
+}
