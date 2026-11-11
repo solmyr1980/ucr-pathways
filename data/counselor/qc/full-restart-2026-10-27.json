@@ -9916,10 +9916,29 @@
     {
       "id": "cp-000421",
       "state": "in-progress",
-      "stageOutcomes": {},
+      "stageOutcomes": {
+        "1": "reconstruct",
+        "2": "retain",
+        "3": "correct",
+        "4": "correct",
+        "5": "correct",
+        "6": "retain"
+      },
       "sharedIssueIds": [],
       "unresolved": [],
-      "downstreamReassessments": [],
+      "downstreamReassessments": [
+        {
+          "trigger": "Corrected external credit evidence and reconstructed UCR concepts and implementation",
+          "scope": "Reassessed interests, course contributions, all three schedules, alignments, reader-facing wording and source-first verification against the dated route and current workbook.",
+          "stages": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
       "implementationCommits": [],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000421.json"
@@ -26445,7 +26464,7 @@
           "data/registry/programmes.csv": "fb1283d90ce267576a620d7c1fccf368e9122e65",
           "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
         },
-        "nextAction": "Verify the dated external curriculum and progression, then assess UCR comparability and repair the case against the current workbook.",
+        "nextAction": "Verify published CP421 files, byte-exact replay and exact-head CI, then record final disposition.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -27669,21 +27688,12 @@
       },
       "deferredRevisitExecutionsByCase": {},
       "lastCheckpoint": {
-        "caseId": "cp-000420",
-        "executionId": "restart-B-cp420-20261110T225820Z",
-        "state": "approved",
-        "academicDisposition": "comparison",
-        "reviewedInputCommit": "fbc50c36d718d1286ba3dcae001185c9291e3575",
-        "inputBlobs": {
-          "canonical": "4869d043d6009dc64d8547bb5c12f4f6bdc224a0",
-          "decision": "29c99fa25174a25ae0bdf658e3636dbc987ac420"
-        },
-        "verifiedAt": "2026-11-10T23:06:01.548645+00:00",
-        "verificationPolicy": "record-content-review-2026-10-31",
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000420/published-verification.json",
-        "nextAction": "CP420 approved as a verified comparison. Resume cp-000421 next execution.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
+        "caseId": "cp-000421",
+        "executionId": "restart-B-cp421-20261111T000355Z",
+        "state": "in-progress",
+        "reviewedInputCommit": "32dcc4953938f99df7bb2a86784920e36dd8ab90",
+        "nextAction": "Verify published CP421 files, byte-exact replay and exact-head CI, then record final disposition.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000421/mechanical-verification.json"
       },
       "checkpointHistory": [
         {
@@ -35747,6 +35757,14 @@
           "nextAction": "CP420 approved as a verified comparison. Resume cp-000421 next execution.",
           "runtimeModel": "unknown",
           "runtimeReasoningEffort": "unknown"
+        },
+        {
+          "caseId": "cp-000421",
+          "executionId": "restart-B-cp421-20261111T000355Z",
+          "state": "in-progress",
+          "reviewedInputCommit": "32dcc4953938f99df7bb2a86784920e36dd8ab90",
+          "nextAction": "Verify published CP421 files, byte-exact replay and exact-head CI, then record final disposition.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000421/mechanical-verification.json"
         }
       ],
       "sourceRetrievalFailureHistory": [
