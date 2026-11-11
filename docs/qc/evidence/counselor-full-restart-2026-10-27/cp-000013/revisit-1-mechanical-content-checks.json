@@ -1,0 +1,54 @@
+{
+  "caseId": "cp-000013",
+  "checkedAt": "2026-11-11T12:35:12.719885+00:00",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000013.json": "42acd11805f32d6da8e38ce33ecd1c482894ef34",
+    "data/counselor/comparisons/cp-000013.json": "bf5dada0ceedd77e88edc5aae1447d9776d6ef95",
+    "data/registry/programme_interests.csv": "3b655122d439078876d10eb5b50eef179353e8d8",
+    "data/counselor/review-programmes.json": "069ec4a2db5cf3f2825cc57f1da7838cc1a32d79",
+    "data/counselor/review-interests.json": "bd7f0ecb7c2e63465300b965d51398767f00a84f",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "scripts/validate-comprehensive-reaudit.py": "7b9a881c8303cd208acee7a0463b1afc5c6b1a6c",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b"
+  },
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "results": {
+    "feasibility": "Active partial exception passes course-reference feasibility; no active UCR schedule is invented.",
+    "schema": "Full canonical schema passed.",
+    "production": "Counselor production validation passed.",
+    "reviewIndexes": "Current.",
+    "descriptionProvenance": "146 declared shared entries valid; none selected in the active partial exception.",
+    "registry": "Programme-interest validation passed.",
+    "decisionReplay": "Byte-exact.",
+    "auditOperational": "Case/register sync and read-only validation required before/after publication."
+  },
+  "content": {
+    "presentationMode": "external-only partial exception",
+    "reviewedFields": [
+      "comparator.name",
+      "comparator.institution",
+      "comparator.components",
+      "comparator.primarySourceUrl",
+      "comparator.additionalSourceUrls",
+      "audience.programmeDescription",
+      "audience.comparisonExplanation",
+      "audience.curriculum.status",
+      "audience.curriculum.componentIds",
+      "audience.curriculum.limitation"
+    ],
+    "mapping": "Heading uses clean English programme/institution. render_exception and render_audience_context select the partial status and reviewed explanations. Curriculum shows only nine supported common/thesis components totalling 75 EC, explicit 90+15 limitation and official links. No UCR course-description modal or optional-research comparison is selected. Internal provenance/source logs do not supply narrative fallback.",
+    "selectedCourseDescriptionCodes": [],
+    "finding": "Read every selected title, component, explanation, limitation, note and link against the current unresolved state. The existing text does not claim completed 180 EC, approval or an academic no-match. No audience edit is needed."
+  },
+  "reuse": "Workbook blob and active pair are unchanged; retained same-audit 53-course/provisional schedule evidence does not imply full-case approval."
+}
