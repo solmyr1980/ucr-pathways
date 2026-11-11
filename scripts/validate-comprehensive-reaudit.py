@@ -45,6 +45,27 @@ def validate_final_checks(final, case_id, policy, evidence_refs):
         evidence_refs(check.get('evidenceRefs'))
 
 
+def validate_approved_curriculum(record, case_id):
+    """Apply the production exception contract without inventing degree credits."""
+    audience = record.get('audience', {})
+    curriculum = audience.get('curriculum', {})
+    components = record['comparator']['components']
+    if record.get('exception', {}).get('type') == 'registry-exception':
+        require(record.get('recordStatus') == 'exception'
+                and not components
+                and curriculum.get('status') == 'unresolved'
+                and curriculum.get('componentIds') == []
+                and curriculum.get('limitation')
+                and not any(p.get('family') == 'ucr' for p in record.get('programmes', [])),
+                f'{case_id}: registry exception must expose its identity limitation without a fabricated curriculum or UCR programme')
+        return
+    require(curriculum.get('status') == 'complete'
+            and set(curriculum.get('componentIds', [])) == {c['id'] for c in components}
+            and abs(sum(c['credits'] for c in components) - 180) < .001
+            and record.get('exception', {}).get('type') != 'external-programme-unresolved',
+            f'{case_id}: approved curriculum must be complete and verified')
+
+
 def read_json(path):
     return json.loads(path.read_text(encoding='utf-8'))
 
@@ -260,7 +281,7 @@ def validate(root):
             require(audience.get('schemaVersion') == '1.0' and audience.get('programmeDescription') and audience.get('comparisonExplanation'), f'{case_id}: final audience explanations missing')
             curriculum = audience.get('curriculum', {})
             components = academic_record['comparator']['components']
-            require(curriculum.get('status') == 'complete' and set(curriculum.get('componentIds', [])) == {c['id'] for c in components} and abs(sum(c['credits'] for c in components) - 180) < .001 and academic_record.get('exception', {}).get('type') != 'external-programme-unresolved', f'{case_id}: approved curriculum must be complete and verified')
+            validate_approved_curriculum(academic_record, case_id)
             programme_ids = {p['id'] for p in academic_record['programmes'] if p.get('family') == 'ucr'}
             require(set(audience.get('conceptProgrammeIds', [])) == programme_ids, f'{case_id}: final canonical concepts not selected for display')
             final = case['finalReview']
