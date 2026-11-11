@@ -1,0 +1,431 @@
+{
+  "caseId": "cp-000046",
+  "reviewedOn": "2026-11-11T19:45:36.280801+00:00",
+  "reviewedInputCommit": "e3bdaaa15f49ee1477f228c5ac4c6c91567fb4fe",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000046.json": "3cd8c74e4b15354495f71996c3483bc8e770ddbf",
+    "data/counselor/comparisons/cp-000046.json": "7080250f1aa4e857cc5b0659c24afce990036794",
+    "data/registry/programme_interests.csv": "f9e4078fe8e5f27296a3159b9052b7cf0a167577",
+    "data/counselor/review-programmes.json": "7ed57bcd5a6996c26ea45930ef506631bea541dd",
+    "data/counselor/review-interests.json": "136bf94b4a9d9385db844ef9ded54835792d2d84",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "scripts/validate-comprehensive-reaudit.py": "7b9a881c8303cd208acee7a0463b1afc5c6b1a6c",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b"
+  },
+  "checks": {
+    "feasibility": {
+      "status": "passed",
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    "schema": {
+      "status": "passed",
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    "operational": {
+      "status": "passed",
+      "exitCode": 0,
+      "output": "selor methodology rules OK\ncp-000405.json: final counselor methodology rules OK\ncp-000406.json: final counselor methodology rules OK\ncp-000407.json: final counselor methodology rules OK\ncp-000409.json: final counselor methodology rules OK\ncp-000411.json: final counselor methodology rules OK\ncp-000412.json: final counselor methodology rules OK\ncp-000413.json: final counselor methodology rules OK\ncp-000414.json: final counselor methodology rules OK\ncp-000415.json: final counselor methodology rules OK\ncp-000418.json: final counselor methodology rules OK\ncp-000420.json: final counselor methodology rules OK\ncp-000421.json: final counselor methodology rules OK\ncp-000422.json: final counselor methodology rules OK\ncp-000423.json: final counselor methodology rules OK\ncp-000424.json: final counselor methodology rules OK\ncp-000425.json: final counselor methodology rules OK\ncp-000426.json: final counselor methodology rules OK\ncp-000427.json: final counselor methodology rules OK\ncp-000433.json: final counselor methodology rules OK\ncp-000434.json: final counselor methodology rules OK\ncp-000438.json: final counselor methodology rules OK\ncp-000439.json: final counselor methodology rules OK\ncp-000441.json: final counselor methodology rules OK\ncp-000442.json: final counselor methodology rules OK\ncp-000443.json: final counselor methodology rules OK\ncp-000444.json: final counselor methodology rules OK\ncp-000445.json: final counselor methodology rules OK\ncp-000446.json: final counselor methodology rules OK\ncp-000447.json: final counselor methodology rules OK\ncp-000448.json: final counselor methodology rules OK\ncp-000449.json: final counselor methodology rules OK\ncp-000450.json: final counselor methodology rules OK\ncp-000451.json: final counselor methodology rules OK\ncp-000452.json: final counselor methodology rules OK\ncp-000453.json: final counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\n"
+    },
+    "review": {
+      "status": "passed",
+      "exitCode": 0,
+      "output": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\n"
+    },
+    "interests": {
+      "status": "passed",
+      "exitCode": 0,
+      "output": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> validate:registry-interests\n> node scripts/validate-registry-interests.mjs\n\nValid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.\n"
+    },
+    "descriptions": {
+      "status": "passed",
+      "exitCode": 0,
+      "output": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.\n"
+    },
+    "replay": {
+      "status": "passed",
+      "exitCode": 0,
+      "output": "Built cp-000046 counselor exception record at /tmp/a046/replay.json\n"
+    }
+  },
+  "byteExactReplay": true,
+  "canonicalSha256": "c243aa311a9cd25f2f4e0552ff2c6b7f970025fffe4457b0bc2b767a821e5f17",
+  "reuse": {
+    "unchangedInputs": [
+      {
+        "path": "data/reference/README.md",
+        "previousBlob": "9284392052033e99503f441a75f7acbaaf66fba1",
+        "currentBlob": "9284392052033e99503f441a75f7acbaaf66fba1"
+      },
+      {
+        "path": "data/reference/ucr_courses_enriched.xlsx",
+        "previousBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "currentBlob": "22783315e6d5510522d16a72281859dd62a05294"
+      },
+      {
+        "path": "data/counselor/decisions/cp-000046.json",
+        "previousBlob": "3cd8c74e4b15354495f71996c3483bc8e770ddbf",
+        "currentBlob": "3cd8c74e4b15354495f71996c3483bc8e770ddbf"
+      },
+      {
+        "path": "data/counselor/comparisons/cp-000046.json",
+        "previousBlob": "7080250f1aa4e857cc5b0659c24afce990036794",
+        "currentBlob": "7080250f1aa4e857cc5b0659c24afce990036794"
+      },
+      {
+        "path": "pilot/shared.R",
+        "previousBlob": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+        "currentBlob": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9"
+      },
+      {
+        "path": "pilot/counselor-shiny/app.R",
+        "previousBlob": "821be611428fc28490c679783be464455ad00aa1",
+        "currentBlob": "821be611428fc28490c679783be464455ad00aa1"
+      },
+      {
+        "path": "pilot/shiny/data/courses/ACC.json",
+        "previousBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+        "currentBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8"
+      }
+    ],
+    "changedInputs": [
+      {
+        "path": "AGENTS.md",
+        "previousBlob": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+        "currentBlob": "76518e7fda03edcf43123dd5ae602aea6059d643"
+      },
+      {
+        "path": "docs/UCR_Pathways_Production_Instructions.md",
+        "previousBlob": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+        "currentBlob": "4e6520ec7850ad7a44947314821975a3f2e2bf7c"
+      },
+      {
+        "path": "docs/UCR_Pathways_Master_Specification.md",
+        "previousBlob": "36bb398d7e28f6674970178004a5b52191e3b786",
+        "currentBlob": "389fab2e00428e4abda971792f4bd7b3066e858d"
+      },
+      {
+        "path": "docs/qc/counselor-comprehensive-reaudit-protocol.md",
+        "previousBlob": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+        "currentBlob": "615e34730b27754ae01b20524bb412e6b31f576b"
+      },
+      {
+        "path": "data/registry/programme_interests.csv",
+        "previousBlob": "f9f9b9e0bdfb166decab46b1e3ea57832964c269",
+        "currentBlob": "f9e4078fe8e5f27296a3159b9052b7cf0a167577"
+      },
+      {
+        "path": "data/registry/programmes.csv",
+        "previousBlob": "28c293650641df37269e0013aa0347c561cb0e08",
+        "currentBlob": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245"
+      },
+      {
+        "path": "data/counselor/review-programmes.json",
+        "previousBlob": "4715a5b5befbcd711da4711ee58e4c3ddbe5dc0e",
+        "currentBlob": "7ed57bcd5a6996c26ea45930ef506631bea541dd"
+      },
+      {
+        "path": "data/counselor/review-interests.json",
+        "previousBlob": "48ba4938598dee021a53592b307f973f9d0c3626",
+        "currentBlob": "136bf94b4a9d9385db844ef9ded54835792d2d84"
+      },
+      {
+        "path": "data/counselor/presentation-overrides.json",
+        "previousBlob": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+        "currentBlob": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2"
+      },
+      {
+        "path": "pilot/shiny/data/courses/DIS.json",
+        "previousBlob": "5774e2104a8310aa2925fc2aada2adac0c53bb95",
+        "currentBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+      },
+      {
+        "path": "pilot/shiny/data/courses/ENS.json",
+        "previousBlob": "da5d9225d6682419998c3cf20837727a5fa39cbf",
+        "currentBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+      },
+      {
+        "path": "pilot/shiny/data/courses/GOS.json",
+        "previousBlob": "49da38b390637fa113a95b835a4d9bbda854ef83",
+        "currentBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+      },
+      {
+        "path": "pilot/shiny/data/courses/HCB.json",
+        "previousBlob": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad",
+        "currentBlob": "8af6675a1408cec96ea570100ee89cff97563288"
+      },
+      {
+        "path": "pilot/shiny/data/courses/MCC.json",
+        "previousBlob": "40abb17fa504a1be3569ce40017b0ac88db24cfa",
+        "currentBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+      }
+    ],
+    "scopedChecks": {
+      "data/counselor/review-programmes.json": {
+        "unchanged": true,
+        "entries": 1
+      },
+      "data/counselor/review-interests.json": {
+        "unchanged": true,
+        "entries": 48
+      },
+      "data/registry/programme_interests.csv": {
+        "unchanged": true,
+        "entries": 48
+      },
+      "data/counselor/presentation-overrides.json": {
+        "unchanged": true,
+        "value": {
+          "mode": "caution",
+          "message": "UCR offers programmes in related academic fields, but these may differ substantially from the disciplinary programme shown. Important specialist subjects or forms of training may not be available at UCR."
+        }
+      }
+    },
+    "finding": "Current workbook and active pair are unchanged. All 48 target interests and scoped review-index/override entries are unchanged. Global file changes belong to other cases. Shared description validation passes; no description is selected for display in this partial external-only record. Preserve the actual 14 UCR lead contribution reviews, including description-only evidence, without inferring a no-match. Current governing documents supersede older operational instructions; no historical approval is inherited."
+  },
+  "retainedEvidence": [
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000046/academic-content-review.json",
+      "sha256": "347b120ba4b3215447b3b3097dbedb3b49290af26c813d5e9a8627bb0fbb9d34"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000046/mechanical-validation.json",
+      "sha256": "a54a2d52aff9de9ce20ff3ddcc36579e864e17475782992fd1288024edde697f"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000046/source-first-checkpoint.json",
+      "sha256": "7122c3d87c4cc37409332ad1de6d41b6a1cae28d1d431cb8fcfaa5eace5574d1"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000046/retry2-reuse-verification.json",
+      "sha256": "8acdae3f8fb798326550a70b28f93679c37bb71b92b3f0b8a89839df3e589e81"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000046/retry2-source-first-final-pass.json",
+      "sha256": "35c42251086f07bbd4eb14b62485e4db5e596eee7aecabe321030523f60c4cd5"
+    }
+  ],
+  "content": {
+    "policy": "record-content-review-2026-10-31",
+    "presentationMode": "partial external-only exception",
+    "fieldToRenderer": [
+      "pilot/shared.R EnglishFrenchLanguageandCulture/currentinstitutionmetadata.",
+      "pilot/counselor-shiny/app.R render_audience_context/exception/curriculum_view selectsprogrammeDescription,comparisonExplanation,23partialcomponentIDs165EC,route/year/limitationandcomponentNotes.",
+      "NoactiveUCRprogrammes,blocks,coursemodalsordescriptionfallbacks; nooptionalresearchcounterpart. Sourcehrefs7retrieved200;internalresearch/sourceNotes/hashnotdisplayed.",
+      "Everyselectedexternaltitle/note/readerexplanationreadincontext. NoR/Shiny/browser/screenshots/live-modals/appchanges."
+    ],
+    "reviewedFieldPaths": [
+      "comparator.name",
+      "comparator.institution",
+      "comparator.components[].name/credits/note",
+      "comparator.primarySourceUrl",
+      "comparator.additionalSourceUrls",
+      "audience.programmeDescription",
+      "audience.comparisonExplanation",
+      "audience.conceptProgrammeIds",
+      "audience.noteTypes",
+      "audience.curriculum",
+      "audience.componentNotes"
+    ],
+    "fieldsRead": {
+      "schemaVersion": "1.0",
+      "programmeDescription": "Study French language, literature and culture, including linguistics, French-speaking societies and the history of France. The degree develops advanced spoken and written French and academic research skills.",
+      "comparisonExplanation": "The published requirements do not yet establish a complete curriculum for a reliable programme comparison. The supported components are shown below; UCR alternatives are withheld.",
+      "conceptProgrammeIds": [],
+      "noteTypes": [],
+      "curriculum": {
+        "status": "partial",
+        "componentIds": [
+          "y1-fr1",
+          "y1-fr2",
+          "y1-culture-philosophy",
+          "y1-text",
+          "y1-france-21",
+          "y1-multilingual",
+          "y1-fr3",
+          "y1-memory",
+          "y1-academic-writing",
+          "y1-acquisition",
+          "y1-fr4",
+          "y1-identity",
+          "y2-translate",
+          "y2-professional",
+          "y2-french-senses",
+          "y2-arts-minor-one",
+          "y2-arts-minor-two",
+          "y3-free",
+          "y3-professional-world",
+          "y3-internship",
+          "y3-restricted-seminar",
+          "y3-restricted-translation",
+          "y3-thesis"
+        ],
+        "yearLabel": "2026–2027",
+        "routeLabel": "French specialisation: supported components only",
+        "limitation": "The degree is 180 EC. This list accounts for 165 distinct EC because three courses appear in both the first- and second-year requirements. Clarification is needed about the remaining 15 EC. This is a partial list, not a complete degree pathway."
+      },
+      "componentNotes": {
+        "y1-memory": "Required first-year course, counted once here. Its repeated listing in year two does not establish additional distinct credit.",
+        "y1-acquisition": "Required first-year course, counted once here. Its repeated listing in year two does not establish additional distinct credit.",
+        "y1-identity": "Required first-year course, counted once here. Its repeated listing in year two does not establish additional distinct credit.",
+        "y2-arts-minor-one": "One fixed 15-EC Faculty of Arts minor package. Two packages total 30 EC; courses cannot be freely mixed between packages.",
+        "y2-arts-minor-two": "One fixed 15-EC Faculty of Arts minor package. Two packages total 30 EC; courses cannot be freely mixed between packages.",
+        "y3-free": "30 EC of bachelor-level courses outside the French specialisation. Courses taken abroad require advance approval.",
+        "y3-internship": "Required 5-EC internship.",
+        "y3-restricted-seminar": "This example pairs Research Seminar with Translation in an Administrative Context. Alternatively, EU Law and French–Dutch Legal Translation must be chosen together. Each pair totals 10 EC.",
+        "y3-restricted-translation": "Taken together with Research Seminar as a 10-EC pair.",
+        "y3-thesis": "This example shows the 10-EC Cultural Studies thesis. French Literature and French Linguistics theses are also available."
+      }
+    },
+    "componentsRead": [
+      {
+        "id": "y1-fr1",
+        "name": "Français 1 (B1/B2)",
+        "credits": 5
+      },
+      {
+        "id": "y1-fr2",
+        "name": "Français 2 (B2)",
+        "credits": 5
+      },
+      {
+        "id": "y1-culture-philosophy",
+        "name": "Philosophy of Culture",
+        "credits": 5
+      },
+      {
+        "id": "y1-text",
+        "name": "Text Analysis",
+        "credits": 5
+      },
+      {
+        "id": "y1-france-21",
+        "name": "France in the 21st Century",
+        "credits": 5
+      },
+      {
+        "id": "y1-multilingual",
+        "name": "The Multilingual Brain",
+        "credits": 5
+      },
+      {
+        "id": "y1-fr3",
+        "name": "Français 3 (B2+)",
+        "credits": 5
+      },
+      {
+        "id": "y1-memory",
+        "name": "Lieux de mémoire (Places of Memory)",
+        "credits": 5,
+        "note": "LET-RTCBF222; counted once, in B1. Repeated B2 row cannot supply additional distinct credit."
+      },
+      {
+        "id": "y1-academic-writing",
+        "name": "Academic Writing",
+        "credits": 5
+      },
+      {
+        "id": "y1-acquisition",
+        "name": "Acquisition et apprentissage (Language Acquisition and Learning)",
+        "credits": 5,
+        "note": "LET-RTCBF209; counted once, in B1. Repeated B2 row cannot supply additional distinct credit."
+      },
+      {
+        "id": "y1-fr4",
+        "name": "Français 4 (C1)",
+        "credits": 5
+      },
+      {
+        "id": "y1-identity",
+        "name": "Quêtes identitaires dans la culture populaire (Identity in Popular Culture)",
+        "credits": 5,
+        "note": "LET-RTCBF120; counted once, in B1. Repeated B2 row cannot supply additional distinct credit."
+      },
+      {
+        "id": "y2-translate",
+        "name": "French–Dutch Translation and Creative Writing",
+        "credits": 5
+      },
+      {
+        "id": "y2-professional",
+        "name": "Developing a Professional Project",
+        "credits": 5
+      },
+      {
+        "id": "y2-french-senses",
+        "name": "French in All Its Senses",
+        "credits": 5
+      },
+      {
+        "id": "y2-arts-minor-one",
+        "name": "Faculty of Arts minor choice 1",
+        "credits": 15,
+        "note": "Restricted 15-EC Faculty of Arts minor package under the 2026-entry rules; two packages total 30 EC. Do not freely mix courses between packages or treat optional French-related examples as required."
+      },
+      {
+        "id": "y2-arts-minor-two",
+        "name": "Faculty of Arts minor choice 2",
+        "credits": 15,
+        "note": "Restricted 15-EC Faculty of Arts minor package under the 2026-entry rules; two packages total 30 EC. Do not freely mix courses between packages or treat optional French-related examples as required."
+      },
+      {
+        "id": "y3-free",
+        "name": "Free elective space",
+        "credits": 30,
+        "note": "30 EC bachelor-level broadening outside the French specialisation; foreign courses require advance approval. Not all components of a prospective semester abroad are separately compulsory major credits."
+      },
+      {
+        "id": "y3-professional-world",
+        "name": "Exploring the Professional World",
+        "credits": 5
+      },
+      {
+        "id": "y3-internship",
+        "name": "Internship",
+        "credits": 5,
+        "note": "Required LET-RTCBF-STAGE; not an extra 15-EC compulsory foreign-university block."
+      },
+      {
+        "id": "y3-restricted-seminar",
+        "name": "Research Seminar",
+        "credits": 5,
+        "note": "Restricted paired choice: LET-RTCBF216-A must be taken with LET-RTCBF218. Alternatively choose the paired 5-EC EU Law and 5-EC French–Dutch Legal Translation courses together. First-listed pair instantiated independently of UCR fit."
+      },
+      {
+        "id": "y3-restricted-translation",
+        "name": "Translation in an Administrative Context",
+        "credits": 5,
+        "note": "LET-RTCBF218; inseparable partner of the selected Research Seminar. The alternative legal pair is not an extra required 10 EC."
+      },
+      {
+        "id": "y3-thesis",
+        "name": "Bachelor Thesis: French Cultural Studies",
+        "credits": 10,
+        "note": "10 EC; first-listed LET-RTCBF304C selected independently of UCR fit. Alternatives are French Literature or French Linguistics thesis, each 10 EC."
+      }
+    ],
+    "sourceLinksRead": [
+      "https://www.ru.nl/ru-bestanden/oerbrtc2627",
+      "https://www.ru.nl/opleidingen/bachelors/franse-taal-en-cultuur",
+      "https://www.ru.nl/opleidingen/bachelors/franse-taal-en-cultuur/studieprogramma",
+      "https://www.ru.nl/opleidingen/bachelors/franse-taal-en-cultuur/na-je-studie",
+      "https://www.ru.nl/ru-bestanden/oeralgemeenbachelor2627",
+      "https://www.ru.nl/studenten/onderwijs-volgen/regels-en-richtlijnen/onderwijs-en-examenregelingen/letteren",
+      "https://www.ru.nl/sites/default/files/2025-07/rtc-25-26.pdf"
+    ],
+    "finding": "Read every selected title, all23 component labels and weights, all10 notes, programme description, explanation, route/year/status/limitation and source hrefs in the established renderer context. The165-of180 limitation and withholding of UCR alternatives remain clear. Restricted15-EC minor packages, free30 outsideFrench, internship5, inseparable10-EC pair and alternative10-EC thesis fields remain accurately bounded. Source links preserve prior verified target identities; five controlling/current source documents were retrieved in this revisit, and unchanged prior programme/career/archived research is reused explicitly. No active UCR concepts, schedules, alignments, optional-research counterpart or selected course-description/modal text. All48 interests and14 course-contribution reviews are retained under scoped unchanged-input checks; description-only courses remain fully considered. Shared146-description validation passes. No app code, Excel, R/browser installation, live modal or screenshot work.",
+    "selectedCourseDescriptionCodes": []
+  }
+}
