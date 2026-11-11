@@ -152,7 +152,9 @@
       ]
     }
   ],
-  "implementationCommits": [],
+  "implementationCommits": [
+    "2e520c716f93be1c8364d09ad6c963a8278ce9f5"
+  ],
   "finalReview": null,
   "presentationApproval": false,
   "evidenceSources": [
@@ -297,5 +299,14 @@
     "runtimeModel": "unknown",
     "runtimeReasoningEffort": "unknown"
   },
-  "nextAction": "Verify published CP434 files, byte-exact replay and exact-head CI, then record final disposition."
+  "nextAction": "Verify published CP434 files, byte-exact replay and exact-head CI, then record final disposition.",
+  "repairHistory": [
+    {
+      "commit": "2e520c716f93be1c8364d09ad6c963a8278ce9f5",
+      "verification": "All12uploaded blobs matched. Post-publication operational validation exposed the stale assessedInterests row20535 label after the normalized registry correction. No approval was granted. The same case is repaired; no systemic issue or source failure is inferred.",
+      "failingInput": "data/counselor/comparisons/cp-000434.json#alternativeSelection/interestSelection/assessedInterests/20535",
+      "remedy": "Regenerated the canonical record against the current normalized interest registry, then reran complete validation and byte-exact replay. Only the stale assessed studentInterest string changed; academic source findings, decision, schedules and alignment remain unchanged.",
+      "ci": "https://github.com/solmyr1980/ucr-pathways/actions/runs/43027671809"
+    }
+  ]
 }
