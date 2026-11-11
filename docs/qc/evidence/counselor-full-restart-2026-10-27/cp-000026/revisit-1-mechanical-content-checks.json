@@ -1,0 +1,90 @@
+{
+  "caseId": "cp-000026",
+  "checkedAt": "2026-11-11T14:29:41.206701+00:00",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000026.json": "34b71eb1e409fbaca1df974b3d2b319095a95276",
+    "data/counselor/comparisons/cp-000026.json": "79e591d64fbadeeb3cefdc08f71fb130d217db48",
+    "data/registry/programme_interests.csv": "f9e4078fe8e5f27296a3159b9052b7cf0a167577",
+    "data/counselor/review-programmes.json": "ae838f17e69dfaa41762b3450265c0a0d418f6e2",
+    "data/counselor/review-interests.json": "136bf94b4a9d9385db844ef9ded54835792d2d84",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "scripts/validate-comprehensive-reaudit.py": "7b9a881c8303cd208acee7a0463b1afc5c6b1a6c",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b"
+  },
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "results": {
+    "feasibility": "Active partial exception and retained3provisional schedules pass shared course-reference validator.",
+    "schema": "Full canonical schema passed.",
+    "production": "Passed operational counselor validation.",
+    "indexes": "Current.",
+    "descriptionProvenance": "146shared entries valid; none selected in active exception.",
+    "registry": "Passed;87exact-target rows unchanged.",
+    "replay": "Byte-exact.",
+    "audit": "Case/register sync and read-only validation before/after publication."
+  },
+  "content": {
+    "audience": {
+      "schemaVersion": "1.0",
+      "programmeDescription": "Erasmus University College offers a Liberal Arts and Sciences degree with an academic core, a declared major, research and elective study across humanities, social sciences, life sciences and economics. Its Sustainability major connects environmental, social, economic and historical inquiry.",
+      "comparisonExplanation": "A complete UCR comparison is withheld while the published cohort requirements remain inconsistent. The UCR study possibilities have been preserved for reassessment; this is not a judgment that UCR offers no suitable programme.",
+      "curriculum": {
+        "status": "partial",
+        "componentIds": [
+          "euc-acc104",
+          "euc-acc105",
+          "euc-acc106",
+          "euc-acc107",
+          "euc-acc108",
+          "euc-acc114",
+          "euc-acc112",
+          "euc-acc113",
+          "euc-choice",
+          "euc-lsc201",
+          "euc-lsc211",
+          "euc-hum211",
+          "euc-ide201",
+          "euc-ide206",
+          "euc-lsc311",
+          "euc-lsc314",
+          "euc-sbs226",
+          "euc-ecb313",
+          "euc-sbs323",
+          "euc-sbs325",
+          "euc-cap400"
+        ],
+        "yearLabel": "2026-2027",
+        "routeLabel": "Published Sustainability major; 2025 entrant cohort",
+        "limitation": "The identified components account for 175 EC. The 2025 entrant catalogue states a 45-EC core but lists only 40 EC, while the current major applies to that cohort. Official clarification of the remaining 5 EC and the applicable graduation rules is required. This is an incomplete curriculum, not a certified degree plan."
+      },
+      "componentNotes": {
+        "euc-cap400": "Individual 15-EC research thesis related to the major. Entry requires 110 EC including 45 EC of Academic Core; the core-credit discrepancy remains unresolved.",
+        "euc-choice": "60 EC of elective, minor or approved off-campus study. Its allocation between years remains unconfirmed. Choices must meet prerequisites and approval rules."
+      }
+    },
+    "componentCount": 21,
+    "verifiedCredits": 175,
+    "selectedCourseDescriptionCodes": [],
+    "reviewedFieldPaths": [
+      "comparator.name",
+      "comparator.institution",
+      "comparator.components",
+      "comparator.primarySourceUrl",
+      "comparator.additionalSourceUrls",
+      "audience.programmeDescription",
+      "audience.comparisonExplanation",
+      "audience.curriculum",
+      "audience.componentNotes"
+    ],
+    "finding": "All labels/credits, current partial explanations, route/year, limitations, two notes and links read. No stale year-specific choice split, unsupported complete180claim or no-match appears. No audience repair needed; no Shiny/R/browser installation, screenshots, live modal, app/workbook/enrichment change."
+  }
+}
