@@ -1,0 +1,55 @@
+{
+  "caseId": "cp-000440",
+  "checkedAt": "2026-11-11T20:05:04.378749+00:00",
+  "executionId": "restart-B-cp440-retry2-20261111T200119Z",
+  "essentialEvidence": "Obtain the current BBC BSc thesis course guide referenced as mandatory/assumed knowledge by YSS81812, including chair-specific preparatory requirements and how they apply to the selected Business Studies methods/finance choices. Current programme confirms102credits includingallB1 and current module confirmsAssessment1beforethesis11, but accessible search copies of guides are dated2018/2020 and the official guide URLs return404; do not certify current remaining conditions from archived versions.",
+  "retrieval": [
+    {
+      "url": "https://studyhandbook.wur.nl/api/product?type=STUDY&code=BBC&year=2026",
+      "finalUrl": "https://studyhandbook.wur.nl/api/product?type=STUDY&code=BBC&year=2026",
+      "status": 200,
+      "bytes": 62669,
+      "sha256": "ba7ef5bdf3005dba10edaaeebd936e43cdf9e4ce2bedd4583938f0b2bc6bf121"
+    },
+    {
+      "url": "https://www.wur.nl/en/show/course-guide-bsc-thesis-bbc-beb-2022-2023.htm",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.wur.nl/en/chair-groups/business-science/business-economics/education",
+      "finalUrl": "https://www.wur.nl/en/chair-groups/business-science/business-economics/education",
+      "status": 200,
+      "bytes": 220498,
+      "sha256": "76eaf7e129e8d9808007b69191fb38bd4e7d5b09c486d963fccb0b9425311e11"
+    },
+    {
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=YSS81812&year=2026",
+      "finalUrl": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=YSS81812&year=2026",
+      "status": 200,
+      "bytes": 23789,
+      "sha256": "2d1b2e821db9f42d1a3e7c6de2d439c8b8cfd60c771bdceb57cde04c70a1aa4a"
+    },
+    {
+      "url": "https://www.wur.nl/en/chair-groups/business-science/marketing-and-consumer-behaviour/education",
+      "finalUrl": "https://www.wur.nl/en/chair-groups/business-science/marketing-and-consumer-behaviour/education",
+      "status": 200,
+      "bytes": 188890,
+      "sha256": "8b3d5d8113eefc376d64e645edb3b348a539ac45742ef973d1be7c93541965af"
+    }
+  ],
+  "searchQueries": [
+    "site:wur.nl BBC thesis guide2026",
+    "site:wur.nl YSS81812 prerequisites guide",
+    "site:wur.nl BSc thesis Business2025 guide"
+  ],
+  "findings": [
+    "Fresh current2026–2027 BBC programme and YSS81812 module retrieved directly from the handbook. Their substantive data objects are byte-equivalent after JSON parsing to the first attempt; actual thesis/methods clauses were read again rather than treating unchanged hashes as proof.",
+    "The programme requires102 credits of compulsory/restricted study including all60 first-year credits. The selected Business Studies route retains ORL30306 with its recommendation for a BEC/ORL thesis and thesis-topic/coordinator agreement. The guide is still needed to establish the remaining chair-specific preparatory conditions; numerical120 prior study alone is insufficient.",
+    "YSS81812 mandatory and assumed knowledge still explicitly refer to the BBC thesis course guide. Its12 EC consist of Assessment1 and thesis11; successful Assessment precedes thesis writing. Permitted supervising chairs are BEC,BMO,INF,MCB,ORL,FQD. The module describes individual literature/empirical/exploratory research, written report and oral presentation but does not list the missing preparatory courses.",
+    "The official BBC/BEB2022–2023-labelled guide endpoint returns404 again. Targeted official searches locate guides whose internal text dates them2018/2020, including a different BEB codeYSS81312. Search crawl/publication timestamps do not make those current BBC2026 rules. No current equivalent or amendment resolving the target requirements was established.",
+    "Fresh official Business Economics education page supplies a BSc intake procedure and directs protocol/thesis requirements to its Brightspace. Fresh correctly located Marketing and Consumer Behaviour education page likewise directs thesis students to Brightspace. Neither publicly states the necessary BBC2026 preparatory-course conditions. These are reasonable official alternatives, not permission to assume the missing conditions; no university contact or enrolment was attempted.",
+    "All29 reviewed repository inputs match the verified first-attempt inputs, including current workbook, active pair, all62 target interests and index/override entries, prepared candidate, course evidence, renderer and shared descriptions. Preserve the27-position180-EC credit framework,14generator-owner decisions,36 course/description reviews, three feasible provisional schedules and partial alignment/distinctness evidence. External formal validity and dependent comparability/final approval remain blocked; no no-match is inferred."
+  ],
+  "officialAlternative": "Current Business Economics and Marketing/Consumer Behaviour education pages refer thesis requirements to Brightspace; neither establishes the required current chair-specific preparation. Current programme/module confirms the known102-credit and Assessment1 conditions only.",
+  "technicalNotes": "Incorrect COURSE API discriminator returned422; corrected immediately to the established MODULE endpoint which returned200. An outdated MCB route returned404; official search located the current business-science route which returned200. Missing optional HTML parser was replaced by built-in text extraction. These local/endpoint corrections do not count as separate source executions or publication failures."
+}
