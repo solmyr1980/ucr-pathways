@@ -1,0 +1,1466 @@
+{
+  "caseId": "cp-000052",
+  "reviewedOn": "2026-11-11T22:34:20.472040+00:00",
+  "reviewedInputCommit": "8bfce71d467d6d1a4d5632679207a10e13d911f1",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000052.json": "49d5896fb9759a163868561ef92c0efc0bafbe3b",
+    "data/counselor/comparisons/cp-000052.json": "39a31c37cd615a40aedd293f378e7b9191138843",
+    "data/registry/programme_interests.csv": "f9e4078fe8e5f27296a3159b9052b7cf0a167577",
+    "data/counselor/review-programmes.json": "4ab1ad6b3288ddc77a0079e501854e05f07ceb52",
+    "data/counselor/review-interests.json": "136bf94b4a9d9385db844ef9ded54835792d2d84",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000052/provisional-ucr-decision.json": "2a3299e7442f179e30c93af43032b70d9286362c",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "71fb5c570a7c42c35473d8a0483dcc17ec16a665",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "pilot/shiny/data/courses/HCB.json": "8af6675a1408cec96ea570100ee89cff97563288",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+    "scripts/validate-comprehensive-reaudit.py": "7b9a881c8303cd208acee7a0463b1afc5c6b1a6c",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d"
+  },
+  "checks": [
+    {
+      "name": "feasibility",
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "data/counselor/comparisons/cp-000052.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "name": "schema",
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "data/counselor/comparisons/cp-000052.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "name": "operational",
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor"
+      ],
+      "exitCode": 0,
+      "output": "dology rules OK\ncp-000422.json: final counselor methodology rules OK\ncp-000423.json: final counselor methodology rules OK\ncp-000424.json: final counselor methodology rules OK\ncp-000425.json: final counselor methodology rules OK\ncp-000426.json: final counselor methodology rules OK\ncp-000427.json: final counselor methodology rules OK\ncp-000433.json: final counselor methodology rules OK\ncp-000434.json: final counselor methodology rules OK\ncp-000438.json: final counselor methodology rules OK\ncp-000439.json: final counselor methodology rules OK\ncp-000442.json: final counselor methodology rules OK\ncp-000443.json: final counselor methodology rules OK\ncp-000444.json: final counselor methodology rules OK\ncp-000445.json: final counselor methodology rules OK\ncp-000446.json: final counselor methodology rules OK\ncp-000447.json: final counselor methodology rules OK\ncp-000448.json: final counselor methodology rules OK\ncp-000449.json: final counselor methodology rules OK\ncp-000450.json: final counselor methodology rules OK\ncp-000451.json: final counselor methodology rules OK\ncp-000452.json: final counselor methodology rules OK\ncp-000453.json: final counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\n"
+    },
+    {
+      "name": "index",
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor-review"
+      ],
+      "exitCode": 0,
+      "output": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\n"
+    },
+    {
+      "name": "interests",
+      "command": [
+        "npm",
+        "run",
+        "validate:registry-interests"
+      ],
+      "exitCode": 0,
+      "output": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n\n> validate:registry-interests\n> node scripts/validate-registry-interests.mjs\n\nValid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.\n"
+    },
+    {
+      "name": "descriptions",
+      "command": [
+        "python",
+        "scripts/validate-course-descriptions.py"
+      ],
+      "exitCode": 0,
+      "output": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.\n"
+    },
+    {
+      "name": "replay",
+      "command": [
+        "node",
+        "scripts/build-counselor-production.mjs",
+        "data/counselor/decisions/cp-000052.json",
+        "--output",
+        "/tmp/a052/replay.json"
+      ],
+      "exitCode": 0,
+      "output": "Built cp-000052 counselor exception record at /tmp/a052/replay.json\n"
+    },
+    {
+      "name": "provisional",
+      "command": [
+        "node",
+        "scripts/build-counselor-production.mjs",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000052/provisional-ucr-decision.json",
+        "--output",
+        "/tmp/a052/provisional.json"
+      ],
+      "exitCode": 0,
+      "output": "Built cp-000052 counselor comparison record at /tmp/a052/provisional.json\n"
+    },
+    {
+      "name": "provisional-schema",
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "/tmp/a052/provisional.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "name": "provisional-feasibility",
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "/tmp/a052/provisional.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    }
+  ],
+  "byteExactReplay": true,
+  "canonicalSha256": "d632c056a94c1ee0393ae9cd0e4614ab5d1187d542d23251bb3b9404976653ed",
+  "reuse": {
+    "unchangedInputs": [
+      {
+        "path": "data/reference/README.md",
+        "previousBlob": "9284392052033e99503f441a75f7acbaaf66fba1",
+        "currentBlob": "9284392052033e99503f441a75f7acbaaf66fba1"
+      },
+      {
+        "path": "data/reference/ucr_courses_enriched.xlsx",
+        "previousBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "currentBlob": "22783315e6d5510522d16a72281859dd62a05294"
+      },
+      {
+        "path": "data/counselor/decisions/cp-000052.json",
+        "previousBlob": "49d5896fb9759a163868561ef92c0efc0bafbe3b",
+        "currentBlob": "49d5896fb9759a163868561ef92c0efc0bafbe3b"
+      },
+      {
+        "path": "data/counselor/comparisons/cp-000052.json",
+        "previousBlob": "39a31c37cd615a40aedd293f378e7b9191138843",
+        "currentBlob": "39a31c37cd615a40aedd293f378e7b9191138843"
+      },
+      {
+        "path": "pilot/shared.R",
+        "previousBlob": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+        "currentBlob": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9"
+      },
+      {
+        "path": "pilot/counselor-shiny/app.R",
+        "previousBlob": "821be611428fc28490c679783be464455ad00aa1",
+        "currentBlob": "821be611428fc28490c679783be464455ad00aa1"
+      },
+      {
+        "path": "pilot/shiny/data/courses/ACC.json",
+        "previousBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+        "currentBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8"
+      }
+    ],
+    "changedInputs": [
+      {
+        "path": "AGENTS.md",
+        "previousBlob": "c0e8cd732cc9706d84b41de52b12a1f21e032a5e",
+        "currentBlob": "76518e7fda03edcf43123dd5ae602aea6059d643"
+      },
+      {
+        "path": "docs/UCR_Pathways_Production_Instructions.md",
+        "previousBlob": "f11e8a059e64ed4546001f318b881d32c0cbc43a",
+        "currentBlob": "4e6520ec7850ad7a44947314821975a3f2e2bf7c"
+      },
+      {
+        "path": "docs/UCR_Pathways_Master_Specification.md",
+        "previousBlob": "36bb398d7e28f6674970178004a5b52191e3b786",
+        "currentBlob": "389fab2e00428e4abda971792f4bd7b3066e858d"
+      },
+      {
+        "path": "docs/qc/counselor-comprehensive-reaudit-protocol.md",
+        "previousBlob": "07c62b859141f99e4608d141f478bbdaa7b86d1c",
+        "currentBlob": "615e34730b27754ae01b20524bb412e6b31f576b"
+      },
+      {
+        "path": "data/registry/programme_interests.csv",
+        "previousBlob": "e8e259c3492ed840d8427cf41f583e9634c08853",
+        "currentBlob": "f9e4078fe8e5f27296a3159b9052b7cf0a167577"
+      },
+      {
+        "path": "data/registry/programmes.csv",
+        "previousBlob": "28c293650641df37269e0013aa0347c561cb0e08",
+        "currentBlob": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245"
+      },
+      {
+        "path": "data/counselor/review-programmes.json",
+        "previousBlob": "75e0db85d602ade4f8f91f4f4552afcd578440d2",
+        "currentBlob": "4ab1ad6b3288ddc77a0079e501854e05f07ceb52"
+      },
+      {
+        "path": "data/counselor/review-interests.json",
+        "previousBlob": "d7341f5bf03dcc667f24e53c3bcd9607e831d9d4",
+        "currentBlob": "136bf94b4a9d9385db844ef9ded54835792d2d84"
+      },
+      {
+        "path": "data/counselor/presentation-overrides.json",
+        "previousBlob": "10e49247bbbc7b8887ff2538655120f844ad2bf7",
+        "currentBlob": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2"
+      },
+      {
+        "path": "pilot/shiny/data/courses/DIS.json",
+        "previousBlob": "5774e2104a8310aa2925fc2aada2adac0c53bb95",
+        "currentBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+      },
+      {
+        "path": "pilot/shiny/data/courses/ENS.json",
+        "previousBlob": "da5d9225d6682419998c3cf20837727a5fa39cbf",
+        "currentBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+      },
+      {
+        "path": "pilot/shiny/data/courses/GOS.json",
+        "previousBlob": "49da38b390637fa113a95b835a4d9bbda854ef83",
+        "currentBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+      },
+      {
+        "path": "pilot/shiny/data/courses/HCB.json",
+        "previousBlob": "901e7a91dfb9c6cc82c21c12920d6b26a01c03ad",
+        "currentBlob": "8af6675a1408cec96ea570100ee89cff97563288"
+      },
+      {
+        "path": "pilot/shiny/data/courses/MCC.json",
+        "previousBlob": "40abb17fa504a1be3569ce40017b0ac88db24cfa",
+        "currentBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+      },
+      {
+        "path": "pilot/shiny/data/courses/BEN.json",
+        "previousBlob": "f89374511e283145ad50e695bcf7ecdfd3a67bd8",
+        "currentBlob": "71fb5c570a7c42c35473d8a0483dcc17ec16a665"
+      }
+    ],
+    "scopedChecks": {
+      "data/counselor/review-programmes.json": {
+        "unchanged": true,
+        "entries": 1
+      },
+      "data/counselor/review-interests.json": {
+        "unchanged": true,
+        "entries": 44
+      },
+      "data/registry/programme_interests.csv": {
+        "unchanged": true,
+        "entries": 44
+      },
+      "data/counselor/presentation-overrides.json": {
+        "unchanged": true,
+        "value": {
+          "mode": "normal"
+        }
+      },
+      "data/registry/programmes.csv": {
+        "unchanged": true,
+        "entries": 1
+      }
+    },
+    "finding": "Current workbook,activepair,44target interests and exact scoped indices/overrides/identity are unchanged. Global course-cache changes require scoped comparison:22prepared descriptions unchanged;2current reviewed descriptions were read against unchanged actual profiles. All24course contributions,schedule and alignment findings remain supported. No old academic approval is inherited.",
+    "scopedSelectedDescriptions": {
+      "unchanged": [
+        {
+          "code": "DISDATA111",
+          "currentText": "Develops foundational skills in data visualization, cleaning and manipulation. Explores spatial and text data and includes hands‑on work with datasets from various disciplines.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "profile",
+            "mode": "edited",
+            "reviewedOn": "2026-11-01",
+            "sourceSha256": "85912cb78bd13d1aa873ef9cca2a8d7e00345543f75d1f07b56d808f1c6702ef",
+            "descriptionSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+            "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+            "courseName": "Introduction to Data Science"
+          },
+          "priorTextSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+          "currentTextSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59"
+        },
+        {
+          "code": "DISGATE101",
+          "currentText": "Introduces programming and computer science. Covers structured programming, data constructs, testing, debugging and object‑oriented programming with Python, and develops computational problem‑solving skills.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "profile",
+            "mode": "edited",
+            "reviewedOn": "2026-11-01",
+            "sourceSha256": "e2014f5db9a4328ff4efaa51f0273169ae1c9427a4ccf85bea5ee463794a80a8",
+            "descriptionSha256": "efe3b89e39a2611d475d27d09b06151a514076321c7453cd31f9cfbbd84248bf",
+            "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+            "courseName": "Introduction to Programming"
+          },
+          "priorTextSha256": "efe3b89e39a2611d475d27d09b06151a514076321c7453cd31f9cfbbd84248bf",
+          "currentTextSha256": "efe3b89e39a2611d475d27d09b06151a514076321c7453cd31f9cfbbd84248bf"
+        },
+        {
+          "code": "ACCPPDE101",
+          "currentText": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "profile",
+            "mode": "edited",
+            "reviewedOn": "2026-11-01",
+            "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+            "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+            "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+            "courseName": "Personal & Professional Development"
+          },
+          "priorTextSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+          "currentTextSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede"
+        },
+        {
+          "code": "DISARIN111",
+          "currentText": "AI Ethics examines artificial intelligence from philosophical and psychological perspectives. Topics include fairness, privacy, responsibility, human-value alignment, moral status and political or existential risks. Students apply ethical frameworks to questions about human behaviour and interaction, synthesise research in an analytical psychology project, and produce a research-based podcast.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "basis": "course outline",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "sourceSha256": "cb43b0c596757e7e4f5f93392738ac9d23f450d75d7dd7698bbb59ee1557333a",
+            "descriptionSha256": "573776c86616fbb9aa39c644ba0abcae2cb7c073febebe3b0203c329264cbeb3",
+            "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+            "courseName": "AI Ethics"
+          },
+          "priorTextSha256": "573776c86616fbb9aa39c644ba0abcae2cb7c073febebe3b0203c329264cbeb3",
+          "currentTextSha256": "573776c86616fbb9aa39c644ba0abcae2cb7c073febebe3b0203c329264cbeb3"
+        },
+        {
+          "code": "DISCOMP212",
+          "currentText": "Introduces relational database management systems and SQL. Covers relational database theory, authorization, normalization and query processing.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "description2",
+            "mode": "verbatim",
+            "reviewedOn": "2026-11-01",
+            "sourceSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d",
+            "descriptionSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d",
+            "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+            "courseName": "Database Management Systems"
+          },
+          "priorTextSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d",
+          "currentTextSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d"
+        },
+        {
+          "code": "DISGATE102",
+          "currentText": "Mathematical Methods develops foundational techniques in differentiation, integration, complex numbers and differential equations. Students solve problems analytically and with Mathematica. A project implements, analyses and adapts a dynamic model, requiring interpretation of its behaviour and computational results.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "basis": "course outline",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "sourceSha256": "6250945baf68c519d3820bddeaa08cb4b3c71273ddbb9bc31a7dffe6d021af5f",
+            "descriptionSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38",
+            "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+            "courseName": "Mathematical Methods"
+          },
+          "priorTextSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38",
+          "currentTextSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38"
+        },
+        {
+          "code": "BENGATE102",
+          "currentText": "Research Methods & Statistics introduces research design, operationalisation, measurement, sampling, surveys and experiments. Students study descriptive statistics, estimation, hypothesis testing and introductory regression using R and R Commander. A group project develops a research plan and instruments, collects and analyses data, and reports findings under research-ethics and privacy requirements.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "basis": "course outline",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "sourceSha256": "9d88751452d5c0a6888ac7901a73d1a848617dee2b587d4df64815fc39ad8813",
+            "descriptionSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+            "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+            "courseName": "Research Methods & Statistics"
+          },
+          "priorTextSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+          "currentTextSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917"
+        },
+        {
+          "code": "DISCOMP211",
+          "currentText": "Introduces computer networks and operating systems. Covers how the internet works and the role of an OS in resource management and application support.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "profile",
+            "mode": "edited",
+            "reviewedOn": "2026-11-01",
+            "sourceSha256": "0df3be0c6e7231c9f7d60a23118e47acce9186e80e974ad039eaed54f0db62c1",
+            "descriptionSha256": "664db0da46ce981d8ad842a2486845292af42f90e564c9eef75b7769f2eba377",
+            "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+            "courseName": "Networks & Operating Systems"
+          },
+          "priorTextSha256": "664db0da46ce981d8ad842a2486845292af42f90e564c9eef75b7769f2eba377",
+          "currentTextSha256": "664db0da46ce981d8ad842a2486845292af42f90e564c9eef75b7769f2eba377"
+        },
+        {
+          "code": "DISCOMP311",
+          "currentText": "Teaches design and analysis of algorithms and data structures, emphasizing performance analysis and focusing on prominent algorithms and data structures.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "profile",
+            "mode": "edited",
+            "reviewedOn": "2026-11-01",
+            "sourceSha256": "e1529227dac6db769531df5ba2f0f9d64fad1017c208c5e2d52a0b38a90a78ec",
+            "descriptionSha256": "c1c2acb267bbdf39a07160bb99a1e66219200cb1139174e9c883c4d23d03eca8",
+            "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+            "courseName": "Algorithms & Data Structures"
+          },
+          "priorTextSha256": "c1c2acb267bbdf39a07160bb99a1e66219200cb1139174e9c883c4d23d03eca8",
+          "currentTextSha256": "c1c2acb267bbdf39a07160bb99a1e66219200cb1139174e9c883c4d23d03eca8"
+        },
+        {
+          "code": "DISDATA212",
+          "currentText": "Image Processing & Computer Vision studies how digital images are represented, processed and interpreted to recognise structures and objects. Topics include colour, image statistics, filtering, segmentation, feature detection, tracking and object classification. Practical work uses Python and OpenCV to develop and benchmark an image-recognition pipeline on previously unseen images.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "basis": "course outline",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "sourceSha256": "67bc3ab96eb177cb9e10d60aa3ceb8dfc61ae6508a196c498124421f7fbba4dd",
+            "descriptionSha256": "2f095c0618ff630b69246b5110663b6517e6627dc322e3d4f0b9e7328279b2b1",
+            "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+            "courseName": "Image Processing & Computer Vision"
+          },
+          "priorTextSha256": "2f095c0618ff630b69246b5110663b6517e6627dc322e3d4f0b9e7328279b2b1",
+          "currentTextSha256": "2f095c0618ff630b69246b5110663b6517e6627dc322e3d4f0b9e7328279b2b1"
+        },
+        {
+          "code": "DISMATH211",
+          "currentText": "Linear Algebra studies systems of equations, matrices, vectors, linear transformations and vector spaces. Students examine eigenvalues, orthogonality, least-squares approximation, quadratic forms and singular value decomposition. Applications include discrete signals, difference equations, Markov chains, dynamical systems, graphics and principal component analysis, with Mathematica supporting analytical problem-solving.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "basis": "course outline",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "sourceSha256": "26ebd64922aa03e17140aa9b6529a98f2428bdf29ab1fa4360f9bd876de4e680",
+            "descriptionSha256": "bd23120a02190d6bcf24aa6c30ce1e454082afae59ba3d81c21d48cfb4194ba4",
+            "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+            "courseName": "Linear Algebra"
+          },
+          "priorTextSha256": "bd23120a02190d6bcf24aa6c30ce1e454082afae59ba3d81c21d48cfb4194ba4",
+          "currentTextSha256": "bd23120a02190d6bcf24aa6c30ce1e454082afae59ba3d81c21d48cfb4194ba4"
+        },
+        {
+          "code": "DISCOMP312",
+          "currentText": "Studies modern algebraic algorithms and optimization methods. Emphasises algorithmic thinking and mathematical modelling of computational problems.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "profile",
+            "courseName": "Advanced Algorithms",
+            "sourceSha256": "0859aef6ed3c8ce9b88ab7dc74dd1d434bab4df3a3b6ff6a8f7bce932e738706",
+            "descriptionSha256": "f85668e861319cc548402736465d8f0e51fd49a18a854ed419770e85ca1eef14",
+            "mode": "edited",
+            "reviewedOn": "2026-11-01",
+            "reviewNote": "CP257: selected course evidence and cached text read in full. Retained concise supported subject/method scope without an invented computing application or project guarantee."
+          },
+          "priorTextSha256": "f85668e861319cc548402736465d8f0e51fd49a18a854ed419770e85ca1eef14",
+          "currentTextSha256": "f85668e861319cc548402736465d8f0e51fd49a18a854ed419770e85ca1eef14"
+        },
+        {
+          "code": "DISMATH213",
+          "currentText": "Introduces numerical methods such as root‑finding, interpolation, numerical differentiation and integration and solving differential equations. Emphasises algorithm accuracy, stability and efficiency and uses computer algebra software.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "profile",
+            "mode": "edited",
+            "reviewedOn": "2026-11-01",
+            "sourceSha256": "5b5170199e3306247d6581a75787d8106a4fea74a894b55a09713e0a81efbf25",
+            "descriptionSha256": "d7841607963f18cc24d325c614b84d1629dd83cf6194ee3b68dfcf1a90eb8a8c",
+            "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+            "courseName": "Computational & Numerical Methods"
+          },
+          "priorTextSha256": "d7841607963f18cc24d325c614b84d1629dd83cf6194ee3b68dfcf1a90eb8a8c",
+          "currentTextSha256": "d7841607963f18cc24d325c614b84d1629dd83cf6194ee3b68dfcf1a90eb8a8c"
+        },
+        {
+          "code": "BENBUSI211",
+          "currentText": "Examines AI's business, economic and societal implications without requiring a technical background. Students study AI's capabilities and limits, applications across business functions and industries, and effects on labour markets, productivity, innovation and inequality. Business cases and scholarly arguments support analysis of governance, regulation and a country's AI readiness and industrial policy.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "basis": "course outline",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "descriptionSha256": "dc99e879e62a02957451c99d0ed08cdbc50fc9e07847d0d251210dfd8a973cb1",
+            "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+            "sourceSha256": "142e38261e07fee05e042a882559c77aa357856539a62060518c508d07aa8411",
+            "courseName": "Business & Economy in the Age of AI"
+          },
+          "priorTextSha256": "dc99e879e62a02957451c99d0ed08cdbc50fc9e07847d0d251210dfd8a973cb1",
+          "currentTextSha256": "dc99e879e62a02957451c99d0ed08cdbc50fc9e07847d0d251210dfd8a973cb1"
+        },
+        {
+          "code": "DISARIN211",
+          "currentText": "Decision-making in AI examines how intelligent agents make decisions under uncertainty. Students study probability, Bayesian networks, temporal models, expected utility, Markov decision processes, partial observability and bandit problems. Multi-agent decisions and probabilistic programming extend the analysis, supported by equations, numerical examples and scientific papers.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "courseName": "Decision-making in AI",
+            "sourceField": "profile",
+            "sourceSha256": "c93b1f92cb7d5624a47e7af933fe9722fcd6b1e5632025ebe7a704fc49ae05c4",
+            "descriptionSha256": "ac8eef243ef31afb7f65eee5f70e1a2216876057006d890b15e5411f9c05e560",
+            "mode": "edited",
+            "reviewedOn": "2026-10-31",
+            "reviewNote": "Read the selected current profile and cumulative outline limitation fields. The displayed summary follows its substantive topics and activities; it omits unsupported resource-planning or mandatory NGO group-project claims from superseded cache wording."
+          },
+          "priorTextSha256": "ac8eef243ef31afb7f65eee5f70e1a2216876057006d890b15e5411f9c05e560",
+          "currentTextSha256": "ac8eef243ef31afb7f65eee5f70e1a2216876057006d890b15e5411f9c05e560"
+        },
+        {
+          "code": "DISDATA211",
+          "currentText": "Machine Learning introduces methods for understanding data and making predictions, including linear regression, classification, resampling, shrinkage, tree-based methods, support vector machines and clustering. Real-world examples illustrate the methods, their strengths and limitations.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "basis": "course outline",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "sourceSha256": "6a112d70695b992eb7664e19ed9656612b364e2c28a116980a602eef2687ace6",
+            "descriptionSha256": "ae7fce189f80fcd62e521b78f43d3119e98a2ee78d29f61127a0f6b61faaf862",
+            "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+            "courseName": "Machine Learning"
+          },
+          "priorTextSha256": "ae7fce189f80fcd62e521b78f43d3119e98a2ee78d29f61127a0f6b61faaf862",
+          "currentTextSha256": "ae7fce189f80fcd62e521b78f43d3119e98a2ee78d29f61127a0f6b61faaf862"
+        },
+        {
+          "code": "DISMATH314",
+          "currentText": "Provides a foundation in mathematical statistics. Covers probability theory, discrete and continuous distributions, sampling, parameter estimation and simulation; uses computer algebra software to develop theoretical understanding and practical skills.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "profile",
+            "mode": "edited",
+            "reviewedOn": "2026-11-01",
+            "sourceSha256": "64d3f72845189f77627b8aa180a9906d4fd60fe3c5306bbf0ebe7666e612852b",
+            "descriptionSha256": "9d3ee2b42fa7fe2c0e62777da64474690e9fac0ca76929d04c6670dab516d10f",
+            "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+            "courseName": "Probability & Statistics"
+          },
+          "priorTextSha256": "9d3ee2b42fa7fe2c0e62777da64474690e9fac0ca76929d04c6670dab516d10f",
+          "currentTextSha256": "9d3ee2b42fa7fe2c0e62777da64474690e9fac0ca76929d04c6670dab516d10f"
+        },
+        {
+          "code": "HCBPSYC211",
+          "currentText": "Develops experimental-design knowledge and practical statistical analysis for health and behavioural research. Students choose, fit, diagnose and interpret multivariable models for group comparisons, categorical outcomes and latent constructs. R, primarily through R Commander, supports practical exercises; data-analysis papers and a poster connect research questions to appropriate models, assumption checks and clear reporting.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "sourceSha256": "bf482d4e283320560451930d2822162ada50a7697ded31de54eb7b021694adbc",
+            "descriptionSha256": "ef41b0b732a8e9502a0d7e14ceef47bb91ca971854bb1a26b6a8ed5e6c9b6111",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+            "courseName": "Statistics & Experimental Methods"
+          },
+          "priorTextSha256": "ef41b0b732a8e9502a0d7e14ceef47bb91ca971854bb1a26b6a8ed5e6c9b6111",
+          "currentTextSha256": "ef41b0b732a8e9502a0d7e14ceef47bb91ca971854bb1a26b6a8ed5e6c9b6111"
+        },
+        {
+          "code": "DISARIN311",
+          "currentText": "Optimization Methods in AI studies search and optimisation for rational agents. Topics include uninformed and heuristic search, local and global optimisation, adversarial search, constraint satisfaction, linear programming and discrete optimisation. Laboratory exercises and projects develop algorithm implementation, evaluation and experimental investigation of small intelligent systems.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "basis": "course outline",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "sourceSha256": "d5a3dfea16ac47ee970bf30fdd60ec4588386e2eac608c5c875069a706dafa4e",
+            "descriptionSha256": "7c40cb1b74b271a8df365cbf7b9bba55b498199996db9ed060335dd81c541a43",
+            "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+            "courseName": "Optimization Methods in AI"
+          },
+          "priorTextSha256": "7c40cb1b74b271a8df365cbf7b9bba55b498199996db9ed060335dd81c541a43",
+          "currentTextSha256": "7c40cb1b74b271a8df365cbf7b9bba55b498199996db9ed060335dd81c541a43"
+        },
+        {
+          "code": "DISARIN312",
+          "currentText": "Explores reinforcement learning. Covers theoretical frameworks and algorithms and requires students to implement algorithms and build agents using neural networks that learn through trial and error.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "description2",
+            "courseName": "Reinforcement Learning",
+            "sourceSha256": "3a9fc4b39d036bd7f6d39c9976254f2a8453f92d975be94b2c4c744546f2f838",
+            "descriptionSha256": "3a9fc4b39d036bd7f6d39c9976254f2a8453f92d975be94b2c4c744546f2f838",
+            "mode": "verbatim",
+            "reviewedOn": "2026-11-01",
+            "reviewNote": "CP257: selected course evidence and cached text read in full. Retained concise supported subject/method scope without an invented computing application or project guarantee."
+          },
+          "priorTextSha256": "3a9fc4b39d036bd7f6d39c9976254f2a8453f92d975be94b2c4c744546f2f838",
+          "currentTextSha256": "3a9fc4b39d036bd7f6d39c9976254f2a8453f92d975be94b2c4c744546f2f838"
+        },
+        {
+          "code": "DISDATA311",
+          "currentText": "Neural Networks & Deep Learning combines theory with practical Python, Keras and TensorFlow implementations. Students build and train networks, study backpropagation, regularisation and model evaluation, and apply deep learning to computer vision, time series and text, including transformers. Projects investigate prediction problems and report experimental results.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "basis": "course outline",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "sourceSha256": "25546292d8643497a8cd9b4bf820608e15e4ae3fdcf04eb764aadcadf460f14f",
+            "descriptionSha256": "ed084f769dcc3b361dcddff3861c96217abcbf5eb57e7859aeb1ad3f949584c7",
+            "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+            "courseName": "Neural Networks & Deep Learning"
+          },
+          "priorTextSha256": "ed084f769dcc3b361dcddff3861c96217abcbf5eb57e7859aeb1ad3f949584c7",
+          "currentTextSha256": "ed084f769dcc3b361dcddff3861c96217abcbf5eb57e7859aeb1ad3f949584c7"
+        },
+        {
+          "code": "DISMATH214",
+          "currentText": "Extends elementary calculus to multiple dimensions and differential equations, including complex‑valued functions. Uses computer algebra software to deepen analytical skills for science and data analysis applications.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "courseName": "Advanced Calculus",
+            "sourceField": "description2",
+            "mode": "verbatim",
+            "sourceSha256": "d882aae14f79763a614fdb3b6bd4735f6d83bbbc4ee4d1bef2eaf5b022062265",
+            "descriptionSha256": "d882aae14f79763a614fdb3b6bd4735f6d83bbbc4ee4d1bef2eaf5b022062265",
+            "reviewedOn": "2026-11-04",
+            "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+          },
+          "priorTextSha256": "d882aae14f79763a614fdb3b6bd4735f6d83bbbc4ee4d1bef2eaf5b022062265",
+          "currentTextSha256": "d882aae14f79763a614fdb3b6bd4735f6d83bbbc4ee4d1bef2eaf5b022062265"
+        }
+      ],
+      "changed": [
+        {
+          "code": "DISARIN212",
+          "currentText": "Introduces formal logic, abstract reasoning and proof. Students work with propositions, quantified statements, sets, Boolean algebra, functions and relations, direct and indirect proofs, induction and recursion. A final component models processes and games without chance and investigates winning strategies.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "courseName": "Logic & Discrete Mathematics",
+            "sourceField": "profile",
+            "sourceSha256": "93a52b9fe674b9db0732d6f9451146621be7c59068bdf70219256b67ba3b03c2",
+            "descriptionSha256": "7503057969878a0fa1fccc505095c50f3d6b44d2956afaf35bbad164eb49ed7f",
+            "mode": "edited",
+            "reviewedOn": "2026-11-05",
+            "reviewNote": "Reviewed actual current profile in full; represent formal proof and actual programming/quality-assurance methods, without importing a complete client/deployment engineering sequence."
+          },
+          "priorTextSha256": "8dd0a9f18c414a2e9f92c9a3d1871ac7b1c5b8eecf2f00d4cf112b8b7d059c76",
+          "currentTextSha256": "7503057969878a0fa1fccc505095c50f3d6b44d2956afaf35bbad164eb49ed7f",
+          "currentCourseEvidence": "Introduces formal logic, abstract mathematical reasoning and proof. Students analyze propositions and quantified statements, work with sets, Boolean algebra, functions and relations, and develop direct and indirect proofs. Induction and recursive definitions extend these tools to mathematical structures. The final component systematically models processes and games without chance and investigates the existence and construction of winning strategies."
+        },
+        {
+          "code": "DISCOMP213",
+          "currentText": "Develops software-construction skills in C++ and Haskell, including classes, inheritance, polymorphism, memory management, functions, recursion and types. Laboratories use version control, code review, debugging, testing, documentation and design patterns. Students build and explain programs in both languages.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "courseName": "Software Development",
+            "sourceField": "profile",
+            "sourceSha256": "1b854e8317ed67bde0743278be7341460cc90885a15adb891811bf54d0c3ef8c",
+            "descriptionSha256": "7967bedb773b55d3e88ad04577d2f36592dba405cc598a8702b35857c49d0a09",
+            "mode": "edited",
+            "reviewedOn": "2026-11-05",
+            "reviewNote": "Reviewed actual current profile in full; represent formal proof and actual programming/quality-assurance methods, without importing a complete client/deployment engineering sequence."
+          },
+          "priorTextSha256": "96cb54be46081739699b65e5fc2ba6dcbae6d9fd7f6d888c8c5289234993c32d",
+          "currentTextSha256": "7967bedb773b55d3e88ad04577d2f36592dba405cc598a8702b35857c49d0a09",
+          "currentCourseEvidence": "Develops software-construction skills through C++ and functional programming in Haskell, alongside software design and quality assurance. C++ work addresses classes, inheritance, polymorphism and memory management; Haskell introduces functions, recursion, types and input/output. Laboratories apply version control, code review, debugging, testing, documentation and design patterns. Projects require students to build and explain programs in both languages."
+        }
+      ],
+      "finding": "Twenty-two selected provisional descriptions are unchanged and reused. Two shared descriptions were revised on2026-11-05; read their current text and unchanged actual profiles: Logic/DiscreteMath accurately states formal logic,sets,proofs,induction/recursion and deterministic games; SoftwareDevelopment accurately states C++/Haskell and actual version-control,review,testing/debugging/documentation/design-pattern practice. No complete client/deployment engineering sequence is implied. Existing case-level logic/proof/Haskell relationships remain supported; only prepared text versions changed, no active modal or cache/pair change."
+    }
+  },
+  "retainedEvidence": [
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000052/interest-review.json",
+      "sha256": "021a8430322b7a48a4efb707bbe7bf2c68c5a3112a697164ce638ad888c5d5ac"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000052/course-content-review.json",
+      "sha256": "6dae0c40fb5e66c83d8e6b06416f991869d26f424309e0a32e9d991282b421ca"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000052/alignment-review.json",
+      "sha256": "0b5e628b4d8d201e01377b1eaba63df82c0c794b8f89704007dd7abe0378037e"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000052/content-review.json",
+      "sha256": "d99718222b7912fd5ae7b4e3bb36810378cc60cdb38d2d87587286c5d5ecf430"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000052/selected-description-review.json",
+      "sha256": "b867410a0e580e5e9e1d15bc4e0e0a5f126c0be63659f8b343412b566c0589b2"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000052/provisional-ucr-decision.json",
+      "sha256": "9fdb909d71ba1fb156314e06aa32023f88384919c893681ea580a1b7198aa773"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000052/source-first-checkpoint.json",
+      "sha256": "a7306c21873e564ab80a8d2ca878a5c368aeed03e46588b19cb100d0ff8a6b7f"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000052/retry2/source-first-final-pass.json",
+      "sha256": "3dc18a077633a96ab5f8213da918bd97c5d5c21cf51d36f1a380b33f22470c62"
+    }
+  ],
+  "content": {
+    "verificationPolicy": "record-content-review-2026-10-31",
+    "presentationMode": "partial external-only exception",
+    "fieldToRenderer": [
+      "pilot/shared.R EnglishComputingScience/Radboudmetadata andcoursecachedescriptions",
+      "pilot/counselor-shiny/app.R explicitaudienceprogramme/status/partialIDs/year/route/limitation/componentnotes. NoactiveUCRconcepts/columns/coursemodals/optionalresearch;internalAPIs/provenance notselectedreaderprose."
+    ],
+    "reviewedFieldPaths": [
+      "comparator.name/institution/components[].name/credits",
+      "comparator.primarySourceUrl/additionalSourceUrls",
+      "audience.programmeDescription/comparisonExplanation",
+      "audience.curriculum",
+      "audience.componentNotes",
+      "audience.conceptProgrammeIds/noteTypes",
+      "prepared provisional course-description selections"
+    ],
+    "fieldsRead": {
+      "schemaVersion": "1.0",
+      "programmeDescription": "Computing Science studies how software and computing systems are designed, implemented and analysed. Radboud combines programming, algorithms, mathematical foundations, information systems and security with independent research.",
+      "comparisonExplanation": "The adopted curriculum allocates 180 EC, but entry and participation conditions for three newly compulsory courses remain unverified. Relevant UCR computing, mathematics, data and AI study has been assessed provisionally. A final comparison is withheld until those external conditions can be checked.",
+      "conceptProgrammeIds": [],
+      "noteTypes": [],
+      "curriculum": {
+        "status": "partial",
+        "componentIds": [
+          "y1-ai",
+          "y1-calculus",
+          "y1-comb",
+          "y1-security",
+          "y1-analysis",
+          "y1-imperative",
+          "y1-database",
+          "y1-automata",
+          "y1-logic",
+          "y1-mathstruct",
+          "y1-matrix",
+          "y1-oop",
+          "y1-processors",
+          "y1-requirements",
+          "y1-project",
+          "core-ai-assisted",
+          "core-algorithms",
+          "core-complexity",
+          "core-computability",
+          "core-functional",
+          "core-hacking",
+          "core-hci",
+          "core-retrieval",
+          "core-infosys",
+          "core-society",
+          "core-privacy",
+          "core-networks",
+          "core-os",
+          "core-parallel",
+          "core-reflection",
+          "core-methods",
+          "core-semantics",
+          "core-software",
+          "core-sustainability",
+          "track-crypto",
+          "track-os-security",
+          "track-web-security",
+          "minor",
+          "free",
+          "thesis"
+        ],
+        "yearLabel": "2026–2027",
+        "routeLabel": "Cyber Security track; entry verification pending",
+        "limitation": "The adopted allocation totals 180 EC: 129 EC core, a 12-EC Cyber Security track, a 15-EC minor, 12 EC of open electives and a 12-EC thesis. This is not yet a fully verified pathway. Entry and participation conditions for AI-Assisted Development, Human-Computer Interaction and Information Retrieval remain unverified. The language assessment requires participation, not a passing result; writing skills are integrated into existing credits."
+      },
+      "componentNotes": {
+        "thesis": "Required 12 EC individual research thesis, approved in advance. Entry: at least 120 programme EC including the complete first year. Research Methods is recommended, not an additional hard condition.",
+        "minor": "One approved coherent 15 EC minor. The regulations exclude several overlapping Computing Science minors; a separately composed minor needs examination-board approval.",
+        "free": "12 EC of open, assessable bachelor-level courses with course codes.",
+        "core-ai-assisted": "Required 3 EC in the adopted new-cohort curriculum; applicable entry conditions remain unverified.",
+        "core-hci": "Required 3 EC in the adopted new-cohort curriculum; applicable entry conditions remain unverified.",
+        "core-retrieval": "Required 3 EC in the adopted new-cohort curriculum; applicable entry conditions remain unverified."
+      }
+    },
+    "componentsRead": [
+      {
+        "id": "y1-ai",
+        "name": "Artificial Intelligence",
+        "credits": 3
+      },
+      {
+        "id": "y1-calculus",
+        "name": "Calculus and Probability Theory",
+        "credits": 3
+      },
+      {
+        "id": "y1-comb",
+        "name": "Combinatorics",
+        "credits": 3
+      },
+      {
+        "id": "y1-security",
+        "name": "Computer Security",
+        "credits": 6
+      },
+      {
+        "id": "y1-analysis",
+        "name": "Data Analysis",
+        "credits": 3
+      },
+      {
+        "id": "y1-imperative",
+        "name": "Imperative Programming",
+        "credits": 6
+      },
+      {
+        "id": "y1-database",
+        "name": "Information Modeling and Databases",
+        "credits": 6
+      },
+      {
+        "id": "y1-automata",
+        "name": "Languages and Automata",
+        "credits": 3
+      },
+      {
+        "id": "y1-logic",
+        "name": "Logic and Applications",
+        "credits": 6
+      },
+      {
+        "id": "y1-mathstruct",
+        "name": "Mathematical Structures",
+        "credits": 3
+      },
+      {
+        "id": "y1-matrix",
+        "name": "Matrix Calculation",
+        "credits": 3
+      },
+      {
+        "id": "y1-oop",
+        "name": "Object Oriented Programming",
+        "credits": 6
+      },
+      {
+        "id": "y1-processors",
+        "name": "Processors",
+        "credits": 3
+      },
+      {
+        "id": "y1-requirements",
+        "name": "Requirements Engineering and Design",
+        "credits": 3
+      },
+      {
+        "id": "y1-project",
+        "name": "Research & Development: Project",
+        "credits": 3
+      },
+      {
+        "id": "core-ai-assisted",
+        "name": "AI-Assisted Development",
+        "credits": 3
+      },
+      {
+        "id": "core-algorithms",
+        "name": "Algorithms and Data Structures",
+        "credits": 6
+      },
+      {
+        "id": "core-complexity",
+        "name": "Complexity",
+        "credits": 3
+      },
+      {
+        "id": "core-computability",
+        "name": "Computability",
+        "credits": 3
+      },
+      {
+        "id": "core-functional",
+        "name": "Functional Programming",
+        "credits": 6
+      },
+      {
+        "id": "core-hacking",
+        "name": "Hacking in C",
+        "credits": 3
+      },
+      {
+        "id": "core-hci",
+        "name": "Human-Computer Interaction",
+        "credits": 3
+      },
+      {
+        "id": "core-retrieval",
+        "name": "Information Retrieval",
+        "credits": 3
+      },
+      {
+        "id": "core-infosys",
+        "name": "Information Systems",
+        "credits": 3
+      },
+      {
+        "id": "core-society",
+        "name": "IT and Society",
+        "credits": 3
+      },
+      {
+        "id": "core-privacy",
+        "name": "Law, Privacy and Identity",
+        "credits": 3
+      },
+      {
+        "id": "core-networks",
+        "name": "Networks and Security",
+        "credits": 6
+      },
+      {
+        "id": "core-os",
+        "name": "Operating System Concepts",
+        "credits": 3
+      },
+      {
+        "id": "core-parallel",
+        "name": "Parallel Computing",
+        "credits": 3
+      },
+      {
+        "id": "core-reflection",
+        "name": "Reflection and Vocational Orientation",
+        "credits": 3
+      },
+      {
+        "id": "core-methods",
+        "name": "Research Methods",
+        "credits": 3
+      },
+      {
+        "id": "core-semantics",
+        "name": "Semantics and Correctness",
+        "credits": 3
+      },
+      {
+        "id": "core-software",
+        "name": "Software Engineering",
+        "credits": 6
+      },
+      {
+        "id": "core-sustainability",
+        "name": "Sustainability & IT",
+        "credits": 3
+      },
+      {
+        "id": "track-crypto",
+        "name": "Introduction to Cryptography",
+        "credits": 6,
+        "note": "Cyber Security is the first listed OER specialization; only one 12-EC track is selected."
+      },
+      {
+        "id": "track-os-security",
+        "name": "Operating Systems Security",
+        "credits": 3,
+        "note": "Cyber Security track course."
+      },
+      {
+        "id": "track-web-security",
+        "name": "Web Security",
+        "credits": 3,
+        "note": "Cyber Security track course."
+      },
+      {
+        "id": "minor",
+        "name": "Minor choice",
+        "credits": 15,
+        "note": "Restricted selection of one permitted academic minor of at least 15 EC; no optional minor is represented as compulsory."
+      },
+      {
+        "id": "free",
+        "name": "Free academic electives",
+        "credits": 12,
+        "note": "Genuinely open second/third-year choice of assessable bachelor-level courses."
+      },
+      {
+        "id": "thesis",
+        "name": "Bachelor Thesis",
+        "credits": 12,
+        "note": "Required 12 EC individual research thesis, approved in advance. Entry: at least 120 programme EC including the complete first year. Research Methods is recommended, not an additional hard condition."
+      }
+    ],
+    "sourceLinksRead": [
+      "https://www.ru.nl/sites/default/files/2026-10/bachelor-oer-26-27-computing-science_20261005.pdf",
+      "https://www.ru.nl/sites/default/files/2026-10/20261005-oer-26-27-ba-computing-science_eng-gb-juiste-tabellen.pdf",
+      "https://www.ru.nl/en/education/bachelors/computing-science/study-programme",
+      "https://www.ru.nl/en/education/bachelors/computing-science",
+      "https://www.ru.nl/en/education/bachelors/computing-science/career-prospects",
+      "https://www.ru.nl/en/education/bachelors/computing-science/study-programme/year-2",
+      "https://www.ru.nl/en/education/bachelors/computing-science/study-programme/year-3",
+      "https://ru.osiris-student.nl/onderwijscatalogus/extern/cursus?collegejaar=2026&cursuscode=NWI-IBC033"
+    ],
+    "preparedDescriptionReview": {
+      "unchanged": [
+        {
+          "code": "DISDATA111",
+          "currentText": "Develops foundational skills in data visualization, cleaning and manipulation. Explores spatial and text data and includes hands‑on work with datasets from various disciplines.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "profile",
+            "mode": "edited",
+            "reviewedOn": "2026-11-01",
+            "sourceSha256": "85912cb78bd13d1aa873ef9cca2a8d7e00345543f75d1f07b56d808f1c6702ef",
+            "descriptionSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+            "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+            "courseName": "Introduction to Data Science"
+          },
+          "priorTextSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+          "currentTextSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59"
+        },
+        {
+          "code": "DISGATE101",
+          "currentText": "Introduces programming and computer science. Covers structured programming, data constructs, testing, debugging and object‑oriented programming with Python, and develops computational problem‑solving skills.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "profile",
+            "mode": "edited",
+            "reviewedOn": "2026-11-01",
+            "sourceSha256": "e2014f5db9a4328ff4efaa51f0273169ae1c9427a4ccf85bea5ee463794a80a8",
+            "descriptionSha256": "efe3b89e39a2611d475d27d09b06151a514076321c7453cd31f9cfbbd84248bf",
+            "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+            "courseName": "Introduction to Programming"
+          },
+          "priorTextSha256": "efe3b89e39a2611d475d27d09b06151a514076321c7453cd31f9cfbbd84248bf",
+          "currentTextSha256": "efe3b89e39a2611d475d27d09b06151a514076321c7453cd31f9cfbbd84248bf"
+        },
+        {
+          "code": "ACCPPDE101",
+          "currentText": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "profile",
+            "mode": "edited",
+            "reviewedOn": "2026-11-01",
+            "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+            "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+            "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+            "courseName": "Personal & Professional Development"
+          },
+          "priorTextSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+          "currentTextSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede"
+        },
+        {
+          "code": "DISARIN111",
+          "currentText": "AI Ethics examines artificial intelligence from philosophical and psychological perspectives. Topics include fairness, privacy, responsibility, human-value alignment, moral status and political or existential risks. Students apply ethical frameworks to questions about human behaviour and interaction, synthesise research in an analytical psychology project, and produce a research-based podcast.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "basis": "course outline",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "sourceSha256": "cb43b0c596757e7e4f5f93392738ac9d23f450d75d7dd7698bbb59ee1557333a",
+            "descriptionSha256": "573776c86616fbb9aa39c644ba0abcae2cb7c073febebe3b0203c329264cbeb3",
+            "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+            "courseName": "AI Ethics"
+          },
+          "priorTextSha256": "573776c86616fbb9aa39c644ba0abcae2cb7c073febebe3b0203c329264cbeb3",
+          "currentTextSha256": "573776c86616fbb9aa39c644ba0abcae2cb7c073febebe3b0203c329264cbeb3"
+        },
+        {
+          "code": "DISCOMP212",
+          "currentText": "Introduces relational database management systems and SQL. Covers relational database theory, authorization, normalization and query processing.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "description2",
+            "mode": "verbatim",
+            "reviewedOn": "2026-11-01",
+            "sourceSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d",
+            "descriptionSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d",
+            "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+            "courseName": "Database Management Systems"
+          },
+          "priorTextSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d",
+          "currentTextSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d"
+        },
+        {
+          "code": "DISGATE102",
+          "currentText": "Mathematical Methods develops foundational techniques in differentiation, integration, complex numbers and differential equations. Students solve problems analytically and with Mathematica. A project implements, analyses and adapts a dynamic model, requiring interpretation of its behaviour and computational results.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "basis": "course outline",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "sourceSha256": "6250945baf68c519d3820bddeaa08cb4b3c71273ddbb9bc31a7dffe6d021af5f",
+            "descriptionSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38",
+            "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+            "courseName": "Mathematical Methods"
+          },
+          "priorTextSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38",
+          "currentTextSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38"
+        },
+        {
+          "code": "BENGATE102",
+          "currentText": "Research Methods & Statistics introduces research design, operationalisation, measurement, sampling, surveys and experiments. Students study descriptive statistics, estimation, hypothesis testing and introductory regression using R and R Commander. A group project develops a research plan and instruments, collects and analyses data, and reports findings under research-ethics and privacy requirements.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "basis": "course outline",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "sourceSha256": "9d88751452d5c0a6888ac7901a73d1a848617dee2b587d4df64815fc39ad8813",
+            "descriptionSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+            "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+            "courseName": "Research Methods & Statistics"
+          },
+          "priorTextSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+          "currentTextSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917"
+        },
+        {
+          "code": "DISCOMP211",
+          "currentText": "Introduces computer networks and operating systems. Covers how the internet works and the role of an OS in resource management and application support.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "profile",
+            "mode": "edited",
+            "reviewedOn": "2026-11-01",
+            "sourceSha256": "0df3be0c6e7231c9f7d60a23118e47acce9186e80e974ad039eaed54f0db62c1",
+            "descriptionSha256": "664db0da46ce981d8ad842a2486845292af42f90e564c9eef75b7769f2eba377",
+            "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+            "courseName": "Networks & Operating Systems"
+          },
+          "priorTextSha256": "664db0da46ce981d8ad842a2486845292af42f90e564c9eef75b7769f2eba377",
+          "currentTextSha256": "664db0da46ce981d8ad842a2486845292af42f90e564c9eef75b7769f2eba377"
+        },
+        {
+          "code": "DISCOMP311",
+          "currentText": "Teaches design and analysis of algorithms and data structures, emphasizing performance analysis and focusing on prominent algorithms and data structures.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "profile",
+            "mode": "edited",
+            "reviewedOn": "2026-11-01",
+            "sourceSha256": "e1529227dac6db769531df5ba2f0f9d64fad1017c208c5e2d52a0b38a90a78ec",
+            "descriptionSha256": "c1c2acb267bbdf39a07160bb99a1e66219200cb1139174e9c883c4d23d03eca8",
+            "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+            "courseName": "Algorithms & Data Structures"
+          },
+          "priorTextSha256": "c1c2acb267bbdf39a07160bb99a1e66219200cb1139174e9c883c4d23d03eca8",
+          "currentTextSha256": "c1c2acb267bbdf39a07160bb99a1e66219200cb1139174e9c883c4d23d03eca8"
+        },
+        {
+          "code": "DISDATA212",
+          "currentText": "Image Processing & Computer Vision studies how digital images are represented, processed and interpreted to recognise structures and objects. Topics include colour, image statistics, filtering, segmentation, feature detection, tracking and object classification. Practical work uses Python and OpenCV to develop and benchmark an image-recognition pipeline on previously unseen images.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "basis": "course outline",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "sourceSha256": "67bc3ab96eb177cb9e10d60aa3ceb8dfc61ae6508a196c498124421f7fbba4dd",
+            "descriptionSha256": "2f095c0618ff630b69246b5110663b6517e6627dc322e3d4f0b9e7328279b2b1",
+            "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+            "courseName": "Image Processing & Computer Vision"
+          },
+          "priorTextSha256": "2f095c0618ff630b69246b5110663b6517e6627dc322e3d4f0b9e7328279b2b1",
+          "currentTextSha256": "2f095c0618ff630b69246b5110663b6517e6627dc322e3d4f0b9e7328279b2b1"
+        },
+        {
+          "code": "DISMATH211",
+          "currentText": "Linear Algebra studies systems of equations, matrices, vectors, linear transformations and vector spaces. Students examine eigenvalues, orthogonality, least-squares approximation, quadratic forms and singular value decomposition. Applications include discrete signals, difference equations, Markov chains, dynamical systems, graphics and principal component analysis, with Mathematica supporting analytical problem-solving.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "basis": "course outline",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "sourceSha256": "26ebd64922aa03e17140aa9b6529a98f2428bdf29ab1fa4360f9bd876de4e680",
+            "descriptionSha256": "bd23120a02190d6bcf24aa6c30ce1e454082afae59ba3d81c21d48cfb4194ba4",
+            "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+            "courseName": "Linear Algebra"
+          },
+          "priorTextSha256": "bd23120a02190d6bcf24aa6c30ce1e454082afae59ba3d81c21d48cfb4194ba4",
+          "currentTextSha256": "bd23120a02190d6bcf24aa6c30ce1e454082afae59ba3d81c21d48cfb4194ba4"
+        },
+        {
+          "code": "DISCOMP312",
+          "currentText": "Studies modern algebraic algorithms and optimization methods. Emphasises algorithmic thinking and mathematical modelling of computational problems.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "profile",
+            "courseName": "Advanced Algorithms",
+            "sourceSha256": "0859aef6ed3c8ce9b88ab7dc74dd1d434bab4df3a3b6ff6a8f7bce932e738706",
+            "descriptionSha256": "f85668e861319cc548402736465d8f0e51fd49a18a854ed419770e85ca1eef14",
+            "mode": "edited",
+            "reviewedOn": "2026-11-01",
+            "reviewNote": "CP257: selected course evidence and cached text read in full. Retained concise supported subject/method scope without an invented computing application or project guarantee."
+          },
+          "priorTextSha256": "f85668e861319cc548402736465d8f0e51fd49a18a854ed419770e85ca1eef14",
+          "currentTextSha256": "f85668e861319cc548402736465d8f0e51fd49a18a854ed419770e85ca1eef14"
+        },
+        {
+          "code": "DISMATH213",
+          "currentText": "Introduces numerical methods such as root‑finding, interpolation, numerical differentiation and integration and solving differential equations. Emphasises algorithm accuracy, stability and efficiency and uses computer algebra software.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "profile",
+            "mode": "edited",
+            "reviewedOn": "2026-11-01",
+            "sourceSha256": "5b5170199e3306247d6581a75787d8106a4fea74a894b55a09713e0a81efbf25",
+            "descriptionSha256": "d7841607963f18cc24d325c614b84d1629dd83cf6194ee3b68dfcf1a90eb8a8c",
+            "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+            "courseName": "Computational & Numerical Methods"
+          },
+          "priorTextSha256": "d7841607963f18cc24d325c614b84d1629dd83cf6194ee3b68dfcf1a90eb8a8c",
+          "currentTextSha256": "d7841607963f18cc24d325c614b84d1629dd83cf6194ee3b68dfcf1a90eb8a8c"
+        },
+        {
+          "code": "BENBUSI211",
+          "currentText": "Examines AI's business, economic and societal implications without requiring a technical background. Students study AI's capabilities and limits, applications across business functions and industries, and effects on labour markets, productivity, innovation and inequality. Business cases and scholarly arguments support analysis of governance, regulation and a country's AI readiness and industrial policy.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "basis": "course outline",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "descriptionSha256": "dc99e879e62a02957451c99d0ed08cdbc50fc9e07847d0d251210dfd8a973cb1",
+            "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+            "sourceSha256": "142e38261e07fee05e042a882559c77aa357856539a62060518c508d07aa8411",
+            "courseName": "Business & Economy in the Age of AI"
+          },
+          "priorTextSha256": "dc99e879e62a02957451c99d0ed08cdbc50fc9e07847d0d251210dfd8a973cb1",
+          "currentTextSha256": "dc99e879e62a02957451c99d0ed08cdbc50fc9e07847d0d251210dfd8a973cb1"
+        },
+        {
+          "code": "DISARIN211",
+          "currentText": "Decision-making in AI examines how intelligent agents make decisions under uncertainty. Students study probability, Bayesian networks, temporal models, expected utility, Markov decision processes, partial observability and bandit problems. Multi-agent decisions and probabilistic programming extend the analysis, supported by equations, numerical examples and scientific papers.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "courseName": "Decision-making in AI",
+            "sourceField": "profile",
+            "sourceSha256": "c93b1f92cb7d5624a47e7af933fe9722fcd6b1e5632025ebe7a704fc49ae05c4",
+            "descriptionSha256": "ac8eef243ef31afb7f65eee5f70e1a2216876057006d890b15e5411f9c05e560",
+            "mode": "edited",
+            "reviewedOn": "2026-10-31",
+            "reviewNote": "Read the selected current profile and cumulative outline limitation fields. The displayed summary follows its substantive topics and activities; it omits unsupported resource-planning or mandatory NGO group-project claims from superseded cache wording."
+          },
+          "priorTextSha256": "ac8eef243ef31afb7f65eee5f70e1a2216876057006d890b15e5411f9c05e560",
+          "currentTextSha256": "ac8eef243ef31afb7f65eee5f70e1a2216876057006d890b15e5411f9c05e560"
+        },
+        {
+          "code": "DISDATA211",
+          "currentText": "Machine Learning introduces methods for understanding data and making predictions, including linear regression, classification, resampling, shrinkage, tree-based methods, support vector machines and clustering. Real-world examples illustrate the methods, their strengths and limitations.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "basis": "course outline",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "sourceSha256": "6a112d70695b992eb7664e19ed9656612b364e2c28a116980a602eef2687ace6",
+            "descriptionSha256": "ae7fce189f80fcd62e521b78f43d3119e98a2ee78d29f61127a0f6b61faaf862",
+            "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+            "courseName": "Machine Learning"
+          },
+          "priorTextSha256": "ae7fce189f80fcd62e521b78f43d3119e98a2ee78d29f61127a0f6b61faaf862",
+          "currentTextSha256": "ae7fce189f80fcd62e521b78f43d3119e98a2ee78d29f61127a0f6b61faaf862"
+        },
+        {
+          "code": "DISMATH314",
+          "currentText": "Provides a foundation in mathematical statistics. Covers probability theory, discrete and continuous distributions, sampling, parameter estimation and simulation; uses computer algebra software to develop theoretical understanding and practical skills.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "profile",
+            "mode": "edited",
+            "reviewedOn": "2026-11-01",
+            "sourceSha256": "64d3f72845189f77627b8aa180a9906d4fd60fe3c5306bbf0ebe7666e612852b",
+            "descriptionSha256": "9d3ee2b42fa7fe2c0e62777da64474690e9fac0ca76929d04c6670dab516d10f",
+            "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+            "courseName": "Probability & Statistics"
+          },
+          "priorTextSha256": "9d3ee2b42fa7fe2c0e62777da64474690e9fac0ca76929d04c6670dab516d10f",
+          "currentTextSha256": "9d3ee2b42fa7fe2c0e62777da64474690e9fac0ca76929d04c6670dab516d10f"
+        },
+        {
+          "code": "HCBPSYC211",
+          "currentText": "Develops experimental-design knowledge and practical statistical analysis for health and behavioural research. Students choose, fit, diagnose and interpret multivariable models for group comparisons, categorical outcomes and latent constructs. R, primarily through R Commander, supports practical exercises; data-analysis papers and a poster connect research questions to appropriate models, assumption checks and clear reporting.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "sourceSha256": "bf482d4e283320560451930d2822162ada50a7697ded31de54eb7b021694adbc",
+            "descriptionSha256": "ef41b0b732a8e9502a0d7e14ceef47bb91ca971854bb1a26b6a8ed5e6c9b6111",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+            "courseName": "Statistics & Experimental Methods"
+          },
+          "priorTextSha256": "ef41b0b732a8e9502a0d7e14ceef47bb91ca971854bb1a26b6a8ed5e6c9b6111",
+          "currentTextSha256": "ef41b0b732a8e9502a0d7e14ceef47bb91ca971854bb1a26b6a8ed5e6c9b6111"
+        },
+        {
+          "code": "DISARIN311",
+          "currentText": "Optimization Methods in AI studies search and optimisation for rational agents. Topics include uninformed and heuristic search, local and global optimisation, adversarial search, constraint satisfaction, linear programming and discrete optimisation. Laboratory exercises and projects develop algorithm implementation, evaluation and experimental investigation of small intelligent systems.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "basis": "course outline",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "sourceSha256": "d5a3dfea16ac47ee970bf30fdd60ec4588386e2eac608c5c875069a706dafa4e",
+            "descriptionSha256": "7c40cb1b74b271a8df365cbf7b9bba55b498199996db9ed060335dd81c541a43",
+            "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+            "courseName": "Optimization Methods in AI"
+          },
+          "priorTextSha256": "7c40cb1b74b271a8df365cbf7b9bba55b498199996db9ed060335dd81c541a43",
+          "currentTextSha256": "7c40cb1b74b271a8df365cbf7b9bba55b498199996db9ed060335dd81c541a43"
+        },
+        {
+          "code": "DISARIN312",
+          "currentText": "Explores reinforcement learning. Covers theoretical frameworks and algorithms and requires students to implement algorithms and build agents using neural networks that learn through trial and error.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "sourceField": "description2",
+            "courseName": "Reinforcement Learning",
+            "sourceSha256": "3a9fc4b39d036bd7f6d39c9976254f2a8453f92d975be94b2c4c744546f2f838",
+            "descriptionSha256": "3a9fc4b39d036bd7f6d39c9976254f2a8453f92d975be94b2c4c744546f2f838",
+            "mode": "verbatim",
+            "reviewedOn": "2026-11-01",
+            "reviewNote": "CP257: selected course evidence and cached text read in full. Retained concise supported subject/method scope without an invented computing application or project guarantee."
+          },
+          "priorTextSha256": "3a9fc4b39d036bd7f6d39c9976254f2a8453f92d975be94b2c4c744546f2f838",
+          "currentTextSha256": "3a9fc4b39d036bd7f6d39c9976254f2a8453f92d975be94b2c4c744546f2f838"
+        },
+        {
+          "code": "DISDATA311",
+          "currentText": "Neural Networks & Deep Learning combines theory with practical Python, Keras and TensorFlow implementations. Students build and train networks, study backpropagation, regularisation and model evaluation, and apply deep learning to computer vision, time series and text, including transformers. Projects investigate prediction problems and report experimental results.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+            "sourceField": "profile",
+            "basis": "course outline",
+            "mode": "edited",
+            "reviewedOn": "2026-10-29",
+            "sourceSha256": "25546292d8643497a8cd9b4bf820608e15e4ae3fdcf04eb764aadcadf460f14f",
+            "descriptionSha256": "ed084f769dcc3b361dcddff3861c96217abcbf5eb57e7859aeb1ad3f949584c7",
+            "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+            "courseName": "Neural Networks & Deep Learning"
+          },
+          "priorTextSha256": "ed084f769dcc3b361dcddff3861c96217abcbf5eb57e7859aeb1ad3f949584c7",
+          "currentTextSha256": "ed084f769dcc3b361dcddff3861c96217abcbf5eb57e7859aeb1ad3f949584c7"
+        },
+        {
+          "code": "DISMATH214",
+          "currentText": "Extends elementary calculus to multiple dimensions and differential equations, including complex‑valued functions. Uses computer algebra software to deepen analytical skills for science and data analysis applications.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "courseName": "Advanced Calculus",
+            "sourceField": "description2",
+            "mode": "verbatim",
+            "sourceSha256": "d882aae14f79763a614fdb3b6bd4735f6d83bbbc4ee4d1bef2eaf5b022062265",
+            "descriptionSha256": "d882aae14f79763a614fdb3b6bd4735f6d83bbbc4ee4d1bef2eaf5b022062265",
+            "reviewedOn": "2026-11-04",
+            "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+          },
+          "priorTextSha256": "d882aae14f79763a614fdb3b6bd4735f6d83bbbc4ee4d1bef2eaf5b022062265",
+          "currentTextSha256": "d882aae14f79763a614fdb3b6bd4735f6d83bbbc4ee4d1bef2eaf5b022062265"
+        }
+      ],
+      "changed": [
+        {
+          "code": "DISARIN212",
+          "currentText": "Introduces formal logic, abstract reasoning and proof. Students work with propositions, quantified statements, sets, Boolean algebra, functions and relations, direct and indirect proofs, induction and recursion. A final component models processes and games without chance and investigates winning strategies.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "courseName": "Logic & Discrete Mathematics",
+            "sourceField": "profile",
+            "sourceSha256": "93a52b9fe674b9db0732d6f9451146621be7c59068bdf70219256b67ba3b03c2",
+            "descriptionSha256": "7503057969878a0fa1fccc505095c50f3d6b44d2956afaf35bbad164eb49ed7f",
+            "mode": "edited",
+            "reviewedOn": "2026-11-05",
+            "reviewNote": "Reviewed actual current profile in full; represent formal proof and actual programming/quality-assurance methods, without importing a complete client/deployment engineering sequence."
+          },
+          "priorTextSha256": "8dd0a9f18c414a2e9f92c9a3d1871ac7b1c5b8eecf2f00d4cf112b8b7d059c76",
+          "currentTextSha256": "7503057969878a0fa1fccc505095c50f3d6b44d2956afaf35bbad164eb49ed7f",
+          "currentCourseEvidence": "Introduces formal logic, abstract mathematical reasoning and proof. Students analyze propositions and quantified statements, work with sets, Boolean algebra, functions and relations, and develop direct and indirect proofs. Induction and recursive definitions extend these tools to mathematical structures. The final component systematically models processes and games without chance and investigates the existence and construction of winning strategies."
+        },
+        {
+          "code": "DISCOMP213",
+          "currentText": "Develops software-construction skills in C++ and Haskell, including classes, inheritance, polymorphism, memory management, functions, recursion and types. Laboratories use version control, code review, debugging, testing, documentation and design patterns. Students build and explain programs in both languages.",
+          "currentProvenance": {
+            "workbook": "data/reference/ucr_courses_enriched.xlsx",
+            "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+            "courseName": "Software Development",
+            "sourceField": "profile",
+            "sourceSha256": "1b854e8317ed67bde0743278be7341460cc90885a15adb891811bf54d0c3ef8c",
+            "descriptionSha256": "7967bedb773b55d3e88ad04577d2f36592dba405cc598a8702b35857c49d0a09",
+            "mode": "edited",
+            "reviewedOn": "2026-11-05",
+            "reviewNote": "Reviewed actual current profile in full; represent formal proof and actual programming/quality-assurance methods, without importing a complete client/deployment engineering sequence."
+          },
+          "priorTextSha256": "96cb54be46081739699b65e5fc2ba6dcbae6d9fd7f6d888c8c5289234993c32d",
+          "currentTextSha256": "7967bedb773b55d3e88ad04577d2f36592dba405cc598a8702b35857c49d0a09",
+          "currentCourseEvidence": "Develops software-construction skills through C++ and functional programming in Haskell, alongside software design and quality assurance. C++ work addresses classes, inheritance, polymorphism and memory management; Haskell introduces functions, recursion, types and input/output. Laboratories apply version control, code review, debugging, testing, documentation and design patterns. Projects require students to build and explain programs in both languages."
+        }
+      ],
+      "finding": "Twenty-two selected provisional descriptions are unchanged and reused. Two shared descriptions were revised on2026-11-05; read their current text and unchanged actual profiles: Logic/DiscreteMath accurately states formal logic,sets,proofs,induction/recursion and deterministic games; SoftwareDevelopment accurately states C++/Haskell and actual version-control,review,testing/debugging/documentation/design-pattern practice. No complete client/deployment engineering sequence is implied. Existing case-level logic/proof/Haskell relationships remain supported; only prepared text versions changed, no active modal or cache/pair change."
+    },
+    "selectedCourseDescriptionCodes": [],
+    "finding": "Read ComputingScience/Radboud title,all40English labels/weights,year/CyberSecurity route/partial status and limitation,programme/status explanations,all6selectednotes and sourcehrefs in the established renderer context. The adopted180 allocation is not portrayed as a certified pathway; the three unresolved conditions remain clear. Thesis120/allB1,advanceapproval,minor exclusions,free12,RADArparticipation and integrated writing remain accurately bounded. No active UCRconcept,schedule,alignment,optionalresearch or course modal is displayed. Current24prepared descriptions were scoped:22unchanged;Logic/DiscreteMath andSoftwareDevelopment revised text reread against actual unchanged profiles,retaining supported proof/Haskell relationships without full client/deployment engineering claims. Shared146-description validation passes. No shared-cache,app,Excel,R/browser,screenshot or live-modal change."
+  }
+}
