@@ -6123,7 +6123,8 @@
         }
       ],
       "implementationCommits": [
-        "26decd87698fc2255d6cf49baff37429cef01581"
+        "26decd87698fc2255d6cf49baff37429cef01581",
+        "4991057207657b7db16ff11d96d96b67a2d8535d"
       ],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000250.json",
@@ -29808,30 +29809,8 @@
         "startsAt": "2026-10-27T12:00:00+01:00",
         "minute": 0
       },
-      "nextCase": "cp-000250",
-      "activeClaim": {
-        "executionId": "restart-B-cp250-revisit-20261112T210040Z",
-        "worker": "B",
-        "caseId": "cp-000250",
-        "claimedAt": "2026-11-12T21:00:40.336886+00:00",
-        "reviewedInputCommit": "a76773e8ca66df4f7f57f21b7cfc3ed7b4ba1869",
-        "inputBlobs": {
-          "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000250.json": "3cf0483fdba2bddee2410d4acf2ae2697dfcedcf",
-          "data/counselor/comparisons/cp-000250.json": "40c542b81938e2532dd103ccbf3a419e1085aa46",
-          "data/registry/programme_interests.csv": "361018a66e2dc879e4d004343d22f15f7a28ef42",
-          "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Publish the bounded CP250 decision/canonical and interest-content repair with its detailed case and derived register on fresh main; verify uploaded blobs, byte-exact replay and applicable exact-head CI. If the formal reconciliation remains unresolved, record the one permitted revisit exhausted, retain CP250 deferred/incomplete and resume CP252 next execution.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000252",
+      "activeClaim": null,
       "completedCases": [
         "cp-000237",
         "cp-000238",
@@ -31270,7 +31249,7 @@
       ],
       "sourceRetrievalFailuresByCase": {
         "cp-000245": 3,
-        "cp-000250": 2,
+        "cp-000250": 3,
         "cp-000252": 2,
         "cp-000254": 2,
         "cp-000255": 2,
@@ -31319,13 +31298,14 @@
         "cp-000458": 2
       },
       "deferredRevisitExecutionsByCase": {
-        "cp-000245": 1
+        "cp-000245": 1,
+        "cp-000250": 1
       },
       "lastCheckpoint": {
-        "caseId": "cp-000245",
-        "executionId": "restart-B-cp245-revisit-20261112T195736Z",
+        "caseId": "cp-000250",
+        "executionId": "restart-B-cp250-revisit-20261112T210040Z",
         "state": "deferred-revisit-exhausted-incomplete",
-        "reviewedInputCommit": "d5059e0a32c817a29446f89af7de4dea5a2cf74d",
+        "reviewedInputCommit": "4991057207657b7db16ff11d96d96b67a2d8535d",
         "inputBlobs": {
           "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
           "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
@@ -31333,42 +31313,33 @@
           "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
           "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
           "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000245.json": "046ca09fb04f8e854bd7629d9844d5c11e7f30d7",
-          "data/counselor/comparisons/cp-000245.json": "f175e7661490d59c6b2b71e9f277fa0ef4741f75",
-          "data/registry/programme_interests.csv": "361018a66e2dc879e4d004343d22f15f7a28ef42",
+          "data/counselor/decisions/cp-000250.json": "f33b504b9509bad5aed881bb1c01a109f03a836b",
+          "data/counselor/comparisons/cp-000250.json": "e9b03ee441bc57bf7256be8118f292ff06e0781b",
+          "data/registry/programme_interests.csv": "3d306e8c53d567ca9dbc5c09e151fc54ad5b2243",
           "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
           "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
           "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
           "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
           "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
           "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
-          "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26",
           "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
           "data/counselor/review-programmes.json": "b534a28c1907ed52e7df6643e0a4f89d86e0b7e5",
           "data/counselor/review-interests.json": "45110774d9d53d68fd12fc668e41d08cc4737c88",
-          "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
-          "pilot/shiny/data/courses/BEN.json": "71fb5c570a7c42c35473d8a0483dcc17ec16a665",
-          "pilot/shiny/data/courses/ENS.json": "b323d5993ab47be5389001b547054259cbfdbfa2",
-          "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
-          "pilot/shiny/data/courses/HCB.json": "8af6675a1408cec96ea570100ee89cff97563288",
-          "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/source-findings.json": "9f88f4ec5c154927edf36513f452badc2a720f07",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/source-attempt-2.json": "b59c70d296020addcbff4048d33faacec8bde59f",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/interest-review.json": "5a17ae60bfc0d61de7a911b298c2d74786452c52",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json": "dc49c21f306b38f1b4ee18fc9fb00b0bb54c7549",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/wording-content-review.json": "e1f3be0d9875796c6258fb1f92fd9df257d1cd23",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/repaired-provisional-decision.json": "41267a87348a294378b316f98b364143f218ec17",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/revisit-provisional-decision.json": "38ad908a97171e63e42c455ecfc1d54512f86454",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/revisit-provisional-canonical.json": "d2d348f123de5af825305194caadc136aec309c1",
-          "canonical": "f175e7661490d59c6b2b71e9f277fa0ef4741f75",
-          "decision": "046ca09fb04f8e854bd7629d9844d5c11e7f30d7",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/deferred-revisit-source-review.json": "d3019eabd77f54b91e653ebbff8a4107478b0573",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/deferred-revisit-mechanical-content.json": "c2b7177004fddce45ec2d7eb0583ea3d315ea6f5",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/deferred-revisit-source-first-final-pass.json": "c1be36b65af28e5bce4c00c66b350fb9d6a4b26f"
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/source-findings.json": "7315b6fa822db1196a1197518ea34b8afde93f70",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/source-attempt-2.json": "c0be26f740490200ceb1ab7f5eb1c268b5483db1",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/interest-review.json": "e7c9a8f7c6742b6c5609d7382caa9501a1dfddde",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/ucr-evidence-leads.json": "27e7aec4a319d7deb688c5ff88e47f97c9796001",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/content-review.json": "32531a6aaa99ea8b29a148b8ac52520f6e2749dc",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/source-first-checkpoint.json": "37c10011ff7ec6229d21bc658bbc17adea16c03c",
+          "canonical": "e9b03ee441bc57bf7256be8118f292ff06e0781b",
+          "decision": "f33b504b9509bad5aed881bb1c01a109f03a836b",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/deferred-revisit-source-review.json": "1a5222341ed6290051f5049ebfadecc04e877b97",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/deferred-revisit-mechanical-content.json": "6684cf75102d1bab6a2284e16f8d74e8c0dbb2e8",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/deferred-revisit-source-first-final-pass.json": "367c4955f8ac672be4e37fd2a17f6c7f4d6b4b89"
         },
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/deferred-revisit-published-verification.json",
-        "nextAction": "CP245 remains deferred and incomplete after its one permitted separate revisit. The current course0000 identity and applicable2026entrant/cohort allocation remain unresolved; obtain authoritative curriculum/transition rules for that future decision. Preserve verified first-year60EC,52interest judgments,35unchanged substantive course judgments, current feasible internal plans and corrected11course/82.5ECdistinctness. Resume CP250 next execution for its pending permitted revisit. CP245 revisit is exhausted; no academic approval or no-match, and no post-audit acceptance-rule relaxation is authorised. Worker B task remains enabled for the remaining45permitted revisits; Worker A unchanged. Overall assessment and final release/discovery/deployment/contact/additional automation remain pending separate authority.",
-        "verifiedAt": "2026-11-12T20:13:38.796338+00:00",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/deferred-revisit-published-verification.json",
+        "nextAction": "CP250 remains deferred and incomplete after its one permitted separate revisit. New current bachelor catalogue evidence explicitly givesKT2755at3.5EC and a180ECplan; the adoptedBScOERstill assigns4.5EC. Future resolution requires authoritative reconciliation of those current bachelor sources under the unchanged formal-source rule. Preserve first-year60EC,all55interest judgments with updated10628limitedplanetary-health evidence,16unchanged UCRlead contributions and the published partial-record repair. Resume CP252 next execution for its pending permitted revisit; CP250 revisit is exhausted. Worker B remains enabled for44pending permitted revisits; Worker A unchanged. No academic approval,no-match,post-audit rule relaxation,release,discovery publication,deployment,contact or additional automation is authorised.",
+        "verifiedAt": "2026-11-12T21:18:40.963246+00:00",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown"
       },
@@ -40992,6 +40963,57 @@
           "verifiedAt": "2026-11-12T19:16:13.256599+00:00",
           "runtimeModel": "unknown",
           "runtimeReasoningEffort": "unknown"
+        },
+        {
+          "caseId": "cp-000245",
+          "executionId": "restart-B-cp245-revisit-20261112T195736Z",
+          "state": "deferred-revisit-exhausted-incomplete",
+          "reviewedInputCommit": "d5059e0a32c817a29446f89af7de4dea5a2cf74d",
+          "inputBlobs": {
+            "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000245.json": "046ca09fb04f8e854bd7629d9844d5c11e7f30d7",
+            "data/counselor/comparisons/cp-000245.json": "f175e7661490d59c6b2b71e9f277fa0ef4741f75",
+            "data/registry/programme_interests.csv": "361018a66e2dc879e4d004343d22f15f7a28ef42",
+            "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+            "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+            "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+            "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+            "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+            "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26",
+            "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+            "data/counselor/review-programmes.json": "b534a28c1907ed52e7df6643e0a4f89d86e0b7e5",
+            "data/counselor/review-interests.json": "45110774d9d53d68fd12fc668e41d08cc4737c88",
+            "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+            "pilot/shiny/data/courses/BEN.json": "71fb5c570a7c42c35473d8a0483dcc17ec16a665",
+            "pilot/shiny/data/courses/ENS.json": "b323d5993ab47be5389001b547054259cbfdbfa2",
+            "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+            "pilot/shiny/data/courses/HCB.json": "8af6675a1408cec96ea570100ee89cff97563288",
+            "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/source-findings.json": "9f88f4ec5c154927edf36513f452badc2a720f07",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/source-attempt-2.json": "b59c70d296020addcbff4048d33faacec8bde59f",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/interest-review.json": "5a17ae60bfc0d61de7a911b298c2d74786452c52",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json": "dc49c21f306b38f1b4ee18fc9fb00b0bb54c7549",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/wording-content-review.json": "e1f3be0d9875796c6258fb1f92fd9df257d1cd23",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/repaired-provisional-decision.json": "41267a87348a294378b316f98b364143f218ec17",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/revisit-provisional-decision.json": "38ad908a97171e63e42c455ecfc1d54512f86454",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/revisit-provisional-canonical.json": "d2d348f123de5af825305194caadc136aec309c1",
+            "canonical": "f175e7661490d59c6b2b71e9f277fa0ef4741f75",
+            "decision": "046ca09fb04f8e854bd7629d9844d5c11e7f30d7",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/deferred-revisit-source-review.json": "d3019eabd77f54b91e653ebbff8a4107478b0573",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/deferred-revisit-mechanical-content.json": "c2b7177004fddce45ec2d7eb0583ea3d315ea6f5",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/deferred-revisit-source-first-final-pass.json": "c1be36b65af28e5bce4c00c66b350fb9d6a4b26f"
+          },
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/deferred-revisit-published-verification.json",
+          "nextAction": "CP245 remains deferred and incomplete after its one permitted separate revisit. The current course0000 identity and applicable2026entrant/cohort allocation remain unresolved; obtain authoritative curriculum/transition rules for that future decision. Preserve verified first-year60EC,52interest judgments,35unchanged substantive course judgments, current feasible internal plans and corrected11course/82.5ECdistinctness. Resume CP250 next execution for its pending permitted revisit. CP245 revisit is exhausted; no academic approval or no-match, and no post-audit acceptance-rule relaxation is authorised. Worker B task remains enabled for the remaining45permitted revisits; Worker A unchanged. Overall assessment and final release/discovery/deployment/contact/additional automation remain pending separate authority.",
+          "verifiedAt": "2026-11-12T20:13:38.796338+00:00",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown"
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -41755,6 +41777,16 @@
           "essentialEvidence": "Identify the applicable 2026 entrant curriculum and the unnamed 7.5 EC year-2 course (code0000); establish which duplicated Psychology and Embodied Meaning entries and later-year core components apply to that cohort alongside the listed15ECthesis and30ECchoice. The choice entry explicitly places named UvH options inside the30ECspace, but that does not determine a complete180ECcohort pathway. Do not fill the unnamed course, discard later-year core entries, or restore older10ECthesis/15ECchoice rules by assumption.",
           "officialAlternative": "Fresh current official examination rules, unchanged from the prior inspected18-page document, plus current public programme/catalogue and focused official curriculum/OER searches. They do not resolve the applicable full cohort plan.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/deferred-revisit-source-review.json"
+        },
+        {
+          "caseId": "cp-000250",
+          "executionId": "restart-B-cp250-revisit-20261112T210040Z",
+          "checkedOn": "2026-11-12",
+          "attempt": 3,
+          "attemptKind": "permitted separate deferred revisit",
+          "essentialEvidence": "Obtain an authoritative correction or reconciliation of the adopted2026–2027 BSc OER Appendix3 KT2755 weight4.5EC and the current2026–2027 BSc study-guide weight3.5EC. The guide now explicitly establishes the bachelor allocation and a60+60+60=180EC plan; the adopted appendix still produces60+61+60=181EC despite Article7 degree180EC. Under the current formal-source precedence rule, do not treat a catalogue discrepancy as a formally adopted amendment or choose a credit weight solely to close the total.",
+          "officialAlternative": "Current exact bachelor programme/course catalogue plus fresh adopted bachelor examination rules; catalogue now explicitly gives3.5ECbut does not supply an adopted amendment or a reconciliation of conflicting formal requirements.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/deferred-revisit-source-review.json"
         }
       ],
       "deferralHistory": [
@@ -42228,6 +42260,17 @@
           "reason": "Identify the applicable 2026 entrant curriculum and the unnamed 7.5 EC year-2 course (code0000); establish which duplicated Psychology and Embodied Meaning entries and later-year core components apply to that cohort alongside the listed15ECthesis and30ECchoice. The choice entry explicitly places named UvH options inside the30ECspace, but that does not determine a complete180ECcohort pathway. Do not fill the unnamed course, discard later-year core entries, or restore older10ECthesis/15ECchoice rules by assumption.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/deferred-revisit-published-verification.json",
           "revisitStatus": "exhausted; case remains deferred and incomplete"
+        },
+        {
+          "caseId": "cp-000250",
+          "checkedOn": "2026-11-12",
+          "executionId": "restart-B-cp250-revisit-20261112T210040Z",
+          "action": "permitted-revisit-exhausted-incomplete",
+          "unsuccessfulExecutions": 3,
+          "permittedRevisits": 1,
+          "reason": "Obtain an authoritative correction or reconciliation of the adopted2026–2027 BSc OER Appendix3 KT2755 weight4.5EC and the current2026–2027 BSc study-guide weight3.5EC. The guide now explicitly establishes the bachelor allocation and a60+60+60=180EC plan; the adopted appendix still produces60+61+60=181EC despite Article7 degree180EC. Under the current formal-source precedence rule, do not treat a catalogue discrepancy as a formally adopted amendment or choose a credit weight solely to close the total.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/deferred-revisit-published-verification.json",
+          "revisitStatus": "exhausted; case remains deferred and incomplete"
         }
       ],
       "reopeningDependencies": [
@@ -42699,6 +42742,16 @@
           "essentialEvidence": "Identify the applicable 2026 entrant curriculum and the unnamed 7.5 EC year-2 course (code0000); establish which duplicated Psychology and Embodied Meaning entries and later-year core components apply to that cohort alongside the listed15ECthesis and30ECchoice. The choice entry explicitly places named UvH options inside the30ECspace, but that does not determine a complete180ECcohort pathway. Do not fill the unnamed course, discard later-year core entries, or restore older10ECthesis/15ECchoice rules by assumption.",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/deferred-revisit-published-verification.json",
           "nextAction": "CP245 remains deferred and incomplete after its one permitted separate revisit. The current course0000 identity and applicable2026entrant/cohort allocation remain unresolved; obtain authoritative curriculum/transition rules for that future decision. Preserve verified first-year60EC,52interest judgments,35unchanged substantive course judgments, current feasible internal plans and corrected11course/82.5ECdistinctness. Resume CP250 next execution for its pending permitted revisit. CP245 revisit is exhausted; no academic approval or no-match, and no post-audit acceptance-rule relaxation is authorised. Worker B task remains enabled for the remaining45permitted revisits; Worker A unchanged. Overall assessment and final release/discovery/deployment/contact/additional automation remain pending separate authority."
+        },
+        {
+          "caseId": "cp-000250",
+          "executionId": "restart-B-cp250-revisit-20261112T210040Z",
+          "attempt": 3,
+          "revisit": 1,
+          "status": "deferred-revisit-exhausted-incomplete",
+          "essentialEvidence": "Obtain an authoritative correction or reconciliation of the adopted2026–2027 BSc OER Appendix3 KT2755 weight4.5EC and the current2026–2027 BSc study-guide weight3.5EC. The guide now explicitly establishes the bachelor allocation and a60+60+60=180EC plan; the adopted appendix still produces60+61+60=181EC despite Article7 degree180EC. Under the current formal-source precedence rule, do not treat a catalogue discrepancy as a formally adopted amendment or choose a credit weight solely to close the total.",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/deferred-revisit-published-verification.json",
+          "nextAction": "CP250 remains deferred and incomplete after its one permitted separate revisit. New current bachelor catalogue evidence explicitly givesKT2755at3.5EC and a180ECplan; the adoptedBScOERstill assigns4.5EC. Future resolution requires authoritative reconciliation of those current bachelor sources under the unchanged formal-source rule. Preserve first-year60EC,all55interest judgments with updated10628limitedplanetary-health evidence,16unchanged UCRlead contributions and the published partial-record repair. Resume CP252 next execution for its pending permitted revisit; CP250 revisit is exhausted. Worker B remains enabled for44pending permitted revisits; Worker A unchanged. No academic approval,no-match,post-audit rule relaxation,release,discovery publication,deployment,contact or additional automation is authorised."
         }
       ],
       "publicationRecovery": {
@@ -48000,6 +48053,65 @@
             "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/deferred-revisit-source-review.json": "d3019eabd77f54b91e653ebbff8a4107478b0573",
             "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/deferred-revisit-mechanical-content.json": "c2b7177004fddce45ec2d7eb0583ea3d315ea6f5",
             "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/deferred-revisit-source-first-final-pass.json": "c1be36b65af28e5bce4c00c66b350fb9d6a4b26f"
+          }
+        },
+        {
+          "executionId": "restart-B-cp250-revisit-20261112T210040Z",
+          "worker": "B",
+          "caseId": "cp-000250",
+          "claimedAt": "2026-11-12T21:00:40.336886+00:00",
+          "reviewedInputCommit": "a76773e8ca66df4f7f57f21b7cfc3ed7b4ba1869",
+          "inputBlobs": {
+            "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000250.json": "3cf0483fdba2bddee2410d4acf2ae2697dfcedcf",
+            "data/counselor/comparisons/cp-000250.json": "40c542b81938e2532dd103ccbf3a419e1085aa46",
+            "data/registry/programme_interests.csv": "361018a66e2dc879e4d004343d22f15f7a28ef42",
+            "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "CP250 remains deferred and incomplete after its one permitted separate revisit. New current bachelor catalogue evidence explicitly givesKT2755at3.5EC and a180ECplan; the adoptedBScOERstill assigns4.5EC. Future resolution requires authoritative reconciliation of those current bachelor sources under the unchanged formal-source rule. Preserve first-year60EC,all55interest judgments with updated10628limitedplanetary-health evidence,16unchanged UCRlead contributions and the published partial-record repair. Resume CP252 next execution for its pending permitted revisit; CP250 revisit is exhausted. Worker B remains enabled for44pending permitted revisits; Worker A unchanged. No academic approval,no-match,post-audit rule relaxation,release,discovery publication,deployment,contact or additional automation is authorised.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-12T21:18:40.963246+00:00",
+          "state": "checkpointed",
+          "disposition": "deferred-revisit-exhausted-incomplete",
+          "implementationCommit": "4991057207657b7db16ff11d96d96b67a2d8535d",
+          "verifiedInputCommit": "4991057207657b7db16ff11d96d96b67a2d8535d",
+          "verifiedInputBlobs": {
+            "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000250.json": "f33b504b9509bad5aed881bb1c01a109f03a836b",
+            "data/counselor/comparisons/cp-000250.json": "e9b03ee441bc57bf7256be8118f292ff06e0781b",
+            "data/registry/programme_interests.csv": "3d306e8c53d567ca9dbc5c09e151fc54ad5b2243",
+            "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+            "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+            "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+            "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+            "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+            "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+            "data/counselor/review-programmes.json": "b534a28c1907ed52e7df6643e0a4f89d86e0b7e5",
+            "data/counselor/review-interests.json": "45110774d9d53d68fd12fc668e41d08cc4737c88",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/source-findings.json": "7315b6fa822db1196a1197518ea34b8afde93f70",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/source-attempt-2.json": "c0be26f740490200ceb1ab7f5eb1c268b5483db1",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/interest-review.json": "e7c9a8f7c6742b6c5609d7382caa9501a1dfddde",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/ucr-evidence-leads.json": "27e7aec4a319d7deb688c5ff88e47f97c9796001",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/content-review.json": "32531a6aaa99ea8b29a148b8ac52520f6e2749dc",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/source-first-checkpoint.json": "37c10011ff7ec6229d21bc658bbc17adea16c03c",
+            "canonical": "e9b03ee441bc57bf7256be8118f292ff06e0781b",
+            "decision": "f33b504b9509bad5aed881bb1c01a109f03a836b",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/deferred-revisit-source-review.json": "1a5222341ed6290051f5049ebfadecc04e877b97",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/deferred-revisit-mechanical-content.json": "6684cf75102d1bab6a2284e16f8d74e8c0dbb2e8",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/deferred-revisit-source-first-final-pass.json": "367c4955f8ac672be4e37fd2a17f6c7f4d6b4b89"
           }
         }
       ],
