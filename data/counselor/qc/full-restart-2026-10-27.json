@@ -2407,7 +2407,7 @@
         "2": "retain",
         "3": "blocked",
         "4": "blocked",
-        "5": "retain",
+        "5": "correct",
         "6": "blocked"
       },
       "sharedIssueIds": [],
@@ -11006,39 +11006,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000072",
-      "activeClaim": {
-        "executionId": "restart-A-cp072-revisit-20261112T033554Z",
-        "worker": "A",
-        "caseId": "cp-000072",
-        "claimedAt": "2026-11-12T03:35:54.055764+00:00",
-        "reviewedInputCommit": "ad84c09611e6187157a20a4dbcd65294f40eeec8",
-        "inputBlobs": {
-          "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000072.json": "41dc38b753a301d52906b395e93e9215db600665",
-          "data/counselor/comparisons/cp-000072.json": "bb30f20ed0c52b713eeed96465292ef0e77c877c",
-          "data/registry/programme_interests.csv": "f9e4078fe8e5f27296a3159b9052b7cf0a167577",
-          "data/counselor/review-programmes.json": "8659dc02fa6832d540f3f88bf1c8c3f89a3df61f",
-          "data/counselor/review-interests.json": "136bf94b4a9d9385db844ef9ded54835792d2d84",
-          "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Perform CP072 permitted revisit: seek authoritative unique180EC Spanish cohort allocation, alternation, abroad and thesis seminar replacement rules. Preserve supported155EC subset and unaffected academic research; reassess dependent interests/UCR comparison/content only if allocation changes.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000087",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -12647,13 +12623,14 @@
         "cp-000055": 1,
         "cp-000056": 1,
         "cp-000060": 1,
-        "cp-000069": 1
+        "cp-000069": 1,
+        "cp-000072": 1
       },
       "lastCheckpoint": {
-        "caseId": "cp-000069",
-        "executionId": "restart-A-cp069-revisit-20261112T023241Z",
-        "state": "deferred-revisit-incomplete",
-        "reviewedInputCommit": "761da2bc650434da2dbd813b9bffb38aa6aa0ab1",
+        "caseId": "cp-000072",
+        "executionId": "restart-A-cp072-revisit-20261112T033554Z",
+        "state": "deferred-revisit-incomplete-pending-publication-verification",
+        "reviewedInputCommit": "1a4b1cd8eca8315b13f57149799877449bc2a02e",
         "inputBlobs": {
           "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
           "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
@@ -12661,8 +12638,8 @@
           "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
           "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
           "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000069.json": "1593a2a2d601e19a87178975c1e80d2ab013d80d",
-          "data/counselor/comparisons/cp-000069.json": "2d60ce165c6a594addf96725e3d3bc642331272e",
+          "data/counselor/decisions/cp-000072.json": "2e9b6529ab6c6e2d1eb5963c4a66b84f6dd1681c",
+          "data/counselor/comparisons/cp-000072.json": "cba1e070d2a38c947bac0ce0b43819dbdf263d9e",
           "data/registry/programme_interests.csv": "f9e4078fe8e5f27296a3159b9052b7cf0a167577",
           "data/counselor/review-programmes.json": "8659dc02fa6832d540f3f88bf1c8c3f89a3df61f",
           "data/counselor/review-interests.json": "136bf94b4a9d9385db844ef9ded54835792d2d84",
@@ -12674,19 +12651,12 @@
           "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
           "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
           "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
-          "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
-          "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
-          "pilot/shiny/data/courses/BEN.json": "71fb5c570a7c42c35473d8a0483dcc17ec16a665",
-          "pilot/shiny/data/courses/ENS.json": "b323d5993ab47be5389001b547054259cbfdbfa2",
-          "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
-          "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+          "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606"
         },
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000069/revisit-1-source-first-final-pass.json",
-        "nextAction": "CP069 remains deferred and incomplete after its one permitted revisit. Preserve the supported 90 EC and provisional research for authorised post-audit review; the STC B3/final-work/whitepaper and exact French minor mandatory conditions remain unresolved. No approval or no-match. Resume cp-000072 permitted revisit next execution.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000072/revisit-1-source-first-final-pass.json",
+        "nextAction": "CP072 remains deferred and incomplete after its one permitted revisit. Preserve the supported 155 EC and unaffected research for authorised post-audit review; unique cohort/alternation allocation, abroad substitutions and approved thesis-seminar fulfilment remain unresolved. No approval or no-match. Verify publication and CI, then resume cp-000087 permitted revisit next execution.",
         "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown",
-        "publicationVerifiedCommit": "1802ec9615e38ff736112f3a6538dc0d30d6fe77",
-        "publicationVerificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000069/revisit-1-publication-verification.json"
+        "runtimeReasoningEffort": "unknown"
       },
       "checkpointHistory": [
         {
@@ -22858,6 +22828,45 @@
           "nextAction": "CP069 remains deferred and incomplete after its one permitted revisit. Preserve90EC and current research/repairs; no approval or no-match. Verify this publication/CI, then resume cp-000072 permitted revisit next execution. Applicable STCB3/finalwork/whitepaper and exact Frenchminor mandatoryconditions remain for authorised post-audit review.",
           "runtimeModel": "unknown",
           "runtimeReasoningEffort": "unknown"
+        },
+        {
+          "caseId": "cp-000069",
+          "executionId": "restart-A-cp069-revisit-20261112T023241Z",
+          "state": "deferred-revisit-incomplete",
+          "reviewedInputCommit": "761da2bc650434da2dbd813b9bffb38aa6aa0ab1",
+          "inputBlobs": {
+            "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000069.json": "1593a2a2d601e19a87178975c1e80d2ab013d80d",
+            "data/counselor/comparisons/cp-000069.json": "2d60ce165c6a594addf96725e3d3bc642331272e",
+            "data/registry/programme_interests.csv": "f9e4078fe8e5f27296a3159b9052b7cf0a167577",
+            "data/counselor/review-programmes.json": "8659dc02fa6832d540f3f88bf1c8c3f89a3df61f",
+            "data/counselor/review-interests.json": "136bf94b4a9d9385db844ef9ded54835792d2d84",
+            "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+            "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+            "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+            "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+            "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+            "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+            "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+            "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+            "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+            "pilot/shiny/data/courses/BEN.json": "71fb5c570a7c42c35473d8a0483dcc17ec16a665",
+            "pilot/shiny/data/courses/ENS.json": "b323d5993ab47be5389001b547054259cbfdbfa2",
+            "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+            "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+          },
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000069/revisit-1-source-first-final-pass.json",
+          "nextAction": "CP069 remains deferred and incomplete after its one permitted revisit. Preserve the supported 90 EC and provisional research for authorised post-audit review; the STC B3/final-work/whitepaper and exact French minor mandatory conditions remain unresolved. No approval or no-match. Resume cp-000072 permitted revisit next execution.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "publicationVerifiedCommit": "1802ec9615e38ff736112f3a6538dc0d30d6fe77",
+          "publicationVerificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000069/revisit-1-publication-verification.json"
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -28219,6 +28228,33 @@
           "runtimeModel": "unknown",
           "runtimeReasoningEffort": "unknown",
           "endedAt": "2026-11-12T02:42:00.295118+00:00",
+          "result": "permitted-revisit-incomplete-essential-source-unresolved"
+        },
+        {
+          "executionId": "restart-A-cp072-revisit-20261112T033554Z",
+          "worker": "A",
+          "caseId": "cp-000072",
+          "claimedAt": "2026-11-12T03:35:54.055764+00:00",
+          "reviewedInputCommit": "ad84c09611e6187157a20a4dbcd65294f40eeec8",
+          "inputBlobs": {
+            "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000072.json": "41dc38b753a301d52906b395e93e9215db600665",
+            "data/counselor/comparisons/cp-000072.json": "bb30f20ed0c52b713eeed96465292ef0e77c877c",
+            "data/registry/programme_interests.csv": "f9e4078fe8e5f27296a3159b9052b7cf0a167577",
+            "data/counselor/review-programmes.json": "8659dc02fa6832d540f3f88bf1c8c3f89a3df61f",
+            "data/counselor/review-interests.json": "136bf94b4a9d9385db844ef9ded54835792d2d84",
+            "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "CP072 remains deferred and incomplete after its one permitted revisit. Preserve the supported 155 EC and unaffected research for authorised post-audit review; unique cohort/alternation allocation, abroad substitutions and approved thesis-seminar fulfilment remain unresolved. No approval or no-match. Verify publication and CI, then resume cp-000087 permitted revisit next execution.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-12T03:39:22.120248+00:00",
           "result": "permitted-revisit-incomplete-essential-source-unresolved"
         }
       ],
