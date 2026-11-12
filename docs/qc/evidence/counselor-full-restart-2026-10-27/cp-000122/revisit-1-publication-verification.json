@@ -1,0 +1,135 @@
+{
+  "caseId": "cp-000122",
+  "verifiedAt": "2026-11-12T09:40:52.825628+00:00",
+  "commit": "4aced1c31bfe8f73c9275c7b9b7cdb431179c0d9",
+  "parent": "972471d86e0a7d0e7e6c50ad6c54f0a3e0fb850b",
+  "uploadedBlobs": [
+    {
+      "path": "data/counselor/comparisons/cp-000122.json",
+      "size": 86114,
+      "sha": "6468a904fec1c49db214040d99073a7a452fe76b"
+    },
+    {
+      "path": "data/counselor/decisions/cp-000122.json",
+      "size": 85850,
+      "sha": "397ea1c38f37b3ea95a7313c4e91dc78c795ffa8"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27.json",
+      "size": 2858729,
+      "sha": "049a79975d8478e356a1bc885095f102c028ebf0"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27/cp-000122.json",
+      "size": 25227,
+      "sha": "f7e02bc5acdb0981172814b04929b84a046dd1fb"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000122/revisit-1-content-mechanical-review.json",
+      "size": 37972,
+      "sha": "3ac3ac0141f5e22bb8c72e08566335d4a8ff867a"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000122/revisit-1-prior-comparison.json",
+      "size": 85522,
+      "sha": "59654f5fa955add92c133ed99d8d2a552c214c87"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000122/revisit-1-prior-decision.json",
+      "size": 85240,
+      "sha": "6279236fec6fd9f20b96907e99a03c065be03d84"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000122/revisit-1-provisional-plans.json",
+      "size": 46615,
+      "sha": "b48b4aac25a9490b1d89982b38a6092145fcf11d"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000122/revisit-1-source-first-final-pass.json",
+      "size": 8461,
+      "sha": "9cd994610e3ba60c89a3f4830de13ead960ec57f"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000122/revisit-1-source-review.json",
+      "size": 15097,
+      "sha": "836265f40a54541dfe018b601d74315f5bcb21f3"
+    }
+  ],
+  "allPublishedBytesMatch": true,
+  "byteExactReplay": {
+    "passed": true,
+    "canonicalBlob": "6468a904fec1c49db214040d99073a7a452fe76b",
+    "decisionBlob": "397ea1c38f37b3ea95a7313c4e91dc78c795ffa8",
+    "sha256": "e1d14dc1f85930606bb124fde063f9126c882931b290c377147e2c87bc1cf035"
+  },
+  "checks": [
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000122.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass full JSON Schema validation.",
+      "logSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000122.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py /tmp/a122/trial-corrected.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "result": "Operationalcorpusvalidationpassed;CP122exceptionvalid andapplicablemethodologyrulespassed.",
+      "logSha256": "0303c6fc01d2185d63162af7bedbf9be3d2eef4da42fc4d355a114f97a69531f"
+    },
+    {
+      "command": "node scripts/build-counselor-review-index.mjs --check",
+      "exitCode": 0,
+      "result": "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+      "logSha256": "c26900407153178ba5a5e40b41d6c719f0f4eb5c062e3226b01961df60f9469d"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "result": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.",
+      "logSha256": "e3bf679d8cf8c5b2718fd9a77a2b7a978383e2c1022e5cb9af4c91fa6bfc0194"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000122.json --output /tmp/a122/replay.json",
+      "exitCode": 0,
+      "result": "Built cp-000122 counselor exception record at /tmp/a122/replay.json",
+      "logSha256": "2a5413c536b9264473829d6f778d65cbb1e31eb24863e2f91e14898d368810e4"
+    }
+  ],
+  "applicableCI": [
+    {
+      "name": "Build counselor comparison",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "4aced1c31bfe8f73c9275c7b9b7cdb431179c0d9",
+      "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/43193345764"
+    },
+    {
+      "name": "Refresh counselor review indexes",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "4aced1c31bfe8f73c9275c7b9b7cdb431179c0d9",
+      "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/43193345674"
+    },
+    {
+      "name": "Validate Shiny pilots",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "4aced1c31bfe8f73c9275c7b9b7cdb431179c0d9",
+      "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/43193346022"
+    }
+  ],
+  "disposition": "deferred; incomplete; permitted revisit exhausted",
+  "remainingGate": "Official component membership, credits and perspective-choice rules for the60ECsecond year and30ECthird-yeargraduationphase, including thesiscredit,course-specificentry andassessment, forSeptember2026renewedHealthSciences entrants. Generalfirst-yearassessment andconditionalyear-twoaccess areverified; oldcurriculumlater-yearunits cannot be transferred.",
+  "nextAction": "CP122 remains deferred and incomplete after its one permitted revisit. The renewed September 2026 cohort still needs authoritative year-two component/credit/perspective allocation and final-year graduation/thesis credits, course-specific entry and assessment rules. Preserve the verified 90 EC, 53 interest reviews and two feasible provisional internal UCR plans. Resume CP124 permitted revisit next execution. No academic or presentation approval; no release."
+}
