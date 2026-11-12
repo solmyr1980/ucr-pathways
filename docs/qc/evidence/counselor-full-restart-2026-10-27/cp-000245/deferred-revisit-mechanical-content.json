@@ -1,0 +1,1103 @@
+{
+  "caseId": "cp-000245",
+  "checkedAt": "2026-11-12T20:07:24.512478+00:00",
+  "reviewedInputCommit": "792563d20cecad5038f58e2c793e83b3e2bd2b7d",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000245.json": "046ca09fb04f8e854bd7629d9844d5c11e7f30d7",
+    "data/counselor/comparisons/cp-000245.json": "f175e7661490d59c6b2b71e9f277fa0ef4741f75",
+    "data/registry/programme_interests.csv": "361018a66e2dc879e4d004343d22f15f7a28ef42",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+    "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "data/counselor/review-programmes.json": "b534a28c1907ed52e7df6643e0a4f89d86e0b7e5",
+    "data/counselor/review-interests.json": "45110774d9d53d68fd12fc668e41d08cc4737c88",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "71fb5c570a7c42c35473d8a0483dcc17ec16a665",
+    "pilot/shiny/data/courses/ENS.json": "b323d5993ab47be5389001b547054259cbfdbfa2",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "pilot/shiny/data/courses/HCB.json": "8af6675a1408cec96ea570100ee89cff97563288",
+    "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/source-findings.json": "9f88f4ec5c154927edf36513f452badc2a720f07",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/source-attempt-2.json": "b59c70d296020addcbff4048d33faacec8bde59f",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/interest-review.json": "5a17ae60bfc0d61de7a911b298c2d74786452c52",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json": "dc49c21f306b38f1b4ee18fc9fb00b0bb54c7549",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/wording-content-review.json": "e1f3be0d9875796c6258fb1f92fd9df257d1cd23",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/repaired-provisional-decision.json": "41267a87348a294378b316f98b364143f218ec17",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/revisit-provisional-decision.json": "38ad908a97171e63e42c455ecfc1d54512f86454",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/revisit-provisional-canonical.json": "d2d348f123de5af825305194caadc136aec309c1",
+    "canonical": "f175e7661490d59c6b2b71e9f277fa0ef4741f75",
+    "decision": "046ca09fb04f8e854bd7629d9844d5c11e7f30d7"
+  },
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "academicStatus": "blocked",
+  "mechanicalChecks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000245.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000245.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.",
+      "logSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/revisit-provisional-canonical.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/revisit-provisional-canonical.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.",
+      "logSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "output": "Operational counselor corpus validation passed.",
+      "logSha256": "2398a8e81c3f37048e4c27140896ac6b8c2d08caa62d0bcd67adfca7a3bf7dcf"
+    },
+    {
+      "command": "node scripts/validate-registry-interests.mjs",
+      "exitCode": 0,
+      "output": "Valid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.",
+      "logSha256": "0dc1ff8a36961675f58e702191ec97f43c501db23f02270d74dfb6913450c3cc"
+    },
+    {
+      "command": "node scripts/build-counselor-review-index.mjs --check",
+      "exitCode": 0,
+      "output": "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+      "logSha256": "c26900407153178ba5a5e40b41d6c719f0f4eb5c062e3226b01961df60f9469d"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "output": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.",
+      "logSha256": "e3bf679d8cf8c5b2718fd9a77a2b7a978383e2c1022e5cb9af4c91fa6bfc0194"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/revisit-provisional-decision.json --output /tmp/b245revisit/revised-provisional-replay.json",
+      "exitCode": 0,
+      "output": "Built cp-000245 counselor comparison record at /tmp/b245revisit/revised-provisional-replay.json",
+      "logSha256": "f15c89160cb52bdf6b84f565d86fcb858a81c2f50e8d0587c09cc0ed302cbc11"
+    },
+    {
+      "command": "byte-exact active and provisional decision/canonical replay",
+      "exitCode": 0,
+      "activeSHA256": "b47d46265ab97226922b279a7715484955c9eb607541b98b315bb70c991c425f",
+      "provisionalSHA256": "9467bf282e348cb3ae84706de2ee8e2338e254de9887c16c65942a43eb26113e"
+    }
+  ],
+  "reuse": {
+    "interestRows": 52,
+    "interestEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/interest-review.json",
+    "substantiveCourses": 35,
+    "courseEvidence": [
+      {
+        "code": "ACCPPDE101",
+        "contribution": "Required first-year academic writing,research literacy,reflection andcivic engagement.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "BENGATE102",
+        "contribution": "supplies research-design and statistics foundations for interdisciplinary inquiry",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "ENSDELT312",
+        "contribution": "examines sustainability through institutions, interests, public opinion and collective decision-making",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSGATE102",
+        "contribution": "examines justice and the relationship between law, norms and society",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSHIST111",
+        "contribution": "places political, economic and cultural transformations in historical context",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSHIST112",
+        "contribution": "uses gender and cultural histories to study inequality, identity and exclusion",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSHIST312",
+        "contribution": "guides independent historical inquiry from research question through source analysis to substantial paper",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSLAWJ111",
+        "contribution": "combines legal, historical and philosophical approaches to human rights and dignity",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSLAWJ211",
+        "contribution": "investigates responsibility, punishment, accountability and the moral limits of criminalisation",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSLAWJ212",
+        "contribution": "studies international rules and institutions governing war, refuge, rights and climate challenges",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSLAWJ213",
+        "contribution": "examines constitutions, fundamental rights, religious pluralism and democratic backsliding",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSLAWJ312",
+        "contribution": "studies European institutions, citizenship, law and public integration",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSPHIL111",
+        "contribution": "introduces philosophical traditions and methods for examining meaning, knowledge and values",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSPHIL212",
+        "contribution": "develops moral reasoning about responsibility, equality, dignity and practical ethical questions",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSPHIL214",
+        "contribution": "examines consciousness, personal identity and the relation between minds, bodies and technology",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSPHIL313",
+        "contribution": "examines free will, luck, time and the self through contemporary philosophical debate",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSPOLI112",
+        "contribution": "compares democracies, institutions, media change, populism and political participation",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSPOLI311",
+        "contribution": "examines institutions, democratic decision-making and responses to public crises",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSPOLI312",
+        "contribution": "Studies policymaking phases and competing conceptualisations across national/international arenas through sugar policy and policy memos; supplies public-policy process inquiry,not a humanistic professional-advice practicum.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSPOLI313",
+        "contribution": "develops analysis of violence, radicalisation, reconciliation and conflict transformation",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSSOCI111",
+        "contribution": "builds sociological analysis of social relations, inequality, institutions and collective life",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSSOCI212",
+        "contribution": "develops qualitative inquiry into meaning, experience, power and social questions",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSSOCI214",
+        "contribution": "critically examines modernity, colonialism and competing traditions of social theory",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSSOCI215",
+        "contribution": "links civic engagement and social-movement theory to environmental justice and peacebuilding",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "GOSSOCI311",
+        "contribution": "connects contemporary social theory with empirical work involving civil-society organisations",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "HCBGATE102",
+        "contribution": "introduces behavioural and psychological perspectives on people, minds and development",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "HCBPSYC111",
+        "contribution": "examines how people think, feel and act in relation to other people and groups",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "HCBPSYC211",
+        "contribution": "develops experimental, statistical and academic-communication skills for research",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "HCBPSYC313",
+        "contribution": "Develops systematic review,study screening,bias appraisal,effect-size synthesis and meta-analysis in R,with a group research poster; not a free independent capstone or humanistic thesis.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "HCBPSYC314",
+        "contribution": "studies physical, cognitive, emotional and social development across the human lifespan",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "HCBPSYC315",
+        "contribution": "links well-being, empathy, civic engagement and democratic culture to resilience against extremism",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "MCCCOMM111",
+        "contribution": "develops reflective written and spoken communication for influencing and connecting people",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "MCCCOMM213",
+        "contribution": "applies rhetorical theory in a community-facing educational intervention",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "MCCCOMM311",
+        "contribution": "combines ethical persuasion with applied climate and sustainability communication",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      },
+      {
+        "code": "MCCMEDI111",
+        "contribution": "analyses how cultural narratives and media shape perception, identity and power",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "sameActualEvidence": true
+      }
+    ],
+    "workbookUnchanged": true,
+    "readerReviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/wording-content-review.json"
+  },
+  "internalCorrections": {
+    "prototypeDecisionRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/revisit-provisional-decision.json",
+    "prototypeCanonicalRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/revisit-provisional-canonical.json",
+    "actualDifferentCoursesEachWay": 11,
+    "creditsEachWay": 82.5,
+    "changes": [
+      "Correct stale13-course/private-law distinctness statement to11courses/82.5ECand actual selected law subjects.",
+      "Remove irrelevant generic algorithmic-preparation prose.",
+      "Qualify organising concepts/limitations as provisional while external basis remains unresolved."
+    ],
+    "selectionsSchedulesChanged": false
+  },
+  "content": {
+    "status": "passed-for-partial-record",
+    "activeReaderFields": {
+      "decisionSchemaVersion": "2.0",
+      "id": "cp-000245",
+      "sources": [
+        "https://www.uvh.nl/onderwijs/bachelor-humanistiek/",
+        "https://www.uvh.nl/en/download/1317/?tmstv=1776505162",
+        "https://uvh.publicatie.sqill.it/opleiding/study-guide/educations/114",
+        "https://uvh.sqill.it/publisher/api/v0/opleiding/items/114"
+      ],
+      "comparator": {
+        "name": "Humanistic Studies",
+        "institution": "University of Humanistic Studies",
+        "primarySource": "s0",
+        "academicYear": "2026-2027",
+        "route": null,
+        "additionalSources": [
+          "s1"
+        ],
+        "sourceNotes": "The current programme page confirms a Dutch-language, full-time degree lasting three years, with 180 EC in total and 60 EC per year. The public 2026–2027 catalogue lists eight first-year courses worth 60 EC. The later years include an unnamed 7.5-EC course (code 0000), Psychology and Embodied Meaning entries assigned to different years, a 15-EC thesis and 30 EC of external study or electives alongside other third-year courses. The catalogue does not establish which entries apply to each entrant cohort or how the choices fit together. The 2025 accreditation report describes the earlier 10-EC thesis and 15-EC elective space and a planned curriculum revision. It does not establish the revised bachelor allocation. The verified first year is retained while the remaining requirements are clarified.",
+        "components": [
+          [
+            "y1-b1-fh",
+            "Philosophy in Humanistic Studies",
+            7.5,
+            "Verified first-year course in the 2026–2027 catalogue. The complete degree comprises 180 EC."
+          ],
+          [
+            "y1-b1-ho",
+            "Historical Research",
+            7.5,
+            "Verified first-year course in the 2026–2027 catalogue. The complete degree comprises 180 EC."
+          ],
+          [
+            "y1-b1-ih",
+            "Introduction to Humanistic Studies",
+            7.5,
+            "Verified first-year course in the 2026–2027 catalogue. The complete degree comprises 180 EC."
+          ],
+          [
+            "y1-b1-il",
+            "Introduction to the Theory and History of Worldviews",
+            7.5,
+            "Verified first-year course in the 2026–2027 catalogue. The complete degree comprises 180 EC."
+          ],
+          [
+            "y1-b1-iw",
+            "Introduction to Scientific Research",
+            7.5,
+            "Verified first-year course in the 2026–2027 catalogue. The complete degree comprises 180 EC."
+          ],
+          [
+            "y1-b1-so",
+            "Qualitative Research for the Social Sciences",
+            7.5,
+            "Verified first-year course in the 2026–2027 catalogue. The complete degree comprises 180 EC."
+          ],
+          [
+            "y1-b1-np",
+            "Normative Professionalisation 1",
+            7.5,
+            "Verified first-year course in the 2026–2027 catalogue. The complete degree comprises 180 EC."
+          ],
+          [
+            "y1-b1-ph",
+            "Psychology in Humanistic Studies",
+            7.5,
+            "Verified first-year course in the 2026–2027 catalogue. The complete degree comprises 180 EC."
+          ]
+        ]
+      },
+      "routeSelection": null,
+      "recordStatus": "exception",
+      "exception": {
+        "type": "external-programme-unresolved",
+        "checkedOn": "2026-10-31",
+        "reason": "The complete curriculum for students entering in 2026 remains unconfirmed. The catalogue includes an unnamed 7.5-EC second-year course (code 0000), lists Psychology and Embodied Meaning in different years, and does not reconcile later-year courses with the 15-EC thesis and 30-EC elective or external-study space. Cohort and transition rules are needed to establish a complete 180-EC pathway.",
+        "curriculumContext": "The degree comprises 180 EC. Eight first-year courses worth 60 EC are verified; the remaining requirements need clarification.",
+        "ucrCourseEvidence": "UCR offers relevant study in philosophy, ethics, psychology, sociology, research, law and public policy. Two provisional study compositions have been examined, but a complete external curriculum is needed before their comparability can be established.",
+        "candidateAssessment": [
+          {
+            "concept": "Meaning, ethics & humane society",
+            "assessment": "A provisional composition combines philosophical reflection, ethics, psychology, social theory and research to explore meaning and humane society. Its relationship to the full Humanistic Studies curriculum remains to be assessed."
+          },
+          {
+            "concept": "Citizenship, law & public values",
+            "assessment": "A provisional composition combines law, political institutions, public policy, history and social research around citizenship and public values. Its relationship to the full Humanistic Studies curriculum remains to be assessed."
+          }
+        ]
+      },
+      "audience": {
+        "schemaVersion": "1.0",
+        "programmeDescription": "Humanistic Studies examines meaning-making and how organisations and society can become more humane. It combines philosophy, psychology, sociology, history and worldview studies with research and reflective professional skills.",
+        "comparisonExplanation": "The revised course sequence and choice requirements remain unconfirmed. The verified first-year courses are shown below. A complete external curriculum is needed before the proposed UCR study compositions can be compared with the degree.",
+        "curriculum": {
+          "status": "partial",
+          "componentIds": [
+            "y1-b1-fh",
+            "y1-b1-ho",
+            "y1-b1-ih",
+            "y1-b1-il",
+            "y1-b1-iw",
+            "y1-b1-so",
+            "y1-b1-np",
+            "y1-b1-ph"
+          ],
+          "yearLabel": "2026–2027",
+          "routeLabel": "Dutch-language, full-time bachelor",
+          "limitation": "The degree comprises 180 EC. Only the eight verified first-year courses, worth 60 EC, are listed here. Later-year requirements and cohort transition rules need clarification before a complete comparison can be approved."
+        }
+      }
+    },
+    "activeSelectedUCRDescriptions": 0,
+    "selectedProvisionalDescriptions": [
+      {
+        "code": "ACCPPDE101",
+        "name": "Personal & Professional Development",
+        "text": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "sourceField": "profile",
+          "mode": "edited",
+          "reviewedOn": "2026-11-01",
+          "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+          "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+          "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+          "courseName": "Personal & Professional Development"
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "BENGATE102",
+        "name": "Research Methods & Statistics",
+        "text": "Research Methods & Statistics introduces research design, operationalisation, measurement, sampling, surveys and experiments. Students study descriptive statistics, estimation, hypothesis testing and introductory regression using R and R Commander. A group project develops a research plan and instruments, collects and analyses data, and reports findings under research-ethics and privacy requirements.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "9d88751452d5c0a6888ac7901a73d1a848617dee2b587d4df64815fc39ad8813",
+          "descriptionSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Research Methods & Statistics"
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "ENSDELT312",
+        "name": "Governance of Sustainability",
+        "text": "This course examines sustainability through the lens of governance: “a process of rule-making and collective decision-making that includes both governmental and non-governmental actors in shaping public policy” (Fenger & Bekkers, 2016). Taking this lens, we ask questions such as how are sustainability policies on the local, national, and international level made and enforced? Which actors represent which interests, and which are most influential? How is public opinion on sustainability shaped, and how does public opinion shape politics? What, at the end of the day, determines effective policy for sustainability? By the end of this course, you will have gained a deep appreciation of the complexity of the governance dimension of sustainability, and have developed the theoretical and practical understanding to critically assess mainstream policy decisions.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "sourceField": "profile",
+          "mode": "edited",
+          "reviewedOn": "2026-11-01",
+          "sourceSha256": "f4cf9494a23b75f3fb3fe9090c62b9c8af908dc62a825c17f6547cfb48caf0a7",
+          "descriptionSha256": "746711aaebf20395c0fd5695fb91c5951f611715825c91ca6da251c5d890e362",
+          "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+          "courseName": "Governance of Sustainability"
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "GOSGATE102",
+        "name": "Law, Society & Justice",
+        "text": "Law, Society & Justice examines legal, social and normative perspectives on law. Students compare legal traditions and study public and private law, human rights, justice, social control and change, race and gender. Case briefs, demand letters and mock trials develop legal reasoning, while a family-law topic supports the design of a socio-legal research proposal.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "e3ee6c30cefe40d0410e4896ebe9e340104aad5931f93baad84dd2e4cfcd8c3e",
+          "descriptionSha256": "035b12c51282127288b99b6ba3cb906896d0fabff1cdf5153709df2d32006391",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Law, Society & Justice"
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "GOSHIST111",
+        "name": "Modern History",
+        "text": "Provides a chronological overview of history from 1815 to the present. Discusses industrialisation, popular sovereignty and national self‑determination, and covers major economic, political and cultural developments including revolutions, world wars and the fall of communism.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Modern History",
+          "sourceField": "description2",
+          "sourceSha256": "cd940abc8f8e43aeb6cedd73b6bf076687f6418ffb3a76c3e1c44ad107e68324",
+          "descriptionSha256": "cd940abc8f8e43aeb6cedd73b6bf076687f6418ffb3a76c3e1c44ad107e68324",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000449/content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "GOSHIST112",
+        "name": "Histories of Gender",
+        "text": "Studies gender, storytelling and marginalised lives in the nineteenth- to twenty-first-century American context. Students examine slavery, community activism, representation and lived experience, using sources and projects that connect historical interpretation with contemporary questions.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "sourceSha256": "0baa8448cd3d1411e11fcaf4f989186d0107f29d5de5696a1a66fdb1dcd9995b",
+          "descriptionSha256": "c39509166e5d7cbbe048b3e537adc64ec621956383820bfd1c904d052f550a28",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+          "courseName": "Histories of Gender"
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "GOSHIST312",
+        "name": "Researching the “American Century”",
+        "text": "Guides students through the full arc of historical inquiry, from formulating research questions to engaging critically with sources. Emphasises methodological rigour and interdisciplinary thinking and culminates in a substantial research paper.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "sourceField": "description2",
+          "sourceSha256": "ec69dff9b78d3978fff3f1724dc3a2256eb5e2c589b7beff8e13b46a9171908a",
+          "descriptionSha256": "ec69dff9b78d3978fff3f1724dc3a2256eb5e2c589b7beff8e13b46a9171908a",
+          "mode": "verbatim",
+          "reviewedOn": "2026-10-30",
+          "reviewNote": "By user decision of 30 October 2026, the historical Walcheren outline is excluded from the enriched reference. Uses the unchanged official description verbatim; claims are limited to the historical inquiry, source criticism and research methods it supports. No replacement outline is required for this current use.",
+          "courseName": "Researching the “American Century”"
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "GOSLAWJ111",
+        "name": "Human Rights: Law & Philosophy",
+        "text": "Offers a legal, historical and philosophical approach to human rights. Studies classical and modern philosophers, traces the rise of human rights, examines the US Bill of Rights and the French Declaration, and discusses human rights treaties.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Human Rights: Law & Philosophy",
+          "sourceField": "description2",
+          "sourceSha256": "1ed6ae8d1c72724248e9a340650eef63f02eaf747b2175254ce1ca96fc82ab62",
+          "descriptionSha256": "1ed6ae8d1c72724248e9a340650eef63f02eaf747b2175254ce1ca96fc82ab62",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000449/content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "GOSLAWJ211",
+        "name": "Criminal Law & Criminal Justice",
+        "text": "Examines moral and legal justifications for criminalisation and punishment. Investigates guiding principles of criminal law and justice, including criminal accountability, guilt, legality and fundamental principles, and applies theory through a simulated legal aid clinic.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Criminal Law & Criminal Justice",
+          "sourceField": "description2",
+          "sourceSha256": "2f3f39fa5669778e9494699766d57580e59a890b3a3fc7527281d3973a63339f",
+          "descriptionSha256": "2f3f39fa5669778e9494699766d57580e59a890b3a3fc7527281d3973a63339f",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+        },
+        "reviewFinding": "Read selected course description and current course evidence in full for CP245 permitted revisit; supported and retained unchanged."
+      },
+      {
+        "code": "GOSLAWJ212",
+        "name": "Introduction to Public International Law",
+        "text": "Introduction to Public International Law examines its sources, theories, institutions and relationship to domestic law. Topics include responsibility, force, armed conflict, international crime, human rights, economic relations and environmental protection, followed by self-determination, Third World approaches, compliance and treaty politics. Case exercises and a research podcast develop legal reasoning and critical analysis.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "0f8c6da05a320590248fdd068ef7492aa4a552af12c9e621a746cfcdf1ad4f41",
+          "descriptionSha256": "69f757ece2c00572df432e6ab9cc82f74c14f17c69dd6726bf3e86264049390a",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Introduction to Public International Law"
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "GOSLAWJ213",
+        "name": "Comparative Constitutional Law",
+        "text": "Comparative Constitutional Law compares constitutional structures, institutions and rights across legal systems and introduces administrative law. Students study federalism, legislatures, executive relationships, courts, judicial review, human rights, public participation and procedural fairness. A staged booklet compares two constitutions, supported by legal interpretation, case-law analysis and hypothetical cases.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "3749867e8b6ef513149437432c78c9a25f6a6964e62399088abd19dddf6c47b1",
+          "descriptionSha256": "1845c8f87e0e1295bfe5b43ee7ea5c3902c6690b455726ad6c44b66c78ae8a6a",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Comparative Constitutional Law"
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "GOSLAWJ312",
+        "name": "Foundations of European Union Law",
+        "text": "Introduces the EU legal order. Studies institutions, framework, citizenship and the internal market using problem‑based exercises and guest lectures.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Foundations of European Union Law",
+          "sourceField": "description2",
+          "sourceSha256": "fea5f72e90d46266e5f1eb6bdfeb2ee451f21334ff92ecd9dc947792b4add6b6",
+          "descriptionSha256": "fea5f72e90d46266e5f1eb6bdfeb2ee451f21334ff92ecd9dc947792b4add6b6",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+        },
+        "reviewFinding": "Read selected course description and current course evidence in full for CP245 permitted revisit; supported and retained unchanged."
+      },
+      {
+        "code": "GOSPHIL111",
+        "name": "Introduction to Western Philosophy",
+        "text": "Introduces central themes from Western philosophy over 2,500 years. Encourages inquiry into the significance of philosophical issues and their relation to other disciplines and teaches theoretical methods used by philosophers.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Introduction to Western Philosophy",
+          "sourceField": "description2",
+          "sourceSha256": "106757f58621c7e76a4a39253f24296f54e95a15c500cf3571b6fbdaffbdc220",
+          "descriptionSha256": "106757f58621c7e76a4a39253f24296f54e95a15c500cf3571b6fbdaffbdc220",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+        },
+        "reviewFinding": "Read selected course description and current course evidence in full for CP245 permitted revisit; supported and retained unchanged."
+      },
+      {
+        "code": "GOSPHIL212",
+        "name": "Ethics",
+        "text": "Ethics examines moral reasoning through historical and contemporary theories and close philosophical reading. Students study utilitarianism, Kantian ethics, virtue ethics, contractarianism and feminist ethics, alongside Nietzsche, Murdoch and Nagel. Reflection and research essays develop interpretation, argument evaluation and an independent position on ethical theory or a practical ethical problem.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "6d4bf415a51b5b6fb41f341d23fe8b8ce483263f17505e77d1a4ae37299fe30f",
+          "descriptionSha256": "d17cd0a6631823a666c2978b81f52bc5e8b5c8e52ed68edccb3fa37073146e5b",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Ethics"
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "GOSPHIL214",
+        "name": "Philosophy of Mind",
+        "text": "Examines historical and modern work on the philosophy of mind. Discusses Descartes’ dualism, the nature of consciousness, AI and animal minds, personal identity, transformative experiences and the influence of technology on experience.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Philosophy of Mind",
+          "sourceField": "description2",
+          "sourceSha256": "cd2e55eb0c7f8a45220107e2f961346ef9960975db1d457cb213c6bf58ef25a6",
+          "descriptionSha256": "cd2e55eb0c7f8a45220107e2f961346ef9960975db1d457cb213c6bf58ef25a6",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+        },
+        "reviewFinding": "Read selected course description and current course evidence in full for CP245 permitted revisit; supported and retained unchanged."
+      },
+      {
+        "code": "GOSPHIL313",
+        "name": "Free Will, Time & the Self",
+        "text": "Investigates concepts of free will, the role of luck and openness of the future. Explores relations between free will, time and the self across multiple modules and contemporary debates.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Free Will, Time & the Self",
+          "sourceField": "description2",
+          "sourceSha256": "f283131b5046b0c00827f9ee0b30524e1beac4aa954b5a8d9d6968408595aa65",
+          "descriptionSha256": "f283131b5046b0c00827f9ee0b30524e1beac4aa954b5a8d9d6968408595aa65",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+        },
+        "reviewFinding": "Read selected course description and current course evidence in full for CP245 permitted revisit; supported and retained unchanged."
+      },
+      {
+        "code": "GOSPOLI112",
+        "name": "Foundations of Comparative Politics",
+        "text": "Provides analytical tools to compare political systems and democracies. Examines phenomena like democratic backsliding, decline of political parties, rise of populism, media changes, non‑majoritarian institutions and globalization’s impact on domestic politics.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Foundations of Comparative Politics",
+          "sourceField": "description2",
+          "sourceSha256": "72f9efff37e62fdc1cb0ddf27e595e7b3c526eb132dad86622cf55738204a4ee",
+          "descriptionSha256": "72f9efff37e62fdc1cb0ddf27e595e7b3c526eb132dad86622cf55738204a4ee",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000450/content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "GOSPOLI311",
+        "name": "European Union Politics",
+        "text": "European Union Politics examines EU institutions, actors, integration and policymaking, including representation, legitimacy and decision-making. An empirical project investigates European Parliament committee amendments, relating MEP ideology and possible interest-group influence to amendment activity. Students plan the research, code amendments, assess salience and trace legislative processes.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "sourceSha256": "42788a5dd28eccc535d20a771b88a601c20af300b1102ef637945a852f156fe0",
+          "descriptionSha256": "97411c9c43963bfc500f8c6494383d57cfd36eeb9c57f554e94ba2d6e35c4253",
+          "reviewedOn": "2026-10-29",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "mode": "edited",
+          "courseName": "European Union Politics"
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "GOSPOLI312",
+        "name": "Public Policy Analysis",
+        "text": "Investigates public policy in the context of globalization. Uses a case study on sugar to examine policy‑making phases and alternative conceptualisations across national and international arenas. Students write policy memos.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "sourceField": "description2",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-01",
+          "sourceSha256": "c9f3958d93c55568454749b18f2790f1adf0927a53afbc8d93fb3ce9ca1729e6",
+          "descriptionSha256": "c9f3958d93c55568454749b18f2790f1adf0927a53afbc8d93fb3ce9ca1729e6",
+          "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+          "courseName": "Public Policy Analysis"
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000450/content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "GOSPOLI313",
+        "name": "Peace & Conflict",
+        "text": "Peace & Conflict examines conflict and approaches to peace through legal, sociological, political and historical perspectives. Structural inequality, identity and colonial legacies connect to international security, humanitarian law, human rights, peacebuilding and transitional justice. An interdisciplinary podcast, policy brief and research dossier develop analysis, while reflection examines how assumptions shape inquiry.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "414e04bed3b7b37017b0ce93ba0aa469530684e0623175ca2ff1784b4a84515a",
+          "descriptionSha256": "5ad720fcdadf602282307eef8fe7eaf83c3b00264a2ee4752e123cda89606fdf",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Peace & Conflict"
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "GOSSOCI111",
+        "name": "Introduction to Sociology",
+        "text": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Introduction to Sociology",
+          "sourceField": "description2",
+          "sourceSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+          "descriptionSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000450/content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "GOSSOCI212",
+        "name": "Qualitative Research Methodology",
+        "text": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "sourceField": "profile",
+          "mode": "edited",
+          "reviewedOn": "2026-11-01",
+          "sourceSha256": "6531d96f817df19cfa773d8d8004f44da6041eeab39acfce1462438728cd1eeb",
+          "descriptionSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+          "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+          "courseName": "Qualitative Research Methodology"
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000450/content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "GOSSOCI214",
+        "name": "Modern Sociology",
+        "text": "Examines the trajectory of sociology within the culture of imperialism and colonial responses. Studies leading social theories and debates about modernity and critically engages with sociological discourses.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Modern Sociology",
+          "sourceField": "description2",
+          "sourceSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+          "descriptionSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000450/content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "GOSSOCI215",
+        "name": "Social Movements & Environmental Justice",
+        "text": "Focuses on social movement theories and environmental justice. Uses case studies from the Environmental Justice Atlas and integrates perspectives such as feminism, anti‑colonialism, degrowth and environmental peacebuilding to encourage civic engagement.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Social Movements & Environmental Justice",
+          "sourceField": "description2",
+          "sourceSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+          "descriptionSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000450/content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "GOSSOCI311",
+        "name": "New Issues in Contemporary Social Theory",
+        "text": "New Issues in Contemporary Social Theory studies civil society through critical, neo-functionalist and decolonial perspectives. Topics include trust, social capital, public spheres, solidarity, social movements and civil repair. An experience report connects engagement or observation to course concepts, while an individual project uses theoretical and empirical sources to analyse a civil-society organisation, movement or initiative.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "New Issues in Contemporary Social Theory",
+          "sourceField": "profile",
+          "sourceSha256": "f54abdf8a1ca13792cdc4bc2d390f202721dd6280b0cae44aa0609c2db02dbbf",
+          "descriptionSha256": "367314c88b9f1c559ccd023159845f9624f353f78d898bc66b690ebe3392336b",
+          "mode": "edited",
+          "reviewedOn": "2026-10-31",
+          "reviewNote": "Read the selected current profile and cumulative outline limitation fields. The displayed summary follows its substantive topics and activities; it omits unsupported resource-planning or mandatory NGO group-project claims from superseded cache wording."
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "HCBGATE102",
+        "name": "Introduction to Brain & Behavior",
+        "text": "Explores why people behave as they do and how brain injuries affect mental processes. Discusses nature and nurture, introduces brain anatomy and psychological theories, and provides a gateway to cognitive science and clinical psychology.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Introduction to Brain & Behavior",
+          "sourceField": "description2",
+          "sourceSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+          "descriptionSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "HCBPSYC111",
+        "name": "Social Psychology",
+        "text": "Covers main theories, findings and principles of social psychology, emphasising its scientific approach to understanding how people’s feelings, thoughts and behaviour are influenced by the presence of others.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Social Psychology",
+          "sourceField": "description2",
+          "sourceSha256": "1300df4b478a5fb06ea11b1aab33dd1ec75a582dd6b48f104df9218b2000aa22",
+          "descriptionSha256": "1300df4b478a5fb06ea11b1aab33dd1ec75a582dd6b48f104df9218b2000aa22",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000454/content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "HCBPSYC211",
+        "name": "Statistics & Experimental Methods",
+        "text": "Develops experimental-design knowledge and practical statistical analysis for health and behavioural research. Students choose, fit, diagnose and interpret multivariable models for group comparisons, categorical outcomes and latent constructs. R, primarily through R Commander, supports practical exercises; data-analysis papers and a poster connect research questions to appropriate models, assumption checks and clear reporting.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "sourceSha256": "bf482d4e283320560451930d2822162ada50a7697ded31de54eb7b021694adbc",
+          "descriptionSha256": "ef41b0b732a8e9502a0d7e14ceef47bb91ca971854bb1a26b6a8ed5e6c9b6111",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "courseName": "Statistics & Experimental Methods"
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "HCBPSYC313",
+        "name": "Advanced Research Methods & Statistics",
+        "text": "Advanced Research Methods & Statistics introduces systematic reviews and meta-analysis to synthesise results across studies. Students use R to conduct analyses, work with data structures and packages, estimate treatment effects and examine their consistency across studies. Presentations and active research tasks develop evidence-synthesis skills.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-30",
+          "sourceSha256": "eb24b7cc21c239bb763218b5b09a429739925fa1a8206c390c2f07c75f528c1d",
+          "descriptionSha256": "f9bb29521ce24ffbe4d0eef2398221f54d99cbd72801c53bf1db0de6b3c4c799",
+          "reviewNote": "Updated the course title to the current official name. Retained the remaining description after checking it against the unchanged selected profile.",
+          "courseName": "Advanced Research Methods & Statistics"
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "HCBPSYC314",
+        "name": "Lifespan Developmental Psychology",
+        "text": "Explores human development across the lifespan. Examines physical, cognitive, emotional and social changes from prenatal life to old age and develops critical thinking about factors influencing individual uniqueness.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Lifespan Developmental Psychology",
+          "sourceField": "description2",
+          "sourceSha256": "83bc9b3a3f25b826775e694d59d5a8673158b9fd3bced3778ac1efb9b4da6289",
+          "descriptionSha256": "83bc9b3a3f25b826775e694d59d5a8673158b9fd3bced3778ac1efb9b4da6289",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000447/content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "HCBPSYC315",
+        "name": "Youth Resilience to Extremism",
+        "text": "Interdisciplinary course combining psychology and other social sciences in which students will have an opportunity to participate in an actual international research project and develop evidence-based materials for youth leaders and educators aimed at strengthening young people’s resilience to radicalization by promoting democratic school culture, emotionally supportive learning environments, empathy, civic engagement, and mental well-being.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Youth Resilience to Extremism",
+          "sourceField": "description2",
+          "sourceSha256": "9025fab0b73095d3db8b25aeb6f5922038e322132aa2cceffc415146926d1bf0",
+          "descriptionSha256": "9025fab0b73095d3db8b25aeb6f5922038e322132aa2cceffc415146926d1bf0",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000447/content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "MCCCOMM111",
+        "name": "The Art of Rhetorical Communication",
+        "text": "The Art of Rhetorical Communication develops rhetorical analysis, academic writing and oral presentation. Students examine classical Western roots and the canons of rhetoric, and learn to construct, organise and support persuasive arguments. Historical and contemporary examples connect rhetorical theory with practical communication.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceField": "profile",
+          "basis": "course outline",
+          "mode": "edited",
+          "reviewedOn": "2026-10-29",
+          "sourceSha256": "a1075e2aff565380f637a1ee31ac79c668477b11b15a7f853230b303cf44485f",
+          "descriptionSha256": "34ab73cc0cae33e2a0e47ba5df0ee55c9b0e5f2d4e21ae97ea18667a96400c4c",
+          "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+          "courseName": "The Art of Rhetorical Communication"
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "MCCCOMM213",
+        "name": "Rhetoric in Action",
+        "text": "Develops persuasive speaking skills by applying rhetorical theory in the real world. Students work with local primary school children, building public-speaking skills and empowering them to find their voices.",
+        "provenance": {
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+          "courseName": "Rhetoric in Action",
+          "sourceField": "description2",
+          "sourceSha256": "a481c86f7c34da2d13a0785165435e6761cd1a65cf18efd83c40b7795ee5ff29",
+          "descriptionSha256": "a481c86f7c34da2d13a0785165435e6761cd1a65cf18efd83c40b7795ee5ff29",
+          "mode": "verbatim",
+          "reviewedOn": "2026-11-04",
+          "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000447/content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "MCCCOMM311",
+        "name": "Persuasive Communication",
+        "text": "Persuasive Communication studies persuasion through communication studies, social psychology and ethical analysis. Students examine framing, argumentation, cognitive shortcuts and verbal and nonverbal communication. Community-engaged projects develop communication encouraging sustainable and circular lifestyles, while an individual research paper evaluates selected persuasion tools.",
+        "provenance": {
+          "sourceField": "profile",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceSha256": "bad6a0cb3dd14e5cb07c4aeb36a102d09309142fdc5bab339f0096830ec5209a",
+          "descriptionSha256": "781fa29248cce6025d8aa8887d300c8f0d64941a8b4a9b2dd193783c098deacc",
+          "mode": "edited",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "reviewedOn": "2026-10-29",
+          "basis": "course outline",
+          "courseName": "Persuasive Communication"
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      },
+      {
+        "code": "MCCMEDI111",
+        "name": "Introduction to Film & Media",
+        "text": "Introduction to Film & Media examines how moving images create meaning through cinematography, editing, sound, narrative and performance. Film history connects early cinema and major movements with feminist and postcolonial interpretation, alongside television, digital platforms and spectatorship. An analytical or creative-analytical project combines close analysis, theory and scholarly research.",
+        "provenance": {
+          "sourceField": "profile",
+          "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+          "sourceSha256": "5755fae4aad203737db42f373976a1a3540befa537d34b2f7992c241ca2092f3",
+          "descriptionSha256": "07d87ceb8396fdb190b165e8c6c602ac572c9aca7393cd25c4ddddb5f19ccb8a",
+          "mode": "edited",
+          "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+          "workbook": "data/reference/ucr_courses_enriched.xlsx",
+          "reviewedOn": "2026-10-29",
+          "basis": "course outline",
+          "courseName": "Introduction to Film & Media"
+        },
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000245/course-content-review.json",
+        "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP245 permitted revisit freshly assessed."
+      }
+    ],
+    "freshDescriptionCodes": [
+      "GOSLAWJ211",
+      "GOSLAWJ312",
+      "GOSPHIL111",
+      "GOSPHIL214",
+      "GOSPHIL313"
+    ],
+    "fieldToRendererMapping": [
+      "visible_label and render_exception select the HumanisticStudies title, institution, clear explanation, partial eight-course60ECtable and stated180ECdegree limitation. Every active title, explanation, note/limitation, year/route label and selected source link reread; both displayed links retrieved successfully.",
+      "curriculum_view/render_audience_context select only the8stablefirst-year componentIDs. Source/API retrieval distinctions remain internal; the unselected catalogue wrapper404 does not replace the public primary link.",
+      "No activeUCRconcept,course modal,comparison block or independent research is selected. Internal2concepts/35course names, corrected distinctness/limitation and selected course descriptions reviewed;30exact unchanged shared reviews reused and5currenttexts/provenance versions read afresh.",
+      "Provisional current schemas/feasibility/replay certify data mechanics and actual UCR scheduling only; the retained external comparator scaffold is not a verified cohort reconstruction. No app/renderer changes, screenshots or live-modal/runtime exercises; final-release rendering remains separate."
+    ]
+  },
+  "scope": "Supported partial active exception and unapproved internal UCR prototypes only; academic gate not passed."
+}
