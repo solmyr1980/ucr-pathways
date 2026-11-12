@@ -1,0 +1,487 @@
+{
+  "caseId": "cp-000060",
+  "reviewedOn": "2026-11-12T01:38:42.338563+00:00",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000060.json": "08019f765c6ddaa907138389392b27d849534931",
+    "data/counselor/comparisons/cp-000060.json": "541116feed1b8ee2ce943c4c9d4ce0991acf8919",
+    "data/registry/programme_interests.csv": "f9e4078fe8e5f27296a3159b9052b7cf0a167577",
+    "data/counselor/review-programmes.json": "a8bebf5a539e022f2c5ee0ba27790cf778ba6df3",
+    "data/counselor/review-interests.json": "136bf94b4a9d9385db844ef9ded54835792d2d84",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "pilot/shiny/data/courses/HCB.json": "8af6675a1408cec96ea570100ee89cff97563288",
+    "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+  },
+  "reviewedContributions": [
+    {
+      "code": "ACCPPDE101",
+      "name": "Personal & Professional Development",
+      "evidence": {
+        "description2": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+        "profile": "Develops academic writing and research-literacy skills alongside personal development and civic engagement. Students locate and evaluate scholarly sources, synthesize literature, formulate research questions and arguments, and construct a research-paper introduction. A community-engaged project with a societal partner connects these skills to collaboration, reflection and practical contribution. Personal development planning addresses learning goals, self-efficacy, and stress and time management; the course also considers responsible academic use of AI.",
+        "topics": "Scholarly sources and research questions; Argumentation and thesis statements; Literature synthesis; Academic integrity and referencing; Community engagement; Personal learning goals and reflective learning; Collaborative learning; Self-efficacy; Stress and time management; Responsible use of AI",
+        "methods": "Scholarly literature searching and source evaluation; Literature synthesis; CARS model for research introductions; Reflective development planning; Community project co-design",
+        "outline_source": "ACCPPDE1011.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Mandatory first-year PPD; no disciplinary equivalence claim."
+    },
+    {
+      "code": "DISDATA111",
+      "name": "Introduction to Data Science",
+      "evidence": {
+        "description2": "Develops foundational skills in data visualization, cleaning and manipulation. Explores spatial and text data and includes hands‑on work with datasets from various disciplines.",
+        "profile": "Introduces data analysis and visualization in R through practical work with tabular, textual and spatial data. Students import, clean, transform and join data, explore patterns, and construct visualizations using tidy-data principles and the grammar of graphics. Web scraping and basic programming functions extend the workflow. A student research project applies these tools to a question using data from a field of interest.",
+        "topics": "Data visualization; Exploratory data analysis; Tidy data; Data transformation and integration; Dates and times; Web data; Text data; Geospatial data; Programming functions; Data-based research questions",
+        "methods": "R programming; ggplot visualization and grammar of graphics; Data cleaning, tidying and transformation; Data import and joins; Web scraping; Text-data analysis; Geospatial-data analysis",
+        "outline_source": "DISDATA1111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Text-data handling and R research projects are specific empirical tools, not a guaranteed Dutch corpus project."
+    },
+    {
+      "code": "GOSHIST111",
+      "name": "Modern History",
+      "evidence": {
+        "description2": "Provides a chronological overview of history from 1815 to the present. Discusses industrialisation, popular sovereignty and national self‑determination, and covers major economic, political and cultural developments including revolutions, world wars and the fall of communism.",
+        "profile": "Surveys economic, political and cultural developments from 1815 to the present while questioning the meaning and periodization of modernity. Students examine industrialization, political ideologies, nationalism, imperialism, migration, world wars, revolution, decolonization, the Cold War and globalization. Historical research and essays connect specific questions to evidence. A group project analyzes historical visions of the future as products of their own contexts and compares them with subsequent developments.",
+        "topics": "Modernity and periodization; Industrialization and reform; Political ideologies and nationalism; Migration and imperialism; National, class, gender and racial identities; World wars; Russian Revolution and Soviet history; Democracy and dictatorship; Cold War; Decolonization; Globalization; Historical visions of the future",
+        "methods": "Historical contextualization; Primary- and secondary-source analysis; Source triangulation; Historical research-question development",
+        "outline_source": "GOSHIST1111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Modern political/economic/cultural history supports contextual interpretation; no sustained Dutch literary-history sequence claimed."
+    },
+    {
+      "code": "GOSHIST211",
+      "name": "History of Empires",
+      "evidence": {
+        "description2": "Examines the rise and fall of empires and the contested concept of empire. Discusses oppressive and benevolent features of empires, covers key theories on empires and power politics and analyses major historical examples.",
+        "profile": "Examines empires comparatively across global history, from ancient Persia, Rome and China to early-modern and modern imperial powers and contemporary claims to imperial status. Students analyze expansion, administration, military and economic systems, legitimacy, ideology, culture, decline and legacies. The course combines theories of empire with historically specific cases, historiographical discussion, source analysis and an independently developed research essay.",
+        "topics": "Concepts and theories of empire; Imperial rise, expansion and decline; Administration and succession; Military and economic structures; Imperial ideologies and legitimacy; Culture and empire; Ancient and medieval empires; European overseas empires; Modern Asian and Eurasian empires; American power; Contemporary and future empires; Imperial legacies",
+        "methods": "Comparative historical analysis; Historiographical analysis; Primary- and secondary-source analysis; Historical research-question development",
+        "outline_source": "GOSHIST2111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Comparative empire, ideology/culture and historical source research offer cultural power context; no Dutch literary specialism inferred."
+    },
+    {
+      "code": "GOSHIST312",
+      "name": "Researching the “American Century”",
+      "evidence": {
+        "description2": "Guides students through the full arc of historical inquiry, from formulating research questions to engaging critically with sources. Emphasises methodological rigour and interdisciplinary thinking and culminates in a substantial research paper.",
+        "profile": null,
+        "topics": null,
+        "methods": null,
+        "outline_source": null,
+        "outline_semester": null,
+        "preq1": "NONE"
+      },
+      "finding": "Current description-only Researching the American Century supports research questions, critical sources, interdisciplinary methods and a substantial paper. Archived Walcheren1809 outline and oldname are not reused. Historical method is complementary; no Dutch-literary topic guarantee."
+    },
+    {
+      "code": "GOSPHIL214",
+      "name": "Philosophy of Mind",
+      "evidence": {
+        "description2": "Examines historical and modern work on the philosophy of mind. Discusses Descartes’ dualism, the nature of consciousness, AI and animal minds, personal identity, transformative experiences and the influence of technology on experience.",
+        "profile": "Examines minds, selves and conscious experience through historical and contemporary philosophy. Personal identity and self-knowledge are considered alongside Buddhist accounts and neuropsychological cases. Behaviourism, physicalism, functionalism and their critics frame the mind-body problem. Later inquiries address machine consciousness, virtual worlds, dreaming, perception, transformative experience and the value of experience. Essays develop independent philosophical interpretations and arguments.",
+        "topics": "Persons and personal identity; Psychological and narrative theories of identity; Buddhist non-self; Split-brain cases and self-knowledge; Behaviourism; Physicalism and functionalism; Mind-body problem; Content externalism and internalism; AI intelligence and consciousness; Virtual reality; Dreaming and perception; Transformative experience; Value of conscious experience; Animal minds",
+        "methods": "Close philosophical reading; Conceptual analysis; Reconstruction and evaluation of arguments; Comparison of theories of mind; Literature-based philosophical research",
+        "outline_source": "GOSPHIL214.pdf",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "Mind/body, consciousness, conceptual argument and literature research offer specific theoretical context for cognition, not linguistic grammar."
+    },
+    {
+      "code": "GOSSOCI111",
+      "name": "Introduction to Sociology",
+      "evidence": {
+        "description2": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+        "profile": "Introduces sociological reasoning through classical theories, their historical settings and perspectives that address exclusions from the discipline. Students connect solidarity, modernity, identity, social boundaries, networks and stratification to race, gender, migration and inequality in education and work. An individual analysis applies a course concept to contemporary social life without original data collection. A group paper develops a sociological question and analyzes a social problem using theory and academic literature.",
+        "topics": "Sociological imagination and knowledge; Social structure and socialization; Classical social theory; Colonialism and the formation of sociology; Solidarity and modernity; Identity, belonging and othering; Groups and social networks; Capital, class and mobility; Race and gender inequality; Global inequality and migration; Education and labour-market inequality",
+        "methods": "Theory-guided sociological case analysis; Comparative analysis of sociological perspectives; Library-based social-science research; Sociological research-question formulation",
+        "outline_source": "GOSSOCI1111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Sociological identity/inequality and theory-guided cases support social-language and cultural questions, not linguistic variation methods."
+    },
+    {
+      "code": "GOSSOCI214",
+      "name": "Modern Sociology",
+      "evidence": {
+        "description2": "Examines the trajectory of sociology within the culture of imperialism and colonial responses. Studies leading social theories and debates about modernity and critically engages with sociological discourses.",
+        "profile": "Examines twentieth-century and contemporary social theory alongside critical accounts of modernity, colonialism and disciplinary exclusion. Functionalism, critical theory, Black feminist thought, phenomenology, symbolic interactionism and Bourdieu's work are read with postcolonial, decolonial and Indigenous perspectives. Students compare theories and apply them to empirical cases, including visual material. An individual research paper develops a theoretically grounded interpretation of a selected social phenomenon.",
+        "topics": "Modernity and Eurocentrism; Functionalism; Frankfurt School critical theory; Black feminist thought and intersectionality; Social construction of reality; Symbolic interactionism; Stigma and othering; Social space, capital and art; Coloniality and postcolonialism; Decolonial and Indigenous sociology; Gender and power",
+        "methods": "Close reading of social theory; Comparative theoretical analysis; Theory-guided empirical case analysis; Visual sociological analysis; Literature-based sociological research",
+        "outline_source": "GOSSOCI2141.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Modern/postcolonial social theory and interpretation of power/identity provide cultural interpretation methods, not disciplinary sociolinguistics."
+    },
+    {
+      "code": "HCBCOGN112",
+      "name": "Neurobiology",
+      "evidence": {
+        "description2": "Examines evolution and complexity of brains. Explores animal cognition, welfare and research ethics and studies how brain regions and rhythms regulate behaviour through interactive assignments.",
+        "profile": "Studies nervous systems and behaviour from comparative, evolutionary and physiological perspectives. Brain anatomy and laboratory introductions support analysis of animal behaviour, research models and welfare. The second part connects regulatory behaviour and biological rhythms to sleep, lifestyle drugs, mood and eating disorders. Comparative-anatomy work and a literature-based disorder report apply neurobiological concepts while animal-research assignments examine reduction, refinement and replacement.",
+        "topics": "Nervous-system evolution and comparative anatomy; Brain cells and morphology; Cerebral circulation and nerves; Animal behaviour and welfare; Sentience and research ethics; Reduction, refinement and replacement; Enrichment and brain development; Regulatory and sexual behaviour; Lifestyle drugs; Circadian rhythms and sleep; Sleeping and eating disorders; Depression and anxiety; Gut-brain axis; Hypothalamus and pineal gland; Dying brain and consciousness",
+        "methods": "Comparative brain-anatomy analysis; Introductory microscopy and cell staining; Brain-model comparison; Ethical appraisal of animal research and the 3Rs; Literature-based analysis of neurobiological disorders",
+        "outline_source": "HCBCOGN112.pdf",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "Nervous system physiology and behaviour are foundations for cognitive/language inquiry, not Dutch philology."
+    },
+    {
+      "code": "HCBCOGN212",
+      "name": "Perception & Action",
+      "evidence": {
+        "description2": "Explores neural mechanisms behind perception and action. Examines how the brain processes sensory information and guides goal‑directed behaviour using methods from cognitive neuroscience and neuropsychology.",
+        "profile": null,
+        "topics": null,
+        "methods": null,
+        "outline_source": null,
+        "outline_semester": null,
+        "preq1": "HCBGATE102"
+      },
+      "finding": "Description-supported perception/action neural mechanisms complement language processing but do not establish language-specific experimental content."
+    },
+    {
+      "code": "HCBCOGN311",
+      "name": "Higher Order Functions",
+      "evidence": {
+        "description2": "Deepens understanding of neurophysiology and neuroanatomy. Explores higher‑level cognitive functions—memory, emotion, social cognition, executive functioning and language—and engages with current research while designing experiments.",
+        "profile": "Deepens understanding of neuroanatomy, neurophysiology and the experimental study of higher cognitive functions. Students examine attention, memory, emotion, cognitive control, social cognition, pain and consciousness, connecting brain function and dysfunction to behaviour. An attentional-blink experiment provides direct engagement with empirical work. A team research proposal requires literature analysis, a feasible experimental design and ethical reflection, supported by peer review.",
+        "topics": "Neurotransmission and psychoactive drugs; Brain structure and hemispheric specialization; Attention and attentional blink; Memory and long-term potentiation; Emotion; Cognitive control and executive functions; Social cognition; Pain; Consciousness; Brain-behaviour relationships; Neuroscience research ethics",
+        "methods": "Cognitive-neuroscience experimental design; Attentional-blink experiment; Critical analysis of scientific literature and empirical data; Research-proposal development; Scientific peer review",
+        "outline_source": "HCBCOGN3111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "HCBGATE102"
+      },
+      "finding": "Attention, memory, control and empirical proposal design support cognitive mechanisms and research around language, without claiming a language-specific curriculum."
+    },
+    {
+      "code": "HCBCOGN312",
+      "name": "Psycholinguistics",
+      "evidence": {
+        "description2": "Psycholinguistics is the study of the neurobiological and psychological factors that enable us to acquire, use, and understand language. Modern research draws on cognitive psychology, neuroscience, and computer science to investigate how language is processed. The course focuses primarily, though not exclusively, on the neuroscience of language. Students examine theoretical and experimental issues in speech production and comprehension, language impairments, the relationship between thought and language, and the evolution and acquisition of language. They also gain hands-on experience with experimental approaches to the study of language and develop an understanding of human linguistic capacity as a subject of multidisciplinary research. Topics covered: What is language? Evolutionary aspects of language and animal communication; language and thought; aphasia; language acquisition; bilingualism; speech comprehension; semantics; reading and dyslexia; speech production.",
+        "profile": null,
+        "topics": null,
+        "methods": null,
+        "outline_source": null,
+        "outline_semester": null,
+        "preq1": "HCBGATE102"
+      },
+      "finding": "Description-supported speech production/comprehension, acquisition, bilingualism, thought/language and experimental methods are directly relevant psycholinguistic study. Does not supply full Dutch language history/phonology/syntax."
+    },
+    {
+      "code": "HCBGATE102",
+      "name": "Introduction to Brain & Behavior",
+      "evidence": {
+        "description2": "Explores why people behave as they do and how brain injuries affect mental processes. Discusses nature and nurture, introduces brain anatomy and psychological theories, and provides a gateway to cognitive science and clinical psychology.",
+        "profile": "Introduces psychological and neuroscientific explanations of behaviour and mental processes. Students study neural signalling, brain anatomy and development, learning, intelligence, personality, social influence, mental disorders and treatments. Several sessions introduce behavioural, imaging and electrophysiological approaches to neuroscience and their combined use. Interdisciplinary research-article and case analysis connects psychological processes to neural mechanisms and clinical questions.",
+        "topics": "Brain and behaviour; Neural signalling and action potentials; Functional neuroanatomy; Brain development and hemispheric specialization; Associative, non-associative and social learning; Intelligence; Personality and self-concepts; Social influence; Mental disorders and DSM-5-TR; Psychological treatment; Neuroimaging, electrophysiology and converging methods",
+        "methods": "Psychological and neuroscientific research appraisal; Interdisciplinary case-study analysis",
+        "outline_source": "HCBGATE1021.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Actual close-reading, interpretation, textual/media/cultural or rhetorical practice below supports the provisional textual/communication concept. Subject, method and relative programme weight considered; no Dutch/Flemish corpus or advanced Dutch grammar guaranteed."
+    },
+    {
+      "code": "HCBPSYC211",
+      "name": "Statistics & Experimental Methods",
+      "evidence": {
+        "description2": "The course is necessary for students who want to pursue master programs in psychology and adjacent disciplines, as well as research masters in the medical domain. It is highly recommended also for all those who want to be researchers in other domains. In addition to technical training, the course emphasizes clear academic communication. It will equip you with the skills necessary to apply advanced statistical techniques to real-world research problems. With a focus on practical application through case studies and data analysis projects, You will be able to choose the appropriate statistical model for various research scenarios and address common challenges in data interpretation.",
+        "profile": "Develops experimental-design knowledge and practical statistical analysis for health and behavioural research. Students choose, fit, diagnose and interpret multivariable models, comparing means, analyzing categorical outcomes and studying latent constructs. R, primarily through R Commander, supports repeated practical exercises; SPSS is an optional alternative. Data-analysis papers and a poster connect research questions and hypotheses to appropriate models, assumption checks, substantive interpretation and APA reporting.",
+        "topics": "Experimental, nonexperimental and quasi-experimental designs; Statistical inference; Correlation and regression; Model assumptions and diagnostics; Group comparisons; Covariate adjustment; Factorial, repeated-measures and mixed designs; Categorical outcomes; Latent constructs and scale reliability; Effect size and power; Statistical reporting",
+        "methods": "R and R Commander data analysis; Multiple linear regression and dummy coding; Regression diagnostics; t-tests and nonparametric alternatives; ANOVA and ANCOVA; Factorial, repeated-measures and mixed-design ANOVA; Logistic regression; Exploratory factor analysis; Principal component analysis; Cronbach's alpha; APA statistical reporting",
+        "outline_source": "HCBPSYC2111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Experimental designs, regression/ANOVA, R and reporting support behavioural/psycholinguistic evidence."
+    },
+    {
+      "code": "HCBPSYC313",
+      "name": "Advanced Research Methods & Statistics",
+      "evidence": {
+        "description2": "This course guides you through combining results from multiple studies using systematic reviews and meta-analysis a method now essential in psychology, medicine, social science and other disciplines. Want to know what really works? Gain hands-on skills in research synthesis that inform evidence-based policy and practice. You’ll search literature, manage data, and present findings that matter. Learn to calculate effect sizes, synthesize results and assess bias using R.",
+        "profile": "Teaches systematic review and meta-analysis for synthesizing evidence in medical, behavioural and related research. Students define review questions, search and select studies, extract and code findings, assess bias and compute effect sizes. Hands-on R work fits fixed- and random-effects models, examines heterogeneity and moderators, conducts meta-regression and investigates publication bias. A group project completes a small meta-analysis and presents its methods and results in a research poster.",
+        "topics": "Systematic-review purpose and limitations; Review protocols and scope; Literature searching and inclusion criteria; Data extraction and study coding; Risk of bias; Effect-size types and transformations; Fixed- and random-effects models; Effect heterogeneity; Moderators and subgroup differences; Meta-regression; Publication bias; Research synthesis and reporting",
+        "methods": "Systematic literature review; Database searching and study screening; Study-data extraction and coding; Critical risk-of-bias appraisal; R programming and data management; Effect-size calculation and conversion; Fixed- and random-effects meta-analysis; Moderator and subgroup analysis; Meta-regression; Publication-bias analysis; Meta-analytic visualization and reporting",
+        "outline_source": "HCBPSYC313.docx",
+        "outline_semester": "2026h1",
+        "preq1": "HCBGATE102"
+      },
+      "finding": "Systematic review, effect sizes and meta-analysis in R support research synthesis; not an automatic Dutch-language topic."
+    },
+    {
+      "code": "HCBPSYC314",
+      "name": "Lifespan Developmental Psychology",
+      "evidence": {
+        "description2": "Explores human development across the lifespan. Examines physical, cognitive, emotional and social changes from prenatal life to old age and develops critical thinking about factors influencing individual uniqueness.",
+        "profile": "Examines physical, cognitive, emotional, social and personality development from prenatal life through old age and death. Biological and environmental influences are considered alongside attachment, education, relationships, cultural differences and developmental psychopathology. Students connect theoretical perspectives to case studies, assessment and interventions at different life stages. A life-story interview with an adult over fifty applies developmental concepts through interviewing, analysis and a written report.",
+        "topics": "Developmental theories; Genetics and environment; Prenatal development and birth; Infancy and attachment; Cognitive and psychomotor development; Early and middle childhood; Play and education; Adolescence and psychopathology; Emerging and early adulthood; Middle and late adulthood; Relationships and personality development; Care and developmental interventions; Death, dying, grief and bereavement",
+        "methods": "Life-story interviewing; Theory-guided lifespan interview analysis; Developmental case-study analysis; Critical appraisal of developmental research and assessment reports",
+        "outline_source": "HCBPSYC314.pdf",
+        "outline_semester": "2026h1",
+        "preq1": "HCBGATE102"
+      },
+      "finding": "Development across the lifespan and theory-guided life-story interview contribute development/narrative evidence. Not a dedicated first-language-acquisition sequence."
+    },
+    {
+      "code": "MCCCOMM111",
+      "name": "The Art of Rhetorical Communication",
+      "evidence": {
+        "description2": "Teaches how to craft persuasive messages, influence opinions, inspire action and connect people. Draws on historical communicators from Aristotle to Barack Obama and applies stylistic techniques to students’ own writing and speaking.",
+        "profile": "Teaches rhetorical analysis and persuasive communication through classical history, theory and practice. Students study Greek and Roman rhetoric, the five canons, types of discourse, persuasive appeals, argumentation and fallacies. Written exercises, debates and public speeches develop invention, arrangement, style, memory and delivery. An applied project creates narrative and storytelling material for an immersive educational setting concerned with Zeeland's climate and community.",
+        "topics": "Greek and Roman rhetoric; Deliberative, forensic and epideictic discourse; Logos, ethos and pathos; Invention, arrangement, style, memory and delivery; Argumentation and fallacies; Tropes and schemes; Stasis and enthymemes; Persuasive speech; Narrative and storytelling; Immersive educational communication",
+        "methods": "Rhetorical text analysis; Stasis analysis; Argument invention and arrangement; Stylistic analysis and composition; Structured debate; Persuasive speechwriting and delivery; Educational storytelling design",
+        "outline_source": "MCCCOMM1111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Actual close-reading, interpretation, textual/media/cultural or rhetorical practice below supports the provisional textual/communication concept. Subject, method and relative programme weight considered; no Dutch/Flemish corpus or advanced Dutch grammar guaranteed."
+    },
+    {
+      "code": "MCCCOMM112",
+      "name": "Dutch",
+      "evidence": {
+        "description2": "This course aims to develop basic skills and strategies necessary to successfully handle uncomplicated oral and written communication in Dutch in a variety of social situations that you may encounter in daily life in the Netherlands. The emphasis in the course will be on speaking in Dutch in day-to-day situations on the one hand and understanding Dutch culture on the other hand. At the end of the course students can orally express and write about themselves in Dutch, who they are, describe their family background, and interact with others in a simple way.",
+        "profile": "Develops beginner Dutch for everyday oral and written communication while introducing Dutch culture. Speaking and listening receive particular emphasis, supported by pronunciation, vocabulary, grammar, reading and functional writing. Students practise introductions, family conversations, shopping, travel and leisure through dialogues, role-play and short written tasks. Cultural work includes research and presentations in English, engagement with Dutch film and music, and comparison with students’ own cultural contexts.",
+        "topics": "Dutch pronunciation and spelling; Everyday vocabulary for introductions, family, shopping, travel and leisure; Verb conjugation and the perfect tense; Pronouns and possession; Negation; Main- and subordinate-clause word order; Adjectives, comparatives and superlatives; Functional reading and writing; Everyday Dutch cultural practices; Cross-cultural comparison",
+        "methods": "Dutch pronunciation practice; Dialogue construction and conversational role-play; Functional writing in Dutch; Comparative cultural analysis",
+        "outline_source": "MCCCOMM112.pdf",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "Beginner everyday Dutch and English-language cultural presentations are useful language introduction, not advanced/native Dutch linguistic structure or Dutch/Flemish literary study."
+    },
+    {
+      "code": "MCCCOMM211",
+      "name": "Style & Meaning",
+      "evidence": {
+        "description2": "Explores how linguistic choices inform meaning and interpretation in literary and non-fiction contexts. Introduces theoretical frameworks for close reading and addresses power dynamics, obligation, uncertainty and ideological undertones in language.",
+        "profile": "Studies how linguistic choices produce meaning and interpretive effects, principally in literary texts but also in nonfiction. Students connect linguistic description to interpretation across grammar, discourse and cognition. Stylistic frameworks address foregrounding, dialogue, narration, modality, transitivity, deixis, schemas, construal and text worlds. Frequent analysis exercises lead to an original, research-supported stylistic analysis of a selected text.",
+        "topics": "Foregrounding and deviation; Morphology, syntax and lexical semantics; Register and cohesion; Dialogue and turn-taking; Cooperative principle; Speech and thought presentation; Modality and point of view; Transitivity and ideology; Narrative urgency; Figure and ground; Deixis and deictic shift; Schemas, scripts and prototypes; Cognitive grammar and construal; Text-world theory; Negation and lacuna",
+        "methods": "Linguistic stylistic analysis; Close textual analysis; Discourse and conversation analysis; Speech and thought presentation analysis; Modality and transitivity analysis; Deictic and cognitive-grammar analysis; Text-world analysis; Framework-based interpretation supported by retrievable textual evidence",
+        "outline_source": "MCCCOMM211.docx",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "Actual close-reading, interpretation, textual/media/cultural or rhetorical practice below supports the provisional textual/communication concept. Subject, method and relative programme weight considered; no Dutch/Flemish corpus or advanced Dutch grammar guaranteed."
+    },
+    {
+      "code": "MCCCOMM213",
+      "name": "Rhetoric in Action",
+      "evidence": {
+        "description2": "Develops persuasive speaking skills by applying rhetorical theory in the real world. Students work with local primary school children, building public-speaking skills and empowering them to find their voices.",
+        "profile": "Applies rhetoric through community-engaged work with local primary-school children. Students develop their own public-speaking, debating and storytelling skills, then design and iteratively refine age-appropriate teaching activities with school partners. On-site coaching and a final public-speaking event connect rhetorical education to civic participation and confidence. Structured reflection examines reciprocity, cultural sensitivity, personal development and the practical challenges of community-engaged teaching.",
+        "topics": "Public work of rhetoric; Community-engaged learning and reciprocity; Public speaking and debate; Storytelling; Children's rhetorical confidence and civic participation; Rhetorical teaching and coaching; Cultural sensitivity; Collaboration with community partners; Experiential and reflective learning",
+        "methods": "Public-speaking and debate coaching; Storytelling exercises; Iterative design and revision of teaching materials; Practice-based rhetorical instruction; Gibbs reflective-cycle analysis; Public-speaking event design and evaluation",
+        "outline_source": "MCCCOMM213.docx",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "School-partner public-speaking, debate and storytelling teaching is specific rhetorical education. It is not certification to teach Dutch or a course in Dutch acquisition/grammar."
+    },
+    {
+      "code": "MCCCOMM311",
+      "name": "Persuasive Communication",
+      "evidence": {
+        "description2": "Explores ethical persuasion and climate communication. Students learn persuasive communication models and frameworks and collaborate with climate scientists at the Delta Climate Centre to produce sustainability messaging on water, food and energy.",
+        "profile": "Examines contemporary persuasion through communication studies, social psychology and ethical analysis, then applies it in community-engaged work. Students study coactive persuasion, framing, argumentation, cognitive shortcuts and verbal and nonverbal communication. Projects with the Delta Climate Centre and Vlissingen municipality develop communication encouraging sustainable and circular lifestyles. An individual research paper evaluates selected persuasion tools through literature review, field research diaries and reflective analysis of their use.",
+        "topics": "Persuasion models and psychology; Ethics of persuasion; Coactive persuasion; Verbal and nonverbal communication; Message framing; Argumentation; Cognitive shortcuts and nudging; Science and sustainability communication; Circular lifestyles; Community-engaged communication",
+        "methods": "Persuasive-message design; Communication consulting and implementation; Literature review; Qualitative research diaries; Action research; Reflective case-study analysis; Gibbs reflective cycle",
+        "outline_source": "MCCCOMM3111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Actual close-reading, interpretation, textual/media/cultural or rhetorical practice below supports the provisional textual/communication concept. Subject, method and relative programme weight considered; no Dutch/Flemish corpus or advanced Dutch grammar guaranteed."
+    },
+    {
+      "code": "MCCCOMM312",
+      "name": "Creative Communication Laboratory",
+      "evidence": {
+        "description2": "Explores meaning-making through creative expression. Students study and practice poetic forms, experiment with sonic poetry, performance and other unconventional forms of communication, engage with theoretical texts and produce their own creative work.",
+        "profile": "Studies and develops creative communication through poetry, performance and critically articulated artistic practice. Students move from lyric foundations to constrained and experimental forms, attending to sound, rhythm, imagery, voice and embodiment. Close reading and creative workshops lead into an independent traditional or hybrid project grounded in scholarship and aesthetic traditions. Revision and reflection require students to justify formal, conceptual and procedural choices.",
+        "topics": "Meaning and formal experimentation; Lyric poetry; Poetic sound and rhythm; Imagery and voice; Embodiment and performance; Constraint and formal deviation; Experimental poetry; Hybrid and digitally mediated forms; Creative process and revision; Aesthetic traditions and conceptual coherence",
+        "methods": "Close poetic reading and listening; Constraint-based composition; Poetic and performative experimentation; Structured drafting and revision; Critical analysis of creative decisions; Independent practice-based creative inquiry",
+        "outline_source": "MCCCOMM312.pdf",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "Actual close-reading, interpretation, textual/media/cultural or rhetorical practice below supports the provisional textual/communication concept. Subject, method and relative programme weight considered; no Dutch/Flemish corpus or advanced Dutch grammar guaranteed."
+    },
+    {
+      "code": "MCCLITR111",
+      "name": "Introduction to Literary Studies",
+      "evidence": {
+        "description2": "Introduces what literature is, why we read it and how to interpret it. Covers fiction, poetry, drama, non‑fiction and film narration, exploring various literary forms and genres such as graphic narratives and romance novels.",
+        "profile": "Introduces practical criticism and literary interpretation through fiction, poetry, drama and contemporary nonfiction, with an introductory component on film adaptation. Students investigate literary value and the constructed character of texts, using concepts of plot, character, setting, point of view, symbolism, style and form. Close reading and engagement with critical sources support analytical presentations and an essay or extended book review.",
+        "topics": "Definitions and value of literature; Literary genre and originality; Story, plot and narrative structure; Character, setting and point of view; Symbolism and allegory; Style, tone, humour and irony; Graphic fiction and microfiction; Creative nonfiction and memoir; Children's literature; Poetic language, imagery, sound and form; Drama and tragedy; Film adaptation",
+        "methods": "Close reading; Formalist literary analysis; Narrative analysis; Poetic and dramatic analysis; Critical-source integration; Literary essay and review construction",
+        "outline_source": "MCCLITR1111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Actual close-reading, interpretation, textual/media/cultural or rhetorical practice below supports the provisional textual/communication concept. Subject, method and relative programme weight considered; no Dutch/Flemish corpus or advanced Dutch grammar guaranteed."
+    },
+    {
+      "code": "MCCLITR112",
+      "name": "Great Literary Works",
+      "evidence": {
+        "description2": "Provides a chronological overview of literature from the epic of Gilgamesh to post‑modernity. Reads literary and critical texts that explore human experience and teaches how to approach literature’s ambiguities and trace themes across ages.",
+        "profile": "Surveys major literary works from ancient epic to modern and later fiction, connecting literary form to questions of humanity, mortality, gender, freedom, community and civilization. Students compare genres and recurring motifs through works including Gilgamesh, Greek tragedy, confessional writing, framed tales, philosophical satire, colonial narratives and modernist fiction. Text-focused analysis and engagement with criticism develop interpretation of theme, technique and cultural context.",
+        "topics": "Literature, canon and world literature; Epic and heroism; Tragedy, fate and identity; Autobiography and memory; Framed storytelling and narrative power; Gender and agency; Essay and philosophical tale; Satire and irony; Colonialism and its critique; Modernist narration and subjectivity; Alienation and family; Art, sexuality and civilization; Magical realism",
+        "methods": "Close literary reading; Formalist analysis of genre, theme and technique; Comparative textual interpretation; Narrative analysis; Critical-source interpretation and integration",
+        "outline_source": "MCCLITR112.docx",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "Actual close-reading, interpretation, textual/media/cultural or rhetorical practice below supports the provisional textual/communication concept. Subject, method and relative programme weight considered; no Dutch/Flemish corpus or advanced Dutch grammar guaranteed."
+    },
+    {
+      "code": "MCCLITR211",
+      "name": "World Myth & Literature",
+      "evidence": {
+        "description2": "Investigates myths from around the world—from Gilgamesh to the Ramayana, Greek and Norse myths. Explores how myths underpin literature and connects them to contemporary global cultures.",
+        "profile": "Compares mythic narratives across ancient and later literary traditions, examining transmission, cultural connections and themes of creation, power, gender, love and loyalty. Greek, Roman, Near Eastern, Indian, Arabic and African materials support comparisons of narrative patterns and representations. Students apply theories of myth and literary analysis in a research paper and graphic explanation, then creatively retell an Ovidian story using another cultural narrative model.",
+        "topics": "Creation and divine succession myths; Myth and cultural power; Gender and exchange; Epic and tragedy; Women, war and narrative agency; Focalization; Hero structures and motifemes; Cross-cultural storytelling; Myth in text, image and performance; Reception and adaptation; Ovid's Metamorphoses",
+        "methods": "Comparative myth analysis; Structuralist narrative analysis and Propp's motifemes; Focalization analysis; Gender-focused literary analysis; Primary-source and scholarly-literature research; Cross-cultural narrative adaptation",
+        "outline_source": "MCCLITR2111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Actual close-reading, interpretation, textual/media/cultural or rhetorical practice below supports the provisional textual/communication concept. Subject, method and relative programme weight considered; no Dutch/Flemish corpus or advanced Dutch grammar guaranteed."
+    },
+    {
+      "code": "MCCLITR212",
+      "name": "Life & Travel Writing",
+      "evidence": {
+        "description2": "Examines autobiographical and travel writing. Explores how individuals write about self, identity and bodily experience; discusses tropes and models used to represent human experience; and considers memory and imagination in writing.",
+        "profile": "Studies life narrative in literature and popular culture, including memoir, autobiography, diary, personal essay, travel writing and digital self-presentation. Memory, experience, identity, embodiment and agency frame debates about autobiographical truth, fiction, ethics, trauma and cultural positioning. Close readings connect popular, intellectual and migrant memoirs to theory. Students apply analytical concepts in a personal writing portfolio and an independent comparative or focused life-narrative project.",
+        "topics": "Autobiography and memoir culture; Fact, fiction and autobiographical truth; Autobiographical pact; Self and multiple identities; Individual and collective memory; Experience, embodiment and agency; Ethics and traumatic memory; Grief and disability narratives; Popular memoir and narrative technique; Digital self-presentation; Travel and spiritual self-fashioning; Migration, language and cultural identity",
+        "methods": "Close life-narrative analysis; Smith and Watson's strategies for reading life narratives; Theory-guided analysis of memory, identity, embodiment and agency; Comparative textual and contextual interpretation; Structured autobiographical creative writing",
+        "outline_source": "MCCLITR212.docx",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "Actual close-reading, interpretation, textual/media/cultural or rhetorical practice below supports the provisional textual/communication concept. Subject, method and relative programme weight considered; no Dutch/Flemish corpus or advanced Dutch grammar guaranteed."
+    },
+    {
+      "code": "MCCLITR311",
+      "name": "Film & Text",
+      "evidence": {
+        "description2": "Studies complex links between literary and film narratives. Analyzes formal aspects of both media, discusses adaptation, intertextuality, viewer participation and narrative dynamics, and allows students to research topics like literature‑to‑film adaptation and cross‑cultural themes.",
+        "profile": "Studies the translation of literary narratives into film through formal analysis and adaptation theory. Students compare plot, structure, characterization and setting with cinematic image, acting, editing, music and sound. Medium specificity, fidelity, intertextuality, auteurism, heritage and adaptation markets frame theoretical debates. A substantial research project applies selected concepts to literary and film material, developing an independent interpretation and leading a text- and film-based discussion.",
+        "topics": "Literature-film relationships; Narrative and medium specificity; Fidelity debates; Cinematography and mise-en-scène; Editing, continuity and montage; Film music and sound; Intertextuality; Auteurism; Adaptation and heritage; Adaptation markets; Spectatorship and immersion",
+        "methods": "Formalist literary analysis; Close film-sequence analysis; Comparative text-film analysis; Intertextual analysis; Theory-led adaptation research",
+        "outline_source": "MCCLITR3111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Actual close-reading, interpretation, textual/media/cultural or rhetorical practice below supports the provisional textual/communication concept. Subject, method and relative programme weight considered; no Dutch/Flemish corpus or advanced Dutch grammar guaranteed."
+    },
+    {
+      "code": "MCCLITR312",
+      "name": "Perspectives on Literary Meaning",
+      "evidence": {
+        "description2": "Examines how different perspectives—humanist, feminist, Marxist, cultural minority and psychoanalytic—affect reading and interpretation. Students undertake a research project applying selected perspectives to texts.",
+        "profile": null,
+        "topics": null,
+        "methods": null,
+        "outline_source": null,
+        "outline_semester": null,
+        "preq1": "NONE"
+      },
+      "finding": "Actual close-reading, interpretation, textual/media/cultural or rhetorical practice below supports the provisional textual/communication concept. Subject, method and relative programme weight considered; no Dutch/Flemish corpus or advanced Dutch grammar guaranteed."
+    },
+    {
+      "code": "MCCMEDI111",
+      "name": "Introduction to Film & Media",
+      "evidence": {
+        "description2": "Introduces film and media as systems of meaning and cultural production. Examines how images, narratives and technologies shape perception, identity and power; covers film storytelling, representation and genres; and develops critical engagement skills.",
+        "profile": "Introduces how moving images create meaning through cinematography, editing, sound, mise-en-scène, narrative and performance. Film history connects early cinema, Expressionism, montage, Hollywood and New Waves to feminist and postcolonial interpretation. Broader media topics include television, digital platforms, representation and spectatorship. An independent analytical or creative-analytical project combines close analysis, theory, scholarly research and, where chosen, original media work.",
+        "topics": "Film form and meaning; Cinematography, editing and sound; Mise-en-scène, narrative and performance; Early cinema; German Expressionism and Soviet montage; Classical Hollywood and European New Waves; Feminist film theory; Postcolonial media; Blockbusters; Television and digital platforms; Representation and spectatorship; Media convergence",
+        "methods": "Close film and media analysis; Historical and cultural contextualization; Application of feminist and postcolonial film theory; Independent analytical or creative-analytical media research",
+        "outline_source": "MCCMEDI1111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Actual close-reading, interpretation, textual/media/cultural or rhetorical practice below supports the provisional textual/communication concept. Subject, method and relative programme weight considered; no Dutch/Flemish corpus or advanced Dutch grammar guaranteed."
+    },
+    {
+      "code": "MCCMEDI112",
+      "name": "Media Archaeology",
+      "evidence": {
+        "description2": "Explores media technologies before digital culture. Studies cassette tapes, typewriters and early printing as material objects that carry meaning; includes hands‑on experiments; no technical background required.",
+        "profile": "Examines media technologies as material and cultural artifacts, moving from early print through optical projection, telegraphy, typewriters and analogue sound to digital networks. Students apply recurring theoretical perspectives to how physical properties and infrastructures shape communication, knowledge and memory. Hands-on object, listening and recording exercises connect historical evidence to lived experience. Independent research analyzes a selected media object or phenomenon using appropriate media-archaeological methods.",
+        "topics": "Media materiality and memory; Print culture; Optics and projection; Telegraphy and infrastructure; Mechanical inscription; Broadcasting and sound fidelity; Portable analogue media; Cassette revival; Computing and networks; Media geology; Technological obsolescence; Mechanical reproduction and aura",
+        "methods": "Media-archaeological artifact analysis; Historical and technical media comparison; Facsimile and manuscript-print analysis; Media-protocol investigation; Comparative listening and sound-fidelity analysis; Analogue recording exercises; Historical media-object research",
+        "outline_source": "MCCMEDI1121.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Actual close-reading, interpretation, textual/media/cultural or rhetorical practice below supports the provisional textual/communication concept. Subject, method and relative programme weight considered; no Dutch/Flemish corpus or advanced Dutch grammar guaranteed."
+    },
+    {
+      "code": "MCCMEDI211",
+      "name": "From T.V. to TikTok",
+      "evidence": {
+        "description2": "Explores how media shape attitudes and provide answers through examples from TV and TikTok. Examines messages that teach fear, pity, admiration and allyship.",
+        "profile": "Examines American social history and everyday life from the mid-twentieth century through contemporary media. Storytelling, power and representation connect television, film and digital forms to conformity, identity and imagined futures. Students analyze 1950s media, compare dominant portrayals with Indigenous self-representation, and investigate disability representation. Futures-oriented projects create a speculative television-episode proposal and imagine possibilities that center disabled people.",
+        "topics": "Media storytelling and power; American everyday life; 1950s television and conformity; Science fiction and social anxieties; Media futures and marginalization; Indigenous representation and self-representation; Disability stereotypes and visibility; Authentic voice and cultural agency; Future foresight and inclusive scenarios",
+        "methods": "Historical analysis of primary media sources; Comparative representation analysis; Future-foresight scenario development; Theory-based speculative narrative design; Disability-centered futures inquiry",
+        "outline_source": "MCCMEDI211.docx",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "American television/digital representation and power provide a bounded comparative media-cultural perspective, not Dutch media history."
+    },
+    {
+      "code": "MCCMEDI312",
+      "name": "The Documentary",
+      "evidence": {
+        "description2": "Introduces development of the documentary form. Students write a theoretical paper and produce a short documentary film, fostering understanding of documentary diversity and providing analytical tools for documentary study.",
+        "profile": "Studies documentary history, modes and styles alongside practical documentary production. Students analyze nonfiction representation in historical, social, ethical and aesthetic contexts, from early and Soviet filmmaking through direct cinema and contemporary forms. Topics include propaganda, advocacy, ethnography, history, nature, audio and interactive documentary. Production workshops guide a short film through preproduction, filming and postproduction, with reflection on interviewing and representational choices.",
+        "topics": "Documentary definition, modes and ethics; Early documentary and city symphonies; Soviet filmmaking; European documentary traditions; Direct cinema and cinéma vérité; Audio and public-affairs documentary; Propaganda and advocacy; Historical and ethnographic documentary; Nature documentary; Mockumentary; Interactive and autobiographical documentary; Documentary aesthetics",
+        "methods": "Critical documentary analysis; Historical and contextual film comparison; Documentary research and interviewing; Script, storyboard and shot-list development; Preproduction planning; Documentary filming and postproduction; Reflective evaluation of production practice",
+        "outline_source": "MCCMEDI312.docx",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "Actual close-reading, interpretation, textual/media/cultural or rhetorical practice below supports the provisional textual/communication concept. Subject, method and relative programme weight considered; no Dutch/Flemish corpus or advanced Dutch grammar guaranteed."
+    }
+  ],
+  "trialRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000060/revisit-1-provisional-ucr-trials.json",
+  "findings": [
+    "Both24course provisional programmes pass current feasibility. Priority difference in sustained literary/cultural reading versus cognitive/behavioural language investigation is real; no final programme comparability approved while external foundation unresolved.",
+    "Current32course content freshly reconsidered instead of inheriting c2workbook claims. All6literature courses cover close reading, genre/myth/life narrative/adaptation and interpretive theory; rhetoric/stylistics/creativepractice and media material are genuine. Generalhistory/sociology and Americanmedia remain complementary rather than substitutes for sustained Dutch/Flemish disciplinary content.",
+    "Existing former no-match conclusions are not adopted. Strong UCR rhetoric, literary interpretation and psycholinguistic methods receive full consideration, including description-only courses; beginnersDutch and schoolwork do not establish native academicDutch or the historicalDutch literature/grammar sequence. Complete research decision still depends on missingexternal5EC. No active UCRcomparison/alignments changed; provisional research only."
+  ]
+}

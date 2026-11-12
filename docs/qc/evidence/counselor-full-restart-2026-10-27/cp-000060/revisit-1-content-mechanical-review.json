@@ -1,0 +1,980 @@
+{
+  "caseId": "cp-000060",
+  "reviewedOn": "2026-11-12T01:38:42.338563+00:00",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000060.json": "08019f765c6ddaa907138389392b27d849534931",
+    "data/counselor/comparisons/cp-000060.json": "541116feed1b8ee2ce943c4c9d4ce0991acf8919",
+    "data/registry/programme_interests.csv": "f9e4078fe8e5f27296a3159b9052b7cf0a167577",
+    "data/counselor/review-programmes.json": "a8bebf5a539e022f2c5ee0ba27790cf778ba6df3",
+    "data/counselor/review-interests.json": "136bf94b4a9d9385db844ef9ded54835792d2d84",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "pilot/shiny/data/courses/HCB.json": "8af6675a1408cec96ea570100ee89cff97563288",
+    "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+  },
+  "checks": [
+    {
+      "name": "schema",
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "data/counselor/comparisons/cp-000060.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "name": "feasibility",
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "data/counselor/comparisons/cp-000060.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "name": "operational",
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor"
+      ],
+      "exitCode": 0,
+      "output": "dology rules OK\ncp-000399.json: final counselor methodology rules OK\ncp-000400.json: final counselor methodology rules OK\ncp-000401.json: final counselor methodology rules OK\ncp-000402.json: final counselor methodology rules OK\ncp-000403.json: final counselor methodology rules OK\ncp-000405.json: final counselor methodology rules OK\ncp-000406.json: final counselor methodology rules OK\ncp-000407.json: final counselor methodology rules OK\ncp-000409.json: final counselor methodology rules OK\ncp-000411.json: final counselor methodology rules OK\ncp-000412.json: final counselor methodology rules OK\ncp-000413.json: final counselor methodology rules OK\ncp-000414.json: final counselor methodology rules OK\ncp-000415.json: final counselor methodology rules OK\ncp-000418.json: final counselor methodology rules OK\ncp-000420.json: final counselor methodology rules OK\ncp-000421.json: final counselor methodology rules OK\ncp-000422.json: final counselor methodology rules OK\ncp-000423.json: final counselor methodology rules OK\ncp-000424.json: final counselor methodology rules OK\ncp-000425.json: final counselor methodology rules OK\ncp-000426.json: final counselor methodology rules OK\ncp-000427.json: final counselor methodology rules OK\ncp-000433.json: final counselor methodology rules OK\ncp-000434.json: final counselor methodology rules OK\ncp-000438.json: final counselor methodology rules OK\ncp-000439.json: final counselor methodology rules OK\ncp-000442.json: final counselor methodology rules OK\ncp-000443.json: final counselor methodology rules OK\ncp-000444.json: final counselor methodology rules OK\ncp-000445.json: final counselor methodology rules OK\ncp-000446.json: final counselor methodology rules OK\ncp-000447.json: final counselor methodology rules OK\ncp-000448.json: final counselor methodology rules OK\ncp-000449.json: final counselor methodology rules OK\ncp-000450.json: final counselor methodology rules OK\ncp-000451.json: final counselor methodology rules OK\ncp-000452.json: final counselor methodology rules OK\ncp-000453.json: final counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "name": "index",
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor-review"
+      ],
+      "exitCode": 0,
+      "output": "\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "name": "interests",
+      "command": [
+        "npm",
+        "run",
+        "validate:registry-interests"
+      ],
+      "exitCode": 0,
+      "output": "\n> validate:registry-interests\n> node scripts/validate-registry-interests.mjs\n\nValid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "name": "descriptions",
+      "command": [
+        "python",
+        "scripts/validate-course-descriptions.py"
+      ],
+      "exitCode": 0,
+      "output": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.\n"
+    }
+  ],
+  "byteExactDecisionCanonicalReplay": true,
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "presentationMode": "partial external-only exception",
+  "reviewedFields": {
+    "comparator": {
+      "name": "Dutch Language and Culture",
+      "institution": "Radboud University",
+      "primarySourceUrl": "https://www.ru.nl/ru-bestanden/oerbntc2627",
+      "academicYear": "2026–2027",
+      "route": "Nederlandse Taal en Cultuur, ordinary route without study-abroad replacement",
+      "additionalSourceUrls": [
+        "https://www.ru.nl/sites/default/files/2026-08/nieuwe-oer-algemeen-deel-bachelor.pdf",
+        "https://www.ru.nl/studenten/onderwijs-volgen/regels-en-richtlijnen/onderwijs-en-examenregelingen/letteren",
+        "https://www.ru.nl/opleidingen/bachelors/nederlandse-taal-en-cultuur",
+        "https://www.ru.nl/opleidingen/bachelors/nederlandse-taal-en-cultuur/studieprogramma",
+        "https://www.ru.nl/opleidingen/bachelors/nederlandse-taal-en-cultuur/studieprogramma-nederlandse-taal-en-cultuur-jaar-1",
+        "https://www.ru.nl/opleidingen/bachelors/nederlandse-taal-en-cultuur/studieprogramma-nederlandse-taal-en-cultuur-jaar-2",
+        "https://www.ru.nl/opleidingen/bachelors/nederlandse-taal-en-cultuur/studieprogramma-nederlandse-taal-en-cultuur-jaar-3",
+        "https://www.ru.nl/opleidingen/bachelors/nederlandse-taal-en-cultuur/minorruimte-en-vrije-ruimte-jaar-2-en-3",
+        "https://www.ru.nl/opleidingen/bachelors/nederlandse-taal-en-cultuur/na-je-studie"
+      ],
+      "sourceNotes": "Exact Dutch full-time BA56804 Nederlandse Taal en Cultuur atRadboud. Current2026–27 programme and generalOER apply, with explicit earlier-cohort exceptions. Supported subset24components175EC:60B1,30laterB2core,15distinctB3core,30restrictedminor,10thesis,30openfree. Two15ECpermittedArtsminors required for2025+ entrants; fixed coherent minor packages cannot be mixed. The generalOER distinguishes2024free-space and2018–23minor40 cohorts, which require exact cohort reconciliation rather than stacking. No named optional minor is universal. LiteraryStudies is first-listed neutral10ECthesis field among literature, language use and linguistics. Actual2026thesis requires independent research inDutch literary studies; themes announced at least2months before semester, topic allocation and registration through programme chair; no contact made. Current programmeArticle10 specifies no additional curricular prerequisites forB1/B2/B3; other-programme elective rules still apply. BSA45EC. Required B1mentorship0,RADAr-NL0 and B2mentorship/PPO0 are separate noncredit. Attendance formentoring/allB1andlistedPublicWriting; generalabsence over35% inoneperiod excludescourse/tests absentexception. All component assessments must be sufficient. Practical written/oral assignments apply as specified; no extra unspecified practical pass unit. Generalthesis assessment requires independent second assessment. Fullcurrentroute certification and UCRapproval remain withheld pending exact5EC clarification.",
+      "components": [
+        {
+          "id": "y1-01",
+          "name": "Language, Communication and Media",
+          "credits": 5
+        },
+        {
+          "id": "y1-02",
+          "name": "Social Interaction",
+          "credits": 5
+        },
+        {
+          "id": "y1-03",
+          "name": "Research Methods in the Humanities 1",
+          "credits": 5
+        },
+        {
+          "id": "y1-04",
+          "name": "Literary Analysis",
+          "credits": 5
+        },
+        {
+          "id": "y1-05",
+          "name": "Dutch Literary History before 1800",
+          "credits": 5
+        },
+        {
+          "id": "y1-06",
+          "name": "First-Language Acquisition",
+          "credits": 5
+        },
+        {
+          "id": "y1-07",
+          "name": "Literary Theory",
+          "credits": 5
+        },
+        {
+          "id": "y1-08",
+          "name": "Dutch Literary History after 1800",
+          "credits": 5
+        },
+        {
+          "id": "y1-09",
+          "name": "Research Methods in the Humanities 2",
+          "credits": 5
+        },
+        {
+          "id": "y1-10",
+          "name": "From Sound to Word",
+          "credits": 5
+        },
+        {
+          "id": "y1-11",
+          "name": "Philosophy of Culture for Dutch Studies",
+          "credits": 5
+        },
+        {
+          "id": "y1-12",
+          "name": "Argumentation, Rhetoric and Public Debate",
+          "credits": 5
+        },
+        {
+          "id": "y2-01",
+          "name": "Literature and Power",
+          "credits": 5
+        },
+        {
+          "id": "y2-02",
+          "name": "Psycholinguistics",
+          "credits": 5,
+          "note": "Psycholinguistics appears in both year 2 and year 3 in the current regulations. It is counted once as five credits; the remaining allocation needs clarification."
+        },
+        {
+          "id": "y2-03",
+          "name": "History of Dutch",
+          "credits": 5
+        },
+        {
+          "id": "y2-04",
+          "name": "Advanced Historical Dutch Literature",
+          "credits": 5
+        },
+        {
+          "id": "y2-05",
+          "name": "From Word to Sentence",
+          "credits": 5
+        },
+        {
+          "id": "y2-06",
+          "name": "Communication and Persuasion",
+          "credits": 5
+        },
+        {
+          "id": "y3-01",
+          "name": "Research Seminar: Medium and Orality",
+          "credits": 5,
+          "note": "Required five-credit research seminar in the current regulations. Courses listed for a future academic year are not assumed to replace it."
+        },
+        {
+          "id": "y3-03",
+          "name": "Public Debate, Partisanship and Polarisation",
+          "credits": 5
+        },
+        {
+          "id": "y3-04",
+          "name": "Dutch Studies in Society",
+          "credits": 5
+        },
+        {
+          "id": "minor-space",
+          "name": "Two Faculty of Arts Minors",
+          "credits": 30,
+          "note": "Restricted 30 EC choice of two coherent permitted 15 EC Faculty of Arts minors for the applicable newer cohorts. No named optional minor is universal."
+        },
+        {
+          "id": "thesis",
+          "name": "Bachelor Thesis in Literary Studies",
+          "credits": 10,
+          "note": "One required 10 EC independent thesis, first-listed literary-studies field. Current themes are announced before the semester; topic allocation precedes registration. Language-use and linguistics thesis fields are alternatives."
+        },
+        {
+          "id": "free-space",
+          "name": "Open Electives",
+          "credits": 30,
+          "note": "30 EC open bachelor-level broadening subject to approval/overlap and applicable cohort rules. Internship, exchange and educational minor are optional, not compulsory."
+        }
+      ],
+      "routeSelection": {
+        "route": "Nederlandse Taal en Cultuur, ordinary route without study-abroad replacement",
+        "selectionRule": "least-specialized-general",
+        "basis": "Ordinary generic target kept, independently of UCRfit. Conditional abroad/educationalminor route and oldercohort40ECminor structure are not selected simply to evade the current ordinary-route discrepancy."
+      }
+    },
+    "audience": {
+      "schemaVersion": "1.0",
+      "programmeDescription": "Dutch Language and Culture at Radboud studies Dutch and Flemish literature, the structure and history of Dutch, and the use of language in communication. It combines textual analysis, literary and linguistic research methods, and independent research.",
+      "comparisonExplanation": "A complete UCR comparison is withheld while Radboud’s current curriculum needs clarification. The same Psycholinguistics course appears in two years, leaving 5 EC without a verified distinct allocation. Related UCR literature, rhetoric and language research are useful foundations, but complete UCR programmes are not approved here.",
+      "conceptProgrammeIds": [],
+      "noteTypes": [],
+      "curriculum": {
+        "status": "partial",
+        "componentIds": [
+          "y1-01",
+          "y1-02",
+          "y1-03",
+          "y1-04",
+          "y1-05",
+          "y1-06",
+          "y1-07",
+          "y1-08",
+          "y1-09",
+          "y1-10",
+          "y1-11",
+          "y1-12",
+          "y2-01",
+          "y2-02",
+          "y2-03",
+          "y2-04",
+          "y2-05",
+          "y2-06",
+          "y3-01",
+          "y3-03",
+          "y3-04",
+          "minor-space",
+          "thesis",
+          "free-space"
+        ],
+        "yearLabel": "2026–2027",
+        "routeLabel": "Ordinary programme: supported components only",
+        "limitation": "The degree is 180 EC. This list accounts for 175 distinct EC because the same 5 EC Psycholinguistics course appears in both year 2 and year 3. The remaining 5 EC need clarification. Future Modern Dutch Literature and Sociolinguistics courses are not treated as current replacements. This is a partial list, not a complete degree pathway. First-year mentoring and the Dutch academic-language diagnostic, plus second-year mentoring and personal development, add no credits. Attendance applies to mentoring and first-year courses."
+      },
+      "componentNotes": {
+        "y2-02": "Psycholinguistics appears in both year 2 and year 3 in the current regulations. It is counted once as five credits; the remaining allocation needs clarification.",
+        "y3-01": "Required five-credit research seminar in the current regulations. Courses listed for a future academic year are not assumed to replace it.",
+        "minor-space": "Restricted 30 EC choice of two coherent permitted 15 EC Faculty of Arts minors for the applicable newer cohorts. No named optional minor is universal.",
+        "thesis": "One required 10 EC independent thesis, first-listed literary-studies field. Current themes are announced before the semester; topic allocation precedes registration. Language-use and linguistics thesis fields are alternatives.",
+        "free-space": "30 EC open bachelor-level broadening subject to approval/overlap and applicable cohort rules. Internship, exchange and educational minor are optional, not compulsory."
+      }
+    },
+    "exception": {
+      "type": "external-programme-unresolved",
+      "checkedOn": "2026-11-12",
+      "reason": "Current adopted2026–27 OER Article5 p7 repeats the same LET-NTCB221 Psycholinguistics5EC in B2 andB3. Count once:60B1+60B2+55distinctB3=175EC. Need exact authoritative cohort-specific allocation/replacement or repeat-credit rule establishing one coherent ordinary180EC route. Current catalogue supplies one identical course, not a second distinct unit. Article7 substitutes older withdrawn courses but does not identify a replacement for this repeat. Future2027–30 prospective tables instead use ModernDutchLiterature and Sociolinguistics, while currentB3 has MediumAndOrality; they cannot repair the adopted current route. ConditionalArticle6 abroad/educational-minor replacement and older40ECminor cohort rules are not silently selected to avoid the ordinary-route question. This is a positive official-document conflict, not source inaccessibility.",
+      "curriculumContext": "Exact Dutch full-time BA56804 Nederlandse Taal en Cultuur atRadboud. Current2026–27 programme and generalOER apply, with explicit earlier-cohort exceptions. Supported subset24components175EC:60B1,30laterB2core,15distinctB3core,30restrictedminor,10thesis,30openfree. Two15ECpermittedArtsminors required for2025+ entrants; fixed coherent minor packages cannot be mixed. The generalOER distinguishes2024free-space and2018–23minor40 cohorts, which require exact cohort reconciliation rather than stacking. No named optional minor is universal. LiteraryStudies is first-listed neutral10ECthesis field among literature, language use and linguistics. Actual2026thesis requires independent research inDutch literary studies; themes announced at least2months before semester, topic allocation and registration through programme chair; no contact made. Current programmeArticle10 specifies no additional curricular prerequisites forB1/B2/B3; other-programme elective rules still apply. BSA45EC. Required B1mentorship0,RADAr-NL0 and B2mentorship/PPO0 are separate noncredit. Attendance formentoring/allB1andlistedPublicWriting; generalabsence over35% inoneperiod excludescourse/tests absentexception. All component assessments must be sufficient. Practical written/oral assignments apply as specified; no extra unspecified practical pass unit. Generalthesis assessment requires independent second assessment. Fullcurrentroute certification and UCRapproval remain withheld pending exact5EC clarification."
+    }
+  },
+  "titleTranslations": [
+    {
+      "id": "y1-01",
+      "sourceTitle": "Taal, Communicatie en Media",
+      "englishTitle": "Language, Communication and Media"
+    },
+    {
+      "id": "y1-02",
+      "sourceTitle": "Sociale Interactie",
+      "englishTitle": "Social Interaction"
+    },
+    {
+      "id": "y1-03",
+      "sourceTitle": "Onderzoeksmethoden in de Geesteswetenschappen 1",
+      "englishTitle": "Research Methods in the Humanities 1"
+    },
+    {
+      "id": "y1-04",
+      "sourceTitle": "Literaire analyse",
+      "englishTitle": "Literary Analysis"
+    },
+    {
+      "id": "y1-05",
+      "sourceTitle": "Nederlandse Literatuurgeschiedenis tot 1800",
+      "englishTitle": "Dutch Literary History before 1800"
+    },
+    {
+      "id": "y1-06",
+      "sourceTitle": "Eerstetaalverwerving",
+      "englishTitle": "First-Language Acquisition"
+    },
+    {
+      "id": "y1-07",
+      "sourceTitle": "Literaire Theorie",
+      "englishTitle": "Literary Theory"
+    },
+    {
+      "id": "y1-08",
+      "sourceTitle": "Nederlandse Literatuurgeschiedenis na 1800",
+      "englishTitle": "Dutch Literary History after 1800"
+    },
+    {
+      "id": "y1-09",
+      "sourceTitle": "Onderzoeksmethoden in de Geesteswetenschappen 2",
+      "englishTitle": "Research Methods in the Humanities 2"
+    },
+    {
+      "id": "y1-10",
+      "sourceTitle": "Van Klank tot Woord",
+      "englishTitle": "From Sound to Word"
+    },
+    {
+      "id": "y1-11",
+      "sourceTitle": "Cultuurfilosofie voor neerlandici",
+      "englishTitle": "Philosophy of Culture for Dutch Studies"
+    },
+    {
+      "id": "y1-12",
+      "sourceTitle": "Argumentatie, Retorica en Publiek Debat",
+      "englishTitle": "Argumentation, Rhetoric and Public Debate"
+    },
+    {
+      "id": "y2-01",
+      "sourceTitle": "Literatuur en Macht",
+      "englishTitle": "Literature and Power"
+    },
+    {
+      "id": "y2-02",
+      "sourceTitle": "Psycholinguïstiek",
+      "englishTitle": "Psycholinguistics"
+    },
+    {
+      "id": "y2-03",
+      "sourceTitle": "Geschiedenis van het Nederlands",
+      "englishTitle": "History of Dutch"
+    },
+    {
+      "id": "y2-04",
+      "sourceTitle": "Verdieping Historische Nederlandse Letterkunde",
+      "englishTitle": "Advanced Historical Dutch Literature"
+    },
+    {
+      "id": "y2-05",
+      "sourceTitle": "Van Woord tot Zin",
+      "englishTitle": "From Word to Sentence"
+    },
+    {
+      "id": "y2-06",
+      "sourceTitle": "Communicatie en Overtuiging",
+      "englishTitle": "Communication and Persuasion"
+    },
+    {
+      "id": "y3-01",
+      "sourceTitle": "Onderzoeksseminar Medium en Oraliteit",
+      "englishTitle": "Research Seminar: Medium and Orality"
+    },
+    {
+      "id": "y3-03",
+      "sourceTitle": "Publiek debat, partijdigheid en polarisatie",
+      "englishTitle": "Public Debate, Partisanship and Polarisation"
+    },
+    {
+      "id": "y3-04",
+      "sourceTitle": "Neerlandistiek in de Maatschappij",
+      "englishTitle": "Dutch Studies in Society"
+    },
+    {
+      "id": "minor-space",
+      "sourceTitle": "Minorruimte: twee Letterenminoren",
+      "englishTitle": "Two Faculty of Arts Minors"
+    },
+    {
+      "id": "thesis",
+      "sourceTitle": "Bachelorwerkstuk Letterkunde",
+      "englishTitle": "Bachelor Thesis in Literary Studies"
+    },
+    {
+      "id": "free-space",
+      "sourceTitle": "Vrije ruimte",
+      "englishTitle": "Open Electives"
+    }
+  ],
+  "activeSelectedDescriptions": [],
+  "provisionalSharedDescriptionReviews": [
+    {
+      "code": "ACCPPDE101",
+      "name": "Personal & Professional Development",
+      "text": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+        "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Personal & Professional Development"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "DISDATA111",
+      "name": "Introduction to Data Science",
+      "text": "Develops foundational skills in data visualization, cleaning and manipulation. Explores spatial and text data and includes hands‑on work with datasets from various disciplines.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "85912cb78bd13d1aa873ef9cca2a8d7e00345543f75d1f07b56d808f1c6702ef",
+        "descriptionSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Data Science"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "GOSHIST111",
+      "name": "Modern History",
+      "text": "Provides a chronological overview of history from 1815 to the present. Discusses industrialisation, popular sovereignty and national self‑determination, and covers major economic, political and cultural developments including revolutions, world wars and the fall of communism.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Modern History",
+        "sourceField": "description2",
+        "sourceSha256": "cd940abc8f8e43aeb6cedd73b6bf076687f6418ffb3a76c3e1c44ad107e68324",
+        "descriptionSha256": "cd940abc8f8e43aeb6cedd73b6bf076687f6418ffb3a76c3e1c44ad107e68324",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "GOSHIST211",
+      "name": "History of Empires",
+      "text": "History of Empires examines empires across global history and competing theories of empire. Students study expansion, administration, military and economic systems, legitimacy, ideology, culture, decline and legacies. Historical cases, source analysis and an independent research essay connect theoretical interpretation with specific imperial experiences.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "bce0c4bf26316aa65a8b70c29f53f82e7c38bf225868dfd278a3cd941ebe4b82",
+        "descriptionSha256": "76faf04e8e855ae9ca1735ccf5a7e8ac76bf21911b771190f9286303745ad4a3",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "History of Empires"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "GOSHIST312",
+      "name": "Researching the “American Century”",
+      "text": "Guides students through the full arc of historical inquiry, from formulating research questions to engaging critically with sources. Emphasises methodological rigour and interdisciplinary thinking and culminates in a substantial research paper.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "sourceSha256": "ec69dff9b78d3978fff3f1724dc3a2256eb5e2c589b7beff8e13b46a9171908a",
+        "descriptionSha256": "ec69dff9b78d3978fff3f1724dc3a2256eb5e2c589b7beff8e13b46a9171908a",
+        "mode": "verbatim",
+        "reviewedOn": "2026-10-30",
+        "reviewNote": "By user decision of 30 October 2026, the historical Walcheren outline is excluded from the enriched reference. Uses the unchanged official description verbatim; claims are limited to the historical inquiry, source criticism and research methods it supports. No replacement outline is required for this current use.",
+        "courseName": "Researching the “American Century”"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "GOSPHIL214",
+      "name": "Philosophy of Mind",
+      "text": "Examines historical and modern work on the philosophy of mind. Discusses Descartes’ dualism, the nature of consciousness, AI and animal minds, personal identity, transformative experiences and the influence of technology on experience.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Philosophy of Mind",
+        "sourceField": "description2",
+        "sourceSha256": "cd2e55eb0c7f8a45220107e2f961346ef9960975db1d457cb213c6bf58ef25a6",
+        "descriptionSha256": "cd2e55eb0c7f8a45220107e2f961346ef9960975db1d457cb213c6bf58ef25a6",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "GOSSOCI111",
+      "name": "Introduction to Sociology",
+      "text": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Sociology",
+        "sourceField": "description2",
+        "sourceSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "descriptionSha256": "1a60a48fcdaf18d888ed744d44c3b00cc297238cf981e2ecd383aee8b5a48102",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "GOSSOCI214",
+      "name": "Modern Sociology",
+      "text": "Examines the trajectory of sociology within the culture of imperialism and colonial responses. Studies leading social theories and debates about modernity and critically engages with sociological discourses.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Modern Sociology",
+        "sourceField": "description2",
+        "sourceSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+        "descriptionSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "HCBCOGN112",
+      "name": "Neurobiology",
+      "text": "Neurobiology studies nervous systems and behaviour through comparative anatomy, evolution and physiology. Students examine animal behaviour, research models, welfare and research ethics, then connect biological rhythms and regulatory behaviour to sleep, lifestyle drugs, mood and eating disorders. Comparative-anatomy work and a literature-based report apply neurobiological concepts.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "faf0f85889650abcd1cd20e8038228eb9964ce43c317af9edc586eac043bc30c",
+        "descriptionSha256": "e17b6afb9badd04addc522b9ea98346fd18d4aa31df815d0b792950fa6ab940a",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Neurobiology"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "HCBCOGN212",
+      "name": "Perception & Action",
+      "text": "Explores neural mechanisms behind perception and action. Examines how the brain processes sensory information and guides goal‑directed behaviour using methods from cognitive neuroscience and neuropsychology.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Perception & Action",
+        "sourceField": "description2",
+        "sourceSha256": "d5057fb9cd7115d620719855269abccdb6cd5c3585d55631b2c6322bc0346aab",
+        "descriptionSha256": "d5057fb9cd7115d620719855269abccdb6cd5c3585d55631b2c6322bc0346aab",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "HCBCOGN311",
+      "name": "Higher Order Functions",
+      "text": "Higher Order Functions deepens knowledge of neurophysiology, neuroanatomy and experimental cognitive neuroscience. Topics include attention, memory, emotion, cognitive control, social cognition, pain and consciousness. An attentional-blink experiment and a team research proposal develop engagement with empirical research, experimental design and ethical reflection.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "f6033f78b541acd4a5788e843aa744855b5a99d2841ce90ebdd17797944c5d42",
+        "descriptionSha256": "42d96460b731996549fb6525fa622439622a99854e4db744eabc7c61a5e19598",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Higher Order Functions"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "HCBCOGN312",
+      "name": "Psycholinguistics",
+      "text": "Psycholinguistics is the study of the neurobiological and psychological factors that enable us to acquire, use, and understand language. Modern research draws on cognitive psychology, neuroscience, and computer science to investigate how language is processed. The course focuses primarily, though not exclusively, on the neuroscience of language. Students examine theoretical and experimental issues in speech production and comprehension, language impairments, the relationship between thought and language, and the evolution and acquisition of language. They also gain hands-on experience with experimental approaches to the study of language and develop an understanding of human linguistic capacity as a subject of multidisciplinary research. Topics covered: What is language? Evolutionary aspects of language and animal communication; language and thought; aphasia; language acquisition; bilingualism; speech comprehension; semantics; reading and dyslexia; speech production.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Psycholinguistics",
+        "sourceField": "description2",
+        "sourceSha256": "8b48cfd32534496954068f0d33edc9cd03d1856a6e075c0364ae1ec55dad27ec",
+        "descriptionSha256": "8b48cfd32534496954068f0d33edc9cd03d1856a6e075c0364ae1ec55dad27ec",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "HCBGATE102",
+      "name": "Introduction to Brain & Behavior",
+      "text": "Explores why people behave as they do and how brain injuries affect mental processes. Discusses nature and nurture, introduces brain anatomy and psychological theories, and provides a gateway to cognitive science and clinical psychology.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Brain & Behavior",
+        "sourceField": "description2",
+        "sourceSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+        "descriptionSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "HCBPSYC211",
+      "name": "Statistics & Experimental Methods",
+      "text": "Develops experimental-design knowledge and practical statistical analysis for health and behavioural research. Students choose, fit, diagnose and interpret multivariable models for group comparisons, categorical outcomes and latent constructs. R, primarily through R Commander, supports practical exercises; data-analysis papers and a poster connect research questions to appropriate models, assumption checks and clear reporting.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "bf482d4e283320560451930d2822162ada50a7697ded31de54eb7b021694adbc",
+        "descriptionSha256": "ef41b0b732a8e9502a0d7e14ceef47bb91ca971854bb1a26b6a8ed5e6c9b6111",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Statistics & Experimental Methods"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "HCBPSYC313",
+      "name": "Advanced Research Methods & Statistics",
+      "text": "Advanced Research Methods & Statistics introduces systematic reviews and meta-analysis to synthesise results across studies. Students use R to conduct analyses, work with data structures and packages, estimate treatment effects and examine their consistency across studies. Presentations and active research tasks develop evidence-synthesis skills.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-30",
+        "sourceSha256": "eb24b7cc21c239bb763218b5b09a429739925fa1a8206c390c2f07c75f528c1d",
+        "descriptionSha256": "f9bb29521ce24ffbe4d0eef2398221f54d99cbd72801c53bf1db0de6b3c4c799",
+        "reviewNote": "Updated the course title to the current official name. Retained the remaining description after checking it against the unchanged selected profile.",
+        "courseName": "Advanced Research Methods & Statistics"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "HCBPSYC314",
+      "name": "Lifespan Developmental Psychology",
+      "text": "Explores human development across the lifespan. Examines physical, cognitive, emotional and social changes from prenatal life to old age and develops critical thinking about factors influencing individual uniqueness.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Lifespan Developmental Psychology",
+        "sourceField": "description2",
+        "sourceSha256": "83bc9b3a3f25b826775e694d59d5a8673158b9fd3bced3778ac1efb9b4da6289",
+        "descriptionSha256": "83bc9b3a3f25b826775e694d59d5a8673158b9fd3bced3778ac1efb9b4da6289",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "MCCCOMM111",
+      "name": "The Art of Rhetorical Communication",
+      "text": "The Art of Rhetorical Communication develops rhetorical analysis, academic writing and oral presentation. Students examine classical Western roots and the canons of rhetoric, and learn to construct, organise and support persuasive arguments. Historical and contemporary examples connect rhetorical theory with practical communication.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "a1075e2aff565380f637a1ee31ac79c668477b11b15a7f853230b303cf44485f",
+        "descriptionSha256": "34ab73cc0cae33e2a0e47ba5df0ee55c9b0e5f2d4e21ae97ea18667a96400c4c",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "The Art of Rhetorical Communication"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "MCCCOMM112",
+      "name": "Dutch",
+      "text": "This course aims to develop basic skills and strategies necessary to successfully handle uncomplicated oral and written communication in Dutch in a variety of social situations that you may encounter in daily life in the Netherlands. The emphasis in the course will be on speaking in Dutch in day-to-day situations on the one hand and understanding Dutch culture on the other hand. At the end of the course students can orally express and write about themselves in Dutch, who they are, describe their family background, and interact with others in a simple way.",
+      "provenance": null,
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "MCCCOMM211",
+      "name": "Style & Meaning",
+      "text": "Style & Meaning studies stylistics: how linguistic choices produce meaning and interpretive effects, principally in literary texts and also in nonfiction. Students connect grammar, discourse and cognition with interpretation through frameworks for dialogue, narration, modality, deixis and text worlds. Analysis exercises lead to an original research-supported stylistic analysis.",
+      "provenance": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "d080043304ce78e0dfb21e7626ed39788487ac6407c4b6b9b8dd65a1ccc3cb3c",
+        "descriptionSha256": "1403b3e8bbe5009d3f3736ca1f68055e9a004b02908527fba7a6c0dbbb12be33",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "courseName": "Style & Meaning"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "MCCCOMM213",
+      "name": "Rhetoric in Action",
+      "text": "Develops persuasive speaking skills by applying rhetorical theory in the real world. Students work with local primary school children, building public-speaking skills and empowering them to find their voices.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Rhetoric in Action",
+        "sourceField": "description2",
+        "sourceSha256": "a481c86f7c34da2d13a0785165435e6761cd1a65cf18efd83c40b7795ee5ff29",
+        "descriptionSha256": "a481c86f7c34da2d13a0785165435e6761cd1a65cf18efd83c40b7795ee5ff29",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "MCCCOMM311",
+      "name": "Persuasive Communication",
+      "text": "Persuasive Communication studies persuasion through communication studies, social psychology and ethical analysis. Students examine framing, argumentation, cognitive shortcuts and verbal and nonverbal communication. Community-engaged projects develop communication encouraging sustainable and circular lifestyles, while an individual research paper evaluates selected persuasion tools.",
+      "provenance": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "bad6a0cb3dd14e5cb07c4aeb36a102d09309142fdc5bab339f0096830ec5209a",
+        "descriptionSha256": "781fa29248cce6025d8aa8887d300c8f0d64941a8b4a9b2dd193783c098deacc",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "reviewedOn": "2026-10-29",
+        "basis": "course outline",
+        "courseName": "Persuasive Communication"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "MCCCOMM312",
+      "name": "Creative Communication Laboratory",
+      "text": "Creative Communication Laboratory combines close reading and creative workshops with poetry, rhythm, sound, voice and performance. Students develop traditional or hybrid creative projects grounded in scholarship and aesthetic traditions. Revision and reflection require them to explain their formal, conceptual and procedural choices.",
+      "provenance": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "d45bc30fbb2ccb16032887c1e925d9781c5e5643f98a1d72845b3bde1a1e8c68",
+        "descriptionSha256": "5784a44bdf47e513fd175105980ac4d21836d78686e6c5dcd79411edf50bb3ec",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "courseName": "Creative Communication Laboratory"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "MCCLITR111",
+      "name": "Introduction to Literary Studies",
+      "text": "Introduction to Literary Studies introduces practical criticism and literary interpretation. Students examine what literature is, why it is read and studied, formal properties and the constructed character of texts. Fiction, poetry and drama are supplemented by contemporary nonfiction and basic film narration, developing critical terms, tools and techniques.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "a9463cfe73634d354a0603d7a43f487a39c7b11f2ca75198d02980299b54cd46",
+        "descriptionSha256": "4f2e60bcf8d4882bf8b8d7d9a1818f0ba86ecb5f1ee41727237d19fab84722ad",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Introduction to Literary Studies"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "MCCLITR112",
+      "name": "Great Literary Works",
+      "text": "Provides a chronological overview of literature from the epic of Gilgamesh to post‑modernity. Reads literary and critical texts that explore human experience and teaches how to approach literature’s ambiguities and trace themes across ages.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Great Literary Works",
+        "sourceField": "description2",
+        "sourceSha256": "248ed84f99b7813e881f96219b5572698c50a9014fcb4439863eb95a4871820f",
+        "descriptionSha256": "248ed84f99b7813e881f96219b5572698c50a9014fcb4439863eb95a4871820f",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "MCCLITR211",
+      "name": "World Myth & Literature",
+      "text": "World Myth & Literature compares mythic narratives across ancient and later traditions, examining transmission, cultural connections and themes such as creation, power, gender, love and loyalty. Greek, Roman, Near Eastern, Indian, Arabic and African materials support literary analysis. A research paper, graphic explanation and creative retelling connect interpretation with narrative practice.",
+      "provenance": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "1e48b00378b8c6b875a7cb52ee3c43c5a1fa03c6c4345b7ecf5bd82049fb7f83",
+        "descriptionSha256": "44c8274632c55ccd0cd9b3255a54f99595980fdc15c1f30defdd3a6f3d600848",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "courseName": "World Myth & Literature"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "MCCLITR212",
+      "name": "Life & Travel Writing",
+      "text": "Life & Travel Writing examines memoir, autobiography, diaries, personal essays, travel writing and digital self-presentation. Students explore memory, identity, autobiographical truth, ethics and cultural positioning through close reading and theory. A personal writing portfolio and an independent life-narrative project connect analysis with practice.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "83c6fa2e7a3861bf32bbc34408c5c84e984451c12f05dddb909cdb1656f64c17",
+        "descriptionSha256": "accdee02d696d09f594e471dd133916d99b2a25293754a87e1188a7be6b50739",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Life & Travel Writing"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "MCCLITR311",
+      "name": "Film & Text",
+      "text": "Film & Text studies relationships between literary and film narratives, adaptation and intertextuality. Students learn methods of film analysis and examine plot, character, setting, image, acting, music and sound, alongside the relationships among adaptors, critics and viewers.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "ce2539bb2ee6c075e7c2ebf97af3f3db50561e3163a348c4e4bfb39bf25ec89c",
+        "descriptionSha256": "1ebd21656cd9546bf8642676f442bb5ce858dc97daead73a9c97bf93ef2ebae7",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Film & Text"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "MCCLITR312",
+      "name": "Perspectives on Literary Meaning",
+      "text": "Examines how different perspectives—humanist, feminist, Marxist, cultural minority and psychoanalytic—affect reading and interpretation. Students undertake a research project applying selected perspectives to texts.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Perspectives on Literary Meaning",
+        "sourceField": "description2",
+        "sourceSha256": "a215ac77572c64be18665a21cbd133189450d83845296171f8ea0e1aa29570a3",
+        "descriptionSha256": "a215ac77572c64be18665a21cbd133189450d83845296171f8ea0e1aa29570a3",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "MCCMEDI111",
+      "name": "Introduction to Film & Media",
+      "text": "Introduction to Film & Media examines how moving images create meaning through cinematography, editing, sound, narrative and performance. Film history connects early cinema and major movements with feminist and postcolonial interpretation, alongside television, digital platforms and spectatorship. An analytical or creative-analytical project combines close analysis, theory and scholarly research.",
+      "provenance": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "5755fae4aad203737db42f373976a1a3540befa537d34b2f7992c241ca2092f3",
+        "descriptionSha256": "07d87ceb8396fdb190b165e8c6c602ac572c9aca7393cd25c4ddddb5f19ccb8a",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "reviewedOn": "2026-10-29",
+        "basis": "course outline",
+        "courseName": "Introduction to Film & Media"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "MCCMEDI112",
+      "name": "Media Archaeology",
+      "text": "Explores media technologies before digital culture. Studies cassette tapes, typewriters and early printing as material objects that carry meaning; includes hands‑on experiments; no technical background required.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "basis": "official course description",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-05",
+        "sourceSha256": "7ce20d4de324762f0ad56ca3aa58f54f9de55dba3c34041f5b1cd5ddc5ed52e6",
+        "descriptionSha256": "7ce20d4de324762f0ad56ca3aa58f54f9de55dba3c34041f5b1cd5ddc5ed52e6",
+        "reviewNote": "Read the unchanged display text against the current official description and actual course evidence. It accurately conveys the supported historical, heritage, museum or material-media focus without claiming archaeological field qualification. No displayed text changed.",
+        "courseName": "Media Archaeology"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "MCCMEDI211",
+      "name": "From T.V. to TikTok",
+      "text": "From T.V. to TikTok examines American social history and everyday life from the mid-twentieth century through contemporary media. Television, film and digital forms connect storytelling and power with identity and imagined futures. Students compare dominant portrayals with Indigenous self-representation, investigate disability representation, and develop futures-oriented creative projects.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "7a52bea5680a4b6163548f3f444712f60c5842ad1218b9dddcf23fb6b98b924e",
+        "descriptionSha256": "b153371e55e7dca9e8340397a88e7789c65838a99874546900e53ab6b940b884",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "From T.V. to TikTok"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    },
+    {
+      "code": "MCCMEDI312",
+      "name": "The Documentary",
+      "text": "Introduces documentary film from its early development to contemporary forms, analysing historical and social contexts, styles and genres, and ethical and aesthetic questions. Students analyse non-fiction representations and produce a short documentary item.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "d8ce7c931003ce12a3a81c610feeda88ceed97ae0297b4a9bafa1001fe843803",
+        "descriptionSha256": "223f9d67569f492466d7fe0e444249d55688d2d867669711ff057617aa16f2fe",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "The Documentary"
+      },
+      "reuse": "Unchanged shared code/name/source/display-text review verified; contribution separately reassessed."
+    }
+  ],
+  "fieldToRendererMapping": [
+    "pilot/shared.R: English display metadata, titles and source hrefs",
+    "pilot/counselor-shiny/app.R: explicit audience description/status/curriculum, partial component names/credits and five selected notes",
+    "No active concepts, schedules or modals selected; internal exception/research/provenance not prose fallback"
+  ],
+  "finding": "Read24Englishnames/credits,allpartial175/remaining5degree limits,ordinaryroute/year,restricted30minor/open30choice/thesis10,description/status and5selectednotes. Replaced broken JunePDFhref withcurrentofficialredirect and removed unexplained identifiers from2selectednotes. All10sourcehrefs reviewed against current-or-preserved evidence; generalOERunchanged. Shared32descriptionreviews reused afterhash/name/source checks. No active UCRcomparison approval, app/Excel/cachechange, Shiny/R/browser/screenshots or live-modal claim.",
+  "indexRepair": "Changing the broken primary source URL made the review-programmes index stale. Regeneration changed only CP060 officialUrl to the current stable official redirect; index check then passed. No unrelated index entries changed.",
+  "provisionalFeasibilityCheck": {
+    "command": "python scripts/validate-course-feasibility.py /tmp/a060/trial.json",
+    "exitCode": 0,
+    "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+  }
+}
