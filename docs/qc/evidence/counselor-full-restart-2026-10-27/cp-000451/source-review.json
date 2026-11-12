@@ -1,0 +1,646 @@
+{
+  "caseId": "cp-000451",
+  "checkedAt": "2026-11-12T10:09:55.790442+00:00",
+  "reviewedInputCommit": "eec41200e4436f5f9263b040a15d283c0623ffaa",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000451.json": "c1d574e8c47facef7400a458e1174d781b51f2ee",
+    "data/counselor/comparisons/cp-000451.json": "8a9cb8f68749b76f41e02bf818a9a633024f0624",
+    "data/registry/programme_interests.csv": "10079867ee2363c7450e282a46f56f18bb859917",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+    "data/counselor/review-programmes.json": "f474d8ed3d68d684574ed3366b82e86dcbad3a32",
+    "data/counselor/review-interests.json": "0e0b7e7e8daae6502661d21625dee406e76852cd",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "71fb5c570a7c42c35473d8a0483dcc17ec16a665",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "pilot/shiny/data/courses/ENS.json": "b323d5993ab47be5389001b547054259cbfdbfa2",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "pilot/shiny/data/courses/HCB.json": "8af6675a1408cec96ea570100ee89cff97563288",
+    "canonical": "8a9cb8f68749b76f41e02bf818a9a633024f0624",
+    "decision": "c1d574e8c47facef7400a458e1174d781b51f2ee"
+  },
+  "identity": "WUR BMS Marine Sciences; English-taught full-time three-year bachelor, September 2026 enrolment; generic target and no named route.",
+  "retrievals": [
+    {
+      "id": "programme",
+      "url": "https://studyhandbook.wur.nl/api/product?type=STUDY&code=BMS&year=2026",
+      "finalUrl": "https://studyhandbook.wur.nl/api/product?type=STUDY&code=BMS&year=2026",
+      "status": 200,
+      "sha256": "e839107e3d5168f37808009a10bd35f443fec365f5143b4e88add3560a693308",
+      "bytes": 44288
+    },
+    {
+      "id": "overview",
+      "url": "https://www.wur.nl/en/education/bachelor/bachelors-marine-sciences",
+      "finalUrl": "https://www.wur.nl/en/education/bachelor/bachelors-marine-sciences",
+      "status": 200,
+      "sha256": "16cbcde66cf62c993a899d0699ce41752c3e281091e284d4d6fb0371747efe77",
+      "bytes": 283033
+    },
+    {
+      "id": "chair",
+      "url": "https://www.wur.nl/en/chair-groups/aquaculture-biology-and-fisheries-ecology/education",
+      "finalUrl": "https://www.wur.nl/en/chair-groups/aquaculture-biology-and-fisheries-ecology/education",
+      "status": 200,
+      "sha256": "2a40c69d2283fb22a8fd778cdffc6f1e5154d2f24082be98cfe417255cf7c92d",
+      "bytes": 194791
+    },
+    {
+      "id": "dutch",
+      "url": "https://www.wur.nl/nl/onderwijs/bachelor/bachelor-marine-sciences",
+      "finalUrl": "https://www.wur.nl/nl/onderwijs/bachelor/bachelor-marine-sciences",
+      "status": 200,
+      "bytes": 287847,
+      "sha256": "aff73fd5d8638555983e91620adb31385407bdbb22344d7ee78bd0f52cb7be2e"
+    },
+    {
+      "id": "student",
+      "url": "https://www.wur.nl/nl/studentenverhaal-manu",
+      "finalUrl": "https://www.wur.nl/nl/studentenverhaal-manu",
+      "status": 200,
+      "bytes": 197085,
+      "sha256": "c5d6736bb692994ae095d91ce502250f68393e08026b3ab1ff4c66af5105562a"
+    },
+    {
+      "id": "dutch-front",
+      "url": "https://frontend.prod.wur.nl/nl/onderwijs/bachelor/bachelor-marine-sciences",
+      "finalUrl": "https://www.wur.nl/nl/onderwijs/bachelor/bachelor-marine-sciences",
+      "status": 200,
+      "bytes": 287847,
+      "sha256": "3a65fa09faad42a9c4edbfaf5b2f8a225440432d13da500a5ce800a437ec7ba7"
+    }
+  ],
+  "moduleReceipts": [
+    {
+      "code": "AEW10303",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=AEW10303&year=2026",
+      "bytes": 15665,
+      "sha256": "3e94c45799757032133a33042cacec4563ac1f1a26b56b356316117117d4d0c8"
+    },
+    {
+      "code": "AEW24306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=AEW24306&year=2026",
+      "bytes": 27187,
+      "sha256": "9c8e3183ea4b522bffde48ade7817070ed3f90cb5296a537c9be539ab09e9b94"
+    },
+    {
+      "code": "AFI20306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=AFI20306&year=2026",
+      "bytes": 16647,
+      "sha256": "ecc7ef560a347b37bc51e6e0711c65d099d4054efe1d8a4e2d594dd3fbfbb702"
+    },
+    {
+      "code": "AFI20806",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=AFI20806&year=2026",
+      "bytes": 21428,
+      "sha256": "c48fa8458d94cfd2584b2e795c7acd0376cb343a06b1499ea8229d75b808d9c5"
+    },
+    {
+      "code": "AFI21306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=AFI21306&year=2026",
+      "bytes": 20777,
+      "sha256": "d782c9f4f24fa1cfb2c27d5bb54c3dcf438b0e42be3a0afe19a93b7d3d1e9b53"
+    },
+    {
+      "code": "AFI34806",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=AFI34806&year=2026",
+      "bytes": 19615,
+      "sha256": "c2145e86c3039f219543e5c5e8ad7f4414fb79cabf32157051428e2536a2b234"
+    },
+    {
+      "code": "AFI80812",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=AFI80812&year=2026",
+      "bytes": 17584,
+      "sha256": "f81f72c36d2b1f422ea685a70c384af1549fddb0c8f1c72a96e1c6392e4a9b87"
+    },
+    {
+      "code": "CBI10806",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=CBI10806&year=2026",
+      "bytes": 28112,
+      "sha256": "47e02ae863b8bd8795fdd3803bb756640e2f78bf4c52d518388f20b29b6612f2"
+    },
+    {
+      "code": "ELS11303",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ELS11303&year=2026",
+      "bytes": 21460,
+      "sha256": "5112386eab61048efcfa0ea9b57ee5f8155d35175ff703bc5b41a913da676c4e"
+    },
+    {
+      "code": "ENP12306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ENP12306&year=2026",
+      "bytes": 18959,
+      "sha256": "df13b8eac30e76f99765412569f8c638248e92fc343c6070f8025b0682a54c6f"
+    },
+    {
+      "code": "ENP25306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ENP25306&year=2026",
+      "bytes": 22768,
+      "sha256": "1e4fdc4fb1c8ec73609c00ae4d8dfa6eb0287d167c3fde779ada794f376f74b7"
+    },
+    {
+      "code": "ENR23306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ENR23306&year=2026",
+      "bytes": 19825,
+      "sha256": "55ded2162dcc55985963614b7d1f41bb563fd43e45d533ccfb77bcd7c7909059"
+    },
+    {
+      "code": "EZO11306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=EZO11306&year=2026",
+      "bytes": 22839,
+      "sha256": "e6d9bab66df0ee4a31b079484db5470fe692d040aa016f1cc93aa6dedec6bb30"
+    },
+    {
+      "code": "GEN12306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=GEN12306&year=2026",
+      "bytes": 21365,
+      "sha256": "98344d18121e0e30a87ddcb3a86a6994dddbc350c82fe42ae3d25d9f1bce2e7c"
+    },
+    {
+      "code": "GRS10306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=GRS10306&year=2026",
+      "bytes": 30847,
+      "sha256": "84fd74854e151674a19dd79046458e10b982dd6156545c752ad83d3ed812e939"
+    },
+    {
+      "code": "GRS20806",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=GRS20806&year=2026",
+      "bytes": 18635,
+      "sha256": "666fd52bf34faad2e499b207afc21572be97cc0971377d1dc38a9ffbf43145b1"
+    },
+    {
+      "code": "LAW23306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=LAW23306&year=2026",
+      "bytes": 18973,
+      "sha256": "826f7b56abbdf3b3aa874ca0118d063b3c903f12fc54ca13ccba1e6b4c06131f"
+    },
+    {
+      "code": "MAE10806",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAE10806&year=2026",
+      "bytes": 21027,
+      "sha256": "a8ac1dfc0a9fef12a98ae7ed0b5a9d5115719d953818428a58c301af820abaac"
+    },
+    {
+      "code": "MAE21306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAE21306&year=2026",
+      "bytes": 24917,
+      "sha256": "0c0ff120d655284a23036677a1f5d7744cb957514007985f90d82f7265d65d55"
+    },
+    {
+      "code": "MAT14803",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT14803&year=2026",
+      "bytes": 20812,
+      "sha256": "df8ef7d38588fe8d53c5a4715193775edab29554e65ad0d70cbe745293848a3a"
+    },
+    {
+      "code": "MAT15103",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT15103&year=2026",
+      "bytes": 31124,
+      "sha256": "8e0416001765f719d417b38c2407e9043f64badfcddf9dd19108d2666ed56e5f"
+    },
+    {
+      "code": "MAT15303",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT15303&year=2026",
+      "bytes": 26737,
+      "sha256": "165a4e98e5a7d69f8fbc163ba93957201feb0cbe9aefcbe54312e70684cf9ee6"
+    },
+    {
+      "code": "MAT15403",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT15403&year=2026",
+      "bytes": 34395,
+      "sha256": "241f4f3882bfa80853f10795fd5e014771e591a4c4fc5fd8cc22bc211d8c5e18"
+    },
+    {
+      "code": "PEN10503",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=PEN10503&year=2026",
+      "bytes": 25553,
+      "sha256": "bf01605c6d9be46a919e779ffdcffe65061bc99a60f7df179889855034d06836"
+    },
+    {
+      "code": "WSG10306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=WSG10306&year=2026",
+      "bytes": 21856,
+      "sha256": "41134acb153f05d4a0548009e947a84462c4f2b4e042ea912b440f8063c40173"
+    },
+    {
+      "code": "WSG21306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=WSG21306&year=2026",
+      "bytes": 18672,
+      "sha256": "9e405650fd5ac5af2d542d9aebfa8eb4cd66497d7e640bb10adba08d39c82212"
+    },
+    {
+      "code": "WSG36306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=WSG36306&year=2026",
+      "bytes": 19959,
+      "sha256": "5c4d9215fc2a0cf124ee853fd686a847b2fa6330804b48d880ae9fa88f615c89"
+    },
+    {
+      "code": "YRM21306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=YRM21306&year=2026",
+      "bytes": 29307,
+      "sha256": "3ca29f54231459a4650932dfc8afbcc29e188a361ed1c61d7ffb37d71302f87a"
+    },
+    {
+      "code": "ZSS06000",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ZSS06000&year=2026",
+      "bytes": 8275,
+      "sha256": "9e5c8c3fe25ceb4a8ec7b6af2b4905f8d4dbf1dff09952306a05836f85f8df17"
+    },
+    {
+      "code": "ZSS06100",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ZSS06100&year=2026",
+      "bytes": 105001,
+      "sha256": "ae380ed4d5a370d830e86b764198a9042a4660c48a6f6dcf9b6f203cdc46ac8f"
+    },
+    {
+      "code": "ZSS06200",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ZSS06200&year=2026",
+      "bytes": 74042,
+      "sha256": "46c9fa5bae0afa8f4e933767da3c74d6aea74071912eb6e1ac973d24c3ad2b3b"
+    }
+  ],
+  "components": [
+    {
+      "componentId": "bms-marine-ecology",
+      "moduleCode": "AEW10303",
+      "credits": 3,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=AEW10303&year=2026",
+      "responseSha256": "3e94c45799757032133a33042cacec4563ac1f1a26b56b356316117117d4d0c8",
+      "reviewedSections": [
+        "MK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-intro",
+      "moduleCode": "MAE10806",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAE10806&year=2026",
+      "responseSha256": "a8ac1dfc0a9fef12a98ae7ed0b5a9d5115719d953818428a58c301af820abaac",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-ecology",
+      "moduleCode": "PEN10503",
+      "credits": 3,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=PEN10503&year=2026",
+      "responseSha256": "bf01605c6d9be46a919e779ffdcffe65061bc99a60f7df179889855034d06836",
+      "reviewedSections": [
+        "MK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-evolution",
+      "moduleCode": "GEN12306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=GEN12306&year=2026",
+      "responseSha256": "98344d18121e0e30a87ddcb3a86a6994dddbc350c82fe42ae3d25d9f1bce2e7c",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-leadership",
+      "moduleCode": "ELS11303",
+      "credits": 3,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ELS11303&year=2026",
+      "responseSha256": "5112386eab61048efcfa0ea9b57ee5f8155d35175ff703bc5b41a913da676c4e",
+      "reviewedSections": [
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "The 3-credit course includes a core and a learning ribbon across six required courses, ending during the thesis. Passing its portfolio is required for the thesis grade; these are not extra credits."
+    },
+    {
+      "componentId": "bms-water-climate",
+      "moduleCode": "WSG10306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=WSG10306&year=2026",
+      "responseSha256": "41134acb153f05d4a0548009e947a84462c4f2b4e042ea912b440f8063c40173",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-math",
+      "moduleCode": "MAT15103",
+      "credits": 3,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT15103&year=2026",
+      "responseSha256": "8e0416001765f719d417b38c2407e9043f64badfcddf9dd19108d2666ed56e5f",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-statistics",
+      "moduleCode": "MAT15403",
+      "credits": 3,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT15403&year=2026",
+      "responseSha256": "241f4f3882bfa80853f10795fd5e014771e591a4c4fc5fd8cc22bc211d8c5e18",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-governance",
+      "moduleCode": "ENP12306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ENP12306&year=2026",
+      "responseSha256": "df13b8eac30e76f99765412569f8c638248e92fc343c6070f8025b0682a54c6f",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-human-methods",
+      "moduleCode": "YRM21306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=YRM21306&year=2026",
+      "responseSha256": "3ca29f54231459a4650932dfc8afbcc29e188a361ed1c61d7ffb37d71302f87a",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-field-project",
+      "moduleCode": "AEW24306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=AEW24306&year=2026",
+      "responseSha256": "9c8e3183ea4b522bffde48ade7817070ed3f90cb5296a537c9be539ab09e9b94",
+      "reviewedSections": [
+        "MK",
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Integrated marine field research includes intertidal sampling, sediment transport, fish ecology and observations of Wadden Sea uses. Laboratory and fieldwork safety are required; BMS students have admission priority."
+    },
+    {
+      "componentId": "bms-marine-life",
+      "moduleCode": "EZO11306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=EZO11306&year=2026",
+      "responseSha256": "e6d9bab66df0ee4a31b079484db5470fe692d040aa016f1cc93aa6dedec6bb30",
+      "reviewedSections": [
+        "MK",
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-cell-biology",
+      "moduleCode": "CBI10806",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=CBI10806&year=2026",
+      "responseSha256": "47e02ae863b8bd8795fdd3803bb756640e2f78bf4c52d518388f20b29b6612f2",
+      "reviewedSections": [
+        "MK",
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-law",
+      "moduleCode": "LAW23306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=LAW23306&year=2026",
+      "responseSha256": "826f7b56abbdf3b3aa874ca0118d063b3c903f12fc54ca13ccba1e6b4c06131f",
+      "reviewedSections": [
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-food",
+      "moduleCode": "AFI20806",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=AFI20806&year=2026",
+      "responseSha256": "c48fa8458d94cfd2584b2e795c7acd0376cb343a06b1499ea8229d75b808d9c5",
+      "reviewedSections": [
+        "MK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-flows",
+      "moduleCode": "WSG21306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=WSG21306&year=2026",
+      "responseSha256": "9e405650fd5ac5af2d542d9aebfa8eb4cd66497d7e640bb10adba08d39c82212",
+      "reviewedSections": [
+        "MK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-aquatic-animals",
+      "moduleCode": "AFI21306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=AFI21306&year=2026",
+      "responseSha256": "d782c9f4f24fa1cfb2c27d5bb54c3dcf438b0e42be3a0afe19a93b7d3d1e9b53",
+      "reviewedSections": [
+        "MK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-gis",
+      "moduleCode": "GRS10306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=GRS10306&year=2026",
+      "responseSha256": "84fd74854e151674a19dd79046458e10b982dd6156545c752ad83d3ed812e939",
+      "reviewedSections": [
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-economics",
+      "moduleCode": "ENR23306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ENR23306&year=2026",
+      "responseSha256": "55ded2162dcc55985963614b7d1f41bb563fd43e45d533ccfb77bcd7c7909059",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-geo-tools",
+      "moduleCode": "GRS20806",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=GRS20806&year=2026",
+      "responseSha256": "666fd52bf34faad2e499b207afc21572be97cc0971377d1dc38a9ffbf43145b1",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-design-nbs",
+      "moduleCode": "ENP25306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ENP25306&year=2026",
+      "responseSha256": "1e4fdc4fb1c8ec73609c00ae4d8dfa6eb0287d167c3fde779ada794f376f74b7",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-marine-methods",
+      "moduleCode": "MAE21306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAE21306&year=2026",
+      "responseSha256": "0c0ff120d655284a23036677a1f5d7744cb957514007985f90d82f7265d65d55",
+      "reviewedSections": [
+        "MK",
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Research design, marine sampling and monitoring, data analysis and a multi-day overseas field practical. Laboratory and fieldwork safety are required."
+    },
+    {
+      "componentId": "bms-modelling",
+      "moduleCode": "AFI34806",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=AFI34806&year=2026",
+      "responseSha256": "c2145e86c3039f219543e5c5e8ad7f4414fb79cabf32157051428e2536a2b234",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-aquaculture",
+      "moduleCode": "AFI20306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=AFI20306&year=2026",
+      "responseSha256": "ecc7ef560a347b37bc51e6e0711c65d099d4054efe1d8a4e2d594dd3fbfbb702",
+      "reviewedSections": [
+        "MK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-assessment-nbs",
+      "moduleCode": "WSG36306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=WSG36306&year=2026",
+      "responseSha256": "5c4d9215fc2a0cf124ee853fd686a847b2fa6330804b48d880ae9fa88f615c89",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current module content and credit allocation independently checked; substantive component relationship recorded in the alignment review."
+    },
+    {
+      "componentId": "bms-choice",
+      "moduleCode": "MAT14803",
+      "credits": 3,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT14803&year=2026",
+      "responseSha256": "df8ef7d38588fe8d53c5a4715193775edab29554e65ad0d70cbe745293848a3a",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Three-credit restricted choice between Mathematics Applied: Introduction and Statistics 1. This example takes the first-listed Mathematics Applied: Introduction, for a student with Mathematics A preparation; it precedes Mathematics Applied: Analysis. Statistics 2 assumes active high-school statistics or Statistics 1."
+    },
+    {
+      "componentId": "bms-thesis",
+      "moduleCode": "AFI80812",
+      "credits": 12,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=AFI80812&year=2026",
+      "responseSha256": "f81f72c36d2b1f422ea685a70c384af1549fddb0c8f1c72a96e1c6392e4a9b87",
+      "reviewedSections": [
+        "MK",
+        "AK",
+        "CO"
+      ],
+      "reviewedClaim": "Required 12-credit individual research thesis, with a proposal, research, report, presentation and defence. Entry requires at least 102 programme credits, all 60 first-year credits and Research Methods for Marine Sciences; the coordinator checks preparation with the study adviser. The boundary-crossing and personal-leadership portfolio must also pass."
+    }
+  ],
+  "allocation": {
+    "compulsoryTaught": 135,
+    "restrictedMathStatistics": 3,
+    "thesis": 12,
+    "openElectives": 30,
+    "total": 180
+  },
+  "openSpace": {
+    "credits": 30,
+    "status": "Genuine minor and/or individual electives; no particular minor, internship or extra package selected."
+  },
+  "entryAndProgression": [
+    "The BMS common part is 150 credits: all compulsory taught modules 135, restricted MAT14803/MAT15303 choice 3, AFI80812 thesis 12. Add 30 open credits to reach 180. Zero-credit safety courses are not added to the credit sum.",
+    "Instantiate the first-listed restricted option MAT14803 for suitable Mathematics A preparation; it precedes MAT15103. MAT15403 assumes high-school statistics or MAT15303; this example uses the former. No named route or specialisation is invented or selected for UCR fit.",
+    "AFI80812 requires at least 102 programme credits including all 60 first-year credits and MAE21306. Complete all 138 prescribed taught credits before the thesis and satisfy the coordinator/adviser preparation check. Thesis includes individual proposal, research, report, plenary presentation and defence; animal research adds an ethics/3Vs paragraph where applicable.",
+    "Thesis assessment: execution 40%, report 40%, presentation 10%, defence 10%; the BC&PL portfolio must pass for the final thesis mark. ELS11303 has a credited core and ribbon across six required courses, ending in the thesis. Do not double-count the ribbon or portfolio.",
+    "General, laboratory and fieldwork safety are zero-credit common obligations. Laboratory/field safety precede applicable laboratory/marine field modules, including AEW24306 and MAE21306. Marine field research is specific: benthos/sediment/fish/uses sampling and an overseas practical; no equivalence to a generic project is claimed.",
+    "Current module AK fields guide preparation; some retain old mathematics code/name references. Current BMS named mathematics/statistics and human-environment-methods training supplies the intended preparation. No obsolete duplicate courses or invented hard prerequisites added. Current BMS places genetics in B1 and cell biology in B2 despite the former’s cell-biology AK; it is an assumed-knowledge advisory, not a separate formal entry prohibition."
+  ],
+  "controllingEvidence": "Current 2026 programme group structure and exact module credits, MK, AK, contents and assessments establish the coherent pathway. The current programme page corroborates interdisciplinary marine identity, electives, fieldwork and final research. No redundant OER search imposed where these formal requirements are explicit."
+}
