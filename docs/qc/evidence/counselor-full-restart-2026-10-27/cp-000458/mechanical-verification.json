@@ -1,0 +1,75 @@
+{
+  "caseId": "cp-000458",
+  "checkedAt": "2026-11-12T17:11:07.135507+00:00",
+  "canonicalBlob": "f9758beb6e2a6ec30c66fc06fe9106a81e0a54c1",
+  "decisionBlob": "e34333a5c31dd403136b566a51914607e3e9c4e6",
+  "checks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000458.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000458.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.",
+      "logSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/provisional-canonical.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/provisional-canonical.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.",
+      "logSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "output": "Operational corpus validation passed, including CP458 final methodology rules.",
+      "logSha256": "2398a8e81c3f37048e4c27140896ac6b8c2d08caa62d0bcd67adfca7a3bf7dcf"
+    },
+    {
+      "command": "node scripts/validate-registry-interests.mjs",
+      "exitCode": 0,
+      "output": "Valid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.",
+      "logSha256": "0dc1ff8a36961675f58e702191ec97f43c501db23f02270d74dfb6913450c3cc"
+    },
+    {
+      "command": "node scripts/build-counselor-review-index.mjs --check",
+      "exitCode": 0,
+      "output": "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+      "logSha256": "c26900407153178ba5a5e40b41d6c719f0f4eb5c062e3226b01961df60f9469d"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "output": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.",
+      "logSha256": "e3bf679d8cf8c5b2718fd9a77a2b7a978383e2c1022e5cb9af4c91fa6bfc0194"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000458.json --output /tmp/b458/replay.json",
+      "exitCode": 0,
+      "output": "Built cp-000458 counselor exception record at /tmp/b458/replay.json",
+      "logSha256": "815c594fd8bd8afd25ee3355aeb74b7e4d9680a71d758f1d29afeeae4cbdbf71"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/provisional-decision.json --output /tmp/b458/provisional-replay.json",
+      "exitCode": 0,
+      "output": "Built cp-000458 counselor comparison record at /tmp/b458/provisional-replay.json",
+      "logSha256": "bcc412283e424bcccc40f7c37b34e7b2df552e21bdcf94e235f9d6376b78a5de"
+    },
+    {
+      "command": "byte-exact production replay versus canonical",
+      "exitCode": 0,
+      "bytes": 15513,
+      "sha256": "5d1c50ae7d67556e2df37d395cb1ba5f98100ce332b573c11451b3959b7b5634"
+    }
+  ],
+  "scope": "Case data only. No compiler/app/renderer code changes; representative actual rendering remains a separately controlled final-release requirement."
+}
