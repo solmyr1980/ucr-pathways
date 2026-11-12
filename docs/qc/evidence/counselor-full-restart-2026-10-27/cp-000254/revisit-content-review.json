@@ -1,0 +1,952 @@
+{
+  "caseId": "cp-000254",
+  "checkedAt": "2026-11-12T22:55:21.690307+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000254.json": "4ecbf8eebecb225458e1ca9433f2a6ef8e197135",
+    "data/counselor/comparisons/cp-000254.json": "c1aea6a7a059daccd9a7f5d1c8568ce8f73de6fa",
+    "data/registry/programme_interests.csv": "3d306e8c53d567ca9dbc5c09e151fc54ad5b2243",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+    "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "data/counselor/review-programmes.json": "86d7911b8f95d6b7830e8c1642a41d81ab361f97",
+    "data/counselor/review-interests.json": "45110774d9d53d68fd12fc668e41d08cc4737c88",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "pilot/shiny/data/courses/ENS.json": "b323d5993ab47be5389001b547054259cbfdbfa2",
+    "pilot/shiny/data/courses/HCB.json": "8af6675a1408cec96ea570100ee89cff97563288",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000254/source-findings.json": "5afe35ac25e9bf99acf5d0b4cc7fd218a409a047",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000254/source-attempt-2.json": "5f02af448d2ac123ff678f624ba07cc084946704",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000254/interest-review.json": "d38f0f384b6a1f5253db7fa5ef95833e01f9cd98",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000254/interest-repairs.json": "4958e27a224f77538752016876455fa52944d79f",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000254/course-content-review.json": "cb42b23930570f8365952eafc316a1e0eb29da57",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000254/schedule-and-course-repairs.json": "9fb6ae3c939008b77228021d4f23b6f89e7a4e55",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000254/revisit-concept-checkpoint.json": "5286b26fc386bed33896ab2b2a2a00f8806929fd",
+    "canonical": "c1aea6a7a059daccd9a7f5d1c8568ce8f73de6fa",
+    "decision": "4ecbf8eebecb225458e1ca9433f2a6ef8e197135"
+  },
+  "presentationMode": {
+    "mode": "caution",
+    "message": "UCR offers programmes in related academic fields, but these may differ substantially from the disciplinary programme shown. Important specialist subjects or forms of training may not be available at UCR."
+  },
+  "readerFieldPaths": [
+    "comparator.name/institution/primarySourceUrl",
+    "programmes[*].label",
+    "all32comparator.components.name/credits",
+    "all30ucrCourses.name and selectedcoursecells",
+    "academicRationale.alternatives[ucr-1/ucr-2].concept selectedbyaudience.conceptProgrammeIds",
+    "audience.programmeDescription/comparisonExplanation",
+    "audience.curriculum.status/componentIds/yearLabel/routeLabel/limitation",
+    "audience.componentNotes andcellNotes stablecomparatorreferences",
+    "notes[related-fields-not-full-discipline].text selectedbyaudience.noteTypes",
+    "all6blocks.title andeachrowcelltext/credits",
+    "standardoptionalresearchtitle/15ECcomparison-only placement",
+    "officialexternalprimarylink,UCRcourseslink,ProgramBuilderlink,30selecteddescriptionentries"
+  ],
+  "audience": {
+    "schemaVersion": "1.0",
+    "programmeDescription": "Nanobiology is an English-taught joint bachelor from TU Delft and Erasmus University Rotterdam. It combines biology, physics and mathematics to investigate living systems at small scales, with laboratory, computational and imaging work. A minor, electives and a final research project complete the programme.",
+    "comparisonExplanation": "The first UCR programme studies living systems through molecular and laboratory biology, evolution, quantitative methods and physical foundations. The second emphasises disease, immunity and organ-system function. Delft and Erasmus provide more specialised nanoscale biophysics, microscopy and instrumentation.",
+    "curriculum": {
+      "status": "complete",
+      "componentIds": [
+        "NB1310",
+        "NB1315",
+        "NB1410",
+        "NB1320",
+        "NB1325",
+        "NB1420",
+        "NB1330",
+        "NB1335",
+        "NB1430",
+        "NB1340",
+        "NB1345",
+        "NB1445",
+        "NB2310",
+        "NB2315",
+        "NB2410",
+        "NB2320",
+        "NB2325",
+        "NB2420",
+        "NB2510",
+        "NB2335",
+        "NB2330",
+        "NB2430",
+        "NB2340",
+        "NB2345",
+        "NB2440",
+        "NB2520",
+        "cp-000254-y3-open-0",
+        "NB3000",
+        "NB3020",
+        "NB3023",
+        "NB3024",
+        "NB3015"
+      ],
+      "yearLabel": "2026–2027",
+      "limitation": "The 180-EC pathway includes a 30-EC approved minor, a 20-EC final project and one 2.5-EC elective in each final-year block. Timely registration, preparation and project approval conditions apply.",
+      "routeLabel": "English joint bachelor; representative assigned practical pair"
+    },
+    "componentNotes": {
+      "NB1430": "One representative programme-assigned practical pair is shown: Molecular Biology Techniques A with Biophysics Techniques B. Students cannot choose or change their assignment freely.",
+      "NB1445": "Companion to the representative assigned Molecular Biology Techniques A course; the other permitted assigned pair is different.",
+      "cp-000254-y3-open-0": "30 EC of approved minor study. A self-composed minor or exchange requires approval; no particular minor content is assumed.",
+      "NB3000": "Compulsory 20-EC bachelor project. Entry requires all 60 first-year EC plus at least 60 EC from years two and three combined, with an approved programme supervisor.",
+      "NB3015": "Selected 2.5-EC elective in 4B. Computational Neuroscience is recommended, explicitly not mandatory; timely course registration and assessed video/review work apply.",
+      "NB3024": "Selected 2.5-EC elective in block 4A, after the required computational-science and differential-equation courses. Timely course and oral-exam registration applies.",
+      "NB3020": "Selected 2.5-EC elective in 3A. Molecular biology preparation is supplied by the completed required core; timely course/exam registration applies.",
+      "NB3023": "Selected 2.5-EC elective in 3B. Basic human genetics is recommended, not required; prior R is not required. Timely course/exam registration applies."
+    },
+    "conceptProgrammeIds": [
+      "ucr-1",
+      "ucr-2"
+    ],
+    "noteTypes": [
+      "related-fields-not-full-discipline"
+    ],
+    "cellNotes": [
+      {
+        "programmeId": "comparator",
+        "reference": "NB1430",
+        "text": "One representative programme-assigned practical pair is shown: Molecular Biology Techniques A with Biophysics Techniques B. Students cannot choose or change their assignment freely."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "NB1445",
+        "text": "Companion to the representative assigned Molecular Biology Techniques A course; the other permitted assigned pair is different."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "cp-000254-y3-open-0",
+        "text": "30 EC of approved minor study. A self-composed minor or exchange requires approval; no particular minor content is assumed."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "NB3000",
+        "text": "Compulsory 20-EC bachelor project. Entry requires all 60 first-year EC plus at least 60 EC from years two and three combined, with an approved programme supervisor."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "NB3015",
+        "text": "Selected 2.5-EC elective in 4B. Computational Neuroscience is recommended, explicitly not mandatory; timely course registration and assessed video/review work apply."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "NB3024",
+        "text": "Selected 2.5-EC elective in block 4A, after the required computational-science and differential-equation courses. Timely course and oral-exam registration applies."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "NB3020",
+        "text": "Selected 2.5-EC elective in 3A. Molecular biology preparation is supplied by the completed required core; timely course/exam registration applies. UCR molecular pathology and genetics provide cancer-mechanism foundations. Dedicated breast-cancer genomics platforms and biomarker pipelines add external scope."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "NB3023",
+        "text": "Selected 2.5-EC elective in 3B. Basic human genetics is recommended, not required; prior R is not required. Timely course/exam registration applies."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "NB1320",
+        "text": "The closest UCR programme supplies chemical and material foundations in a sustainability context. Carbon chemistry, stereochemistry and life-science analysis extend beyond that documented scope."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "NB1325",
+        "text": "Shared wave, optical-spectroscopy and material-mechanics foundations; Delft adds detailed motion and ray-optical microscope formation."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "NB2335",
+        "text": "Shared evolutionary genetics, selection, diversification and evolutionary development. Detailed embryology and stem-cell applications add external scope."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "NB2340",
+        "text": "Shared statistical learning, classification and validation methods. Dedicated sequence analysis, genome assembly and biological databases add external scope."
+      },
+      {
+        "programmeId": "comparator",
+        "reference": "NB2440",
+        "text": "Shared quantitative image filtering, segmentation and tracking. Advanced biological microscopy and fluorescence experiments add external scope."
+      }
+    ]
+  },
+  "displayedComponents": [
+    [
+      "NB1310",
+      "Molecular Genetics",
+      5,
+      "Year 1. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB1315",
+      "Math 1 for Nanobiologists",
+      6,
+      "Year 1. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB1410",
+      "Introduction to Nanobiology",
+      4,
+      "Year 1. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB1320",
+      "Chemistry",
+      5,
+      "Year 1. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB1325",
+      "Mechanics and Optics",
+      5,
+      "Year 1. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB1420",
+      "Programming Foundations",
+      5,
+      "Year 1. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB1330",
+      "Biochemistry and Structural Biology",
+      6,
+      "Year 1. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB1335",
+      "Math 2 for Nanobiologists",
+      5,
+      "Year 1. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB1430",
+      "Molecular Biology Techniques A",
+      4,
+      "Year 1. Representative programme-assigned mixed practical pair with NB1445; not freely chosen or a guaranteed individual assignment."
+    ],
+    [
+      "NB1340",
+      "Molecular Biophysics",
+      6,
+      "Year 1. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB1345",
+      "Math 3 for Nanobiologists",
+      5,
+      "Year 1. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB1445",
+      "Biophysics Techniques B",
+      4,
+      "Year 1. Companion to representative assigned NB1430; the alternative programme-assigned pair is NB1435+NB1440."
+    ],
+    [
+      "NB2310",
+      "Electricity and Magnetism",
+      5,
+      "Year 2. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB2315",
+      "Differential Equations and Fourier",
+      4,
+      "Year 2. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB2410",
+      "Computational Sciences",
+      5,
+      "Year 2. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB2320",
+      "Molecular Cellular Biology",
+      6,
+      "Year 2. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB2325",
+      "Statistics",
+      4,
+      "Year 2. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB2420",
+      "Electronic Instruments",
+      4,
+      "Year 2. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB2510",
+      "Science, Technology and Society 1",
+      2,
+      "Year 2. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB2335",
+      "Evolutionary and Developmental Biology",
+      6,
+      "Year 2. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB2330",
+      "Imaging 1",
+      5,
+      "Year 2. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB2430",
+      "Nanotechnology",
+      3,
+      "Year 2. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB2340",
+      "Bioinformatics",
+      6,
+      "Year 2. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB2345",
+      "Introduction to Soft Matter",
+      4,
+      "Year 2. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB2440",
+      "Imaging 2",
+      4,
+      "Year 2. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB2520",
+      "Science, Technology and Society 2",
+      2,
+      "Year 2. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "cp-000254-y3-open-0",
+      "Minor",
+      30,
+      "Year 3. Genuine approved open minor/elective space; approval, level and non-overlap conditions in source notes apply."
+    ],
+    [
+      "NB3000",
+      "Bachelor End Project",
+      20,
+      "Year 3. Required current component; embedded subparts add no separate credit."
+    ],
+    [
+      "NB3020",
+      "Genomics Technology in Breast Cancer Research",
+      2.5,
+      "Year 3. Selected restricted elective, 3A. Molecular biology preparation is supplied by the completed required core; timely course/exam registration applies."
+    ],
+    [
+      "NB3023",
+      "Human Complex Genetics",
+      2.5,
+      "Year 3. Selected restricted elective, 3B. Basic human genetics is recommended, not required; prior R is not required. Timely course/exam registration applies."
+    ],
+    [
+      "NB3024",
+      "Advanced Math Topics",
+      2.5,
+      "Year 3. Selected restricted elective, 4A. Complete current Computational Sciences and Differential Equations and Fourier, the formal successors to the named legacy prerequisites; timely course and oral-exam registration applies."
+    ],
+    [
+      "NB3015",
+      "A Primer in Neuroscience",
+      2.5,
+      "Year 3. Selected restricted elective, 4B. Computational Neuroscience is recommended, explicitly not mandatory; timely course registration and assessed video/review work apply."
+    ]
+  ],
+  "concepts": [
+    "Investigate biomolecules, cells and living systems through laboratory biology, evolution, mathematical and computational modelling, and physical and chemical foundations. Molecular disease and drug mechanisms provide biological applications; specialist nanoscale measurement remains a limitation.",
+    "Prioritise molecular and cellular disease mechanisms, pharmacology, immunity and organ-system consequences, supported by laboratory biology and quantitative methods. Additional brain and perception foundations support biological function; physical, evolutionary and advanced algorithmic specialisation have less weight."
+  ],
+  "blockHeadings": [
+    "Molecular, cellular and experimental biology",
+    "Mathematical models and statistics",
+    "Scientific computation and biological data methods",
+    "Neural systems and function",
+    "Molecular disease and intervention",
+    "Physical foundations, specialised external study, project and minor"
+  ],
+  "selectedNote": [
+    {
+      "type": "related-fields-not-full-discipline",
+      "text": "The UCR programmes combine molecular and cellular biology, laboratory work and quantitative methods. The first adds evolution and physical/chemical foundations; the second gives more weight to disease, immunity and biological function. Specialist nanoscale biophysics, microscopy acquisition, electronic instruments and soft-matter training remain limitations. These are related academic programmes rather than full Nanobiology equivalence."
+    }
+  ],
+  "selectedCourseDescriptions": [
+    {
+      "code": "ACCPPDE101",
+      "name": "Personal & Professional Development",
+      "text": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+        "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Personal & Professional Development"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "DISCOMP311",
+      "name": "Algorithms & Data Structures",
+      "text": "Teaches design and analysis of algorithms and data structures, emphasizing performance analysis and focusing on prominent algorithms and data structures.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "e1529227dac6db769531df5ba2f0f9d64fad1017c208c5e2d52a0b38a90a78ec",
+        "descriptionSha256": "c1c2acb267bbdf39a07160bb99a1e66219200cb1139174e9c883c4d23d03eca8",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Algorithms & Data Structures"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000456/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "DISCOMP312",
+      "name": "Advanced Algorithms",
+      "text": "Studies modern algebraic algorithms and optimization methods. Emphasises algorithmic thinking and mathematical modelling of computational problems.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "courseName": "Advanced Algorithms",
+        "sourceSha256": "0859aef6ed3c8ce9b88ab7dc74dd1d434bab4df3a3b6ff6a8f7bce932e738706",
+        "descriptionSha256": "f85668e861319cc548402736465d8f0e51fd49a18a854ed419770e85ca1eef14",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "reviewNote": "CP257: selected course evidence and cached text read in full. Retained concise supported subject/method scope without an invented computing application or project guarantee."
+      },
+      "reviewFinding": "Read selected course description and current course evidence in full for CP254 permitted revisit; supported and retained unchanged."
+    },
+    {
+      "code": "DISDATA111",
+      "name": "Introduction to Data Science",
+      "text": "Develops foundational skills in data visualization, cleaning and manipulation. Explores spatial and text data and includes hands‑on work with datasets from various disciplines.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "85912cb78bd13d1aa873ef9cca2a8d7e00345543f75d1f07b56d808f1c6702ef",
+        "descriptionSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Data Science"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "DISDATA211",
+      "name": "Machine Learning",
+      "text": "Machine Learning introduces methods for understanding data and making predictions, including linear regression, classification, resampling, shrinkage, tree-based methods, support vector machines and clustering. Real-world examples illustrate the methods, their strengths and limitations.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6a112d70695b992eb7664e19ed9656612b364e2c28a116980a602eef2687ace6",
+        "descriptionSha256": "ae7fce189f80fcd62e521b78f43d3119e98a2ee78d29f61127a0f6b61faaf862",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Machine Learning"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "DISDATA212",
+      "name": "Image Processing & Computer Vision",
+      "text": "Image Processing & Computer Vision studies how digital images are represented, processed and interpreted to recognise structures and objects. Topics include colour, image statistics, filtering, segmentation, feature detection, tracking and object classification. Practical work uses Python and OpenCV to develop and benchmark an image-recognition pipeline on previously unseen images.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "67bc3ab96eb177cb9e10d60aa3ceb8dfc61ae6508a196c498124421f7fbba4dd",
+        "descriptionSha256": "2f095c0618ff630b69246b5110663b6517e6627dc322e3d4f0b9e7328279b2b1",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Image Processing & Computer Vision"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000452/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "DISDATA311",
+      "name": "Neural Networks & Deep Learning",
+      "text": "Neural Networks & Deep Learning combines theory with practical Python, Keras and TensorFlow implementations. Students build and train networks, study backpropagation, regularisation and model evaluation, and apply deep learning to computer vision, time series and text, including transformers. Projects investigate prediction problems and report experimental results.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "25546292d8643497a8cd9b4bf820608e15e4ae3fdcf04eb764aadcadf460f14f",
+        "descriptionSha256": "ed084f769dcc3b361dcddff3861c96217abcbf5eb57e7859aeb1ad3f949584c7",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Neural Networks & Deep Learning"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000453/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "DISGATE101",
+      "name": "Introduction to Programming",
+      "text": "Introduces programming and computer science. Covers structured programming, data constructs, testing, debugging and object‑oriented programming with Python, and develops computational problem‑solving skills.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "e2014f5db9a4328ff4efaa51f0273169ae1c9427a4ccf85bea5ee463794a80a8",
+        "descriptionSha256": "efe3b89e39a2611d475d27d09b06151a514076321c7453cd31f9cfbbd84248bf",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Programming"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "DISGATE102",
+      "name": "Mathematical Methods",
+      "text": "Mathematical Methods develops foundational techniques in differentiation, integration, complex numbers and differential equations. Students solve problems analytically and with Mathematica. A project implements, analyses and adapts a dynamic model, requiring interpretation of its behaviour and computational results.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6250945baf68c519d3820bddeaa08cb4b3c71273ddbb9bc31a7dffe6d021af5f",
+        "descriptionSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Mathematical Methods"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "DISMATH211",
+      "name": "Linear Algebra",
+      "text": "Linear Algebra studies systems of equations, matrices, vectors, linear transformations and vector spaces. Students examine eigenvalues, orthogonality, least-squares approximation, quadratic forms and singular value decomposition. Applications include discrete signals, difference equations, Markov chains, dynamical systems, graphics and principal component analysis, with Mathematica supporting analytical problem-solving.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "26ebd64922aa03e17140aa9b6529a98f2428bdf29ab1fa4360f9bd876de4e680",
+        "descriptionSha256": "bd23120a02190d6bcf24aa6c30ce1e454082afae59ba3d81c21d48cfb4194ba4",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Linear Algebra"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000452/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "DISMATH213",
+      "name": "Computational & Numerical Methods",
+      "text": "Introduces numerical methods such as root‑finding, interpolation, numerical differentiation and integration and solving differential equations. Emphasises algorithm accuracy, stability and efficiency and uses computer algebra software.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "5b5170199e3306247d6581a75787d8106a4fea74a894b55a09713e0a81efbf25",
+        "descriptionSha256": "d7841607963f18cc24d325c614b84d1629dd83cf6194ee3b68dfcf1a90eb8a8c",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Computational & Numerical Methods"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000452/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "DISMATH214",
+      "name": "Advanced Calculus",
+      "text": "Extends elementary calculus to multiple dimensions and differential equations, including complex‑valued functions. Uses computer algebra software to deepen analytical skills for science and data analysis applications.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Advanced Calculus",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "d882aae14f79763a614fdb3b6bd4735f6d83bbbc4ee4d1bef2eaf5b022062265",
+        "descriptionSha256": "d882aae14f79763a614fdb3b6bd4735f6d83bbbc4ee4d1bef2eaf5b022062265",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000452/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "DISMATH312",
+      "name": "Linear Systems",
+      "text": "Linear Systems studies signals and linear time-invariant systems. Students examine impulse and frequency responses, convolution, Fourier series and transforms, and the Laplace and Z transforms, including continuous-time and discrete-time representations.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "00d4504b56b7626ac280f97249ec9bf9ae30cdd910508163982a1ac439e1d9ac",
+        "descriptionSha256": "10c25739200058efd4c2243eba932500f9effe1b118c1d044a336d064da55fba",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Linear Systems"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000452/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "DISMATH314",
+      "name": "Probability & Statistics",
+      "text": "Provides a foundation in mathematical statistics. Covers probability theory, discrete and continuous distributions, sampling, parameter estimation and simulation; uses computer algebra software to develop theoretical understanding and practical skills.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "64d3f72845189f77627b8aa180a9906d4fd60fe3c5306bbf0ebe7666e612852b",
+        "descriptionSha256": "9d3ee2b42fa7fe2c0e62777da64474690e9fac0ca76929d04c6670dab516d10f",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Probability & Statistics"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "ENSECOL211",
+      "name": "The Science of Evolution",
+      "text": "Examines evolution from genes to populations, including its history, mechanisms and theoretical and practical study. It develops evolutionary explanations of biological diversity and change.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "2183c3334d5c2a072c7d680d8777e114a9ae5e92852ff205d6eaf1c5b752c19a",
+        "descriptionSha256": "f0a7c7fae43530c38bc5b9a2d1ee8db5ff4d9884fa2ce5c4a1032e44dc0f6cf7",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "The Science of Evolution"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "ENSGATE101",
+      "name": "Sustainability Essentials I",
+      "text": "Introduces sustainability through planetary boundaries and scientific tools for understanding human impacts on Earth systems. Students interpret graphs and uncertainty, build simple dynamic models, and study chemical and physical principles relevant to climate, energy and materials. A laboratory project makes and tests starch-based biopolymers.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "82f50723d99a79ffd7371f9f6eebe3e42e760cc7f4f8bbeb032e81fd5acc4184",
+        "descriptionSha256": "3d8021bff00c075753d30587e5e529c4ac8337c828561c59c0c227299a1e04e9",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Sustainability Essentials I"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "ENSGATE201",
+      "name": "Sustainability Essentials II",
+      "text": "Develops physical-science foundations for sustainability through waves, chemistry and materials science. Reflective work and a project apply these topics to analysing greenwashing.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "10191be23b197bf2051541f534acdc52bc20762fc7d8889972890e7176afed60",
+        "descriptionSha256": "465a8a129a7b496e5cc7188a77d3e2b04fb5a3c7f3afceae8a56afe6d062285b",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Sustainability Essentials II"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000450/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "HCBBIOM211",
+      "name": "Functional Anatomy",
+      "text": "Studies human anatomical structure in relation to function through regional and body-system blocks. Medical images, anatomical drawing, human-specimen material and guided practicals develop spatial reasoning, including observation in a dissection room. Historical, ethical and societal questions accompany these academic learning activities, which do not provide clinical qualification.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "4542a01fac8a44e9e62648574c09642d3421f6b177fec8e95f3df721e4b71a90",
+        "descriptionSha256": "cea7b96fb837d4dd6ebfe08439d4c270a3d7b639ce32ae5c126c61733e872779",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Functional Anatomy"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "HCBBIOM311",
+      "name": "Pharmacology",
+      "text": "Covers the science of drugs—their origin, composition, kinetics, therapeutic use and toxicity. Discusses drug targets, interactions and kinetics, enabling students to explain therapies in terms of molecular targets and physiological consequences.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Pharmacology",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "a9200df39ef2dfae98fe89bb2fb82742ad3f706b15ecaad186ea6b1fe36900fa",
+        "descriptionSha256": "a9200df39ef2dfae98fe89bb2fb82742ad3f706b15ecaad186ea6b1fe36900fa",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "HCBBIOM312",
+      "name": "Infection & Immunity",
+      "text": "Explores fundamental processes in immunology such as recognition of self vs non‑self, lymphocyte receptor development and innate and adaptive immune responses. Examines host‑pathogen interactions, inflammation, tissue damage and immunopathology.",
+      "provenance": null,
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "HCBBIOM313",
+      "name": "Mechanisms of Disease",
+      "text": "Examines how normal organ-system function relates to disease. Students connect anatomy and physiology with symptoms, disease mechanisms, diagnosis, treatment and prognosis across digestive, cardiovascular, respiratory, renal, endocrine and nervous systems. Clinical cases and an imaginary-disease assignment develop coherent pathophysiological explanations.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "4d8acb13deb96b3778bdefa44792604f9b8247830d5e0a3817dfc45c9da5e8a1",
+        "descriptionSha256": "03f76444a6b246585aa85e512b35f15719415e8261e05edbf7ad3568c4aa0c89",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Mechanisms of Disease"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "HCBCOGN112",
+      "name": "Neurobiology",
+      "text": "Neurobiology studies nervous systems and behaviour through comparative anatomy, evolution and physiology. Students examine animal behaviour, research models, welfare and research ethics, then connect biological rhythms and regulatory behaviour to sleep, lifestyle drugs, mood and eating disorders. Comparative-anatomy work and a literature-based report apply neurobiological concepts.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "faf0f85889650abcd1cd20e8038228eb9964ce43c317af9edc586eac043bc30c",
+        "descriptionSha256": "e17b6afb9badd04addc522b9ea98346fd18d4aa31df815d0b792950fa6ab940a",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Neurobiology"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "HCBCOGN212",
+      "name": "Perception & Action",
+      "text": "Explores neural mechanisms behind perception and action. Examines how the brain processes sensory information and guides goal‑directed behaviour using methods from cognitive neuroscience and neuropsychology.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Perception & Action",
+        "sourceField": "description2",
+        "sourceSha256": "d5057fb9cd7115d620719855269abccdb6cd5c3585d55631b2c6322bc0346aab",
+        "descriptionSha256": "d5057fb9cd7115d620719855269abccdb6cd5c3585d55631b2c6322bc0346aab",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP292: read the complete displayed description and current course evidence. Retain supported subject and method claims without inferring detailed activities or philosophical equivalence."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000459/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "HCBGATE101",
+      "name": "Foundation of Life, Health & Biomedicine",
+      "text": "Introduces the molecular and cellular foundations of life and biomedical science. Topics include biological molecules, cells and membranes, communication, metabolism, cell division, heredity, gene expression and biotechnology. Students analyse scientific experiments and papers through teaching contributions and a research-based mini-symposium, with additional topics selected with the class.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "e0b2da3bcb6fa48f717a1cad6591d9594b5145b6c3f4ba362ddc812790ff17f5",
+        "descriptionSha256": "12ff60a52ad56e3df4604fcc60c5982e9cf5e111eb66a6b7eac99bfd23ca4e28",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Foundation of Life, Health & Biomedicine"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "HCBGATE102",
+      "name": "Introduction to Brain & Behavior",
+      "text": "Explores why people behave as they do and how brain injuries affect mental processes. Discusses nature and nurture, introduces brain anatomy and psychological theories, and provides a gateway to cognitive science and clinical psychology.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Introduction to Brain & Behavior",
+        "sourceField": "description2",
+        "sourceSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+        "descriptionSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "HCBLIFE211",
+      "name": "Molecular Cell Biology",
+      "text": "Provides foundation for practical applications in life science. Focuses on cellular biology of eukaryotes and prokaryotes, revisits concepts from introductory courses, examines current research and encourages evaluating reproducibility and modernising methods.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Molecular Cell Biology",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "90f3f9fc225c54575e44aec821bccfbe6e89ca74f0df25466ff8958c80335a1c",
+        "descriptionSha256": "90f3f9fc225c54575e44aec821bccfbe6e89ca74f0df25466ff8958c80335a1c",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "HCBLIFE212",
+      "name": "Human Physiology",
+      "text": "Studies normal functioning of the human body, covering structure‑function relationships, energy handling, homeostasis, signalling, organ systems and integration of their functions.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Human Physiology",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "60ec8f664bc76e7ba86aeff463b8f4229a7c8c75e9174c3eee6a0efbaf8baf49",
+        "descriptionSha256": "60ec8f664bc76e7ba86aeff463b8f4229a7c8c75e9174c3eee6a0efbaf8baf49",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "HCBLIFE213",
+      "name": "Biochemistry",
+      "text": "Explores the chemistry of life and biomolecules such as proteins, sugars, lipids and nucleic acids. Discusses metabolic pathways, the role of biomolecules in health and disease and applications in medicine, biotechnology and sustainability.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Biochemistry",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "7885bac69eea60cc521b74834d3c316078aee206955d305472e2c287e2ebd821",
+        "descriptionSha256": "7885bac69eea60cc521b74834d3c316078aee206955d305472e2c287e2ebd821",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "HCBLIFE214",
+      "name": "Life Science Laboratory",
+      "text": "Introduces biochemical and molecular laboratory work. Covers themes like blood, proteins, bacteria, DNA and bioinformatics and provides a foundation for clinical and biomedical research.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Life Science Laboratory",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "6d3645c7c4b319729041691b93bbd7b6a49e6e45642d846a75508ab15a829e3b",
+        "descriptionSha256": "6d3645c7c4b319729041691b93bbd7b6a49e6e45642d846a75508ab15a829e3b",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    },
+    {
+      "code": "HCBLIFE311",
+      "name": "Molecular Pathology & Genetics",
+      "text": "Covers general and molecular pathology and genetics. Studies cell injury, death, inflammation, immunity, tissue repair, regeneration, fibrosis and neoplasia, examines genetic mutations and diseases, and discusses genetic testing and ethical considerations.",
+      "provenance": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-10",
+        "sourceSha256": "c93965cca70f74df45213ec33738850a3d29e868c184fb3803b48d44201e5aa9",
+        "descriptionSha256": "c93965cca70f74df45213ec33738850a3d29e868c184fb3803b48d44201e5aa9",
+        "reviewNote": "CP203: checked complete selected text against the same current workbook description and course profile. Retained supported subject and method claims.",
+        "courseName": "Molecular Pathology & Genetics"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000455/content-review.json",
+      "reviewFinding": "Exact unchanged name, text and provenance reused from this same-audit content review; substantive contribution to CP254 permitted revisit freshly assessed."
+    }
+  ],
+  "freshDescriptionCodes": [
+    "DISCOMP312"
+  ],
+  "fieldToRendererMapping": [
+    "render_comparison selectscompletepositivecomparisonandunchangedcautionmode,whosefixedcautionprosewasreread;noexternal-onlyoruserholdmodified.",
+    "render_comparison_summary selectsvisibleEnglishNanobiology/institution,2labelsandexplicit2conceptreferences; render_audience_context selectsprogramme/explanation,cleanyear,routeandlimitation.",
+    "render_compare_table selects6blockheadings,eachcourse/componentnameandcredit,explicitstablecellNotesandofficialexternalprimaryPDF/UCRcourselinks. All32externaland30UCRidentitiesandall13cellnotesreadincontext. componentNotesalsoexaminedbutitscomparisonproseisdisplayedthroughselectedcellNotes;internalalignments/sourceNotesare notfallbacktext.",
+    "render_audience_notes selectsoneaccuratepartialdisciplinarylimitation. Standardoptionalresearchrowiscomparison-only15ECalongsideexternal20ECBEP;noadditionalscheduledcredit.",
+    "course_description_dialog selectsexactcacheentrybycodeandcourse_namefromclickedcell. All30names/text/provenancechecked;29identicalsharedreviewsreused,DISCOMP312descriptionfreshlyreadagainstactualevidence. Unavailable-descriptionandload-errorfallbacksreviewedasestablishedsharedbehaviour,notexercisedlive.",
+    "SourceNotes,APIresearch,claimandprovenancecontentremaininternal. Noapp/renderer/contractchange,Shinylaunch,R/browserinstallation,screenshot,livemodal,releaseordeploymentcertification."
+  ],
+  "sourceLink": {
+    "url": "https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/TNW/Onderwijs/Opleidingsreglementen/2026-2027/BSc%20NB%20Appendix%20TER%202026-2027.pdf",
+    "status": 200,
+    "sha256": "e7e206d4aa61466c9e04081966de803c3be8eabf33912c009643518af48b3ab1"
+  },
+  "contentFinding": "Readerproseisproportionatetocurricularweightandexplicitaboutpartialphysical/evolution/image/genomicrelationships. Technicalsourceinvestigationstaysinternal. Selectedcoursesandconceptsrespondtoliving-systemsacademicsubstance;noequivalenceorautomaticmasters/professionalqualificationclaimed."
+}
