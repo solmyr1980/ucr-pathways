@@ -1,0 +1,51 @@
+{
+  "caseId": "cp-000449",
+  "checkedAt": "2026-11-12T08:24:06.320728+00:00",
+  "canonicalBlob": "2396615a601b9714f9ab1d9561432a64dc510614",
+  "decisionBlob": "4dd553c8e9cf8ce622dcf9b2869d705030d2aa93",
+  "checks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000449.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000449.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation."
+    },
+    {
+      "command": "node scripts/validate-registry-interests.mjs",
+      "exitCode": 0,
+      "output": "Valid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings."
+    },
+    {
+      "command": "node scripts/build-counselor-review-index.mjs --check",
+      "exitCode": 0,
+      "output": "Current counselor review indexes: 438 programmes, 21212 interest rows."
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "output": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained."
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000449.json --output /tmp/b449/replay.json",
+      "exitCode": 0,
+      "output": "Built cp-000449 counselor comparison record at /tmp/b449/replay.json"
+    },
+    {
+      "command": "byte comparison of production replay and canonical",
+      "exitCode": 0,
+      "bytes": 152661,
+      "sha256": "8b979ae7c804fefdd8c5b3b62f55ea93038f056fbc10c0d88c9df62d4554e265"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "output": "Operational corpus validation passed, including CP449 final methodology rules. Local initial basis-reference omissions were corrected before this successful run.",
+      "logSha256": "9ad3e33e32c592f9c2580e19bc7dd1da217f5f31ec2785e05ab84500aaa81a8a"
+    }
+  ],
+  "scope": "Ordinary case data repair; no compiler, renderer or app code changed. Runtime regressions and final-release actual rendering remain outside this case."
+}
