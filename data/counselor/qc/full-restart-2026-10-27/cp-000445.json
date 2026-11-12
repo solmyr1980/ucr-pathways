@@ -11,7 +11,7 @@
   "stages": {
     "1": {
       "outcome": "blocked",
-      "finding": "Current applicable curriculum,approvedlife-sciencepackage andcurrent15ECthesisguide unverified. Splitrestricted24/open36correctly;preserve2025reference.",
+      "finding": "Second source execution confirms the prior source facts but cannot verify current cohort applicability, an annually approved 24-credit domain package or the 15-credit thesis guide. Preserve all verified structure repairs; defer operationally without approval.",
       "preserved": [
         "Exacttargetidentity,2025sourcefacts andsoundresearch retained;originalpairarchived;nooldapprovalinherited."
       ],
@@ -28,12 +28,19 @@
       ],
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/source-review.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/published-verification.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/published-verification.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/source-attempt-2.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/retry2-source-first-final-pass.json"
       ],
       "blockedBy": [
         "Establish the applicable BCL curriculum and a coherent annually approved 24-credit life-science package, including 12 qualifying credits before the thesis; verify the applicable guide for the current 15-credit CPT82315 thesis. The 2026 study object is null, the complete 2025 source requires 94 compulsory credits including all B1 plus 12 life-science-labelled credits, and the public January2020 guide is for different CPT81812/12credits. Current admission/graduation mentions do not establish unchanged curriculum or guide requirements."
       ],
-      "reassessStages": []
+      "reassessStages": [
+        3,
+        4,
+        5,
+        6
+      ]
     },
     "2": {
       "outcome": "retain",
@@ -58,7 +65,9 @@
       "actions": [],
       "evidence": [
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/course-comparability-review.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/published-verification.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/published-verification.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/source-attempt-2.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/retry2-source-first-final-pass.json"
       ],
       "blockedBy": [
         "Establish the applicable BCL curriculum and a coherent annually approved 24-credit life-science package, including 12 qualifying credits before the thesis; verify the applicable guide for the current 15-credit CPT82315 thesis. The 2026 study object is null, the complete 2025 source requires 94 compulsory credits including all B1 plus 12 life-science-labelled credits, and the public January2020 guide is for different CPT81812/12credits. Current admission/graduation mentions do not establish unchanged curriculum or guide requirements."
@@ -117,7 +126,7 @@
     },
     "6": {
       "outcome": "blocked",
-      "finding": "Separate source-first pass by the same AI retains the applicable curriculum, approved life-science package and thesis-guide blockers. All14publishedblobSHAs,compilerreplay and3applicableCIworkflows passed. Academic approval remains withheld; record-content/mechanical checks passed.",
+      "finding": "Separate same-AI source-first reconsideration retains the essential academic blocker after two executions. Fresh schema, current-workbook active and provisional feasibility, operational/index/description checks and byte-exact replay pass. Unchanged field-to-renderer content evidence remains valid; no academic final approval.",
       "preserved": [
         "Exacttargetidentity,2025sourcefacts andsoundresearch retained;originalpairarchived;nooldapprovalinherited."
       ],
@@ -126,7 +135,10 @@
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/source-first-final-pass.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/mechanical-verification.json",
         "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/content-review.json",
-        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/published-verification.json"
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/published-verification.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/source-attempt-2.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/retry2-source-first-final-pass.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/retry2-mechanical-content-checks.json"
       ],
       "blockedBy": [
         "Establish the applicable BCL curriculum and a coherent annually approved 24-credit life-science package, including 12 qualifying credits before the thesis; verify the applicable guide for the current 15-credit CPT82315 thesis. The 2026 study object is null, the complete 2025 source requires 94 compulsory credits including all B1 plus 12 life-science-labelled credits, and the public January2020 guide is for different CPT81812/12credits. Current admission/graduation mentions do not establish unchanged curriculum or guide requirements."
@@ -138,7 +150,19 @@
   "unresolved": [
     "Establish the applicable BCL curriculum and a coherent annually approved 24-credit life-science package, including 12 qualifying credits before the thesis; verify the applicable guide for the current 15-credit CPT82315 thesis. The 2026 study object is null, the complete 2025 source requires 94 compulsory credits including all B1 plus 12 life-science-labelled credits, and the public January2020 guide is for different CPT81812/12credits. Current admission/graduation mentions do not establish unchanged curriculum or guide requirements."
   ],
-  "downstreamReassessments": [],
+  "downstreamReassessments": [
+    {
+      "trigger": "Applicable current BCL curriculum, approved life-science package and CPT82315 entry guide",
+      "scope": "Reassess the actual life-science selections, thesis eligibility, dependent UCR comparability, alignments and reader content. Preserve unaffected source research and verified UCR contributions/schedules.",
+      "stages": [
+        1,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ],
   "implementationCommits": [
     "215bc47ee7f9971ef0939119514843855feef9c3"
   ],
@@ -165,32 +189,35 @@
       "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
       "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
     },
-    "nextAction": "CP445 source attempt two: verify applicable current curriculum, approved24credit life-science package and current15credit CPT82315 entry guide. Preserve verified repairs, sources, course contributions and three provisional feasible plans.",
+    "nextAction": "CP445 remains incomplete and deferred after two essential-source executions. Resume cp-000446 next execution. At the permitted separate revisit establish current BCL curriculum applicability, a coherent annually approved 24-credit life-science package with 12 qualifying credits before thesis, and the applicable 15-credit CPT82315 guide. Preserve the corrected 24 restricted/36 open structure, interest/course research and three provisional feasible UCR plans; reassess affected comparability, alignments and content before approval.",
     "runtimeModel": "unknown",
-    "runtimeReasoningEffort": "unknown"
+    "runtimeReasoningEffort": "unknown",
+    "endedAt": "2026-11-12T03:17:20.663831+00:00",
+    "state": "checkpointed",
+    "disposition": "incomplete-deferred"
   },
-  "nextAction": "CP445 source attempt two: verify applicable current curriculum, approved24credit life-science package and current15credit CPT82315 entry guide. Preserve verified repairs, sources, course contributions and three provisional feasible plans.",
+  "nextAction": "CP445 remains incomplete and deferred after two essential-source executions. Resume cp-000446 next execution. At the permitted separate revisit establish current BCL curriculum applicability, a coherent annually approved 24-credit life-science package with 12 qualifying credits before thesis, and the applicable 15-credit CPT82315 guide. Preserve the corrected 24 restricted/36 open structure, interest/course research and three provisional feasible UCR plans; reassess affected comparability, alignments and content before approval.",
   "recordContentReview": {
     "verificationPolicy": "record-content-review-2026-10-31",
-    "reviewedCommit": "5320c203cd12dcf5f67ae1d48b78848b673f7c17",
+    "reviewedCommit": "fc25b0b22c67c8b6238817fdf4949f19b6fc95c1",
     "checks": {
       "academic": {
         "status": "blocked",
         "evidenceRefs": [
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/source-review.json",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/source-first-final-pass.json"
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/source-attempt-2.json",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/retry2-source-first-final-pass.json"
         ]
       },
       "mechanical": {
         "status": "passed",
         "evidenceRefs": [
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/mechanical-verification.json",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/published-verification.json"
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/retry2-mechanical-content-checks.json"
         ]
       },
       "content": {
         "status": "passed",
         "evidenceRefs": [
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/retry2-mechanical-content-checks.json",
           "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/content-review.json"
         ]
       }
@@ -224,5 +251,92 @@
       "disposition": "incomplete-source-attempt-1",
       "implementationCommit": "215bc47ee7f9971ef0939119514843855feef9c3"
     }
-  ]
+  ],
+  "sourceAttemptHistory": [
+    {
+      "attempt": 2,
+      "executionId": "restart-B-cp445-retry2-20261112T031115Z",
+      "priorFindings": {
+        "1": {
+          "outcome": "blocked",
+          "finding": "Current applicable curriculum,approvedlife-sciencepackage andcurrent15ECthesisguide unverified. Splitrestricted24/open36correctly;preserve2025reference.",
+          "preserved": [
+            "Exacttargetidentity,2025sourcefacts andsoundresearch retained;originalpairarchived;nooldapprovalinherited."
+          ],
+          "actions": [
+            {
+              "state": "verified",
+              "scope": "Current applicable curriculum,approvedlife-sciencepackage andcurrent15ECthesisguide unverified. Splitrestricted24/open36correctly;preserve2025reference.",
+              "implementationCommit": "215bc47ee7f9971ef0939119514843855feef9c3",
+              "verificationEvidenceRefs": [
+                "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/published-verification.json",
+                "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/source-first-final-pass.json"
+              ]
+            }
+          ],
+          "evidence": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/source-review.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/published-verification.json"
+          ],
+          "blockedBy": [
+            "Establish the applicable BCL curriculum and a coherent annually approved 24-credit life-science package, including 12 qualifying credits before the thesis; verify the applicable guide for the current 15-credit CPT82315 thesis. The 2026 study object is null, the complete 2025 source requires 94 compulsory credits including all B1 plus 12 life-science-labelled credits, and the public January2020 guide is for different CPT81812/12credits. Current admission/graduation mentions do not establish unchanged curriculum or guide requirements."
+          ],
+          "reassessStages": []
+        },
+        "6": {
+          "outcome": "blocked",
+          "finding": "Separate source-first pass by the same AI retains the applicable curriculum, approved life-science package and thesis-guide blockers. All14publishedblobSHAs,compilerreplay and3applicableCIworkflows passed. Academic approval remains withheld; record-content/mechanical checks passed.",
+          "preserved": [
+            "Exacttargetidentity,2025sourcefacts andsoundresearch retained;originalpairarchived;nooldapprovalinherited."
+          ],
+          "actions": [],
+          "evidence": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/source-first-final-pass.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/mechanical-verification.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/content-review.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/published-verification.json"
+          ],
+          "blockedBy": [
+            "Establish the applicable BCL curriculum and a coherent annually approved 24-credit life-science package, including 12 qualifying credits before the thesis; verify the applicable guide for the current 15-credit CPT82315 thesis. The 2026 study object is null, the complete 2025 source requires 94 compulsory credits including all B1 plus 12 life-science-labelled credits, and the public January2020 guide is for different CPT81812/12credits. Current admission/graduation mentions do not establish unchanged curriculum or guide requirements."
+          ],
+          "reassessStages": []
+        }
+      },
+      "evidenceRefs": [
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/source-attempt-2.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/retry2-mechanical-content-checks.json",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/retry2-source-first-final-pass.json"
+      ]
+    }
+  ],
+  "recordContentReviewHistory": [
+    {
+      "verificationPolicy": "record-content-review-2026-10-31",
+      "reviewedCommit": "5320c203cd12dcf5f67ae1d48b78848b673f7c17",
+      "checks": {
+        "academic": {
+          "status": "blocked",
+          "evidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/source-review.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/source-first-final-pass.json"
+          ]
+        },
+        "mechanical": {
+          "status": "passed",
+          "evidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/mechanical-verification.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/published-verification.json"
+          ]
+        },
+        "content": {
+          "status": "passed",
+          "evidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000445/content-review.json"
+          ]
+        }
+      }
+    }
+  ],
+  "academicDisposition": "external-programme-unresolved",
+  "operationalDisposition": "deferred"
 }
