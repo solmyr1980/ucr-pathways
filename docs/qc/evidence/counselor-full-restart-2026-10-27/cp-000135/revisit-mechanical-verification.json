@@ -1,0 +1,68 @@
+{
+  "caseId": "cp-000135",
+  "checkedAt": "2026-11-12T11:50:15.457142+00:00",
+  "canonicalBlob": "97cc4267d12a349b499c51cc1ab56255500977f7",
+  "decisionBlob": "58a60fb57682689c23b9cfcb73b89eaf7a9e860f",
+  "checks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000135.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000135.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.",
+      "logSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "output": "Operational corpus validation passed.",
+      "logSha256": "0303c6fc01d2185d63162af7bedbf9be3d2eef4da42fc4d355a114f97a69531f"
+    },
+    {
+      "command": "node scripts/build-counselor-review-index.mjs --check",
+      "exitCode": 0,
+      "output": "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+      "logSha256": "c26900407153178ba5a5e40b41d6c719f0f4eb5c062e3226b01961df60f9469d"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "output": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.",
+      "logSha256": "e3bf679d8cf8c5b2718fd9a77a2b7a978383e2c1022e5cb9af4c91fa6bfc0194"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000135.json --output /tmp/a135/replay.json",
+      "exitCode": 0,
+      "output": "Built cp-000135 counselor exception record at /tmp/a135/replay.json",
+      "logSha256": "96f9fb3c17d94d4a8e7adfc6d270afb261e627a524306c07d8fba0165945162c"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py /tmp/a135/provisional-canonical.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py /tmp/a135/provisional-canonical.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.",
+      "logSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py /tmp/a135/prevention-feasibility-input.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "byte-exact decision/canonical replay",
+      "exitCode": 0,
+      "sha256": "42bfbced7ac0a7159c48edcac8c47bf92acd1ce2af24ad4a2c18c93bd4769e47"
+    }
+  ],
+  "scope": "Active unresolved exception passes full schema and operational validation. Prior temporary prototype feasibility/schema checks and new reduced UCR-only schedule feasibility input establish course/schedule mechanics only; historical external credits, alignment and academic comparability are not certified. No app/renderer change; no runtime/browser work."
+}
