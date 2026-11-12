@@ -1,0 +1,107 @@
+{
+  "caseId": "cp-000100",
+  "verifiedAt": "2026-11-12T06:34:54.326427+00:00",
+  "commit": "4640e11583838d99b0c5465a47e948ef450a4a67",
+  "parent": "173bde86be839dd634dcd73616dc8fd85f40e896",
+  "uploadedBlobs": [
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27.json",
+      "size": 2824513,
+      "sha": "70180666431dbb43706a1b42324c2cf0fbc87155"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27/cp-000100.json",
+      "size": 193348,
+      "sha": "118b0205966c5f8512a89c2cef7ce6455720736d"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000100/revisit-1-content-mechanical-review.json",
+      "size": 15980,
+      "sha": "b9e06c9af65c1da2c605adca94b1fa0fc766e6bf"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000100/revisit-1-source-first-final-pass.json",
+      "size": 6964,
+      "sha": "dea67cdbfaa87861d180aa0babf3532fae9dbb65"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000100/revisit-1-source-review.json",
+      "size": 11499,
+      "sha": "36ef7b45c77274a78c481e092d73c28443d1e9d8"
+    }
+  ],
+  "allPublishedBytesMatch": true,
+  "byteExactReplay": true,
+  "checks": [
+    {
+      "name": "schema",
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "data/counselor/comparisons/cp-000100.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "name": "feasibility",
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "data/counselor/comparisons/cp-000100.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "name": "operational",
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor"
+      ],
+      "exitCode": 0,
+      "output": "dology rules OK\ncp-000394.json: final counselor methodology rules OK\ncp-000395.json: final counselor methodology rules OK\ncp-000399.json: final counselor methodology rules OK\ncp-000400.json: final counselor methodology rules OK\ncp-000401.json: final counselor methodology rules OK\ncp-000402.json: final counselor methodology rules OK\ncp-000403.json: final counselor methodology rules OK\ncp-000405.json: final counselor methodology rules OK\ncp-000406.json: final counselor methodology rules OK\ncp-000407.json: final counselor methodology rules OK\ncp-000409.json: final counselor methodology rules OK\ncp-000411.json: final counselor methodology rules OK\ncp-000412.json: final counselor methodology rules OK\ncp-000413.json: final counselor methodology rules OK\ncp-000414.json: final counselor methodology rules OK\ncp-000415.json: final counselor methodology rules OK\ncp-000418.json: final counselor methodology rules OK\ncp-000420.json: final counselor methodology rules OK\ncp-000421.json: final counselor methodology rules OK\ncp-000422.json: final counselor methodology rules OK\ncp-000423.json: final counselor methodology rules OK\ncp-000424.json: final counselor methodology rules OK\ncp-000425.json: final counselor methodology rules OK\ncp-000426.json: final counselor methodology rules OK\ncp-000427.json: final counselor methodology rules OK\ncp-000433.json: final counselor methodology rules OK\ncp-000434.json: final counselor methodology rules OK\ncp-000438.json: final counselor methodology rules OK\ncp-000439.json: final counselor methodology rules OK\ncp-000442.json: final counselor methodology rules OK\ncp-000443.json: final counselor methodology rules OK\ncp-000444.json: final counselor methodology rules OK\ncp-000447.json: final counselor methodology rules OK\ncp-000448.json: final counselor methodology rules OK\ncp-000449.json: final counselor methodology rules OK\ncp-000450.json: final counselor methodology rules OK\ncp-000451.json: final counselor methodology rules OK\ncp-000452.json: final counselor methodology rules OK\ncp-000453.json: final counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000458.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "name": "index",
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor-review"
+      ],
+      "exitCode": 0,
+      "output": "\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "name": "interests",
+      "command": [
+        "npm",
+        "run",
+        "validate:registry-interests"
+      ],
+      "exitCode": 0,
+      "output": "\n> validate:registry-interests\n> node scripts/validate-registry-interests.mjs\n\nValid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    },
+    {
+      "name": "descriptions",
+      "command": [
+        "python",
+        "scripts/validate-course-descriptions.py"
+      ],
+      "exitCode": 0,
+      "output": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.\n"
+    }
+  ],
+  "applicableCI": [
+    {
+      "name": "Validate Shiny pilots",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "4640e11583838d99b0c5465a47e948ef450a4a67",
+      "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/43168952609"
+    }
+  ],
+  "disposition": "Deferred and incomplete after the permitted revisit. Freshadoptedregulations,currentprogramme/modulefacts andofficialResearchPortalalternative do notcloserevisedcohortMethodology5/placement/professional/thesisallocation/progression. Supported150EC,41interests and24courseprovisionalresearchpreserved. Noacademic/presentationapprovalorno-match.",
+  "nextAction": "CP100 remains deferred and incomplete after its permitted revisit. Preserve the supported 150 EC, 41 interest reviews and feasible internal 24-course proposal. The applicable September 2026 third-year credit allocation and progression for Methodology 5, professional development, placement and thesis remain unverified. The current 6 EC methods and 18 EC placement facts are preserved; their revised-cohort mapping is unresolved. No academic or presentation approval, or no-match. Resume CP112’s permitted revisit next execution."
+}
