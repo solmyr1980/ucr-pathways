@@ -1,0 +1,130 @@
+{
+  "caseId": "cp-000113",
+  "verifiedAt": "2026-11-12T08:44:28.489308+00:00",
+  "commit": "3b4c5d7de9695faa7c21bd20aac47f9d4c66039e",
+  "parent": "e36633aa99ed3fed677d0fd327b2928ec577e1e1",
+  "uploadedBlobs": [
+    {
+      "path": "data/counselor/comparisons/cp-000113.json",
+      "size": 8982,
+      "sha": "e136366278cc72e537d7afc4462eacbfff7dc5fc"
+    },
+    {
+      "path": "data/counselor/decisions/cp-000113.json",
+      "size": 7676,
+      "sha": "f7ec033256ec3f028aa8df7ebd9d26e9bc60408d"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27.json",
+      "size": 2845271,
+      "sha": "7237b516912399b78a55e333b878b5c6ae9255be"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27/cp-000113.json",
+      "size": 25125,
+      "sha": "02f8d0570f7ef96ea9993dfa57ec259f08c1e7e7"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000113/revisit-1-content-mechanical-review.json",
+      "size": 28661,
+      "sha": "210d5ea106e1403a509b6291953524ffb4e80ace"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000113/revisit-1-prior-comparison.json",
+      "size": 8679,
+      "sha": "57693c4d0c748272dc3e2bc122b4e06ad64cdf6a"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000113/revisit-1-prior-decision.json",
+      "size": 7380,
+      "sha": "4cbbed03c4442ff3f09b5064976e1a7557102fab"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000113/revisit-1-source-first-final-pass.json",
+      "size": 7305,
+      "sha": "16c0a950f534a64d44f18eb3839f245b11082976"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000113/revisit-1-source-review.json",
+      "size": 14776,
+      "sha": "6c897de3b13a0c23405e70e396a92df185b8cf0b"
+    }
+  ],
+  "allPublishedBytesMatch": true,
+  "byteExactReplay": {
+    "passed": true,
+    "canonicalBlob": "e136366278cc72e537d7afc4462eacbfff7dc5fc",
+    "decisionBlob": "f7ec033256ec3f028aa8df7ebd9d26e9bc60408d",
+    "sha256": "3a61d465fb2941b9fe975e1da678938cdaaea6207b5d6e75836eb9049295dd53"
+  },
+  "checks": [
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000113.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass full JSON Schema validation.",
+      "logSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000113.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py /tmp/a113/trial.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "result": "Operational corpus validation passed; CP113 exception valid, all applicable methodology rules passed.",
+      "logSha256": "0303c6fc01d2185d63162af7bedbf9be3d2eef4da42fc4d355a114f97a69531f"
+    },
+    {
+      "command": "node scripts/build-counselor-review-index.mjs --check",
+      "exitCode": 0,
+      "result": "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+      "logSha256": "c26900407153178ba5a5e40b41d6c719f0f4eb5c062e3226b01961df60f9469d"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "result": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.",
+      "logSha256": "e3bf679d8cf8c5b2718fd9a77a2b7a978383e2c1022e5cb9af4c91fa6bfc0194"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000113.json --output /tmp/a113/replay.json",
+      "exitCode": 0,
+      "result": "Built cp-000113 counselor exception record at /tmp/a113/replay.json",
+      "logSha256": "00007f5ad234de01a3eeee380cd07e40b8af566541223c28dbeffe8d2f39764d"
+    }
+  ],
+  "applicableCI": [
+    {
+      "name": "Refresh counselor review indexes",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "3b4c5d7de9695faa7c21bd20aac47f9d4c66039e",
+      "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/43185033837"
+    },
+    {
+      "name": "Validate Shiny pilots",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "3b4c5d7de9695faa7c21bd20aac47f9d4c66039e",
+      "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/43185033952"
+    },
+    {
+      "name": "Build counselor comparison",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "3b4c5d7de9695faa7c21bd20aac47f9d4c66039e",
+      "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/43185034088"
+    }
+  ],
+  "disposition": "deferred; incomplete; permitted revisit exhausted",
+  "remainingGate": "Confirm the final 30 EC allocation for September 2026 National Politics and Government entrants, including applicability of the currently taught 6 EC Philosophy of Science, 6 EC Contemporary Political Theory and 18 EC thesis, and any third-year mentorship obligation. The general thesis-entry rule of 90 programme EC excluding electives and including Academic Skills 1 and 2 is verified.",
+  "nextAction": "CP113 remains deferred and incomplete after its one permitted revisit. The revised-cohort final30EC andthird-yearmentorship allocation stillrequireauthoritative evidence; general90ECthesisentry is confirmed. Preserve150EC,32interestreviews andtwofeasibleinternalUCRplans. Resume CP122 permittedrevisit next execution; noacademic/presentationapproval orrelease."
+}
