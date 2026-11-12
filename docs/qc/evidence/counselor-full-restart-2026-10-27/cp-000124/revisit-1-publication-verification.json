@@ -1,0 +1,141 @@
+{
+  "caseId": "cp-000124",
+  "verifiedAt": "2026-11-12T10:43:13.904947+00:00",
+  "commit": "495f1edc456b74d0ec9e168005d2aed08a617a2c",
+  "parent": "209ca1745c7b7560921560615f2827a6b465f07d",
+  "uploadedBlobs": [
+    {
+      "path": "data/counselor/comparisons/cp-000124.json",
+      "size": 3823,
+      "sha": "6ffa0886d44bfc8eb389f85889afe402c3107225"
+    },
+    {
+      "path": "data/counselor/decisions/cp-000124.json",
+      "size": 3432,
+      "sha": "9b15093b6eef928c4919944a6880b4b5b6b9f53d"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27.json",
+      "size": 2873893,
+      "sha": "118c6760a1e24e419490cc8ceb0bf96640a967cf"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27/cp-000124.json",
+      "size": 35493,
+      "sha": "73dbd4f1575aa9cc5310b82da6bb997dc6719299"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000124/revisit-1-content-mechanical-review.json",
+      "size": 82955,
+      "sha": "1a6898eaa9eb77f6c7f1348f76f798f47033c933"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000124/revisit-1-prior-comparison.json",
+      "size": 3552,
+      "sha": "c8ef810c637a064a18cf2f107496c8ba6eedcf4c"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000124/revisit-1-prior-decision.json",
+      "size": 3152,
+      "sha": "b5d61e8f4bbf11b2d0009f98e25ed3f8baa9c85f"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000124/revisit-1-provisional-assessment.json",
+      "size": 15209,
+      "sha": "c09e0362599dec61dfb39c7b9a6e979324779db5"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000124/revisit-1-source-first-final-pass.json",
+      "size": 8997,
+      "sha": "859f25c9c416f11a1d610e048a426f7716ee6b74"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000124/revisit-1-source-review.json",
+      "size": 15879,
+      "sha": "523cf29df10d5c5bfc2f456fc22f46de9468a94a"
+    }
+  ],
+  "allPublishedBytesMatch": true,
+  "byteExactReplay": {
+    "passed": true,
+    "canonicalBlob": "6ffa0886d44bfc8eb389f85889afe402c3107225",
+    "decisionBlob": "9b15093b6eef928c4919944a6880b4b5b6b9f53d",
+    "sha256": "6b0ec4488b59565bd0af62bb0d7910a20393feae307979227d4a33d3c298adc7"
+  },
+  "checks": [
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000124.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass full JSON Schema validation.",
+      "logSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000124.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py /tmp/a124/trial.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py /tmp/a124/trial-revised.json",
+      "exitCode": 0,
+      "result": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "result": "Operational corpus validation passed, including the valid CP124 unresolved exception.",
+      "logSha256": "0303c6fc01d2185d63162af7bedbf9be3d2eef4da42fc4d355a114f97a69531f"
+    },
+    {
+      "command": "node scripts/build-counselor-review-index.mjs --check",
+      "exitCode": 0,
+      "result": "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+      "logSha256": "c26900407153178ba5a5e40b41d6c719f0f4eb5c062e3226b01961df60f9469d"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "result": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.",
+      "logSha256": "e3bf679d8cf8c5b2718fd9a77a2b7a978383e2c1022e5cb9af4c91fa6bfc0194"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000124.json --output /tmp/a124/replay.json",
+      "exitCode": 0,
+      "result": "Built cp-000124 counselor exception record at /tmp/a124/replay.json",
+      "logSha256": "b18c33398ee3041f54b8bee6849886daeb588809774a7f458cc67beecedc4822"
+    }
+  ],
+  "applicableCI": [
+    {
+      "name": "Refresh counselor review indexes",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "495f1edc456b74d0ec9e168005d2aed08a617a2c",
+      "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/43202587843"
+    },
+    {
+      "name": "Build counselor comparison",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "495f1edc456b74d0ec9e168005d2aed08a617a2c",
+      "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/43202585425"
+    },
+    {
+      "name": "Validate Shiny pilots",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "495f1edc456b74d0ec9e168005d2aed08a617a2c",
+      "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/43202585583"
+    }
+  ],
+  "disposition": "deferred; incomplete; permitted revisit exhausted",
+  "remainingGate": "For September 2026 Brain Science entrants, verify the complete course-unit credit allocation and applicable progression, minor/elective, project and thesis requirements. The public 2025–2026 catalogue/EER and later minor application cycle do not establish this pathway.",
+  "nextAction": "CP124 remains deferred and incomplete after its one permitted revisit. Current September 2026 course-unit credits and applicable progression, minor/elective, project and thesis rules still require official evidence. Preserve the historical curriculum, 35 interest reviews, all original course/schedule research and the strengthened neural prototype. The population-health prototype is rejected as constructed, not a target-level no-match. Resume CP135 permitted revisit next execution. No academic/presentation approval or final release."
+}
