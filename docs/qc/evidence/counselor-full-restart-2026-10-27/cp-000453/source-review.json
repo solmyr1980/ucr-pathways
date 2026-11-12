@@ -1,0 +1,913 @@
+{
+  "caseId": "cp-000453",
+  "checkedAt": "2026-11-12T12:24:09.372358+00:00",
+  "reviewedInputCommit": "807a48dd2fbe3cbaac8772ad684b36b4447de8fc",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000453.json": "659c0632ec5816f8b434e1f8476922eecf9504c7",
+    "data/counselor/comparisons/cp-000453.json": "9aa87f4b89852482bc89bb93bd8e930bbd800cbb",
+    "data/registry/programme_interests.csv": "93fb8ec4af21b1d2b718dbab42b5655b36bebabd",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+    "data/counselor/review-programmes.json": "f474d8ed3d68d684574ed3366b82e86dcbad3a32",
+    "data/counselor/review-interests.json": "b27e01034d4c3889496fad412b0c1e740a249614",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "71fb5c570a7c42c35473d8a0483dcc17ec16a665",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "pilot/shiny/data/courses/ENS.json": "b323d5993ab47be5389001b547054259cbfdbfa2",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "pilot/shiny/data/courses/HCB.json": "8af6675a1408cec96ea570100ee89cff97563288",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000452/content-review.json": "b15d2279e49b42467be9429f7667552527d785dd",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000450/content-review.json": "819718a24860a2e916f1ecd315085ac007b1bd51",
+    "canonical": "9aa87f4b89852482bc89bb93bd8e930bbd800cbb",
+    "decision": "659c0632ec5816f8b434e1f8476922eecf9504c7"
+  },
+  "identity": "WUR BPW Plant Sciences; Dutch-taught full-time three-year bachelor;2026–2027 Plant Production and Ecology example.",
+  "retrievals": [
+    {
+      "id": "programme",
+      "url": "https://studyhandbook.wur.nl/api/product?type=STUDY&code=BPW&year=2026",
+      "finalUrl": "https://studyhandbook.wur.nl/api/product?type=STUDY&code=BPW&year=2026",
+      "status": 200,
+      "sha256": "5fcaa6667e0aef5b8fde2c2eb269f8ca25147067147e7c300c1f2b9a63ef616c",
+      "bytes": 59924
+    },
+    {
+      "id": "overview",
+      "url": "https://www.wur.nl/en/education/bachelor/bachelor-plantenwetenschappen",
+      "finalUrl": "https://www.wur.nl/en/education/bachelor/bachelor-plantenwetenschappen",
+      "status": 200,
+      "sha256": "0d99d109f1dd17482c437c6705f3b001ff3339d0efa74698549d7325b23276dc",
+      "bytes": 180637
+    },
+    {
+      "id": "dutch",
+      "url": "https://www.wur.nl/nl/onderwijs/bachelor/bachelor-plantenwetenschappen",
+      "finalUrl": "https://www.wur.nl/nl/onderwijs/bachelor/bachelor-plantenwetenschappen",
+      "status": 200,
+      "sha256": "6d15c3f5765aba2bae49ea83b6a6cbb7176c3077953c766efdb0142945441327",
+      "bytes": 282175
+    },
+    {
+      "id": "handbook-link",
+      "url": "https://studyhandbook.wur.nl/studies/BPW?tab=info&type=bachelor&year=2026",
+      "status": 200,
+      "finalUrl": "https://studyhandbook.wur.nl/studies/BPW?tab=info&type=bachelor&year=2026",
+      "bytes": 31373,
+      "sha256": "79bcf0eeb99ce63a8be18908978b8845280ff4f366e3260f2f917442c1658168"
+    },
+    {
+      "id": "thesis-link",
+      "url": "https://studyhandbook.wur.nl/modules/YPS82318?tab=info&year=2026",
+      "status": 200,
+      "finalUrl": "https://studyhandbook.wur.nl/modules/YPS82318?tab=info&year=2026",
+      "bytes": 31336,
+      "sha256": "1b3ca2f0cab7551e968f3834d35beb5ffa83e1d750267c60abd89f2eaea43935"
+    },
+    {
+      "url": "https://www.wur.nl/en/show/hpp-document-bsc-thesis-course-guide-1.htm",
+      "status": 404,
+      "scope": "Optional historical search lead, not relied on; current handbook and YPS module establish the required pathway/preparation."
+    }
+  ],
+  "moduleReceipts": [
+    {
+      "code": "BIF20306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=BIF20306&year=2026",
+      "bytes": 20944,
+      "sha256": "77e8a858b5260798668fe583018fd6043699b152e971a77a69ce4782efd5d549"
+    },
+    {
+      "code": "BIF20806",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=BIF20806&year=2026",
+      "bytes": 20235,
+      "sha256": "248d035cfa6959f900a90fb54eeb6d91ae3fc4f5d33e5a3a6f50c1f8a0a441b7"
+    },
+    {
+      "code": "BIS21806",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=BIS21806&year=2026",
+      "bytes": 16922,
+      "sha256": "1027ea799329db41d3c8f8e03d51a72da313ad439b6b8707897c56df19f71563"
+    },
+    {
+      "code": "CBI10306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=CBI10306&year=2026",
+      "bytes": 31690,
+      "sha256": "f0a0eb1d303bd8d273554fca1ff8626e97b8ec39be8671ebdd2bc2c38b82b7cc"
+    },
+    {
+      "code": "CLB10803",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=CLB10803&year=2026",
+      "bytes": 21532,
+      "sha256": "6cbbd6e6521b7a11aa2bc5194469039a868780bf9dcf0652c2a72eac4a0562c9"
+    },
+    {
+      "code": "CSA11302",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=CSA11302&year=2026",
+      "bytes": 21155,
+      "sha256": "ec6223bba98b53f5c19582e0c515d70bdddc826bf74cd2f1554994fc7538b11d"
+    },
+    {
+      "code": "CSA11806",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=CSA11806&year=2026",
+      "bytes": 24615,
+      "sha256": "fefdd796a3ca996d680bafa9cc76cea301035e834d985b2908b5e9e9c5fac776"
+    },
+    {
+      "code": "CSA20306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=CSA20306&year=2026",
+      "bytes": 21944,
+      "sha256": "61eceaa228b84ac20f57e40df8a781301a46f8b06ca975e9ec0067321f28d32c"
+    },
+    {
+      "code": "FSE22306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=FSE22306&year=2026",
+      "bytes": 26153,
+      "sha256": "bdd4c0f4b94e7e3c267fe6a6cf7c0bb2554356822293713962c81b0994986a94"
+    },
+    {
+      "code": "GEN11806",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=GEN11806&year=2026",
+      "bytes": 22893,
+      "sha256": "c5e9f8b4983e8a1893a459efb7eb51cd707454ba84ac0c8df009fde65b7db3f3"
+    },
+    {
+      "code": "GEN20806",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=GEN20806&year=2026",
+      "bytes": 28939,
+      "sha256": "e1129a51363180b4f2cba8757b4e7995c52bd406b44a922505873ce7876d1265"
+    },
+    {
+      "code": "GEN30306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=GEN30306&year=2026",
+      "bytes": 29683,
+      "sha256": "197130f1d5d38a53c2d5159ecda44d4783e995dc327b1487e8a68056371df1f9"
+    },
+    {
+      "code": "HPP20306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=HPP20306&year=2026",
+      "bytes": 23339,
+      "sha256": "24a50b2711d5eb08fee4f07deaa0b8649b8e17ff5beeb67c3652da0f4ceaef51"
+    },
+    {
+      "code": "HPP22803",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=HPP22803&year=2026",
+      "bytes": 19731,
+      "sha256": "acb2349fe7a0ed50da90483a02590a4e228bb6362b801f5baf3b300775277c3a"
+    },
+    {
+      "code": "MAT14803",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT14803&year=2026",
+      "bytes": 20812,
+      "sha256": "df8ef7d38588fe8d53c5a4715193775edab29554e65ad0d70cbe745293848a3a"
+    },
+    {
+      "code": "MAT15103",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT15103&year=2026",
+      "bytes": 31124,
+      "sha256": "8e0416001765f719d417b38c2407e9043f64badfcddf9dd19108d2666ed56e5f"
+    },
+    {
+      "code": "MAT15203",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT15203&year=2026",
+      "bytes": 30517,
+      "sha256": "a764016f80a1db6223f98506012f9a3659669cb3893c7ee780856b8c760c7717"
+    },
+    {
+      "code": "MAT15303",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT15303&year=2026",
+      "bytes": 26737,
+      "sha256": "165a4e98e5a7d69f8fbc163ba93957201feb0cbe9aefcbe54312e70684cf9ee6"
+    },
+    {
+      "code": "MAT15403",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT15403&year=2026",
+      "bytes": 34395,
+      "sha256": "241f4f3882bfa80853f10795fd5e014771e591a4c4fc5fd8cc22bc211d8c5e18"
+    },
+    {
+      "code": "MAT20306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT20306&year=2026",
+      "bytes": 36104,
+      "sha256": "d63c3aad7d48306eb74f9f4a31fa2f34ed2df83b262e45df272c38d4fa0d339b"
+    },
+    {
+      "code": "NEM11305",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=NEM11305&year=2026",
+      "bytes": 30184,
+      "sha256": "954375c89d443255accbbbca6c98185bc867e4233ed5bfc3854a5b4383f04462"
+    },
+    {
+      "code": "NEM11808",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=NEM11808&year=2026",
+      "bytes": 27966,
+      "sha256": "15dacb4fe38b29d7c88b2603d62fa42f2614cf776ce35f3583697720b725b362"
+    },
+    {
+      "code": "NEM22306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=NEM22306&year=2026",
+      "bytes": 25252,
+      "sha256": "6041efa6546339a0c4de61fd42d82bfa8612baf1772619d335cff11930b420af"
+    },
+    {
+      "code": "NEM22812",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=NEM22812&year=2026",
+      "bytes": 35066,
+      "sha256": "705c49b9a68278a80a5c3afe7552afd22c93e432ce1007ac7474b6827664a71e"
+    },
+    {
+      "code": "ORC13803",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ORC13803&year=2026",
+      "bytes": 21591,
+      "sha256": "023193fe93422100931ae8b627db1df1011e7a8f174e6e15232d3c6af7e5eb73"
+    },
+    {
+      "code": "PBR23306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=PBR23306&year=2026",
+      "bytes": 23651,
+      "sha256": "a931854d894aa11e3c5859240e2148f7cec2dd1f1e13961296bf22d9452f8121"
+    },
+    {
+      "code": "PCC12803",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=PCC12803&year=2026",
+      "bytes": 25977,
+      "sha256": "436e5a6e32682bbdadcf2d3d73308d4e7db067366274f14b8f870e3286148943"
+    },
+    {
+      "code": "PEN10503",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=PEN10503&year=2026",
+      "bytes": 25553,
+      "sha256": "bf01605c6d9be46a919e779ffdcffe65061bc99a60f7df179889855034d06836"
+    },
+    {
+      "code": "PHP10306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=PHP10306&year=2026",
+      "bytes": 25140,
+      "sha256": "3aa7f94273cf6483c64aeff315198fea419e469f4018ba32acbf17e5b3153198"
+    },
+    {
+      "code": "PPH10806",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=PPH10806&year=2026",
+      "bytes": 26448,
+      "sha256": "282cfc8b8b3b3eecde2a60441cd0e66194451833da07dad69ed64be194a72e0d"
+    },
+    {
+      "code": "PPS20306",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=PPS20306&year=2026",
+      "bytes": 25884,
+      "sha256": "333094c2cc200cdff2043e3867fc96bebfa4e02f59fa65b1dc50845859193316"
+    },
+    {
+      "code": "YPS82318",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=YPS82318&year=2026",
+      "bytes": 24328,
+      "sha256": "c62ab3b5718bd0c7694845e7fc81f7da43590e548a402cf69e51b3e5ba852195"
+    },
+    {
+      "code": "ZSS06000",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ZSS06000&year=2026",
+      "bytes": 8275,
+      "sha256": "9e5c8c3fe25ceb4a8ec7b6af2b4905f8d4dbf1dff09952306a05836f85f8df17"
+    },
+    {
+      "code": "ZSS06100",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ZSS06100&year=2026",
+      "bytes": 105001,
+      "sha256": "ae380ed4d5a370d830e86b764198a9042a4660c48a6f6dcf9b6f203cdc46ac8f"
+    },
+    {
+      "code": "ZSS06200",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ZSS06200&year=2026",
+      "bytes": 74042,
+      "sha256": "46c9fa5bae0afa8f4e933767da3c74d6aea74071912eb6e1ac973d24c3ad2b3b"
+    }
+  ],
+  "components": [
+    {
+      "componentId": "bpw-intro",
+      "moduleCode": "NEM11808",
+      "credits": 8,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=NEM11808&year=2026",
+      "responseSha256": "15dacb4fe38b29d7c88b2603d62fa42f2614cf776ce35f3583697720b725b362",
+      "reviewedSections": [
+        "MK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "An 8-credit introduction with disciplinary case studies, field/lab activity and academic development. The written tests and group report each require a passing mark; the personal development plan and information-literacy work must also pass. General, laboratory and fieldwork safety are additional zero-credit requirements."
+    },
+    {
+      "componentId": "bpw-ecology",
+      "moduleCode": "PEN10503",
+      "credits": 3,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=PEN10503&year=2026",
+      "responseSha256": "bf01605c6d9be46a919e779ffdcffe65061bc99a60f7df179889855034d06836",
+      "reviewedSections": [
+        "MK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-crop-recognition",
+      "moduleCode": "CSA11302",
+      "credits": 2,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=CSA11302&year=2026",
+      "responseSha256": "ec6223bba98b53f5c19582e0c515d70bdddc826bf74cd2f1554994fc7538b11d",
+      "reviewedSections": [
+        "MK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "A separate 2-credit course in identifying crop species and products. Attendance, workbook/excursion and longitudinal assignments must be completed, and the recognition test must pass; this is distinct from the introductory course."
+    },
+    {
+      "componentId": "bpw-cell-biology",
+      "moduleCode": "CBI10306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=CBI10306&year=2026",
+      "responseSha256": "f0a0eb1d303bd8d273554fca1ff8626e97b8ec39be8671ebdd2bc2c38b82b7cc",
+      "reviewedSections": [
+        "MK",
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-statistics-2",
+      "moduleCode": "MAT15403",
+      "credits": 3,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT15403&year=2026",
+      "responseSha256": "241f4f3882bfa80853f10795fd5e014771e591a4c4fc5fd8cc22bc211d8c5e18",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-genetics",
+      "moduleCode": "GEN11806",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=GEN11806&year=2026",
+      "responseSha256": "c5e9f8b4983e8a1893a459efb7eb51cd707454ba84ac0c8df009fde65b7db3f3",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-bio-organic",
+      "moduleCode": "ORC13803",
+      "credits": 3,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ORC13803&year=2026",
+      "responseSha256": "023193fe93422100931ae8b627db1df1011e7a8f174e6e15232d3c6af7e5eb73",
+      "reviewedSections": [
+        "MK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-general-chemistry",
+      "moduleCode": "PCC12803",
+      "credits": 3,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=PCC12803&year=2026",
+      "responseSha256": "436e5a6e32682bbdadcf2d3d73308d4e7db067366274f14b8f870e3286148943",
+      "reviewedSections": [
+        "MK",
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-agroecology",
+      "moduleCode": "CSA11806",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=CSA11806&year=2026",
+      "responseSha256": "fefdd796a3ca996d680bafa9cc76cea301035e834d985b2908b5e9e9c5fac776",
+      "reviewedSections": [
+        "MK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-plant-structure",
+      "moduleCode": "PPH10806",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=PPH10806&year=2026",
+      "responseSha256": "282cfc8b8b3b3eecde2a60441cd0e66194451833da07dad69ed64be194a72e0d",
+      "reviewedSections": [
+        "MK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-practice",
+      "moduleCode": "NEM11305",
+      "credits": 5,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=NEM11305&year=2026",
+      "responseSha256": "954375c89d443255accbbbca6c98185bc867e4233ed5bfc3854a5b4383f04462",
+      "reviewedSections": [
+        "MK",
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Includes ecological field data, a group-designed greenhouse experiment, presentations, company/institution visits and interviews with three plant-science professionals. Reflection must pass; presentations require a sufficient combined result and minimum marks for their components."
+    },
+    {
+      "componentId": "bpw-pests",
+      "moduleCode": "PHP10306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=PHP10306&year=2026",
+      "responseSha256": "3aa7f94273cf6483c64aeff315198fea419e469f4018ba32acbf17e5b3153198",
+      "reviewedSections": [
+        "MK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-reproduction",
+      "moduleCode": "CLB10803",
+      "credits": 3,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=CLB10803&year=2026",
+      "responseSha256": "6cbbd6e6521b7a11aa2bc5194469039a868780bf9dcf0652c2a72eac4a0562c9",
+      "reviewedSections": [
+        "MK",
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-photosynthesis",
+      "moduleCode": "HPP22803",
+      "credits": 3,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=HPP22803&year=2026",
+      "responseSha256": "acb2349fe7a0ed50da90483a02590a4e228bb6362b801f5baf3b300775277c3a",
+      "reviewedSections": [
+        "MK",
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-breeding",
+      "moduleCode": "PBR23306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=PBR23306&year=2026",
+      "responseSha256": "a931854d894aa11e3c5859240e2148f7cec2dd1f1e13961296bf22d9452f8121",
+      "reviewedSections": [
+        "MK",
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-math-analysis",
+      "moduleCode": "MAT15103",
+      "credits": 3,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT15103&year=2026",
+      "responseSha256": "8e0416001765f719d417b38c2407e9043f64badfcddf9dd19108d2666ed56e5f",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-linear-algebra",
+      "moduleCode": "MAT15203",
+      "credits": 3,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT15203&year=2026",
+      "responseSha256": "a764016f80a1db6223f98506012f9a3659669cb3893c7ee780856b8c760c7717",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-data-r",
+      "moduleCode": "BIF20806",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=BIF20806&year=2026",
+      "responseSha256": "248d035cfa6959f900a90fb54eeb6d91ae3fc4f5d33e5a3a6f50c1f8a0a441b7",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-evolution",
+      "moduleCode": "BIS21806",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=BIS21806&year=2026",
+      "responseSha256": "1027ea799329db41d3c8f8e03d51a72da313ad439b6b8707897c56df19f71563",
+      "reviewedSections": [
+        "MK",
+        "AK",
+        "CO"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-advanced-statistics",
+      "moduleCode": "MAT20306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT20306&year=2026",
+      "responseSha256": "d63c3aad7d48306eb74f9f4a31fa2f34ed2df83b262e45df272c38d4fa0d339b",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-integrated-research",
+      "moduleCode": "NEM22812",
+      "credits": 12,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=NEM22812&year=2026",
+      "responseSha256": "705c49b9a68278a80a5c3afe7552afd22c93e432ce1007ac7474b6827664a71e",
+      "reviewedSections": [
+        "MK",
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "A 12-credit integrated research course. Students conduct a project in pairs, write an individual scientific paper, and work across molecular-to-agroecosystem perspectives on a resilience case. The paper and group case each require a passing mark; individual reflection must also pass."
+    },
+    {
+      "componentId": "bpw-choice",
+      "moduleCode": "MAT14803",
+      "credits": 3,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT14803&year=2026",
+      "responseSha256": "df8ef7d38588fe8d53c5a4715193775edab29554e65ad0d70cbe745293848a3a",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "The 3-credit choice depends on prior mathematics: this example takes Mathematics Applied: Introduction for Mathematics A preparation. Students with Mathematics B take Statistics 1. Statistics 2 assumes active school statistics or Statistics 1."
+    },
+    {
+      "componentId": "bpw-systems",
+      "moduleCode": "PPS20306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=PPS20306&year=2026",
+      "responseSha256": "333094c2cc200cdff2043e3867fc96bebfa4e02f59fa65b1dc50845859193316",
+      "reviewedSections": [
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-soil-plant",
+      "moduleCode": "CSA20306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=CSA20306&year=2026",
+      "responseSha256": "61eceaa228b84ac20f57e40df8a781301a46f8b06ca975e9ec0067321f28d32c",
+      "reviewedSections": [
+        "MK",
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-ag-systems",
+      "moduleCode": "FSE22306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=FSE22306&year=2026",
+      "responseSha256": "bdd4c0f4b94e7e3c267fe6a6cf7c0bb2554356822293713962c81b0994986a94",
+      "reviewedSections": [
+        "MK",
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-physiology-ag",
+      "moduleCode": "HPP20306",
+      "credits": 6,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=HPP20306&year=2026",
+      "responseSha256": "24a50b2711d5eb08fee4f07deaa0b8649b8e17ff5beeb67c3652da0f4ceaef51",
+      "reviewedSections": [
+        "MK",
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Current exact subject/method, credits and preparation read; component relationship or deliberate blank is recorded in course-comparability-review."
+    },
+    {
+      "componentId": "bpw-thesis",
+      "moduleCode": "YPS82318",
+      "credits": 18,
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=YPS82318&year=2026",
+      "responseSha256": "c62ab3b5718bd0c7694845e7fc81f7da43590e548a402cf69e51b3e5ba852195",
+      "reviewedSections": [
+        "MK",
+        "AK",
+        "CO",
+        "AC"
+      ],
+      "reviewedClaim": "Required 18-credit individual plant-science research project: proposal, experiments, data analysis, written report, oral presentation, discussion and reflection/future study plan. Entry requires coordinator permission and at least 102 prescribed credits, including all first-year credits. This example completes all 132 prescribed taught credits before the thesis; permission remains a requirement."
+    }
+  ],
+  "allocation": {
+    "compulsoryTaught": 105,
+    "conditionalMathematicsStatistics": 3,
+    "specialisation": 24,
+    "thesis": 18,
+    "openElectives": 30,
+    "total": 180
+  },
+  "routeSelection": {
+    "route": "Plant Production and Ecology",
+    "selectionRule": "broad-academic-identity",
+    "basis": "Retain Plant Production and Ecology as the neutral broad-identity choice: the current programme describes plant/environment interactions, physiology, ecology, agronomy, agroecology, farming systems and technological responses across plant-to-agroecosystem scales. Plant Genomics and Health concentrates more narrowly on cellular/molecular processes. This external-route choice is independent of UCR fit; it does not select an optional minor."
+  },
+  "openSpace": {
+    "credits": 30,
+    "status": "Genuine minor and/or individual electives; no named minor instantiated."
+  },
+  "entryAndProgression": [
+    "Current2026 BPW profile and Dutch prospectus confirm a Dutch-taught three-year plant bachelor, spanning molecular/cellular to plant/agroecosystem scales and fundamental/applied research. The brief English page does not establish an English-taught degree. API language tags EN/NL describe mixed instruction, not an alternative English bachelor.",
+    "Common part126=105 compulsory taught +3 conditional mathematics/statistics +18 thesis. Choose one24credit specialisation; Plant Production and Ecology retained independently of UCR fit because it spans physiology, ecology, agronomy, agroecosystems, farming systems and technology. Add30 genuine open credits. B1=57+3, B2=48 common+12 route, B3=12 route+18 thesis+30 open. No arbitrary curricular closure or extra minor added.",
+    "The105credit compulsory group explicitly says choose all courses. NEM11808 Introduction8, PEN10503 Ecology3 and CSA11302 Crop Recognition2 are separately named/credited modules with distinct contents and assessments. NEM11808’s coordinated first-period timetable description does not make the others duplicate child credits. Crop Recognition is longitudinal across the year and has its own recognition test/workbook/excursion/longitudinal completion; Ecology has its own theory, tutorials and field practicals.",
+    "MAT14803 is prescribed for VWO Mathematics A preparation; Mathematics B uses MAT15303 Statistics1. The selected Math A route uses active school statistics for MAT15403 Statistics2. MAT14803 occurs B1P2 first-half morning, Statistics2 second-half morning. Analysis/Linear Algebra occur later inB2P2 after the introduction. No source-order tie-break, Mathematics-B-only requirement or incompatible MAT12806 combination.",
+    "YPS82318 MK requires bachelor-thesis coordinator permission based on sufficient progress and at least102credits of the prescribed programme including all first-year credits. Complete all132 prescribed taught credits (105+3+24), including all60B1 and all72later taught credits, before the18credit thesis. Permission is an explicit requirement, not claimed as already granted to a real student. No unknown chair-specific course, adviser-approved elective package or fictional formal route is introduced.",
+    "Thesis is individual plant-science research: literature orientation, proposal/plan, experiments, research-group participation, data analysis/discussion, written report, oral presentation/discussion and personal reflection/future study plan. Current assessment metadata: performance45%, report30%, final discussion10%, presentation10%, reflection5%. No extra reflection credits or optional substitution for required research.",
+    "NEM22812 integrated research requires prior B1/B2 preparation, including agronomy, pests/diseases, breeding and evolution. It combines duo research with individual proposal/paper and a mixed molecular-to-agroecosystem resilience case. Individual paper50% and group case50% each require5.50; individual reflection must pass. It precedes the thesis and is not double-counted as thesis or electives.",
+    "NEM11305 uses ecological field data, a group-designed greenhouse experiment, presentations, company/institution visits and interviews with three plant-science professionals. Reflection participation must pass; combined presentations require5.50 and each specified component5.00. NEM11808 requires5.50 written-test average and group report plus passing information-literacy and personal development work. These are credited course completion conditions, not extra career/portfolio credits.",
+    "General, laboratory and fieldwork safety are zero-credit obligations and precede applicable laboratory/field work, including introduction, crop recognition, cell biology, plant structure, pest management and integrated research. Soil-Plant Relations also assumes relevant local laboratory/greenhouse biosafety preparation. Observe those preparation instructions without inventing extra credits.",
+    "GEN11806 follows Cell Biology; breeding uses Mendelian genetics; Plant Evolution/Domestication follows ecology, genetics and breeding. Structure/Function of Plants prepares reproduction, photosynthesis and Soil-Plant Relations; Photosynthesis prepares Physiology/Development in Agriculture. Statistics2 prepares R data analysis and Advanced Statistics. Systems Analysis uses calculus/linear algebra and agronomy, and directs students without the older named background course to its recap; no obsolete duplicate course invented.",
+    "Seagriculture, Experimental Plant Sciences and Resilient Crops are optional minors, not three additional mandatory specialisations. Current common/route/module rules provide the necessary complete pathway; the optional historical HPP guide URL found by search returned404 and is not used to infer current requirements. No essential requirement is approved from that unavailable guide."
+  ],
+  "reviewedAssessmentDetails": {
+    "YPS82318": [
+      {
+        "name": "Assignment report",
+        "description": null,
+        "weight": [
+          "30"
+        ],
+        "minimum": [
+          "None"
+        ],
+        "group": [
+          "individual"
+        ]
+      },
+      {
+        "name": "Assignment reflection report",
+        "description": null,
+        "weight": [
+          "5"
+        ],
+        "minimum": [
+          "None"
+        ],
+        "group": [
+          "individual"
+        ]
+      },
+      {
+        "name": "Performance",
+        "description": "",
+        "weight": [
+          "45"
+        ],
+        "minimum": [
+          "None"
+        ],
+        "group": [
+          "individual"
+        ]
+      },
+      {
+        "name": "Assignment other",
+        "description": "Final discussion.",
+        "weight": [
+          "10"
+        ],
+        "minimum": [
+          "None"
+        ],
+        "group": [
+          "individual"
+        ]
+      },
+      {
+        "name": "Assignment oral presentation",
+        "description": null,
+        "weight": [
+          "10"
+        ],
+        "minimum": [
+          "None"
+        ],
+        "group": [
+          "individual"
+        ]
+      }
+    ],
+    "NEM22812": [
+      {
+        "name": "Assignment report",
+        "description": "scientific paper.",
+        "weight": [
+          "50"
+        ],
+        "minimum": [
+          "5,50"
+        ],
+        "group": [
+          "individual"
+        ]
+      },
+      {
+        "name": "Assignment other",
+        "description": "visual or written outcomes of casus.",
+        "weight": [
+          "50"
+        ],
+        "minimum": [
+          "5,50"
+        ],
+        "group": [
+          "group"
+        ]
+      },
+      {
+        "name": "Assignment reflection report",
+        "description": null,
+        "weight": [
+          "0"
+        ],
+        "minimum": [
+          "Pass"
+        ],
+        "group": [
+          "individual"
+        ]
+      }
+    ],
+    "NEM11305": [
+      {
+        "name": "Assignment other",
+        "description": "Based on individual active participation in group reflection.",
+        "weight": [
+          "0"
+        ],
+        "minimum": [
+          "Pass"
+        ],
+        "group": [
+          "individual"
+        ]
+      },
+      {
+        "name": "Assignment oral presentation",
+        "description": "Student will give one group presentation (30% of this grade, n = 3) and one group presentation with an individual component (35% of the grade by group component, 35% of grade by individual component, n = 3). The combinated mark of the grades should be a 5.50 minimum, and each of the three components should be a 5.00 minimum.",
+        "weight": [
+          "100"
+        ],
+        "minimum": [
+          "5,50"
+        ],
+        "group": [
+          "groupAndIndividual"
+        ]
+      }
+    ],
+    "NEM11808": [
+      {
+        "name": "Written test with open and closed questions",
+        "description": "Digital assessment in ANS (BYOD) consisting of various number of multiple choice and open questions. The assessment is taken over two moments: the first in the 4th week of the course on the modules (1) Plant Production and (2) Biosystematics, and the second in the exam week on the modules (3) Plants and Health, (4) Biointeractions and (5) Plant Breeding are assessed will be scheduled in the exam week. Each module test count 20% towards the total test examination mark. An average of 5.5 across the 5 module tests is required for a sufficient grade.",
+        "weight": [
+          "60"
+        ],
+        "minimum": [
+          "5,50"
+        ],
+        "group": [
+          "individual"
+        ]
+      },
+      {
+        "name": "Assignment reflection report",
+        "description": "Active participation in tutorials and creating personal development plan. Students failing to submit a sufficient personal development plan, can enrol for a resit or the regular period for NEM11808 in OSIRIS to complete the (revised) assignment on Brightspace for BPW Academic Journey.",
+        "weight": null,
+        "minimum": [
+          "Pass"
+        ],
+        "group": [
+          "individual"
+        ]
+      },
+      {
+        "name": "Assignment report",
+        "description": "Group size: 4 students. Grade will be based on content, group process, writing and presentation skills. Students with insufficient grades (i.e., lower than 5.5), can enrol for a resit or the regular period for NEM11808 in OSIRIS to complete the (revised) assignment on Brightspace for NEM11808.",
+        "weight": [
+          "40"
+        ],
+        "minimum": [
+          "5,50"
+        ],
+        "group": [
+          "group"
+        ]
+      },
+      {
+        "name": "Assignment other",
+        "description": "Group size: 4 students. An assignment for information literacy. Students with insufficient grades (i.e., lower than 5.5), can enrol for a resit or the regular period for NEM11808 in OSIRIS. The revised assignment is done individually and can be submitted on Brightspace for NEM11808.",
+        "weight": null,
+        "minimum": [
+          "Pass"
+        ],
+        "group": [
+          "group"
+        ]
+      }
+    ],
+    "CSA11302": [
+      {
+        "name": "Mandatory attendance",
+        "description": "All course elements (e.g. lectures, practicals and excursions) are compulsory, attendance is required, and presence may be registered.In case of absence, students can hand in a replacement assignment during the next resit period or make up for the missed classes in the following academic year. Students should contact the course coordinator for the replacement assignment.",
+        "weight": null,
+        "minimum": null,
+        "group": [
+          "individual"
+        ]
+      },
+      {
+        "name": "Written test with open questions",
+        "description": "Crop recognition test with a plant recognition part (195 points) and open questions (105 points). The total score will result in an end mark of minimum 1 and maximum 10. A minimum score of 215 points is needed to obtain a 5.0. To help you to better understand and master crop recognition part self-tests can be made. As a reward you can earn study miles. This results in a maximum of 1.5 bonus points on top of your \"score\" for the crop recognition test. The bonus can only be added if the \"score\" for the crop recognition test is at least 5.0. The final mark of the crop recognition test (=\"score\"+ bonus) cannot surpass 10 and must be at least 5.5.",
+        "weight": [
+          "100"
+        ],
+        "minimum": [
+          "5,50"
+        ],
+        "group": [
+          "individual"
+        ]
+      },
+      {
+        "name": "Performance",
+        "description": "To obtain an overall mark, the following parts require a pass: (1) Pre-Test Workbook; (2) completion of the “Hoge Born excursion” ; (3) completion of the Longitudinal-assignment. In case of absence, students can hand in a replacement assignment during the next resit period or make up for the missed parts in the following academic year. Students should contact the course coordinator for the replacement assignment.",
+        "weight": null,
+        "minimum": [
+          "Pass"
+        ],
+        "group": [
+          "individual"
+        ]
+      }
+    ]
+  },
+  "controllingEvidence": "Current2026 handbook group rules plus exact module credits, MK/AK/content and assessments establish the coherent cohort/route. Current Dutch page corroborates specialisations/minors, field/greenhouse research, identity and outcomes. No redundant OER or inaccessible historical-guide gate imposed where current official requirements are explicit."
+}

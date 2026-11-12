@@ -1,0 +1,57 @@
+{
+  "caseId": "cp-000453",
+  "checkedAt": "2026-11-12T12:20:00.413980+00:00",
+  "canonicalBlob": "9aa87f4b89852482bc89bb93bd8e930bbd800cbb",
+  "decisionBlob": "659c0632ec5816f8b434e1f8476922eecf9504c7",
+  "checks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000453.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000453.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.",
+      "logSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "output": "Operational corpus validation passed, including CP453 final methodology rules.",
+      "logSha256": "0303c6fc01d2185d63162af7bedbf9be3d2eef4da42fc4d355a114f97a69531f"
+    },
+    {
+      "command": "node scripts/validate-registry-interests.mjs",
+      "exitCode": 0,
+      "output": "Valid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.",
+      "logSha256": "0dc1ff8a36961675f58e702191ec97f43c501db23f02270d74dfb6913450c3cc"
+    },
+    {
+      "command": "node scripts/build-counselor-review-index.mjs --check",
+      "exitCode": 0,
+      "output": "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+      "logSha256": "c26900407153178ba5a5e40b41d6c719f0f4eb5c062e3226b01961df60f9469d"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "output": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.",
+      "logSha256": "e3bf679d8cf8c5b2718fd9a77a2b7a978383e2c1022e5cb9af4c91fa6bfc0194"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000453.json --output /tmp/b453/replay.json",
+      "exitCode": 0,
+      "output": "Built cp-000453 counselor comparison record at /tmp/b453/replay.json",
+      "logSha256": "6cc3e4c3f1240bb5d9cf21aa39f29e0971f8b92f472d4e0ec02a0b4fc2024399"
+    },
+    {
+      "command": "byte-exact production replay versus canonical",
+      "exitCode": 0,
+      "bytes": 189495,
+      "sha256": "882e4027be935b2c489ae08f0ae651fbe24826e16eadfcaa62596dd94b7ca965"
+    }
+  ],
+  "scope": "Case data only. No compiler/app/renderer code changes; representative actual rendering remains a separately controlled final-release requirement."
+}
