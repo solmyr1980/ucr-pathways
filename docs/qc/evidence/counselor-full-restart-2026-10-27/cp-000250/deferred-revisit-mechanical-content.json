@@ -1,0 +1,950 @@
+{
+  "caseId": "cp-000250",
+  "checkedAt": "2026-11-12T21:13:53.238634+00:00",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000250.json": "f33b504b9509bad5aed881bb1c01a109f03a836b",
+    "data/counselor/comparisons/cp-000250.json": "e9b03ee441bc57bf7256be8118f292ff06e0781b",
+    "data/registry/programme_interests.csv": "3d306e8c53d567ca9dbc5c09e151fc54ad5b2243",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "data/counselor/review-programmes.json": "b534a28c1907ed52e7df6643e0a4f89d86e0b7e5",
+    "data/counselor/review-interests.json": "45110774d9d53d68fd12fc668e41d08cc4737c88",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/source-findings.json": "7315b6fa822db1196a1197518ea34b8afde93f70",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/source-attempt-2.json": "c0be26f740490200ceb1ab7f5eb1c268b5483db1",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/interest-review.json": "e7c9a8f7c6742b6c5609d7382caa9501a1dfddde",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/ucr-evidence-leads.json": "27e7aec4a319d7deb688c5ff88e47f97c9796001",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/content-review.json": "32531a6aaa99ea8b29a148b8ac52520f6e2749dc",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/source-first-checkpoint.json": "37c10011ff7ec6229d21bc658bbc17adea16c03c",
+    "canonical": "e9b03ee441bc57bf7256be8118f292ff06e0781b",
+    "decision": "f33b504b9509bad5aed881bb1c01a109f03a836b"
+  },
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "mechanicalChecks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000250.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000250.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.",
+      "logSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "output": "Operational validation of complete counselor corpus.",
+      "logSha256": "2398a8e81c3f37048e4c27140896ac6b8c2d08caa62d0bcd67adfca7a3bf7dcf"
+    },
+    {
+      "command": "node scripts/validate-registry-interests.mjs",
+      "exitCode": 0,
+      "output": "Valid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.",
+      "logSha256": "0dc1ff8a36961675f58e702191ec97f43c501db23f02270d74dfb6913450c3cc"
+    },
+    {
+      "command": "node scripts/build-counselor-review-index.mjs --check",
+      "exitCode": 0,
+      "output": "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+      "logSha256": "c26900407153178ba5a5e40b41d6c719f0f4eb5c062e3226b01961df60f9469d"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "output": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.",
+      "logSha256": "e3bf679d8cf8c5b2718fd9a77a2b7a978383e2c1022e5cb9af4c91fa6bfc0194"
+    },
+    {
+      "command": "byte-exact decision/canonical replay",
+      "exitCode": 0,
+      "bytes": 14141,
+      "sha256": "3369e459b6ed1f2ffd00311a43ffa0348414b3911c14aa038b15505a526ff0e1"
+    }
+  ],
+  "interestReview": {
+    "rows": [
+      {
+        "row": 10613,
+        "interest": "combining medicine and engineering",
+        "claimRead": "The official programme presents combining medicine and engineering as central to what students study or the questions they learn to address.",
+        "role": "generator-eligible",
+        "outcome": "retain",
+        "owner": "Biomedical knowledge andengineering analysis",
+        "finding": "Currentformalmedical/engineeringcompetencies andexactprogramme explanation support thissubject. Its eventualprogramme contribution remainsprovisional untiltheexternalpathisresolved."
+      },
+      {
+        "row": 10614,
+        "interest": "medical technology in patient care",
+        "claimRead": "The official programme presents medical technology in patient care as central to what students study or the questions they learn to address.",
+        "role": "generator-eligible",
+        "outcome": "retain",
+        "owner": "Patient-facingclinicaltechnology andsafety candidate",
+        "finding": "Currentformalmedical/engineeringcompetencies andexactprogramme explanation support thissubject. Its eventualprogramme contribution remainsprovisional untiltheexternalpathisresolved."
+      },
+      {
+        "row": 10615,
+        "interest": "analysing the human body as an engineer",
+        "claimRead": "The official programme presents analysing the human body as an engineer as central to what students study or the questions they learn to address.",
+        "role": "generator-eligible",
+        "outcome": "retain",
+        "owner": "Biomedical knowledge andengineering analysis",
+        "finding": "Currentformalmedical/engineeringcompetencies andexactprogramme explanation support thissubject. Its eventualprogramme contribution remainsprovisional untiltheexternalpathisresolved."
+      },
+      {
+        "row": 10616,
+        "interest": "understanding disease processes through technology",
+        "claimRead": "The official programme presents understanding disease processes through technology as central to what students study or the questions they learn to address.",
+        "role": "generator-eligible",
+        "outcome": "retain",
+        "owner": "Biomedical knowledge andengineering analysis",
+        "finding": "Currentformalmedical/engineeringcompetencies andexactprogramme explanation support thissubject. Its eventualprogramme contribution remainsprovisional untiltheexternalpathisresolved."
+      },
+      {
+        "row": 10617,
+        "interest": "advanced medical imaging",
+        "claimRead": "The official programme presents advanced medical imaging as central to what students study or the questions they learn to address.",
+        "role": "generator-eligible",
+        "outcome": "retain",
+        "owner": "Imaging,measurement anddiagnosticmethods candidate",
+        "finding": "Currentformalmedical/engineeringcompetencies andexactprogramme explanation support thissubject. Its eventualprogramme contribution remainsprovisional untiltheexternalpathisresolved."
+      },
+      {
+        "row": 10618,
+        "interest": "innovative treatment technologies",
+        "claimRead": "The official programme presents innovative treatment technologies as central to what students study or the questions they learn to address.",
+        "role": "generator-eligible",
+        "outcome": "retain",
+        "owner": "Patient-facingclinicaltechnology andsafety candidate",
+        "finding": "Currentformalmedical/engineeringcompetencies andexactprogramme explanation support thissubject. Its eventualprogramme contribution remainsprovisional untiltheexternalpathisresolved."
+      },
+      {
+        "row": 10619,
+        "interest": "bridging technical systems and patients",
+        "claimRead": "The official programme presents bridging technical systems and patients as central to what students study or the questions they learn to address.",
+        "role": "generator-eligible",
+        "outcome": "retain",
+        "owner": "Patient-facingclinicaltechnology andsafety candidate",
+        "finding": "Currentformalmedical/engineeringcompetencies andexactprogramme explanation support thissubject. Its eventualprogramme contribution remainsprovisional untiltheexternalpathisresolved."
+      },
+      {
+        "row": 10620,
+        "interest": "designing and improving clinical devices",
+        "claimRead": "The official programme presents designing and improving clinical devices as central to what students study or the questions they learn to address.",
+        "role": "generator-eligible",
+        "outcome": "retain",
+        "owner": "Medicaldevice/biomechanicaldesign candidate",
+        "finding": "Currentformalmedical/engineeringcompetencies andexactprogramme explanation support thissubject. Its eventualprogramme contribution remainsprovisional untiltheexternalpathisresolved."
+      },
+      {
+        "row": 10621,
+        "interest": "safe use of complex medical technology",
+        "claimRead": "The official programme presents safe use of complex medical technology as central to what students study or the questions they learn to address.",
+        "role": "generator-eligible",
+        "outcome": "retain",
+        "owner": "Patient-facingclinicaltechnology andsafety candidate",
+        "finding": "Currentformalmedical/engineeringcompetencies andexactprogramme explanation support thissubject. Its eventualprogramme contribution remainsprovisional untiltheexternalpathisresolved."
+      },
+      {
+        "row": 10622,
+        "interest": "anatomy, physiology and pathology",
+        "claimRead": "The official programme presents anatomy, physiology and pathology as central to what students study or the questions they learn to address.",
+        "role": "generator-eligible",
+        "outcome": "retain",
+        "owner": "Biomedical knowledge andengineering analysis",
+        "finding": "Currentformalmedical/engineeringcompetencies andexactprogramme explanation support thissubject. Its eventualprogramme contribution remainsprovisional untiltheexternalpathisresolved."
+      },
+      {
+        "row": 10623,
+        "interest": "biomechanics of the human body",
+        "claimRead": "The official programme presents biomechanics of the human body as central to what students study or the questions they learn to address.",
+        "role": "generator-eligible",
+        "outcome": "retain",
+        "owner": "Medicaldevice/biomechanicaldesign candidate",
+        "finding": "Currentformalmedical/engineeringcompetencies andexactprogramme explanation support thissubject. Its eventualprogramme contribution remainsprovisional untiltheexternalpathisresolved."
+      },
+      {
+        "row": 10624,
+        "interest": "medical measurement and sensing",
+        "claimRead": "The official programme presents medical measurement and sensing as central to what students study or the questions they learn to address.",
+        "role": "generator-eligible",
+        "outcome": "retain",
+        "owner": "Imaging,measurement anddiagnosticmethods candidate",
+        "finding": "Currentformalmedical/engineeringcompetencies andexactprogramme explanation support thissubject. Its eventualprogramme contribution remainsprovisional untiltheexternalpathisresolved."
+      },
+      {
+        "row": 10625,
+        "interest": "technology-supported diagnosis",
+        "claimRead": "The official programme presents technology-supported diagnosis as central to what students study or the questions they learn to address.",
+        "role": "generator-eligible",
+        "outcome": "retain",
+        "owner": "Imaging,measurement anddiagnosticmethods candidate",
+        "finding": "Currentformalmedical/engineeringcompetencies andexactprogramme explanation support thissubject. Its eventualprogramme contribution remainsprovisional untiltheexternalpathisresolved."
+      },
+      {
+        "row": 10626,
+        "interest": "technology-supported treatment",
+        "claimRead": "The official programme presents technology-supported treatment as central to what students study or the questions they learn to address.",
+        "role": "generator-eligible",
+        "outcome": "retain",
+        "owner": "Patient-facingclinicaltechnology andsafety candidate",
+        "finding": "Currentformalmedical/engineeringcompetencies andexactprogramme explanation support thissubject. Its eventualprogramme contribution remainsprovisional untiltheexternalpathisresolved."
+      },
+      {
+        "row": 10627,
+        "interest": "patient communication for technical medical professionals",
+        "claimRead": "The official programme presents patient communication for technical medical professionals as central to what students study or the questions they learn to address.",
+        "role": "generator-eligible",
+        "outcome": "retain",
+        "owner": "Patient-facingclinicaltechnology andsafety candidate",
+        "finding": "Currentformalmedical/engineeringcompetencies andexactprogramme explanation support thissubject. Its eventualprogramme contribution remainsprovisional untiltheexternalpathisresolved."
+      },
+      {
+        "row": 10628,
+        "interest": "sustainable healthcare technology",
+        "claimRead": "The current KT2755 course includes preparation and placement assignments on planetary health. This establishes a limited curricular connection to sustainable healthcare, but does not by itself establish sustainable healthcare technology as a central or stable programme direction.",
+        "role": "generator-eligible",
+        "outcome": "correct",
+        "owner": "Sustainablehealthcaretechnology candidate — insufficientcurrenttargetevidence",
+        "finding": "New current KT2755 assessment supports a limited planetary-health curricular connection. Retain generator-eligible role as dictated by the row relationship, with candidate disposition insufficient target-specific evidence for a defining sustainable-technology programme; do not promote a limited assignment to a stable direction."
+      },
+      {
+        "row": 10629,
+        "interest": "human anatomy",
+        "claimRead": "The current official programme or curriculum substantively covers human anatomy.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10630,
+        "interest": "human physiology",
+        "claimRead": "The current official programme or curriculum substantively covers human physiology.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10631,
+        "interest": "pathology",
+        "claimRead": "The current official programme or curriculum substantively covers pathology.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10632,
+        "interest": "medical physics",
+        "claimRead": "The current official programme or curriculum substantively covers medical physics.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10633,
+        "interest": "mathematics for clinical technology",
+        "claimRead": "The current official programme or curriculum substantively covers mathematics for clinical technology.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10634,
+        "interest": "mechanics of the musculoskeletal system",
+        "claimRead": "The current official programme or curriculum substantively covers mechanics of the musculoskeletal system.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10635,
+        "interest": "thermodynamics in human physiology",
+        "claimRead": "The current official programme or curriculum substantively covers thermodynamics in human physiology.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10636,
+        "interest": "medical imaging principles",
+        "claimRead": "The current official programme or curriculum substantively covers medical imaging principles.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10637,
+        "interest": "biomedical instrumentation",
+        "claimRead": "The current official programme or curriculum substantively covers biomedical instrumentation.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10638,
+        "interest": "signal analysis in medicine",
+        "claimRead": "The current official programme or curriculum substantively covers signal analysis in medicine.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10639,
+        "interest": "medical informatics",
+        "claimRead": "The current official programme or curriculum substantively covers medical informatics.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10640,
+        "interest": "control of physiological systems",
+        "claimRead": "The current official programme or curriculum substantively covers control of physiological systems.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10641,
+        "interest": "clinical decision-making",
+        "claimRead": "The current official programme or curriculum substantively covers clinical decision-making.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10642,
+        "interest": "patient interviewing",
+        "claimRead": "The current official programme or curriculum substantively covers patient interviewing.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10643,
+        "interest": "physical examination skills",
+        "claimRead": "The current official programme or curriculum substantively covers physical examination skills.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10644,
+        "interest": "suturing and injections",
+        "claimRead": "The current official programme or curriculum substantively covers suturing and injections.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10645,
+        "interest": "medical-device safety",
+        "claimRead": "The current official programme or curriculum substantively covers medical-device safety.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10646,
+        "interest": "ethics in medical technology",
+        "claimRead": "The current official programme or curriculum substantively covers ethics in medical technology.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10647,
+        "interest": "clinical research methods",
+        "claimRead": "The current official programme or curriculum substantively covers clinical research methods.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10648,
+        "interest": "technical design for healthcare",
+        "claimRead": "The current official programme or curriculum substantively covers technical design for healthcare.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10649,
+        "interest": "biomechanical modelling",
+        "claimRead": "The current official programme or curriculum substantively covers biomechanical modelling.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10650,
+        "interest": "working with complex clinical equipment",
+        "claimRead": "The current official programme or curriculum substantively covers working with complex clinical equipment.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10651,
+        "interest": "patient vulnerability and professional responsibility",
+        "claimRead": "The current official programme or curriculum substantively covers patient vulnerability and professional responsibility.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10652,
+        "interest": "integrated medical and engineering projects",
+        "claimRead": "The current official programme or curriculum substantively covers integrated medical and engineering projects.",
+        "role": "support-only",
+        "outcome": "retain",
+        "owner": "support-only",
+        "finding": "Formalcomponents/competencies andcurrentlearningpage support thiscurriculartopic;clinicalskillssuturing/injections explicitlyexplained bytheprogramme. Supportingonly,not anadditionalgenerator."
+      },
+      {
+        "row": 10653,
+        "interest": "designing an emergency ventilator",
+        "claimRead": "The current programme links a final project about implementing a new ventilation method during corona. Designing an emergency ventilator is an inferred related application, not that inspected project title.",
+        "role": "search-only",
+        "outcome": "correct",
+        "owner": "search-only",
+        "finding": "Illustration orsubsequentprofessionalfield only;noindependentprogramme generated andnoautomaticbachelorclinicalqualification promised. Exactattributioncorrected: The current programme links a final project about implementing a new ventilation method during corona. Designing an emergency ventilator is an inferred related application, not that inspected project title."
+      },
+      {
+        "row": 10654,
+        "interest": "creating a patient-specific 3D-printed implant",
+        "claimRead": "The joint-programme page explicitly illustrates custom3D-printed artificial organs, and Delft links a3D-printed facial-mask project. A patient-specific implant is an inferred related illustration, not a verified named assignment.",
+        "role": "search-only",
+        "outcome": "correct",
+        "owner": "search-only",
+        "finding": "Illustration orsubsequentprofessionalfield only;noindependentprogramme generated andnoautomaticbachelorclinicalqualification promised. Exactattributioncorrected: The joint-programme page explicitly illustrates custom3D-printed artificial organs, and Delft links a3D-printed facial-mask project. A patient-specific implant is an inferred related illustration, not a verified named assignment."
+      },
+      {
+        "row": 10655,
+        "interest": "improving a surgical light or stethoscope",
+        "claimRead": "Medical-device improvement is consistent with the programme’s design work. A surgical-light orstethoscope task was not established in the inspected current sources; these remain inferred illustrations only.",
+        "role": "search-only",
+        "outcome": "correct",
+        "owner": "search-only",
+        "finding": "Illustration orsubsequentprofessionalfield only;noindependentprogramme generated andnoautomaticbachelorclinicalqualification promised. Exactattributioncorrected: Medical-device improvement is consistent with the programme’s design work. A surgical-light orstethoscope task was not established in the inspected current sources; these remain inferred illustrations only."
+      },
+      {
+        "row": 10656,
+        "interest": "analysing the force produced by a muscle",
+        "claimRead": "The official programme uses analysing the force produced by a muscle as a concrete case, design challenge, or application of the bachelor's content.",
+        "role": "search-only",
+        "outcome": "retain",
+        "owner": "search-only",
+        "finding": "Illustration orsubsequentprofessionalfield only;noindependentprogramme generated andnoautomaticbachelorclinicalqualification promised."
+      },
+      {
+        "row": 10657,
+        "interest": "combining thermodynamics with digestive-organ physiology",
+        "claimRead": "The official programme uses combining thermodynamics with digestive-organ physiology as a concrete case, design challenge, or application of the bachelor's content.",
+        "role": "search-only",
+        "outcome": "retain",
+        "owner": "search-only",
+        "finding": "Illustration orsubsequentprofessionalfield only;noindependentprogramme generated andnoautomaticbachelorclinicalqualification promised."
+      },
+      {
+        "row": 10658,
+        "interest": "using sensor chips in clinical care",
+        "claimRead": "Medical sensing/instrumentation is supported by the formal/current programme. Sensor chips in clinical care are an inferred application, not a verified named assignment.",
+        "role": "search-only",
+        "outcome": "correct",
+        "owner": "search-only",
+        "finding": "Illustration orsubsequentprofessionalfield only;noindependentprogramme generated andnoautomaticbachelorclinicalqualification promised. Exactattributioncorrected: Medical sensing/instrumentation is supported by the formal/current programme. Sensor chips in clinical care are an inferred application, not a verified named assignment."
+      },
+      {
+        "row": 10659,
+        "interest": "evaluating an advanced medical scan",
+        "claimRead": "Advanced scans are explicit programme examples. Evaluating an advanced scan is an inferred related activity rather than an inspected named compulsory assignment.",
+        "role": "search-only",
+        "outcome": "correct",
+        "owner": "search-only",
+        "finding": "Illustration orsubsequentprofessionalfield only;noindependentprogramme generated andnoautomaticbachelorclinicalqualification promised. Exactattributioncorrected: Advanced scans are explicit programme examples. Evaluating an advanced scan is an inferred related activity rather than an inspected named compulsory assignment."
+      },
+      {
+        "row": 10660,
+        "interest": "adapting a device to reduce its environmental burden",
+        "claimRead": "Reducing a device’s environmental burden is an inferred application. The inspected current sources do not establish this as a named assignment or a distinct sustainable-healthcare direction.",
+        "role": "search-only",
+        "outcome": "correct",
+        "owner": "search-only",
+        "finding": "Illustration orsubsequentprofessionalfield only;noindependentprogramme generated andnoautomaticbachelorclinicalqualification promised. Exactattributioncorrected: Reducing a device’s environmental burden is an inferred application. The inspected current sources do not establish this as a named assignment or a distinct sustainable-healthcare direction."
+      },
+      {
+        "row": 10661,
+        "interest": "clinical technology practice",
+        "claimRead": "The official programme describes clinical technology practice as a professional field, graduate role, or subsequent study direction.",
+        "role": "search-only",
+        "outcome": "retain",
+        "owner": "search-only",
+        "finding": "Illustration orsubsequentprofessionalfield only;noindependentprogramme generated andnoautomaticbachelorclinicalqualification promised."
+      },
+      {
+        "row": 10662,
+        "interest": "technical medicine",
+        "claimRead": "The official programme describes technical medicine as a professional field, graduate role, or subsequent study direction.",
+        "role": "search-only",
+        "outcome": "retain",
+        "owner": "search-only",
+        "finding": "Illustration orsubsequentprofessionalfield only;noindependentprogramme generated andnoautomaticbachelorclinicalqualification promised."
+      },
+      {
+        "row": 10663,
+        "interest": "medical-device development",
+        "claimRead": "The official programme describes medical-device development as a professional field, graduate role, or subsequent study direction.",
+        "role": "search-only",
+        "outcome": "retain",
+        "owner": "search-only",
+        "finding": "Illustration orsubsequentprofessionalfield only;noindependentprogramme generated andnoautomaticbachelorclinicalqualification promised."
+      },
+      {
+        "row": 10664,
+        "interest": "healthcare innovation",
+        "claimRead": "The official programme describes healthcare innovation as a professional field, graduate role, or subsequent study direction.",
+        "role": "search-only",
+        "outcome": "retain",
+        "owner": "search-only",
+        "finding": "Illustration orsubsequentprofessionalfield only;noindependentprogramme generated andnoautomaticbachelorclinicalqualification promised."
+      },
+      {
+        "row": 10665,
+        "interest": "clinical engineering",
+        "claimRead": "Clinical engineering is an inferred neighbouring professional field from the programme’s medical-technical integration. The current inspected source does not name it as a guaranteed bachelor outcome.",
+        "role": "search-only",
+        "outcome": "correct",
+        "owner": "search-only",
+        "finding": "Illustration orsubsequentprofessionalfield only;noindependentprogramme generated andnoautomaticbachelorclinicalqualification promised. Exactattributioncorrected: Clinical engineering is an inferred neighbouring professional field from the programme’s medical-technical integration. The current inspected source does not name it as a guaranteed bachelor outcome."
+      },
+      {
+        "row": 10666,
+        "interest": "medical imaging and intervention",
+        "claimRead": "The official programme describes medical imaging and intervention as a professional field, graduate role, or subsequent study direction.",
+        "role": "search-only",
+        "outcome": "retain",
+        "owner": "search-only",
+        "finding": "Illustration orsubsequentprofessionalfield only;noindependentprogramme generated andnoautomaticbachelorclinicalqualification promised."
+      },
+      {
+        "row": 10667,
+        "interest": "biomedical research",
+        "claimRead": "The official programme describes biomedical research as a professional field, graduate role, or subsequent study direction.",
+        "role": "search-only",
+        "outcome": "retain",
+        "owner": "search-only",
+        "finding": "Illustration orsubsequentprofessionalfield only;noindependentprogramme generated andnoautomaticbachelorclinicalqualification promised."
+      }
+    ],
+    "counts": {
+      "generator-eligible": 16,
+      "support-only": 24,
+      "search-only": 15
+    },
+    "changedRow": 10628,
+    "retainedRows": 54,
+    "ownDelta": {
+      "before": {
+        "source_interest_excel_row": "10628",
+        "source_excel_row": "263",
+        "OPLEIDINGSEENHEIDCODE": "1015O7390",
+        "ONDERWIJSAANBIEDER_NAAM": "Technische Universiteit Delft",
+        "ERKENDEOPLEIDINGSCODE": "",
+        "NAAM_LANG": "Bachelor Klinische Technologie",
+        "student_interest": "sustainable healthcare technology",
+        "evidence": "Sustainable healthcare technology is an inferred adjacent possibility, not an explicit direction established by the inspected current programme pages or OER. Further target-specific corroboration is required before it can generate a programme.",
+        "source_title": "BSc Klinische Technologie — TU Delft || Bacheloropleiding Klinische Technologie — Leiden-Delft-Erasmus",
+        "source_url": "https://www.tudelft.nl/onderwijs/opleidingen/bachelors/klinische-technologie/bsc-klinische-technologie || https://www.leiden-delft-erasmus.nl/nl/onderwijs/bacheloropleidingen/bacheloropleiding-klinische-technologie",
+        "strength": "Inferred",
+        "interest_relationship": "Direct programme interest",
+        "counselor_programme_id": "cp-000250",
+        "target_mapping_status": "mapped"
+      },
+      "after": {
+        "source_interest_excel_row": "10628",
+        "source_excel_row": "263",
+        "OPLEIDINGSEENHEIDCODE": "1015O7390",
+        "ONDERWIJSAANBIEDER_NAAM": "Technische Universiteit Delft",
+        "ERKENDEOPLEIDINGSCODE": "",
+        "NAAM_LANG": "Bachelor Klinische Technologie",
+        "student_interest": "sustainable healthcare technology",
+        "evidence": "The current KT2755 course includes preparation and placement assignments on planetary health. This establishes a limited curricular connection to sustainable healthcare, but does not by itself establish sustainable healthcare technology as a central or stable programme direction.",
+        "source_title": "BSc Klinische Technologie — TU Delft || Bacheloropleiding Klinische Technologie — Leiden-Delft-Erasmus || KT2755 — TU Delft Study Guide 2026–2027",
+        "source_url": "https://www.tudelft.nl/onderwijs/opleidingen/bachelors/klinische-technologie/bsc-klinische-technologie || https://www.leiden-delft-erasmus.nl/nl/onderwijs/bacheloropleidingen/bacheloropleiding-klinische-technologie || https://studiegids.tudelft.nl/",
+        "strength": "Inferred",
+        "interest_relationship": "Direct programme interest",
+        "counselor_programme_id": "cp-000250",
+        "target_mapping_status": "mapped"
+      }
+    },
+    "dependency": "Sustainable-technology candidate remains unapproved; limited planetary-health assignments do not establish a distinct24course direction or validate the source-conflicted comparator."
+  },
+  "ucrReview": {
+    "workbookUnchanged": true,
+    "courses": [
+      {
+        "code": "HCBBIOM211",
+        "name": "Functional Anatomy",
+        "sourceField": "profile",
+        "courseContribution": "Direct anatomical systems and medical-image interpretation foundation; no clinical qualification or full biomechanical mechanics sequence.",
+        "formalPrerequisite": "HCBGATE101",
+        "offeredTerms": [
+          "2027h1",
+          "2028h1",
+          "2029h1"
+        ],
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/ucr-evidence-leads.json"
+      },
+      {
+        "code": "HCBLIFE212",
+        "name": "Human Physiology",
+        "sourceField": "profile",
+        "courseContribution": "Direct organ-system homeostasis and physiological regulation; no instrumentation or clinical-care placement equivalence.",
+        "formalPrerequisite": "HCBGATE101",
+        "offeredTerms": [
+          "2026h2",
+          "2027h2",
+          "2028h2"
+        ],
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/ucr-evidence-leads.json"
+      },
+      {
+        "code": "HCBBIOM313",
+        "name": "Mechanisms of Disease",
+        "sourceField": "profile",
+        "courseContribution": "Direct disease mechanisms and case-based diagnostic reasoning; not the complete technical diagnosis/therapy curriculum.",
+        "formalPrerequisite": "HCBGATE101",
+        "offeredTerms": [
+          "2027h1",
+          "2028h1",
+          "2029h1"
+        ],
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/ucr-evidence-leads.json"
+      },
+      {
+        "code": "HCBBIOM311",
+        "name": "Pharmacology",
+        "sourceField": "profile",
+        "courseContribution": "Direct molecular drug action, kinetics and therapeutic mechanisms; complementary to technology-supported treatment, not radiotherapy training.",
+        "formalPrerequisite": "HCBGATE101",
+        "offeredTerms": [
+          "2026h2",
+          "2027h2",
+          "2028h2"
+        ],
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/ucr-evidence-leads.json"
+      },
+      {
+        "code": "HCBCOGN112",
+        "name": "Neurobiology",
+        "sourceField": "profile",
+        "courseContribution": "Direct nervous-system and behavioural physiology, literature and lab introduction; not a complete EEG/EMG or clinical neurotechnology sequence.",
+        "formalPrerequisite": "NONE",
+        "offeredTerms": [
+          "2027h1",
+          "2028h1",
+          "2029h1"
+        ],
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/ucr-evidence-leads.json"
+      },
+      {
+        "code": "HCBLIFE214",
+        "name": "Life Science Laboratory",
+        "sourceField": "profile",
+        "courseContribution": "Direct biochemical/molecular experimental practice, blood analysis and bioinformatics introduction; no patient placement or clinical safety certification.",
+        "formalPrerequisite": "HCBGATE101",
+        "offeredTerms": [
+          "2027h1",
+          "2028h1",
+          "2029h1"
+        ],
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/ucr-evidence-leads.json"
+      },
+      {
+        "code": "HCBLIFE311",
+        "name": "Molecular Pathology & Genetics",
+        "sourceField": "profile",
+        "courseContribution": "Direct molecular disease/genetics, diagnostic technologies and research-proposal method; not organ-system engineering as a whole.",
+        "formalPrerequisite": "HCBGATE101",
+        "offeredTerms": [
+          "2026h2",
+          "2027h2",
+          "2028h2"
+        ],
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/ucr-evidence-leads.json"
+      },
+      {
+        "code": "DISGATE101",
+        "name": "Introduction to Programming",
+        "sourceField": "profile",
+        "courseContribution": "Direct Python computational problem-solving for later data/image methods; generic coding alone does not establish clinical technology.",
+        "formalPrerequisite": "NONE",
+        "offeredTerms": [
+          "2026h2",
+          "2027h2",
+          "2028h2"
+        ],
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/ucr-evidence-leads.json"
+      },
+      {
+        "code": "DISGATE102",
+        "name": "Mathematical Methods",
+        "sourceField": "profile",
+        "courseContribution": "Direct calculus and differential-equation modelling foundation; no assumption that its project is physiological.",
+        "formalPrerequisite": "NONE",
+        "offeredTerms": [
+          "2027h1",
+          "2028h1",
+          "2029h1"
+        ],
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/ucr-evidence-leads.json"
+      },
+      {
+        "code": "DISMATH211",
+        "name": "Linear Algebra",
+        "sourceField": "profile",
+        "courseContribution": "Direct matrices, least squares, eigenanalysis and signals-related linear methods; no medical-imaging physics inferred.",
+        "formalPrerequisite": "DISGATE102",
+        "offeredTerms": [
+          "2026h2",
+          "2027h2",
+          "2028h2"
+        ],
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/ucr-evidence-leads.json"
+      },
+      {
+        "code": "DISMATH312",
+        "name": "Linear Systems",
+        "sourceField": "profile",
+        "courseContribution": "Direct signals, frequency representations, filtering and feedback methods, genuinely relevant to the target signals strand; project is not presumed clinical.",
+        "formalPrerequisite": "DISGATE102",
+        "offeredTerms": [
+          "2028h1"
+        ],
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/ucr-evidence-leads.json"
+      },
+      {
+        "code": "DISDATA211",
+        "name": "Machine Learning",
+        "sourceField": "profile",
+        "courseContribution": "Direct statistical prediction/classification methods relevant to biomedical data; no medical domain or safety validation assumed.",
+        "formalPrerequisite": "NONE",
+        "offeredTerms": [
+          "2026h2",
+          "2027h2",
+          "2028h2"
+        ],
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/ucr-evidence-leads.json"
+      },
+      {
+        "code": "DISDATA212",
+        "name": "Image Processing & Computer Vision",
+        "sourceField": "profile",
+        "courseContribution": "Direct filtering, segmentation, image features and recognition pipelines; target medical-image-processing strand is a genuine methods link, not MRI/CT instrument equivalence.",
+        "formalPrerequisite": "NONE",
+        "offeredTerms": [
+          "2027h1",
+          "2029h1"
+        ],
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/ucr-evidence-leads.json"
+      },
+      {
+        "code": "DISDATA312",
+        "name": "Robotics",
+        "sourceField": "profile",
+        "courseContribution": "Direct kinematics, manipulation and sensing/control introduction; complementary to technical device/biomechanical analysis, not surgical robotics qualification.",
+        "formalPrerequisite": "DISGATE102",
+        "offeredTerms": [
+          "2028h1"
+        ],
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/ucr-evidence-leads.json"
+      },
+      {
+        "code": "BENENTR111",
+        "name": "Consumer Product Design",
+        "sourceField": "profile",
+        "courseContribution": "Complementary needs/specifications/concept selection/prototyping and product environmental impact; actual consumer-product context is preserved, not relabelled medical-device clinical validation.",
+        "formalPrerequisite": "NONE",
+        "offeredTerms": [
+          "2026h2",
+          "2029h1"
+        ],
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/ucr-evidence-leads.json"
+      },
+      {
+        "code": "ENSSUST112",
+        "name": "Life Cycle Analysis & Circular Economy",
+        "sourceField": "profile",
+        "courseContribution": "Complementary life-cycle environmental/social/health assessment for the limited planetary-health connection; no specialist medical-device or clinical-technology content invented.",
+        "formalPrerequisite": "NONE",
+        "offeredTerms": [
+          "2027h2"
+        ],
+        "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000250/ucr-evidence-leads.json"
+      }
+    ],
+    "selectedActiveCourses": 0,
+    "selectedCourseDescriptions": 0,
+    "conclusion": "Genuine16course leads retained as source-grounded potential contributions; no full24course programme or dependent comparability is certified while the external formal requirement remains unresolved. No no-match inferred from missing coverage or planning."
+  },
+  "content": {
+    "status": "passed-for-partial-record",
+    "presentationMode": "external-programme-unresolved exception with first-year60EC only",
+    "readerFieldPaths": [
+      "comparator.name",
+      "comparator.institution",
+      "comparator.primarySourceUrl",
+      "audience.programmeDescription",
+      "audience.comparisonExplanation",
+      "audience.curriculum.status/componentIds/yearLabel/routeLabel/limitation",
+      "comparator.components[KT1105..KT1955].name/credits",
+      "audience.conceptProgrammeIds/noteTypes/componentNotes/cellNotes",
+      "programmes[comparator].label",
+      "exception.type -> renderer status fallback"
+    ],
+    "audience": {
+      "schemaVersion": "1.0",
+      "programmeDescription": "Clinical Technology combines medicine and engineering to study the human body, disease and medical technology. The joint programme includes integrated medical and technical subjects, clinical and communication skills, design work, a healthcare placement and a research or design capstone.",
+      "comparisonExplanation": "The complete curriculum is still being verified because current official credit allocations conflict. The verified first year is shown below. No UCR comparison or no-match decision has been approved.",
+      "curriculum": {
+        "status": "partial",
+        "componentIds": [
+          "KT1105",
+          "KT1005",
+          "KT1405",
+          "KT1305",
+          "KT1505",
+          "KT1705",
+          "KT1605",
+          "KT1805",
+          "KT1905",
+          "KT1955"
+        ],
+        "yearLabel": "2026–2027",
+        "routeLabel": "Joint bachelor; ordinary programme",
+        "limitation": "The degree requires 180 EC. Current official bachelor sources assign different credit weights to the healthcare placement, leaving the complete allocation unresolved. The displayed first year totals 60 EC."
+      },
+      "conceptProgrammeIds": [],
+      "noteTypes": [],
+      "componentNotes": {},
+      "cellNotes": []
+    },
+    "displayedComponents": [
+      [
+        "KT1105",
+        "Systems Biology",
+        7,
+        "Required current OER component, counted once. The printed full allocation is diagnostic, not a certified 180-EC pathway."
+      ],
+      [
+        "KT1005",
+        "Mathematics 1 & 2 and Programming",
+        6,
+        "Required current OER component, counted once. The printed full allocation is diagnostic, not a certified 180-EC pathway."
+      ],
+      [
+        "KT1405",
+        "Musculoskeletal System and Biomechanics 1",
+        6.5,
+        "Required current OER component, counted once. The printed full allocation is diagnostic, not a certified 180-EC pathway."
+      ],
+      [
+        "KT1305",
+        "Digestion and Thermodynamics",
+        6.5,
+        "Required current OER component, counted once. The printed full allocation is diagnostic, not a certified 180-EC pathway."
+      ],
+      [
+        "KT1505",
+        "Nervous System and Signals",
+        6.5,
+        "Required current OER component, counted once. The printed full allocation is diagnostic, not a certified 180-EC pathway."
+      ],
+      [
+        "KT1705",
+        "Blood-cell Formation and Defence",
+        6.5,
+        "Required current OER component, counted once. The printed full allocation is diagnostic, not a certified 180-EC pathway."
+      ],
+      [
+        "KT1605",
+        "Heart and Lung: the Foundation",
+        6.5,
+        "Required current OER component, counted once. The printed full allocation is diagnostic, not a certified 180-EC pathway."
+      ],
+      [
+        "KT1805",
+        "Urogenital System and Statistics",
+        6.5,
+        "Required current OER component, counted once. The printed full allocation is diagnostic, not a certified 180-EC pathway."
+      ],
+      [
+        "KT1905",
+        "Skills and Safety 1",
+        4,
+        "Required current OER component, counted once. The printed full allocation is diagnostic, not a certified 180-EC pathway."
+      ],
+      [
+        "KT1955",
+        "Academic Formation 1",
+        4,
+        "Required current OER component, counted once. The printed full allocation is diagnostic, not a certified 180-EC pathway."
+      ]
+    ],
+    "allDiagnosticTitlesAndNotesRead": true,
+    "selectedSourceReceipts": [
+      {
+        "id": "source-2",
+        "url": "https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/ME/Onderwijs/GERELATEERD/Reglementen/Archief%20Onderwijsreglementen/2026-2027/OER%20BSc%20KT%202026-2027_DEFINITIEF.pdf",
+        "finalUrl": "https://filelist.tudelft.nl/Studentenportal/Faculteitspecifiek/ME/Onderwijs/GERELATEERD/Reglementen/Archief%20Onderwijsreglementen/2026-2027/OER%20BSc%20KT%202026-2027_DEFINITIEF.pdf",
+        "status": 200,
+        "bytes": 445345,
+        "sha256": "97cfb84ca74a1c735b1b98cbc86c955134e875f8db5b5c2c410461502cc6933d"
+      }
+    ],
+    "fieldToRendererMapping": [
+      "render_exception uses comparator name/institution, the exception-type status fallback and the primary official source link; the new public/API evidence and research/sourceNotes are internal.",
+      "render_audience_context/curriculum_view use the selected English programme description, comparison explanation, clean2026–2027year, joint-bachelor route label, explicit conflicting-bachelor-source limitation and exactly10first-year component IDs. Their names/credits remain60EC.",
+      "No UCR concepts, selected notes, component/cell notes, schedules, alignment cells, optional-research element or course-description modals exist in this active exception. No descriptions were fabricated or re-reviewed without selection. Unchanged shared description approvals are preserved.",
+      "New discovery evidence for10628 describes only the actual limited assignment; the frontend deep links that failed are absent. No reader prose exposes API/provenance investigation. No app/code/renderer behaviour change; record/content checks only, noShiny/browser/screenshots/runtime exercises."
+    ]
+  },
+  "academicStatus": "blocked",
+  "remainingGate": "Obtain an authoritative correction or reconciliation of the adopted2026–2027 BSc OER Appendix3 KT2755 weight4.5EC and the current2026–2027 BSc study-guide weight3.5EC. The guide now explicitly establishes the bachelor allocation and a60+60+60=180EC plan; the adopted appendix still produces60+61+60=181EC despite Article7 degree180EC. Under the current formal-source precedence rule, do not treat a catalogue discrepancy as a formally adopted amendment or choose a credit weight solely to close the total."
+}
