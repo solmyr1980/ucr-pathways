@@ -1,0 +1,50 @@
+{
+  "caseId": "cp-000149",
+  "checkedAt": "2026-11-12T12:44:17.101266+00:00",
+  "canonicalBlob": "d47f8525aca999d318595f058a296d9c9cfe7b22",
+  "decisionBlob": "855372bc1ada1cc0ab9fe0211e6275b4bf52b970",
+  "checks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000149.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000149.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.",
+      "logSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "output": "Operational corpus validation passed.",
+      "logSha256": "0303c6fc01d2185d63162af7bedbf9be3d2eef4da42fc4d355a114f97a69531f"
+    },
+    {
+      "command": "node scripts/build-counselor-review-index.mjs --check",
+      "exitCode": 0,
+      "output": "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+      "logSha256": "c26900407153178ba5a5e40b41d6c719f0f4eb5c062e3226b01961df60f9469d"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "output": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.",
+      "logSha256": "e3bf679d8cf8c5b2718fd9a77a2b7a978383e2c1022e5cb9af4c91fa6bfc0194"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000149.json --output /tmp/a149/replay.json",
+      "exitCode": 0,
+      "output": "Built cp-000149 counselor exception record at /tmp/a149/replay.json",
+      "logSha256": "41ad3eefe3047fbd7ba1490ff34879d3223a32d04cdc8a1ca366e8d14d582128"
+    },
+    {
+      "command": "byte-exact decision/canonical replay",
+      "exitCode": 0,
+      "sha256": "4b68244c2a1e5728f74c7055ef4766dcb61a72cb0ca84bb33a329605bf4587dd"
+    }
+  ],
+  "scope": "Active75EC unresolved exception passes full schema and operational validation. No active UCR selections, schedules or selected course descriptions exist; these checks certify record mechanics, not final comparability or a complete external pathway. Shared unchanged course-description reviews are reused through the full description-fidelity check. App/renderer unchanged; no runtime/browser work."
+}
