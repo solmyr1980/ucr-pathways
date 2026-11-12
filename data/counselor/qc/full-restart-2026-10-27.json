@@ -5418,7 +5418,8 @@
         }
       ],
       "implementationCommits": [
-        "335c80deae190e84b32c6a5b481525556a158142"
+        "335c80deae190e84b32c6a5b481525556a158142",
+        "a4a14da5193976ab1bdfba0a5dea71870967f8ac"
       ],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000218.json",
@@ -11164,38 +11165,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "exhausted",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000218",
-      "activeClaim": {
-        "executionId": "restart-A-cp218-revisit-20261112T153516Z",
-        "worker": "A",
-        "caseId": "cp-000218",
-        "claimedAt": "2026-11-12T15:35:16.934142+00:00",
-        "executionKind": "permitted-deferred-revisit",
-        "reviewedInputCommit": "215e5fa1397c7a896c3cddf01e1ac6a437bf6091",
-        "inputBlobs": {
-          "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000218.json": "e4e00e90aba4fd116076014d23f781f576671a28",
-          "data/counselor/comparisons/cp-000218.json": "8e0bff2421489c462e5f0ec74e7c11fe4c7d764e",
-          "data/registry/programme_interests.csv": "361018a66e2dc879e4d004343d22f15f7a28ef42",
-          "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Publish and verify CP218 permittedrevisit source/content/provisional repairs and applicableCI. Then record lastpermittedrevisit exhausted; verify WorkerAqueue exhaustion and disable only WorkerAtask underuserauthority.28deferredcases stayincomplete; WorkerBcontinues.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": null,
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -12816,13 +12794,14 @@
         "cp-000135": 1,
         "cp-000149": 1,
         "cp-000178": 1,
-        "cp-000211": 1
+        "cp-000211": 1,
+        "cp-000218": 1
       },
       "lastCheckpoint": {
-        "caseId": "cp-000211",
-        "executionId": "restart-A-cp211-revisit-20261112T142924Z",
-        "state": "deferred-revisit-incomplete",
-        "reviewedInputCommit": "a06f3addefa49e5830ebd696404f908143343603",
+        "caseId": "cp-000218",
+        "executionId": "restart-A-cp218-revisit-20261112T153516Z",
+        "state": "deferred-revisit-incomplete; assignment-and-permitted-revisits-exhausted",
+        "reviewedInputCommit": "a4a14da5193976ab1bdfba0a5dea71870967f8ac",
         "inputBlobs": {
           "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
           "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
@@ -12830,9 +12809,9 @@
           "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
           "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
           "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000211.json": "09533ebafa221a352fb7762a93dd8ef76c819641",
-          "data/counselor/comparisons/cp-000211.json": "e8c6695bfba9f855420b7894a50ec8117475a981",
-          "data/registry/programme_interests.csv": "93fb8ec4af21b1d2b718dbab42b5655b36bebabd",
+          "data/counselor/decisions/cp-000218.json": "e4e00e90aba4fd116076014d23f781f576671a28",
+          "data/counselor/comparisons/cp-000218.json": "8e0bff2421489c462e5f0ec74e7c11fe4c7d764e",
+          "data/registry/programme_interests.csv": "361018a66e2dc879e4d004343d22f15f7a28ef42",
           "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
           "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
           "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
@@ -12841,30 +12820,31 @@
           "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
           "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26",
           "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
-          "data/counselor/review-programmes.json": "f474d8ed3d68d684574ed3366b82e86dcbad3a32",
-          "data/counselor/review-interests.json": "b27e01034d4c3889496fad412b0c1e740a249614",
+          "data/counselor/review-programmes.json": "9564c2caac29f26c31959682e1fcf277d1281f66",
+          "data/counselor/review-interests.json": "45110774d9d53d68fd12fc668e41d08cc4737c88",
           "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+          "pilot/shiny/data/courses/BEN.json": "71fb5c570a7c42c35473d8a0483dcc17ec16a665",
           "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
           "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
           "pilot/shiny/data/courses/HCB.json": "8af6675a1408cec96ea570100ee89cff97563288",
           "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/source-review.json": "63434621b439a3dd0d1f7923a11e686b608a0b6c",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/source-attempt-1.json": "f906cbde798cd6c0415133581cd266bd525ce242",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/source-attempt-2.json": "02cbb1571d3c183cd05874b6fde3eb551dbcbe04",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/interest-review.json": "9a352b32e4af6d38d660152b8325a914a33f5e26",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/course-comparability-review.json": "d74f8318b39952fcf7acd46ed37e819d3774ab94",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/content-review.json": "80011be95f3190953b08f3d5817ef7a4e2d30bd2",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/provisional-decision.json": "ceebc2c9beb80e5657116efadd1c973f6d8bcbf7",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/provisional-canonical.json": "26cff73e48bd9efc48f3f1ef08663c196926c067",
-          "canonical": "e8c6695bfba9f855420b7894a50ec8117475a981",
-          "decision": "09533ebafa221a352fb7762a93dd8ef76c819641"
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/source-review.json": "92b6b102ed6c4ee9ff7190bf60b674202dc275d4",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/source-attempt-1.json": "3f6c8290c3b79438d090e5abf381583039aa5a11",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/source-attempt-2.json": "7302e5e10e0fc49f3d81702f739133f9fce8e785",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/interest-review.json": "8218a11a9b543dcaa6d5269636e0f490d8e53642",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/course-comparability-review.json": "b8ba2eb139a73372cf739d7aedd1c0efb5043284",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/content-review.json": "decbec3c6114240c4c8ef8047d70c1864e26ffe3",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/provisional-decision.json": "6750d01a25e533fa8c3a8aed0160a3669b04a234",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/provisional-canonical.json": "55891b6ed57e33e2c810e79b210c584e12ce4cfe",
+          "canonical": "8e0bff2421489c462e5f0ec74e7c11fe4c7d764e",
+          "decision": "e4e00e90aba4fd116076014d23f781f576671a28"
         },
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/revisit-source-review.json",
-        "nextAction": "CP211 remains deferred and incomplete after its one permitted revisit. Obtain an adopted September2026entry rule or equivalence for the required10EC PsycholinguisticsProject and the two selected neuro-/developmental-language graduation seminars, reconciling earlier Psycholinguistics, StatisticsII and clinical prerequisites. Preserve180listedEC,47interest reviews,23bounded contribution reviews,24unchanged description reviews and the feasible24course internal plan. No academic/presentation approval or target-level no-match. Resume CP218 permitted revisit next execution; task remains enabled.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/revisit-source-review.json",
+        "nextAction": "CP218 remains deferred and incomplete after its one permitted revisit. Obtain the September 2026 Culture-route thesis manual or adopted methods equivalence/amendment, and the applicable Culture internship entry requirements. Preserve 180 listed EC, 49 interest reviews, 45 course contribution/unchanged description reviews and three feasible internal UCR plans. No academic or presentation approval and no target-level no-match. Worker A has exhausted all assigned non-deferred cases and permitted deferred revisits; after this checkpoint is verified, disable only its existing task. Worker B continues. After both workers exhaust their assignments, review all remaining deferrals for case-level recommendations and a separate user decision under protocol, before considering final release.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown",
-        "publicationVerifiedCommit": "a06f3addefa49e5830ebd696404f908143343603",
-        "publicationVerificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/revisit-publication-verification.json"
+        "publicationVerifiedCommit": "a4a14da5193976ab1bdfba0a5dea71870967f8ac",
+        "publicationVerificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/revisit-publication-verification.json"
       },
       "checkpointHistory": [
         {
@@ -23473,6 +23453,54 @@
           "runtimeReasoningEffort": "unknown",
           "publicationVerifiedCommit": "89b525dd02cbb99598b4e2e397a8f769407494ac",
           "publicationVerificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000178/revisit-publication-verification.json"
+        },
+        {
+          "caseId": "cp-000211",
+          "executionId": "restart-A-cp211-revisit-20261112T142924Z",
+          "state": "deferred-revisit-incomplete",
+          "reviewedInputCommit": "a06f3addefa49e5830ebd696404f908143343603",
+          "inputBlobs": {
+            "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000211.json": "09533ebafa221a352fb7762a93dd8ef76c819641",
+            "data/counselor/comparisons/cp-000211.json": "e8c6695bfba9f855420b7894a50ec8117475a981",
+            "data/registry/programme_interests.csv": "93fb8ec4af21b1d2b718dbab42b5655b36bebabd",
+            "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+            "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+            "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+            "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+            "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+            "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26",
+            "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+            "data/counselor/review-programmes.json": "f474d8ed3d68d684574ed3366b82e86dcbad3a32",
+            "data/counselor/review-interests.json": "b27e01034d4c3889496fad412b0c1e740a249614",
+            "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+            "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+            "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+            "pilot/shiny/data/courses/HCB.json": "8af6675a1408cec96ea570100ee89cff97563288",
+            "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/source-review.json": "63434621b439a3dd0d1f7923a11e686b608a0b6c",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/source-attempt-1.json": "f906cbde798cd6c0415133581cd266bd525ce242",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/source-attempt-2.json": "02cbb1571d3c183cd05874b6fde3eb551dbcbe04",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/interest-review.json": "9a352b32e4af6d38d660152b8325a914a33f5e26",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/course-comparability-review.json": "d74f8318b39952fcf7acd46ed37e819d3774ab94",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/content-review.json": "80011be95f3190953b08f3d5817ef7a4e2d30bd2",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/provisional-decision.json": "ceebc2c9beb80e5657116efadd1c973f6d8bcbf7",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/provisional-canonical.json": "26cff73e48bd9efc48f3f1ef08663c196926c067",
+            "canonical": "e8c6695bfba9f855420b7894a50ec8117475a981",
+            "decision": "09533ebafa221a352fb7762a93dd8ef76c819641"
+          },
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/revisit-source-review.json",
+          "nextAction": "CP211 remains deferred and incomplete after its one permitted revisit. Obtain an adopted September2026entry rule or equivalence for the required10EC PsycholinguisticsProject and the two selected neuro-/developmental-language graduation seminars, reconciling earlier Psycholinguistics, StatisticsII and clinical prerequisites. Preserve180listedEC,47interest reviews,23bounded contribution reviews,24unchanged description reviews and the feasible24course internal plan. No academic/presentation approval or target-level no-match. Resume CP218 permitted revisit next execution; task remains enabled.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "publicationVerifiedCommit": "a06f3addefa49e5830ebd696404f908143343603",
+          "publicationVerificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/revisit-publication-verification.json"
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -29159,6 +29187,33 @@
           "endedAt": "2026-11-12T14:44:48.986023+00:00",
           "result": "permitted-revisit-incomplete-essential-source-unresolved",
           "state": "checkpointed"
+        },
+        {
+          "executionId": "restart-A-cp218-revisit-20261112T153516Z",
+          "worker": "A",
+          "caseId": "cp-000218",
+          "claimedAt": "2026-11-12T15:35:16.934142+00:00",
+          "executionKind": "permitted-deferred-revisit",
+          "reviewedInputCommit": "215e5fa1397c7a896c3cddf01e1ac6a437bf6091",
+          "inputBlobs": {
+            "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000218.json": "e4e00e90aba4fd116076014d23f781f576671a28",
+            "data/counselor/comparisons/cp-000218.json": "8e0bff2421489c462e5f0ec74e7c11fe4c7d764e",
+            "data/registry/programme_interests.csv": "361018a66e2dc879e4d004343d22f15f7a28ef42",
+            "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "CP218 remains deferred and incomplete after its one permitted revisit. Obtain the September 2026 Culture-route thesis manual or adopted methods equivalence/amendment, and the applicable Culture internship entry requirements. Preserve 180 listed EC, 49 interest reviews, 45 course contribution/unchanged description reviews and three feasible internal UCR plans. No academic or presentation approval and no target-level no-match. Worker A has exhausted all assigned non-deferred cases and permitted deferred revisits; after this checkpoint is verified, disable only its existing task. Worker B continues. After both workers exhaust their assignments, review all remaining deferrals for case-level recommendations and a separate user decision under protocol, before considering final release.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-12T15:49:54.711702+00:00",
+          "result": "permitted-revisit-incomplete-essential-source-unresolved",
+          "state": "checkpointed"
         }
       ],
       "sourceRetryLog": [
@@ -29430,8 +29485,28 @@
           "outcome": "incomplete; one permitted revisit exhausted",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000211/revisit-source-review.json",
           "nextAction": "CP211 remains deferred and incomplete after its one permitted revisit. Obtain an adopted September2026entry rule or equivalence for the required10EC PsycholinguisticsProject and the two selected neuro-/developmental-language graduation seminars, reconciling earlier Psycholinguistics, StatisticsII and clinical prerequisites. Preserve180listedEC,47interest reviews,23bounded contribution reviews,24unchanged description reviews and the feasible24course internal plan. No academic/presentation approval or target-level no-match. Resume CP218 permitted revisit next execution; task remains enabled."
+        },
+        {
+          "caseId": "cp-000218",
+          "executionId": "restart-A-cp218-revisit-20261112T153516Z",
+          "executionKind": "permitted-deferred-revisit",
+          "checkedOn": "2026-11-12",
+          "essentialEvidence": "Obtain the September2026 Culture-route thesis manual or adopted amendment/equivalence reconciling Article2.5(d) DigitalDataAndDigitalTechniques with its absence from the exact8A217-2026plan, and the applicable Culture internship manual/entry requirements under GeneralArticle4.5(5). The120ECthreshold and30ECminor capacity do not independently establish the missing methods enrolment/waiver or internship entry.",
+          "officialAlternative": "Fresh Dutch/English regulations and programme appendices, faculty Rules and Guidelines, exact cohort catalogue, thesis/internship/digital-methods entries and official public searches. All controlling records unchanged; no adopted Culture-route methods equivalence or applicable internship entry manual established.",
+          "outcome": "incomplete; one permitted revisit exhausted",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/revisit-source-review.json",
+          "nextAction": "CP218 remains deferred and incomplete after its one permitted revisit. Obtain the September 2026 Culture-route thesis manual or adopted methods equivalence/amendment, and the applicable Culture internship entry requirements. Preserve 180 listed EC, 49 interest reviews, 45 course contribution/unchanged description reviews and three feasible internal UCR plans. No academic or presentation approval and no target-level no-match. Worker A has exhausted all assigned non-deferred cases and permitted deferred revisits; after this checkpoint is verified, disable only its existing task. Worker B continues. After both workers exhaust their assignments, review all remaining deferrals for case-level recommendations and a separate user decision under protocol, before considering final release."
         }
-      ]
+      ],
+      "exhaustion": {
+        "recordedAt": "2026-11-12T15:49:54.711702+00:00",
+        "reason": "Worker A has exhausted its fixed 219-case assignment and every permitted deferred revisit: no unfinished non-deferred case and no deferred case with an unused permitted revisit remains. Deferred cases remain incomplete; exhaustion does not confer academic approval. Only Worker A task is to be disabled. Worker B and the active audit remain unchanged.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/worker-A-exhaustion.json",
+        "finalCase": "cp-000218",
+        "automationId": "6ae077e8ca18819191e1e0f323141748",
+        "automationDisableState": "pending checkpoint publication and verification",
+        "nextAction": "CP218 remains deferred and incomplete after its one permitted revisit. Obtain the September 2026 Culture-route thesis manual or adopted methods equivalence/amendment, and the applicable Culture internship entry requirements. Preserve 180 listed EC, 49 interest reviews, 45 course contribution/unchanged description reviews and three feasible internal UCR plans. No academic or presentation approval and no target-level no-match. Worker A has exhausted all assigned non-deferred cases and permitted deferred revisits; after this checkpoint is verified, disable only its existing task. Worker B continues. After both workers exhaust their assignments, review all remaining deferrals for case-level recommendations and a separate user decision under protocol, before considering final release."
+      }
     },
     "B": {
       "id": "B",

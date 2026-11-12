@@ -1,0 +1,188 @@
+{
+  "caseId": "cp-000218",
+  "verifiedAt": "2026-11-12T15:49:54.711702+00:00",
+  "commit": "a4a14da5193976ab1bdfba0a5dea71870967f8ac",
+  "parent": "bc86d1b17232759d1288a1dc371ecb58d9658606",
+  "uploadedBlobs": [
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27.json",
+      "size": 2953028,
+      "sha": "4166c531ac233a63aa05a228b6aad7552d58c992"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27/cp-000218.json",
+      "size": 39038,
+      "sha": "62559863a7b5189139f33fecc7658de0ebe5fdd3"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/pre-revisit-provisional-canonical.json",
+      "size": 153474,
+      "sha": "cd8f5c04cb504fe2610619e11ea4cc2eecd5659b"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/pre-revisit-provisional-decision.json",
+      "size": 37378,
+      "sha": "ba281af3455d944c397a1514512a3d3e3d59d781"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/provisional-canonical.json",
+      "size": 156805,
+      "sha": "55891b6ed57e33e2c810e79b210c584e12ce4cfe"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/provisional-decision.json",
+      "size": 39810,
+      "sha": "6750d01a25e533fa8c3a8aed0160a3669b04a234"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/revisit-content-review.json",
+      "size": 84632,
+      "sha": "6622e3a22e184ceff5608aab719a7de57c0373ac"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/revisit-course-review.json",
+      "size": 86522,
+      "sha": "47a15f7320095ba75e49aba58b75e40e821106ea"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/revisit-interest-review.json",
+      "size": 27982,
+      "sha": "895420e827062bb2396584df79a96f0ca3538343"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/revisit-mechanical-verification.json",
+      "size": 4277,
+      "sha": "e49957f7c99e1d98cd4d8b12a4d4382bad2bdb6e"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/revisit-source-first-final-pass.json",
+      "size": 20189,
+      "sha": "5b9f1bfc972766e30a1ba5b667ce3f3c10d26864"
+    },
+    {
+      "path": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/revisit-source-review.json",
+      "size": 14928,
+      "sha": "d589f1c1ab1b57b75f7bbad04d2d909000533d7c"
+    }
+  ],
+  "allPublishedBytesMatch": true,
+  "byteExactActiveReplay": true,
+  "byteExactProvisionalReplay": true,
+  "checks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000218.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000218.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.",
+      "logSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/provisional-canonical.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/provisional-canonical.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.",
+      "logSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "output": "Operational corpus validation passed.",
+      "logSha256": "0303c6fc01d2185d63162af7bedbf9be3d2eef4da42fc4d355a114f97a69531f"
+    },
+    {
+      "command": "node scripts/build-counselor-review-index.mjs --check",
+      "exitCode": 0,
+      "output": "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+      "logSha256": "c26900407153178ba5a5e40b41d6c719f0f4eb5c062e3226b01961df60f9469d"
+    },
+    {
+      "command": "node scripts/validate-registry-interests.mjs",
+      "exitCode": 0,
+      "output": "Valid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.",
+      "logSha256": "0dc1ff8a36961675f58e702191ec97f43c501db23f02270d74dfb6913450c3cc"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "output": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.",
+      "logSha256": "e3bf679d8cf8c5b2718fd9a77a2b7a978383e2c1022e5cb9af4c91fa6bfc0194"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs data/counselor/decisions/cp-000218.json --output /tmp/a218/replay.json",
+      "exitCode": 0,
+      "output": "Built cp-000218 counselor exception record at /tmp/a218/replay.json",
+      "logSha256": "3cb166d8422f5da48e98d2d3c071fc7b95d3dc8af2eb6b7b89fdacce22457262"
+    },
+    {
+      "command": "node scripts/build-counselor-production.mjs docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/provisional-decision.json --output /tmp/a218/provisional-replay.json",
+      "exitCode": 0,
+      "output": "Built cp-000218 counselor comparison record at /tmp/a218/provisional-replay.json",
+      "logSha256": "356200a6a9be76933222280b8ff9f9602ea1651501be6018f101f2bd5af20691"
+    },
+    {
+      "command": "byte-exact active and internal provisional decision/canonical replays",
+      "exitCode": 0,
+      "canonicalSha256": "a29d9fd845c2ecff4eb8423e9a1ef7ec2cf70d758c81b9fae67727126e486e1b",
+      "provisionalSha256": "329b210922ee8e4132d1cd8363d46155a74505e7b7416a3ae59d7613a7e609b1"
+    }
+  ],
+  "applicableCI": [
+    {
+      "name": "Validate Shiny pilots",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "a4a14da5193976ab1bdfba0a5dea71870967f8ac",
+      "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/43251653582"
+    }
+  ],
+  "reviewedInputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000218.json": "e4e00e90aba4fd116076014d23f781f576671a28",
+    "data/counselor/comparisons/cp-000218.json": "8e0bff2421489c462e5f0ec74e7c11fe4c7d764e",
+    "data/registry/programme_interests.csv": "361018a66e2dc879e4d004343d22f15f7a28ef42",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+    "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "data/counselor/review-programmes.json": "9564c2caac29f26c31959682e1fcf277d1281f66",
+    "data/counselor/review-interests.json": "45110774d9d53d68fd12fc668e41d08cc4737c88",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "71fb5c570a7c42c35473d8a0483dcc17ec16a665",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "pilot/shiny/data/courses/HCB.json": "8af6675a1408cec96ea570100ee89cff97563288",
+    "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/source-review.json": "92b6b102ed6c4ee9ff7190bf60b674202dc275d4",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/source-attempt-1.json": "3f6c8290c3b79438d090e5abf381583039aa5a11",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/source-attempt-2.json": "7302e5e10e0fc49f3d81702f739133f9fce8e785",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/interest-review.json": "8218a11a9b543dcaa6d5269636e0f490d8e53642",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/course-comparability-review.json": "b8ba2eb139a73372cf739d7aedd1c0efb5043284",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/content-review.json": "decbec3c6114240c4c8ef8047d70c1864e26ffe3",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/provisional-decision.json": "6750d01a25e533fa8c3a8aed0160a3669b04a234",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000218/provisional-canonical.json": "55891b6ed57e33e2c810e79b210c584e12ce4cfe",
+    "canonical": "8e0bff2421489c462e5f0ec74e7c11fe4c7d764e",
+    "decision": "e4e00e90aba4fd116076014d23f781f576671a28"
+  },
+  "disposition": "deferred; incomplete; one permitted revisit exhausted",
+  "remainingGate": "Obtain the September2026 Culture-route thesis manual or adopted amendment/equivalence reconciling Article2.5(d) DigitalDataAndDigitalTechniques with its absence from the exact8A217-2026plan, and the applicable Culture internship manual/entry requirements under GeneralArticle4.5(5). The120ECthreshold and30ECminor capacity do not independently establish the missing methods enrolment/waiver or internship entry.",
+  "nextAction": "CP218 remains deferred and incomplete after its one permitted revisit. Obtain the September 2026 Culture-route thesis manual or adopted methods equivalence/amendment, and the applicable Culture internship entry requirements. Preserve 180 listed EC, 49 interest reviews, 45 course contribution/unchanged description reviews and three feasible internal UCR plans. No academic or presentation approval and no target-level no-match. Worker A has exhausted all assigned non-deferred cases and permitted deferred revisits; after this checkpoint is verified, disable only its existing task. Worker B continues. After both workers exhaust their assignments, review all remaining deferrals for case-level recommendations and a separate user decision under protocol, before considering final release."
+}
