@@ -8,8 +8,8 @@
     "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
     "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
     "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-    "data/counselor/decisions/cp-000451.json": "c1d574e8c47facef7400a458e1174d781b51f2ee",
-    "data/counselor/comparisons/cp-000451.json": "8a9cb8f68749b76f41e02bf818a9a633024f0624",
+    "data/counselor/decisions/cp-000451.json": "f099898f503ea51befbd67baa53ada4c82a6859b",
+    "data/counselor/comparisons/cp-000451.json": "f2518fb6243317c2233377158346cb61dea70703",
     "data/registry/programme_interests.csv": "10079867ee2363c7450e282a46f56f18bb859917",
     "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
     "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
@@ -26,8 +26,8 @@
     "pilot/shiny/data/courses/ENS.json": "b323d5993ab47be5389001b547054259cbfdbfa2",
     "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
     "pilot/shiny/data/courses/HCB.json": "8af6675a1408cec96ea570100ee89cff97563288",
-    "canonical": "8a9cb8f68749b76f41e02bf818a9a633024f0624",
-    "decision": "c1d574e8c47facef7400a458e1174d781b51f2ee"
+    "canonical": "f2518fb6243317c2233377158346cb61dea70703",
+    "decision": "f099898f503ea51befbd67baa53ada4c82a6859b"
   },
   "verificationPolicy": "record-content-review-2026-10-31",
   "presentationMode": {
@@ -98,7 +98,39 @@
         "bms-field-project": "Integrated marine field research includes intertidal sampling, sediment transport, fish ecology and observations of Wadden Sea uses. Laboratory and fieldwork safety are required; BMS students have admission priority.",
         "bms-marine-methods": "Research design, marine sampling and monitoring, data analysis and a multi-day overseas field practical. Laboratory and fieldwork safety are required.",
         "bms-electives": "Thirty open credits can be used for a minor and/or individual electives. No particular minor, placement or specialist package is assumed."
-      }
+      },
+      "cellNotes": [
+        {
+          "programmeId": "comparator",
+          "reference": "bms-choice",
+          "text": "Three-credit restricted choice between Mathematics Applied: Introduction and Statistics 1. This example takes the first-listed Mathematics Applied: Introduction, for a student with Mathematics A preparation; it precedes Mathematics Applied: Analysis. Statistics 2 assumes active high-school statistics or Statistics 1."
+        },
+        {
+          "programmeId": "comparator",
+          "reference": "bms-thesis",
+          "text": "Required 12-credit individual research thesis, with a proposal, research, report, presentation and defence. Entry requires at least 102 programme credits, all 60 first-year credits and Research Methods for Marine Sciences; the coordinator checks preparation with the study adviser. The boundary-crossing and personal-leadership portfolio must also pass. Assessment covers research execution (40%), the report (40%), presentation (10%) and defence (10%)."
+        },
+        {
+          "programmeId": "comparator",
+          "reference": "bms-leadership",
+          "text": "The 3-credit course includes a core and a learning ribbon across six required courses, ending during the thesis. Passing its portfolio is required for the thesis grade; these are not extra credits."
+        },
+        {
+          "programmeId": "comparator",
+          "reference": "bms-field-project",
+          "text": "Integrated marine field research includes intertidal sampling, sediment transport, fish ecology and observations of Wadden Sea uses. Laboratory and fieldwork safety are required; BMS students have admission priority."
+        },
+        {
+          "programmeId": "comparator",
+          "reference": "bms-marine-methods",
+          "text": "Research design, marine sampling and monitoring, data analysis and a multi-day overseas field practical. Laboratory and fieldwork safety are required."
+        },
+        {
+          "programmeId": "comparator",
+          "reference": "bms-electives",
+          "text": "Thirty open credits can be used for a minor and/or individual electives. No particular minor, placement or specialist package is assumed."
+        }
+      ]
     },
     "programmeTitles": [
       "Marine ecosystems, coasts & environmental governance",
@@ -1388,7 +1420,7 @@
   "fieldToRendererMapping": [
     "pilot/shared.R comparator metadata and visible_label supply approved English programme labels; canonical course names and source/UCR hrefs remain factual display content.",
     "pilot/counselor-shiny/app.R render_audience_context selects audience programmeDescription, comparisonExplanation and clean curriculum year/status. render_comparison_summary selects existing canonical concepts by the three conceptProgrammeIds. render_audience_notes selects exactly one reviewed limitation note.",
-    "Full comparison uses block titles, canonical cell text/credits and audience.cellNotes only; raw alignment reasons and sourceNotes are not prose fallbacks. No cellNotes are selected here. The six componentNotes are reviewed for supported external-curriculum views even where the normal full table does not print them.",
+    "Full comparison uses block titles, canonical cell text/credits and audience.cellNotes. Six explicit comparator cellNotes select the reviewed mathematics/statistics choice, thesis entry/assessment/portfolio, leadership ribbon, field-project, marine-methods and open-elective qualifications by stable component ID. The same reviewed text remains in componentNotes for external curriculum views. Raw alignment reasons and sourceNotes are not prose fallbacks.",
     "course_click uses the exact code and selected course name with shared course_description lookup in department cache.descriptions[code]. All 37 selected descriptions are covered: 31 exact unchanged reviews reused, six selected text/source reviews newly read. Course-level contributions freshly assessed regardless of prose reuse.",
     "Optional independent research remains one 15-credit comparison-only element per UCR alternative, adjacent to the 12-credit thesis. It is absent from the 24-course schedules and 180-credit totals. Internal research and evidence provenance have no reader-facing fallback."
   ],
@@ -1396,5 +1428,8 @@
     "All programme/component/course titles, three concepts, description/status explanation, four block titles, one limitation note, six component notes, five source links and selected course-description texts read in context. English names reflect actual content; no raw administrative title fallback.",
     "Clarified mathematics/statistics choice and preparation, zero-credit safety, field methods, open space, thesis entry, assessment and required portfolio. Specialist marine/field/aquaculture limits remain visible; energy is general systems appraisal, not offshore engineering.",
     "No app or renderer code changed. No Shiny/R/browser installation, screenshot or modal exercise performed. Record-content approval does not certify runtime behaviour or grant final release."
+  ],
+  "contentPathCorrection": [
+    "After the first repair publication, explicitly selected the six already-reviewed comparator qualifications for the normal comparison table; componentNotes alone serve the external curriculum view. No app or renderer code change."
   ]
 }
