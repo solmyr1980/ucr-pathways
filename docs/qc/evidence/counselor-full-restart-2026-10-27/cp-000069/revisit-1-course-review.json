@@ -1,0 +1,928 @@
+{
+  "caseId": "cp-000069",
+  "reviewedOn": "2026-11-12T02:42:00.295118+00:00",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000069.json": "1593a2a2d601e19a87178975c1e80d2ab013d80d",
+    "data/counselor/comparisons/cp-000069.json": "2d60ce165c6a594addf96725e3d3bc642331272e",
+    "data/registry/programme_interests.csv": "f9e4078fe8e5f27296a3159b9052b7cf0a167577",
+    "data/counselor/review-programmes.json": "8659dc02fa6832d540f3f88bf1c8c3f89a3df61f",
+    "data/counselor/review-interests.json": "136bf94b4a9d9385db844ef9ded54835792d2d84",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "71fb5c570a7c42c35473d8a0483dcc17ec16a665",
+    "pilot/shiny/data/courses/ENS.json": "b323d5993ab47be5389001b547054259cbfdbfa2",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+  },
+  "reviewedContributions": [
+    {
+      "code": "ACCPPDE101",
+      "name": "Personal & Professional Development",
+      "evidence": {
+        "description2": "This course is a first-year requirement and aims to stimulate personal development, namely, being able to actively, consciously and ethically orientate oneself in relation to others and the world. It supports the development of core personal and academic skills that enhance critical thinking and independent learning. It seeks to improve and develop academic writing and presenting skills and helps students develop the foundational skills and attitudes to reflect on societal issues and engage with societal partners.",
+        "profile": "Develops academic writing and research-literacy skills alongside personal development and civic engagement. Students locate and evaluate scholarly sources, synthesize literature, formulate research questions and arguments, and construct a research-paper introduction. A community-engaged project with a societal partner connects these skills to collaboration, reflection and practical contribution. Personal development planning addresses learning goals, self-efficacy, and stress and time management; the course also considers responsible academic use of AI.",
+        "topics": "Scholarly sources and research questions; Argumentation and thesis statements; Literature synthesis; Academic integrity and referencing; Community engagement; Personal learning goals and reflective learning; Collaborative learning; Self-efficacy; Stress and time management; Responsible use of AI",
+        "methods": "Scholarly literature searching and source evaluation; Literature synthesis; CARS model for research introductions; Reflective development planning; Community project co-design",
+        "outline_source": "ACCPPDE1011.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "MandatoryPPDalsooffersspecificacademicquestion/source/writing/peerfeedbackmethods;boundedpartialAcademicSkillsrelationshipverifiedfromactualexternaldetails."
+    },
+    {
+      "code": "BENGATE102",
+      "name": "Research Methods & Statistics",
+      "evidence": {
+        "description2": "Research Methods & Statistics gives you a strong foundation in how business management—and social and behavioral sciences—move from mere practices to true fields of scientific study. You’ll learn how to plan research logically, from designing studies to working with real data using experimental and survey techniques. You’ll also study descriptive and inferential statistics, with a brief intro to multivariate tools.",
+        "profile": "Introduces empirical research design and statistical analysis, followed by a substantial student research project. Students study operationalization, measurement quality, sampling, surveys and experimental and nonexperimental designs, then descriptive statistics, estimation, hypothesis testing and introductory regression. R and R Commander support data display and analysis. Project teams develop instruments and a research plan, collect and analyze data, and report results under explicit research-ethics and privacy requirements.",
+        "topics": "Scientific inquiry and hypotheses; Operationalization and measurement; Reliability and validity; Survey construction and sampling; Randomized and quasi-experimental designs; Nonexperimental and qualitative research; Descriptive statistics; Sampling distributions and estimation; Hypothesis testing and confidence intervals; Association and regression; Research ethics and anonymous data collection",
+        "methods": "Survey design; Probability and nonprobability sampling; Experimental and nonexperimental research design; R and R Commander data analysis; Descriptive statistics and visualization; Scale-reliability analysis; One- and two-sample mean tests; ANOVA; Chi-square tests; Correlation and regression; Empirical data collection and analysis",
+        "outline_source": "BENGATE102.docx",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "Sampling,measurement,surveys/experimentsandempiricalRprojectsupportsocialresearchdesignandinterpretation."
+    },
+    {
+      "code": "ENSDELT111",
+      "name": "Building with Nature",
+      "evidence": {
+        "description2": "Introduces the sustainable engineering approach of working with natural processes for flood protection, land reclamation and port development. Covers history and principles of ecosystem‑based design, explores case studies and includes guest lectures and field excursions.",
+        "profile": "Introduces approaches that combine human infrastructure with natural processes and ecosystem health, with particular attention to Zeeland and the history of water management on Walcheren. Students examine applications across sandy and muddy coasts, lowland lakes, rivers and estuaries, cities and ports. Projects investigate ecological connectivity and formulate a Building with Nature intervention; a practical wall-building project explores constructed structures.",
+        "topics": "Nature-based infrastructure; Coastal and water management; Walcheren's water-management history; Sandy and muddy coasts; Lowland lakes; Rivers and estuaries; Urban nature-based solutions; Harbour habitats; Habitat connectivity; Ecoducts and fish ladders",
+        "methods": "Building with Nature case analysis; Ecological-corridor project analysis; Nature-based intervention design; Construction and testing of model walls",
+        "outline_source": "ENSDELT1111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Nature-basedinfrastructure/ecologicalconnectivityandinterventiondesignprovideconcretepracticalsustainabilityinitiativecontext,notcultural/architecturalhistory."
+    },
+    {
+      "code": "ENSDELT211",
+      "name": "Living with Water",
+      "evidence": {
+        "description2": "Explores sustainable water management in delta regions. Focuses on adaptation to rising seas, floods and land subsidence; engages students in projects in Zeeland; and highlights nature‑based solutions and resilient infrastructure.",
+        "profile": "Examines how delta societies manage water risks and opportunities, using Zeeland as a central case. Physical and ecological challenges such as flooding, salinization, freshwater scarcity, subsidence and pollution are connected to infrastructure, history, governance, law and justice. Students evaluate engineered and nature-based responses, considering trade-offs and long-term consequences. Site-based inquiry and a project apply these concepts to context-sensitive adaptation in a delta region.",
+        "topics": "Delta environments; Flood risk and protection; Drainage and freshwater management; Sea-level rise and subsidence; Salinization; Water infrastructure and ecological consequences; Water governance, law and justice; Contaminants and pollution; EU Water Framework Directive; Nature-based adaptation; Urban ecology and water; Long-term delta resilience",
+        "methods": "Site-based water-management case analysis; Comparative appraisal of engineered and nature-based solutions; Context-sensitive adaptation-strategy development",
+        "outline_source": "ENSDELT211.pdf",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "Deltarisk,watermanagement,governance/justiceandsituatedadaptationdesignsupportsocial/environmentalsustainabilityinitiatives."
+    },
+    {
+      "code": "ENSDELT312",
+      "name": "Governance of Sustainability",
+      "evidence": {
+        "description2": "This course examines sustainability through the lens of governance: “a process of rule-making and collective decision-making that includes both governmental and non-governmental actors in shaping public policy” (Fenger & Bekkers, 2016). Taking this lens, we ask questions such as how are sustainability policies on the local, national, and international level made and enforced? Which actors represent which interests, and which are most influential? How is public opinion on sustainability shaped, and how does public opinion shape politics? What, at the end of the day, determines effective policy for sustainability? By the end of this course, you will have gained a deep appreciation of the complexity of the governance dimension of sustainability, and have developed the theoretical and practical understanding to critically assess mainstream policy decisions.",
+        "profile": "Analyzes sustainability as a problem of collective decision-making involving governments, markets and civil society. Concepts of institutions, power, participation, justice and problem complexity frame competing technological and systemic responses. Structured cases examine food, freshwater, energy and climate mitigation. Students apply governance frameworks to a Zeeland issue, consult relevant organizations or experts, and produce policy advice or an evaluation assessing effectiveness, feasibility and stakeholder interests.",
+        "topics": "Institutions, actors and power; Collective action and common-pool resources; Governance modes and networks; Techno-optimism and ecological limits; Climate justice; Populism and environmental politics; Wicked and long-term problems; Public participation; Food, water and energy governance; Markets, public goods and externalities; Adaptive and global governance; Climate mitigation; Policy effectiveness and feasibility",
+        "methods": "Governance-framework application; Problem diagnosis and causal analysis; Stakeholder and policy-option matrices; Policy evaluation; Policy-advice memo development; Stakeholder and expert interviewing; Comparative analysis of normative policy perspectives",
+        "outline_source": "ENSDELT312.docx",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "Institutions,participation,stakeholdersandpolicyadviceprovidecollectivedecisionmethods;notidenticaltoPoliticalVisionsofNaturephilosophicalhistory."
+    },
+    {
+      "code": "ENSECOL212",
+      "name": "Ecosystems Uncovered: How Nature Works",
+      "evidence": {
+        "description2": "Focuses on basic principles of ecology. Studies how environmental conditions affect organisms and examines ecological principles governing individuals, populations, communities and ecosystems, including ecological modelling and applied case studies.",
+        "profile": "Develops ecological principles from organisms and populations to communities and ecosystems. Environmental conditions, resources and life cycles frame competition, feeding relationships, selection, population dynamics and biodiversity. Energy and matter cycles connect ecological processes to conservation and human impacts. Dedicated practical sessions teach simple ecological modelling in R, and a small research project communicates findings through a poster.",
+        "topics": "Ecology and evolution; Environmental conditions and resources; Climate and life cycles; Ecological niches; Competition and cohabitation; Predation and food webs; Natural selection; Population dynamics; Biodiversity patterns; Ecological succession; Ecosystem energy and matter fluxes; Global cycles; Conservation and human impacts; Ecosystem value",
+        "methods": "Ecological modelling in R; Population-dynamics calculations; Ecosystem energy and matter-flux calculations; Ecological research-project design and analysis",
+        "outline_source": "ENSECOL212.docx",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "Ecologicaldynamics,energy/mattercyclesandRmodelsprovidescientificecosystemknowledgeforenvironmentalinterpretation/policy;notenvironmentalhumanities."
+    },
+    {
+      "code": "ENSGATE101",
+      "name": "Sustainability Essentials I",
+      "evidence": {
+        "description2": "Provides key concepts in physics, chemistry, materials science, mathematics and modelling necessary for sustainability. Uses a case study to connect concepts to real‑world sustainability challenges and prepares students for 200‑level sustainability courses.",
+        "profile": "Uses planetary boundaries to introduce scientific tools for understanding sustainability and human impacts on Earth systems. Students interpret graphs and uncertainty, build simple dynamic models, and learn chemical, thermodynamic and mechanical principles relevant to environmental processes. Topics connect climate, ocean acidification, nutrient cycles, energy and materials. An iterative laboratory project makes starch-based biopolymers and measures their strength and elasticity to improve the formulation.",
+        "topics": "Planetary boundaries and the Anthropocene; Exponential growth and environmental change; Graphs, rates and uncertainty; Dynamic systems; Chemical bonds, reactions and equilibria; Ocean acidification and nutrient cycles; Thermodynamics and entropy; Greenhouse gases and energy; Ozone depletion; Newtonian mechanics, stress and strain; Biopolymers and material properties",
+        "methods": "Graph interpretation and comparison; Fermi estimation; Difference-equation and first-order linear differential-equation modelling; Elementary differentiation and integration; Biopolymer preparation; Strength and elasticity measurement; Iterative experimental improvement",
+        "outline_source": "ENSGATE1011.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Planetaryboundaries,environmentalmodels/cyclesandmeasurementprovidespecificscientificcontextforsustainability;notenvironmentalhistoryorhumanities."
+    },
+    {
+      "code": "ENSGATE201",
+      "name": "Sustainability Essentials II",
+      "evidence": {
+        "description2": "Builds on Sustainability Essentials I. Applies tools and knowledge to a real‑world sustainability case study and allows students to delve deeper into aspects connected to their field of interest.",
+        "profile": "Connects wave physics, chemistry and materials science to sustainability questions. Students study wave behaviour and observation methods, chemical analysis, microscopic material structure and macroscopic stress and strain. Practical sessions include wave applications and chemistry laboratory work. Reflective inquiries and a final project critically assess sustainability campaigns, identify greenwashing and communicate evidence-based improvements to a public audience.",
+        "topics": "Electromagnetic and mechanical waves; Wave composition and interference; Optical spectroscopy; Electron microscopy; Inorganic and organic chemistry; Chemical testing; Material structure and crystallography; Stress and strain; Sustainable material design; Geological wave applications; Nuclear power and waste; Greenwashing",
+        "methods": "Oscilloscope wave visualization; Optical-spectroscopy interpretation; Fourier wave analysis; Copper dissolution and chemical analysis; Laboratory logbook documentation; Stress-strain analysis; Mohr's-circle application; Evidence-based greenwashing case analysis; Public sustainability-communication design",
+        "outline_source": "ENSGATE201.pdf",
+        "outline_semester": "2026h1",
+        "preq1": "ENSGATE101"
+      },
+      "finding": "Materials/chemicalinvestigationplusgreenwashingcampaigncritiqueandevidence-basedpubliccommunicationaddscientific/practicalcomplement;notallcontentishumanities."
+    },
+    {
+      "code": "ENSSUST111",
+      "name": "Climate Change",
+      "evidence": {
+        "description2": "Focuses on drivers and impacts of anthropogenic climate change on sea level, ocean acidification, ecology and society. Discusses adaptation and mitigation solutions, including renewable energy systems, carbon storage and climate‑adaptive planning, and examines climate governance and justice.",
+        "profile": "Introduces climate-change science, societal impacts, and mitigation and adaptation. Students examine greenhouse gases, feedbacks, tipping points, ocean acidification and sea-level rise, then consequences for ecosystems, agriculture, transport, buildings and health. Climate justice, governance, communication and misinformation connect physical changes to social responses. Solution pathways include energy systems, carbon removal and climate-adaptive planning. Students interview a stakeholder and produce a short film, alongside reflection on their own role.",
+        "topics": "Anthropogenic climate change; Greenhouse gases; Feedback loops and tipping points; Ocean acidification and sea-level rise; Biosphere impacts; Agriculture, transport and construction; Climate and health; Climate justice and governance; Paris Agreement; Renewable energy and sustainable heat; Carbon removal and geoengineering; Climate communication and misinformation; Climate anxiety; Mitigation and adaptation",
+        "methods": "Stakeholder interviewing; Short-film production for climate communication; Source-credibility evaluation; What? So What? Now What? reflective model",
+        "outline_source": "ENSSUST1111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Climatefeedbacks/impacts,justice,stakeholderinterviewandshortfilmprovideenvironmentalcontextandpubliccommunicationpractice;notEnvironmentalHistory."
+    },
+    {
+      "code": "ENSSUST311",
+      "name": "Renewable System Design",
+      "evidence": {
+        "description2": "Teaches assessment of energy usage patterns and strategies for reducing consumption or transitioning to cleaner energy. Explores solar, wind and bioenergy solutions and includes technical and economic analysis; students deliver a report and presentation to a partner company.",
+        "profile": null,
+        "topics": null,
+        "methods": null,
+        "outline_source": null,
+        "outline_semester": null,
+        "preq1": "ENSGATE201"
+      },
+      "finding": "Description-supportedenergyusage/renewables,technical-economicassessmentandpartnerreportprovidespecificpracticalinitiativecontribution,notculturaltheory."
+    },
+    {
+      "code": "GOSHIST111",
+      "name": "Modern History",
+      "evidence": {
+        "description2": "Provides a chronological overview of history from 1815 to the present. Discusses industrialisation, popular sovereignty and national self‑determination, and covers major economic, political and cultural developments including revolutions, world wars and the fall of communism.",
+        "profile": "Surveys economic, political and cultural developments from 1815 to the present while questioning the meaning and periodization of modernity. Students examine industrialization, political ideologies, nationalism, imperialism, migration, world wars, revolution, decolonization, the Cold War and globalization. Historical research and essays connect specific questions to evidence. A group project analyzes historical visions of the future as products of their own contexts and compares them with subsequent developments.",
+        "topics": "Modernity and periodization; Industrialization and reform; Political ideologies and nationalism; Migration and imperialism; National, class, gender and racial identities; World wars; Russian Revolution and Soviet history; Democracy and dictatorship; Cold War; Decolonization; Globalization; Historical visions of the future",
+        "methods": "Historical contextualization; Primary- and secondary-source analysis; Source triangulation; Historical research-question development",
+        "outline_source": "GOSHIST1111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Modernpolitical/economic/culturaltransformation,imperialism/migrationandprimarysourcesprovideEuropean/globalhistoricalcontext;notGerman/Frenchlanguageinstruction."
+    },
+    {
+      "code": "GOSPHIL212",
+      "name": "Ethics",
+      "evidence": {
+        "description2": "Explores theories of moral reasoning—virtue ethics, deontology, utilitarianism—and discusses moral knowledge, motivation, responsibility and the relation between happiness and pleasure. Applies theories to practical issues such as animal rights, privacy, future generations, war, punishment, disability and equality.",
+        "profile": "Studies moral reasoning through historical and contemporary ethical theories and close philosophical reading. Utilitarianism, consequentialism, Kantian ethics, virtue ethics, contractarianism and feminist ethics lead into Nietzsche's genealogy, Murdoch's account of goodness and Nagel's treatments of value, perspective, death and meaning. Reflection and research essays require interpretation, argument evaluation and an independent position on ethical theory or a practical ethical problem.",
+        "topics": "Divine command and human nature; Moral relativism and universalism; Utilitarianism and consequentialism; Kantian ethics; Virtue ethics; Social contract and intuitionism; Feminist and care ethics; Nietzschean genealogy and nihilism; Murdoch's sovereignty of good; Moral value and perspective; Death, absurdity and meaning; Ethical theory and practical judgment",
+        "methods": "Close philosophical text analysis; Reconstruction and critical evaluation of moral arguments; Comparison of ethical theories; Conceptual analysis; Independent philosophical argument development",
+        "outline_source": "GOSPHIL212.pdf",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "Currentgeneralethicaltheories,textanalysisandmoralargumentareusefulspecificnormativereasoningtools. Noverifieddedicatedclimate/futuregenerationsunit;correctoldclaimandEnvironmentalEthicsmatch."
+    },
+    {
+      "code": "GOSSOCI111",
+      "name": "Introduction to Sociology",
+      "evidence": {
+        "description2": "Introduces concepts, theories and methods of sociology. Examines socio‑historical context of key authors like Marx, Weber, Durkheim and Du Bois, and encourages exploration of social problems related to race, gender and class through theoretical approaches and methodologies.",
+        "profile": "Introduces sociological reasoning through classical theories, their historical settings and perspectives that address exclusions from the discipline. Students connect solidarity, modernity, identity, social boundaries, networks and stratification to race, gender, migration and inequality in education and work. An individual analysis applies a course concept to contemporary social life without original data collection. A group paper develops a sociological question and analyzes a social problem using theory and academic literature.",
+        "topics": "Sociological imagination and knowledge; Social structure and socialization; Classical social theory; Colonialism and the formation of sociology; Solidarity and modernity; Identity, belonging and othering; Groups and social networks; Capital, class and mobility; Race and gender inequality; Global inequality and migration; Education and labour-market inequality",
+        "methods": "Theory-guided sociological case analysis; Comparative analysis of sociological perspectives; Library-based social-science research; Sociological research-question formulation",
+        "outline_source": "GOSSOCI1111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Socialidentity,inequality,stratificationandtheory-guidedcaseanalysisaddresspartofsocial/culturalsustainability;notidenticalSDGcaseframework."
+    },
+    {
+      "code": "GOSSOCI212",
+      "name": "Qualitative Research Methodology",
+      "evidence": {
+        "description2": "Introduces qualitative research methodology. Covers designing questions, interpreting meaning and conducting small team projects, while reflecting on complexity and power dynamics in social research.",
+        "profile": "Develops qualitative inquiry from research design and preparation through data collection, management, analysis and dissemination. Students examine methodological foundations, ethics, positionality and reflexivity alongside interviews, focus groups, ethnography, documentary and visual approaches. Coding, thematic interpretation and NVivo support analysis. Research teams formulate a question, collect and analyze qualitative evidence, and report their methodological decisions, findings and limitations in staged assignments.",
+        "topics": "Qualitative knowledge and research design; Ethics, positionality and reflexivity; Mixed methods; Participatory research; Interview and focus-group approaches; Ethnography and participant observation; Documentary and archival sources; Visual and participatory media; Coding and thematic interpretation; Qualitative research dissemination",
+        "methods": "Qualitative research design; Interviews; Focus groups; Ethnography and participant observation; Documentary and archival analysis; Visual-data analysis; Participatory video and drawing; Transcription; Qualitative coding; Thematic analysis; NVivo-supported analysis; Reflexive methodological evaluation",
+        "outline_source": "GOSSOCI212.docx",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "Interviews,focusgroups,document/visualmethods,reflexivityandNVivocodingdirectlydevelopsocial/culturalresearchmethods;notdedicatedconversation-analysiscourse."
+    },
+    {
+      "code": "GOSSOCI215",
+      "name": "Social Movements & Environmental Justice",
+      "evidence": {
+        "description2": "Focuses on social movement theories and environmental justice. Uses case studies from the Environmental Justice Atlas and integrates perspectives such as feminism, anti‑colonialism, degrowth and environmental peacebuilding to encourage civic engagement.",
+        "profile": null,
+        "topics": null,
+        "methods": null,
+        "outline_source": null,
+        "outline_semester": null,
+        "preq1": "NONE"
+      },
+      "finding": "Description-supportedenvironmentaljustice/socialmovements,feminism/anticolonialismandAtlascasesdirectlyimplementinequalityandpublicsustainabilityaction."
+    },
+    {
+      "code": "GOSSOCI311",
+      "name": "New Issues in Contemporary Social Theory",
+      "evidence": {
+        "description2": "Examines contemporary sociological debates about civil society through critical tradition, neo‑functionalism and decolonial critiques. Includes research group projects with NGOs or civil society organizations that translate conceptual insights into empirical analysis.",
+        "profile": "Focuses on civil society through critical, neo-functionalist and decolonial social theory. Students examine social trust, capital, hegemony, public spheres, solidarity, social movements and civil repair across political and regional contexts. An experience report relates personal engagement or observation to course concepts. An individual research project uses theoretical and empirical sources to analyze a civil-society organization, movement, initiative or related phenomenon.",
+        "topics": "Civil society; Social trust and social capital; Hegemony; Critical theory; Public spheres, digital publics and counterpublics; Solidarity and civil repair; Civil sphere; Social movements and intersectionality; Migrant solidarity; Civil society under authoritarianism; Decolonial critique; Public sociology",
+        "methods": "Comparative social-theory analysis; Theory-guided empirical case analysis; Document and secondary-source analysis; Structured reflection on civil-society engagement or observation; Sociological research design",
+        "outline_source": "GOSSOCI3111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Civilsociety,trust,hegemony,publicspheresandtheory-guidedorganisation/movementresearchsupportsocialsustainability. Notempiricalturntaking/transcription;removeSocialInteractionpair."
+    },
+    {
+      "code": "MCCCOMM111",
+      "name": "The Art of Rhetorical Communication",
+      "evidence": {
+        "description2": "Teaches how to craft persuasive messages, influence opinions, inspire action and connect people. Draws on historical communicators from Aristotle to Barack Obama and applies stylistic techniques to students’ own writing and speaking.",
+        "profile": "Teaches rhetorical analysis and persuasive communication through classical history, theory and practice. Students study Greek and Roman rhetoric, the five canons, types of discourse, persuasive appeals, argumentation and fallacies. Written exercises, debates and public speeches develop invention, arrangement, style, memory and delivery. An applied project creates narrative and storytelling material for an immersive educational setting concerned with Zeeland's climate and community.",
+        "topics": "Greek and Roman rhetoric; Deliberative, forensic and epideictic discourse; Logos, ethos and pathos; Invention, arrangement, style, memory and delivery; Argumentation and fallacies; Tropes and schemes; Stasis and enthymemes; Persuasive speech; Narrative and storytelling; Immersive educational communication",
+        "methods": "Rhetorical text analysis; Stasis analysis; Argument invention and arrangement; Stylistic analysis and composition; Structured debate; Persuasive speechwriting and delivery; Educational storytelling design",
+        "outline_source": "MCCCOMM1111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Classicalrhetoric,argumentation,publicspeaking/debateandeducationalstorytellingsupportpublicculturalcommunication;notasubstituteforfullscholarlyresearchtraining."
+    },
+    {
+      "code": "MCCCOMM211",
+      "name": "Style & Meaning",
+      "evidence": {
+        "description2": "Explores how linguistic choices inform meaning and interpretation in literary and non-fiction contexts. Introduces theoretical frameworks for close reading and addresses power dynamics, obligation, uncertainty and ideological undertones in language.",
+        "profile": "Studies how linguistic choices produce meaning and interpretive effects, principally in literary texts but also in nonfiction. Students connect linguistic description to interpretation across grammar, discourse and cognition. Stylistic frameworks address foregrounding, dialogue, narration, modality, transitivity, deixis, schemas, construal and text worlds. Frequent analysis exercises lead to an original, research-supported stylistic analysis of a selected text.",
+        "topics": "Foregrounding and deviation; Morphology, syntax and lexical semantics; Register and cohesion; Dialogue and turn-taking; Cooperative principle; Speech and thought presentation; Modality and point of view; Transitivity and ideology; Narrative urgency; Figure and ground; Deixis and deictic shift; Schemas, scripts and prototypes; Cognitive grammar and construal; Text-world theory; Negation and lacuna",
+        "methods": "Linguistic stylistic analysis; Close textual analysis; Discourse and conversation analysis; Speech and thought presentation analysis; Modality and transitivity analysis; Deictic and cognitive-grammar analysis; Text-world analysis; Framework-based interpretation supported by retrievable textual evidence",
+        "outline_source": "MCCCOMM211.docx",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "Linguisticstylistics,discourse,narrationandtext-worldanalysisprovideinterpretivemethodsforlanguage/meaning;notforeign-languageacquisition."
+    },
+    {
+      "code": "MCCCOMM212",
+      "name": "Communicating the Climate Crisis",
+      "evidence": {
+        "description2": "Examines how the climate crisis is communicated and contested. Analyzes texts, films, exhibitions, protest art, slogans and social media alongside theory and case studies, teaching students to dissect arguments and culminating in a project where students enter the debate.",
+        "profile": null,
+        "topics": null,
+        "methods": null,
+        "outline_source": null,
+        "outline_semester": null,
+        "preq1": "NONE"
+      },
+      "finding": "Description-supportedclimatetexts,visualmedia,protestartandpublicdebateimplementclimatecommunicationdirectly."
+    },
+    {
+      "code": "MCCCOMM311",
+      "name": "Persuasive Communication",
+      "evidence": {
+        "description2": "Explores ethical persuasion and climate communication. Students learn persuasive communication models and frameworks and collaborate with climate scientists at the Delta Climate Centre to produce sustainability messaging on water, food and energy.",
+        "profile": "Examines contemporary persuasion through communication studies, social psychology and ethical analysis, then applies it in community-engaged work. Students study coactive persuasion, framing, argumentation, cognitive shortcuts and verbal and nonverbal communication. Projects with the Delta Climate Centre and Vlissingen municipality develop communication encouraging sustainable and circular lifestyles. An individual research paper evaluates selected persuasion tools through literature review, field research diaries and reflective analysis of their use.",
+        "topics": "Persuasion models and psychology; Ethics of persuasion; Coactive persuasion; Verbal and nonverbal communication; Message framing; Argumentation; Cognitive shortcuts and nudging; Science and sustainability communication; Circular lifestyles; Community-engaged communication",
+        "methods": "Persuasive-message design; Communication consulting and implementation; Literature review; Qualitative research diaries; Action research; Reflective case-study analysis; Gibbs reflective cycle",
+        "outline_source": "MCCCOMM3111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Framing,persuasion,publicenvironmentalconsulting/fielddiariessupportclimatecommunicationandsocialintervention."
+    },
+    {
+      "code": "MCCHEAM111",
+      "name": "Introduction to Western Art History",
+      "evidence": {
+        "description2": "Provides an introduction to Western art history, tracing major artistic movements from the late Middle Ages to the present. Through close study of key paintings and their makers, students gain insight into evolving styles, techniques and cultural influences.",
+        "profile": "Surveys Western art from late-medieval and Renaissance painting to contemporary practice. Students relate artists, styles and movements to social, religious, political and cultural change, with sustained attention to the close examination of paintings. Practical assignments develop analysis of composition, space, form, tone and colour. A term paper studies a painting on location, combining visual interpretation with art-historical evidence and terminology.",
+        "topics": "Late-medieval and Renaissance art; Mannerism; Baroque and Rococo; Enlightenment and Romanticism; Realism and Impressionism; Post-Impressionism, Symbolism and Art Nouveau; Modernism and Cubism; Interwar art; Postwar and postmodern art; Contemporary art; Artistic form and historical context",
+        "methods": "Close visual analysis of paintings; Composition, space, form, tone and colour analysis; On-site artwork study; Historical contextualization; Art-historical text analysis",
+        "outline_source": "MCCHEAM1111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Westernpaintinganalysisandarthistoricalcontextsupportvisualculture. Actualcoursedoesnotestablisharchitecture/climate-historyspecialism;removedthatoldalignment."
+    },
+    {
+      "code": "MCCHEAM112",
+      "name": "Introduction to World Archaeology",
+      "evidence": {
+        "description2": "Explores ancient craft production from around the world. Examines how making objects shaped human development and how ancient solutions can inform modern sustainability.",
+        "profile": "Examines how making objects shaped communities and identities from the Neolithic through antiquity across Europe, Asia and Africa. Artefacts, production technologies and craft organization are interpreted in relation to social status, religion, gender, exchange and environmental settings. Students produce an archaeological catalogue description and technical drawings, research a craft-related question and design a hands-on educational game. A small contemporary-archaeology project collects local material evidence and proposes a testable interpretation.",
+        "topics": "Materiality, craft and cognition; Settlement and landscape; Neolithic and Bronze Age communities; Craft production and social hierarchy; Trade and exchange; Pottery and iconography; Seals, textiles and elite identities; Domestic and urban craft spaces; Archaeological interpretation; Ancient technology and community identity; Contemporary archaeology",
+        "methods": "Artefact observation, measurement and cataloguing; Archaeological technical drawing; Visual and stylistic analysis; Comparative material-culture analysis; Archaeological database and literature research; Material-evidence-based argumentation; Archaeological educational-game design; Contemporary archaeological data collection and hypothesis development",
+        "outline_source": "MCCHEAM112.docx",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "Materialobjects,production,cataloguingandarchaeologicalevidence/researchdirectlyimplementmaterialculture;historicalscopeisdistinct."
+    },
+    {
+      "code": "MCCHEAM211",
+      "name": "African Art & Heritage",
+      "evidence": {
+        "description2": "Examines the artistic, historical and ethical dimensions of African art. Highlights distinct forms and cultural significance, considers influence on Western modernism and addresses looting, colonial-era acquisitions and repatriation efforts.",
+        "profile": "Introduces African art and heritage with particular attention to western African visual traditions and their cultural, religious and social meanings. Students study sculpture, masks and other forms across regional contexts before tracing African art's role in European modernism, the Harlem Renaissance and African artistic renewal. Colonial dispossession, museum collecting and restitution form a major later strand. An independent paper develops a research question supported by scholarly evidence.",
+        "topics": "Western African artistic traditions; Sculpture, masks and visual languages; Art, religion and social authority; Regional traditions in Nigeria, the Niger region, Atlantic forests and Congo; African influences on European modernism; Harlem Renaissance and diaspora; Art Nègre and the Ecole de Dakar; Colonial looting; Universal museums; Museum acquisition and display; Restitution and repatriation",
+        "methods": "Visual and contextual art-historical analysis; Comparative interpretation of artistic traditions; Analysis of primary artistic and critical texts; Heritage-restitution case analysis; Scholarly literature review and annotated bibliography; Independent art-historical research",
+        "outline_source": "MCCHEAM211.docx",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "Africanvisual/religious/socialmeanings,restitutionandcolonialcollectionsofferglobalheritageandpoweranalysis,notgenericinterculturalcommunicationtraining."
+    },
+    {
+      "code": "MCCHEAM312",
+      "name": "Modern Art & Modern Museums",
+      "evidence": {
+        "description2": "Examines debates on modern art through various themes. Focuses on the relationship between art and its presentation in museums and exhibitions, exploring curatorial practices and exhibition strategies.",
+        "profile": "Examines modern and contemporary art from the late nineteenth century to the present together with the institutions that shape its display and reception. Students study avant-gardes, abstraction, modernist design, figuration, postmodern and conceptual practices, and global contemporary art. Museums, exhibitions, curatorial choices and Eurocentric narratives are treated critically. An independently researched paper develops a focused art-historical question, methods and evidence-based argument.",
+        "topics": "Modernism and avant-gardes; Cubism and abstraction; Modern architecture and design; Figuration and Mexican muralism; Abstract Expressionism; Minimalism and Pop Art; Postmodernism and conceptual art; Photography, installation, performance and video art; Globalization and contemporary art; Authorship, originality and medium; Museums, curating and reception; Eurocentrism in art history",
+        "methods": "Art-historical interpretation and contextual analysis; Critical analysis of museums and curatorial practices; Scholarly literature review; Independent art-historical research",
+        "outline_source": "MCCHEAM3121.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Modern/globalart,museums/curationandcriticaldisplaynarrativesprovidecultural-institutionalinterpretation;retainpreviousofferingrepairwithoutclaimingenvironmentalfieldresearch."
+    },
+    {
+      "code": "MCCLITR312",
+      "name": "Perspectives on Literary Meaning",
+      "evidence": {
+        "description2": "Examines how different perspectives—humanist, feminist, Marxist, cultural minority and psychoanalytic—affect reading and interpretation. Students undertake a research project applying selected perspectives to texts.",
+        "profile": null,
+        "topics": null,
+        "methods": null,
+        "outline_source": null,
+        "outline_semester": null,
+        "preq1": "NONE"
+      },
+      "finding": "Description-supportedhumanist/feminist/Marxist/minority/psychoanalyticinterpretationandtextresearchstrengthenculturalmeaninganalysis."
+    },
+    {
+      "code": "MCCMEDI111",
+      "name": "Introduction to Film & Media",
+      "evidence": {
+        "description2": "Introduces film and media as systems of meaning and cultural production. Examines how images, narratives and technologies shape perception, identity and power; covers film storytelling, representation and genres; and develops critical engagement skills.",
+        "profile": "Introduces how moving images create meaning through cinematography, editing, sound, mise-en-scène, narrative and performance. Film history connects early cinema, Expressionism, montage, Hollywood and New Waves to feminist and postcolonial interpretation. Broader media topics include television, digital platforms, representation and spectatorship. An independent analytical or creative-analytical project combines close analysis, theory, scholarly research and, where chosen, original media work.",
+        "topics": "Film form and meaning; Cinematography, editing and sound; Mise-en-scène, narrative and performance; Early cinema; German Expressionism and Soviet montage; Classical Hollywood and European New Waves; Feminist film theory; Postcolonial media; Blockbusters; Television and digital platforms; Representation and spectatorship; Media convergence",
+        "methods": "Close film and media analysis; Historical and cultural contextualization; Application of feminist and postcolonial film theory; Independent analytical or creative-analytical media research",
+        "outline_source": "MCCMEDI1111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Film/mediaform,representation,historyandcriticalinterpretationdirectlysupportculturaltextsandinstitutions."
+    },
+    {
+      "code": "MCCMEDI212",
+      "name": "Media & the Environment",
+      "evidence": {
+        "description2": "Examines representation of environmental concerns through visual culture. Explores the Anthropocene, animal representation, deep time, biocentrism, contested nature, indigenous and postcolonial media; analyzes how media shape environmental understanding; and includes a paper or media project.",
+        "profile": "Examines how visual, audiovisual, sound and digital media shape understanding of ecological problems and human-nonhuman relations. Environmental-humanities concepts guide close analysis of images, narratives and aesthetic strategies across cultural and historical contexts. Students investigate how scientific knowledge, risk and lived experience become representations that influence ethics, public debate and sustainability. A final analytical paper or media-based project develops an argument grounded in course theory.",
+        "topics": "Environmental representation; Anthropocene; Animal representation and human-nonhuman relations; Deep time and ecological temporality; Biocentrism and environmental justice; Contested ideas of nature; Indigenous and postcolonial media; Ecological risk and scientific knowledge; Environmental affect and perception; Agency, scale and responsibility; Sustainability discourse",
+        "methods": "Close film, image and sound analysis; Comparative analysis of media forms and representational strategies; Ecocritical interpretation; Theory-based analytical or creative media inquiry",
+        "outline_source": "MCCMEDI212.pdf",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "Environmental-humanitiesvisual/sound/filmrepresentationandecocriticalanalysisdirectlyrelatetoclimate/artrepresentation;externalarchitectureandlongarthistoryremainbroader."
+    },
+    {
+      "code": "MCCMEDI311",
+      "name": "Media & Race",
+      "evidence": {
+        "description2": "Investigates storytelling and power in relation to race. Examines Afrofuturism and systemic racism and guides students in creating podcasts that explore links between past and present.",
+        "profile": "Examines racial construction and power in American cultural history from the late nineteenth century to the present through media and popular culture. Theatre, photographs, news, film, music, tourism and literature reveal both oppression and resistance. Students investigate exclusion, racialized bodies, youth, marginalized storytelling and imagined futures. Participant observation, archival research, a documentary podcast and a cross-cultural Photo/Voice project connect historical analysis with lived experience and representation.",
+        "topics": "Racial construction and whiteness; Media, power and representation; Leisure, tourism and racial identity; Crime, punishment and the racialized body; Asian-American exclusion; Japanese-American incarceration; Childhood and youth; Marginalized and Indigenous storytelling; Racial extremism and propaganda; Alienation and community; Food, environment and cultural nourishment; Afrofuturism and Indigenous futurisms",
+        "methods": "Participant observation; Archival primary-source research; Historical media analysis; Documentary podcast research, scripting and audio production; Photo/Voice photography and audio narrative; Cross-cultural interpretive reflection",
+        "outline_source": "MCCMEDI3111.pdf",
+        "outline_semester": "2026h2",
+        "preq1": "NONE"
+      },
+      "finding": "Race,power,representation,archivalmediaandPhoto/Voicemethodsexaminemarginalisedculturalidentitiesandpublicnarratives."
+    },
+    {
+      "code": "MCCMEDI312",
+      "name": "The Documentary",
+      "evidence": {
+        "description2": "Introduces development of the documentary form. Students write a theoretical paper and produce a short documentary film, fostering understanding of documentary diversity and providing analytical tools for documentary study.",
+        "profile": "Studies documentary history, modes and styles alongside practical documentary production. Students analyze nonfiction representation in historical, social, ethical and aesthetic contexts, from early and Soviet filmmaking through direct cinema and contemporary forms. Topics include propaganda, advocacy, ethnography, history, nature, audio and interactive documentary. Production workshops guide a short film through preproduction, filming and postproduction, with reflection on interviewing and representational choices.",
+        "topics": "Documentary definition, modes and ethics; Early documentary and city symphonies; Soviet filmmaking; European documentary traditions; Direct cinema and cinéma vérité; Audio and public-affairs documentary; Propaganda and advocacy; Historical and ethnographic documentary; Nature documentary; Mockumentary; Interactive and autobiographical documentary; Documentary aesthetics",
+        "methods": "Critical documentary analysis; Historical and contextual film comparison; Documentary research and interviewing; Script, storyboard and shot-list development; Preproduction planning; Documentary filming and postproduction; Reflective evaluation of production practice",
+        "outline_source": "MCCMEDI312.docx",
+        "outline_semester": "2026h1",
+        "preq1": "NONE"
+      },
+      "finding": "Documentaryrepresentation,ethics,history,interviewingandproductionprovidespecificpublicculturalcommunicationandmethodpractice."
+    }
+  ],
+  "provisionalProgrammeChecks": [
+    {
+      "programme": 1,
+      "label": "Culture, communication and social sustainability",
+      "concept": "A broad UCR response studies culture and its material heritage, language and media, intercultural communication, social relationships, environmental history and climate communication through empirical and humanities methods. It does not provide the 30-EC French language-and-culture sequence chosen in the Radboud comparator.",
+      "uniqueCourses": 24,
+      "advanced": 7,
+      "placements": [
+        {
+          "code": "ACCPPDE101",
+          "term": "2026h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCCOMM111",
+          "term": "2026h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCMEDI111",
+          "term": "2026h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "ENSGATE101",
+          "term": "2026h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCCOMM211",
+          "term": "2027h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "GOSSOCI212",
+          "term": "2027h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCHEAM112",
+          "term": "2027h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "BENGATE102",
+          "term": "2027h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCHEAM111",
+          "term": "2027h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "GOSHIST111",
+          "term": "2027h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "GOSSOCI111",
+          "term": "2027h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "ENSSUST111",
+          "term": "2027h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCCOMM212",
+          "term": "2028h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCMEDI212",
+          "term": "2028h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCHEAM211",
+          "term": "2028h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "GOSPHIL212",
+          "term": "2028h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "GOSSOCI311",
+          "term": "2028h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCMEDI311",
+          "term": "2028h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCHEAM312",
+          "term": "2028h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCCOMM311",
+          "term": "2028h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCLITR312",
+          "term": "2029h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "ENSDELT312",
+          "term": "2029h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "GOSSOCI215",
+          "term": "2029h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCMEDI312",
+          "term": "2029h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        }
+      ]
+    },
+    {
+      "programme": 2,
+      "label": "Environmental culture, communication and sustainability",
+      "concept": "Investigate cultural interpretations and public responses to climate change through environmental media, museums, social theory, ethical reasoning and communication. Ecology, water management, nature-based intervention and renewable-system design provide specific scientific and practical complements. General ethical theory is not a dedicated environmental-ethics course. The full external pathway and final comparability remain unverified.",
+      "uniqueCourses": 24,
+      "advanced": 6,
+      "placements": [
+        {
+          "code": "ACCPPDE101",
+          "term": "2026h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "ENSSUST111",
+          "term": "2026h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "ENSGATE101",
+          "term": "2026h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "GOSSOCI111",
+          "term": "2026h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "BENGATE102",
+          "term": "2027h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCCOMM212",
+          "term": "2027h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "GOSSOCI212",
+          "term": "2027h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "GOSPHIL212",
+          "term": "2027h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCHEAM111",
+          "term": "2027h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "GOSHIST111",
+          "term": "2027h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "ENSDELT111",
+          "term": "2027h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCCOMM111",
+          "term": "2027h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "ENSGATE201",
+          "term": "2028h1",
+          "offered": true,
+          "prerequisite": "ENSGATE101",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCMEDI212",
+          "term": "2028h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "ENSDELT211",
+          "term": "2028h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCHEAM211",
+          "term": "2028h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "GOSSOCI311",
+          "term": "2028h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCMEDI311",
+          "term": "2028h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCCOMM311",
+          "term": "2028h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "MCCHEAM312",
+          "term": "2028h2",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "ENSDELT312",
+          "term": "2029h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "GOSSOCI215",
+          "term": "2029h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "ENSSUST311",
+          "term": "2029h1",
+          "offered": true,
+          "prerequisite": "ENSGATE201",
+          "earlierPrerequisite": true
+        },
+        {
+          "code": "ENSECOL212",
+          "term": "2029h1",
+          "offered": true,
+          "prerequisite": "NONE",
+          "earlierPrerequisite": true
+        }
+      ]
+    }
+  ],
+  "pairwiseUniqueInEach": 5,
+  "alignment": [
+    {
+      "componentId": "y1-01",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "MCCCOMM211",
+      "rationale": "Both analyse language and meaning in communication and media; UCR is not language acquisition."
+    },
+    {
+      "componentId": "y1-04",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "GOSHIST111",
+      "rationale": "Both study European society in wider historical context; UCR is a general modern-history survey."
+    },
+    {
+      "componentId": "y1-06",
+      "matchType": "unmatched",
+      "rationale": "No single scheduled UCR course directly covers this specific Radboud component at comparable scope."
+    },
+    {
+      "componentId": "y1-07",
+      "matchType": "unmatched",
+      "rationale": "Radboud teaches intercultural communication; UCR studies African art, religious and social meanings and heritage. This is useful cultural study but not an adequate single-course correspondence."
+    },
+    {
+      "componentId": "y1-08",
+      "matchType": "unmatched",
+      "rationale": "No single scheduled UCR course directly covers this specific Radboud component at comparable scope."
+    },
+    {
+      "componentId": "y1-09",
+      "matchType": "unmatched",
+      "rationale": "No single scheduled UCR course directly covers this specific Radboud component at comparable scope."
+    },
+    {
+      "componentId": "y2-01",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "MCCHEAM112",
+      "rationale": "Both investigate material culture; UCR uses archaeological contexts."
+    },
+    {
+      "componentId": "y2-02",
+      "matchType": "unmatched",
+      "rationale": "No single scheduled UCR course directly covers this specific Radboud component at comparable scope."
+    },
+    {
+      "componentId": "y2-06",
+      "matchType": "unmatched",
+      "rationale": "The compulsory first 15-EC French language-and-culture minor combines language acquisition, literature and cultural study; UCR offers no equivalent French sequence."
+    },
+    {
+      "componentId": "y2-07",
+      "matchType": "unmatched",
+      "rationale": "The second compulsory 15-EC French language-and-culture minor continues the same regional-language package, absent from UCR."
+    },
+    {
+      "componentId": "y1-02",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "GOSSOCI111",
+      "rationale": "Both introduce social relations and inequality as aspects of sustainability."
+    },
+    {
+      "componentId": "y1-10",
+      "matchType": "unmatched",
+      "rationale": "Radboud studies environmental history; UCR studies climate science, impacts and responses. These are related environmental interests with different academic objects."
+    },
+    {
+      "componentId": "y2-04",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "MCCCOMM212",
+      "rationale": "Both examine communication and interaction around climate change."
+    },
+    {
+      "componentId": "y3-01",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "ENSDELT312",
+      "rationale": "Both examine politics and governance of environmental ideas, though UCR studies sustainability policy."
+    },
+    {
+      "componentId": "y3-03",
+      "matchType": "unmatched",
+      "rationale": "No selected single UCR course directly corresponds to this specialised eco-continental humanities component."
+    },
+    {
+      "componentId": "y3-05",
+      "matchType": "unmatched",
+      "rationale": "Radboud requires a specific social/cultural sustainability whitepaper; UCR communication courses do not alone reproduce it."
+    },
+    {
+      "componentId": "y1-05",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "MCCMEDI212",
+      "rationale": "Both interpret visual representations of environmental problems. UCR uses media and environmental-humanities analysis, while Radboud gives a historical art/architecture-and-climate sequence."
+    },
+    {
+      "componentId": "y2-03",
+      "matchType": "unmatched",
+      "rationale": "Radboud teaches empirical conversation analysis, turn-taking, repair and transcript conventions. Broad civil-society theory is not an adequate counterpart."
+    },
+    {
+      "componentId": "y3-02",
+      "matchType": "unmatched",
+      "rationale": "The current UCR Ethics course supplies general moral theories and argument methods, not a verified dedicated environmental-ethics course. This later-year external component itself remains prospective."
+    },
+    {
+      "componentId": "y1-11",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "GOSSOCI212",
+      "rationale": "Both teach research into culture/social meaning, though UCR uses sociological qualitative methods."
+    },
+    {
+      "componentId": "y2-05",
+      "matchType": "unmatched",
+      "rationale": "Radboud requires a partner-based culture/language/sustainability project; no single UCR course reproduces that specific credited project."
+    },
+    {
+      "componentId": "y3-04",
+      "matchType": "unmatched",
+      "rationale": "Radboud requires an individual 10-EC interdisciplinary capstone; UCR coursework is not a thesis equivalent."
+    },
+    {
+      "componentId": "y3-06",
+      "matchType": "unmatched",
+      "rationale": "Genuine 30-EC free space remains student-selected rather than assigned fixed UCR equivalents."
+    },
+    {
+      "componentId": "y1-03",
+      "matchType": "substantive-match",
+      "ucrCourseCode": "ACCPPDE101",
+      "rationale": "Both develop research questions, scholarly-source appraisal, structured academic writing, peer feedback and responsible academic work. UCR also includes personal/civic development; assessment formats differ."
+    }
+  ],
+  "finding": "All29coursecontributionsread,currentworkbook29identities/prereqs/coveredofferingsverified. Both24courseplans180EC/fourperterm/atleastsixadvanced/PPDyear1pass;5pairwiseunique. Weightedprioritiescultural/media/languageinterpretationvsenvironmental/practicalinitiativecomplementsaredistinctprovisionally;science/designcoursesareexplicitcomplements,notallclaimedhumanities. Existingmuseumofferingrepairretained. Correctmaterialoverclaimsandfourplacements:AcademicSkills→PPDspecificresearch/writing,ChangingLandscapes→environmentalmediarepresentation,conversationanalysisandEnvironmentalEthics→unmatched. PriorClimateHistory/ClimateScienceandAfricanHeritage/InterculturalCommunicationunmatchesremainvalid. Fullalignmentandcomparabilityremainexternaldependent;notclearedbymechanics."
+}
