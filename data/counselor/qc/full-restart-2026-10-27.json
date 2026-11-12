@@ -3842,7 +3842,8 @@
         }
       ],
       "implementationCommits": [
-        "2418135dc6ab97a4554dbbb2345b3a55370327d3"
+        "2418135dc6ab97a4554dbbb2345b3a55370327d3",
+        "898ae91badde42829c179e5150f2c05f9c25cc56"
       ],
       "presentationApproval": false,
       "evidenceFile": "data/counselor/qc/full-restart-2026-10-27/cp-000135.json",
@@ -11115,38 +11116,15 @@
         "cp-000236"
       ],
       "assignedCaseCount": 219,
-      "status": "in-progress",
+      "status": "ready",
       "schedule": {
         "frequency": "hourly",
         "timezone": "Europe/Amsterdam",
         "startsAt": "2026-10-27T11:30:00+01:00",
         "minute": 30
       },
-      "nextCase": "cp-000135",
-      "activeClaim": {
-        "executionId": "restart-A-cp135-revisit-20261112T113832Z",
-        "worker": "A",
-        "caseId": "cp-000135",
-        "claimedAt": "2026-11-12T11:38:32.243461+00:00",
-        "executionKind": "permitted-deferred-revisit",
-        "reviewedInputCommit": "8e39abbc1e4ff0926c1bf1d68b043e4b63a1a0fa",
-        "inputBlobs": {
-          "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
-          "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-          "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-          "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-          "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-          "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000135.json": "208a2d92583c4a9167f280549e83bf6ca919f638",
-          "data/counselor/comparisons/cp-000135.json": "735cdc5ad336db3b9d9a12c05b42a8ceee194782",
-          "data/registry/programme_interests.csv": "93fb8ec4af21b1d2b718dbab42b5655b36bebabd",
-          "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
-          "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
-        },
-        "nextAction": "Publish CP135 bounded title/status repair and permitted-revisit evidence; verify exact uploaded blobs, replay and applicable CI. Keep academic approval withheld. Then record the incomplete revisit and advance only to the next unspent Worker A revisit.",
-        "runtimeModel": "unknown",
-        "runtimeReasoningEffort": "unknown"
-      },
+      "nextCase": "cp-000149",
+      "activeClaim": null,
       "completedCases": [
         "cp-000001",
         "cp-000002",
@@ -12763,13 +12741,14 @@
         "cp-000112": 1,
         "cp-000113": 1,
         "cp-000122": 1,
-        "cp-000124": 1
+        "cp-000124": 1,
+        "cp-000135": 1
       },
       "lastCheckpoint": {
-        "caseId": "cp-000124",
-        "executionId": "restart-A-cp124-revisit-20261112T102753Z",
+        "caseId": "cp-000135",
+        "executionId": "restart-A-cp135-revisit-20261112T113832Z",
         "state": "deferred-revisit-incomplete",
-        "reviewedInputCommit": "495f1edc456b74d0ec9e168005d2aed08a617a2c",
+        "reviewedInputCommit": "898ae91badde42829c179e5150f2c05f9c25cc56",
         "inputBlobs": {
           "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
           "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
@@ -12777,29 +12756,30 @@
           "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
           "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
           "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-          "data/counselor/decisions/cp-000124.json": "9b15093b6eef928c4919944a6880b4b5b6b9f53d",
-          "data/counselor/comparisons/cp-000124.json": "6ffa0886d44bfc8eb389f85889afe402c3107225",
-          "data/registry/programme_interests.csv": "10079867ee2363c7450e282a46f56f18bb859917",
+          "data/counselor/decisions/cp-000135.json": "58a60fb57682689c23b9cfcb73b89eaf7a9e860f",
+          "data/counselor/comparisons/cp-000135.json": "97cc4267d12a349b499c51cc1ab56255500977f7",
+          "data/registry/programme_interests.csv": "93fb8ec4af21b1d2b718dbab42b5655b36bebabd",
           "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
           "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
-          "data/counselor/review-programmes.json": "f474d8ed3d68d684574ed3366b82e86dcbad3a32",
-          "data/counselor/review-interests.json": "0e0b7e7e8daae6502661d21625dee406e76852cd",
-          "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
           "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
           "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
           "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
           "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
-          "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
-          "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
-          "canonical": "6ffa0886d44bfc8eb389f85889afe402c3107225",
-          "decision": "9b15093b6eef928c4919944a6880b4b5b6b9f53d"
+          "data/counselor/review-programmes.json": "f474d8ed3d68d684574ed3366b82e86dcbad3a32",
+          "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000135/provisional-decision.json": "a72a19e5f0e4b70e49ca769fc5db8cce8550f502",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000135/source-interest-review.json": "4406dfd5dc8ea4233a86f2c09cdf23590cb699d7",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000135/course-comparability-review.json": "a18cb7e56b03dc2ac6aedc2930890aabe8aa5612",
+          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000135/content-review.json": "e2a7aa09245d65f801a96597723270a3b1029ef1",
+          "canonical": "97cc4267d12a349b499c51cc1ab56255500977f7",
+          "decision": "58a60fb57682689c23b9cfcb73b89eaf7a9e860f"
         },
-        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000124/revisit-1-source-review.json",
-        "nextAction": "CP124 remains deferred and incomplete after its one permitted revisit. Current September 2026 course-unit credits and applicable progression, minor/elective, project and thesis rules still require official evidence. Preserve the historical curriculum, 35 interest reviews, all original course/schedule research and the strengthened neural prototype. The population-health prototype is rejected as constructed, not a target-level no-match. Resume CP135 permitted revisit next execution. No academic/presentation approval or final release.",
+        "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000135/revisit-source-review.json",
+        "nextAction": "CP135 remains deferred and incomplete after its one permitted revisit. Applicable September2026 competency-based credit awards/progression, full minor credit/approval conditions and Integrated Care graduation assessment still require official evidence. Preserve28 interest reviews, the two prior feasible prototypes, current40-course reassessment and a distinct feasible prevention/policy proposal; the old blanket prevention rejection is superseded, not a final inclusion. Resume CP149 permitted revisit next execution. No academic/presentation approval, no no-match and no final release.",
         "runtimeModel": "unknown",
         "runtimeReasoningEffort": "unknown",
-        "publicationVerifiedCommit": "495f1edc456b74d0ec9e168005d2aed08a617a2c",
-        "publicationVerificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000124/revisit-1-publication-verification.json"
+        "publicationVerifiedCommit": "898ae91badde42829c179e5150f2c05f9c25cc56",
+        "publicationVerificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000135/revisit-publication-verification.json"
       },
       "checkpointHistory": [
         {
@@ -23252,6 +23232,42 @@
           "runtimeReasoningEffort": "unknown",
           "publicationVerifiedCommit": "4aced1c31bfe8f73c9275c7b9b7cdb431179c0d9",
           "publicationVerificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000122/revisit-1-publication-verification.json"
+        },
+        {
+          "caseId": "cp-000124",
+          "executionId": "restart-A-cp124-revisit-20261112T102753Z",
+          "state": "deferred-revisit-incomplete",
+          "reviewedInputCommit": "495f1edc456b74d0ec9e168005d2aed08a617a2c",
+          "inputBlobs": {
+            "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000124.json": "9b15093b6eef928c4919944a6880b4b5b6b9f53d",
+            "data/counselor/comparisons/cp-000124.json": "6ffa0886d44bfc8eb389f85889afe402c3107225",
+            "data/registry/programme_interests.csv": "10079867ee2363c7450e282a46f56f18bb859917",
+            "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+            "data/counselor/review-programmes.json": "f474d8ed3d68d684574ed3366b82e86dcbad3a32",
+            "data/counselor/review-interests.json": "0e0b7e7e8daae6502661d21625dee406e76852cd",
+            "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+            "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+            "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+            "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+            "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+            "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+            "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+            "canonical": "6ffa0886d44bfc8eb389f85889afe402c3107225",
+            "decision": "9b15093b6eef928c4919944a6880b4b5b6b9f53d"
+          },
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000124/revisit-1-source-review.json",
+          "nextAction": "CP124 remains deferred and incomplete after its one permitted revisit. Current September 2026 course-unit credits and applicable progression, minor/elective, project and thesis rules still require official evidence. Preserve the historical curriculum, 35 interest reviews, all original course/schedule research and the strengthened neural prototype. The population-health prototype is rejected as constructed, not a target-level no-match. Resume CP135 permitted revisit next execution. No academic/presentation approval or final release.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "publicationVerifiedCommit": "495f1edc456b74d0ec9e168005d2aed08a617a2c",
+          "publicationVerificationEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000124/revisit-1-publication-verification.json"
         }
       ],
       "sourceRetrievalFailureHistory": [
@@ -28830,6 +28846,33 @@
           "endedAt": "2026-11-12T10:43:13.904947+00:00",
           "result": "permitted-revisit-incomplete-essential-source-unresolved",
           "state": "checkpointed"
+        },
+        {
+          "executionId": "restart-A-cp135-revisit-20261112T113832Z",
+          "worker": "A",
+          "caseId": "cp-000135",
+          "claimedAt": "2026-11-12T11:38:32.243461+00:00",
+          "executionKind": "permitted-deferred-revisit",
+          "reviewedInputCommit": "8e39abbc1e4ff0926c1bf1d68b043e4b63a1a0fa",
+          "inputBlobs": {
+            "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+            "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+            "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+            "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+            "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+            "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+            "data/counselor/decisions/cp-000135.json": "208a2d92583c4a9167f280549e83bf6ca919f638",
+            "data/counselor/comparisons/cp-000135.json": "735cdc5ad336db3b9d9a12c05b42a8ceee194782",
+            "data/registry/programme_interests.csv": "93fb8ec4af21b1d2b718dbab42b5655b36bebabd",
+            "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+            "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1"
+          },
+          "nextAction": "CP135 remains deferred and incomplete after its one permitted revisit. Applicable September2026 competency-based credit awards/progression, full minor credit/approval conditions and Integrated Care graduation assessment still require official evidence. Preserve28 interest reviews, the two prior feasible prototypes, current40-course reassessment and a distinct feasible prevention/policy proposal; the old blanket prevention rejection is superseded, not a final inclusion. Resume CP149 permitted revisit next execution. No academic/presentation approval, no no-match and no final release.",
+          "runtimeModel": "unknown",
+          "runtimeReasoningEffort": "unknown",
+          "endedAt": "2026-11-12T11:53:09.273838+00:00",
+          "result": "permitted-revisit-incomplete-essential-source-unresolved",
+          "state": "checkpointed"
         }
       ],
       "sourceRetryLog": [
@@ -29057,6 +29100,17 @@
           "outcome": "incomplete; one permitted revisit exhausted",
           "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000124/revisit-1-source-review.json",
           "nextAction": "CP124 remains deferred and incomplete after its one permitted revisit. Current September 2026 course-unit credits and applicable progression, minor/elective, project and thesis rules still require official evidence. Preserve the historical curriculum, 35 interest reviews, all original course/schedule research and the strengthened neural prototype. The population-health prototype is rejected as constructed, not a target-level no-match. Resume CP135 permitted revisit next execution. No academic/presentation approval or final release."
+        },
+        {
+          "caseId": "cp-000135",
+          "executionId": "restart-A-cp135-revisit-20261112T113832Z",
+          "executionKind": "permitted-deferred-revisit",
+          "checkedOn": "2026-11-12",
+          "essentialEvidence": "Applicable September2026 competency-based credit awards and progression, complete minor credit/approval conditions, and Integrated Care graduation assessment.",
+          "officialAlternative": "Current public Dutch curriculum, exact linked programme catalogue, available historical catalogue/OER, Skillslab and Medicine-specific minor permissions inspected. Correct minor intranet alternative redirects to university sign-in. No current bachelor assessment/progression source was found in focused official searches; historical rules not promoted to2026 authority.",
+          "outcome": "incomplete; one permitted revisit exhausted",
+          "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000135/revisit-source-review.json",
+          "nextAction": "CP135 remains deferred and incomplete after its one permitted revisit. Applicable September2026 competency-based credit awards/progression, full minor credit/approval conditions and Integrated Care graduation assessment still require official evidence. Preserve28 interest reviews, the two prior feasible prototypes, current40-course reassessment and a distinct feasible prevention/policy proposal; the old blanket prevention rejection is superseded, not a final inclusion. Resume CP149 permitted revisit next execution. No academic/presentation approval, no no-match and no final release."
         }
       ]
     },
