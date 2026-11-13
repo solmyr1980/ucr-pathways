@@ -1,0 +1,329 @@
+{
+  "caseId": "cp-000289",
+  "checkedAt": "2026-11-13T11:17:53.027895+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000289.json": "e947bd9fb353306d9e5c2cbd6b356184de7c56a8",
+    "data/counselor/comparisons/cp-000289.json": "debff5bd7067c11265a99524987ee640ce387839",
+    "data/registry/programme_interests.csv": "59548104ee7558d4248dc6c7a5fe46e4d84bea6a",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "data/counselor/review-programmes.json": "44bc7b410a27bd0144e167aa7b63a14918ce053a",
+    "data/counselor/review-interests.json": "ef1f163d66d5f8e7f915328a6d6a3230f81bb4e5",
+    "decision": "e947bd9fb353306d9e5c2cbd6b356184de7c56a8",
+    "canonical": "debff5bd7067c11265a99524987ee640ce387839"
+  },
+  "fieldToRendererMapping": [
+    {
+      "fields": [
+        "comparator.name",
+        "comparator.institution"
+      ],
+      "renderer": "render_exception comparison-headh1/p"
+    },
+    {
+      "fields": [
+        "audience.programmeDescription",
+        "audience.comparisonExplanation",
+        "audience.curriculum.status",
+        "audience.curriculum.yearLabel",
+        "audience.curriculum.routeLabel",
+        "audience.curriculum.limitation"
+      ],
+      "renderer": "audience_content/curriculum_view/render_audience_context app.R282–318"
+    },
+    {
+      "fields": [
+        "audience.curriculum.componentIds",
+        "comparator.components[].name",
+        "comparator.components[].credits",
+        "audience.componentNotes"
+      ],
+      "renderer": "render_exceptionpartialtable app.R462–493"
+    },
+    {
+      "fields": [
+        "comparator.primarySourceUrl"
+      ],
+      "renderer": "officialprogrammeanchor"
+    },
+    {
+      "fields": [
+        "audience.noteTypes",
+        "notes",
+        "references"
+      ],
+      "renderer": "render_audience_notes explicitselectors,nosourceNotesfallback"
+    }
+  ],
+  "reviewedReaderValues": {
+    "audience": {
+      "schemaVersion": "1.0",
+      "programmeDescription": "Economics & Society at Leiden combines economic theory and empirical analysis with law, politics and institutions. Students examine welfare, inequality, climate change, migration and labour markets, and learn to assess economic policy and its social consequences. The programme is taught in The Hague in cooperation with Erasmus School of Economics. Tutoring supports academic and career development.",
+      "comparisonExplanation": "The university publishes a full programme outline, shown below. A complete UCR comparison still awaits confirmation of the detailed third-year and final-project requirements. This uncertainty does not establish that UCR offers no suitable study possibilities.",
+      "curriculum": {
+        "status": "partial",
+        "componentIds": [
+          "y1-21151004y",
+          "y1-21151006y",
+          "y1-21151008y",
+          "y1-21151010y",
+          "y1-21151012y",
+          "y1-21151014y",
+          "y1-21151016y",
+          "y1-21151018y",
+          "y1-21151020y",
+          "y1-21151022y",
+          "y1-21151024y",
+          "y1-21151026y",
+          "y2-22152002y",
+          "y2-22152004y",
+          "y2-22152006y",
+          "y2-22152008y",
+          "y2-22152010y",
+          "y2-22152012y",
+          "y2-22152014y",
+          "y2-22152016y",
+          "y2-22152018y",
+          "y2-22152020y",
+          "y2-22152070y",
+          "y2-22152072y",
+          "y3-open-electives",
+          "y3-political-economy",
+          "y3-law-economics",
+          "y3-economic-history",
+          "y3-economics-society-2",
+          "y3-bachelor-project"
+        ],
+        "yearLabel": "2026–2027",
+        "routeLabel": "Economics & Society — Package A",
+        "limitation": "The published outline totals 180 EC, including 30 EC of elective space and a 10-EC bachelor project. Detailed third-year, cohort and project requirements remain unconfirmed. This is an indicative programme outline, not a certified complete degree pathway."
+      },
+      "componentNotes": {
+        "y1-21151008y": "Hands-on R programming, data preparation and visualisation support empirical economic analysis.",
+        "y1-21151026y": "Introduces regression and the distinction between prediction, correlation and causation.",
+        "y2-22152006y": "Examines climate damages, emissions, discounting and policy trade-offs, including work with an integrated assessment model.",
+        "y2-22152018y": "Develops causal analysis through experimental and quasi-experimental methods, including instrumental variables, fixed effects and difference-in-differences.",
+        "y2-22152070y": "European Law and Social Law form the selected 10-EC Package A. The alternative politics package is excluded; these are not universal requirements across both choices.",
+        "y3-open-electives": "30 EC in the first semester for a minor or other approved options, such as an internship or study abroad. No particular elective subjects are assumed.",
+        "y3-political-economy": "The published final-year outline includes this 5-EC unit. Detailed module requirements still need confirmation.",
+        "y3-law-economics": "The published final-year outline includes this 5-EC unit. Detailed module requirements still need confirmation.",
+        "y3-economic-history": "The published final-year outline includes this 5-EC unit. Detailed module requirements still need confirmation.",
+        "y3-economics-society-2": "The published final-year outline includes this 5-EC unit. Detailed module requirements still need confirmation.",
+        "y3-bachelor-project": "A 10-EC individual research project combining economic, political and legal perspectives on a societal question. Programme-specific entry and assessment requirements remain to be confirmed."
+      }
+    },
+    "components": [
+      {
+        "id": "y1-21151004y",
+        "name": "Economics and Society I",
+        "credits": 5,
+        "note": "required current module 21151004Y; source-backed credit counted once."
+      },
+      {
+        "id": "y1-21151006y",
+        "name": "Mathematics for Economists",
+        "credits": 5,
+        "note": "required current module 21151006Y; source-backed credit counted once."
+      },
+      {
+        "id": "y1-21151008y",
+        "name": "Data Visualisation and Programming",
+        "credits": 5,
+        "note": "required current module 21151008Y; source-backed credit counted once."
+      },
+      {
+        "id": "y1-21151010y",
+        "name": "Statistics",
+        "credits": 5,
+        "note": "required current module 21151010Y; source-backed credit counted once."
+      },
+      {
+        "id": "y1-21151012y",
+        "name": "Microeconomics",
+        "credits": 5,
+        "note": "required current module 21151012Y; source-backed credit counted once."
+      },
+      {
+        "id": "y1-21151014y",
+        "name": "Introduction to Politics for Economists",
+        "credits": 5,
+        "note": "required current module 21151014Y; source-backed credit counted once."
+      },
+      {
+        "id": "y1-21151016y",
+        "name": "Macroeconomics",
+        "credits": 5,
+        "note": "required current module 21151016Y; source-backed credit counted once."
+      },
+      {
+        "id": "y1-21151018y",
+        "name": "Introduction to Law for Economists",
+        "credits": 5,
+        "note": "required current module 21151018Y; source-backed credit counted once."
+      },
+      {
+        "id": "y1-21151020y",
+        "name": "Applied Welfare Economics",
+        "credits": 5,
+        "note": "required current module 21151020Y; source-backed credit counted once."
+      },
+      {
+        "id": "y1-21151022y",
+        "name": "Policy, Bureaucracy and Markets",
+        "credits": 5,
+        "note": "required current module 21151022Y; source-backed credit counted once."
+      },
+      {
+        "id": "y1-21151024y",
+        "name": "Behavioral Economics",
+        "credits": 5,
+        "note": "required current module 21151024Y; source-backed credit counted once. Standard English spelling normalises the official API typo Bahavioral without changing subject."
+      },
+      {
+        "id": "y1-21151026y",
+        "name": "Introduction to Econometrics",
+        "credits": 5,
+        "note": "required current module 21151026Y; source-backed credit counted once."
+      },
+      {
+        "id": "y2-22152002y",
+        "name": "Public Economics",
+        "credits": 5,
+        "note": "required current module 22152002Y; source-backed credit counted once."
+      },
+      {
+        "id": "y2-22152004y",
+        "name": "International Economics",
+        "credits": 5,
+        "note": "required current module 22152004Y; source-backed credit counted once."
+      },
+      {
+        "id": "y2-22152006y",
+        "name": "Environmental Economics",
+        "credits": 5,
+        "note": "required current module 22152006Y; source-backed credit counted once."
+      },
+      {
+        "id": "y2-22152008y",
+        "name": "Dutch Politics",
+        "credits": 5,
+        "note": "required current module 22152008Y; source-backed credit counted once."
+      },
+      {
+        "id": "y2-22152010y",
+        "name": "Tax Law",
+        "credits": 5,
+        "note": "required current module 22152010Y; source-backed credit counted once."
+      },
+      {
+        "id": "y2-22152012y",
+        "name": "Economics and Inequality",
+        "credits": 5,
+        "note": "required current module 22152012Y; source-backed credit counted once."
+      },
+      {
+        "id": "y2-22152014y",
+        "name": "Economics of the European Union",
+        "credits": 5,
+        "note": "required current module 22152014Y; source-backed credit counted once."
+      },
+      {
+        "id": "y2-22152016y",
+        "name": "Economics of Migration",
+        "credits": 5,
+        "note": "required current module 22152016Y; source-backed credit counted once."
+      },
+      {
+        "id": "y2-22152018y",
+        "name": "Applied Econometrics",
+        "credits": 5,
+        "note": "required current module 22152018Y; source-backed credit counted once."
+      },
+      {
+        "id": "y2-22152020y",
+        "name": "Labour Economics",
+        "credits": 5,
+        "note": "required current module 22152020Y; source-backed credit counted once."
+      },
+      {
+        "id": "y2-22152070y",
+        "name": "European Law",
+        "credits": 5,
+        "note": "Package A; displayed first, not a programme-wide universal course."
+      },
+      {
+        "id": "y2-22152072y",
+        "name": "Social Law",
+        "credits": 5,
+        "note": "Package A; displayed first, not a programme-wide universal course."
+      },
+      {
+        "id": "y3-open-electives",
+        "name": "Open elective space",
+        "credits": 30,
+        "note": "Current public overview explicitly identifies30EC semester1 minor,internship or exchange; no named elective content invented."
+      },
+      {
+        "id": "y3-political-economy",
+        "name": "Political Economy",
+        "credits": 5,
+        "note": "Public curriculum image: Politieke economie,year3block3. Programme text explicitly says all courses except bachelorprojectcarry5EC. Detailed currentmoduleconditions stillunpublished."
+      },
+      {
+        "id": "y3-law-economics",
+        "name": "Law and Economics",
+        "credits": 5,
+        "note": "Public curriculum image: Rechtseconomie,year3block3;5EC established by explicit generalcreditstatement, not rectangle-size inference. Detailed currentmoduleconditions stillunpublished."
+      },
+      {
+        "id": "y3-economic-history",
+        "name": "Economic History",
+        "credits": 5,
+        "note": "Public curriculum image: Economische geschiedenis,year3block4;5EC by explicit generalcreditstatement. Detailed currentmoduleconditions stillunpublished."
+      },
+      {
+        "id": "y3-economics-society-2",
+        "name": "Economics and Society II",
+        "credits": 5,
+        "note": "Public curriculum image: Economie en samenleving II,year3block4;5EC by explicit generalcreditstatement. Detailed currentmoduleconditions stillunpublished."
+      },
+      {
+        "id": "y3-bachelor-project",
+        "name": "Bachelor Project",
+        "credits": 10,
+        "note": "Public overview explicitly identifies10ECindividualsocietal-economicresearchproject integratingeconomic,politicalandlegalaspects. Image calls itScriptie acrossblocks3/4. Applicableprogramme-specificentry/assessmenthandbook stillrequired; noinventedmodulecode."
+      }
+    ],
+    "name": "Economics & Society",
+    "institution": "Leiden University",
+    "source": "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/fdr-economie--samenleving"
+  },
+  "findings": [
+    "Every30componentname/creditreadagainstactual24modules/publicimageandtext:180isapublishedoutline,notaproveddegreepath. Four5ECtitlestranslatedaccurately,project10/open30explicit;noinferredboxes/code/syllabus.",
+    "CorrectreaderBehavioralEconomicsAPItypo. Descriptionstatesactualeconomic/empirical/legal/politicalfocus,TheHagueandESEcooperationwithoutjobguarantees.",
+    "Partialstatus/limitationclearlyqualify180ECoutlineandunknownthirdyear/cohort/projectrequirements;noobsoleteall60unnamedclaim,nono-matchorfullcertification.",
+    "All11notesreviewed:actualR/causal/climatemodelcontributions,PackageAversusB,genuineopen30,fourunpublished-detail5ECunits,individual10ECproject/entryconditions. Tutoring0notcredited.",
+    "CorrectprimarypublicURLreplacesAPIonlylink;all9referenceidsresolve. Prior2025OERnotassertedcurrent;503retrieval/RRresearchkeptinternal.",
+    "ActiveexceptionhasnoUCRconcept/schedule/alignmentprose/selectedcoursedescriptions.24coursesremaininternalresearch. Unchangedshareddescriptionreviewsreused;currentcachevalidatorrequired.",
+    "Sharedexception/partialheadings,labels/navigationreadinactualrenderercontext. Noappcodechange/liveShiny/browser/modal/screenshotclaim."
+  ],
+  "checks": {
+    "academic": "blocked",
+    "mechanical": "pending",
+    "content": "passed-for-qualified-outline-record"
+  },
+  "selectedUCRDescriptionCodes": [],
+  "appCodeUnchanged": true
+}
