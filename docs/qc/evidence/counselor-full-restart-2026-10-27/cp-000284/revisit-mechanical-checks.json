@@ -1,0 +1,65 @@
+{
+  "caseId": "cp-000284",
+  "checkedAt": "2026-11-13T08:08:09.439461+00:00",
+  "reviewedInputCommit": "c024e1cbc413839ce301258f860068ff61f1b0eb",
+  "inputBlobs": {
+    "data/counselor/decisions/cp-000284.json": "49b3c60772089cdb1efec0e490b5baa7a94964aa",
+    "data/counselor/comparisons/cp-000284.json": "33a39fcb04666b377462111e84c7c4943bd84cb4",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/review-programmes.json": "e24bc46e9d4b3380796da2b41fede5927a7d69d7",
+    "data/counselor/review-interests.json": "45110774d9d53d68fd12fc668e41d08cc4737c88",
+    "data/registry/programme_interests.csv": "3d306e8c53d567ca9dbc5c09e151fc54ad5b2243"
+  },
+  "checks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000284.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000284.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.",
+      "logSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "output": "r methodology rules OK\ncp-000421.json: final counselor methodology rules OK\ncp-000422.json: final counselor methodology rules OK\ncp-000423.json: final counselor methodology rules OK\ncp-000424.json: final counselor methodology rules OK\ncp-000425.json: final counselor methodology rules OK\ncp-000426.json: final counselor methodology rules OK\ncp-000427.json: final counselor methodology rules OK\ncp-000433.json: final counselor methodology rules OK\ncp-000434.json: final counselor methodology rules OK\ncp-000438.json: final counselor methodology rules OK\ncp-000439.json: final counselor methodology rules OK\ncp-000442.json: final counselor methodology rules OK\ncp-000443.json: final counselor methodology rules OK\ncp-000444.json: final counselor methodology rules OK\ncp-000447.json: final counselor methodology rules OK\ncp-000448.json: final counselor methodology rules OK\ncp-000449.json: final counselor methodology rules OK\ncp-000450.json: final counselor methodology rules OK\ncp-000451.json: final counselor methodology rules OK\ncp-000452.json: final counselor methodology rules OK\ncp-000453.json: final counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK",
+      "logSha256": "cf6602f605323a2268e5172a3d9d0038c07bc5f7d1563a1fe47865f8999c5e5d"
+    },
+    {
+      "command": "node scripts/validate-registry-interests.mjs",
+      "exitCode": 0,
+      "output": "Valid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.",
+      "logSha256": "0dc1ff8a36961675f58e702191ec97f43c501db23f02270d74dfb6913450c3cc"
+    },
+    {
+      "command": "node scripts/build-counselor-review-index.mjs --check",
+      "exitCode": 0,
+      "output": "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+      "logSha256": "c26900407153178ba5a5e40b41d6c719f0f4eb5c062e3226b01961df60f9469d"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "output": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.",
+      "logSha256": "e3bf679d8cf8c5b2718fd9a77a2b7a978383e2c1022e5cb9af4c91fa6bfc0194"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000284/revisit-ucr-feasibility-input.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "byte-exact decision/canonical replay",
+      "exitCode": 0,
+      "bytes": 17508,
+      "sha256": "7c46fc5ce90482464612cecbcae39ffe380e056584951294f68e0e52041c42f4"
+    }
+  ],
+  "appCodeChanged": false,
+  "validationBoundary": "Ordinary record repair without app, compiler or contract changes. Case validators, operational corpus, registry, review indexes, description provenance and byte-exact replay passed. Reaudit and published-byte/CI checks remain separate."
+}
