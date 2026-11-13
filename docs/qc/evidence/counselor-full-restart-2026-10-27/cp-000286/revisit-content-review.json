@@ -1,0 +1,275 @@
+{
+  "caseId": "cp-000286",
+  "checkedAt": "2026-11-13T09:23:02.515590+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000286.json": "e44665275256002d911c0a9f191f45a9b26fbe0e",
+    "data/counselor/comparisons/cp-000286.json": "108af086473cbd9f366a8b7c30a989cb32e50c05",
+    "data/registry/programme_interests.csv": "96e35effa4741bbf20f0446b459fa7de601b1e2e",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "data/counselor/review-programmes.json": "c17821e2cbd39d6de06007e6c7b35e60fa66e94a",
+    "data/counselor/review-interests.json": "e119db6af64e58441dcf90f3f1c0b8a76b9fcfc6",
+    "decision": "e44665275256002d911c0a9f191f45a9b26fbe0e",
+    "canonical": "108af086473cbd9f366a8b7c30a989cb32e50c05"
+  },
+  "fieldToRendererMapping": [
+    {
+      "fields": [
+        "comparator.name",
+        "comparator.institution"
+      ],
+      "renderer": "render_exception comparison-head h1/p"
+    },
+    {
+      "fields": [
+        "audience.programmeDescription",
+        "audience.comparisonExplanation",
+        "audience.curriculum.yearLabel",
+        "audience.curriculum.routeLabel",
+        "audience.curriculum.limitation"
+      ],
+      "renderer": "audience_content / render_audience_context, app.R282–318"
+    },
+    {
+      "fields": [
+        "audience.curriculum.status",
+        "audience.curriculum.componentIds",
+        "comparator.components[].name",
+        "comparator.components[].credits",
+        "audience.componentNotes"
+      ],
+      "renderer": "curriculum_view and render_exception partial-table, app.R290–307 and462–493"
+    },
+    {
+      "fields": [
+        "comparator.primarySourceUrl"
+      ],
+      "renderer": "render_exception official programme source anchor"
+    },
+    {
+      "fields": [
+        "audience.notes",
+        "audience.referenceIds",
+        "references"
+      ],
+      "renderer": "render_audience_notes; only explicit audience references enter notes, internal sourceNotes are not fallback"
+    }
+  ],
+  "reviewedReaderValues": {
+    "programme": "Cybersecurity & Cybercrime",
+    "institution": "Leiden University",
+    "audience": {
+      "schemaVersion": "1.0",
+      "programmeDescription": "Cybersecurity & Cybercrime at Leiden combines computing, governance, law and criminology to study digital security and crime. Students examine how networked systems work, how attacks occur, who commits and experiences cybercrime, and how organisations and public institutions can respond. Research methods, academic skills and multidisciplinary projects connect these perspectives.",
+      "comparisonExplanation": "A complete UCR comparison is not yet available because the compulsory third-year curriculum has not been fully established from the available official information. The supported first two years and elective space are shown below. This uncertainty does not establish that UCR offers no suitable study possibilities.",
+      "curriculum": {
+        "status": "partial",
+        "componentIds": [
+          "y1-programming",
+          "y1-governance",
+          "y1-skills-1",
+          "y1-systems-networks",
+          "y1-criminology",
+          "y1-skills-2",
+          "y1-law-cyberspace",
+          "y1-organisations",
+          "y1-skills-3",
+          "y1-project",
+          "y1-research-methods",
+          "y2-quantitative",
+          "y2-offenders",
+          "y2-attacks",
+          "y2-crisis-response",
+          "y2-defence",
+          "y2-victims",
+          "y2-criminal-law",
+          "y2-conflict",
+          "y2-qualitative",
+          "y2-project",
+          "y2-investigation",
+          "y3-open-elective-space"
+        ],
+        "yearLabel": "2026–2027",
+        "routeLabel": "Cybersecurity & Cybercrime",
+        "limitation": "The listed components total 150 EC: 120 EC of compulsory study in the first two years and 30 EC of third-year elective space. The remaining 30 EC of compulsory third-year study, including the final project, still require confirmation. This is an incomplete curriculum, not a certified 180-EC degree plan."
+      },
+      "componentNotes": {
+        "y1-skills-1": "The skills labs develop academic and professional skills in small groups. Attendance and assessment requirements apply.",
+        "y1-project": "A 10-EC multidisciplinary project on online deception and disinformation. Its credits are counted once within the first year.",
+        "y2-defence": "Builds on the study of cyber attacks, moving from vulnerabilities to access controls, defensive measures and organisational security.",
+        "y2-project": "A 10-EC multidisciplinary ransomware project, counted within the second year. Attendance and individual assessment requirements apply.",
+        "y3-open-elective-space": "30 EC for electives, a minor or approved study or internship options. Level, approval and non-overlap rules apply. Honours courses and specified overlapping minors and courses cannot be used here."
+      }
+    },
+    "partialComponents": [
+      {
+        "id": "y1-programming",
+        "name": "Introduction to Programming",
+        "credits": 7,
+        "note": "Compulsory current module 8931001Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y1-governance",
+        "name": "Governance of Cybersecurity",
+        "credits": 5,
+        "note": "Compulsory current module 8931002Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y1-skills-1",
+        "name": "Skills Lab 1",
+        "credits": 3,
+        "note": "Compulsory current module 8931003Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y1-systems-networks",
+        "name": "Fundamentals of Computer Systems and Networks",
+        "credits": 7,
+        "note": "Compulsory current module 8931004Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y1-criminology",
+        "name": "Introduction to Criminology",
+        "credits": 5,
+        "note": "Compulsory current module 8931005Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y1-skills-2",
+        "name": "Skills Lab 2",
+        "credits": 3,
+        "note": "Compulsory current module 8931006Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y1-law-cyberspace",
+        "name": "Law in Cyberspace",
+        "credits": 5,
+        "note": "Compulsory current module 8931007Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y1-organisations",
+        "name": "Cybersecurity in Organisations",
+        "credits": 5,
+        "note": "Compulsory current module 8931008Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y1-skills-3",
+        "name": "Skills Lab 3",
+        "credits": 5,
+        "note": "Compulsory current module 8931009Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y1-project",
+        "name": "Integrated Project 1: Online Deception and Disinformation",
+        "credits": 10,
+        "note": "Compulsory current module 8931010Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y1-research-methods",
+        "name": "Introduction to Research Methods",
+        "credits": 5,
+        "note": "Compulsory current module 8931011Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y2-quantitative",
+        "name": "Quantitative Research Methods",
+        "credits": 5,
+        "note": "Compulsory current module 8932001Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y2-offenders",
+        "name": "Offenders of Cybercrime",
+        "credits": 5,
+        "note": "Compulsory current module 8932002Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y2-attacks",
+        "name": "Cyber Attacks",
+        "credits": 5,
+        "note": "Compulsory current module 8932010Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y2-crisis-response",
+        "name": "Cyber Crisis Management and Incident Response",
+        "credits": 5,
+        "note": "Compulsory current module 8932005Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y2-defence",
+        "name": "Defence against Cyber Attacks",
+        "credits": 5,
+        "note": "Compulsory current module 8932006Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y2-victims",
+        "name": "Victims of Cybercrime",
+        "credits": 5,
+        "note": "Compulsory current module 8932007Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y2-criminal-law",
+        "name": "Criminal Law and Cybercrime",
+        "credits": 5,
+        "note": "Compulsory current module 8932003Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y2-conflict",
+        "name": "Conflict in Cyberspace",
+        "credits": 5,
+        "note": "Compulsory current module 8932004Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y2-qualitative",
+        "name": "Qualitative Research Methods",
+        "credits": 5,
+        "note": "Compulsory current module 8932009Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y2-project",
+        "name": "Integrated Project 2: Ransomware",
+        "credits": 10,
+        "note": "Compulsory current module 8932008Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y2-investigation",
+        "name": "Criminal Investigation",
+        "credits": 5,
+        "note": "Compulsory current module 8932011Y; published2026–2027 delivery and credit verified, counted once."
+      },
+      {
+        "id": "y3-open-elective-space",
+        "name": "Open elective space",
+        "credits": 30,
+        "note": "Current official programme overview explicitly reserves30 EC in year3 for individual electives, a minor or approved study/stage possibilities. Preserve genuine open space without inventing individual courses; this is independently supported while compulsory later-year modules remain unpublished."
+      }
+    ],
+    "officialSource": "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/fgga-cybersecurity--cybercrime/over-de-opleiding"
+  },
+  "findings": [
+    "Description accurately conveys four disciplines and evidence-based inquiry without employment claims.",
+    "Exception is external-programme-unresolved, never no-defensible-ucr-match. Explanation and limitation explicitly state incomplete150EC, missing30 and no certified180EC pathway.",
+    "Every one of23titles/weights checked against22actualmodule responses and genuine30open space; standard English Disinformation normalises API typo Desinformation without changing subject. Actual block order fixes Attacks-before-Defence.",
+    "All five component notes reviewed: two10EC projects counted within years, skills attendance, defence progression and restricted genuineopen space. No invented third-year module or thesis.",
+    "Year2026–2027 and pathway name supported; no language exclusion, engineering equivalence or invented route.",
+    "Primary source public overview supports programme and known final format; every source ID resolves. API/provenance and internal research not emitted as reader prose.",
+    "Active record has no UCR programme, concepts, schedules, alignment row explanations or selected UCR course descriptions; internal24course challenge is research only. Unchanged shared description reviews are reused, no redundant modal checks.",
+    "Shared exception labels, navigation, branding and partial heading reviewed in actual source mapping. No internal notes substituted for explicit audience text."
+  ],
+  "checks": {
+    "content": "passed-for-partial-record",
+    "academic": "blocked by remaining compulsory30EC and final-project conditions",
+    "runtime": "not exercised under authorised policy; no app or renderer code changed; final release requires representative rendering"
+  },
+  "allReaderFacingFieldValuesCovered": true,
+  "appCodeUnchanged": true
+}
