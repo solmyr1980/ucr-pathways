@@ -1,0 +1,65 @@
+{
+  "caseId": "cp-000275",
+  "checkedAt": "2026-11-13T03:08:20.137933+00:00",
+  "reviewedInputCommit": "f4633116d0c6f63cfa8458496881b47780f42888",
+  "inputBlobs": {
+    "data/counselor/decisions/cp-000275.json": "e3c4479038457e2493c777bf3fe3fd55bbd69881",
+    "data/counselor/comparisons/cp-000275.json": "f68dfe8b5059f5f4c586ed743d840e1eef139945",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/review-programmes.json": "0ce97f2fadd1747d1323519e539cc4136ac08923",
+    "data/counselor/review-interests.json": "45110774d9d53d68fd12fc668e41d08cc4737c88",
+    "data/registry/programme_interests.csv": "3d306e8c53d567ca9dbc5c09e151fc54ad5b2243"
+  },
+  "checks": [
+    {
+      "command": "python scripts/validate-course-feasibility.py docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/revisit-provisional-course-attempt.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-course-feasibility.py data/counselor/comparisons/cp-000275.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.",
+      "logSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c"
+    },
+    {
+      "command": "python scripts/validate-counselor-schema.py data/counselor/comparisons/cp-000275.json",
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.",
+      "logSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "command": "npm run validate:counselor",
+      "exitCode": 0,
+      "output": "r methodology rules OK\ncp-000421.json: final counselor methodology rules OK\ncp-000422.json: final counselor methodology rules OK\ncp-000423.json: final counselor methodology rules OK\ncp-000424.json: final counselor methodology rules OK\ncp-000425.json: final counselor methodology rules OK\ncp-000426.json: final counselor methodology rules OK\ncp-000427.json: final counselor methodology rules OK\ncp-000433.json: final counselor methodology rules OK\ncp-000434.json: final counselor methodology rules OK\ncp-000438.json: final counselor methodology rules OK\ncp-000439.json: final counselor methodology rules OK\ncp-000442.json: final counselor methodology rules OK\ncp-000443.json: final counselor methodology rules OK\ncp-000444.json: final counselor methodology rules OK\ncp-000447.json: final counselor methodology rules OK\ncp-000448.json: final counselor methodology rules OK\ncp-000449.json: final counselor methodology rules OK\ncp-000450.json: final counselor methodology rules OK\ncp-000451.json: final counselor methodology rules OK\ncp-000452.json: final counselor methodology rules OK\ncp-000453.json: final counselor methodology rules OK\ncp-000454.json: final counselor methodology rules OK\ncp-000455.json: final counselor methodology rules OK\ncp-000456.json: final counselor methodology rules OK\ncp-000457.json: final counselor methodology rules OK\ncp-000459.json: final counselor methodology rules OK",
+      "logSha256": "cf6602f605323a2268e5172a3d9d0038c07bc5f7d1563a1fe47865f8999c5e5d"
+    },
+    {
+      "command": "node scripts/validate-registry-interests.mjs",
+      "exitCode": 0,
+      "output": "Valid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.",
+      "logSha256": "0dc1ff8a36961675f58e702191ec97f43c501db23f02270d74dfb6913450c3cc"
+    },
+    {
+      "command": "node scripts/build-counselor-review-index.mjs --check",
+      "exitCode": 0,
+      "output": "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+      "logSha256": "c26900407153178ba5a5e40b41d6c719f0f4eb5c062e3226b01961df60f9469d"
+    },
+    {
+      "command": "python scripts/validate-course-descriptions.py",
+      "exitCode": 0,
+      "output": "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained.",
+      "logSha256": "e3bf679d8cf8c5b2718fd9a77a2b7a978383e2c1022e5cb9af4c91fa6bfc0194"
+    },
+    {
+      "command": "byte-exact decision/canonical replay",
+      "exitCode": 0,
+      "bytes": 10824,
+      "sha256": "f74fcaeb972e743f472cd68345b3a41e04259c02146aaa2d0241aabd26379642"
+    }
+  ],
+  "appCodeChanged": false,
+  "validationBoundary": "Ordinary record repair without app, compiler or contract changes. Case validators, operational corpus, registry, review indexes, description provenance and byte-exact replay passed. Reaudit and published-byte/CI checks remain separate."
+}
