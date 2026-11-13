@@ -1,0 +1,245 @@
+{
+  "caseId": "cp-000291",
+  "checkedAt": "2026-11-13T13:16:14.435709+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000291.json": "5fac752612fc8a62092a4d895d8e1d714cc587b0",
+    "data/counselor/comparisons/cp-000291.json": "f8581a9032fccfcbb832735b58258a3ca29d4daa",
+    "data/registry/programme_interests.csv": "3ec373541057d40f7599b009cf42c5b5c5f211cc",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "data/counselor/review-programmes.json": "84517bf18a08d8fda3db8fa6ff3e4452482f15ae",
+    "data/counselor/review-interests.json": "e9d6ec67ac742af08eba907a6214d10fd987f052",
+    "decision": "5fac752612fc8a62092a4d895d8e1d714cc587b0",
+    "canonical": "f8581a9032fccfcbb832735b58258a3ca29d4daa"
+  },
+  "fieldToRendererMapping": {
+    "title": "comparator.name/institution → render_exception h1/subtitle",
+    "context": "audience.programmeDescription/comparisonExplanation → render_audience_context",
+    "curriculum": "audience.curriculum status/componentIds/yearLabel/routeLabel/limitation resolves25components → curriculum_view",
+    "notes": "audience.componentNotes keyed by component ID → cell notes",
+    "status": "exception.type → established unresolved-external status copy",
+    "source": "comparator.primarySource s2 → public programme link",
+    "boundary": "Internal sourceNotes,exception.reason/context,component rationales and preserved research are not audience fallbacks."
+  },
+  "reviewedReaderValues": {
+    "name": "Film and Literary Studies",
+    "institution": "Leiden University",
+    "audience": {
+      "schemaVersion": "1.0",
+      "programmeDescription": "Film and Literary Studies at Leiden examines how films and literary texts tell stories, create meaning and engage with society. Students practise close reading and film analysis, study historical movements and compare works across cultures and media. The programme offers Film Studies and Literary Studies tracks. This record follows Film Studies, including film theory, documentary, digital cinema and a research thesis.",
+      "comparisonExplanation": "The supported components are shown below, but a complete degree pathway and UCR comparison remain unconfirmed. The allocation of the World Cinema courses and the applicable future sequence still need clarification. This uncertainty does not establish that UCR offers no meaningful study possibilities.",
+      "curriculum": {
+        "status": "partial",
+        "componentIds": [
+          "y1-lit-theory",
+          "y1-film-genres",
+          "y1-text-image-1",
+          "y1-cinema-realism-modernism",
+          "y1-research",
+          "y1-literature-realism-symbolism",
+          "y1-contemporary-concerns",
+          "y1-world-literature-b",
+          "y1-text-image-2",
+          "y1-world-cinema-b",
+          "y1-animation",
+          "y1-cultural-representation",
+          "y2-digital-cultures",
+          "y2-interculturality",
+          "y2-adaptation",
+          "y2-paragone",
+          "y2-philosophy-science",
+          "y2-film-theory",
+          "y2-cinema-postmodern",
+          "y2-documentary",
+          "y3-film-philosophy",
+          "y3-third-cinema",
+          "y3-cinema-digital",
+          "thesis",
+          "elective-space"
+        ],
+        "yearLabel": "2026–2027",
+        "routeLabel": "Film Studies track",
+        "limitation": "The listed distinct components total 175 EC. One 5-EC World Cinema allocation still needs confirmation, and the placement of future courses must respect their entry requirements. This is an incomplete degree pathway."
+      },
+      "componentNotes": {
+        "y1-lit-theory": "Introduces literary concepts, theory and interpretation in relation to other media.",
+        "y1-text-image-1": "Develops detailed analysis of narrative form, perspective, characters, space and time in prose and film.",
+        "y1-text-image-2": "Extends analysis to poetic language and non-narrative or non-mainstream cinema.",
+        "y1-world-cinema-b": "World Cinema is counted once here. Confirmation of the separate A/B allocation is still needed before the second slot can be included.",
+        "y2-interculturality": "Studies identity, difference and postcolonial approaches through cultural and literary objects.",
+        "y2-film-theory": "Examines film-specific theoretical approaches, including semiotics, ideology and psychoanalysis.",
+        "y2-cinema-postmodern": "Builds on introductory film analysis to study postmodern cinema, representation and complex narratives.",
+        "y2-paragone": "Studies relations between words and images through theoretical texts, literature, film and visual art.",
+        "y2-documentary": "Examines documentary representation in relation to evidence, truth, reality and ethics.",
+        "y3-film-philosophy": "A 10-EC film-philosophy course requiring completion of a first-year Humanities programme.",
+        "y3-cinema-digital": "Requires Realism and Modernism plus at least two of Postmodernism and Complex Narratives, Third Cinema, and Film and Philosophy to be completed beforehand.",
+        "thesis": "A 10-EC research thesis of 10,000 words, normally in Dutch, with MLA conventions and two readers. Students must first earn at least 90 EC in Film and Literary Studies courses.",
+        "elective-space": "30 EC of genuine elective space for an approved package, minor, internship or study abroad. Future placement needs to fit the required course sequence; no particular elective subjects are assumed."
+      }
+    },
+    "components": [
+      {
+        "id": "y1-lit-theory",
+        "name": "Introduction to Literary Theory",
+        "credits": 5
+      },
+      {
+        "id": "y1-film-genres",
+        "name": "Film Genres",
+        "credits": 5
+      },
+      {
+        "id": "y1-text-image-1",
+        "name": "Text Image Analysis 1: Prose and Film",
+        "credits": 5
+      },
+      {
+        "id": "y1-cinema-realism-modernism",
+        "name": "Cinema: Realism and Modernism (Movements 1)",
+        "credits": 5
+      },
+      {
+        "id": "y1-research",
+        "name": "Film and Literary Research: Reading, Viewing, Writing, Presenting",
+        "credits": 5
+      },
+      {
+        "id": "y1-literature-realism-symbolism",
+        "name": "Literature: Realism and Symbolism (Movements 1)",
+        "credits": 5
+      },
+      {
+        "id": "y1-contemporary-concerns",
+        "name": "Contemporary Concerns in Film and Literature",
+        "credits": 5
+      },
+      {
+        "id": "y1-world-literature-b",
+        "name": "World Literature B",
+        "credits": 5
+      },
+      {
+        "id": "y1-text-image-2",
+        "name": "Text Image Analysis 2: Poetry and Non-Mainstream Cinema",
+        "credits": 5
+      },
+      {
+        "id": "y1-world-cinema-b",
+        "name": "World Cinema B",
+        "credits": 5
+      },
+      {
+        "id": "y1-animation",
+        "name": "Animation, Anime, Comics, Graphic Novel",
+        "credits": 5
+      },
+      {
+        "id": "y1-cultural-representation",
+        "name": "Cultural Representation and Signifying Practices",
+        "credits": 5
+      },
+      {
+        "id": "y2-digital-cultures",
+        "name": "Digital Cultures Today",
+        "credits": 5
+      },
+      {
+        "id": "y2-interculturality",
+        "name": "Interculturality: Visions on Identity and Difference",
+        "credits": 10
+      },
+      {
+        "id": "y2-adaptation",
+        "name": "Adaptation and Transmediality",
+        "credits": 5
+      },
+      {
+        "id": "y2-paragone",
+        "name": "Paragone: in between Word and Image",
+        "credits": 5
+      },
+      {
+        "id": "y2-philosophy-science",
+        "name": "Philosophy of Science",
+        "credits": 5
+      },
+      {
+        "id": "y2-film-theory",
+        "name": "Film Theory",
+        "credits": 10
+      },
+      {
+        "id": "y2-cinema-postmodern",
+        "name": "Cinema: Postmodernism and Complex Narratives (Movements 2)",
+        "credits": 10
+      },
+      {
+        "id": "y2-documentary",
+        "name": "Documentary: Audiovisual Evidence",
+        "credits": 5
+      },
+      {
+        "id": "y3-film-philosophy",
+        "name": "Film and Philosophy",
+        "credits": 10
+      },
+      {
+        "id": "y3-third-cinema",
+        "name": "Third Cinema",
+        "credits": 5
+      },
+      {
+        "id": "y3-cinema-digital",
+        "name": "Cinema & the Digital",
+        "credits": 5
+      },
+      {
+        "id": "thesis",
+        "name": "Bachelor Thesis",
+        "credits": 10
+      },
+      {
+        "id": "elective-space",
+        "name": "Elective space",
+        "credits": 30
+      }
+    ],
+    "allSources": [
+      "https://studiegids.universiteitleiden.nl/api/product?code=BA-FLW&type=STUDY&year=2261&language=en",
+      "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/film-en-literatuurwetenschap/over-de-opleiding/studieprogramma",
+      "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/film-en-literatuurwetenschap",
+      "https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-film--en-literatuurwetenschap-2026-2027.pdf",
+      "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/film-en-literatuurwetenschap/over-de-opleiding",
+      "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/film-en-literatuurwetenschap/na-je-studie/arbeidsmarkt",
+      "https://www.universiteitleiden.nl/binaries/content/gallery/student-recruitment-sites/fgw/curriculumschemas/2627/film-en-literatuurwetenschap-curriculumschema.jpg",
+      "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/film-en-literatuurwetenschap/na-je-studie/vervolgopleidingen"
+    ]
+  },
+  "findings": [
+    "Original180EC complete-path claim duplicatedWorldCinemaB. Active output now175distinctEC partial with explicit A/B/future-sequence limitation; no unsupported complete comparison remains.",
+    "All25English names/credits and13 reader notes read against actual modules/formal conditions; selected neutralFilmtrack retained. NewdiagramA/Bfinding retained internally with precise uncertainty.",
+    "Old labels/concepts/stopping decisions,overbroad matches and outdatedGOSHIST312name reviewed. Full old pair/research preserved as history, not reapproved or shown.",
+    "Final reader text describes academic objects and uncertainty without retrieval diagnostics. All8 source links reviewed; current diagram is a source image, not an app screenshot.",
+    "Active exception selects no UCR modal descriptions. Shared unchanged146course-description reviews reused; per-course substantive contribution reassessed separately.",
+    "No app/renderer code or runtime behaviour changes, no per-caseShiny/R/browser launch/install/screenshots/live modals. Final release representative rendering remains separate."
+  ],
+  "checks": {
+    "academic": "blocked",
+    "mechanical": "pending",
+    "content": "passed-for-partial-record"
+  },
+  "selectedUCRDescriptionCodes": [],
+  "appCodeUnchanged": true
+}
