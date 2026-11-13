@@ -1,0 +1,750 @@
+{
+  "caseId": "cp-000305",
+  "checkedAt": "2026-11-13T19:06:09.370674+00:00",
+  "reviewedInputCommit": "62ca39694d205afb95b6293fba13803ea92a9d33",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000305.json": "8f59d033bdc514a935d7112dd742ab33eb881b55",
+    "data/counselor/comparisons/cp-000305.json": "89784d31c8c5876ff3782c0d531480fd731191f9",
+    "data/registry/programme_interests.csv": "3ec373541057d40f7599b009cf42c5b5c5f211cc",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b"
+  },
+  "receipts": [
+    {
+      "file": "source-0",
+      "url": "https://studiegids.universiteitleiden.nl/studies/BA-LAGC?tab=info&year=2261",
+      "status": 200,
+      "bytes": 31334,
+      "sha256": "e2d3c15a9b4963a42bde66f2df215fde5b4f28b8f6e839059a0f77593b511de0",
+      "checkedAt": "2026-11-13T18:57:42.160099+00:00",
+      "bodyKind": "HTML/other"
+    },
+    {
+      "file": "source-1",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=BA-LAGC&type=STUDY&year=2261",
+      "status": 200,
+      "bytes": 333282,
+      "sha256": "fd33cd789ad626226112b4e39f9fea285e8a0938a18df5423e86af2988e7e8dd",
+      "checkedAt": "2026-11-13T18:57:42.150329+00:00",
+      "code": "BA-LAGC",
+      "name": "Liberal Arts and Sciences: Global Challenges",
+      "credits": 180.0,
+      "importDateTime": "2026-11-12T22:38:34.38606"
+    },
+    {
+      "file": "source-2",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/liberal-arts-and-sciences-global-challenges-leiden-university-college",
+      "status": 200,
+      "bytes": 48840,
+      "sha256": "655b5d28b9fe1c3e048749c9555453c8fa0cd1d666627d30a9c7a45b5ca40467",
+      "checkedAt": "2026-11-13T18:57:43.295819+00:00",
+      "bodyKind": "HTML/other"
+    },
+    {
+      "file": "source-3",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/liberal-arts-and-sciences-global-challenges-leiden-university-college/culture-history-society-ba",
+      "status": 200,
+      "bytes": 40692,
+      "sha256": "f935dc227f52d79c24691d0fee54cc5770674dc476c5b0b413d3ac8521f2028f",
+      "checkedAt": "2026-11-13T18:57:42.695245+00:00",
+      "bodyKind": "HTML/other"
+    },
+    {
+      "file": "source-4",
+      "url": "https://studiegids.universiteitleiden.nl/studies/BA-LAGC-CHS?tab=info&year=2261",
+      "status": 200,
+      "bytes": 31346,
+      "sha256": "6056efb7c4e182992bf4f64af70ac2b83ba2113949f6f7c141e68977f4be9533",
+      "checkedAt": "2026-11-13T18:57:47.276241+00:00",
+      "bodyKind": "HTML/other"
+    },
+    {
+      "file": "chs",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=BA-LAGC-CHS&type=STUDY&year=2261",
+      "status": 200,
+      "bytes": 48741,
+      "sha256": "39c867fd25e9cb759f86c6efd6451e7df2aaec8ad7768cf4098c1f4ae837d292",
+      "checkedAt": "2026-11-13T18:57:46.666811+00:00",
+      "code": "BA-LAGC-CHS",
+      "name": "Culture, History and Society - BA",
+      "credits": 85.0,
+      "importDateTime": "2026-11-12T22:38:43.883859"
+    },
+    {
+      "file": "forward",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=BA-LAGC-CHS&type=STUDY&year=2271",
+      "status": 200,
+      "bytes": 48741,
+      "sha256": "39c867fd25e9cb759f86c6efd6451e7df2aaec8ad7768cf4098c1f4ae837d292",
+      "checkedAt": "2026-11-13T18:57:46.716308+00:00",
+      "code": "BA-LAGC-CHS",
+      "name": "Culture, History and Society - BA",
+      "credits": 85.0,
+      "importDateTime": "2026-11-12T22:38:43.883859"
+    },
+    {
+      "file": "org-regulations",
+      "url": "https://www.organisatiegids.universiteitleiden.nl/en/regulations/governance-and-global-affairs/education/course-and-examination-regulations",
+      "status": 200,
+      "bytes": 9119,
+      "sha256": "a77e38014b9636e21a70439c5ff311cd933f5e7fb21c746a1c14aad6b01931de",
+      "checkedAt": "2026-11-13T18:58:26.288605+00:00",
+      "bodyKind": "HTML/other"
+    },
+    {
+      "file": "org-luc-oer",
+      "url": "https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/governance-and-global-affairs/oeren/oer-luc-2026-2027.pdf",
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "file": "student-luc-oer",
+      "url": "https://www.student.universiteitleiden.nl/binaries/content/assets/governance-and-global-affairs/luc/board-of-examiners/oer-liberal-arts-and-sciences-2026-2027.pdf",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "file": "student-prior-oer",
+      "url": "https://www.student.universiteitleiden.nl/binaries/content/assets/governance-and-global-affairs/luc/board-of-examiners/oer-liberal-arts-and-sciences-2025-2026.pdf",
+      "status": 200,
+      "bytes": 8181744,
+      "sha256": "6e028e64665325b215e6f62e072c56f061e588d5237f4e4604a8b9f1db224a0a",
+      "checkedAt": "2026-11-13T18:58:37.475937+00:00",
+      "bodyKind": "PDF"
+    },
+    {
+      "file": "org-grid",
+      "url": "https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/governance-and-global-affairs/luc/course-administration/2026-2027/grids/chs-grid-26-27.pdf",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "file": "student-grid",
+      "url": "https://www.student.universiteitleiden.nl/binaries/content/assets/governance-and-global-affairs/luc/course-administration/2026-2027/grids/chs-grid-26-27.pdf",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "file": "student-handbook",
+      "url": "https://www.student.universiteitleiden.nl/binaries/content/assets/governance-and-global-affairs/luc/student-handbook/luc-shb.pdf",
+      "status": 200,
+      "bytes": 1985246,
+      "sha256": "3b80707fdb5e85cabe66c66dfbb60e9d96b640b69a5e180a0a7e298e6b1946b5",
+      "checkedAt": "2026-11-13T18:58:34.570251+00:00",
+      "bodyKind": "PDF"
+    },
+    {
+      "file": "public-grid.png",
+      "url": "https://www.universiteitleiden.nl/binaries/content/gallery/ul2/main-images/campus-the-hague/luc-the-hague/alumni-and-majors/majorsgrid_2627_chs.png/majorsgrid_2627_chs.png/d700xvar",
+      "status": 200,
+      "bytes": 1356444,
+      "sha256": "58d217b7c1c11e8a146e7554cae88cc03563e1018a35b130dbca91f89c1b4061",
+      "checkedAt": "2026-11-13T19:03:25.786544+00:00",
+      "bodyKind": "HTML/other"
+    },
+    {
+      "file": "public-structure",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/liberal-arts-and-sciences-global-challenges-leiden-university-college/about-the-programme/study-programme",
+      "status": 200,
+      "bytes": 54902,
+      "sha256": "25d331c37860ec7f783f89f1d3eb3ed9d2699f578b3f9a7f9f1eeb7b08e1771c",
+      "checkedAt": "2026-11-13T19:03:24.203399+00:00",
+      "bodyKind": "HTML/other"
+    },
+    {
+      "file": "linked-grid",
+      "url": "https://www.universiteitleiden.nl/binaries/content/assets/governance-and-global-affairs/luc/course-administration/2026-2027/grids/chs-grid-26-27.pdf",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "file": "module-8001Y101Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8001Y101Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 27478,
+      "sha256": "94c5428fdc2b148633c744576341eda8416f9d10e16526c5dd90c3761a6e2cd5",
+      "checkedAt": "2026-11-13T19:00:52.864550+00:00",
+      "code": "8001Y101Y",
+      "name": "Academic Writing",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:32.156293"
+    },
+    {
+      "file": "module-8001Y172Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8001Y172Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 11441,
+      "sha256": "9e638c079c4b697c224fd4d0e269c17e0417a5af7042d6ea0741eff27745d629",
+      "checkedAt": "2026-11-13T19:00:53.129045+00:00",
+      "code": "8001Y172Y",
+      "name": "Global Challenges: Understanding",
+      "credits": 10.0,
+      "importDateTime": "2026-11-12T22:39:48.391466"
+    },
+    {
+      "file": "module-8001Y198Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8001Y198Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 13618,
+      "sha256": "c28bbd3e288ceddcfa3014141928bd9fe0a806873bee03206bf4b9e7ed347390",
+      "checkedAt": "2026-11-13T19:00:53.128459+00:00",
+      "code": "8001Y198Y",
+      "name": "Dutch History and Language",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:27.69709"
+    },
+    {
+      "file": "module-8001Y121Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8001Y121Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 10844,
+      "sha256": "b85e516f98c675623eae0cc7daa87ab977ed3a77309c1fdfc4c49bb2a3304d5e",
+      "checkedAt": "2026-11-13T19:00:53.147994+00:00",
+      "code": "8001Y121Y",
+      "name": "Introduction to Statistics",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:32.854799"
+    },
+    {
+      "file": "module-8001Y197Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8001Y197Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 11122,
+      "sha256": "631da22d5c15597c126a6b9255f02bd73d39d70fad8498b7a4c5740d9aae8f95",
+      "checkedAt": "2026-11-13T19:00:57.771983+00:00",
+      "code": "8001Y197Y",
+      "name": "Global Challenges: Local Engagement",
+      "credits": 10.0,
+      "importDateTime": "2026-11-12T22:39:46.250374"
+    },
+    {
+      "file": "module-8001Y193Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8001Y193Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 10682,
+      "sha256": "60c89164310ddd8bca7b5ebd6a8616adde27c43b94bf36a823e73241f8d907eb",
+      "checkedAt": "2026-11-13T19:00:56.968468+00:00",
+      "code": "8001Y193Y",
+      "name": "Mathematics for Social Networks",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:47.231628"
+    },
+    {
+      "file": "module-8001Y196Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8001Y196Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 15216,
+      "sha256": "2983a498a06e732ebcafa44e3fb9cb434d0ea9bf74e0967ad6c42845dd66ca0a",
+      "checkedAt": "2026-11-13T19:00:57.760056+00:00",
+      "code": "8001Y196Y",
+      "name": "Philosophy, Ethics, and the World Today",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:47.37448"
+    },
+    {
+      "file": "module-8001CHS52Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8001CHS52Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 11479,
+      "sha256": "52103e35418a2d968b31a168482805a4ce599d248a4a9faeb9e9b564491c91f2",
+      "checkedAt": "2026-11-13T19:00:57.756374+00:00",
+      "code": "8001CHS52Y",
+      "name": "What is Culture?",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:48.085955"
+    },
+    {
+      "file": "module-5890LU047Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=5890LU047Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 10640,
+      "sha256": "2dcc370eeb3c0ea5df5a54592afd3b0d44889191896e7de8a164141d23004ca7",
+      "checkedAt": "2026-11-13T19:01:04.976412+00:00",
+      "code": "5890LU047Y",
+      "name": "Birth of the Modern World",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:27.408592"
+    },
+    {
+      "file": "module-8001HD81Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8001HD81Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 12244,
+      "sha256": "f7521daf51e2283b81575cb9eb9ce0fbefbfa9d5b4ca13a762551bfb08526d39",
+      "checkedAt": "2026-11-13T19:01:04.776083+00:00",
+      "code": "8001HD81Y",
+      "name": "Social Theory in Everyday Life",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:34.816622"
+    },
+    {
+      "file": "module-8002CHS93Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8002CHS93Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 9375,
+      "sha256": "7c75de67bb03a78e1e312b788afb498bc2e978ee65058fb4e53fb47298cd3baa",
+      "checkedAt": "2026-11-13T19:01:04.748393+00:00",
+      "code": "8002CHS93Y",
+      "name": "A Child on a Hill: Research Design for the Arts",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:37.136459"
+    },
+    {
+      "file": "module-5890LU79Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=5890LU79Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 12377,
+      "sha256": "e56de48553d8ecc94509a19306cda73e38846d0ce458caa5f15cd1a878727f91",
+      "checkedAt": "2026-11-13T19:01:04.628672+00:00",
+      "code": "5890LU79Y",
+      "name": "Historical Research Methods: History and Testimony",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:28.509249"
+    },
+    {
+      "file": "module-8002HD82Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8002HD82Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 14058,
+      "sha256": "859a967c69190b07408f688169a00d23fa847cdbefcc92040c78c25044b820ae",
+      "checkedAt": "2026-11-13T19:01:08.764507+00:00",
+      "code": "8002HD82Y",
+      "name": "Qualitative Research Methods",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:36.045106"
+    },
+    {
+      "file": "module-8002CHS02Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8002CHS02Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 10994,
+      "sha256": "f290b0467deb454fee36d7396cf8a29d90f99e4e12d68afe5b71aa12f807caa0",
+      "checkedAt": "2026-11-13T19:01:08.852204+00:00",
+      "code": "8002CHS02Y",
+      "name": "Infrastructure, Art & Culture",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:38.986927"
+    },
+    {
+      "file": "module-5890LU060Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=5890LU060Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 10453,
+      "sha256": "22b0a7322ef41794b3061c95cb33a713dd07b3a91d7de82e9bca0e48fe5f2965",
+      "checkedAt": "2026-11-13T19:01:08.460083+00:00",
+      "code": "5890LU060Y",
+      "name": "Cultural Translation",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:29.628869"
+    },
+    {
+      "file": "module-8002CHS63Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8002CHS63Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 12058,
+      "sha256": "97f7d2709d641e8e977b4028509a3f67f9bb5f45cb651be157d47b29c01a80ea",
+      "checkedAt": "2026-11-13T19:01:08.444666+00:00",
+      "code": "8002CHS63Y",
+      "name": "History of Science and Empires",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:46.361263"
+    },
+    {
+      "file": "module-8002HD44Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8002HD44Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 12243,
+      "sha256": "585b4e797169fcecb47eb5f7c5d583eb65be8aef07bb5ff4be6924574d4ef2dc",
+      "checkedAt": "2026-11-13T19:01:13.024190+00:00",
+      "code": "8002HD44Y",
+      "name": "Anthropology of Difference",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:37.035077"
+    },
+    {
+      "file": "module-8002CHS72Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8002CHS72Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 12341,
+      "sha256": "ad566296cbcc388d5b6ef86b5dd9df069ac3c1d5555c6238f47eead3f2ede386",
+      "checkedAt": "2026-11-13T19:01:13.032188+00:00",
+      "code": "8002CHS72Y",
+      "name": "Postcolonial Representations",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:47.5134"
+    },
+    {
+      "file": "module-8003HD79Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8003HD79Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 12314,
+      "sha256": "0f375d0c644defed54d72296a614d58451cd538fc570e7f7056f688f670106cf",
+      "checkedAt": "2026-11-13T19:01:13.052059+00:00",
+      "code": "8003HD79Y",
+      "name": "Asia in Global History: From Colonialism to the Post-Cold War Era",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:37.741202"
+    },
+    {
+      "file": "module-8003WP65Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8003WP65Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 12605,
+      "sha256": "6c4a1904766f7dbabce87f64db1b6e3259c81eb552922a44e563cf37e1853e64",
+      "checkedAt": "2026-11-13T19:01:12.960898+00:00",
+      "code": "8003WP65Y",
+      "name": "Politics of Cultural Memory",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:26.907283"
+    },
+    {
+      "file": "module-8003CHS64Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8003CHS64Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 11799,
+      "sha256": "198f455178afcda727e7fe1f8aa321267e9be6ba73820a4e2745a913c902c569",
+      "checkedAt": "2026-11-13T19:01:16.352437+00:00",
+      "code": "8003CHS64Y",
+      "name": "The Digital Form of Social Life",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:31.749877"
+    },
+    {
+      "file": "module-8003CHS42Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8003CHS42Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 11232,
+      "sha256": "df71d0a88e14be2af8a3b6ede2980e2778cfc46e5dc0ab26f0c5301e34ae9210",
+      "checkedAt": "2026-11-13T19:01:16.376210+00:00",
+      "code": "8003CHS42Y",
+      "name": "Case-studies: Languages of Waste",
+      "credits": 5.0,
+      "importDateTime": "2026-11-12T22:39:45.28955"
+    },
+    {
+      "file": "module-8004CS001Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8004CS001Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 4,
+      "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "checkedAt": "2026-11-13T19:01:16.563734+00:00",
+      "bodyKind": "HTML/other"
+    },
+    {
+      "file": "module-5890LU013Y",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=5890LU013Y&type=MODULE&year=2261&language=en",
+      "status": 200,
+      "bytes": 11996,
+      "sha256": "e051345fbd44dba07b33de9e8cb7ffeee8e598e11056fefa93cfec5cc7f3fb14",
+      "checkedAt": "2026-11-13T19:01:16.680215+00:00",
+      "code": "5890LU013Y",
+      "name": "Spanish - Beginners",
+      "credits": 10.0,
+      "importDateTime": "2026-11-12T22:39:30.474534"
+    },
+    {
+      "file": "capstone",
+      "url": "https://studiegids.universiteitleiden.nl/api/product?code=8004CS001Y&type=MODULE&year=2261",
+      "status": 200,
+      "bytes": 4,
+      "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "checkedAt": "2026-11-13T19:01:19.939333+00:00",
+      "bodyKind": "HTML/other"
+    }
+  ],
+  "programmeFramework": {
+    "firstYearCore": 45,
+    "major": 85,
+    "electives": 10,
+    "flexibleSpace": 30,
+    "globalCitizenship": 10,
+    "total": 180,
+    "partialDisplayed": 95,
+    "firstYearChoiceOverlap": "The15EC first-year choices are included across these categories; never added on top."
+  },
+  "cohortConflict": {
+    "class2028": {
+      "foundations": 15,
+      "methods": 15,
+      "choices": 40,
+      "capstone": 15
+    },
+    "classes2026and2027": {
+      "foundations": 15,
+      "methods": 15,
+      "choices": 45,
+      "capstone": 10
+    },
+    "class2029": "No express adopted allocation or progression verified.",
+    "forward": "2271 request returns same2261 bytes."
+  },
+  "publicSources": {
+    "degreeWebRef": "turn2300view0",
+    "majorWebRef": "turn2300view1",
+    "structureWebRef": "turn2301view1",
+    "imageWebRef": "turn2301view0",
+    "imageFinding": "Actual source PNG viewed, not an app screenshot. Footer2026–2027; three core/shared track columns and400-levelCapstone, no EC or graduating-cohort/progression rules. Supports academic scope, not the missing credit bridge.",
+    "structureFinding": "Confirms supervised independent final-year research, cross-cultural Global Citizenship and maximum5EC internship. Good-standing/approval and individual choice remain relevant. Public page lists five linked majors whereas catalogue names six; current annual catalogue controls formal list. No health generator in exact33rows."
+  },
+  "olderFormalAlternative": {
+    "oerURL": "https://www.student.universiteitleiden.nl/binaries/content/assets/governance-and-global-affairs/luc/board-of-examiners/oer-liberal-arts-and-sciences-2025-2026.pdf",
+    "oerSHA256": "6e028e64665325b215e6f62e072c56f061e588d5237f4e4604a8b9f1db224a0a",
+    "edition": "2025–2026, adopted24June2025; not current2026entrant authority",
+    "webRef": "turn2302view0",
+    "finding": "Article3.3.2 defers capstone load/requirements/supervision to prospectus. Article6.4 describes a supervised plan. Do not infer a2029 allocation from a prioredition or its admission chapter2026–2027.",
+    "handbookURL": "https://www.student.universiteitleiden.nl/binaries/content/assets/governance-and-global-affairs/luc/student-handbook/luc-shb.pdf",
+    "handbookSHA256": "3b80707fdb5e85cabe66c66dfbb60e9d96b640b69a5e180a0a7e298e6b1946b5",
+    "handbookFinding": "ActualPDF/text explicitly2025–26; general10EC400-level capstone and final-semester auto-enrolment120EC describe that edition, not adopted2029 rule."
+  },
+  "moduleFacts": [
+    {
+      "code": "8001Y101Y",
+      "title": "Academic Writing",
+      "credits": 5.0,
+      "sha256": "94c5428fdc2b148633c744576341eda8416f9d10e16526c5dd90c3761a6e2cd5",
+      "entry": [
+        "None."
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "8001Y172Y",
+      "title": "Global Challenges: Understanding",
+      "credits": 10.0,
+      "sha256": "9e638c079c4b697c224fd4d0e269c17e0417a5af7042d6ea0741eff27745d629",
+      "entry": [
+        "None."
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "8001Y198Y",
+      "title": "Dutch History and Language",
+      "credits": 5.0,
+      "sha256": "c28bbd3e288ceddcfa3014141928bd9fe0a806873bee03206bf4b9e7ed347390",
+      "entry": [
+        "*Dutch History and Language* is compulsory for all first-year students at LUC. \n\nIn Block 1, all students will attend lectures on Dutch history and culture. This part of the course requires no specific foundation in history, though students who took Dutch history at their secondary school should note that this course will offer the subject at a more advanced, academic level and that there will be very little overlap with the VWO history curriculum. \n\nIn Block 2, students who are fluent in Dutch (near-native or native level) will continue the course with a focus on Dutch-language science communication. Students who do not have Dutch fluency will continue the course with a focus on language acquisition. Students whose Dutch language skills fall between the requirements for the two tracks will take a test in Block 1 to determine which option is most suitable for them."
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "8001Y121Y",
+      "title": "Introduction to Statistics",
+      "credits": 5.0,
+      "sha256": "b85e516f98c675623eae0cc7daa87ab977ed3a77309c1fdfc4c49bb2a3304d5e",
+      "entry": [
+        "None."
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "8001Y197Y",
+      "title": "Global Challenges: Local Engagement",
+      "credits": 10.0,
+      "sha256": "631da22d5c15597c126a6b9255f02bd73d39d70fad8498b7a4c5740d9aae8f95",
+      "entry": [
+        "Required course(s): none\n\nRecommended course(s): none"
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "8001Y193Y",
+      "title": "Mathematics for Social Networks",
+      "credits": 5.0,
+      "sha256": "60c89164310ddd8bca7b5ebd6a8616adde27c43b94bf36a823e73241f8d907eb",
+      "entry": [
+        "None."
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "8001Y196Y",
+      "title": "Philosophy, Ethics, and the World Today",
+      "credits": 5.0,
+      "sha256": "2983a498a06e732ebcafa44e3fb9cb434d0ea9bf74e0967ad6c42845dd66ca0a",
+      "entry": [
+        "Required course(s):\n\nN/A (this is a mandatory 1st year course)"
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "8001CHS52Y",
+      "title": "What is Culture?",
+      "credits": 5.0,
+      "sha256": "52103e35418a2d968b31a168482805a4ce599d248a4a9faeb9e9b564491c91f2",
+      "entry": [
+        "None."
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "5890LU047Y",
+      "title": "Birth of the Modern World",
+      "credits": 5.0,
+      "sha256": "2dcc370eeb3c0ea5df5a54592afd3b0d44889191896e7de8a164141d23004ca7",
+      "entry": [
+        "None."
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "8001HD81Y",
+      "title": "Social Theory in Everyday Life",
+      "credits": 5.0,
+      "sha256": "f7521daf51e2283b81575cb9eb9ce0fbefbfa9d5b4ca13a762551bfb08526d39",
+      "entry": [
+        "None."
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "8002CHS93Y",
+      "title": "A Child on a Hill: Research Design for the Arts",
+      "credits": 5.0,
+      "sha256": "7c75de67bb03a78e1e312b788afb498bc2e978ee65058fb4e53fb47298cd3baa",
+      "entry": [
+        "**Required course(s):**\n\n* *Academic Writing*"
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "5890LU79Y",
+      "title": "Historical Research Methods: History and Testimony",
+      "credits": 5.0,
+      "sha256": "e56de48553d8ecc94509a19306cda73e38846d0ce458caa5f15cd1a878727f91",
+      "entry": [
+        "None; but *Birth of the Modern World* is strongly recommended."
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "8002HD82Y",
+      "title": "Qualitative Research Methods",
+      "credits": 5.0,
+      "sha256": "859a967c69190b07408f688169a00d23fa847cdbefcc92040c78c25044b820ae",
+      "entry": [
+        "None."
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "8002CHS02Y",
+      "title": "Infrastructure, Art & Culture",
+      "credits": 5.0,
+      "sha256": "f290b0467deb454fee36d7396cf8a29d90f99e4e12d68afe5b71aa12f807caa0",
+      "entry": [
+        "**Required course(s):**\r\rA 100-level course in the CHS Major; with *What is Culture?* strongly recommended."
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "5890LU060Y",
+      "title": "Cultural Translation",
+      "credits": 5.0,
+      "sha256": "22b0a7322ef41794b3061c95cb33a713dd07b3a91d7de82e9bca0e48fe5f2965",
+      "entry": [
+        "**Required course(s):**\r\rThe *What is Culture?* course is required for CHS students; recommended for students from other Majors."
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "8002CHS63Y",
+      "title": "History of Science and Empires",
+      "credits": 5.0,
+      "sha256": "97f7d2709d641e8e977b4028509a3f67f9bb5f45cb651be157d47b29c01a80ea",
+      "entry": [
+        "None."
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "8002HD44Y",
+      "title": "Anthropology of Difference",
+      "credits": 5.0,
+      "sha256": "585b4e797169fcecb47eb5f7c5d583eb65be8aef07bb5ff4be6924574d4ef2dc",
+      "entry": [
+        "**Required course(s):**\n\n100-level in CHS\n\n**Recommended course(s):**\n\nSocial Theory in Everyday Life\n\n<br>\n"
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "8002CHS72Y",
+      "title": "Postcolonial Representations",
+      "credits": 5.0,
+      "sha256": "ad566296cbcc388d5b6ef86b5dd9df069ac3c1d5555c6238f47eead3f2ede386",
+      "entry": [
+        "None."
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "8003HD79Y",
+      "title": "Asia in Global History: From Colonialism to the Post-Cold War Era",
+      "credits": 5.0,
+      "sha256": "0f375d0c644defed54d72296a614d58451cd538fc570e7f7056f688f670106cf",
+      "entry": [
+        "Required course(s): *Birth of the Modern World*"
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "8003WP65Y",
+      "title": "Politics of Cultural Memory",
+      "credits": 5.0,
+      "sha256": "6c4a1904766f7dbabce87f64db1b6e3259c81eb552922a44e563cf37e1853e64",
+      "entry": [
+        "Required course(s): *What is Culture?*"
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "8003CHS64Y",
+      "title": "The Digital Form of Social Life",
+      "credits": 5.0,
+      "sha256": "198f455178afcda727e7fe1f8aa321267e9be6ba73820a4e2745a913c902c569",
+      "entry": [
+        "Required course(s):\n\nRecommended course(s):\n\n<br>\n"
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "code": "8003CHS42Y",
+      "title": "Case-studies: Languages of Waste",
+      "credits": 5.0,
+      "sha256": "df71d0a88e14be2af8a3b6ede2980e2778cfc46e5dc0ab26f0c5301e34ae9210",
+      "entry": [],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "file": "module-8004CS001Y",
+      "body": "JSON null",
+      "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "finding": "No capstone credits, assessment or entry supplied. HTTP200 is not academic verification."
+    },
+    {
+      "code": "5890LU013Y",
+      "title": "Spanish - Beginners",
+      "credits": 10.0,
+      "sha256": "e051345fbd44dba07b33de9e8cb7ffeee8e598e11056fefa93cfec5cc7f3fb14",
+      "entry": [
+        "Required course(s):\nNone\n\n<br>\n<br>\n\\*NOTE\\*\nIf a student has had a Spanish course before (months, weeks, years…) It is important that he/she take a level test to determine their proficiency, as this course is designed \\*only\\* for learning Spanish from the basics.\"\n\n<br>\n"
+      ],
+      "scope": "Current annual module; not automatic future-cohort capstone adoption."
+    },
+    {
+      "file": "capstone",
+      "body": "JSON null",
+      "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "finding": "No capstone credits, assessment or entry supplied. HTTP200 is not academic verification."
+    }
+  ],
+  "formalRouteSelection": "CHS is the broad humanities and social science expression of the generic degree. Its compulsory culture, history and social theory courses make the breadth identifiable before looking at UCR. The six formal majors in the annual guide include GHIS. There is no stable health generator in these 33 target rows.",
+  "newFinding": "Checked 2026-11-13. Current BA-LAGC confirms 45 EC first-year core + 85 EC major + 10 EC electives + 30 EC minor/additional electives/semester abroad + 10 EC Global Citizenship. Three first-year choice courses total 15 EC; one counts toward another requirement. They are not another 15 EC on top of the 180 EC framework. Seven original core units remain 45 EC, with Mathematics for Social Networks as one allowed maths choice. Add the independently established 10 + 30 + 10 EC categories without inventing specific electives, a minor or a Global Citizenship selection. The supported inventory is 95 EC; the remaining 85 EC major allocation is under review. CHS remains the neutral broad humanities/social-science major for the generic degree, selected before UCR matching. Current public CHS text and the 2026–2027 image grid confirm cultural expressions, historical processes, social forms, research design and a capstone. The annual major API expressly limits 15/40 EC to class2028 and 10/45 to classes2026/2027. Forward2271 returns current2261 bytes. Current capstone8004CS001Y is JSON null. Actual linked university-host PDF grid is404; old org/student-host guesses also404. The current public structure confirms supervised independent capstone research and cross-cultural Global Citizenship, and limits an internship to5EC; these known facts are not erased by the unresolved exact capstone load. Accessible OER/handbook are2025–2026, with old10EC thesis and final-semester120EC auto-enrolment; do not apply that progression to2029. The previous complete comparator and three UCR options are retained byte-exactly as research, not active unverified comparison/alignment. All56 actual current-UCR contributions and three feasible schedules remain reusable; prior DynamicEarth/EnergySustainability repair retained. No app or Excel changes.",
+  "essentialGap": "Confirm the Culture, History and Society major requirements for September 2026 entrants, expected class of 2029: the capstone credit load, corresponding additional-major-course allocation, and thesis entry/progression. The current major catalogue specifies 15 EC capstone + 40 EC additional courses only for class of 2028, and 10 + 45 EC for classes of 2026 and 2027. Its generic 85 EC major and academic core are established, but the applicable cohort allocation is not. The capstone module returns JSON null. The linked 2026–2027 PDF grid returns 404; the public 2026–2027 image grid shows subjects and a 400-level capstone, without credits or cohort rules. The accessible OER and student handbook are explicitly 2025–2026, not an adopted 2029 bridge. Preserve the verified 95 EC outside the major and all substantive research. Do not borrow another major’s onwards wording, silently apply either old capstone version, or infer no-match.",
+  "noMatch": false
+}
