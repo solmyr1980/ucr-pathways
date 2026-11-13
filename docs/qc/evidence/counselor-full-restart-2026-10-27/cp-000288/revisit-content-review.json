@@ -1,0 +1,270 @@
+{
+  "caseId": "cp-000288",
+  "checkedAt": "2026-11-13T10:18:49.818382+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000288.json": "163321459a23ccc0a779daf3a1dca9426bf9fcf7",
+    "data/counselor/comparisons/cp-000288.json": "d18dde00ab993995165fd508df8a91e0ac294b3e",
+    "data/registry/programme_interests.csv": "81d4481623970d4c35bfd1a99a3f0885abd496ed",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "data/counselor/review-programmes.json": "2de1407e4320545126f4d27e50c449557355882b",
+    "data/counselor/review-interests.json": "d85c6d0e30abdf04a3e287966b2eb22f1ea38e07",
+    "decision": "163321459a23ccc0a779daf3a1dca9426bf9fcf7",
+    "canonical": "d18dde00ab993995165fd508df8a91e0ac294b3e"
+  },
+  "fieldToRendererMapping": [
+    {
+      "fields": [
+        "comparator.name",
+        "comparator.institution"
+      ],
+      "renderer": "render_exception h1/institution"
+    },
+    {
+      "fields": [
+        "audience.programmeDescription",
+        "audience.comparisonExplanation",
+        "audience.curriculum.status",
+        "audience.curriculum.yearLabel",
+        "audience.curriculum.routeLabel",
+        "audience.curriculum.limitation"
+      ],
+      "renderer": "audience_content/curriculum_view/render_audience_context,app.R282–318"
+    },
+    {
+      "fields": [
+        "audience.curriculum.componentIds",
+        "comparator.components[].name",
+        "comparator.components[].credits",
+        "audience.componentNotes"
+      ],
+      "renderer": "render_exception partialtable,app.R462–493"
+    },
+    {
+      "fields": [
+        "comparator.primarySourceUrl"
+      ],
+      "renderer": "render_exception officialprogrammeanchor"
+    },
+    {
+      "fields": [
+        "audience.noteTypes",
+        "notes",
+        "references"
+      ],
+      "renderer": "render_audience_notes explicitselectors; no internal sourceNotes fallback"
+    }
+  ],
+  "reviewedReaderValues": {
+    "audience": {
+      "schemaVersion": "1.0",
+      "programmeDescription": "German Language and Culture at Leiden combines intensive German-language study with literature, linguistics and cultural history. Students interpret texts and media, investigate language change and variation, and study identity and memory across German-speaking societies. A period at a German-speaking university and an individual research thesis connect these strands. Compulsory first-year mentoring supports academic study skills.",
+      "comparisonExplanation": "A complete UCR comparison awaits confirmation of one required 5-EC part of the external curriculum. The supported components below provide a partial view. This uncertainty does not establish that UCR offers no suitable study possibilities.",
+      "curriculum": {
+        "status": "partial",
+        "componentIds": [
+          "y1-digital-humanities",
+          "y1-literary-theory",
+          "y1-linguistics",
+          "y1-modern-literature",
+          "y1-german-1",
+          "y1-culture-identity",
+          "y1-german-2",
+          "y1-must-reads",
+          "y1-germanic-linguistics",
+          "y1-medieval-literature",
+          "y2-philosophy-science",
+          "y2-language-history",
+          "y2-history-memory",
+          "y2-war-memory",
+          "y2-german-advanced",
+          "y2-abroad",
+          "y3-literature-americas",
+          "y3-language-variation",
+          "y3-thesis",
+          "y3-electives"
+        ],
+        "yearLabel": "2026–2027",
+        "routeLabel": "German Language and Culture",
+        "limitation": "The supported components total 175 EC. One required 5-EC component remains unclear, so this is an incomplete curriculum rather than a certified 180-EC degree plan. Mentoring and the thesis seminar carry no additional credits."
+      },
+      "componentNotes": {
+        "y1-german-1": "Intensive practice in German reading, listening, speaking and writing, including grammar, vocabulary and pronunciation. This foundation supports later language and subject study.",
+        "y1-medieval-literature": "Literature and cultural history from the early Middle Ages through the Baroque. The course is counted once in the supported total.",
+        "y2-abroad": "25 EC of compulsory study at a German-speaking university. Courses must suit the programme and receive prior approval through a Learning Agreement. Entry requires the first-year programme, advanced German and language history.",
+        "y3-literature-americas": "The selected 10-EC literature seminar examines European–American encounters in German-language writing. Its substantial paper precedes the literature thesis.",
+        "y3-language-variation": "The selected 10-EC linguistics seminar studies variation in contemporary German and the social evaluation of language varieties. Linguistic, literary and cultural focus areas are academic choices, rather than named formal degree routes.",
+        "y3-thesis": "A 10-EC individual research thesis in literary studies, following substantial written work in that discipline. The compulsory thesis seminar is included without separate credit.",
+        "y3-electives": "30 EC of genuine elective space, for options such as a minor, an approved course package or an internship. Approval and level rules apply; the overlapping German language, culture and history minor is excluded."
+      }
+    },
+    "comparator": {
+      "name": "German Language and Culture",
+      "institution": "Leiden University",
+      "primarySourceUrl": "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/duitse-taal-en-cultuur",
+      "academicYear": "2026-2027",
+      "additionalSourceUrls": [
+        "https://studiegids.universiteitleiden.nl/api/product?code=BA-DUI&type=STUDY&year=2261&language=en",
+        "https://studiegids.universiteitleiden.nl/studies/BA-DUI?year=2261",
+        "https://studiegids-archief.leidenuniv.nl/studies/10645/duitse-taal-en-cultuur",
+        "https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-duitse-taal-en-cultuur-2026-2027.pdf",
+        "https://studiegids.universiteitleiden.nl/api/product?code=5633K003Y&type=MODULE&year=2261&language=en",
+        "https://studiegids.universiteitleiden.nl/api/product?code=5633KSID1Y&type=MODULE&year=2261&language=en",
+        "https://studiegids.universiteitleiden.nl/api/product?code=5633VB21Y&type=MODULE&year=2261&language=en",
+        "https://studiegids.universiteitleiden.nl/api/product?code=5632VBUITY&type=MODULE&year=2261&language=en",
+        "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/duitse-taal-en-cultuur/over-de-opleiding",
+        "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/duitse-taal-en-cultuur/over-de-opleiding/studieprogramma",
+        "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/duitse-taal-en-cultuur/waarom-universiteit-leiden",
+        "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/duitse-taal-en-cultuur/na-je-studie/arbeidsmarkt",
+        "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/duitse-taal-en-cultuur/na-je-studie/vervolgopleidingen"
+      ],
+      "sourceNotes": "Fresh2026–2027 BA-DUI and29current module responses inspected, including zero-credit mentoring/seminar, alternative5/10ECvariants and genuineopen15+15. The same5631VB35Ysingle5ECmodule remains in both required yeargroups with oneblock3offering; no applicable current-cohort replacement found. Current OER bytes unchanged and reread: noformalroutes, German/Dutch/English, progression and overlapping-minor restriction retained. Broad third-year linguistic/literary/cultural focus areas are not named formal graduation routes. Preserve firstyear60, second55distinct, third60. Same first-listed10ECliterature+10EClinguistics choices;5ECvariants excluded. Literature thesis10inS2 follows S1semester5literature4500wordpaper and meets same-discipline10EC condition; seminar0included, compulsory mentoring0separate. Study abroad25requires firstyear,Vertiefungandlanguagehistory, with approved LearningAgreement. FormalOER lists some prerequisites for examination rather than attendance; moduleadmissionmaybestricter and is recorded internally. Personalyear3creditdistribution permitted;open30notinvented. Reader component names are English translations of actual original titles retained in internal evidence. Current overview thesis examples remain illustrative, not guaranteed compulsory modules. Missing5EC blocks certification;positive UCRresearch retained without no-match.",
+      "components": [
+        {
+          "id": "y1-digital-humanities",
+          "name": "Core Curriculum: Humanities in a Digital World",
+          "credits": 5
+        },
+        {
+          "id": "y1-literary-theory",
+          "name": "Introduction to Literary Theory",
+          "credits": 5
+        },
+        {
+          "id": "y1-linguistics",
+          "name": "Introduction to Linguistics",
+          "credits": 5
+        },
+        {
+          "id": "y1-modern-literature",
+          "name": "Crisis and Critique: Literature from 1914 to Today",
+          "credits": 5,
+          "note": "Original official title: Krise und Kritik: Literatur von 1914 bis heute. Reader title is an English translation."
+        },
+        {
+          "id": "y1-german-1",
+          "name": "The German Language: Foundations I",
+          "credits": 10,
+          "note": "Original official title: Die deutsche Sprache: Fundament I. Reader title is an English translation."
+        },
+        {
+          "id": "y1-culture-identity",
+          "name": "Self and Other: Cultures, Media and Identity",
+          "credits": 10,
+          "note": "Original official title: Das Eigene und das Andere: Kulturen, Medien und Identität. Reader title is an English translation."
+        },
+        {
+          "id": "y1-german-2",
+          "name": "The German Language: Foundations II",
+          "credits": 5,
+          "note": "Original official title: Die deutsche Sprache: Fundament II. Reader title is an English translation."
+        },
+        {
+          "id": "y1-must-reads",
+          "name": "Must Reads: Reading List from 1700",
+          "credits": 5,
+          "note": "Original official title: Must Reads: Leseliste ab 1700. Reader title is an English translation."
+        },
+        {
+          "id": "y1-germanic-linguistics",
+          "name": "The Germanic Sandwich: German, Dutch and English",
+          "credits": 5,
+          "note": "Original official title: Das germanische Sandwich: Deutsch, Niederländisch und English. Reader title is an English translation."
+        },
+        {
+          "id": "y1-medieval-literature",
+          "name": "Fighting, Praying and Writing: Literature from 750 to 1700",
+          "credits": 5,
+          "note": "Original official title: Kämpfen, beten, schreiben: Literatur von 750 bis 1700. Reader title is an English translation."
+        },
+        {
+          "id": "y2-philosophy-science",
+          "name": "Core Curriculum: Philosophy of Science",
+          "credits": 5
+        },
+        {
+          "id": "y2-language-history",
+          "name": "Language Past and Present",
+          "credits": 5,
+          "note": "Original official title: Sprache von gestern und heute. Reader title is an English translation."
+        },
+        {
+          "id": "y2-history-memory",
+          "name": "History and Memory in Germany",
+          "credits": 5,
+          "note": "Original official title: Geschichte und Erinnerung in Deutschland. Reader title is an English translation."
+        },
+        {
+          "id": "y2-war-memory",
+          "name": "Cultural Memory of World War I & II",
+          "credits": 5
+        },
+        {
+          "id": "y2-german-advanced",
+          "name": "The German Language: Advanced Study",
+          "credits": 10,
+          "note": "Original official title: Die deutsche Sprache: Vertiefung. Reader title is an English translation."
+        },
+        {
+          "id": "y2-abroad",
+          "name": "Compulsory study at a German-speaking university",
+          "credits": 25,
+          "note": "Compulsory module5632VBUITY,25 EC in S2 of year2. Host courses at a German-speaking university require an examination-board-approved Learning Agreement and appropriate content/level; retain approved study space without invented host-course names. Entry requires propedeuse plus Vertiefung and Sprache von gestern und heute."
+        },
+        {
+          "id": "y3-literature-americas",
+          "name": "Old New World: Europe and America in German-Language Literature",
+          "credits": 10,
+          "note": "Restricted-choice module5633K003Y (10-EC variant), S1. First listed10-EC literature option; includes a4500-word paper weighted70%, supplying the semester5 written work required before a literature thesis. The5-EC variant5633KAN0Y is mutually exclusive and excluded. Original official title: Alte Neue Welt. Europa und Amerika in der deutschsprachigen Literatur. Reader title is an English translation."
+        },
+        {
+          "id": "y3-language-variation",
+          "name": "Language Variation and Ideologies in German",
+          "credits": 10,
+          "note": "Restricted-choice module5633KSID1Y (10-EC variant), S1. First listed10-EC linguistics option complements literature with a distinct programme pillar. The5-EC variant5633KSID5Y is excluded. Selection follows current official order for broad literature/linguistics coverage independently of UCR fit; no formal specialisation is named. Original official title: Sprachvariation und Ideologien im Deutschen. Reader title is an English translation."
+        },
+        {
+          "id": "y3-thesis",
+          "name": "Bachelor Thesis German Language and Culture",
+          "credits": 10,
+          "note": "Module5633VB21Y,10 EC including compulsory seminar5633V101Y (0 EC separately). Literature thesis selected in S2 after substantial literature paper in S1/semester5; exact topic and supervision agreed with programme. The first10-EC literature module satisfies the required same-discipline course condition."
+        },
+        {
+          "id": "y3-electives",
+          "name": "Open elective space",
+          "credits": 30,
+          "note": "Genuine30-EC open electives/minor/internship preserved. The overlapping minor Duitse taal, cultuur en geschiedenis is prohibited under current OER Article3.2.9; no unrelated elective content is invented."
+        }
+      ]
+    },
+    "exceptionType": "external-programme-unresolved"
+  },
+  "findings": [
+    "All12translatedcomponenttitles checked against originalGerman titles;translatorscopeonly, samecodes/credits/meaning. All20names/weights total175once.",
+    "ProgrammeEnglishname/institution andfourpillars supported; descriptiondoesnotclaimprofessionaltranslation,teachingqualification or namedformalroutes.",
+    "Partialexplanation/limitation plainlystate required5ECuncertainty and no certified180ECplan; neverno-defensible-ucr-match. API investigation/provenancekeptinternal.",
+    "Sevenexplicitcomponentnotes re-read:Germanfoundation,medievaluniquecredit,approved25ECabroad,selected10ECliterature+10EClanguagevariation,precedingpaper/thesis10+seminar0,restrictedgenuineopen30. Mentoring0shownindescription/limitation; no extra5ECinvented.",
+    "Primarypublicprogramme source is supported and resolves exacttarget. All14sourceidsresolve tointendedsources; accessiblecurrentOERcurrenthashrecordedinternally despitewebtool502.",
+    "Activeexception has noUCRprogramme/concept/schedule/alignment prose or selectedcoursedescriptions. Internal24coursechallenge isresearchonly. Unchangedsharedselected-descriptionreviews reused; descriptionvalidatorrecordsactualversion.",
+    "Sharedexceptionstatus,partialheading,navigation/branding andexplicitcontentmapping examined. No appcodechanged or liveapp/modal/screenshotclaim."
+  ],
+  "checks": {
+    "academic": "blocked",
+    "content": "passed-for-partial-record",
+    "mechanical": "pending"
+  },
+  "appCodeUnchanged": true,
+  "selectedUCRDescriptionCodes": []
+}
