@@ -7401,21 +7401,32 @@
       "state": "in-progress",
       "stageOutcomes": {
         "1": "blocked",
-        "2": "correct",
+        "2": "retain",
         "3": "blocked",
-        "4": "correct",
+        "4": "retain",
         "5": "correct",
         "6": "blocked"
       },
       "sharedIssueIds": [],
       "unresolved": [
-        "Current LPV3 (30136LPV1Y) remains null in both English and Dutch; its credits and assessment cannot be certified. Current AWV3 confirms 3 EC but supplies no assessment/content specification. Applicable final-work and half-minor/progression conditions, or an authoritative cohort bridge, remain unverified. The 2025–2026 OER has one-academic-year validity; the March 2025 minor document concerns 2025–2026 and contains Biomedical Sciences conditions that cannot be transferred to current Medicine. The supported allocation remains 173 EC; the remaining 7 EC are not assigned by subtraction."
+        "Confirm the current LPV3 (30136LPV1Y) credits and assessment, AWV3/final-work specification, and applicable half-minor and progression conditions, or an explicit authoritative cohort bridge. Current English and Dutch LPV3 requests return JSON null; AWV3 confirms 3 EC but has no content or assessment description. Current BA-GEN year-three text is still marked as awaiting the revised programme and gives a distributed endpoint that differs from the 2025–2026 formal Curriculum 2023 definition. The retrieved 2025–2026 OER explicitly lasts one academic year. Its 2026 theme footnote is not general renewal; older minor guidance concerns 2025–2026 and includes Biomedical Sciences rules that cannot be applied to Medicine. Current general BSA/placement information and LPV2-to-LPV3 entry findings survive, but do not establish every missing current endpoint and choice condition. Preserve 173 supported EC; do not assign the remaining 7 EC to LPV3 by subtraction. No no-match is inferred."
       ],
       "downstreamReassessments": [
         {
           "trigger": "ResolveapplicableexternalLPV3/finalwork/halfminor/cohortconditions",
           "scope": "Completepathway,conceptacceptance,alignments,readercontent andfinalacademicdisposition",
           "stages": [
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "trigger": "CurrentLPV3/AWV3endpointassessment,applicablehalfminor/progressionorcohortbridge established.",
+          "scope": "Reassessaffectedexternalallocation/conditions,fullclosestresponse,actualschedule/alignment,qualitativedistinctness/stoppingandfinalapproval.Preserveunaffected30interests,27coursefindings,24courseprovisionalresearchand173EC.",
+          "stages": [
+            1,
             3,
             4,
             5,
