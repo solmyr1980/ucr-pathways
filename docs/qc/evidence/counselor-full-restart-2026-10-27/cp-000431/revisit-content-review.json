@@ -1,0 +1,1371 @@
+{
+  "caseId": "cp-000431",
+  "checkedAt": "2026-11-14T10:15:12.685044+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000431.json": "90ada823da94a315e780c66c89bef4db4ae9d841",
+    "data/counselor/comparisons/cp-000431.json": "06aea3f29efd15223a493184610b38d7610a93f2",
+    "data/registry/programme_interests.csv": "3ec373541057d40f7599b009cf42c5b5c5f211cc",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000431/provisional-decision.json": "21dbfc16f7613f27e6c2847052d5a35e845c74df",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000431/provisional-canonical.json": "d3dffb5068743413a3705da313d83982a4ae3d7c",
+    "data/counselor/review-programmes.json": "28ee7c2995ddab57c773e70ec193cb864685b178",
+    "data/counselor/review-interests.json": "e9d6ec67ac742af08eba907a6214d10fd987f052",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "scripts/validate-course-descriptions.py": "5a49db72611e73f91fb20935e07e51029b2f0234",
+    "scripts/validate-comprehensive-reaudit.py": "7b9a881c8303cd208acee7a0463b1afc5c6b1a6c",
+    "scripts/validate-counselor-production.mjs": "2a87706f8d24d7405839f3dbb2d03d24a5fa29cc",
+    "scripts/build-counselor-review-index.mjs": "4f497430af99dd28134b4141df9f0bc18154ba16",
+    "scripts/validate-registry-interests.mjs": "15c9a3f1bfa8f3bbd326a3531b6b36c34b6b7aee",
+    "scripts/apply-registry-corrections.py": "ea25b4073c93311eb9a31c033252f32fcb23daa7",
+    "scripts/github-publication.cjs": "d58f86a870bb8a6bc71aaf89830da42b4788f6cc",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000431/content-review.json": "ff743d54ec34da96a02e271558c67d8001666528",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000384/revisit-academic-review.json": "6f2f943f53173855f077205a7c36d1d45b3460f1",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000396/revisit-academic-review.json": "aceae80e4e475a9c2917dde783cd8e096e2e8ea5",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000410/revisit-academic-review.json": "49b8d7943deb3db0ec83efd652c2adda9c16f7b0",
+    "pilot/shiny/data/courses/HCB.json": "2293af785a5e27a805d515247fc1f6269ee6ab38",
+    "pilot/shiny/data/courses/ENS.json": "b323d5993ab47be5389001b547054259cbfdbfa2",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "pilot/shiny/data/courses/BEN.json": "7a9a8eb38eb00f990e47a5e473d582d6efde30d2"
+  },
+  "presentationMode": "normal override; external-programme-unresolved exception displays supported external-only partial curriculum",
+  "fieldToRenderer": {
+    "source": "pilot/counselor-shiny/app.R",
+    "unchangedMappingEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000431/content-review.json",
+    "functions": [
+      "render_result_cards",
+      "comparator_meta",
+      "render_exception",
+      "curriculum_view",
+      "render_audience_context",
+      "render_audience_notes",
+      "course_description_dialog"
+    ],
+    "mapping": "Review-index English title/institution/primary link identifyST&I. Exceptionheader usescomparator.name/institution. Explicitaudience context selects description/explanation, partialyear/route/limitation and25componentIds with matching25Englishnames,174EC and25notes. NoactiveUCRconcepts/schedules/alignmentcells/optionalresearch/selectednotes ormodals. Internalexception.reason/sourceNotes/component.note/research/provenance do not become displayfallbacks. Conditionalresearch comparison has separatepartialaudience and remains internal, not an activecaseapproval."
+  },
+  "fieldPaths": [
+    "review-programmes[cp-000431].displayName/institution/officialUrl/recordStatus",
+    "comparator.name/institution/primarySourceUrl/additionalSourceUrls/academicYear/components[*].id,name,credits,note",
+    "audience.programmeDescription/comparisonExplanation/curriculum.status,componentIds,yearLabel,routeLabel,limitation/componentNotes",
+    "audience.conceptProgrammeIds=[],noteTypes=[],cellNotes=[]; noactiveUCRnarrative/modals",
+    "research-only provisional-decision: alternatives[*].label/concept/progression/distinctness, courses[*],trace,blocks[*][2][*],notes[*],audience; canonical researchprogrammes/alignments"
+  ],
+  "reviewedReaderValues": {
+    "index": {
+      "comparisonId": "cp-000431",
+      "recordStatus": "exception",
+      "sourceExcelRow": 449,
+      "programmeProviderId": "cp-000431",
+      "opleidingseenheidcode": "1001O8898",
+      "recognizedProgrammeId": "50993",
+      "registryName": "Science, Technology & Innovation",
+      "displayName": "Science, Technology & Innovation",
+      "institution": "University of Amsterdam",
+      "degree": "BACHELOR",
+      "language": "NLD",
+      "studyLoad": "180",
+      "officialUrl": "https://www.uva.nl/programmas/bachelors/science-technology-and-innovation/studieprogramma/studieprogramma.html"
+    },
+    "comparator": {
+      "name": "Science, Technology & Innovation",
+      "institution": "University of Amsterdam",
+      "route": "High-tech Designer Materials",
+      "primarySource": "s0",
+      "academicYear": "2026–2027",
+      "additionalSources": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7",
+        "s8",
+        "s9",
+        "s10",
+        "s11",
+        "s12",
+        "s13",
+        "s14",
+        "s15",
+        "s16",
+        "s17",
+        "s18",
+        "s19",
+        "s20",
+        "s21",
+        "s22",
+        "s23",
+        "s24",
+        "s25",
+        "s26",
+        "s27",
+        "s28",
+        "s29",
+        "s30",
+        "s31",
+        "s32",
+        "s33",
+        "s34",
+        "s35",
+        "s36"
+      ],
+      "sourceNotes": "The confirmed component list omits the six-credit Quantum Physics 1 requirement pending reconciliation of its access rule. The 54-credit track has been expanded into its individual components, not counted twice.",
+      "components": [
+        [
+          "y1-58719",
+          "Quantitative Skills in Context 1",
+          4,
+          null
+        ],
+        [
+          "y1-61760",
+          "Innovative Food Systems",
+          6,
+          null
+        ],
+        [
+          "y1-58696",
+          "Your Digital World",
+          6,
+          null
+        ],
+        [
+          "y1-58958",
+          "21st Century Skills and Research Expertise 1a",
+          2,
+          null
+        ],
+        [
+          "y1-59419",
+          "Building Blocks of Life",
+          6,
+          null
+        ],
+        [
+          "y1-58679",
+          "Materials in Motion",
+          6,
+          null
+        ],
+        [
+          "y1-58798",
+          "Quantitative Skills in Context 2",
+          4,
+          null
+        ],
+        [
+          "y1-58951",
+          "Connecting your Digital World",
+          6,
+          null
+        ],
+        [
+          "y1-59418",
+          "Engineering the Building Blocks of Life",
+          6,
+          null
+        ],
+        [
+          "y1-58768",
+          "21st Century Skills and Research Expertise 1b",
+          2,
+          null
+        ],
+        [
+          "y1-58799",
+          "Materials that Shine",
+          6,
+          null
+        ],
+        [
+          "y1-58702",
+          "Sustainable Energy Technologies",
+          6,
+          null
+        ],
+        [
+          "y2-58706",
+          "Design Project",
+          6,
+          "A compulsory team project follows the selected specialisation. Workshops and preparation run throughout the year, with execution in the final period. Practical participation requires the programme’s safety instruction."
+        ],
+        [
+          "y2-59420",
+          "Condensed Matter 1",
+          6,
+          null
+        ],
+        [
+          "y2-58586",
+          "Quantitative Skills in Context 3",
+          6,
+          null
+        ],
+        [
+          "y2-58874",
+          "AI for Science",
+          6,
+          null
+        ],
+        [
+          "y2-58521",
+          "Materials that Communicate",
+          6,
+          null
+        ],
+        [
+          "y2-58760",
+          "Data Analysis and Statistics",
+          3,
+          null
+        ],
+        [
+          "y2-59430",
+          "Materials that Deform",
+          3,
+          null
+        ],
+        [
+          "y2-58591",
+          "Modern Telescopes, Microscopes and Detectors",
+          6,
+          null
+        ],
+        [
+          "y2-61794",
+          "Physical Chemistry of Materials",
+          6,
+          null
+        ],
+        [
+          "y2-58830",
+          "Physics of Sustainable Energy",
+          6,
+          null
+        ],
+        [
+          "y3-59335",
+          "Advanced Ethical Prototyping",
+          12,
+          "A full-time eight-week team project develops a physical prototype through design, testing and ethical decisions. It ends with a demonstration, presentation and a partly individual defence. Entry requires the completed first year, at least 120 EC and the Design Project; practical work requires safety instruction."
+        ],
+        [
+          "y3-59417",
+          "Bachelor Project Science, Technology & Innovation",
+          18,
+          "An individual supervised research project includes a thesis and presentation and is examined by at least two UvA examiners. Entry requires the completed first year, at least 120 EC and the Design Project. External projects need Examination Board permission."
+        ],
+        [
+          "y3-open",
+          "Open elective space",
+          30,
+          "Thirty EC remain open for electives or a minor, normally in the first semester of year three. The study plan is assessed for overlap and approval; at most 12 EC may be introductory subjects, and a foreign minor needs prior approval."
+        ]
+      ]
+    },
+    "sources": [
+      "https://www.uva.nl/programmas/bachelors/science-technology-and-innovation/studieprogramma/studieprogramma.html",
+      "https://www.uva.nl/en/programmes/bachelors/science-technology--innovation/science-technology-and-innovation.html",
+      "https://studiegids.uva.nl/nl/opleidingen/2026/1/5993/41184",
+      "https://studiegids.uva.nl/nl/opleidingen/2026/1/5993/41185",
+      "https://studiegids.uva.nl/nl/opleidingen/2026/1/5993/41188",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/58719",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/61760",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/58696",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/58958",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/59419",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/58679",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/58798",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/58951",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/59418",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/58768",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/58799",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/58702",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/58706",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/59420",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/58586",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/58874",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/58521",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/58760",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/59430",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/58591",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/61794",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/58830",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/59384",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/59335",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/59417",
+      "https://assets-eu-01.kc-usercontent.com:443/2a7f7854-b38e-015d-c63a-62b2c8fa2017/2f402d29-d12a-4a73-8d20-aa2d6aaa8aa1/OER_deel_b_BSc_ST_I_2026-2027_def.pdf",
+      "https://assets-eu-01.kc-usercontent.com/2a7f7854-b38e-015d-c63a-62b2c8fa2017/80f7647c-c0dc-41be-9fa1-8592f66704b2/OER-A%20Bachelor%202026-2027%20NL.pdf",
+      "https://assets-eu-01.kc-usercontent.com/2a7f7854-b38e-015d-c63a-62b2c8fa2017/d837b5cc-7c57-46f9-9255-aa7159d99306/RRvE%202026-2027.pdf",
+      "https://student.uva.nl/informatie/vakaanmelding",
+      "https://student.uva.nl/informatie/plaatsing-in-vakken-en-werkgroepen",
+      "https://assets-eu-01.kc-usercontent.com:443/2a7f7854-b38e-015d-c63a-62b2c8fa2017/1bec4fa1-85df-4448-97c5-1da9c58a06f0/Wijzigingen%20OER-A%202026-2027_NL.pdf",
+      "https://student.uva.nl/informatie/onderwijs-en-examenregelingen-oer"
+    ],
+    "audience": {
+      "schemaVersion": "1.0",
+      "programmeDescription": "Science, Technology & Innovation at the University of Amsterdam is a Dutch-taught programme combining natural sciences, data and modelling with the design and testing of technological prototypes. This example follows High-tech Designer Materials.",
+      "comparisonExplanation": "The table shows 174 EC of this 180 EC route. A complete UCR comparison awaits confirmation of access to the compulsory 6 EC Quantum Physics 1 course.",
+      "curriculum": {
+        "status": "partial",
+        "yearLabel": "2026–2027",
+        "routeLabel": "High-tech Designer Materials",
+        "componentIds": [
+          "y1-58719",
+          "y1-61760",
+          "y1-58696",
+          "y1-58958",
+          "y1-59419",
+          "y1-58679",
+          "y1-58798",
+          "y1-58951",
+          "y1-59418",
+          "y1-58768",
+          "y1-58799",
+          "y1-58702",
+          "y2-58706",
+          "y2-59420",
+          "y2-58586",
+          "y2-58874",
+          "y2-58521",
+          "y2-58760",
+          "y2-59430",
+          "y2-58591",
+          "y2-61794",
+          "y2-58830",
+          "y3-59335",
+          "y3-59417",
+          "y3-open"
+        ],
+        "limitation": "The confirmed list accounts for 174 credits. Quantum Physics 1 is required in the materials track, but its course-entry rule does not list students from this programme. Access to that six-credit requirement still needs confirmation."
+      },
+      "componentNotes": {
+        "y1-58719": "Builds mathematical, statistical and computational foundations and applies them to the programme’s scientific themes.",
+        "y1-61760": "Studies food systems through nutrient and carbon cycles, agricultural chemistry, farm fieldwork, soil analysis and ethical and social questions.",
+        "y1-58696": "Introduces computational thinking, algorithms and programming for scientific modelling and simulation.",
+        "y1-58958": "Develops academic practices, teamwork and design skills, with workshops, a reflective portfolio and practical technical activities.",
+        "y1-59419": "Introduces cellular building blocks, biochemistry and molecular processes, using microscopy and computational models.",
+        "y1-58679": "Applies Newtonian mechanics to moving objects and a practical design-and-build task in the Makerspace.",
+        "y1-58798": "Continues mathematical, statistical and computational skills in the context of second-semester scientific themes.",
+        "y1-58951": "Develops client-server applications, databases, data cleaning and querying, and interactive web content using JavaScript.",
+        "y1-59418": "Develops molecular cloning, genome-engineering and bioinformatics techniques through laboratory and computational work.",
+        "y1-58768": "Continues academic practices, teamwork and technical development through workshops and reflective work.",
+        "y1-58799": "Studies waves, oscillations, light and their interaction with matter, including the foundations of sensors and optical instruments.",
+        "y1-58702": "Connects chemical bonding, thermodynamics and reaction kinetics to energy conversion, storage and practical energy technologies.",
+        "y2-58706": "A compulsory team project follows the selected specialisation. Workshops and preparation run throughout the year, with execution in the final period. Practical participation requires the programme’s safety instruction.",
+        "y2-59420": "Introduces bonding, crystal structure and electronic behaviour in condensed-matter and materials physics.",
+        "y2-58586": "Develops vector calculus, eigenvalue methods, complex matrices and systems of differential equations for scientific modelling.",
+        "y2-58874": "Applies machine learning to scientific problems, including computational representations of molecules and materials.",
+        "y2-58521": "Combines electronics and photonics with circuit construction, simulation, measurements, filters and spectroscopy.",
+        "y2-58760": "Develops statistical data analysis and Python programming using a realistic dataset.",
+        "y2-59430": "Studies fluid and solid mechanics, viscosity, elasticity and viscoelastic behaviour across microscopic and macroscopic scales.",
+        "y2-58591": "Examines telescopes, microscopes and detectors, linking optical and detector technology to scientific discovery and measurement.",
+        "y2-61794": "Uses statistical thermodynamics to connect molecular behaviour to material properties, phase transitions and soft-matter systems.",
+        "y2-58830": "Applies thermodynamics, quantum mechanics and electromagnetism to energy conversion and storage, including semiconductors and batteries.",
+        "y3-59335": "A full-time eight-week team project develops a physical prototype through design, testing and ethical decisions. It ends with a demonstration, presentation and a partly individual defence. Entry requires the completed first year, at least 120 EC and the Design Project; practical work requires safety instruction.",
+        "y3-59417": "An individual supervised research project includes a thesis and presentation and is examined by at least two UvA examiners. Entry requires the completed first year, at least 120 EC and the Design Project. External projects need Examination Board permission.",
+        "y3-open": "Thirty EC remain open for electives or a minor, normally in the first semester of year three. The study plan is assessed for overlap and approval; at most 12 EC may be introductory subjects, and a foreign minor needs prior approval."
+      },
+      "conceptProgrammeIds": [],
+      "noteTypes": [],
+      "cellNotes": []
+    }
+  },
+  "selectedCourseDescriptionCodes": [],
+  "researchDescriptionChecks": [
+    {
+      "code": "ACCPPDE101",
+      "name": "Personal & Professional Development",
+      "cache": "pilot/shiny/data/courses/ACC.json",
+      "cacheBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+        "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Personal & Professional Development"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/ACC.json#descriptionSources/ACCPPDE101",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "BENENTR111",
+      "name": "Consumer Product Design",
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "7a9a8eb38eb00f990e47a5e473d582d6efde30d2",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Consumer Product Design",
+        "sourceField": "description2",
+        "sourceSha256": "4291c862f893e8d1238b3b2b2e1fc4aedfc59877fcb676414c4e08bcbc764aa5",
+        "descriptionSha256": "4291c862f893e8d1238b3b2b2e1fc4aedfc59877fcb676414c4e08bcbc764aa5",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-05",
+        "reviewNote": "CP089: reviewed the unchanged official description against current course content. The existing text supports the stated scope."
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/BEN.json#descriptionSources/BENENTR111",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "DISARIN111",
+      "name": "AI Ethics",
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "cb43b0c596757e7e4f5f93392738ac9d23f450d75d7dd7698bbb59ee1557333a",
+        "descriptionSha256": "573776c86616fbb9aa39c644ba0abcae2cb7c073febebe3b0203c329264cbeb3",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "AI Ethics"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/DIS.json#descriptionSources/DISARIN111",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "DISARIN211",
+      "name": "Decision-making in AI",
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Decision-making in AI",
+        "sourceField": "profile",
+        "sourceSha256": "c93b1f92cb7d5624a47e7af933fe9722fcd6b1e5632025ebe7a704fc49ae05c4",
+        "descriptionSha256": "ac8eef243ef31afb7f65eee5f70e1a2216876057006d890b15e5411f9c05e560",
+        "mode": "edited",
+        "reviewedOn": "2026-10-31",
+        "reviewNote": "Read the selected current profile and cumulative outline limitation fields. The displayed summary follows its substantive topics and activities; it omits unsupported resource-planning or mandatory NGO group-project claims from superseded cache wording."
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/DIS.json#descriptionSources/DISARIN211",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "DISARIN212",
+      "name": "Logic & Discrete Mathematics",
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Logic & Discrete Mathematics",
+        "sourceField": "profile",
+        "sourceSha256": "93a52b9fe674b9db0732d6f9451146621be7c59068bdf70219256b67ba3b03c2",
+        "descriptionSha256": "7503057969878a0fa1fccc505095c50f3d6b44d2956afaf35bbad164eb49ed7f",
+        "mode": "edited",
+        "reviewedOn": "2026-11-05",
+        "reviewNote": "Reviewed actual current profile in full; represent formal proof and actual programming/quality-assurance methods, without importing a complete client/deployment engineering sequence."
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/DIS.json#descriptionSources/DISARIN212",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "DISARIN311",
+      "name": "Optimization Methods in AI",
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "d5a3dfea16ac47ee970bf30fdd60ec4588386e2eac608c5c875069a706dafa4e",
+        "descriptionSha256": "7c40cb1b74b271a8df365cbf7b9bba55b498199996db9ed060335dd81c541a43",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Optimization Methods in AI"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/DIS.json#descriptionSources/DISARIN311",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "DISARIN312",
+      "name": "Reinforcement Learning",
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "courseName": "Reinforcement Learning",
+        "sourceSha256": "3a9fc4b39d036bd7f6d39c9976254f2a8453f92d975be94b2c4c744546f2f838",
+        "descriptionSha256": "3a9fc4b39d036bd7f6d39c9976254f2a8453f92d975be94b2c4c744546f2f838",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-01",
+        "reviewNote": "CP257: selected course evidence and cached text read in full. Retained concise supported subject/method scope without an invented computing application or project guarantee."
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/DIS.json#descriptionSources/DISARIN312",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "DISCOMP212",
+      "name": "Database Management Systems",
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d",
+        "descriptionSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Database Management Systems"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/DIS.json#descriptionSources/DISCOMP212",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "DISCOMP213",
+      "name": "Software Development",
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Software Development",
+        "sourceField": "profile",
+        "sourceSha256": "1b854e8317ed67bde0743278be7341460cc90885a15adb891811bf54d0c3ef8c",
+        "descriptionSha256": "7967bedb773b55d3e88ad04577d2f36592dba405cc598a8702b35857c49d0a09",
+        "mode": "edited",
+        "reviewedOn": "2026-11-05",
+        "reviewNote": "Reviewed actual current profile in full; represent formal proof and actual programming/quality-assurance methods, without importing a complete client/deployment engineering sequence."
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/DIS.json#descriptionSources/DISCOMP213",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "DISCOMP311",
+      "name": "Algorithms & Data Structures",
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "e1529227dac6db769531df5ba2f0f9d64fad1017c208c5e2d52a0b38a90a78ec",
+        "descriptionSha256": "c1c2acb267bbdf39a07160bb99a1e66219200cb1139174e9c883c4d23d03eca8",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Algorithms & Data Structures"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/DIS.json#descriptionSources/DISCOMP311",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "DISDATA111",
+      "name": "Introduction to Data Science",
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "85912cb78bd13d1aa873ef9cca2a8d7e00345543f75d1f07b56d808f1c6702ef",
+        "descriptionSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Data Science"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/DIS.json#descriptionSources/DISDATA111",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "DISDATA211",
+      "name": "Machine Learning",
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6a112d70695b992eb7664e19ed9656612b364e2c28a116980a602eef2687ace6",
+        "descriptionSha256": "ae7fce189f80fcd62e521b78f43d3119e98a2ee78d29f61127a0f6b61faaf862",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Machine Learning"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/DIS.json#descriptionSources/DISDATA211",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "DISDATA212",
+      "name": "Image Processing & Computer Vision",
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "67bc3ab96eb177cb9e10d60aa3ceb8dfc61ae6508a196c498124421f7fbba4dd",
+        "descriptionSha256": "2f095c0618ff630b69246b5110663b6517e6627dc322e3d4f0b9e7328279b2b1",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Image Processing & Computer Vision"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/DIS.json#descriptionSources/DISDATA212",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "DISDATA311",
+      "name": "Neural Networks & Deep Learning",
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "25546292d8643497a8cd9b4bf820608e15e4ae3fdcf04eb764aadcadf460f14f",
+        "descriptionSha256": "ed084f769dcc3b361dcddff3861c96217abcbf5eb57e7859aeb1ad3f949584c7",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Neural Networks & Deep Learning"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/DIS.json#descriptionSources/DISDATA311",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "DISDATA312",
+      "name": "Robotics",
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Robotics",
+        "sourceField": "description2",
+        "sourceSha256": "9829325ea420591540c6ee512064f68fa3a59d4637bd41a69789f8106a4acaec",
+        "descriptionSha256": "9829325ea420591540c6ee512064f68fa3a59d4637bd41a69789f8106a4acaec",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-05",
+        "reviewNote": "CP089: reviewed the unchanged official description against current course content. The existing text supports the stated scope."
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/DIS.json#descriptionSources/DISDATA312",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "DISGATE101",
+      "name": "Introduction to Programming",
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "e2014f5db9a4328ff4efaa51f0273169ae1c9427a4ccf85bea5ee463794a80a8",
+        "descriptionSha256": "efe3b89e39a2611d475d27d09b06151a514076321c7453cd31f9cfbbd84248bf",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Programming"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/DIS.json#descriptionSources/DISGATE101",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "DISGATE102",
+      "name": "Mathematical Methods",
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6250945baf68c519d3820bddeaa08cb4b3c71273ddbb9bc31a7dffe6d021af5f",
+        "descriptionSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Mathematical Methods"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/DIS.json#descriptionSources/DISGATE102",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "DISMATH211",
+      "name": "Linear Algebra",
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "26ebd64922aa03e17140aa9b6529a98f2428bdf29ab1fa4360f9bd876de4e680",
+        "descriptionSha256": "bd23120a02190d6bcf24aa6c30ce1e454082afae59ba3d81c21d48cfb4194ba4",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Linear Algebra"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/DIS.json#descriptionSources/DISMATH211",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "DISMATH312",
+      "name": "Linear Systems",
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "00d4504b56b7626ac280f97249ec9bf9ae30cdd910508163982a1ac439e1d9ac",
+        "descriptionSha256": "10c25739200058efd4c2243eba932500f9effe1b118c1d044a336d064da55fba",
+        "reviewedOn": "2026-10-29",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Linear Systems"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/DIS.json#descriptionSources/DISMATH312",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "DISMATH314",
+      "name": "Probability & Statistics",
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "64d3f72845189f77627b8aa180a9906d4fd60fe3c5306bbf0ebe7666e612852b",
+        "descriptionSha256": "9d3ee2b42fa7fe2c0e62777da64474690e9fac0ca76929d04c6670dab516d10f",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Probability & Statistics"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/DIS.json#descriptionSources/DISMATH314",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "ENSDELT111",
+      "name": "Building with Nature",
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Building with Nature",
+        "sourceField": "description2",
+        "sourceSha256": "f560bf3f27df5107fc3758730aeef6cef0cdc795cd87557c6e449e6ecc392392",
+        "descriptionSha256": "f560bf3f27df5107fc3758730aeef6cef0cdc795cd87557c6e449e6ecc392392",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/ENS.json#descriptionSources/ENSDELT111",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "ENSDELT211",
+      "name": "Living with Water",
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6bc06d8eab4fbe5bd42de4764d7f92dee7335af1186c736cce876e23c2e44360",
+        "descriptionSha256": "c6f1c8e47fbc4bf63763a5360356732043355009a05991ce7099da0a8babeede",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Living with Water"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/ENS.json#descriptionSources/ENSDELT211",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "ENSDELT311",
+      "name": "R3: Recycling, Recovery, Remediation",
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "R3: Recycling, Recovery, Remediation",
+        "sourceField": "description2",
+        "sourceSha256": "1b0026b1e19169693ebc23ba4ee5b8bb515ce3b67dd06bd33b230b9b04bf262d",
+        "descriptionSha256": "1b0026b1e19169693ebc23ba4ee5b8bb515ce3b67dd06bd33b230b9b04bf262d",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/ENS.json#descriptionSources/ENSDELT311",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "ENSDELT312",
+      "name": "Governance of Sustainability",
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "f4cf9494a23b75f3fb3fe9090c62b9c8af908dc62a825c17f6547cfb48caf0a7",
+        "descriptionSha256": "746711aaebf20395c0fd5695fb91c5951f611715825c91ca6da251c5d890e362",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Governance of Sustainability"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/ENS.json#descriptionSources/ENSDELT312",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "ENSECOL211",
+      "name": "The Science of Evolution",
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "2183c3334d5c2a072c7d680d8777e114a9ae5e92852ff205d6eaf1c5b752c19a",
+        "descriptionSha256": "f0a7c7fae43530c38bc5b9a2d1ee8db5ff4d9884fa2ce5c4a1032e44dc0f6cf7",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "The Science of Evolution"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/ENS.json#descriptionSources/ENSECOL211",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "ENSECOL212",
+      "name": "Ecosystems Uncovered: How Nature Works",
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Ecosystems Uncovered: How Nature Works",
+        "sourceField": "description2",
+        "sourceSha256": "0624daa7c41cd59d6945cc52c2a9bc07265a2493beb675de35afc052fe3efc15",
+        "descriptionSha256": "0624daa7c41cd59d6945cc52c2a9bc07265a2493beb675de35afc052fe3efc15",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-06",
+        "reviewNote": "CP320 reviewed the complete displayed description against current official course description and substantive course evidence. Text retained."
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/ENS.json#descriptionSources/ENSECOL212",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "ENSENVI111",
+      "name": "Dynamic Earth",
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Dynamic Earth",
+        "sourceField": "description2",
+        "sourceSha256": "9c5e687f10b2c232fbc59760d2e70e2cdb8765cda4c1919c5838109f29542a4d",
+        "descriptionSha256": "9c5e687f10b2c232fbc59760d2e70e2cdb8765cda4c1919c5838109f29542a4d",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/ENS.json#descriptionSources/ENSENVI111",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "ENSENVI211",
+      "name": "Earth Observation",
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Earth Observation",
+        "sourceField": "description2",
+        "sourceSha256": "6fbd8c5d02f8063c3dac1b38756526174ea242188eff49eb08bf76e17c4d4b97",
+        "descriptionSha256": "6fbd8c5d02f8063c3dac1b38756526174ea242188eff49eb08bf76e17c4d4b97",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/ENS.json#descriptionSources/ENSENVI211",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "ENSENVI213",
+      "name": "Earth System Science Tools",
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Earth System Science Tools",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "2bdebcd3c2db71717ea674b4277de2f62a2d53cdd20acd1aa0fb87b3f20ba0fa",
+        "descriptionSha256": "2bdebcd3c2db71717ea674b4277de2f62a2d53cdd20acd1aa0fb87b3f20ba0fa",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: full displayed officialdescription read; retain within currentdescription support without unstatedmethods/depth or equivalentcourse claims."
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/ENS.json#descriptionSources/ENSENVI213",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "ENSENVI311",
+      "name": "Environmental Biogeochemistry",
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "b67bd2127ed422a506194829eb9b44e59618136c389bdc8cc2d12a6237a6904c",
+        "descriptionSha256": "d82a1f4ea8c0c272aef64fbb7e08c619a9d12e4c40c868b4319ac6cac6b1ff29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Environmental Biogeochemistry"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/ENS.json#descriptionSources/ENSENVI311",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "ENSENVI312",
+      "name": "Earth's Resources",
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Earth's Resources",
+        "sourceField": "description2",
+        "sourceSha256": "871074751805d3b118a24dc71bfd4c202c1ad3abe612933aae64e335d917e749",
+        "descriptionSha256": "871074751805d3b118a24dc71bfd4c202c1ad3abe612933aae64e335d917e749",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/ENS.json#descriptionSources/ENSENVI312",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "ENSGATE101",
+      "name": "Sustainability Essentials I",
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "82f50723d99a79ffd7371f9f6eebe3e42e760cc7f4f8bbeb032e81fd5acc4184",
+        "descriptionSha256": "3d8021bff00c075753d30587e5e529c4ac8337c828561c59c0c227299a1e04e9",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Sustainability Essentials I"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/ENS.json#descriptionSources/ENSGATE101",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "ENSGATE201",
+      "name": "Sustainability Essentials II",
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "10191be23b197bf2051541f534acdc52bc20762fc7d8889972890e7176afed60",
+        "descriptionSha256": "465a8a129a7b496e5cc7188a77d3e2b04fb5a3c7f3afceae8a56afe6d062285b",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Sustainability Essentials II"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/ENS.json#descriptionSources/ENSGATE201",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "ENSSUST112",
+      "name": "Life Cycle Analysis & Circular Economy",
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "84952b835c81d99cda8bc29e396c30894abc1d4ee1c6dd8de714344d1c4e3492",
+        "descriptionSha256": "1507c66a61e12992a10ae7eef4194b4994d433c482be61ac982d0a8eb0870afe",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Life Cycle Analysis & Circular Economy"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/ENS.json#descriptionSources/ENSSUST112",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "ENSSUST311",
+      "name": "Renewable System Design",
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "f59be5886c977469ba596b55eae9382fde7efb5a64b50dd70745e2af463641eb",
+        "descriptionSha256": "f59be5886c977469ba596b55eae9382fde7efb5a64b50dd70745e2af463641eb",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Renewable System Design"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/ENS.json#descriptionSources/ENSSUST311",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "ENSSUST313",
+      "name": "Research in a Sustainable Delta",
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Research in a Sustainable Delta",
+        "sourceField": "description2",
+        "sourceSha256": "b8d6c3381e3fcec1990bfe5d2c32984c0033fdca5c38edb20f0faaaa864a5a59",
+        "descriptionSha256": "b8d6c3381e3fcec1990bfe5d2c32984c0033fdca5c38edb20f0faaaa864a5a59",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-06",
+        "reviewNote": "CP320 reviewed the complete displayed description against current official course description and substantive course evidence. Text retained."
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/ENS.json#descriptionSources/ENSSUST313",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "HCBBIOM211",
+      "name": "Functional Anatomy",
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "2293af785a5e27a805d515247fc1f6269ee6ab38",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "4542a01fac8a44e9e62648574c09642d3421f6b177fec8e95f3df721e4b71a90",
+        "descriptionSha256": "cea7b96fb837d4dd6ebfe08439d4c270a3d7b639ce32ae5c126c61733e872779",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Functional Anatomy"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/HCB.json#descriptionSources/HCBBIOM211",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "HCBBIOM311",
+      "name": "Pharmacology",
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "2293af785a5e27a805d515247fc1f6269ee6ab38",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Pharmacology",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "a9200df39ef2dfae98fe89bb2fb82742ad3f706b15ecaad186ea6b1fe36900fa",
+        "descriptionSha256": "a9200df39ef2dfae98fe89bb2fb82742ad3f706b15ecaad186ea6b1fe36900fa",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/HCB.json#descriptionSources/HCBBIOM311",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "HCBBIOM312",
+      "name": "Infection & Immunity",
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "2293af785a5e27a805d515247fc1f6269ee6ab38",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "sourceSha256": "fe40276b627a7ff86bac21fb86039cf0a43281d27d9f429c7df6b0d4d0987cec",
+        "descriptionSha256": "fe40276b627a7ff86bac21fb86039cf0a43281d27d9f429c7df6b0d4d0987cec",
+        "reviewedOn": "2026-11-14",
+        "mode": "verbatim",
+        "reviewNote": "CP431 permitted revisit: read existing displayed description and current official description/profile in full. Self/nonself recognition, receptor development, innate/adaptive responses, host-pathogen interaction and immunopathology are supported. Retain exact displayed text; add actual source/name/text provenance. This shared description review does not establish programme relevance or case approval.",
+        "courseName": "Infection & Immunity"
+      },
+      "unchangedText": false,
+      "sharedReviewRef": "pilot/shiny/data/courses/HCB.json#descriptionSources/HCBBIOM312",
+      "reviewFinding": "Fresh HCBBIOM312 description review: existing exact officialdescription retained; supported self/nonself,receptor,innate/adaptive,hostpathogen andimmunopathology claims read against current fullbody. Added actualprovenance without textchange."
+    },
+    {
+      "code": "HCBBIOM313",
+      "name": "Mechanisms of Disease",
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "2293af785a5e27a805d515247fc1f6269ee6ab38",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "4d8acb13deb96b3778bdefa44792604f9b8247830d5e0a3817dfc45c9da5e8a1",
+        "descriptionSha256": "03f76444a6b246585aa85e512b35f15719415e8261e05edbf7ad3568c4aa0c89",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Mechanisms of Disease"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/HCB.json#descriptionSources/HCBBIOM313",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "HCBGATE101",
+      "name": "Foundation of Life, Health & Biomedicine",
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "2293af785a5e27a805d515247fc1f6269ee6ab38",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "e0b2da3bcb6fa48f717a1cad6591d9594b5145b6c3f4ba362ddc812790ff17f5",
+        "descriptionSha256": "12ff60a52ad56e3df4604fcc60c5982e9cf5e111eb66a6b7eac99bfd23ca4e28",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Foundation of Life, Health & Biomedicine"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/HCB.json#descriptionSources/HCBGATE101",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "HCBLIFE211",
+      "name": "Molecular Cell Biology",
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "2293af785a5e27a805d515247fc1f6269ee6ab38",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Molecular Cell Biology",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "90f3f9fc225c54575e44aec821bccfbe6e89ca74f0df25466ff8958c80335a1c",
+        "descriptionSha256": "90f3f9fc225c54575e44aec821bccfbe6e89ca74f0df25466ff8958c80335a1c",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/HCB.json#descriptionSources/HCBLIFE211",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "HCBLIFE212",
+      "name": "Human Physiology",
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "2293af785a5e27a805d515247fc1f6269ee6ab38",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Human Physiology",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "60ec8f664bc76e7ba86aeff463b8f4229a7c8c75e9174c3eee6a0efbaf8baf49",
+        "descriptionSha256": "60ec8f664bc76e7ba86aeff463b8f4229a7c8c75e9174c3eee6a0efbaf8baf49",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/HCB.json#descriptionSources/HCBLIFE212",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "HCBLIFE213",
+      "name": "Biochemistry",
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "2293af785a5e27a805d515247fc1f6269ee6ab38",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Biochemistry",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "7885bac69eea60cc521b74834d3c316078aee206955d305472e2c287e2ebd821",
+        "descriptionSha256": "7885bac69eea60cc521b74834d3c316078aee206955d305472e2c287e2ebd821",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/HCB.json#descriptionSources/HCBLIFE213",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "HCBLIFE214",
+      "name": "Life Science Laboratory",
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "2293af785a5e27a805d515247fc1f6269ee6ab38",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Life Science Laboratory",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "6d3645c7c4b319729041691b93bbd7b6a49e6e45642d846a75508ab15a829e3b",
+        "descriptionSha256": "6d3645c7c4b319729041691b93bbd7b6a49e6e45642d846a75508ab15a829e3b",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/HCB.json#descriptionSources/HCBLIFE214",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "HCBLIFE311",
+      "name": "Molecular Pathology & Genetics",
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "2293af785a5e27a805d515247fc1f6269ee6ab38",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-10",
+        "sourceSha256": "c93965cca70f74df45213ec33738850a3d29e868c184fb3803b48d44201e5aa9",
+        "descriptionSha256": "c93965cca70f74df45213ec33738850a3d29e868c184fb3803b48d44201e5aa9",
+        "reviewNote": "CP203: checked complete selected text against the same current workbook description and course profile. Retained supported subject and method claims.",
+        "courseName": "Molecular Pathology & Genetics"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/HCB.json#descriptionSources/HCBLIFE311",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "HCBPSYC211",
+      "name": "Statistics & Experimental Methods",
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "2293af785a5e27a805d515247fc1f6269ee6ab38",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "bf482d4e283320560451930d2822162ada50a7697ded31de54eb7b021694adbc",
+        "descriptionSha256": "ef41b0b732a8e9502a0d7e14ceef47bb91ca971854bb1a26b6a8ed5e6c9b6111",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Statistics & Experimental Methods"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/HCB.json#descriptionSources/HCBPSYC211",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    },
+    {
+      "code": "MCCCOMM311",
+      "name": "Persuasive Communication",
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+      "source": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "bad6a0cb3dd14e5cb07c4aeb36a102d09309142fdc5bab339f0096830ec5209a",
+        "descriptionSha256": "781fa29248cce6025d8aa8887d300c8f0d64941a8b4a9b2dd193783c098deacc",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "reviewedOn": "2026-10-29",
+        "basis": "course outline",
+        "courseName": "Persuasive Communication"
+      },
+      "unchangedText": true,
+      "sharedReviewRef": "pilot/shiny/data/courses/MCC.json#descriptionSources/MCCCOMM311",
+      "reviewFinding": "Same current course/name/selectedsource/display hashes as shared reviewed text; reuse unchanged description, separately reassess programme contribution."
+    }
+  ],
+  "findings": [
+    "Read25Englishcomponenttitles, weights and25specificnotes against actual25requiredcourseentries, programme and adoptedrules. Firstyear60+confirmedsecondyear54+thirdyear60=174EC; disputedQuantum6EC withheld. No fabricatedcredits or double-count54ECtrackaggregate.",
+    "Notes identify actualNewtonianmechanics/waves/optics/statisticalthermodynamics/electronics/lab/MLscience andcellbiology/cloning content. Do not substitute environmentalchemistry for quantum/materialsphysics, datahandling forclientserverJavaScript, orstandaloneethics for12ECphysicalprototyping.",
+    "Projectnotes state safetyinstruction, actualDesignProjectpreparation,8weekfulltimephysicalteamprototype/demonstration/partlyindividualdefence, andindividual18ECthesis/presentation/twoexaminers/externalpermission. Fullfirstyear+120ECincludingDesignProject retained; no waiverinvented.",
+    "Allthreeconditionalconcepts/labels andeverycourse/block/limitedmatch/gap/note reconsidered. Closest explicitConsumerDesign replacesadditionalDeepLearning; technicalmaterialtesting replacesgenericclimatepersuasion. Stage3 finalcomparability/stopping remainsblocked. Provisionalaudience explicitlypartial174EC although completeprescribed180ECmembership is retainedinternally.",
+    "Thirteen bounded direct relationships and thirteen meaningfulunmatchedcomponents after expansion to26units. NoAIethics-to-fullprototype, recycling-to-opticalwaves or groupresearch-to-individualthesis equivalent. Actualmethods/content establish the retained links, with precise limits.",
+    "Reuse47 shared descriptions after exactcurrentname/source/textchecks. HCBBIOM312 existingcachetext was not previouslyprovenance-reviewed: readactualofficialdescription/fullprofile, retained byte-exactdisplaytext and added name/source/texthashes. No newnarrative or appcode;149shared descriptions passfidelitycheck.",
+    "Primaryofficialsource and alladditionalcourse/formal links inspected. Programme/courserule conflict remains material and plain. NoactiveUCRmodal code selected. NoR/Shiny/browser/screenshots/livemodal orrendererchange; ordinaryrecord/contentpolicy applies."
+  ],
+  "status": "Passed for supported174ECpartial record and accurately bounded internalresearch. Academicaccess unresolved; no presentationapproval."
+}
