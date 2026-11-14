@@ -1,0 +1,794 @@
+{
+  "caseId": "cp-000384",
+  "checkedAt": "2026-11-14T06:22:59.396046+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000384.json": "9b9d0182025f1176b91b510e9fca658e6eb7b5f8",
+    "data/counselor/comparisons/cp-000384.json": "f7aedb0f8894a957987c71f474c76ce47c0e5837",
+    "data/registry/programme_interests.csv": "3ec373541057d40f7599b009cf42c5b5c5f211cc",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "28ee7c2995ddab57c773e70ec193cb864685b178",
+    "data/counselor/review-interests.json": "e9d6ec67ac742af08eba907a6214d10fd987f052",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/validate-course-feasibility.py": "d4dc76cc5a78d68b7136799d17687a7690d1830d",
+    "scripts/validate-counselor-schema.py": "9db3f7449d47d0ecc2a0313944373f991454d606",
+    "scripts/validate-course-descriptions.py": "5a49db72611e73f91fb20935e07e51029b2f0234",
+    "scripts/validate-comprehensive-reaudit.py": "7b9a881c8303cd208acee7a0463b1afc5c6b1a6c",
+    "scripts/validate-counselor-production.mjs": "2a87706f8d24d7405839f3dbb2d03d24a5fa29cc",
+    "scripts/build-counselor-review-index.mjs": "4f497430af99dd28134b4141df9f0bc18154ba16",
+    "scripts/validate-registry-interests.mjs": "15c9a3f1bfa8f3bbd326a3531b6b36c34b6b7aee",
+    "scripts/apply-registry-corrections.py": "ea25b4073c93311eb9a31c033252f32fcb23daa7",
+    "scripts/github-publication.cjs": "d58f86a870bb8a6bc71aaf89830da42b4788f6cc",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "7a9a8eb38eb00f990e47a5e473d582d6efde30d2",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "pilot/shiny/data/courses/ENS.json": "b323d5993ab47be5389001b547054259cbfdbfa2",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "pilot/shiny/data/courses/HCB.json": "8af6675a1408cec96ea570100ee89cff97563288",
+    "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+  },
+  "presentationMode": "normal override; external-programme-unresolved exception renders external-only partial curriculum",
+  "fieldToRenderer": {
+    "source": "pilot/counselor-shiny/app.R",
+    "functions": [
+      "render_result_cards",
+      "comparator_meta",
+      "render_exception",
+      "curriculum_view",
+      "render_audience_context",
+      "render_audience_notes"
+    ],
+    "mapping": "Search card uses review-programmes displayName Natural and Social Sciences and institution. Exception heading uses comparator.name/institution, now the same English display name; brand Bèta-gamma is explained in explicit audience description. Official source link uses comparator.primarySourceUrl. Explicit audience context supplies programme description, explanation, year, Earth Sciences route and partial limitation. The 25 curriculum componentIds select names and 174 EC; componentNotes are keyed by the exact same IDs. No UCR concept, schedule, selected notes, alignment cells, optional research or course-description modal is selected. Internal sourceNotes, component.note, exception.reason, API/cookie investigation, research and provenance do not become narrative fallbacks."
+  },
+  "fieldPaths": [
+    "review-programmes[cp-000384].displayName/institution/officialUrl/recordStatus",
+    "comparator.name/institution/primarySourceUrl/additionalSourceUrls/academicYear/route/components[*].id,name,credits,note",
+    "audience.programmeDescription/comparisonExplanation/curriculum.status,componentIds,yearLabel,routeLabel,limitation/componentNotes",
+    "audience.conceptProgrammeIds=[]; noteTypes=[]; no active UCR schedule/alignment/modal text"
+  ],
+  "reviewedReaderValues": {
+    "index": {
+      "comparisonId": "cp-000384",
+      "recordStatus": "exception",
+      "sourceExcelRow": 397,
+      "programmeProviderId": "cp-000384",
+      "opleidingseenheidcode": "1001O5668",
+      "recognizedProgrammeId": "50250",
+      "registryName": "Bèta-gamma",
+      "displayName": "Natural and Social Sciences",
+      "institution": "University of Amsterdam",
+      "degree": "BACHELOR",
+      "language": "NLD",
+      "studyLoad": "180",
+      "officialUrl": "https://www.uva.nl/programmas/bachelors/beta-gamma/studieprogramma/studieprogramma.html"
+    },
+    "comparator": {
+      "name": "Natural and Social Sciences",
+      "institution": "University of Amsterdam",
+      "primarySource": "s0",
+      "academicYear": "2026–2027",
+      "additionalSources": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7",
+        "s8",
+        "s9",
+        "s10",
+        "s11",
+        "s12"
+      ],
+      "sourceNotes": "The adopted 2026–2027 Bèta-gamma regulations and published Earth Sciences major plan distinguish 75 EC of common Bèta-gamma study, 69 EC of compulsory Earth Sciences study and 36 EC of genuine electives. Recommended electives are not required major content. The Future Planet Studies regulations B-4.13 explicitly apply its entry conditions to Bèta-gamma Earth Sciences students, except for Modelling for Sustainability, and require an Earth-science thesis topic. The partial record now includes the 18 EC bachelor project and totals 174 EC. Project 4 remains excluded because the current regulations retain a discontinued Academic Skills prerequisite. The current published major plan identifies students starting the major in September 2026; students follow the plan applicable when they start their major.",
+      "components": [
+        [
+          "uva-58848",
+          "Wiskundige Methoden voor N&T",
+          6,
+          "One of two mathematics variants. This example uses the variant for students with Dutch pre-university Mathematics B."
+        ],
+        [
+          "uva-58713",
+          "De Staat en de Mensen: Inleiding in de Sociale Wetenschappen",
+          6,
+          null
+        ],
+        [
+          "uva-57158",
+          "Programmeren, AI en Samenleving",
+          6,
+          null
+        ],
+        [
+          "uva-60890",
+          "Van de Oerknal naar het Leven",
+          9,
+          null
+        ],
+        [
+          "uva-57369",
+          "Cognitie",
+          6,
+          null
+        ],
+        [
+          "uva-58648",
+          "Onderzoeksmethoden en Analyse van Wetenschappelijk Onderzoek",
+          6,
+          null
+        ],
+        [
+          "uva-58454",
+          "Wetenschapsfilosofie Bèta-gamma",
+          3,
+          null
+        ],
+        [
+          "uva-61112",
+          "De Stad",
+          6,
+          null
+        ],
+        [
+          "uva-58767",
+          "Emergentie",
+          6,
+          null
+        ],
+        [
+          "uva-60749",
+          "Project 1: Multidisciplinair Onderzoek",
+          6,
+          null
+        ],
+        [
+          "uva-61107",
+          "Project 3: Analyse van Interdisciplinair Onderzoek",
+          3,
+          null
+        ],
+        [
+          "uva-58560",
+          "Project 2: Wetenschap in Praktijk - Consultancy voor Duurzaamheid",
+          6,
+          "One of two practice projects. Students work on sustainability advice for an external organisation."
+        ],
+        [
+          "uva-58666",
+          "Plant-Soil Interactions",
+          6,
+          null
+        ],
+        [
+          "uva-59720",
+          "Plant-Soil Practical",
+          3,
+          null
+        ],
+        [
+          "uva-59732",
+          "Programming in R",
+          3,
+          null
+        ],
+        [
+          "uva-58607",
+          "Remote Sensing",
+          3,
+          null
+        ],
+        [
+          "uva-58645",
+          "World Food and Ecosystems",
+          6,
+          null
+        ],
+        [
+          "uva-59727",
+          "Challenges for the Blue Planet",
+          6,
+          null
+        ],
+        [
+          "uva-58797",
+          "Digital Earth",
+          3,
+          null
+        ],
+        [
+          "uva-58921",
+          "From Data to Evidence",
+          3,
+          null
+        ],
+        [
+          "uva-58813",
+          "Desertification",
+          6,
+          null
+        ],
+        [
+          "uva-59729",
+          "Water Management",
+          6,
+          null
+        ],
+        [
+          "uva-58949",
+          "Research Designs",
+          6,
+          "A 6 EC research-design course alongside the bachelor project. The formal rules apply the Future Planet Studies entry conditions to Bèta-gamma major students: completion of the first year and at least 42 EC from year two."
+        ],
+        [
+          "uva-58527",
+          "Bachelor Project Future Planet Studies – Future Earth",
+          18
+        ],
+        [
+          "uva-open-electives",
+          "Elective space",
+          36
+        ]
+      ],
+      "route": "Earth Sciences major"
+    },
+    "sources": [
+      "https://www.uva.nl/programmas/bachelors/beta-gamma/studieprogramma/studieprogramma.html",
+      "https://www.uva.nl/programmas/bachelors/beta-gamma/beta-gamma.html",
+      "https://www.uva.nl/binaries/content/assets/programmas/beta-gamma/curriculum/curriculumschema-bg-2026-2027.pdf",
+      "https://studiegids.uva.nl/nl/opleidingen/2026/1/5990/41164",
+      "https://studiegids.uva.nl/nl/opleidingen/2026/1/5990/41166",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/58453",
+      "https://studiegids.uva.nl/nl/vakken/2026/1/58527",
+      "https://assets-eu-01.kc-usercontent.com:443/2a7f7854-b38e-015d-c63a-62b2c8fa2017/b0b7dbc9-1255-4e24-906a-e9db5f9dc59c/OER_deel_b_BSc_B%C3%A8ta-gamma_2026-2027_definitief.pdf",
+      "https://assets-eu-01.kc-usercontent.com:443/2a7f7854-b38e-015d-c63a-62b2c8fa2017/bbaf33a2-f08a-4a51-ac47-75ab88c2c813/Alle%20studieplannen%20B%C3%A8ta-gamma%202026-2027.pdf",
+      "https://assets-eu-01.kc-usercontent.com:443/2a7f7854-b38e-015d-c63a-62b2c8fa2017/355cf4bd-eacc-4f74-95f6-7b092276145f/Overgangsregelingen%202026-2027.pdf",
+      "https://assets-eu-01.kc-usercontent.com:443/2a7f7854-b38e-015d-c63a-62b2c8fa2017/80f7647c-c0dc-41be-9fa1-8592f66704b2/OER-A%20Bachelor%202026-2027%20NL.pdf",
+      "https://assets-eu-01.kc-usercontent.com:443/2a7f7854-b38e-015d-c63a-62b2c8fa2017/c6623cb6-4026-4df1-9c4e-82340b9a9d79/OER_deel_b_BSc_Future%20Planet%20Studies_20262027.pdf",
+      "https://student.uva.nl/informatie/onderwijs-en-examenregelingen-oer"
+    ],
+    "audience": {
+      "schemaVersion": "1.0",
+      "programmeDescription": "Natural and Social Sciences (Bèta-gamma) combines natural and social sciences at the University of Amsterdam. Students study a common first year, then specialise in a major while continuing interdisciplinary project work.",
+      "comparisonExplanation": "Bèta-gamma combines a shared natural- and social-science foundation with a disciplinary major and interdisciplinary projects. With Earth Sciences, the published plan includes 36 EC of genuine elective space. The table accounts for 174 EC; a complete UCR comparison awaits clarification of the remaining Project 4 entry condition for the 2026 intake.",
+      "curriculum": {
+        "status": "partial",
+        "componentIds": [
+          "uva-58848",
+          "uva-58713",
+          "uva-57158",
+          "uva-60890",
+          "uva-57369",
+          "uva-58648",
+          "uva-58454",
+          "uva-61112",
+          "uva-58767",
+          "uva-60749",
+          "uva-61107",
+          "uva-58560",
+          "uva-58666",
+          "uva-59720",
+          "uva-59732",
+          "uva-58607",
+          "uva-58645",
+          "uva-59727",
+          "uva-58797",
+          "uva-58921",
+          "uva-58813",
+          "uva-59729",
+          "uva-58949",
+          "uva-58527",
+          "uva-open-electives"
+        ],
+        "yearLabel": "2026–2027",
+        "routeLabel": "Earth Sciences major",
+        "limitation": "The degree is 180 EC. This partial table shows 174 EC and leaves out the 6 EC Project 4 while its Academic Skills entry condition remains unresolved. Major courses and elective space follow the published plan; students use the plan applicable when they start their major."
+      },
+      "conceptProgrammeIds": [],
+      "noteTypes": [],
+      "componentNotes": {
+        "uva-58848": "One of two mathematics variants. This illustration retains the Mathematics B variant for natural-science preparation.",
+        "uva-58713": "Introduces social-scientific perspectives on states, power and society.",
+        "uva-57158": "Develops programming in Python and examines AI and society. Academic-skills assignments are integrated into the current course.",
+        "uva-60890": "Studies the origins and development of the universe and life. The current course carries 9 EC.",
+        "uva-57369": "Introduces cognition across disciplinary perspectives. The current 6 EC course includes academic-skills work.",
+        "uva-58648": "Introduces research methods and the analysis of scientific research. Students must have followed it before Project 1.",
+        "uva-58454": "A required 3 EC philosophy-of-science course.",
+        "uva-61112": "Studies urban life through disciplinary and interdisciplinary perspectives.",
+        "uva-58767": "Studies emergence across scientific domains. Mathematics, natural-science and programming foundations provide preparation.",
+        "uva-60749": "Students develop and conduct multidisciplinary research and present it at a symposium. Entry requires having followed the first-year research-methods course.",
+        "uva-61107": "Analyses interdisciplinary research and prepares for Project 4. Entry requires passing Project 1.",
+        "uva-58560": "One of two practice-project choices. Students develop sustainability advice for an external organisation; the other choice is Placemaking.",
+        "uva-58666": "A compulsory Earth Sciences course on plant–soil interactions. Major entry requires at least 48 EC from the Bèta-gamma first year.",
+        "uva-59720": "A compulsory practical course, including fieldwork and reporting. Passing its fieldwork and field-report components prepares for Desertification.",
+        "uva-59732": "A required 3 EC introduction to programming in R.",
+        "uva-58607": "A required 3 EC remote-sensing course. Its attendance requirement must be met before Digital Earth.",
+        "uva-58645": "A required Earth Sciences course on food systems and ecosystems.",
+        "uva-59727": "A required course on water-related Earth-system challenges.",
+        "uva-58797": "A required 3 EC course. Entry requires meeting the Remote Sensing attendance requirement; its own attendance requirement must be met before Desertification.",
+        "uva-58921": "A required 3 EC course on developing evidence from data.",
+        "uva-58813": "Includes fieldwork. Entry requires passing the Plant-Soil Practical fieldwork and field-report components, or the specified earlier equivalent, and meeting the Digital Earth attendance requirement.",
+        "uva-59729": "A compulsory Earth Sciences course in water management.",
+        "uva-58949": "A 6 EC research-design course alongside the bachelor project. The formal rules apply the Future Planet Studies entry conditions to Bèta-gamma major students: completion of the first year and at least 42 EC from year two.",
+        "uva-58527": "An 18 EC supervised individual research project and thesis. Bèta-gamma students follow the Future Planet Studies entry conditions and must choose an Earth-science topic. The general requirement is completion of the first year and at least 42 EC from year two.",
+        "uva-open-electives": "The Earth Sciences plan leaves 36 EC for genuine electives. At most 12 EC may be at any bachelor level; the remaining space uses second- or third-year courses. A completed official Dutch minor can replace these level conditions. Courses must avoid excessive overlap; other arrangements require written examination-board approval."
+      }
+    }
+  },
+  "selectedCourseDescriptionCodes": [],
+  "unchangedResearchDescriptionReuse": {
+    "ACCPPDE101": {
+      "cache": "pilot/shiny/data/courses/ACC.json",
+      "cacheBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+      "courseName": "Personal & Professional Development",
+      "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+      "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json"
+    },
+    "BENECON111": {
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "7a9a8eb38eb00f990e47a5e473d582d6efde30d2",
+      "courseName": "Introduction to Economics",
+      "descriptionSha256": "2278892bd9c8b20df80deb4bd04a3bf00a3fe4cc79099b153861afa0f69110e8",
+      "sourceSha256": "be4f2adfa22005d4d1ebbea0bbfcb36e2acd0e7e75d57f9b87f847d13ad3ef1f",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json"
+    },
+    "BENECON312": {
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "7a9a8eb38eb00f990e47a5e473d582d6efde30d2",
+      "courseName": "Econometrics",
+      "descriptionSha256": "3754e43821eb3db5407d6eded2b8e70021b3eb45d2284acfae505d85d85baea9",
+      "sourceSha256": "3754e43821eb3db5407d6eded2b8e70021b3eb45d2284acfae505d85d85baea9",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000111/content-review.json"
+    },
+    "BENGATE101": {
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "7a9a8eb38eb00f990e47a5e473d582d6efde30d2",
+      "courseName": "Entrepreneurship & Business Foundations",
+      "descriptionSha256": "be06c9c110a9f2b97e6488ea6896b76949da3932009e02cd6af21a9a379b9160",
+      "sourceSha256": "be06c9c110a9f2b97e6488ea6896b76949da3932009e02cd6af21a9a379b9160",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json"
+    },
+    "BENGATE102": {
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "7a9a8eb38eb00f990e47a5e473d582d6efde30d2",
+      "courseName": "Research Methods & Statistics",
+      "descriptionSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+      "sourceSha256": "9d88751452d5c0a6888ac7901a73d1a848617dee2b587d4df64815fc39ad8813",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json"
+    },
+    "BENLEAD311": {
+      "cache": "pilot/shiny/data/courses/BEN.json",
+      "cacheBlob": "7a9a8eb38eb00f990e47a5e473d582d6efde30d2",
+      "courseName": "Psychology of Organizations & Leadership",
+      "descriptionSha256": "668a9f550a115ab294eb553586c70cf6e941271625ed97b1527613ed53b1aadf",
+      "sourceSha256": "a6257b450ccaf3dcad4ed2cff83ec2065a49f8afb6c0549530896581e301fa60",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json"
+    },
+    "DISARIN111": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "AI Ethics",
+      "descriptionSha256": "573776c86616fbb9aa39c644ba0abcae2cb7c073febebe3b0203c329264cbeb3",
+      "sourceSha256": "cb43b0c596757e7e4f5f93392738ac9d23f450d75d7dd7698bbb59ee1557333a",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json"
+    },
+    "DISARIN211": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "Decision-making in AI",
+      "descriptionSha256": "ac8eef243ef31afb7f65eee5f70e1a2216876057006d890b15e5411f9c05e560",
+      "sourceSha256": "c93b1f92cb7d5624a47e7af933fe9722fcd6b1e5632025ebe7a704fc49ae05c4",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json"
+    },
+    "DISARIN212": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "Logic & Discrete Mathematics",
+      "descriptionSha256": "7503057969878a0fa1fccc505095c50f3d6b44d2956afaf35bbad164eb49ed7f",
+      "sourceSha256": "93a52b9fe674b9db0732d6f9451146621be7c59068bdf70219256b67ba3b03c2",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000128/content-review.json"
+    },
+    "DISARIN311": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "Optimization Methods in AI",
+      "descriptionSha256": "7c40cb1b74b271a8df365cbf7b9bba55b498199996db9ed060335dd81c541a43",
+      "sourceSha256": "d5a3dfea16ac47ee970bf30fdd60ec4588386e2eac608c5c875069a706dafa4e",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json"
+    },
+    "DISARIN312": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "Reinforcement Learning",
+      "descriptionSha256": "3a9fc4b39d036bd7f6d39c9976254f2a8453f92d975be94b2c4c744546f2f838",
+      "sourceSha256": "3a9fc4b39d036bd7f6d39c9976254f2a8453f92d975be94b2c4c744546f2f838",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000128/content-review.json"
+    },
+    "DISCOMP211": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "Networks & Operating Systems",
+      "descriptionSha256": "664db0da46ce981d8ad842a2486845292af42f90e564c9eef75b7769f2eba377",
+      "sourceSha256": "0df3be0c6e7231c9f7d60a23118e47acce9186e80e974ad039eaed54f0db62c1",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000127/content-review.json"
+    },
+    "DISCOMP212": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "Database Management Systems",
+      "descriptionSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d",
+      "sourceSha256": "257583a0527be51951a0da5231b39e7584b6afda03214961c20f59b6f9f7f82d",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json"
+    },
+    "DISCOMP213": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "Software Development",
+      "descriptionSha256": "7967bedb773b55d3e88ad04577d2f36592dba405cc598a8702b35857c49d0a09",
+      "sourceSha256": "1b854e8317ed67bde0743278be7341460cc90885a15adb891811bf54d0c3ef8c",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000126/content-review.json"
+    },
+    "DISCOMP311": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "Algorithms & Data Structures",
+      "descriptionSha256": "c1c2acb267bbdf39a07160bb99a1e66219200cb1139174e9c883c4d23d03eca8",
+      "sourceSha256": "e1529227dac6db769531df5ba2f0f9d64fad1017c208c5e2d52a0b38a90a78ec",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json"
+    },
+    "DISCOMP312": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "Advanced Algorithms",
+      "descriptionSha256": "f85668e861319cc548402736465d8f0e51fd49a18a854ed419770e85ca1eef14",
+      "sourceSha256": "0859aef6ed3c8ce9b88ab7dc74dd1d434bab4df3a3b6ff6a8f7bce932e738706",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000128/content-review.json"
+    },
+    "DISDATA111": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "Introduction to Data Science",
+      "descriptionSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+      "sourceSha256": "85912cb78bd13d1aa873ef9cca2a8d7e00345543f75d1f07b56d808f1c6702ef",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json"
+    },
+    "DISDATA211": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "Machine Learning",
+      "descriptionSha256": "ae7fce189f80fcd62e521b78f43d3119e98a2ee78d29f61127a0f6b61faaf862",
+      "sourceSha256": "6a112d70695b992eb7664e19ed9656612b364e2c28a116980a602eef2687ace6",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json"
+    },
+    "DISDATA212": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "Image Processing & Computer Vision",
+      "descriptionSha256": "2f095c0618ff630b69246b5110663b6517e6627dc322e3d4f0b9e7328279b2b1",
+      "sourceSha256": "67bc3ab96eb177cb9e10d60aa3ceb8dfc61ae6508a196c498124421f7fbba4dd",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000123/content-review.json"
+    },
+    "DISDATA311": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "Neural Networks & Deep Learning",
+      "descriptionSha256": "ed084f769dcc3b361dcddff3861c96217abcbf5eb57e7859aeb1ad3f949584c7",
+      "sourceSha256": "25546292d8643497a8cd9b4bf820608e15e4ae3fdcf04eb764aadcadf460f14f",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json"
+    },
+    "DISDATA312": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "Robotics",
+      "descriptionSha256": "9829325ea420591540c6ee512064f68fa3a59d4637bd41a69789f8106a4acaec",
+      "sourceSha256": "9829325ea420591540c6ee512064f68fa3a59d4637bd41a69789f8106a4acaec",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000126/content-review.json"
+    },
+    "DISGATE101": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "Introduction to Programming",
+      "descriptionSha256": "efe3b89e39a2611d475d27d09b06151a514076321c7453cd31f9cfbbd84248bf",
+      "sourceSha256": "e2014f5db9a4328ff4efaa51f0273169ae1c9427a4ccf85bea5ee463794a80a8",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json"
+    },
+    "DISGATE102": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "Mathematical Methods",
+      "descriptionSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38",
+      "sourceSha256": "6250945baf68c519d3820bddeaa08cb4b3c71273ddbb9bc31a7dffe6d021af5f",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json"
+    },
+    "DISMATH211": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "Linear Algebra",
+      "descriptionSha256": "bd23120a02190d6bcf24aa6c30ce1e454082afae59ba3d81c21d48cfb4194ba4",
+      "sourceSha256": "26ebd64922aa03e17140aa9b6529a98f2428bdf29ab1fa4360f9bd876de4e680",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json"
+    },
+    "DISMATH213": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "Computational & Numerical Methods",
+      "descriptionSha256": "d7841607963f18cc24d325c614b84d1629dd83cf6194ee3b68dfcf1a90eb8a8c",
+      "sourceSha256": "5b5170199e3306247d6581a75787d8106a4fea74a894b55a09713e0a81efbf25",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json"
+    },
+    "DISMATH314": {
+      "cache": "pilot/shiny/data/courses/DIS.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+      "courseName": "Probability & Statistics",
+      "descriptionSha256": "9d3ee2b42fa7fe2c0e62777da64474690e9fac0ca76929d04c6670dab516d10f",
+      "sourceSha256": "64d3f72845189f77627b8aa180a9906d4fd60fe3c5306bbf0ebe7666e612852b",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000125/content-review.json"
+    },
+    "ENSDELT211": {
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "courseName": "Living with Water",
+      "descriptionSha256": "c6f1c8e47fbc4bf63763a5360356732043355009a05991ce7099da0a8babeede",
+      "sourceSha256": "6bc06d8eab4fbe5bd42de4764d7f92dee7335af1186c736cce876e23c2e44360",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json"
+    },
+    "ENSDELT311": {
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "courseName": "R3: Recycling, Recovery, Remediation",
+      "descriptionSha256": "1b0026b1e19169693ebc23ba4ee5b8bb515ce3b67dd06bd33b230b9b04bf262d",
+      "sourceSha256": "1b0026b1e19169693ebc23ba4ee5b8bb515ce3b67dd06bd33b230b9b04bf262d",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json"
+    },
+    "ENSDELT312": {
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "courseName": "Governance of Sustainability",
+      "descriptionSha256": "746711aaebf20395c0fd5695fb91c5951f611715825c91ca6da251c5d890e362",
+      "sourceSha256": "f4cf9494a23b75f3fb3fe9090c62b9c8af908dc62a825c17f6547cfb48caf0a7",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json"
+    },
+    "ENSENVI111": {
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "courseName": "Dynamic Earth",
+      "descriptionSha256": "9c5e687f10b2c232fbc59760d2e70e2cdb8765cda4c1919c5838109f29542a4d",
+      "sourceSha256": "9c5e687f10b2c232fbc59760d2e70e2cdb8765cda4c1919c5838109f29542a4d",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json"
+    },
+    "ENSENVI211": {
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "courseName": "Earth Observation",
+      "descriptionSha256": "6fbd8c5d02f8063c3dac1b38756526174ea242188eff49eb08bf76e17c4d4b97",
+      "sourceSha256": "6fbd8c5d02f8063c3dac1b38756526174ea242188eff49eb08bf76e17c4d4b97",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json"
+    },
+    "ENSENVI213": {
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "courseName": "Earth System Science Tools",
+      "descriptionSha256": "2bdebcd3c2db71717ea674b4277de2f62a2d53cdd20acd1aa0fb87b3f20ba0fa",
+      "sourceSha256": "2bdebcd3c2db71717ea674b4277de2f62a2d53cdd20acd1aa0fb87b3f20ba0fa",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000136/content-review.json"
+    },
+    "ENSENVI312": {
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "courseName": "Earth's Resources",
+      "descriptionSha256": "871074751805d3b118a24dc71bfd4c202c1ad3abe612933aae64e335d917e749",
+      "sourceSha256": "871074751805d3b118a24dc71bfd4c202c1ad3abe612933aae64e335d917e749",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json"
+    },
+    "ENSGATE101": {
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "courseName": "Sustainability Essentials I",
+      "descriptionSha256": "3d8021bff00c075753d30587e5e529c4ac8337c828561c59c0c227299a1e04e9",
+      "sourceSha256": "82f50723d99a79ffd7371f9f6eebe3e42e760cc7f4f8bbeb032e81fd5acc4184",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json"
+    },
+    "ENSGATE201": {
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "courseName": "Sustainability Essentials II",
+      "descriptionSha256": "465a8a129a7b496e5cc7188a77d3e2b04fb5a3c7f3afceae8a56afe6d062285b",
+      "sourceSha256": "10191be23b197bf2051541f534acdc52bc20762fc7d8889972890e7176afed60",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json"
+    },
+    "ENSSUST111": {
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "courseName": "Climate Change",
+      "descriptionSha256": "51b7423fe905aaf8f483ff6389d1685b21b8a2fb0a4b9b41d99b59e42808a974",
+      "sourceSha256": "92a8d5a238274193e7d9163f689556026c415afc95cebb8ecc4b5215f17bbeb4",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000116/content-review.json"
+    },
+    "ENSSUST211": {
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "courseName": "Energy & Sustainability",
+      "descriptionSha256": "beaa1139f5927cdb44febefa57a289ba049e9ba3c1d8f55d622efc8a5b2cf4e9",
+      "sourceSha256": "5e67f869a50e5a0ca056221ec827a2893311795cda84e715f681cb0055edf092",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000153/content-review.json"
+    },
+    "ENSSUST313": {
+      "cache": "pilot/shiny/data/courses/ENS.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2",
+      "courseName": "Research in a Sustainable Delta",
+      "descriptionSha256": "b8d6c3381e3fcec1990bfe5d2c32984c0033fdca5c38edb20f0faaaa864a5a59",
+      "sourceSha256": "b8d6c3381e3fcec1990bfe5d2c32984c0033fdca5c38edb20f0faaaa864a5a59",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json"
+    },
+    "GOSHIST312": {
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+      "courseName": "Researching the “American Century”",
+      "descriptionSha256": "ec69dff9b78d3978fff3f1724dc3a2256eb5e2c589b7beff8e13b46a9171908a",
+      "sourceSha256": "ec69dff9b78d3978fff3f1724dc3a2256eb5e2c589b7beff8e13b46a9171908a",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json"
+    },
+    "GOSPOLI112": {
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+      "courseName": "Foundations of Comparative Politics",
+      "descriptionSha256": "72f9efff37e62fdc1cb0ddf27e595e7b3c526eb132dad86622cf55738204a4ee",
+      "sourceSha256": "72f9efff37e62fdc1cb0ddf27e595e7b3c526eb132dad86622cf55738204a4ee",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000111/content-review.json"
+    },
+    "GOSPOLI311": {
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+      "courseName": "European Union Politics",
+      "descriptionSha256": "97411c9c43963bfc500f8c6494383d57cfd36eeb9c57f554e94ba2d6e35c4253",
+      "sourceSha256": "42788a5dd28eccc535d20a771b88a601c20af300b1102ef637945a852f156fe0",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json"
+    },
+    "GOSSOCI212": {
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+      "courseName": "Qualitative Research Methodology",
+      "descriptionSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+      "sourceSha256": "6531d96f817df19cfa773d8d8004f44da6041eeab39acfce1462438728cd1eeb",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json"
+    },
+    "GOSSOCI214": {
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+      "courseName": "Modern Sociology",
+      "descriptionSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+      "sourceSha256": "b37808e063c634e9cb71d70a984d68ab97954f73bfed12d09ea9733b1a9f000b",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000111/content-review.json"
+    },
+    "GOSSOCI215": {
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+      "courseName": "Social Movements & Environmental Justice",
+      "descriptionSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+      "sourceSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000111/content-review.json"
+    },
+    "GOSSOCI311": {
+      "cache": "pilot/shiny/data/courses/GOS.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+      "courseName": "New Issues in Contemporary Social Theory",
+      "descriptionSha256": "367314c88b9f1c559ccd023159845f9624f353f78d898bc66b690ebe3392336b",
+      "sourceSha256": "f54abdf8a1ca13792cdc4bc2d390f202721dd6280b0cae44aa0609c2db02dbbf",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000117/content-review.json"
+    },
+    "HCBCOGN311": {
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "8af6675a1408cec96ea570100ee89cff97563288",
+      "courseName": "Higher Order Functions",
+      "descriptionSha256": "42d96460b731996549fb6525fa622439622a99854e4db744eabc7c61a5e19598",
+      "sourceSha256": "f6033f78b541acd4a5788e843aa744855b5a99d2841ce90ebdd17797944c5d42",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json"
+    },
+    "HCBGATE102": {
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "8af6675a1408cec96ea570100ee89cff97563288",
+      "courseName": "Introduction to Brain & Behavior",
+      "descriptionSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+      "sourceSha256": "fd491462cea829ac2486d7dc35dc1741d2e2fd5dee8d8d4b9e108f6431915031",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json"
+    },
+    "HCBPSYC111": {
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "8af6675a1408cec96ea570100ee89cff97563288",
+      "courseName": "Social Psychology",
+      "descriptionSha256": "1300df4b478a5fb06ea11b1aab33dd1ec75a582dd6b48f104df9218b2000aa22",
+      "sourceSha256": "1300df4b478a5fb06ea11b1aab33dd1ec75a582dd6b48f104df9218b2000aa22",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json"
+    },
+    "HCBPSYC211": {
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "8af6675a1408cec96ea570100ee89cff97563288",
+      "courseName": "Statistics & Experimental Methods",
+      "descriptionSha256": "ef41b0b732a8e9502a0d7e14ceef47bb91ca971854bb1a26b6a8ed5e6c9b6111",
+      "sourceSha256": "bf482d4e283320560451930d2822162ada50a7697ded31de54eb7b021694adbc",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json"
+    },
+    "HCBPSYC313": {
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "8af6675a1408cec96ea570100ee89cff97563288",
+      "courseName": "Advanced Research Methods & Statistics",
+      "descriptionSha256": "f9bb29521ce24ffbe4d0eef2398221f54d99cbd72801c53bf1db0de6b3c4c799",
+      "sourceSha256": "eb24b7cc21c239bb763218b5b09a429739925fa1a8206c390c2f07c75f528c1d",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json"
+    },
+    "HCBPSYC314": {
+      "cache": "pilot/shiny/data/courses/HCB.json",
+      "cacheBlob": "8af6675a1408cec96ea570100ee89cff97563288",
+      "courseName": "Lifespan Developmental Psychology",
+      "descriptionSha256": "83bc9b3a3f25b826775e694d59d5a8673158b9fd3bced3778ac1efb9b4da6289",
+      "sourceSha256": "83bc9b3a3f25b826775e694d59d5a8673158b9fd3bced3778ac1efb9b4da6289",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json"
+    },
+    "MCCCOMM111": {
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+      "courseName": "The Art of Rhetorical Communication",
+      "descriptionSha256": "34ab73cc0cae33e2a0e47ba5df0ee55c9b0e5f2d4e21ae97ea18667a96400c4c",
+      "sourceSha256": "a1075e2aff565380f637a1ee31ac79c668477b11b15a7f853230b303cf44485f",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json"
+    },
+    "MCCCOMM211": {
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+      "courseName": "Style & Meaning",
+      "descriptionSha256": "1403b3e8bbe5009d3f3736ca1f68055e9a004b02908527fba7a6c0dbbb12be33",
+      "sourceSha256": "d080043304ce78e0dfb21e7626ed39788487ac6407c4b6b9b8dd65a1ccc3cb3c",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000158/content-review.json"
+    },
+    "MCCCOMM311": {
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+      "courseName": "Persuasive Communication",
+      "descriptionSha256": "781fa29248cce6025d8aa8887d300c8f0d64941a8b4a9b2dd193783c098deacc",
+      "sourceSha256": "bad6a0cb3dd14e5cb07c4aeb36a102d09309142fdc5bab339f0096830ec5209a",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000114/content-review.json"
+    },
+    "MCCCOMM312": {
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+      "courseName": "Creative Communication Laboratory",
+      "descriptionSha256": "5784a44bdf47e513fd175105980ac4d21836d78686e6c5dcd79411edf50bb3ec",
+      "sourceSha256": "d45bc30fbb2ccb16032887c1e925d9781c5e5643f98a1d72845b3bde1a1e8c68",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json"
+    },
+    "MCCMEDI312": {
+      "cache": "pilot/shiny/data/courses/MCC.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+      "courseName": "The Documentary",
+      "descriptionSha256": "223f9d67569f492466d7fe0e444249d55688d2d867669711ff057617aa16f2fe",
+      "sourceSha256": "d8ce7c931003ce12a3a81c610feeda88ceed97ae0297b4a9bafa1001fe843803",
+      "reviewEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000121/content-review.json"
+    }
+  },
+  "historicalDescriptionWithoutProvenance": {
+    "code": "BENENTR212",
+    "finding": "Unchanged historical cached text equals the actual current official description2 verbatim. Substantive strategy/digital-transformation contribution considered fully; no modal is selected and no new shared modal approval is claimed."
+  },
+  "findings": [
+    "All 25 component titles, credits and explicit notes read. 174 EC = 69 common BG +69 compulsory Earth Sciences +36 genuine elective space. Six formerly instantiated elective courses removed; no arbitrary UCR counterpart assigned to free space. The missing 6 EC Project 4 remains explicitly excluded, with incomplete-degree status.",
+    "Restored 18 EC bachelor project is individual supervised research with an Earth-science topic. Its note and Research Designs note state completion of first year and at least42 EC year two under expressly applicable FPS regulations. A stale duplicate Research Designs component note was corrected as well. No automatic waiver inferred.",
+    "Neutral first-listed Earth Sciences route retained; current adopted OER confirms availability. Published major plan is for September2026 major starts, and the text explains students use the plan at their own major start rather than promising unchanged2027 courses.",
+    "Mathematics B choice and sustainability consultancy choice are explained. Digital Earth attendance and Desertification fieldwork/report pass conditions are distinguished. Electives: max12EC any bachelor level, remainder second/third year; completed official Dutch minor substitutes level requirements, excessive overlap excluded, other arrangements need written approval.",
+    "English title now agrees with current display metadata. No administrative-name fallback, source retrieval logs, source-quality labels or technical identifiers exposed as narrative. All13 source links checked against actual observed current source URLs; official programme primary link unchanged.",
+    "Same current workbook and56 shared description reviews reused with identical source/text hashes; all57 underlying course bodies reconsidered for internal research. BENENTR212 text matches actual official description verbatim, but historical provenance absent and no active modal selected.148 shared reviews pass provenance validation.",
+    "Record/content verification only; no R/Shiny/browser installation, launch, screenshots or live modal exercise. App code unchanged. Representative actual rendering remains a separately authorised final-release prerequisite."
+  ],
+  "status": "passed-for-partial-record"
+}
