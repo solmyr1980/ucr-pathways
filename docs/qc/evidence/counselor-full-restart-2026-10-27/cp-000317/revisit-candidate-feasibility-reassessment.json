@@ -1,0 +1,19 @@
+{
+  "caseId": "cp-000317",
+  "checkedAt": "2026-11-14T01:10:40.315081+00:00",
+  "rejectedFixture": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000317/revisit-rejected-feasibility-input.json",
+  "validation": {
+    "check": "candidate",
+    "command": [
+      "python",
+      "scripts/validate-course-feasibility.py",
+      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000317/revisit-ucr-feasibility-input.json"
+    ],
+    "exitCode": 1,
+    "outputSha256": "d22882f0462328d1a408f6200914bea6f2e4509e9e2ba170f98a32cbe77b7bdc",
+    "summary": [
+      "revisit-ucr-feasibility-input.json: ?/BENBUSI311: prerequisite BENGATE101 must be completed earlier"
+    ]
+  },
+  "finding": "The attempted removal of BENGATE101 made BENBUSI311 infeasible: the current workbook requires BENGATE101 before Transnational Business Law. This is an input-specific candidate failure, not a systemic problem. Re-read BENGATE101 and BENBUSI311 content: business planning, finance, operations, value propositions and risk decisions provide concrete commercial-transaction context for cross-border contracts, finance, IP and compliance. Retain the foundation and its existing early placement, with a bounded complementary role; it does not itself teach Dutch company law. Drop the tentative GOSSOCI311 replacement to retain the strongest direct commercial-law contribution. Replace only beginner Dutch with international institutional inquiry."
+}
