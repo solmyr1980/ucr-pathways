@@ -1,0 +1,182 @@
+{
+  "caseId": "cp-000324",
+  "checkedAt": "2026-11-14T03:16:42.589763+00:00",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/counselor/decisions/cp-000324.json": "bff0e7556892c1a8a95a08db90789fae8da01d41",
+    "data/counselor/comparisons/cp-000324.json": "c9002857f8cf22aea529e6ea403018164191c2c5",
+    "data/registry/programme_interests.csv": "3ec373541057d40f7599b009cf42c5b5c5f211cc",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "data/counselor/review-programmes.json": "ed6ed36489f5c128a953ca86b8589fb412ef2f0a",
+    "data/counselor/review-interests.json": "e9d6ec67ac742af08eba907a6214d10fd987f052"
+  },
+  "commands": [
+    {
+      "check": "feasibility",
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "data/counselor/comparisons/cp-000324.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c",
+      "summary": [
+        "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+      ]
+    },
+    {
+      "check": "candidate",
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000324/revisit-ucr-feasibility-input.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c",
+      "summary": [
+        "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+      ]
+    },
+    {
+      "check": "schema",
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "data/counselor/comparisons/cp-000324.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918",
+      "summary": [
+        "1 canonical records pass full JSON Schema validation."
+      ]
+    },
+    {
+      "check": "operational",
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor"
+      ],
+      "exitCode": 0,
+      "outputSha256": "ecdc21290ed83020cb6dadc190f74e6ba7c866defc6826e95a08ed2c98479033",
+      "summary": [
+        "cp-000459.json: final counselor methodology rules OK"
+      ]
+    },
+    {
+      "check": "interests",
+      "command": [
+        "node",
+        "scripts/validate-registry-interests.mjs"
+      ],
+      "exitCode": 0,
+      "outputSha256": "0dc1ff8a36961675f58e702191ec97f43c501db23f02270d74dfb6913450c3cc",
+      "summary": [
+        "Valid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings."
+      ]
+    },
+    {
+      "check": "indexes",
+      "command": [
+        "node",
+        "scripts/build-counselor-review-index.mjs",
+        "--check"
+      ],
+      "exitCode": 0,
+      "outputSha256": "c26900407153178ba5a5e40b41d6c719f0f4eb5c062e3226b01961df60f9469d",
+      "summary": [
+        "Current counselor review indexes: 438 programmes, 21212 interest rows."
+      ]
+    },
+    {
+      "check": "corrections",
+      "command": [
+        "python",
+        "scripts/apply-registry-corrections.py",
+        "--check"
+      ],
+      "exitCode": 0,
+      "outputSha256": "4275033a63bbab9cb31515378103ebdc8dc963f3f5c3d71cddb95fcc24594e3d",
+      "summary": [
+        "Registry post-build corrections and alias crosswalks are current"
+      ]
+    },
+    {
+      "check": "descriptions",
+      "command": [
+        "python",
+        "scripts/validate-course-descriptions.py"
+      ],
+      "exitCode": 0,
+      "outputSha256": "e3bf679d8cf8c5b2718fd9a77a2b7a978383e2c1022e5cb9af4c91fa6bfc0194",
+      "summary": [
+        "146 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained."
+      ]
+    },
+    {
+      "check": "replay",
+      "command": [
+        "node",
+        "scripts/build-counselor-production.mjs",
+        "data/counselor/decisions/cp-000324.json",
+        "--output",
+        "/tmp/b324revisit/final-replay.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "bfb0c5be35bca5035033b8d3908d0d0d1df155e45c4f728814c8b7f8130468da",
+      "summary": [
+        "Built cp-000324 counselor exception record at /tmp/b324revisit/final-replay.json"
+      ]
+    }
+  ],
+  "byteExactReplay": {
+    "command": [
+      "node",
+      "scripts/build-counselor-production.mjs",
+      "data/counselor/decisions/cp-000324.json",
+      "--output",
+      "/tmp/b324revisit/final-replay.json"
+    ],
+    "identicalBytes": true,
+    "canonicalBlob": "c9002857f8cf22aea529e6ea403018164191c2c5",
+    "canonicalSha256": "072d56a074c52f81b7e3f7a1131a4c1c257c85fbefd389128f52d68ca911f1a9"
+  },
+  "provisionalFixture": {
+    "evidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000324/revisit-ucr-feasibility-input.json",
+    "status": "passed",
+    "programmes": 2,
+    "uniqueCoursesEach": 24,
+    "creditsEach": 180,
+    "advancedCounts": [
+      10,
+      9
+    ],
+    "distinctCoursesEachWay": 12,
+    "distinctECEachWay": 90,
+    "actualXOfferingsAndEarlierPrerequisites": true,
+    "fourPerTermAndPPDYear1": true,
+    "limit": "Researchonly; feasibility and numerical distinctness are not academic acceptance."
+  },
+  "preservedOriginalPair": {
+    "decision": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000324/revisit-original-decision.json",
+    "canonical": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000324/revisit-original-canonical.json",
+    "gitBlobs": {
+      "data/counselor/decisions/cp-000324.json": "80868145f96ce52fdecabbf8ba74925f37614f24",
+      "data/counselor/comparisons/cp-000324.json": "8fb553656726b8899c5cf5112a1f86802c2b0f9e"
+    }
+  },
+  "supportedLedger": {
+    "all26IDsNamesWeightsRetained": true,
+    "totalSupportedDistinctEC": 175,
+    "remainingUnconfirmedEC": 5,
+    "archivedLeti5CandidateIsNotActiveApproval": true,
+    "zeroCreditSeminarNotAdded": true
+  },
+  "allIndexesRegistryAppCodeAndAllExcelUnchanged": true
+}
