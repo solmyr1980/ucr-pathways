@@ -1,0 +1,964 @@
+{
+  "caseId": "cp-000458",
+  "executionId": "restart-B-cp458-revisit-20261114T141833Z",
+  "checkedAt": "2026-11-14T14:23:43.935083+00:00",
+  "reviewedInputCommit": "2f0f708e4566db4d48f575fe9d896a8b54c1b4c1",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "data/counselor/comparisons/cp-000458.json": "f9758beb6e2a6ec30c66fc06fe9106a81e0a54c1",
+    "data/counselor/decisions/cp-000458.json": "e34333a5c31dd403136b566a51914607e3e9c4e6",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "data/counselor/review-interests.json": "e9d6ec67ac742af08eba907a6214d10fd987f052",
+    "data/counselor/review-programmes.json": "28ee7c2995ddab57c773e70ec193cb864685b178",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/registry/programme_interests.csv": "3ec373541057d40f7599b009cf42c5b5c5f211cc",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json": "e9dbe34fed88887b355bbea7616e81d04f39c4f3",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/course-comparability-review.json": "4f5b6d3741464bd558ad320077c9ab45bdd3f2cf",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/interest-review.json": "a27ccbef9070b07f5a96f508577b9b45159d1f94",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/mechanical-verification.json": "fabc5bb000e70cd02a491f0710fcc9c1e1401f89",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/provisional-canonical.json": "478d40e177a70d695947da22004c7a06f73df263",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/provisional-decision.json": "88b9a80b95703048d0e3ae3c715f6408bb2fb6ac",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/published-verification.json": "096eb2faa95a9b4d2706d65fa88c0616d50f5401",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/retry2-mechanical-content-checks.json": "8d07fc4ad6b76b92c1f7026ca3a6504917f30ef7",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/retry2-published-verification.json": "0ce5bcd161504ee15ed2e984fc58fca6d96e4caa",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/retry2-source-first-final-pass.json": "b899b3ca0cddb64c228bacdccbc5cc1e1b0e7734",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/source-attempt-2.json": "7cbe89519df1eb450b049718273787031b0c7a8a",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/source-first-final-pass.json": "5b0d89f6b389db55aeab548dc2f254595a0cc9cc",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/source-review.json": "8d63ad46a1c2f89ecd2603f8ddfdb7c00eeba673",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/superseded-comparison.json": "d165c7213e05bf78820cc7d26e7219e7fce33e1d",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/superseded-decision.json": "3d03d9143cc1504285c0fc51f0ac501ab4846036",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "7a9a8eb38eb00f990e47a5e473d582d6efde30d2",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "pilot/shiny/data/courses/ENS.json": "b323d5993ab47be5389001b547054259cbfdbfa2",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "pilot/shiny/data/courses/HCB.json": "2293af785a5e27a805d515247fc1f6269ee6ab38",
+    "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+    "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26"
+  },
+  "academicYear": "2026–2027",
+  "retrievals": [
+    {
+      "file": "programme.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=STUDY&code=BES&year=2026",
+      "status": 200,
+      "bytes": 118792,
+      "sha256": "7da8018e940857035e8589a03d8d7da5b25eb102ebc1708df9535722717eee82",
+      "checkedAt": "2026-11-14T14:19:51.057913+00:00",
+      "code": "BES",
+      "name": "Bachelor Environmental Sciences (2026)",
+      "credits": 180.0,
+      "importDateTime": "2026-11-13T22:03:26.107625"
+    },
+    {
+      "file": "YES80312.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=YES80312&year=2026",
+      "status": 200,
+      "bytes": 15985,
+      "sha256": "3cb89b175e7f0fec93eb9eec3ab7e8c79cf40d1492083d415c1945c116d9b795",
+      "checkedAt": "2026-11-14T14:19:51.548219+00:00",
+      "code": "YES80312",
+      "name": "BSc Thesis Environmental Sciences",
+      "credits": 12.0,
+      "importDateTime": "2026-11-13T22:45:20.805648"
+    },
+    {
+      "file": "public.html",
+      "url": "https://www.wur.nl/en/education/bachelor/bachelors-environmental-sciences",
+      "status": 200,
+      "bytes": 276845,
+      "sha256": "c616d0b83c338bf37fb532c0dac31bb4b406707bae31ffe5598b33c789616947",
+      "checkedAt": "2026-11-14T14:19:51.996577+00:00",
+      "bodyKind": "HTML/other"
+    },
+    {
+      "file": "esg.html",
+      "url": "https://www.wur.nl/en/chair-groups/earth-systems-and-global-change/education",
+      "status": 200,
+      "bytes": 237819,
+      "sha256": "f50ca7799e9c016a9bc97d9670f2e6178c961e51c166a0d0365dde0207054469",
+      "checkedAt": "2026-11-14T14:19:52.068671+00:00",
+      "bodyKind": "HTML/other"
+    },
+    {
+      "file": "ete.html",
+      "url": "https://www.wur.nl/en/chair-groups/environmental-technology/education",
+      "status": 200,
+      "bytes": 209281,
+      "sha256": "debb8c787bda1c4674e9030f5013bf0b0b5d59baca6db340bbfdc8097df0b682",
+      "checkedAt": "2026-11-14T14:19:52.296693+00:00",
+      "bodyKind": "HTML/other"
+    },
+    {
+      "file": "enp.html",
+      "url": "https://www.wur.nl/en/chair-groups/wageningen-sustainability-governance-hub/environmental-policy/education",
+      "status": 200,
+      "bytes": 269652,
+      "sha256": "ded711e54f93ca6a8069b3f0871dcc747eaeed14a78f7e16bfed56e8b48786eb",
+      "checkedAt": "2026-11-14T14:19:52.144858+00:00",
+      "bodyKind": "HTML/other"
+    },
+    {
+      "file": "chart.pdf",
+      "url": "https://backend.wur.nl/sites/default/files/2026-07/BES-Studieprogramma-EN-032026.pdf",
+      "status": 200,
+      "bytes": 213425,
+      "sha256": "5861029be0838ccdb51658597862f54178f2dad0922376ae699737d7f4f81e6c",
+      "checkedAt": "2026-11-14T14:19:56.092734+00:00",
+      "bodyKind": "PDF"
+    },
+    {
+      "file": "PCC12303.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=PCC12303&year=2026",
+      "status": 200,
+      "bytes": 29784,
+      "sha256": "589560958185dcbb651ae98548467d51006807edc29be5a20d75bd724226cb63",
+      "checkedAt": "2026-11-14T14:20:54.060246+00:00",
+      "code": "PCC12303",
+      "name": "General Chemistry 1",
+      "credits": 3.0,
+      "importDateTime": "2026-11-13T22:25:36.64111"
+    },
+    {
+      "file": "YES10803.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=YES10803&year=2026",
+      "status": 200,
+      "bytes": 23041,
+      "sha256": "61cbecc10e8cc5b72ee9c958b5ea0f9aa7b405b98b1e97974f339961d0d992a2",
+      "checkedAt": "2026-11-14T14:20:53.588480+00:00",
+      "code": "YES10803",
+      "name": "Sustainable Solutions within Planetary Boundaries?",
+      "credits": 3.0,
+      "importDateTime": "2026-11-13T22:43:47.331908"
+    },
+    {
+      "file": "YWU10803.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=YWU10803&year=2026",
+      "status": 200,
+      "bytes": 20440,
+      "sha256": "784cfd6a5c61ee3023cbea10885d9d8898574a61ce7ffe14429d1240eff02dda",
+      "checkedAt": "2026-11-14T14:20:54.032236+00:00",
+      "code": "YWU10803",
+      "name": "Foundational Skills for Environmental Research",
+      "credits": 3.0,
+      "importDateTime": "2026-11-13T22:20:34.523185"
+    },
+    {
+      "file": "ENP23806.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ENP23806&year=2026",
+      "status": 200,
+      "bytes": 20971,
+      "sha256": "28dea14098d2c0c62a229448561bfb5f55589bf6363d4b20bb9d05cb6de65f59",
+      "checkedAt": "2026-11-14T14:20:53.640194+00:00",
+      "code": "ENP23806",
+      "name": "Sustainability Transitions: Past, Present and Future",
+      "credits": 6.0,
+      "importDateTime": "2026-11-13T22:33:24.296489"
+    },
+    {
+      "file": "HWM10303.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=HWM10303&year=2026",
+      "status": 200,
+      "bytes": 22578,
+      "sha256": "871f52ec9dd6002e543ed2b2fc8f34cf87cfc5c78f437b6e9474870b475e0ba9",
+      "checkedAt": "2026-11-14T14:20:54.040082+00:00",
+      "code": "HWM10303",
+      "name": "Water Systems: Exploration",
+      "credits": 3.0,
+      "importDateTime": "2026-11-13T22:33:17.838319"
+    },
+    {
+      "file": "PCC12403.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=PCC12403&year=2026",
+      "status": 200,
+      "bytes": 27122,
+      "sha256": "10396b46fabeb81d66fd1c0dd16a845d995b303ffa2c7de6c9a60a701802955d",
+      "checkedAt": "2026-11-14T14:20:53.644412+00:00",
+      "code": "PCC12403",
+      "name": "General Chemistry 2",
+      "credits": 3.0,
+      "importDateTime": "2026-11-13T22:30:45.0951"
+    },
+    {
+      "file": "MAT15103.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT15103&year=2026",
+      "status": 200,
+      "bytes": 31124,
+      "sha256": "7a38ae38ffbef9756642b0ed29159e4a47a630e91dc23806393f02d06a5c132b",
+      "checkedAt": "2026-11-14T14:20:53.656074+00:00",
+      "code": "MAT15103",
+      "name": "Mathematics Applied: Analysis",
+      "credits": 3.0,
+      "importDateTime": "2026-11-13T22:21:08.789543"
+    },
+    {
+      "file": "MAT15403.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT15403&year=2026",
+      "status": 200,
+      "bytes": 34395,
+      "sha256": "ce7be22c03c84efb53e690af80f284d2b6f0f405597f75357c38738e5091acb2",
+      "checkedAt": "2026-11-14T14:20:53.645089+00:00",
+      "code": "MAT15403",
+      "name": "Statistics 2",
+      "credits": 3.0,
+      "importDateTime": "2026-11-13T22:18:50.506839"
+    },
+    {
+      "file": "AEW11303.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=AEW11303&year=2026",
+      "status": 200,
+      "bytes": 13964,
+      "sha256": "1c928356ac84da5950d6475f6b68aa1359892a3bd00edb03e447d7cedb54db9d",
+      "checkedAt": "2026-11-14T14:20:58.337114+00:00",
+      "code": "AEW11303",
+      "name": "Water Systems: Analysis",
+      "credits": 3.0,
+      "importDateTime": "2026-11-13T22:44:15.721656"
+    },
+    {
+      "file": "SOC10803.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=SOC10803&year=2026",
+      "status": 200,
+      "bytes": 23060,
+      "sha256": "599667b9a9168b1703b455cec08bb2a4a09897af81446b930afec41c2e8741ad",
+      "checkedAt": "2026-11-14T14:20:57.988196+00:00",
+      "code": "SOC10803",
+      "name": "Principles of Soil Processes",
+      "credits": 3.0,
+      "importDateTime": "2026-11-13T22:32:11.239308"
+    },
+    {
+      "file": "ETE10806.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ETE10806&year=2026",
+      "status": 200,
+      "bytes": 23352,
+      "sha256": "7ef7190303995fdb717232fd9342674a07fdc651f4db3b5b7bb6148d9dc0194d",
+      "checkedAt": "2026-11-14T14:20:58.380302+00:00",
+      "code": "ETE10806",
+      "name": "Introduction Environmental Technology",
+      "credits": 6.0,
+      "importDateTime": "2026-11-13T22:42:32.01632"
+    },
+    {
+      "file": "WSG11306.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=WSG11306&year=2026",
+      "status": 200,
+      "bytes": 15032,
+      "sha256": "affed42c07a6412710124e8806f4e3d8f65e47d1ed48db20c1630418187a25be",
+      "checkedAt": "2026-11-14T14:20:58.068116+00:00",
+      "code": "WSG11306",
+      "name": "Modelling Pollution in Environmental Systems",
+      "credits": 6.0,
+      "importDateTime": "2026-11-13T22:27:01.938303"
+    },
+    {
+      "file": "ESA12303.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ESA12303&year=2026",
+      "status": 200,
+      "bytes": 13845,
+      "sha256": "2f949bab47ae8b3492f06c10fa531a04681bf7b7a524c1cfbfc6fb94d3977c0f",
+      "checkedAt": "2026-11-14T14:20:57.972505+00:00",
+      "code": "ESA12303",
+      "name": "Systems Approach for Socio-Environmental Challenges",
+      "credits": 3.0,
+      "importDateTime": "2026-11-13T22:44:03.223663"
+    },
+    {
+      "file": "YES10309.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=YES10309&year=2026",
+      "status": 200,
+      "bytes": 26039,
+      "sha256": "47bd9d821711238893c37d3433a7f32cbac1fd3dcae69312e394f86a61dba122",
+      "checkedAt": "2026-11-14T14:20:58.064317+00:00",
+      "code": "YES10309",
+      "name": "Global Production-Consumption Systems and the Environment",
+      "credits": 9.0,
+      "importDateTime": "2026-11-13T22:44:20.418981"
+    },
+    {
+      "file": "MAQ11306.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAQ11306&year=2026",
+      "status": 200,
+      "bytes": 24515,
+      "sha256": "3ab990b4529621825cd3ba397f147285316d5a093ed16197570fd0d1d6eebae6",
+      "checkedAt": "2026-11-14T14:20:58.384235+00:00",
+      "code": "MAQ11306",
+      "name": "Air Quality",
+      "credits": 6.0,
+      "importDateTime": "2026-11-13T22:22:55.24986"
+    },
+    {
+      "file": "PEN10503.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=PEN10503&year=2026",
+      "status": 200,
+      "bytes": 25553,
+      "sha256": "4370aa49e18e891472007968307d1e2b781da475322a04055600a21b2c6e02e1",
+      "checkedAt": "2026-11-14T14:20:58.347980+00:00",
+      "code": "PEN10503",
+      "name": "Ecology I",
+      "credits": 3.0,
+      "importDateTime": "2026-11-13T22:16:51.767028"
+    },
+    {
+      "file": "YES20303.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=YES20303&year=2026",
+      "status": 200,
+      "bytes": 14438,
+      "sha256": "a84dfba3a35b636d0f64433f883bf25ba9ab945b529aa9c5e316fbb6da585204",
+      "checkedAt": "2026-11-14T14:21:00.964546+00:00",
+      "code": "YES20303",
+      "name": "BES Skills Academy",
+      "credits": 3.0,
+      "importDateTime": "2026-11-13T22:22:16.253683"
+    },
+    {
+      "file": "ENR23806.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ENR23806&year=2026",
+      "status": 200,
+      "bytes": 19897,
+      "sha256": "801b291e510ec9b9d1bd6761fb36ec6a741f400fa8a1d527669557e165398fb0",
+      "checkedAt": "2026-11-14T14:21:00.967878+00:00",
+      "code": "ENR23806",
+      "name": "Systems of Change: Environmental Policy, Economics, and Law",
+      "credits": 6.0,
+      "importDateTime": "2026-11-13T22:44:04.74988"
+    },
+    {
+      "file": "MAQ23306.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAQ23306&year=2026",
+      "status": 200,
+      "bytes": 30097,
+      "sha256": "62495fddd38de10cbbb37c7fff48325eb7d346c4ff3995c390862602ee5385ae",
+      "checkedAt": "2026-11-14T14:21:00.975925+00:00",
+      "code": "MAQ23306",
+      "name": "System Earth: Climate and Global Change",
+      "credits": 6.0,
+      "importDateTime": "2026-11-13T22:16:58.201604"
+    },
+    {
+      "file": "GRS10306.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=GRS10306&year=2026",
+      "status": 200,
+      "bytes": 30847,
+      "sha256": "71a35315a48a3dd991380ca625e84074f9e5e42a88292eea86d2c7aadf3ddfbf",
+      "checkedAt": "2026-11-14T14:21:00.916841+00:00",
+      "code": "GRS10306",
+      "name": "Introduction Geo-information Science",
+      "credits": 6.0,
+      "importDateTime": "2026-11-13T22:38:33.503511"
+    },
+    {
+      "file": "MIB11806.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MIB11806&year=2026",
+      "status": 200,
+      "bytes": 20300,
+      "sha256": "86802948b0c782099a95820f0ac38887d2a5359684b4faaddebda8366f3ef5f9",
+      "checkedAt": "2026-11-14T14:21:00.971931+00:00",
+      "code": "MIB11806",
+      "name": "Microbiology & Toxicology",
+      "credits": 6.0,
+      "importDateTime": "2026-11-13T22:28:07.530277"
+    },
+    {
+      "file": "YES20812.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=YES20812&year=2026",
+      "status": 200,
+      "bytes": 26418,
+      "sha256": "5007577ed23097f2373fc57662f0ce469ceea677ce1c46553e59077947665823",
+      "checkedAt": "2026-11-14T14:21:00.965166+00:00",
+      "code": "YES20812",
+      "name": "International Environmental Projects in Practice",
+      "credits": 12.0,
+      "importDateTime": "2026-11-13T22:22:58.731689"
+    },
+    {
+      "file": "MAT14803.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=MAT14803&year=2026",
+      "status": 200,
+      "bytes": 20812,
+      "sha256": "01f11bb82ab2f9b170e570eab3073ffb7b457b431a4fc150f76861cf1596f14d",
+      "checkedAt": "2026-11-14T14:21:00.960196+00:00",
+      "code": "MAT14803",
+      "name": "Mathematics Applied: Introduction",
+      "credits": 3.0,
+      "importDateTime": "2026-11-13T22:27:09.284897"
+    },
+    {
+      "file": "ESA24306.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ESA24306&year=2026",
+      "status": 200,
+      "bytes": 18699,
+      "sha256": "ff13aa4aeb1bb4407bff4593954459f430633aba406cacd8ef2e584011184761",
+      "checkedAt": "2026-11-14T14:21:01.336234+00:00",
+      "code": "ESA24306",
+      "name": "From Synergies to Trade-Offs at the Pollution-Climate-Biodiversity Nexus",
+      "credits": 6.0,
+      "importDateTime": "2026-11-13T22:45:05.216477"
+    },
+    {
+      "file": "LAW22306.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=LAW22306&year=2026",
+      "status": 200,
+      "bytes": 16076,
+      "sha256": "cb062297246846e583f4410537055a78138aa408a0332aac22b69f1cb12831e6",
+      "checkedAt": "2026-11-14T14:21:04.692563+00:00",
+      "code": "LAW22306",
+      "name": "International and EU Environmental Law",
+      "credits": 6.0,
+      "importDateTime": "2026-11-13T22:34:52.757897"
+    },
+    {
+      "file": "ENR34306.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ENR34306&year=2026",
+      "status": 200,
+      "bytes": 19833,
+      "sha256": "3c96f5573d7d0db0a30dac75141b6991fb00ffb7c6c306528fcb68c5b76b0f22",
+      "checkedAt": "2026-11-14T14:21:04.692247+00:00",
+      "code": "ENR34306",
+      "name": "Environmental Economics for Environmental Sciences",
+      "credits": 6.0,
+      "importDateTime": "2026-11-13T22:20:59.28136"
+    },
+    {
+      "file": "ETE27306.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ETE27306&year=2026",
+      "status": 200,
+      "bytes": 15407,
+      "sha256": "9fbd45ce955e2ea7faad3819c38597a8e5b1a1508c933ab477f075c319ee3565",
+      "checkedAt": "2026-11-14T14:21:04.292267+00:00",
+      "code": "ETE27306",
+      "name": "Renewable Energy Technologies",
+      "credits": 6.0,
+      "importDateTime": "2026-11-13T22:44:55.526625"
+    },
+    {
+      "file": "ORC12803.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ORC12803&year=2026",
+      "status": 200,
+      "bytes": 21856,
+      "sha256": "93f2e09832d0696eba8843cba58499dc4829d9909a38d61d56d9644e71cce3e8",
+      "checkedAt": "2026-11-14T14:21:04.288581+00:00",
+      "code": "ORC12803",
+      "name": "Organic Chemistry 1",
+      "credits": 3.0,
+      "importDateTime": "2026-11-13T22:16:49.768778"
+    },
+    {
+      "file": "ORC13303.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ORC13303&year=2026",
+      "status": 200,
+      "bytes": 18136,
+      "sha256": "a47e24547bd1c59486220d55ce28fda5754d3443155fecc6e497d77112353219",
+      "checkedAt": "2026-11-14T14:21:04.708051+00:00",
+      "code": "ORC13303",
+      "name": "Environmental Organic Chemistry",
+      "credits": 3.0,
+      "importDateTime": "2026-11-13T22:17:52.491425"
+    },
+    {
+      "file": "YES80312.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=YES80312&year=2026",
+      "status": 200,
+      "bytes": 15985,
+      "sha256": "3cb89b175e7f0fec93eb9eec3ab7e8c79cf40d1492083d415c1945c116d9b795",
+      "checkedAt": "2026-11-14T14:21:04.244065+00:00",
+      "code": "YES80312",
+      "name": "BSc Thesis Environmental Sciences",
+      "credits": 12.0,
+      "importDateTime": "2026-11-13T22:45:20.805648"
+    },
+    {
+      "file": "ZSS06000.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ZSS06000&year=2026",
+      "status": 200,
+      "bytes": 8273,
+      "sha256": "3f83437c6b8e85e60f17d1b8030685827533fb2811dbbdf977dc167b47b779d1",
+      "checkedAt": "2026-11-14T14:21:04.288186+00:00",
+      "code": "ZSS06000",
+      "name": "General Safety",
+      "credits": 0.0,
+      "importDateTime": "2026-11-13T22:43:22.6314"
+    },
+    {
+      "file": "ZSS06100.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ZSS06100&year=2026",
+      "status": 200,
+      "bytes": 104628,
+      "sha256": "f971a53ca6bbd51a6834dc5b0094b7917368567654ab87dd9458931465771189",
+      "checkedAt": "2026-11-14T14:21:04.392610+00:00",
+      "code": "ZSS06100",
+      "name": "Laboratory Safety",
+      "credits": 0.0,
+      "importDateTime": "2026-11-13T22:43:27.248839"
+    },
+    {
+      "file": "ZSS06200.json",
+      "url": "https://studyhandbook.wur.nl/api/product?type=MODULE&code=ZSS06200&year=2026",
+      "status": 200,
+      "bytes": 74042,
+      "sha256": "5f2fe4afe72fe6ff81cf2770c189f045f7e5e66ca76303db720ae8c39d10538f",
+      "checkedAt": "2026-11-14T14:21:07.615459+00:00",
+      "code": "ZSS06200",
+      "name": "Fieldwork Safety",
+      "credits": 0.0,
+      "importDateTime": "2026-11-13T22:19:48.131255"
+    },
+    {
+      "file": "ete-brochure.pdf",
+      "url": "https://backend.wur.nl/sites/default/files/2026-04/Brochure26klein_0.pdf",
+      "status": 200,
+      "bytes": 7860361,
+      "sha256": "b864ddf79062df67c364d57a0ed02f495cf7e6f4825becf74471fcfae2b981dc",
+      "checkedAt": "2026-11-14T14:21:13.433710+00:00",
+      "bodyKind": "PDF"
+    },
+    {
+      "file": "new-chart.pdf",
+      "url": "https://backend.wur.nl/sites/default/files/2026-10/BES-vakkenschema-2026-EN.pdf",
+      "status": 200,
+      "bytes": 262100,
+      "sha256": "1cb6b866f8833ab5d7606648b85d0726b557f72e67c74686a4a8af191502d1bf",
+      "checkedAt": "2026-11-14T14:20:29.107009+00:00",
+      "bodyKind": "PDF"
+    }
+  ],
+  "moduleFacts": [
+    {
+      "code": "PCC12303",
+      "name": "General Chemistry 1",
+      "credits": 3.0,
+      "texts": {
+        "MK": "ZSS06100 Laboratory Safety",
+        "AK": "Chemistry at Dutch VWO level or comparable.",
+        "CC": "PCC12403 General Chemistry 2, PCC21802 Introductory Thermodynamics A, PCC23303 Introductory Thermodynamics B",
+        "CO": "Many disciplines in the fields of life sciences, environmental sciences and technology build on concepts from physics and chemistry. The courses General Chemistry 1 and 2 intend to make you familiar with these general concepts. Among the concepts are matter and energy, size and scale, quantization of energies, driving forces, change and equilibrium. The starting point for the exploration of the various concepts is observation of the world we live in. From there, a journey is undertaken in search of the physical and chemical laws that govern the world around us. Concepts are worked out both theoretically and experimentally in tutorials and practical classes within themes and contexts from various fields. In General Chemistry 1 the emphasis is on the concepts of size and scale, probability distributions, thermal motion, Boltzmann distribution law, driving forces behind processes, equilibrium and change, adsorption, acids and bases, and kinetics of reactions.",
+        "AC": "participation in lectures;    participation in tutorials;    participation in practicals;    independent study.",
+        "LT": "Syllabus and practical manual are available at https://wurreadershop.proefschriftmaken.nl/shop/wur.  Syllabus and practical manual are also available as PDF file at the Brightspace site of this course.  For literature books, please go to https://wur.acco.be/.  If you have any questions, contact education.pcc@wur.nl.",
+        "CON": "education.pcc@wur.nl"
+      }
+    },
+    {
+      "code": "YES10803",
+      "name": "Sustainable Solutions within Planetary Boundaries?",
+      "credits": 3.0,
+      "texts": {
+        "AK": "YWU10803 Introduction Environmental Sciences.",
+        "CC": "YES10309 Global Production-Consumption Systems and the Environment, ENR23806 Systems of Change: Environmental Policy, Economics, and Law",
+        "CO": "This course introduces the domain and approach of the BSc Environmental Sciences programme at Wageningen University, starting from the perspective of planetary boundaries. In this course, you will be introduced to the social science and natural science foundations of this field, and learn how the synthesis of these disciplines helps to generate new interdisciplinary solutions. The course starts with introductory lectures on these topics and the nature of scientific research, followed by an in-depth case of a 'wicked' environmental problem addressing one or more planetary boundaries. The in-depth case consists of an introductory excursion and independent group work, resulting in a report and presentation in a symposium. The course also starts off several skills learning trajectories in the BES programme.",
+        "AC": "lectures    excursion    serious game    group work (including report writing and presenting)",
+        "LT": "See Brightspace",
+        "RES": "Group reports that failed can be resubmitted any time during the year, preferably as soon as possible after the course. In case of individuals not passing other parts of the course, the student should contact the course coordinators for a tailor-made solution, e.g. an extra assignment."
+      }
+    },
+    {
+      "code": "YWU10803",
+      "name": "Foundational Skills for Environmental Research",
+      "credits": 3.0,
+      "texts": {
+        "CO": "Relationships between humankind and the environment play a central role in this course. The course is subdivided into three parts: a Broad Case (BC; the topic is BSc-specific), a selected set of Information Literacy modules (IL), and the module Getting Started with Data (GSwD). For the Broad Case, students work in groups of approximately 8–9 students, with each group being supervised by a coach. In the BC, students work on complex, BSc-specific topics. For the two products students generate within the framework of the BC, they apply knowledge acquired in the Information Literacy modules. Students also receive instruction, practice, and feedback on essential skills needed to perform group work efficiently.  The Getting Started with Data module is offered as a supervised, self-instructed course. It is based on a number of short instructional modules, mainly focusing on the use and analysis of data. Through this module, students become familiar with data analysis from the start of their BSc programme onwards.",
+        "AC": "Activities and products are defined for each day of this course. The broad case  is done in groups of about 8-9 students. The Getting Started with Data and the Information Literacy modules are given as supervised, individual courses.",
+        "LT": "To be announced."
+      }
+    },
+    {
+      "code": "ENP23806",
+      "name": "Sustainability Transitions: Past, Present and Future",
+      "credits": 6.0,
+      "texts": {
+        "CO": "Climate change, resource scarcity, and environmental degradation urge us to make a transition to a more sustainable society. This affects all sectors of the economy, but especially the nexus of energy, water, and food systems that is crucial for human subsistence. Think about CO2 emissions in energy production, increasing scarcity of drinking water, or the use of fertilizers and pesticides in agriculture. Such transitions, however, involve more than just changing production technologies; they require associated changes in infrastructure, consumer behavior, and market regulation as well. Solar panels on roofs, for example, redefine how people provide in their energy needs, the operation of the electricity grid, and energy prices. The myriad actors and factors, drivers and barriers, pathways, and policy options involved, makes them a complex challenge to study and realize.   \t\t\tTo better understand and effectuate societal transitions towards more sustainable practices, this course dives into the core concepts and frameworks of ‘sustainable development’ and ‘societal transitions’ from the perspectives of social science, policy, and history and applies them to assess the current situation, analyze past transformations, and discuss technological developments in energy, water, and food systems. As such, it provides core competences in the environmental sciences: knowledge of sustainability transitions and the capability to influence them.   \t\t\tThe course begins with a foundational week of theoretical and historical lectures on the key concepts and frameworks of ‘sustainable development’ and ‘societal transitions’ underpinning the course. It then delves deeper into sustainability transitions in the energy, water, and food systems in three thematically structured weeks. Each of these systems will be explored from the angles of Environmental History and Environmental Policy/Sociology and involve Dutch and international cases and examples. This approach allows students to gain a multidisciplinary perspective of the workings of these interrelated systems, their main challenges, and their past and future transitions.",
+        "AC": "Each week, students are required to prepare for and attend lectures and complete associated readings. The course also includes an excursion to innovative sustainability projects in The Netherlands. In terms of assessment, students are required and supported to research and write an individual paper in which they are guided through stages of research and paper writing by lecturers and peer students during small group peer review sessions and one instructional tutorial. Students are required to participate in peer review activities, where they review and provide feedback on the developing papers of two other students. Finally, students are required to complete a mid-course exam.",
+        "LT": "Mandatory literature for the course is a variety of scientific articles, titles and links available in the course guide and on Brightspace (per lecture)."
+      }
+    },
+    {
+      "code": "HWM10303",
+      "name": "Water Systems: Exploration",
+      "credits": 3.0,
+      "texts": {
+        "AK": "High school level of mathematics.",
+        "CC": "AEW11303: Water Systems: Analysis",
+        "CO": "This course introduces the occurrence, movement and quality of water over the land surface of the earth, in particular as it affects and sustains life. The course takes a geographical, mostly descriptive approach towards introducing the global hydrological cycle and water budget, hydrological processes in river catchments and groundwater, and the aquatic ecosystem.  An important focus of the course is on the interdependencies between water quantity and quality in space and time.",
+        "AC": "participate in lectures and tutorials    watch knowledge clips and interactive content    study lecture notes and do exercises    make a research poster and review other students' posters    participate in a bicycle excursion   Note regarding the language of instruction. In period 2, the course is fully English-taught. In period 3, written study material (reader, exam, lecture slides, Brightspace, etc.) is in English (same as period 2), but spoken language (lectures, tutorials, excursion) is Dutch.",
+        "LT": "Reader (buy at  wurreadershop.proefschriftmaken.nl)    Knowledge clips (available through github.com/ClaudiaBrauer/Hydrology-Basics)",
+        "CON": "hwm10303@wur.nl"
+      }
+    },
+    {
+      "code": "PCC12403",
+      "name": "General Chemistry 2",
+      "credits": 3.0,
+      "texts": {
+        "MK": "ZSS06100 Laboratory Safety",
+        "AK": "PCC12303 General Chemistry 1",
+        "CC": "PCC21802 Introductory Thermodynamics A, PCC23303 Introductory Thermodynamics B",
+        "CO": "Many disciplines in the fields of life sciences, environmental sciences and technology build on concepts from physics and chemistry. The courses General Chemistry 1 and 2 intend to make you familiar with these general concepts. Among the concepts are matter and energy, size and scale, quantization of energies, driving forces, change and equilibrium. The starting point for the exploration of the various concepts is observation of the world we live in. From there, a journey is undertaken in search of the physical and chemical laws that govern the world around us. Concepts are worked out both theoretically and experimentally in tutorials and practical classes within themes and contexts from various fields. In General Chemistry 2 the emphasis is on physical and chemical properties of atoms, ions and molecules. Subjects treated within this course include transport under the influence of concentration gradients, redox reactions and redox potentials, atomic and molecular structure, quantization, intramolecular interactions and spectrophotometry.",
+        "AC": "- participation in tutorials;\r - participation in practicals;\r - independent study.",
+        "LT": "Syllabus and practical manual ar available at https://wurreadershop.proefschriftmaken.nl/shop/wur.  Syllabus and practical manual are also available as PDF file at the Brightspace site of this course.  For literature books, please go to https://wur.acco.be/.  If you have any questions, contact education.pcc@wur.nl.",
+        "CON": "education.pcc@wur.nl"
+      }
+    },
+    {
+      "code": "MAT15103",
+      "name": "Mathematics Applied: Analysis",
+      "credits": 3.0,
+      "texts": {
+        "AK": "MAT14803 Mathematics Applied: Introduction (formerly: Mathematics 1) or Dutch VWO Wiskunde B or comparable education.",
+        "CC": "MAT24803: Mathematics for Time-Dependent Systems MAT23306: Multivariate Mathematics Applied",
+        "CO": "NOTE for language of instruction per period: Period 1 - 1st half - afternoon: Dutch Period 1 - 2nd half - afternoon: Dutch Period 2 - 1st half - afternoon: Dutch Period 2 - 2nd half - afternoon: Dutch Period 3 - morning: English Period 3 - afternoon: Dutch Period 4 - afternoon: English Period 5 - 1st half - morning: English  (NB the course material and exam is in English in all periods)    Analysis and calculus: - differentiation and integration; - simple first order differential equations.",
+        "AC": "before each lesson: extensive preparation by studying the subject matter of the lesson, doing the assigned exercises and formulating questions for the teacher;     during each lesson: active participation by asking questions and by doing the assigned exercises (possibly in cooperation with other students);     after each lesson: recapitulation of and reflection on the subject matter of the lesson;     computer practical (compulsory).",
+        "LT": "M. de Gee, Mathematics that Works volume 2: Analysis applied. Epsilon Uitgaven. ISBN: 978-90-5041-168-4. Manual Mathematics Applied: Analysis. Available on Brightspace.",
+        "CON": "analysis.mat@wur.nl"
+      }
+    },
+    {
+      "code": "MAT15403",
+      "name": "Statistics 2",
+      "credits": 3.0,
+      "texts": {
+        "AK": "Active knowledge of statistics from high school (Dutch A-level math), or MAT15303 Statistics 1.",
+        "CC": "MAT20306 Advanced Statistics; MAT22306, MAT24306 Advanced Statistics for Nutritionists.",
+        "CO": "Building on an understanding of (simple) models, implications of model assumptions, interpretation of parameters; checking model assumptions; testing hypotheses for population means, for the 1-sample and 2-samples situations, for independent normal data (t-test); construction of a confidence interval for a population mean, or difference in means; simple linear regression and correlation, estimation, hypothesis testing and construction of a confidence interval for intercept, slope and predictions. Ethical issues, as touching upon good statistical practice, will be discussed in class.",
+        "AC": "tutorials that are motivated by practical problems from the Life Sciences, including making exercises;     and (compulsory) computer practicals, analysing practical data with statistical software.",
+        "LT": "R. Lyman Ott; Michael Longnecker. (2013). An introduction to statistical methods and data analysis. 7th edition, ISBN-13: 978-1-305-26947-7 (6th edition may also be used). Lecture notes provide an introduction to tutorials, exercises, and a reading guide for the book and the computer practicals."
+      }
+    },
+    {
+      "code": "AEW11303",
+      "name": "Water Systems: Analysis",
+      "credits": 3.0,
+      "texts": {
+        "AK": "HWM10303 Water Systems: Exploration and MAT15103 Mathematics Applied: Analysis (or comparable)",
+        "CC": "SLM20806 Water Quantity and Quality",
+        "CO": "Water Systems: Analysis was known as Water 2 until academic year 2024/2025.   This course builds upon Water Systems: Exploration (formerly known as Water 1). While the previous course emphasized 'system description,' this course shifts its focus to processes and analysis. Key topics include an introduction to physical, chemical, and biological processes in groundwater and surface waters. Students will deepen their understanding of these processes and learn to perform basic calculations related to (ground) water flow and water quality. Weekly tutorials are scheduled to practice these quantitative skills. Additionally, the course explores aspects of integrated water management.",
+        "AC": "Prepare and attend lectures and tutorials, self-study.",
+        "LT": "Reader Water Systems: Analysis"
+      }
+    },
+    {
+      "code": "SOC10803",
+      "name": "Principles of Soil Processes",
+      "credits": 3.0,
+      "texts": {
+        "MK": "ZSS06100 Laboratory Safety, ZSS06200 Fieldwork Safety",
+        "CC": "SOC22306 Chemical Processes in Soil, Water, Atmosphere; SBL21806 Soil Quality; SOC21306 Soil Pollution and Soil Protection; SGL33306 Geology and landscapes of the world, and SLM35306 Contaminant Hydrogeology",
+        "CO": "This course focuses on soil chemical, physical and biological processes. The soil is characterized as a buffering system with water and reactive soil particles affecting mobility and bioavailability of nutrients and contaminants. This affects soil organisms, plants and groundwater and thus soil quality. Processes like water flow, leaching, adsorption, precipitation and biodegradation are introduced. Also, the role of the soil system within biogeochemical cycling of carbon and nutrients is discussed. Tutorials support the lectures with assignments. Students collect their own soil samples in the field and use these for various laboratory experiments. Practical sessions improve relevant practical skills and illustrate important topics.",
+        "AC": "prepare and attend lectures;    study the lecture text in the reader (before the quiz of a tutorial session);    a Wooclap quiz will be offered during a tutorial pertaining to the lectures of that week (see assessment strategy);    actively work on assignments during tutorial sessions;    prepare the field and lab sessions in LabBuddy;     actively participate in field and laboratory practical sessions.",
+        "LT": "Reader",
+        "CON": "soc10803@wur.nl"
+      }
+    },
+    {
+      "code": "ETE10806",
+      "name": "Introduction Environmental Technology",
+      "credits": 6.0,
+      "texts": {
+        "MK": "ZSS06100 Laboratory Safety, ZSS06200 Fieldwork Safety",
+        "AK": "Basic knowledge of natural and environmental science.",
+        "CC": "ETE26806 and ETE21306",
+        "CO": "The course gives a general introduction to environmental technology and its role in sustainable development, taking the nature and background of environmental and sustainability issues into account. Lectures deal with the various fields of application of environmental technology in water, soil and air: gaseous emissions and off-gas treatment, water pollution and wastewater treatment, soil- and groundwater contamination and remediation, and the collection, management, conversion and re-use of wastes. The most relevant state-of-the-art technology, as well as promising new technological developments will be discussed. Focus is on the biological, chemical and physical principles of the processes, as well on the design of reactors and engineered natural systems.  Working group sessions: Design and evaluation of environmental technology requires both quantitative assessment of the fundamental of the process as well as creativity in the innovative application of technologies. Students will practice this in exercises, in which relevant processes are analysed by means of calculations and cases are discussed and solved in small groups. Assignment coupled to lectures and excursion:  The assignment is group work (3-5 students per group) and is focused on selected environmental challenges of the world. Students choose a topic , analyse the environmental problem and define a solution while integrating the lectured knowledge into their specific topic. The course includes an excursion to a local waste water treatment plant and a local soil remediation location to see environmental technologies in practice.  Practical training:  The practical exercises (in groups of 2-3 students) illustrate the theory of several environmental technological processes. By doing laboratory experiments on wastewater treatment and soil remediation, students get acquainted with practical aspects of environmental technology. They will evaluate the outcome of the experiments and draw conclusions for practical applications and write a practical report.",
+        "AC": "- attending the course lectures; - studying course notes and syllabi; - solving simple environmental problems using basic mathematical tools; - designing innovative and creative solutions for real environmental problems; - two excursions; - participating in the practical exercises; -laboratory practicals.",
+        "LT": "Syllabus and handouts."
+      }
+    },
+    {
+      "code": "WSG11306",
+      "name": "Modelling Pollution in Environmental Systems",
+      "credits": 6.0,
+      "texts": {
+        "AK": "HWM10303 Water Systems: Exploration, AEW11303 Water Systems: Analysis, MAT15103 Mathematics Applied: Analysis, MAT15303 Statistics 1 and physics at Dutch secondary school VWO level, or similar",
+        "CO": "Models are often used to describe the behaviour of pollutants in environmental systems, such as the fate and transport of plastics or chemicals in surface and groundwater. These models use knowledge of physics and mathematical equations to describe the behaviour of the pollutants. In this course, the required physics is taught and applied to the context of pollution. Water quality is used as an example, and students will reflect on the relevance of similar processes for multiple spheres. Students will study and apply the physical laws relevant in environmental systems and develop basic models. In the process, they will also learn the basic skills of programming in Excel and Python. Additionally, students reflect on the modelling results, including the evaluation of performance and uncertainties. The behaviour of the pollutants will be put in the context of the relevant environmental problems.",
+        "AC": "Prepare and attend lectures, practicals and tutorials.",
+        "LT": "Will be provided at the start of the course."
+      }
+    },
+    {
+      "code": "ESA12303",
+      "name": "Systems Approach for Socio-Environmental Challenges",
+      "credits": 3.0,
+      "texts": {
+        "CC": "Global Production and Consumption Systems and the Environment (YES10309)    From synergies to trade-offs at the pollution-climate-biodiversity nexus (ESA2AA06)",
+        "CO": "The course gives an introduction into the systems approach and presents different methods to study the complexity of human-environmental interactions. This requires an understanding of diverse scientific disciplines, stakeholder perspectives and spatial/temporal scales, which is essential for addressing complex real-world environmental challenges. The course introduces the students to both conceptual understanding about systems analysis approaches and practical skills to apply systems analysis tools.",
+        "AC": "Lectures introducing systems analysis theory and approaches, as well as a selection of environmental systems analysis tools.  Tutorials to support understanding of the lecture content.  A limited number of practicals to apply certain tools more intensively.",
+        "LT": "Literature will be made available in Brightspace."
+      }
+    },
+    {
+      "code": "YES10309",
+      "name": "Global Production-Consumption Systems and the Environment",
+      "credits": 9.0,
+      "texts": {
+        "CO": "Climate change, environmental pollution, biodiversity loss and resource depletion are interconnected crises, all caused by the way we make, use, and consume products and services. Environmental sciences integrates societal, natural and technological knowledge to understand coupled natural and socio-technical systems. They analyze how human behaviours, incentives, and institutions drive environmental change, and assess their impacts across different places and over time. Addressing these complex challenges requires understanding incentive systems, and identifying key leverage points to transform policies, practices, and technologies within global production and consumption systems.   This course focuses on analyzing sustainability challenges and exploring pathways towards circularity in contemporary global production and consumption systems. These global systems considerably affects the availability of natural resources, put pressure  on marine, terrestrial and water ecosystems, while affecting societies, raising questions around equity and social justice. The approach is to analyze the sustainability challenges in one of such systems of production and consumption, starting from the end of the line (waste disposal and discharge) up to consumption, retail, transport, production and extraction of natural resources.   We investigate the entire chain, using a combination of document studies, surveys, observations, expert interviews, modelling, assessments, and reflections. This allows us to examine the environmental and societal impacts of an industry. We then explore various strategies for addressing sustainability challenges at each step of the chain. This includes analyzing innovation projects through site visits, interviews with experts and system stakeholders, and document analysis. In addition, consumer surveys will be conducted to assess preferences and willingness to pay for products made with higher environmental and social standards.   We will introduce and integrate the various knowledge domains within environmental sciences that investigate sustainability challenges, impacts, and explore possible solutions within the global production and consumption chain.    The course also enables students to develop skills in research methods, group work, intercultural communication through a collaborative research project and reflecting on their individual learning process.   Addressing the environmental and social impacts of global challenges, their underlying causes, and potential solutions requires close collaboration among diverse actors and stakeholders, as well as insights from both natural and social sciences. This course explores how various scientific disciplines and stakeholders work together to analyze and mitigate environmental problems, and how sustainable solutions can be developed. Building on first-year courses from the BES program, this course emphasizes interdisciplinary approaches to these complex problems.",
+        "AC": "Lectures on theory, knowledge domains in Environmental Sciences, and communications  Group work involving research, academic writing and presentation.  Excursions.  Tutorials on skills training ( group dynamics , communication skills, research methods (survey)).  Video production.",
+        "LT": "Presented in Brightspace"
+      }
+    },
+    {
+      "code": "MAQ11306",
+      "name": "Air Quality",
+      "credits": 6.0,
+      "texts": {
+        "MK": "ZSS06100 Laboratory Safety, ZSS06200 Fieldwork Safety",
+        "CC": "MAQ21806 Meteorology and Climate, MAQ23306 System Earth: Scale Dependence, Feedbacks and Global Change, MAQ34806 Atmospheric Composition and Air Quality, MAQ31806 Atmospheric Modelling, MAQ35306 Urban Hydrometeorology, MAQ35806 Earth System Modelling, ESA20506 Introduction to Environmental Systems Analysis",
+        "CO": "The course is directed at understanding specific air quality issues in 3 themes: 1) at the local (urban), 2) regional and 3) global scale. At each scale the focus is understanding the life cycle of natural and anthropogenic air pollutants, i.e. the processes behind emission, transport in the atmosphere, chemical conversions and deposition on the land/ocean surface. The role of meteorology on air pollution mixing and transport is explicitly explained on each scale. We will pay attention at the effects on human and environmental health, as well as the feasibility of alternatives and the efficiency of regulation and policy. At the local scale the focus is on traffic and industrial emissions, the role of vegetation and photochemical smog. On the regional scale the focus is on deposition of air pollutants (clouds, precipitation, wet deposition, dry deposition), acidification and eutrophication, with ample examples by means of the nitrogen cycle.  On the global scale the focus is on the tropospheric chemistry, the greenhouse effect and stratospheric ozone. Each lecture is followed by a tutorial, in which you will practice problem solving as exam training.  The air quality lectures are supported by practical activities, which are closely linked to the lecture material. In those practical activities, air quality models are confronted with observations, some of which you collect yourselves. The activities include 1) modelling local atmospheric chemistry and boundary layer dynamics with the CLASS model, 2) Modelling a Gaussian plume and comparing to measurements, 3) building NO2 samplers, collecting NO2 and PM2.5 concentration data and comparing them with the national model  4) modelling nitrogen deposition in the atmospheric boundary layer and comparing to regional observations, and 5)  Moguntia: a global air quality model. The last week is the Project Week, during which you will deepen a topic of your own choice.",
+        "AC": "attending lectures; participating in the tutorials; participating in the practicals;  participation in discussion on air pollution problems during lectures;   collecting air quality field measurements; explaining those in associated practicals;  practical use of models to investigate air pollution problems at various scales and the effect of abatement measures;  participating in the Project Week, and presenting the results in small groups;  writing practical reports, reflecting on feedback;  working in groups.",
+        "LT": "MAQ11306 Air Quality Course Reader (bookstore)  Lecture slides + associated documents (Brightspace)  Your lecture notes."
+      }
+    },
+    {
+      "code": "PEN10503",
+      "name": "Ecology I",
+      "credits": 3.0,
+      "texts": {
+        "MK": "ZSS06200 Fieldwork Safety",
+        "CC": "GEN20306 Molecular en Evolutionary Ecology; PEN21803 Ecology of Communities, Ecosystems and Landscapes; WEC20306 Resource Ecology, ENT33306 Insect Ecology",
+        "CO": "The Ecology course provides an introduction to and overview of the field of ecology, thereby creating a foundation for various advanced courses in the years to come. It builds on the material you learned in your pre-university/secondary school courses in biology. In the course you will become conversant with the most important theories and principles of general ecology based on interesting examples from scientific research and the practice of nature management, agriculture and fisheries, land development and environmental policy. Ecological insights are essential for solving major problems concerning biodiversity, food production, global climate change and many other areas.",
+        "AC": "Ecological principles are studied from a handbook supported by a course reader. Relevant chapters are introduced in oral lectures. Specific subjects are studied in intensive tutorials  under supervision of a lecturer. Field aspects of ecology are demonstrated in field practicals highlighting typical environmental and landscape characteristics and nature management of the Veluwezoom and Rhine valley near Wageningen. Participation in intensive tutorials  and the field practicals is obligatory.",
+        "LT": "Rick Relyea (2025) Ecology: The Economy of Nature (10th edition, ISBN 9781319589936) and Reader Ecology I",
+        "CON": "pen10503@wur.nl"
+      }
+    },
+    {
+      "code": "YES20303",
+      "name": "BES Skills Academy",
+      "credits": 3.0,
+      "texts": {
+        "CO": "This course is designed to integrate and make core skills explicit within the Bachelor Environmental Sciences programme. The course builds on skills activities within courses in the first year and extends into the second year (and beyond) in which various skills are taught, practiced and assessed in different contexts. This course brings these experiences, and those obtained through extracurricular activities, together, and helps to provide students with a holistic understanding of their skills development. Personal leadership and reflection are the skills emphasized in this course to help boost the other core skills in the programme (collaboration, diversity &amp; inclusivity, researching, social embeddedness, systems thinking, and entrepreneurial skills).  The skills addressed in this course will also help students to make better and more explicit choices in the short and longer term. In the short term, it will help students to make choices for a specialisation, thesis and (optional) internship. For the longer term, this preparation will enable them to consider their long-term goals, including further education and career opportunities.  In addition to a few lectures, most of this course consists of teacher-led and peer-led dialogues with students and alumni/professionals in environmental sciences, creating an inspiring and practical learning environment. Students will be responsible for their own progress monitoring through a portfolio.  The course is scheduled in P1_MO of the second year, but activities start in year 1 and continue in year 2.",
+        "RES": "In case of a fail, students can submit a revised version of the portfolio in the period following the first submission deadline."
+      }
+    },
+    {
+      "code": "ENR23806",
+      "name": "Systems of Change: Environmental Policy, Economics, and Law",
+      "credits": 6.0,
+      "texts": {
+        "CC": "Environmental economics for Environmental Sciences (ENR34306)    International and EU Environmental Law (LAW22306)    Environmental Management and Industry (ENP3AG806)",
+        "CO": "Living in the Anthropocene means navigating a world where human activity is the dominant force shaping the planet’s climate, ecosystems, and future. However, this activity is not uniform: inequalities in wealth, power, and resource use play a central role in driving environmental degradation and shaping the distribution of its impacts. The fundamental challenge societies face lies in the tension between our current wellbeing, which often relies on exploiting and modifying environmental systems, and our collective future wellbeing, which depends on preserving, protecting, and restoring those same systems. Addressing this challenge requires confronting questions of justice—how resources are allocated between present and future generations, and how to ensure a just transition toward sustainability. Exploring these tensions is at the core of this course.   This course provides a broad and systemic overview of society’s (in)ability to address and solve environmental problems through the lens of environmental policy, economics, and law, forming a critical part of the systems thinking learning trajectory in the Environmental Sciences program. Students will explore how these disciplines interact to address complex environmental challenges, applying foundational concepts and methods in environmental economics, sociology, political science, and law to real-world cases within defined geographical and policy contexts. This approach introduces students with concepts and skills needed to analyze and tackle complex, often transboundary environmental problems characterized by uncertainties, knowledge gaps, diverging social interests, and conflicting views.",
+        "AC": "The course will be a mix of lectures and tutorals. Students are expected to work in a group on assignments and write an individual research proposal.",
+        "LT": "Literature will be announced at a later stage."
+      }
+    },
+    {
+      "code": "MAQ23306",
+      "name": "System Earth: Climate and Global Change",
+      "credits": 6.0,
+      "texts": {
+        "AK": "MAQ10306 Introduction Atmosphere or MAQ11306 Air Quality  (in particular: main features of greenhouse effect and meteorological processes). In case you do not master this assumed knowledge, please study Chapter 3 and 4 of the book used in this course (L.R. Kump, J.F. Kasting, R.G. Crane; The Earth System). The course builds in part on the topics discussed in these two chapters.",
+        "CO": "This course focuses on providing a general introduction into the mechanisms that determine the dynamics of the Earth system in the past, present and future, for example, the role of the biosphere in climate- and global change and, vice versa, the loss of biodiversity associated with climate- and global change. The course builds on integration of the disciplinary knowledge on Earth system processes such a hydrology, meteorology and biogeochemistry. It introduces the systems approach to study Earth system dynamics involving different temporal and spatial scales in process interactions and feedback mechanisms that explain observed climate- and global change. Emphasis is on Earth system interactions associated with dynamical, physical and biogeochemical processes affecting the state of the atmosphere, biosphere and hydrosphere under natural and anthropogenic conditions. The course's lectures are complemented with an intensive modelling activity, including the search for information on the Earth system and an introduction into the ethical and philosophical context of global and climate change issues.",
+        "AC": "lectures;  practical assignments;  modelling and exercises.",
+        "LT": "L.R. Kump, J.F. Kasting, R.G. Crane. The Earth System, Pearson New International Edition, ISBN: 9781292021638"
+      }
+    },
+    {
+      "code": "GRS10306",
+      "name": "Introduction Geo-information Science",
+      "credits": 6.0,
+      "texts": {
+        "CC": "GRS20306 Remote Sensing; GRS20806 Geo-information Tools; GRS22306 Geo-information Science for Society.",
+        "CO": "The course introduces Geo-Information Science and its scientific and societal interests. The starting point of the introduction is the geo-information cycle. This cycle frames geo data based actions like acquisition and storage, processing and visualization. It is explained that these actions can be used to describe, to analyse, to design and to realize real world phenomena. Thus geo data is always acquired, processed and visualized with a specific purpose. This is illustrated via the conceptual, formal and technical modelling steps.  Important in these modelling steps are the roles of geographical data attributes (thematic, geometric, temporal). Because the acquisition and processing of geo data is purposive, meta data plays an important role to find geo data and geo data processing steps. It also is important to evaluate the (re)usability of geo data and geo data processing steps. Meta data explain important geo data characteristics like (geo)reference, map projection and available attributes. Geo-visualization, especially cartography concepts, is introduced to show how geo data ought to be communicated. After the introduction of the geo data related concepts, the course offers the geo data processing options. The latter is done by the introduction of three data handling classes (query, transform and alter) and the data-action model. The geo data that represent terrain height and processing of these elevation data has given notice. Besides, basic concepts of Remote Sensing (spectral signature, sensor types, visual and quantitative processing) are also introduced. The application of all concepts is practiced during a practical and by a small project using professional software and data according a working procedure.",
+        "AC": "follow lectures and practicals on geo data concepts, geo-reference & map projection, cartography, data acquisition, data-handling classes, remote sensing;   study text books on the previously mentioned topics;  practice these concepts by realizing a small project in which GIS and remote sensing knowledge and skills are applied;  present small project results by a technical report that describes the application procedure and by a slide presentation that shows the application results.",
+        "LT": "Chang, K. Introduction to Geographic Information Systems, McGraw-Hill, (Latest edition) (optional background reading). Syllabus: Clevers, J. (ed). Introduction remote sensing. (Latest edition). Introduction Geo-Information Science: Practical manual: Bartholomeus H.M., Bergsma A.R., Haaf ten W.Th., Lau, A., and Ruiz Mendoza F.A. (eds) (Latest edition).",
+        "CON": "aldo.bergsma@wur.nl"
+      }
+    },
+    {
+      "code": "MIB11806",
+      "name": "Microbiology & Toxicology",
+      "credits": 6.0,
+      "texts": {
+        "MK": "ZSS06100 Laboratory Safety",
+        "AK": "Microbiological or toxicological knowledge is no prerequisite. It is an advantage when you have attended the Cell biology course (CBI10306) and have basic knowledge of (in)organic and physical chemistry. In case of deficiencies contact the lecturers.",
+        "CO": "Microbiology and Toxicology is a basic course, which is compulsory for BFT (first year of study) and BES (second year of study). The course is composed of Microbiology and Toxicology lectures, and a Microbiology practical. The Toxicology part deals with the basic concepts of Toxicology: the study of adverse effects that chemical substance may have on living organisms. The field of Toxicology integrates aspects of e.g. biology, pharmacology and biochemistry. The lectures will focus on which chemicals are toxic, what potential effects chemicals may have and a general introduction into the assessment of risks that chemicals may pose to humans and the environment. All will be illustrated with relevant cases on environmental risks of chemicals and risks related to food. The Microbiology part deals with basic features of microbial cells (prokaryotes and microbial eukaryotes), history of microbiology, diversity of microbes, structure and function of cells, microbial metabolism, energy yielding reactions, fermentation and respiration, photosynthesis, growth, and nutrient cycles.  The importance of microbes for life on earth is explained. At the end of the course it should be clear that microbes play an essential role in every-day life, even more than you ever anticipated. Moreover, microbes are important for various types of applied research, in the areas of food, health and environment. Microbes are important for improving the “quality of life”.",
+        "AC": "- attend lectures that are supported by a hard-copy textbook (microbiology) and an online textbook (toxicology); - perform various laboratory experiments; - assess acquired practical knowledge by answering questions",
+        "LT": "- Michael T. Madigan [et.al]. (2021). Brock Biology of Microorganisms. 16th ed. Pearson ISBN: 9781292404790.. - E-textbook Environmental Toxicology: https://maken.wikiwijs.nl/147644/Environmental_Toxicology__an_open_online_textbook - The microbioloy Textbook is available via different online book stores  like Acco (https://wur.acco.be/nl-be/ ) and the practical course handbook, which is mandator, is available at wurreadershop.proefschriftmaken.nl."
+      }
+    },
+    {
+      "code": "YES20812",
+      "name": "International Environmental Projects in Practice",
+      "credits": 12.0,
+      "texts": {
+        "MK": "ZSS06200 Fieldwork Safety",
+        "AK": "Students are expected to have obtained at least 60 credits of the first and second year of the BSc Environmental Sciences (BES) program.",
+        "CO": "In this course, students will integrate their knowledge of two-year Bachelor Environmental Sciences (or equivalent) in a field-based transdisciplinary research project on (an) environmental challenge(s). The course is set up to provide a comprehensive, interdisciplinary, and hands-on learning experience. It focuses on addressing complex environmental challenges through case studies conducted in collaboration with external commissioners from e.g. industry or public institutions. These applied projects require students to work in intercultural settings, engaging with local communities, experts, and stakeholders, fostering an understanding of diverse cultural, social, and ecological perspectives. The field work will take place in an international context involving local stakeholders and (a) real life case(s). Students will be involved in preparing for, doing, and reporting and reflecting on field work abroad during this course. By adopting a trans- and interdisciplinary approach, students integrate knowledge from various fields, blending scientific, policy, and societal insights to co-create innovative solutions to pressing environmental issues.  Furthermore, the course emphasizes self-reflection as a core component, encouraging students to critically evaluate their personal growth, teamwork dynamics, and cultural and societal boundary crossing ability. This reflective process deepens their understanding of their role in collaborative projects and prepares them to tackle future environmental challenges with adaptability and cultural sensitivity.",
+        "AC": "attend plenary lectures;    actively participate in class exercises;    collaborate in group work;    prepare for and conduct field work abroad;    search relevant literature;    write a scientific research proposal and research report;    present proposal and findings to the involved commissioner via means of an infographic;    communicate with commissioner;    reflect on personal growth and boundary crossing ability.",
+        "LT": "Course guide, papers related to lectures topics, papers related to group work on a specific topic.",
+        "RES": "Resit possibilities for individual assignments during the assigned resit period and during the following editions of the course."
+      }
+    },
+    {
+      "code": "MAT14803",
+      "name": "Mathematics Applied: Introduction",
+      "credits": 3.0,
+      "texts": {
+        "AK": "Dutch VWO Wiskunde A (Mathematics A) or comparable foreign education.",
+        "CC": "Mathematics Applied: Analysis  Mathematics Applied: Linear Algebra",
+        "CO": "Note 1, about the language of instruction per period:  Period 1 - 1st half - afternoon: English and Dutch (depending on study programme) Period 1 - 2nd half - afternoon: English and Dutch (depending on study programme) Period 2 -1st half - morning: English and Dutch (depending on study programme) Period 2 - 2nd half - morning: English Period 2 - 2nd half - afternoon: English  Note 2: This course cannot be combined in an individual programme with MAT12806 Mathematics M.   Mathematical content:     linear, quadratic, power, exponential, logarithmic, and basic trigonometric functions    equations with above functions    differentiation and integration",
+        "AC": "before each lesson: extensive preparation by studying the subject matter of the lesson, doing the assigned exercises and formulating questions for the teacher;    during each lesson: active participation by asking questions and by doing the assigned exercises (possibly in cooperation with other students);    after each lesson: recapitulation of and reflection on the subject matter of the lesson.",
+        "LT": "M. de Gee, \"Mathematics that Works volume 1: Introduction to Calculus\". Epsilon-Uitgaven. ISBN 978-90-5041-167-7.",
+        "CON": "intro.mat@wur.nl"
+      }
+    },
+    {
+      "code": "ESA24306",
+      "name": "From Synergies to Trade-Offs at the Pollution-Climate-Biodiversity Nexus",
+      "credits": 6.0,
+      "texts": {
+        "AK": "Assumed knowledge on ESA12303 and basic understanding of environmental sciences.",
+        "CC": "ESA31306 Integrated Ecosystem Assessment in Regional Management (MSc);  ESA31806 Environmental Assessment for Pollution Management (MSc);  ESA32306 Engaging and Modeling with Stakeholders (MSc).",
+        "CO": "Humanity faces the interconnected crises of increasing pollution, accelerating climate change, and unprecedented biodiversity loss. These challenges are deeply interwoven: pollution from industrial, agricultural, and urban sources contributes to climate forcing and degrades ecosystems; climate change disrupts ecological processes, amplifies pollution impacts, challenges agricultural production, and threatens species and habitats; biodiversity loss, in turn, reduces ecosystem and agricultural resilience and undermines natural capacities to regulate climate and buffer pollution. Actions aimed at mitigating one challenge can inadvertently worsen another, while well-designed interventions can create powerful synergies across the nexus.  This course supports students in developing the capacity to understand and analyze complex interactions between pollution, climate and biodiversity using systems thinking and systems analysis approaches. The course combines conceptual and empirical approaches to achieve this understanding. Through activities such as identifying feedback loops, mapping cross-scale interactions, and exploring potential leverage points, students learn to interpret how pollution, climate processes, and biodiversity dynamics drive coupled human–environment systems. By mapping stakeholders related to the nexus, and by integrating stakeholders’ and academic knowledge and perspectives, students will understand the complexity of navigating trade-offs and finding solutions. Students will also examine how governance, technology, and other societal choices shape the emergence of trade-offs and synergies across the nexus. Students will integrate selected aspects of the systems knowledge they acquired into a prototype representation of the system, e.g. a serious game prototype.  By combining analytical and reflective skills, this course prepares students to engage with sustainability challenges that transcend disciplinary and sectoral boundaries. Students gain the ability to contribute to discussions and decisions on resilient, equitable, and transformative pathways that harmonize pollution control, climate stabilization, and biodiversity protection within planetary boundaries.  This course uses examples from agricultural and food systems throughout. Agricultural and food systems, through their land use (change) and diverse management practices, are major drivers of environmental and social outcomes. Understanding the role of agriculture and assessing the negative and positive impacts of different agricultural approaches is therefore of key importance for navigating the pollution-climate-biodiversity nexus.  In short, the course aims to enable students to understand, analyze, and evaluate the interconnections between pollution, climate, and biodiversity using systems thinking and analysis tools, and to apply this knowledge to identify and assess solutions that foster sustainable and resilient social-ecological systems.",
+        "AC": "attention of lectures;    active contribution to tutorials and group work;     case study work in groups.",
+        "LT": "A literature list will be shared in Brightspace."
+      }
+    },
+    {
+      "code": "LAW22306",
+      "name": "International and EU Environmental Law",
+      "credits": 6.0,
+      "texts": {
+        "AK": "No legal knowledge assumed. LAW23306 Introduction to Law for the Life Sciences is recommended but optional.",
+        "CC": "International Food Law (LAW31806), Consumer Law, Business Human Rights and the Environment (LAW39306), Law of Marine Environments and Resources (LAW39206), Law and Regulation in Food Value Chain (LAW32806).",
+        "CO": "This course offers an overview of how international and EU law responds to today’s most pressing environmental problems. It shows which unique solutions, and problems, the legal system presents in addressing these environmental problems. We discuss topics such as climate change,  biodiversity, and the role of human rights. Overarching themes include the interaction and overlap of national, regional and international legal systems in addressing environmental problems, and the role of individuals in these processes. In order to provide students with a solid foundation, fundamentals of national, EU and international (environmental) law are also set out, leading to the development of legal skills and knowledge that students can use beyond the current course.",
+        "AC": "Activities for this course include:     prepare for, attend and participate in lectures;    prepare for, attend and participate in tutorials;    prepare tutorial assignments;    do the readings.",
+        "LT": "van Zeben and Rowell, A Guide to EU Environmental Law, University of California Press (2020)  Additional readings provided through Brightspace.",
+        "CON": "office.law@wur.nl"
+      }
+    },
+    {
+      "code": "ENR34306",
+      "name": "Environmental Economics for Environmental Sciences",
+      "credits": 6.0,
+      "texts": {
+        "AK": "Knowledge of basic mathematic calculus (e.g. MAT14803), statistics 1 and 2 (MAT15303 and MAT15403) and Introduction Geo-information Sciences (GRS10306) is expected. And, as a background, a course like Systems of Change: Environmental Policy, Economics, and Law (ENR23806) or some basic understanding of (micro-) economic theory is useful.",
+        "CC": "ENR33306 Cost Benefit Analysis and Environmental Valuation ENR31306 Economics and Management of Natural Resources  ENR32806 Economic modeling of sustainability challenges  UEC32306 Economics of Urban Environmental Challenges",
+        "CO": "The course provides an introduction to environmental economics and is developed for students of non-economic study programmes. It is also suitable as an introduction to environmental economics for students of economic study programmes. The aim of the course is to show how environmental problems can be approached and analysed using economic theory. Furthermore, the course demonstrates how economics provides guidance to address serious environmental problems such as climate change, ozone depletion, air and water pollution at different scales (global, regional). In particular, the course will establish the foundations of environmental economics. The students will learn how markets function and under which conditions markets fail, giving rise to a misallocation of resources causing environmental problems. These insights will then be used to analyse how policy interventions can correct market failure and enhance social welfare. The course also introduces students to recent policy developments regarding environmental and sustainability issues.",
+        "AC": "The course consists of classroom lectures and tutorials. The economic concepts introduced in the lectures are applied to a number of case studies of important environmental issues and environmental problems such as, for example, pollution control. To deepen the understanding of economic concepts, students will have to work on assignments during tutorials. The aim of the assignments is to practice with the theories and methods acquired during the lectures.  Students also learn how to analyze economic data, run simple regression models to draw evidence-based conclusions about environmental outcomes. In addition, students write a scientific essay (individual paper) about an environmental economics and policy topic. The aim is to learn how to apply the acquired theoretical knowledge to selected environmental economics and policy issues, how to compile and structure information and to learn scientific working skills. Students are expected to attend all lectures and tutorials and to prepare themselves by studying the reading material prior to the lectures.",
+        "LT": "Perman, R., Y. Ma, J. McGilvray, and M. Common (2011): 'Natural Resource and Environmental Economics', 4th ed., Pearson Education, Harlow. Additional material will be announced in the course guide."
+      }
+    },
+    {
+      "code": "ETE27306",
+      "name": "Renewable Energy Technologies",
+      "credits": 6.0,
+      "texts": {
+        "AK": "ETE10806 Introduction in Environmental Technology.",
+        "CC": "ETE23803 Environmental Process Engineering;  ETE21306 Water treatment;  ETE30306 Biological Processes for Resource Recovery  ETE35306 Environmental Electrochemical Engineering;   ETE34306 Energy, Water and Nutrient Cycles in the Built Environment;",
+        "CO": "Access to energy is a key prerequisite for any industrial society. Fossil fuels are the dominant energy source nowadays, but their use involves a number of problems: enhanced greenhouse effect, air pollution, and resource depletion. Energy savings and the use of renewable energy are directions for achieving an environmentally sustainable industrial society. This course will focus on the use and conversion of renewable energy sources as a key factor in solving environmental problems. Thermodynamics will be taught and used to analyze the necessary energy conversion processes.",
+        "AC": "Attending lectures, making assignments and studying literature to acquire knowledge on technologies, distribution, consumption and thermodynamic analysis. This knowledge will be applied in a case study, where an energy self-sufficient house will be analyzed.",
+        "LT": "Fuchs, Hans U. (2010). The Dynamics of Heat. 2ND ED. Springer-Verlag New York Inc. 746 P. ISBN-10 1441976035.  Additional hand-outs will be supplied during the course."
+      }
+    },
+    {
+      "code": "ORC12803",
+      "name": "Organic Chemistry 1",
+      "credits": 3.0,
+      "texts": {
+        "MK": "ZSS06100 Laboratory Safety",
+        "CC": "Organic Chemistry 1 is not a standalone course.  It should always be combined with ORC12903 Organic Chemistry 2 (for students BBT, BFT, or BML) or ORC13303 Environmental Organic Chemistry (for students BES). In case of other study programs contact the course coordinator.",
+        "CO": "The course Organic Chemistry 1 gives a conveniently arranged introduction into the basics of organic chemistry and forms a solid basis for follow-up courses such as Organic Chemistry 2 (ORC12903) and Environmental Organic Chemistry (ORC13303). Structure and reactivity of molecules, reaction mechanisms, stereochemistry, and interactions between molecules form the backbone of this course. The course is composed of tutorials and a practical part.",
+        "AC": "Study the textbook following the presented study guide and exercise assignments from the Online Web-based Learning tool. During the tutorials other questions are exercised and discussed with the teacher. In the practical part, different basic laboratory skills are exercised, like recrystallization, extraction, and chromatography. To work safely and concern for the environment are important aspects in this part.",
+        "LT": "Textbook: Organic Chemistry. 9th ed. by J. McMurry. ISBN 978-305-08048-5.   Sketchbook: Organic Chemistry 1. ISBN 9985 000 320 987.   Study material can be ordered at the WUR-supplier."
+      }
+    },
+    {
+      "code": "ORC13303",
+      "name": "Environmental Organic Chemistry",
+      "credits": 3.0,
+      "texts": {
+        "MK": "ZSS06100 Laboratory Safety",
+        "AK": "ORC12803 Organic Chemistry 1.",
+        "CO": "Environmental Organic Chemistry is a continuation course of ORC12803 Organic chemistry 1 where organic chemical compounds and processes that are important in the environment, are discussed. Several chemicals with agricultural, industrial or domestic use (e.g. alkyl halides, aromatic compounds, dioxins, CFK's, pesticides, polymers, plastics) are studied. Biotic and abiotic breakdown, stability and application of these compounds are discussed. The course will also pay attention to photochemical reactions. The course is composed of tutorials and a practical part.",
+        "AC": "Study the reader and textbook following the presented study guide and exercise selected assignments. During the tutorials other questions are exercised and discussed with the teacher. In the practical part, which is closely related to the theoretical part, basic laboratory skills are applied to compounds that play a role in environmental processes. Important aspects are to work safely and with concern for the environment.",
+        "LT": "Reader and textbook: Environmental Organic Chemistry & Organic Chemistry. 9th ed. by J. McMurry. ISBN 978-305-08048-5. Both available at the online WUR-supplier."
+      }
+    },
+    {
+      "code": "YES80312",
+      "name": "BSc Thesis Environmental Sciences",
+      "credits": 12.0,
+      "texts": {
+        "MK": "Before starting the BSc Thesis, students must have completed at least 102 credits of compulsory and optional courses of the BES programme, including all 60 credits of the first year and the specialisation courses that specifically prepare for the chair group where the thesis will be done.",
+        "CO": "The BSc thesis enables the student to put their acquired knowledge and skills into practice by individually and independently conducting a research project, under supervision, in the field of the programme.  Within each BES specialisation a specific set of chair groups is available for thesis supervision.",
+        "AC": "Research proposal and planning: the student prepares by reading literature related to the project, formulating one or more research questions/hypotheses and proposing approaches and methods.    Carrying out the research project: the student executes research activities and documents findings and sources.    Feedback: the student receives feedback while working on the project.    Research report: the student writes a concise.    Report containing elements of a scientific paper in the discipline of the chairgroup.    Oral presentation: the student presents research findings to other students and staff members of the chair group and/or programme.    Oral defence: the student defends the thesis and development of scientific skills and attitude, and places results and conclusions in the context of the field of study programme."
+      }
+    },
+    {
+      "code": "ZSS06000",
+      "name": "General Safety",
+      "credits": 0.0,
+      "texts": {
+        "CO": "At WUR we value your safety. Therefore many measures are taken in order to facilitate a safe study in Wageningen. And although all these measures are in place still one of the most important factors for a safe stay is YOUR behavior and knowledge of these measures. Therefore the General Safety course is mandatory for all new students at WUR. This course will introduce you to safety at Wageningen University & Research. We'll cover a broad range of topics to prepare you for a safe stay at our university:      in case of emergency: how to respond to emergencies;    computer work: how to prevent complaints on arms, neck and shoulder (CANS/ RSI);    social safety and being an active bystander.",
+        "AC": "E-learning modules",
+        "CON": "student.safety@wur.nl"
+      }
+    },
+    {
+      "code": "ZSS06100",
+      "name": "Laboratory Safety",
+      "credits": 0.0,
+      "texts": {
+        "CO": "At WUR we value your safety. Working in a laboratory environment exposes you to specific risks: you work with (very) harmful substances that can cause serious injury or even death when not handled properly. Therefore many measures are taken in order to facilitate the safety of all present in laboratoria, from mandatory laboratory coats and a ban on eating and drinking to safe working guidelines. And although all these measures are in place still one of the most important factors for a safe stay is YOUR behavior and knowledge of these measures. Therefore the Laboratory Safety course is mandatory for all students working in a laboratory environment.  In this course you'll be introduced to working safe in the laboratories of WUR and cover a range of topics for working in our biological and chemical laboratories:     General safety while working in the lab    Hazardous substances/ chemicals    Biological agents",
+        "AC": "E-learning modules",
+        "CON": "student.safety@wur.nl"
+      }
+    },
+    {
+      "code": "ZSS06200",
+      "name": "Fieldwork Safety",
+      "credits": 0.0,
+      "texts": {
+        "CO": "At WUR we value your safety. Going into the field for an excursion or for observations/ measurements exposes you to specific risks some of which you'd take for granted while visiting nature or urban environments outside the university perspective. Things like traffic or uneven terrain seems something that you face on a day to day basis, but need a more strict approach while facing them in a professional way. Furthermore infection prevention and social responsible behavior are topics that require specific attention. Therefore many measures are taken in order to facilitate a safe study in Wageningen. And although all these measures are in place still one of the most important factors for a safe stay is YOUR behavior and knowledge of these measures. Therefore the Fieldwork Safety course is mandatory for all students going into the field for their education.  This course will introduce you to safe fieldwork during courses at WUR and will cover a range of topics:     how to prepare for fieldwork;    what risk can you be exposed to when working in the field.",
+        "AC": "E-learning modules",
+        "CON": "student.safety@wur.nl"
+      }
+    }
+  ],
+  "creditStructure": {
+    "commonCompulsory": 105,
+    "preparationChoice": 3,
+    "individualThesis": 12,
+    "specialisation": 30,
+    "electives": 30,
+    "total": 180
+  },
+  "findings": [
+    "Fresh full BES2026 programme independently confirms four named specialisations. The broad interdisciplinary identity still justifies selecting Interdisciplinary Environmental Challenges independently of UCR fit. CP458 is Environmental Sciences (BES), not another WUR bachelor.",
+    "Current programme groups confirm105EC compulsory credited common study,3EC prior-mathematics choice and12EC individual thesis =120common;30EC specialisation plus30 genuine free-choice EC =180. The illustrated D selection is ESA24306(6),LAW22306(6),ENR34306(6),ETE27306(6),ORC12803(3),ORC13303(3). It meets the group minima6social/6natural and30total;12+12 is an example, not a universal requirement. ORC12803 is expressly paired withORC13303 forBES. Zero-credit safety and optional12/18internships stay outside/additionally replace freechoice as applicable.",
+    "FreshYES80312 mandatory knowledge still requires102BEScredits including all60first-year credits and the specialisation courses preparing for the supervising chair. Its content still says each specialisation has a specific available chair set, without identifying D chair eligibility or its complete preparation. Names of examiners, thematic relevance or inclusion in a selectable group cannot establish that complete prerequisite mapping.",
+    "Newly linked October2026English programme chart was discovered from the current public degree page and read in full. Its two pages corroborate common study, specialisation, thesis/freechoice and four directions, including the interdisciplinary natural/social combination. It supplies neither an eligibleD thesis-chair allocation nor chair-specific preparation. The older March2026chart is byte-identical to the previously reviewed source; preserve it and its facts.",
+    "Official ESA/WSG education guidance again places actual thesis guides/further information onBrightspace. A fresh reasonable alternative was pursued at EnvironmentalTechnology: its education page offers bachelor/master projects and links itsApril2026brochure. The brochure education section describes BScBES engineering/mass-balance/chemistry/biological foundations and MSc thesis opportunities. Full-text inspection identifies no currentBES-D eligible-chair/preparation matrix. EnvironmentalPolicy education likewise directs students to programme-specific procedures and coordinators, not an applicableD allocation. No login/contact/portal inference or replacement with MSc or legacyENP81603 rules.",
+    "All33 current module names/credits match preserved source facts. Read currentContents/Mandatory/Assumed knowledge and assessed WUR specialist distinctions against retained course research: organic chemistry pairing/safety; aqueous soil processes; microbe/toxicology lab; air-pollutant fate/meteorology; GIS; coupled systems/nexus stakeholder tradeoffs; international commissioner-led field project; portfolio; individual supervised thesis. Retain14 bounded alignments/17 meaningful gaps and all valid course/interest/concept research. MathA remains an allowed programme choice; external assumed statistics background is not silently promoted to an invented mandatory extra credit unit.",
+    "Final academic gate remains the same precise current chair/preparation mapping. This third essential-source execution and one permitted revisit are incomplete, not a completed comparison or target-level no-match. New documentation confirms academic identity/substance but does not authorise relaxing current acceptance standards."
+  ],
+  "unresolved": [
+    "Establish one current2026–2027 eligible thesis chair group and its complete preparatory-course requirements for the selected Interdisciplinary Environmental Challenges combination: ESA24306 plus LAW22306/ENR34306 and ETE27306/ORC12803/ORC13303. The programme and YES80312 explicitly require chair-specific specialisation preparation, but the retrieved current sources do not identify the applicable chair/preparation mapping. Obtain the current BES thesis guide or authoritative applicable mapping; do not assume this balanced30EC selection automatically grants entry or import older ENP81603/MSc rules."
+  ],
+  "preservedEvidenceRefs": [
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/source-review.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/source-attempt-2.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/interest-review.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/course-comparability-review.json",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json"
+  ],
+  "result": "incomplete; essential chair/preparation evidence not established",
+  "reopening": {
+    "stages": [
+      1,
+      3,
+      4,
+      5,
+      6
+    ],
+    "trigger": "Authoritative applicable BES2026D thesis chair and complete preparation",
+    "preserve": "Independently verified identity/180listedEC/88interests/40contributions/three feasible prototypes/unchanged descriptions; changed administrative evidence alone does not invalidate unaffected research."
+  }
+}

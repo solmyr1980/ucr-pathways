@@ -1,0 +1,1057 @@
+{
+  "caseId": "cp-000458",
+  "executionId": "restart-B-cp458-revisit-20261114T141833Z",
+  "checkedAt": "2026-11-14T14:23:43.935083+00:00",
+  "verificationPolicy": "record-content-review-2026-10-31",
+  "inputBlobs": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "data/counselor/comparisons/cp-000458.json": "f9758beb6e2a6ec30c66fc06fe9106a81e0a54c1",
+    "data/counselor/decisions/cp-000458.json": "e34333a5c31dd403136b566a51914607e3e9c4e6",
+    "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+    "data/counselor/review-interests.json": "e9d6ec67ac742af08eba907a6214d10fd987f052",
+    "data/counselor/review-programmes.json": "28ee7c2995ddab57c773e70ec193cb864685b178",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/registry/programme_interests.csv": "3ec373541057d40f7599b009cf42c5b5c5f211cc",
+    "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+    "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+    "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json": "e9dbe34fed88887b355bbea7616e81d04f39c4f3",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/course-comparability-review.json": "4f5b6d3741464bd558ad320077c9ab45bdd3f2cf",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/interest-review.json": "a27ccbef9070b07f5a96f508577b9b45159d1f94",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/mechanical-verification.json": "fabc5bb000e70cd02a491f0710fcc9c1e1401f89",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/provisional-canonical.json": "478d40e177a70d695947da22004c7a06f73df263",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/provisional-decision.json": "88b9a80b95703048d0e3ae3c715f6408bb2fb6ac",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/published-verification.json": "096eb2faa95a9b4d2706d65fa88c0616d50f5401",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/retry2-mechanical-content-checks.json": "8d07fc4ad6b76b92c1f7026ca3a6504917f30ef7",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/retry2-published-verification.json": "0ce5bcd161504ee15ed2e984fc58fca6d96e4caa",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/retry2-source-first-final-pass.json": "b899b3ca0cddb64c228bacdccbc5cc1e1b0e7734",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/source-attempt-2.json": "7cbe89519df1eb450b049718273787031b0c7a8a",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/source-first-final-pass.json": "5b0d89f6b389db55aeab548dc2f254595a0cc9cc",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/source-review.json": "8d63ad46a1c2f89ecd2603f8ddfdb7c00eeba673",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/superseded-comparison.json": "d165c7213e05bf78820cc7d26e7219e7fce33e1d",
+    "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/superseded-decision.json": "3d03d9143cc1504285c0fc51f0ac501ab4846036",
+    "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+    "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+    "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+    "pilot/shiny/data/courses/BEN.json": "7a9a8eb38eb00f990e47a5e473d582d6efde30d2",
+    "pilot/shiny/data/courses/DIS.json": "dc4c1e13e32d88ff7438635db457b760591efaaa",
+    "pilot/shiny/data/courses/ENS.json": "b323d5993ab47be5389001b547054259cbfdbfa2",
+    "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+    "pilot/shiny/data/courses/HCB.json": "2293af785a5e27a805d515247fc1f6269ee6ab38",
+    "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+    "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+    "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+    "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+    "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26"
+  },
+  "activeReaderFields": {
+    "title": "Environmental Sciences",
+    "institution": "Wageningen University & Research",
+    "audience": {
+      "schemaVersion": "1.0",
+      "programmeDescription": "Environmental Sciences at Wageningen combines natural science, social science and technology to investigate pollution, climate change, resource use and environmental solutions. The programme is taught in English and remains rooted in the natural sciences.",
+      "curriculum": {
+        "status": "partial",
+        "componentIds": [
+          "common-chem1",
+          "common-solutions",
+          "common-research-skills",
+          "common-transitions",
+          "common-water-explore",
+          "common-chem2",
+          "common-math-analysis",
+          "common-statistics",
+          "common-water-analysis",
+          "common-soil",
+          "common-env-tech",
+          "common-pollution-model",
+          "common-systems",
+          "common-production",
+          "common-air",
+          "common-ecology",
+          "common-skills-academy",
+          "common-policy-system",
+          "common-earth-climate",
+          "common-geoinfo",
+          "common-micro-tox",
+          "common-project",
+          "common-math-choice",
+          "spec-nexus",
+          "spec-law",
+          "spec-economics",
+          "spec-renewable",
+          "spec-organic",
+          "spec-env-organic",
+          "thesis",
+          "free-choice"
+        ],
+        "yearLabel": "2026–2027",
+        "routeLabel": "Interdisciplinary Environmental Challenges; Mathematics A preparation",
+        "limitation": "WUR lists 180 EC for this example. Thesis entry depends on the chosen chair group’s specialisation preparation; the applicable preparation for this course combination still needs confirmation."
+      },
+      "componentNotes": {
+        "common-math-choice": "This example uses Mathematics Applied: Introduction for VWO Mathematics A. Students with Mathematics B take Statistics 1 instead; the choice follows prior preparation and study advice.",
+        "common-solutions": "General, laboratory and fieldwork safety are non-credit requirements for the relevant practical activities. They are not added to the 180 EC.",
+        "spec-nexus": "The selected specialisation combines this 6 EC nexus course with 12 EC of social-science and 12 EC of natural-science/technology options. Other permitted combinations may use 6–18 EC in each of those groups, with up to 6 EC of optional quantitative methods, while keeping 30 EC in total.",
+        "spec-law": "This example selects the first two listed social-science options: International and EU Environmental Law and Environmental Economics. This is one permitted choice, not a claim that both are compulsory for every student in the specialisation.",
+        "spec-renewable": "This example selects Renewable Energy Technologies and the paired Organic Chemistry 1 and Environmental Organic Chemistry units from the natural-science/technology group. Laboratory safety applies to the chemistry practicals.",
+        "common-project": "WUR requires a 12 EC international, field-based transdisciplinary project with a commissioner and local stakeholders. It assumes at least 60 EC from the first two years and requires fieldwork safety. Separate UCR projects do not reproduce this coordinated course.",
+        "common-micro-tox": "WUR teaches microbial cells, growth and metabolism alongside chemical toxicity, risk assessment and a microbiology practical. Introductory life science at UCR is not the same specialist laboratory and toxicology sequence.",
+        "common-skills-academy": "The Skills Academy connects programme experiences through personal leadership, reflection and a progress portfolio. A general research project is not its direct equivalent.",
+        "common-air": "WUR studies pollutant emissions, atmospheric transport, chemical conversion, deposition and health effects with models and observations. General climate-change study does not reproduce this air-quality sequence.",
+        "spec-env-organic": "WUR studies organic pollutants, their reactivity, breakdown and environmental stability after Organic Chemistry 1. UCR’s metal recovery and soil-remediation work does not reproduce this dedicated organic-chemistry sequence.",
+        "free-choice": "Thirty EC remains available for a minor and/or individually chosen electives. An optional 12 or 18 EC internship would use part of this space; no internship is required in this example.",
+        "thesis": "The required individual thesis is 12 EC. Entry requires at least 102 BES credits, all 60 first-year credits, and preparation for the chosen chair group. The applicable chair-group preparation for this course combination still needs confirmation."
+      }
+    },
+    "components": [
+      [
+        "common-chem1",
+        "General Chemistry 1",
+        3,
+        null
+      ],
+      [
+        "common-solutions",
+        "Sustainable Solutions within Planetary Boundaries?",
+        3,
+        "General, laboratory and fieldwork safety are non-credit requirements for the relevant practical activities. They are not added to the 180 EC."
+      ],
+      [
+        "common-research-skills",
+        "Foundational Skills for Environmental Research",
+        3,
+        null
+      ],
+      [
+        "common-transitions",
+        "Sustainability Transitions: Past, Present and Future",
+        6,
+        null
+      ],
+      [
+        "common-water-explore",
+        "Water Systems: Exploration",
+        3,
+        null
+      ],
+      [
+        "common-chem2",
+        "General Chemistry 2",
+        3,
+        null
+      ],
+      [
+        "common-math-analysis",
+        "Mathematics Applied: Analysis",
+        3,
+        null
+      ],
+      [
+        "common-statistics",
+        "Statistics 2",
+        3,
+        null
+      ],
+      [
+        "common-water-analysis",
+        "Water Systems: Analysis",
+        3,
+        null
+      ],
+      [
+        "common-soil",
+        "Principles of Soil Processes",
+        3,
+        null
+      ],
+      [
+        "common-env-tech",
+        "Introduction Environmental Technology",
+        6,
+        null
+      ],
+      [
+        "common-pollution-model",
+        "Modelling Pollution in Environmental Systems",
+        6,
+        null
+      ],
+      [
+        "common-systems",
+        "Systems Approach for Socio-environmental Challenges",
+        3,
+        null
+      ],
+      [
+        "common-production",
+        "Global Production-Consumption Systems and the Environment",
+        9,
+        null
+      ],
+      [
+        "common-air",
+        "Air Quality",
+        6,
+        "WUR studies pollutant emissions, atmospheric transport, chemical conversion, deposition and health effects with models and observations. General climate-change study does not reproduce this air-quality sequence."
+      ],
+      [
+        "common-ecology",
+        "Ecology I",
+        3,
+        null
+      ],
+      [
+        "common-skills-academy",
+        "BES Skills Academy",
+        3,
+        "The Skills Academy connects programme experiences through personal leadership, reflection and a progress portfolio. A general research project is not its direct equivalent."
+      ],
+      [
+        "common-policy-system",
+        "Systems of Change: Environmental Policy, Economics, and Law",
+        6,
+        null
+      ],
+      [
+        "common-earth-climate",
+        "System Earth: Climate and Global Change",
+        6,
+        null
+      ],
+      [
+        "common-geoinfo",
+        "Introduction Geo-information Science",
+        6,
+        null
+      ],
+      [
+        "common-micro-tox",
+        "Microbiology & Toxicology",
+        6,
+        "WUR teaches microbial cells, growth and metabolism alongside chemical toxicity, risk assessment and a microbiology practical. Introductory life science at UCR is not the same specialist laboratory and toxicology sequence."
+      ],
+      [
+        "common-project",
+        "International Environmental Projects in Practice",
+        12,
+        "WUR requires a 12 EC international, field-based transdisciplinary project with a commissioner and local stakeholders. It assumes at least 60 EC from the first two years and requires fieldwork safety. Separate UCR projects do not reproduce this coordinated course."
+      ],
+      [
+        "common-math-choice",
+        "Mathematics Applied: Introduction",
+        3,
+        "This example uses Mathematics Applied: Introduction for VWO Mathematics A. Students with Mathematics B take Statistics 1 instead; the choice follows prior preparation and study advice."
+      ],
+      [
+        "spec-nexus",
+        "From Synergies to Trade-Offs at the Pollution-Climate-Biodiversity Nexus",
+        6,
+        "The selected specialisation combines this 6 EC nexus course with 12 EC of social-science and 12 EC of natural-science/technology options. Other permitted combinations may use 6–18 EC in each of those groups, with up to 6 EC of optional quantitative methods, while keeping 30 EC in total."
+      ],
+      [
+        "spec-law",
+        "International and EU Environmental Law",
+        6,
+        "This example selects the first two listed social-science options: International and EU Environmental Law and Environmental Economics. This is one permitted choice, not a claim that both are compulsory for every student in the specialisation."
+      ],
+      [
+        "spec-economics",
+        "Environmental Economics for Environmental Sciences",
+        6,
+        null
+      ],
+      [
+        "spec-renewable",
+        "Renewable Energy Technologies",
+        6,
+        "This example selects Renewable Energy Technologies and the paired Organic Chemistry 1 and Environmental Organic Chemistry units from the natural-science/technology group. Laboratory safety applies to the chemistry practicals."
+      ],
+      [
+        "spec-organic",
+        "Organic Chemistry 1",
+        3,
+        null
+      ],
+      [
+        "spec-env-organic",
+        "Environmental Organic Chemistry",
+        3,
+        "WUR studies organic pollutants, their reactivity, breakdown and environmental stability after Organic Chemistry 1. UCR’s metal recovery and soil-remediation work does not reproduce this dedicated organic-chemistry sequence."
+      ],
+      [
+        "thesis",
+        "BSc Thesis Environmental Sciences",
+        12,
+        "The required individual thesis is 12 EC. Entry requires at least 102 BES credits, all 60 first-year credits, and preparation for the chosen chair group. The applicable chair-group preparation for this course combination still needs confirmation."
+      ],
+      [
+        "free-choice",
+        "Free-choice semester",
+        30,
+        "Thirty EC remains available for a minor and/or individually chosen electives. An optional 12 or 18 EC internship would use part of this space; no internship is required in this example."
+      ]
+    ],
+    "sources": [
+      "https://www.wur.nl/en/education/bachelor/bachelors-environmental-sciences",
+      "https://studyhandbook.wur.nl/studies/BES?type=bachelor&year=2026",
+      "https://studyhandbook.wur.nl/modules/YES80312?tab=info&year=2026",
+      "https://studyhandbook.wur.nl/modules/MAT14803?tab=info&year=2026",
+      "https://www.wur.nl/en/chair-groups/earth-systems-and-global-change/education",
+      "https://backend.wur.nl/sites/default/files/2026-10/BES-vakkenschema-2026-EN.pdf"
+    ]
+  },
+  "preservedProvisionalReaderEvidence": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+  "fieldToRendererMapping": [
+    "render_exception uses exactEnvironmentalSciences/Wageningen title/institution, fixedunresolvedstatuscopy, currenthandbookprimarylink and render_audience_context. Complete reader-facing description/year/route/limitation and all31componenttitles/credits plus12componentNotes read. Numerical180is explicitly listed, not a certifiedpathway.",
+    "Activeexception has noUCRprogramme/concept/coursemodal oroptionalresearch display. Rawexception/source/cohortinvestigation notes are internal and have no narrativefallback. Fiveofficialsources correspond to inspected publicprogramme/handbook/module/preparation/alternative records.",
+    "Provisional3labels/concepts/explanation,40course names,4blockheadings,14partialrationales/17gaps,onecomparisonnote and12stablecomponent/cellnotes read. They describe actualcurricular weight, specialistlimits and unresolvedthesispreparation without source-tier/APIlogs or inventedteacher/engineering qualification.",
+    "course_click maps exactcode prefix to departmentcache.descriptions[code] and canonicalEnglishname. All40exact selectedtexts/names/provenance match verifiedsame-audit reviews and are reusedindividually. CurrentBEScourse contributions assessed separately. No cachetext change or live modal claimed.",
+    "Optional15ECresearch appears once perprototypeUCRcolumn on the blankthesisrow, outside24/180. Noapp/rendererbehaviourchange, Shiny/R/browserinstallation, screenshot orruntimework. Finalrelease still needs separatelyauthorised representative actualrendering."
+  ],
+  "reviewedFieldPaths": [
+    "comparator.name/institution/sourceUrls/components",
+    "audience.programmeDescription/comparisonExplanation/curriculum/componentNotes/cellNotes",
+    "programmes[].labels/courseNames",
+    "academicRationale.alternatives[].concept",
+    "blocks[].titles/rows/cells",
+    "notes[].text",
+    "optionalIndependentResearch",
+    "selectedcache.descriptions[code]"
+  ],
+  "selectedDescriptionReviews": [
+    {
+      "code": "ACCPPDE101",
+      "name": "Personal & Professional Development",
+      "textSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "54bbb6eb24f86a815e86d2d9b98563f4d3cfb4dd1c2997e525a872057fc22f27",
+        "descriptionSha256": "e1420a34fb0a9d29018cab93ed944d13a9cb31d498a681e603130f9b7d1c4ede",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Personal & Professional Development"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "686141fd094c3bdad7a2e64433a41e2cfb0867a8"
+    },
+    {
+      "code": "ENSGATE101",
+      "name": "Sustainability Essentials I",
+      "textSha256": "3d8021bff00c075753d30587e5e529c4ac8337c828561c59c0c227299a1e04e9",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "82f50723d99a79ffd7371f9f6eebe3e42e760cc7f4f8bbeb032e81fd5acc4184",
+        "descriptionSha256": "3d8021bff00c075753d30587e5e529c4ac8337c828561c59c0c227299a1e04e9",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Sustainability Essentials I"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "ENSECOL111",
+      "name": "Introduction to Biodiversity",
+      "textSha256": "49ad704bd94f4f38f1cb414067ac77208d375a283dcdcedfb40e798992d4a2bf",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "a781a733de4b9c4f3392fa6dd55b735c97deed19bf1f2df08686ed0a6838c124",
+        "descriptionSha256": "49ad704bd94f4f38f1cb414067ac77208d375a283dcdcedfb40e798992d4a2bf",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Introduction to Biodiversity"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "BENECON111",
+      "name": "Introduction to Economics",
+      "textSha256": "2278892bd9c8b20df80deb4bd04a3bf00a3fe4cc79099b153861afa0f69110e8",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "be4f2adfa22005d4d1ebbea0bbfcb36e2acd0e7e75d57f9b87f847d13ad3ef1f",
+        "descriptionSha256": "2278892bd9c8b20df80deb4bd04a3bf00a3fe4cc79099b153861afa0f69110e8",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Economics"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "7a9a8eb38eb00f990e47a5e473d582d6efde30d2"
+    },
+    {
+      "code": "ENSGATE201",
+      "name": "Sustainability Essentials II",
+      "textSha256": "465a8a129a7b496e5cc7188a77d3e2b04fb5a3c7f3afceae8a56afe6d062285b",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "10191be23b197bf2051541f534acdc52bc20762fc7d8889972890e7176afed60",
+        "descriptionSha256": "465a8a129a7b496e5cc7188a77d3e2b04fb5a3c7f3afceae8a56afe6d062285b",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "Sustainability Essentials II"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "DISGATE102",
+      "name": "Mathematical Methods",
+      "textSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6250945baf68c519d3820bddeaa08cb4b3c71273ddbb9bc31a7dffe6d021af5f",
+        "descriptionSha256": "2b954c12a673a86493feb57ea960d6ed2a3dd19de93ca2ccc50a707e8b2d7c38",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Mathematical Methods"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    {
+      "code": "BENGATE102",
+      "name": "Research Methods & Statistics",
+      "textSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "9d88751452d5c0a6888ac7901a73d1a848617dee2b587d4df64815fc39ad8813",
+        "descriptionSha256": "6ad65ae9608b230c3f191f538d181ca0cd0f387b6c8cb09e0fcdd9a79209d917",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Research Methods & Statistics"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "7a9a8eb38eb00f990e47a5e473d582d6efde30d2"
+    },
+    {
+      "code": "ENSECOL212",
+      "name": "Ecosystems Uncovered: How Nature Works",
+      "textSha256": "0624daa7c41cd59d6945cc52c2a9bc07265a2493beb675de35afc052fe3efc15",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Ecosystems Uncovered: How Nature Works",
+        "sourceField": "description2",
+        "sourceSha256": "0624daa7c41cd59d6945cc52c2a9bc07265a2493beb675de35afc052fe3efc15",
+        "descriptionSha256": "0624daa7c41cd59d6945cc52c2a9bc07265a2493beb675de35afc052fe3efc15",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-06",
+        "reviewNote": "CP320 reviewed the complete displayed description against current official course description and substantive course evidence. Text retained."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "ENSSUST112",
+      "name": "Life Cycle Analysis & Circular Economy",
+      "textSha256": "1507c66a61e12992a10ae7eef4194b4994d433c482be61ac982d0a8eb0870afe",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "84952b835c81d99cda8bc29e396c30894abc1d4ee1c6dd8de714344d1c4e3492",
+        "descriptionSha256": "1507c66a61e12992a10ae7eef4194b4994d433c482be61ac982d0a8eb0870afe",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Life Cycle Analysis & Circular Economy"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "ENSSUST111",
+      "name": "Climate Change",
+      "textSha256": "51b7423fe905aaf8f483ff6389d1685b21b8a2fb0a4b9b41d99b59e42808a974",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "92a8d5a238274193e7d9163f689556026c415afc95cebb8ecc4b5215f17bbeb4",
+        "descriptionSha256": "51b7423fe905aaf8f483ff6389d1685b21b8a2fb0a4b9b41d99b59e42808a974",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Climate Change"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "ENSSUST211",
+      "name": "Energy & Sustainability",
+      "textSha256": "beaa1139f5927cdb44febefa57a289ba049e9ba3c1d8f55d622efc8a5b2cf4e9",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "5e67f869a50e5a0ca056221ec827a2893311795cda84e715f681cb0055edf092",
+        "descriptionSha256": "beaa1139f5927cdb44febefa57a289ba049e9ba3c1d8f55d622efc8a5b2cf4e9",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Energy & Sustainability"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "DISDATA111",
+      "name": "Introduction to Data Science",
+      "textSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "85912cb78bd13d1aa873ef9cca2a8d7e00345543f75d1f07b56d808f1c6702ef",
+        "descriptionSha256": "6d798cb2440acdf54010088e1ddf88a4bb8831fd0b57ca3d52e45d8a622bfe59",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Introduction to Data Science"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    {
+      "code": "ENSENVI211",
+      "name": "Earth Observation",
+      "textSha256": "6fbd8c5d02f8063c3dac1b38756526174ea242188eff49eb08bf76e17c4d4b97",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Earth Observation",
+        "sourceField": "description2",
+        "sourceSha256": "6fbd8c5d02f8063c3dac1b38756526174ea242188eff49eb08bf76e17c4d4b97",
+        "descriptionSha256": "6fbd8c5d02f8063c3dac1b38756526174ea242188eff49eb08bf76e17c4d4b97",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "ENSENVI212",
+      "name": "Soils & Aquifers",
+      "textSha256": "728f61f289f212c2de51511af3f1dd5f9d2c09f2cc2c34ee54fb8f69d803b730",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Soils & Aquifers",
+        "sourceField": "description2",
+        "sourceSha256": "728f61f289f212c2de51511af3f1dd5f9d2c09f2cc2c34ee54fb8f69d803b730",
+        "descriptionSha256": "728f61f289f212c2de51511af3f1dd5f9d2c09f2cc2c34ee54fb8f69d803b730",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "ENSDELT211",
+      "name": "Living with Water",
+      "textSha256": "c6f1c8e47fbc4bf63763a5360356732043355009a05991ce7099da0a8babeede",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "6bc06d8eab4fbe5bd42de4764d7f92dee7335af1186c736cce876e23c2e44360",
+        "descriptionSha256": "c6f1c8e47fbc4bf63763a5360356732043355009a05991ce7099da0a8babeede",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Living with Water"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "BENECON311",
+      "name": "Public Economics",
+      "textSha256": "7a4ba78a0cfe9e6eb397bc2a538e91ff9a12eaecf7737f2cfbb377ac04d4aa84",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "24b0c5c56dc096e519a2295ff82eb44aa56d5601b7302975262d22a475cc96a6",
+        "descriptionSha256": "7a4ba78a0cfe9e6eb397bc2a538e91ff9a12eaecf7737f2cfbb377ac04d4aa84",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Public Economics"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "7a9a8eb38eb00f990e47a5e473d582d6efde30d2"
+    },
+    {
+      "code": "ENSENVI311",
+      "name": "Environmental Biogeochemistry",
+      "textSha256": "d82a1f4ea8c0c272aef64fbb7e08c619a9d12e4c40c868b4319ac6cac6b1ff29",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "basis": "course outline",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "sourceSha256": "b67bd2127ed422a506194829eb9b44e59618136c389bdc8cc2d12a6237a6904c",
+        "descriptionSha256": "d82a1f4ea8c0c272aef64fbb7e08c619a9d12e4c40c868b4319ac6cac6b1ff29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Environmental Biogeochemistry"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "ENSDELT311",
+      "name": "R3: Recycling, Recovery, Remediation",
+      "textSha256": "1b0026b1e19169693ebc23ba4ee5b8bb515ce3b67dd06bd33b230b9b04bf262d",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "R3: Recycling, Recovery, Remediation",
+        "sourceField": "description2",
+        "sourceSha256": "1b0026b1e19169693ebc23ba4ee5b8bb515ce3b67dd06bd33b230b9b04bf262d",
+        "descriptionSha256": "1b0026b1e19169693ebc23ba4ee5b8bb515ce3b67dd06bd33b230b9b04bf262d",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "DISMATH314",
+      "name": "Probability & Statistics",
+      "textSha256": "9d3ee2b42fa7fe2c0e62777da64474690e9fac0ca76929d04c6670dab516d10f",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "64d3f72845189f77627b8aa180a9906d4fd60fe3c5306bbf0ebe7666e612852b",
+        "descriptionSha256": "9d3ee2b42fa7fe2c0e62777da64474690e9fac0ca76929d04c6670dab516d10f",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Probability & Statistics"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    {
+      "code": "MCCCOMM311",
+      "name": "Persuasive Communication",
+      "textSha256": "781fa29248cce6025d8aa8887d300c8f0d64941a8b4a9b2dd193783c098deacc",
+      "source": {
+        "sourceField": "profile",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceSha256": "bad6a0cb3dd14e5cb07c4aeb36a102d09309142fdc5bab339f0096830ec5209a",
+        "descriptionSha256": "781fa29248cce6025d8aa8887d300c8f0d64941a8b4a9b2dd193783c098deacc",
+        "mode": "edited",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "reviewedOn": "2026-10-29",
+        "basis": "course outline",
+        "courseName": "Persuasive Communication"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979"
+    },
+    {
+      "code": "ENSENVI213",
+      "name": "Earth System Science Tools",
+      "textSha256": "2bdebcd3c2db71717ea674b4277de2f62a2d53cdd20acd1aa0fb87b3f20ba0fa",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Earth System Science Tools",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "2bdebcd3c2db71717ea674b4277de2f62a2d53cdd20acd1aa0fb87b3f20ba0fa",
+        "descriptionSha256": "2bdebcd3c2db71717ea674b4277de2f62a2d53cdd20acd1aa0fb87b3f20ba0fa",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: full displayed officialdescription read; retain within currentdescription support without unstatedmethods/depth or equivalentcourse claims."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "ENSDELT312",
+      "name": "Governance of Sustainability",
+      "textSha256": "746711aaebf20395c0fd5695fb91c5951f611715825c91ca6da251c5d890e362",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "f4cf9494a23b75f3fb3fe9090c62b9c8af908dc62a825c17f6547cfb48caf0a7",
+        "descriptionSha256": "746711aaebf20395c0fd5695fb91c5951f611715825c91ca6da251c5d890e362",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Governance of Sustainability"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "ENSSUST311",
+      "name": "Renewable System Design",
+      "textSha256": "f59be5886c977469ba596b55eae9382fde7efb5a64b50dd70745e2af463641eb",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "f59be5886c977469ba596b55eae9382fde7efb5a64b50dd70745e2af463641eb",
+        "descriptionSha256": "f59be5886c977469ba596b55eae9382fde7efb5a64b50dd70745e2af463641eb",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Renewable System Design"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "DISMATH213",
+      "name": "Computational & Numerical Methods",
+      "textSha256": "d7841607963f18cc24d325c614b84d1629dd83cf6194ee3b68dfcf1a90eb8a8c",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "5b5170199e3306247d6581a75787d8106a4fea74a894b55a09713e0a81efbf25",
+        "descriptionSha256": "d7841607963f18cc24d325c614b84d1629dd83cf6194ee3b68dfcf1a90eb8a8c",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Computational & Numerical Methods"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "dc4c1e13e32d88ff7438635db457b760591efaaa"
+    },
+    {
+      "code": "HCBGATE101",
+      "name": "Foundation of Life, Health & Biomedicine",
+      "textSha256": "12ff60a52ad56e3df4604fcc60c5982e9cf5e111eb66a6b7eac99bfd23ca4e28",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "e0b2da3bcb6fa48f717a1cad6591d9594b5145b6c3f4ba362ddc812790ff17f5",
+        "descriptionSha256": "12ff60a52ad56e3df4604fcc60c5982e9cf5e111eb66a6b7eac99bfd23ca4e28",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Foundation of Life, Health & Biomedicine"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "2293af785a5e27a805d515247fc1f6269ee6ab38"
+    },
+    {
+      "code": "ENSECOL112",
+      "name": "Conservation Biology",
+      "textSha256": "2f3a463738a085809252b8dd30e26954f1c3d0d35d3c2704e2486a0dab44df7f",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "88c01c4ed510fe51a04ea5a107cd5c2cf5bebd8072fa5ec17cfa3ad2787592d2",
+        "descriptionSha256": "2f3a463738a085809252b8dd30e26954f1c3d0d35d3c2704e2486a0dab44df7f",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "courseName": "Conservation Biology"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "ENSENVI112",
+      "name": "Natural Hazards, Risks & Adaptations",
+      "textSha256": "235e3f24022dad4502b256a9b71d80d7e39cc81134d9867ce7509f5e2e72f095",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Natural Hazards, Risks & Adaptations",
+        "sourceField": "description2",
+        "sourceSha256": "235e3f24022dad4502b256a9b71d80d7e39cc81134d9867ce7509f5e2e72f095",
+        "descriptionSha256": "235e3f24022dad4502b256a9b71d80d7e39cc81134d9867ce7509f5e2e72f095",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "GOSSOCI215",
+      "name": "Social Movements & Environmental Justice",
+      "textSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Social Movements & Environmental Justice",
+        "sourceField": "description2",
+        "sourceSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+        "descriptionSha256": "b03f3812dfc29a4b6b5f35193111482b928d2638a8003ea8f7b73d7d93ef5e1a",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    {
+      "code": "ENSDELT111",
+      "name": "Building with Nature",
+      "textSha256": "f560bf3f27df5107fc3758730aeef6cef0cdc795cd87557c6e449e6ecc392392",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Building with Nature",
+        "sourceField": "description2",
+        "sourceSha256": "f560bf3f27df5107fc3758730aeef6cef0cdc795cd87557c6e449e6ecc392392",
+        "descriptionSha256": "f560bf3f27df5107fc3758730aeef6cef0cdc795cd87557c6e449e6ecc392392",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "ENSENVI111",
+      "name": "Dynamic Earth",
+      "textSha256": "9c5e687f10b2c232fbc59760d2e70e2cdb8765cda4c1919c5838109f29542a4d",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Dynamic Earth",
+        "sourceField": "description2",
+        "sourceSha256": "9c5e687f10b2c232fbc59760d2e70e2cdb8765cda4c1919c5838109f29542a4d",
+        "descriptionSha256": "9c5e687f10b2c232fbc59760d2e70e2cdb8765cda4c1919c5838109f29542a4d",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "ENSECOL211",
+      "name": "The Science of Evolution",
+      "textSha256": "f0a7c7fae43530c38bc5b9a2d1ee8db5ff4d9884fa2ce5c4a1032e44dc0f6cf7",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "2183c3334d5c2a072c7d680d8777e114a9ae5e92852ff205d6eaf1c5b752c19a",
+        "descriptionSha256": "f0a7c7fae43530c38bc5b9a2d1ee8db5ff4d9884fa2ce5c4a1032e44dc0f6cf7",
+        "mode": "edited",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Retained the existing description as a faithful account; updated its source provenance.",
+        "courseName": "The Science of Evolution"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "ENSECOL311",
+      "name": "Marine Biology",
+      "textSha256": "0e5be95ec9dd5379894c9f33e689b1f64222014fe0f1a514889a3cc40bb56cdf",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-10",
+        "sourceSha256": "aacea5d9ca0dae13aee3b99375519b4afeb59cda1052786949d87272c881c377",
+        "descriptionSha256": "0e5be95ec9dd5379894c9f33e689b1f64222014fe0f1a514889a3cc40bb56cdf",
+        "reviewNote": "CP399 reviewed the selected text against current course evidence; wording describes supported academic content and activities.",
+        "courseName": "Marine Biology"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "ENSENVI312",
+      "name": "Earth's Resources",
+      "textSha256": "871074751805d3b118a24dc71bfd4c202c1ad3abe612933aae64e335d917e749",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Earth's Resources",
+        "sourceField": "description2",
+        "sourceSha256": "871074751805d3b118a24dc71bfd4c202c1ad3abe612933aae64e335d917e749",
+        "descriptionSha256": "871074751805d3b118a24dc71bfd4c202c1ad3abe612933aae64e335d917e749",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP077: complete selected official description read against current course evidence. Retain accurate overview without extra methods, depth or equivalence inferred."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "ENSECOL312",
+      "name": "Sustainable Farming & Innovation",
+      "textSha256": "8e93a30040ee349e76607b3b392df124cd0cdb471701baa4c924c8fa460e8c46",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-10",
+        "sourceSha256": "8e93a30040ee349e76607b3b392df124cd0cdb471701baa4c924c8fa460e8c46",
+        "descriptionSha256": "8e93a30040ee349e76607b3b392df124cd0cdb471701baa4c924c8fa460e8c46",
+        "reviewNote": "CP399 reviewed the selected text against current course evidence; wording describes supported academic content and activities.",
+        "courseName": "Sustainable Farming & Innovation"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "b323d5993ab47be5389001b547054259cbfdbfa2"
+    },
+    {
+      "code": "GOSPOLI112",
+      "name": "Foundations of Comparative Politics",
+      "textSha256": "72f9efff37e62fdc1cb0ddf27e595e7b3c526eb132dad86622cf55738204a4ee",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Foundations of Comparative Politics",
+        "sourceField": "description2",
+        "sourceSha256": "72f9efff37e62fdc1cb0ddf27e595e7b3c526eb132dad86622cf55738204a4ee",
+        "descriptionSha256": "72f9efff37e62fdc1cb0ddf27e595e7b3c526eb132dad86622cf55738204a4ee",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    {
+      "code": "BENECON212",
+      "name": "Microeconomics & Behavior",
+      "textSha256": "bb7e873ebcf0737250b0602678e531aaf080f101cfda442ebc4abcd4574d4250",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Microeconomics & Behavior",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "sourceSha256": "bb7e873ebcf0737250b0602678e531aaf080f101cfda442ebc4abcd4574d4250",
+        "descriptionSha256": "bb7e873ebcf0737250b0602678e531aaf080f101cfda442ebc4abcd4574d4250",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP076: full selected description read against current course evidence; accurate bounded official overview. Retain unchanged text, without adding unstated methods or qualifications."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "7a9a8eb38eb00f990e47a5e473d582d6efde30d2"
+    },
+    {
+      "code": "GOSPOLI311",
+      "name": "European Union Politics",
+      "textSha256": "97411c9c43963bfc500f8c6494383d57cfd36eeb9c57f554e94ba2d6e35c4253",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "466bd36df5022fb860e85efc1be5db647b0068f3",
+        "sourceField": "profile",
+        "sourceSha256": "42788a5dd28eccc535d20a771b88a601c20af300b1102ef637945a852f156fe0",
+        "descriptionSha256": "97411c9c43963bfc500f8c6494383d57cfd36eeb9c57f554e94ba2d6e35c4253",
+        "reviewedOn": "2026-10-29",
+        "reviewNote": "Compared with the current selected workbook field. Revised the description to retain supported academic scope and activities without superseded or unsupported details.",
+        "mode": "edited",
+        "courseName": "European Union Politics"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    {
+      "code": "BENECON312",
+      "name": "Econometrics",
+      "textSha256": "3754e43821eb3db5407d6eded2b8e70021b3eb45d2284acfae505d85d85baea9",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "courseName": "Econometrics",
+        "sourceField": "description2",
+        "sourceSha256": "3754e43821eb3db5407d6eded2b8e70021b3eb45d2284acfae505d85d85baea9",
+        "descriptionSha256": "3754e43821eb3db5407d6eded2b8e70021b3eb45d2284acfae505d85d85baea9",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-04",
+        "reviewNote": "CP071: read this complete displayed description and current course evidence. Retain accurate concise subject/method scope; no inferred extra topics, assessment or disciplinary equivalence. Official description retained verbatim."
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "7a9a8eb38eb00f990e47a5e473d582d6efde30d2"
+    },
+    {
+      "code": "GOSPOLI312",
+      "name": "Public Policy Analysis",
+      "textSha256": "c9f3958d93c55568454749b18f2790f1adf0927a53afbc8d93fb3ce9ca1729e6",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "description2",
+        "mode": "verbatim",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "c9f3958d93c55568454749b18f2790f1adf0927a53afbc8d93fb3ce9ca1729e6",
+        "descriptionSha256": "c9f3958d93c55568454749b18f2790f1adf0927a53afbc8d93fb3ce9ca1729e6",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Public Policy Analysis"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    },
+    {
+      "code": "GOSSOCI212",
+      "name": "Qualitative Research Methodology",
+      "textSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+      "source": {
+        "workbook": "data/reference/ucr_courses_enriched.xlsx",
+        "workbookBlob": "22783315e6d5510522d16a72281859dd62a05294",
+        "sourceField": "profile",
+        "mode": "edited",
+        "reviewedOn": "2026-11-01",
+        "sourceSha256": "6531d96f817df19cfa773d8d8004f44da6041eeab39acfce1462438728cd1eeb",
+        "descriptionSha256": "89eba4dce6f97f4d75f1816ef146def64d74217c77020d31473cf5144a18ecef",
+        "reviewNote": "CP256: read the selected text and current course evidence in full. The concise cached description makes supported subject/method claims, with no unsupported disciplinary or project guarantee. Displayed text retained unchanged; source provenance recorded.",
+        "courseName": "Qualitative Research Methodology"
+      },
+      "reusedEvidenceRef": "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000458/content-review.json",
+      "cacheBlob": "ebcc4c79ab6a7861756c1637ce04503c0bddd484"
+    }
+  ],
+  "findings": [
+    "All31 displayed componenttitles/credits,12componentnotes,programme description,year,route,limitation,exceptioncopy andsixofficialsource links reviewed. The only added link is the freshly retrievedOctober2026chart. The raw checkeddate/sourceinvestigation note remains internal. The partial180listedEC display does not certify thesis entry.",
+    "Retain unchangedthreeprototype labels,concepts,comparisonexplanation,40names/descriptions,fourblockheadings,14boundedrelationships/17gaps,comparisonnote,cellnotes andoptional15ECresearch. Exactprototypepair unchanged, readerfieldreview reused from same-audit evidence with freshsubject contribution reconsideration. No organicchemistry/law/toxicology/airquality/fieldproject equivalence invented.",
+    "Actual cache text/name/source SHA checks pass for all40; no cache/app/renderer changed. Optional15ECresearch outside24/180 and blank individual-thesisrow. No live rendering or modal claimed. Finalrelease still requires separate representativeactualrendering."
+  ],
+  "scope": "Passed partial record/content check; academic approval withheld"
+}
