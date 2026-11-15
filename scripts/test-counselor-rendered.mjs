@@ -115,10 +115,10 @@ try {
      if(id==='cp-000428')assert.ok(body.includes('cannot construct a sufficiently close programme'));
      if(id==='cp-000119' && variant==='actual') {
       assert.ok(body.includes('cannot construct a sufficiently close programme'));
-      assert.ok(body.includes('Complete external curriculum') && body.includes('religious traditions, sacred texts and lived religion'));
+      assert.ok(body.includes('Complete external curriculum') && body.includes(current.audience.programmeDescription));
       assert.ok(!body.includes('Philosophy, myth & cultural meaning'));
       assert.equal(await page.locator('.compare-view,.column-select,.course-link').count(),0);
-      assert.equal(await page.locator('.external-table tbody tr').count(),26);
+      assert.equal(await page.locator('.external-table tbody tr').count(),current.audience.curriculum.componentIds.length);
      }
      if(variant==='fixtures'&&id==='cp-000002'){assert.ok(body.includes('withheld from presentation'));assert.equal(await page.locator('.compare-view').count(),0);assert.ok(body.includes('Complete external curriculum'));}
      if(variant==='fixtures'&&id==='cp-000005'){assert.ok(body.includes('other content remains under review'));assert.ok(body.includes('Curriculum details are awaiting review'));}
@@ -127,10 +127,10 @@ try {
       assert.ok(body.includes(current.audience.comparisonExplanation) && body.includes('Complete external curriculum'));
       assert.ok(!body.includes('withheld from presentation') && !body.includes('Computational systems, robotics & sustainable technology'));
       assert.equal(await page.locator('.compare-view,.column-select,.course-link').count(),0);
-      assert.equal(await page.locator('.external-table tbody tr').count(),47);
+      assert.equal(await page.locator('.external-table tbody tr').count(),current.audience.curriculum.componentIds.length);
      }
      if(variant==='fixtures'&&id==='cp-000004')assert.ok(body.includes('specialist subjects or forms of training may differ'));
-     if(id==='cp-000003') {assert.ok(body.includes('cannot construct a sufficiently close programme') && body.includes('Complete external curriculum'));assert.equal(await page.locator('.compare-view,.column-select,.course-link').count(),0);assert.equal(await page.locator('.external-table tbody tr').count(),17);}
+     if(id==='cp-000003') {assert.ok(body.includes('cannot construct a sufficiently close programme') && body.includes('Complete external curriculum'));assert.equal(await page.locator('.compare-view,.column-select,.course-link').count(),0);assert.equal(await page.locator('.external-table tbody tr').count(),current.audience.curriculum.componentIds.length);}
      if(variant==='actual'&&id==='cp-000035') {
       const currentBiology = JSON.parse(fs.readFileSync('data/counselor/comparisons/cp-000035.json', 'utf8'));
       assert.ok(body.includes(currentBiology.audience.comparisonExplanation), 'CP035 reviewed comparison explanation missing');
