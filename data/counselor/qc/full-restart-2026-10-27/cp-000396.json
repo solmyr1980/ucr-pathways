@@ -45,7 +45,7 @@
     "canonical": "d841de0af85bdc9be3834c8c4982df6744b89828",
     "decision": "6dd9fb5e399adb6d426bb8f0e5a981978529f671"
   },
-  "state": "in-progress",
+  "state": "approved",
   "stages": {
     "1": {
       "outcome": "correct",
@@ -117,28 +117,68 @@
     },
     "6": {
       "outcome": "correct",
-      "finding": "Recheck strongest-response research schedules with the current workbook;compile exact exception pair;run strict schema,operational/audit/Rcontent checks. No UCRschedule is invented inside the exception. Shared desktop/mobile tests must verify partial no-match rendering before Stage1integration closure.",
+      "finding": "All source-first academic, mechanical and reader-content gates passed against the exact finished decision/canonical blobs. Applicable published compilation and validation evidence is recorded separately from shared runtime/release authority.",
       "preserved": [
         "Original source and worker findings preserved in reviewHistory; sound interest and course research retained with versioned references."
       ],
       "actions": [],
       "evidence": [
-        "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000396/review.json#/validationPlan"
+        "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000396/mechanical.json",
+        "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000396/content-inputs.json",
+        "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000396/review.json#/sourceFirstChallenge"
       ],
       "blockedBy": [],
       "reassessStages": []
     }
   },
   "sharedIssueIds": [],
-  "unresolved": [
-    "Published implementation, replay and applicable CI verification remain to be reconciled before final approval."
-  ],
+  "unresolved": [],
   "downstreamReassessments": [],
   "implementationCommits": [
-    "793d4407f990ae7b821139014bc037b72801c70b"
+    "793d4407f990ae7b821139014bc037b72801c70b",
+    "aa07541d2594d54ead594292834985d6f15dfe69",
+    "69e911003877939021858edd48b42883617f496f"
   ],
-  "finalReview": null,
-  "presentationApproval": false,
+  "finalReview": {
+    "reviewerOrPass": "Stage 1 source-first final academic/content pass, ChatGPT Work",
+    "independenceMethod": "Separately identified source-first second pass by the same AI reviewer against official sources and current UCR evidence, not independent human or separate-agent review.",
+    "reviewedOn": "2026-11-15",
+    "reviewedCommit": "69e911003877939021858edd48b42883617f496f",
+    "reviewProcess": "qualified-comparison-stage1-2026-11-15",
+    "verificationPolicy": "record-content-review-2026-10-31",
+    "sourceEvidenceRefs": [
+      "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000396/review.json#/externalReview",
+      "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000396/review.json#/sourceFirstChallenge",
+      "data/reference/ucr_courses_enriched.xlsx"
+    ],
+    "inputBlobs": {
+      "decision": "c5fb8f697c0121c17208ec65f3cdae010dba6455",
+      "canonical": "7aff0f9b5d5abf7bf47c99efb45182259fcbf806"
+    },
+    "checks": {
+      "academic": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000396/review.json#/academicJudgment",
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000396/review.json#/sourceFirstChallenge"
+        ]
+      },
+      "mechanical": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000396/mechanical.json"
+        ]
+      },
+      "content": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000396/review.json#/contentReview",
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000396/content-inputs.json"
+        ]
+      }
+    }
+  },
+  "presentationApproval": true,
   "evidenceSources": [
     {
       "url": "https://www.uva.nl/programmas/bachelors/fiscaal-recht/studieprogramma/studieprogramma.html",
