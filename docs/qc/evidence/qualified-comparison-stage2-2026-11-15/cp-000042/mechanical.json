@@ -1,0 +1,74 @@
+{
+  "caseId": "cp-000042",
+  "checkedOn": "2026-11-15",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "data/counselor/comparisons/cp-000042.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c",
+      "tail": [
+        "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "data/counselor/comparisons/cp-000042.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918",
+      "tail": [
+        "1 canonical records pass full JSON Schema validation."
+      ]
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor"
+      ],
+      "exitCode": 0,
+      "outputSha256": "aa74b126383ec8c7d5e43e377019920bc902372997cd3973377d255a102803ee",
+      "tail": [
+        "cp-000457.json: final counselor methodology rules OK",
+        "cp-000459.json: final counselor methodology rules OK"
+      ]
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor-review"
+      ],
+      "exitCode": 0,
+      "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8",
+      "tail": [
+        "",
+        "Current counselor review indexes: 438 programmes, 21212 interest rows."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/verify-qualified-comparison-stage2.py"
+      ],
+      "exitCode": 0,
+      "outputSha256": "0eaf0e0062e21eaaa2aa43391aa9e0d0f1162efea8cf60c87de103b17a078430",
+      "tail": [
+        "Preserved 375 approvals, CP072/CP099, 59 unprocessed cases, protected inputs, fixed 438 scope and exhausted worker histories."
+      ]
+    }
+  ],
+  "productionWrapperByteExact": true,
+  "advancedCounts": [
+    10,
+    8
+  ],
+  "pairwiseDifferentCoursesEach": 5,
+  "ci": "pending; final approval withheld"
+}
