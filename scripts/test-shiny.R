@@ -75,6 +75,7 @@ if (counselor$IS_REVIEW_DATA) {
   stopifnot(!grepl("cannot construct a sufficiently close programme", pending_html, fixed = TRUE))
   stopifnot(!grepl("A reliable curriculum comparison is currently unavailable", pending_html, fixed = TRUE))
   stopifnot(!grepl("UCR courses", pending_html, fixed = TRUE))
+  # Academic status and independently configured presentation visibility both control the card.
   german_result <- german_results[which(vapply(german_results, function(x) identical(x$programme$programmeProviderId, "cp-000040"), logical(1)))]
   exception_result <- counselor$render_result_cards(german_result)
   expected_button <- if (identical(german_result[[1]]$programme$recordStatus, "exception") ||
