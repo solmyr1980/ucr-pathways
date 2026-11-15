@@ -407,8 +407,8 @@ render_comparison_summary <- function(record) {
 
   div(
     class = "comparison-summary", id = "comparison-overview",
-    render_audience_context(record),
     render_comparison_scope(record),
+    render_audience_context(record),
     div(
       class = "summary-heading",
       tags$h2("What this comparison shows"),
@@ -531,8 +531,8 @@ render_exception <- function(record, presentation_only = FALSE, display_note = "
       actionButton("back_to_search", "← Back to search", class = "secondary-button")),
     div(class = "comparison-summary", id = "comparison-overview",
       tags$h2("About this programme"), tags$p(class = "comparison-status", status_copy),
-      render_audience_context(record),
-    render_comparison_scope(record),
+      render_comparison_scope(record),
+    render_audience_context(record),
       if (!nzchar(audience_text(record, "programmeDescription"))) tags$p("A programme description is awaiting review. Use the official source to explore the programme."),
       tags$a(href = safe_text(meta$primarySourceUrl), target = "_blank", rel = "noopener", "Official programme source ↗")),
     if (length(view$components)) div(class = "external-curriculum",
