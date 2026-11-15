@@ -33,7 +33,7 @@ for item in valid:
 for item in invalid:
     assert list(v.iter_errors(item)), item
 # Check that audience data is accepted/rejected through both canonical schemas.
-for case_id, schema_name in [('cp-000019', 'counselor-comparison.schema.json'), ('cp-000277', 'counselor-exception.schema.json')]:
+for case_id, schema_name in [('cp-000019', 'counselor-comparison.schema.json'), ('cp-000099', 'counselor-exception.schema.json')]:
     record = json.loads((root / f'data/counselor/comparisons/{case_id}.json').read_text())
     # The control detects existing unrelated schema failures separately.
     baseline = {(tuple(e.path), e.message) for e in validators[schema_name].iter_errors(record)}
@@ -41,4 +41,14 @@ for case_id, schema_name in [('cp-000019', 'counselor-comparison.schema.json'), 
     assert {(tuple(e.path), e.message) for e in validators[schema_name].iter_errors(record)} == baseline
     record['audience'] = copy.deepcopy(invalid[0])
     assert any(list(e.path) == ['audience'] for e in validators[schema_name].iter_errors(record))
-print('Audience JSON Schema, canonical references and positive/negative fixtures pass.')
+# Accepted bounded records require reviewed scope/explanations even though ordinary
+# progressive records may still omit them. Never weaken that conditional gate.
+for case_id, schema_name in [('cp-000250', 'counselor-comparison.schema.json'),
+                             ('cp-000317', 'counselor-comparison.schema.json'),
+                             ('cp-000277', 'counselor-exception.schema.json'),
+                             ('cp-000396', 'counselor-exception.schema.json')]:
+    record = json.loads((root / f'data/counselor/comparisons/{case_id}.json').read_text())
+    validators[schema_name].validate(record)
+    record['audience'] = copy.deepcopy(valid[0])
+    assert list(validators[schema_name].iter_errors(record)), case_id
+print('Audience JSON Schema, ordinary progressive compatibility and mandatory bounded-scope positive/negative checks pass.')
