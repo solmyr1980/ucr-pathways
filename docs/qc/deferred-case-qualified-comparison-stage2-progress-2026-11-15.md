@@ -2,9 +2,9 @@
 
 Authorized scope: exactly61 frozen cases; original375 approved dispositions and CP072/CP099 protected. All counts below derive from current active case records, not approval targets.
 
-- Completed Stage2 reviews: **8/61**; in progress: 1; not yet started: 52.
-- Corpus academic approvals: **383/438**; academically unresolved: **55**. An unapproved implemented pair remains in progress until actual CI/readback and final review close.
-- Latest verified remote base before this checkpoint: `5d69780a83e29f534078fbf51c7fc10ffe26673b`. Individual publication-verification files identify exact paired commits and CI.
+- Completed Stage2 reviews: **9/61**; in progress: 1; not yet started: 51.
+- Corpus academic approvals: **384/438**; academically unresolved: **54**. An unapproved implemented pair remains in progress until actual CI/readback and final review close.
+- Latest verified remote base before this checkpoint: `f534802e91b3f3cde6707763ee260856ca53d48e`. Individual publication-verification files identify exact paired commits and CI.
 - Actual54-case/viewport desktop/mobile regression passed on`912391ada134615f6dba38c4d2e2468196e67cbf`, including CP040 core/caution, CP041 documented-curriculum and ordinary/unresolved controls. Exact artifact digest, screenshots and results: [runtime verification](evidence/qualified-comparison-stage2-2026-11-15/runtime/cp040-core/verification.json).
 
 ## Initial batch
@@ -19,10 +19,10 @@ Authorized scope: exactly61 frozen cases; original375 approved dispositions and 
 | cp-000100 | completed | qualified academic-core |
 | cp-000112 | completed | qualified academic-core |
 | cp-000113 | completed | qualified academic-core |
-| cp-000397 | in-progress | qualified documented-curriculum |
-| cp-000263 | not started | Awaiting Stage 2 review |
+| cp-000397 | completed | qualified documented-curriculum |
+| cp-000263 | in-progress | no-defensible-ucr-match |
 
-The initial ten-case batch is not yet complete or batch-QA approved. Continue without routine user approval. Exact next case: **cp-000397**. If it has an implemented production pair, verify its exact published blobs and applicable CI before completing academic approval; otherwise execute its full independent case review. Then continue the remaining initial-batch IDs in order. After all ten, complete academic/technical QA and proceed automatically if sound.
+The initial ten-case batch is not yet complete or batch-QA approved. Continue without routine user approval. Exact next case: **cp-000263**. If it has an implemented production pair, verify its exact published blobs and applicable CI before completing academic approval; otherwise execute its full independent case review. Then continue the remaining initial-batch IDs in order. After all ten, complete academic/technical QA and proceed automatically if sound.
 
 ## Continuation safeguards
 

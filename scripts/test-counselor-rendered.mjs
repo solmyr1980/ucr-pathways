@@ -25,6 +25,10 @@ if (JSON.parse(fs.readFileSync('data/counselor/comparisons/cp-000041.json')).acc
 if (JSON.parse(fs.readFileSync('data/counselor/comparisons/cp-000040.json')).acceptance) {
  cases.actual.push(['cp-000040','German Language and Culture']);
 }
+// Stage 2 integration covers multiple-core options, the177-EC qualification and a partial-core robust no-match.
+for (const [id,query] of [['cp-000113','National Politics'],['cp-000397','Fiscal Economics'],['cp-000263','Architecture, Urbanism']]) {
+ if(JSON.parse(fs.readFileSync(`data/counselor/comparisons/${id}.json`)).acceptance) cases.actual.push([id,query]);
+}
 const browser = await chromium.launch({headless:true,executablePath:process.env.UCR_CHROMIUM_PATH || undefined,args:['--no-sandbox']});
 try {
  for (const [vi,variant] of ['actual','fixtures'].entries()) {
@@ -116,10 +120,12 @@ try {
        assert.equal(current.comparator.components.reduce((sum,c)=>sum+c.credits,0),165);
        assert.ok(body.includes('165') && body.includes('15 EC') && body.includes('restricted Arts minor'));
       }
+      if(id==='cp-000113') {assert.equal(current.acceptance.scope,'academic-core');assert.equal(current.programmes.length,3);assert.ok(body.includes('150')&&body.includes('final30EC'));}
+      if(id==='cp-000397') {assert.equal(current.acceptance.scope,'documented-curriculum');assert.equal(current.comparator.components.reduce((sum,c)=>sum+c.credits,0),177);assert.ok(body.includes('177')&&body.includes('3EC'));}
       if(id==='cp-000266') assert.equal(current.programmes.length,3,'Two independently reviewed UCR options must be present');
       const scopeBox=await page.locator('.qualified-scope').boundingBox(),contextBox=await page.locator('.audience-context').first().boundingBox();
       assert.ok(scopeBox && contextBox && scopeBox.y<contextBox.y,`${id}: scope must precede explanatory prose`);
-      const codes={'cp-000250':'HCBBIOM211','cp-000060':'HCBCOGN312','cp-000033':'BENBUSI112','cp-000440':'BENENTR111','cp-000317':'GOSLAWJ311','cp-000266':'ENSDELT311','cp-000041':'BENBUSI312','cp-000040':'MCCCOMM312'};
+      const codes={'cp-000250':'HCBBIOM211','cp-000060':'HCBCOGN312','cp-000033':'BENBUSI112','cp-000440':'BENENTR111','cp-000317':'GOSLAWJ311','cp-000266':'ENSDELT311','cp-000041':'BENBUSI312','cp-000040':'MCCCOMM312','cp-000113':'MCCCOMM311','cp-000397':'BENECON311'};
       const code=codes[id],button=page.locator(`.course-link[data-code="${code}"]`).first();
       if(size==='mobile'){const index=await button.evaluate(b=>Array.from(b.closest('tr').children).indexOf(b.closest('td')));await page.locator('.column-select').selectOption(String(index));await page.waitForTimeout(250);}
       await button.click();await page.locator('.modal.in').waitFor();
@@ -136,6 +142,7 @@ try {
       assert.equal(await page.locator('.compare-view').count(),0);
       assert.equal(await page.locator('.qualified-scope').count(),0,'Unresolved cases must not acquire a qualification banner');
      }
+     if(variant==='actual' && id==='cp-000263') {assert.equal(current.acceptance.scope,'academic-core');assert.equal(current.comparator.components.reduce((sum,c)=>sum+c.credits,0),130);assert.ok(body.includes('130')&&body.includes('40/45EC'));assert.equal(await page.locator('.course-link').count(),0);}
      if(variant==='actual' && current.acceptance?.basis==='robust-no-match') {assert.equal(await page.locator('.compare-view').count(),0);assert.ok(body.includes('cannot construct a sufficiently close programme') && body.includes(current.audience.comparisonScope.excluded));}
      if(id==='cp-000277' && (variant==='fixtures' || current.exception?.type==='external-programme-unresolved')) {
       assert.ok(body.includes('no complete degree pathway is certified'));
