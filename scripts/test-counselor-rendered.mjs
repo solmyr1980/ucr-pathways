@@ -113,6 +113,10 @@ try {
       await button.click();await page.locator('.modal.in').waitFor();
       const description=JSON.parse(fs.readFileSync(`pilot/shiny/data/courses/${code.slice(0,3)}.json`)).descriptions[code];
       assert.ok(description && (await page.locator('.modal.in').innerText()).replace(/\s+/g,' ').includes(description.replace(/\s+/g,' ').trim()),`${id}/${code}: wrong selected description`);
+      const qualifiedText=await page.locator('.modal.in').innerText();
+      modals.push({code,text:qualifiedText});
+      await page.waitForTimeout(350);
+      await page.screenshot({path:path.join(out,`${variant}-${code}-${size}.png`)});
       await page.locator('.modal.in button',{hasText:'Close'}).click();await page.locator('.modal-backdrop').waitFor({state:'hidden'});
 
      }
