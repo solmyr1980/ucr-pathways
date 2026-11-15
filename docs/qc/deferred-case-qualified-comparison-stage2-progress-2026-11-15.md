@@ -1,34 +1,35 @@
-# Stage 2 current progress and continuation
+# Stage 2 current status — 15 November 2026
 
-15 November 2026. Repository `solmyr1980/ucr-pathways`, `main`. The [complete assignment](deferred-case-qualified-comparison-stage2-assignment-2026-11-15.md), current Production Instructions, Master Specification and six-stage review protocol govern the work. They were retrieved from current GitHub at the start; no governing document has changed in this continuous workstream.
+Authorized scope: exactly61 frozen cases; original375 approved dispositions and CP072/CP099 protected. All counts below derive from current active case records, not approval targets.
 
-## Derived state
+- Completed Stage2 reviews: **6/61**; in progress: 1; not yet started: 54.
+- Corpus academic approvals: **381/438**; academically unresolved: **57**. An unapproved implemented pair remains in progress until actual CI/readback and final review close.
+- Latest verified remote base before this checkpoint: `a96074cc840696ca5bcae06e61ba3dd6673c0b6c`. Individual publication-verification files identify exact paired commits and CI.
+- Actual54-case/viewport desktop/mobile regression passed on`912391ada134615f6dba38c4d2e2468196e67cbf`, including CP040 core/caution, CP041 documented-curriculum and ordinary/unresolved controls. Exact artifact digest, screenshots and results: [runtime verification](evidence/qualified-comparison-stage2-2026-11-15/runtime/cp040-core/verification.json).
 
-**4 of 61 reviews complete:** CP041, CP042, CP053 and CP040. The first three are qualified documented-curriculum comparisons; CP040 is a qualified academic-core comparison. Eight complete UCR programmes are accepted (2/2/3/1). **57 Stage 2 reviews remain unstarted.** The active audit derives **379 approved dispositions and 59 unresolved** of the fixed 438. The two excluded Stage 1 deferrals CP072/CP099 remain unchanged.
+## Initial batch
 
-Each completed case has its own decision/canonical pair, `review.json`, `mechanical.json`, `content-inputs.json`, `publication-verification.json` and exact pre-Stage-2 snapshot under [Stage 2 evidence](evidence/qualified-comparison-stage2-2026-11-15/). Final checks are separately identified source-first second passes by the same AI; no independent human/separate-agent endorsement is claimed.
-
-| Case | Verified pair | Result |
+| Case | Stage2 review | Current case outcome |
 |---|---|---|
-| CP041 | `e3594b0e` | Two economics/business options; 10/8 advanced; 5 different courses. Explicit 2025–2026 entrant cohort and unresolved thesis-entry equivalence. |
-| CP042 | `32b53592` | Own Dutch identity/41 interests; direct official shared-content evidence; two options; 10/8 advanced. No English-sibling approval transferred. |
-| CP053 | `c84db526` | Three IBA options; 7/7/8 advanced; differences 6/9/11. Own 90/102-EC conflict. Source-first alignment corrections; initial derived count report corrected before approval. |
-| CP040 | `b1947907` | One scholarly-core option; 7 advanced; 165 documented EC. Unknown required later 15 EC excluded. Advanced German/corpus/teaching/overseas gaps explicit. A traced cognition basis missing from the concept declaration was repaired after unapproved draft `9fc25992`; no gate weakened. |
+| cp-000041 | completed | qualified documented-curriculum |
+| cp-000042 | completed | qualified documented-curriculum |
+| cp-000053 | completed | qualified documented-curriculum |
+| cp-000040 | completed | qualified academic-core |
+| cp-000046 | completed | qualified academic-core |
+| cp-000100 | completed | qualified academic-core |
+| cp-000112 | in-progress | qualified academic-core |
+| cp-000113 | not started | Awaiting Stage 2 review |
+| cp-000397 | not started | Awaiting Stage 2 review |
+| cp-000263 | not started | Awaiting Stage 2 review |
 
-All repaired pairs pass exact production replay, strict schema, workbook feasibility, operational checks and published-pair CI. Stage 2 preservation protects all 375 earlier approvals, CP072/CP099, unprocessed triples, course/registry/student/shared-description inputs, Stage 1 metadata and exhausted-worker histories. Seven scope/evidence bookkeeping tests and existing audit tests pass. All-438 strict schema/feasibility integration was checked; subsequent changes retain the same gates.
+The initial ten-case batch is not yet complete or batch-QA approved. Continue without routine user approval. Exact next case: **cp-000112**. If it has an implemented production pair, verify its exact published blobs and applicable CI before completing academic approval; otherwise execute its full independent case review. Then continue the remaining initial-batch IDs in order. After all ten, complete academic/technical QA and proceed automatically if sound.
 
-## Running batch integration
+## Continuation safeguards
 
-Actual CP041 desktop/mobile inspection passed within the 52-check shared matrix; artifact digest, selected screenshots and all results are retained in `runtime/`. CP042/CP053 use unchanged tested display types and do not claim individual browser runs.
+Read the Stage2 assignment and governing current GitHub documents in a fresh session. Use the frozen Stage2 baseline and active register; preserve original worker/retry histories and both excluded Stage1 deferrals. Existing evidence may be retained after checking its actual source/version and claim. Same-AI source-first challenge must be disclosed.
 
-**The expanded actual CP040 academic-core desktop/mobile matrix is running on `4399f436e2ca909a4e2adf0839ae433ec1f0329b`.** Its result is not yet claimed. App/renderer code is unchanged. This is a required first-batch integration gate; case-level academic/mechanical/record-content review is complete under the existing no-live-app-per-case policy. Inspect and retain its real result/artifact before approving first-batch QA. If it fails, diagnose and repair before the next batch.
+Publication uses the authenticated connector and `scripts/github-publication.cjs`, fresh complete checkout/parent, exact Git blob hashes, one decision/canonical pair per commit, replay/schema/feasibility/operational/audit/preservation before publication, actual remote readback and CI before approval. Wait for command completion and inspect exit status; never publish a failed local gate. CP040’s two failed runtime preparations and exact corrections are retained in the runtime verification rather than recorded as browser successes.
 
-## Exact next action
+Required local checks include `npm run validate:counselor`, `npm run validate:counselor-review`, `python scripts/validate-comprehensive-reaudit.py`, `python scripts/test-qualified-comparison-stage2.py`, and `python scripts/verify-qualified-comparison-stage2.py`; each changed production pair also needs byte-exact production-wrapper replay, strict schema and current-workbook feasibility. Runtime is a representative batch integration gate under unchanged renderer logic, not a per-case app-launch requirement.
 
-**Begin CP046, French Language and Culture, Radboud**, from its own current decision/canonical/case, source/interest/course research and current workbook. Its three repeated 5-EC requirements occur in a different early-year/cohort structure. Do not import CP040’s core finding, repeated-code correction or conditional mobility rule. Test the strongest actual UCR response and every credible adverse resolution; unknown credit is not elective space, and missing French proficiency alone does not establish no-match. Complete the case end to end before the next.
-
-Remaining initial-batch order: **CP046, CP100, CP112, CP113, CP397, CP263**. The ten-case batch is **not yet complete or quality-approved**. Update [batch-01](evidence/qualified-comparison-stage2-2026-11-15/batches/batch-01.md) with all ten outcomes and real academic/technical/runtime QA before selecting any subsequent batch. If sound, continue automatically in batches of up to ten selected from frozen scope minus completed reviews. Do not request routine approval.
-
-Before every write, fetch fresh main, read the complete active pointer/register from that parent, check `systemicPause`, reconcile touched paths and synchronously require successful operational, schema/feasibility, replay, audit and preservation checks. Check process exit codes before advancing. Publish serialized authenticated helper commits, at most one active decision/canonical pair each; verify complete bytes, blob SHAs, fresh parent, fast-forward update, read-back and applicable CI. Preserve case history and Stage 1 metadata. Do not restart tasks, create branches/PRs, alter the workbook/private records, generate final discovery products or deploy/release.
-
-The final Stage 2 report is due after all 61 reviews. This current status is not that report, and no background academic processing is implied by an ended session.
+After the first ten, choose manageable batches from the frozen61 minus completed reviews. A justified unresolved outcome is a completed Stage2 review but remains academically incomplete. Produce the specified final Stage2 report only after all61 reviews close. Do not restart automations, create branches/PRs, deploy, publish final discovery data, or authorize public release.
