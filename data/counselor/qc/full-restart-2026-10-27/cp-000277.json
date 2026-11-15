@@ -37,7 +37,7 @@
     "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000277/revisit-source-first-checkpoint.json": "8bbaca76ec7b9d1282de711baf24853c2879f97c",
     "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000277/revisit-mechanical-checks.json": "cf6b6dffa1413ea3102c92635d9f817345a996a8"
   },
-  "state": "in-progress",
+  "state": "approved",
   "stages": {
     "1": {
       "outcome": "correct",
@@ -118,31 +118,71 @@
     },
     "6": {
       "outcome": "correct",
-      "finding": "Run currentworkbookfeasibility on the preservedchallenge,strictschema and exactexceptionreplay,operational/audit/Rcontent checks. Partialno-match desktop/mobile path remains in sharedintegration;no release/deployment.",
+      "finding": "All source-first academic, mechanical and reader-content gates passed against the exact finished decision/canonical blobs. Applicable published compilation and validation evidence is recorded separately from shared runtime/release authority.",
       "preserved": [
         "Original source and worker findings preserved in reviewHistory; sound interest and course research retained with versioned references."
       ],
       "actions": [],
       "evidence": [
-        "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000277/review.json#/validationPlan"
+        "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000277/mechanical.json",
+        "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000277/content-inputs.json",
+        "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000277/review.json#/sourceFirstChallenge"
       ],
       "blockedBy": [],
       "reassessStages": []
     }
   },
   "sharedIssueIds": [],
-  "unresolved": [
-    "Published implementation, replay and applicable CI verification remain to be reconciled before final approval."
-  ],
+  "unresolved": [],
   "downstreamReassessments": [],
   "implementationCommits": [
     "cd91505e6ba2ac4ed964f521ae3c4bf656fe7318",
-    "b0b75eb7e99fe8bfe9e6d58e00d10ec7192f7cd0"
+    "b0b75eb7e99fe8bfe9e6d58e00d10ec7192f7cd0",
+    "aa07541d2594d54ead594292834985d6f15dfe69",
+    "1f14ebe1f45d54a0aad800bf76003f31824c0f31"
   ],
-  "finalReview": null,
+  "finalReview": {
+    "reviewerOrPass": "Stage 1 source-first final academic/content pass, ChatGPT Work",
+    "independenceMethod": "Separately identified source-first second pass by the same AI reviewer against official sources and current UCR evidence, not independent human or separate-agent review.",
+    "reviewedOn": "2026-11-15",
+    "reviewedCommit": "1f14ebe1f45d54a0aad800bf76003f31824c0f31",
+    "reviewProcess": "qualified-comparison-stage1-2026-11-15",
+    "verificationPolicy": "record-content-review-2026-10-31",
+    "sourceEvidenceRefs": [
+      "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000277/review.json#/externalReview",
+      "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000277/review.json#/sourceFirstChallenge",
+      "data/reference/ucr_courses_enriched.xlsx"
+    ],
+    "inputBlobs": {
+      "decision": "e1705e4a69c5ef15aeaae68ddcd68fa3180dbf73",
+      "canonical": "30b423bd59d3b3a0b3f9d28d3f151abae5d623f8"
+    },
+    "checks": {
+      "academic": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000277/review.json#/academicJudgment",
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000277/review.json#/sourceFirstChallenge"
+        ]
+      },
+      "mechanical": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000277/mechanical.json"
+        ]
+      },
+      "content": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000277/review.json#/contentReview",
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000277/content-inputs.json"
+        ]
+      }
+    }
+  },
   "schemaVersion": "2.0",
   "auditId": "counselor-full-restart-2026-10-27",
-  "presentationApproval": false,
+  "presentationApproval": true,
   "evidenceSources": [
     {
       "url": "https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/geesteswetenschappen/oer/2026-2027/ba-oso-african-studies-2026-2027.pdf",
