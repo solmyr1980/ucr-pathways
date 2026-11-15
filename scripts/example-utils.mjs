@@ -1,5 +1,6 @@
 import { comparatorMetadata, visibleProgrammeLabel } from '../assets/js/comparison.js';
 export { comparatorMetadata, visibleProgrammeLabel, comparisonNotes } from '../assets/js/comparison.js';
+import { hasBoundedAcceptance } from './counselor-acceptance.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -163,7 +164,7 @@ function validateComparisonCoverage(example, programmes, fail) {
       }
     }
 
-    if (numericCredits && !approximatelyEqual(total, 180)) {
+    if (numericCredits && !approximatelyEqual(total, programme.role === 'comparator' && hasBoundedAcceptance(example) ? comparator.components.reduce((n,c) => n + c.credits, 0) : 180)) {
       fail(`comparison ${programme.id} totals ${total} EC; every programme comparison must total 180 EC`);
     }
 
@@ -241,7 +242,7 @@ function validateComparisonCoverage(example, programmes, fail) {
         if (credits === null || credits <= 0) fail(`comparator component ${id} requires positive numeric credits`);
         else componentTotal += credits;
       }
-      if (!approximatelyEqual(componentTotal, 180)) {
+      if (!approximatelyEqual(componentTotal, 180) && !hasBoundedAcceptance(example)) {
         fail(`comparator.components total ${componentTotal} EC; reconstructed comparator must total 180 EC`);
       }
 

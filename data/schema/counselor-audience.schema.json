@@ -62,7 +62,7 @@
         },
         "yearLabel": {
           "type": "string",
-          "pattern": "^20[0-9]{2}[\u2013-]20[0-9]{2}$"
+          "pattern": "^20[0-9]{2}[–-]20[0-9]{2}$"
         },
         "routeLabel": {
           "type": "string",
@@ -148,6 +148,33 @@
             "minLength": 1,
             "maxLength": 3000
           }
+        }
+      }
+    },
+    "comparisonScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "label",
+        "assessed",
+        "excluded",
+        "nominalCredits"
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "assessed": {
+          "type": "string",
+          "minLength": 1
+        },
+        "excluded": {
+          "type": "string",
+          "minLength": 1
+        },
+        "nominalCredits": {
+          "const": 180
         }
       }
     }

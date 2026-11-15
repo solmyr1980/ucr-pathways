@@ -123,7 +123,7 @@ export function compileV2(decision, repositoryRoot) {
       return { id: tuple[0], name: tuple[1], credits: tuple[2], ...(tuple[3] ? { note: tuple[3] } : {}) };
     });
     requireCondition(new Set(components.map(item => item.id)).size === components.length, 'exception comparator component IDs must be unique');
-    if (['no-defensible-ucr-match', 'ucr-assessment-pending'].includes(exception.type)) {
+    if (['no-defensible-ucr-match', 'ucr-assessment-pending'].includes(exception.type) && !(exception.type === 'no-defensible-ucr-match' && decision.acceptance?.basis === 'robust-no-match')) {
       requireCondition(components.length > 0 && Math.abs(components.reduce((sum, item) => sum + item.credits, 0) - 180) < 0.001, `${exception.type} requires a complete 180-EC comparator`);
     }
     if (exception.type === 'no-defensible-ucr-match') {
@@ -159,7 +159,7 @@ export function compileV2(decision, repositoryRoot) {
     requireCondition(!componentIds.has(id), `duplicate comparator component ${id}`); componentIds.add(id);
     return { id, name, credits, ...(note ? { note } : {}) };
   });
-  requireCondition(Math.abs(components.reduce((sum, item) => sum + item.credits, 0) - 180) < 0.001, 'comparator components must total 180 EC');
+  requireCondition(decision.acceptance?.basis === 'qualified-comparison' || Math.abs(components.reduce((sum, item) => sum + item.credits, 0) - 180) < 0.001, 'comparator components must total 180 EC');
   const sourceFor = token => expandEvidenceToken(token).reference;
   const comparator = {
     name: comparatorInput.name, institution: comparatorInput.institution,

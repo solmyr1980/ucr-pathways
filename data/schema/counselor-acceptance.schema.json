@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://solmyr1980.github.io/ucr-pathways/data/schema/counselor-acceptance.schema.json",
+  "title": "Explicit bounded materiality acceptance evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "standard",
+    "basis",
+    "scope",
+    "claim",
+    "targetContext",
+    "reviewedOn",
+    "verifiedComponentIds",
+    "externalEvidenceRefs",
+    "ucrEvidenceRefs",
+    "challengeEvidenceRefs",
+    "challengeMethod",
+    "uncertainties"
+  ],
+  "properties": {
+    "standard": {
+      "const": "bounded-materiality-2026-11-15"
+    },
+    "basis": {
+      "enum": [
+        "qualified-comparison",
+        "robust-no-match"
+      ]
+    },
+    "scope": {
+      "enum": [
+        "documented-curriculum",
+        "academic-core"
+      ]
+    },
+    "claim": {
+      "type": "string",
+      "minLength": 1
+    },
+    "targetContext": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewedOn": {
+      "type": "string",
+      "format": "date"
+    },
+    "verifiedComponentIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "externalEvidenceRefs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "ucrEvidenceRefs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "challengeEvidenceRefs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "challengeMethod": {
+      "type": "string",
+      "minLength": 1
+    },
+    "uncertainties": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "fact",
+          "evidenceRefs",
+          "adverseResolutions"
+        ],
+        "properties": {
+          "fact": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidenceRefs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "adverseResolutions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "resolution",
+                "effectOnClaim",
+                "claimSurvives"
+              ],
+              "properties": {
+                "resolution": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "effectOnClaim": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "claimSurvives": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

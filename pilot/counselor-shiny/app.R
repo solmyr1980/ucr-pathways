@@ -307,6 +307,52 @@ curriculum_view <- function(record) {
        limitation = safe_text(c$limitation))
 }
 
+# Fail closed at the display boundary; full academic/schema checks run upstream.
+qualified_comparison <- function(record) {
+  a <- record$acceptance
+  ids <- vapply(record$comparator$components %||% list(), function(x) safe_text(x$id), character(1))
+  nonempty <- function(x) nzchar(safe_text(x))
+  refs <- function(x) length(x) > 0 && all(vapply(x, nonempty, logical(1)))
+  view <- curriculum_view(record)
+  scope <- audience_content(record)$comparisonScope
+  if (!is.list(a) || !identical(a$standard, "bounded-materiality-2026-11-15") ||
+      !identical(a$basis, "qualified-comparison") || !a$scope %in% c("academic-core", "documented-curriculum") ||
+      identical(record$recordStatus, "exception") || !is.null(record$exception) ||
+      !length(ids) || anyDuplicated(unlist(a$verifiedComponentIds)) ||
+      !setequal(ids, unlist(a$verifiedComponentIds)) ||
+      !identical(view$status, "partial") || length(view$components) != length(ids) ||
+      !identical(safe_text(scope$label), if (identical(a$scope, "academic-core")) "Qualified academic-core comparison" else "Qualified academic comparison") ||
+      !nonempty(a$claim) || !nonempty(a$targetContext) || !nonempty(a$challengeMethod) ||
+      !grepl("^[0-9]{4}-[0-9]{2}-[0-9]{2}$", safe_text(a$reviewedOn)) ||
+      !refs(a$externalEvidenceRefs) || !refs(a$ucrEvidenceRefs) || !refs(a$challengeEvidenceRefs) ||
+      !length(a$uncertainties) || !is.list(scope) || !identical(as.numeric(scope$nominalCredits), 180) ||
+      !all(vapply(scope[c("label", "assessed", "excluded")], nonempty, logical(1))) ||
+      !all(vapply(c("programmeDescription", "comparisonExplanation"), function(k) nonempty(audience_content(record)[[k]]), logical(1)))) return(FALSE)
+  if (!all(vapply(a$uncertainties, function(u) nonempty(u$fact) && refs(u$evidenceRefs) &&
+      length(u$adverseResolutions) > 0 && all(vapply(u$adverseResolutions, function(r)
+        nonempty(r$resolution) && nonempty(r$effectOnClaim) && isTRUE(r$claimSurvives), logical(1))), logical(1)))) return(FALSE)
+  programmes <- Filter(is_ucr_programme, record$programmes %||% list())
+  length(programmes) %in% 1:3 && all(vapply(programmes, function(p) {
+    terms <- p$schedule$semesters %||% list()
+    courses <- unlist(lapply(terms, function(t) t$courses), recursive = FALSE)
+    length(terms) == 6 && all(vapply(terms, function(t) length(t$courses) == 4, logical(1))) &&
+      length(unique(vapply(courses, function(c) safe_text(c$code), character(1)))) == 24 &&
+      abs(sum(vapply(courses, function(c) as.numeric(c$credits), numeric(1))) - 180) < .001
+  }, logical(1)))
+}
+
+render_comparison_scope <- function(record) {
+  s <- audience_content(record)$comparisonScope
+  if (!is.list(s) || !all(vapply(s[c("label", "assessed", "excluded")], function(x) nzchar(safe_text(x)), logical(1)))) return(NULL)
+  total <- sum(vapply(curriculum_view(record)$components, function(c) as.numeric(c$credits), numeric(1)))
+  div(class = "qualified-scope curriculum-status",
+      tags$h2(safe_text(s$label)),
+      tags$p(paste0("Nominal external degree: 180 EC. Documented components shown: ", format(total, trim = TRUE), " EC.")),
+      tags$p(tags$strong("Assessed scope: "), safe_text(s$assessed)),
+      tags$p(tags$strong("Outside the assessed scope: "), safe_text(s$excluded)),
+      tags$p("Unknown requirements are not open electives and are not assessed as matched or unmatched components."))
+}
+
 render_audience_context <- function(record) {
   view <- curriculum_view(record)
   div(class = "audience-context",
@@ -354,11 +400,12 @@ render_comparison_summary <- function(record) {
   div(
     class = "comparison-summary", id = "comparison-overview",
     render_audience_context(record),
+    render_comparison_scope(record),
     div(
       class = "summary-heading",
       tags$h2("What this comparison shows"),
       tags$p(paste0(
-        "A curriculum-level comparison of ", comparator_label, " with ", length(programmes),
+        if (qualified_comparison(record)) "A qualified academic comparison of the documented scope of " else "A curriculum-level comparison of ", comparator_label, " with ", length(programmes),
         if (length(programmes) == 1) " illustrative UCR study composition." else " illustrative UCR study compositions."
       ))
     ),
@@ -415,7 +462,7 @@ render_compare_table <- function(record) {
 
   labels <- vapply(programmes, function(p) visible_label(record, p), character(1))
   div(class = "compare-view", `data-count` = length(programmes),
-    tags$p(class = "comparison-legend", "Rows show curricular relationships, including partial matches, rather than course equivalence. A blank cell means there is no closely comparable component in that row. Optional independent research is additional to the displayed 180 EC."),
+    tags$p(class = "comparison-legend", if (qualified_comparison(record)) "Rows compare only the documented external components with complete 180-EC UCR compositions. A blank cell beside a known component means no close correspondence in that row. Unknown requirements are excluded from these rows. Optional independent research is additional to each UCR composition’s 180 EC; it does not establish equivalence with unverified external final training." else "Rows show curricular relationships, including partial matches, rather than course equivalence. A blank cell means there is no closely comparable component in that row. Optional independent research is additional to the displayed 180 EC."),
     div(class = "comparison-navigation", role = "navigation", `aria-label` = "Comparison columns",
       tags$button(type = "button", class = "column-previous secondary-button", "← Previous"),
       tags$label("Programme column", tags$select(class = "column-select", `aria-label` = "Programme column",
@@ -477,6 +524,7 @@ render_exception <- function(record, presentation_only = FALSE, display_note = "
     div(class = "comparison-summary", id = "comparison-overview",
       tags$h2("About this programme"), tags$p(class = "comparison-status", status_copy),
       render_audience_context(record),
+    render_comparison_scope(record),
       if (!nzchar(audience_text(record, "programmeDescription"))) tags$p("A programme description is awaiting review. Use the official source to explore the programme."),
       tags$a(href = safe_text(meta$primarySourceUrl), target = "_blank", rel = "noopener", "Official programme source ↗")),
     if (length(view$components)) div(class = "external-curriculum",
@@ -496,7 +544,7 @@ render_exception <- function(record, presentation_only = FALSE, display_note = "
 render_comparison <- function(record) {
   if (identical(safe_text(record$recordStatus), "exception")) return(render_exception(record))
   setting <- presentation_setting(safe_text(record$id))
-  if (identical(setting$mode, "external-only") || curriculum_view(record)$status %in% c("partial", "unresolved")) {
+  if (identical(setting$mode, "external-only") || (curriculum_view(record)$status %in% c("partial", "unresolved") && !qualified_comparison(record)) || (!is.null(record$acceptance) && !qualified_comparison(record))) {
     return(render_exception(record, presentation_only = TRUE,
                             display_note = ""))
   }

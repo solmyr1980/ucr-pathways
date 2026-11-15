@@ -236,6 +236,8 @@ Counselor presentation decisions are reversible and separate from academic produ
 
 Detailed execution belongs exclusively to the **Production Instructions**. The durable principles are:
 
+Qualified counselor comparisons may present a clearly bounded academic claim when external verification remains incomplete. They retain the academic and full UCR feasibility thresholds. A confirmed-academic-core view identifies assessed and excluded required study prominently; it never represents unknown requirements as open electives or complete degree training. Robust no-matches may rely on verified defining external substance when missing details cannot reverse the substantive shortfall. Ordinary verified comparisons retain their complete-pathway default. Production Instructions §2.1A owns acceptance evidence and gates; top-level status and presentation visibility remain separate.
+
 ## 5.1 External programme fairness
 
 Reconstruct comparators from current official university evidence. Represent compulsory, restricted-choice, route/specialization, open-elective, methods/research, thesis/capstone and EC structure fairly. Where choices must be instantiated, use one coherent valid pathway.
@@ -269,7 +271,7 @@ Stop when the next alternative cannot pass these tests. Do not skip a failed sec
 
 Construct and validate the comparator and every included UCR programme before designing comparison blocks. Use actual content rather than titles alone and preserve actual EC weights.
 
-The academic comparison is a **lossless 180-EC representation of each completed programme**, organised into meaningful substantive blocks. Every included UCR course must appear exactly once in the comparison, including Personal & Professional Development. The external programme must likewise account for its complete 180 EC; genuine open-elective, profiling or restricted-choice space must be represented explicitly rather than disappearing from the comparison.
+The academic comparison is a **lossless 180-EC representation of each completed programme**, organised into meaningful substantive blocks. Every included UCR course must appear exactly once in the comparison, including Personal & Professional Development. The external programme must likewise account for its complete 180 EC under the ordinary verified route; the explicit bounded counselor route instead preserves every component in its accepted verified scope and identifies unassessed requirements separately; genuine open-elective, profiling or restricted-choice space must be represented explicitly rather than disappearing from the comparison.
 
 In addition to that 180-EC academic representation, every UCR alternative must display one standardized comparison-only opportunity: **Optional independent research — 15 EC**. This element is not one of the 24 scheduled UCR courses, is not included in the six-semester schedule, and does not count toward the displayed programme's 180 EC. Where the comparator contains an identifiable bachelor thesis, capstone, research project or equivalent independent-research component, show the UCR optional-research element in parallel with that comparator component. Where the comparator contains no such component, place the optional-research element in the same substantive block as Personal & Professional Development. The enriched UCR course database must not contain this comparison-only element.
 

@@ -1,4 +1,5 @@
 import { validateAudience } from './counselor-audience.mjs';
+import { validateAcceptance, hasBoundedAcceptance } from './counselor-acceptance.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { isUcrProgramme, normalizeCell, readExample, validateExample } from './example-utils.mjs';
@@ -260,7 +261,7 @@ function validateException(record, fail) {
       if (ids.has(item?.id)) fail(`duplicate comparator component ${item.id}`);
       ids.add(item?.id);
     }
-    if (['no-defensible-ucr-match', 'ucr-assessment-pending'].includes(value.type) && (!components.length || Math.abs(components.reduce((sum, item) => sum + (Number(item?.credits) || 0), 0) - 180) > 0.001)) fail(`${value.type} requires a complete 180-EC external curriculum`);
+    if (['no-defensible-ucr-match', 'ucr-assessment-pending'].includes(value.type) && !hasBoundedAcceptance(record) && (!components.length || Math.abs(components.reduce((sum, item) => sum + (Number(item?.credits) || 0), 0) - 180) > 0.001)) fail(`${value.type} requires a complete 180-EC external curriculum`);
   }
   if (value.type === 'no-defensible-ucr-match' && (typeof value.ucrCourseEvidence !== 'string' || !value.ucrCourseEvidence.trim())) fail('exception.ucrCourseEvidence must explain the current UCR course-database assessment');
   if (!Array.isArray(record.programmes) || record.programmes.length !== 1 || record.programmes[0]?.id !== 'comparator' || record.programmes[0]?.role !== 'comparator') fail('exception must contain only the external comparator programme');
@@ -282,8 +283,10 @@ if (target === 'all' && files.length === 0) {
 for (const file of files) {
   const sourceName = path.basename(file);
   const record = readExample(file);
+  const acceptanceErrors = validateAcceptance(record);
   const exceptionRecord = record.recordStatus === 'exception';
   const generic = exceptionRecord ? { errors: [], warnings: [] } : validateExample(record, sourceName);
+  generic.errors.push(...acceptanceErrors);
   const errors = [...generic.errors, ...validateAudience(record)];
   const warnings = [...generic.warnings];
   const fail = message => errors.push(`${sourceName}: ${message}`);

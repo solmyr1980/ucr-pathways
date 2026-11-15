@@ -13,7 +13,7 @@ const cases = {
   actual: [['cp-000003','Pedagogical'],['cp-000001','Public Administration'],['cp-000019','Arts and Culture'],['cp-000035','Biology'],['cp-000330','Mechanical Engineering'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies']],
   fixtures: [['cp-000004','Psychology'],['cp-000002','Management of International'],['cp-000005','Psychology'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000019','Arts and Culture'],['cp-000003','Pedagogical']]
 };
-const browser = await chromium.launch({headless:true,args:['--no-sandbox']});
+const browser = await chromium.launch({headless:true,executablePath:process.env.UCR_CHROMIUM_PATH || undefined,args:['--no-sandbox']});
 try {
  for (const [vi,variant] of ['actual','fixtures'].entries()) {
   const port=3850+vi, url=`http://127.0.0.1:${port}`;
@@ -63,6 +63,10 @@ try {
       await page.locator('.comparison-navigation a').click();
      }
      const modals=[];
+     if(variant==='fixtures' && id==='cp-000019') {
+      assert.ok(body.includes('Qualified academic-core comparison') && body.includes('Nominal external degree: 180 EC') && body.includes('Unknown requirements are not open electives'));
+      assert.equal(await page.locator('.compare-view').count(),1);
+     }
      if(id==='cp-000019') {
       for(const code of ['BENBUSI211','MCCHEAM316','MCCHEAM212','DISARIN111']) {
        const button=page.locator(`.course-link[data-code="${code}"]`).first();

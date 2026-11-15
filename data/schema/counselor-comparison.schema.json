@@ -316,6 +316,47 @@
         },
         "comparisonAlignment": {
           "$ref": "#/$defs/comparisonAlignment"
+        },
+        "acceptance": {
+          "$ref": "./counselor-acceptance.schema.json"
+        }
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "acceptance"
+        ]
+      },
+      "then": {
+        "required": [
+          "audience"
+        ],
+        "properties": {
+          "acceptance": {
+            "properties": {
+              "basis": {
+                "const": "qualified-comparison"
+              }
+            }
+          },
+          "audience": {
+            "required": [
+              "programmeDescription",
+              "comparisonExplanation",
+              "comparisonScope",
+              "curriculum"
+            ],
+            "properties": {
+              "curriculum": {
+                "properties": {
+                  "status": {
+                    "const": "partial"
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

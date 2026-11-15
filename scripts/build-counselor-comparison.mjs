@@ -283,6 +283,7 @@ function buildComparison(decision, programmes) {
 }
 
 export function compileCounselorDecision(decision, root = process.cwd()) {
+  requireCondition(!Object.hasOwn(decision || {}, 'acceptance'), 'bounded materiality requires the v2 production compiler');
   requireCondition(decision && typeof decision === 'object' && !Array.isArray(decision), 'decision file must contain a JSON object');
   requireCondition(decision.decisionSchemaVersion === DECISION_SCHEMA, `decisionSchemaVersion must be ${JSON.stringify(DECISION_SCHEMA)}`);
   requireCondition(CP_PATTERN.test(String(decision.id || '')), 'id must use cp-000001 format');

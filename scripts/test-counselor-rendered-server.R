@@ -5,6 +5,12 @@ port <- as.integer(args[[2]])
 e <- new.env()
 app <- source("pilot/counselor-shiny/app.R", local = e)$value
 if (identical(variant, "fixtures")) {
+  fixture_path <- tempfile(fileext=".json")
+  Sys.setenv(UCR_ACCEPTANCE_FIXTURE_OUTPUT=fixture_path)
+  stopifnot(system2("node", "scripts/test-counselor-acceptance.mjs") == 0)
+  Sys.unsetenv("UCR_ACCEPTANCE_FIXTURE_OUTPUT")
+  qualified_fixture <- jsonlite::fromJSON(fixture_path, simplifyVector=FALSE)
+  unlink(fixture_path)
   original <- e$read_json_file
   e$read_json_file <- function(path) {
     r <- original(path)
@@ -23,6 +29,7 @@ if (identical(variant, "fixtures")) {
         # Existing canonical concepts and limitation text selected, not rewritten.
       }
     } else if (r$id == "cp-000005") r$audience <- list(schemaVersion = "1.0", programmeDescription = "This programme description has been reviewed; other content remains under review.")
+    if (r$id == "cp-000019") r <- qualified_fixture
     r
   }
   e$COUNSELOR_PRESENTATION[["cp-000002"]] <- list(mode = "external-only", message = "INTERNAL-SENTINEL-DO-NOT-DISPLAY")

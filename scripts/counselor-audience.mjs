@@ -1,3 +1,4 @@
+import { validateAcceptance } from './counselor-acceptance.mjs';
 // Optional, progressively reviewed audience content. No academic facts are inferred.
 const object = x => x && typeof x === 'object' && !Array.isArray(x);
 const text = x => typeof x === 'string' && x.trim() && x.length <= 3000;
@@ -7,7 +8,7 @@ export function validateAudience(record) {
   const errors = [];
   const check = (ok, message) => { if (!ok) errors.push(`audience: ${message}`); };
   if (!object(a)) return ['audience must be an object'];
-  const keys = ['schemaVersion', 'programmeDescription', 'comparisonExplanation', 'curriculum', 'conceptProgrammeIds', 'noteTypes', 'componentNotes', 'cellNotes'];
+  const keys = ['schemaVersion', 'programmeDescription', 'comparisonExplanation', 'curriculum', 'conceptProgrammeIds', 'noteTypes', 'componentNotes', 'cellNotes', 'comparisonScope'];
   check(Object.keys(a).every(k => keys.includes(k)), 'unknown field');
   check(a.schemaVersion === '1.0', 'schemaVersion must be 1.0');
   for (const key of ['programmeDescription', 'comparisonExplanation']) if (key in a) check(text(a[key]), `${key} must be readable nonempty text (max 3000 characters)`);
@@ -38,6 +39,10 @@ export function validateAudience(record) {
       else if (c.status === 'unresolved') check(c.componentIds?.length === 0 && text(c.limitation), 'unresolved requires no displayed components and explicit limitation');
     }
   }
+  if ('comparisonScope' in a) {
+    const s = a.comparisonScope;
+    check(object(s) && Object.keys(s).every(k => ['label', 'assessed', 'excluded', 'nominalCredits'].includes(k)) && text(s.label) && text(s.assessed) && text(s.excluded) && s.nominalCredits === 180, 'invalid comparison scope');
+  }
   if ('componentNotes' in a) check(object(a.componentNotes) && Object.entries(a.componentNotes).every(([id, note]) => ids.includes(id) && text(note)), 'componentNotes require existing component IDs and readable text');
   if ('cellNotes' in a) {
     check(Array.isArray(a.cellNotes), 'cellNotes must be an array');
@@ -54,7 +59,8 @@ export function validateAudience(record) {
 }
 export function withAudience(record, decision) {
   if (decision.audience !== undefined) record.audience = structuredClone(decision.audience);
-  const errors = validateAudience(record);
+  if (decision.acceptance !== undefined) record.acceptance = structuredClone(decision.acceptance);
+  const errors = [...validateAudience(record), ...validateAcceptance(record)];
   if (errors.length) throw new Error(errors.join('; '));
   return record;
 }

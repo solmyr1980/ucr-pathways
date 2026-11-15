@@ -11,6 +11,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import subprocess
 
 REGISTER = 'data/counselor/qc/comprehensive-reaudit.json'
 CASE_DIR = 'data/counselor/qc/comprehensive-reaudit'
@@ -58,6 +59,11 @@ def validate_approved_curriculum(record, case_id):
                 and curriculum.get('limitation')
                 and not any(p.get('family') == 'ucr' for p in record.get('programmes', [])),
                 f'{case_id}: registry exception must expose its identity limitation without a fabricated curriculum or UCR programme')
+        return
+    if 'acceptance' in record:
+        result = subprocess.run(['node', str(Path(__file__).with_name('check-counselor-acceptance.mjs'))],
+                                input=json.dumps(record), text=True, capture_output=True)
+        require(result.returncode == 0, f'{case_id}: invalid bounded acceptance: {result.stderr}')
         return
     require(curriculum.get('status') == 'complete'
             and set(curriculum.get('componentIds', [])) == {c['id'] for c in components}
@@ -113,8 +119,9 @@ def sync_summaries(root):
                             'reviewedWithBlockers': counts['reviewed-with-blockers'],
                             'notStarted': counts['not-started'],
                             'pilotStarted': sum(states[c] != 'not-started' for c in pilot)}
+    post_audit = set(register.get('postAuditReview', {}).get('caseIds', []))
     for worker in register.get('workers', {}).values():
-        worker['completedCases'] = [c for c in worker['assignedCases'] if states[c] in ['approved', 'reviewed-with-blockers']]
+        worker['completedCases'] = [c for c in worker['assignedCases'] if states[c] in ['approved', 'reviewed-with-blockers'] and c not in post_audit]
         worker['completedDispositions'] = [dispositions[c] for c in worker['completedCases']]
     # Validate the proposed local register, restoring the original on any failure.
     original = pointer.read_text()
@@ -296,6 +303,10 @@ def validate(root):
     counts = Counter(states.values())
     expected = {'approved': counts['approved'], 'inProgress': counts['in-progress'], 'reviewedWithBlockers': counts['reviewed-with-blockers'], 'notStarted': counts['not-started'], 'pilotStarted': sum(states[x] != 'not-started' for x in pilot)}
     require(d['progress'] == expected, f'Progress differs: expected {expected}')
+    post_audit = set(d.get('postAuditReview', {}).get('caseIds', []))
+    if post_audit:
+        require(d['postAuditReview'].get('id') == 'qualified-comparison-stage1-2026-11-15' and len(post_audit) == 10 and post_audit <= set(baseline), 'Invalid bounded Stage 1 scope')
+        reference(d['postAuditReview']['assignmentRef'])
     if 'workers' in d:
         workers = d['workers']
         require(set(workers) == {'A', 'B'}, 'Restart requires exactly two workers')
@@ -310,11 +321,11 @@ def validate(root):
             own = worker['assignedCases']
             require(worker['assignedCaseCount'] == len(own) == midpoint, f'{name}: unequal half')
             completed = worker['completedCases']
-            actual_final = {case_id for case_id in own if states[case_id] in ['approved', 'reviewed-with-blockers']}
+            actual_final = {case_id for case_id in own if states[case_id] in ['approved', 'reviewed-with-blockers'] and case_id not in post_audit}
             require(len(completed) == len(set(completed)) and set(completed) == actual_final, f'{name}: completion count differs from new dispositions')
             deferred = worker['deferredCases']
             require(set(deferred) <= set(own) and not (set(deferred) & set(completed)), f'{name}: invalid deferral ownership/completion')
-            require(all(states[case_id] == 'in-progress' for case_id in deferred), f'{name}: deferred case must remain in-progress')
+            require(all(states[case_id] == 'in-progress' or (case_id in post_audit and states[case_id] == 'approved') for case_id in deferred), f'{name}: deferred case must remain in-progress')
             claim = worker.get('activeClaim')
             require(not claim or claim.get('caseId') in own, f'{name}: claim belongs to another half')
         require(d['reportingPairs'] == [baseline[i:i + 2] for i in range(0, len(baseline), 2)], 'Restart reporting pairs changed')

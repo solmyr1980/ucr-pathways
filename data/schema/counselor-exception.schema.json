@@ -142,6 +142,9 @@
     },
     "audience": {
       "$ref": "./counselor-audience.schema.json"
+    },
+    "acceptance": {
+      "$ref": "./counselor-acceptance.schema.json"
     }
   },
   "allOf": [
@@ -169,6 +172,44 @@
             ]
           }
         ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "acceptance"
+        ]
+      },
+      "then": {
+        "required": [
+          "audience"
+        ],
+        "properties": {
+          "acceptance": {
+            "properties": {
+              "basis": {
+                "const": "robust-no-match"
+              }
+            }
+          },
+          "audience": {
+            "required": [
+              "programmeDescription",
+              "comparisonExplanation",
+              "comparisonScope",
+              "curriculum"
+            ],
+            "properties": {
+              "curriculum": {
+                "properties": {
+                  "status": {
+                    "const": "partial"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   ]
