@@ -1,0 +1,708 @@
+{
+  "baselineCommit": "4a68473fc0debf5d1bd5320fc4c0859c04acd81a",
+  "implementationCommit": "b2b83d40d17d8abf58c932504b928e6b2169229a",
+  "note": "Implementation paths through final production-data commit; later report/runtime evidence and review commit pointers are separate deliverables.",
+  "files": [
+    {
+      "path": ".github/workflows/build-counselor-comparison.yml",
+      "change": "M",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": "2fa6fdd2b9908ba33ed2c0baea205863a7ba07eb",
+      "implementedBlob": "ec938ffaed919f489c443871a53811c300291442"
+    },
+    {
+      "path": ".github/workflows/build-linkedin-pdf.yml",
+      "change": "M",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": "40063ef2359c8d0e41f0e87c1fb5a00029d5bb0a",
+      "implementedBlob": "42397d6554adfba006f3d0303e47f00b97be3ba5"
+    },
+    {
+      "path": ".github/workflows/validate-shiny.yml",
+      "change": "M",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": "0e1e73be7fe39c688e43120b42fca8394bc47308",
+      "implementedBlob": "cf5f1a11dc4be2710449102838a7bb03af1bd50b"
+    },
+    {
+      "path": "data/counselor/comparisons/cp-000033.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "986c4af0b8b48f6f89b1c4724103d0e03b35e9d6",
+      "implementedBlob": "e11e96105e25217653b8fe4c2b9dbf8a762e4405"
+    },
+    {
+      "path": "data/counselor/comparisons/cp-000060.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "541116feed1b8ee2ce943c4c9d4ce0991acf8919",
+      "implementedBlob": "213a5214408a1e217eea4ecfc3324005acb20412"
+    },
+    {
+      "path": "data/counselor/comparisons/cp-000250.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "e9b03ee441bc57bf7256be8118f292ff06e0781b",
+      "implementedBlob": "d28f668c3a674b2f4405310ed7431ca23ce2a2aa"
+    },
+    {
+      "path": "data/counselor/comparisons/cp-000266.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "8e5d245548f2d1e0ee3553e107cdfc28f5c70176",
+      "implementedBlob": "5a03e425ac92bdb7883c882522e12e33388aba7b"
+    },
+    {
+      "path": "data/counselor/comparisons/cp-000277.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "ffe2c4ab069ede49b14c268264d56b94473619fe",
+      "implementedBlob": "30b423bd59d3b3a0b3f9d28d3f151abae5d623f8"
+    },
+    {
+      "path": "data/counselor/comparisons/cp-000317.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "3a5acc5532f883bdbb9a975607681a7c429afb7a",
+      "implementedBlob": "d87285b71a209b23c9b0f0cb5c9ce9e6d277650a"
+    },
+    {
+      "path": "data/counselor/comparisons/cp-000396.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "d841de0af85bdc9be3834c8c4982df6744b89828",
+      "implementedBlob": "8a15f01d6619e58c00b1f3b92577e56f9c32066c"
+    },
+    {
+      "path": "data/counselor/comparisons/cp-000440.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "7f349fa5c92ef83c3d96b57c2de4eea080a5c8d3",
+      "implementedBlob": "d290d8b6b2a5d238e813360180131e903a33ad7e"
+    },
+    {
+      "path": "data/counselor/decisions/cp-000033.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "3cfc4963fbc0bc0b476850fe828b70ba9a8b26ae",
+      "implementedBlob": "6e50fad76a0ab879b6bc1134add5543dc37b2f66"
+    },
+    {
+      "path": "data/counselor/decisions/cp-000060.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "08019f765c6ddaa907138389392b27d849534931",
+      "implementedBlob": "eb7a9e89df57b8b58a143b700d534d3a159fdb90"
+    },
+    {
+      "path": "data/counselor/decisions/cp-000250.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "f33b504b9509bad5aed881bb1c01a109f03a836b",
+      "implementedBlob": "dbd046fab706c7d557214ab2f9916d5578459003"
+    },
+    {
+      "path": "data/counselor/decisions/cp-000266.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "dfface1d054df95e6f81c68d72774353ae9d684b",
+      "implementedBlob": "97c4f1a955cbe8f27fe5bf07472ca3b11d26af35"
+    },
+    {
+      "path": "data/counselor/decisions/cp-000277.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "006e0543ba21a087c9de6963a3470abd81369bf9",
+      "implementedBlob": "e1705e4a69c5ef15aeaae68ddcd68fa3180dbf73"
+    },
+    {
+      "path": "data/counselor/decisions/cp-000317.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "a7c321bc13211775fd91a81ffd9924f903478a8a",
+      "implementedBlob": "15852a69f4285a31f4a50953b37967677b14307f"
+    },
+    {
+      "path": "data/counselor/decisions/cp-000396.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "6dd9fb5e399adb6d426bb8f0e5a981978529f671",
+      "implementedBlob": "46db8e7bc3387c411f334ad6278da57aa21cbbc2"
+    },
+    {
+      "path": "data/counselor/decisions/cp-000440.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "974d80bf2372efa9bd47c0ddd67230674cd6d9d4",
+      "implementedBlob": "7e38bafba09c0e56b01ee42c5886855080771f91"
+    },
+    {
+      "path": "data/counselor/presentation-overrides.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+      "implementedBlob": "fc5b6728937eb6c62fd5d75705ee10a535276ab3"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "9f046e512b7fa13a5aa629883cf45e3db3632b84",
+      "implementedBlob": "992362f4dc8e342193dc5e1272e8078464b515ae"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27/cp-000033.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "b1f888d572c114f3548f122305e0bd5e1ab20ffd",
+      "implementedBlob": "2029056a550eefc6ff65e48a0bec455cfada5479"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27/cp-000060.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "c4117ac757b377d13f51d879a9657e63c89da0a0",
+      "implementedBlob": "bd597046177e1ddb1e76779b4a16a1074c6c887f"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27/cp-000072.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "de62951ee67ca9c7848fee6c5d6d682c683b9e0d",
+      "implementedBlob": "9e553fae4bea2bbf85d016ed4e9e0819b050a2f9"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27/cp-000099.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "8e875a158e6b3e104416fee932e84558a13fe8b4",
+      "implementedBlob": "d4979976c19ef02a5bde32bd5c6b1c88b43bd1e8"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27/cp-000250.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "e5c535403508de5c727ba0cb313c6c3298700f0f",
+      "implementedBlob": "90712f114a36c967767126dd0cf02add4027ed9e"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27/cp-000266.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "4898fd122c6547630b410d8c1871cb7626e646f8",
+      "implementedBlob": "f91559341d18b047edef26ea2528b41142ba909c"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27/cp-000277.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "d445aaa9c55f12e6b75c9469c139223ce5167652",
+      "implementedBlob": "b40442a3e47f2ac4890a0d86b8a21d9cb2ec2564"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27/cp-000317.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "0f066a16d1a5f407d12ef3e9b7ea1ed9b4cc9811",
+      "implementedBlob": "059c56d02bcceb37d850becdcf5a0318daeea93b"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27/cp-000396.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "f7288007548b41f193f29bf582612e2a297a21a2",
+      "implementedBlob": "2befb19539abe8a89b3296f8490005a9f1cf7476"
+    },
+    {
+      "path": "data/counselor/qc/full-restart-2026-10-27/cp-000440.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "6fb0b85f343647cc24b69956c47322c5b2d4b2b6",
+      "implementedBlob": "40f79bbcab9b0ba6d2156823f534c93471f27016"
+    },
+    {
+      "path": "data/counselor/review-programmes.json",
+      "change": "M",
+      "category": "Case evidence or production data",
+      "baselineBlob": "28ee7c2995ddab57c773e70ec193cb864685b178",
+      "implementedBlob": "39a8b3452f7573eaa19e236161781bdd7f01b31a"
+    },
+    {
+      "path": "data/schema/counselor-acceptance.schema.json",
+      "change": "A",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": null,
+      "implementedBlob": "7459ab5b3610c37a326a9a498ca5173de6b0f992"
+    },
+    {
+      "path": "data/schema/counselor-audience.schema.json",
+      "change": "M",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": "e32039f06fda21611f7ed77a48d2ea335c5dd6b2",
+      "implementedBlob": "339c5724bc7643e2af57e042c6a0a661a34248fe"
+    },
+    {
+      "path": "data/schema/counselor-comparison.schema.json",
+      "change": "M",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": "1a2e50c29f65698f7155abc96ee86885e1eb4866",
+      "implementedBlob": "63a4c2dc5816fd72c746de0cb1be4a10b6b91f17"
+    },
+    {
+      "path": "data/schema/counselor-exception.schema.json",
+      "change": "M",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": "878238bb4169d9ec642de49fc43f1c615ebbcead",
+      "implementedBlob": "368b5be7188fc1898a33adf09074c2a83027087f"
+    },
+    {
+      "path": "docs/UCR_Pathways_Master_Specification.md",
+      "change": "M",
+      "category": "Governing policy",
+      "baselineBlob": "389fab2e00428e4abda971792f4bd7b3066e858d",
+      "implementedBlob": "31ddc57dbbd1c103efd9391134a1a468894b20e0"
+    },
+    {
+      "path": "docs/UCR_Pathways_Production_Instructions.md",
+      "change": "M",
+      "category": "Governing policy",
+      "baselineBlob": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+      "implementedBlob": "0f5ba46832f64f98103bb639e64c8cf607e386fa"
+    },
+    {
+      "path": "docs/qc/counselor-comprehensive-reaudit-protocol.md",
+      "change": "M",
+      "category": "Governing policy",
+      "baselineBlob": "615e34730b27754ae01b20524bb412e6b31f576b",
+      "implementedBlob": "21dfe8e99374404fbdbcbe29c9a862b3b2b315cc"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/baseline.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "6fd4260d7320dbf033951979977603bcb9854859"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000033/content-inputs.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "98839f3941dc674ff563921b5a6dbd47b7e74e78"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000033/mechanical.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "c9e6f7290f1298eba15d917b99ef23411a4f108d"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000033/review.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "31bfea9730377e8ba627bdaf05e939dec9efc758"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000060/content-inputs.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "c243d411d98108fc81cfc8b5c0cf97989dd091f9"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000060/mechanical.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "2c63c0e4bdea1f69864ddb5022a57a894b5d6ff1"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000060/review.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "9a1caec91057ebe0e6a746e3a3e3dd859861925a"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000072/content-inputs.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "950d8398c90f32e79d9e12debff701cb788d97e1"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000072/mechanical.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "708ee2f0e67ebc50cae1c774eda2c0b4b4bfcb96"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000072/review.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "f349a5c6a91504df7f01f67f0652ed64862b52f3"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000072/strongest-response-research.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "9b36b09f61fe714eb5a67845c033e7acd66b57b8"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000099/content-inputs.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "950d8398c90f32e79d9e12debff701cb788d97e1"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000099/mechanical.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "3ad426ece3cceeb2bd83d4365754e6164c5a5c2c"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000099/review.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "5d9f6b8f15bc5c7640f124e437d99e40a4eb03b2"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000099/strongest-response-research.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "276fce3d8e58e868589141f6d881960c10f2ec6c"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000250/content-inputs.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "4c6cc974f7b0d488e87cf1c246074aea6778029a"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000250/mechanical.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "cbd702183c8177e1e0c5abf1db81c1fb119dcbd3"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000250/review.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "ebfc9a58c116a913062d6ba6aac03663f4e4fa52"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000266/circular-candidate-research.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "849af2b9021cf42fe0386094ba85bf5ee9fbbbe0"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000266/circular-technical-challenge.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "19f08c7ef5632bc02bd6305697b08a9cad9c8f2f"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000266/content-inputs.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "5a3abbb15da0d2412686322c58aa8c53f76c616a"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000266/first-option-and-business-challenge-snapshot.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "823568ba5a91a5053978264119ba4193dc3c333c"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000266/mechanical.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "cb87aa9a721a16cb2b318596385d76aa63a2f557"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000266/review.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "cd89aa9f816999178feeac4e63c41f27fb3c5248"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000277/content-inputs.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "950d8398c90f32e79d9e12debff701cb788d97e1"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000277/mechanical.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "45fe6001299b4ffda08f3efc6ce57f00ec484e69"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000277/review.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "2a91418964d2395ef9ab0dbbbfcf8e3103b1c9a9"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000277/strongest-response-research.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "df02b79146b78aeaa562cd5ebfbe6d5809ba7804"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000317/content-inputs.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "56e09f9ff56e2818cbc4e4ab1cb5c6ab1869ef9a"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000317/mechanical.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "cdbd00cec5b9de7623e914259de7fb8d73a35738"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000317/review.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "490f6fd3bbfe91ede8c22882f1cc5e50c7b205f6"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000396/content-inputs.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "950d8398c90f32e79d9e12debff701cb788d97e1"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000396/mechanical.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "c504b282d82c697c1e98fe2b1168164947c3e7b3"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000396/review.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "31a8bae6ea61689575efaf45faa2e21378e1dab3"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000440/content-inputs.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "4274d4de8f536bb3e575ded07733564a02973e62"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000440/mechanical.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "eeebfa3ebb3993d41ff57451c87703079b7d6f36"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000440/review.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "8c2041a18fcafaf4b5d6d4bde4bbaa2685d99d0b"
+    },
+    {
+      "path": "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/source-retrieval.json",
+      "change": "A",
+      "category": "Stage 1 evidence",
+      "baselineBlob": null,
+      "implementedBlob": "07c7638f339dabbcc1ce85185129368f3aa6e1fb"
+    },
+    {
+      "path": "package.json",
+      "change": "M",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": "8231a581dd717bf73023723194fe2f730dee7c44",
+      "implementedBlob": "f113a1e6018cec3f83c1c7f8a9108297f56ec3c7"
+    },
+    {
+      "path": "pilot/counselor-shiny/app.R",
+      "change": "M",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": "821be611428fc28490c679783be464455ad00aa1",
+      "implementedBlob": "3151b0e049a5896df9d2c109ca0724df78a2fdac"
+    },
+    {
+      "path": "publication/linkedin/p-001.pdf",
+      "change": "M",
+      "category": "Automatically regenerated derived public-example PDF; sources unchanged",
+      "baselineBlob": "21dc96eed8efa4440e4c0ee8a3529ff506ae4f9e",
+      "implementedBlob": "d3d6e204c976872d95ef8864d387872c3f1a2177"
+    },
+    {
+      "path": "publication/linkedin/p-002.pdf",
+      "change": "M",
+      "category": "Automatically regenerated derived public-example PDF; sources unchanged",
+      "baselineBlob": "2f8be8d95f8caf80c3a087686304868fac4f2b5f",
+      "implementedBlob": "5c1a7067160349cb532cd1e9faa8456f09579584"
+    },
+    {
+      "path": "publication/linkedin/p-003.pdf",
+      "change": "M",
+      "category": "Automatically regenerated derived public-example PDF; sources unchanged",
+      "baselineBlob": "e201a5d8731d5ee1478b32c8507078cfaa0dedb4",
+      "implementedBlob": "196ab6e2f56b875bfb7fd9a9b31e8e3b8b44144f"
+    },
+    {
+      "path": "publication/linkedin/p-004.pdf",
+      "change": "M",
+      "category": "Automatically regenerated derived public-example PDF; sources unchanged",
+      "baselineBlob": "21146c1832e0d617d20f14363608c23d3c7f125f",
+      "implementedBlob": "e3f9cac1969656af0a4b5b3854542ec8200f803b"
+    },
+    {
+      "path": "publication/linkedin/p-005.pdf",
+      "change": "M",
+      "category": "Automatically regenerated derived public-example PDF; sources unchanged",
+      "baselineBlob": "fa49c90dd10db551cfe70367ac495328c645176d",
+      "implementedBlob": "d04ddcf5b4cc75132ab9a99d1078c77d6f7506b9"
+    },
+    {
+      "path": "scripts/build-counselor-comparison-v2.mjs",
+      "change": "M",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+      "implementedBlob": "ea266d39f1ccf41c450b654f30b685401db145c3"
+    },
+    {
+      "path": "scripts/build-counselor-comparison.mjs",
+      "change": "M",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": "41befbf4b06306f672c7b97a4dce9f620202dc92",
+      "implementedBlob": "c9b2b92e106ec44c9c8c855591319a1b04408c3a"
+    },
+    {
+      "path": "scripts/check-counselor-acceptance.mjs",
+      "change": "A",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": null,
+      "implementedBlob": "3fd181a928ecf926be5d75caf9143595f88ed8e6"
+    },
+    {
+      "path": "scripts/counselor-acceptance.mjs",
+      "change": "A",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": null,
+      "implementedBlob": "d05448d8398ad07d224d010d558726d8b9f6635a"
+    },
+    {
+      "path": "scripts/counselor-audience.mjs",
+      "change": "M",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+      "implementedBlob": "a4fcab16916f9e54ac4be3d974d11fc5633c7457"
+    },
+    {
+      "path": "scripts/example-utils.mjs",
+      "change": "M",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": "dffdd8375f6cd7471c8f44863a70d64068ddcd69",
+      "implementedBlob": "6bf19a8284f8fd4dff53f30fa7c7e7f135bf62ec"
+    },
+    {
+      "path": "scripts/test-counselor-acceptance.R",
+      "change": "A",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": null,
+      "implementedBlob": "f37db2efc9d11150789567e605b90394291ee773"
+    },
+    {
+      "path": "scripts/test-counselor-acceptance.mjs",
+      "change": "A",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": null,
+      "implementedBlob": "4892e9ccbba70706047966710c6957fc78821abe"
+    },
+    {
+      "path": "scripts/test-counselor-audience-schema.py",
+      "change": "M",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": "0feba2c60c56350ea576555cea79a6947fcb6f77",
+      "implementedBlob": "79dcc937fd611f7768681e0e2b8c9dba5193aa87"
+    },
+    {
+      "path": "scripts/test-counselor-audience.R",
+      "change": "M",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": "ff25b923506a07646b50ead614b91a493514bcbe",
+      "implementedBlob": "cbaf750fae009a4d346fe046cb0f8c1170dbe24d"
+    },
+    {
+      "path": "scripts/test-counselor-audience.mjs",
+      "change": "M",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": "5c0105a27fd37e59093f970da4f503da375f2eb7",
+      "implementedBlob": "830876fed3648b352306a24582e8a2703d3ded6f"
+    },
+    {
+      "path": "scripts/test-counselor-rendered-server.R",
+      "change": "M",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": "2d9cc6f9f41f776ac2cdf1ca8caccc15b23bf667",
+      "implementedBlob": "da87c3744adf93e5cc5ae1e5f5411dfeffa2d0a6"
+    },
+    {
+      "path": "scripts/test-counselor-rendered.mjs",
+      "change": "M",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": "42597f368b34d68faeac1c3bda051d18793f67d5",
+      "implementedBlob": "1ff0cfbbea0683aecf9e94893ede2c4d9c5a11a5"
+    },
+    {
+      "path": "scripts/validate-comprehensive-reaudit.py",
+      "change": "M",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": "7b9a881c8303cd208acee7a0463b1afc5c6b1a6c",
+      "implementedBlob": "34331cd80b7cd1e109664925785721ea25378c23"
+    },
+    {
+      "path": "scripts/validate-counselor-comparison.mjs",
+      "change": "M",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": "0c21d8a2062d921dbd36ad699ba2e8b060438042",
+      "implementedBlob": "a6d1e17e652ec7ea48dad9b7715c08297dfdc366"
+    },
+    {
+      "path": "scripts/verify-qualified-comparison-stage1.py",
+      "change": "A",
+      "category": "Contract, compiler, validators, app or tests",
+      "baselineBlob": null,
+      "implementedBlob": "f86268a54437276c22d8c5df52e309a5ff9ab038"
+    }
+  ],
+  "runtimeTestedCommit": "57a6eeddee1960b51585ec13a62b7efdc3e8d4ad"
+}
