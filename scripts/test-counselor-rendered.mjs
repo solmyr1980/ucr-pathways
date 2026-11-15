@@ -120,7 +120,10 @@ try {
       await page.locator('.modal.in button',{hasText:'Close'}).click();await page.locator('.modal-backdrop').waitFor({state:'hidden'});
 
      }
-     if(variant==='actual' && ['cp-000099','cp-000072'].includes(id)) assert.equal(await page.locator('.compare-view').count(),0);
+     if(variant==='actual' && ['cp-000099','cp-000072'].includes(id)) {
+      assert.equal(await page.locator('.compare-view').count(),0);
+      assert.equal(await page.locator('.qualified-scope').count(),0,'Unresolved cases must not acquire a qualification banner');
+     }
      if(variant==='actual' && current.acceptance?.basis==='robust-no-match') {assert.equal(await page.locator('.compare-view').count(),0);assert.ok(body.includes('cannot construct a sufficiently close programme') && body.includes(current.audience.comparisonScope.excluded));}
      if(id==='cp-000277' && (variant==='fixtures' || current.exception?.type==='external-programme-unresolved')) {
       assert.ok(body.includes('no complete degree pathway is certified'));
