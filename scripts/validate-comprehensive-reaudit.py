@@ -81,6 +81,52 @@ def git_blob(path):
     return hashlib.sha1(f'blob {len(data)}\0'.encode() + data).hexdigest()
 
 
+def post_audit_ids(register):
+    return set(register.get('postAuditReview', {}).get('caseIds', [])) | {
+        case_id for review in register.get('postAuditReviews', [])
+        for case_id in review.get('caseIds', [])}
+
+
+def validate_stage2(root, register):
+    """One authorized extension; detailed cases own progress, not worker history."""
+    reviews = register.get('postAuditReviews', [])
+    require(len(reviews) <= 1, 'Unexpected additional post-audit scope')
+    if not reviews:
+        return
+    review = reviews[0]
+    require(review.get('id') == 'qualified-comparison-stage2-2026-11-15'
+            and review.get('releaseAuthorized') is False, 'Invalid Stage 2 authority')
+    require(review.get('assignmentRef') == 'docs/qc/deferred-case-qualified-comparison-stage2-assignment-2026-11-15.md'
+            and (root / review['assignmentRef']).is_file(), 'Missing Stage 2 assignment')
+    require(review.get('baselineRef') == 'docs/qc/evidence/qualified-comparison-stage2-2026-11-15/baseline.json', 'Invalid Stage 2 baseline')
+    frozen = read_json(root / review['baselineRef'])
+    stage1 = read_json(root / 'docs/qc/evidence/qualified-comparison-stage1-2026-11-15/baseline.json')
+    ids = review.get('caseIds', [])
+    require(len(ids) == len(set(ids)) == 61 and set(ids) == set(stage1['otherDeferred'])
+            == set(frozen['authorizedCaseIds']), 'Invalid Stage 2 scope')
+    require(not set(ids) & set(register.get('postAuditReview', {}).get('caseIds', [])), 'Overlapping post-audit scopes')
+    require(register.get('postAuditReview') == frozen['stage1Metadata'], 'Changed Stage 1 metadata')
+    for entry in register['cases']:
+        case = read_json(root / entry['evidenceFile'])
+        progress = case.get('stage2Review')
+        if progress is None:
+            continue
+        case_id = entry['id']
+        require(case_id in ids and progress.get('process') == review['id'], 'Unauthorized Stage 2 case')
+        require(progress.get('status') in ['in-progress', 'completed'], f'{case_id}: invalid Stage 2 progress')
+        evidence_path = (root / progress.get('evidenceRef', '')).resolve()
+        require(evidence_path.is_relative_to(root.resolve()) and evidence_path.is_file(), f'{case_id}: missing Stage 2 evidence')
+        require(git_blob(evidence_path) == progress.get('evidenceBlob'), f'{case_id}: stale Stage 2 evidence')
+        evidence = read_json(evidence_path)
+        require(evidence.get('caseId') == case_id, f'{case_id}: wrong Stage 2 evidence')
+        if progress['status'] == 'completed':
+            require(evidence.get('reviewStatus') == 'completed' and evidence.get('outcome')
+                    == case.get('academicDisposition'), f'{case_id}: incomplete Stage 2 review')
+            for kind, directory in [('decision', 'decisions'), ('canonical', 'comparisons')]:
+                path = root / f'data/counselor/{directory}/{case_id}.json'
+                require(evidence.get('inputBlobs', {}).get(kind) == git_blob(path), f'{case_id}: stale Stage 2 {kind}')
+
+
 def sync_summaries(root):
     """Derive mirrors/counts only. Never create findings, approvals, claims or closures."""
     root = root.resolve()
@@ -119,7 +165,7 @@ def sync_summaries(root):
                             'reviewedWithBlockers': counts['reviewed-with-blockers'],
                             'notStarted': counts['not-started'],
                             'pilotStarted': sum(states[c] != 'not-started' for c in pilot)}
-    post_audit = set(register.get('postAuditReview', {}).get('caseIds', []))
+    post_audit = post_audit_ids(register)
     for worker in register.get('workers', {}).values():
         worker['completedCases'] = [c for c in worker['assignedCases'] if states[c] in ['approved', 'reviewed-with-blockers'] and c not in post_audit]
         worker['completedDispositions'] = [dispositions[c] for c in worker['completedCases']]
@@ -309,10 +355,12 @@ def validate(root):
     counts = Counter(states.values())
     expected = {'approved': counts['approved'], 'inProgress': counts['in-progress'], 'reviewedWithBlockers': counts['reviewed-with-blockers'], 'notStarted': counts['not-started'], 'pilotStarted': sum(states[x] != 'not-started' for x in pilot)}
     require(d['progress'] == expected, f'Progress differs: expected {expected}')
-    post_audit = set(d.get('postAuditReview', {}).get('caseIds', []))
-    if post_audit:
-        require(d['postAuditReview'].get('id') == 'qualified-comparison-stage1-2026-11-15' and len(post_audit) == 10 and post_audit <= set(baseline), 'Invalid bounded Stage 1 scope')
+    stage1_ids = set(d.get('postAuditReview', {}).get('caseIds', []))
+    if stage1_ids:
+        require(d['postAuditReview'].get('id') == 'qualified-comparison-stage1-2026-11-15' and len(stage1_ids) == 10 and stage1_ids <= set(baseline), 'Invalid bounded Stage 1 scope')
         reference(d['postAuditReview']['assignmentRef'])
+    validate_stage2(root, d)
+    post_audit = post_audit_ids(d)
     if 'workers' in d:
         workers = d['workers']
         require(set(workers) == {'A', 'B'}, 'Restart requires exactly two workers')
