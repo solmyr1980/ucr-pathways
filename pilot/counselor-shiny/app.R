@@ -342,6 +342,14 @@ qualified_comparison <- function(record) {
 }
 
 render_comparison_scope <- function(record) {
+  # Scope banners never confer qualification on an unresolved/malformed record.
+  negative <- identical(record$recordStatus, "exception") &&
+    identical(record$exception$type, "no-defensible-ucr-match") &&
+    identical(record$acceptance$standard, "bounded-materiality-2026-11-15") &&
+    identical(record$acceptance$basis, "robust-no-match") &&
+    identical(curriculum_view(record)$status, "partial") &&
+    identical(safe_text(audience_content(record)$comparisonScope$label), "Academic no-match: documented substance")
+  if (!qualified_comparison(record) && !negative) return(NULL)
   s <- audience_content(record)$comparisonScope
   if (!is.list(s) || !all(vapply(s[c("label", "assessed", "excluded")], function(x) nzchar(safe_text(x)), logical(1)))) return(NULL)
   total <- sum(vapply(curriculum_view(record)$components, function(c) as.numeric(c$credits), numeric(1)))

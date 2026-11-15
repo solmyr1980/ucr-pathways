@@ -124,7 +124,7 @@ try {
      if(variant==='fixtures'&&id==='cp-000005'){assert.ok(body.includes('other content remains under review'));assert.ok(body.includes('Curriculum details are awaiting review'));}
      if(id==='cp-000330') {
       assert.ok(body.includes('cannot construct a sufficiently close programme'));
-      assert.ok(body.includes('physical mechanical systems') && body.includes('Complete external curriculum'));
+      assert.ok(body.includes(current.audience.comparisonExplanation) && body.includes('Complete external curriculum'));
       assert.ok(!body.includes('withheld from presentation') && !body.includes('Computational systems, robotics & sustainable technology'));
       assert.equal(await page.locator('.compare-view,.column-select,.course-link').count(),0);
       assert.equal(await page.locator('.external-table tbody tr').count(),47);

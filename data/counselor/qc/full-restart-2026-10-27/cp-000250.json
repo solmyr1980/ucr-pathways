@@ -2,7 +2,7 @@
   "schemaVersion": "2.0",
   "id": "cp-000250",
   "auditId": "counselor-full-restart-2026-10-27",
-  "state": "in-progress",
+  "state": "approved",
   "reviewedInputCommit": "4991057207657b7db16ff11d96d96b67a2d8535d",
   "inputBlobs": {
     "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
@@ -629,30 +629,70 @@
     },
     "6": {
       "outcome": "correct",
-      "finding": "Compile/replay bytes, full JSON Schema, current-workbook feasibility, operational/structural/final methodology validators, selected course descriptions, re-audit sync, R rendering and applicable CI must pass before final presentation approval.",
+      "finding": "All source-first academic, mechanical and reader-content gates passed against the exact finished decision/canonical blobs. Applicable published compilation and validation evidence is recorded separately from shared runtime/release authority.",
       "preserved": [
         "Original source and worker findings preserved in reviewHistory; sound interest and course research retained with versioned references."
       ],
       "actions": [],
       "evidence": [
-        "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000250/review.json#/validationPlan"
+        "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000250/mechanical.json",
+        "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000250/content-inputs.json",
+        "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000250/review.json#/sourceFirstChallenge"
       ],
       "blockedBy": [],
       "reassessStages": []
     }
   },
   "sharedIssueIds": [],
-  "unresolved": [
-    "Published implementation, replay and applicable CI verification remain to be reconciled before final approval."
-  ],
+  "unresolved": [],
   "downstreamReassessments": [],
   "implementationCommits": [
     "26decd87698fc2255d6cf49baff37429cef01581",
-    "4991057207657b7db16ff11d96d96b67a2d8535d"
+    "4991057207657b7db16ff11d96d96b67a2d8535d",
+    "aa07541d2594d54ead594292834985d6f15dfe69",
+    "9992c1a8e42e27f7d9e5dff6bf5056c378f4ca61"
   ],
   "academicDisposition": "comparison",
-  "presentationApproval": false,
-  "finalReview": null,
+  "presentationApproval": true,
+  "finalReview": {
+    "reviewerOrPass": "Stage 1 source-first final academic/content pass, ChatGPT Work",
+    "independenceMethod": "Separately identified source-first second pass by the same AI reviewer against official sources and current UCR evidence, not independent human or separate-agent review.",
+    "reviewedOn": "2026-11-15",
+    "reviewedCommit": "9992c1a8e42e27f7d9e5dff6bf5056c378f4ca61",
+    "reviewProcess": "qualified-comparison-stage1-2026-11-15",
+    "verificationPolicy": "record-content-review-2026-10-31",
+    "sourceEvidenceRefs": [
+      "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000250/review.json#/externalReview",
+      "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000250/review.json#/sourceFirstChallenge",
+      "data/reference/ucr_courses_enriched.xlsx"
+    ],
+    "inputBlobs": {
+      "decision": "dbd046fab706c7d557214ab2f9916d5578459003",
+      "canonical": "d28f668c3a674b2f4405310ed7431ca23ce2a2aa"
+    },
+    "checks": {
+      "academic": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000250/review.json#/academicJudgment",
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000250/review.json#/sourceFirstChallenge"
+        ]
+      },
+      "mechanical": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000250/mechanical.json"
+        ]
+      },
+      "content": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000250/review.json#/contentReview",
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000250/content-inputs.json"
+        ]
+      }
+    }
+  },
   "executionClaim": {
     "executionId": "restart-B-cp250-revisit-20261112T210040Z",
     "worker": "B",

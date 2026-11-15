@@ -16,7 +16,7 @@ for (kind in c('missing-adverse','missing-scope','unresolved','missing-evidence'
  if(kind=='missing-evidence')x$acceptance$challengeEvidenceRefs <- list()
  if(kind=='exception')x$recordStatus <- 'exception'
  if(kind=='missing-schedule')x$programmes[[2]]$schedule <- NULL
- stopifnot(!e$qualified_comparison(x),!grepl('class="compare-view"',as.character(e$render_comparison(x)),fixed=TRUE))
+ stopifnot(!e$qualified_comparison(x),!grepl('class="compare-view"',as.character(e$render_comparison(x)),fixed=TRUE), !grepl('class="qualified-scope',as.character(e$render_comparison(x)),fixed=TRUE))
 }
 e$COUNSELOR_PRESENTATION[[r$id]] <- list(mode='external-only')
 stopifnot(!grepl('class="compare-view"',as.character(e$render_comparison(r)),fixed=TRUE))
