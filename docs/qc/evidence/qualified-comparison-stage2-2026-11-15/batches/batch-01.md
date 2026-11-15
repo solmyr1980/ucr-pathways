@@ -7,7 +7,7 @@
 | CP041 | Qualified comparison; 2 UCR options; 180 documented external EC; thesis-entry equivalence excluded; explicit 2025–2026 entrant cohort | `e3594b0e`; own review/mechanical/publication verification under `../cp-000041/` |
 | CP042 | Qualified comparison; 2 options; own Dutch identity and 41 interests; same bounded conflict; latest English component translations retained | `32b53592`; own evidence under `../cp-000042/` |
 | CP053 | Qualified comparison; 3 options; 180 documented EC; own 90/102-EC entry conflict excluded; source-verified alignment corrections | `c84db526`; own evidence under `../cp-000053/` |
-| CP040 | Not yet reviewed under Stage 2; next | Existing deferred state preserved |
+| CP040 | In progress: fresh actual source and all 32 interest statements inspected; UCR construction/comparability/final disposition incomplete | `../cp-000040/review.json`; decision/canonical bytes unchanged |
 | CP046 | Not yet reviewed under Stage 2 | Existing deferred state preserved |
 | CP100 | Not yet reviewed under Stage 2 | Existing deferred state preserved |
 | CP112 | Not yet reviewed under Stage 2 | Existing deferred state preserved |
@@ -25,4 +25,4 @@ Seven bookkeeping scope/evidence tests pass. The Stage 2 baseline preserves the 
 
 Corrections during work: clean audience year label; stale review indexes rebuilt after changed canonical type; source lookup label corrected before use; CP053 derived advanced-count report corrected to the code-based 7/7/8 counts before approval. No academic, schema, preservation or publication guard was weakened. No new policy decision is requested.
 
-Resume CP040 exactly as described in the [current progress document](../../../deferred-case-qualified-comparison-stage2-progress-2026-11-15.md). Complete the remaining seven initial cases and only then issue the full first-batch academic/technical QA judgment. Do not select the next batch yet. All 58 remaining authorized Stage 2 IDs are in the frozen baseline; CP072/CP099 are excluded. No final Stage 2 report, deployment, final discovery product or public release is claimed.
+Resume CP040 exactly as described in the [current progress document](../../../deferred-case-qualified-comparison-stage2-progress-2026-11-15.md). Complete the remaining seven initial cases and only then issue the full first-batch academic/technical QA judgment. Do not select the next batch yet. All 58 remaining incomplete Stage 2 reviews are in the frozen baseline; CP072/CP099 are excluded. No final Stage 2 report, deployment, final discovery product or public release is claimed.
