@@ -43,7 +43,7 @@
     "scripts/validate-registry-interests.mjs": "15c9a3f1bfa8f3bbd326a3531b6b36c34b6b7aee",
     "scripts/apply-registry-corrections.py": "ea25b4073c93311eb9a31c033252f32fcb23daa7"
   },
-  "state": "in-progress",
+  "state": "approved",
   "stages": {
     "1": {
       "outcome": "correct",
@@ -268,30 +268,70 @@
     },
     "6": {
       "outcome": "correct",
-      "finding": "Compiler/replay,strictschema,actualworkbookfeasibility,operational/structural/finalrules,auditsync and actualRcontent checks;actualdesktop/mobile coreview requires sharedintegrationverification. No deployment/release.",
+      "finding": "All source-first academic, mechanical and reader-content gates passed against the exact finished decision/canonical blobs. Applicable published compilation and validation evidence is recorded separately from shared runtime/release authority.",
       "preserved": [
         "Original source and worker findings preserved in reviewHistory; sound interest and course research retained with versioned references."
       ],
       "actions": [],
       "evidence": [
-        "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000317/review.json#/validationPlan"
+        "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000317/mechanical.json",
+        "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000317/content-inputs.json",
+        "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000317/review.json#/sourceFirstChallenge"
       ],
       "blockedBy": [],
       "reassessStages": []
     }
   },
   "sharedIssueIds": [],
-  "unresolved": [
-    "Published implementation, replay and applicable CI verification remain to be reconciled before final approval."
-  ],
+  "unresolved": [],
   "downstreamReassessments": [],
   "implementationCommits": [
     "6cd3ec87dcc635dc3e02ed7070ea2f8cf9312adc",
     "3f5352f045d4235a4d09016c2c8dfe875fbd9355",
-    "da1590bdf1b8e8293d5328ce621d8e656a3dddec"
+    "da1590bdf1b8e8293d5328ce621d8e656a3dddec",
+    "aa07541d2594d54ead594292834985d6f15dfe69",
+    "792a728365267f3084e72c20a9ea62e4e9fdd343"
   ],
-  "finalReview": null,
-  "presentationApproval": false,
+  "finalReview": {
+    "reviewerOrPass": "Stage 1 source-first final academic/content pass, ChatGPT Work",
+    "independenceMethod": "Separately identified source-first second pass by the same AI reviewer against official sources and current UCR evidence, not independent human or separate-agent review.",
+    "reviewedOn": "2026-11-15",
+    "reviewedCommit": "792a728365267f3084e72c20a9ea62e4e9fdd343",
+    "reviewProcess": "qualified-comparison-stage1-2026-11-15",
+    "verificationPolicy": "record-content-review-2026-10-31",
+    "sourceEvidenceRefs": [
+      "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000317/review.json#/externalReview",
+      "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000317/review.json#/sourceFirstChallenge",
+      "data/reference/ucr_courses_enriched.xlsx"
+    ],
+    "inputBlobs": {
+      "decision": "1cbf3de2e174daed24262e36d790c0120bcce23d",
+      "canonical": "25c1d05a9f0e245836d4dff83a32ab26908ec9e6"
+    },
+    "checks": {
+      "academic": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000317/review.json#/academicJudgment",
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000317/review.json#/sourceFirstChallenge"
+        ]
+      },
+      "mechanical": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000317/mechanical.json"
+        ]
+      },
+      "content": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000317/review.json#/contentReview",
+          "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/cp-000317/content-inputs.json"
+        ]
+      }
+    }
+  },
+  "presentationApproval": true,
   "evidenceSources": [
     {
       "url": "https://studiegids.universiteitleiden.nl/api/product?code=BA-RGH&type=STUDY&year=2261&language=en",
