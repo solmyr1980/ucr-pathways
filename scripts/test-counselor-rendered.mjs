@@ -22,6 +22,9 @@ for (const [id,query] of [['cp-000250','Clinical Technology'],['cp-000060','Dutc
 if (JSON.parse(fs.readFileSync('data/counselor/comparisons/cp-000041.json')).acceptance) {
  cases.actual.push(['cp-000041','Economics and Business Economics']);
 }
+if (JSON.parse(fs.readFileSync('data/counselor/comparisons/cp-000040.json')).acceptance) {
+ cases.actual.push(['cp-000040','German Language and Culture']);
+}
 const browser = await chromium.launch({headless:true,executablePath:process.env.UCR_CHROMIUM_PATH || undefined,args:['--no-sandbox']});
 try {
  for (const [vi,variant] of ['actual','fixtures'].entries()) {
@@ -108,10 +111,11 @@ try {
       assert.ok(body.includes('Nominal external degree: 180 EC') && body.includes('Unknown requirements are not open electives'));
       assert.equal(await page.locator('.course-link').count()>0,true);
       if(id==='cp-000317') assert.ok(body.includes('final 30 EC') && body.includes('150 EC'));
+      if(id==='cp-000040') assert.ok(body.includes('165') && body.includes('15 EC') && body.includes('restricted Arts minor'));
       if(id==='cp-000266') assert.equal(current.programmes.length,3,'Two independently reviewed UCR options must be present');
       const scopeBox=await page.locator('.qualified-scope').boundingBox(),contextBox=await page.locator('.audience-context').first().boundingBox();
       assert.ok(scopeBox && contextBox && scopeBox.y<contextBox.y,`${id}: scope must precede explanatory prose`);
-      const codes={'cp-000250':'HCBBIOM211','cp-000060':'HCBCOGN312','cp-000033':'BENBUSI112','cp-000440':'BENENTR111','cp-000317':'GOSLAWJ311','cp-000266':'ENSDELT311','cp-000041':'BENBUSI312'};
+      const codes={'cp-000250':'HCBBIOM211','cp-000060':'HCBCOGN312','cp-000033':'BENBUSI112','cp-000440':'BENENTR111','cp-000317':'GOSLAWJ311','cp-000266':'ENSDELT311','cp-000041':'BENBUSI312','cp-000040':'MCCCOMM312'};
       const code=codes[id],button=page.locator(`.course-link[data-code="${code}"]`).first();
       if(size==='mobile'){const index=await button.evaluate(b=>Array.from(b.closest('tr').children).indexOf(b.closest('td')));await page.locator('.column-select').selectOption(String(index));await page.waitForTimeout(250);}
       await button.click();await page.locator('.modal.in').waitFor();
