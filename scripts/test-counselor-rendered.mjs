@@ -13,6 +13,11 @@ const cases = {
   actual: [['cp-000003','Pedagogical'],['cp-000001','Public Administration'],['cp-000019','Arts and Culture'],['cp-000035','Biology'],['cp-000330','Mechanical Engineering'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies']],
   fixtures: [['cp-000004','Psychology'],['cp-000002','Management of International'],['cp-000005','Psychology'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000019','Arts and Culture'],['cp-000003','Pedagogical']]
 };
+// Stage 1 representatives use actual canonical data, including still-unresolved controls.
+for (const [id,query] of [['cp-000250','Clinical Technology'],['cp-000060','Dutch Language'],['cp-000033','Business Administration'],['cp-000396','Tax Law'],['cp-000440','Business and Consumer'],['cp-000317','Law'],['cp-000099','Health and Life'],['cp-000072','Spanish Language'],['cp-000266','Industrial Design']]) {
+ const r=JSON.parse(fs.readFileSync(`data/counselor/comparisons/${id}.json`));
+ if(r.acceptance || ['cp-000099','cp-000072'].includes(id)) cases.actual.push([id,query]);
+}
 const browser = await chromium.launch({headless:true,executablePath:process.env.UCR_CHROMIUM_PATH || undefined,args:['--no-sandbox']});
 try {
  for (const [vi,variant] of ['actual','fixtures'].entries()) {
@@ -92,7 +97,17 @@ try {
       assert.ok((await page.locator('.modal.in').innerText()).includes('A course description is not currently available.'));
       await page.locator('.modal.in button',{hasText:'Close'}).click();await page.locator('.modal').waitFor({state:'hidden'});await page.locator('.modal-backdrop').waitFor({state:'hidden'});
      }
-     if(id==='cp-000277') {
+     const current=JSON.parse(fs.readFileSync(`data/counselor/comparisons/${id}.json`));
+     if(variant==='actual' && current.acceptance?.basis==='qualified-comparison') {
+      assert.equal(await page.locator('.compare-view').count(),1);
+      assert.ok(body.includes(current.audience.comparisonScope.label) && body.includes(current.audience.comparisonScope.excluded));
+      assert.ok(body.includes('Nominal external degree: 180 EC') && body.includes('Unknown requirements are not open electives'));
+      assert.equal(await page.locator('.course-link').count()>0,true);
+      if(id==='cp-000317') assert.ok(body.includes('final 30 EC') && body.includes('150 EC'));
+     }
+     if(variant==='actual' && ['cp-000099','cp-000072'].includes(id)) assert.equal(await page.locator('.compare-view').count(),0);
+     if(variant==='actual' && current.acceptance?.basis==='robust-no-match') {assert.equal(await page.locator('.compare-view').count(),0);assert.ok(body.includes('cannot construct a sufficiently close programme') && body.includes(current.audience.comparisonScope.excluded));}
+     if(id==='cp-000277' && (variant==='fixtures' || current.exception?.type==='external-programme-unresolved')) {
       assert.ok(body.includes('no complete degree pathway is certified'));
       if(variant==='actual' && !JSON.parse(fs.readFileSync(`data/counselor/comparisons/${id}.json`)).audience?.curriculum) assert.equal(await page.locator('.external-curriculum').count(),0);
       else {assert.ok(body.includes('175 EC')&&body.includes('required 5 EC'));assert.ok(body.includes('Verified partial curriculum'));}

@@ -21,6 +21,8 @@ if (identical(variant, "fixtures")) {
     r$comparator$components <- lapply(r$comparator$components, function(c) { c$note <- "INTERNAL-SENTINEL-DO-NOT-DISPLAY"; c })
     r$blocks <- lapply(r$blocks, function(b) { b$rows <- lapply(b$rows, function(row) { row$cells <- lapply(row$cells, function(c) { if (is.list(c)) c$note <- "INTERNAL-SENTINEL-DO-NOT-DISPLAY"; c }); row }); b })
     if (r$id == "cp-000277") {
+      r$acceptance <- NULL
+      r$exception$type <- "external-programme-unresolved"
       r$audience <- list(schemaVersion = "1.0", programmeDescription = "African Studies examines African societies, languages, history and cultural life.", comparisonExplanation = "A full comparison is unavailable while a required component remains unidentified.", curriculum = list(status = "partial", componentIds = lapply(r$comparator$components, function(c) c$id), yearLabel = "2026–2027", limitation = "The verified list accounts for 175 EC. A required 5 EC remains unidentified; it is not a complete degree."))
     } else if (r$id %in% c("cp-000004", "cp-000002", "cp-000119")) {
       r$audience <- list(schemaVersion = "1.0", programmeDescription = "Explore the programme and its curriculum through the official source.", comparisonExplanation = "Specialist study and practical requirements differ from the UCR options.", conceptProgrammeIds = lapply(Filter(e$is_ucr_programme, r$programmes), function(p) p$id), curriculum = list(status = "complete", componentIds = lapply(r$comparator$components, function(c) c$id), yearLabel = "2026–2027", routeLabel = "Selected programme pathway"))

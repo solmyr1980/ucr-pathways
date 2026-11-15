@@ -16,6 +16,8 @@ stopifnot(grepl("Study art and culture in society", html), grepl("required speci
 stopifnot(grepl(htmltools::htmlEscape(r$academicRationale$alternatives[[1]]$concept), html, fixed = TRUE))
 x <- load_record("cp-000277")
 x$audience <- NULL # Explicit unreviewed exception fixture.
+x$acceptance <- NULL
+x$exception$type <- "external-programme-unresolved"
 x$exception$reason <- x$exception$curriculumContext <- x$comparator$academicYear <- x$comparator$sourceNotes <- "INTERNAL-SENTINEL"
 html <- as.character(e$render_comparison(x))
 stopifnot(!grepl("INTERNAL-SENTINEL", html), !grepl("External programme components", html), grepl("no complete degree pathway is certified", html))

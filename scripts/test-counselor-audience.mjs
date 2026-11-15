@@ -37,9 +37,9 @@ reject(r => r.audience.cellNotes[0] = {programmeId:'ucr-1',text:'Unreferenced no
 reject(r => r.audience.curriculum.status = 'partial'); // explicit limitation required
 reject(r => r.audience.curriculum.status = 'unresolved'); // cannot display requirements
 reject(r => r.audience.programmeDescription = '');
-const unresolved = read('data/counselor/decisions/cp-000277.json');
+const unresolved = read('data/counselor/decisions/cp-000099.json');
 const record = buildProductionRecord(unresolved, process.cwd());
-const partial = {...unresolved, audience: {schemaVersion: '1.0', curriculum: {status: 'partial', componentIds: record.comparator.components.map(c => c.id), limitation: 'A required 5 EC remains unidentified; this is not a complete degree.'}}};
+const partial = {...unresolved, audience: {schemaVersion: '1.0', curriculum: {status: 'partial', componentIds: record.comparator.components.map(c => c.id), limitation: 'Later required study remains unverified; this is not a complete degree.'}}};
 assert.equal(buildProductionRecord(partial, process.cwd()).audience.curriculum.status, 'partial');
 assert.throws(() => buildProductionRecord({...partial, audience: {...partial.audience, curriculum: {...partial.audience.curriculum, status: 'complete'}}}, process.cwd()), /cannot be marked complete|complete requires/);
 console.log('Audience compiler compatibility, lossless pass-through, stable references and negative contract checks passed.');
