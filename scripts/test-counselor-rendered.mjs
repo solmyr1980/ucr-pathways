@@ -18,6 +18,10 @@ for (const [id,query] of [['cp-000250','Clinical Technology'],['cp-000060','Dutc
  const r=JSON.parse(fs.readFileSync(`data/counselor/comparisons/${id}.json`));
  if(r.acceptance || ['cp-000099','cp-000072'].includes(id)) cases.actual.push([id,query]);
 }
+// Stage 2 representative: real qualified 180-EC content with bounded entry uncertainty.
+if (JSON.parse(fs.readFileSync('data/counselor/comparisons/cp-000041.json')).acceptance) {
+ cases.actual.push(['cp-000041','Economics and Business Economics']);
+}
 const browser = await chromium.launch({headless:true,executablePath:process.env.UCR_CHROMIUM_PATH || undefined,args:['--no-sandbox']});
 try {
  for (const [vi,variant] of ['actual','fixtures'].entries()) {
@@ -107,7 +111,7 @@ try {
       if(id==='cp-000266') assert.equal(current.programmes.length,3,'Two independently reviewed UCR options must be present');
       const scopeBox=await page.locator('.qualified-scope').boundingBox(),contextBox=await page.locator('.audience-context').first().boundingBox();
       assert.ok(scopeBox && contextBox && scopeBox.y<contextBox.y,`${id}: scope must precede explanatory prose`);
-      const codes={'cp-000250':'HCBBIOM211','cp-000060':'HCBCOGN312','cp-000033':'BENBUSI112','cp-000440':'BENENTR111','cp-000317':'GOSLAWJ311','cp-000266':'ENSDELT311'};
+      const codes={'cp-000250':'HCBBIOM211','cp-000060':'HCBCOGN312','cp-000033':'BENBUSI112','cp-000440':'BENENTR111','cp-000317':'GOSLAWJ311','cp-000266':'ENSDELT311','cp-000041':'BENBUSI312'};
       const code=codes[id],button=page.locator(`.course-link[data-code="${code}"]`).first();
       if(size==='mobile'){const index=await button.evaluate(b=>Array.from(b.closest('tr').children).indexOf(b.closest('td')));await page.locator('.column-select').selectOption(String(index));await page.waitForTimeout(250);}
       await button.click();await page.locator('.modal.in').waitFor();

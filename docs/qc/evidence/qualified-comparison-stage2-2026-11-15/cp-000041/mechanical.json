@@ -1,0 +1,69 @@
+{
+  "caseId": "cp-000041",
+  "checkedOn": "2026-11-15",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "data/counselor/comparisons/cp-000041.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed.\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "data/counselor/comparisons/cp-000041.json"
+      ],
+      "exitCode": 0,
+      "output": "1 canonical records pass full JSON Schema validation.\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/verify-qualified-comparison-stage2.py"
+      ],
+      "exitCode": 0,
+      "output": "Preserved 375 approvals, CP072/CP099, 60 unprocessed cases, protected inputs, fixed 438 scope and exhausted worker histories.\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/test-qualified-comparison-stage2.py"
+      ],
+      "exitCode": 0,
+      "output": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.152s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/test-comprehensive-reaudit.py"
+      ],
+      "exitCode": 0,
+      "output": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor-review"
+      ],
+      "exitCode": 0,
+      "output": "\n> validate:counselor-review\n> node scripts/build-counselor-review-index.mjs --check\n\nCurrent counselor review indexes: 438 programmes, 21212 interest rows.\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm.\n"
+    }
+  ],
+  "advancedCounts": [
+    10,
+    8
+  ],
+  "pairwiseDifferentCoursesEach": 5,
+  "productionWrapperByteExact": true,
+  "all438OperationalValidation": {
+    "result": "passed",
+    "logSha256": "53ccb61525f3e584622bbd17166654935f187972dbeaca6734a9b2176f773826"
+  },
+  "ci": "pending; final academic approval withheld",
+  "correctedLocalIssue": "Review indexes became stale after the canonical type changed. Rebuilt only the existing review indexes, then validated. No final discovery products generated."
+}

@@ -41,6 +41,8 @@ on:
       - 'scripts/test-workflow-checks.py'
       - 'scripts/validate-comprehensive-reaudit.py'
       - 'scripts/verify-qualified-comparison-stage1.py'
+      - 'scripts/verify-qualified-comparison-stage2.py'
+      - 'scripts/test-qualified-comparison-stage2.py'
       - 'scripts/test-shiny.R'
       - 'scripts/test-student-private.R'
       - 'scripts/test-student-production.R'
@@ -109,7 +111,12 @@ jobs:
       - name: Validate re-audit register and preserved review evidence
         run: |
           python scripts/validate-comprehensive-reaudit.py
-          python scripts/verify-qualified-comparison-stage1.py
+          if test -f docs/qc/evidence/qualified-comparison-stage2-2026-11-15/baseline.json; then
+            python scripts/verify-qualified-comparison-stage2.py
+            python scripts/test-qualified-comparison-stage2.py
+          else
+            python scripts/verify-qualified-comparison-stage1.py
+          fi
 
       - name: Install workbook reader
         run: python -m pip install openpyxl "jsonschema>=4.18" referencing
