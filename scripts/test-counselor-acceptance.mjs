@@ -34,7 +34,7 @@ reject(x=>x.audience.curriculum.status='complete');
 reject(x=>x.acceptance.basis='robust-no-match');
 reject(x=>x.alternatives[0].semesters[0].pop());
 const no=read('data/counselor/decisions/cp-000277.json');no.exception.type='no-defensible-ucr-match';no.exception.ucrCourseEvidence='Synthetic strongest-response negative proof.';
-no.acceptance={...d.acceptance,basis:'robust-no-match',verifiedComponentIds:no.comparator.components.map(c=>c[0])};no.audience={...d.audience,comparisonScope:{...d.audience.comparisonScope,label:'Academic no-match: documented substance'},conceptProgrammeIds:[],noteTypes:[],cellNotes:[],componentNotes:{},curriculum:{...d.audience.curriculum,componentIds:no.acceptance.verifiedComponentIds}};
+no.acceptance={...d.acceptance,basis:'robust-no-match',verifiedComponentIds:no.comparator.components.map(c=>c[0])};no.audience={...d.audience,comparisonScope:{...d.audience.comparisonScope,label:'No close UCR comparison'},conceptProgrammeIds:[],noteTypes:[],cellNotes:[],componentNotes:{},curriculum:{...d.audience.curriculum,componentIds:no.acceptance.verifiedComponentIds}};
 assert.deepEqual(validateAcceptance(buildProductionRecord(no,process.cwd())),[]);
 const bad=structuredClone(no);delete bad.acceptance;assert.throws(()=>buildProductionRecord(bad,process.cwd()),/complete 180/);
 const unresolved=read('data/counselor/decisions/cp-000099.json');unresolved.acceptance=no.acceptance;assert.throws(()=>buildProductionRecord(unresolved,process.cwd()));

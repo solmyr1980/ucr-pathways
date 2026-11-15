@@ -348,7 +348,7 @@ render_comparison_scope <- function(record) {
     identical(record$acceptance$standard, "bounded-materiality-2026-11-15") &&
     identical(record$acceptance$basis, "robust-no-match") &&
     identical(curriculum_view(record)$status, "partial") &&
-    identical(safe_text(audience_content(record)$comparisonScope$label), "Academic no-match: documented substance")
+    identical(safe_text(audience_content(record)$comparisonScope$label), "No close UCR comparison")
   if (!qualified_comparison(record) && !negative) return(NULL)
   s <- audience_content(record)$comparisonScope
   if (!is.list(s) || !all(vapply(s[c("label", "assessed", "excluded")], function(x) nzchar(safe_text(x)), logical(1)))) return(NULL)

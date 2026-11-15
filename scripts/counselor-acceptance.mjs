@@ -30,7 +30,7 @@ export function validateAcceptance(record) {
   check(c?.status === 'partial' && text(c.limitation) && c.componentIds?.length === ids.length && c.componentIds.every(id => ids.includes(id)), 'reviewed partial curriculum must select the complete verified boundary');
   check(text(record.audience?.programmeDescription) && text(record.audience?.comparisonExplanation), 'reviewed audience explanations required');
   check(s && text(s.label) && text(s.assessed) && text(s.excluded), 'visible assessed and excluded scope required');
-  check(s?.label === (a.basis === 'robust-no-match' ? 'Academic no-match: documented substance' : a.scope === 'academic-core' ? 'Qualified academic-core comparison' : 'Qualified academic comparison'), 'scope label must state the acceptance boundary');
+  check(s?.label === (a.basis === 'robust-no-match' ? 'No close UCR comparison' : a.scope === 'academic-core' ? 'Qualified academic-core comparison' : 'Qualified academic comparison'), 'scope label must state the acceptance boundary');
   check(Number.isFinite(s?.nominalCredits) && s.nominalCredits === 180, 'nominal external degree is 180 EC');
   if (a.basis === 'qualified-comparison') {
     check(record.recordStatus !== 'exception' && !record.exception, 'qualified comparison cannot be an exception');
