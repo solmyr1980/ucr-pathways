@@ -289,6 +289,12 @@ def validate(root):
             curriculum = audience.get('curriculum', {})
             components = academic_record['comparator']['components']
             validate_approved_curriculum(academic_record, case_id)
+            acceptance = academic_record.get('acceptance')
+            if acceptance:
+                for key in ['externalEvidenceRefs', 'ucrEvidenceRefs', 'challengeEvidenceRefs']:
+                    evidence_refs(acceptance[key])
+                for uncertainty in acceptance['uncertainties']:
+                    evidence_refs(uncertainty['evidenceRefs'])
             programme_ids = {p['id'] for p in academic_record['programmes'] if p.get('family') == 'ucr'}
             require(set(audience.get('conceptProgrammeIds', [])) == programme_ids, f'{case_id}: final canonical concepts not selected for display')
             final = case['finalReview']

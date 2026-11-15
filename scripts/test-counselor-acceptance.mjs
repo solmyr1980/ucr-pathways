@@ -1,5 +1,8 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import {spawnSync} from 'node:child_process';
 import {buildProductionRecord} from './build-counselor-production.mjs';
 import {validateAcceptance} from './counselor-acceptance.mjs';
 import {validateAudience} from './counselor-audience.mjs';
@@ -20,6 +23,12 @@ export function fixture() {
  return d;
 }
 const d=fixture(),r=buildProductionRecord(d,process.cwd());
+const temp=fs.mkdtempSync(path.join(os.tmpdir(),'ucr-acceptance-cli-'));
+try {
+ const input=path.join(temp,'decision.json'),output=path.join(temp,'canonical.json');fs.writeFileSync(input,JSON.stringify(d));
+ const result=spawnSync(process.execPath,['scripts/build-counselor-comparison-v2.mjs',input,'--output',output],{encoding:'utf8'});
+ assert.notEqual(result.status,0);assert.match(result.stderr,/require build-counselor-production/);assert.equal(fs.existsSync(output),false);
+} finally {fs.rmSync(temp,{recursive:true,force:true});}
 assert.deepEqual(r.acceptance,d.acceptance);assert.deepEqual(r.audience,d.audience);
 assert.deepEqual(validateAcceptance(r),[]);assert.deepEqual(validateAudience(r),[]);
 assert.deepEqual(validateExample(stripOptionalIndependentResearch(r)).errors,[]);

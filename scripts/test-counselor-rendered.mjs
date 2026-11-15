@@ -104,6 +104,16 @@ try {
       assert.ok(body.includes('Nominal external degree: 180 EC') && body.includes('Unknown requirements are not open electives'));
       assert.equal(await page.locator('.course-link').count()>0,true);
       if(id==='cp-000317') assert.ok(body.includes('final 30 EC') && body.includes('150 EC'));
+      const scopeBox=await page.locator('.qualified-scope').boundingBox(),contextBox=await page.locator('.audience-context').first().boundingBox();
+      assert.ok(scopeBox && contextBox && scopeBox.y<contextBox.y,`${id}: scope must precede explanatory prose`);
+      const codes={'cp-000250':'HCBBIOM211','cp-000060':'HCBCOGN312','cp-000033':'BENBUSI112','cp-000440':'BENENTR111','cp-000317':'GOSLAWJ311','cp-000266':'BENENTR111'};
+      const code=codes[id],button=page.locator(`.course-link[data-code="${code}"]`).first();
+      if(size==='mobile'){const index=await button.evaluate(b=>Array.from(b.closest('tr').children).indexOf(b.closest('td')));await page.locator('.column-select').selectOption(String(index));await page.waitForTimeout(250);}
+      await button.click();await page.locator('.modal.in').waitFor();
+      const description=JSON.parse(fs.readFileSync(`pilot/shiny/data/courses/${code.slice(0,3)}.json`)).descriptions[code];
+      assert.ok(description && (await page.locator('.modal.in').innerText()).replace(/\s+/g,' ').includes(description.replace(/\s+/g,' ').trim()),`${id}/${code}: wrong selected description`);
+      await page.locator('.modal.in button',{hasText:'Close'}).click();await page.locator('.modal-backdrop').waitFor({state:'hidden'});
+
      }
      if(variant==='actual' && ['cp-000099','cp-000072'].includes(id)) assert.equal(await page.locator('.compare-view').count(),0);
      if(variant==='actual' && current.acceptance?.basis==='robust-no-match') {assert.equal(await page.locator('.compare-view').count(),0);assert.ok(body.includes('cannot construct a sufficiently close programme') && body.includes(current.audience.comparisonScope.excluded));}

@@ -405,7 +405,9 @@ function main() {
   const { input, output } = parseArguments(process.argv.slice(2));
   const inputPath = path.resolve(input);
   requireCondition(fs.existsSync(inputPath), `decision file not found: ${inputPath}`);
-  const record = compileV2(JSON.parse(fs.readFileSync(inputPath, 'utf8')), process.cwd());
+  const decision = JSON.parse(fs.readFileSync(inputPath, 'utf8'));
+  requireCondition(!Object.hasOwn(decision, 'acceptance'), 'bounded materiality records require build-counselor-production.mjs, including optional research');
+  const record = compileV2(decision, process.cwd());
   const outputPath = path.resolve(output || path.join('data', 'counselor', 'comparisons', `${record.id}.json`));
   requireCondition(!fs.existsSync(outputPath), `refusing to overwrite existing canonical comparison: ${outputPath}`);
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
