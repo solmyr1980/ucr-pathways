@@ -111,7 +111,11 @@ try {
       assert.ok(body.includes('Nominal external degree: 180 EC') && body.includes('Unknown requirements are not open electives'));
       assert.equal(await page.locator('.course-link').count()>0,true);
       if(id==='cp-000317') assert.ok(body.includes('final 30 EC') && body.includes('150 EC'));
-      if(id==='cp-000040') assert.ok(body.includes('165') && body.includes('15 EC') && body.includes('restricted Arts minor'));
+      if(id==='cp-000040') {
+       assert.equal(current.acceptance.scope,'academic-core');
+       assert.equal(current.comparator.components.reduce((sum,c)=>sum+c.credits,0),165);
+       assert.ok(body.includes('165') && body.includes('15 EC') && body.includes('restricted Arts minor'));
+      }
       if(id==='cp-000266') assert.equal(current.programmes.length,3,'Two independently reviewed UCR options must be present');
       const scopeBox=await page.locator('.qualified-scope').boundingBox(),contextBox=await page.locator('.audience-context').first().boundingBox();
       assert.ok(scopeBox && contextBox && scopeBox.y<contextBox.y,`${id}: scope must precede explanatory prose`);
