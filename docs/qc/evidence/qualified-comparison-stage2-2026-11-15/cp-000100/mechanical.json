@@ -1,0 +1,112 @@
+{
+  "caseId": "cp-000100",
+  "checkedOn": "2026-11-15",
+  "checks": [
+    {
+      "command": [
+        "node",
+        "scripts/build-counselor-production.mjs",
+        "data/counselor/decisions/cp-000100.json",
+        "--output",
+        "/tmp/cp-000100-stage2-replay.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "60e4c77c8a1a81786f42ac779c8624228671f9fddc1d238d293b9729bf55c9dd",
+      "tail": [
+        "Built cp-000100 counselor comparison record at /tmp/cp-000100-stage2-replay.json"
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "data/counselor/comparisons/cp-000100.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918",
+      "tail": [
+        "1 canonical records pass full JSON Schema validation."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "data/counselor/comparisons/cp-000100.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c",
+      "tail": [
+        "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-comprehensive-reaudit.py",
+        "--sync"
+      ],
+      "exitCode": 0,
+      "outputSha256": "581a7538d517dfd90cf2535c7cb946ab7cfd9cda3ec775bb589103965ba3e719",
+      "tail": [
+        "Re-audit register consistent: 438 baseline targets; {'approved': 380, 'inProgress': 58, 'reviewedWithBlockers': 0, 'notStarted': 0, 'pilotStarted': 6}; 438 case evidence files. No academic approval inferred.",
+        "Derived register summaries already current."
+      ]
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build:counselor-review"
+      ],
+      "exitCode": 0,
+      "outputSha256": "03d5707a2817feb59ebd51b7eaf3d54e159f7df8c3e1f0d4f4d75b8a67aee3e2",
+      "tail": [
+        "",
+        "Wrote counselor review indexes: 438 programmes, 21212 interest rows."
+      ]
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor"
+      ],
+      "exitCode": 0,
+      "outputSha256": "17083f80e8488be39c268ad56c0801bb8c102dbe5f7d103e7afcdd6a8f308dfe",
+      "tail": [
+        "cp-000457.json: final counselor methodology rules OK",
+        "cp-000459.json: final counselor methodology rules OK"
+      ]
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor-review"
+      ],
+      "exitCode": 0,
+      "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8",
+      "tail": [
+        "",
+        "Current counselor review indexes: 438 programmes, 21212 interest rows."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/verify-qualified-comparison-stage2.py"
+      ],
+      "exitCode": 0,
+      "outputSha256": "729a6d9d810176c2ec44f6439d1f2055ac619a17a264aa5d051d7a2b9c9d7286",
+      "tail": [
+        "Preserved 375 approvals, CP072/CP099, 55 unprocessed cases, protected inputs, fixed 438 scope and exhausted worker histories."
+      ]
+    }
+  ],
+  "productionWrapperByteExact": true,
+  "advancedCounts": [
+    8
+  ],
+  "ci": "pending; final case approval withheld"
+}
