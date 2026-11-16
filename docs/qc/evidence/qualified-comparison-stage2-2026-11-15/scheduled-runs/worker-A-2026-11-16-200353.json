@@ -173,7 +173,21 @@
   "nextAction": "Acquire a fresh published A claim next occurrence; start CP282, then CP284, according to fresh detailed status. Skip completed CP275 and every completed review including unresolved outcomes. Fixed batch3 is7/10 pending B-ownedCP211/245/258; final QA awaits those reviews. Batch2 remains9/10 pendingCP149.",
   "schedule": "Both new Stage2schedules remain enabled; assignments and required final integration remain incomplete. Old Restart Corpus tasks remain paused.",
   "release": {
-    "status": "Pending final checkpoint exact readback and applicable CI, then separately guarded release of this own A token."
+    "status": "Own A token released in this guarded closure commit after final checkpoint readback and applicable CI passed.",
+    "closedClaim": {
+      "token": "c9e21fc8-e9b9-4346-b126-ce588a374eec",
+      "worker": "A",
+      "caseIds": [
+        "cp-000275",
+        "cp-000282"
+      ],
+      "startedAt": "2026-11-16T20:03:53.725684Z",
+      "heartbeatAt": "2026-11-16T20:18:02.858652Z",
+      "expiresAt": "2026-11-16T21:48:02.858652Z",
+      "closedAs": "released",
+      "closedAt": "2026-11-16T20:25:56.825430Z"
+    },
+    "schedule": "Both new schedules remain enabled; A15/B20 owned reviews and required final integration remain incomplete. B claim unchanged; old Restart Corpus tasks remain paused."
   },
   "boundaries": "No accepted UCR programme, active alignment or optional-research row in the no-match exception. Research trials remain evidence only. No renderer/workbook/registry/student/final-discovery/deployment/public-release/new-automation change. Historical60actualdesktop/mobilechecks reused within unchanged no-match/partial scope only.",
   "scheduleVerification": {
@@ -201,5 +215,63 @@
       }
     ],
     "changesMade": false
+  },
+  "finalCheckpointVerification": {
+    "commit": "3e217673444bfcc3f61151419675873a3cbb11eb",
+    "readback": "All eight complete Git blobs equal the expected manifest SHAs after fetch; parent and remote main verified.",
+    "files": [
+      {
+        "path": "data/counselor/qc/full-restart-2026-10-27.json",
+        "size": 3937527,
+        "sha": "ecb7f33511987157ca0cb0bea5de6fd2e1fe962d"
+      },
+      {
+        "path": "data/counselor/qc/full-restart-2026-10-27/cp-000275.json",
+        "size": 569377,
+        "sha": "a016dd6e7d8c4034d782553935f7ef4d3a4b4e56"
+      },
+      {
+        "path": "docs/qc/deferred-case-qualified-comparison-stage2-progress-2026-11-15.md",
+        "size": 6534,
+        "sha": "c7cd437cac72603d76c96c7d3b8d0c3f9ff12c2f"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/batches/batch-03.md",
+        "size": 5587,
+        "sha": "0f892c308a6c342b354d45b5af7d7b63ffa71bcc"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/review.json",
+        "size": 14509,
+        "sha": "a9709229e6881b472beb7275003324d450850e33"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/end-state-validation.json",
+        "size": 3734,
+        "sha": "1c413f35f4d1167fbb7c4a8cbfe61dc0620709fe"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/publication-verification.json",
+        "size": 4946,
+        "sha": "2f4a5272eef0e285422c95e464eb50885c294ecb"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/scheduled-runs/worker-A-2026-11-16-200353.json",
+        "size": 10043,
+        "sha": "91bda7bff5442f741684389ab68317252e0627dc"
+      }
+    ],
+    "applicableCI": [
+      {
+        "id": 43949438547,
+        "name": "Validate Shiny pilots",
+        "status": "completed",
+        "conclusion": "success",
+        "event": "push",
+        "head_sha": "3e217673444bfcc3f61151419675873a3cbb11eb",
+        "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/43949438547"
+      }
+    ],
+    "result": "passed"
   }
 }
