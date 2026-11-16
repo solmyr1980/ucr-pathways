@@ -18,7 +18,7 @@
       "publicationVerificationRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000282/publication-verification.json"
     }
   ],
-  "status": "completed-one-case; final checkpoint verification and claim release pending",
+  "status": "completed-one-case; verified final checkpoint and own claim released",
   "notStarted": [
     "cp-000284"
   ],
@@ -158,9 +158,24 @@
   },
   "failure": "NoGitHubpublicationfailure. Currentneurosciencemoduledescriptiongenuinelyabsent,notaretrievalerror; itsrelationshipwithheld. LocalinspectionhelperscorrectedforDutchtext,missingdescriptionfield,actualucr-alternativerole and3/300levelencoding. No gate,level,coursefact orclaim changedtosatisfyfalseassumption. A localapprovalhelperalsoassumedexternal-onlyoverride;parentinspectionconfirmedexistingnormal,retainedunchangedandcontentmetadata corrected beforefinalpublication. No duplicateapprovalhistory.",
   "academicCorrection": "RemovedgenericPharmacology↔dedicatedOncologyrelationship; movedneuroendocrinecontenttoactualNeurobiologyregulation/rhythms/behaviour; withheld6ECneurosciencecontent. Encodedresearch/statistical/ethicalbasisalreadyexpressed byfrozenconcepts.",
-  "nextAction": "Afterexactfinalcheckpointreadback/applicableCI,releaseonlyownliveAclaimthroughguardedwrapper. NextAoccurrencestartsCP284thenCP288ifavailableandwithinlimit;skipCP282andallcompletedStage2reviews. KeepnewtasksenabledandoldRestartCorpustaskspaused.",
+  "nextAction": "NextAoccurrenceclaimsCP284first,thenCP288ifavailableandwithinlimit. SkipcompletedCP282andallcompletedStage2reviews. Fixedbatch2QAclosed;batch3sevenoftenenforcedandbatch4oneoftennotfinal. Requiredfinal61caseintegrationremainsseparate.",
   "release": {
-    "status": "pending finalcheckpointverification"
+    "status": "OwnliveAclaimreleasedafterverifiedcaseandfinalQAcheckpoint.",
+    "closedClaim": {
+      "token": "58529ef8-73b7-40e5-ae87-5e3a33065e56",
+      "worker": "A",
+      "caseIds": [
+        "cp-000282",
+        "cp-000284"
+      ],
+      "startedAt": "2026-11-16T22:02:32.829642Z",
+      "heartbeatAt": "2026-11-16T22:16:27.530548Z",
+      "expiresAt": "2026-11-16T23:46:27.530548Z",
+      "closedAs": "released",
+      "closedAt": "2026-11-16T22:24:35.039836Z"
+    },
+    "schedule": "Stage2A/Benabled;oldRestartCorpusA/Bpaused,actualprivatepeekverified.",
+    "remainingOwnedA": 14
   },
   "finalMetadataChecks": {
     "auditConsistency": "passed397approved41unresolved",
@@ -170,5 +185,63 @@
     "selectedDescriptionFidelity": "passed149entries",
     "presentationOverrides": "Completefileunchanged;282alreadyhadnormal,withpreviousexceptionenforcingexternal-only. Actualfinishedqualifiedmodecontentreviewcorrected.",
     "pair": "CP282decision/canonical unchangedfromverified555fe735"
+  },
+  "finalCheckpointVerification": {
+    "commit": "a605e4f721d7e7da781d6ce4327da8ae49a72563",
+    "files": [
+      {
+        "path": "data/counselor/qc/full-restart-2026-10-27.json",
+        "size": 3934572,
+        "sha": "6826d3df5a3c47aba1f9016019946473bbce2d84"
+      },
+      {
+        "path": "data/counselor/qc/full-restart-2026-10-27/cp-000282.json",
+        "size": 1377935,
+        "sha": "70d6d72475b28d232790a5133642ecf6033401f8"
+      },
+      {
+        "path": "docs/qc/deferred-case-qualified-comparison-stage2-progress-2026-11-15.md",
+        "size": 8965,
+        "sha": "7509d2213feba1e140cec4187a4e25c9ed826949"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000282/content-inputs.json",
+        "size": 39613,
+        "sha": "59bc574363df028ff69e9eb72682f584bf2047ea"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000282/review.json",
+        "size": 53646,
+        "sha": "c15dcc587096a6952ee2c888fa4b91d277a2b2b0"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/batches/batch-04.md",
+        "size": 1673,
+        "sha": "3bb9d599b3524c7fcd4822cffce27b233820b38a"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000282/publication-verification.json",
+        "size": 5121,
+        "sha": "0f56861b969fa8c05a3c794de3e3a1ca411cf094"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/scheduled-runs/worker-A-2026-11-16-220232.json",
+        "size": 7265,
+        "sha": "c99f699105220e900440601df020e11041c7399d"
+      }
+    ],
+    "readback": "All8completeblobs equalmanifest,expectedparentandremotemainverified.",
+    "applicableCI": [
+      {
+        "name": "Validate Shiny pilots",
+        "status": "completed",
+        "conclusion": "success",
+        "event": "push",
+        "id": 43969503526,
+        "head_sha": "a605e4f721d7e7da781d6ce4327da8ae49a72563",
+        "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/43969503526"
+      }
+    ],
+    "postPublicationPreservation": "1311othercase/pairfilesandBclaimunchangedfromrunparent1ca9b9c9;CP282decision/canonicalremainexactverified555fe735pair."
   }
 }
