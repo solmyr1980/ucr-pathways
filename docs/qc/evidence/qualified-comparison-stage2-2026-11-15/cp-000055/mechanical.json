@@ -1,0 +1,101 @@
+{
+  "caseId": "cp-000055",
+  "checkedOn": "2026-11-16",
+  "productionWrapperReplay": "byte-exact",
+  "checks": [
+    {
+      "command": [
+        "node",
+        "scripts/build-counselor-production.mjs",
+        "data/counselor/decisions/cp-000055.json",
+        "--output",
+        "/workspace/scratch/fbddbed0316d/cp055-replay.json"
+      ],
+      "exitCode": 0,
+      "tail": [
+        "Built cp-000055 counselor exception record at /workspace/scratch/fbddbed0316d/cp055-replay.json"
+      ],
+      "outputSha256": "8e670541720bb75868a3a461cc182fa49fa33ea6463f1702ceb5e4d243cca888"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "data/counselor/comparisons/cp-000055.json"
+      ],
+      "exitCode": 0,
+      "tail": [
+        "1 canonical records pass full JSON Schema validation."
+      ],
+      "outputSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "data/counselor/comparisons/cp-000055.json",
+        "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000055/research-trial.json",
+        "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000055/retained-historical-trial.json"
+      ],
+      "exitCode": 0,
+      "tail": [
+        "3 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+      ],
+      "outputSha256": "fc47b92e55c7db2a39fd5ca6da16293078f8a308f606f13351a23745cd72a975"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor"
+      ],
+      "exitCode": 0,
+      "tail": [
+        "cp-000456.json: final counselor methodology rules OK",
+        "cp-000457.json: final counselor methodology rules OK",
+        "cp-000459.json: final counselor methodology rules OK"
+      ],
+      "outputSha256": "e1c73875593de186e1a5eea7635ac2c5ff18b36c013db6941eb626609e71063f"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build:counselor-review"
+      ],
+      "exitCode": 0,
+      "tail": [
+        "> node scripts/build-counselor-review-index.mjs",
+        "",
+        "Wrote counselor review indexes: 438 programmes, 21212 interest rows."
+      ],
+      "outputSha256": "e1e2b9bb1d60ef789045b581efff2eae1129c1d59941390447afdb13b0929c8b"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor-review"
+      ],
+      "exitCode": 0,
+      "tail": [
+        "> node scripts/build-counselor-review-index.mjs --check",
+        "",
+        "Current counselor review indexes: 438 programmes, 21212 interest rows."
+      ],
+      "outputSha256": "9cdc82c30ce21ebe3a169c66afb6ec7ca95b122741df4a50df822f14484914fc"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-descriptions.py"
+      ],
+      "exitCode": 0,
+      "tail": [
+        "149 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained."
+      ],
+      "outputSha256": "0930ad77e0fabf4d5e2b7368e32333cd0d7fa6250a3dd62747d50f545246df6f"
+    }
+  ],
+  "limits": "Both complete UCR trials are rejected academic challenges, not approved programmes. No renderer/runtime change or new browser claim."
+}
