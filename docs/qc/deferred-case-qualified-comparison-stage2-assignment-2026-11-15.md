@@ -5,6 +5,10 @@
 **Boundary:** Review **exactly the 61 cases** remaining outside Stage 1. Proceed in small manual batches with a first-batch quality checkpoint. **Do not deploy, publish final discovery data, revive automations or release the corpus.**  
 **Handoff:** This document is self-contained and authoritative for the *scope of this authorized Stage 2 work*. It does not replace the governing academic Production Instructions or implemented materiality policy.
 
+## Execution amendment: 16 November 2026
+
+The user has now authorized two hourly small-batch scheduled tasks, staggered at :00 and :30 Europe/Amsterdam. The [scheduled execution instructions](deferred-case-qualified-comparison-stage2-scheduling-2026-11-16.md) and `postAuditReviews[0].scheduling` in the active register supersede this assignment's manual-only, sequential next-case selection and no-new-automation restrictions for these two tasks only. Each task owns a disjoint 24-case queue and processes up to two cases per run, preserving the 13 reviews already complete. Existing ten-case QA groups remain. All academic, preservation, verification and release boundaries below remain binding. Old exhausted Restart Corpus A/B tasks remain paused.
+
 ## 1. Background and approval
 
 The completed 438-case full-restart audit initially left 71 unresolved cases. The ten-case analytical pilot and subsequently authorized Stage 1 implementation established an explicit **bounded materiality standard**: a carefully limited qualified comparison, a qualified academic-core comparison, or a robust academic no-match may be approved when the evidence supports the precise academic claim, even if some external administrative/curriculum detail is unresolved. **Academic comparability and full UCR feasibility are not relaxed.** Missing information that could change the material academic judgment still requires a deferral.
