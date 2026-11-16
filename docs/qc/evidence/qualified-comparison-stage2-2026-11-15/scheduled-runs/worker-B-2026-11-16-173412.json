@@ -248,6 +248,74 @@
   },
   "nextAction": "Acquire a fresh workerBclaim; handleCP124thenCP149subjecttofreshstatus. SkipCP087andallcompletedreviews,includingunresolved. Batch2is9of10;closeitsacademicQAonlyafterCP149.",
   "schedule": "Remain enabled: B has21ownedreviews and required integration incomplete. OldRestartCorpustasksstaypaused.",
-  "release": "Keep this run’s B claim live until the final verified-case/progress checkpoint passes complete blob readback and applicable CI. Then release only its own B token in a separate guarded commit; never change A’s claim.",
-  "boundaries": "No renderer/workbook/registry/student changes,no counselor deployment,finaldiscoverydata,publicrelease,additionalautomationoroldtaskrestart. Unchangedrenderer60actualdesktop/mobilechecksreusedonlywithintheirrecordedscope."
+  "release": {
+    "status": "Own B token released in this guarded closure commit after final checkpoint readback and CI passed.",
+    "closedClaim": {
+      "token": "a4a452b7-8437-4677-b6b6-862b7ed9361a",
+      "worker": "B",
+      "caseIds": [
+        "cp-000087",
+        "cp-000124"
+      ],
+      "startedAt": "2026-11-16T17:34:12.776731Z",
+      "heartbeatAt": "2026-11-16T17:49:27.731246Z",
+      "expiresAt": "2026-11-16T19:19:27.731246Z",
+      "closedAs": "released",
+      "closedAt": "2026-11-16T18:05:36.506410Z"
+    },
+    "nextWorker": "Latest user steering switches to A; B has no further academic work in this execution."
+  },
+  "boundaries": "No renderer/workbook/registry/student changes,no counselor deployment,finaldiscoverydata,publicrelease,additionalautomationoroldtaskrestart. Unchangedrenderer60actualdesktop/mobilechecksreusedonlywithintheirrecordedscope.",
+  "finalCheckpointVerification": {
+    "commit": "9346a4cd10fec32ed91ae34a1610d64744238837",
+    "readback": "All7completeGitblobsverifiedagainsteachmanifestSHA.",
+    "files": [
+      {
+        "path": "data/counselor/qc/full-restart-2026-10-27.json",
+        "size": 3939607,
+        "sha": "68b8db90c2fe8a1ccbb1fdbf867aaf4663b71d9b"
+      },
+      {
+        "path": "data/counselor/qc/full-restart-2026-10-27/cp-000087.json",
+        "size": 465843,
+        "sha": "9650cfed45598e7616b61d000d59b7f120c55284"
+      },
+      {
+        "path": "docs/qc/deferred-case-qualified-comparison-stage2-progress-2026-11-15.md",
+        "size": 3502,
+        "sha": "dc5290d2e65f940974206f066b3b8d20be1229bd"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/batches/batch-02.md",
+        "size": 8451,
+        "sha": "99882ddcd5859cdcd15ac7a36b158f0480eec79a"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000087/review.json",
+        "size": 13733,
+        "sha": "231008944529bec3f284f86048736e588ba19b4a"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000087/publication-verification.json",
+        "size": 3171,
+        "sha": "c0ce29de96a98fc049c97443bc712ccada21cb7a"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/scheduled-runs/worker-B-2026-11-16-173412.json",
+        "size": 11131,
+        "sha": "37801eab55f892a695a8b6ee2c3923b56f1e5f84"
+      }
+    ],
+    "applicableCI": [
+      {
+        "name": "Validate Shiny pilots",
+        "status": "completed",
+        "conclusion": "success",
+        "id": 43924842318,
+        "head_sha": "9346a4cd10fec32ed91ae34a1610d64744238837",
+        "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/43924842318"
+      }
+    ],
+    "result": "passed"
+  }
 }
