@@ -18,7 +18,7 @@
       "publicationVerificationRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000149/publication-verification.json"
     }
   ],
-  "status": "completed-one-case; final checkpoint verification and own claim release pending",
+  "status": "completed-one-case; verified final checkpoint and own claim released",
   "notStarted": [
     "cp-000211"
   ],
@@ -163,9 +163,24 @@
   },
   "failure": "No GitHubpublicationfailure. Corrected local traceability/inspection/scratch-output errors are recorded in the case review; one partial large-file read was replaced by the already complete verified Gitcheckout. No actual repository integrity/hash mismatch.",
   "batchAssessmentRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/batches/batch-02-final-qa.json",
-  "nextAction": "After exactfinalcheckpointreadback andapplicableCI, release onlyownliveBclaim throughguardedwrapper. NextBoccurrence startsCP211;skipCP149andallcompletedStage2reviews. Bschedule remainsenabled;oldRestartCorpustaskspaused.",
+  "nextAction": "NextBoccurrence claimsCP211first,thenCP245ifavailableandwithinlimit. Skip completedCP149andallcompletedStage2reviews. Fixedbatch2QAcomplete7approved3unresolved; final61caseintegration remains separate.",
   "release": {
-    "status": "pending final checkpoint verification"
+    "status": "Own live B claim released after verified case and final QA checkpoint.",
+    "closedClaim": {
+      "token": "53b431c5-539a-477b-8e6f-b5a3390eae50",
+      "worker": "B",
+      "caseIds": [
+        "cp-000149",
+        "cp-000211"
+      ],
+      "startedAt": "2026-11-16T21:27:24.256642Z",
+      "heartbeatAt": "2026-11-16T21:36:07.573552Z",
+      "expiresAt": "2026-11-16T23:06:07.573552Z",
+      "closedAs": "released",
+      "closedAt": "2026-11-16T21:45:36.219434Z"
+    },
+    "schedule": "Stage2A/Bstillenabled;oldRestartCorpusA/Bpaused, actualpeekverified.",
+    "remainingOwnedB": 19
   },
   "finalMetadataChecks": {
     "auditConsistency": "passed396approved42unresolved",
@@ -175,5 +190,68 @@
     "selectedDescriptionFidelity": "passed149entries",
     "presentationOverride": "Onlycp-000149external-only→normal; all437others unchanged.",
     "caseDecisionCanonical": "CP149pairunchanged fromverifiedc885753b; allothercases/pairs andAclaim unchanged fromrunparent32a08186."
+  },
+  "finalCheckpointVerification": {
+    "commit": "0ba58a681c0fb1e7c243fa9986ee1ff5139b7ee4",
+    "files": [
+      {
+        "path": "data/counselor/presentation-overrides.json",
+        "size": 42825,
+        "sha": "6a923c1e3b48c13eb6971e1dfe7aeb5f30c231a7"
+      },
+      {
+        "path": "data/counselor/qc/full-restart-2026-10-27.json",
+        "size": 3936651,
+        "sha": "f3b7ab2ccccdd4fac0fe385dff198d01ef4b77ad"
+      },
+      {
+        "path": "data/counselor/qc/full-restart-2026-10-27/cp-000149.json",
+        "size": 91215,
+        "sha": "cbb98208d5eb3dd839f13b168e243321267988e1"
+      },
+      {
+        "path": "docs/qc/deferred-case-qualified-comparison-stage2-progress-2026-11-15.md",
+        "size": 7626,
+        "sha": "5c835d2cc2be96e9f7a11d7c523c02654dec5888"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/batches/batch-02.md",
+        "size": 10320,
+        "sha": "f5f43485da8aa0edf16f8b9dcd2047fe85ebcf9e"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000149/review.json",
+        "size": 58293,
+        "sha": "c173cc9b431e4cc58e4ad73800d27276a471b5c5"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/batches/batch-02-final-qa.json",
+        "size": 9278,
+        "sha": "52320411992db0c6e409251d248f6e1051190b54"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000149/publication-verification.json",
+        "size": 3554,
+        "sha": "12b9970d9850f24d863e27623322b4b2b93e50ef"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/scheduled-runs/worker-B-2026-11-16-212724.json",
+        "size": 6719,
+        "sha": "567e915e6180d252ac86e3813d3b2425541ff4ab"
+      }
+    ],
+    "readback": "All9complete blobs equal manifest, with expected parent and remote main verified.",
+    "applicableCI": [
+      {
+        "name": "Validate Shiny pilots",
+        "status": "completed",
+        "conclusion": "success",
+        "event": "push",
+        "id": 43962901873,
+        "head_sha": "0ba58a681c0fb1e7c243fa9986ee1ff5139b7ee4",
+        "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/43962901873"
+      }
+    ],
+    "postPublicationPreservation": "1311othercase/pairfiles,Aclaim unchanged;CP149decision/canonical remain exactverifiedc885753b pair."
   }
 }
