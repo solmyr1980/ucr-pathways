@@ -1,6 +1,6 @@
 # Stage 2 batch 3: academic QA group
 
-16 November 2026. Three of ten reviews complete; final batch QA remains open. This grouping does not change scheduled worker ownership.
+16 November 2026. Four of ten reviews complete; final batch QA remains open. This grouping does not change scheduled worker ownership.
 
 | Case | Stage 2 review | Academic state |
 |---|---|---|
@@ -9,7 +9,7 @@
 | CP-000135 | Completed; current credited curriculum boundary remains unverified | Unresolved |
 | CP-000178 | Completed; qualified documented common-core comparison | Approved |
 | CP-000211 | Not completed | Prior state retained |
-| CP-000218 | Not completed | Prior state retained |
+| CP-000218 | Completed; qualified 132-EC academic-core comparison | Approved |
 | CP-000245 | Not completed | Prior state retained |
 | CP-000255 | Not completed | Prior state retained |
 | CP-000258 | Not completed | Prior state retained |
@@ -20,3 +20,5 @@ CP122 review `7c6b7f08901a5e4ab2571a78202b965e938ca80e` has exact evidence and p
 Worker A checkpoint,16November2026: CP135 completed unresolved at `3a1d187588c05fe3fce596b28d017234b4577c9d`, exactreadback/validationCIverified. CP178 remainsinprogress; its datedsources/trials andunapprovedpairarein `../cp-000178/review.json`. [Run QA](../scheduled-runs/worker-A-2026-11-16-151236.json) recordsexactscope/errors/nextactions. No final batch QA or CP178approval claimed.
 
 Worker A resumed and completed CP178 at pair `b9295a2204c5cf8a05e59424791d1117955fe773`. Exact readback and all applicable compiler, index and validation CI are recorded in `../cp-000178/publication-verification.json`. The limited comparison excludes 65 EC of unknown major/elective study and retains research-culmination differences. [Run QA](../scheduled-runs/worker-A-2026-11-16-155242.json) records source versions, mechanical/content checks, preservation and exact next actions. Three of ten reviews are complete; final batch QA remains open.
+
+Worker A completed CP218 at pair `38cf8c9b167915dc2031909973c544f5f0dfaf2d`. [Verification](../cp-000218/publication-verification.json) records exact file readback and all applicable CI. The stored132EC comprise102ECtaught core plus30ECminor;48ECfuture-course/placement/thesis formation are excluded. Actualsourcecontent caused a narrower scope and three substantive UCR repairs. [Run QA](../scheduled-runs/worker-A-2026-11-16-170557.json) records all gates and remainingownership. Four of ten reviews are complete; final batch QA remains open.
