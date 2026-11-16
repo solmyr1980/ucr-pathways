@@ -1,0 +1,646 @@
+
+
+<!DOCTYPE html>
+<html class="no-js" lang="nl">
+
+<head>
+    
+    <script type="text/javascript">
+    !function(T,l,y){var S=T.location,k="script",D="instrumentationKey",C="ingestionendpoint",I="disableExceptionTracking",E="ai.device.",b="toLowerCase",w="crossOrigin",N="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"5",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[b](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,u,p,l;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][b]()]=i[1])}if(!e[C]){var r=e.endpointsuffix,o=r?e.location:null;e[C]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[D]||d[D]||"",u=s[C],p=u?u+"/v2/track":d.endpointUrl,(l=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=p,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),l.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,p)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:N,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(N,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(l,p))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(k);n.src=h;var e=y[w];return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(k)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[I]&&!0!==s[I]){var c="onerror";t(["_"+c]);var u=T[c];T[c]=function(e,t,n,a,i){var r=u&&u(e,t,n,a,i);return!0!==r&&m["_"+c]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);function a(){y.onInit&&y.onInit(n)}(T[t]=n).queue&&0===n.queue.length?(n.queue.push(a),n.trackPageView({})):a()}(window,document,{
+    src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", // The SDK URL Source
+    // name: "appInsights", // Global SDK Instance name defaults to "appInsights" when not supplied
+    // ld: 0, // Defines the load delay (in ms) before attempting to load the sdk. -1 = block page load and add to head. (default) = 0ms load after timeout,
+    // useXhr: 1, // Use XHR instead of fetch to report failures (if available),
+    crossOrigin: "anonymous", // When supplied this will add the provided value as the cross origin attribute on the script tag
+    // onInit: null, // Once the application insights instance has loaded and initialized this callback function will be called with 1 argument -- the sdk instance (DO NOT ADD anything to the sdk.queue -- As they won't get called)
+    cfg: { // Application Insights Configuration
+        connectionString: "InstrumentationKey=849ed2ba-5dca-4173-b668-e1ed650dea4a;IngestionEndpoint=https://westeurope-5.in.applicationinsights.azure.com/;LiveEndpoint=https://westeurope.livediagnostics.monitor.azure.com/;ApplicationId=f19f4da5-e3ea-4102-8054-e3e54839e0c9",
+        enableCorsCorrelation: true,
+        enableRequestHeaderTracking: true,
+        enableResponseHeaderTracking: true,
+        enableAutoRouteTracking: true
+    }});
+    appInsights.addTelemetryInitializer((e) => { e.tags['ai.cloud.role'] = 'VU.Web.Studiegids - Client' });
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="date" content="2026-11-16" />
+    <title>Communicatie- en Informatiewetenschappen | Studiegids</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="content-language" content="nl" />
+    <meta property="og:site_name" content="Studiegids">
+    <meta property="og:title" content="Communicatie- en Informatiewetenschappen | Studiegids">
+    <meta property="og:description" content="In de bacheloropleiding Communicatie- en Informatiewetenschappen kiezen studenten voor een bepaalde specialisatie. Er zijn twee Engelstalige">
+    <meta property="og:url"
+        content="https://studiegids.vu.nl/nl/Bachelor/2026-2027/communicatie-en-informatiewetenschappen">
+    <meta property="og:type" content="website" />
+    <meta property="description" content="In de bacheloropleiding Communicatie- en Informatiewetenschappen kiezen studenten voor een bepaalde specialisatie. Er zijn twee Engelstalige">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Communicatie- en Informatiewetenschappen | Studiegids" />
+    <meta name="twitter:description" content="In de bacheloropleiding Communicatie- en Informatiewetenschappen kiezen studenten voor een bepaalde specialisatie. Er zijn twee Engelstalige" />
+
+    
+            <link rel="alternate" href="https://studiegids.vu.nl/en/Bachelor/2026-2027/communication-and-information-studies" hreflang="en" />
+
+
+    <link rel="stylesheet" href="/css/site-d5bbaf0390.min.css" />
+    
+    
+    
+
+</head>
+
+<body>
+    
+
+    <div class="wrapper">
+        <header>
+            
+
+
+<div class="grid-x align-middle menu-bar">
+    <div class="cell small-2 large-3">
+        <div data-responsive-toggle="menu" class="hide-for-large" data-hide-for="large">
+    <div class="toggle-container">
+        <button class="toggle-icon" type="button" data-toggle="menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div class="mobile-navigation" id="menu">
+        <div class="top-bar-right">
+            <ul class="vertical large-horizontal menu align-left" data-responsive-menu="drilldown large-dropdown" data-back-button='<li class="js-drilldown-back"><a tabindex="0"><i class="fal fa-chevron-left"></i> Terug</a></li>'>
+                <ul class="menu">
+        <li class='active'>
+            <a href="/nl/bachelor/2026-2027">Bachelor</a>
+        </li>
+        <li class=''>
+            <a href="/nl/master/2026-2027">Master</a>
+        </li>
+        <li class=''>
+            <a href="/nl/premaster/2026-2027">Premaster</a>
+        </li>
+        <li class=''>
+            <a href="/nl/postgraduate/2026-2027">Postgraduate</a>
+        </li>
+        <li class=''>
+            <a href="/nl/minor/2026-2027">Minor</a>
+        </li>
+        <li class=''>
+            <a href="/nl/exchange/2026-2027">Exchange</a>
+        </li>
+
+    <li class=''>
+        <a href="/nl/vakken/2026-2027">Vakken</a>
+    </li>
+</ul>
+
+            </ul>
+        </div>
+    </div>
+</div>
+        <a href="https://www.vu.nl" class="show-for-large" target="_blank" rel="noopener">
+            <img class="vu-logo" src="/images/vulogo.svg" alt="Vrije Universiteit Amsterdam">
+        </a>
+    </div>
+    <div class="cell auto">
+        <a href="https://www.vu.nl" class="hide-for-large" target="_blank" rel="noopener">
+            <img class="vu-logo-small" src="/images/vulogosmall.svg" alt="Vrije Universiteit Amsterdam">
+        </a>
+
+                <div class="show-for-large search-bar">
+                    
+<form action="/nl/search" class="search-form" method="get" onkeydown="return event.keyCode!=13">
+    <div class="search input-group grid-x">
+        <div class="cell auto">
+            <input autocomplete="off" class="input-group-field search-field" id="query" name="query" placeholder="Minimaal 3 karakters" type="text" value="" />
+            
+<div class="autocomplete">
+        <div class="category" study-type="bachelor" hidden>
+            <div class="title">
+                Bachelor
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="master" hidden>
+            <div class="title">
+                Master
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="premaster" hidden>
+            <div class="title">
+                Premaster
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="postgraduate" hidden>
+            <div class="title">
+                Postgraduate
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="minor" hidden>
+            <div class="title">
+                Minor
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="exchange" hidden>
+            <div class="title">
+                Exchange
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="course" hidden>
+            <div class="title">
+                Vakken
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+</div>
+        </div>
+        <input id="studyYear" name="studyYear" type="hidden" value="2026-2027" />
+        <div class="input-group-button cell shrink">
+            <button type="submit" class="button" disabled>
+                <i class="fal fa-search"></i>
+            </button>
+        </div>
+    </div>
+</form>
+
+                </div>
+    </div>
+    <div class="cell small-2 large-3">
+                <div data-responsive-toggle="search" class="hide-for-large" data-hide-for="large">
+                    <div class="toggle-container toggle-search">
+                        <button class="toggle-icon" type="button" data-toggle="search">
+                            <i class="fal fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="mobile-search" id="search">
+                        <div class="top-bar-right">
+                            <div class="search-bar-mobile blue-background">
+                                
+
+<form action="/nl/search" method="get">
+    <div class="search">
+        <input id="studyYear" name="studyYear" type="hidden" value="2026-2027" />
+        <div class="input-group grid-x align-middle">
+            <div class="cell small-3">
+                Zoek
+            </div>
+            <div class="cell auto">
+                <input class="input-group-field search-field" id="query" name="query" placeholder="Opleiding, vak, code" type="text" value="" />
+                
+<div class="autocomplete">
+        <div class="category" study-type="bachelor" hidden>
+            <div class="title">
+                Bachelor
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="master" hidden>
+            <div class="title">
+                Master
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="premaster" hidden>
+            <div class="title">
+                Premaster
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="postgraduate" hidden>
+            <div class="title">
+                Postgraduate
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="minor" hidden>
+            <div class="title">
+                Minor
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="exchange" hidden>
+            <div class="title">
+                Exchange
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="course" hidden>
+            <div class="title">
+                Vakken
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+</div>
+            </div>
+            <div class="input-group-button cell shrink">
+                <button type="submit" class="button" disabled>
+                    <i class="fal fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <div class="show-for-large language-switch">
+            <div class="d-flex align-items-center">
+                
+        <span>NL</span>
+        <span>|</span>
+            <a href="/en/Bachelor/2026-2027/communication-and-information-studies">EN</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hide-for-large mobile-titlebar grid-container">
+    <div class="grid-x">
+        <div id="title-container" class="cell auto">
+            <a href="/nl">
+                Studiegids
+            </a>
+        </div>
+        <div id="language-selector" class="cell shrink">
+            
+        <span>NL</span>
+        <span>|</span>
+            <a href="/en/Bachelor/2026-2027/communication-and-information-studies">EN</a>
+
+        </div>
+    </div>
+</div>
+<div class="header-navigation show-for-large">
+    <div class="grid-x ">
+        <div class="cell large-3">
+            <a href="/nl">
+                <span class="site-title">Studiegids</span>
+            </a>
+        </div>
+        <nav class="cell shrink">
+<ul class="menu">
+        <li class='active'>
+            <a href="/nl/bachelor/2026-2027">Bachelor</a>
+        </li>
+        <li class=''>
+            <a href="/nl/master/2026-2027">Master</a>
+        </li>
+        <li class=''>
+            <a href="/nl/premaster/2026-2027">Premaster</a>
+        </li>
+        <li class=''>
+            <a href="/nl/postgraduate/2026-2027">Postgraduate</a>
+        </li>
+        <li class=''>
+            <a href="/nl/minor/2026-2027">Minor</a>
+        </li>
+        <li class=''>
+            <a href="/nl/exchange/2026-2027">Exchange</a>
+        </li>
+
+    <li class=''>
+        <a href="/nl/vakken/2026-2027">Vakken</a>
+    </li>
+</ul>
+        </nav>
+    </div>
+</div>
+
+        </header>
+        
+<div class="grid-x grid-padding-x align-middle medium-padding-collapse" id="title-bar">
+    <div class="cell large-4 show-for-large">
+        
+    </div>
+    <div class="cell small-12 large-8">
+        
+<div class="study">
+    
+<div id="title">
+    <h1 class="title"> Communicatie- en Informatiewetenschappen </h1>
+    <span> 2026-2027 </span>
+</div>
+</div>
+
+    </div>
+</div>
+
+<div class="grid-container full study-container">
+    <div class="grid-x grid-margin-x" id="content">
+        <div class="cell small-4 show-for-large" id="sidebar">
+            
+<div class="info">
+    
+<h2 class="show-for-medium">Info</h2>
+<table class="unstriped">
+    <tbody>
+        <tr>
+            <th>
+                Niveau
+            </th>
+            <td>
+                Bachelor
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Taal
+            </th>
+            <td>
+                Nederlands / Engels
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Duur
+            </th>
+            <td>
+                3 jaar
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Vorm
+            </th>
+            <td>
+                Voltijds
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Studiepunten
+            </th>
+            <td>
+                180 EC
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Faculteit
+            </th>
+            <td>
+                <a href="https://vu.nl/nl/over-de-vu/faculteiten/faculteit-der-sociale-en-geesteswetenschappen">Faculteit der Sociale en Geesteswetenschappen</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="links">
+        <div>
+            <i class="fal fa-angle-right"></i>
+            <a href="https://assets-us-01.kc-usercontent.com:443/f55d3574-6c6d-0002-e968-70643a2e365a/71746fd0-246c-41be-bd5e-cbab41d80c45/OER%2026-27%20BA%20CIW%20NL%2018.09.2026.pdf">Onderwijs- en Examenregeling 2026-2027</a>
+        </div>
+        <div>
+            <i class="fal fa-angle-right"></i>
+            <a href="https://vu.nl/nl/onderwijs/bachelor/communicatie-en-informatiewetenschappen">Meer informatie over deze opleiding</a>
+        </div>
+</div>
+
+<div>
+    <input id="studyCode" name="studyCode" type="hidden" value="LB_CIW" />
+    <input id="studyId" name="studyId" type="hidden" value="50047474" />
+</div>
+</div>
+
+        </div>
+        <div class="cell small-4 show-for-medium hide" id="sidebar-placeholder">
+        </div>
+        
+
+
+
+
+<studyguide-tabs 
+    anti-forgery-token="CfDJ8CZur2G-m9NMhwgDPKJW_lPc52pCkRqFSPjRNfYXJfwRR918Emr77KMoVqsjAQHFihOSStXv_qpUSCNwZ5WHsrD69aa0i-40nptIBejsfFd84RFJCOqFZjcph6ex7ehiDLBGy0GXte-QUjTf4kWY40Q" 
+    labels="{&quot;programme&quot;:&quot;Programma&quot;,&quot;description&quot;:&quot;Opleidingsbeschrijving&quot;,&quot;descriptionSmall&quot;:&quot;Beschrijving&quot;,&quot;descriptionTitle&quot;:&quot;Omschrijving&quot;,&quot;moreInfoLinkText&quot;:&quot;Meer informatie&quot;,&quot;lessInfoLinkText&quot;:&quot;Toon minder&quot;,&quot;courseName&quot;:&quot;Naam vak&quot;,&quot;period&quot;:&quot;Periode&quot;,&quot;credits&quot;:&quot;Credits&quot;,&quot;code&quot;:&quot;Code&quot;,&quot;registerTitle&quot;:&quot;Toelatingseisen&quot;,&quot;courseRules&quot;:&quot;Regels voor kiezen van vakken&quot;,&quot;downloadStudyProgramme&quot;:&quot;Download pdf opleiding&quot;,&quot;downloadYearSchedule&quot;:&quot;Download jaarschema&quot;,&quot;downloadStudySection&quot;:&quot;Download pdf programmaonderdeel&quot;}" 
+    slug="communicatie-en-informatiewetenschappen" 
+    study-type="Bachelor" 
+    language="nl" 
+    year="2026-2027" 
+    api-base-path="/api/studyguide">
+	<div data-element="description">
+        <div class="paragraph">
+            <p>In de bacheloropleiding Communicatie- en Informatiewetenschappen kiezen studenten voor een bepaalde specialisatie. Er zijn twee Engelstalige specialisaties en er is een Nederlandstalige. Gezamenlijke hoorcolleges voor alle specialisaties worden in het Engels gegeven. Bij de werkgroepen is de voertaal afhankelijk van de specialisatie.</p><p>De bacheloropleiding bestaat uit de volgende specialisaties:</p><ul><li><span></span>Media en Journalistiek (Nederlands)</li><li><span></span>Language and Media (Engels)</li><li><span></span>Applied Linguistics (Engels)</li></ul><p>De specialisatie Language and Mind is vervangen door Applied Linguistics. Tweede- en derdejaars studenten maken het Language and Mind programma af.</p>
+</div>
+</div>
+	<div data-element="info">
+<h2 class="show-for-medium">Info</h2>
+<table class="unstriped">
+    <tbody>
+        <tr>
+            <th>
+                Niveau
+            </th>
+            <td>
+                Bachelor
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Taal
+            </th>
+            <td>
+                Nederlands / Engels
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Duur
+            </th>
+            <td>
+                3 jaar
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Vorm
+            </th>
+            <td>
+                Voltijds
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Studiepunten
+            </th>
+            <td>
+                180 EC
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Faculteit
+            </th>
+            <td>
+                <a href="https://vu.nl/nl/over-de-vu/faculteiten/faculteit-der-sociale-en-geesteswetenschappen">Faculteit der Sociale en Geesteswetenschappen</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="links">
+        <div>
+            <i class="fal fa-angle-right"></i>
+            <a href="https://assets-us-01.kc-usercontent.com:443/f55d3574-6c6d-0002-e968-70643a2e365a/71746fd0-246c-41be-bd5e-cbab41d80c45/OER%2026-27%20BA%20CIW%20NL%2018.09.2026.pdf">Onderwijs- en Examenregeling 2026-2027</a>
+        </div>
+        <div>
+            <i class="fal fa-angle-right"></i>
+            <a href="https://vu.nl/nl/onderwijs/bachelor/communicatie-en-informatiewetenschappen">Meer informatie over deze opleiding</a>
+        </div>
+</div>
+
+<div>
+    <input id="studyCode" name="studyCode" type="hidden" value="LB_CIW" />
+    <input id="studyId" name="studyId" type="hidden" value="50047474" />
+</div></div>
+	<div data-element="disclaimer"></div>
+</studyguide-tabs>
+<studyguide-accordion 
+    anti-forgery-token="CfDJ8CZur2G-m9NMhwgDPKJW_lPc52pCkRqFSPjRNfYXJfwRR918Emr77KMoVqsjAQHFihOSStXv_qpUSCNwZ5WHsrD69aa0i-40nptIBejsfFd84RFJCOqFZjcph6ex7ehiDLBGy0GXte-QUjTf4kWY40Q" 
+    labels="{&quot;programme&quot;:&quot;Programma&quot;,&quot;description&quot;:&quot;Opleidingsbeschrijving&quot;,&quot;descriptionSmall&quot;:&quot;Beschrijving&quot;,&quot;descriptionTitle&quot;:&quot;Omschrijving&quot;,&quot;moreInfoLinkText&quot;:&quot;Meer informatie&quot;,&quot;lessInfoLinkText&quot;:&quot;Toon minder&quot;,&quot;courseName&quot;:&quot;Naam vak&quot;,&quot;period&quot;:&quot;Periode&quot;,&quot;credits&quot;:&quot;Credits&quot;,&quot;code&quot;:&quot;Code&quot;,&quot;registerTitle&quot;:&quot;Toelatingseisen&quot;,&quot;courseRules&quot;:&quot;Regels voor kiezen van vakken&quot;,&quot;downloadStudyProgramme&quot;:&quot;Download pdf opleiding&quot;,&quot;downloadYearSchedule&quot;:&quot;Download jaarschema&quot;,&quot;downloadStudySection&quot;:&quot;Download pdf programmaonderdeel&quot;}"
+    slug="communicatie-en-informatiewetenschappen" 
+    study-type="Bachelor" 
+    language="nl" 
+    year="2026-2027" 
+    api-base-path="/api/studyguide">
+    <div data-element="description">
+        <div class="paragraph">
+            <p>In de bacheloropleiding Communicatie- en Informatiewetenschappen kiezen studenten voor een bepaalde specialisatie. Er zijn twee Engelstalige specialisaties en er is een Nederlandstalige. Gezamenlijke hoorcolleges voor alle specialisaties worden in het Engels gegeven. Bij de werkgroepen is de voertaal afhankelijk van de specialisatie.</p><p>De bacheloropleiding bestaat uit de volgende specialisaties:</p><ul><li><span></span>Media en Journalistiek (Nederlands)</li><li><span></span>Language and Media (Engels)</li><li><span></span>Applied Linguistics (Engels)</li></ul><p>De specialisatie Language and Mind is vervangen door Applied Linguistics. Tweede- en derdejaars studenten maken het Language and Mind programma af.</p>
+</div>
+</div>
+	<div data-element="info">
+<h2 class="show-for-medium">Info</h2>
+<table class="unstriped">
+    <tbody>
+        <tr>
+            <th>
+                Niveau
+            </th>
+            <td>
+                Bachelor
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Taal
+            </th>
+            <td>
+                Nederlands / Engels
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Duur
+            </th>
+            <td>
+                3 jaar
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Vorm
+            </th>
+            <td>
+                Voltijds
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Studiepunten
+            </th>
+            <td>
+                180 EC
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Faculteit
+            </th>
+            <td>
+                <a href="https://vu.nl/nl/over-de-vu/faculteiten/faculteit-der-sociale-en-geesteswetenschappen">Faculteit der Sociale en Geesteswetenschappen</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="links">
+        <div>
+            <i class="fal fa-angle-right"></i>
+            <a href="https://assets-us-01.kc-usercontent.com:443/f55d3574-6c6d-0002-e968-70643a2e365a/71746fd0-246c-41be-bd5e-cbab41d80c45/OER%2026-27%20BA%20CIW%20NL%2018.09.2026.pdf">Onderwijs- en Examenregeling 2026-2027</a>
+        </div>
+        <div>
+            <i class="fal fa-angle-right"></i>
+            <a href="https://vu.nl/nl/onderwijs/bachelor/communicatie-en-informatiewetenschappen">Meer informatie over deze opleiding</a>
+        </div>
+</div>
+
+<div>
+    <input id="studyCode" name="studyCode" type="hidden" value="LB_CIW" />
+    <input id="studyId" name="studyId" type="hidden" value="50047474" />
+</div></div>
+	<div data-element="disclaimer"></div>
+</studyguide-accordion>
+
+    </div>
+</div>
+    </div>
+
+    <footer class="">
+        
+<div class="grid-container">
+    <div class="grid-x grid-margin-x">
+        <div class="cell medium-auto">
+            <ul class="menu">
+                <li>
+                    <a href="https://vu.nl/nl/over-de-vu/meer-over/disclaimer" target="_blank">
+                        <i class="fal fa-angle-right"></i> Disclaimer
+                    </a>
+                </li>
+                <li>
+                    <a href="https://vu.nl/nl/over-de-vu/meer-over/privacyverklaring-vrije-universiteit-amsterdam" target="_blank">
+                        <i class="fal fa-angle-right"></i> Privacy
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="cell medium-auto" id="copyright">
+            Copyright &copy; 2026 - Vrije Universiteit Amsterdam
+        </div>
+    </div>
+</div>
+    </footer>
+
+    <script src="/js/site-94e504b12a.min.js"></script>
+    <script>
+        jQuery(document).foundation();
+    </script>
+    <script src="/widgets/v1/widgets-vue3.js?v=7ba103f0"></script>
+    
+</body>
+
+</html>

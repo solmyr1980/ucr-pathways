@@ -1,0 +1,602 @@
+
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    
+    <script type="text/javascript">
+    !function(T,l,y){var S=T.location,k="script",D="instrumentationKey",C="ingestionendpoint",I="disableExceptionTracking",E="ai.device.",b="toLowerCase",w="crossOrigin",N="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"5",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[b](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,u,p,l;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][b]()]=i[1])}if(!e[C]){var r=e.endpointsuffix,o=r?e.location:null;e[C]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[D]||d[D]||"",u=s[C],p=u?u+"/v2/track":d.endpointUrl,(l=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=p,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),l.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,p)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:N,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(N,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(l,p))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(k);n.src=h;var e=y[w];return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(k)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[I]&&!0!==s[I]){var c="onerror";t(["_"+c]);var u=T[c];T[c]=function(e,t,n,a,i){var r=u&&u(e,t,n,a,i);return!0!==r&&m["_"+c]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);function a(){y.onInit&&y.onInit(n)}(T[t]=n).queue&&0===n.queue.length?(n.queue.push(a),n.trackPageView({})):a()}(window,document,{
+    src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", // The SDK URL Source
+    // name: "appInsights", // Global SDK Instance name defaults to "appInsights" when not supplied
+    // ld: 0, // Defines the load delay (in ms) before attempting to load the sdk. -1 = block page load and add to head. (default) = 0ms load after timeout,
+    // useXhr: 1, // Use XHR instead of fetch to report failures (if available),
+    crossOrigin: "anonymous", // When supplied this will add the provided value as the cross origin attribute on the script tag
+    // onInit: null, // Once the application insights instance has loaded and initialized this callback function will be called with 1 argument -- the sdk instance (DO NOT ADD anything to the sdk.queue -- As they won't get called)
+    cfg: { // Application Insights Configuration
+        connectionString: "InstrumentationKey=849ed2ba-5dca-4173-b668-e1ed650dea4a;IngestionEndpoint=https://westeurope-5.in.applicationinsights.azure.com/;LiveEndpoint=https://westeurope.livediagnostics.monitor.azure.com/;ApplicationId=f19f4da5-e3ea-4102-8054-e3e54839e0c9",
+        enableCorsCorrelation: true,
+        enableRequestHeaderTracking: true,
+        enableResponseHeaderTracking: true,
+        enableAutoRouteTracking: true
+    }});
+    appInsights.addTelemetryInitializer((e) => { e.tags['ai.cloud.role'] = 'VU.Web.Studiegids - Client' });
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="date" content="2026-11-16" />
+    <title>Discourse and Social Interaction | Study Guide</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="content-language" content="en" />
+    <meta property="og:site_name" content="Study Guide">
+    <meta property="og:title" content="Discourse and Social Interaction | Study Guide">
+    <meta property="og:description" content="After completion of this course:you can describe the most important principles of inductive, data-driven research as it is done in the field of">
+    <meta property="og:url"
+        content="https://studiegids.vu.nl/en/courses/2026-2027/L_NCBACIW215">
+    <meta property="og:type" content="website" />
+    <meta property="description" content="After completion of this course:you can describe the most important principles of inductive, data-driven research as it is done in the field of">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Discourse and Social Interaction | Study Guide" />
+    <meta name="twitter:description" content="After completion of this course:you can describe the most important principles of inductive, data-driven research as it is done in the field of" />
+
+    
+            <link rel="alternate" href="https://studiegids.vu.nl/nl/vakken/2026-2027/L_NCBACIW215" hreflang="nl" />
+
+
+    <link rel="stylesheet" href="/css/site-d5bbaf0390.min.css" />
+    
+    
+    
+
+</head>
+
+<body>
+    
+
+    <div class="wrapper">
+        <header>
+            
+
+
+<div class="grid-x align-middle menu-bar">
+    <div class="cell small-2 large-3">
+        <div data-responsive-toggle="menu" class="hide-for-large" data-hide-for="large">
+    <div class="toggle-container">
+        <button class="toggle-icon" type="button" data-toggle="menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div class="mobile-navigation" id="menu">
+        <div class="top-bar-right">
+            <ul class="vertical large-horizontal menu align-left" data-responsive-menu="drilldown large-dropdown" data-back-button='<li class="js-drilldown-back"><a tabindex="0"><i class="fal fa-chevron-left"></i> Terug</a></li>'>
+                <ul class="menu">
+        <li class=''>
+            <a href="/en/bachelor/2026-2027">Bachelor</a>
+        </li>
+        <li class=''>
+            <a href="/en/master/2026-2027">Master</a>
+        </li>
+        <li class=''>
+            <a href="/en/premaster/2026-2027">Premaster</a>
+        </li>
+        <li class=''>
+            <a href="/en/postgraduate/2026-2027">Postgraduate</a>
+        </li>
+        <li class=''>
+            <a href="/en/minor/2026-2027">Minor</a>
+        </li>
+        <li class=''>
+            <a href="/en/exchange/2026-2027">Exchange</a>
+        </li>
+
+    <li class='active'>
+        <a href="/en/courses/2026-2027">Courses</a>
+    </li>
+</ul>
+
+            </ul>
+        </div>
+    </div>
+</div>
+        <a href="https://www.vu.nl" class="show-for-large" target="_blank" rel="noopener">
+            <img class="vu-logo" src="/images/vulogo.svg" alt="Vrije Universiteit Amsterdam">
+        </a>
+    </div>
+    <div class="cell auto">
+        <a href="https://www.vu.nl" class="hide-for-large" target="_blank" rel="noopener">
+            <img class="vu-logo-small" src="/images/vulogosmall.svg" alt="Vrije Universiteit Amsterdam">
+        </a>
+
+                <div class="show-for-large search-bar">
+                    
+<form action="/en/search" class="search-form" method="get" onkeydown="return event.keyCode!=13">
+    <div class="search input-group grid-x">
+        <div class="cell auto">
+            <input autocomplete="off" class="input-group-field search-field" id="query" name="query" placeholder="Minimum of 3 characters" type="text" value="" />
+            
+<div class="autocomplete">
+        <div class="category" study-type="bachelor" hidden>
+            <div class="title">
+                Bachelor
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="master" hidden>
+            <div class="title">
+                Master
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="premaster" hidden>
+            <div class="title">
+                Premaster
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="postgraduate" hidden>
+            <div class="title">
+                Postgraduate
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="minor" hidden>
+            <div class="title">
+                Minor
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="exchange" hidden>
+            <div class="title">
+                Exchange
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="course" hidden>
+            <div class="title">
+                Courses
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+</div>
+        </div>
+        <input id="studyYear" name="studyYear" type="hidden" value="2026-2027" />
+        <div class="input-group-button cell shrink">
+            <button type="submit" class="button" disabled>
+                <i class="fal fa-search"></i>
+            </button>
+        </div>
+    </div>
+</form>
+
+                </div>
+    </div>
+    <div class="cell small-2 large-3">
+                <div data-responsive-toggle="search" class="hide-for-large" data-hide-for="large">
+                    <div class="toggle-container toggle-search">
+                        <button class="toggle-icon" type="button" data-toggle="search">
+                            <i class="fal fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="mobile-search" id="search">
+                        <div class="top-bar-right">
+                            <div class="search-bar-mobile blue-background">
+                                
+
+<form action="/en/search" method="get">
+    <div class="search">
+        <input id="studyYear" name="studyYear" type="hidden" value="2026-2027" />
+        <div class="input-group grid-x align-middle">
+            <div class="cell small-3">
+                Search
+            </div>
+            <div class="cell auto">
+                <input class="input-group-field search-field" id="query" name="query" placeholder="Study, course, code" type="text" value="" />
+                
+<div class="autocomplete">
+        <div class="category" study-type="bachelor" hidden>
+            <div class="title">
+                Bachelor
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="master" hidden>
+            <div class="title">
+                Master
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="premaster" hidden>
+            <div class="title">
+                Premaster
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="postgraduate" hidden>
+            <div class="title">
+                Postgraduate
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="minor" hidden>
+            <div class="title">
+                Minor
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="exchange" hidden>
+            <div class="title">
+                Exchange
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="course" hidden>
+            <div class="title">
+                Courses
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+</div>
+            </div>
+            <div class="input-group-button cell shrink">
+                <button type="submit" class="button" disabled>
+                    <i class="fal fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <div class="show-for-large language-switch">
+            <div class="d-flex align-items-center">
+                
+            <a href="/nl/vakken/2026-2027/L_NCBACIW215">NL</a>
+        <span>|</span>
+        <span>EN</span>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hide-for-large mobile-titlebar grid-container">
+    <div class="grid-x">
+        <div id="title-container" class="cell auto">
+            <a href="/en">
+                Study guide
+            </a>
+        </div>
+        <div id="language-selector" class="cell shrink">
+            
+            <a href="/nl/vakken/2026-2027/L_NCBACIW215">NL</a>
+        <span>|</span>
+        <span>EN</span>
+
+        </div>
+    </div>
+</div>
+<div class="header-navigation show-for-large">
+    <div class="grid-x ">
+        <div class="cell large-3">
+            <a href="/en">
+                <span class="site-title">Study guide</span>
+            </a>
+        </div>
+        <nav class="cell shrink">
+<ul class="menu">
+        <li class=''>
+            <a href="/en/bachelor/2026-2027">Bachelor</a>
+        </li>
+        <li class=''>
+            <a href="/en/master/2026-2027">Master</a>
+        </li>
+        <li class=''>
+            <a href="/en/premaster/2026-2027">Premaster</a>
+        </li>
+        <li class=''>
+            <a href="/en/postgraduate/2026-2027">Postgraduate</a>
+        </li>
+        <li class=''>
+            <a href="/en/minor/2026-2027">Minor</a>
+        </li>
+        <li class=''>
+            <a href="/en/exchange/2026-2027">Exchange</a>
+        </li>
+
+    <li class='active'>
+        <a href="/en/courses/2026-2027">Courses</a>
+    </li>
+</ul>
+        </nav>
+    </div>
+</div>
+
+        </header>
+        
+<div class="grid-x grid-padding-x align-middle medium-padding-collapse" id="title-bar">
+    <div class="cell large-4 show-for-large">
+        
+
+    </div>
+    <div class="cell small-12 large-8">
+        
+    
+<div id="title">
+    <h1 class="title"> Discourse and Social Interaction </h1>
+    <span> 2026-2027 </span>
+</div>
+
+    </div>
+</div>
+
+<div class="grid-container full study-container">
+    <div class="grid-x grid-margin-x course-content" id="content">
+        
+    <div id="navigation-cell" class="cell auto show-for-small hide-for-large">
+        <div id="back-container">
+        </div>
+        <ul class="tabs">
+            <li class="tabs-title">
+                <a href="#course-description">
+                    <h3>Description</h3>
+                </a>
+            </li>
+            <li class="tabs-title">
+                <a href="#course-data">
+                    <h3>Details</h3>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+        
+    <div id="course-data">
+        
+
+<span id="showListText" hidden aria-hidden="true">Show full list (1)</span>
+<span id="hideListText" hidden aria-hidden="true">Hide full list (1)</span>
+
+<h2>General Information</h2>
+<table>
+    <tr>
+        <th>Course Code</th>
+        <td>L_NCBACIW215</td>
+    </tr>
+    <tr>
+        <th>Credits</th>
+        <td>
+            6 EC
+        </td>
+    </tr>
+    <tr>
+        <th>Period</th>
+        <td>P5</td>
+    </tr>
+    <tr>
+        <th>Course Level</th>
+        <td>300</td>
+    </tr>
+    <tr>
+        <th>
+            Language of Tuition
+        </th>
+        <td>
+            English
+        </td>
+    </tr>
+    <tr>
+        <th>Faculty</th>
+        <td><a href="https://vu.nl/en/about-vu/faculties/faculty-of-social-sciences-and-humanities">Fac. of Social Sciences and Humanities</a></td>
+    </tr>
+    <tr>
+        <th>Course Coordinator</th>
+        <td>dr. E.M. Hoey</td>
+    </tr>
+    <tr>
+        <th>Examiner</th>
+        <td>dr. E.M. Hoey</td>
+    </tr>
+    <tr>
+        <th>Teaching Staff</th>
+        <td>
+            <span>L.A.R. van Hengel</span><br/>
+            <span>dr. E.M. Hoey</span><br/>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2">
+            <div class="programs-container">
+                <div class="programs-title">Part of programme(s)</div>
+                <div class="dropdown-section">
+                <button
+                    class="dropdown-header"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    onclick="toggleDropdown(this)"
+                    onkeydown="handleDropdownKeydown(event, this)">
+                    <span class="dropdown-text">Show full list (1)</span>
+                    <span class="dropdown-arrow" aria-hidden="true">
+                        <i class="fal fa-chevron-down"></i>
+                    </span>
+                </button>
+
+                <div
+                    class="dropdown-content"
+                    role="listbox"
+                    aria-live="polite">
+                            <div class="education-level">
+                                <div class="level-header" role="group" aria-label="Bachelor Course(s)">Bachelor</div>
+                                <ul class="programs-list" role="group">
+
+                                        <li class="program-item" role="none">
+
+                                                <a href="/en/Bachelor/2026-2027/communication-and-information-studies" class="program-link" role="option" tabindex="-1" onkeydown="handleLinkKeydown(event, this)">
+                                                    Communication and Information Studies
+                                                </a>
+                                        </li>
+                                </ul>
+                            </div>
+                </div>
+
+                <div class="dropdown-description sr-only">
+                    Use the arrow keys to navigate the list, Enter to select, and Escape to close.
+                </div>
+            </div>
+            </div>
+
+        </td>
+    </tr>
+</table>
+<h2 class="course-data-header">Practical Information</h2>
+<p>You need to register for this course yourself. The (de)registration deadlines can be found on <a href="https://vu.nl/en/student/courses/registration-deregistration-deadlines">VU.nl</a></p>
+<table>
+    <tr>
+        <th>Teaching Methods</th>
+        <td>Seminar*, Lecture</td>
+    </tr>
+</table>
+    <p>*You cannot select a group yourself for this teaching method, you will be placed in a group.</p>
+
+<div class="links">
+    
+
+    <div>
+        <i class="fal fa-angle-right"></i>
+        <a href="https://rooster.vu.nl/link?timetables.0.key=L_NCBACIW215~L_NCBACIW215_Periode%205&amp;timetables.0.type=termtimeng_moduleoffer&amp;timetables.0.source=2026">Check the schedule for this course.</a>
+    </div>
+
+    
+</div>
+<h2 class="course-data-header">Target audiences</h2>
+<p>This course is also available as:</p>
+<div class="links">
+    
+    <div>
+        <i class="fal fa-angle-right"></i>
+        <a href="https://vu.nl/en/student/courses/extracurricular-courses">Extra curricular course for VU students</a>
+    </div>
+
+    
+    <div>
+        <i class="fal fa-angle-right"></i>
+        <a href="https://vu.nl/en/education/more-about/secondary-subject-or-minor">Secondary subject for non-VU students</a>
+    </div>
+
+    
+    <div>
+        <i class="fal fa-angle-right"></i>
+        <a href="https://vu.nl/en/education/more-about/contract-education">Open course</a>
+    </div>
+
+    
+    <div>
+        <i class="fal fa-angle-right"></i>
+        <a href="https://vu.nl/en/education/exchange">Part of an Exchange Programme</a>
+    </div>
+
+</div>
+
+<form action="/en/pdf" method="post" target="_blank">
+    <input id="courseCode" name="courseCode" type="hidden" value="L_NCBACIW215" />
+    <input id="studyYear" name="studyYear" type="hidden" value="2026-2027" />
+    <input id="slug" name="slug" type="hidden" value="" />
+    <input id="studyType" name="studyType" type="hidden" value="Unknown" />
+    <input id="courseId" name="courseId" type="hidden" value="51712621" />
+    <div class="download-button-container">
+    <button id="download-button" type="submit" class="button download-button">Download course information</button>
+    </div>
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8CZur2G-m9NMhwgDPKJW_lMuc_vzhcQTGv5qh5y99XZgZWrrmYJU8HjK7UBZcYVSq7rw_h-zuo8FAXjDbWrY3RKReBMNZUBlZlK25uzoZ8pMkv_Lj845TmQKDAzazMrkRc6_5hZH8gBsBMrJplNyZ28" /></form>
+    </div>
+
+        <div id="course-description" class="tab-panel">
+
+
+        <div class="paragraph">
+                    <h2>Course Objective</h2>
+            <p>After completion of this course:</p><ol><li><span></span>you can describe the most important principles of inductive, data-driven research as it is done in the field of conversation analysis;</li><li><span></span>you can recognize the basic concepts used to analyze language use in social interaction; and</li><li><span></span>you are able to apply these basic concepts to analyze natural language use in different settings.</li></ol>
+</div>
+        <div class="paragraph">
+                    <h2>Course Content</h2>
+            <p>This course starts from the idea that spoken and written discourse can be studied as social action: when interacting with each other via different modes of communication, people manage to accomplish a variety of actions, such as inviting or blaming, accounting or denying matters.</p><p>This course aims to develop your analytical skills to understand what it is exactly that people do when they talk in person or over the phone. You will also encounter other examples such as broadcast interviews. The focus across settings and modes of communication will be to examine how speakers accomplish whatever it is they are doing and how this influences the unfolding conversation. The analytical skills are based on the concepts and principles used in conversation analysis and reflect current research.</p><p>You will analyze instances of informal talk as well as talk in institutional or organizational settings. Data for analysis might thus be derived from various settings and contain both instances of spoken interaction as well as mediated discourse.</p><p>When you pass this course, you are able to break down any conversation in turns, ascribe social actions to these turns by asking and developing claims on what would be an appropriate response to what the conversational partner has done in the previous turn. This procedure helps you to see how turns at talk drive conversations. You will be able to use these analytical skills to evaluate and offer advice on the options speakers have at different moment in the interaction and how this has an influence on the course of the conversation, whatever mode of communication they employ. Based on these observations, you are able to formulate ideas on which turns at talk are more appropriate or desirable in the given context.</p>
+</div>
+        <div class="paragraph">
+                    <h2>Additional Information Teaching Methods</h2>
+            Lecture, seminars and workshops, 6 hours per week in total.
+</div>
+        <div class="paragraph">
+                    <h2>Method of Assessment</h2>
+            <ol><li><span></span>Written exam (55%); <i>assessment of learning objectives 1-3</i></li><li><span></span>Research assignment (45%); <i>assessment of learning objectives 2-3</i></li></ol>
+</div>
+        <div class="paragraph">
+                    <h2>Entry Requirements</h2>
+            <p>Students must have passed Discourse Analysis (L_AABACIW107).</p>
+</div>
+        <div class="paragraph">
+                    <h2>Additional Information Target Audience</h2>
+            <p>Second-year students in the Bachelor's program in Communication and Information Studies (specialisations Language & Media; Media &amp; Journalistiek) and premaster's students.</p>
+</div>
+        <div class="paragraph">
+                    <h2>Custom Course Registration</h2>
+            <p>This course has seminars, but you cannot self-register for a group. If you want to know the times of all the workgroups, go to rooster.vu.nl, click on the options at the right hand side of the course title and select ‘Choose groups’. In the first week, your specific work group will be assigned by the course coordinator.</p>
+</div>
+
+</div>
+    </div>
+</div>
+    </div>
+
+    <footer class="">
+        
+<div class="grid-container">
+    <div class="grid-x grid-margin-x">
+        <div class="cell medium-auto">
+            <ul class="menu">
+                <li>
+                    <a href="https://vu.nl/en/about-vu/more-about/disclaimer" target="_blank">
+                        <i class="fal fa-angle-right"></i> Disclaimer
+                    </a>
+                </li>
+                <li>
+                    <a href="https://vu.nl/en/about-vu/more-about/privacy-statement-vrije-universiteit-amsterdam" target="_blank">
+                        <i class="fal fa-angle-right"></i> Privacy
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="cell medium-auto" id="copyright">
+            Copyright &copy; 2026 - Vrije Universiteit Amsterdam
+        </div>
+    </div>
+</div>
+    </footer>
+
+    <script src="/js/site-94e504b12a.min.js"></script>
+    <script>
+        jQuery(document).foundation();
+    </script>
+    <script src="/widgets/v1/widgets-vue3.js?v=7ba103f0"></script>
+    
+</body>
+
+</html>

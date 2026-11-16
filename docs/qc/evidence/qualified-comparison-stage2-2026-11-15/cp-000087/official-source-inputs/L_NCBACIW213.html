@@ -1,0 +1,600 @@
+
+
+<!DOCTYPE html>
+<html class="no-js" lang="nl">
+
+<head>
+    
+    <script type="text/javascript">
+    !function(T,l,y){var S=T.location,k="script",D="instrumentationKey",C="ingestionendpoint",I="disableExceptionTracking",E="ai.device.",b="toLowerCase",w="crossOrigin",N="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"5",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[b](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,u,p,l;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][b]()]=i[1])}if(!e[C]){var r=e.endpointsuffix,o=r?e.location:null;e[C]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[D]||d[D]||"",u=s[C],p=u?u+"/v2/track":d.endpointUrl,(l=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=p,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),l.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,p)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:N,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(N,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(l,p))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(k);n.src=h;var e=y[w];return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(k)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[I]&&!0!==s[I]){var c="onerror";t(["_"+c]);var u=T[c];T[c]=function(e,t,n,a,i){var r=u&&u(e,t,n,a,i);return!0!==r&&m["_"+c]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);function a(){y.onInit&&y.onInit(n)}(T[t]=n).queue&&0===n.queue.length?(n.queue.push(a),n.trackPageView({})):a()}(window,document,{
+    src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", // The SDK URL Source
+    // name: "appInsights", // Global SDK Instance name defaults to "appInsights" when not supplied
+    // ld: 0, // Defines the load delay (in ms) before attempting to load the sdk. -1 = block page load and add to head. (default) = 0ms load after timeout,
+    // useXhr: 1, // Use XHR instead of fetch to report failures (if available),
+    crossOrigin: "anonymous", // When supplied this will add the provided value as the cross origin attribute on the script tag
+    // onInit: null, // Once the application insights instance has loaded and initialized this callback function will be called with 1 argument -- the sdk instance (DO NOT ADD anything to the sdk.queue -- As they won't get called)
+    cfg: { // Application Insights Configuration
+        connectionString: "InstrumentationKey=849ed2ba-5dca-4173-b668-e1ed650dea4a;IngestionEndpoint=https://westeurope-5.in.applicationinsights.azure.com/;LiveEndpoint=https://westeurope.livediagnostics.monitor.azure.com/;ApplicationId=f19f4da5-e3ea-4102-8054-e3e54839e0c9",
+        enableCorsCorrelation: true,
+        enableRequestHeaderTracking: true,
+        enableResponseHeaderTracking: true,
+        enableAutoRouteTracking: true
+    }});
+    appInsights.addTelemetryInitializer((e) => { e.tags['ai.cloud.role'] = 'VU.Web.Studiegids - Client' });
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="date" content="2026-11-16" />
+    <title>Interactie in organisaties | Studiegids</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="content-language" content="nl" />
+    <meta property="og:site_name" content="Studiegids">
+    <meta property="og:title" content="Interactie in organisaties | Studiegids">
+    <meta property="og:description" content="Na afronding van dit vak kan de student:De principes van data-gestuurd onderzoek vanuit de conversatieanalyse (CA) benoemenDe interactionele kenmerken">
+    <meta property="og:url"
+        content="https://studiegids.vu.nl/nl/courses/2026-2027/L_NCBACIW213">
+    <meta property="og:type" content="website" />
+    <meta property="description" content="Na afronding van dit vak kan de student:De principes van data-gestuurd onderzoek vanuit de conversatieanalyse (CA) benoemenDe interactionele kenmerken">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Interactie in organisaties | Studiegids" />
+    <meta name="twitter:description" content="Na afronding van dit vak kan de student:De principes van data-gestuurd onderzoek vanuit de conversatieanalyse (CA) benoemenDe interactionele kenmerken" />
+
+    
+            <link rel="alternate" href="https://studiegids.vu.nl/en/courses/2026-2027/L_NCBACIW213" hreflang="en" />
+
+
+    <link rel="stylesheet" href="/css/site-d5bbaf0390.min.css" />
+    
+    
+    
+
+</head>
+
+<body>
+    
+
+    <div class="wrapper">
+        <header>
+            
+
+
+<div class="grid-x align-middle menu-bar">
+    <div class="cell small-2 large-3">
+        <div data-responsive-toggle="menu" class="hide-for-large" data-hide-for="large">
+    <div class="toggle-container">
+        <button class="toggle-icon" type="button" data-toggle="menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div class="mobile-navigation" id="menu">
+        <div class="top-bar-right">
+            <ul class="vertical large-horizontal menu align-left" data-responsive-menu="drilldown large-dropdown" data-back-button='<li class="js-drilldown-back"><a tabindex="0"><i class="fal fa-chevron-left"></i> Terug</a></li>'>
+                <ul class="menu">
+        <li class=''>
+            <a href="/nl/bachelor/2026-2027">Bachelor</a>
+        </li>
+        <li class=''>
+            <a href="/nl/master/2026-2027">Master</a>
+        </li>
+        <li class=''>
+            <a href="/nl/premaster/2026-2027">Premaster</a>
+        </li>
+        <li class=''>
+            <a href="/nl/postgraduate/2026-2027">Postgraduate</a>
+        </li>
+        <li class=''>
+            <a href="/nl/minor/2026-2027">Minor</a>
+        </li>
+        <li class=''>
+            <a href="/nl/exchange/2026-2027">Exchange</a>
+        </li>
+
+    <li class=''>
+        <a href="/nl/vakken/2026-2027">Vakken</a>
+    </li>
+</ul>
+
+            </ul>
+        </div>
+    </div>
+</div>
+        <a href="https://www.vu.nl" class="show-for-large" target="_blank" rel="noopener">
+            <img class="vu-logo" src="/images/vulogo.svg" alt="Vrije Universiteit Amsterdam">
+        </a>
+    </div>
+    <div class="cell auto">
+        <a href="https://www.vu.nl" class="hide-for-large" target="_blank" rel="noopener">
+            <img class="vu-logo-small" src="/images/vulogosmall.svg" alt="Vrije Universiteit Amsterdam">
+        </a>
+
+                <div class="show-for-large search-bar">
+                    
+<form action="/nl/search" class="search-form" method="get" onkeydown="return event.keyCode!=13">
+    <div class="search input-group grid-x">
+        <div class="cell auto">
+            <input autocomplete="off" class="input-group-field search-field" id="query" name="query" placeholder="Minimaal 3 karakters" type="text" value="" />
+            
+<div class="autocomplete">
+        <div class="category" study-type="bachelor" hidden>
+            <div class="title">
+                Bachelor
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="master" hidden>
+            <div class="title">
+                Master
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="premaster" hidden>
+            <div class="title">
+                Premaster
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="postgraduate" hidden>
+            <div class="title">
+                Postgraduate
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="minor" hidden>
+            <div class="title">
+                Minor
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="exchange" hidden>
+            <div class="title">
+                Exchange
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="course" hidden>
+            <div class="title">
+                Vakken
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+</div>
+        </div>
+        <input id="studyYear" name="studyYear" type="hidden" value="2026-2027" />
+        <div class="input-group-button cell shrink">
+            <button type="submit" class="button" disabled>
+                <i class="fal fa-search"></i>
+            </button>
+        </div>
+    </div>
+</form>
+
+                </div>
+    </div>
+    <div class="cell small-2 large-3">
+                <div data-responsive-toggle="search" class="hide-for-large" data-hide-for="large">
+                    <div class="toggle-container toggle-search">
+                        <button class="toggle-icon" type="button" data-toggle="search">
+                            <i class="fal fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="mobile-search" id="search">
+                        <div class="top-bar-right">
+                            <div class="search-bar-mobile blue-background">
+                                
+
+<form action="/nl/search" method="get">
+    <div class="search">
+        <input id="studyYear" name="studyYear" type="hidden" value="2026-2027" />
+        <div class="input-group grid-x align-middle">
+            <div class="cell small-3">
+                Zoek
+            </div>
+            <div class="cell auto">
+                <input class="input-group-field search-field" id="query" name="query" placeholder="Opleiding, vak, code" type="text" value="" />
+                
+<div class="autocomplete">
+        <div class="category" study-type="bachelor" hidden>
+            <div class="title">
+                Bachelor
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="master" hidden>
+            <div class="title">
+                Master
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="premaster" hidden>
+            <div class="title">
+                Premaster
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="postgraduate" hidden>
+            <div class="title">
+                Postgraduate
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="minor" hidden>
+            <div class="title">
+                Minor
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="exchange" hidden>
+            <div class="title">
+                Exchange
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+        <div class="category" study-type="course" hidden>
+            <div class="title">
+                Vakken
+            </div>
+            <ul id="autocomplete-list">
+            </ul>
+        </div>
+</div>
+            </div>
+            <div class="input-group-button cell shrink">
+                <button type="submit" class="button" disabled>
+                    <i class="fal fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <div class="show-for-large language-switch">
+            <div class="d-flex align-items-center">
+                
+        <span>NL</span>
+        <span>|</span>
+            <a href="/en/courses/2026-2027/L_NCBACIW213">EN</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hide-for-large mobile-titlebar grid-container">
+    <div class="grid-x">
+        <div id="title-container" class="cell auto">
+            <a href="/nl">
+                Studiegids
+            </a>
+        </div>
+        <div id="language-selector" class="cell shrink">
+            
+        <span>NL</span>
+        <span>|</span>
+            <a href="/en/courses/2026-2027/L_NCBACIW213">EN</a>
+
+        </div>
+    </div>
+</div>
+<div class="header-navigation show-for-large">
+    <div class="grid-x ">
+        <div class="cell large-3">
+            <a href="/nl">
+                <span class="site-title">Studiegids</span>
+            </a>
+        </div>
+        <nav class="cell shrink">
+<ul class="menu">
+        <li class=''>
+            <a href="/nl/bachelor/2026-2027">Bachelor</a>
+        </li>
+        <li class=''>
+            <a href="/nl/master/2026-2027">Master</a>
+        </li>
+        <li class=''>
+            <a href="/nl/premaster/2026-2027">Premaster</a>
+        </li>
+        <li class=''>
+            <a href="/nl/postgraduate/2026-2027">Postgraduate</a>
+        </li>
+        <li class=''>
+            <a href="/nl/minor/2026-2027">Minor</a>
+        </li>
+        <li class=''>
+            <a href="/nl/exchange/2026-2027">Exchange</a>
+        </li>
+
+    <li class=''>
+        <a href="/nl/vakken/2026-2027">Vakken</a>
+    </li>
+</ul>
+        </nav>
+    </div>
+</div>
+
+        </header>
+        
+<div class="grid-x grid-padding-x align-middle medium-padding-collapse" id="title-bar">
+    <div class="cell large-4 show-for-large">
+        
+
+    </div>
+    <div class="cell small-12 large-8">
+        
+    
+<div id="title">
+    <h1 class="title"> Interactie in organisaties </h1>
+    <span> 2026-2027 </span>
+</div>
+
+    </div>
+</div>
+
+<div class="grid-container full study-container">
+    <div class="grid-x grid-margin-x course-content" id="content">
+        
+    <div id="navigation-cell" class="cell auto show-for-small hide-for-large">
+        <div id="back-container">
+        </div>
+        <ul class="tabs">
+            <li class="tabs-title">
+                <a href="#course-description">
+                    <h3>Vakbeschrijving</h3>
+                </a>
+            </li>
+            <li class="tabs-title">
+                <a href="#course-data">
+                    <h3>Vakdetails</h3>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+        
+    <div id="course-data">
+        
+
+<span id="showListText" hidden aria-hidden="true">Toon volledige lijst (1)</span>
+<span id="hideListText" hidden aria-hidden="true">Verberg volledige lijst (1)</span>
+
+<h2>Algemene informatie</h2>
+<table>
+    <tr>
+        <th>Vakcode</th>
+        <td>L_NCBACIW213</td>
+    </tr>
+    <tr>
+        <th>Studiepunten</th>
+        <td>
+            6 EC
+        </td>
+    </tr>
+    <tr>
+        <th>Periode</th>
+        <td>P4</td>
+    </tr>
+    <tr>
+        <th>Vakniveau</th>
+        <td>300</td>
+    </tr>
+    <tr>
+        <th>
+            Onderwijstaal
+        </th>
+        <td>
+            Nederlands
+        </td>
+    </tr>
+    <tr>
+        <th>Faculteit</th>
+        <td><a href="https://vu.nl/nl/over-de-vu/faculteiten/faculteit-der-sociale-en-geesteswetenschappen">Fac. der Sociale en Geesteswetenschappen</a></td>
+    </tr>
+    <tr>
+        <th>Vakcoördinator</th>
+        <td>prof. dr. H.F.M. te Molder</td>
+    </tr>
+    <tr>
+        <th>Examinator</th>
+        <td>prof. dr. H.F.M. te Molder</td>
+    </tr>
+    <tr>
+        <th>Docenten</th>
+        <td>
+            <span>dr. L.M. van Burgsteden MA</span><br/>
+            <span>prof. dr. H.F.M. te Molder</span><br/>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2">
+            <div class="programs-container">
+                <div class="programs-title">Onderdeel van opleiding(en)</div>
+                <div class="dropdown-section">
+                <button
+                    class="dropdown-header"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    onclick="toggleDropdown(this)"
+                    onkeydown="handleDropdownKeydown(event, this)">
+                    <span class="dropdown-text">Toon volledige lijst (1)</span>
+                    <span class="dropdown-arrow" aria-hidden="true">
+                        <i class="fal fa-chevron-down"></i>
+                    </span>
+                </button>
+
+                <div
+                    class="dropdown-content"
+                    role="listbox"
+                    aria-live="polite">
+                            <div class="education-level">
+                                <div class="level-header" role="group" aria-label="Bachelor Opleiding(en)">Bachelor</div>
+                                <ul class="programs-list" role="group">
+
+                                        <li class="program-item" role="none">
+
+                                                <a href="/nl/Bachelor/2026-2027/communicatie-en-informatiewetenschappen" class="program-link" role="option" tabindex="-1" onkeydown="handleLinkKeydown(event, this)">
+                                                    Communicatie- en Informatiewetenschappen
+                                                </a>
+                                        </li>
+                                </ul>
+                            </div>
+                </div>
+
+                <div class="dropdown-description sr-only">
+                    Gebruik pijltjestoetsen om door de lijst te navigeren, Enter om te selecteren, en Escape om te sluiten.
+                </div>
+            </div>
+            </div>
+
+        </td>
+    </tr>
+</table>
+<h2 class="course-data-header">Praktische informatie</h2>
+<p>Voor dit vak moet je zelf intekenen. De inteken- en afmeldtermijnen staan op <a href="https://vu.nl/nl/student/vakken/inteken-en-afmeldtermijnen">VU.nl</a></p>
+<table>
+    <tr>
+        <th>Onderwijsvorm</th>
+        <td>Werkcollege, Hoorcollege</td>
+    </tr>
+</table>
+
+<div class="links">
+    
+
+    <div>
+        <i class="fal fa-angle-right"></i>
+        <a href="https://rooster.vu.nl/link?timetables.0.key=L_NCBACIW213~L_NCBACIW213_Periode%204&amp;timetables.0.type=termtimeng_moduleoffer&amp;timetables.0.source=2026">Bekijk het rooster voor dit vak</a>
+    </div>
+
+    
+</div>
+<h2 class="course-data-header">Doelgroepen</h2>
+<p>Dit vak is ook toegankelijk als:</p>
+<div class="links">
+    
+    <div>
+        <i class="fal fa-angle-right"></i>
+        <a href="https://vu.nl/nl/student/vakken/extracurriculaire-vakken">Extracurriculair vak voor VU-studenten</a>
+    </div>
+
+    
+    <div>
+        <i class="fal fa-angle-right"></i>
+        <a href="https://vu.nl/nl/onderwijs/meer-over/bijvak-of-minor">Bijvak voor studenten van buiten de VU</a>
+    </div>
+
+    
+    <div>
+        <i class="fal fa-angle-right"></i>
+        <a href="https://vu.nl/nl/onderwijs/meer-over/contractonderwijs">Contractonderwijs</a>
+    </div>
+
+    
+</div>
+
+<form action="/nl/pdf" method="post" target="_blank">
+    <input id="courseCode" name="courseCode" type="hidden" value="L_NCBACIW213" />
+    <input id="studyYear" name="studyYear" type="hidden" value="2026-2027" />
+    <input id="slug" name="slug" type="hidden" value="" />
+    <input id="studyType" name="studyType" type="hidden" value="Unknown" />
+    <input id="courseId" name="courseId" type="hidden" value="51290080" />
+    <div class="download-button-container">
+    <button id="download-button" type="submit" class="button download-button">Download vakinformatie</button>
+    </div>
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8CZur2G-m9NMhwgDPKJW_lN0EMHeUucQ-g9vWKZZKqOkYKWnRLm23bu_DMwD8D64kwSUeYMz0vNziotfpJHXPQWuIAT0R2r0Kf3gIkW5V2lafhEW5giyW-FFW6oONnWCakSVl0yT1zxB7xATZHHvFxM" /></form>
+    </div>
+
+        <div id="course-description" class="tab-panel">
+
+
+        <div class="paragraph">
+                    <h2>Doel vak</h2>
+            <p>Na afronding van dit vak kan de student:</p><ol><li>De principes van data-gestuurd onderzoek vanuit de conversatieanalyse (CA) benoemen</li><li>De interactionele kenmerken van institutionele gesprekken beschrijven</li><li>Uitleggen en illustreren hoe gesprekken bijdragen aan het vormgeven van een institutie of organisatie</li><li>De tools/concepten van CA toepassen op institutionele gesprekken door deze systematisch en nauwgezet te analyseren</li><li>De conversatie-analytische bevindingen helder en volgens wetenschappelijke richtlijnen rapporteren</li><li>Analysevaardigheden toepassen bij het signaleren van problemen in gesprekken en op basis daarvan adviezen formuleren voor de werkpraktijk</li></ol>
+</div>
+        <div class="paragraph">
+                    <h2>Inhoud vak</h2>
+            <p>Interactie in Organisaties spitst zich toe op de analyse van "natuurlijke" gesprekken in verschillende organisaties en maakt hierbij gebruik van institutionele conversatieanalyse.<br>We passen de inzichten toe op drie velden of domeinen: Journalistieke interviews, rechtbankgesprekken, en interacties over ziekte en gezondheid. We onderzoeken hoe verschillen in kennis en macht tijdens de interactie worden vormgegeven, bijvoorbeeld in journalistieke interviews met daders en slachtoffers van seksueel misbruik. We analyseren hoe patiënten zichzelf als 'doctorable' presenteren en hoe een arts bepaalt of de probleempresentatie compleet is. We leren dat <i>alle </i>vragen sturen, bijvoorbeeld door in hun formulering een voorkeur voor het juiste antwoord te verraden of door bepaalde kennis bij de gesprekspartner te veronderstellen en hen daarvoor verantwoordelijk te houden. We analyseren hoe journalisten met specifieke vragen politici in het nauw brengen en hoe politici deze lastige vragen kunnen ontwijken. We bespreken hoe je deze inzichten relevant kunt maken voor de werkpraktijk en oefenen hiermee tijdens de werkcolleges.</p>
+</div>
+        <div class="paragraph">
+                    <h2>Aanvullende informatie onderwijsvormen</h2>
+            <p>Een hoorcollege (2 uur) en een werkcollege (3 uur). Bij werkcolleges is aanwezigheid verplicht; van de werkcolleges mag maximaal één bijeenkomst van het werkcollege of toepassingscollege gemist worden. Bij meer afwezigheid volgt een extra opdracht (bijvoorbeeld het verplicht volgen van 2 hoorcolleges voor het missen van meer dan 1 werkcollege). Aanwezigheid bij het hoorcollege wordt sterk geadviseerd.</p>
+</div>
+        <div class="paragraph">
+                    <h2>Toetsvorm</h2>
+            <p>Er wordt getoetst aan de hand van presentaties tijdens het college (30%; vakleerdoelen 3, 4 en 6) en een tentamen (70%; vakleerdoelen 1, 2, 4, 5 en 6). De presentaties en het tentamen moeten gemiddeld met een 5.5 of hoger worden beoordeeld, en elk afzonderlijk met minimaal een 5.0. De presentatie en het tentamen mogen indien nodig worden herkanst.</p>
+</div>
+        <div class="paragraph">
+                    <h2>Vereiste voorkennis</h2>
+            <p>Studenten moeten het vak Formuleren (L_AABACIW117) met goed gevolg hebben afgelegd.</p>
+</div>
+        <div class="paragraph">
+                    <h2>Literatuur</h2>
+            <p>We werken met het boek van Heritage, J. & Clayman, S. (2010). Talk in Action. Interactions, identities and institutions. Malden, MA: Wiley-Blackwell (aanwezig in UBVU als e-book) en met aanvullende artikelen, waar relevant (bijvoorbeeld voor de Nederlandse context).</p>
+</div>
+        <div class="paragraph">
+                    <h2>Aanvullende informatie doelgroep</h2>
+            <p>2de jaars studenten Bachelor Communicatie- en Informatiewetenschappen (afstudeerrichtingen Media & Journalistiek, Taal, Media en Samenleving), premasterstudenten CIW.</p>
+</div>
+        <div class="paragraph">
+                    <h2>Overige informatie</h2>
+            <p>Werkcolleges zijn verplicht; bijwonen van het hoorcollege wordt sterk aanbevolen.</p>
+</div>
+
+</div>
+    </div>
+</div>
+    </div>
+
+    <footer class="">
+        
+<div class="grid-container">
+    <div class="grid-x grid-margin-x">
+        <div class="cell medium-auto">
+            <ul class="menu">
+                <li>
+                    <a href="https://vu.nl/nl/over-de-vu/meer-over/disclaimer" target="_blank">
+                        <i class="fal fa-angle-right"></i> Disclaimer
+                    </a>
+                </li>
+                <li>
+                    <a href="https://vu.nl/nl/over-de-vu/meer-over/privacyverklaring-vrije-universiteit-amsterdam" target="_blank">
+                        <i class="fal fa-angle-right"></i> Privacy
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="cell medium-auto" id="copyright">
+            Copyright &copy; 2026 - Vrije Universiteit Amsterdam
+        </div>
+    </div>
+</div>
+    </footer>
+
+    <script src="/js/site-94e504b12a.min.js"></script>
+    <script>
+        jQuery(document).foundation();
+    </script>
+    <script src="/widgets/v1/widgets-vue3.js?v=7ba103f0"></script>
+    
+</body>
+
+</html>
