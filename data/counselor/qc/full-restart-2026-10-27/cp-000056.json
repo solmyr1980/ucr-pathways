@@ -5,7 +5,7 @@
     "decision": "f771d07846d4234b51b02259512bb1a45ac22312",
     "canonical": "824626976615b7fe02a85bd8076821104e9ba5fd"
   },
-  "state": "in-progress",
+  "state": "approved",
   "stages": {
     "1": {
       "outcome": "correct",
@@ -88,8 +88,8 @@
       "reassessStages": []
     },
     "6": {
-      "outcome": "blocked",
-      "finding": "Separate source-first same-AI finalchallenge and mechanical/content checks pass. Exact published pair readback and all applicableCI remain required before finalapproval.",
+      "outcome": "retain",
+      "finding": "Source-first same-AI academic pass, mechanical/full-schema/byte-replay and exact content verification pass; all published blobs and applicable compiler, review-index and validation CI verified.",
       "preserved": [
         "Original wholecase/stage/retry/claim/exhaustion history retained in pre-stage2-case.json and reviewHistory."
       ],
@@ -98,26 +98,63 @@
         "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/review.json",
         "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/external-review.json",
         "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/current-course-evidence.json",
-        "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/source-first-final-pass.json"
+        "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/source-first-final-pass.json",
+        "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/publication-verification.json"
       ],
-      "blockedBy": [
-        "Qualified academic/source/content and mechanical gates passed; exact pair publication readback and applicable CI remain required before approval."
-      ],
+      "blockedBy": [],
       "reassessStages": []
     }
   },
   "sharedIssueIds": [],
-  "unresolved": [
-    "Qualified academic/source/content and mechanical gates passed; exact pair publication readback and applicable CI remain required before approval."
-  ],
+  "unresolved": [],
   "downstreamReassessments": [],
   "implementationCommits": [
-    "80ee39a6ffc5b103de7811a97feb3585acd830d8"
+    "80ee39a6ffc5b103de7811a97feb3585acd830d8",
+    "5f6d839ff9793e3629caaac4790751da2860042e"
   ],
-  "finalReview": null,
+  "finalReview": {
+    "reviewerOrPass": "Worker B Stage 2 separately identified same-AI source-first final pass",
+    "independenceMethod": "Actual official curriculum/formal and current UCR evidence were reconsidered before the exact finished canonical/decision and selected course descriptions. Same AI as author; no separate reviewer/model/human endorsement. The strongest adverse academic interpretation and all credible bounded uncertainties are recorded.",
+    "reviewedOn": "2026-11-16",
+    "reviewedCommit": "5f6d839ff9793e3629caaac4790751da2860042e",
+    "reviewProcess": "qualified-comparison-stage2-2026-11-15",
+    "verificationPolicy": "record-content-review-2026-10-31",
+    "inputBlobs": {
+      "decision": "2632f835cb8f4529e67cfb9805fc950199f53b78",
+      "canonical": "ae01810b070c458710bee2ef62d4c122e8070b87"
+    },
+    "sourceEvidenceRefs": [
+      "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/external-review.json",
+      "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/current-course-evidence.json",
+      "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/source-first-final-pass.json"
+    ],
+    "checks": {
+      "academic": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/review.json#/academicJudgment",
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/source-first-final-pass.json"
+        ]
+      },
+      "mechanical": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/mechanical.json",
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/publication-verification.json"
+        ]
+      },
+      "content": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/review.json#/contentReview",
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/content-inputs.json"
+        ]
+      }
+    }
+  },
   "schemaVersion": "2.0",
   "auditId": "counselor-full-restart-2026-10-27",
-  "presentationApproval": false,
+  "presentationApproval": true,
   "evidenceSources": [
     {
       "url": "https://www.ru.nl/sites/default/files/2026-06/opleidingsspecifiek-bachelor-kunstgeschiedenis.pdf",
@@ -158,7 +195,7 @@
     "endedAt": "2026-11-12T00:56:22.028812+00:00",
     "result": "permittedrevisitincomplete-essential-source-unresolved"
   },
-  "nextAction": "Publish this CP056 decision/canonical pair and evidence using current worker B token on fresh main. Verify exact published blobs and all applicable compiler, review-index and validation CI, then complete Stage2 approval metadata. Do not treat pending publication as approval.",
+  "nextAction": "Skip this completed Stage 2 review on recurring runs. Reconsider only for newly authorized material evidence; preserve its explicit qualified scope.",
   "reviewHistory": [
     {
       "preservedOn": "2026-11-03",
@@ -755,28 +792,41 @@
     }
   ],
   "recordContentReview": {
+    "reviewerOrPass": "Worker B Stage 2 separately identified same-AI source-first final pass",
+    "independenceMethod": "Actual official curriculum/formal and current UCR evidence were reconsidered before the exact finished canonical/decision and selected course descriptions. Same AI as author; no separate reviewer/model/human endorsement. The strongest adverse academic interpretation and all credible bounded uncertainties are recorded.",
+    "reviewedOn": "2026-11-16",
+    "reviewedCommit": "5f6d839ff9793e3629caaac4790751da2860042e",
+    "reviewProcess": "qualified-comparison-stage2-2026-11-15",
     "verificationPolicy": "record-content-review-2026-10-31",
-    "reviewedCommit": "d013c07c883f986cf9384a97352bd8a28feca0b0",
-    "reviewedOn": "2026-11-12",
+    "inputBlobs": {
+      "decision": "2632f835cb8f4529e67cfb9805fc950199f53b78",
+      "canonical": "ae01810b070c458710bee2ef62d4c122e8070b87"
+    },
+    "sourceEvidenceRefs": [
+      "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/external-review.json",
+      "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/current-course-evidence.json",
+      "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/source-first-final-pass.json"
+    ],
     "checks": {
       "academic": {
-        "status": "blocked",
+        "status": "passed",
         "evidenceRefs": [
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000056/revisit-1-source-review.json",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000056/revisit-1-source-first-final-pass.json"
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/review.json#/academicJudgment",
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/source-first-final-pass.json"
         ]
       },
       "mechanical": {
         "status": "passed",
         "evidenceRefs": [
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000056/revisit-1-mechanical-content-checks.json",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000056/revisit-1-publication-verification.json"
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/mechanical.json",
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/publication-verification.json"
         ]
       },
       "content": {
         "status": "passed",
         "evidenceRefs": [
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000056/revisit-1-mechanical-content-checks.json"
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/review.json#/contentReview",
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/content-inputs.json"
         ]
       }
     }
@@ -786,9 +836,38 @@
   ],
   "stage2Review": {
     "process": "qualified-comparison-stage2-2026-11-15",
-    "status": "in-progress",
+    "status": "completed",
     "evidenceRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/review.json",
-    "evidenceBlob": "9ca37d300a021ea7837d7b137d50705b1416d479"
+    "evidenceBlob": "577e044b88010908ce9fa5c60fcc44399ba75582"
   },
-  "academicDisposition": "comparison"
+  "academicDisposition": "comparison",
+  "recordContentReviewHistory": [
+    {
+      "verificationPolicy": "record-content-review-2026-10-31",
+      "reviewedCommit": "d013c07c883f986cf9384a97352bd8a28feca0b0",
+      "reviewedOn": "2026-11-12",
+      "checks": {
+        "academic": {
+          "status": "blocked",
+          "evidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000056/revisit-1-source-review.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000056/revisit-1-source-first-final-pass.json"
+          ]
+        },
+        "mechanical": {
+          "status": "passed",
+          "evidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000056/revisit-1-mechanical-content-checks.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000056/revisit-1-publication-verification.json"
+          ]
+        },
+        "content": {
+          "status": "passed",
+          "evidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000056/revisit-1-mechanical-content-checks.json"
+          ]
+        }
+      }
+    }
+  ]
 }

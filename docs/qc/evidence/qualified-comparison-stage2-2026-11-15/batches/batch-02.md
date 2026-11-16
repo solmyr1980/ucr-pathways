@@ -1,6 +1,6 @@
 # Stage 2 batch 2: current checkpoint
 
-16 November 2026. **Seven of ten reviews complete; the batch is not complete.** The current scheduled-run evidence owns the latest case-level verification.
+16 November 2026. **Eight of ten reviews complete; the batch is not complete.** The current scheduled-run evidence owns the latest case-level verification.
 
 | Case | Current Stage 2 result | Academic state |
 |---|---|---|
@@ -10,7 +10,7 @@
 | CP051 | Completed; advanced academic weighting cannot be bounded by a first-year-only claim | Unresolved; decision/canonical unchanged |
 | CP052 | Completed; qualified Computing Science comparison; one UCR programme | Approved |
 | CP055 | Completed; robust no-match after current strongest-response challenges | Approved; bounded external access uncertainty retained |
-| CP056 | In progress; source/course research and unverified draft saved by worker B | Unresolved; no Stage 2 approval |
+| CP056 | Completed; qualified documented 170-EC Art History comparison; 3 UCR programmes | Approved |
 | CP069 | Completed; advanced/regional/cohort formation remains material | Unresolved; explicit partial exception |
 | CP087 | Not started under Stage 2 | Prior state retained |
 | CP149 | Not started under Stage 2 | Prior state retained |
@@ -46,3 +46,7 @@ CP051 received a completed Stage 2 review at `237aa914a5c3597e1e041d9e751d619412
 ## Worker A second scheduled batch, 16 November 2026
 
 CP069 completed with an unresolved outcome at `adbf853b889796e5b2adfb9e19696399037f5420`. Its prior provisional pair is archived, and its active unresolved record explicitly bounds the 90-EC academic-year snapshot and cohort difference. CP122, outside this fixed group, completed unresolved at `7c6b7f08901a5e4ab2571a78202b965e938ca80e`; its production pair is unchanged. [Two-case QA](../scheduled-runs/worker-A-2026-11-16-142729.json) records exact source-first challenges, local checks, readback, CI and remaining ownership. CP052 was separately approved by B at `20cca0b481b41023b0b59f3e00831c0da211f408`, with pair `117f967e3eb26face48dd89b640d1c239ece367e`. B checkpointed CP056 research at `1f552215e4d939fbc9ef755bae50832f7366d3c5`. These updates bring this group to seven completed reviews; CP056, CP087 and CP149 remain. No final ten-case QA is claimed.
+
+## Worker B resumed CP056, 16 November 2026
+
+CP056 completed as a qualified documented-curriculum comparison at pair `5f6d839ff9793e3629caaac4790751da2860042e`. All published blobs and applicable compiler, index and validation CI are recorded in `../cp-000056/publication-verification.json`. The duplicatedParis course is countedonce; unverified10ECremainexcluded, with architecture/period/iconography/photo/excursion/thesis differences visible. [Run QA](../scheduled-runs/worker-B-2026-11-16-163539.json) records full438checks,1311othercasefile preservation, source-first same-AIchallenge andcurrentownership. This fixed group has8of10reviews complete; CP087andCP149remain. Final ten-case QA is still open.

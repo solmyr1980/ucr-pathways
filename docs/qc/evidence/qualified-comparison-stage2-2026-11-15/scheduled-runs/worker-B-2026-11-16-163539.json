@@ -1,0 +1,227 @@
+{
+  "runId": "worker-B-2026-11-16-163539",
+  "worker": "B",
+  "claimCommit": "024f6bab34d226caee9d8d1095f22ab942721236",
+  "claimedCaseIds": [
+    "cp-000056",
+    "cp-000087"
+  ],
+  "handledCaseIds": [
+    "cp-000056"
+  ],
+  "completedReviews": [
+    {
+      "caseId": "cp-000056",
+      "outcome": "qualified-documented-curriculum-comparison",
+      "academicApproval": true,
+      "pairCommit": "5f6d839ff9793e3629caaac4790751da2860042e",
+      "verificationRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000056/publication-verification.json",
+      "scope": "170 distinct external EC; duplicatedParis countedonce. Unknown10EC excluded. Three actual24course180EC UCRprogrammes. Known architecture/period/iconography/photo/field/thesis differences remain explicit; no full-degree equivalence."
+    }
+  ],
+  "notStarted": "CP087; this small run finishes the complex resumedCP056case. NextBoccurrence startsCP087,thenCP124according to current queue.",
+  "academicQuality": "CurrentadoptedOERArticles3–10 andprogrammeoverview re-read. Actual retained catalogue content forvisualpractice,iconography,paradigms andearlymodernart/environment challenged the proposedrelationships. All32actualcoursefacts reconciled to currentreadable151courseworkbook,8claimcriticalHEAMtexts re-read,all32preparedmodaltexts andfinishedrelations/scope/notes/concepts inspected. Explicit code-level UCR functions sustain art/heritage and visual methods in allthreeplans. SameAIseparatesourcefirstpass,nodifferentreviewer/modelclaim. No ECquota or approvaltarget.",
+  "checks": {
+    "checkedOn": "2026-11-16",
+    "checks": [
+      {
+        "command": [
+          "python",
+          "scripts/validate-counselor-schema.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "da884efe44c0051686ea15deb29d0fe764f224cf9395425e732c82b88eff1614",
+        "tail": [
+          "438 canonical records pass full JSON Schema validation."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-course-feasibility.py",
+          "<all 438 canonical paths>"
+        ],
+        "exitCode": 0,
+        "outputSha256": "e7c9af6c10dc53d92f2b49852d771af6b559e1644c8ed12b36ec8ee60569f9a3",
+        "tail": [
+          "438 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-comprehensive-reaudit.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "9cc525b357299e71e03e4792bcb3797e9df67b600086368734f732e146ec8b34",
+        "tail": [
+          "Re-audit register consistent: 438 baseline targets; {'approved': 390, 'inProgress': 48, 'reviewedWithBlockers': 0, 'notStarted': 0, 'pilotStarted': 6}; 438 case evidence files. No academic approval inferred."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/verify-qualified-comparison-stage2.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "8d646385aaad92e6775c71049dd1c71f5c7bd8725a9537bf662827e820e84bee",
+        "tail": [
+          "Preserved 375 approvals, CP072/CP099, 40 unprocessed cases, protected inputs, fixed 438 scope and exhausted worker histories."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/test-qualified-comparison-stage2.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "08280bc7987e1231f18c5c7cbf9d21cef6c1429c3254d153e320cd1a1d11a949",
+        "tail": [
+          "----------------------------------------------------------------------",
+          "Ran 7 tests in 0.178s",
+          "",
+          "OK"
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "test:counselor-acceptance"
+        ],
+        "exitCode": 0,
+        "outputSha256": "e66f518e4a654140704cb8497727adddedf48f48a15ed7b26d634158966ea29b",
+        "tail": [
+          "> node scripts/test-counselor-acceptance.mjs",
+          "",
+          "Bounded acceptance: ordinary byte-compatible replay; partial positive/negative; adverse tests, scope, unresolved fallback and UCR gates passed.",
+          "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "validate:counselor-review"
+        ],
+        "exitCode": 0,
+        "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8",
+        "tail": [
+          "> node scripts/build-counselor-review-index.mjs --check",
+          "",
+          "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+          "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-course-descriptions.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "0930ad77e0fabf4d5e2b7368e32333cd0d7fa6250a3dd62747d50f545246df6f",
+        "tail": [
+          "149 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained."
+        ]
+      }
+    ],
+    "otherCasePairFilesUnchanged": 1311,
+    "preservationParent": "8e16f31df4954c6e127663f1d7ba4521a018963e",
+    "workerAClaimUnchanged": true,
+    "historicalBrowserScope": "No new renderer/browser execution; reuse60actualchecks at5df42b776ce49f230b1463a1cacdff53ef5feead only."
+  },
+  "sourceAndHistory": "Valid previous source/trial research reused. OriginalCP056wholecase/stages/retries/claims/exhaustion preserved in pre-stage2-case andhistory. All1311othercase/decision/canonicalfiles andAclaim unchanged against8e16f31df4954c6e127663f1d7ba4521a018963e; includes375baselineapprovals,13setupreviews,CP072/CP099andallcompletedwork.",
+  "progress": {
+    "completed": 21,
+    "total": 61,
+    "approvedStage2": 16,
+    "reviewedStillUnresolved": [
+      "cp-000013",
+      "cp-000051",
+      "cp-000069",
+      "cp-000122",
+      "cp-000135"
+    ],
+    "remainingOwn": [
+      "cp-000087",
+      "cp-000124",
+      "cp-000149",
+      "cp-000211",
+      "cp-000245",
+      "cp-000258",
+      "cp-000278",
+      "cp-000283",
+      "cp-000286",
+      "cp-000289",
+      "cp-000291",
+      "cp-000295",
+      "cp-000300",
+      "cp-000305",
+      "cp-000309",
+      "cp-000312",
+      "cp-000318",
+      "cp-000324",
+      "cp-000384",
+      "cp-000431",
+      "cp-000445",
+      "cp-000458"
+    ],
+    "remainingWorkerA": 18
+  },
+  "failures": {
+    "publicationFailures": 0,
+    "finalValidationFailures": 0,
+    "caughtBeforePublication": [
+      "Newworktree checkout was still completing when an initialread/validatorcommand ran; waited for completion and verifiedclean exactHEAD before claim or academic work.",
+      "Temporaryworkbookdisplay helper accessed a missingblankprofilekey and stopped before activating the proposal; discarded initialexception checks, used actualblank/description2 distinction andreranallgates onthepositivepair."
+    ],
+    "systemicIssue": false
+  },
+  "nextAction": "NextBoccurrence: freshmain/authority andpublishedclaim,reviewCP087thenCP124atallowedlimit. SkipcompletedCP056/CP052andallcompletedunresolved. AcontinuesitsownCP218queue.",
+  "schedule": "KeepBenabled:22ownedreviewsandfinalintegrationremain. KeepAenabled,oldRestartCorpustasks paused.",
+  "release": "ReleaseonlyownliveBtoken in this finalcheckpoint after exactpairreadback andallapplicableCI success.",
+  "boundaries": "No course/registry/studentchange, no app/rendererchange, deployment, finaldiscoverydata, publicrelease,newautomation or oldtaskresume. Existing60actualdesktop/mobilechecks at5df42b776ce49f230b1463a1cacdff53ef5feead reused onlywithintheirunchangedmode scope; nonewbrowserclaim.",
+  "postApprovalChecks": [
+    {
+      "command": [
+        "python",
+        "scripts/validate-comprehensive-reaudit.py"
+      ],
+      "exitCode": 0,
+      "outputSha256": "19d697bda47179d0fabae65c53921ec15c5da2e400a4a3b9c068bb5f78bff70f",
+      "tail": [
+        "Re-audit register consistent: 438 baseline targets; {'approved': 391, 'inProgress': 47, 'reviewedWithBlockers': 0, 'notStarted': 0, 'pilotStarted': 6}; 438 case evidence files. No academic approval inferred."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/verify-qualified-comparison-stage2.py"
+      ],
+      "exitCode": 0,
+      "outputSha256": "8d646385aaad92e6775c71049dd1c71f5c7bd8725a9537bf662827e820e84bee",
+      "tail": [
+        "Preserved 375 approvals, CP072/CP099, 40 unprocessed cases, protected inputs, fixed 438 scope and exhausted worker histories."
+      ]
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor-review"
+      ],
+      "exitCode": 0,
+      "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8",
+      "tail": [
+        "",
+        "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+        "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+      ]
+    }
+  ],
+  "claimRegressionTests": {
+    "scheduledTests": 8,
+    "publicationAndGuardTests": 12,
+    "result": "passed this run"
+  }
+}
