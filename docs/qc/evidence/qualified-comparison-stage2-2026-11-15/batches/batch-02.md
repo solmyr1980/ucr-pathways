@@ -1,6 +1,6 @@
 # Stage 2 batch 2: current checkpoint
 
-16 November 2026. **Five of ten reviews complete; the batch is not complete.** The current scheduled-run evidence owns the latest case-level verification.
+16 November 2026. **Seven of ten reviews complete; the batch is not complete.** The current scheduled-run evidence owns the latest case-level verification.
 
 | Case | Current Stage 2 result | Academic state |
 |---|---|---|
@@ -8,10 +8,10 @@
 | CP020 | Completed; qualified documented 175-EC curriculum; 3 UCR programmes | Approved |
 | CP026 | Completed; qualified documented 175-EC LAS/Sustainability framework; 3 UCR programmes | Approved |
 | CP051 | Completed; advanced academic weighting cannot be bounded by a first-year-only claim | Unresolved; decision/canonical unchanged |
-| CP052 | Not started under Stage 2 | Prior state retained |
+| CP052 | Completed; qualified Computing Science comparison; one UCR programme | Approved |
 | CP055 | Completed; robust no-match after current strongest-response challenges | Approved; bounded external access uncertainty retained |
-| CP056 | Not started under Stage 2 | Prior state retained |
-| CP069 | Not started under Stage 2 | Prior state retained |
+| CP056 | In progress; source/course research and unverified draft saved by worker B | Unresolved; no Stage 2 approval |
+| CP069 | Completed; advanced/regional/cohort formation remains material | Unresolved; explicit partial exception |
 | CP087 | Not started under Stage 2 | Prior state retained |
 | CP149 | Not started under Stage 2 | Prior state retained |
 
@@ -37,8 +37,12 @@ All 375 pre-Stage-2 approvals, CP072/CP099, unprocessed case inputs, course/regi
 
 ## Continuation
 
-Resume `cp-000051/checkpoint.json`, complete that whole case, then CP052, CP055, CP056, CP069, CP087 and CP149. Recheck current main and active pause/scope before writing. Finish batch QA only after all ten assigned reviews are complete. No routine policy approval is needed.
+Use the scheduled disjoint assignments. Within this fixed ten-case QA group, worker B must resume CP056, then review CP087 and CP149 at the allowed run limit. CP051, CP052, CP055 and CP069 are completed and must be skipped. Worker A continues its next owned cases outside this group. Recheck fresh main/authority and close final batch QA only when all ten reviews have completed.
 
 ## Worker A completion, 16 November 2026
 
 CP051 received a completed Stage 2 review at `237aa914a5c3597e1e041d9e751d619412383626`; its pair remains unchanged. CP055's bounded robust-no-match pair is `d99901614e590fbb9d7f7f298c124179be5cc272`, with successful compiler, index and validation CI. The [two-case QA](../scheduled-runs/worker-A-2026-11-16-130523.json) records source-first challenges, actual checks, outcomes and next ownership. These two reviews bring Stage 2 to 15/61, with 13 approved dispositions and 2 still unresolved. This closes neither the ten-case batch QA nor final integration. Older checkpoint counts above retain their dated evidence scope.
+
+## Worker A second scheduled batch, 16 November 2026
+
+CP069 completed with an unresolved outcome at `adbf853b889796e5b2adfb9e19696399037f5420`. Its prior provisional pair is archived, and its active unresolved record explicitly bounds the 90-EC academic-year snapshot and cohort difference. CP122, outside this fixed group, completed unresolved at `7c6b7f08901a5e4ab2571a78202b965e938ca80e`; its production pair is unchanged. [Two-case QA](../scheduled-runs/worker-A-2026-11-16-142729.json) records exact source-first challenges, local checks, readback, CI and remaining ownership. CP052 was separately approved by B at `20cca0b481b41023b0b59f3e00831c0da211f408`, with pair `117f967e3eb26face48dd89b640d1c239ece367e`. B checkpointed CP056 research at `1f552215e4d939fbc9ef755bae50832f7366d3c5`. These updates bring this group to seven completed reviews; CP056, CP087 and CP149 remain. No final ten-case QA is claimed.

@@ -1,0 +1,198 @@
+{
+  "runId": "worker-A-2026-11-16-142729",
+  "reviewedOn": "2026-11-16",
+  "worker": "A",
+  "claimToken": "99a20808-d5ef-4765-ae56-5398a88a4361",
+  "claimCommit": "182325d7fb1dabf06335f6423104e6be5a624598",
+  "claimedCaseIds": [
+    "cp-000069",
+    "cp-000122"
+  ],
+  "completedReviews": [
+    {
+      "caseId": "cp-000069",
+      "outcome": "external-programme-unresolved",
+      "academicApproval": false,
+      "commit": "adbf853b889796e5b2adfb9e19696399037f5420",
+      "publicationEvidenceRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000069/publication-verification.json",
+      "finding": "Material regional/advanced/cohort formation prevents the claimed bachelor-level core comparison. Actual UCR cultural and communication strength defeats no-match. Exact old provisional pair retained; active pair explicitly unresolved with90ECsubset andcohortboundary."
+    },
+    {
+      "caseId": "cp-000122",
+      "outcome": "external-programme-unresolved",
+      "academicApproval": false,
+      "commit": "7c6b7f08901a5e4ab2571a78202b965e938ca80e",
+      "publicationEvidenceRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000122/publication-verification.json",
+      "finding": "Confirmed60ECfirstyearplus30ECminor do not settle advanced chosen-perspective formation. Actual epidemiology/healthpsychology/biomedicine/methods defeat no-match. Pair unchanged, two feasible research trials retained."
+    }
+  ],
+  "academicQuality": {
+    "standard": "No EC percentage or first-year automatic rejection. Both strongest positive academic-core arguments and credible adverse resolutions explicitly assessed against current official source and actual UCR content. Neither unknown is treated as generic administrative incompleteness.",
+    "reviewer": "Separately identified source-first second passes by same AI; no independentperson/agent/modelclaim.",
+    "courses": "29current CP069leadcourses and36current CP122trialcourses inspected; actual descriptions/outlines distinguished. Four CP122description-only fallbacks remain actualdescription2, not invented outline topics.",
+    "feasibility": "BothCP069archived24courseplans andbothCP122research24courseplans freshlypasshardconstraints. They are unapproved research; no optional independent research fills gaps.",
+    "materialityConsistency": "Compared CP317academic-core contract and CP051unresolved reasoning. A bounded substantial stable core may qualify; an unresolved selected advanced organizing formation may not. No approval-rate target."
+  },
+  "checks": {
+    "checkedOn": "2026-11-16",
+    "checks": [
+      {
+        "command": [
+          "python",
+          "scripts/validate-counselor-schema.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "da884efe44c0051686ea15deb29d0fe764f224cf9395425e732c82b88eff1614",
+        "tail": [
+          "438 canonical records pass full JSON Schema validation."
+        ]
+      },
+      {
+        "exitCode": 0,
+        "outputSha256": "e7c9af6c10dc53d92f2b49852d771af6b559e1644c8ed12b36ec8ee60569f9a3",
+        "tail": [
+          "438 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+        ],
+        "commandPrefix": [
+          "python",
+          "scripts/validate-course-feasibility.py"
+        ],
+        "explicitCanonicalRecordArguments": 438,
+        "canonicalArgumentListSha256": "743cb91c217c1eed3ef80f4d966acf06c3e13d9da8733521125a0e1c98ad789c",
+        "argumentManifest": "Sorted data/counselor/comparisons/cp-*.json paths, passed explicitly as CLI positional arguments."
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-comprehensive-reaudit.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "d9bdd532d5b47d135d398a303ebbd1aa52d6980d7f2d5123cd53ef35b722a635",
+        "tail": [
+          "Re-audit register consistent: 438 baseline targets; {'approved': 389, 'inProgress': 49, 'reviewedWithBlockers': 0, 'notStarted': 0, 'pilotStarted': 6}; 438 case evidence files. No academic approval inferred."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/verify-qualified-comparison-stage2.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "f2310ab950c101c430b36633d73c2902a573fad54f05e4ece9dd3327aa2ab46b",
+        "tail": [
+          "Preserved 375 approvals, CP072/CP099, 42 unprocessed cases, protected inputs, fixed 438 scope and exhausted worker histories."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/test-qualified-comparison-stage2.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "dbc09d836964f1281144619ffc3b684d825c12b11335dabd102d48c67d3ffadd",
+        "tail": [
+          "----------------------------------------------------------------------",
+          "Ran 7 tests in 0.245s",
+          "",
+          "OK"
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "test:counselor-acceptance"
+        ],
+        "exitCode": 0,
+        "outputSha256": "e66f518e4a654140704cb8497727adddedf48f48a15ed7b26d634158966ea29b",
+        "tail": [
+          "> node scripts/test-counselor-acceptance.mjs",
+          "",
+          "Bounded acceptance: ordinary byte-compatible replay; partial positive/negative; adverse tests, scope, unresolved fallback and UCR gates passed.",
+          "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "validate:counselor-review"
+        ],
+        "exitCode": 0,
+        "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8",
+        "tail": [
+          "> node scripts/build-counselor-review-index.mjs --check",
+          "",
+          "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+          "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-course-descriptions.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "0930ad77e0fabf4d5e2b7368e32333cd0d7fa6250a3dd62747d50f545246df6f",
+        "tail": [
+          "149 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained."
+        ]
+      }
+    ],
+    "otherCasePairFilesUnchanged": 1308,
+    "preservationParent": "1f552215e4d939fbc9ef755bae50832f7366d3c5",
+    "workerBClaimUnchanged": true,
+    "historicalBrowserScope": "No new renderer/browser execution; reuse60actualchecks at5df42b776ce49f230b1463a1cacdff53ef5feead only."
+  },
+  "history": "Allsixpriorstages,claims,retry/exhaustionhistories preserved; pre-stage2case snapshots retained. CP069priorpair archived. Othercase/pair files byte-identical to run parent, including13setupreviews andother completedStage2work. WorkerBclaim/research unchanged duringAwork.",
+  "integration": {
+    "completedStage2": 18,
+    "scope": 61,
+    "approvedStage2": 14,
+    "reviewedStillUnresolved": [
+      "cp-000013",
+      "cp-000051",
+      "cp-000069",
+      "cp-000122"
+    ],
+    "remainingOwn": [
+      "cp-000135",
+      "cp-000178",
+      "cp-000218",
+      "cp-000255",
+      "cp-000275",
+      "cp-000282",
+      "cp-000284",
+      "cp-000288",
+      "cp-000290",
+      "cp-000293",
+      "cp-000296",
+      "cp-000304",
+      "cp-000306",
+      "cp-000311",
+      "cp-000314",
+      "cp-000322",
+      "cp-000364",
+      "cp-000410",
+      "cp-000441",
+      "cp-000446"
+    ],
+    "remainingOtherWorker": 23,
+    "batch2Complete": false,
+    "finalReportDue": false,
+    "schedule": "KeepAenabled;20ownedreviewsremain. KeepBtechnical/interruptedworkenabled. OldRestartCorpusA/B remainpaused.",
+    "nextAction": "NextAoccurrence: freshmain/authority/checks,claim,resumeownedunfinishedfirst; currentlyCP135thenCP178. SkipcompletedCP069/CP122includingunresolved. BmustresumeCP056frompublishedpartialcheckpoint."
+  },
+  "failuresAndRepairs": {
+    "publicationFailures": 0,
+    "academicApprovalsAdded": 0,
+    "localChecksCaught": [
+      "InitialCP069case-disposition/canonical-type mismatch; fixedbyarchivingprovisionalpairandcompilingexplicitunresolvedexception,notbyweakeningvalidator.",
+      "Compilerrefusedexistingoutputpaths;usedfreshreplayoutputandverifiedcompletebytesbeforeactivepairwrite.",
+      "Temporaryhelpererrors(missingimportandearlymissingtrialfile)andno-pathfull-feasibilitycommandwerecorrected;allrequiredfinalcommandsrerunwithactualinputsandpassed.",
+      "CP122savedtopicsusedactualdescription2fallbackforfourcourses;verificationnowdistinguishesnulloutlinefieldsfromdescriptiontextandconfirmseachfallback."
+    ],
+    "systemicIssue": false
+  },
+  "releaseBoundary": "Noappdeployment,finaldiscoveryindex,course/registry/studentchange,oldtaskresume,newautomationorpublicrelease. Unchangedrenderer60-checkmatrixonly,notnewbrowserchecks."
+}

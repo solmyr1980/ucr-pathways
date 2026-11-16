@@ -1,13 +1,13 @@
 # Stage 2 current status
 
-16 November 2026. Worker A completed CP051 and CP055; batch 2 remains in progress.
+16 November 2026. Worker A completed CP069 and CP122, both with justified unresolved outcomes.
 
-- Completed Stage 2 reviews: **15/61**; **46** remain.
-- Stage 2 approvals: **13**; completed reviews still unresolved: **2**. CP051 remains unresolved; CP055 is an approved robust no-match.
-- Derived corpus academic approvals: **388/438**; academically unresolved: **50**.
-- CP051 review: `237aa914a5c3597e1e041d9e751d619412383626`; CP055 exact production pair: `d99901614e590fbb9d7f7f298c124179be5cc272`. Pair blobs and applicable CI are verified. Final approval checkpoint `4aae65cdcbb7192212a670d1dba8863b292aec80` also passed validation CI `43877475670`; all nine checkpoint blobs read back correctly.
+- Completed Stage 2 reviews: **18/61**; **43** remain.
+- Stage 2 approvals: **14**; completed reviews still unresolved: **4** (CP013, CP051, CP069, CP122).
+- Derived corpus academic approvals: **389/438**; academically unresolved: **49**. These two reviews add no approval.
+- CP069 review and explicit unresolved pair: `adbf853b889796e5b2adfb9e19696399037f5420`; all 12 blobs and all four applicable workflow runs verified successful. CP122 completed review: `7c6b7f08901a5e4ab2571a78202b965e938ca80e`; eight blobs and validation CI verified. Its production pair is unchanged.
 
-[Worker A two-case QA](evidence/qualified-comparison-stage2-2026-11-15/scheduled-runs/worker-A-2026-11-16-130523.json) records exact outcomes, sources, strongest UCR challenges, preservation and CI. [Batch 2](evidence/qualified-comparison-stage2-2026-11-15/batches/batch-02.md) has five of its ten reviews complete; no final ten-case QA is claimed. Current detailed cases own live completion; these counts are a checkpoint.
+[Worker A two-case QA](evidence/qualified-comparison-stage2-2026-11-15/scheduled-runs/worker-A-2026-11-16-142729.json) records actual source-first challenges, course evidence, complete checks, readback and CI. [Batch 2](evidence/qualified-comparison-stage2-2026-11-15/batches/batch-02.md) has seven of ten reviews complete. [Batch 3](evidence/qualified-comparison-stage2-2026-11-15/batches/batch-03.md) records its exact next ten-case academic QA group, with CP122 completed; it does not change worker ownership. Neither group has final QA yet. Detailed cases own live completion; these are checkpoint counts.
 
 ## Browser regression repair
 
@@ -15,8 +15,10 @@ The actual full running-app suite passed **60 desktop/mobile checks**, with zero
 
 ## Exact next action
 
-Follow the [scheduled instructions](deferred-case-qualified-comparison-stage2-scheduling-2026-11-16.md) and current disjoint assignments. Worker A next owns **CP069**, then **CP122**; 22 of its 24 assigned reviews remain. Worker B's current claim/cases are not changed by this run. Select its next work only from fresh detailed evidence and its own register assignment.
+Follow the [scheduled instructions](deferred-case-qualified-comparison-stage2-scheduling-2026-11-16.md), current authority and immutable assignments. Worker A has **20** owned reviews remaining; next **CP135**, then **CP178**. Resume any own in-progress Stage 2 review first, acquire/publish a fresh claim and handle at most two cases. Skip every completed review including the four unresolved outcomes.
 
-Skip both completed reviews, including unresolved CP051. CP051 needs settled advanced curriculum/content weighting and the final 16-EC allocation before any separately authorized reconsideration. CP055's bounded Buddhism/Hinduism entry preparation remains explicitly unverified; its resolution cannot remove the confirmed Islamic core or supply missing UCR teaching. Do not repeat exhausted searches.
+Worker B has **23** owned reviews remaining and must resume unfinished **CP056** from its durable source/course/trial and unverified-draft checkpoint at `1f552215e4d939fbc9ef755bae50832f7366d3c5`. Its exact next action is in `cp-000056/review.json`; no active comparison, completed review or approval is inferred from that draft. CP052 is already approved and skipped.
 
-Keep the fixed batch 2 group CP013, CP020, CP026, CP051, CP052, CP055, CP056, CP069, CP087 and CP149; close its final QA only when all ten reviews are complete. Preserve the 375 baseline approvals, excluded CP072/CP099, previous completed work, protected inputs and exhausted-worker histories. No counselor deployment, final discovery product or public release is authorized.
+CP069 requires applicable settled advanced STC/regional-language/cohort evidence before separately authorized reconsideration. CP122 requires settled advanced perspective/course allocation and graduation requirements for renewed September 2026 entrants. Preserve actual UCR strengths and avoid repeating exhausted broad searches.
+
+Keep both new schedules enabled; assignments and required integration remain incomplete. Old Restart Corpus tasks remain paused. Preserve the 375 baseline approvals, 13 setup reviews, excluded CP072/CP099, earlier completed work, protected inputs and exhausted-worker histories. No counselor deployment, final discovery product or public release is authorized.
