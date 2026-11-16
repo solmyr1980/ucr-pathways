@@ -1,6 +1,6 @@
 # Stage 2 batch 2: current checkpoint
 
-16 November 2026. **Eight of ten reviews complete; the batch is not complete.** The current scheduled-run evidence owns the latest case-level verification.
+16 November 2026. **Nine of ten reviews complete; the batch is not complete.** The current scheduled-run evidence owns the latest case-level verification.
 
 | Case | Current Stage 2 result | Academic state |
 |---|---|---|
@@ -12,7 +12,7 @@
 | CP055 | Completed; robust no-match after current strongest-response challenges | Approved; bounded external access uncertainty retained |
 | CP056 | Completed; qualified documented 170-EC Art History comparison; 3 UCR programmes | Approved |
 | CP069 | Completed; advanced/regional/cohort formation remains material | Unresolved; explicit partial exception |
-| CP087 | Not started under Stage 2 | Prior state retained |
+| CP087 | Completed; qualified documented 2026–2027 Media and Journalism content; 3 UCR programmes | Approved; formal cohort progression remains unverified |
 | CP149 | Not started under Stage 2 | Prior state retained |
 
 CP013's completed review was published at `704faf556761b62a4ea7baf0871133f2fbf1e8fe`. CP020's exact production pair is `e62153bc393fe06bf4e36805274f8ed1aacff1da`, with final verified review at `f8104ba24533091c46443ee4668a58949d2fdf49`. CP026's pair is `3ccb3cb7b8e4552d5ccfecaac18c76d488708f92`, with final review at `8a02ed4f3a61fe9e84dfaa31904b6bb803a06bb7`. Their own review and publication-verification files record source versions, reviewed inputs, mechanical checks and actual CI runs.
@@ -37,7 +37,7 @@ All 375 pre-Stage-2 approvals, CP072/CP099, unprocessed case inputs, course/regi
 
 ## Continuation
 
-Use the scheduled disjoint assignments. Within this fixed ten-case QA group, worker B must resume CP056, then review CP087 and CP149 at the allowed run limit. CP051, CP052, CP055 and CP069 are completed and must be skipped. Worker A continues its next owned cases outside this group. Recheck fresh main/authority and close final batch QA only when all ten reviews have completed.
+Use the scheduled disjoint assignments. Within this fixed ten-case QA group, worker B must review CP149 at the allowed run limit. CP056 and CP087 are completed; CP124 is next in B’s full immutable queue. CP051, CP052, CP055 and CP069 are completed and must be skipped. Worker A continues its next owned cases outside this group. Recheck fresh main/authority and close final batch QA only when all ten reviews have completed.
 
 ## Worker A completion, 16 November 2026
 
@@ -50,3 +50,7 @@ CP069 completed with an unresolved outcome at `adbf853b889796e5b2adfb9e196963990
 ## Worker B resumed CP056, 16 November 2026
 
 CP056 completed as a qualified documented-curriculum comparison at pair `5f6d839ff9793e3629caaac4790751da2860042e`. All published blobs and applicable compiler, index and validation CI are recorded in `../cp-000056/publication-verification.json`. The duplicatedParis course is countedonce; unverified10ECremainexcluded, with architecture/period/iconography/photo/excursion/thesis differences visible. [Run QA](../scheduled-runs/worker-B-2026-11-16-163539.json) records full438checks,1311othercasefile preservation, source-first same-AIchallenge andcurrentownership. This fixed group has8of10reviews complete; CP087andCP149remain. Final ten-case QA is still open.
+
+## Worker B completed CP087, 16 November 2026
+
+CP087’s qualified documented-content pair is `af97588bce9b7f9a284965f3052804056680e378`. All published blobs and applicable compiler, review-index and validation CI were verified. The comparison assesses the published 2026–2027 allocation and its actual academic content, without certifying the missing discourse prerequisite, elective displacement, dependent thesis access or a future cohort curriculum. Dedicated journalism, conversation-analysis, commissioned-research and thesis differences remain visible. Three actual UCR programs sustain media/narrative, public-trust and technical data/media inquiry; all pass feasibility and pairwise distinctness. [Case verification](../cp-000087/publication-verification.json) and [run QA](../scheduled-runs/worker-B-2026-11-16-173412.json) record exact source-first challenges, current course evidence, checks and history preservation. This group has nine completed reviews; CP149 remains, so final ten-case QA is still open.
