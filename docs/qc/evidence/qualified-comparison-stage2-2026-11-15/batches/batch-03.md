@@ -1,6 +1,6 @@
 # Stage 2 batch 3: academic QA group
 
-16 November 2026. Seven of ten reviews complete; final batch QA remains open. This grouping does not change scheduled worker ownership.
+16 November 2026. Eight of ten reviews complete; final batch QA remains open. This grouping does not change scheduled worker ownership.
 
 | Case | Stage 2 review | Academic state |
 |---|---|---|
@@ -8,7 +8,7 @@
 | CP-000124 | Completed; current detailed academic core and advanced integration remain unverified | Unresolved; active pair unchanged |
 | CP-000135 | Completed; current credited curriculum boundary remains unverified | Unresolved |
 | CP-000178 | Completed; qualified documented common-core comparison | Approved |
-| CP-000211 | Not completed | Prior state retained |
+| CP-000211 | Completed; robust linguistic no-match, documented 180 EC with project/access limits | Approved no-match |
 | CP-000218 | Completed; qualified 132-EC academic-core comparison | Approved |
 | CP-000245 | Not completed | Prior state retained |
 | CP-000255 | Completed; qualified 150-EC academic-core comparison | Approved |
@@ -28,3 +28,5 @@ Worker B completed CP124’s Stage 2 review with an unresolved outcome after the
 Worker A completed CP255 at pair `f8cffa9e13d19a10d3a809e4ffa4498b123bb605`. [Verification](../cp-000255/publication-verification.json) records all 12 exact published blobs and successful compiler, both review-index runs and validation CI. The 120-EC taught core plus 30-EC eligible minor is assessed; all 30 EC redesigned third-year formation is excluded. Known technical-physics/transport/field differences and the newly identified stale expected-preparation code remain explicit, without assuming equivalence, a waiver or unrestricted minor access. Actual UCR content supports the broader geoscience comparison; five placements were strengthened and all three plans verified. [Run QA](../scheduled-runs/worker-A-2026-11-16-185834.json) records actual evidence, checks, preservation and next actions. Six of ten reviews are complete; CP211, CP245, CP258 and CP275 remain. Final batch QA stays open.
 
 Worker A completed CP275 at pair `b60ee9118ab69446663a42f26363725fa8a7cdcc`. [Verification](../cp-000275/publication-verification.json) records all18exactpublishedblobs and successful compiler, both index runs and validation CI. Actual32courseleads and three feasible research challenges retain real religious/ethical/interpretive/developmental contributions, but do not sustain biblical, doctrinal and practical theological inquiry at program level. All180ECof adopted allocation are represented once, with the original60ECfirstyear retained; language correspondence and thesis preparation remain unverified and explicit. [Run QA](../scheduled-runs/worker-A-2026-11-16-200353.json) records actual evidence, corrections and remaining ownership. Seven of ten reviews are complete; B-owned CP211, CP245 and CP258 remain. Final batch QA stays open.
+
+Worker B completed CP211 at pair `c96739893b7242f53937c05669cee3e02270f3ee`. [Verification](../cp-000211/publication-verification.json) records all 11 complete pair blobs and successful compiler, both index workflows and validation CI. Two feasible 24-course, 180-EC research trials give direct Psycholinguistics, linguistic stylistics and stronger clinical/data methods their full positive weight. The whole program does not sustain Groningen’s integration of linguistic-system analysis with empirical and clinical language inquiry. All 21 allocated components and 180 EC are retained, while new project content/entry and two selected seminar entry correspondences remain explicit. [Run QA](../scheduled-runs/worker-B-2026-11-16-223231.json) records source versions, 28 actual UCR leads, 47 current interests, a truthful same-AI final challenge, preservation and exact next actions. Eight of ten reviews are complete: five approved dispositions and three unresolved reviews. B-owned CP245 and CP258 remain; final batch QA stays open.
