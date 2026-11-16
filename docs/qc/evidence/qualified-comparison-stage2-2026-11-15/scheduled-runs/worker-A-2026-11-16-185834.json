@@ -170,7 +170,79 @@
   "nextAction": "Acquire a fresh published A claim next occurrence; start CP275, then CP282, subject to current detailed queue. Skip completed CP255 and every other completed review, including unresolved outcomes. Fixed batch 3 is 6/10 and batch 2 is 9/10; close each required batch QA only when its listed cases are all complete.",
   "schedule": "Both new schedules remain enabled; A has 16 and B has 20 owned reviews plus required final integration. Old Restart Corpus tasks remain paused.",
   "release": {
-    "status": "Pending final checkpoint publication, exact readback and applicable CI; then release only this live A token in a separately guarded commit."
+    "status": "Own A token released in this guarded closure commit after final checkpoint readback and applicable CI passed.",
+    "closedClaim": {
+      "token": "7d7c68a2-cc7d-4a20-83db-bee9aa92666f",
+      "worker": "A",
+      "caseIds": [
+        "cp-000255",
+        "cp-000275"
+      ],
+      "startedAt": "2026-11-16T18:58:34.229111Z",
+      "heartbeatAt": "2026-11-16T19:39:20.550171Z",
+      "expiresAt": "2026-11-16T21:09:20.550171Z",
+      "closedAs": "released",
+      "closedAt": "2026-11-16T19:41:32.499803Z"
+    },
+    "schedule": "Both new schedules remain enabled; A16/B20 owned reviews and required final integration remain incomplete. B claim unchanged; old Restart Corpus tasks remain paused."
   },
-  "boundaries": "No renderer, workbook, registry, student, final discovery index, deployment, public release or new automation. Existing 60 actual desktop/mobile checks reused within their tested scope. Standard optional 15 EC research fallback is outside the 180 EC schedule and does not replace the excluded Delft thesis."
+  "boundaries": "No renderer, workbook, registry, student, final discovery index, deployment, public release or new automation. Existing 60 actual desktop/mobile checks reused within their tested scope. Standard optional 15 EC research fallback is outside the 180 EC schedule and does not replace the excluded Delft thesis.",
+  "finalCheckpointVerification": {
+    "commit": "e2dbe249ec25b8f0ec2a44c5be34674f175d900e",
+    "readback": "All eight complete Git blobs equal the expected manifest SHAs after fetch; parent and remote main verified.",
+    "files": [
+      {
+        "path": "data/counselor/qc/full-restart-2026-10-27.json",
+        "size": 3938480,
+        "sha": "a1ce8ef58cd6887c50d8bb960b22f4035ba4ee80"
+      },
+      {
+        "path": "data/counselor/qc/full-restart-2026-10-27/cp-000255.json",
+        "size": 585980,
+        "sha": "b4838b21b6ce6bbb2fdaa3d8314b219cd6c73b3d"
+      },
+      {
+        "path": "data/counselor/qc/stage2-scheduled-2026-11-16/A.json",
+        "size": 2674,
+        "sha": "72a9144806d5ced3cd86a6053c1c4d2389c43b27"
+      },
+      {
+        "path": "docs/qc/deferred-case-qualified-comparison-stage2-progress-2026-11-15.md",
+        "size": 5508,
+        "sha": "2ec391e53b3d641998fc338bd67f548fdb4b3654"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/batches/batch-03.md",
+        "size": 4678,
+        "sha": "2b99ec8ce51773583a1e39ead36fc4e7531f9956"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/review.json",
+        "size": 19835,
+        "sha": "21bc5ddb69781c37470c0bb20a09fdfd8b8b7e9d"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/publication-verification.json",
+        "size": 3811,
+        "sha": "043ae1ec3081be4ca2d39b356af0d58193077eb2"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/scheduled-runs/worker-A-2026-11-16-185834.json",
+        "size": 9138,
+        "sha": "3a81fea951e6dfe8d02090b2a976df18c493687a"
+      }
+    ],
+    "applicableCI": [
+      {
+        "id": 43941685031,
+        "name": "Validate Shiny pilots",
+        "status": "completed",
+        "conclusion": "success",
+        "event": "push",
+        "head_sha": "e2dbe249ec25b8f0ec2a44c5be34674f175d900e",
+        "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/43941685031"
+      }
+    ],
+    "result": "passed"
+  }
 }
