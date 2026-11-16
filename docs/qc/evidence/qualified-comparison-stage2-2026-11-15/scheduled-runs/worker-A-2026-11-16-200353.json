@@ -1,0 +1,205 @@
+{
+  "runId": "worker-A-2026-11-16-200353",
+  "worker": "A",
+  "startedAt": "2026-11-16T20:03:53.725684Z",
+  "claimCommit": "50b15b82a96f1f193dda1e7a3a1aeecde9fdc389",
+  "claimedCaseIds": [
+    "cp-000275",
+    "cp-000282"
+  ],
+  "handledCaseIds": [
+    "cp-000275"
+  ],
+  "completedReviews": [
+    {
+      "caseId": "cp-000275",
+      "outcome": "no-defensible-ucr-match",
+      "academicApproval": true,
+      "basis": "robust-no-match / documented-curriculum",
+      "pairCommit": "b60ee9118ab69446663a42f26363725fa8a7cdcc",
+      "verificationRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/publication-verification.json",
+      "finding": "Actual philosophical, literary, religious-cultural and care connections do not sustain the biblical, doctrinal and practical theological inquiry defining this target. The negative finding survives each unresolved access/preparation resolution; it is not based on a title, language, licence, confessional viewpoint or EC quota."
+    }
+  ],
+  "notStarted": "CP282. This one-case execution completed CP275’s full allocation repair and strengthened source-first negative challenge. Next A run starts CP282, then CP284, subject to the current detailed queue.",
+  "academicQuality": "Fresh actual programme/guide/OER responses match prior versions. Re-read adopted current learning outcomes, current first-year doctrinal/practical content, exegesis/text-criticism and actual UCR God/ethics/myth/critical interpretation/lifespan/clinical/educational evidence. All64currentinterestrows reconciled;16generators uniquely assessed in four coherent groups,32support and16search-only.32actualcourseleads and three complete research schedules challenge the strongest response. Corrected metadata records7/6/9advanced courses; all three have24courses/180EC and pass actual prerequisites/offerings/Year1PPD. Same-AI source-first pass is separately identified; no separate reviewer/model/human endorsement.",
+  "externalBoundary": "36documented components total180EC. Ten original first-year components60EC and IDs retained exactly; later120EC use only positive adopted allocations. Greek/Hebrew later groups do not invent child numbering. Existing7.5ECchurch-history group contains introductory2.5+early/medieval5 once. Only8ECfree study is encoded. Optional30ECreplacementminor is not selected. Language progression and thesis preparation remain unverified; partial audience status and clear limits retained.",
+  "checks": {
+    "checkedOn": "2026-11-16",
+    "checks": [
+      {
+        "command": [
+          "python",
+          "scripts/validate-counselor-schema.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "da884efe44c0051686ea15deb29d0fe764f224cf9395425e732c82b88eff1614",
+        "tail": [
+          "438 canonical records pass full JSON Schema validation."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-course-feasibility.py",
+          "<all 438 canonical paths>"
+        ],
+        "exitCode": 0,
+        "outputSha256": "e7c9af6c10dc53d92f2b49852d771af6b559e1644c8ed12b36ec8ee60569f9a3",
+        "tail": [
+          "438 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-comprehensive-reaudit.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "7360e6347a092675f899dde831524522bd95193ab43e9b0a5b83ea98c42ea241",
+        "tail": [
+          "Re-audit register consistent: 438 baseline targets; {'approved': 395, 'inProgress': 43, 'reviewedWithBlockers': 0, 'notStarted': 0, 'pilotStarted': 6}; 438 case evidence files. No academic approval inferred."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/verify-qualified-comparison-stage2.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "51a0e083a958bcc506aa2ed07e76b68ce5ffb002316aa81acf8b8b6ddc9ef3d6",
+        "tail": [
+          "Preserved 375 approvals, CP072/CP099, 35 unprocessed cases, protected inputs, fixed 438 scope and exhausted worker histories."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/test-qualified-comparison-stage2.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "d3aa1bc65ffc447cc3a80a49d6af269d4a3613f0780d37b8085a0a26c58d2223",
+        "tail": [
+          "----------------------------------------------------------------------",
+          "Ran 7 tests in 0.196s",
+          "",
+          "OK"
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "test:counselor-acceptance"
+        ],
+        "exitCode": 0,
+        "outputSha256": "e66f518e4a654140704cb8497727adddedf48f48a15ed7b26d634158966ea29b",
+        "tail": [
+          "> node scripts/test-counselor-acceptance.mjs",
+          "",
+          "Bounded acceptance: ordinary byte-compatible replay; partial positive/negative; adverse tests, scope, unresolved fallback and UCR gates passed.",
+          "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "validate:counselor-review"
+        ],
+        "exitCode": 0,
+        "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8",
+        "tail": [
+          "> node scripts/build-counselor-review-index.mjs --check",
+          "",
+          "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+          "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-course-descriptions.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "0930ad77e0fabf4d5e2b7368e32333cd0d7fa6250a3dd62747d50f545246df6f",
+        "tail": [
+          "149 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained."
+        ]
+      }
+    ],
+    "otherCasePairFilesUnchanged": 1311,
+    "preservationParent": "0b9f53866553dea8b25d0852cc7fe26c4e1369dc",
+    "workerBClaimUnchanged": true,
+    "historicalBrowserScope": "No new renderer/browser execution; reuse60actualchecks at5df42b776ce49f230b1463a1cacdff53ef5feead only."
+  },
+  "mechanicalEvidenceRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/mechanical.json",
+  "endStateValidationRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/end-state-validation.json",
+  "preservation": "All1,311othercase/decision/canonicalfiles and Bclaim remain byte-identical to run parent0b9f53866553dea8b25d0852cc7fe26c4e1369dc. Exact pre-Stage2CP275case/decision/canonical snapshots and full original stage/source/worker/revisit/exhaustion histories retained. Protected375baselineapprovals,13setupreviews,CP072/CP099 and course/registry/student inputs remain intact.",
+  "progress": {
+    "completedStage2": 26,
+    "scope": 61,
+    "approvedStage2": 20,
+    "approvedDispositionBreakdown": {
+      "comparison": 17,
+      "no-defensible-ucr-match": 3
+    },
+    "reviewedStillUnresolved": 6,
+    "corpusApproved": 395,
+    "corpusUnresolved": 43,
+    "remainingOwned": {
+      "A": 15,
+      "B": 20
+    },
+    "nextA": [
+      "cp-000282",
+      "cp-000284"
+    ],
+    "nextB": [
+      "cp-000149",
+      "cp-000211"
+    ]
+  },
+  "failures": {
+    "publicationFailures": 0,
+    "caughtErrors": [
+      "Optional requests dependency probe failed; standard-library urllib fetched all three sources successfully. No installation or unresolved source failure.",
+      "A complete-dictionary comparison rejected three older partial course-fact records. Every stored field matched; reconciled all24stored subsets to complete current rows without inventing enrichment.",
+      "Changed research-course levels were initially encoded1/2/3 instead of100/200/300. Corrected before publication; all72placements verified, trial advanced counts7/6/9, and relevant checks rerun."
+    ],
+    "outstandingTechnicalFailure": null,
+    "remainingExternalUncertainty": "Later language numbering/progression and current thesis preparation correspondence remain explicitly unverified, bounded within the robust negative claim."
+  },
+  "nextAction": "Acquire a fresh published A claim next occurrence; start CP282, then CP284, according to fresh detailed status. Skip completed CP275 and every completed review including unresolved outcomes. Fixed batch3 is7/10 pending B-ownedCP211/245/258; final QA awaits those reviews. Batch2 remains9/10 pendingCP149.",
+  "schedule": "Both new Stage2schedules remain enabled; assignments and required final integration remain incomplete. Old Restart Corpus tasks remain paused.",
+  "release": {
+    "status": "Pending final checkpoint exact readback and applicable CI, then separately guarded release of this own A token."
+  },
+  "boundaries": "No accepted UCR programme, active alignment or optional-research row in the no-match exception. Research trials remain evidence only. No renderer/workbook/registry/student/final-discovery/deployment/public-release/new-automation change. Historical60actualdesktop/mobilechecks reused within unchanged no-match/partial scope only.",
+  "scheduleVerification": {
+    "checkedOn": "2026-11-16",
+    "observed": [
+      {
+        "id": "Automation_5f9eda84b26c8191bf4510e22f3a5872",
+        "title": "Stage 2 B — :30",
+        "is_enabled": true
+      },
+      {
+        "id": "Automation_4c777c79e4f881918d98a9cf58839ae9",
+        "title": "Stage 2 A — :00",
+        "is_enabled": true
+      },
+      {
+        "id": "6ae077eacc588191bf756b7661b4a9fe",
+        "title": "Restart Corpus B",
+        "is_enabled": false
+      },
+      {
+        "id": "6ae077e8ca18819191e1e0f323141748",
+        "title": "Restart Corpus A",
+        "is_enabled": false
+      }
+    ],
+    "changesMade": false
+  }
+}

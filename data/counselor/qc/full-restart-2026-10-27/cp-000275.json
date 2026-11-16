@@ -5,7 +5,7 @@
     "decision": "cb335ad60e0bed6df0cfc8ff1559d63dd5cabb41",
     "canonical": "72c110080deebf527a320fe7066c3909d698f8ff"
   },
-  "state": "in-progress",
+  "state": "approved",
   "stages": {
     "1": {
       "outcome": "correct",
@@ -88,8 +88,8 @@
       "reassessStages": []
     },
     "6": {
-      "outcome": "blocked",
-      "finding": "Same-AI source-first academic/content challenge supports robust no-match; exact pair publication/readback/applicableCI pending.",
+      "outcome": "retain",
+      "finding": "Source-first same-AI academic pass, mechanical/full-schema/byte-replay and exact content verification pass; all published blobs and applicable compiler, review-index and validation CI verified.",
       "preserved": [
         "Exact previous full case snapshot and all original source/stage/worker/revisit/exhaustion histories."
       ],
@@ -98,40 +98,64 @@
         "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/review.json",
         "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/external-review.json",
         "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/current-course-evidence.json",
-        "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/source-first-final-pass.json"
+        "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/source-first-final-pass.json",
+        "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/publication-verification.json"
       ],
-      "blockedBy": [
-        "Verify published complete bytes and applicable CI before final approval."
-      ],
+      "blockedBy": [],
       "reassessStages": []
     }
   },
   "sharedIssueIds": [],
-  "unresolved": [
-    "No-match pair publication/readback/CI pending. External progression uncertainty remains explicit in acceptance evidence; no full access certification."
-  ],
-  "downstreamReassessments": [
-    {
-      "trigger": "Authoritative current-cohort language/third-year credit and minor rules",
-      "scope": "Reassess only affected external components, interests, comparability,construction/alignments and fullreadercontent. Preserveverified60EC,64interestsandcurrentpositivecoursefindings.",
-      "stages": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ]
-    }
-  ],
+  "unresolved": [],
+  "downstreamReassessments": [],
   "implementationCommits": [
     "47b9b6393cc484eba182161f3d785fc0ec4af333",
-    "f0f8c8e6db51cde78e88cbfbcd5342b1243c36e6"
+    "f0f8c8e6db51cde78e88cbfbcd5342b1243c36e6",
+    "b60ee9118ab69446663a42f26363725fa8a7cdcc"
   ],
-  "finalReview": null,
+  "finalReview": {
+    "reviewerOrPass": "Worker A Stage 2 separately identified same-AI source-first final pass",
+    "independenceMethod": "Actual official curriculum/formal and current UCR evidence were reconsidered before the exact finished canonical/decision and selected course descriptions. Same AI as author; no separate reviewer/model/human endorsement. The strongest adverse academic interpretation and all credible bounded uncertainties are recorded.",
+    "reviewedOn": "2026-11-16",
+    "reviewedCommit": "b60ee9118ab69446663a42f26363725fa8a7cdcc",
+    "reviewProcess": "qualified-comparison-stage2-2026-11-15",
+    "verificationPolicy": "record-content-review-2026-10-31",
+    "inputBlobs": {
+      "decision": "cb335ad60e0bed6df0cfc8ff1559d63dd5cabb41",
+      "canonical": "72c110080deebf527a320fe7066c3909d698f8ff"
+    },
+    "sourceEvidenceRefs": [
+      "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/external-review.json",
+      "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/current-course-evidence.json",
+      "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/source-first-final-pass.json"
+    ],
+    "checks": {
+      "academic": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/review.json#/academicJudgment",
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/source-first-final-pass.json"
+        ]
+      },
+      "mechanical": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/mechanical.json",
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/publication-verification.json"
+        ]
+      },
+      "content": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/review.json#/contentReview",
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/content-inputs.json"
+        ]
+      }
+    }
+  },
   "schemaVersion": "2.0",
   "auditId": "counselor-full-restart-2026-10-27",
-  "presentationApproval": false,
+  "presentationApproval": true,
   "evidenceSources": [
     {
       "url": "https://www.tua.nl/nl/studiegids",
@@ -239,7 +263,7 @@
       "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/revisit-mechanical-checks.json": "05dbac324a200a51642f8d0cac96e89a82968912"
     }
   },
-  "nextAction": "Publish only CP275decision/canonical pair with supporting Stage2evidence, retaining in-progress state until exact complete readback and all applicable compiler/index/validation CI pass. Then approve the no-match review, update actual progress/run QA, and release own claim. CP282 unstarted.",
+  "nextAction": "Skip this completed Stage 2 review on recurring runs. Reconsider only for newly authorized material evidence; preserve its explicit qualified scope.",
   "academicDisposition": "no-defensible-ucr-match",
   "reviewHistory": [
     {
@@ -6654,63 +6678,41 @@
     }
   ],
   "recordContentReview": {
+    "reviewerOrPass": "Worker A Stage 2 separately identified same-AI source-first final pass",
+    "independenceMethod": "Actual official curriculum/formal and current UCR evidence were reconsidered before the exact finished canonical/decision and selected course descriptions. Same AI as author; no separate reviewer/model/human endorsement. The strongest adverse academic interpretation and all credible bounded uncertainties are recorded.",
+    "reviewedOn": "2026-11-16",
+    "reviewedCommit": "b60ee9118ab69446663a42f26363725fa8a7cdcc",
+    "reviewProcess": "qualified-comparison-stage2-2026-11-15",
     "verificationPolicy": "record-content-review-2026-10-31",
-    "reviewedCommit": "f0f8c8e6db51cde78e88cbfbcd5342b1243c36e6",
-    "reviewedOn": "2026-11-13",
     "inputBlobs": {
-      "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
-      "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
-      "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
-      "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
-      "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
-      "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
-      "data/counselor/decisions/cp-000275.json": "e3c4479038457e2493c777bf3fe3fd55bbd69881",
-      "data/counselor/comparisons/cp-000275.json": "f68dfe8b5059f5f4c586ed743d840e1eef139945",
-      "data/registry/programme_interests.csv": "3d306e8c53d567ca9dbc5c09e151fc54ad5b2243",
-      "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
-      "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
-      "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
-      "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
-      "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
-      "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
-      "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26",
-      "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
-      "data/counselor/review-programmes.json": "0ce97f2fadd1747d1323519e539cc4136ac08923",
-      "data/counselor/review-interests.json": "45110774d9d53d68fd12fc668e41d08cc4737c88",
-      "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
-      "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
-      "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
-      "pilot/shiny/data/courses/HCB.json": "8af6675a1408cec96ea570100ee89cff97563288",
-      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/source-findings.json": "9442d1e4994c8bf7ac91bdf53e1d6ae10e51f572",
-      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/source-attempt-2.json": "3ebbdc44f265cfea09da66e6b72e4d7d418f4195",
-      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/interest-review.json": "20c70d20ae062a27887508ba196b0678f75f7ebc",
-      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/ucr-provisional-assessment.json": "b8dba0b367303f2a1894c78cc0f22ef2be7dee10",
-      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/source-first-checkpoint.json": "eb4a94710a63d846a5a13f750869301b0633df5a",
-      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/original-decision.json": "1d11c441b87b0d9e91dfbd7c68a52568dba72b29",
-      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/original-canonical.json": "bae60f824bdfe9be3f27c68e077614d0b5dbc6ac",
-      "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/revisit-provisional-course-attempt.json": "dd1b30db99d74b13ffe0355ed6e808efb734c733",
-      "canonical": "f68dfe8b5059f5f4c586ed743d840e1eef139945",
-      "decision": "e3c4479038457e2493c777bf3fe3fd55bbd69881"
+      "decision": "cb335ad60e0bed6df0cfc8ff1559d63dd5cabb41",
+      "canonical": "72c110080deebf527a320fe7066c3909d698f8ff"
     },
+    "sourceEvidenceRefs": [
+      "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/external-review.json",
+      "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/current-course-evidence.json",
+      "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/source-first-final-pass.json"
+    ],
     "checks": {
       "academic": {
-        "status": "blocked",
+        "status": "passed",
         "evidenceRefs": [
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/revisit-source-review.json",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/revisit-source-first-checkpoint.json"
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/review.json#/academicJudgment",
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/source-first-final-pass.json"
         ]
       },
       "mechanical": {
         "status": "passed",
         "evidenceRefs": [
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/revisit-mechanical-checks.json",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/revisit-published-verification.json"
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/mechanical.json",
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/publication-verification.json"
         ]
       },
       "content": {
         "status": "passed",
         "evidenceRefs": [
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/revisit-content-review.json"
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/review.json#/contentReview",
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/content-inputs.json"
         ]
       }
     }
@@ -6775,8 +6777,72 @@
   ],
   "stage2Review": {
     "process": "qualified-comparison-stage2-2026-11-15",
-    "status": "in-progress",
+    "status": "completed",
     "evidenceRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000275/review.json",
-    "evidenceBlob": "fdf16f7b807ced70ebaae14bad2bf41bbdb6a1b3"
-  }
+    "evidenceBlob": "a9709229e6881b472beb7275003324d450850e33"
+  },
+  "recordContentReviewHistory": [
+    {
+      "verificationPolicy": "record-content-review-2026-10-31",
+      "reviewedCommit": "f0f8c8e6db51cde78e88cbfbcd5342b1243c36e6",
+      "reviewedOn": "2026-11-13",
+      "inputBlobs": {
+        "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+        "docs/UCR_Pathways_Production_Instructions.md": "4e6520ec7850ad7a44947314821975a3f2e2bf7c",
+        "docs/UCR_Pathways_Master_Specification.md": "389fab2e00428e4abda971792f4bd7b3066e858d",
+        "docs/qc/counselor-comprehensive-reaudit-protocol.md": "615e34730b27754ae01b20524bb412e6b31f576b",
+        "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1",
+        "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+        "data/counselor/decisions/cp-000275.json": "e3c4479038457e2493c777bf3fe3fd55bbd69881",
+        "data/counselor/comparisons/cp-000275.json": "f68dfe8b5059f5f4c586ed743d840e1eef139945",
+        "data/registry/programme_interests.csv": "3d306e8c53d567ca9dbc5c09e151fc54ad5b2243",
+        "data/registry/programmes.csv": "5d2f60aeff6938df6e3c46350a3f407ff0f2c245",
+        "pilot/counselor-shiny/app.R": "821be611428fc28490c679783be464455ad00aa1",
+        "pilot/shared.R": "128a1a8c9bbd246aa5b43236a69d090754c1fdb9",
+        "scripts/build-counselor-production.mjs": "596d4fe9384961bc7141f6c122fd9c896c04a52b",
+        "scripts/build-counselor-comparison-v2.mjs": "989b6a7b1701375c67a58c54f87fe29a828faf4c",
+        "scripts/counselor-audience.mjs": "d099ecc201c8b92947c81bd1b644c5f34835a62b",
+        "scripts/optional-independent-research.mjs": "3d4097cb9e7a1c0154b34e11922f4e8285896a26",
+        "data/counselor/presentation-overrides.json": "06fb6c9ffa2b38ea4166ab00f0876f38722c69a2",
+        "data/counselor/review-programmes.json": "0ce97f2fadd1747d1323519e539cc4136ac08923",
+        "data/counselor/review-interests.json": "45110774d9d53d68fd12fc668e41d08cc4737c88",
+        "pilot/shiny/data/courses/ACC.json": "686141fd094c3bdad7a2e64433a41e2cfb0867a8",
+        "pilot/shiny/data/courses/GOS.json": "ebcc4c79ab6a7861756c1637ce04503c0bddd484",
+        "pilot/shiny/data/courses/MCC.json": "8c3b64f70d9b26f9c39c7cc3cb04c7a3060df979",
+        "pilot/shiny/data/courses/HCB.json": "8af6675a1408cec96ea570100ee89cff97563288",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/source-findings.json": "9442d1e4994c8bf7ac91bdf53e1d6ae10e51f572",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/source-attempt-2.json": "3ebbdc44f265cfea09da66e6b72e4d7d418f4195",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/interest-review.json": "20c70d20ae062a27887508ba196b0678f75f7ebc",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/ucr-provisional-assessment.json": "b8dba0b367303f2a1894c78cc0f22ef2be7dee10",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/source-first-checkpoint.json": "eb4a94710a63d846a5a13f750869301b0633df5a",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/original-decision.json": "1d11c441b87b0d9e91dfbd7c68a52568dba72b29",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/original-canonical.json": "bae60f824bdfe9be3f27c68e077614d0b5dbc6ac",
+        "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/revisit-provisional-course-attempt.json": "dd1b30db99d74b13ffe0355ed6e808efb734c733",
+        "canonical": "f68dfe8b5059f5f4c586ed743d840e1eef139945",
+        "decision": "e3c4479038457e2493c777bf3fe3fd55bbd69881"
+      },
+      "checks": {
+        "academic": {
+          "status": "blocked",
+          "evidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/revisit-source-review.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/revisit-source-first-checkpoint.json"
+          ]
+        },
+        "mechanical": {
+          "status": "passed",
+          "evidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/revisit-mechanical-checks.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/revisit-published-verification.json"
+          ]
+        },
+        "content": {
+          "status": "passed",
+          "evidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000275/revisit-content-review.json"
+          ]
+        }
+      }
+    }
+  ]
 }
