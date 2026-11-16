@@ -2,7 +2,7 @@
   "schemaVersion": "2.0",
   "id": "cp-000255",
   "auditId": "counselor-full-restart-2026-10-27",
-  "state": "in-progress",
+  "state": "approved",
   "reviewedInputCommit": "f1ed017bbafa4b06df11a698c1a4f3da6cc4f654",
   "inputBlobs": {
     "decision": "48269a036f2cd5acac2f5f0568d96985805cddd6",
@@ -90,8 +90,8 @@
       "reassessStages": []
     },
     "6": {
-      "outcome": "blocked",
-      "finding": "Separate same-AI source-first academic/content pass supports qualified core. Actual pair publication, complete readback and applicable CI remain pending.",
+      "outcome": "retain",
+      "finding": "Source-first same-AI academic pass, mechanical/full-schema/byte-replay and exact content verification pass; all published blobs and applicable compiler, review-index and validation CI verified.",
       "preserved": [
         "Exact prior stages and all worker/revisit/exhaustion history in pre-stage2-case.json and the appended original snapshot."
       ],
@@ -100,40 +100,64 @@
         "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/review.json",
         "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/external-review.json",
         "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/current-course-evidence.json",
-        "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/source-first-final-pass.json"
+        "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/source-first-final-pass.json",
+        "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/publication-verification.json"
       ],
-      "blockedBy": [
-        "Verify published complete blobs and applicable CI before final approval."
-      ],
+      "blockedBy": [],
       "reassessStages": []
     }
   },
   "sharedIssueIds": [],
-  "unresolved": [
-    "Qualified-core repair publication/readback/CI pending. Missing full third-year formation and entry rules remain excluded, not resolved."
-  ],
-  "downstreamReassessments": [
-    {
-      "trigger": "Applicable redesignedthird-yeardesign/elective/15ECthesisrequirements verified",
-      "stages": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
-      "scope": "Reassessonlyaffectedexternalpathanddependentconcept/selection/alignment/content. PreserveverifiedSensing-first-sitfieldchronology,59interests,31actualcoursefacts and3feasibleprovisionalplans."
-    }
-  ],
+  "unresolved": [],
+  "downstreamReassessments": [],
   "implementationCommits": [
     "3f7f2a86b7a173c09abfbf97ae52e90a92aa138f",
     "a9a4bec12eac62039ffcc4e6abe99722ea551879",
-    "259449e644038864624f53d4f02c6750b43e1d6f"
+    "259449e644038864624f53d4f02c6750b43e1d6f",
+    "f8cffa9e13d19a10d3a809e4ffa4498b123bb605"
   ],
   "academicDisposition": "comparison",
-  "presentationApproval": false,
-  "finalReview": null,
+  "presentationApproval": true,
+  "finalReview": {
+    "reviewerOrPass": "Worker A Stage 2 separately identified same-AI source-first final pass",
+    "independenceMethod": "Actual official curriculum/formal and current UCR evidence were reconsidered before the exact finished canonical/decision and selected course descriptions. Same AI as author; no separate reviewer/model/human endorsement. The strongest adverse academic interpretation and all credible bounded uncertainties are recorded.",
+    "reviewedOn": "2026-11-16",
+    "reviewedCommit": "f8cffa9e13d19a10d3a809e4ffa4498b123bb605",
+    "reviewProcess": "qualified-comparison-stage2-2026-11-15",
+    "verificationPolicy": "record-content-review-2026-10-31",
+    "inputBlobs": {
+      "decision": "48269a036f2cd5acac2f5f0568d96985805cddd6",
+      "canonical": "4e56ad494ea60447fd0af0b62640addc42f2c4eb"
+    },
+    "sourceEvidenceRefs": [
+      "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/external-review.json",
+      "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/current-course-evidence.json",
+      "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/source-first-final-pass.json"
+    ],
+    "checks": {
+      "academic": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/review.json#/academicJudgment",
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/source-first-final-pass.json"
+        ]
+      },
+      "mechanical": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/mechanical.json",
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/publication-verification.json"
+        ]
+      },
+      "content": {
+        "status": "passed",
+        "evidenceRefs": [
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/review.json#/contentReview",
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/content-inputs.json"
+        ]
+      }
+    }
+  },
   "executionClaim": {
     "executionId": "restart-B-cp255-revisit-20261112T230827Z",
     "worker": "B",
@@ -262,7 +286,7 @@
     }
   ],
   "renderedEvidence": [],
-  "nextAction": "Publish only the CP255decision/canonical repair pair and supporting evidence, keeping Stage2review in-progress and stage6blocked. Verify every complete Git blob and all applicable CI before final approval. CP275 not started.",
+  "nextAction": "Skip this completed Stage 2 review on recurring runs. Reconsider only for newly authorized material evidence; preserve its explicit qualified scope.",
   "reviewHistory": [
     {
       "sourceCommit": "3f7f2a86b7a173c09abfbf97ae52e90a92aa138f",
@@ -8070,32 +8094,44 @@
     }
   ],
   "recordContentReview": {
+    "reviewerOrPass": "Worker A Stage 2 separately identified same-AI source-first final pass",
+    "independenceMethod": "Actual official curriculum/formal and current UCR evidence were reconsidered before the exact finished canonical/decision and selected course descriptions. Same AI as author; no separate reviewer/model/human endorsement. The strongest adverse academic interpretation and all credible bounded uncertainties are recorded.",
+    "reviewedOn": "2026-11-16",
+    "reviewedCommit": "f8cffa9e13d19a10d3a809e4ffa4498b123bb605",
+    "reviewProcess": "qualified-comparison-stage2-2026-11-15",
     "verificationPolicy": "record-content-review-2026-10-31",
-    "checkedAt": "2026-11-12T23:18:59.209098+00:00",
+    "inputBlobs": {
+      "decision": "48269a036f2cd5acac2f5f0568d96985805cddd6",
+      "canonical": "4e56ad494ea60447fd0af0b62640addc42f2c4eb"
+    },
+    "sourceEvidenceRefs": [
+      "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/external-review.json",
+      "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/current-course-evidence.json",
+      "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/source-first-final-pass.json"
+    ],
     "checks": {
       "academic": {
-        "status": "blocked",
-        "essentialEvidence": "Obtain applicable redesigned-curriculum Engineering Design Project entry/progression rules, the permitted5EC EC&T elective offer/selection conditions, and the new15EC Bachelor Thesis Project entry requirements delegated by current TER Annex Article6. The complete2026–2027 B-TA public catalogue contains redesignedYears1/2 but only legacythird-year entries,including10EC AESB3400; neither its requirements,nor generalfaculty140ECadvice,nor old-cohort170ECtransition guidance establishes the new15ECcourse rules. Preserve the now resolved ordinary Sensing-to-Field-Project first-sit chronology; no concurrent-admission waiver or future unpublished condition is assumed.",
+        "status": "passed",
         "evidenceRefs": [
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000255/revisit-source-review.json",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000255/revisit-course-review.json"
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/review.json#/academicJudgment",
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/source-first-final-pass.json"
         ]
       },
       "mechanical": {
         "status": "passed",
         "evidenceRefs": [
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000255/revisit-mechanical-checks.json",
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000255/revisit-published-verification.json"
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/mechanical.json",
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/publication-verification.json"
         ]
       },
       "content": {
         "status": "passed",
         "evidenceRefs": [
-          "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000255/revisit-content-review.json"
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/review.json#/contentReview",
+          "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/content-inputs.json"
         ]
       }
-    },
-    "reviewedCommit": "259449e644038864624f53d4f02c6750b43e1d6f"
+    }
   },
   "executionClaimHistory": [
     {
@@ -8199,8 +8235,38 @@
   ],
   "stage2Review": {
     "process": "qualified-comparison-stage2-2026-11-15",
-    "status": "in-progress",
+    "status": "completed",
     "evidenceRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000255/review.json",
-    "evidenceBlob": "cd041207f11422bf2b6d6a3291dc1d08f68847a1"
-  }
+    "evidenceBlob": "21bc5ddb69781c37470c0bb20a09fdfd8b8b7e9d"
+  },
+  "recordContentReviewHistory": [
+    {
+      "verificationPolicy": "record-content-review-2026-10-31",
+      "checkedAt": "2026-11-12T23:18:59.209098+00:00",
+      "checks": {
+        "academic": {
+          "status": "blocked",
+          "essentialEvidence": "Obtain applicable redesigned-curriculum Engineering Design Project entry/progression rules, the permitted5EC EC&T elective offer/selection conditions, and the new15EC Bachelor Thesis Project entry requirements delegated by current TER Annex Article6. The complete2026–2027 B-TA public catalogue contains redesignedYears1/2 but only legacythird-year entries,including10EC AESB3400; neither its requirements,nor generalfaculty140ECadvice,nor old-cohort170ECtransition guidance establishes the new15ECcourse rules. Preserve the now resolved ordinary Sensing-to-Field-Project first-sit chronology; no concurrent-admission waiver or future unpublished condition is assumed.",
+          "evidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000255/revisit-source-review.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000255/revisit-course-review.json"
+          ]
+        },
+        "mechanical": {
+          "status": "passed",
+          "evidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000255/revisit-mechanical-checks.json",
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000255/revisit-published-verification.json"
+          ]
+        },
+        "content": {
+          "status": "passed",
+          "evidenceRefs": [
+            "docs/qc/evidence/counselor-full-restart-2026-10-27/cp-000255/revisit-content-review.json"
+          ]
+        }
+      },
+      "reviewedCommit": "259449e644038864624f53d4f02c6750b43e1d6f"
+    }
+  ]
 }
