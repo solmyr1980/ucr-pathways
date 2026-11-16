@@ -5,7 +5,7 @@
 - Completed Stage 2 reviews: **15/61**; **46** remain.
 - Stage 2 approvals: **13**; completed reviews still unresolved: **2**. CP051 remains unresolved; CP055 is an approved robust no-match.
 - Derived corpus academic approvals: **388/438**; academically unresolved: **50**.
-- CP051 review: `237aa914a5c3597e1e041d9e751d619412383626`; CP055 exact production pair: `d99901614e590fbb9d7f7f298c124179be5cc272`. Pair blobs and applicable CI are verified; the later approval bookkeeping is checked separately.
+- CP051 review: `237aa914a5c3597e1e041d9e751d619412383626`; CP055 exact production pair: `d99901614e590fbb9d7f7f298c124179be5cc272`. Pair blobs and applicable CI are verified. Final approval checkpoint `4aae65cdcbb7192212a670d1dba8863b292aec80` also passed validation CI `43877475670`; all nine checkpoint blobs read back correctly.
 
 [Worker A two-case QA](evidence/qualified-comparison-stage2-2026-11-15/scheduled-runs/worker-A-2026-11-16-130523.json) records exact outcomes, sources, strongest UCR challenges, preservation and CI. [Batch 2](evidence/qualified-comparison-stage2-2026-11-15/batches/batch-02.md) has five of its ten reviews complete; no final ten-case QA is claimed. Current detailed cases own live completion; these counts are a checkpoint.
 
