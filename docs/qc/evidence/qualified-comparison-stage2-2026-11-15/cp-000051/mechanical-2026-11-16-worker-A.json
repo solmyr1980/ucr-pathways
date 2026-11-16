@@ -1,0 +1,113 @@
+{
+  "checkedOn": "2026-11-16",
+  "inputCommit": "6583bc35e9daea662e60f15ea10830ad5ad964aa",
+  "productionWrapperReplay": "byte-exact; unchanged decision and canonical",
+  "checks": [
+    {
+      "command": [
+        "node",
+        "scripts/build-counselor-production.mjs",
+        "data/counselor/decisions/cp-000051.json",
+        "--output",
+        "/workspace/scratch/fbddbed0316d/cp051-replay.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "014e5905ed1a7385989c7371b096c096788a18fc29b511e0e3dd3e0fe03d4b69",
+      "tail": [
+        "Built cp-000051 counselor exception record at /workspace/scratch/fbddbed0316d/cp051-replay.json"
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "data/counselor/comparisons/cp-000051.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918",
+      "tail": [
+        "1 canonical records pass full JSON Schema validation."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "data/counselor/comparisons/cp-000051.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c",
+      "tail": [
+        "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000051/research-trial.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c",
+      "tail": [
+        "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+      ]
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor"
+      ],
+      "exitCode": 0,
+      "outputSha256": "e1c73875593de186e1a5eea7635ac2c5ff18b36c013db6941eb626609e71063f",
+      "tail": [
+        "cp-000455.json: final counselor methodology rules OK",
+        "cp-000456.json: final counselor methodology rules OK",
+        "cp-000457.json: final counselor methodology rules OK",
+        "cp-000459.json: final counselor methodology rules OK"
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-descriptions.py"
+      ],
+      "exitCode": 0,
+      "outputSha256": "0930ad77e0fabf4d5e2b7368e32333cd0d7fa6250a3dd62747d50f545246df6f",
+      "tail": [
+        "149 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained."
+      ]
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor-review"
+      ],
+      "exitCode": 0,
+      "outputSha256": "9cdc82c30ce21ebe3a169c66afb6ec7ca95b122741df4a50df822f14484914fc",
+      "tail": [
+        "> validate:counselor-review",
+        "> node scripts/build-counselor-review-index.mjs --check",
+        "",
+        "Current counselor review indexes: 438 programmes, 21212 interest rows."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/test-qualified-comparison-stage2.py"
+      ],
+      "exitCode": 0,
+      "outputSha256": "1a023e5b412e92dd085f3da7389fb1d5cd615317a0ae1164d75146d8bdfd9eb6",
+      "tail": [
+        "----------------------------------------------------------------------",
+        "Ran 7 tests in 0.351s",
+        "",
+        "OK"
+      ]
+    }
+  ],
+  "limits": "Trial feasibility is mechanical evidence, not acceptance or academic approval. No renderer or application implementation changed; no new runtime/browser claim."
+}
