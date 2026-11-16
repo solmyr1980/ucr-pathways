@@ -1,28 +1,42 @@
-# First Stage 2 batch: current checkpoint
+# Stage 2 batch 1: academic and technical quality assessment
 
-15 November 2026. **In progress: 4 of 10 reviews complete. This is not the first-batch QA pass.**
+16 November 2026. Ten case reviews complete after the recorded publication and verification checks. The batch passes; continue automatically to batch 2.
 
-| Case | Stage 2 result | Published pair / verification |
-|---|---|---|
-| CP041 | Qualified comparison; 2 UCR options; 180 documented external EC; thesis-entry equivalence excluded; explicit 2025–2026 entrant cohort | `e3594b0e`; own review/mechanical/publication verification under `../cp-000041/` |
-| CP042 | Qualified comparison; 2 options; own Dutch identity and 41 interests; same bounded conflict; latest English component translations retained | `32b53592`; own evidence under `../cp-000042/` |
-| CP053 | Qualified comparison; 3 options; 180 documented EC; own 90/102-EC entry conflict excluded; source-verified alignment corrections | `c84db526`; own evidence under `../cp-000053/` |
-| CP040 | Qualified academic-core comparison; 1 option; 165 documented EC and unknown required 15 EC excluded | `b1947907`; own evidence under `../cp-000040/`; actual browser integration running |
-| CP046 | Not yet reviewed under Stage 2 | Existing deferred state preserved |
-| CP100 | Not yet reviewed under Stage 2 | Existing deferred state preserved |
-| CP112 | Not yet reviewed under Stage 2 | Existing deferred state preserved |
-| CP113 | Not yet reviewed under Stage 2 | Existing deferred state preserved |
-| CP397 | Not yet reviewed under Stage 2 | Existing deferred state preserved |
-| CP263 | Not yet reviewed under Stage 2 | Existing deferred state preserved |
+| Case | Disposition | Assessed external EC | UCR options |
+|---|---|---:|---:|
+| CP041 | Qualified documented curriculum | 180 | 2 |
+| CP042 | Qualified documented curriculum | 180 | 2 |
+| CP053 | Qualified documented curriculum | 180 | 3 |
+| CP040 | Qualified academic core | 165 | 1 |
+| CP046 | Qualified academic core | 165 | 1 |
+| CP100 | Qualified academic core | 150 | 1 |
+| CP112 | Qualified academic core | 150 | 2 |
+| CP113 | Qualified academic core | 150 | 2 |
+| CP397 | Qualified documented curriculum | 177 | 1 |
+| CP263 | Robust no-match against the confirmed AUDE core | 130 | 0 |
 
-All four completed cases have separately identified same-AI source-first challenges and independent case-specific dispositions. No human/separate-agent endorsement is claimed. All UCR schedules, traceability, alternative distinctness and stopping gates remain. Course evidence was reused only by exact content/version and checked concept role. CP042’s current official page explicitly corroborates shared academic content with its English sibling; language-specific target identity and own interests were preserved.
+The nine qualified cases contain 15 UCR programmes. None certifies an externally eligible complete pathway. The case-specific reviews, mechanical checks, exact input blobs and publication verification are in each case directory beside this batch directory. Earlier implementation commits remain in the detailed cases; the audience-spacing correction series ends at `afa477d9c6a9ff3182d6dc5d0bcf1378b665d989`.
 
-The academic qualification concerns unresolved eligibility, not weak UCR relevance. All retained taught cores are substantial; no percentage allowance or approval quota was used. CP053 shows that qualified acceptance does not license broad row relationships: actual GVC, corporate-ethics and international-marketing content led to honest gaps, while international/advanced strategy received stronger counterparts. Exact external statistical topics were not invented. The partial batch has not yet tested the remaining humanities, health, political, fiscal-economics and architecture boundaries.
+## Academic quality
 
-All four repaired pairs pass production byte-exact replay, strict schema, current-workbook feasibility, operational checks and published-blob/CI verification. Actual CP041 desktop/mobile checks are part of a 52-check shared matrix with ordinary, qualified/core, no-match and unresolved controls; artifact digest and selected screenshots were verified. CP042/CP053 use unchanged tested presentation types and do not claim individual browser runs. First-batch QA must add representative actual checks if later cases create another exposed mode.
+The same materiality standard produces different boundaries. CP041/042/053 compare documented subjects while excluding unresolved thesis eligibility. Shared Radboud evidence is reused only for the applicable source and claim: CP042 retains its distinct Dutch target and own interests, and CP053 retains its different methods/entry conflict. CP040/046 exclude their own repeated-module allocations; neither imports the other's correction. The VU health and political cases assess substantial confirmed first-two-year cores and separately documented open space; their final required training stays outside the claim. CP397 responds to economic effects and public finance and does not inherit Tax Law's no-match.
 
-Seven bookkeeping scope/evidence tests pass. The Stage 2 baseline preserves the 375 earlier approvals, CP072/CP099, unprocessed cases, course/registry/student inputs, Stage 1 metadata and worker histories. Case-level counts derive from the active register; current end-of-case results are in `../checkpoint-checks.json`.
+CP263 received a genuine, feasible climate-resilient built-environment challenge. Water adaptation, nature-based infrastructure, spatial analysis, materials/energy work, consumer design and architecture in cultural history are credited at their actual scope. They do not sustain the known architectural design, building-programme/typology, housing and construction/detail sequence. Either credible project/elective credit correction leaves this shortfall. This negative judgment concerns taught academic substance, rather than a professional title or institutional studio format.
 
-Corrections during work: clean audience year label; stale review indexes rebuilt after changed canonical type; source lookup label corrected before use; CP053 derived advanced-count report corrected to the code-based 7/7/8 counts before approval. No academic, schema, preservation or publication guard was weakened. No new policy decision is requested.
+Each accepted claim survives its documented adverse resolutions. Unknown required study is excluded rather than converted into open electives or unmatched components. Known open/restricted space retains its actual status. UCR programmes retain 24 courses, 180 EC, six terms, year-one PPD, six or more advanced courses, earlier prerequisites and actual offerings. Course-to-concept relevance, qualitative and numerical distinctness, sequential candidates/stopping and honest component relationships remain separate academic judgments. Optional research supplies no missing taught content or external eligibility.
 
-Resume CP040 exactly as described in the [current progress document](../../../deferred-case-qualified-comparison-stage2-progress-2026-11-15.md). Complete the remaining seven initial cases and only then issue the full first-batch academic/technical QA judgment. Do not select the next batch yet. All 58 remaining incomplete Stage 2 reviews are in the frozen baseline; CP072/CP099 are excluded. No final Stage 2 report, deployment, final discovery product or public release is claimed.
+The final academic challenges are separately identified second passes by the same AI. They are not independent human or separate-agent endorsements. Historical source limitations and the formal unknowns remain explicit. Nine qualifications in this deliberately selected batch predict no approval rate for the remaining scope.
+
+## Technical and content quality
+
+All 438 current records pass strict full schema, current-workbook feasibility and operational checks. All ten batch pairs replay byte-exactly through the production wrapper. The Stage 2 scope/evidence negative tests and bounded-acceptance regressions pass. Audit sync derives current counts; preservation confirms the 375 earlier approvals, CP072/CP099, all 51 unprocessed cases, course/registry/student inputs, Stage 1 metadata and exhausted-worker histories.
+
+The actual running-app artifact on `0b6014c6ae4d70697d9cf001146a713589e38f38` contains 60 desktop/mobile checks with no page errors. It covers documented qualifications, academic-core and caution displays, partial-core no-match, ordinary comparisons and unresolved controls. The downloaded artifact digest matches GitHub; results, CP263 text and selected screenshots are preserved under `../runtime/first-batch/`. Later record-only CI intentionally skips the unchanged R/browser jobs; those skips are not claimed as browser tests.
+
+The browser artifact exposed compressed spacing in some assessed/excluded notices. Five bounded pair repairs correct that wording, preserving component identities, credits, claims, UCR choices and renderer logic. Their compiler, schema, operational, audit and preservation checks are recorded individually. Earlier CP053 alignment and trace repairs and all original audit histories remain documented. No new policy or systemic integrity issue is open.
+
+Verification references: `../first-batch-final-checks.json`, `../first-batch-replay.json`, each case's `publication-verification.json`, and `../runtime/first-batch/verification.json`. No final discovery product or counselor deployment is authorized.
+
+## Next batch
+
+Select from the frozen 61 minus these ten completed reviews, rechecking current main and active case states: CP013, CP020, CP026, CP051, CP052, CP055, CP056, CP069, CP087 and CP149. These cover remaining Erasmus/Radboud/VU humanities or curriculum-access boundaries and OU allocation. Process each whole case independently; a justified continuing deferral remains academically incomplete and does not stop later cases.
