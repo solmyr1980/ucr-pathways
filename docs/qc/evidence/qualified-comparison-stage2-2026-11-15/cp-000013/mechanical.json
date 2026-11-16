@@ -1,0 +1,80 @@
+{
+  "checkedOn": "2026-11-16",
+  "productionWrapperReplay": "byte-exact",
+  "checks": [
+    {
+      "command": [
+        "node",
+        "scripts/build-counselor-production.mjs",
+        "data/counselor/decisions/cp-000013.json",
+        "--output",
+        "/workspace/scratch/1ed7367d3509/work/cp-000013-replay.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "9a17660461379f90a99007b4cc102cc2b70dc5f42d763f7a2998609f9fc1b693",
+      "tail": [
+        "Built cp-000013 counselor exception record at /workspace/scratch/1ed7367d3509/work/cp-000013-replay.json"
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "data/counselor/comparisons/cp-000013.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918",
+      "tail": [
+        "1 canonical records pass full JSON Schema validation."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "data/counselor/comparisons/cp-000013.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c",
+      "tail": [
+        "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000013/research-trials.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "aeb0d81fb772cec9a0786e89a33cd138b2dfbeb9416776455309b0f1a5da8b7c",
+      "tail": [
+        "1 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-comprehensive-reaudit.py",
+        "--sync"
+      ],
+      "exitCode": 0,
+      "outputSha256": "cc49b3b1e51062a62de08381a8aec3c4fb8ce9c95dfea4eb1dd3fd954809e71d",
+      "tail": [
+        "Re-audit register consistent: 438 baseline targets; {'approved': 385, 'inProgress': 53, 'reviewedWithBlockers': 0, 'notStarted': 0, 'pilotStarted': 6}; 438 case evidence files. No academic approval inferred.",
+        "Derived register summaries already current."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/verify-qualified-comparison-stage2.py"
+      ],
+      "exitCode": 0,
+      "outputSha256": "78a680c6bb5f71af55739f84191bd530c6297fb3c0d9f347745bccac48d60596",
+      "tail": [
+        "Preserved 375 approvals, CP072/CP099, 50 unprocessed cases, protected inputs, fixed 438 scope and exhausted worker histories."
+      ]
+    }
+  ]
+}
