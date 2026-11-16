@@ -158,6 +158,69 @@
   },
   "nextAction": "Next B run acquires a fresh published claim and starts CP149,thenCP211 subject to actual detailed queue. Skip completed CP124 and all other completed reviews including unresolved cases. Batch2remains9of10 pendingCP149; close its required QA when CP149completes. Batch3is5of10 and has no finalQA.",
   "schedule": "Remain enabled: B20owned reviews and required final integration remain incomplete. A17owned reviews remain. Old Restart Corpus tasks remain paused.",
-  "release": "Keep B claim live until final review/QA/progress checkpoint passes exact readback and applicable CI; then release only its current token in a separate guarded closure commit.",
-  "boundaries": "No activepairrepair,acceptedUCRalternative/trace/alignment,researchpromise,renderer/workbook/registry/student change,finaldiscovery,deployment,publicrelease,newautomationoroldtaskrestart. Existing60actualdesktop/mobiletests reused only within unchanged external-only mode; no new runtime test claimed."
+  "release": {
+    "status": "Own B token released in this guarded closure commit after final checkpoint readback and applicable CI passed.",
+    "closedClaim": {
+      "token": "09763386-ebaa-4196-bbfe-5b0ca7a852c8",
+      "worker": "B",
+      "caseIds": [
+        "cp-000124",
+        "cp-000149"
+      ],
+      "startedAt": "2026-11-16T18:09:58.688905Z",
+      "heartbeatAt": "2026-11-16T18:09:58.688905Z",
+      "expiresAt": "2026-11-16T19:39:58.688905Z",
+      "closedAs": "released",
+      "closedAt": "2026-11-16T18:27:15.149871Z"
+    },
+    "schedule": "Enabled; B20ownedreviews and final integration remain incomplete. Aclaim unchanged."
+  },
+  "boundaries": "No activepairrepair,acceptedUCRalternative/trace/alignment,researchpromise,renderer/workbook/registry/student change,finaldiscovery,deployment,publicrelease,newautomationoroldtaskrestart. Existing60actualdesktop/mobiletests reused only within unchanged external-only mode; no new runtime test claimed.",
+  "finalCheckpointVerification": {
+    "commit": "fbcef907a99a55ee9f100ff8483c7ea07f91bf38",
+    "readback": "All6completeGitblobsequalexpectedmanifestSHAs afterfetch.",
+    "files": [
+      {
+        "path": "data/counselor/qc/full-restart-2026-10-27/cp-000124.json",
+        "size": 41332,
+        "sha": "695691f1e950ac01bdeb128ca1591d5bc48afb1a"
+      },
+      {
+        "path": "docs/qc/deferred-case-qualified-comparison-stage2-progress-2026-11-15.md",
+        "size": 4489,
+        "sha": "e9fcdfba97321e6d846179b248875ef7e5ed1196"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/batches/batch-03.md",
+        "size": 3750,
+        "sha": "c7bc335feb5c9aa77c65e14f46d8d299eb78d3da"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000124/review.json",
+        "size": 17409,
+        "sha": "ac51af97af5917dbb71a20396a22bbc0ca37f25d"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000124/publication-verification.json",
+        "size": 4377,
+        "sha": "e3b54c5afad6d4be93a6f959d4d49cfcfa9625df"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/scheduled-runs/worker-B-2026-11-16-180958.json",
+        "size": 8070,
+        "sha": "7d376be1ca06cc78136e71d695874c2633147977"
+      }
+    ],
+    "applicableCI": [
+      {
+        "name": "Validate Shiny pilots",
+        "status": "completed",
+        "conclusion": "success",
+        "id": 43928692181,
+        "head_sha": "fbcef907a99a55ee9f100ff8483c7ea07f91bf38",
+        "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/43928692181"
+      }
+    ],
+    "result": "passed"
+  }
 }
