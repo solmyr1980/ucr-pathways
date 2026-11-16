@@ -2,7 +2,7 @@
 
 16 November 2026. First batch complete and quality checks passed. Continue the authorized work without routine approval.
 
-- Completed Stage 2 reviews: **10/61**. Not yet reviewed: **51**.
+- Completed Stage 2 reviews: **11/61**. Not yet reviewed: **50**.
 - Current academic approvals: **385/438**; academically unresolved: **53**.
 - First batch: nine qualified comparisons (15 UCR programmes) and one robust no-match. All ten are approved within their explicit external boundaries.
 - Latest checked production-output commit: `afa477d9c6a9ff3182d6dc5d0bcf1378b665d989`. Its production, record and review-index CI pass. Individual case files record exact reviewed decision/canonical blobs.
@@ -11,7 +11,7 @@
 
 ## Exact next action
 
-Process batch 2, one whole case at a time: **CP013, CP020, CP026, CP051, CP052, CP055, CP056, CP069, CP087, CP149**. Select from the frozen baseline minus completed Stage 2 reviews after checking current main/active states. Begin CP013 with its exact target, 75-EC philosophy core, discipline-specific allocation and complementary-study recognition boundary. No batch-2 academic disposition is claimed by this checkpoint.
+Process batch 2, one whole case at a time: **CP013, CP020, CP026, CP051, CP052, CP055, CP056, CP069, CP087, CP149**. Select from the frozen baseline minus completed Stage 2 reviews after checking current main/active states. CP013 was completed in `704faf556761b62a4ea7baf0871133f2fbf1e8fe` and remains academically unresolved: the unidentified complementary discipline and discipline-specific philosophy can change the academic comparison. Its decision/canonical are unchanged. Resume at **CP020**, followed by CP026, CP051, CP052, CP055, CP056, CP069, CP087 and CP149.
 
 Use the current assignment, governing Production Instructions, active register and frozen Stage 2 preservation baseline. Retain source versions, original/retry histories and actual current UCR content. Record a source-first same-AI challenge truthfully. A justified unresolved outcome completes the Stage 2 review but remains academically incomplete. Do not use an unresolved record as a qualified comparison.
 

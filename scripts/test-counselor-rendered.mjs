@@ -120,8 +120,8 @@ try {
        assert.equal(current.comparator.components.reduce((sum,c)=>sum+c.credits,0),165);
        assert.ok(body.includes('165') && body.includes('15 EC') && body.includes('restricted Arts minor'));
       }
-      if(id==='cp-000113') {assert.equal(current.acceptance.scope,'academic-core');assert.equal(current.programmes.length,3);assert.ok(body.includes('150')&&body.includes('final30EC'));}
-      if(id==='cp-000397') {assert.equal(current.acceptance.scope,'documented-curriculum');assert.equal(current.comparator.components.reduce((sum,c)=>sum+c.credits,0),177);assert.ok(body.includes('177')&&body.includes('3EC'));}
+      if(id==='cp-000113') {assert.equal(current.acceptance.scope,'academic-core');assert.equal(current.programmes.length,3);assert.ok(body.includes('150')&&/final\s+30\s+EC/.test(body));}
+      if(id==='cp-000397') {assert.equal(current.acceptance.scope,'documented-curriculum');assert.equal(current.comparator.components.reduce((sum,c)=>sum+c.credits,0),177);assert.ok(body.includes('177')&&/3\s+EC/.test(body));}
       if(id==='cp-000266') assert.equal(current.programmes.length,3,'Two independently reviewed UCR options must be present');
       const scopeBox=await page.locator('.qualified-scope').boundingBox(),contextBox=await page.locator('.audience-context').first().boundingBox();
       assert.ok(scopeBox && contextBox && scopeBox.y<contextBox.y,`${id}: scope must precede explanatory prose`);
@@ -142,7 +142,7 @@ try {
       assert.equal(await page.locator('.compare-view').count(),0);
       assert.equal(await page.locator('.qualified-scope').count(),0,'Unresolved cases must not acquire a qualification banner');
      }
-     if(variant==='actual' && id==='cp-000263') {assert.equal(current.acceptance.scope,'academic-core');assert.equal(current.comparator.components.reduce((sum,c)=>sum+c.credits,0),130);assert.ok(body.includes('130')&&body.includes('40/45EC'));assert.equal(await page.locator('.course-link').count(),0);}
+     if(variant==='actual' && id==='cp-000263') {assert.equal(current.acceptance.scope,'academic-core');assert.equal(current.comparator.components.reduce((sum,c)=>sum+c.credits,0),130);assert.ok(body.includes('130')&&/40\/45\s+EC/.test(body));assert.equal(await page.locator('.course-link').count(),0);}
      if(variant==='actual' && current.acceptance?.basis==='robust-no-match') {assert.equal(await page.locator('.compare-view').count(),0);assert.ok(body.includes('cannot construct a sufficiently close programme') && body.includes(current.audience.comparisonScope.excluded));}
      if(id==='cp-000277' && (variant==='fixtures' || current.exception?.type==='external-programme-unresolved')) {
       assert.ok(body.includes('no complete degree pathway is certified'));
