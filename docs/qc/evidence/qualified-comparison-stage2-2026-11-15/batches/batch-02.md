@@ -1,6 +1,6 @@
-# Stage 2 batch 2: current checkpoint
+# Stage 2 batch 2: completed quality assessment
 
-16 November 2026. **Nine of ten reviews complete; the batch is not complete.** The current scheduled-run evidence owns the latest case-level verification.
+16 November 2026. **All ten reviews complete: seven approved dispositions and three reviewed but still unresolved.** The current scheduled-run evidence owns the latest case-level verification.
 
 | Case | Current Stage 2 result | Academic state |
 |---|---|---|
@@ -13,7 +13,7 @@
 | CP056 | Completed; qualified documented 170-EC Art History comparison; 3 UCR programmes | Approved |
 | CP069 | Completed; advanced/regional/cohort formation remains material | Unresolved; explicit partial exception |
 | CP087 | Completed; qualified documented 2026–2027 Media and Journalism content; 3 UCR programmes | Approved; formal cohort progression remains unverified |
-| CP149 | Not started under Stage 2 | Prior state retained |
+| CP149 | Completed; qualified 120-EC academic-core comparison; 3 UCR programmes | Approved; full degree allocation and progression excluded |
 
 CP013's completed review was published at `704faf556761b62a4ea7baf0871133f2fbf1e8fe`. CP020's exact production pair is `e62153bc393fe06bf4e36805274f8ed1aacff1da`, with final verified review at `f8104ba24533091c46443ee4668a58949d2fdf49`. CP026's pair is `3ccb3cb7b8e4552d5ccfecaac18c76d488708f92`, with final review at `8a02ed4f3a61fe9e84dfaa31904b6bb803a06bb7`. Their own review and publication-verification files record source versions, reviewed inputs, mechanical checks and actual CI runs.
 
@@ -54,3 +54,12 @@ CP056 completed as a qualified documented-curriculum comparison at pair `5f6d839
 ## Worker B completed CP087, 16 November 2026
 
 CP087’s qualified documented-content pair is `af97588bce9b7f9a284965f3052804056680e378`. All published blobs and applicable compiler, review-index and validation CI were verified. The comparison assesses the published 2026–2027 allocation and its actual academic content, without certifying the missing discourse prerequisite, elective displacement, dependent thesis access or a future cohort curriculum. Dedicated journalism, conversation-analysis, commissioned-research and thesis differences remain visible. Three actual UCR programs sustain media/narrative, public-trust and technical data/media inquiry; all pass feasibility and pairwise distinctness. [Case verification](../cp-000087/publication-verification.json) and [run QA](../scheduled-runs/worker-B-2026-11-16-173412.json) record exact source-first challenges, current course evidence, checks and history preservation. This group has nine completed reviews; CP149 remains, so final ten-case QA is still open.
+
+
+## Final ten-case QA, 16 November 2026
+
+All ten reviews are complete: six qualified comparisons, one robust no-match and three justified unresolved reviews. The six positive cases contain 16 accepted UCR programs. CP149’s exact repair pair is `c885753b2883f0d16635ef03cf14bf787a616cff`; all 11 blobs and applicable compiler, validation and both index workflows passed. Its separately identified same-AI source-first pass supports a 120-EC current academic-core claim, with the inconsistent choice/free/skills allocation, full degree membership and graduation eligibility excluded. Dedicated cultural objects and specialist heritage/graduation methods remain visible differences.
+
+[The final QA assessment](batch-02-final-qa.json) records case and input hashes, claim-specific materiality/adverse tests, source reuse, actual course/concept and feasibility findings, alignment/content checks, errors corrected, historical renderer scope and preserved histories. Full-438 schema and feasibility, audit consistency, scope/preservation, seven Stage 2 tests, acceptance, review indexes and 149 description checks pass in CP149’s mechanical evidence. All 1,311 other case/pair files and A’s claim were unchanged against this run’s starting main. No systemic quality issue or new policy decision was identified. This assessment consolidates existing case reviews; it does not reopen them or certify the three unresolved cases.
+
+CP013, CP051 and CP069 remain academically unresolved and are complete for scheduling. B resumes CP211 next. The current immutable queues govern continuation; all earlier dated counts and proposed next actions above retain their historical scope. No deployment, final discovery data or release is authorized.
