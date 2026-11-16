@@ -1,0 +1,57 @@
+{
+  "checkedOn": "2026-11-16",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "data/counselor/comparisons/cp-000100.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918",
+      "tail": [
+        "1 canonical records pass full JSON Schema validation."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-comprehensive-reaudit.py",
+        "--sync"
+      ],
+      "exitCode": 0,
+      "outputSha256": "900d917cbcaf9e424d048f313343ee97ad07e385e9c4ef86cb09c7c41631f6cb",
+      "tail": [
+        "Re-audit register consistent: 438 baseline targets; {'approved': 383, 'inProgress': 55, 'reviewedWithBlockers': 0, 'notStarted': 0, 'pilotStarted': 6}; 438 case evidence files. No academic approval inferred.",
+        "Derived register summaries updated."
+      ]
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor"
+      ],
+      "exitCode": 0,
+      "outputSha256": "c44137d42f04b68321e3386683925b9281dd1a916fa495dbc8c497f1e17339e7",
+      "tail": [
+        "cp-000455.json: final counselor methodology rules OK",
+        "cp-000456.json: final counselor methodology rules OK",
+        "cp-000457.json: final counselor methodology rules OK",
+        "cp-000459.json: final counselor methodology rules OK",
+        "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/verify-qualified-comparison-stage2.py"
+      ],
+      "exitCode": 0,
+      "outputSha256": "3c7172af1a828ab806ff6db518b1907763fec15678f4066cc29875ceaf79c65d",
+      "tail": [
+        "Preserved 375 approvals, CP072/CP099, 51 unprocessed cases, protected inputs, fixed 438 scope and exhausted worker histories."
+      ]
+    }
+  ]
+}
