@@ -1,0 +1,204 @@
+{
+  "runId": "worker-A-2026-11-17-070214",
+  "worker": "A",
+  "startedAt": "2026-11-17T06:02:14.112828Z",
+  "claimCommit": "b0c4275c07dfe0aa7d7543abf0ea99846bd657d0",
+  "renewalAndEvidenceCommit": "77bcb7a07b150b75af85b316b292546ec69e7f02",
+  "token": "80290187-55d3-4a88-9a1d-f820619a8966",
+  "claimedCaseIds": [
+    "cp-000304",
+    "cp-000306"
+  ],
+  "handledCaseIds": [
+    "cp-000304"
+  ],
+  "completedReviews": [
+    {
+      "caseId": "cp-000304",
+      "outcome": "external-programme-unresolved",
+      "approved": false,
+      "supportedEC": 90,
+      "firstYearEC": 60,
+      "genuineOpenEC": 30,
+      "remainingPrescribedEC": 90,
+      "researchTrials": 2,
+      "acceptedUCRPrograms": 0,
+      "sourceCheckpoint": "77bcb7a07b150b75af85b316b292546ec69e7f02",
+      "verificationRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000304/publication-verification.json"
+    }
+  ],
+  "notStarted": [
+    "cp-000306"
+  ],
+  "status": "One completed Stage2 review remains academically unresolved. Completion metadata verification and own claim release pending.",
+  "actualProgress": {
+    "completedStage2": 43,
+    "scope": 61,
+    "approvedStage2": 33,
+    "reviewedStillUnresolved": 10,
+    "corpusApproved": 408,
+    "corpusUnresolved": 30,
+    "remainingOwned": {
+      "A": 8,
+      "B": 10
+    },
+    "nextA": [
+      "cp-000306",
+      "cp-000311"
+    ],
+    "nextB": [
+      "cp-000300",
+      "cp-000305"
+    ]
+  },
+  "qualityResult": "Current programme and23actual module JSON bodies, adopted2026–2027OSO, relevant currentfacultyOER sections, officialpublicprogramme andregulationslisting were read. Allnine activecomponent names/credits and unchanged90ECreaderinventory checked. Knownannual upper-year regional subjects and10ECthesis/zero-extraseminar are retained, not called unavailable. The new2026Y2first-semesterabroad move and only-new-Y1transition do not adopt a coherent revised remaining90prescribedECmembership/advancedweighting. This is material to the strongest UCRcomposition, not only administrative timetable certification. All30interests retained with8generator/12support/10search roles and exactcurrentCSVtexts. Thirty-eight actualUCRleads considered:27retained fields currentmatched plus11newcultural/languagetrialleads. Two full24unique/180EC research plans pass with9/7advanced; sole2027h1Psycholinguistics is used after an actualintrobrainfoundation. ActualMexicanmuralism,Americasart/colonialexchange,Indigenousmethodologies,political/economic/policy andtext/film/bilingualism methods receive positiveweight. No LatinAmericanregionalcanon,Spanishteaching or projecttopic invented. Neither a first-year-only bachelorcomparison nor robustno-match is justified across credibleadvancedweightings. Separately identified same-AI source-first challenge andexact unchangedcontent review disclosed. Activepair,presentation,alloldacademicstages andhistory preserved.",
+  "sourceRetrieval": {
+    "requests": 30,
+    "actualJsonBodies": 24,
+    "otherHtmlShellBlockedOrHistoricalBodies": 6,
+    "firstEightWeightsMatchFreshModuleMetadata": true
+  },
+  "preservation": {
+    "checkedOn": "2026-11-17",
+    "checks": [
+      {
+        "command": [
+          "python",
+          "scripts/validate-counselor-schema.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "da884efe44c0051686ea15deb29d0fe764f224cf9395425e732c82b88eff1614",
+        "tail": [
+          "438 canonical records pass full JSON Schema validation."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-course-feasibility.py",
+          "<all 438 canonical paths>"
+        ],
+        "exitCode": 0,
+        "outputSha256": "e7c9af6c10dc53d92f2b49852d771af6b559e1644c8ed12b36ec8ee60569f9a3",
+        "tail": [
+          "438 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-comprehensive-reaudit.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "b2643b94e93cc029d2851cad7f07972dd0323b8771a99f52440fc9276beaa7aa",
+        "tail": [
+          "Re-audit register consistent: 438 baseline targets; {'approved': 408, 'inProgress': 30, 'reviewedWithBlockers': 0, 'notStarted': 0, 'pilotStarted': 6}; 438 case evidence files. No academic approval inferred."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/verify-qualified-comparison-stage2.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "708cb76b032f0bef960c4c95937acaa9f0ff2ddc42931eb10dd60c8b507abad5",
+        "tail": [
+          "Preserved 375 approvals, CP072/CP099, 18 unprocessed cases, protected inputs, fixed 438 scope and exhausted worker histories."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/test-qualified-comparison-stage2.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "d8d4bed68e7c3a147c5eb06a54f1ce521e1f57be230907df3a1bf892848ba8c0",
+        "tail": [
+          "----------------------------------------------------------------------",
+          "Ran 7 tests in 0.176s",
+          "",
+          "OK"
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "test:counselor-acceptance"
+        ],
+        "exitCode": 0,
+        "outputSha256": "e66f518e4a654140704cb8497727adddedf48f48a15ed7b26d634158966ea29b",
+        "tail": [
+          "> node scripts/test-counselor-acceptance.mjs",
+          "",
+          "Bounded acceptance: ordinary byte-compatible replay; partial positive/negative; adverse tests, scope, unresolved fallback and UCR gates passed.",
+          "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "validate:counselor-review"
+        ],
+        "exitCode": 0,
+        "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8",
+        "tail": [
+          "> node scripts/build-counselor-review-index.mjs --check",
+          "",
+          "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+          "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-course-descriptions.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "0930ad77e0fabf4d5e2b7368e32333cd0d7fa6250a3dd62747d50f545246df6f",
+        "tail": [
+          "149 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained."
+        ]
+      }
+    ],
+    "otherCasePairFilesUnchanged": 1311,
+    "preservationParent": "cc3aa7910b5b43253f064c9dfeaf74d0f5d2eb86",
+    "workerBClaimUnchanged": true,
+    "historicalBrowserScope": "No new renderer/browser execution; reuse60actualchecks at5df42b776ce49f230b1463a1cacdff53ef5feead only."
+  },
+  "governingVersions": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/qc/deferred-case-qualified-comparison-stage2-scheduling-2026-11-16.md": "3f50a53648e89e9d557105a465d5d1f82f96fc59",
+    "docs/qc/deferred-case-qualified-comparison-stage2-assignment-2026-11-15.md": "f3bd43d2f3a81a982333a898fbd8fd2c1200e06b",
+    "docs/UCR_Pathways_Production_Instructions.md": "0f5ba46832f64f98103bb639e64c8cf607e386fa",
+    "docs/UCR_Pathways_Master_Specification.md": "31ddc57dbbd1c103efd9391134a1a468894b20e0",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "af4c5a184ad731bc7b181fd1984958e412a32db1",
+    "docs/qc/deferred-case-qualified-comparison-stage1-implementation-report-2026-11-15.md": "0e7ce42e0b21a5145b1dd0f113dee933a8d826b9",
+    "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/integration-results.json": "6fe880ff4e704211d78ae1306ce42b828d49def9",
+    "docs/qc/deferred-case-qualified-comparison-pilot-results-2026-11-15.md": "525837e2512839b0f013283c34be9db08c315d2b",
+    "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/baseline.json": "a59ca3f7555b9b438db6e62794eac680978b6fe3",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1"
+  },
+  "failure": {
+    "publicationTransportFailures": 0,
+    "outstandingTechnicalFailure": null,
+    "sourceLimit": "Directpublic/PDFbodiesblockedorshells;actualofficialwebtextread. No newadoptedadvancedcohortmapverified;notabsenceproof. All23currentmodulebodiesobtained.",
+    "localCorrection": "AvailabilityinspectionshowedPsycholinguistics only2027h1 incoveredhorizon. ConstructednewtrialwithBrainBehaviorfoundationbeforethatrealoffering;didnotinvent2028/2029availability. Bothactualtrials passedfirstfeasibilityrun. InitialhistoryentryusedonlysnapshotRef; auditvalidatorrequiresafullsnapshot. Addedthecompleteunchangedpriorcase snapshot. AsecondhistorycheckrequiredtheexactoriginalFileSha256 key,insteadofsnapshotSha256;correctedthecontractfieldbeforepublicationandretested.",
+    "prepublicationCheckCorrection": "A local preflight assumed the unresolved case must change the central academic-state mirror. Actual case-mirror delta is empty because state/disposition are unchanged. Preserved that truthful mirror; verified no other case mirror changed and checked the own detailed in-progressStage2evidence separately. No guard bypass or repository publication failure."
+  },
+  "batchQA": "Frozen batch5 now3/10complete: CP295 andCP296approved,CP304reviewedunresolved. Seven remain; finalgroupQAopen. Batch4finalQA andallcompletedreviews preserved,including unresolved.",
+  "nextAction": "Verify completion metadata complete published bytes and applicable CI, then release only this own live A claim. Next A occurrence selects CP306 then CP311; CP306 was not started. Skip CP304 despite its unresolved academicstate and skip every completed Stage2review. Newmaterialfollow-up requires separateauthorization. Both newtasks enabled; old Restarttasks paused; assignment/finalintegration incomplete.",
+  "release": {
+    "status": "pending final metadata verification"
+  },
+  "boundaries": "All1311othercase/pairfiles and Bclaim preserved against actualrunparentcc3aa7910b5b43253f064c9dfeaf74d0f5d2eb86. OwnCP304decision/canonical/presentation are byte-identical to parent and preStage2snapshots. No registry/workbook/student/renderer/index/deployment/finaldiscovery/publicrelease/newautomationchange. Existing60actualdesktop/mobilechecks reused within unchangedexception scope; no newR/browser execution.",
+  "automationStateVerified": {
+    "Stage2AEnabled": true,
+    "Stage2BEnabled": true,
+    "oldRestartAEnabled": false,
+    "oldRestartBEnabled": false,
+    "verifiedOn": "2026-11-17"
+  }
+}
