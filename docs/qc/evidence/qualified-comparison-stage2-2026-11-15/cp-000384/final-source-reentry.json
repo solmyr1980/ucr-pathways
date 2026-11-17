@@ -1,0 +1,65 @@
+{
+  "retrievals": [
+    {
+      "id": "programme-tree",
+      "url": "https://api.studiegids.uva.nl/graphql?query=query+getProgrammePageById%28%24academicYear%3A+Int%21%2C+%24id%3A+Int%21%2C+%24language%3A+CourseCatalogLanguage%21%29+%7B%0A++++programmePageById%28academicYear%3A+%24academicYear%2C+id%3A+%24id%2C+language%3A+%24language%29+%7B%0A++++++id%0A++++++name%0A++++++parentPageId%0A++++++index%0A++++++hasContent%0A++++++isBilingual%0A++++++content%0A++++++curriculum+%7B%0A++++++++id%0A++++++++instructionLanguages%0A++++++++studyPaths+%7B%0A++++++++++id%0A++++++++++code%0A++++++++++type%0A++++++++++name%0A++++++++++description%0A++++++++%7D%0A++++++++years+%7B%0A++++++++++id%0A++++++++++description%0A++++++++++year%0A++++++++++minCredits%0A++++++++++maxCredits%0A++++++++++nodes+%7B%0A++++++++++++...curriculumNodes%0A++++++++++%7D%0A++++++++%7D%0A++++++%7D%0A++++%7D%0A++%7D%0Afragment+curriculumNodes+on+CurriculumPreviewNode+%7B%0A++++id%0A++++minCredits%0A++++maxCredits%0A++++name%0A++++...+on+CurriculumGroup+%7B%0A++++++...curriculumGroup%0A++++%7D%0A++++...+on+CurriculumGrouping+%7B%0A++++++...curriculumGrouping%0A++++++nodes+%7B%0A++++++++...+on+CurriculumGroup+%7B%0A++++++++++...curriculumGroup%0A++++++++%7D%0A++++++%7D%0A++++%7D%0A++++...+on+CurriculumStudyPathGroup+%7B%0A++++++studyPathId%0A++++++nodes+%7B%0A++++++++...+on+CurriculumGroup+%7B%0A++++++++++...curriculumGroup%0A++++++++%7D%0A++++++++...+on+CurriculumGrouping+%7B%0A++++++++++...curriculumGrouping%0A++++++++++nodes+%7B%0A++++++++++++...+on+CurriculumGroup+%7B%0A++++++++++++++...curriculumGroup%0A++++++++++++%7D%0A++++++++++%7D%0A++++++++%7D%0A++++++%7D%0A++++%7D%0A++%7D%0Afragment+curriculumGrouping+on+CurriculumGrouping+%7B%0A++++id%0A++++minCredits%0A++++maxCredits%0A++++name%0A++%7D%0Afragment+curriculumGroup+on+CurriculumGroup+%7B%0A++++id%0A++++minCredits%0A++++maxCredits%0A++++name%0A++++type%0A++++description%0A++++periods%0A++++courses+%7B%0A++++++...courses%0A++++%7D%0A++%7D%0Afragment+courses+on+CurriculumCourse+%7B%0A++++id%0A++++code%0A++++name%0A++++credits%0A++++publishedInLanguage%0A++++offerings+%7B%0A++++++id%0A++++++periods%0A++++%7D%0A++%7D&variables=%7B%22academicYear%22%3A+2026%2C+%22id%22%3A+41164%2C+%22language%22%3A+%22DUTCH%22%7D",
+      "file": "programme-tree.json",
+      "status": 200,
+      "bytes": 138513,
+      "sha256": "79b95059ad3af4ea110defa9bba93ee20fcae55553ebd410362c85f2ad9c60da",
+      "checkedAt": "2026-11-17T13:48:45.955605+00:00",
+      "bodyKind": ".json",
+      "sameFullBody": true,
+      "sameFullReadableContent": true
+    },
+    {
+      "id": "oer-b",
+      "url": "https://assets-eu-01.kc-usercontent.com:443/2a7f7854-b38e-015d-c63a-62b2c8fa2017/b0b7dbc9-1255-4e24-906a-e9db5f9dc59c/OER_deel_b_BSc_B%C3%A8ta-gamma_2026-2027_definitief.pdf",
+      "file": "oer-b.pdf",
+      "status": 200,
+      "bytes": 324196,
+      "sha256": "82bacabaf16dc65f64dc432792972ce920cf10eff4bd469c43506bfbdfb3d15f",
+      "checkedAt": "2026-11-17T13:48:44.359821+00:00",
+      "bodyKind": ".pdf",
+      "sameFullBody": true,
+      "sameFullReadableContent": true
+    },
+    {
+      "id": "course-57158",
+      "url": "https://studiegids.uva.nl/nl/vakken/2026/1/57158",
+      "file": "course-57158.html",
+      "status": 200,
+      "bytes": 127779,
+      "sha256": "d4ba75cbaf74522ab4eed0eae4cf2abedce75c7b9757ffb924be74525bb626a7",
+      "checkedAt": "2026-11-17T13:48:46.569361+00:00",
+      "bodyKind": ".html",
+      "sameFullBody": true,
+      "sameFullReadableContent": true
+    },
+    {
+      "id": "course-57369",
+      "url": "https://studiegids.uva.nl/nl/vakken/2026/1/57369",
+      "file": "course-57369.html",
+      "status": 200,
+      "bytes": 130832,
+      "sha256": "583976cc3a0d382cbf3e9b0b7e8cdf0672f841a20dbbe61be8320483d6515c2d",
+      "checkedAt": "2026-11-17T13:48:46.638656+00:00",
+      "bodyKind": ".html",
+      "sameFullBody": true,
+      "sameFullReadableContent": true
+    },
+    {
+      "id": "course-61107",
+      "url": "https://studiegids.uva.nl/nl/vakken/2026/1/61107",
+      "file": "course-61107.html",
+      "status": 200,
+      "bytes": 125587,
+      "sha256": "5eb14f1c6eb8ac918505baebc75ec8ba998f238cb69c2c0842174a2a1f3cc95e",
+      "checkedAt": "2026-11-17T13:48:46.711136+00:00",
+      "bodyKind": ".html",
+      "sameFullBody": true,
+      "sameFullReadableContent": true
+    }
+  ],
+  "result": "Five further primary reentries after construction (adoptedOER, actualprogramme hierarchy, Programming/AI/Society, Cognition andProject3) match all complete reviewed bytes and readable content. Their full bodies persist in source-bodies/OER evidence; no duplicate response copy needed."
+}
