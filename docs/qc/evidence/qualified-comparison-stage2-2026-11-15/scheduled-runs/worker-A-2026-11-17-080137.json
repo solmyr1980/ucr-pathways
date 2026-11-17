@@ -1,0 +1,365 @@
+{
+  "runId": "worker-A-2026-11-17-080137",
+  "worker": "A",
+  "startedAt": "2026-11-17T07:01:37.354277Z",
+  "claimCommit": "996e22eb1a577d3b4aa845a6f296f1335cb86c9c",
+  "renewalCommits": [
+    "4fe550405ab78e10289ff062d30473a08665ac87",
+    "2de4b60ee7193eb370d7487f1bda13d182c03b30"
+  ],
+  "claimedCaseIds": [
+    "cp-000306",
+    "cp-000311"
+  ],
+  "handledCaseIds": [
+    "cp-000306",
+    "cp-000311"
+  ],
+  "completedReviews": [
+    {
+      "caseId": "cp-000306",
+      "outcome": "robust-no-defensible-ucr-match",
+      "documentedEC": 175,
+      "pairCommit": "e1c1dd909022dc5f57e30cc330246540931c862d",
+      "approvalCommit": "c7f5eced5ad9fa090e2ecf66be94c92ad80db378",
+      "verificationRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000306/publication-verification.json"
+    },
+    {
+      "caseId": "cp-000311",
+      "outcome": "qualified-academic-core-comparison",
+      "assessedCoreEC": 120,
+      "namedCoreEC": 110,
+      "genuineOpenCoreEC": 10,
+      "documentedEC": 125,
+      "includedUCRProgrammes": 1,
+      "pairCommit": "2de4b60ee7193eb370d7487f1bda13d182c03b30",
+      "verificationRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000311/publication-verification.json"
+    }
+  ],
+  "notStarted": [],
+  "status": "Both claimed cases completed; final metadata readback/CI and own claim release pending.",
+  "qualityResult": "CP306 independently weighs real Arabic/Near Eastern narrative, Islamic Mediterranean art, Persian imperial history and substantial comparative political/economic/social/cultural inquiry. Two complete nine-advanced UCR research trials still do not sustain the defining regional object; the negative is independent of language alone, unknown 5 EC or formal access. CP311 independently tests a substantial confirmed first-two-year legal core, with actual source/case-based private/public/EU/international/criminal/rights and commercial law plus accounting, financial analysis, ethical judgment and empirical inquiry. Known family/company/property/statutory-tax/Roman-law gaps remain, and all third-year60EC are excluded. Both outcomes preserve academic rather than professional-equivalence claims. The CP311 public-systems next candidate changes only three/22.5EC and is rejected without an arbitrary fourth swap. Same-AI source-first final passes accurately disclosed.",
+  "actualProgress": {
+    "completedStage2": 46,
+    "scope": 61,
+    "approvedStage2": 36,
+    "comparisons": 28,
+    "noMatches": 8,
+    "reviewedStillUnresolved": 10,
+    "corpusApproved": 411,
+    "corpusUnresolved": 27,
+    "remainingOwn": [
+      "cp-000314",
+      "cp-000322",
+      "cp-000364",
+      "cp-000410",
+      "cp-000441",
+      "cp-000446"
+    ],
+    "remainingBCount": 9,
+    "nextA": [
+      "cp-000314",
+      "cp-000322"
+    ],
+    "nextB": [
+      "cp-000305",
+      "cp-000309"
+    ]
+  },
+  "preservation": {
+    "CP306FullChecks": {
+      "checkedOn": "2026-11-17",
+      "checks": [
+        {
+          "command": [
+            "python",
+            "scripts/validate-counselor-schema.py"
+          ],
+          "exitCode": 0,
+          "outputSha256": "da884efe44c0051686ea15deb29d0fe764f224cf9395425e732c82b88eff1614",
+          "tail": [
+            "438 canonical records pass full JSON Schema validation."
+          ]
+        },
+        {
+          "command": [
+            "python",
+            "scripts/validate-course-feasibility.py",
+            "<all 438 canonical paths>"
+          ],
+          "exitCode": 0,
+          "outputSha256": "e7c9af6c10dc53d92f2b49852d771af6b559e1644c8ed12b36ec8ee60569f9a3",
+          "tail": [
+            "438 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+          ]
+        },
+        {
+          "command": [
+            "python",
+            "scripts/validate-comprehensive-reaudit.py"
+          ],
+          "exitCode": 0,
+          "outputSha256": "1e3d61c6563e2588b2249e2588d9c919562b2608866f949affe5b4a5e99f20d2",
+          "tail": [
+            "Re-audit register consistent: 438 baseline targets; {'approved': 409, 'inProgress': 29, 'reviewedWithBlockers': 0, 'notStarted': 0, 'pilotStarted': 6}; 438 case evidence files. No academic approval inferred."
+          ]
+        },
+        {
+          "command": [
+            "python",
+            "scripts/verify-qualified-comparison-stage2.py"
+          ],
+          "exitCode": 0,
+          "outputSha256": "8ed4a092eaaea80ac5740c9151b6462484a2cc014c86a4ffd1fa2805fa99c1e6",
+          "tail": [
+            "Preserved 375 approvals, CP072/CP099, 16 unprocessed cases, protected inputs, fixed 438 scope and exhausted worker histories."
+          ]
+        },
+        {
+          "command": [
+            "python",
+            "scripts/test-qualified-comparison-stage2.py"
+          ],
+          "exitCode": 0,
+          "outputSha256": "d2560999038a5a55e5555b1ab5b679a96f92f9f3092671fcd2dc197aa9996f22",
+          "tail": [
+            "----------------------------------------------------------------------",
+            "Ran 7 tests in 0.158s",
+            "",
+            "OK"
+          ]
+        },
+        {
+          "command": [
+            "npm",
+            "run",
+            "test:counselor-acceptance"
+          ],
+          "exitCode": 0,
+          "outputSha256": "e66f518e4a654140704cb8497727adddedf48f48a15ed7b26d634158966ea29b",
+          "tail": [
+            "> node scripts/test-counselor-acceptance.mjs",
+            "",
+            "Bounded acceptance: ordinary byte-compatible replay; partial positive/negative; adverse tests, scope, unresolved fallback and UCR gates passed.",
+            "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+          ]
+        },
+        {
+          "command": [
+            "npm",
+            "run",
+            "validate:counselor-review"
+          ],
+          "exitCode": 0,
+          "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8",
+          "tail": [
+            "> node scripts/build-counselor-review-index.mjs --check",
+            "",
+            "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+            "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+          ]
+        },
+        {
+          "command": [
+            "python",
+            "scripts/validate-course-descriptions.py"
+          ],
+          "exitCode": 0,
+          "outputSha256": "0930ad77e0fabf4d5e2b7368e32333cd0d7fa6250a3dd62747d50f545246df6f",
+          "tail": [
+            "149 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained."
+          ]
+        }
+      ],
+      "otherCasePairFilesUnchanged": 1311,
+      "preservationParent": "6e8cb8d61dd7dadd033fe922e94c2903971f5070",
+      "workerBClaimUnchanged": true,
+      "historicalBrowserScope": "No new renderer/browser execution; reuse60actualchecks at5df42b776ce49f230b1463a1cacdff53ef5feead only."
+    },
+    "CP311FullChecks": {
+      "checkedOn": "2026-11-17",
+      "checks": [
+        {
+          "command": [
+            "python",
+            "scripts/validate-counselor-schema.py"
+          ],
+          "exitCode": 0,
+          "outputSha256": "da884efe44c0051686ea15deb29d0fe764f224cf9395425e732c82b88eff1614",
+          "tail": [
+            "438 canonical records pass full JSON Schema validation."
+          ]
+        },
+        {
+          "command": [
+            "python",
+            "scripts/validate-course-feasibility.py",
+            "<all 438 canonical paths>"
+          ],
+          "exitCode": 0,
+          "outputSha256": "e7c9af6c10dc53d92f2b49852d771af6b559e1644c8ed12b36ec8ee60569f9a3",
+          "tail": [
+            "438 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+          ]
+        },
+        {
+          "command": [
+            "python",
+            "scripts/validate-comprehensive-reaudit.py"
+          ],
+          "exitCode": 0,
+          "outputSha256": "bc5d83b3148de7dff9322f39ebf1c382231d2eb00d14720ff8e6d387f5005528",
+          "tail": [
+            "Re-audit register consistent: 438 baseline targets; {'approved': 410, 'inProgress': 28, 'reviewedWithBlockers': 0, 'notStarted': 0, 'pilotStarted': 6}; 438 case evidence files. No academic approval inferred."
+          ]
+        },
+        {
+          "command": [
+            "python",
+            "scripts/verify-qualified-comparison-stage2.py"
+          ],
+          "exitCode": 0,
+          "outputSha256": "25f584b00f62a9211f41ab30b9fcd47b371a880134434b823c52c7f7c96029c8",
+          "tail": [
+            "Preserved 375 approvals, CP072/CP099, 15 unprocessed cases, protected inputs, fixed 438 scope and exhausted worker histories."
+          ]
+        },
+        {
+          "command": [
+            "python",
+            "scripts/test-qualified-comparison-stage2.py"
+          ],
+          "exitCode": 0,
+          "outputSha256": "330087f1a3b2c75ff2619b0b5fb42e1a7d595f4354b3afa0d90283a7d66076ff",
+          "tail": [
+            "----------------------------------------------------------------------",
+            "Ran 7 tests in 0.163s",
+            "",
+            "OK"
+          ]
+        },
+        {
+          "command": [
+            "npm",
+            "run",
+            "test:counselor-acceptance"
+          ],
+          "exitCode": 0,
+          "outputSha256": "e66f518e4a654140704cb8497727adddedf48f48a15ed7b26d634158966ea29b",
+          "tail": [
+            "> node scripts/test-counselor-acceptance.mjs",
+            "",
+            "Bounded acceptance: ordinary byte-compatible replay; partial positive/negative; adverse tests, scope, unresolved fallback and UCR gates passed.",
+            "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+          ]
+        },
+        {
+          "command": [
+            "npm",
+            "run",
+            "validate:counselor-review"
+          ],
+          "exitCode": 0,
+          "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8",
+          "tail": [
+            "> node scripts/build-counselor-review-index.mjs --check",
+            "",
+            "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+            "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+          ]
+        },
+        {
+          "command": [
+            "python",
+            "scripts/validate-course-descriptions.py"
+          ],
+          "exitCode": 0,
+          "outputSha256": "0930ad77e0fabf4d5e2b7368e32333cd0d7fa6250a3dd62747d50f545246df6f",
+          "tail": [
+            "149 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained."
+          ]
+        }
+      ],
+      "otherCasePairFilesUnchanged": 1311,
+      "preservationParent": "58bed06929649899478fd1232cf7aacbe0fa9397",
+      "workerBClaimUnchanged": true,
+      "historicalBrowserScope": "No new renderer/browser execution; reuse60actualchecks at5df42b776ce49f230b1463a1cacdff53ef5feead only."
+    },
+    "concurrentParent": "58bed06929649899478fd1232cf7aacbe0fa9397",
+    "concurrentReconciliation": "Worker B published its own CP305/CP309 claim. CP311 own case/pair/evidence bytes were retained exactly, copied onto fresh main after confirming remote original CP311 inputs unchanged, and shared register/index regenerated. Other-worker state is preserved.",
+    "protected": "Stage2checker proves375baselineapprovals,CP072/CP099,unprocessedcasebytes,protectedworkbook/registry/student/descriptioninputs,fixed438scopeandexhaustedworkerhistories. Eachcasepublicationprotects1311othercase/pairfilesandBclaimagainstitsactualparent.",
+    "completionReconciliationParent": "3fbd60b676c8ca781f0be611fa074926802e265f",
+    "completionOtherWorkerChanges": "B-owned CP305 source/trial checkpoint and renewed B claim preserved exactly from fresh main; no B case disposition changed by A."
+  },
+  "governingVersions": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/qc/deferred-case-qualified-comparison-stage2-scheduling-2026-11-16.md": "3f50a53648e89e9d557105a465d5d1f82f96fc59",
+    "docs/qc/deferred-case-qualified-comparison-stage2-assignment-2026-11-15.md": "f3bd43d2f3a81a982333a898fbd8fd2c1200e06b",
+    "docs/UCR_Pathways_Production_Instructions.md": "0f5ba46832f64f98103bb639e64c8cf607e386fa",
+    "docs/UCR_Pathways_Master_Specification.md": "31ddc57dbbd1c103efd9391134a1a468894b20e0",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "af4c5a184ad731bc7b181fd1984958e412a32db1",
+    "docs/qc/deferred-case-qualified-comparison-stage1-implementation-report-2026-11-15.md": "0e7ce42e0b21a5145b1dd0f113dee933a8d826b9",
+    "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/integration-results.json": "6fe880ff4e704211d78ae1306ce42b828d49def9",
+    "docs/qc/deferred-case-qualified-comparison-pilot-results-2026-11-15.md": "525837e2512839b0f013283c34be9db08c315d2b",
+    "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/baseline.json": "a59ca3f7555b9b438db6e62794eac680978b6fe3",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1"
+  },
+  "failures": {
+    "publicationFailedAttempts": 2,
+    "consecutiveFailedPublicationExecutions": 0,
+    "error": "Two transient created-commit read404 errors, one per publication operation, before branch updates.",
+    "recovery": "The first CP311 case-pair error recovered on its second guarded attempt. For completion metadata, confirmed the case approval had not applied, refreshed to Bcheckpoint3fbd60b6 and reconciled only own case and summaries. The same live token and guarded complete-byte helper are retained; no force update or duplicate review.",
+    "outstandingPublicationFailure": null,
+    "sourceLimitations": "CP306 current formal programme OER and public route read through primary web retrieval after direct HTML blocks. CP311 exact current OER and transition PDFs remained blocked; actual13November same-year versions and limited findings retained honestly. Future third-year evidence is not certified.",
+    "localCorrections": [
+      "Optional bs4 package was unavailable; used built-in JSON/text extraction. Initial extraction used value instead of actual API text key and was corrected before reading or making source claims.",
+      "The BA1 seminar payload has no descriptions key. It was retained from verified membership/credit and earlier findings; no new module description is fabricated.",
+      "Prior moduleFacts also includes JSON-null parent/placeholder entries without code; refreshed27actualcodedmodulebodies andretainednullfindingswithoutinventingcontent.",
+      "Prior course facts contain a derived contribution field; comparedallactualworkbookfieldsandkeptthatcontributionasreviewreasoning.",
+      "Productionwrapper rejected the initial human-readable scope label because it requires exactQualifiedacademic-corecomparison; correctedtocontractlabelbeforevalidation.Noguardrelaxed.",
+      "Initial compiler call after a failed local preparation built the unchanged exception to scratch; deletedthatunusedscratchoutputbeforetheactualpositivecompile.Nopublicationusedit.",
+      "Final audit validator requires review.outcome to equal canonical academicDisposition comparison; moved the narrower qualified-academic-core label into a separate qualification field. No academic rule or validator changed."
+    ],
+    "errors": [
+      {
+        "operation": "CP311 decision/evidence publication",
+        "error": "GitHub API error404 NotFound when reading newly created git commit, before branch update.",
+        "recovery": "Fresh main unchanged; second guarded full-byte attempt succeeded at2de4b60ee7193eb370d7487f1bda13d182c03b30; all22blobs read back exactly."
+      },
+      {
+        "operation": "Completion metadata publication",
+        "error": "Same GitHub API error404 during created-commit verification, before branch update.",
+        "recovery": "Confirmed CP311 approval was not published; main advanced only with B-owned CP305 checkpoint3fbd60b6. Reconciled own case311 approval and regenerated shared register on that fresh parent, preserving Bcase305 and Bclaim. This completion publication is the second guarded attempt."
+      }
+    ]
+  },
+  "batchQA": "Fixed batch5 remains open until all its ten cases finish; current table and detailed cases derive completion. No completed unresolved review is reopened.",
+  "nextAction": "Verify this completion/QA metadata readback and applicable CI. Then release only the own live A token via guarded wrapper. Next occurrence selects cp-000314, cp-000322. Do not start a third case in this run. Both Stage2 schedules stay enabled; old Restart tasks remain paused. Assignment and final integration remain incomplete.",
+  "release": {
+    "status": "pending final metadata verification"
+  },
+  "automationStateVerified": [
+    {
+      "id": "Automation_5f9eda84b26c8191bf4510e22f3a5872",
+      "title": "Stage 2 B — :30",
+      "is_enabled": true
+    },
+    {
+      "id": "Automation_4c777c79e4f881918d98a9cf58839ae9",
+      "title": "Stage 2 A — :00",
+      "is_enabled": true
+    },
+    {
+      "id": "6ae077eacc588191bf756b7661b4a9fe",
+      "title": "Restart Corpus B",
+      "is_enabled": false
+    },
+    {
+      "id": "6ae077e8ca18819191e1e0f323141748",
+      "title": "Restart Corpus A",
+      "is_enabled": false
+    }
+  ],
+  "boundaries": "No course/registry/student/app/renderer/final-discovery change, counselor deployment, final release, outreach, extra automation, branch or PR. Existing external-only overrides retained. Historical60desktop/mobilechecks reused only in scope; no new runtime/browser claim."
+}

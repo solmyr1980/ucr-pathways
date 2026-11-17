@@ -1,6 +1,6 @@
 # Stage 2 batch 5: academic QA group
 
-17 November 2026. Four of ten reviews complete; final batch QA remains open. This frozen next group follows batch 4 and preserves immutable worker ownership. Batch 4 is now complete; see its [final QA](batch-04-final-qa.json).
+17 November 2026. 6 of ten reviews complete; final batch QA remains open. This frozen next group follows batch 4 and preserves immutable worker ownership. Batch 4 is now complete; see its [final QA](batch-04-final-qa.json).
 
 | Case | Stage 2 review | Academic state |
 |---|---|---|
@@ -9,9 +9,9 @@
 | CP-000300 | Completed; qualified documented 170-EC comparison | Approved; missing 10 EC and full progression excluded; Italian-specialist gaps explicit; external-only override retained |
 | CP-000304 | Completed; revised advanced academic weighting remains material | Unresolved; active decision and canonical pair unchanged |
 | CP-000305 | Not completed | Prior state retained |
-| CP-000306 | Not completed | Prior state retained |
+| CP-000306 | Completed; robust no-match for documented 175 EC | Approved; missing 5 EC and full progression excluded |
 | CP-000309 | Not completed | Prior state retained |
-| CP-000311 | Not completed | Prior state retained |
+| CP-000311 | Completed; qualified first-two-year legal core | Approved; 125 EC displayed, 120-EC core assessed, third-year 60 EC excluded; external-only retained |
 | CP-000312 | Not completed | Prior state retained |
 | CP-000314 | Not completed | Prior state retained |
 
@@ -22,3 +22,5 @@ Worker B completed CP295, Leiden Medicine, at pair `970425f8f0b978d4450fead7fea4
 Worker A completed CP304’s Stage 2 review with an unresolved outcome at source checkpoint `77bcb7a07b150b75af85b316b292546ec69e7f02`. All 15 complete blobs and applicable validation CI passed. Two complete feasible UCR research plans have 24 unique courses, 180 EC and nine or seven advanced courses. Actual Mexican muralism, Americas-facing colonial and artistic exchange, Indigenous research methods, political economy, cultural interpretation and bilingualism methods receive full positive weight. The adopted revised advanced allocation could materially change the relevant UCR composition; the first-year introduction plus open study does not independently establish a bachelor-level regional core comparison. A robust no-match is also not justified. All original academic stages, active pair, presentation and history remain unchanged. [Review](../cp-000304/review.json), [verification](../cp-000304/publication-verification.json) and [run QA](../scheduled-runs/worker-A-2026-11-17-070214.json) retain evidence and corrected local checks. Three of ten reviews are complete: two approved and one unresolved; final group QA awaits the other seven.
 
 Worker B completed CP300, Leiden Italian Language and Culture, at pair `744bb849bba03dee9193061001c71ec279b61937`. All 20 complete blobs and applicable compiler, validation and both review-index workflows passed. One full UCR program has 24 unique courses, 180 EC and seven advanced courses. Sustained literary interpretation, stylistics, psycholinguistics, adaptation and cultural research, including Renaissance Italy, support a broader response. Italian proficiency, the regional literary canon, structural and dialectological depth, and compulsory thesis training remain differences. All 24 components and 170 unique EC remain: 140 EC of named study plus 30 EC of genuine open study. The missing 10 EC, full future cohort, advanced-module and thesis entry are excluded. The existing external-only presentation setting is preserved. [Review](../cp-000300/review.json), [verification](../cp-000300/publication-verification.json) and [run QA](../scheduled-runs/worker-B-2026-11-17-073515.json) retain the evidence and corrected local checks. Four of ten reviews are complete: three approved and one unresolved; final group QA awaits the other six.
+
+Worker A completed CP306 at pair `e1c1dd909022dc5f57e30cc330246540931c862d` and CP311 at pair `2de4b60ee7193eb370d7487f1bda13d182c03b30`, each separately published with exact readback and applicable CI. CP306 preserves all26components/175EC and weighs two complete feasible nine-advanced research trials before the bounded regional no-match. CP311 has one24course/180EC/nine-advanced UCR programme for the confirmed first120EC legal core (110named+10open). All125externalEC remain; allthird-year60EC are excluded, including5documentedopen+55unknownrequired/thesis. Knowncorefamily/company/property/taxgaps and external-only presentation remain. The public-systems candidate fails distinctness at threecourses/22.5EC; no arbitrary fourth swap. [A run QA](../scheduled-runs/worker-A-2026-11-17-080137.json), [CP306 verification](../cp-000306/publication-verification.json) and [CP311 verification](../cp-000311/publication-verification.json) retain evidence. Current group completion: 6/10, 5 approved and 1 unresolved; final group QA remains open.
