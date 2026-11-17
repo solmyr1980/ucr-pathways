@@ -1,6 +1,6 @@
 # Stage 2 batch 3: academic QA group
 
-17 November 2026. Nine of ten reviews complete; final batch QA remains open. This grouping does not change scheduled worker ownership.
+17 November 2026. All ten reviews complete; final batch QA is recorded in [batch-03-final-qa.json](batch-03-final-qa.json). This grouping does not change scheduled worker ownership.
 
 | Case | Stage 2 review | Academic state |
 |---|---|---|
@@ -12,7 +12,7 @@
 | CP-000218 | Completed; qualified 132-EC academic-core comparison | Approved |
 | CP-000245 | Completed; revised advanced cohort integration remains material | Unresolved; active pair unchanged |
 | CP-000255 | Completed; qualified 150-EC academic-core comparison | Approved |
-| CP-000258 | Not completed | Prior state retained |
+| CP-000258 | Completed; advanced physical-theory/experimental cohort weighting remains material | Unresolved; active pair unchanged |
 | CP-000275 | Completed; robust theological no-match, documented 180 EC with access limits | Approved no-match |
 
 CP122 review `7c6b7f08901a5e4ab2571a78202b965e938ca80e` has exact evidence and publication verification under `../cp-000122/`. Its 90-EC partial record and two internal trials remain preserved. The other cases have no outcome claimed here. Follow only the immutable scheduled assignment; complete final QA once all ten are reviewed. Preserve batch 2 and all other worker evidence.
@@ -32,3 +32,5 @@ Worker A completed CP275 at pair `b60ee9118ab69446663a42f26363725fa8a7cdcc`. [Ve
 Worker B completed CP211 at pair `c96739893b7242f53937c05669cee3e02270f3ee`. [Verification](../cp-000211/publication-verification.json) records all 11 complete pair blobs and successful compiler, both index workflows and validation CI. Two feasible 24-course, 180-EC research trials give direct Psycholinguistics, linguistic stylistics and stronger clinical/data methods their full positive weight. The whole program does not sustain Groningen’s integration of linguistic-system analysis with empirical and clinical language inquiry. All 21 allocated components and 180 EC are retained, while new project content/entry and two selected seminar entry correspondences remain explicit. [Run QA](../scheduled-runs/worker-B-2026-11-16-223231.json) records source versions, 28 actual UCR leads, 47 current interests, a truthful same-AI final challenge, preservation and exact next actions. Eight of ten reviews are complete: five approved dispositions and three unresolved reviews. B-owned CP245 and CP258 remain; final batch QA stays open.
 
 Worker B completed CP245’s Stage 2 review with an unresolved outcome. All 13 blobs in checkpoint `8f2e8d559f997d40e26e90a213d37a91efde39dc` passed exact readback. Descendant `785ef5a0462deacd855fd1c86880fa38c40b12ac` passed applicable validation CI with every case/evidence hash unchanged; the original job remained delayed at checkout. The unnamed course, duplicated year assignments and applicable advanced embodied, professional and commissioned-research integration remain unresolved. All 35 actual UCR course leads and 52 interests were reconsidered. Two full feasible research trials provide substantial positive connections and prevent robust no-match. The confirmed first year alone does not establish this case’s meaningful bachelor-level core claim. [Review](../cp-000245/review.json), [verification](../cp-000245/publication-verification.json) and [run QA](../scheduled-runs/worker-B-2026-11-17-000830.json) preserve versions, adverse tests, the same-AI source-first challenge and history. Nine of ten reviews are complete: five approved dispositions and four unresolved reviews. CP258 alone remains; final batch QA stays open.
+
+Worker B completed CP258’s Stage 2 review with a justified unresolved outcome at checkpoint `cd7af80da5d62dbb12b9ddda2ab898c88b9ba6c4`. All14completeblobs and applicablevalidationCI passed. Actualphysics/energy/material/measurement content supports a plausible broader UCRresponse, but applicableadvancedcohortweight remainsmaterial. The pair and priorstages/history are unchanged. All ten reviews are now complete: three qualified comparisons, two robust no-matches and five unresolved reviews. [Final group QA](batch-03-final-qa.json) verifies the individual evidence/recordedCI, consistent materiality, feasibility/preservation and retained release boundaries; no earlier case was reopened. Continue only immutable ownership and skip all ten completed reviews.
