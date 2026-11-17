@@ -1,6 +1,6 @@
 # Stage 2 batch 6: academic QA group
 
-17 November 2026. This frozen ten-case group follows the closed batch5 assessment. Immutable worker ownership is retained. 6 reviews are complete; final group QA remains open.
+17 November 2026. This frozen ten-case group follows the closed batch5 assessment. Immutable worker ownership is retained. 7 reviews are complete; final group QA remains open.
 
 | Case | Worker | Stage 2 review | Academic state |
 |---|---|---|---|
@@ -8,7 +8,7 @@
 | CP-000322 | A | Completed; justified unresolved outcome | Unresolved; active90EC pair/history retained |
 | CP-000324 | B | Completed; bounded documented-curriculum no-match | Approved; 175 EC retained, missing 5 EC rotation/full pathway unverified; no active UCR columns |
 | CP-000364 | A | Completed; qualified 67.5 EC academic core | Approved; 172.5 EC retained, 45 required EC and 7.5 unknown EC excluded, 60 profiling uninstantiated; external-only retained |
-| CP-000384 | B | Not completed | Prior state retained |
+| CP-000384 | B | Completed; qualified 69 EC common academic core | Approved; 174 EC retained, 105 listed later EC plus 6 EC Project 4 excluded; three UCR programmes; normal presentation retained |
 | CP-000410 | A | Completed; qualified first-year 60 EC academic core | Approved; 156 EC retained, 96 listed upper-year EC and 24 unconfirmed EC excluded; external-only retained |
 | CP-000431 | B | Not completed | Prior state retained |
 | CP-000441 | A | Completed; qualified 105 EC common Biology core | Approved; 180 EC framework retained, 75 EC excluded; two UCR programmes; normal presentation retained |
@@ -37,3 +37,6 @@ Worker A completed CP441, Wageningen Biology, as a qualified comparison of its c
 
 
 CP441 presentation evidence correction: the retained setting is normal, not an external-only override. Its accepted academic-core contract supports a scoped comparison under the unchanged renderer. Earlier evidence wording at completion commit3e8a4054 was corrected; exact decision/canonical and all scope limits remain unchanged. [Correction](../cp-000441/presentation-verification-correction.json).
+
+
+Worker B resumed CP384, UvA Natural and Social Sciences (Bèta-gamma), from published checkpoint `cc31577164d84e8601379e7cfc57185b3bd3a214`, and completed a qualified comparison of its confirmed 69 EC common curriculum. All 25 documented components/174 EC remain visible. All 105 listed later EC (69 major, 36 genuine open) and 6 EC Project 4 are excluded. The discontinued Academic Skills condition, future major plan, full progression and thesis eligibility remain unverified. Three actual UCR programmes each have 24 unique courses/180 EC, with 7, 7 or 9 advanced courses and pairwise differences of 19, 14 and 17 courses. The stronger Earth/society response includes actual programming and mathematical modelling; responsible computing and cognition/institutions are distinct alternatives. Cosmology/life origins, philosophy of science, urban field formation and specific interdisciplinary integration remain gaps within the assessed core. All 78 interests were reconciled; 33 generators have unique ownership. Twenty-eight valid initial primary responses and five byte-identical final reentries support the recorded source-first pass. One obsolete chart URL returned 404 and was removed from active sources; no claim relies on it. All 30 published blobs (17,765,594 bytes), unchanged reviewed inputs, fresh feasibility/schema/replay checks and required compiler/validation/index CI passed. No publication failure. The normal presentation setting remains. CP431 was claimed but not started. [Review](../cp-000384/review.json), [verification](../cp-000384/publication-verification.json) and [run QA](../scheduled-runs/worker-B-2026-11-17-152705.json) retain the evidence. Current group: 7/10 completed; final group QA awaits all ten. Earlier progress paragraphs remain historical checkpoints.
