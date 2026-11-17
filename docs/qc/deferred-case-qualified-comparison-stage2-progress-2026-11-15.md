@@ -4,7 +4,9 @@
 
 Final integration resumed under worker B's published case-free claim `332d6c80b7d25da12aaec29c7ca1c779c79d1d48`. All 15 integration checks, all 61 byte-exact production-wrapper replays, all seven batch QA groups, current review/pair hashes and full preservation passed. The [final report](deferred-case-qualified-comparison-stage2-final-report-2026-11-15.md) and [integration evidence](evidence/qualified-comparison-stage2-2026-11-15/integration-results.json) retain all outcomes and exact validation/UI limits.
 
-**Exact next action:** read back the final report/integration publication and verify its applicable CI; only then pause worker B's registered task, record observed closure and release its live claim with the guarded publisher. A and both old Restart tasks stay paused. B remains enabled until that verification is complete. Do not reopen any completed unresolved review. No deployment, final discovery data or public release is authorised.
+**Complete:** the final report commit `d7c7ef6c9ce21dfc7cb232c36c9c73ab181124f1` was read back completely (four blobs/192,812 bytes). Its docs-only paths do not trigger counselor validation; unchanged input commit `332d6c80b7d25da12aaec29c7ca1c779c79d1d48` passed Validate Shiny pilots run 44180188534. Worker B was paused at 22:39:17 Europe/Amsterdam and its paused state read back. A and both old Restart tasks were already paused and left untouched. The live B token is released with [final publication verification](evidence/qualified-comparison-stage2-2026-11-15/final-publication-verification.json).
+
+**Next action:** none for the scheduled Stage 2 assignment. Do not reopen completed unresolved reviews. Any follow-up, corpus release/deployment or final discovery data needs the user's separate decision. The closure commit's readback/applicable CI is checked before final delivery.
 
 ## Earlier published checkpoints (historical)
 

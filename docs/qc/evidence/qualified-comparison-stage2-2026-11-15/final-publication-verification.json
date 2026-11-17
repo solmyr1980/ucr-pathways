@@ -1,0 +1,102 @@
+{
+  "checkedOn": "2026-11-17",
+  "worker": "B",
+  "purpose": "final-integration",
+  "reportPublication": {
+    "commit": "d7c7ef6c9ce21dfc7cb232c36c9c73ab181124f1",
+    "entries": [
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/integration-results.json",
+        "sha": "6728ff47c68aa1c00e1a2f9bb147674524211842",
+        "size": 108879,
+        "readBack": "complete-bytes-equal"
+      },
+      {
+        "path": "docs/qc/deferred-case-qualified-comparison-stage2-final-report-2026-11-15.md",
+        "sha": "24a13af0aca4e2110c7f6f8a05a6dc3f97eb1eb0",
+        "size": 23174,
+        "readBack": "complete-bytes-equal"
+      },
+      {
+        "path": "docs/qc/deferred-case-qualified-comparison-stage2-progress-2026-11-15.md",
+        "sha": "f8b5fe137b5542e33f8bfcf325ab7245c8733d02",
+        "size": 59405,
+        "readBack": "complete-bytes-equal"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/scheduled-runs/worker-B-2026-11-17-212823-final-integration.json",
+        "sha": "f5d4f0672ebb6b4d3599bcdfc29a08cc03eed599",
+        "size": 1354,
+        "readBack": "complete-bytes-equal"
+      }
+    ]
+  },
+  "inputCI": [
+    {
+      "id": 44180188534,
+      "name": "Validate Shiny pilots",
+      "headSha": "332d6c80b7d25da12aaec29c7ca1c779c79d1d48",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/44180188534"
+    }
+  ],
+  "reportCommitCIApplicability": {
+    "counselorValidationWorkflow": "not triggered: all four changed paths are docs/qc only, outside validate-shiny.yml push filters",
+    "evidence": "Current input claim commit 332d6c80b7d25da12aaec29c7ca1c779c79d1d48 passed Validate Shiny pilots run 44180188534; no canonical, compiler, schema, renderer or protected input changed in the report commit.",
+    "runtime": "No new R/browser execution claimed. Automatic Pages workflow is not counselor validation or release/deployment evidence."
+  },
+  "caseAndBatchIntegration": {
+    "completedReviews": 61,
+    "approved": 48,
+    "qualifiedComparisons": 37,
+    "robustNoMatches": 11,
+    "reviewedUnresolved": 13,
+    "scope": "All61exact review hashes and48approvedfinal-review pair hashes match current records; all seven QA groups cover scope exactly once.",
+    "checks": 17,
+    "byteExactReplays": 61,
+    "preservation": "passed",
+    "evidenceRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/integration-results.json"
+  },
+  "tasks": [
+    {
+      "id": "Automation_5f9eda84b26c8191bf4510e22f3a5872",
+      "title": "Stage 2 B — :30",
+      "is_enabled": false,
+      "updated_at": "2026-11-17T21:39:17.194312+00:00"
+    },
+    {
+      "id": "Automation_4c777c79e4f881918d98a9cf58839ae9",
+      "title": "Stage 2 A — :00",
+      "is_enabled": false
+    },
+    {
+      "id": "6ae077e8ca18819191e1e0f323141748",
+      "title": "Restart Corpus A",
+      "is_enabled": false
+    },
+    {
+      "id": "6ae077eacc588191bf756b7661b4a9fe",
+      "title": "Restart Corpus B",
+      "is_enabled": false
+    }
+  ],
+  "taskObservationTime": "2026-11-17T21:39:17Z",
+  "taskAction": "Paused only worker B after final report/readback and applicable CI checks. A and both old Restart tasks were already paused and were left untouched.",
+  "claimRelease": {
+    "claimRef": "data/counselor/qc/stage2-scheduled-2026-11-16/B.json",
+    "token": "43b0c12d-66d9-44aa-b07b-43232ea785f2",
+    "closedAs": "released",
+    "closedAt": "2026-11-17T21:40:52.567466Z",
+    "activeClaim": null,
+    "publication": "Released claim is included atomically with this closure evidence through the guarded expected-parent publisher."
+  },
+  "failures": {
+    "currentSourceWork": null,
+    "newAcademicReviews": 0,
+    "currentCheckFailures": 0,
+    "publicationFailures": 0,
+    "recoveredInterruption": "Prior integration tool-state/process handles lost; source/case evidence and published first-three-check checkpoint remained safe. Twelve remaining checks and61replays actually completed."
+  },
+  "completionBoundary": "No automatic academic work remains. No follow-up of reviewed unresolved cases, release, deployment or final discovery indexes authorised. Closure-commit complete-byte readback and applicable CI are checked before the executing run returns its final result."
+}
