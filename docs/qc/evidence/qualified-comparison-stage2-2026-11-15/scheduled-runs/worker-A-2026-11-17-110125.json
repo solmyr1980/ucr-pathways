@@ -1,0 +1,58 @@
+{
+  "worker": "A",
+  "claimedIds": [
+    "cp-000322",
+    "cp-000364"
+  ],
+  "claimCommit": "3bf3d2ca898972521240660d795ab184f6685338",
+  "completed": [
+    {
+      "caseId": "cp-000322",
+      "outcome": "external-programme-unresolved",
+      "approved": false,
+      "resumedCheckpoint": "9c5294c25ca000b62ef6c3b41b88d9549330a8c9",
+      "evidenceCommit": "6cb339ae89a20a7455cbb0ea31f99b6ed81bb1ea",
+      "verificationRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000322/publication-verification.json"
+    }
+  ],
+  "notStarted": [
+    "cp-000364"
+  ],
+  "stage2Progress": {
+    "completed": 51,
+    "approved": 39,
+    "comparisons": 30,
+    "noMatches": 9,
+    "unresolvedCompletedReviews": 12,
+    "remainingOwn": [
+      "cp-000364",
+      "cp-000410",
+      "cp-000441",
+      "cp-000446"
+    ]
+  },
+  "qa": {
+    "academic": "Reviewcomplete; material academic uncertainty persists; noapproval orno-match",
+    "mechanical": "Passed: affectedstrictschema, real2trialfeasibility, operational, exactunchangedpairreplay, descriptions, registry, acceptance andderivedaudit/scope/preservation",
+    "content": "Passedforunchangedpartial90EC external-only record; noactiveUCRmodals ornewdisplaytype",
+    "publication": "All17 source/evidence blobs exact; requiredvalidationCIpassed; completionmetadata readbackpending",
+    "batch06": "Frozen10cases;1completedunresolved,9notcompleted, finalQAopen"
+  },
+  "failures": {
+    "publicationFailures": 0,
+    "sourceFailures": 0,
+    "correctedLocalErrors": [
+      "Initialcoursefield equality compared emptystrings withnull; normalized only absent enrichment and confirmedno substantive fieldchange.",
+      "Initialinterest assertion confused sourceExcel row annotations withphysicalCSVrows afterearlierregistryinsertions. Corrected by exacttext/target mapping; all34interests androles unchanged, bothidentities explicit.",
+      "The audit validator requires both a full snapshot and its originalFileSha256 in reviewHistory entries. Added the exact actual pre-resumption snapshot and checksum, preserving all original history; reran validation before publication."
+    ]
+  },
+  "automationStatesVerified": {
+    "stage2AEnabled": true,
+    "stage2BEnabled": true,
+    "oldRestartAPaused": true,
+    "oldRestartBPaused": true
+  },
+  "claimRelease": "pending finalmetadata verification",
+  "nextAction": "Verify this completion/summary commit, fullbyte readback andrequiredCI; releaseonly ownliveAtoken. NextA364then410. Skipcompletedunresolved322. FourAcasesremain; noassignment/finalintegrationpause due."
+}
