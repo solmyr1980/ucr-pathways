@@ -1,0 +1,184 @@
+{
+  "runId": "worker-A-2026-11-17-024914",
+  "worker": "A",
+  "startedAt": "2026-11-17T01:49:14.016544Z",
+  "claimCommit": "bd1578639d290507273c4400358a37a6d393e472",
+  "claimedCaseIds": [
+    "cp-000290",
+    "cp-000293"
+  ],
+  "handledCaseIds": [
+    "cp-000290"
+  ],
+  "completedReviews": [
+    {
+      "caseId": "cp-000290",
+      "outcome": "qualified-academic-core-comparison",
+      "documentedEC": 120,
+      "pairCommit": "a207c86fc847a14ecb7ee3cb48381201f470b472",
+      "recoveredValidationCommit": "a8e74799f0234929756bb4170e31ea021e34dfea",
+      "verificationRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000290/publication-verification.json"
+    }
+  ],
+  "notStarted": [
+    "cp-000293"
+  ],
+  "status": "Completed one qualified academic-corecomparison; finalmetadata readback/CI and ownclaimrelease pending.",
+  "qualityResult": "Currentprogramme and39modulebodiesobtained;20representedmodules CO/LO/AR pluscriticaloutgoing/contextualsubjects read. All65interests and69currentcandidatefacts reconciled. Strongestone24unique/180EC/7advancedprogramme,10partialrelationships/10unpairedcomponents and24actualmodaltexts reviewed. Allfourknownfields retainweight; entirefinal60/culminationexcluded. Same-AIsource-first finalpass accurately disclosed. Stopatone because nextliteraryhistoricalconceptalreadyrepresented.",
+  "actualProgress": {
+    "completedStage2": 35,
+    "scope": 61,
+    "approvedStage2": 26,
+    "reviewedStillUnresolved": 9,
+    "corpusApproved": 401,
+    "corpusUnresolved": 37,
+    "remainingOwned": {
+      "A": 11,
+      "B": 15
+    },
+    "nextA": [
+      "cp-000293",
+      "cp-000296"
+    ],
+    "nextB": [
+      "cp-000283",
+      "cp-000286"
+    ]
+  },
+  "preservation": {
+    "checkedOn": "2026-11-17",
+    "checks": [
+      {
+        "command": [
+          "python",
+          "scripts/validate-counselor-schema.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "da884efe44c0051686ea15deb29d0fe764f224cf9395425e732c82b88eff1614",
+        "tail": [
+          "438 canonical records pass full JSON Schema validation."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-course-feasibility.py",
+          "<all 438 canonical paths>"
+        ],
+        "exitCode": 0,
+        "outputSha256": "e7c9af6c10dc53d92f2b49852d771af6b559e1644c8ed12b36ec8ee60569f9a3",
+        "tail": [
+          "438 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-comprehensive-reaudit.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "417885eb11856ef3e808522b5639c807d63ad3af468d7f60e455fe29b3c828ce",
+        "tail": [
+          "Re-audit register consistent: 438 baseline targets; {'approved': 401, 'inProgress': 37, 'reviewedWithBlockers': 0, 'notStarted': 0, 'pilotStarted': 6}; 438 case evidence files. No academic approval inferred."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/verify-qualified-comparison-stage2.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "8712b8eceb6b73818e2187d2f8049f6d962aff390189859ee23fb106c81e2372",
+        "tail": [
+          "Preserved 375 approvals, CP072/CP099, 26 unprocessed cases, protected inputs, fixed 438 scope and exhausted worker histories."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/test-qualified-comparison-stage2.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "8170ac34f8a06d7eba47581d8d62942d5b7078d48d6f793e66201d5a2a73f752",
+        "tail": [
+          "----------------------------------------------------------------------",
+          "Ran 7 tests in 0.189s",
+          "",
+          "OK"
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "test:counselor-acceptance"
+        ],
+        "exitCode": 0,
+        "outputSha256": "e66f518e4a654140704cb8497727adddedf48f48a15ed7b26d634158966ea29b",
+        "tail": [
+          "> node scripts/test-counselor-acceptance.mjs",
+          "",
+          "Bounded acceptance: ordinary byte-compatible replay; partial positive/negative; adverse tests, scope, unresolved fallback and UCR gates passed.",
+          "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "validate:counselor-review"
+        ],
+        "exitCode": 0,
+        "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8",
+        "tail": [
+          "> node scripts/build-counselor-review-index.mjs --check",
+          "",
+          "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+          "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-course-descriptions.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "0930ad77e0fabf4d5e2b7368e32333cd0d7fa6250a3dd62747d50f545246df6f",
+        "tail": [
+          "149 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained."
+        ]
+      }
+    ],
+    "otherCasePairFilesUnchanged": 1311,
+    "preservationParent": "cfaa357b2ac57d4342c8d775caf761ede28aacb5",
+    "workerBClaimUnchanged": true,
+    "historicalBrowserScope": "No new renderer/browser execution; reuse60actualchecks at5df42b776ce49f230b1463a1cacdff53ef5feead only."
+  },
+  "governingVersions": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/qc/deferred-case-qualified-comparison-stage2-scheduling-2026-11-16.md": "3f50a53648e89e9d557105a465d5d1f82f96fc59",
+    "docs/qc/deferred-case-qualified-comparison-stage2-assignment-2026-11-15.md": "f3bd43d2f3a81a982333a898fbd8fd2c1200e06b",
+    "docs/UCR_Pathways_Production_Instructions.md": "0f5ba46832f64f98103bb639e64c8cf607e386fa",
+    "docs/UCR_Pathways_Master_Specification.md": "31ddc57dbbd1c103efd9391134a1a468894b20e0",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "af4c5a184ad731bc7b181fd1984958e412a32db1",
+    "docs/qc/deferred-case-qualified-comparison-stage1-implementation-report-2026-11-15.md": "0e7ce42e0b21a5145b1dd0f113dee933a8d826b9",
+    "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/integration-results.json": "6fe880ff4e704211d78ae1306ce42b828d49def9",
+    "docs/qc/deferred-case-qualified-comparison-pilot-results-2026-11-15.md": "525837e2512839b0f013283c34be9db08c315d2b",
+    "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/baseline.json": "a59ca3f7555b9b438db6e62794eac680978b6fe3",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1"
+  },
+  "failure": {
+    "publicationTransportFailures": 0,
+    "outstandingTechnicalFailure": null,
+    "recoveredCIFailure": "Initialpair validation44000146001 andrenewal44000265385failed central/detail unresolved mismatch. Existing --sync correctedderivedmirror; full438localgates and recovery validation44000552999passed withbyte-identicalpair. Approvalwithhelduntilrecovered.",
+    "sourceLimitation": "ThreepublicURLs503; fivepublic/OERrequestsblockedHTML. CurrentacademicAPIbodies40accessible; officialaboutprogrammeactualbodyreadthroughwebretriever. Same-year13NovemberformalPDFfindings/hash retainedwithoutfreshPDFclaim. Final60materiallyuncertainforfull-degreeformationandexplicitlyexcluded.",
+    "localCorrections": "Descriptiontype.code/textinspectioncorrected; hashcomparisonfailedandnewversionsrecordedtruthfully; explicitresearchComponentId:nulladdedwhencompilerdemanded,withoutinventedthesis. Allrequiredchecks subsequentlypassed."
+  },
+  "batchQA": "Fixedbatch4now5/10complete:CP278unresolved,CP282/284/288/290approved. FinalgroupQAopen; priorbatch3QAunchanged.",
+  "nextAction": "Verify finalmetadatareadback/CI, releaseonlyownAclaim. NextAoccurrenceselectsCP293thenCP296. LatestBrequestneedsseparateBclaim/assignment. AnyduplicateAoccurrencewhilethisclaimunexpiredisskipped. CP293notstarted. Bothnewtasksenabled,oldRestartpaused; assignments/finalintegrationincomplete.",
+  "release": {
+    "status": "pending finalmetadata verification"
+  },
+  "boundaries": "All1311othercase/decision/canonicalfiles andBclaim preservedagainstactualrunparentcfaa357b2ac57d4342c8d775caf761ede28aacb5. No workbook/registry/student/renderer/finaldiscovery/deployment/publicrelease/newautomationchange. Sixtyactualdesktop/mobilechecksreusedwithinscope; nonew browserclaim."
+}
