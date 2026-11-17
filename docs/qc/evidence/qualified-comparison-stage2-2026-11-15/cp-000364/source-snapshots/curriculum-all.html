@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl-NL">
+<head>
+    <meta charset="utf-8" />
+    <title>CursusPlanner</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href="/Content/css-min?v=Jk9hY3yyp4KbuiQcQEtIJhijcmR-b3QaQ1VuDszbY2A1" rel="stylesheet"/>
+    <script src="/Scripts/js-min?v=OhHF1zLVQmCgcxlZ-8E3XzEV2rB1g2SulmuzPQdKN6U1"></script>
+
+    <link rel="shortcut icon" href="/Content/icons/favicon.ico" type="image/ico" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/Content/icons/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/Content/icons/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/Content/icons/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/Content/icons/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/Content/icons/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/Content/icons/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/Content/icons/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/Content/icons/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/Content/icons/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/Content/icons/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/Content/icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/Content/icons/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/Content/icons/favicon-16x16.png" />
+    <link rel="manifest" href="/Content/icons/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/Content/icons/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script type="text/javascript">
+        var appInsights = window.appInsights || function (config) {
+            function i(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, u = document, e = window, o = "script", s = "AuthenticatedUserContext", h = "start", c = "stop", l = "Track", a = l + "Event", v = l + "Page", y = u.createElement(o), r, f; y.src = config.url || "https://az416426.vo.msecnd.net/scripts/a/ai.0.js"; u.getElementsByTagName(o)[0].parentNode.appendChild(y); try { t.cookie = u.cookie } catch (p) { } for (t.queue = [], t.version = "1.0", r = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; r.length;)i("track" + r.pop()); return i("set" + s), i("clear" + s), i(h + a), i(c + a), i(h + v), i(c + v), i("flush"), config.disableExceptionTracking || (r = "onerror", i("_" + r), f = e[r], e[r] = function (config, i, u, e, o) { var s = f && f(config, i, u, e, o); return s !== !0 && t["_" + r](config, i, u, e, o), s }), t
+        }({
+            instrumentationKey: "33a26844-bca1-4884-9dac-dc23159ff356"
+        });
+
+        window.appInsights = appInsights;
+        appInsights.trackPageView();
+    </script>
+</head>
+<body>
+    
+
+<!-- Because we use BareLayout that doesn't have this.-->
+<input type="hidden" id="refreshed" value="no" />
+
+<div id="CourseList">
+<div class="curriculum-loader">
+    <img src="/Content/images/loading.svg" style="display: inline; width: 45px; margin: 15px;">
+</div>
+<div class="Entry" style="margin-right: 2px;">
+
+    <div id="multiAccordion" data-voertalen=""
+         data-examenonderdelen="51,52,150,195"
+         data-competenties="False"
+         data-levels="True" ;>
+            <h3 class="sb-header">Periode 1</h3>
+            <table class="multiaccordion-table">
+                <tr class="multiaccordion-headers">
+                    <th class="header_courseid sortable">
+                        <input class="sort" type="hidden" value="1" />
+                        Cursuscode
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                    <th class="header_coursename sortable">
+                        <input class="sort" type="hidden" value="3" />
+                        Cursustitel
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                    <th class="header_niveau sortable">
+                        <input class="sort" type="hidden" value="2" />
+                        Niveau
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                    <th class="header_ects sortable">
+                        <input class="sort" type="hidden" value="4" />
+                        EC
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                    <th class="header_timeslot sortable">
+                        <input class="sort" type="hidden" value="5" />
+                        Tijdslot
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                        <th class="header_study sortable">
+                            <div class="mainStudy" title="Politiek, cultuur en religie">
+                                <input class="courseID" type="hidden" value="PC-MAJOR-26" />
+                                <input class="sort" type="hidden" value="6" />
+                                pcr
+                                <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                            </div>
+                        </th>
+                        
+
+
+                        <th>&nbsp;</th>
+                    </tr>
+
+                <tr class="multiaccordion-entry" id="course386605">
+                    <td class="ep-courseID  statistics-courseID">
+                            <img src="/Content/icons/empty.svg" class="course-icon" />
+                        PC1V26001
+                    </td>
+                    <td class="ep-coursename">Politiek, cultuur en religie: tussen vrijheid en dwang</td>
+                    <td class="ep-niveau">
+                        1
+                    </td>
+                    <td class="ep-ects">
+                        7,5
+                    </td>
+                    <td class="ep-timeslot">
+                            <span title="A (MA-ochtend, WO-middag, WO-namiddag)">A</span>
+                    </td>
+                        <td class="ep-ep"><div class="coloringExamComponent" style="background-color:#237f0e;color: #ffffff" title="Basispakket 1">B1</div></td>
+                                        <td class="ep-selectbox multiAccordion-selectbox">
+                    </td>
+
+                </tr>
+                    <tr id="386605" class="multiaccordion-entry-extended ui-accordion-defaultLoading">
+                        <td colspan="8" class="multiaccordion-entry-extended-td">
+                            <div class="course-details">
+                                <div style="width: 100%; text-align: center;">
+                                    <img src="/Content/images/loading.svg" style="display: inline; width: 45px; margin: 15px;" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                <tr class="multiaccordion-entry" id="course386616">
+                    <td class="ep-courseID  statistics-courseID">
+                            <img src="/Content/icons/empty.svg" class="course-icon" />
+                        PC1V26002
+                    </td>
+                    <td class="ep-coursename">Traditie in verandering</td>
+                    <td class="ep-niveau">
+                        1
+                    </td>
+                    <td class="ep-ects">
+                        7,5
+                    </td>
+                    <td class="ep-timeslot">
+                            <span title="B (DI-ochtend, DO-middag, DO-namiddag)">B</span>
+                    </td>
+                        <td class="ep-ep"><div class="coloringExamComponent" style="background-color:#237f0e;color: #ffffff" title="Basispakket 1">B1</div></td>
+                                        <td class="ep-selectbox multiAccordion-selectbox">
+                    </td>
+
+                </tr>
+                    <tr id="386616" class="multiaccordion-entry-extended ui-accordion-defaultLoading">
+                        <td colspan="8" class="multiaccordion-entry-extended-td">
+                            <div class="course-details">
+                                <div style="width: 100%; text-align: center;">
+                                    <img src="/Content/images/loading.svg" style="display: inline; width: 45px; margin: 15px;" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                <tr class="multiaccordion-entry" id="course382890">
+                    <td class="ep-courseID  statistics-courseID">
+                            <img src="/Content/icons/empty.svg" class="course-icon" />
+                        IA2V17001
+                    </td>
+                    <td class="ep-coursename">Mohammed in heden en verleden</td>
+                    <td class="ep-niveau">
+                        2
+                    </td>
+                    <td class="ep-ects">
+                        7,5
+                    </td>
+                    <td class="ep-timeslot">
+                            <span title="B (DI-ochtend, DO-middag, DO-namiddag)">B</span>
+                    </td>
+                        <td class="ep-ep"><div class="coloringExamComponent" style="background-color:#ec008c;color: #000000" title="Disciplinair verplicht">DV</div></td>
+                                        <td class="ep-selectbox multiAccordion-selectbox">
+                    </td>
+
+                </tr>
+                    <tr id="382890" class="multiaccordion-entry-extended ui-accordion-defaultLoading">
+                        <td colspan="8" class="multiaccordion-entry-extended-td">
+                            <div class="course-details">
+                                <div style="width: 100%; text-align: center;">
+                                    <img src="/Content/images/loading.svg" style="display: inline; width: 45px; margin: 15px;" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                <tr class="multiaccordion-entry" id="course382236">
+                    <td class="ep-courseID  statistics-courseID">
+                            <img src="/Content/icons/empty.svg" class="course-icon" />
+                        GE3V21032
+                    </td>
+                    <td class="ep-coursename">The Ottoman Empire and the Creation of the Modern Middle East</td>
+                    <td class="ep-niveau">
+                        3
+                    </td>
+                    <td class="ep-ects">
+                        7,5
+                    </td>
+                    <td class="ep-timeslot">
+                            <span title="BC">BC</span>
+                    </td>
+                        <td class="ep-ep"><div class="coloringExamComponent" style="background-color:#0d3887;color: #ffffff" title="Verdiepingspakket 1 verplicht">V1V</div></td>
+                                        <td class="ep-selectbox multiAccordion-selectbox">
+                    </td>
+
+                </tr>
+                    <tr id="382236" class="multiaccordion-entry-extended ui-accordion-defaultLoading">
+                        <td colspan="8" class="multiaccordion-entry-extended-td">
+                            <div class="course-details">
+                                <div style="width: 100%; text-align: center;">
+                                    <img src="/Content/images/loading.svg" style="display: inline; width: 45px; margin: 15px;" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+            </table>
+            <h3 class="sb-header">Periode 2</h3>
+            <table class="multiaccordion-table">
+                <tr class="multiaccordion-headers">
+                    <th class="header_courseid sortable">
+                        <input class="sort" type="hidden" value="1" />
+                        Cursuscode
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                    <th class="header_coursename sortable">
+                        <input class="sort" type="hidden" value="3" />
+                        Cursustitel
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                    <th class="header_niveau sortable">
+                        <input class="sort" type="hidden" value="2" />
+                        Niveau
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                    <th class="header_ects sortable">
+                        <input class="sort" type="hidden" value="4" />
+                        EC
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                    <th class="header_timeslot sortable">
+                        <input class="sort" type="hidden" value="5" />
+                        Tijdslot
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                        <th class="header_study sortable">
+                            <div class="mainStudy" title="Politiek, cultuur en religie">
+                                <input class="courseID" type="hidden" value="PC-MAJOR-26" />
+                                <input class="sort" type="hidden" value="6" />
+                                pcr
+                                <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                            </div>
+                        </th>
+                        
+
+
+                        <th>&nbsp;</th>
+                    </tr>
+
+                <tr class="multiaccordion-entry" id="course386622">
+                    <td class="ep-courseID  statistics-courseID">
+                            <img src="/Content/icons/empty.svg" class="course-icon" />
+                        PC1V26003
+                    </td>
+                    <td class="ep-coursename">Autoriteit en verbeelding in nieuwe media en populaire cultuur</td>
+                    <td class="ep-niveau">
+                        1
+                    </td>
+                    <td class="ep-ects">
+                        7,5
+                    </td>
+                    <td class="ep-timeslot">
+                            <span title="C (MA en DI-mid/namiddag, DO-ochtend)">C</span>
+                    </td>
+                        <td class="ep-ep"><div class="coloringExamComponent" style="background-color:#237f0e;color: #ffffff" title="Basispakket 1">B1</div></td>
+                                        <td class="ep-selectbox multiAccordion-selectbox">
+                    </td>
+
+                </tr>
+                    <tr id="386622" class="multiaccordion-entry-extended ui-accordion-defaultLoading">
+                        <td colspan="8" class="multiaccordion-entry-extended-td">
+                            <div class="course-details">
+                                <div style="width: 100%; text-align: center;">
+                                    <img src="/Content/images/loading.svg" style="display: inline; width: 45px; margin: 15px;" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                <tr class="multiaccordion-entry" id="course386633">
+                    <td class="ep-courseID  statistics-courseID">
+                            <img src="/Content/icons/empty.svg" class="course-icon" />
+                        PC2V26001
+                    </td>
+                    <td class="ep-coursename">Bijbel en Koran als politiek-culturele teksten</td>
+                    <td class="ep-niveau">
+                        2
+                    </td>
+                    <td class="ep-ects">
+                        7,5
+                    </td>
+                    <td class="ep-timeslot">
+                            <span title="A (MA-ochtend, WO-middag, WO-namiddag)">A</span>
+                    </td>
+                        <td class="ep-ep"><div class="coloringExamComponent" style="background-color:#237f0e;color: #ffffff" title="Basispakket 1">B1</div></td>
+                                        <td class="ep-selectbox multiAccordion-selectbox">
+                    </td>
+
+                </tr>
+                    <tr id="386633" class="multiaccordion-entry-extended ui-accordion-defaultLoading">
+                        <td colspan="8" class="multiaccordion-entry-extended-td">
+                            <div class="course-details">
+                                <div style="width: 100%; text-align: center;">
+                                    <img src="/Content/images/loading.svg" style="display: inline; width: 45px; margin: 15px;" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                <tr class="multiaccordion-entry" id="course383136">
+                    <td class="ep-courseID  statistics-courseID">
+                            <img src="/Content/icons/empty.svg" class="course-icon" />
+                        IA3V21001
+                    </td>
+                    <td class="ep-coursename">Religion and Modernities in the Modern Middle East</td>
+                    <td class="ep-niveau">
+                        3
+                    </td>
+                    <td class="ep-ects">
+                        7,5
+                    </td>
+                    <td class="ep-timeslot">
+                            <span title="AC">AC</span>
+                    </td>
+                        <td class="ep-ep"><div class="coloringExamComponent" style="background-color:#0d3887;color: #ffffff" title="Verdiepingspakket 1 verplicht">V1V</div></td>
+                                        <td class="ep-selectbox multiAccordion-selectbox">
+                    </td>
+
+                </tr>
+                    <tr id="383136" class="multiaccordion-entry-extended ui-accordion-defaultLoading">
+                        <td colspan="8" class="multiaccordion-entry-extended-td">
+                            <div class="course-details">
+                                <div style="width: 100%; text-align: center;">
+                                    <img src="/Content/images/loading.svg" style="display: inline; width: 45px; margin: 15px;" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+            </table>
+            <h3 class="sb-header">Periode 3</h3>
+            <table class="multiaccordion-table">
+                <tr class="multiaccordion-headers">
+                    <th class="header_courseid sortable">
+                        <input class="sort" type="hidden" value="1" />
+                        Cursuscode
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                    <th class="header_coursename sortable">
+                        <input class="sort" type="hidden" value="3" />
+                        Cursustitel
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                    <th class="header_niveau sortable">
+                        <input class="sort" type="hidden" value="2" />
+                        Niveau
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                    <th class="header_ects sortable">
+                        <input class="sort" type="hidden" value="4" />
+                        EC
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                    <th class="header_timeslot sortable">
+                        <input class="sort" type="hidden" value="5" />
+                        Tijdslot
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                        <th class="header_study sortable">
+                            <div class="mainStudy" title="Politiek, cultuur en religie">
+                                <input class="courseID" type="hidden" value="PC-MAJOR-26" />
+                                <input class="sort" type="hidden" value="6" />
+                                pcr
+                                <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                            </div>
+                        </th>
+                        
+
+
+                        <th>&nbsp;</th>
+                    </tr>
+
+                <tr class="multiaccordion-entry" id="course387872">
+                    <td class="ep-courseID  statistics-courseID">
+                            <img src="/Content/icons/empty.svg" class="course-icon" />
+                        PC2V26002
+                    </td>
+                    <td class="ep-coursename">Cultureel-antropologische benaderingen: geleefde religie en spiritualiteit in een seculiere context</td>
+                    <td class="ep-niveau">
+                        2
+                    </td>
+                    <td class="ep-ects">
+                        7,5
+                    </td>
+                    <td class="ep-timeslot">
+                            <span title="A (MA-ochtend, WO-middag, WO-namiddag)">A</span>
+                    </td>
+                        <td class="ep-ep"><div class="coloringExamComponent" style="background-color:#237f0e;color: #ffffff" title="Basispakket 2">B2</div></td>
+                                        <td class="ep-selectbox multiAccordion-selectbox">
+                    </td>
+
+                </tr>
+                    <tr id="387872" class="multiaccordion-entry-extended ui-accordion-defaultLoading">
+                        <td colspan="8" class="multiaccordion-entry-extended-td">
+                            <div class="course-details">
+                                <div style="width: 100%; text-align: center;">
+                                    <img src="/Content/images/loading.svg" style="display: inline; width: 45px; margin: 15px;" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                <tr class="multiaccordion-entry" id="course386637">
+                    <td class="ep-courseID  statistics-courseID">
+                            <img src="/Content/icons/empty.svg" class="course-icon" />
+                        PC2V26003
+                    </td>
+                    <td class="ep-coursename">Macht, recht en soevereiniteit</td>
+                    <td class="ep-niveau">
+                        2
+                    </td>
+                    <td class="ep-ects">
+                        7,5
+                    </td>
+                    <td class="ep-timeslot">
+                            <span title="B (DI-ochtend, DO-middag, DO-namiddag)">B</span>
+                    </td>
+                        <td class="ep-ep"><div class="coloringExamComponent" style="background-color:#237f0e;color: #ffffff" title="Basispakket 2">B2</div></td>
+                                        <td class="ep-selectbox multiAccordion-selectbox">
+                    </td>
+
+                </tr>
+                    <tr id="386637" class="multiaccordion-entry-extended ui-accordion-defaultLoading">
+                        <td colspan="8" class="multiaccordion-entry-extended-td">
+                            <div class="course-details">
+                                <div style="width: 100%; text-align: center;">
+                                    <img src="/Content/images/loading.svg" style="display: inline; width: 45px; margin: 15px;" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                <tr class="multiaccordion-entry" id="course382410">
+                    <td class="ep-courseID  statistics-courseID">
+                            <img src="/Content/icons/empty.svg" class="course-icon" />
+                        GE3V21031
+                    </td>
+                    <td class="ep-coursename">Imperialism and the Middle East (1798-1945): Power, Politics, and Oil</td>
+                    <td class="ep-niveau">
+                        3
+                    </td>
+                    <td class="ep-ects">
+                        7,5
+                    </td>
+                    <td class="ep-timeslot">
+                            <span title="AD">AD</span>
+                    </td>
+                        <td class="ep-ep"><div class="coloringExamComponent" style="background-color:#0d3887;color: #ffffff" title="Verdiepingspakket 1 verplicht">V1V</div></td>
+                                        <td class="ep-selectbox multiAccordion-selectbox">
+                    </td>
+
+                </tr>
+                    <tr id="382410" class="multiaccordion-entry-extended ui-accordion-defaultLoading">
+                        <td colspan="8" class="multiaccordion-entry-extended-td">
+                            <div class="course-details">
+                                <div style="width: 100%; text-align: center;">
+                                    <img src="/Content/images/loading.svg" style="display: inline; width: 45px; margin: 15px;" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+            </table>
+            <h3 class="sb-header">Periode 4</h3>
+            <table class="multiaccordion-table">
+                <tr class="multiaccordion-headers">
+                    <th class="header_courseid sortable">
+                        <input class="sort" type="hidden" value="1" />
+                        Cursuscode
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                    <th class="header_coursename sortable">
+                        <input class="sort" type="hidden" value="3" />
+                        Cursustitel
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                    <th class="header_niveau sortable">
+                        <input class="sort" type="hidden" value="2" />
+                        Niveau
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                    <th class="header_ects sortable">
+                        <input class="sort" type="hidden" value="4" />
+                        EC
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                    <th class="header_timeslot sortable">
+                        <input class="sort" type="hidden" value="5" />
+                        Tijdslot
+                        <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                    </th>
+                        <th class="header_study sortable">
+                            <div class="mainStudy" title="Politiek, cultuur en religie">
+                                <input class="courseID" type="hidden" value="PC-MAJOR-26" />
+                                <input class="sort" type="hidden" value="6" />
+                                pcr
+                                <img src="/Content/images/arrow_down_unselected.png" alt="sort" />
+                            </div>
+                        </th>
+                        
+
+
+                        <th>&nbsp;</th>
+                    </tr>
+
+                <tr class="multiaccordion-entry" id="course386639">
+                    <td class="ep-courseID  statistics-courseID">
+                            <img src="/Content/icons/empty.svg" class="course-icon" />
+                        PC2V26005
+                    </td>
+                    <td class="ep-coursename">Antisemitisme en islamofobie</td>
+                    <td class="ep-niveau">
+                        2
+                    </td>
+                    <td class="ep-ects">
+                        7,5
+                    </td>
+                    <td class="ep-timeslot">
+                            <span title="C (MA en DI-mid/namiddag, DO-ochtend)">C</span>
+                    </td>
+                        <td class="ep-ep"><div class="coloringExamComponent" style="background-color:#237f0e;color: #ffffff" title="Basispakket 2">B2</div></td>
+                                        <td class="ep-selectbox multiAccordion-selectbox">
+                    </td>
+
+                </tr>
+                    <tr id="386639" class="multiaccordion-entry-extended ui-accordion-defaultLoading">
+                        <td colspan="8" class="multiaccordion-entry-extended-td">
+                            <div class="course-details">
+                                <div style="width: 100%; text-align: center;">
+                                    <img src="/Content/images/loading.svg" style="display: inline; width: 45px; margin: 15px;" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                <tr class="multiaccordion-entry" id="course388513">
+                    <td class="ep-courseID  statistics-courseID">
+                            <img src="/Content/icons/empty.svg" class="course-icon" />
+                        PC2V26004
+                    </td>
+                    <td class="ep-coursename">Complottheorie&#235;n: van Armageddon tot QAnon</td>
+                    <td class="ep-niveau">
+                        2
+                    </td>
+                    <td class="ep-ects">
+                        7,5
+                    </td>
+                    <td class="ep-timeslot">
+                            <span title="D">D</span>
+                    </td>
+                        <td class="ep-ep"><div class="coloringExamComponent" style="background-color:#237f0e;color: #ffffff" title="Basispakket 2">B2</div></td>
+                                        <td class="ep-selectbox multiAccordion-selectbox">
+                    </td>
+
+                </tr>
+                    <tr id="388513" class="multiaccordion-entry-extended ui-accordion-defaultLoading">
+                        <td colspan="8" class="multiaccordion-entry-extended-td">
+                            <div class="course-details">
+                                <div style="width: 100%; text-align: center;">
+                                    <img src="/Content/images/loading.svg" style="display: inline; width: 45px; margin: 15px;" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                <tr class="multiaccordion-entry" id="course382900">
+                    <td class="ep-courseID  statistics-courseID">
+                            <img src="/Content/icons/empty.svg" class="course-icon" />
+                        IA3V21002
+                    </td>
+                    <td class="ep-coursename">Iran and the Modern Middle East: Regional and International Politics</td>
+                    <td class="ep-niveau">
+                        3
+                    </td>
+                    <td class="ep-ects">
+                        7,5
+                    </td>
+                    <td class="ep-timeslot">
+                            <span title="A (MA-ochtend, WO-middag, WO-namiddag)">A</span>
+                    </td>
+                        <td class="ep-ep"><div class="coloringExamComponent" style="background-color:#0d3887;color: #ffffff" title="Verdiepingspakket 1 verplicht">V1V</div></td>
+                                        <td class="ep-selectbox multiAccordion-selectbox">
+                    </td>
+
+                </tr>
+                    <tr id="382900" class="multiaccordion-entry-extended ui-accordion-defaultLoading">
+                        <td colspan="8" class="multiaccordion-entry-extended-td">
+                            <div class="course-details">
+                                <div style="width: 100%; text-align: center;">
+                                    <img src="/Content/images/loading.svg" style="display: inline; width: 45px; margin: 15px;" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+            </table>
+            </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#multiAccordion').multiAccordion({});
+        $('#multiAccordion').multiAccordion("option", "selectedCheckbox", []);
+        $('#multiAccordion').multiAccordion("option", "sorted", 0);
+/**/
+        $('#multiAccordion').multiAccordion("option", "selectedStudies", []);
+        $('#multiAccordion').multiAccordion("option", "setSelectedCheckbox", []);
+        calculateCols();
+    });
+
+    function calculateCols() {
+        var cols = $('tr.multiaccordion-entry').first().children().length;
+        $('tr.multiaccordion-entry-extended>.multiaccordion-entry-extended-td').each(function() {
+            this.colSpan = cols;
+        });
+    }
+</script>
+
+
+</div>
+<a href="https://cursusplanner.uu.nl/study/PC-MAJOR-26" target="_blank" class="btn btn-link pull-right"> Bekijk in de Cursusplanner <i class="glyphicon glyphicon-new-window"></i></a>
+
+<style>
+    html {
+        overflow-y: auto;
+    }
+
+    body {
+        background: rgba(255,255,255,0);
+    }
+
+    h3 {
+        font-size: 17px;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #3b3b3b;
+    }
+</style>
+
+<!-- Set the embedded program so we can use the right query -->
+<script type="text/javascript">
+    window.embeddedExamenprogramma = "PC-MAJOR-26";
+    window.embeddedExamenonderdeel = "";
+    window.embeddedThemes = "";
+    window.embeddedSwitchMonth = "-1"
+</script>
+
+<div id="help-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">Help</h3>
+            </div>
+            <div class="modal-body">
+                <h4>CursusPlanner</h4>
+                <p><p>De CursusPlanner is een tool om je vakkenpakket samen te stellen. Je kunt de CursusPlanner op verschillende manieren gebruiken: vrije keuzevakken zoeken, het overzicht van de vakken van je opleiding bekijken en de informatie combineren. Nadat je je studie hebt geselecteerd of één of meerdere (sub)thema’s hebt gekozen onder <i>Vrije keuzevakken per thema</i> krijg je een overzicht met vakken die je kunt volgen. Door op een vak te klikken krijg je extra informatie van het vak:
+<ul><li>inhoud</li>
+<li>docenten</li>
+<li>inschrijfperiode</li>
+<li>welk examenonderdeel (bijvoorbeeld verplicht of keuze context) een vak heeft voor de opleiding</li>
+<li>een link naar de inschrijfpagina van Osiris</li></ul></p>
+
+<p>Als je op <img src="/Content/images/Backpackexclude.png" style="width:20px; height:20px;"> klikt, stop je een vak in je rugzak, zodat je dit vak door de rest van de CursusPlanner mee kunt nemen.</p></p>
+                <hr />
+                <h4>Vrije keuzevakken zoeken</h4>
+                <p>Ben je op zoek naar een interessante keuzecursus voor in je profileringsruimte? Zoek dan onder <i>Vrije keuzevakken per thema</i> en selecteer één of meerdere thema’s en subthema’s. Je kunt zoeken op onderwerp, onderwijsvorm of competentie. Vervolgens krijg je een overzicht te zien met de verschillende (keuze)cursussen met deze thema’s en subthema’s. Zo kun je eenvoudig buiten je eigen opleiding zoeken.</p>
+                <hr />
+                <h4>Programma(&#39;s) en vrije keuzevakken</h4>
+                <p><p>Wil je weten of bepaalde keuzecursussen in je programma(‘s) en planning passen? Klik op ‘Wijzig selectie’ en selecteer  je faculteit en programma(‘s) onder <i>Examenprogramma’s</i>. Het is mogelijk meerdere studies te selecteren met de knop <i>Voeg studie toe</i>; hiermee kun je tot maximaal 3 andere studies of <i>minoren</i> naast je huidige studie leggen. Alle cursussen van deze opleidingen worden dan getoond in het overzicht.</p>
+
+<p>Om sneller te kunnen zoeken tussen de vele cursussen in het overzicht, gebruik je één van de filtermogelijkheden aan de linkerkant van de pagina.</p>
+
+<p>Verder is het mogelijk om direct naar een examenprogramma te navigeren via de link in de browserbalk. Hiervoor moet je de volgende link gebruiken, <i>https://cursusplanner.uu.nl/study/{examenprogramma}</i>. Het gedeelte <i>{examenprogramma}</i> moet je vervangen met de code voor jouw programma. Dit is ook mogelijk als je direct naar een cursus wilt navigeren, hiervoor gebruik je de link <i>https://cursusplanner.uu.nl/course/{cursuscode}</i>. Het gedeelte <i>{cursuscode}</i> vervang je met de code voor de cursus.</p>
+		
+<p>Als je voor het eerst de CursusPlanner opent, selecteer je je studie en/of gewenste (sub)thema’s onder <i>Vrije keuzevakken per thema</i>. Als je vervolgens inlogt, onthoudt de CursusPlanner je studiekeuze. De volgende keer dat je inlogt word je automatisch naar deze keuzes gebracht. De opties kun je aanpassen in <i>Voorkeuren</i>.</p></p>
+                <hr />
+                <h4>Mijn rugzak</h4>
+                <p><p>Hier zie je een overzicht van je geselecteerde vakken.</p>
+
+<p><b>Alleen als je ingelogd bent</b>: als je ingelogd bent wordt er persoonlijke informatie getoond. Daarnaast krijg je de mogelijkheid om je selectie naar jezelf te mailen, zodat je deze vervolgens naar je studiebegeleider of studiegenoot kunt mailen.</p></p>
+                <hr />
+                <h4>Mijn planning</h4>
+                <p><p><b>Alleen als je ingelogd bent</b>: bij <i>Mijn planning</i> kun je een meerjarenplanning opstellen. De behaalde vakken worden uit Osiris gehaald en automatisch ingevuld. De cursussen in je rugzak kun je in de planning slepen. Let op: je kunt een cursus in iedere periode slepen; dit betekent echter niet dat die cursus ook daadwerkelijk in die periode wordt gegeven.</p></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-custom" data-dismiss="modal">Sluiten</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="about-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">Over CursusPlanner</h3>
+            </div>
+            <div class="modal-body">
+                <p>De CursusPlanner heeft als doel om de student te helpen bij het samenstellen van zijn vakkenpakket. Met de CursusPlanner kan snel en overzichtelijk gezocht worden naar vakken, ook van andere opleidingen.</p>
+                <hr />
+                <h4>Opdrachtgever</h4>
+                <p>CursusPlanner is ontwikkeld met subsidie van het Utrechts Stimuleringsfonds Onderwijs 2013 toegekend door de Board of Studies van de Undergraduate School van de faculteit Bètawetenschappen.</p>
+                <hr />
+                <h4>Release Notes</h4>
+                <p><p>release notes 13 februari</p>
+
+<strong>Nieuw</strong>
+<p><ul>
+	<li>Filter op vakken die openstaan voor bijvakkers</li>
+	<li>Filter op competenties</li>
+	<li>Bekijk de competenties per cursus</li>
+	<li>Bekijk het overzicht van de competenties op de rugzak overzichtspagina</li>
+	<li>Bekijk voor welke vakken je bent ingeschreven</li>
+</ul></p>
+
+<strong>Verbeteringen</strong>
+<p><ul>
+	<li>Faculteiten en examenprogramma's worden nu alfabetisch geordend</li>
+	<li>Examenprogramma's worden nu rechtstreeks uit Osiris gelezen, waardoor fout ingestelde examenprogramma's verleden tijd zijn</li>
+	<li>De Nederlandse vaknaam wordt nu weergegeven als een vak geen Engelse naam heeft </li>
+	<li>De planning opslaan knop wordt nu alleen weergegeven als een gebruiker ingelogd is</li>
+	<li>Filters met maar één mogelijke optie worden nu verborgen</li>
+	<li>Zoeken op meerdere timeslots vindt nu ook cursussen die in meerdere gekozen timeslots vallen</li>
+</ul></p>
+
+<strong>Opgeloste bugs</strong>
+<p><ul>
+	<li>Het opslaan van planningen breekt niet meer als een spatie gebruikt wordt in een naam</li>
+	<li>Inladen van curssusen met speciale tekens in de curssuscode is gefixt</li>
+	<li>Verschillende vertaal- en styling-foutjes opgelost</li>
+</ul></p></p>
+                <hr />
+                <h4>Versienummer</h4>
+                <p>Versienummer: 2026.03.17.77b218</p>
+                <hr />
+                <h4>Ondersteunde Browsers</h4>
+                <p>De CursusPlanner is ontwikkeld met oog op de meest gebruikte en recents browserversies. Als de CursusPlanner niet goed werkt, raden we je aan de meest recente versie van je browser te downloaden en te gebruiken. De volgende browsers worden niet ondersteund:
+<ul><li>Internet Explorer 9</li>
+<li>Safari 9</li></ul></p>
+                <hr />
+                <h4>Disclaimer</h4>
+                <p>De informatie die door de CursusPlanner van de Universiteit Utrecht wordt weergegeven wordt met de grootst mogelijke zorg samengesteld. Desondanks kan het voorkomen dat er onvolkomenheden in deze informatie zitten. De Universiteit Utrecht en de faculteiten zijn niet aansprakelijk voor directe of indirecte gevolgen van eventuele onjuistheden in de CursusPlanner (zelfs niet wanneer de Universiteit of faculteiten tussentijds op de hoogte zijn gesteld van deze onjuistheden). Aan de gegevens zoals die door de CursusPlanner worden weergegeven, kunnen geen rechten worden ontleend.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-custom" data-dismiss="modal">Sluiten</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="contact-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">Contact</h3>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Neem voor vragen met betrekking tot de inhoud van de CursusPlanner (curriculum, cursusinformatie, roosters, ...) contact op met het betreffende studiepunt:
+                </p>
+                <table class="table table-striped">
+                        <tr>
+                            <td>
+                                Beta &gt; Biologie
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#98;&#105;&#111;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#98;&#105;&#111;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Beta &gt; Farmacie
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#112;&#104;&#97;&#114;&#109;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#112;&#104;&#97;&#114;&#109;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Beta &gt; Informatica / Informatiekunde
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#105;&#110;&#102;&#111;&#114;&#109;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#105;&#110;&#102;&#111;&#114;&#109;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Beta &gt; Natuurkunde
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#112;&#104;&#121;&#115;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#112;&#104;&#121;&#115;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Beta &gt; Scheikunde
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#99;&#104;&#101;&#109;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#99;&#104;&#101;&#109;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Beta &gt; Wiskunde
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#109;&#97;&#116;&#104;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#109;&#97;&#116;&#104;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Faculteit Geesteswetenschappen
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#116;&#117;&#100;&#105;&#101;&#112;&#117;&#110;&#116;&#46;&#103;&#119;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#116;&#117;&#100;&#105;&#101;&#112;&#117;&#110;&#116;&#46;&#103;&#119;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Faculteit Sociale Wetenschappen
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#116;&#105;&#112;&#46;&#102;&#115;&#119;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#116;&#105;&#112;&#46;&#102;&#115;&#119;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Graduate School of Life Sciences
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#103;&#115;&#108;&#115;&#64;&#117;&#117;&#46;&#110;&#108;&#32;?SUBJECT=[CursusPlanner]">&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#103;&#115;&#108;&#115;&#64;&#117;&#117;&#46;&#110;&#108;&#32;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Graduate School of Natural Sciences
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#103;&#115;&#110;&#115;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#103;&#115;&#110;&#115;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Graduate School of Teaching
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#116;&#105;&#112;&#46;&#103;&#115;&#116;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#116;&#105;&#112;&#46;&#103;&#115;&#116;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                REBO &gt; RGL
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#116;&#117;&#100;&#105;&#101;&#112;&#117;&#110;&#116;&#46;&#114;&#101;&#99;&#104;&#116;&#101;&#110;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#116;&#117;&#100;&#105;&#101;&#112;&#117;&#110;&#116;&#46;&#114;&#101;&#99;&#104;&#116;&#101;&#110;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Rebo &gt; USBO
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#116;&#117;&#100;&#105;&#101;&#112;&#117;&#110;&#116;&#46;&#117;&#115;&#98;&#111;&#64;&#117;&#117;&#46;&#110;&#108;&#32;?SUBJECT=[CursusPlanner]">&#115;&#116;&#117;&#100;&#105;&#101;&#112;&#117;&#110;&#116;&#46;&#117;&#115;&#98;&#111;&#64;&#117;&#117;&#46;&#110;&#108;&#32;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                REBO &gt; USE
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#116;&#117;&#100;&#101;&#110;&#116;&#100;&#101;&#115;&#107;&#46;&#117;&#115;&#101;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#116;&#117;&#100;&#101;&#110;&#116;&#100;&#101;&#115;&#107;&#46;&#117;&#115;&#101;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                </table>
+                <p>
+
+                    Neem voor vragen met betrekking tot de CursusPlanner zelf (technische problemen, feedback, overige vragen) contact op via <a href="mailto:&#99;&#117;&#114;&#115;&#117;&#115;&#112;&#108;&#97;&#110;&#110;&#101;&#114;&#64;&#117;&#117;&#46;&#110;&#108;">&#99;&#117;&#114;&#115;&#117;&#115;&#112;&#108;&#97;&#110;&#110;&#101;&#114;&#64;&#117;&#117;&#46;&#110;&#108;</a>.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type = "button" class="btn btn-custom" data-dismiss="modal">Sluiten</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="ical-help-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">iCal Feed</h3>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-custom" data-dismiss="modal">Sluiten</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/Scripts/ViewScripts/iCal.js"></script>
+
+
+<script type="text/javascript">
+
+    $(function () {
+        $("#selectedCourses").click(function () {
+            location = "/Backpack";
+        });
+    });
+
+    $("#backpack").backpack({});
+
+    function logout() {
+        window.location = "/Login/Logout";
+    }
+
+    function getlanguage(CID) {
+        var isMSIE = isIE();
+        // Check for IE browsers
+        if (!isMSIE) {
+            $.get("/Account/SetCulture?CultureId=" + CID + "&ReturnUrl=" + document.location.pathname + document.location.search, function (data) {
+                document.open();
+                document.write(data);
+                document.close();
+            });
+        } else {
+            window.location = "/Account/SetCulture?CultureId=" + CID + "&ReturnUrl=" + document.location.pathname + document.location.search;
+        }
+    }
+
+        (function (i, s, o, g, r, a, m) {
+           i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-45896667-1', 'auto');
+        ga('set', 'dimension1', "cursusplanner.uu.nl");
+        if (window.location.pathname.toLocaleLowerCase().startsWith('/curriculum/embed/')) {
+            ga('set', 'dimension2', 'Embed: ' + window.location.pathname.split('/')[3]);
+        } else {
+                ga('set', 'dimension2', "-");
+        }
+        ga('send', 'pageview');
+
+    var lock = lock || false;
+    var dosearch = dosearch || false;
+
+    onload = function () {
+        var e = document.getElementById("refreshed");
+        if (e.value == "no") e.value = "yes";
+        else { e.value = "no"; location.reload(); }
+    }
+
+    $(document).ready(setTimeout(session, 600000));
+
+    function session() {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            tryCount: 0,
+            retryAfter: 2,
+            url: "/Account/Poke",
+            error: function (xhr, textStatus, errorThrown) {
+                this.tryCount++;
+                var ajaxCall = this;
+                setTimeout(function () {
+                    $.ajax(ajaxCall)
+                    return;
+                }, this.retryAfter * 1000);
+            },
+            success: function () { }
+        });
+        setTimeout(session, 600000);
+    }
+
+</script>
+
+</body>
+
+</html>
+
+<script>
+    $('.alert .close').on('click', function (e) {
+        $(this).parent().hide();
+    });
+
+    window.isDutch = function()
+    {
+
+return true;
+    }
+
+</script>
+
+
+<!--
+Created by: 734m 1337
+Dick Kampman
+Jonathan Lukkien
+Jordy van Leersum
+Max van Boxel
+Wouter ten Bosch
+Dewi Zweije
+-->

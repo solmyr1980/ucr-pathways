@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl-NL">
+<head>
+    <meta charset="utf-8" />
+    <title>CursusPlanner</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href="/Content/css-min?v=Jk9hY3yyp4KbuiQcQEtIJhijcmR-b3QaQ1VuDszbY2A1" rel="stylesheet"/>
+    <script src="/Scripts/js-min?v=OhHF1zLVQmCgcxlZ-8E3XzEV2rB1g2SulmuzPQdKN6U1"></script>
+
+    <link rel="shortcut icon" href="/Content/icons/favicon.ico" type="image/ico" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/Content/icons/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/Content/icons/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/Content/icons/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/Content/icons/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/Content/icons/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/Content/icons/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/Content/icons/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/Content/icons/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/Content/icons/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/Content/icons/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/Content/icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/Content/icons/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/Content/icons/favicon-16x16.png" />
+    <link rel="manifest" href="/Content/icons/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/Content/icons/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script type="text/javascript">
+        var appInsights = window.appInsights || function (config) {
+            function i(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, u = document, e = window, o = "script", s = "AuthenticatedUserContext", h = "start", c = "stop", l = "Track", a = l + "Event", v = l + "Page", y = u.createElement(o), r, f; y.src = config.url || "https://az416426.vo.msecnd.net/scripts/a/ai.0.js"; u.getElementsByTagName(o)[0].parentNode.appendChild(y); try { t.cookie = u.cookie } catch (p) { } for (t.queue = [], t.version = "1.0", r = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; r.length;)i("track" + r.pop()); return i("set" + s), i("clear" + s), i(h + a), i(c + a), i(h + v), i(c + v), i("flush"), config.disableExceptionTracking || (r = "onerror", i("_" + r), f = e[r], e[r] = function (config, i, u, e, o) { var s = f && f(config, i, u, e, o); return s !== !0 && t["_" + r](config, i, u, e, o), s }), t
+        }({
+            instrumentationKey: "33a26844-bca1-4884-9dac-dc23159ff356"
+        });
+
+        window.appInsights = appInsights;
+        appInsights.trackPageView();
+    </script>
+</head>
+<body>
+    
+
+<div id="tableBody">
+    <div id="header" class="select-none">
+        <div class="container hidden-xs" style="padding-top: 5px;">
+            <div id="logo_uu">
+                <a href="/">
+                    <img src="/Content/images/uu-logo-nl.svg" alt="Universiteit Utrecht Logo"/>
+                </a>
+            </div>
+            <div id="header_menu">
+                <div>
+                        <div class="btn-group">
+                            <a class="btn btn-link" href="/Login/Login?ReturnUrl=%2Fcourse%2FPC1V26003%2F2026%2F2">Inloggen</a>
+                        </div>
+                    <span style="padding-left: 2px; padding-right: 2px;">|</span>
+                    <div class="btn-group">
+                            <button class="btn btn-xs btn-link" title="Nederlands" onclick="getlanguage('nl-NL')">
+                                <img src="/Content/images/nl.gif" alt="Nederlands" />
+                            </button>
+                            <button class="btn btn-xs btn-link" title="English" onclick="getlanguage('en-US')">
+                                <img src="/Content/images/gb.gif" alt="English" />
+                            </button>
+                    </div>
+                    <span style="padding-left: 2px; padding-right: 2px;">|</span>
+                    <div class="btn-group">
+                        <button class="btn btn-xs btn-link" title="Help" data-toggle="modal" data-target="#help-modal">
+                            <img src="/Content/images/help.png" alt="Help" />
+                        </button>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <h3 id="header_mode">CursusPlanner</h3>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-inverse">
+            <div class="container  nav-container-cp">
+                <div class="navbar-header visible-xs-block">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bp-navbar-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">CursusPlanner</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bp-navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                            <li class="visible-xs-block">
+                                <a href="/Login/Login?ReturnUrl=%2Fcourse%2FPC1V26003%2F2026%2F2">Inloggen</a>
+                            </li>
+                        <li class="">
+                            <a href="/">Selectie</a>
+                        </li>
+
+                        <li class="">
+                            <a href="/curriculum">Curriculum</a>
+                        </li>
+                            <li class="">
+                                <a href="/Planning">Mijn planning</a>
+                            </li>
+                        <li class="visible-xs-block">
+                                <a onclick="getlanguage('nl-NL')" class="navbar-small-btn">
+                                    <img src="/Content/images/nl.gif" />
+                                    Nederlands
+                                </a>
+                                <a onclick="getlanguage('en-US')" class="navbar-small-btn">
+                                    <img src="/Content/images/gb.gif" />
+                                    English
+                                </a>
+
+                            <a data-toggle="modal" data-target="#help-modal" class="navbar-small-btn pull-right">
+                                <img src="/Content/images/help.png" />
+                                Help
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right hidden-xs">
+                        <li>
+                            <div id="backpack">
+                                <div id="backpack_summary" title="Rugzak">
+                                    <div id="backpack_summary_counter">0</div>
+                                </div>
+                                <div id="backpack_arrow_up" class="backpack_view_inactive"></div>
+                                <div id="backpack_view" class="backpack_view_inactive">
+                                    <div id="backpack_view_header">Rugzak <span id="backpack_close"></span></div>
+<div id="backpack_view_content">
+    <table id="backpack_view_content_table">
+        <thead>
+        <tr class="backpack_header">
+            <th style="width: 20px;"></th>
+            <th style="width: 110px;"><span class="backpack_header_courseid_span">Cursuscode</span></th>
+            <th class="backpack_header_coursename">Cursustitel</th>
+        </tr>
+        <tr class="noCoursesSelected">
+            <td></td>
+            <td></td>
+            <td>Je hebt nog geen vakken geselecteerd</td>
+        </tr>
+        
+        </thead>
+    </table>
+   
+</div>
+<div id="backpack_view_footer">
+    <div class="backpack_clear" id="clear_backpack" >Leeg rugzak</div>
+    <div id="selectedCourses2" class="backpack_view_store"><a class="backpack_view_store generate_timetable" href="/Backpack">Overzicht</a></div>
+</div>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div id="content">
+<div id="tourNav">
+    <button class="btn btn-sm btn-link pull-right closebtn" onclick="closeTours();">&times;</button>
+    <button class="btn btn-link btn-block" onclick="interestingCourses_nlRestart();">zoeken naar interessante cursussen</button>
+    <button class="btn btn-link btn-block" onclick="schedule_nlRestart();">kijken hoe mijn rooster eruit komt te zien</button>
+</div>
+
+<script src="/Scripts/ViewScripts/shared.js"></script>
+        <div id="canvas" class="container">
+            <div id="notification_area">
+                 
+                <div class="alert alert-danger fade in" id="alert_oldbrowser" style="display: none;">
+    <button type="button" class="close">&times;</button>
+    <p style="text-align: center">Uw huidige browser heeft updates nodig. Zolang u niet update zullen bepaalde functionaliteiten op de website niet beschikbaar zijn.</p>
+</div>
+
+<script type="text/javascript">
+    navigator.sayswho2 = (function () {        
+        var ua = navigator.userAgent, tem,
+        M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*([\d\.]+)/i) || [];
+        if (/trident/i.test(M[1])) {
+            tem = /\brv[ :]+(\d+(\.\d+)?)/g.exec(ua) || [];
+            return 'IE ' + (tem[1] || '');
+        }
+        else {
+        M = M[2] ? [M[1], M[2]] : [navigator.appName, navigator.appVersion, '-?'];
+        if ((tem = ua.match(/version\/([\.\d]+)/i)) != null) M[2] = tem[1];
+        browser = M[0].toString();
+        version = M[1].toString();
+        }
+        if ((browser == "IE" || browser == "MSIE" || browser == "msie") && parseInt(version) <= 9) {
+            $('#alert_oldbrowser').show();
+        }
+    })();
+</script> 
+                <div class="alert alert-danger fade in" id="alert_doublecourses" style="display: none;">
+    <button type="button" class="close">&times;</button>
+    <p style="text-align: center">Let op: het geselecteerde rooster heeft overlappende bijeenkomsten.</p>
+</div> 
+                <div class="alert alert-danger fade in" id="alert_planning_nohistory" style="display: none;">
+    <button type="button" class="close">&times;</button>
+    <p style="text-align: center">Volgens onze gegevens heb je nog geen vakken behaald.</p>
+</div> 
+                <div class="alert alert-success fade in" id="alert_planning_saved" style="display: none;">
+    <p id="alert_planning_saved_text" style="text-align: center"></p>
+</div> 
+                <div class="alert alert-warning fade in" id="alert_planning_notsaved" style="display: none;">
+    <button type="button" class="close">&times;</button>
+    <p style="text-align: center">Je planning is nog niet opgeslagen</p>
+</div> 
+                <div class="alert alert-warning fade in" id="alert_planning_timeslotoverlap" style="display: none;">
+    <button type="button" class="close">&times;</button>
+    <p style="text-align: center">Let op! Uw planning heeft vakken in dezelfde periode met overlappend timeslot</p>
+</div> 
+                
+                
+            </div>
+            <div id="renderbody">
+                
+
+
+
+<div>
+    <h3 class="info-permanent-header">
+
+        Autoriteit en verbeelding in nieuwe media en populaire cultuur
+        (2026/2027:  Periode 2)
+    </h3>
+<div class="permanent-body">
+    <div id="course-info-sidebar" class="content_sidebar_right">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a href=https://mytimetable.uu.nl/ class="btn btn-custom btn-block">
+                    Bekijk rooster
+                </a>
+                <a href="javascript:window.print()" class="btn btn-custom btn-block">
+                    Print deze pagina
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div>
+        <div class="well white hide-permalink">
+            <div class="row">
+    <div class="course-info-main col-xs-12 col-md-7 border-right">
+        <!-- Course equivalents are loaded into this div-->
+        <div class="course-equivalents">
+            <div class="equivalents-load-container" style="width: 100%; text-align: center;">
+                <!-- Load icon inserted when needed -->
+            </div>
+        </div>
+        
+
+<div class="panel-group">
+    <!-- AIM -->
+    <div class="panel panel-default">
+        <div class="panel-heading" data-toggle="collapse" href="#courseAimCollapse386622541270764" style="cursor: pointer;">
+            <h4 class="panel-title">
+                <span class="glyphicon glyphicon-menu-down"></span>
+                Cursusdoel
+            </h4>
+        </div>
+        <div id="courseAimCollapse386622541270764" class="panel-collapse collapse in">
+            <div class="panel-body">
+Na afronding van de cursus kan de student:
+<ul>
+	<li>De invloed van nieuwe media en populaire cultuur op politiek, cultuur en religie beter duiden;</li>
+	<li>Deze ontwikkeling contextualiseren binnen bredere maatschappelijke processen zoals modernisering, globalisering en secularisatie;</li>
+	<li>Uitingen in nieuwe media en populaire cultuur analyseren aan de hand van concrete casussen en met gebruik van relevante conceptuele kaders;</li>
+	<li>Kritisch reflecteren op de uiteenlopende manieren waarop machtsongelijkheid en dynamieken van in- en uitsluiting zich manifesteren binnen nieuwe media en populaire cultuur.</li>
+</ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="panel panel-default">
+        <div class="panel-heading" data-toggle="collapse" href="#courseContentCollapse386622541270764" style="cursor: pointer;">
+            <h4 class="panel-title">
+                <span class="glyphicon glyphicon-menu-down"></span>
+                Vakinhoudelijk
+            </h4>
+        </div>
+        <div id="courseContentCollapse386622541270764" class="panel-collapse collapse in">
+            <div class="panel-body">
+In deze cursus bekijken we hoe autoriteit en verbeelding tot stand komen in nieuwe media en populaire cultuur. We doen dit tegen de achtergrond van de opkomst van de “experience economy”, waarin bedrijven, platforms en mediavormen onze aandacht proberen te trekken door onze ervaring en verbeelding te prikkelen. De opkomst van sociale media en entertainmentcultuur heeft grote gevolgen voor de hedendaagse politiek, cultuur en religie. Hoe wordt ons leven beïnvloed door nieuwe mediatechnologieën en algoritmes? Wat is de relatie tussen zingeving, verbeelding en commercialiteit? Wat betekent autoriteit in de wereld van memes, swifties, manospheres, K-pop fandom, islamitische virtual reality-pelgrimages en christfluencers? Hoe beïnvloeden platforms als TikTok of themaparken als Madurodam wat als typisch Nederlands gezien wordt? En wat is de ruimte voor persoonlijke vrijheid als er op zoveel manieren om onze aandacht gestreden wordt? <br>
+ <br>
+In iedere cursusbijeenkomst staat een casus centraal die inzicht biedt in de complexe rol van autoriteit en verbeelding in nieuwe media en populaire cultuur. Aan de hand van deze voorbeelden bespreken we hoe verschillende vormen van nieuwe media en populaire cultuur ieder hun eigen spelregels, platformlogica’s en dynamieken van in- en uitsluiting kennen. Per sessie bespreken we bovendien welke methoden en theoretische concepten het best geschikt zijn om deze vormen te analyseren.<br>
+ 
+            </div>
+        </div>
+    </div>
+
+    <!-- AANVULLENDE INFORMATIE -->
+
+    <!-- WERKVORMEN -->
+        <div class="panel panel-default">
+            <div class="panel-heading" data-toggle="collapse" href="#werkvormenCollapse386622541270764" style="cursor: pointer;">
+                <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-menu-down"></span>
+                    Werkvormen
+                </h4>
+            </div>
+            <div id="werkvormenCollapse386622541270764" class="panel-collapse collapse in">
+                <div class="panel-body">
+                        <b>Hoorcollege</b>
+                        <br />
+                            <br />
+                        <b>Werkcollege</b>
+                        <br />
+                            <br />
+                </div>
+            </div>
+        </div>
+
+
+    <!-- GRADING -->
+        <div class="panel panel-default">
+            <div class="panel-heading" data-toggle="collapse" href="#courseGradingCollapse386622541270764" style="cursor: pointer;">
+                <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-menu-down"></span>
+                    Toetsing
+                </h4>
+            </div>
+            <div id="courseGradingCollapse386622541270764" class="panel-collapse collapse in">
+                <div class="panel-body">
+                        <h5 style="font-weight: bold;">Opdracht </h5>
+                        <p><i>Verplicht | Weging 50% | ECTS 3,75</i></p>
+                            <p></p>
+                            <p></p>
+                        <h5 style="font-weight: bold;">Presentatie </h5>
+                        <p><i>Verplicht | Weging 50% | Minimum cijfer 5,5 | ECTS 3,75</i></p>
+                            <p></p>
+                            <p></p>
+                </div>
+            </div>
+        </div>
+
+    <!-- ENTRY REQUIREMENTS AND PREKNOWLEDGE -->
+    <div class="panel panel-default">
+        <div class="panel-heading" data-toggle="collapse" href="#courseEntryAndPreKnowledgeCollapse386622541270764" style="cursor: pointer;">
+            <h4 class="panel-title">
+                <span class="glyphicon glyphicon-menu-down"></span>
+                Ingangseisen en voorkennis
+            </h4>
+        </div>
+        <div id="courseEntryAndPreKnowledgeCollapse386622541270764" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <!--ENTRY REQUIREMENTS-->
+                <h5 style="font-weight: bold;">Ingangseisen</h5>
+
+                    <p class="dfn">Er is geen informatie over verplichte ingangseisen bekend.</p>
+
+                <!-- PREKNOWLEDGE-->
+                <h5 style="font-weight: bold;">Voorkennis</h5>
+
+                    <p class="dfn">Er is geen informatie over benodigde voorkennis bekend.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- LANGUAGE -->
+    <div class="panel panel-default">
+        <div class="panel-heading" data-toggle="collapse" href="#courseLanguageCollapse386622541270764" style="cursor: pointer;">
+            <h4 class="panel-title">
+                <span class="glyphicon glyphicon-menu-down"></span>
+                Voertalen
+            </h4>
+        </div>
+        <div id="courseLanguageCollapse386622541270764" class="panel-collapse collapse in">
+            <div class="panel-body">
+                    <ul class="list-unstyled">
+                            <li>Nederlands</li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Competences -->
+
+    <!-- Course moments -->
+        <div class="panel panel-default">
+            <div class="panel-heading" data-toggle="collapse" href="#courseRelatedCoursesCollapse386622541270764" style="cursor: pointer;">
+                <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-menu-down"></span>
+                    Cursusmomenten
+                </h4>
+            </div>
+            <div id="courseRelatedCoursesCollapse386622541270764" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <ul class="list-unstyled">
+
+                            <li>
+                                <a href="/course/PC1V26003/2026/2">
+                                        <strong>
+                                    2026 - 2027
+                                                                        </strong>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    <!-- Examprograms -->
+        <div class="panel panel-default">
+            <div class="panel-heading" data-toggle="collapse" href="#courseExamprogramsCollapse386622541270764" style="cursor: pointer;">
+                <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-menu-down"></span>
+                    Gerelateerde studies
+                </h4>
+            </div>
+            <div id="courseExamprogramsCollapse386622541270764" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <ul class="list-unstyled">
+                        <li>
+
+
+                            <a href="/study/LA-MAJOR-26" data-toggle="modal" data-target="#exampleModal">
+                                Liberal Arts &amp; Sciences (vanaf 2026)
+                            </a>
+
+                            
+                        </li>
+                        <li>
+
+
+                            <a href="/study/PC-MAJOR-26" data-toggle="modal" data-target="#exampleModal">
+                                Politiek, cultuur en religie
+                            </a>
+
+                            
+                        </li>
+                        <li>
+
+
+                            <a href="/study/RS-MAJOR-21" data-toggle="modal" data-target="#exampleModal">
+                                Religiewetenschappen (vanaf 2021-22)
+                            </a>
+
+                            
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    <!-- Themes -->
+        <div class="panel panel-default">
+            <div class="panel-heading" data-toggle="collapse" href="#courseThemesCollapse386622541270764" style="cursor: pointer;">
+                <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-menu-down"></span>
+                    Thema&#39;s
+                </h4>
+            </div>
+            <div id="courseThemesCollapse386622541270764" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <ul class="list-unstyled">
+                        <li>
+                            
+                            <a href="/theme/DIGITA_HOOFDTHEMA">
+                                Digitalisation
+                            </a>
+                            <ul class="partial-sub-themes list-unstyled">
+
+
+                                    <li >
+                                        - Bias en discriminatie
+                                    </li>
+
+                            </ul>
+                            <br />
+                        </li>
+                        <li>
+                            
+                            <a href="/theme/GLOBAL_HOOFDTHEMA">
+                                Globalisation
+                            </a>
+                            <ul class="partial-sub-themes list-unstyled">
+
+
+                                    <li >
+                                        - Verbondenheid van idee&#235;n
+                                    </li>
+
+                            </ul>
+                            <br />
+                        </li>
+                        <li>
+                            
+                            <a href="/theme/INTERC_HOOFDTHEMA">
+                                Inter cultural
+                            </a>
+                            <ul class="partial-sub-themes list-unstyled">
+
+
+                                    <li >
+                                        - Culturele/nationale identiteit
+                                    </li>
+
+                            </ul>
+                            <br />
+                        </li>
+                        <li>
+                            
+                            <a href="/theme/INTERD_HOOFDTHEMA">
+                                Interdisciplinary
+                            </a>
+                            <ul class="partial-sub-themes list-unstyled">
+
+
+                                    <li >
+                                        - Maatschappelijke relevantie
+                                    </li>
+
+                            </ul>
+                            <br />
+                        </li>
+                        <li>
+                            
+                            <a href="/theme/OPENSA_HOOFDTHEMA">
+                                Open Society, Diversity
+                            </a>
+                            <ul class="partial-sub-themes list-unstyled">
+
+
+                                    <li >
+                                        - Diversiteit
+                                    </li>
+
+                            </ul>
+                            <br />
+                        </li>
+                        <li>
+                            
+                            <a href="/theme/OPENSC_HOOFDTHEMA">
+                                Open Science
+                            </a>
+                            <ul class="partial-sub-themes list-unstyled">
+
+
+                                    <li >
+                                        - Onderzoeksethiek en integriteit
+                                    </li>
+
+                            </ul>
+                            <br />
+                        </li>
+                        <li>
+                            
+                            <a href="/theme/TECHNO_HOOFDTHEMA">
+                                Technology and society
+                            </a>
+                            <ul class="partial-sub-themes list-unstyled">
+
+
+                                    <li >
+                                        - Social media   /    fake news
+                                    </li>
+
+                            </ul>
+                            <br />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</div>
+<hr />
+
+
+
+<script src="/Scripts/ViewScripts/courseExtended.js"></script>
+
+        
+    <h4>Tentamens</h4>
+    <p class="dfn">Er is geen tentamenrooster beschikbaar voor deze cursus</p>
+<hr />
+
+
+
+        
+    <h4>Verplicht materiaal</h4>
+    <p class="dfn">Er is geen informatie over de verplichte literatuur bekend</p>
+<br />
+    <h4>Aanbevolen materiaal</h4>
+    <p class="dfn">Er is geen informatie over de aanbevolen literatuur bekend</p>
+
+
+    </div>
+    <div class="col-xs-12 col-md-5 border-left">
+        
+
+
+<h4>Coördinator</h4>
+<table style="width: 100%;">
+    <tr>
+        <td class="text-left">
+                <a href="http://www.uu.nl/medewerkers/zoek?SolisID=Hemel003">prof. dr. E. van den Hemel</a>
+        </td>
+        <td class="text-right">
+            <a href="mailto:e.vandenhemel@uu.nl">e.vandenhemel@uu.nl</a>
+        </td>
+    </tr>
+</table>
+<hr />
+
+
+            <h4>Docenten</h4>
+    <table style="width: 100%;">
+            <tr>
+                <td class="text-left">
+                        <a href="http://www.uu.nl/medewerkers/zoek?SolisID=Es000008">dr. M.A. van Es</a>
+                </td>
+                <td class="text-right"><a href="mailto:m.a.vanes@uu.nl">m.a.vanes@uu.nl</a></td>
+            </tr>
+            <tr>
+                <td class="text-left">
+                        <a href="http://www.uu.nl/medewerkers/zoek?SolisID=Hemel003">prof. dr. E. van den Hemel</a>
+                </td>
+                <td class="text-right"><a href="mailto:e.vandenhemel@uu.nl">e.vandenhemel@uu.nl</a></td>
+            </tr>
+    </table>
+    <hr />
+
+
+
+
+        <h4>Inschrijving</h4>
+
+
+
+    <div>Deze cursus is open voor bijvakkers. Controleer wel of er <b>aanvullende</b> ingangseisen gelden.</div>
+<br />
+
+        <strong>Inschrijving</strong><br />
+        Van maandag 8 juni 2026
+         tot en met vrijdag 26 juni 2026
+        <br /><br />
+        <strong>Na-inschrijving</strong><br />
+        Van maandag 19 oktober 2026
+         tot en met dinsdag 20 oktober 2026
+        <br /><br /> 
+        <a href="javascript:void(0)" target="_blank" class="btn btn-custom btn-block disabled">
+            Inschrijving niet geopend
+        </a>
+
+<hr />
+
+
+        <a href="/course/PC1V26003/2026/2" target="_blank" class="btn btn-custom btn-block course-permalink">Permanente link naar de cursuspagina</a>
+        <br />
+        <a href=https://osiris-student.uu.nl/#/onderwijscatalogus/extern/cursus?cursuscode=PC1V26003&collegejaar=2026 target="_blank" class="btn btn-custom btn-block course-permalink">Laat in de Cursus-Catalogus zien</a>
+        <br />
+        <a href=https://mytimetable.uu.nl/link?timetable.type=timeedit_course&view=list&timetable.key=PC1V26003 target="_blank" class="btn btn-custom btn-block course-permalink">Laat in MyTimetable zien</a>
+    </div>
+</div>
+
+
+        </div>
+    </div>
+</div>
+</div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="pull-left">
+            <button class="btn btn-link" data-toggle="modal" data-target="#about-modal" style="padding-right: 0;">Over CursusPlanner</button>
+            <p style="display: inline; vertical-align: middle">
+                <span class="footer-dash">&#8722;</span>Utrecht University
+                <span class="footer-dash">&#8722;</span>&copy; 2013 - 2026
+            </p>
+        </div>
+        <div class="pull-right">
+            <button class="btn btn-link" data-toggle="modal" data-target="#contact-modal" style="padding-left: 0;">Vragen / Technische problemen</button>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="refreshed" value="no" />
+
+
+<div id="preferences-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/Account/SavePreferences?returnUrl=%2Fcourse%2FPC1V26003%2F2026%2F2" id="AccountForm" method="post">    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">Voorkeuren</h3>
+    </div>
+    <div class="modal-body">
+        <div class="preferences-form">
+            <h4 class="accountHeader">Kleurenblindheid</h4>
+            <p>Vink deze optie aan om meer contrast in de CursusPlanner te gebruiken. In verband met privacywetgeving wordt deze instelling niet gekoppeld aan jouw account.</p>
+            <div class="checkbox">
+                <label>
+                    <input id="colorblind" name="colorblind" type="checkbox" value="true" /><input name="colorblind" type="hidden" value="false" />
+                    Kleurenblind
+                </label>
+            </div>
+            <hr />
+            <h4 class="accountHeader">Taalinstelling</h4>
+            <p>Met deze instelling kun je de weergavetaal voor de website instellen.</p>
+            <div class="radio">
+                <label>
+
+                    <input id="language" name="language" type="radio" value="nl-NL" />
+                    Nederlands
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+
+                    <input id="language" name="language" type="radio" value="en-US" />
+                    Engels
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-custom">Opslaan</button>
+    </div>
+</form>
+<script src="/Scripts/ViewScripts/account.js"></script>
+
+        </div>
+    </div>
+</div>
+
+<script src="/Scripts/ViewScripts/shared.js"></script>
+
+
+<div id="help-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">Help</h3>
+            </div>
+            <div class="modal-body">
+                <h4>CursusPlanner</h4>
+                <p><p>De CursusPlanner is een tool om je vakkenpakket samen te stellen. Je kunt de CursusPlanner op verschillende manieren gebruiken: vrije keuzevakken zoeken, het overzicht van de vakken van je opleiding bekijken en de informatie combineren. Nadat je je studie hebt geselecteerd of één of meerdere (sub)thema’s hebt gekozen onder <i>Vrije keuzevakken per thema</i> krijg je een overzicht met vakken die je kunt volgen. Door op een vak te klikken krijg je extra informatie van het vak:
+<ul><li>inhoud</li>
+<li>docenten</li>
+<li>inschrijfperiode</li>
+<li>welk examenonderdeel (bijvoorbeeld verplicht of keuze context) een vak heeft voor de opleiding</li>
+<li>een link naar de inschrijfpagina van Osiris</li></ul></p>
+
+<p>Als je op <img src="/Content/images/Backpackexclude.png" style="width:20px; height:20px;"> klikt, stop je een vak in je rugzak, zodat je dit vak door de rest van de CursusPlanner mee kunt nemen.</p></p>
+                <hr />
+                <h4>Vrije keuzevakken zoeken</h4>
+                <p>Ben je op zoek naar een interessante keuzecursus voor in je profileringsruimte? Zoek dan onder <i>Vrije keuzevakken per thema</i> en selecteer één of meerdere thema’s en subthema’s. Je kunt zoeken op onderwerp, onderwijsvorm of competentie. Vervolgens krijg je een overzicht te zien met de verschillende (keuze)cursussen met deze thema’s en subthema’s. Zo kun je eenvoudig buiten je eigen opleiding zoeken.</p>
+                <hr />
+                <h4>Programma(&#39;s) en vrije keuzevakken</h4>
+                <p><p>Wil je weten of bepaalde keuzecursussen in je programma(‘s) en planning passen? Klik op ‘Wijzig selectie’ en selecteer  je faculteit en programma(‘s) onder <i>Examenprogramma’s</i>. Het is mogelijk meerdere studies te selecteren met de knop <i>Voeg studie toe</i>; hiermee kun je tot maximaal 3 andere studies of <i>minoren</i> naast je huidige studie leggen. Alle cursussen van deze opleidingen worden dan getoond in het overzicht.</p>
+
+<p>Om sneller te kunnen zoeken tussen de vele cursussen in het overzicht, gebruik je één van de filtermogelijkheden aan de linkerkant van de pagina.</p>
+
+<p>Verder is het mogelijk om direct naar een examenprogramma te navigeren via de link in de browserbalk. Hiervoor moet je de volgende link gebruiken, <i>https://cursusplanner.uu.nl/study/{examenprogramma}</i>. Het gedeelte <i>{examenprogramma}</i> moet je vervangen met de code voor jouw programma. Dit is ook mogelijk als je direct naar een cursus wilt navigeren, hiervoor gebruik je de link <i>https://cursusplanner.uu.nl/course/{cursuscode}</i>. Het gedeelte <i>{cursuscode}</i> vervang je met de code voor de cursus.</p>
+		
+<p>Als je voor het eerst de CursusPlanner opent, selecteer je je studie en/of gewenste (sub)thema’s onder <i>Vrije keuzevakken per thema</i>. Als je vervolgens inlogt, onthoudt de CursusPlanner je studiekeuze. De volgende keer dat je inlogt word je automatisch naar deze keuzes gebracht. De opties kun je aanpassen in <i>Voorkeuren</i>.</p></p>
+                <hr />
+                <h4>Mijn rugzak</h4>
+                <p><p>Hier zie je een overzicht van je geselecteerde vakken.</p>
+
+<p><b>Alleen als je ingelogd bent</b>: als je ingelogd bent wordt er persoonlijke informatie getoond. Daarnaast krijg je de mogelijkheid om je selectie naar jezelf te mailen, zodat je deze vervolgens naar je studiebegeleider of studiegenoot kunt mailen.</p></p>
+                <hr />
+                <h4>Mijn planning</h4>
+                <p><p><b>Alleen als je ingelogd bent</b>: bij <i>Mijn planning</i> kun je een meerjarenplanning opstellen. De behaalde vakken worden uit Osiris gehaald en automatisch ingevuld. De cursussen in je rugzak kun je in de planning slepen. Let op: je kunt een cursus in iedere periode slepen; dit betekent echter niet dat die cursus ook daadwerkelijk in die periode wordt gegeven.</p></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-custom" data-dismiss="modal">Sluiten</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="about-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">Over CursusPlanner</h3>
+            </div>
+            <div class="modal-body">
+                <p>De CursusPlanner heeft als doel om de student te helpen bij het samenstellen van zijn vakkenpakket. Met de CursusPlanner kan snel en overzichtelijk gezocht worden naar vakken, ook van andere opleidingen.</p>
+                <hr />
+                <h4>Opdrachtgever</h4>
+                <p>CursusPlanner is ontwikkeld met subsidie van het Utrechts Stimuleringsfonds Onderwijs 2013 toegekend door de Board of Studies van de Undergraduate School van de faculteit Bètawetenschappen.</p>
+                <hr />
+                <h4>Release Notes</h4>
+                <p><p>release notes 13 februari</p>
+
+<strong>Nieuw</strong>
+<p><ul>
+	<li>Filter op vakken die openstaan voor bijvakkers</li>
+	<li>Filter op competenties</li>
+	<li>Bekijk de competenties per cursus</li>
+	<li>Bekijk het overzicht van de competenties op de rugzak overzichtspagina</li>
+	<li>Bekijk voor welke vakken je bent ingeschreven</li>
+</ul></p>
+
+<strong>Verbeteringen</strong>
+<p><ul>
+	<li>Faculteiten en examenprogramma's worden nu alfabetisch geordend</li>
+	<li>Examenprogramma's worden nu rechtstreeks uit Osiris gelezen, waardoor fout ingestelde examenprogramma's verleden tijd zijn</li>
+	<li>De Nederlandse vaknaam wordt nu weergegeven als een vak geen Engelse naam heeft </li>
+	<li>De planning opslaan knop wordt nu alleen weergegeven als een gebruiker ingelogd is</li>
+	<li>Filters met maar één mogelijke optie worden nu verborgen</li>
+	<li>Zoeken op meerdere timeslots vindt nu ook cursussen die in meerdere gekozen timeslots vallen</li>
+</ul></p>
+
+<strong>Opgeloste bugs</strong>
+<p><ul>
+	<li>Het opslaan van planningen breekt niet meer als een spatie gebruikt wordt in een naam</li>
+	<li>Inladen van curssusen met speciale tekens in de curssuscode is gefixt</li>
+	<li>Verschillende vertaal- en styling-foutjes opgelost</li>
+</ul></p></p>
+                <hr />
+                <h4>Versienummer</h4>
+                <p>Versienummer: 2026.03.17.77b218</p>
+                <hr />
+                <h4>Ondersteunde Browsers</h4>
+                <p>De CursusPlanner is ontwikkeld met oog op de meest gebruikte en recents browserversies. Als de CursusPlanner niet goed werkt, raden we je aan de meest recente versie van je browser te downloaden en te gebruiken. De volgende browsers worden niet ondersteund:
+<ul><li>Internet Explorer 9</li>
+<li>Safari 9</li></ul></p>
+                <hr />
+                <h4>Disclaimer</h4>
+                <p>De informatie die door de CursusPlanner van de Universiteit Utrecht wordt weergegeven wordt met de grootst mogelijke zorg samengesteld. Desondanks kan het voorkomen dat er onvolkomenheden in deze informatie zitten. De Universiteit Utrecht en de faculteiten zijn niet aansprakelijk voor directe of indirecte gevolgen van eventuele onjuistheden in de CursusPlanner (zelfs niet wanneer de Universiteit of faculteiten tussentijds op de hoogte zijn gesteld van deze onjuistheden). Aan de gegevens zoals die door de CursusPlanner worden weergegeven, kunnen geen rechten worden ontleend.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-custom" data-dismiss="modal">Sluiten</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="contact-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">Contact</h3>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Neem voor vragen met betrekking tot de inhoud van de CursusPlanner (curriculum, cursusinformatie, roosters, ...) contact op met het betreffende studiepunt:
+                </p>
+                <table class="table table-striped">
+                        <tr>
+                            <td>
+                                Beta &gt; Biologie
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#98;&#105;&#111;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#98;&#105;&#111;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Beta &gt; Farmacie
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#112;&#104;&#97;&#114;&#109;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#112;&#104;&#97;&#114;&#109;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Beta &gt; Informatica / Informatiekunde
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#105;&#110;&#102;&#111;&#114;&#109;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#105;&#110;&#102;&#111;&#114;&#109;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Beta &gt; Natuurkunde
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#112;&#104;&#121;&#115;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#112;&#104;&#121;&#115;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Beta &gt; Scheikunde
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#99;&#104;&#101;&#109;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#99;&#104;&#101;&#109;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Beta &gt; Wiskunde
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#109;&#97;&#116;&#104;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#109;&#97;&#116;&#104;&#46;&#98;&#97;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Faculteit Geesteswetenschappen
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#116;&#117;&#100;&#105;&#101;&#112;&#117;&#110;&#116;&#46;&#103;&#119;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#116;&#117;&#100;&#105;&#101;&#112;&#117;&#110;&#116;&#46;&#103;&#119;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Faculteit Sociale Wetenschappen
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#116;&#105;&#112;&#46;&#102;&#115;&#119;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#116;&#105;&#112;&#46;&#102;&#115;&#119;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Graduate School of Life Sciences
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#103;&#115;&#108;&#115;&#64;&#117;&#117;&#46;&#110;&#108;&#32;?SUBJECT=[CursusPlanner]">&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#103;&#115;&#108;&#115;&#64;&#117;&#117;&#46;&#110;&#108;&#32;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Graduate School of Natural Sciences
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#103;&#115;&#110;&#115;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#46;&#103;&#115;&#110;&#115;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Graduate School of Teaching
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#116;&#105;&#112;&#46;&#103;&#115;&#116;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#116;&#105;&#112;&#46;&#103;&#115;&#116;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                REBO &gt; RGL
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#116;&#117;&#100;&#105;&#101;&#112;&#117;&#110;&#116;&#46;&#114;&#101;&#99;&#104;&#116;&#101;&#110;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#116;&#117;&#100;&#105;&#101;&#112;&#117;&#110;&#116;&#46;&#114;&#101;&#99;&#104;&#116;&#101;&#110;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Rebo &gt; USBO
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#116;&#117;&#100;&#105;&#101;&#112;&#117;&#110;&#116;&#46;&#117;&#115;&#98;&#111;&#64;&#117;&#117;&#46;&#110;&#108;&#32;?SUBJECT=[CursusPlanner]">&#115;&#116;&#117;&#100;&#105;&#101;&#112;&#117;&#110;&#116;&#46;&#117;&#115;&#98;&#111;&#64;&#117;&#117;&#46;&#110;&#108;&#32;</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                REBO &gt; USE
+                            </td>
+                            <td>
+                                    <a href="mailto:&#115;&#116;&#117;&#100;&#101;&#110;&#116;&#100;&#101;&#115;&#107;&#46;&#117;&#115;&#101;&#64;&#117;&#117;&#46;&#110;&#108;?SUBJECT=[CursusPlanner]">&#115;&#116;&#117;&#100;&#101;&#110;&#116;&#100;&#101;&#115;&#107;&#46;&#117;&#115;&#101;&#64;&#117;&#117;&#46;&#110;&#108;</a>
+                            </td>
+                        </tr>
+                </table>
+                <p>
+
+                    Neem voor vragen met betrekking tot de CursusPlanner zelf (technische problemen, feedback, overige vragen) contact op via <a href="mailto:&#99;&#117;&#114;&#115;&#117;&#115;&#112;&#108;&#97;&#110;&#110;&#101;&#114;&#64;&#117;&#117;&#46;&#110;&#108;">&#99;&#117;&#114;&#115;&#117;&#115;&#112;&#108;&#97;&#110;&#110;&#101;&#114;&#64;&#117;&#117;&#46;&#110;&#108;</a>.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type = "button" class="btn btn-custom" data-dismiss="modal">Sluiten</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="ical-help-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">iCal Feed</h3>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-custom" data-dismiss="modal">Sluiten</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/Scripts/ViewScripts/iCal.js"></script>
+
+
+<script type="text/javascript">
+
+    $(function () {
+        $("#selectedCourses").click(function () {
+            location = "/Backpack";
+        });
+    });
+
+    $("#backpack").backpack({});
+
+    function logout() {
+        window.location = "/Login/Logout";
+    }
+
+    function getlanguage(CID) {
+        var isMSIE = isIE();
+        // Check for IE browsers
+        if (!isMSIE) {
+            $.get("/Account/SetCulture?CultureId=" + CID + "&ReturnUrl=" + document.location.pathname + document.location.search, function (data) {
+                document.open();
+                document.write(data);
+                document.close();
+            });
+        } else {
+            window.location = "/Account/SetCulture?CultureId=" + CID + "&ReturnUrl=" + document.location.pathname + document.location.search;
+        }
+    }
+
+        (function (i, s, o, g, r, a, m) {
+           i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-45896667-1', 'auto');
+        ga('set', 'dimension1', "cursusplanner.uu.nl");
+        if (window.location.pathname.toLocaleLowerCase().startsWith('/curriculum/embed/')) {
+            ga('set', 'dimension2', 'Embed: ' + window.location.pathname.split('/')[3]);
+        } else {
+                ga('set', 'dimension2', "-");
+        }
+        ga('send', 'pageview');
+
+    var lock = lock || false;
+    var dosearch = dosearch || false;
+
+    onload = function () {
+        var e = document.getElementById("refreshed");
+        if (e.value == "no") e.value = "yes";
+        else { e.value = "no"; location.reload(); }
+    }
+
+    $(document).ready(setTimeout(session, 600000));
+
+    function session() {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            tryCount: 0,
+            retryAfter: 2,
+            url: "/Account/Poke",
+            error: function (xhr, textStatus, errorThrown) {
+                this.tryCount++;
+                var ajaxCall = this;
+                setTimeout(function () {
+                    $.ajax(ajaxCall)
+                    return;
+                }, this.retryAfter * 1000);
+            },
+            success: function () { }
+        });
+        setTimeout(session, 600000);
+    }
+
+</script>
+
+</body>
+
+</html>
+
+<script>
+    $('.alert .close').on('click', function (e) {
+        $(this).parent().hide();
+    });
+
+    window.isDutch = function()
+    {
+
+return true;
+    }
+
+</script>
+
+
+<!--
+Created by: 734m 1337
+Dick Kampman
+Jonathan Lukkien
+Jordy van Leersum
+Max van Boxel
+Wouter ten Bosch
+Dewi Zweije
+-->
