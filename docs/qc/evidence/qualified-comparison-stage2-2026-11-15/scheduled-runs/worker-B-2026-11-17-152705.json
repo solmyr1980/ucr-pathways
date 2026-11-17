@@ -34,7 +34,7 @@
     "academic": "Passed for the common core only. Later major/project/final training and full pathway remain excluded; real gaps remain explicit.",
     "mechanical": "Prior complete checks and current strict schema, feasibility, description, audit/scope/preservation, index and byte-exact replay passed.",
     "content": "Actual normal presentation and qualified-core mapping retained; all 25 components, 72 scheduled entries and 54 selected descriptions reviewed in the unchanged recorded pass.",
-    "publication": "All 30 pair blobs and required CI verified. Completion metadata awaits readback.",
+    "publication": "All 30 pair blobs, all seven completion blobs and applicable CI verified. Compiler/validation/index CI passed for the pair; validation passed for the metadata-only completion.",
     "batch06": "7/10 completed; final group QA open."
   },
   "failures": {
@@ -49,12 +49,62 @@
     ]
   },
   "localRecovery": "The isolated clone initially retained a local origin; set the canonical GitHub origin and fetched the exact published claim. No GitHub write failed.",
-  "claimRelease": "Pending verified completion metadata; release only this live B token.",
-  "nextAction": "Verify completion metadata and applicable CI, release B claim. Next execution selects CP431, then CP445 and CP458; do not redo CP384 or any other completed review.",
+  "claimRelease": "B token released in the same closing commit as this verified run QA. Only B claim changed; A claim retained.",
+  "nextAction": "CP384 is complete and must be skipped. Next occurrence selects own CP431, then CP445; CP458 follows. CP431 was not started in this one-case resume execution. Stage 2 remains enabled; final group QA is 7/10 and final 61-case integration is not yet due.",
   "automationStatesVerified": {
     "stage2AEnabled": true,
     "stage2BEnabled": true,
     "oldRestartAPaused": true,
     "oldRestartBPaused": true
-  }
+  },
+  "completionCommit": "1e2c089b13c2191e020868f43c4e1a1b8512f343",
+  "completionReadback": {
+    "files": [
+      {
+        "path": "data/counselor/qc/full-restart-2026-10-27.json",
+        "size": 3902149,
+        "sha": "b7c4cbb0fc58e53992ddb9a4ec72055752855951"
+      },
+      {
+        "path": "data/counselor/qc/full-restart-2026-10-27/cp-000384.json",
+        "size": 138828,
+        "sha": "b9c59b082585d63667bb856a46016f47a5ba7703"
+      },
+      {
+        "path": "docs/qc/deferred-case-qualified-comparison-stage2-progress-2026-11-15.md",
+        "size": 49462,
+        "sha": "7afecfac1a766e70865d1aed77516dd828606466"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/batches/batch-06.md",
+        "size": 14536,
+        "sha": "d97dd26d3982ed8edb87821e38951618160b25c4"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000384/publication-verification.json",
+        "size": 10124,
+        "sha": "8df4bd6824c1ce248e157cf815a8c69637460cbf"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000384/review.json",
+        "size": 23320,
+        "sha": "434e78c1fd9b04113a0c0b60731422e01464d4ea"
+      },
+      {
+        "path": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/scheduled-runs/worker-B-2026-11-17-152705.json",
+        "size": 2455,
+        "sha": "3374c95efd1435efb5d208c56f0e0f5a4065b9d0"
+      }
+    ],
+    "result": "All seven complete published metadata blobs matched current bytes, lengths and Git blob SHAs. Fresh audit/preservation validation passed. Register changes are only the CP384 mirror and derived counts; original worker histories and all post-audit authority fields unchanged."
+  },
+  "completionCI": [
+    {
+      "id": 44115439105,
+      "name": "Validate Shiny pilots",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/solmyr1980/ucr-pathways/actions/runs/44115439105"
+    }
+  ]
 }
