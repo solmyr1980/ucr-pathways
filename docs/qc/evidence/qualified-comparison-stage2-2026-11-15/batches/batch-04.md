@@ -1,6 +1,6 @@
 # Stage 2 batch 4: academic QA group
 
-16 November 2026. Eight of ten reviews complete; final batch QA remains open. This is the next ten-case group from the frozen authorized order after the unchanged first three groups. It does not change immutable worker ownership.
+17 November 2026. Nine of ten reviews complete; final batch QA remains open. This is the next ten-case group from the frozen authorized order after the unchanged first three groups. It does not change immutable worker ownership.
 
 | Case | Stage 2 review | Academic state |
 |---|---|---|
@@ -10,7 +10,7 @@
 | CP-000284 | Completed; qualified 120-EC academic core | Approved; specialist gaps explicit, required third year/full progression excluded |
 | CP-000286 | Completed; robust no-match for documented 150 EC | Approved; remaining required 30 EC, final work and full progression remain uncertified |
 | CP-000288 | Completed; qualified documented 175-EC curriculum | Approved; repeated module counted once, additional 5 EC/full progression excluded |
-| CP-000289 | Not completed | Prior state retained |
+| CP-000289 | Completed; qualified first-120-EC economic academic core | Approved; all180 outline EC retained, open30 separate, required final30 unassessed |
 | CP-000290 | Completed; qualified first-120-EC academic core | Approved; revised final 60 EC and culmination excluded, known specialist gaps explicit |
 | CP-000291 | Not completed | Prior state retained |
 | CP-000293 | Completed; robust no-match for documented 155 EC | Approved; remaining 25 EC, final work and full progression remain uncertified |
@@ -30,3 +30,5 @@ Worker B completed CP283 at pair `43e648c9a98faf0e3562aad18b581f5818505fe6`. All
 Worker A completed CP293 at pair `e182f38fec364c3cdf40514786ef4dfcd86d84b6`. All 18 complete blobs and applicable compiler, validation and both index workflows passed. Two complete feasible research trials give actual UCR law, taxation policy, accounting and legal advocacy full weight. They do not sustain the confirmed fiscal-statute and case-application progression. The remaining revised 25 EC, final-work allocation and full progression are excluded; genuine 30-EC open study and documented Moot Court 5 EC remain. [Review](../cp-000293/review.json), [verification](../cp-000293/publication-verification.json) and [run QA](../scheduled-runs/worker-A-2026-11-17-040012.json). Seven of ten complete: six approved dispositions and one unresolved review; final group QA remains open.
 
 Worker B completed CP286 at pair `9ce1d99b634107a5f36c24e5d7dd7a33f7fc7591`. All 17 complete blobs and applicable compiler, validation and both index workflows passed. Two full feasible research trials give actual network/OS, law, misinformation/deepfakes, organizational psychology and empirical study full positive weight. They do not sustain the confirmed cyber-specific protection, offending/victimization, digital investigation and incident-response integration. The remaining required final-year 30 EC and final-work/access/progression are excluded; genuine 30-EC open study is retained. [Review](../cp-000286/review.json), [verification](../cp-000286/publication-verification.json) and [run QA](../scheduled-runs/worker-B-2026-11-17-043437.json). Eight of ten complete: seven approved dispositions and one unresolved review; final group QA remains open.
+
+Worker B completed CP289 at pair `6ba23fdfc21f3127ac948e7ce7b7b3a02c1c3261`. All20 complete blobs and applicable compiler, validation and both index workflows passed. Three full feasible UCR programs retain economic/empirical/institutional substance with public-policy, behavior/inequality and climate-governance priorities. All30 components/180EC remain; open30 separate and five named required final units30 outline-only. Known legal, labour/migration, climate-economic and causal-method gaps explicit. [Review](../cp-000289/review.json), [verification](../cp-000289/publication-verification.json), [run QA](../scheduled-runs/worker-B-2026-11-17-053408.json). Nine of ten complete: eight approved and one unresolved. CP291 remains unfinished; final group QA open.
