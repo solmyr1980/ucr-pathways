@@ -1,6 +1,6 @@
 # Stage 2 batch 5: academic QA group
 
-17 November 2026. 8 of ten reviews complete; final batch QA remains open. This frozen next group follows batch 4 and preserves immutable worker ownership. Batch 4 is now complete; see its [final QA](batch-04-final-qa.json).
+17 November 2026. 9 of ten reviews complete; final batch QA remains open. This frozen next group follows batch 4 and preserves immutable worker ownership. Batch 4 is now complete; see its [final QA](batch-04-final-qa.json).
 
 | Case | Stage 2 review | Academic state |
 |---|---|---|
@@ -10,7 +10,7 @@
 | CP-000304 | Completed; revised advanced academic weighting remains material | Unresolved; active decision and canonical pair unchanged |
 | CP-000305 | Completed; applicable advanced CHS core remains unresolved | Unresolved; 95 EC and active pair preserved; three feasible research trials retained |
 | CP-000306 | Completed; robust no-match for documented 175 EC | Approved; missing 5 EC and full progression excluded |
-| CP-000309 | Not completed | Prior state retained |
+| CP-000309 | Completed; robust no-match for corrected 170 EC | Approved; original 26 identities preserved plus philosophy; concentration/full progression excluded |
 | CP-000311 | Completed; qualified first-two-year legal core | Approved; 125 EC displayed, 120-EC core assessed, third-year 60 EC excluded; external-only retained |
 | CP-000312 | Not completed | Prior state retained |
 | CP-000314 | Completed; qualified 95 EC compulsory academic core | Approved; 180 EC displayed, 55 EC restricted/final study unassessed, 30 EC open separate; external-only retained |
@@ -29,3 +29,6 @@ Worker B completed CP305, Leiden University College Liberal Arts and Sciences: G
 
 
 Worker A completed CP314, Leiden Political Science (National and International Politics), as a qualified comparison of the confirmed 95 EC compulsory core at pair `c661fba50b725bcb6833ca8460efa54ed09ee926`. Both complete UCR programmes have 24 unique courses, 180 EC and nine advanced courses. Comparative/international/EU politics, policy, theory and empirical methods remain substantive; the second changes seven courses/52.5 EC toward democratic participation, behaviour and public communication. All 21 components and 180 published external EC remain visible. The 25 EC restricted choices and 30 EC seminar/thesis are unassessed; the genuine 30 EC open category is separate. Dutch political specialization and political-psychology differences, full progression and the existing external-only setting remain explicit. All 22 complete blobs and required compiler, validation and index CI passed. Local course-availability, inherited-interest and contract errors were corrected without changing guards; a transient source 503 recovered. CP322 was claimed but not started. [Review](../cp-000314/review.json), [verification](../cp-000314/publication-verification.json) and [run QA](../scheduled-runs/worker-A-2026-11-17-090501.json) retain the evidence. Final batch QA remains open: 8 of ten complete, with cp-000309, cp-000312 outstanding.
+
+
+Worker B completed CP309, Leiden Dutch Studies, as an approved robust no-match for the corrected 170 EC boundary at pair `d0e27ef35ae5ea3ffe8c54a9566801fb2baa0acb`. Current primary membership resolves the former duplicate: Philosophy of Science is in year one and Humanities in a Digital World in year two. All 26 previous component identities/names/weights remain, plus the new philosophy component: 27 components/170 EC. Two complete feasible 24-course research trials each have ten advanced courses. The final pass explicitly contrasts the approved CP060 broader-comparison reasoning with CP309's joint applied-Dutch and country-cultural/linguistic study; no blanket national-corpus or proficiency veto is imposed. The concentration allocation and full entrant progression remain excluded. All 19 pair files and required compiler, validation and index CI passed. [Review](../cp-000309/review.json), [consistency pass](../cp-000309/consistency-final-pass.json) and [run QA](../scheduled-runs/worker-B-2026-11-17-100707.json) retain the evidence. CP312 was claimed but not started; B has 7 reviews remaining. Final batch QA awaits cp-000312.
