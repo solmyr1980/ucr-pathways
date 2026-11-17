@@ -1,6 +1,6 @@
 # Stage 2 batch 5: academic QA group
 
-17 November 2026. One of ten reviews complete; final batch QA remains open. This frozen next group follows batch 4 and preserves immutable worker ownership. Batch 4 remains open for CP289 and CP291.
+17 November 2026. One of ten reviews complete; final batch QA remains open. This frozen next group follows batch 4 and preserves immutable worker ownership. Batch 4 is now complete; see its [final QA](batch-04-final-qa.json).
 
 | Case | Stage 2 review | Academic state |
 |---|---|---|

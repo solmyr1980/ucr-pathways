@@ -1,0 +1,200 @@
+{
+  "runId": "worker-B-2026-11-17-060546",
+  "worker": "B",
+  "startedAt": "2026-11-17T05:05:46.825796Z",
+  "claimCommit": "25cdbc08c6eb9ccb312a5114aaff56ac686b5b69",
+  "renewalCommit": "3e1d2af0214c7c08a6734cbfc94150acadebc02d",
+  "token": "1ca7dc18-24df-4026-9c7b-8b1986d6783d",
+  "claimedCaseIds": [
+    "cp-000291",
+    "cp-000295"
+  ],
+  "handledCaseIds": [
+    "cp-000291"
+  ],
+  "completedReviews": [
+    {
+      "caseId": "cp-000291",
+      "outcome": "qualified-documented-curriculum-comparison",
+      "documentedUniqueEC": 175,
+      "genuineOpenEC": 30,
+      "acceptedUCRPrograms": 1,
+      "pairCommit": "3e1d2af0214c7c08a6734cbfc94150acadebc02d",
+      "verificationRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000291/publication-verification.json"
+    }
+  ],
+  "notStarted": [
+    "cp-000295"
+  ],
+  "status": "One qualified documented-content review complete; approval/batchQA verification and ownclaimrelease pending.",
+  "actualProgress": {
+    "completedStage2": 41,
+    "scope": 61,
+    "approvedStage2": 32,
+    "reviewedStillUnresolved": 9,
+    "corpusApproved": 407,
+    "corpusUnresolved": 31,
+    "remainingOwned": {
+      "A": 9,
+      "B": 11
+    },
+    "nextA": [
+      "cp-000304",
+      "cp-000306"
+    ],
+    "nextB": [
+      "cp-000295",
+      "cp-000300"
+    ]
+  },
+  "qualityResult": "Currentprogramme and33substantivemoduleJSONbodies;allselectedCO/name/credit/AR plusadopted2026–2027OSOactualfullwebtextread.25uniquecomponents175EC,WorldCinemacountedonce,open30separate,knownfinalfilm20andthesis10retained. Additional5EC/fullfuturecohort/progressionexcluded. All47retainedactualUCRfields matchcurrent151rowworkbook;24selectedactualfields/24modaldescriptionsread. Complete24unique180ECplan,eightadvanced;newactualTV/digital/identity inquiryreplacesgenerichistoricalresearchlead andactualDocumentarytimingrespectssoleTV2028h1/AfricanArt2028h1. Twelvepartialcellnotes/18componentnotesreviewed. Sixliterarycoursesplusactualfilm/adaptation/documentary/poetic/stylistic/representationalwork sustainmeaningfulbroaderacademicresponse;specialistcinematheory/history/repertory,animation,film-philosophy,digital-image/AIandcompulsorythesisdifferencesexplicit. Firstglobal/transmediacandidatealreadycovered,rejectandstopatone;genericpoliticalresidualreconciledwithoutthirdattempt. SameAIsource-firstpass disclosed.",
+  "preservation": {
+    "checkedOn": "2026-11-17",
+    "checks": [
+      {
+        "command": [
+          "python",
+          "scripts/validate-counselor-schema.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "da884efe44c0051686ea15deb29d0fe764f224cf9395425e732c82b88eff1614",
+        "tail": [
+          "438 canonical records pass full JSON Schema validation."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-course-feasibility.py",
+          "<all 438 canonical paths>"
+        ],
+        "exitCode": 0,
+        "outputSha256": "e7c9af6c10dc53d92f2b49852d771af6b559e1644c8ed12b36ec8ee60569f9a3",
+        "tail": [
+          "438 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-comprehensive-reaudit.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "b45f5191f21efd177b4c0480b48e9d0ac14299cd671f7ff495549cbe809dfecb",
+        "tail": [
+          "Re-audit register consistent: 438 baseline targets; {'approved': 407, 'inProgress': 31, 'reviewedWithBlockers': 0, 'notStarted': 0, 'pilotStarted': 6}; 438 case evidence files. No academic approval inferred."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/verify-qualified-comparison-stage2.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "f30e0b4c2b3ee21c0eeb9d2948c8ac7360c584471bb3947f1a42c6bbdc65e80b",
+        "tail": [
+          "Preserved 375 approvals, CP072/CP099, 20 unprocessed cases, protected inputs, fixed 438 scope and exhausted worker histories."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/test-qualified-comparison-stage2.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "b67f585beb9c83c5cc8c4b63202de2b1029136b6279daa26bc4c76170c224e85",
+        "tail": [
+          "----------------------------------------------------------------------",
+          "Ran 7 tests in 0.172s",
+          "",
+          "OK"
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "test:counselor-acceptance"
+        ],
+        "exitCode": 0,
+        "outputSha256": "e66f518e4a654140704cb8497727adddedf48f48a15ed7b26d634158966ea29b",
+        "tail": [
+          "> node scripts/test-counselor-acceptance.mjs",
+          "",
+          "Bounded acceptance: ordinary byte-compatible replay; partial positive/negative; adverse tests, scope, unresolved fallback and UCR gates passed.",
+          "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "validate:counselor-review"
+        ],
+        "exitCode": 0,
+        "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8",
+        "tail": [
+          "> node scripts/build-counselor-review-index.mjs --check",
+          "",
+          "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+          "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-course-descriptions.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "0930ad77e0fabf4d5e2b7368e32333cd0d7fa6250a3dd62747d50f545246df6f",
+        "tail": [
+          "149 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained."
+        ]
+      }
+    ],
+    "otherCasePairFilesUnchanged": 1311,
+    "preservationParent": "6b8aa08fb47da86117390d85bdb8ff069f6dbf32",
+    "workerAClaimUnchanged": true,
+    "historicalBrowserScope": "No new renderer/browser execution; reuse60actualchecks at5df42b776ce49f230b1463a1cacdff53ef5feead only."
+  },
+  "governingVersions": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/qc/deferred-case-qualified-comparison-stage2-scheduling-2026-11-16.md": "3f50a53648e89e9d557105a465d5d1f82f96fc59",
+    "docs/qc/deferred-case-qualified-comparison-stage2-assignment-2026-11-15.md": "f3bd43d2f3a81a982333a898fbd8fd2c1200e06b",
+    "docs/UCR_Pathways_Production_Instructions.md": "0f5ba46832f64f98103bb639e64c8cf607e386fa",
+    "docs/UCR_Pathways_Master_Specification.md": "31ddc57dbbd1c103efd9391134a1a468894b20e0",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "af4c5a184ad731bc7b181fd1984958e412a32db1",
+    "docs/qc/deferred-case-qualified-comparison-stage1-implementation-report-2026-11-15.md": "0e7ce42e0b21a5145b1dd0f113dee933a8d826b9",
+    "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/integration-results.json": "6fe880ff4e704211d78ae1306ce42b828d49def9",
+    "docs/qc/deferred-case-qualified-comparison-pilot-results-2026-11-15.md": "525837e2512839b0f013283c34be9db08c315d2b",
+    "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/baseline.json": "a59ca3f7555b9b438db6e62794eac680978b6fe3",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1"
+  },
+  "failure": {
+    "publicationTransportFailures": 0,
+    "outstandingTechnicalFailure": null,
+    "localCorrections": [
+      "Initial B14 checkout command ran before the background fetch completed and could not read the fresh parent tree. The resulting unpublished localclaim was discarded; after fetch completion, reset only isolated localstate to actualfresh6b8aa08parent, revalidated and recomputed claim. Onlynewtoken1ca7dc18waspublished; no staleclaim or academicbytespublished.",
+      "Decision compiler rejected search-onlyrow176 as support in preserved socialcriticism residual. Removed176; currentsearch-onlyclassificationretained unchanged. Freshcompilepassed.",
+      "Finishedreader pass corrected compressed EC/wordspacing and explicitly selected12partialrelationshipcellnotes so actualdifferences are visible. No renderer change.",
+      "A local assumption that CP291 used external-only presentation failed; the actual existing mode is normal. Preserved it byte-for-byte; no override change. Derived sync rerun before production validation.",
+      "Eightdirectpublic/PDF/imageresponsesblockedHTML,twomodulebodiesnull. Didnotinventcontent;freshprimarypublic/OERtextreadthroughweb andprioractualdiagramfindingsretained with limits.",
+      "The interrupted presentation assumption prevented the first derived-index rebuild; the initial index check reported review-programmes.json stale. After preserving existing normal mode, derived audit sync/index rebuilt and full mechanical replay, operational, description, index and Stage2tests passed."
+    ],
+    "sourceLimitation": "44actualdirectrequests:programmeplus33moduleJSONbodies;twonullmodulebodies/eightblockedpublic-PDF-imageHTMLbodies. FreshprimarypublicprogrammeandadoptedOSOtextreadthroughwebalternative. PrioractualdiagramA/Bfinding/hashretained;no freshactualimageclaim. No inventedAoffering,duplicatecredit,formalwaiver or futurecurriculum."
+  },
+  "batchQARef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/batches/batch-04-final-qa.json",
+  "nextAction": "Verifyapproval/batchQAmetadata completebytes and applicableCI, then releaseonlythisownliveBclaim. NextB295then300;295notstarted. Skip291andallcompletedreviewsincludingunresolved278. Bothnewtasksenabled,oldRestartpaused;assignment/finalintegrationincomplete.",
+  "release": {
+    "status": "pendingfinalmetadataverification"
+  },
+  "boundaries": "All1311othercase/pairfiles,Aclaim andpresentationoverrides preserved againstactualrunparent6b8aa08fb47da86117390d85bdb8ff069f6dbf32. No registry/workbook/student/renderer/finaldiscovery/deployment/publicrelease/newautomationchange. Onlyaffectedderivedreviewindex rebuilt;priorbatch5CP296preserved.",
+  "automationStateVerified": {
+    "Stage2AEnabled": true,
+    "Stage2BEnabled": true,
+    "oldRestartAEnabled": false,
+    "oldRestartBEnabled": false,
+    "verifiedOn": "2026-11-17"
+  }
+}
