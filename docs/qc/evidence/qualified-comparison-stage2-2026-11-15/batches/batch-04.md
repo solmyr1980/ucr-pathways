@@ -1,12 +1,12 @@
 # Stage 2 batch 4: academic QA group
 
-16 November 2026. Five of ten reviews complete; final batch QA remains open. This is the next ten-case group from the frozen authorized order after the unchanged first three groups. It does not change immutable worker ownership.
+16 November 2026. Six of ten reviews complete; final batch QA remains open. This is the next ten-case group from the frozen authorized order after the unchanged first three groups. It does not change immutable worker ownership.
 
 | Case | Stage 2 review | Academic state |
 |---|---|---|
 | CP-000278 | Completed; applicable advanced general-cohort weighting remains material | Unresolved; active pair unchanged |
 | CP-000282 | Completed; qualified documented 180-EC content | Approved; physiology/pathology access and 6-EC neuroscience correspondence excluded |
-| CP-000283 | Not completed | Prior state retained |
+| CP-000283 | Completed; robust no-match for documented 175 EC | Approved; disputed language-choice allocation and full progression remain uncertified |
 | CP-000284 | Completed; qualified 120-EC academic core | Approved; specialist gaps explicit, required third year/full progression excluded |
 | CP-000286 | Not completed | Prior state retained |
 | CP-000288 | Completed; qualified documented 175-EC curriculum | Approved; repeated module counted once, additional 5 EC/full progression excluded |
@@ -24,3 +24,5 @@ Worker A completed CP288 at pair `fa00b05981b640072998f3d1ca1bb66c5d3b53ca`, wit
 Worker B completed CP278’s Stage 2 review with an unresolved outcome at checkpoint `e041e2a7bc885a14f74bb1cf65a9028d93085b12`. All 14 complete blobs and applicable validation CI passed. Direct UCR archaeology, heritage and landscape methods were fully credited through two complete feasible research schedules. The applicable advanced general-entrant allocation remains unreconciled; the first-year field capstone and open study do not independently settle a bachelor-level core comparison. [Review](../cp-000278/review.json), [verification](../cp-000278/publication-verification.json) and [run QA](../scheduled-runs/worker-B-2026-11-17-023011.json) preserve the evidence. Four of ten reviews are complete, comprising three approvals and one unresolved review; final group QA remains open.
 
 Worker A completed CP290 at pair `a207c86fc847a14ecb7ee3cb48381201f470b472`. Initial validation caught a stale central unresolved mirror; recovery `a8e74799f0234929756bb4170e31ea021e34dfea` passed CI with the academic pair unchanged. All17pair and4recovery blobs were read back exactly. One UCR program has24unique courses,180EC andsevenadvancedcourses. The120ECfour-field core supports broader literary,stylistic,psycholinguistic andtextual research; historical English,structural linguistics andproficiency gaps remain explicit. Entirefinal60/culmination excluded. [Review](../cp-000290/review.json), [verification](../cp-000290/publication-verification.json) and [runQA](../scheduled-runs/worker-A-2026-11-17-024914.json). Five of ten complete: four approvals and one unresolved; final group QA remains open.
+
+Worker B completed CP283 at pair `43e648c9a98faf0e3562aad18b581f5818505fe6`. All 17 complete blobs and applicable compiler, validation and both index workflows passed. Two complete feasible research challenges give actual China empires, diaspora, political economy, AI and textual/cultural methods full weight. They do not sustain the known China-centered historical, cultural, social and political-economic progression. The judgment survives either language-choice allocation and does not depend on Mandarin or travel alone. All 175 documented EC, genuine 30-EC open study and integrated 10-EC paper remain. [Review](../cp-000283/review.json), [verification](../cp-000283/publication-verification.json) and [run QA](../scheduled-runs/worker-B-2026-11-17-033216.json). Six of ten complete: five approved dispositions and one unresolved review; final group QA remains open.
