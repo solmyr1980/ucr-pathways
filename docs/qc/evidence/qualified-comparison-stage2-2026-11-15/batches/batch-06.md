@@ -11,7 +11,7 @@
 | CP-000384 | B | Not completed | Prior state retained |
 | CP-000410 | A | Completed; qualified first-year 60 EC academic core | Approved; 156 EC retained, 96 listed upper-year EC and 24 unconfirmed EC excluded; external-only retained |
 | CP-000431 | B | Not completed | Prior state retained |
-| CP-000441 | A | Completed; qualified105EC common Biology core | Approved; full180EC framework retained,75EC outside core excluded; two UCR programmes; external-only retained |
+| CP-000441 | A | Completed; qualified 105 EC common Biology core | Approved; 180 EC framework retained, 75 EC excluded; two UCR programmes; normal presentation retained |
 | CP-000445 | B | Not completed | Prior state retained |
 | CP-000446 | A | Not completed | Prior state retained |
 
@@ -34,3 +34,6 @@ Worker B resumed CP324, Leiden Linguistics, from its verified partial checkpoint
 
 
 Worker A completed CP441, Wageningen Biology, as a qualified comparison of its confirmed 105 EC common curriculum at pair `ed7f809818d0321c50846d60a13f138ec1f096d1`. Two full UCR programmes have 24 unique courses/180 EC,6 or 8 advanced courses and7-course/52.5 EC difference. The stronger broad response adds actual environmental chemistry/physics and advanced biogeochemical investigation; the molecular-health response retains its substantive different priorities. The ecological research plan differs only 3 courses/22.5 EC from the stronger closest and is rejected without arbitrary padding. All 28 components/180 EC remain as supported framework; the other 75 EC (3 background choice, 18 specialisation, 24 thesis, 30 genuine open) are excluded. Two chair-preparing RO3 courses/minimum 12 EC, complete pathway and thesis eligibility remain unverified. Plant and comparative organismal/field-lab, chemistry/physics and biological-method differences remain visible. Fifty-seven fresh primary responses and five exact final reentries were read; changed JSON imports were re-entered, not declared identical. Current microbiology alignment was corrected from Biochemistry to actual microbial laboratory methods; human/vertebrate anatomy and chemical equilibrium relationships are bounded explicitly. All 25 published blobs and required compiler/validation/index CI passed. Local count, empty-row, scope-label, repeat-build and spacing errors were corrected before publication; no source/publication failures. CP446 was not started at this completion checkpoint. [Review](../cp-000441/review.json), [verification](../cp-000441/publication-verification.json) and [run QA](../scheduled-runs/worker-A-2026-11-17-130034.json) retain the evidence. Current group: 6/10 completed; final QA awaits all ten. Earlier progress paragraphs remain historical checkpoints.
+
+
+CP441 presentation evidence correction: the retained setting is normal, not an external-only override. Its accepted academic-core contract supports a scoped comparison under the unchanged renderer. Earlier evidence wording at completion commit3e8a4054 was corrected; exact decision/canonical and all scope limits remain unchanged. [Correction](../cp-000441/presentation-verification-correction.json).
