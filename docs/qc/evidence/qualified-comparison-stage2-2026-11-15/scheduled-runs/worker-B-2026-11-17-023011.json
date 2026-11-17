@@ -1,0 +1,175 @@
+{
+  "runId": "worker-B-2026-11-17-023011",
+  "worker": "B",
+  "startedAt": "2026-11-17T01:30:11.710759Z",
+  "claimCommit": "8e3ca27a85975fb8a5facd8d67cba08a3cb7d8d1",
+  "claimedCaseIds": [
+    "cp-000278",
+    "cp-000283"
+  ],
+  "handledCaseIds": [
+    "cp-000278"
+  ],
+  "sourceCheckpointCommit": "e041e2a7bc885a14f74bb1cf65a9028d93085b12",
+  "completedReviews": [
+    {
+      "caseId": "cp-000278",
+      "outcome": "external-programme-unresolved",
+      "academicApproval": false,
+      "verificationRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000278/publication-verification.json"
+    }
+  ],
+  "notStarted": [
+    "cp-000283"
+  ],
+  "status": "Completed one unresolved review; final metadata readback/CI and own claim release pending.",
+  "qualityResult": "Current programme and28module bodies read, including actual80-hourfieldschool,materialidentification,theory,landscapeproposal,placement andthesis. All61interests and32currentUCRcourseleads assessed. Two24unique/180ECresearch schedules pass currentofferings/prerequisites/PPD with7/9advanced and60ECdifference. ActualUCRartefactcataloguing/drawing,Greek/ancientmaterialinquiry,heritage and geophysical/material methods prevent robustno-match. Applicableadvancedgeneralcohortmembership/weight remainsmaterial; neither positive norfirstyear-onlycoreapproval is established. Same-AIsource-firstfinalpass disclosed.14completepublishedblobs andValidateCI43997812206verified.",
+  "actualProgress": {
+    "completedStage2": 34,
+    "scope": 61,
+    "approvedStage2": 25,
+    "reviewedStillUnresolved": 9,
+    "corpusApproved": 400,
+    "corpusUnresolved": 38,
+    "remainingOwned": {
+      "A": 12,
+      "B": 15
+    },
+    "nextA": [
+      "cp-000290",
+      "cp-000293"
+    ],
+    "nextB": [
+      "cp-000283",
+      "cp-000286"
+    ]
+  },
+  "preservation": {
+    "checkedOn": "2026-11-17",
+    "checks": [
+      {
+        "command": [
+          "python",
+          "scripts/validate-counselor-schema.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "da884efe44c0051686ea15deb29d0fe764f224cf9395425e732c82b88eff1614",
+        "tail": [
+          "438 canonical records pass full JSON Schema validation."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-course-feasibility.py",
+          "<all 438 canonical paths>"
+        ],
+        "exitCode": 0,
+        "outputSha256": "e7c9af6c10dc53d92f2b49852d771af6b559e1644c8ed12b36ec8ee60569f9a3",
+        "tail": [
+          "438 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-comprehensive-reaudit.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "e05a19d8e9244aeebafd0ddc80ba04f37f8eef46103d56eafb164e07080248b7",
+        "tail": [
+          "Re-audit register consistent: 438 baseline targets; {'approved': 400, 'inProgress': 38, 'reviewedWithBlockers': 0, 'notStarted': 0, 'pilotStarted': 6}; 438 case evidence files. No academic approval inferred."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/verify-qualified-comparison-stage2.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "2d546567840fc3942411131dbdaabd4ade352118f8806bbca4a0fd34cf5ad569",
+        "tail": [
+          "Preserved 375 approvals, CP072/CP099, 27 unprocessed cases, protected inputs, fixed 438 scope and exhausted worker histories."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/test-qualified-comparison-stage2.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "b2ff18e965aa9ce2950258816c643e7a6012c92bf03aed0f758dc99c8d727f2d",
+        "tail": [
+          "----------------------------------------------------------------------",
+          "Ran 7 tests in 0.171s",
+          "",
+          "OK"
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "test:counselor-acceptance"
+        ],
+        "exitCode": 0,
+        "outputSha256": "e66f518e4a654140704cb8497727adddedf48f48a15ed7b26d634158966ea29b",
+        "tail": [
+          "> node scripts/test-counselor-acceptance.mjs",
+          "",
+          "Bounded acceptance: ordinary byte-compatible replay; partial positive/negative; adverse tests, scope, unresolved fallback and UCR gates passed.",
+          "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "validate:counselor-review"
+        ],
+        "exitCode": 0,
+        "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8",
+        "tail": [
+          "> node scripts/build-counselor-review-index.mjs --check",
+          "",
+          "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+          "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-course-descriptions.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "0930ad77e0fabf4d5e2b7368e32333cd0d7fa6250a3dd62747d50f545246df6f",
+        "tail": [
+          "149 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained."
+        ]
+      }
+    ],
+    "otherCasePairFilesUnchanged": 1311,
+    "preservationParent": "d20d26c83d3715dacf42d79d8f817d0785abbe6d",
+    "workerAClaimUnchanged": true,
+    "historicalBrowserScope": "No new renderer/browser execution; reuse60actualchecks at5df42b776ce49f230b1463a1cacdff53ef5feead only."
+  },
+  "failure": {
+    "publicationFailures": 0,
+    "outstandingTechnicalFailure": null,
+    "sourceLimitations": "Direct Englishpage/currentOERrequests returnedHTTP503; directDutch/transition URLs returnedblockedHTML. CurrentEnglishprogramme contentwasreadthroughwebretriever. HistoricalformalOER/transitionfindings retained accurately,withoutfreshPDFproof. These remainingacademicmembershipquestions are the reviewoutcome,not a timeout mislabeledcomplete.",
+    "localInspectionCorrection": "Role key corrected to actualreviewRole andall61rolesread; sourceparentHumanOriginscode typo reconciled against named0ECsubmodule/currentprogrammegroup without extra credits."
+  },
+  "batchQA": "Fixedbatch4now4/10complete:threeapproved(CP282,CP284,CP288) andoneunresolved(CP278). FinalgroupQAremainsopen; batch3finalQA andallcompletedreviews preserved.",
+  "priorACompletion": {
+    "caseId": "cp-000288",
+    "pairCommit": "fa00b05981b640072998f3d1ca1bb66c5d3b53ca",
+    "approvalCommit": "486a3a1909308681081a8521703c87e5f3578342",
+    "releaseCommit": "d20d26c83d3715dacf42d79d8f817d0785abbe6d",
+    "verification": "19pairblobs/allapplicableCI,8metadatablobs/Validate43995722779 and2closureblobs/Validate43995983305 verified. AncillaryclosurePagescancelled,notacademicgate. No A-ownedcasework underBtoken."
+  },
+  "boundaries": "ActiveCP278pair andallprioracademicstages/source/retry/revisit/worker/exhaustionhistory unchanged.1311othercase/decision/canonicalfiles andAclaim preserved against actualrunparentd20d26c83d3715dacf42d79d8f817d0785abbe6d. No workbook/registry/student/renderer/finaldiscovery/deployment/publicrelease/newautomationchange. Existing60actualdesktop/mobilechecks reused within real scope; no new browser/runtime claim.",
+  "nextAction": "After finalmetadatareadback/applicableCI,releaseonlyownBtoken throughguardedhelper. NextBoccurrence startsCP283thenCP286; skipcompletedCP278includingunresolvedoutcome. PendingArequest requiresseparatenewclaim and startsCP290. Keepnewtasksenabled; oldRestarttaskspaused.",
+  "release": {
+    "status": "pending final metadata verification"
+  }
+}
