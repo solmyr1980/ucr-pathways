@@ -1,0 +1,146 @@
+{
+  "caseId": "cp-000410",
+  "checkedOn": "2026-11-17",
+  "checks": [
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor"
+      ],
+      "exitCode": 0,
+      "outputSha256": "161ea70e942abb58e44aa6ff66a5581fce9e588f7dd3d3100442e0f9eb66ba80",
+      "tail": [
+        "cp-000456.json: final counselor methodology rules OK",
+        "cp-000457.json: final counselor methodology rules OK",
+        "cp-000459.json: final counselor methodology rules OK",
+        "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-counselor-schema.py",
+        "data/counselor/comparisons/cp-000410.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "9fb571b1008783d634b2db739c1ea00879a419636fa2a445b7951d39a0d90918",
+      "tail": [
+        "1 canonical records pass full JSON Schema validation."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-feasibility.py",
+        "data/counselor/comparisons/cp-000410.json",
+        "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000410/research-1-feasibility.json",
+        "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000410/research-2-feasibility.json",
+        "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000410/research-3-feasibility.json"
+      ],
+      "exitCode": 0,
+      "outputSha256": "93b7cec7ed1aaff5d5d75d0f497c15f7916b7ba13b628affdd53de9c2a2f476d",
+      "tail": [
+        "4 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-comprehensive-reaudit.py"
+      ],
+      "exitCode": 0,
+      "outputSha256": "282281a97c79b0bb62a0859de44fc62b818e38753df655abef02e73d8e2c8a51",
+      "tail": [
+        "Re-audit register consistent: 438 baseline targets; {'approved': 416, 'inProgress': 22, 'reviewedWithBlockers': 0, 'notStarted': 0, 'pilotStarted': 6}; 438 case evidence files. No academic approval inferred."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/verify-qualified-comparison-stage2.py"
+      ],
+      "exitCode": 0,
+      "outputSha256": "64195525149dde3561b7adfc5e75d2eccf55791059b0fbc37330f213b7b60b85",
+      "tail": [
+        "Preserved 375 approvals, CP072/CP099, 6 unprocessed cases, protected inputs, fixed 438 scope and exhausted worker histories."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/test-qualified-comparison-stage2.py"
+      ],
+      "exitCode": 0,
+      "outputSha256": "d5af82f7cd2092aae14893461bfb750f916ed3ddfaa17444fce5d6c4572258fa",
+      "tail": [
+        "----------------------------------------------------------------------",
+        "Ran 7 tests in 0.224s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:counselor-acceptance"
+      ],
+      "exitCode": 0,
+      "outputSha256": "e66f518e4a654140704cb8497727adddedf48f48a15ed7b26d634158966ea29b",
+      "tail": [
+        "> node scripts/test-counselor-acceptance.mjs",
+        "",
+        "Bounded acceptance: ordinary byte-compatible replay; partial positive/negative; adverse tests, scope, unresolved fallback and UCR gates passed.",
+        "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+      ]
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:counselor-review"
+      ],
+      "exitCode": 0,
+      "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8",
+      "tail": [
+        "> node scripts/build-counselor-review-index.mjs --check",
+        "",
+        "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+        "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+      ]
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate-course-descriptions.py"
+      ],
+      "exitCode": 0,
+      "outputSha256": "0930ad77e0fabf4d5e2b7368e32333cd0d7fa6250a3dd62747d50f545246df6f",
+      "tail": [
+        "149 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained."
+      ]
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:registry-interests"
+      ],
+      "exitCode": 0,
+      "outputSha256": "f7ce7bad855e286774d735f463e47833f715bb1c677a71b50a13e39b12bb572e",
+      "tail": [
+        "> node scripts/validate-registry-interests.mjs",
+        "",
+        "Valid programme-interest registry: 22259 normalized rows, 22227 original records, 35 excluded/no-target rows, 0 bad target mappings.",
+        "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+      ]
+    },
+    {
+      "command": "Production wrapper replay to fresh temporary path",
+      "result": "byte-exact",
+      "canonicalSha256": "923152b0b7fa0018838961fae734f6a14e7a10e09366e7a6abf1857725d48766"
+    }
+  ],
+  "academicLimit": "Mechanical checks do not establish academic relevance. The three actual programmes is subject to separate academic/content/publication gates."
+}
