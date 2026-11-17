@@ -1,0 +1,206 @@
+{
+  "runId": "worker-B-2026-11-17-063156",
+  "worker": "B",
+  "startedAt": "2026-11-17T05:31:56.396140Z",
+  "claimCommit": "7d30d54105d566fd6a518ed1a1155b64713a6ebe",
+  "renewalCommit": "970425f8f0b978d4450fead7fea483c97086f707",
+  "token": "a18b84bc-705e-41f7-8cca-737585d8f9e1",
+  "claimedCaseIds": [
+    "cp-000295",
+    "cp-000300"
+  ],
+  "handledCaseIds": [
+    "cp-000295"
+  ],
+  "completedReviews": [
+    {
+      "caseId": "cp-000295",
+      "outcome": "qualified-academic-core-comparison",
+      "assessedCoreEC": 120,
+      "documentedEC": 173,
+      "unassessedListedThirdYearEC": 53,
+      "unallocatedEC": 7,
+      "restrictedChoiceECWithinThirdYear": 15,
+      "acceptedUCRPrograms": 1,
+      "pairCommit": "970425f8f0b978d4450fead7fea483c97086f707",
+      "verificationRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000295/publication-verification.json"
+    }
+  ],
+  "notStarted": [
+    "cp-000300"
+  ],
+  "status": "One qualified academic-core review complete; approval metadata verification and own claim release pending.",
+  "actualProgress": {
+    "completedStage2": 42,
+    "scope": 61,
+    "approvedStage2": 33,
+    "reviewedStillUnresolved": 9,
+    "corpusApproved": 408,
+    "corpusUnresolved": 30,
+    "remainingOwned": {
+      "A": 9,
+      "B": 10
+    },
+    "nextA": [
+      "cp-000304",
+      "cp-000306"
+    ],
+    "nextB": [
+      "cp-000300",
+      "cp-000305"
+    ]
+  },
+  "qualityResult": "Current programme/groups and named credited module weights establish the dated first-120-EC core and retain all31components/173EC. Actual LPV1/2 and care-placement descriptions/assessments, clinical-problem blocks, disease mechanisms and scientific-training evidence were read. Their physician examination,BLS,supervisedcare andlongitudinalassessment are real substantive differences. Actual UCR anatomical/physiological/molecular/genetic/infection/pharmacological and laboratory study, differential clinical cases, medical-health interviews,psychodiagnostics and medical-evidence synthesis nevertheless support a meaningful broader academic foundation. All27retainedactualfields match the current151rowworkbook; all24selectedactualfields and24modaldescriptions read. One full24unique/180ECplan,nineadvanced; actual hard prerequisites/offerings and advisory sequence verified. First patient-context candidate is already substantially implemented; stop at one without career-generated alternatives. Fourteen partial cell notes and13componentnotes read. All third-year60/finalwork excluded:53listedECincluding15restrictedhalfminor plus7unallocated. PlanetaryHealth2specificcorrespondence withheld. Same-AI source-first final pass returned to actualclinical/practical andUCRmaterial before exactfinishedinputs. No fullMedicine,clinicalqualification or placement equivalence.",
+  "sourceRetrieval": {
+    "requests": 48,
+    "actualJsonBodies": 36,
+    "nullBodies": 8,
+    "otherHtmlOrBlockedBodies": 4
+  },
+  "preservation": {
+    "checkedOn": "2026-11-17",
+    "checks": [
+      {
+        "command": [
+          "python",
+          "scripts/validate-counselor-schema.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "da884efe44c0051686ea15deb29d0fe764f224cf9395425e732c82b88eff1614",
+        "tail": [
+          "438 canonical records pass full JSON Schema validation."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-course-feasibility.py",
+          "<all 438 canonical paths>"
+        ],
+        "exitCode": 0,
+        "outputSha256": "e7c9af6c10dc53d92f2b49852d771af6b559e1644c8ed12b36ec8ee60569f9a3",
+        "tail": [
+          "438 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-comprehensive-reaudit.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "b2643b94e93cc029d2851cad7f07972dd0323b8771a99f52440fc9276beaa7aa",
+        "tail": [
+          "Re-audit register consistent: 438 baseline targets; {'approved': 408, 'inProgress': 30, 'reviewedWithBlockers': 0, 'notStarted': 0, 'pilotStarted': 6}; 438 case evidence files. No academic approval inferred."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/verify-qualified-comparison-stage2.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "db16455bd3470f26ba60c11f82dd1e5a552d7802e86c672b655e74c31e3b21c9",
+        "tail": [
+          "Preserved 375 approvals, CP072/CP099, 19 unprocessed cases, protected inputs, fixed 438 scope and exhausted worker histories."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/test-qualified-comparison-stage2.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "b67f585beb9c83c5cc8c4b63202de2b1029136b6279daa26bc4c76170c224e85",
+        "tail": [
+          "----------------------------------------------------------------------",
+          "Ran 7 tests in 0.172s",
+          "",
+          "OK"
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "test:counselor-acceptance"
+        ],
+        "exitCode": 0,
+        "outputSha256": "e66f518e4a654140704cb8497727adddedf48f48a15ed7b26d634158966ea29b",
+        "tail": [
+          "> node scripts/test-counselor-acceptance.mjs",
+          "",
+          "Bounded acceptance: ordinary byte-compatible replay; partial positive/negative; adverse tests, scope, unresolved fallback and UCR gates passed.",
+          "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "validate:counselor-review"
+        ],
+        "exitCode": 0,
+        "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8",
+        "tail": [
+          "> node scripts/build-counselor-review-index.mjs --check",
+          "",
+          "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+          "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-course-descriptions.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "0930ad77e0fabf4d5e2b7368e32333cd0d7fa6250a3dd62747d50f545246df6f",
+        "tail": [
+          "149 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained."
+        ]
+      }
+    ],
+    "otherCasePairFilesUnchanged": 1311,
+    "preservationParent": "e4701311e3c786f551e4fbcb027f29257ca7164a",
+    "workerAClaimUnchanged": true,
+    "historicalBrowserScope": "No new renderer/browser execution; reuse60actualchecks at5df42b776ce49f230b1463a1cacdff53ef5feead only."
+  },
+  "governingVersions": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/qc/deferred-case-qualified-comparison-stage2-scheduling-2026-11-16.md": "3f50a53648e89e9d557105a465d5d1f82f96fc59",
+    "docs/qc/deferred-case-qualified-comparison-stage2-assignment-2026-11-15.md": "f3bd43d2f3a81a982333a898fbd8fd2c1200e06b",
+    "docs/UCR_Pathways_Production_Instructions.md": "0f5ba46832f64f98103bb639e64c8cf607e386fa",
+    "docs/UCR_Pathways_Master_Specification.md": "31ddc57dbbd1c103efd9391134a1a468894b20e0",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "af4c5a184ad731bc7b181fd1984958e412a32db1",
+    "docs/qc/deferred-case-qualified-comparison-stage1-implementation-report-2026-11-15.md": "0e7ce42e0b21a5145b1dd0f113dee933a8d826b9",
+    "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/integration-results.json": "6fe880ff4e704211d78ae1306ce42b828d49def9",
+    "docs/qc/deferred-case-qualified-comparison-pilot-results-2026-11-15.md": "525837e2512839b0f013283c34be9db08c315d2b",
+    "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/baseline.json": "a59ca3f7555b9b438db6e62794eac680978b6fe3",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1"
+  },
+  "failure": {
+    "publicationTransportFailures": 0,
+    "outstandingTechnicalFailure": null,
+    "localCorrections": [
+      "Optionalbs4inspectionfailedbecausepackagewasnotinstalled. Usedbuilt-inHTMLstripping,recognizedthecatalogueSPA shellasnonacademic,andreadactualAPIprogramme/grouptextinstead. No installation orshellcontentclaim.",
+      "Ametadata-onlyPlanetaryHealthbodylacksdescriptions;initialinspectionraisedKeyError. Reinspectedactualkeyswithmissingfieldhandled,retainedverified2ECname/weightandwithheldcontent/correspondence.",
+      "InitialBA-GEN-prefixextractionomittedtheAWV1groupwhosecodeis3011AWV30Y. Actualrecursivegroupinspectionfoundthe5ECparent;downloadedparentandtwozero-credit/nullchildren,creditedonce. No missingcreditfilledbysubtraction."
+    ],
+    "sourceLimitation": "Null LPV3 and unpublished AWV3/Planetary detail remain missing. Historical2025–2026 OER/minor conditions are not promoted to current authority. Current programme API supplies actual group text; raw catalogue HTML is a shell. Official English Medicine text read through web, and a narrow current-OER/exact-LPV3 search found no verified adopted current bridge. No broad exhausted search repeated, university contact or login."
+  },
+  "batchQA": "Frozen batch4 final QA remains completed and unchanged. Frozen batch5 now2/10 complete:CP295Medicine andCP296History approved as separately justified academic-core comparisons. Eight other reviews remain unfinished; final batch5 QA open.",
+  "nextAction": "Verify approval metadata complete published bytes and applicable CI, then release only this own live B claim. Next B occurrence selects CP300 then CP305; CP300 was not started. Skip CP295 and every completed review, including reviewed unresolved cases. Both Stage2 tasks stay enabled and old Restart tasks paused; assignment and final integration are incomplete.",
+  "release": {
+    "status": "pending final metadata verification"
+  },
+  "boundaries": "All1311othercase/pairfiles and A claim preserved against actualrunparente4701311e3c786f551e4fbcb027f29257ca7164a. OnlyCP295presentation override external-only to normal; allotheroverridesunchanged. No workbook/registry/student/renderer/finaldiscovery/deployment/publicrelease/newautomationchange. Existing60actualdesktop/mobilechecks reused within unchanged academic-core display scope; no newR/browser execution.",
+  "automationStateVerified": {
+    "Stage2AEnabled": true,
+    "Stage2BEnabled": true,
+    "oldRestartAEnabled": false,
+    "oldRestartBEnabled": false,
+    "verifiedOn": "2026-11-17"
+  }
+}
