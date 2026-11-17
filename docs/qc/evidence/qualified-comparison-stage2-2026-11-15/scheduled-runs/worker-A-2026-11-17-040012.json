@@ -1,0 +1,195 @@
+{
+  "runId": "worker-A-2026-11-17-040012",
+  "worker": "A",
+  "startedAt": "2026-11-17T03:00:12.182690Z",
+  "claimCommit": "ddf7836501a3f3b7a57a4b65cefc6f90da67da9a",
+  "renewalCommit": "e182f38fec364c3cdf40514786ef4dfcd86d84b6",
+  "claimedCaseIds": [
+    "cp-000293",
+    "cp-000296"
+  ],
+  "handledCaseIds": [
+    "cp-000293"
+  ],
+  "completedReviews": [
+    {
+      "caseId": "cp-000293",
+      "outcome": "robust-no-defensible-ucr-match",
+      "documentedEC": 155,
+      "pairCommit": "e182f38fec364c3cdf40514786ef4dfcd86d84b6",
+      "verificationRef": "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/cp-000293/publication-verification.json"
+    }
+  ],
+  "notStarted": [
+    "cp-000296"
+  ],
+  "status": "One bounded robust no-match completed; approval-metadata readback/CI and own claim release pending.",
+  "qualityResult": "Current BA-FIS programme and 33 substantive actual module bodies obtained. All 24 required revised first/second-year 5-EC units verified; critical fiscal content, learning outcomes and assessment read. Current formal OER text actually read through an official-source alternative. All 60 interests and 29 actual UCR leads reconciled. Two complete feasible research trials each have 24 unique courses and 180 EC, seven/nine advanced courses, and 30 EC of real changes each way. Actual UCR legal argument, statutory methods, public economics/taxation, accounting, financial inquiry, ethics and advocacy have full positive weight. They do not sustain the confirmed income/payroll, fiscal-profit and VAT statutory-case progression. No title, language, professional-licence, court-format or numeric-coverage veto. The documented 155 EC includes genuine 30-EC open study and 5-EC Moot Court; remaining 25 EC, final-work allocation, new-cohort Moot Court assessment/access and full progression remain excluded. Same-AI source-first final pass accurately disclosed.",
+  "actualProgress": {
+    "completedStage2": 37,
+    "scope": 61,
+    "approvedStage2": 28,
+    "reviewedStillUnresolved": 9,
+    "corpusApproved": 403,
+    "corpusUnresolved": 35,
+    "remainingOwned": {
+      "A": 10,
+      "B": 14
+    },
+    "nextA": [
+      "cp-000296",
+      "cp-000304"
+    ],
+    "nextB": [
+      "cp-000286",
+      "cp-000289"
+    ]
+  },
+  "preservation": {
+    "checkedOn": "2026-11-17",
+    "checks": [
+      {
+        "command": [
+          "python",
+          "scripts/validate-counselor-schema.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "da884efe44c0051686ea15deb29d0fe764f224cf9395425e732c82b88eff1614",
+        "tail": [
+          "438 canonical records pass full JSON Schema validation."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-course-feasibility.py",
+          "<all 438 canonical paths>"
+        ],
+        "exitCode": 0,
+        "outputSha256": "e7c9af6c10dc53d92f2b49852d771af6b559e1644c8ed12b36ec8ee60569f9a3",
+        "tail": [
+          "438 canonical records pass course-reference feasibility checks. Academic relevance is not assessed."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-comprehensive-reaudit.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "a1d4eee821790b7403779245fd0d16fd4d31ebd95294f486c3f9b4d1c07aef26",
+        "tail": [
+          "Re-audit register consistent: 438 baseline targets; {'approved': 403, 'inProgress': 35, 'reviewedWithBlockers': 0, 'notStarted': 0, 'pilotStarted': 6}; 438 case evidence files. No academic approval inferred."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/verify-qualified-comparison-stage2.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "2302f5dbbcb027b812a5f06306341fed997efdc28c498080b7493f6dcec4ce85",
+        "tail": [
+          "Preserved 375 approvals, CP072/CP099, 24 unprocessed cases, protected inputs, fixed 438 scope and exhausted worker histories."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/test-qualified-comparison-stage2.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "c35e11a8296afb84f9a6284ec2e2e7996d0f5e6f55747b30d7cf6d9c2d2a7646",
+        "tail": [
+          "----------------------------------------------------------------------",
+          "Ran 7 tests in 0.183s",
+          "",
+          "OK"
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "test:counselor-acceptance"
+        ],
+        "exitCode": 0,
+        "outputSha256": "e66f518e4a654140704cb8497727adddedf48f48a15ed7b26d634158966ea29b",
+        "tail": [
+          "> node scripts/test-counselor-acceptance.mjs",
+          "",
+          "Bounded acceptance: ordinary byte-compatible replay; partial positive/negative; adverse tests, scope, unresolved fallback and UCR gates passed.",
+          "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+        ]
+      },
+      {
+        "command": [
+          "npm",
+          "run",
+          "validate:counselor-review"
+        ],
+        "exitCode": 0,
+        "outputSha256": "4cd94f9c7a182744ca87ca530e90e0378ba59a52f66116e5a354196af734f9c8",
+        "tail": [
+          "> node scripts/build-counselor-review-index.mjs --check",
+          "",
+          "Current counselor review indexes: 438 programmes, 21212 interest rows.",
+          "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm."
+        ]
+      },
+      {
+        "command": [
+          "python",
+          "scripts/validate-course-descriptions.py"
+        ],
+        "exitCode": 0,
+        "outputSha256": "0930ad77e0fabf4d5e2b7368e32333cd0d7fa6250a3dd62747d50f545246df6f",
+        "tail": [
+          "149 reviewed course descriptions match their declared source fields, names and text hashes. Historical workbook versions retained."
+        ]
+      }
+    ],
+    "otherCasePairFilesUnchanged": 1311,
+    "preservationParent": "93c81783ae7619ed1cedef3a397809040ca2be93",
+    "workerBClaimUnchanged": true,
+    "historicalBrowserScope": "No new renderer/browser execution; reuse60actualchecks at5df42b776ce49f230b1463a1cacdff53ef5feead only."
+  },
+  "governingVersions": {
+    "AGENTS.md": "76518e7fda03edcf43123dd5ae602aea6059d643",
+    "docs/qc/deferred-case-qualified-comparison-stage2-scheduling-2026-11-16.md": "3f50a53648e89e9d557105a465d5d1f82f96fc59",
+    "docs/qc/deferred-case-qualified-comparison-stage2-assignment-2026-11-15.md": "f3bd43d2f3a81a982333a898fbd8fd2c1200e06b",
+    "docs/UCR_Pathways_Production_Instructions.md": "0f5ba46832f64f98103bb639e64c8cf607e386fa",
+    "docs/UCR_Pathways_Master_Specification.md": "31ddc57dbbd1c103efd9391134a1a468894b20e0",
+    "docs/qc/counselor-comprehensive-reaudit-protocol.md": "af4c5a184ad731bc7b181fd1984958e412a32db1",
+    "docs/qc/deferred-case-qualified-comparison-stage1-implementation-report-2026-11-15.md": "0e7ce42e0b21a5145b1dd0f113dee933a8d826b9",
+    "docs/qc/evidence/qualified-comparison-stage1-2026-11-15/integration-results.json": "6fe880ff4e704211d78ae1306ce42b828d49def9",
+    "docs/qc/deferred-case-qualified-comparison-pilot-results-2026-11-15.md": "525837e2512839b0f013283c34be9db08c315d2b",
+    "docs/qc/evidence/qualified-comparison-stage2-2026-11-15/baseline.json": "a59ca3f7555b9b438db6e62794eac680978b6fe3",
+    "data/reference/ucr_courses_enriched.xlsx": "22783315e6d5510522d16a72281859dd62a05294",
+    "data/reference/README.md": "9284392052033e99503f441a75f7acbaaf66fba1"
+  },
+  "failure": {
+    "publicationTransportFailures": 0,
+    "outstandingTechnicalFailure": null,
+    "sourceLimitation": "Of 43 direct requests, current programme and 33 substantive module bodies were accessible. The LLP placeholder returned JSON null, the public catalogue was a shell, and seven public/PDF responses were blocked HTML. Current formal OER text was actually read through an official web alternative. The revised diagram remains the exact previously inspected 13 November version; no fresh PDF reading is claimed. Revised final-year 25-EC allocation, final work and full progression are not certified.",
+    "localCorrections": [
+      "One large general-lawinspectionoutputtruncated;nofullall-moduleCO/LOreadingclaimed.CriticalfiscalCO/LO/ARreadfullyandremaininggeneral-lawfindingsselectivelyrefreshed/retained.",
+      "SubstantiveCriminalLawhasnoCOentry;readactualLO/ARratherthaninfermissingcontent.",
+      "LLP21111002YreturnsJSONnull;keptasnoncreditplaceholder,notacurriculargaporindependentweight.",
+      "Initialrecognizedcode56827wasverifiedagainstcurrentregistrybeforepublication; normalized1001O6061identity/modespreserved."
+    ]
+  },
+  "batchQA": "Fixed batch 4 now has seven of ten reviews complete: CP278 unresolved; CP282/283/284/288/290/293 approved. CP286/289/291 remain unreviewed and B-owned. Final group QA remains open; earlier group histories unchanged.",
+  "nextAction": "Verify approval-metadata readback and applicable CI, then release only this run's own A claim. Next A occurrence selects CP296, then CP304; CP296 was not started. Skip CP293 and every completed review, including unresolved reviews. Both new schedules remain enabled; old Restart tasks remain paused. Assignment and required final integration are incomplete.",
+  "release": {
+    "status": "pending final metadata verification"
+  },
+  "boundaries": "All 1311 other case/decision/canonical files and B claim preserved against actual run parent 93c81783ae7619ed1cedef3a397809040ca2be93. No workbook/registry/student/renderer/final-discovery/deployment/public-release/new-automation change. Existing 60 actual desktop/mobile checks reused only within scope; no new R/browser test claimed.",
+  "automationStateVerified": {
+    "verifiedOn": "2026-11-17",
+    "Stage2AEnabled": true,
+    "Stage2BEnabled": true,
+    "oldRestartAEnabled": false,
+    "oldRestartBEnabled": false
+  }
+}

@@ -1,6 +1,6 @@
 # Stage 2 batch 4: academic QA group
 
-16 November 2026. Six of ten reviews complete; final batch QA remains open. This is the next ten-case group from the frozen authorized order after the unchanged first three groups. It does not change immutable worker ownership.
+16 November 2026. Seven of ten reviews complete; final batch QA remains open. This is the next ten-case group from the frozen authorized order after the unchanged first three groups. It does not change immutable worker ownership.
 
 | Case | Stage 2 review | Academic state |
 |---|---|---|
@@ -13,7 +13,7 @@
 | CP-000289 | Not completed | Prior state retained |
 | CP-000290 | Completed; qualified first-120-EC academic core | Approved; revised final 60 EC and culmination excluded, known specialist gaps explicit |
 | CP-000291 | Not completed | Prior state retained |
-| CP-000293 | Not completed | Prior state retained |
+| CP-000293 | Completed; robust no-match for documented 155 EC | Approved; remaining 25 EC, final work and full progression remain uncertified |
 
 CP282’s verified pair is `555fe7355ced4a84b3a4c2355e216fd33fe83572`. [Case verification](../cp-000282/publication-verification.json) records all 19 complete published blobs and all applicable compiler, validation and both index workflows. [Run QA](../scheduled-runs/worker-A-2026-11-16-220232.json) records current sources, actual UCR content, strengthened alignment, feasibility, same-AI source-first challenge, preservation and exact next actions. CP284 is also complete at pair `60adeef40f9c26e495b1cd609b49eeec7473dac5`; its [verification](../cp-000284/publication-verification.json) and [run QA](../scheduled-runs/worker-A-2026-11-17-003442.json) record source-first review, exact readback and applicable CI. No final group QA or outcome for the other eight cases is claimed.
 
@@ -26,3 +26,5 @@ Worker B completed CP278’s Stage 2 review with an unresolved outcome at checkp
 Worker A completed CP290 at pair `a207c86fc847a14ecb7ee3cb48381201f470b472`. Initial validation caught a stale central unresolved mirror; recovery `a8e74799f0234929756bb4170e31ea021e34dfea` passed CI with the academic pair unchanged. All17pair and4recovery blobs were read back exactly. One UCR program has24unique courses,180EC andsevenadvancedcourses. The120ECfour-field core supports broader literary,stylistic,psycholinguistic andtextual research; historical English,structural linguistics andproficiency gaps remain explicit. Entirefinal60/culmination excluded. [Review](../cp-000290/review.json), [verification](../cp-000290/publication-verification.json) and [runQA](../scheduled-runs/worker-A-2026-11-17-024914.json). Five of ten complete: four approvals and one unresolved; final group QA remains open.
 
 Worker B completed CP283 at pair `43e648c9a98faf0e3562aad18b581f5818505fe6`. All 17 complete blobs and applicable compiler, validation and both index workflows passed. Two complete feasible research challenges give actual China empires, diaspora, political economy, AI and textual/cultural methods full weight. They do not sustain the known China-centered historical, cultural, social and political-economic progression. The judgment survives either language-choice allocation and does not depend on Mandarin or travel alone. All 175 documented EC, genuine 30-EC open study and integrated 10-EC paper remain. [Review](../cp-000283/review.json), [verification](../cp-000283/publication-verification.json) and [run QA](../scheduled-runs/worker-B-2026-11-17-033216.json). Six of ten complete: five approved dispositions and one unresolved review; final group QA remains open.
+
+Worker A completed CP293 at pair `e182f38fec364c3cdf40514786ef4dfcd86d84b6`. All 18 complete blobs and applicable compiler, validation and both index workflows passed. Two complete feasible research trials give actual UCR law, taxation policy, accounting and legal advocacy full weight. They do not sustain the confirmed fiscal-statute and case-application progression. The remaining revised 25 EC, final-work allocation and full progression are excluded; genuine 30-EC open study and documented Moot Court 5 EC remain. [Review](../cp-000293/review.json), [verification](../cp-000293/publication-verification.json) and [run QA](../scheduled-runs/worker-A-2026-11-17-040012.json). Seven of ten complete: six approved dispositions and one unresolved review; final group QA remains open.
