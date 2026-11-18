@@ -1,6 +1,6 @@
 # UCR curriculum video — pilot production brief and handoff
 
-**Status:** Experimental sub-project; working draft, not a final production standard  
+**Status:** Full-length animated review cut completed on 18 November 2026. See [render and verification notes](#9-review-cut-and-reproduction).
 **Established:** 18 November 2026  
 **Repository:** `solmyr1980/ucr-pathways`, branch `main`  
 **Purpose:** Preserve the design decisions, inputs, initial narration and implementation findings from the curriculum-video discussion so the work can resume without restarting the concept design.
@@ -192,3 +192,43 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 - Whether/where an approved MP4 and the reusable code should be retained in GitHub or other persistent storage.
 
 **Working rule:** Treat this file as the specific, reusable **pilot handoff**, not as a new UCR Pathways production policy. Update it with demonstrated results and explicit user decisions as the video pilot progresses.
+## 9. Review cut and reproduction
+
+The private review MP4 runs **3:17** at 1920 × 1080 and 24 fps. It opens on Business & Entrepreneurship, reveals the full butterfly, then follows the narration through the seven groups. Each selected card moves from its highlighted tile to its semester. The academic core selection uses its actual tile in the full butterfly. The completed grid remains on screen for about twelve seconds. The final invitation asks viewers to submit their interests. The approved intake URL still needs confirmation before a QR code can be added. The Program Builder is a separate destination.
+
+### Academic checks
+
+The renderer reads the original interest, programme label and all semester and within-semester positions from the public example. It joins the 24 codes to the current official workbook names and checks for complete, unique storyboard coverage. GOSHIST312 now displays as *Researching the “American Century”*. Its narration describes historical source work using the official description.
+
+The public example passed the structural example validator. The separate course feasibility validator found two discrepancies for the selected programme at input commit `a489fcd7960373ba1d627d7846e35faef075ceae`. BENBUSI211 is in spring 2028 in the example and BENECON314 in spring 2029. Neither term has a planned offering for that course in the current workbook. The pilot preserves the canonical positions and labels the final programme illustrative. Reconcile the two placements before presenting the film as a currently feasible schedule.
+
+### Reproduce the film
+
+Use a Linux checkout with FFmpeg (libx264 and AAC), Python 3.12, Open Sans and DejaVu Serif in the Debian system font locations. Run from the repository root. The model and package downloads require internet access once. Synthesis and rendering run locally without an account or service fee.
+
+```bash
+python -m venv /tmp/ucr-video-env
+. /tmp/ucr-video-env/bin/activate
+pip install piper-tts==1.8.0 openpyxl==3.1.5 Pillow==13.0.0
+out=/tmp/ucr-curriculum-video
+mkdir -p "$out"
+model_url=https://huggingface.co/rhasspy/piper-voices/resolve/0ca208afc2a2ee102b1e961e72e0a7e4907be3d0/en/en_GB/alba/medium/en_GB-alba-medium.onnx
+curl -fL "$model_url" -o "$out/alba.onnx"
+curl -fL "$model_url.json" -o "$out/alba.onnx.json"
+
+python pilot/curriculum-video/narrate.py "$out/alba.onnx" "$out"
+python pilot/curriculum-video/render.py "$out"
+ffmpeg -xerror -v error -i "$out/UCR-curriculum-pilot.mp4" -f null -
+```
+
+[Storyboard and narration](storyboard.json) associate each short passage with its course codes. [Narration synthesis](narrate.py) measures the audio for each passage and writes the voice track and timing file. [Animation and encoding](render.py) use those timestamps and native-resolution tile coordinates. To revise the layout alone, reuse the voice and timing files. To edit the script, regenerate both. Fresh neural synthesis can vary slightly in timing.
+
+Voice credit: Alba (en_GB, medium), Piper voice collection. The voice model card credits the Alba dataset under CC BY 4.0 and describes the fine-tuning lineage. [Voice model card](https://huggingface.co/rhasspy/piper-voices/blob/main/en/en_GB/alba/medium/MODEL_CARD)
+
+### Review checks
+
+- Checked all 24 tile rectangles against the source PNGs, including the tall gateways and the academic core tile.
+- Inspected the opening, card selections, cluster change, final grid and invitation in rendered frames. The grid persists as the source changes.
+- Decoded the entire MP4 without errors. Video and audio run 197.208 and 197.200 seconds respectively. Integrated loudness was −17.2 LUFS and true peak −1.3 dBFS.
+- Checked the spoken sequence with offline speech recognition. Naturalness and pacing still need a listener’s judgment.
+- Private review file SHA-256: `95b45cc1132fc6ea6e778fbc080441af849dc738e0faa78a340c843f45ab43ad`. Only the source and instructions belong in this repository.
