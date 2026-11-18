@@ -10,7 +10,7 @@ const out = path.resolve(process.env.UCR_RENDERED_EVIDENCE_DIR || '/tmp/ucr-coun
 fs.mkdirSync(out, {recursive:true});
 const results=[];
 const cases = {
-  actual: [['cp-000003','Pedagogical'],['cp-000001','Public Administration'],['cp-000019','Arts and Culture'],['cp-000035','Biology'],['cp-000330','Mechanical Engineering'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies']],
+  actual: [['cp-000377','Actuarial Science'],['cp-000003','Pedagogical'],['cp-000001','Public Administration'],['cp-000019','Arts and Culture'],['cp-000035','Biology'],['cp-000330','Mechanical Engineering'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies']],
   fixtures: [['cp-000004','Psychology'],['cp-000002','Management of International'],['cp-000005','Psychology'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000019','Arts and Culture'],['cp-000003','Pedagogical']]
 };
 // Stage 1 representatives use actual canonical data, including still-unresolved controls.
@@ -50,6 +50,30 @@ try {
      assert.ok(!body.includes('INTERNAL-SENTINEL'),`${variant}/${id}: research leakage`);
      assert.ok(!body.includes('First-listed Culture and Economics'),`${id}: cell bookkeeping exposed`);
      assert.ok(!body.includes('2261'),`${id}: catalogue code exposed`);
+     if (await page.locator('.compare-view').count()) {
+      assert.ok(!body.includes('What this comparison shows'));
+      assert.ok(await page.locator('.closest-match h2').isVisible());
+      assert.ok(await page.getByText('This pre-produced comparison is the same for every student.', {exact:true}).isVisible());
+      assert.match(await page.locator('.equivalence-note').innerText(), /degree equivalence, professional qualification or automatic eligibility/);
+      assert.match(await page.locator('.comparison-legend').innerText(), /partial matches.*blank cell.*Optional independent research.*180 EC/);
+     }
+     const details = page.locator('.comparison-details');
+     let detailsText = '';
+     if (await details.count()) {
+      assert.equal(await details.evaluate(el=>el.open),false);
+      assert.ok(await details.evaluate(el=>Boolean(el.compareDocumentPosition(document.querySelector('.compare-view')) & Node.DOCUMENT_POSITION_FOLLOWING)));
+      await details.locator('summary').click();
+      assert.equal(await details.evaluate(el=>el.open),true);
+      detailsText = await details.innerText();
+      assert.ok(!detailsText.includes('INTERNAL-SENTINEL'),`${variant}/${id}: research leakage in details`);
+      await details.locator('summary').click();
+     }
+     if (id==='cp-000377') {
+      const actuarial = JSON.parse(fs.readFileSync('data/counselor/comparisons/cp-000377.json'));
+      assert.equal(await page.locator('.comparison-head h1').innerText(),actuarial.comparator.name);
+      assert.ok(body.includes(actuarial.academicRationale.alternatives[0].concept));
+      assert.ok(detailsText.includes('no dedicated insurance or pension sequence or actuarial thesis'));
+     }
      assert.equal(await page.locator('.comparison-shell a[href^="https://"]').count()>0,true);
      const source=JSON.parse(fs.readFileSync(`data/counselor/comparisons/${id}.json`,'utf8')).comparator.primarySourceUrl;
      assert.ok(await page.locator('.comparison-shell a').evaluateAll((xs,url)=>xs.some(x=>x.href===url),source),`${id}: official link missing`);
@@ -158,7 +182,7 @@ try {
       assert.equal(await page.locator('.external-table tbody tr').count(),current.audience.curriculum.componentIds.length);
      }
      if(variant==='fixtures'&&id==='cp-000002'){assert.ok(body.includes('withheld from presentation'));assert.equal(await page.locator('.compare-view').count(),0);assert.ok(body.includes('Complete external curriculum'));}
-     if(variant==='fixtures'&&id==='cp-000005'){assert.ok(body.includes('other content remains under review'));assert.ok(body.includes('Curriculum details are awaiting review'));}
+     if(variant==='fixtures'&&id==='cp-000005'){assert.ok(detailsText.includes('other content remains under review'));assert.ok(body.includes('Curriculum details are awaiting review'));}
      if(id==='cp-000330') {
       assert.ok(body.includes('cannot construct a sufficiently close programme'));
       assert.ok(body.includes(current.audience.comparisonExplanation) && body.includes('Complete external curriculum'));
@@ -170,7 +194,7 @@ try {
      if(id==='cp-000003') {assert.ok(body.includes('cannot construct a sufficiently close programme') && body.includes('Complete external curriculum'));assert.equal(await page.locator('.compare-view,.column-select,.course-link').count(),0);assert.equal(await page.locator('.external-table tbody tr').count(),current.audience.curriculum.componentIds.length);}
      if(variant==='actual'&&id==='cp-000035') {
       const currentBiology = JSON.parse(fs.readFileSync('data/counselor/comparisons/cp-000035.json', 'utf8'));
-      assert.ok(body.includes(currentBiology.audience.comparisonExplanation), 'CP035 reviewed comparison explanation missing');
+      assert.ok(detailsText.includes(currentBiology.audience.comparisonExplanation), 'CP035 reviewed comparison explanation missing');
       for(const [code,expected] of [['ENSECOL111','diversity of living organisms'],['ENSECOL112','human-driven biodiversity loss'],['ENSECOL211','genes to populations']]) {
        const button=page.locator(`.course-link[data-code="${code}"]`).first();
        if(size==='mobile') {const index=await button.evaluate(b=>Array.from(b.closest('tr').children).indexOf(b.closest('td')));await page.locator('.column-select').selectOption(String(index));await page.waitForTimeout(250);}

@@ -108,12 +108,12 @@ for (index in seq_along(acceptance_records)) {
     exception_html <- as.character(counselor$render_comparison(record))
     stopifnot(grepl("cannot construct a sufficiently close programme", exception_html, fixed = TRUE))
     stopifnot(grepl("Complete external curriculum", exception_html, fixed = TRUE))
-    stopifnot(!grepl("What this comparison shows", exception_html, fixed = TRUE))
+    stopifnot(!grepl("Closest UCR match", exception_html, fixed = TRUE))
     next
   }
   summary_html <- as.character(counselor$render_comparison_summary(record))
-  stopifnot(grepl("What this comparison shows", summary_html, fixed = TRUE))
-  stopifnot(grepl("Important limitation", summary_html, fixed = TRUE))
+  stopifnot(grepl("Closest UCR match", summary_html, fixed = TRUE))
+  stopifnot(grepl("professional qualification or automatic eligibility", summary_html, fixed = TRUE))
   for (programme in ucr_programmes) {
     stopifnot(grepl(htmltools::htmlEscape(counselor$visible_label(record, programme)), summary_html, fixed = TRUE))
     rationale <- counselor$alternative_rationale_for(record, programme$id)
@@ -141,12 +141,12 @@ caution_record <- jsonlite::fromJSON("data/counselor/comparisons/cp-000043.json"
 caution_record_html <- as.character(counselor$render_comparison(caution_record))
 stopifnot(grepl("Important: limited disciplinary correspondence", caution_record_html, fixed = TRUE))
 stopifnot(grepl("specialist subjects or forms of training may differ", caution_record_html, fixed = TRUE))
-stopifnot(grepl("What this comparison shows", caution_record_html, fixed = TRUE))
+stopifnot(grepl("Closest UCR match", caution_record_html, fixed = TRUE))
 retained_exception <- jsonlite::fromJSON("data/counselor/comparisons/cp-000301.json", simplifyVector = FALSE)
 stopifnot(identical(retained_exception$recordStatus, "exception"))
 retained_exception_html <- as.character(counselor$render_comparison(retained_exception))
 stopifnot(grepl("About this programme", retained_exception_html, fixed = TRUE))
-stopifnot(!grepl("What this comparison shows", retained_exception_html, fixed = TRUE))
+stopifnot(!grepl("Closest UCR match", retained_exception_html, fixed = TRUE))
 academic_before <- serialize(acceptance_records[[1]], NULL)
 normal_html <- as.character(counselor$render_comparison(acceptance_records[[1]]))
 counselor$COUNSELOR_PRESENTATION[["cp-000001"]] <- list(
@@ -156,18 +156,17 @@ caution_html <- as.character(counselor$render_comparison(acceptance_records[[1]]
 stopifnot(grepl("Important: limited disciplinary correspondence", caution_html, fixed = TRUE))
 stopifnot(!grepl("specialist content not taught at UCR", caution_html, fixed = TRUE))
 stopifnot(grepl("specialist subjects or forms of training may differ", caution_html, fixed = TRUE))
-stopifnot(grepl("What this comparison shows", caution_html, fixed = TRUE))
+stopifnot(grepl("Closest UCR match", caution_html, fixed = TRUE))
 stopifnot(grepl("UCR courses", caution_html, fixed = TRUE))
 stopifnot(grepl("presentation-caution", caution_html, fixed = TRUE))
 stopifnot(regexpr("presentation-caution", caution_html, fixed = TRUE)[[1]] <
-          regexpr("What this comparison shows", caution_html, fixed = TRUE)[[1]])
+          regexpr("Closest UCR match", caution_html, fixed = TRUE)[[1]])
 
 counselor$COUNSELOR_PRESENTATION[["cp-000001"]] <- list(mode = "external-only")
 hidden_html <- as.character(counselor$render_comparison(acceptance_records[[1]]))
 stopifnot(grepl("Only the external programme is shown", hidden_html, fixed = TRUE))
 stopifnot(grepl("Complete external curriculum", hidden_html, fixed = TRUE))
 stopifnot(!grepl("UCR courses", hidden_html, fixed = TRUE))
-stopifnot(!grepl("What this comparison shows", hidden_html, fixed = TRUE))
 stopifnot(!grepl("Closest UCR match", hidden_html, fixed = TRUE))
 hidden_result <- list(list(programme = counselor$COUNSELOR_DATA$programmes[[1]], matches = list()))
 stopifnot(grepl("View programme", as.character(counselor$render_result_cards(hidden_result)), fixed = TRUE))
@@ -188,10 +187,10 @@ writeLines('{"schemaVersion":1,"cases":{"cp-000001":{"mode":"external-only"}}}',
 stopifnot(identical(counselor$read_presentation_settings(config_fixture)[["cp-000001"]]$mode, "external-only"))
 unlink(config_fixture)
 
-# The summary-first view replaces the former generic bottom "How to read" note.
+# The overview leads directly to the table and its reading guidance.
 comparison_html <- as.character(counselor$render_comparison(acceptance_records[[1]]))
-stopifnot(grepl("What this comparison shows", comparison_html, fixed = TRUE))
-stopifnot(!grepl("How to read this comparison", comparison_html, fixed = TRUE))
+stopifnot(!grepl("What this comparison shows", comparison_html, fixed = TRUE))
+stopifnot(grepl("partial matches", comparison_html, fixed = TRUE))
 
 # Only UCR cells with course codes open the shared course-description data.
 ucr <- counselor$ucr_programmes_for_summary(acceptance_records[[1]])[[1]]
