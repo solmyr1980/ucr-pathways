@@ -512,14 +512,13 @@ render_exception <- function(record, presentation_only = FALSE) {
     else if (identical(type, "ucr-assessment-pending")) "UCR assessment pending"
     else if (identical(type, "registry-exception")) "Programme details need verification"
     else "Insufficient verified evidence for a reliable comparison"
-  text <- if (presentation_only) audience_text(record, "programmeDescription")
-    else if (identical(record$recordStatus, "exception")) audience_text(record, "comparisonExplanation")
-    else ""
+  description <- audience_text(record, "programmeDescription")
+  explanation <- if (identical(record$recordStatus, "exception"))
+    audience_text(record, "comparisonExplanation") else ""
   source <- safe_text(meta$primarySourceUrl)
-  qualification <- if (identical(view$status, "partial")) {
-    if (no_match && identical(record$acceptance$basis, "robust-no-match"))
-      "Some external requirements remain unverified. The conclusion rests on the established academic core."
-    else if (no_match || presentation_only) "External curriculum verification is incomplete."
+  qualification <- if (no_match && identical(view$status, "partial") &&
+      identical(record$acceptance$basis, "robust-no-match")) {
+    "Some external requirements remain unverified. The conclusion rests on the established academic core."
   }
 
   div(class = "comparison-shell",
@@ -531,11 +530,24 @@ render_exception <- function(record, presentation_only = FALSE) {
       tags$p(class = "comparison-institution", safe_text(meta$institution))),
     div(class = "comparison-summary comparison-summary--compact exception-summary", id = "comparison-overview",
       tags$h2(class = "comparison-status", status),
-      if (nzchar(text)) tags$p(text),
+      if (nzchar(explanation)) tags$p(class = "exception-explanation", explanation),
+      if (nzchar(description) && !identical(description, explanation))
+        tags$p(class = "exception-description", description),
       if (!is.null(qualification)) tags$p(class = "comparison-metadata", qualification),
       div(class = "exception-metadata",
         if (nzchar(view$year)) tags$span(paste("Academic year", view$year)),
-        if (nzchar(source)) tags$a(href = source, target = "_blank", rel = "noopener", "Official programme source ↗"))))
+        if (nzchar(source)) tags$a(href = source, target = "_blank", rel = "noopener", "Official programme source ↗"))),
+    if (length(view$components)) div(class = "external-curriculum",
+      tags$h2(if (identical(view$status, "complete")) "Complete external curriculum" else "Verified partial curriculum"),
+      div(class = "compare-scroll",
+        tags$table(class = "compare-table external-table",
+          tags$thead(tags$tr(tags$th(scope = "col", "Course or requirement"), tags$th(scope = "col", "Credits"))),
+          tags$tbody(lapply(view$components, function(component) {
+            tags$tr(
+              tags$td(class = "cell-text", safe_text(component$name)),
+              tags$td(credit_text(component$credits))
+            )
+          }))))))
 }
 
 render_comparison <- function(record) {
@@ -613,6 +625,7 @@ ui <- fluidPage(
       .summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px}.summary-card{border:1px solid rgba(73,30,52,.14);border-radius:9px;padding:10px 12px;min-width:0;overflow-wrap:anywhere}.closest-match{border-color:rgba(73,30,52,.4);background:rgba(185,217,235,.15)}.summary-card h2{font-family:Inter,Arial,sans-serif;font-size:17px;font-weight:700;margin:3px 0;color:var(--plum)}.summary-card p{margin:0;color:var(--grey);font-size:14px;line-height:1.4}.summary-kicker{font-size:12px;font-weight:700;color:var(--grey)}
       .equivalence-note{margin:10px 0 5px;color:var(--black);font-weight:600}.comparison-metadata{margin:3px 0;color:var(--grey);font-size:13px}.comparison-details{margin-top:8px}.comparison-details summary{display:list-item;color:var(--plum);font-weight:700;cursor:pointer}.comparison-details p{margin:7px 0 0}.comparison-summary--compact .qualified-scope{margin:0 0 10px}.comparison-summary--compact .qualified-scope h2{font-size:21px;margin:0 0 5px}.comparison-summary--compact .qualified-scope p{margin:3px 0}.comparison-summary--compact .audience-context .curriculum-status{margin:6px 0}
       .exception-summary{max-width:880px}.exception-summary .comparison-status{font-size:clamp(21px,2.5vw,28px);margin:0 0 9px}.exception-summary p{line-height:1.55}.exception-metadata{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:10px;font-size:13px;color:var(--grey)}
+      .external-curriculum{max-width:880px}.external-curriculum h2{font-size:clamp(21px,2.5vw,28px);margin:0 0 9px}.external-table th,.external-table td{padding:8px 12px}.external-table th:last-child,.external-table td:last-child{width:88px;text-align:right;white-space:nowrap}
       .presentation-caution{margin:0 0 12px;padding:10px 14px;border:2px solid #995e24;border-radius:12px;background:#fff1d6;color:#593711;line-height:1.45}.presentation-caution strong{display:block;font-size:16px}.presentation-caution p{margin:3px 0 0}
       .compare-scroll{overflow-x:auto;border:1px solid rgba(73,30,52,.14);border-radius:14px;background:#fff}.compare-table{border-collapse:separate;border-spacing:0;min-width:min(1120px,100%);width:100%;table-layout:fixed}.compare-table th,.compare-table td{border-right:1px solid rgba(73,30,52,.1);border-bottom:1px solid rgba(73,30,52,.1);padding:13px 15px;vertical-align:top}.compare-table thead th{background:var(--plum);color:#fff;border-right-color:rgba(255,255,255,.18)}.programme-title{font-size:16px;font-weight:700}.programme-title a,.programme-source{color:inherit}.programme-source{display:inline-block;margin-top:5px;color:#fff;opacity:.82;font-size:12px}.block-row th{background:var(--blue);color:var(--plum);font-size:14px;font-weight:700}.comparison-cell{background:#fff;line-height:1.35}.comparison-cell.emphasis{background:rgba(255,225,164,.36)}.empty-cell{background:rgba(92,96,107,.035)}.ec-badge{display:inline-block;margin-top:6px;padding:2px 6px;border-radius:999px;background:rgba(73,30,52,.08);color:var(--grey);font-size:11px}.cell-note{color:var(--grey);font-size:12px;margin-top:5px}.transparency-note{margin-top:18px;background:#fff;border-left:5px solid var(--plum);padding:14px 17px;color:var(--grey);line-height:1.5}.transparency-note p{margin:5px 0 0}.cta-row{display:flex;justify-content:flex-end;margin-top:20px}.primary-cta{display:inline-block;background:var(--plum);color:#fff!important;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none!important}
       .cell-text,.programme-title,.cell-note{overflow-wrap:anywhere}.course-link{max-width:100%;overflow-wrap:anywhere;padding:0;border:0;background:none;color:var(--plum);font:inherit;text-align:left;text-decoration:underline;cursor:pointer}.course-link:hover,.course-link:focus-visible{color:var(--black)}.modal-content{border-radius:14px}.modal-title{color:var(--plum);font-family:IvyMode,Georgia,serif}.course-description{font-size:15px;line-height:1.6}

@@ -56,7 +56,7 @@ if (counselor$IS_REVIEW_DATA) {
   german$audience <- list(schemaVersion = "1.0", curriculum = list(status = "complete", componentIds = lapply(german$comparator$components, function(x) x$id)))
   exception_html <- as.character(counselor$render_comparison(german))
   stopifnot(grepl("No sufficiently close UCR comparison", exception_html, fixed = TRUE))
-  stopifnot(!grepl("Linguistik im Fokus", exception_html, fixed = TRUE))
+  stopifnot(grepl("Linguistik im Fokus", exception_html, fixed = TRUE))
   stopifnot(grepl("Official programme source", exception_html, fixed = TRUE))
   stopifnot(!grepl("UCR courses", exception_html, fixed = TRUE))
   unresolved <- german
@@ -106,7 +106,7 @@ for (index in seq_along(acceptance_records)) {
     stopifnot(identical(record$exception$type, "no-defensible-ucr-match"))
     exception_html <- as.character(counselor$render_comparison(record))
     stopifnot(grepl("No sufficiently close UCR comparison", exception_html, fixed = TRUE))
-    stopifnot(!grepl("Complete external curriculum", exception_html, fixed = TRUE))
+    stopifnot(grepl("Complete external curriculum", exception_html, fixed = TRUE))
     stopifnot(!grepl("Closest UCR match", exception_html, fixed = TRUE))
     next
   }
@@ -164,7 +164,7 @@ stopifnot(regexpr("presentation-caution", caution_html, fixed = TRUE)[[1]] <
 counselor$COUNSELOR_PRESENTATION[["cp-000001"]] <- list(mode = "external-only")
 hidden_html <- as.character(counselor$render_comparison(acceptance_records[[1]]))
 stopifnot(grepl("Only the external programme is shown", hidden_html, fixed = TRUE))
-stopifnot(!grepl("Complete external curriculum", hidden_html, fixed = TRUE))
+stopifnot(grepl("Complete external curriculum", hidden_html, fixed = TRUE))
 stopifnot(!grepl("UCR courses", hidden_html, fixed = TRUE))
 stopifnot(!grepl("Closest UCR match", hidden_html, fixed = TRUE))
 hidden_result <- list(list(programme = counselor$COUNSELOR_DATA$programmes[[1]], matches = list()))

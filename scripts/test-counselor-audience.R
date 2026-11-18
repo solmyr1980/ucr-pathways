@@ -20,11 +20,13 @@ x$acceptance <- NULL
 x$exception$type <- "external-programme-unresolved"
 x$exception$reason <- x$exception$curriculumContext <- x$comparator$academicYear <- x$comparator$sourceNotes <- "INTERNAL-SENTINEL"
 html <- as.character(e$render_comparison(x))
-stopifnot(!grepl("INTERNAL-SENTINEL", html), !grepl("External programme components", html), grepl("Insufficient verified evidence for a reliable comparison", html))
-x$audience <- list(schemaVersion = "1.0", curriculum = list(status = "partial", componentIds = lapply(x$comparator$components, function(c) c$id), limitation = "A required 5 EC remains unidentified."))
+stopifnot(!grepl("INTERNAL-SENTINEL", html), !grepl("external-table", html), grepl("Insufficient verified evidence for a reliable comparison", html))
+x$audience <- list(schemaVersion = "1.0", curriculum = list(status = "partial", componentIds = list(x$comparator$components[[1]]$id), limitation = "A required 5 EC remains unidentified."))
 html <- as.character(e$render_comparison(x))
-stopifnot(!grepl("Verified partial curriculum", html), !grepl("required 5 EC remains unidentified", html),
-          !grepl("<details|<table", html))
+stopifnot(grepl("Verified partial curriculum", html), !grepl("required 5 EC remains unidentified", html),
+          grepl("external-table", html),
+          grepl(htmltools::htmlEscape(x$comparator$components[[1]]$name), html, fixed = TRUE),
+          !grepl(htmltools::htmlEscape(x$comparator$components[[2]]$name), html, fixed = TRUE))
 x$audience$curriculum$status <- "complete"
 stopifnot(identical(e$curriculum_view(x)$status, "unreviewed"))
 x$audience <- list(schemaVersion = "1.0", curriculum = list(status = "partial"))

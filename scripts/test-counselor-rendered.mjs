@@ -176,26 +176,39 @@ try {
       assert.equal(await page.locator('.comparison-head h1').innerText(), displayName);
       assert.equal(await page.locator('.comparison-institution').innerText(), current.comparator.institution);
       assert.ok(await page.getByRole('link', {name: /Official programme source/}).isVisible());
-      assert.equal(await page.locator('.comparison-shell details,.comparison-shell table,.qualified-scope,.column-select,.course-link').count(), 0);
+      assert.equal(await page.locator('.comparison-shell details,.compare-view,.qualified-scope,.column-select,.course-link').count(), 0);
       assert.doesNotMatch(body, /Assessed scope|Outside the assessed scope|External programme components/);
 
       if (variant === 'actual') {
        const reviewed = current.audience;
        assert.ok(body.includes(`Academic year ${reviewed.curriculum.yearLabel}`));
-       const expectedText = externalOnly ? reviewed.programmeDescription : reviewed.comparisonExplanation;
-       assert.ok(body.includes(expectedText), `${id}: reviewed explanation missing`);
-       const hiddenText = externalOnly ? reviewed.comparisonExplanation : reviewed.programmeDescription;
-       assert.ok(!body.includes(hiddenText), `${id}: additional prose surfaced`);
+       assert.equal(await page.locator('.exception-description').innerText(), reviewed.programmeDescription);
+       if (externalOnly) assert.ok(!body.includes(reviewed.comparisonExplanation), `${id}: comparison prose surfaced`);
+       else assert.equal(await page.locator('.exception-explanation').innerText(), reviewed.comparisonExplanation);
+       const selected = current.comparator.components.filter(component => reviewed.curriculum.componentIds.includes(component.id));
+       const table = page.locator('.external-table');
+       assert.equal(await table.count(), selected.length ? 1 : 0);
+       if (selected.length) {
+        assert.ok(await table.isVisible());
+        assert.equal(await page.locator('.external-curriculum h2').innerText(),
+          reviewed.curriculum.status === 'complete' ? 'Complete external curriculum' : 'Verified partial curriculum');
+        const rows = await table.locator('tbody tr').evaluateAll(rows =>
+          rows.map(row => Array.from(row.cells, cell => cell.textContent)));
+        assert.deepEqual(rows, selected.map(component => [component.name, `${component.credits} EC`]));
+        assert.ok(await table.evaluate(node => node.scrollWidth <= node.parentElement.clientWidth + 1));
+       }
        if (reviewed.curriculum.limitation) assert.ok(!body.includes(reviewed.curriculum.limitation));
        if (current.acceptance?.basis === 'robust-no-match') {
         assert.ok(body.includes('Some external requirements remain unverified. The conclusion rests on the established academic core.'));
         assert.ok(!body.includes(reviewed.comparisonScope.assessed));
         assert.ok(!body.includes(reviewed.comparisonScope.excluded));
        }
-       assert.doesNotMatch(body, /\b\d+(?:[.-]\d+)?[ -]EC\b|(?:table|components) (?:shown|below)/i);
+       assert.doesNotMatch(await page.locator('.exception-summary').innerText(),
+         /\b\d+(?:[.-]\d+)?[ -]EC\b|(?:table|components) (?:shown|below)/i);
       } else if (id === 'cp-000277') {
        assert.ok(body.includes('while a required component remains unidentified'));
        assert.ok(!body.includes('175 EC'));
+       assert.ok(await page.locator('.external-table').isVisible());
       }
      }
      if (id === 'cp-000119' && variant === 'actual') assert.ok(!body.includes('Philosophy, myth & cultural meaning'));
