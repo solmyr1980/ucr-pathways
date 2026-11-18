@@ -190,11 +190,9 @@ try {
        if (current.acceptance?.basis === 'robust-no-match') {
         assert.ok(body.includes('Some external requirements remain unverified. The conclusion rests on the established academic core.'));
         assert.ok(!body.includes(reviewed.comparisonScope.assessed));
-        if (['cp-000277', 'cp-000263'].includes(id)) assert.ok(!body.includes(reviewed.comparisonScope.excluded));
+        assert.ok(!body.includes(reviewed.comparisonScope.excluded));
        }
-       if (['cp-000277', 'cp-000263', 'cp-000013', 'cp-000072', 'cp-000099'].includes(id)) {
-        assert.doesNotMatch(body, /\b\d+(?:[.-]\d+)?[ -]EC\b|(?:table|components) (?:shown|below)/i);
-       }
+       assert.doesNotMatch(body, /\b\d+(?:[.-]\d+)?[ -]EC\b|(?:table|components) (?:shown|below)/i);
       } else if (id === 'cp-000277') {
        assert.ok(body.includes('while a required component remains unidentified'));
        assert.ok(!body.includes('175 EC'));
