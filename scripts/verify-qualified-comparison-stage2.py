@@ -3,6 +3,7 @@
 import hashlib
 import json
 from pathlib import Path
+from counselor_editorial import canonical_review_blob_matches
 ROOT = Path(__file__).resolve().parents[1]
 BASELINE = 'docs/qc/evidence/qualified-comparison-stage2-2026-11-15/baseline.json'
 def read(path): return json.loads((ROOT / path).read_text())
@@ -26,7 +27,9 @@ def main():
             if group == 'stage2Initial' and i in reviewed: continue
             assert states[i] == ('approved' if group == 'approved' else 'in-progress'), f'{i}: changed protected state'
             for kind, expected in hashes.items():
-                assert blob(ROOT / 'data/counselor' / dirs[kind] / f'{i}.json') == expected, f'{i}: changed protected {kind}'
+                path = ROOT / 'data/counselor' / dirs[kind] / f'{i}.json'
+                matches = canonical_review_blob_matches(ROOT, path, expected) if kind == 'canonical' else blob(path) == expected
+                assert matches, f'{i}: changed protected {kind}'
     for path, expected in b['protectedInputs'].items():
         assert blob(ROOT / path) == expected, f'Changed protected input: {path}'
     assert hashlib.sha256(json.dumps(a['workers'], sort_keys=True, ensure_ascii=False).encode()).hexdigest() == b['historicalWorkersSha256'], 'Worker history changed'

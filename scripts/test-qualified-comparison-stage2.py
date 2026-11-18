@@ -36,4 +36,19 @@ class Stage2(unittest.TestCase):
  def test_stale_canonical(self):
   i=self.fixture();(self.root/f'data/counselor/comparisons/{i}.json').write_text('{"changed":true}')
   with self.assertRaises(ValueError):self.check()
+ def test_editorial_exception_prose_preserves_reviewed_blob(self):
+  i=self.fixture(); base=self.root/'data/counselor'
+  record_path=base/f'comparisons/{i}.json'
+  prose={'programmeDescription':'Reviewed description','comparisonExplanation':'Reviewed limitation'}
+  original={'id':i,'recordStatus':'exception','audience':prose.copy(),'comparator':{'components':[]}}
+  write=lambda path,data:path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+  write(record_path,original)
+  write(base/f'decisions/{i}.json',{'audience':prose})
+  expected=m.git_blob(record_path)
+  original['audience']['comparisonExplanation']='Edited limitation'
+  write(record_path,original)
+  self.assertTrue(m.canonical_review_blob_matches(self.root,record_path,expected))
+  original['comparator']['components']=[{'id':'unauthorized'}]
+  write(record_path,original)
+  self.assertFalse(m.canonical_review_blob_matches(self.root,record_path,expected))
 if __name__=='__main__':unittest.main()

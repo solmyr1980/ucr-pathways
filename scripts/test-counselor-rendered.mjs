@@ -10,7 +10,7 @@ const out = path.resolve(process.env.UCR_RENDERED_EVIDENCE_DIR || '/tmp/ucr-coun
 fs.mkdirSync(out, {recursive:true});
 const results=[];
 const cases = {
-  actual: [['cp-000377','Actuarial Science'],['cp-000003','Pedagogical'],['cp-000001','Public Administration'],['cp-000019','Arts and Culture'],['cp-000035','Biology'],['cp-000330','Mechanical Engineering'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000311','Notarial Law']],
+  actual: [['cp-000377','Actuarial Science'],['cp-000003','Pedagogical'],['cp-000001','Public Administration'],['cp-000019','Arts and Culture'],['cp-000035','Biology'],['cp-000330','Mechanical Engineering'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000311','Notarial Law'],['cp-000013','Philosophy of a Specific Discipline'],['cp-000227','Public Governance']],
   fixtures: [['cp-000004','Psychology'],['cp-000002','Management of International'],['cp-000005','Psychology'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000019','Arts and Culture'],['cp-000003','Pedagogical']]
 };
 // Stage 1 representatives use actual canonical data, including still-unresolved controls.
@@ -165,69 +165,40 @@ try {
       await page.locator('.modal.in button',{hasText:'Close'}).click();await page.locator('.modal-backdrop').waitFor({state:'hidden'});
 
      }
-     const evidence = page.locator('.exception-evidence');
      if (current.recordStatus === 'exception' || externalOnly) {
-      assert.equal(await evidence.count(), 1);
       const noMatch = current.exception?.type === 'no-defensible-ucr-match' &&
         !(variant === 'fixtures' && id === 'cp-000277');
       const status = noMatch ? 'No sufficiently close UCR comparison' :
         externalOnly ? 'Only the external programme is shown' :
+        current.exception?.type === 'registry-exception' ? 'Programme details need verification' :
         'Insufficient verified evidence for a reliable comparison';
       assert.equal(await page.locator('.comparison-status').innerText(), status);
       assert.equal(await page.locator('.comparison-head h1').innerText(), displayName);
       assert.equal(await page.locator('.comparison-institution').innerText(), current.comparator.institution);
       assert.ok(await page.getByRole('link', {name: /Official programme source/}).isVisible());
-      assert.equal(await page.locator('.compare-view,.qualified-scope,.column-select,.course-link').count(), 0);
-      assert.equal(await evidence.evaluate(el => el.open), false);
-      assert.ok(!body.includes('About this programme') && !body.includes('External programme components'));
-      const table = evidence.locator('.external-table');
-      assert.equal(await table.isVisible(), false);
+      assert.equal(await page.locator('.comparison-shell details,.comparison-shell table,.qualified-scope,.column-select,.course-link').count(), 0);
+      assert.doesNotMatch(body, /Assessed scope|Outside the assessed scope|External programme components/);
 
       if (variant === 'actual') {
        const reviewed = current.audience;
        assert.ok(body.includes(`Academic year ${reviewed.curriculum.yearLabel}`));
-       if (noMatch) assert.ok(body.includes(reviewed.comparisonExplanation), `${id}: reviewed explanation missing`);
-       if (externalOnly) {
-        assert.ok(body.includes(reviewed.programmeDescription));
-        assert.ok(!body.includes(reviewed.comparisonExplanation), `${id}: withheld comparison surfaced`);
-       }
-       if (reviewed.curriculum.status === 'partial') {
-        assert.ok(body.includes('External curriculum verification is incomplete.'));
-       }
-       if (reviewed.curriculum.limitation) assert.ok(!body.includes(reviewed.curriculum.limitation), `${id}: verification paragraph visible before expansion`);
-      }
-      const toggle = evidence.locator('summary');
-      await toggle.focus();
-      await toggle.press('Enter');
-      assert.equal(await evidence.evaluate(el => el.open), true);
-      const evidenceText = await evidence.innerText();
-      assert.ok(!evidenceText.includes('INTERNAL-SENTINEL'), `${variant}/${id}: research leakage in evidence`);
-      assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
-      if (variant === 'actual') {
-       const reviewed = current.audience;
-       if (reviewed.curriculum.limitation) assert.ok(evidenceText.includes(reviewed.curriculum.limitation));
-       assert.equal(await table.locator('tbody tr').count(), reviewed.curriculum.componentIds.length);
-       if (reviewed.curriculum.status === 'partial') {
-        assert.ok(evidenceText.includes('Verified partial curriculum'));
-        assert.ok(!evidenceText.includes('Complete external curriculum'));
-       }
+       const expectedText = externalOnly ? reviewed.programmeDescription : reviewed.comparisonExplanation;
+       assert.ok(body.includes(expectedText), `${id}: reviewed explanation missing`);
+       const hiddenText = externalOnly ? reviewed.comparisonExplanation : reviewed.programmeDescription;
+       assert.ok(!body.includes(hiddenText), `${id}: additional prose surfaced`);
+       if (reviewed.curriculum.limitation) assert.ok(!body.includes(reviewed.curriculum.limitation));
        if (current.acceptance?.basis === 'robust-no-match') {
-        assert.ok(evidenceText.includes(reviewed.comparisonScope.assessed));
-        assert.ok((body + evidenceText).includes(reviewed.comparisonScope.excluded));
+        assert.ok(body.includes('Some external requirements remain unverified. The conclusion rests on the established academic core.'));
+        assert.ok(!body.includes(reviewed.comparisonScope.assessed));
+        if (['cp-000277', 'cp-000263'].includes(id)) assert.ok(!body.includes(reviewed.comparisonScope.excluded));
        }
-       if (id === 'cp-000277') {
-        assert.ok(body.includes('compulsory second-year 5-EC component remains unnamed'));
-        assert.ok(evidenceText.includes('175 EC') && evidenceText.includes('compulsory T.B.A. 5 EC'));
+       if (['cp-000277', 'cp-000263', 'cp-000013', 'cp-000072', 'cp-000099'].includes(id)) {
+        assert.doesNotMatch(body, /\b\d+(?:[.-]\d+)?[ -]EC\b|(?:table|components) (?:shown|below)/i);
        }
-       if (id === 'cp-000263') assert.match(evidenceText, /130 EC.*40\/45 EC/s);
       } else if (id === 'cp-000277') {
-       assert.ok(evidenceText.includes('175 EC') && evidenceText.includes('required 5 EC'));
+       assert.ok(body.includes('while a required component remains unidentified'));
+       assert.ok(!body.includes('175 EC'));
       }
-      if (id === 'cp-000277' && variant === 'actual') {
-       await page.screenshot({path: path.join(out, `${variant}-${id}-${size}-evidence.png`)});
-      }
-      await toggle.click();
-      assert.equal(await evidence.evaluate(el => el.open), false);
      }
      if (id === 'cp-000119' && variant === 'actual') assert.ok(!body.includes('Philosophy, myth & cultural meaning'));
      if (id === 'cp-000330') assert.ok(!body.includes('Computational systems, robotics & sustainable technology'));

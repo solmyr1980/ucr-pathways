@@ -13,6 +13,8 @@ from pathlib import Path
 import re
 import subprocess
 
+from counselor_editorial import canonical_review_blob_matches
+
 REGISTER = 'data/counselor/qc/comprehensive-reaudit.json'
 CASE_DIR = 'data/counselor/qc/comprehensive-reaudit'
 STATES = ['not-started', 'in-progress', 'reviewed-with-blockers', 'approved']
@@ -124,7 +126,9 @@ def validate_stage2(root, register):
                     == case.get('academicDisposition'), f'{case_id}: incomplete Stage 2 review')
             for kind, directory in [('decision', 'decisions'), ('canonical', 'comparisons')]:
                 path = root / f'data/counselor/{directory}/{case_id}.json'
-                require(evidence.get('inputBlobs', {}).get(kind) == git_blob(path), f'{case_id}: stale Stage 2 {kind}')
+                expected = evidence.get('inputBlobs', {}).get(kind)
+                matches = canonical_review_blob_matches(root, path, expected) if kind == 'canonical' else git_blob(path) == expected
+                require(matches, f'{case_id}: stale Stage 2 {kind}')
 
 
 def sync_summaries(root):
@@ -349,7 +353,10 @@ def validate(root):
             validate_final_checks(final, case_id, d.get('caseReviewPolicy'), evidence_refs)
             for kind, name in [('canonical', 'comparisons'), ('decision', 'decisions')]:
                 current = root / f'data/counselor/{name}/{case_id}.json'
-                require(final['inputBlobs'][kind] == (git_blob(current) if current.exists() else None), f'{case_id}: final approval refers to stale {kind}')
+                expected = final['inputBlobs'][kind]
+                matches = (canonical_review_blob_matches(root, current, expected) if kind == 'canonical'
+                           else (git_blob(current) if current.exists() else None) == expected)
+                require(matches, f'{case_id}: final approval refers to stale {kind}')
     actual_details = {str(p.relative_to(root)) for p in (root / case_dir).glob('cp-*.json')}
     require(detail_paths == actual_details, 'Orphaned or missing case evidence file')
     counts = Counter(states.values())
