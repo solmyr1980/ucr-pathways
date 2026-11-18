@@ -55,7 +55,7 @@ if (counselor$IS_REVIEW_DATA) {
   german <- jsonlite::fromJSON("data/test-fixtures/counselor-exception-no-match.json", simplifyVector = FALSE)
   german$audience <- list(schemaVersion = "1.0", curriculum = list(status = "complete", componentIds = lapply(german$comparator$components, function(x) x$id)))
   exception_html <- as.character(counselor$render_comparison(german))
-  stopifnot(grepl("cannot construct a sufficiently close programme", exception_html, fixed = TRUE))
+  stopifnot(grepl("No sufficiently close UCR comparison", exception_html, fixed = TRUE))
   stopifnot(grepl("Linguistik im Fokus", exception_html, fixed = TRUE))
   stopifnot(grepl("Official programme source", exception_html, fixed = TRUE))
   stopifnot(!grepl("UCR courses", exception_html, fixed = TRUE))
@@ -63,17 +63,16 @@ if (counselor$IS_REVIEW_DATA) {
   unresolved$exception$type <- "external-programme-unresolved"
   unresolved$audience$curriculum <- list(status = "unresolved", componentIds = list(), limitation = "The external requirements remain unresolved.")
   unresolved_html <- as.character(counselor$render_comparison(unresolved))
-  stopifnot(grepl("A reliable curriculum comparison is currently unavailable", unresolved_html, fixed = TRUE))
-  stopifnot(!grepl("cannot construct a sufficiently close programme", unresolved_html, fixed = TRUE))
+  stopifnot(grepl("Insufficient verified evidence for a reliable comparison", unresolved_html, fixed = TRUE))
+  stopifnot(!grepl("No sufficiently close UCR comparison", unresolved_html, fixed = TRUE))
   stopifnot(!grepl("Linguistik im Fokus", unresolved_html, fixed = TRUE))
   stopifnot(!grepl("UCR courses", unresolved_html, fixed = TRUE))
   pending <- german
   pending$exception$type <- "ucr-assessment-pending"
   pending_html <- as.character(counselor$render_comparison(pending))
-  stopifnot(grepl("A comparison with UCR is awaiting assessment", pending_html, fixed = TRUE))
-  stopifnot(grepl("awaiting assessment", pending_html, fixed = TRUE))
-  stopifnot(!grepl("cannot construct a sufficiently close programme", pending_html, fixed = TRUE))
-  stopifnot(!grepl("A reliable curriculum comparison is currently unavailable", pending_html, fixed = TRUE))
+  stopifnot(grepl("UCR assessment pending", pending_html, fixed = TRUE))
+  stopifnot(!grepl("No sufficiently close UCR comparison", pending_html, fixed = TRUE))
+  stopifnot(!grepl("Insufficient verified evidence for a reliable comparison", pending_html, fixed = TRUE))
   stopifnot(!grepl("UCR courses", pending_html, fixed = TRUE))
   # Academic status and independently configured presentation visibility both control the card.
   german_result <- german_results[which(vapply(german_results, function(x) identical(x$programme$programmeProviderId, "cp-000040"), logical(1)))]
@@ -106,7 +105,7 @@ for (index in seq_along(acceptance_records)) {
   if (identical(record$recordStatus, "exception")) {
     stopifnot(identical(record$exception$type, "no-defensible-ucr-match"))
     exception_html <- as.character(counselor$render_comparison(record))
-    stopifnot(grepl("cannot construct a sufficiently close programme", exception_html, fixed = TRUE))
+    stopifnot(grepl("No sufficiently close UCR comparison", exception_html, fixed = TRUE))
     stopifnot(grepl("Complete external curriculum", exception_html, fixed = TRUE))
     stopifnot(!grepl("Closest UCR match", exception_html, fixed = TRUE))
     next
@@ -145,7 +144,7 @@ stopifnot(grepl("Closest UCR match", caution_record_html, fixed = TRUE))
 retained_exception <- jsonlite::fromJSON("data/counselor/comparisons/cp-000301.json", simplifyVector = FALSE)
 stopifnot(identical(retained_exception$recordStatus, "exception"))
 retained_exception_html <- as.character(counselor$render_comparison(retained_exception))
-stopifnot(grepl("About this programme", retained_exception_html, fixed = TRUE))
+stopifnot(grepl("No sufficiently close UCR comparison", retained_exception_html, fixed = TRUE))
 stopifnot(!grepl("Closest UCR match", retained_exception_html, fixed = TRUE))
 academic_before <- serialize(acceptance_records[[1]], NULL)
 normal_html <- as.character(counselor$render_comparison(acceptance_records[[1]]))

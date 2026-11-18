@@ -10,7 +10,7 @@ const out = path.resolve(process.env.UCR_RENDERED_EVIDENCE_DIR || '/tmp/ucr-coun
 fs.mkdirSync(out, {recursive:true});
 const results=[];
 const cases = {
-  actual: [['cp-000377','Actuarial Science'],['cp-000003','Pedagogical'],['cp-000001','Public Administration'],['cp-000019','Arts and Culture'],['cp-000035','Biology'],['cp-000330','Mechanical Engineering'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies']],
+  actual: [['cp-000377','Actuarial Science'],['cp-000003','Pedagogical'],['cp-000001','Public Administration'],['cp-000019','Arts and Culture'],['cp-000035','Biology'],['cp-000330','Mechanical Engineering'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000311','Notarial Law']],
   fixtures: [['cp-000004','Psychology'],['cp-000002','Management of International'],['cp-000005','Psychology'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000019','Arts and Culture'],['cp-000003','Pedagogical']]
 };
 // Stage 1 representatives use actual canonical data, including still-unresolved controls.
@@ -44,7 +44,9 @@ try {
     await page.goto(url);await page.locator('#search_text').waitFor();
     for(const [id,query] of cases[variant]) {
      await page.locator('#search_text').fill(query);
-     const open=page.locator(`.open-comparison[data-id="${id}"]`);await open.waitFor({timeout:20000});await open.click();
+     const open=page.locator(`.open-comparison[data-id="${id}"]`);await open.waitFor({timeout:20000});
+     const displayName = await open.locator('..').locator('h3').innerText();
+     await open.click();
      await page.locator('.comparison-shell').waitFor();
      const body=await page.locator('.comparison-shell').innerText();
      assert.ok(!body.includes('INTERNAL-SENTINEL'),`${variant}/${id}: research leakage`);
@@ -57,7 +59,7 @@ try {
       assert.match(await page.locator('.equivalence-note').innerText(), /degree equivalence, professional qualification or automatic eligibility/);
       assert.match(await page.locator('.comparison-legend').innerText(), /partial matches.*blank cell.*Optional independent research.*180 EC/);
      }
-     const details = page.locator('.comparison-details');
+     const details = page.locator('.audience-context .comparison-details');
      let detailsText = '';
      if (await details.count()) {
       assert.equal(await details.evaluate(el=>el.open),false);
@@ -133,7 +135,8 @@ try {
       await page.locator('.modal.in button',{hasText:'Close'}).click();await page.locator('.modal').waitFor({state:'hidden'});await page.locator('.modal-backdrop').waitFor({state:'hidden'});
      }
      const current=JSON.parse(fs.readFileSync(`data/counselor/comparisons/${id}.json`));
-     if(variant==='actual' && current.acceptance?.basis==='qualified-comparison') {
+     const externalOnly = (variant === 'fixtures' && id === 'cp-000002') || id === 'cp-000311';
+     if(variant==='actual' && current.acceptance?.basis==='qualified-comparison' && !externalOnly) {
       assert.equal(await page.locator('.compare-view').count(),1);
       assert.ok(body.includes(current.audience.comparisonScope.label) && body.includes(current.audience.comparisonScope.excluded));
       assert.ok(body.includes('Nominal external degree: 180 EC') && body.includes('Unknown requirements are not open electives'));
@@ -162,36 +165,74 @@ try {
       await page.locator('.modal.in button',{hasText:'Close'}).click();await page.locator('.modal-backdrop').waitFor({state:'hidden'});
 
      }
-     if(variant==='actual' && ['cp-000099','cp-000072'].includes(id)) {
-      assert.equal(await page.locator('.compare-view').count(),0);
-      assert.equal(await page.locator('.qualified-scope').count(),0,'Unresolved cases must not acquire a qualification banner');
+     const evidence = page.locator('.exception-evidence');
+     if (current.recordStatus === 'exception' || externalOnly) {
+      assert.equal(await evidence.count(), 1);
+      const noMatch = current.exception?.type === 'no-defensible-ucr-match' &&
+        !(variant === 'fixtures' && id === 'cp-000277');
+      const status = noMatch ? 'No sufficiently close UCR comparison' :
+        externalOnly ? 'Only the external programme is shown' :
+        'Insufficient verified evidence for a reliable comparison';
+      assert.equal(await page.locator('.comparison-status').innerText(), status);
+      assert.equal(await page.locator('.comparison-head h1').innerText(), displayName);
+      assert.equal(await page.locator('.comparison-institution').innerText(), current.comparator.institution);
+      assert.ok(await page.getByRole('link', {name: /Official programme source/}).isVisible());
+      assert.equal(await page.locator('.compare-view,.qualified-scope,.column-select,.course-link').count(), 0);
+      assert.equal(await evidence.evaluate(el => el.open), false);
+      assert.ok(!body.includes('About this programme') && !body.includes('External programme components'));
+      const table = evidence.locator('.external-table');
+      assert.equal(await table.isVisible(), false);
+
+      if (variant === 'actual') {
+       const reviewed = current.audience;
+       assert.ok(body.includes(`Academic year ${reviewed.curriculum.yearLabel}`));
+       if (noMatch) assert.ok(body.includes(reviewed.comparisonExplanation), `${id}: reviewed explanation missing`);
+       if (externalOnly) {
+        assert.ok(body.includes(reviewed.programmeDescription));
+        assert.ok(!body.includes(reviewed.comparisonExplanation), `${id}: withheld comparison surfaced`);
+       }
+       if (reviewed.curriculum.status === 'partial') {
+        assert.ok(body.includes('External curriculum verification is incomplete.'));
+       }
+       if (reviewed.curriculum.limitation) assert.ok(!body.includes(reviewed.curriculum.limitation), `${id}: verification paragraph visible before expansion`);
+      }
+      const toggle = evidence.locator('summary');
+      await toggle.focus();
+      await toggle.press('Enter');
+      assert.equal(await evidence.evaluate(el => el.open), true);
+      const evidenceText = await evidence.innerText();
+      assert.ok(!evidenceText.includes('INTERNAL-SENTINEL'), `${variant}/${id}: research leakage in evidence`);
+      assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+      if (variant === 'actual') {
+       const reviewed = current.audience;
+       if (reviewed.curriculum.limitation) assert.ok(evidenceText.includes(reviewed.curriculum.limitation));
+       assert.equal(await table.locator('tbody tr').count(), reviewed.curriculum.componentIds.length);
+       if (reviewed.curriculum.status === 'partial') {
+        assert.ok(evidenceText.includes('Verified partial curriculum'));
+        assert.ok(!evidenceText.includes('Complete external curriculum'));
+       }
+       if (current.acceptance?.basis === 'robust-no-match') {
+        assert.ok(evidenceText.includes(reviewed.comparisonScope.assessed));
+        assert.ok((body + evidenceText).includes(reviewed.comparisonScope.excluded));
+       }
+       if (id === 'cp-000277') {
+        assert.ok(body.includes('compulsory second-year 5-EC component remains unnamed'));
+        assert.ok(evidenceText.includes('175 EC') && evidenceText.includes('compulsory T.B.A. 5 EC'));
+       }
+       if (id === 'cp-000263') assert.match(evidenceText, /130 EC.*40\/45 EC/s);
+      } else if (id === 'cp-000277') {
+       assert.ok(evidenceText.includes('175 EC') && evidenceText.includes('required 5 EC'));
+      }
+      if (id === 'cp-000277' && variant === 'actual') {
+       await page.screenshot({path: path.join(out, `${variant}-${id}-${size}-evidence.png`)});
+      }
+      await toggle.click();
+      assert.equal(await evidence.evaluate(el => el.open), false);
      }
-     if(variant==='actual' && id==='cp-000263') {assert.equal(current.acceptance.scope,'academic-core');assert.equal(current.comparator.components.reduce((sum,c)=>sum+c.credits,0),130);assert.ok(body.includes('130')&&/40\/45\s+EC/.test(body));assert.equal(await page.locator('.course-link').count(),0);}
-     if(variant==='actual' && current.acceptance?.basis==='robust-no-match') {assert.equal(await page.locator('.compare-view').count(),0);assert.ok(body.includes('cannot construct a sufficiently close programme') && body.includes(current.audience.comparisonScope.excluded));}
-     if(id==='cp-000277' && (variant==='fixtures' || current.exception?.type==='external-programme-unresolved')) {
-      assert.ok(body.includes('no complete degree pathway is certified'));
-      if(variant==='actual' && !JSON.parse(fs.readFileSync(`data/counselor/comparisons/${id}.json`)).audience?.curriculum) assert.equal(await page.locator('.external-curriculum').count(),0);
-      else {assert.ok(body.includes('175 EC')&&body.includes('required 5 EC'));assert.ok(body.includes('Verified partial curriculum'));}
-     }
-     if(id==='cp-000428')assert.ok(body.includes('cannot construct a sufficiently close programme'));
-     if(id==='cp-000119' && variant==='actual') {
-      assert.ok(body.includes('cannot construct a sufficiently close programme'));
-      assert.ok(body.includes('Complete external curriculum') && body.includes(current.audience.programmeDescription));
-      assert.ok(!body.includes('Philosophy, myth & cultural meaning'));
-      assert.equal(await page.locator('.compare-view,.column-select,.course-link').count(),0);
-      assert.equal(await page.locator('.external-table tbody tr').count(),current.audience.curriculum.componentIds.length);
-     }
-     if(variant==='fixtures'&&id==='cp-000002'){assert.ok(body.includes('withheld from presentation'));assert.equal(await page.locator('.compare-view').count(),0);assert.ok(body.includes('Complete external curriculum'));}
+     if (id === 'cp-000119' && variant === 'actual') assert.ok(!body.includes('Philosophy, myth & cultural meaning'));
+     if (id === 'cp-000330') assert.ok(!body.includes('Computational systems, robotics & sustainable technology'));
      if(variant==='fixtures'&&id==='cp-000005'){assert.ok(detailsText.includes('other content remains under review'));assert.ok(body.includes('Curriculum details are awaiting review'));}
-     if(id==='cp-000330') {
-      assert.ok(body.includes('cannot construct a sufficiently close programme'));
-      assert.ok(body.includes(current.audience.comparisonExplanation) && body.includes('Complete external curriculum'));
-      assert.ok(!body.includes('withheld from presentation') && !body.includes('Computational systems, robotics & sustainable technology'));
-      assert.equal(await page.locator('.compare-view,.column-select,.course-link').count(),0);
-      assert.equal(await page.locator('.external-table tbody tr').count(),current.audience.curriculum.componentIds.length);
-     }
      if(variant==='fixtures'&&id==='cp-000004')assert.ok(body.includes('specialist subjects or forms of training may differ'));
-     if(id==='cp-000003') {assert.ok(body.includes('cannot construct a sufficiently close programme') && body.includes('Complete external curriculum'));assert.equal(await page.locator('.compare-view,.column-select,.course-link').count(),0);assert.equal(await page.locator('.external-table tbody tr').count(),current.audience.curriculum.componentIds.length);}
      if(variant==='actual'&&id==='cp-000035') {
       const currentBiology = JSON.parse(fs.readFileSync('data/counselor/comparisons/cp-000035.json', 'utf8'));
       assert.ok(detailsText.includes(currentBiology.audience.comparisonExplanation), 'CP035 reviewed comparison explanation missing');
