@@ -28,7 +28,7 @@ These decisions were explicitly established in the conversation. Preserve them u
 7. **Layout must serve readability.** The full butterfly cannot remain large alongside a readable 24-course grid. During selection, use the **relevant cluster crop/visual on the left**, not the entire butterfly squeezed into that space. Let the final completed grid use more or all screen space if needed. Avoid complex resizing unless it helps.
 8. **Precompute the actual complete 24-course schedule.** The viewer sees it fill progressively, but course selections and semester positions come from a real, existing UCR Pathways programme record. No gaps or subsequent human-invented filler stage are needed. The ordering of selections is thematic for narration, **not** chronological by semester.
 9. **Explain course relationships at selection time.** Groups of courses are the unit of explanation. The voice should convey their substantive content, why the subjects complement one another, and how they contribute to the student's interests. Do **not** read every card's course title. Once all 24 appear, there is **no second explanation** of the completed semester schedule.
-10. **End with a short invitation.** Show a clear invitation to submit interests, plus a *real* URL and QR code once the correct public destination is supplied/verified. No placeholder QR may be presented as usable.
+10. **End with a short invitation.** Invite viewers to submit their interests and display the [UCR submission URL and its QR code](#33-interest-submission) together on the final screen.
 11. **Public, third-person voice.** Narration should refer to “a student interested in ...”, not address the particular student as “you” throughout. The final invitation can address viewers directly.
 12. **Calm, intellectually engaging tone.** Prefer specific, neutral and confident academic explanation over synthetic excitement, promotional superlatives or an advertising voice. Interest should emerge from the connections between ideas and the animation, not from artificial enthusiasm.
 
@@ -67,9 +67,15 @@ The public example's exact interest statement:
 
 The video shows one programme, not all UCR alternatives and not its external bachelor comparator. Do not imply that every viewer would receive this same curriculum. The programme's final six-semester course positions must come directly from the selected example and remain unchanged during storytelling.
 
-### 3.3 Source gaps and input still needed
+### 3.3 Interest submission
 
-- The actual public **interest-submission URL** and resulting QR code have not been confirmed in this sub-project. Ask for or verify that destination before creating the final call to action. A visual placeholder may be shown *only if clearly marked nonfunctional* during internal tests.
+- **On-screen URL** [https://ucr.nl/tell-us-about-your-interests/](https://ucr.nl/tell-us-about-your-interests/)
+- **QR image** [`assets/video/qr-code.png`](../../assets/video/qr-code.png)
+
+The QR code encodes the same URL. Show both together on the closing screen in the next render.
+
+### 3.4 Source gaps and input still needed
+
 - The existing narration voice was a very basic synthetic voice and was judged poor. A substantially more natural, restrained voice is required for an improved version. Free/offline tools are preferred, but tool selection is not yet settled.
 - Recheck historical changes in titles/content before publishing, especially `GOSHIST312`: the older public example describes this as *History Research Seminar*, whereas the active reference may differ. Do not silently use an outdated academic claim.
 
@@ -164,7 +170,7 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 4. Precompute all 24 destination cards and their fixed positions directly from `p-001`. Animate course selection by narrative group, with the source tile highlighted and the readable titled card appearing at its destination. Newly selected courses may be emphasized while earlier cards recede slightly.
 5. Improve typography, card spacing, resizing, transitional motion and the full-frame final state. Retain readable codes plus titles, **no descriptions**. Avoid squeezing the whole butterfly and finished grid into one frame.
 6. Refine the academically grounded narration and generate a natural, calm voice. Synchronize narration and visuals at the group level. Prefer free tools; if a paid/external service is truly necessary, describe the trade-off before using it.
-7. Once the genuine student-interest submission destination is known, add its verified URL and functional QR code. Until then use a plainly marked nonfunctional internal placeholder or omit the code.
+7. Show the [submission URL and QR image](#33-interest-submission) together on the closing screen. Scan the QR code from the rendered frame to verify that it opens the displayed URL.
 8. Render one reviewable 16:9 MP4. Inspect representative frames (opening, early selection, BEN→GOS transition, later full grid, closing), listen to the voice and check complete playback. Report issues candidly.
 9. Keep the pilot separate from production publication. Store validated reusable **source code and instructions** in this sub-project when implementation is authorized. Do not overwrite the authoritative academic data or deploy/publish the example without separate authorization.
 
@@ -178,12 +184,11 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 - Movement is clear, smooth, and synchronized with the voice, including the switch from BEN to GOS.
 - Audio is intelligible and appropriately natural, and on-screen text is free from clipping or overlaps.
 - The video can be generated without a required paid account; limitations are recorded.
-- No nonfunctional QR code or unverified submission link appears as if it were usable.
+- The closing screen shows the submission URL and a scannable QR code that leads to the same page.
 - No private student data appear, and no project-internal `UCR Pathways` product branding is presented to students.
 
 ## 8. Open decisions — do not silently treat these as settled
 
-- The exact student-interest submission URL and final QR code.
 - The final synthesized voice (and whether it is achievable entirely with free tooling).
 - Exact overall runtime and timing between narration groups.
 - How much the full butterfly zoom and active-cluster panel should change size during the transition; judge by readability and simplicity.
@@ -194,7 +199,7 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 **Working rule:** Treat this file as the specific, reusable **pilot handoff**, not as a new UCR Pathways production policy. Update it with demonstrated results and explicit user decisions as the video pilot progresses.
 ## 9. Review cut and reproduction
 
-The [review MP4](review/UCR-curriculum-pilot.mp4) runs **3:17** at 1920 × 1080 and 24 fps. It opens on Business & Entrepreneurship, reveals the full butterfly, then follows the narration through the seven groups. Each selected card moves from its highlighted tile to its semester. The academic core selection uses its actual tile in the full butterfly. The completed grid remains on screen for about twelve seconds. The final invitation asks viewers to submit their interests. The approved intake URL still needs confirmation before a QR code can be added. The Program Builder is a separate destination.
+The [review MP4](review/UCR-curriculum-pilot.mp4) runs **3:17** at 1920 × 1080 and 24 fps. It opens on Business & Entrepreneurship, reveals the full butterfly, then follows the narration through the seven groups. Each selected card moves from its highlighted tile to its semester. The academic core selection uses its actual tile in the full butterfly. The completed grid remains on screen for about twelve seconds. The final invitation asks viewers to submit their interests. The [submission URL and QR code](#33-interest-submission) are specified for the next render.
 
 ### Academic checks
 
