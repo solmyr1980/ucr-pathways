@@ -1,6 +1,6 @@
 # UCR curriculum video — pilot production brief and handoff
 
-**Status:** Full-length animated review cut completed on 18 November 2026. See [render and verification notes](#9-review-cut-and-reproduction).
+**Status:** [Watch or download the animated review cut (MP4, 3:17)](review/UCR-curriculum-pilot.mp4). Completed on 18 November 2026. See [render and verification notes](#9-review-cut-and-reproduction).
 **Established:** 18 November 2026  
 **Repository:** `solmyr1980/ucr-pathways`, branch `main`  
 **Purpose:** Preserve the design decisions, inputs, initial narration and implementation findings from the curriculum-video discussion so the work can resume without restarting the concept design.
@@ -194,7 +194,7 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 **Working rule:** Treat this file as the specific, reusable **pilot handoff**, not as a new UCR Pathways production policy. Update it with demonstrated results and explicit user decisions as the video pilot progresses.
 ## 9. Review cut and reproduction
 
-The private review MP4 runs **3:17** at 1920 × 1080 and 24 fps. It opens on Business & Entrepreneurship, reveals the full butterfly, then follows the narration through the seven groups. Each selected card moves from its highlighted tile to its semester. The academic core selection uses its actual tile in the full butterfly. The completed grid remains on screen for about twelve seconds. The final invitation asks viewers to submit their interests. The approved intake URL still needs confirmation before a QR code can be added. The Program Builder is a separate destination.
+The [review MP4](review/UCR-curriculum-pilot.mp4) runs **3:17** at 1920 × 1080 and 24 fps. It opens on Business & Entrepreneurship, reveals the full butterfly, then follows the narration through the seven groups. Each selected card moves from its highlighted tile to its semester. The academic core selection uses its actual tile in the full butterfly. The completed grid remains on screen for about twelve seconds. The final invitation asks viewers to submit their interests. The approved intake URL still needs confirmation before a QR code can be added. The Program Builder is a separate destination.
 
 ### Academic checks
 
@@ -231,4 +231,4 @@ Voice credit: Alba (en_GB, medium), Piper voice collection. The voice model card
 - Inspected the opening, card selections, cluster change, final grid and invitation in rendered frames. The grid persists as the source changes.
 - Decoded the entire MP4 without errors. Video and audio run 197.208 and 197.200 seconds respectively. Integrated loudness was −17.2 LUFS and true peak −1.3 dBFS.
 - Checked the spoken sequence with offline speech recognition. Naturalness and pacing still need a listener’s judgment.
-- Private review file SHA-256: `95b45cc1132fc6ea6e778fbc080441af849dc738e0faa78a340c843f45ab43ad`. Only the source and instructions belong in this repository.
+- Review file SHA-256: `95b45cc1132fc6ea6e778fbc080441af849dc738e0faa78a340c843f45ab43ad`. The review copy was added to the public pilot folder on 19 November 2026.
