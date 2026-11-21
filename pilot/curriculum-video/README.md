@@ -365,3 +365,31 @@ At the measured rate, 3½ minutes of finished narration would take roughly 12 mi
 For an attended transfer without a persistent URL, enable one-time delivery. Download the run's `qwen-receiving-certificate` artifact, check that the certificate's common name is `UCR-run-<run ID>`, then encrypt the ZIP with `openssl cms -encrypt -binary -aes-256-gcm -outform DER -in prompt.zip -out payload.cms recipient.pem`. Place only the resulting ciphertext at `.github/qwen-prompt-<run ID>.cms` on `main` before the receiving step times out. Remove it from the branch after receipt. The private key stays on that runner. The workflow uploads only the public receiving certificate and the review outputs.
 
 The [installer](voice-clone/install-qwen.sh) pins the inference engine and checks both model files. The [synthesis script](voice-clone/synthesize-qwen.py) reads the current storyboard, sets a sampling seed, measures the initial speaking rate and uses FFmpeg to adjust the tempo while preserving pitch. Its default target is the narrator’s measured 152 words per minute. CPU instructions and thread count can affect generation even with the same seed.
+
+## 12. Third voice-clone listening test
+
+Listeners described the second take as sounding as if the narrator had a blocked nose. The narrator also heard continuous delivery through places where he would normally pause. This test keeps the same 86 words about economics and business so both judgments can be made on the same text.
+
+Two new excerpts from the reviewed reference were tested locally on the same three opening sentences. The selected excerpt runs from 65.22 to 73.72 seconds in the assembled reference. It includes a question about making a memorable impression and a short aside. Its test reading came closer to the recorded pitch and overall frequency balance than the other new prompt. This selection used acoustic measurements, followed by a check of the separate runner output. Offline transcription confirmed both reference texts. The original meeting also contains pauses of roughly 1.2–1.3 seconds after several completed thoughts.
+
+The narrator’s questions and changes of subject guide the pauses. The CPU synthesizer reads ten sentences separately. The [assembly script](voice-clone/phrased_qwen.py) preserves pauses and breaths inside a sentence, allows a margin around soft consonants, and inserts nine rests of 0.58–1.55 seconds. The longest rests follow “Where could that question take them?” and precede “Consider a new business.” The speaking rate within a sentence comes from the synthesizer.
+
+The script compares the stronger speech frames with twelve six-second excerpts of the reviewed recording. The excerpts begin at 6, 24, 40, 86, 98, 151, 166, 179, 201, 218, 239 and 250 seconds. It adjusts two broad regions that differed in the second take, limiting the bass adjustment to −5/+3 dB and the upper-midrange adjustment to −2.5/+3.5 dB. These measurements describe the frequency balance of two recordings, which also depends on their microphones and spoken words. Only listeners can judge whether the voice still sounds congested.
+
+The [successful GitHub Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/44942347196) generated a 47.01-second WAV on Ubuntu CPU, compared with 33.78 seconds for the same passage in take 2. The [downloadable artifact](https://github.com/solmyr1980/ucr-pathways/actions/runs/44942347196/artifacts/14722621551) matched its ZIP and WAV checksums and decoded in full. WAV SHA-256: `f64741696dabd274edaa6acb71fe62029168be166f968a527e8c34d5d26c0212`.
+
+| Check on the delivered WAV | Take 2 | Take 3 |
+| --- | ---: | ---: |
+| Quiet intervals of at least half a second at −44 dBFS | 0 | 10 |
+| Speaking rate including pauses | 152.8 words/min | 109.8 words/min |
+| Median voiced pitch (150 Hz in the recorded excerpts) | 138 Hz | 150 Hz |
+| Mean absolute difference from reference frequency balance, 100–5000 Hz | 3.10 dB | 0.67 dB |
+| Speaker similarity using the section 11 protocol | 0.61 | 0.64 |
+
+Each of the nine inserted rests was independently checked in the final PCM signal. The reference-frequency comparison uses eight frequency bands after centering their levels to the speech midrange. Most of the change in frequency balance was already present with the new prompt and phrasing. The final EQ applied just −0.77 dB to the bass and −0.81 dB around 3.8 kHz. Accent, perceived nasality and natural emphasis still need a listening judgment.
+
+Whisper small.en recovered all 86 script words in order and added “so” before “taxes”. Whisper base.en transcribed “taxes” as “tax is”. The clearest point for a pronunciation check is the start of “Taxes change who benefits from growth” at 0:26. The question ends at 0:10, followed by a 1.50-second rest. The next example begins at 0:37 after a 1.55-second rest.
+
+The CPU runner spent 3 minutes 34 seconds building and obtaining the engine and weights, and 4 minutes 28 seconds generating and finishing the WAV, with peak resident memory of 6.02 GiB. Playback measured −17.99 LUFS and −1.50 dBTP. A linear projection for 3½ minutes at this delivery rate is about 20 minutes after setup. The final duration of the full storyboard at this slower pace is untested. An earlier attempt received HTTP 403 while retrieving the sealed prompt with Git. The successful workflow downloaded the encrypted object directly. Neither the reference nor its transcript is present in the artifact.
+
+To reproduce this take, follow the private prompt and dispatch instructions in section 11 and select **3** in the **take** field. Use a ZIP containing the selected 8.5-second, 24 kHz mono PCM16 prompt and its English transcript. The original 4:24 reference was assembled as described in section 10. Download **UCR-voice-clone-take-3** from the completed run. Its metrics include every sentence boundary and the applied filter gains.
