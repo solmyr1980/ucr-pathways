@@ -52,6 +52,8 @@ All seven images are currently in [`assets/video/`](../../assets/video/). Use th
 
 The PNGs retain course layouts and colours. When highlighting precise course tiles, calculate coordinates against the **actual source image** and test alignment after scaling. If individual vector/HTML elements from the original butterfly renderer can be reused, that may improve precision, but do not make vectorization a prerequisite for the pilot. The close-ups have titles; the butterfly mainly carries codes.
 
+**UCR branding for the next video iteration:** Reuse the existing [UCR logo](../../assets/brand/ucr-primary-plum.png), [brand colours and font definitions](../../assets/css/brand.css), and available [`assets/fonts/`](../../assets/fonts/) files. Integrate these deliberately into the video's visual identity (for example, the opening, headings and closing) while keeping course content readable. Use the actual repository assets rather than recreating the logo or inventing branding. Keep project-internal `UCR Pathways` branding out of the public-facing video.
+
 ### 3.2 Real academic and schedule evidence
 
 - **Public demonstration record:** [`data/examples/p-001.json`](../../data/examples/p-001.json). Use its interest statement, and for this pilot use the programme `ucr-depth`, labelled *Economics, Politics and Global Development*. This is an existing public example, not a private student.
@@ -170,7 +172,7 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 4. Precompute all 24 destination cards and their fixed positions directly from `p-001`. Animate course selection by narrative group, with the source tile highlighted and the readable titled card appearing at its destination. Newly selected courses may be emphasized while earlier cards recede slightly.
 5. Improve typography, card spacing, resizing, transitional motion and the full-frame final state. Retain readable codes plus titles, **no descriptions**. Avoid squeezing the whole butterfly and finished grid into one frame.
 6. Refine the academically grounded narration and generate a natural, calm voice. Synchronize narration and visuals at the group level. Prefer free tools; if a paid/external service is truly necessary, describe the trade-off before using it.
-7. Show the [submission URL and QR image](#33-interest-submission) together on the closing screen. Scan the QR code from the rendered frame to verify that it opens the displayed URL.
+7. Integrate the existing [UCR branding assets](#31-visual-source-images--uploaded-on-github) into the next video, using the official logo, colours and fonts where appropriate without cluttering the animation. Show the [submission URL and QR image](#33-interest-submission) together on the closing screen. Scan the QR code from the rendered frame to verify that it opens the displayed URL.
 8. Render one reviewable 16:9 MP4. Inspect representative frames (opening, early selection, BEN→GOS transition, later full grid, closing), listen to the voice and check complete playback. Report issues candidly.
 9. Keep the pilot separate from production publication. Store validated reusable **source code and instructions** in this sub-project when implementation is authorized. Do not overwrite the authoritative academic data or deploy/publish the example without separate authorization.
 
@@ -184,6 +186,7 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 - Movement is clear, smooth, and synchronized with the voice, including the switch from BEN to GOS.
 - Audio is intelligible and appropriately natural, and on-screen text is free from clipping or overlaps.
 - The video can be generated without a required paid account; limitations are recorded.
+- UCR's existing logo, colours and fonts are used appropriately and legibly; the branding supports rather than competes with the curriculum animation.
 - The closing screen shows the submission URL and a scannable QR code that leads to the same page.
 - No private student data appear, and no project-internal `UCR Pathways` product branding is presented to students.
 
