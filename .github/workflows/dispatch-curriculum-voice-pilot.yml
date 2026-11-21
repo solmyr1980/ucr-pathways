@@ -19,4 +19,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          gh run cancel 44925456112 --repo "$GITHUB_REPOSITORY" || true
           gh workflow run test-curriculum-voice.yml --repo "$GITHUB_REPOSITORY" --ref main -f reference_source=pilot-transfer

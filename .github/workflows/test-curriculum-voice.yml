@@ -87,20 +87,21 @@ jobs:
 
       - name: Receive the pilot reference inside this runner
         if: inputs.reference_source == 'pilot-transfer'
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
           umask 077
-          endpoint="repos/$GITHUB_REPOSITORY/contents/.github/voice-reference-$GITHUB_RUN_ID.cms?ref=main"
-          for attempt in $(seq 1 72); do
-            if gh api -H 'Accept: application/vnd.github.raw+json' "$endpoint" > "$VOICE_DIR/reference.cms" 2>/dev/null; then
+          payload=".github/voice-reference-$GITHUB_RUN_ID.cms"
+          endpoint="https://raw.githubusercontent.com/$GITHUB_REPOSITORY/refs/heads/main/$payload"
+          for attempt in $(seq 1 48); do
+            if curl --fail --silent --location --max-time 15 "$endpoint?attempt=$attempt" -o "$VOICE_DIR/reference.cms" ||
+                { git fetch --quiet --no-tags --depth=1 origin main &&
+                  git show "FETCH_HEAD:$payload" > "$VOICE_DIR/reference.cms"; } 2>/dev/null; then
               openssl cms -decrypt -binary -inform DER -in "$VOICE_DIR/reference.cms" \
                 -recip "$VOICE_DIR/transfer.crt" -inkey "$VOICE_DIR/transfer.key" \
                 -out "$VOICE_DIR/reference.audio"
               rm -f "$VOICE_DIR/transfer.key" "$VOICE_DIR/reference.cms"
               exit 0
             fi
-            sleep 10
+            sleep 5
           done
           echo "::error::The encrypted reference did not arrive in time."
           exit 1
