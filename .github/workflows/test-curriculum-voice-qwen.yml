@@ -1,0 +1,86 @@
+name: Test Qwen curriculum narration
+on:
+  workflow_dispatch:
+    inputs:
+      one_time_delivery:
+        description: Receive an encrypted prompt addressed to this run
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  sample:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      SCRIPTS: pilot/curriculum-video/voice-clone
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: pilot/curriculum-video
+      - name: Set up the review directory
+        run: |
+          umask 077
+          mkdir -p "$RUNNER_TEMP/qwen/private" "$RUNNER_TEMP/qwen/review"
+          echo "QWEN=$RUNNER_TEMP/qwen" >> "$GITHUB_ENV"
+      - name: Create the one-time receiving certificate
+        if: inputs.one_time_delivery
+        run: |
+          umask 077
+          openssl req -x509 -newkey rsa:3072 -nodes -days 1 -subj "/CN=UCR-run-$GITHUB_RUN_ID" \
+            -keyout "$QWEN/private/key.pem" -out "$QWEN/recipient.pem"
+      - uses: actions/upload-artifact@v4
+        if: inputs.one_time_delivery
+        with:
+          name: qwen-receiving-certificate
+          path: ${{ runner.temp }}/qwen/recipient.pem
+          retention-days: 1
+      - name: Build CPU engine and verify model weights
+        run: |
+          if ! command -v ffmpeg >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
+          /usr/bin/time -v -o "$QWEN/review/install-time.txt" bash "$SCRIPTS/install-qwen.sh" "$QWEN/models"
+      - name: Download private prompt
+        if: ${{ !inputs.one_time_delivery }}
+        env:
+          PROMPT_URL: ${{ secrets.UCR_QWEN_PROMPT_URL }}
+        run: |
+          umask 077
+          [[ "$PROMPT_URL" == https://* ]] || { echo "::error::Set UCR_QWEN_PROMPT_URL to the private prompt ZIP."; exit 1; }
+          curl -fsL --proto '=https' --proto-redir '=https' --max-time 90 "$PROMPT_URL" -o "$QWEN/private/prompt.zip"
+      - name: Receive the encrypted prompt
+        if: inputs.one_time_delivery
+        run: |
+          umask 077
+          path=".github/qwen-prompt-$GITHUB_RUN_ID.cms"
+          for try in {1..90}; do
+            if git fetch --quiet --depth=1 origin main && git cat-file -e "FETCH_HEAD:$path" 2>/dev/null; then
+              git show "FETCH_HEAD:$path" > "$QWEN/private/payload.cms"
+              break
+            fi
+            sleep 10
+          done
+          openssl cms -decrypt -binary -inform DER -in "$QWEN/private/payload.cms" \
+            -recip "$QWEN/recipient.pem" -inkey "$QWEN/private/key.pem" -out "$QWEN/private/prompt.zip"
+      - name: Generate and measure the economics passage
+        run: |
+          out="$QWEN/review"
+          /usr/bin/time -v -o "$out/synthesis-time.txt" python3 "$SCRIPTS/synthesize-qwen.py" \
+            "$QWEN/private/prompt.zip" "$QWEN/models" "$out"
+          ffmpeg -nostdin -xerror -loglevel error -i "$out/UCR-voice-clone-take-2.wav" -f null -
+          (cd "$out" && sha256sum UCR-voice-clone-take-2.wav > SHA256SUMS)
+          cat "$out/metrics.json" >> "$GITHUB_STEP_SUMMARY"
+      - name: Remove private input and key
+        if: always()
+        run: rm -rf -- "$RUNNER_TEMP/qwen/private"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: UCR-voice-clone-take-2
+          path: ${{ runner.temp }}/qwen/review/
+          if-no-files-found: error
+          retention-days: 14
