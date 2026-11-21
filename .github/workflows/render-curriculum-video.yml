@@ -1,0 +1,59 @@
+name: Render curriculum video pilot
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PILOT_DIR: pilot/curriculum-video
+      MODEL_URL: https://huggingface.co/rhasspy/piper-voices/resolve/0ca208afc2a2ee102b1e961e72e0a7e4907be3d0/en/en_GB/alba/medium/en_GB-alba-medium.onnx
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install rendering dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg fonts-open-sans fonts-dejavu-core
+          python -m pip install piper-tts==1.8.0 openpyxl==3.1.5 Pillow==13.0.0
+
+      - name: Download the Alba voice
+        run: |
+          out="$RUNNER_TEMP/ucr-curriculum-video"
+          mkdir -p "$out"
+          curl --fail --silent --show-error --location --retry 3 "$MODEL_URL" -o "$out/alba.onnx"
+          curl --fail --silent --show-error --location --retry 3 "$MODEL_URL.json" -o "$out/alba.onnx.json"
+
+      - name: Synthesize narration and render MP4
+        run: |
+          out="$RUNNER_TEMP/ucr-curriculum-video"
+          python "$PILOT_DIR/narrate.py" "$out/alba.onnx" "$out"
+          python "$PILOT_DIR/render.py" "$out"
+
+      - name: Verify the pilot
+        run: |
+          out="$RUNNER_TEMP/ucr-curriculum-video"
+          python "$PILOT_DIR/verify.py" "$out" | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: UCR-curriculum-pilot
+          path: ${{ runner.temp }}/ucr-curriculum-video/UCR-curriculum-pilot.mp4
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 0

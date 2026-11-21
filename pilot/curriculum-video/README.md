@@ -207,6 +207,14 @@ The renderer reads the original interest, programme label and all semester and w
 
 The public example passed the structural example validator. The separate course feasibility validator found two discrepancies for the selected programme at input commit `a489fcd7960373ba1d627d7846e35faef075ceae`. BENBUSI211 is in spring 2028 in the example and BENECON314 in spring 2029. Neither term has a planned offering for that course in the current workbook. The pilot preserves the canonical positions and labels the final programme illustrative. Reconcile the two placements before presenting the film as a currently feasible schedule.
 
+### Render with GitHub Actions
+
+1. In the repository’s [Actions tab](https://github.com/solmyr1980/ucr-pathways/actions/workflows/render-curriculum-video.yml), select **Render curriculum video pilot**.
+2. Select **Run workflow**, choose the **main** branch and select **Run workflow** again.
+3. Open the completed run and look under **Artifacts**. Download **UCR-curriculum-pilot** and extract `UCR-curriculum-pilot.mp4` from the ZIP. GitHub requires sign-in to download the artifact. The artifact expires after seven days.
+
+The workflow uses the public `p-001 / ucr-depth` example and the same storyboard, Piper Alba voice and renderer as the archived review cut. It checks playback, narration cues, scene and motion frames, and all 24 course positions against the archived grid. The invitation matches the archived cut. The QR code and URL remain specified for a later revision.
+
 ### Reproduce the film
 
 Use a Linux checkout with FFmpeg (libx264 and AAC), Python 3.12, Open Sans and DejaVu Serif in the Debian system font locations. Run from the repository root. The model and package downloads require internet access once. Synthesis and rendering run locally without an account or service fee.
