@@ -1,0 +1,140 @@
+name: Test curriculum narration voice
+
+on:
+  workflow_dispatch:
+    inputs:
+      reference_source:
+        description: Reference delivery
+        type: choice
+        options: [repository-secret, pilot-transfer]
+        default: repository-secret
+
+defaults:
+  run:
+    shell: bash
+
+permissions:
+  contents: read
+
+concurrency:
+  group: curriculum-voice-pilot
+
+jobs:
+  make-sample:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      VOICE_SCRIPT: pilot/curriculum-video/voice-clone
+      VOICE_DIR: ${{ runner.temp }}/ucr-voice
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+      OPENBLAS_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: pilot/curriculum-video
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Open the one-time encrypted reference transfer
+        if: inputs.reference_source == 'pilot-transfer'
+        run: |
+          umask 077
+          mkdir -p "$VOICE_DIR"
+          openssl req -x509 -newkey rsa:3072 -nodes -days 1 \
+            -subj "/CN=UCR voice pilot $GITHUB_RUN_ID" \
+            -keyout "$VOICE_DIR/transfer.key" -out "$VOICE_DIR/transfer.crt"
+
+      - name: Publish the transfer's public certificate
+        if: inputs.reference_source == 'pilot-transfer'
+        uses: actions/upload-artifact@v4
+        with:
+          name: pilot-transfer-public-certificate
+          path: ${{ env.VOICE_DIR }}/transfer.crt
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Install the CPU synthesizer and verify model downloads
+        run: |
+          mkdir -p "$VOICE_DIR"
+          if ! command -v ffmpeg >/dev/null; then
+            sudo apt-get update
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
+          /usr/bin/time -v -o "$VOICE_DIR/install-time.txt" \
+            bash "$VOICE_SCRIPT/install.sh" "$VOICE_DIR/models"
+
+      - name: Fetch the reviewed reference using the repository secret
+        if: inputs.reference_source == 'repository-secret'
+        env:
+          REFERENCE_URL: ${{ secrets.UCR_VOICE_REFERENCE_URL }}
+        run: |
+          if [[ "$REFERENCE_URL" != https://* ]]; then
+            echo "::error::Set the UCR_VOICE_REFERENCE_URL Actions secret to a private HTTPS download for the reviewed reference."
+            exit 1
+          fi
+          umask 077
+          if ! curl --fail --silent --location --proto '=https' --proto-redir '=https' \
+              --max-time 120 --retry 2 "$REFERENCE_URL" -o "$VOICE_DIR/reference.audio"; then
+            echo "::error::The private reference download failed."
+            exit 1
+          fi
+
+      - name: Receive the pilot reference inside this runner
+        if: inputs.reference_source == 'pilot-transfer'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          umask 077
+          endpoint="repos/$GITHUB_REPOSITORY/contents/.github/voice-reference-$GITHUB_RUN_ID.cms?ref=main"
+          for attempt in $(seq 1 72); do
+            if gh api -H 'Accept: application/vnd.github.raw+json' "$endpoint" > "$VOICE_DIR/reference.cms" 2>/dev/null; then
+              openssl cms -decrypt -binary -inform DER -in "$VOICE_DIR/reference.cms" \
+                -recip "$VOICE_DIR/transfer.crt" -inkey "$VOICE_DIR/transfer.key" \
+                -out "$VOICE_DIR/reference.audio"
+              rm -f "$VOICE_DIR/transfer.key" "$VOICE_DIR/reference.cms"
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "::error::The encrypted reference did not arrive in time."
+          exit 1
+
+      - name: Synthesize and validate the review clip
+        run: |
+          out="$VOICE_DIR/review"
+          mkdir -p "$out"
+          mv "$VOICE_DIR/install-time.txt" "$out/"
+          export PYTHONPATH="$VOICE_DIR/models/openvoice"
+          /usr/bin/time -v -o "$out/synthesis-time.txt" \
+            python "$VOICE_SCRIPT/synthesize.py" "$VOICE_DIR/reference.audio" \
+            "$VOICE_DIR/models/alba.onnx" "$VOICE_DIR/models/converter" "$out"
+          rm -f "$VOICE_DIR/reference.audio"
+          ffmpeg -nostdin -xerror -v error -i "$out/UCR-voice-clone-review.wav" -f null -
+          ffprobe -v error -show_streams -show_format -of json "$out/UCR-voice-clone-review.wav" > "$out/audio-format.json"
+          (cd "$out" && sha256sum UCR-voice-clone-review.wav > SHA256SUMS)
+          {
+            echo '### Curriculum narration voice review'
+            echo
+            echo 'CPU runner'
+            echo
+            lscpu | awk -F: '/^(CPU\(s\)|Model name):/ {print "- " $1 ": " $2}'
+            echo
+            echo 'Measured clip and synthesis times'
+            echo
+            echo '```json'
+            cat "$out/metrics.json"
+            echo '```'
+            echo
+            awk '/Elapsed \(wall clock\) time|Maximum resident set size/ {sub(/^[ \t]*/, ""); print "- " $0}' "$out/synthesis-time.txt"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: UCR-voice-clone-review
+          path: ${{ env.VOICE_DIR }}/review/
+          if-no-files-found: error
+          retention-days: 14
