@@ -2,6 +2,11 @@ name: Test Qwen curriculum narration
 on:
   workflow_dispatch:
     inputs:
+      take:
+        description: Listening test (2 = continuous reading, 3 = phrased reading with tone adjustment)
+        type: choice
+        options: ['2', '3']
+        default: '2'
       one_time_delivery:
         description: Receive an encrypted prompt addressed to this run
         type: boolean
@@ -15,6 +20,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     env:
+      TAKE: ${{ inputs.take }}
       SCRIPTS: pilot/curriculum-video/voice-clone
     steps:
       - uses: actions/checkout@v4
@@ -70,17 +76,23 @@ jobs:
       - name: Generate and measure the economics passage
         run: |
           out="$QWEN/review"
-          /usr/bin/time -v -o "$out/synthesis-time.txt" python3 "$SCRIPTS/synthesize-qwen.py" \
-            "$QWEN/private/prompt.zip" "$QWEN/models" "$out"
-          ffmpeg -nostdin -xerror -loglevel error -i "$out/UCR-voice-clone-take-2.wav" -f null -
-          (cd "$out" && sha256sum UCR-voice-clone-take-2.wav > SHA256SUMS)
+          python=python3
+          if [[ "$TAKE" == 3 ]]; then
+            python3 -m venv "$QWEN/env"
+            python="$QWEN/env/bin/python"
+            "$python" -m pip install --disable-pip-version-check numpy==2.2.6
+          fi
+          /usr/bin/time -v -o "$out/synthesis-time.txt" "$python" "$SCRIPTS/synthesize-qwen.py" \
+            "$QWEN/private/prompt.zip" "$QWEN/models" "$out" --take "$TAKE"
+          ffmpeg -nostdin -xerror -loglevel error -i "$out/UCR-voice-clone-take-$TAKE.wav" -f null -
+          (cd "$out" && sha256sum UCR-voice-clone-take-$TAKE.wav > SHA256SUMS)
           cat "$out/metrics.json" >> "$GITHUB_STEP_SUMMARY"
       - name: Remove private input and key
         if: always()
         run: rm -rf -- "$RUNNER_TEMP/qwen/private"
       - uses: actions/upload-artifact@v4
         with:
-          name: UCR-voice-clone-take-2
+          name: UCR-voice-clone-take-${{ inputs.take }}
           path: ${{ runner.temp }}/qwen/review/
           if-no-files-found: error
           retention-days: 14

@@ -1,0 +1,17 @@
+name: Start the requested third voice review
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/start-qwen-review-once.yml']
+permissions:
+  actions: write
+  contents: read
+jobs:
+  dispatch:
+    if: contains(github.event.head_commit.message, '[start third voice review]')
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Dispatch the manual audio test
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run test-curriculum-voice-qwen.yml --repo "$GITHUB_REPOSITORY" --ref main -f take=3 -f one_time_delivery=true
