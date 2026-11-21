@@ -1,6 +1,6 @@
 # UCR curriculum video — pilot production brief and handoff
 
-**Status:** The animated review cut (3:17) was completed on 18 November 2026. It can be reproduced with [GitHub Actions](#render-with-github-actions). See [render and verification notes](#9-review-cut-and-reproduction).
+**Status:** The second animated review cut uses the SVG curriculum, the reusable introduction, two narrated cross-cluster transitions and the verified interest-submission QR. [Render and download the current cut](#render-with-github-actions).
 **Established:** 18 November 2026  
 **Repository:** `solmyr1980/ucr-pathways`, branch `main`  
 **Purpose:** Preserve the design decisions, inputs, initial narration and implementation findings from the curriculum-video discussion so the work can resume without restarting the concept design.
@@ -83,7 +83,7 @@ The current authoritative video graphics are the seven **SVG files** in [`assets
 | [`assets/video/HCB.svg`](../../assets/video/HCB.svg) | Human Health & Well-being close-up |
 | [`assets/video/MCC.svg`](../../assets/video/MCC.svg) | Media, Culture & Communication close-up |
 
-These SVGs contain identifiable course elements. The current Python renderer still assumes PNG files and hardcoded coordinates from their former dimensions: **adapt it for these SVG inputs in the next video iteration**. Use SVG course identifiers and actual geometry where practical; verify highlight alignment and readability after rendering. Do not assume the old PNG coordinates remain valid.
+The renderer reads each course rectangle by its SVG `data-id`. It uses the full map and all six cluster close-ups. The verifier also locates the visible code in the SVG text and checks it against the rectangle and encoded frame.
 
 **UCR branding for the next video iteration:** Reuse the existing [UCR logo](../../assets/brand/ucr-primary-plum.png), [brand colours and font definitions](../../assets/css/brand.css), and available [`assets/fonts/`](../../assets/fonts/) files. Integrate these deliberately into the video's visual identity (for example, the opening, headings and closing) while keeping course content readable. Use the actual repository assets rather than recreating the logo or inventing branding. Keep project-internal `UCR Pathways` branding out of the public-facing video.
 
@@ -107,7 +107,7 @@ The video shows one programme, not all UCR alternatives and not its external bac
 - **On-screen URL** [https://ucr.nl/tell-us-about-your-interests/](https://ucr.nl/tell-us-about-your-interests/)
 - **QR image** [`assets/video/qr-code.png`](../../assets/video/qr-code.png)
 
-The QR code encodes the same URL. Show both together on the closing screen in the next render.
+The closing frame shows both together. The verifier scans that frame at 1920 × 1080 and 960 × 540 and compares the decoded value with the displayed URL.
 
 ### 3.4 Source gaps and input still needed
 
@@ -199,11 +199,11 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 
 **Invocation:** “Produce the next improved curriculum video following `pilot/curriculum-video/README.md` in `solmyr1980/ucr-pathways`.”
 
-**Objective:** Produce one improved, genuinely animated full-length reference video from the existing public `p-001 / ucr-depth` record. **This README is the complete assignment:** do not require a second prompt specifying the storyboard changes, code modifications, rendering workflow, validation or deliverable. The existing scripts and GitHub Actions workflow reproduce the *old* pilot; implement the agreed next-iteration changes below as part of producing the new video, not as a separate prerequisite task.
+**Objective:** Produce one improved, genuinely animated full-length reference video from the existing public `p-001 / ucr-depth` record. **This README is the complete assignment:** do not require a second prompt specifying the storyboard changes, code modifications, rendering workflow, validation or deliverable. Use the current scripts and GitHub Actions workflow as the baseline. Section 9 records which changes the second cut implements.
 
 **Execution and delivery:** Work directly on `main`. Modify and commit the existing Python renderer, narration/storyboard and GitHub Actions workflow only as needed, retaining working components and the validated academic data. Use the seven SVG assets listed in §3.1 and adapt the existing PNG-based renderer and verification as necessary. Do not request new graphic uploads or assume the old PNG coordinates apply. Run the revised GitHub Actions workflow, resolve technical failures, and verify the rendered MP4 against the acceptance criteria below. Return the **successful run URL** and instructions to download its **14-day artifact** for human review. Do **not** commit generated MP4s, upload to YouTube, publish anything or request routine intermediate approval. If an external blocker prevents completion, preserve tested progress and precise continuation instructions in GitHub and report the blocker.
 
-1. Read this handoff and only the UCR Pathways authoritative documents needed for the particular implementation. Retrieve the current main-branch source record, enriched course reference and uploaded PNGs; check their actual content.
+1. Read this handoff and only the UCR Pathways authoritative documents needed for the particular implementation. Retrieve the current main-branch source record, enriched course reference and uploaded SVG maps; check their actual content.
 2. Implement the [reusable hook, butterfly overview and BEN gateway explanation](#21-opening-direction-for-the-next-video) before introducing the particular student. Then preserve the **source cluster → highlighted courses → six-semester grid** animation. Include a clearly visible, narrated [BEN-to-GOS transition](#22-cross-disciplinary-transitions-for-the-next-video) that briefly revisits the butterfly to show the two fields, while the same grid persists and continues filling.
 3. Calculate precise tile/highlight positions from source image dimensions or underlying course elements. Do not rely blindly on coordinates from a previous screenshot; check each highlight against the corresponding code and the rendered frame.
 4. Precompute all 24 destination cards and their fixed positions directly from `p-001`. Animate course selection by narrative group, with the source tile highlighted and the readable titled card appearing at its destination. Newly selected courses may be emphasized while earlier cards recede slightly.
@@ -242,13 +242,15 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 **Working rule:** Treat this file as the specific, reusable **pilot handoff**, not as a new UCR Pathways production policy. Update it with demonstrated results and explicit user decisions as the video pilot progresses.
 ## 9. Review cut and reproduction
 
-The original review cut runs **3:17** at 1920 × 1080 and 24 fps. It opens on Business & Entrepreneurship, reveals the full butterfly, then follows the narration through the seven groups. Each selected card moves from its highlighted tile to its semester. The academic core selection uses its actual tile in the full butterfly. The completed grid remains on screen for about twelve seconds. The final invitation asks viewers to submit their interests. The [submission URL and QR code](#33-interest-submission) are specified for the next render.
+The second cut opens with three subject paths and introduces the curriculum butterfly before the public student's interest statement. The Business & Entrepreneurship example shows Introduction to Economics as open and draws attention to the actual Research Methods & Statistics gateway for Econometrics. Governance of Sustainability gives a verified open 300-level example in its own cluster. The course workbook lists a gateway for every 300-level BEN course.
+
+Two narrated transitions return to the butterfly with the existing semester grid visible. The first asks who makes the rules for markets and connects BEN to GOS. The second connects GOS to ENS through the governance of environmental policy. After the final course arrives, the grid expands, briefly highlights contributions by field, and recedes to reveal the UCR submission invitation. The full URL and supplied QR appear together.
 
 ### Academic checks
 
 The renderer reads the original interest, programme label and all semester and within-semester positions from the public example. It joins the 24 codes to the current official workbook names and checks for complete, unique storyboard coverage. GOSHIST312 now displays as *Researching the “American Century”*. Its narration describes historical source work using the official description.
 
-The public example passed the structural example validator. The separate course feasibility validator found two discrepancies for the selected programme at input commit `a489fcd7960373ba1d627d7846e35faef075ceae`. BENBUSI211 is in spring 2028 in the example and BENECON314 in spring 2029. Neither term has a planned offering for that course in the current workbook. The pilot preserves the canonical positions and labels the final programme illustrative. Reconcile the two placements before presenting the film as a currently feasible schedule.
+The public example passed the structural example validator. The separate course feasibility validator found two discrepancies for the selected programme again at input commit `301f295588bb0403f91dfaee6a5a869088a35eaf`. BENBUSI211 is in spring 2028 in the example and BENECON314 in spring 2029. Neither term has a planned offering for that course in the current workbook. The pilot preserves the canonical positions and marks both courses with an asterisk and explains the offering limitation below the completed grid. Reconcile the two placements before presenting the film as a currently feasible schedule.
 
 ### Render with GitHub Actions
 
@@ -256,9 +258,9 @@ The public example passed the structural example validator. The separate course 
 2. Select **Run workflow**, choose the **main** branch and select **Run workflow** again.
 3. Open the completed run and look under **Artifacts**. Download **UCR-curriculum-pilot** in your browser (not through GitHub Desktop) and extract `UCR-curriculum-pilot.mp4` from the ZIP. GitHub requires sign-in. The artifact expires automatically after **14 days**.
 
-The workflow uses the public `p-001 / ucr-depth` example and the same storyboard, Piper Alba voice and renderer as the archived review cut. It checks playback, narration cues, scene and motion frames, and all 24 course cards against their positions in the public example. The invitation matches the archived cut. The QR code and URL remain specified for a later revision.
+A source or workflow change on `main` can also request the render by including `[render curriculum video]` in its commit message. Documentation changes do not trigger a render. Both entry points use the same job and 14-day MP4 artifact.
 
-The [initial GitHub Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/44886275213) passed all checks on 21 November 2026. It rendered 196.500 seconds at 1920 × 1080 and 24 fps, with H.264 video and mono AAC narration. The archived cut runs 197.208 seconds. Fresh Piper synthesis can shift cue timing slightly.
+The [first cut's Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/44886275213) is a historical reference. It used the old PNG coordinates and did not show the submission QR.
 
 ### Review and YouTube publication
 
@@ -270,12 +272,12 @@ Keep source code, storyboard, academic inputs and reusable images in Git. Keep r
 
 ### Reproduce the film
 
-Use a Linux checkout with FFmpeg (libx264 and AAC), Python 3.12, Open Sans and DejaVu Serif in the Debian system font locations. Run from the repository root. The model and package downloads require internet access once. Synthesis and rendering run locally without an account or service fee.
+Use a Linux checkout with Python 3.12, FFmpeg (libx264 and AAC), libcairo2 and Liberation Sans for the SVG sources’ Arial fallback. The titles, body and logo use the repository’s IvyMode, Inter and UCR brand assets. Run from the repository root. The model and package downloads require internet access once. Synthesis and rendering run locally without an account or service fee.
 
 ```bash
 python -m venv /tmp/ucr-video-env
 . /tmp/ucr-video-env/bin/activate
-pip install piper-tts==1.8.0 openpyxl==3.1.5 Pillow==13.0.0
+pip install piper-tts==1.8.0 openpyxl==3.1.5 Pillow==13.0.0 CairoSVG==2.9.1 zxing-cpp==3.1.1
 out=/tmp/ucr-curriculum-video
 mkdir -p "$out"
 model_url=https://huggingface.co/rhasspy/piper-voices/resolve/0ca208afc2a2ee102b1e961e72e0a7e4907be3d0/en/en_GB/alba/medium/en_GB-alba-medium.onnx
@@ -287,16 +289,10 @@ python pilot/curriculum-video/render.py "$out"
 python pilot/curriculum-video/verify.py "$out"
 ```
 
-For an additional check against a local copy of the original review cut, pass `--reference /path/to/UCR-curriculum-pilot.mp4` to `verify.py`.
-
-[Storyboard and narration](storyboard.json) associate each short passage with its course codes. [Narration synthesis](narrate.py) measures the audio for each passage and writes the voice track and timing file. [Animation and encoding](render.py) use those timestamps and native-resolution tile coordinates. To revise the layout alone, reuse the voice and timing files. To edit the script, regenerate both. Fresh neural synthesis can vary slightly in timing.
+[Storyboard and narration](storyboard.json) associate each passage with its course codes. [Narration synthesis](narrate.py) measures the voice of each passage and writes the track and timing file. The [map reader](maps.py) uses the original viewBox and course geometry. The [renderer](render.py) maps those coordinates and measured cue times into the video. For a layout change, reuse the timing and voice files. For script changes, regenerate both. Fresh Piper synthesis can vary slightly in duration.
 
 Voice credit: Alba (en_GB, medium), Piper voice collection. The voice model card credits the Alba dataset under CC BY 4.0 and describes the fine-tuning lineage. [Voice model card](https://huggingface.co/rhasspy/piper-voices/blob/main/en/en_GB/alba/medium/MODEL_CARD)
 
 ### Review checks
 
-- Checked all 24 tile rectangles against the source PNGs, including the tall gateways and the academic core tile.
-- Inspected the opening, card selections, cluster change, final grid and invitation in rendered frames. The grid persists as the source changes.
-- Decoded the entire MP4 without errors. Video and audio run 197.208 and 197.200 seconds respectively. Integrated loudness was −17.2 LUFS and true peak −1.3 dBFS.
-- Checked the spoken sequence with offline speech recognition. Naturalness and pacing still need a listener’s judgment.
-- Review file SHA-256: `95b45cc1132fc6ea6e778fbc080441af849dc738e0faa78a340c843f45ab43ad`. This checksum identifies the original review cut.
+The workflow decodes the entire MP4, checks the audio and video streams and every spoken cue, samples scene changes and card flights, and verifies that the 24 course labels and settled cards occupy their source and destination positions. It compares the encoded grid before and during both cross-cluster transitions and decodes the closing QR at two resolutions. The run summary records the duration, offering exceptions and SHA-256 of the MP4. The file is for human review of the voice, typography and pacing.

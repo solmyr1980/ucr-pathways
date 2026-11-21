@@ -37,16 +37,19 @@ def main():
                 buf = io.BytesIO()
                 with wave.open(buf, "wb") as clip:
                     voice.synthesize_wav(
-                        cue[1], clip, SynthesisConfig(length_scale=1.04)
+                        cue[1], clip, SynthesisConfig(length_scale=1.01)
                     )
                 buf.seek(0)
                 with wave.open(buf, "rb") as clip:
                     track.writeframes(clip.readframes(clip.getnframes()))
                 cue.append(track.tell() / rate)
-                track.writeframes(bytes(2 * round(rate * 0.42)))
-            hold = {"opening": 0.4, "complete": 3.5, "invitation": 2.3}.get(
-                scene["scene"], 0.24
-            )
+                track.writeframes(bytes(2 * round(rate * 0.32)))
+            hold = {
+                "overview": 1.1,
+                "interest": 0.6,
+                "complete": 0.9,
+                "invitation": 3.0,
+            }.get(scene["scene"], 0.24)
             track.writeframes(bytes(2 * round(rate * hold)))
             scene["end"] = track.tell() / rate
     (args.out / "timing.json").write_text(json.dumps(story, indent=2))

@@ -2,6 +2,12 @@ name: Render curriculum video pilot
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'pilot/curriculum-video/*.py'
+      - 'pilot/curriculum-video/storyboard.json'
+      - '.github/workflows/render-curriculum-video.yml'
 
 permissions:
   contents: read
@@ -12,6 +18,7 @@ defaults:
 
 jobs:
   render:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[render curriculum video]')
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
@@ -29,8 +36,8 @@ jobs:
       - name: Install rendering dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends ffmpeg fonts-open-sans fonts-dejavu-core
-          python -m pip install piper-tts==1.8.0 openpyxl==3.1.5 Pillow==13.0.0
+          sudo apt-get install -y --no-install-recommends ffmpeg libcairo2 fonts-liberation
+          python -m pip install piper-tts==1.8.0 openpyxl==3.1.5 Pillow==13.0.0 CairoSVG==2.9.1 zxing-cpp==3.1.1
 
       - name: Download the Alba voice
         run: |
@@ -38,6 +45,12 @@ jobs:
           mkdir -p "$out"
           curl --fail --silent --show-error --location --retry 3 "$MODEL_URL" -o "$out/alba.onnx"
           curl --fail --silent --show-error --location --retry 3 "$MODEL_URL.json" -o "$out/alba.onnx.json"
+
+          (cd "$out" && sha256sum --check <<'SUMS'
+          1f9da809b6da1ef4190bb5dd6cce4f4af803274539e9cf9e0693085150bac3d7  alba.onnx
+          ed4b1f015a8aae5eb26d4bdeed7b712c660f5698a0dd954aa6df9c8be60b900b  alba.onnx.json
+          SUMS
+          )
 
       - name: Synthesize narration and render MP4
         run: |
