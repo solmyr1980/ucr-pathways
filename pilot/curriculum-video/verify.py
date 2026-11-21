@@ -62,6 +62,20 @@ def image_error(a, b):
     return max(ImageStat.Stat(ImageChops.difference(a, b)).mean)
 
 
+def compare_encoded(actual, expected, context):
+    # H.264 4:2:0 stores only one chroma sample per 2x2 block. Compare text
+    # and placement at native-resolution luminance, and colour on an area average.
+    small = (max(1, actual.width // 4), max(1, actual.height // 4))
+    luma = image_error(actual.convert("L"), expected.convert("L"))
+    colour = image_error(
+        actual.resize(small, Image.Resampling.BOX),
+        expected.resize(small, Image.Resampling.BOX),
+    )
+    assert luma < 3.5 and colour < 3.5, (
+        f"{context}: native luminance MAE={luma:.3f}, area-colour MAE={colour:.3f}"
+    )
+
+
 def verify(out):
     movie = out / FILENAME
     film = Film(out / "timing.json")
@@ -118,8 +132,8 @@ def verify(out):
         # Seek into a numbered frame, clear of a millisecond rounding boundary.
         index = math.ceil(time * FPS)
         actual = frame(movie, (index - 0.25) / FPS)
-        assert image_error(actual, film.frame(index / FPS)) < 3, (
-            f"Frame mismatch at {time:.2f}"
+        compare_encoded(
+            actual, film.frame(index / FPS), f"Frame at {time:.2f}s, index {index}"
         )
         return actual
 
@@ -184,13 +198,15 @@ def verify(out):
         assert image_error(settled, motion) > 0.035, f"No card movement for {code}"
         sid = bisect.bisect_right(film.ends, start + 1.26)
         grid, boxes = film.base(sid, i + 1)
-        assert image_error(settled.crop(boxes[code]), grid.crop(boxes[code])) < 4, code
+        compare_encoded(
+            settled.crop(boxes[code]), grid.crop(boxes[code]), f"Arrival of {code}"
+        )
 
     final = next(s for s in film.scenes if s["scene"] == "complete")
     grid, boxes = film.base(film.scenes.index(final), 24, 1)
     actual = at(final["end"] - 0.1)
     for code, box in boxes.items():
-        assert image_error(actual.crop(box), grid.crop(box)) < 4, code
+        compare_encoded(actual.crop(box), grid.crop(box), f"Final card {code}")
 
     for time in (film.scenes[-1]["start"] + 1.3, duration - 1):
         actual = at(time)
