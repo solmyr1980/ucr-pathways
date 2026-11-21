@@ -3,6 +3,15 @@ name: Test curriculum narration voice
 on:
   workflow_dispatch:
     inputs:
+      engine:
+        description: Voice cloning engine
+        type: choice
+        options: [chatterbox-nano, openvoice-v2]
+        default: chatterbox-nano
+      prompt_start_seconds:
+        description: Start of the clean Nano prompt within the prepared reference (seconds)
+        type: string
+        default: '70.8'
       reference_source:
         description: Reference delivery
         type: choice
@@ -24,6 +33,9 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     env:
+      ENGINE: ${{ inputs.engine }}
+      PROMPT_START_SECONDS: ${{ inputs.prompt_start_seconds }}
+      TQDM_DISABLE: '1'
       VOICE_SCRIPT: pilot/curriculum-video/voice-clone
       OMP_NUM_THREADS: '4'
       MKL_NUM_THREADS: '4'
@@ -66,8 +78,13 @@ jobs:
             sudo apt-get update
             sudo apt-get install -y --no-install-recommends ffmpeg
           fi
+          case "$ENGINE" in
+            chatterbox-nano) installer=install-nano.sh ;;
+            openvoice-v2) installer=install.sh ;;
+            *) exit 1 ;;
+          esac
           /usr/bin/time -v -o "$VOICE_DIR/install-time.txt" \
-            bash "$VOICE_SCRIPT/install.sh" "$VOICE_DIR/models"
+            bash "$VOICE_SCRIPT/$installer" "$VOICE_DIR/models"
 
       - name: Fetch the reviewed reference using the repository secret
         if: inputs.reference_source == 'repository-secret'
@@ -111,10 +128,17 @@ jobs:
           out="$VOICE_DIR/review"
           mkdir -p "$out"
           mv "$VOICE_DIR/install-time.txt" "$out/"
-          export PYTHONPATH="$VOICE_DIR/models/openvoice"
-          /usr/bin/time -v -o "$out/synthesis-time.txt" \
-            python "$VOICE_SCRIPT/synthesize.py" "$VOICE_DIR/reference.audio" \
-            "$VOICE_DIR/models/alba.onnx" "$VOICE_DIR/models/converter" "$out"
+          if [[ "$ENGINE" == chatterbox-nano ]]; then
+            export PYTHONPATH="$VOICE_DIR/models/chatterbox/src"
+            /usr/bin/time -v -o "$out/synthesis-time.txt" \
+              python "$VOICE_SCRIPT/synthesize-nano.py" "$VOICE_DIR/reference.audio" \
+              "$VOICE_DIR/models/nano" "$out" --prompt-start "$PROMPT_START_SECONDS"
+          else
+            export PYTHONPATH="$VOICE_DIR/models/openvoice"
+            /usr/bin/time -v -o "$out/synthesis-time.txt" \
+              python "$VOICE_SCRIPT/synthesize.py" "$VOICE_DIR/reference.audio" \
+              "$VOICE_DIR/models/alba.onnx" "$VOICE_DIR/models/converter" "$out"
+          fi
           rm -f "$VOICE_DIR/reference.audio"
           ffmpeg -nostdin -xerror -v error -i "$out/UCR-voice-clone-review.wav" -f null -
           ffprobe -v error -show_streams -show_format -of json "$out/UCR-voice-clone-review.wav" > "$out/audio-format.json"
