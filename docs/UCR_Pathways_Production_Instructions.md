@@ -201,7 +201,7 @@ Choose a level of abstraction that makes the student's interests academically me
 
 Do not invent interests, motivations, career aspirations or intellectual questions that the statement does not support. Do not privilege interests merely because they appear first.
 
-Write a concise, natural interpretation that adds insight rather than paraphrasing or cataloguing the original statement. Retain the full original statement as evidence when subsequently constructing UCR programmes. Where a student supplies several interests, programmes may legitimately vary their relative emphasis or organise them differently; do not manufacture additional interests to differentiate alternatives.
+Write a concise, natural interpretation that adds insight rather than paraphrasing or cataloguing the original statement. Use only interests supported by documented UCR course content in the academic interpretation and programme design. Preserve unsupported interests only in the verbatim submission. Where a student supplies several interests, programmes may legitimately vary their relative emphasis or organise them differently; do not manufacture additional interests to differentiate alternatives.
 
 ## 3.2 Student programme and comparison sequence
 
@@ -630,7 +630,7 @@ Confirm the student input is preserved verbatim, interpretation stored separatel
 
 Before release, inspect all student-visible free text. It may contain only the student's submitted interests, their concise academic interpretation, the programme concepts, and any explanatory note justified under Section 6. It must not contain production reasoning, validation commentary, assumptions about unspecified information, statements about what was not inferred, or internal workflow terminology. Remove such material rather than explaining the production decision to the student.
 
-**Programme title and description check.** Once each UCR schedule is final, write or revise its student-facing description using the selected courses. Check every substantive claim in the title and description against the relevant course outlines or official course descriptions. For each claim, record the supporting course codes and the relevant content or activity in the working notes. Give greatest emphasis to what students study in depth. When a student's interest suggests a use of course methods beyond what is taught, present it as a possible application. Narrow or remove unsupported claims before release.
+**Programme title and description check.** Once each UCR schedule is final, write or revise its student-facing description using the selected courses. Check every substantive claim in the title and description against the relevant course outlines or official course descriptions. For each claim, record the supporting course codes and the relevant content or activity in the working notes. Give greatest emphasis to what students study in depth. Omit interests unsupported by documented content or activities in the scheduled courses, along with any hypothetical projects, applications or independent-study topics suggested to connect them to the programme. Narrow or remove unsupported claims before release.
 
 Only then release the requested artifact or library record.
 

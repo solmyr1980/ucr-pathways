@@ -110,7 +110,7 @@ The answer may contain disciplines, topics, questions, problems, practical inter
 
 Production must preserve the student's original wording, interpret it academically, avoid assuming that the first-mentioned interest is more important, and avoid manufacturing weak curricular matches. For a student who supplies one interest, broaden through meaningful subfields, questions and neighbouring perspectives rather than inventing a second interest.
 
-The student's full submitted interest statement is valid evidence for constructing and differentiating UCR programmes. Where a student supplies several interests, programmes may legitimately vary their relative emphasis or organise them differently. Where the input supports only one defensible programme, do not invent additional programmes. Select the external Dutch bachelor later as a useful comparison point; do not use it to generate or name the student's UCR programmes.
+Use only interests supported by documented UCR course content to construct and differentiate programmes. Preserve unsupported interests only in the original student statement. Where a student supplies several interests, programmes may legitimately vary their relative emphasis or organise them differently. Where the input supports only one defensible programme, do not invent additional programmes. Select the external Dutch bachelor later as a useful comparison point; do not use it to generate or name the student's UCR programmes.
 
 ## 3.2 Student app journey
 
