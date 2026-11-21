@@ -25,7 +25,6 @@ jobs:
     timeout-minutes: 25
     env:
       VOICE_SCRIPT: pilot/curriculum-video/voice-clone
-      VOICE_DIR: ${{ runner.temp }}/ucr-voice
       OMP_NUM_THREADS: '4'
       MKL_NUM_THREADS: '4'
       OPENBLAS_NUM_THREADS: '4'
@@ -38,6 +37,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
+      - name: Set the scratch directory
+        run: echo "VOICE_DIR=$RUNNER_TEMP/ucr-voice" >> "$GITHUB_ENV"
 
       - name: Open the one-time encrypted reference transfer
         if: inputs.reference_source == 'pilot-transfer'
@@ -53,7 +55,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: pilot-transfer-public-certificate
-          path: ${{ env.VOICE_DIR }}/transfer.crt
+          path: ${{ runner.temp }}/ucr-voice/transfer.crt
           if-no-files-found: error
           retention-days: 1
 
@@ -135,6 +137,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: UCR-voice-clone-review
-          path: ${{ env.VOICE_DIR }}/review/
+          path: ${{ runner.temp }}/ucr-voice/review/
           if-no-files-found: error
           retention-days: 14
