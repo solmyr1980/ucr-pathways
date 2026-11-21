@@ -215,6 +215,8 @@ The public example passed the structural example validator. The separate course 
 
 The workflow uses the public `p-001 / ucr-depth` example and the same storyboard, Piper Alba voice and renderer as the archived review cut. It checks playback, narration cues, scene and motion frames, and all 24 course positions against the archived grid. The invitation matches the archived cut. The QR code and URL remain specified for a later revision.
 
+The [initial GitHub Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/44886275213) passed all checks on 21 November 2026. It rendered 196.500 seconds at 1920 × 1080 and 24 fps, with H.264 video and mono AAC narration. The archived cut runs 197.208 seconds. Fresh Piper synthesis can shift cue timing slightly.
+
 ### Reproduce the film
 
 Use a Linux checkout with FFmpeg (libx264 and AAC), Python 3.12, Open Sans and DejaVu Serif in the Debian system font locations. Run from the repository root. The model and package downloads require internet access once. Synthesis and rendering run locally without an account or service fee.
