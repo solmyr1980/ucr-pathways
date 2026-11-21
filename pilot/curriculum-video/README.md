@@ -332,3 +332,36 @@ The 4:24 mono reference uses five passages from the consenting narrator's openin
 4. Use the review track to judge resemblance and narration quality before deciding whether to proceed with the full soundtrack.
 
 [OpenVoice installer](voice-clone/install.sh) · [OpenVoice synthesis](voice-clone/synthesize.py) · [Nano installer](voice-clone/install-nano.sh) · [Nano synthesis](voice-clone/synthesize-nano.py)
+
+## 11. Second voice-clone listening test
+
+The narrator found the first clone plausible but heard differences in vocal resemblance and, especially, pacing and emphasis. This test uses one continuous reading of 86 existing storyboard words, from “Consider a student interested in economics” through “What do its accounts tell them?” The questions give the listener a way to judge emphasis on familiar teaching material.
+
+Three excerpts from the reviewed meeting reference were tested locally. The selected 6.2-second utterance begins at 134.45 seconds in the assembled reference, where the narrator explains that a student can build their own programme. Qwen received its audio and matching transcript. The entire economics passage, including every question, was synthesized separately from the recording. The synthesis uses the Q8_0 version of the 1.7B Base model with an English language setting and seed 42. The model and codec are available under Apache 2.0 and the CPU inference engine under MIT. [Model card](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-Base) · [GGUF weights and codec](https://huggingface.co/Serveurperso/Qwen3-TTS-GGUF) · [Inference engine](https://github.com/ServeurpersoCom/qwentts.cpp)
+
+The speaking-rate target comes from 638 automatically transcribed words between 6.18 and 258.08 seconds in the reference, about 152 words per minute including pauses. The raw local synthesis ran at 178 words per minute. The final processing preserves pitch and brings playback close to the level of the existing film.
+
+The [successful audio run](https://github.com/solmyr1980/ucr-pathways/actions/runs/44938917097) produced [the review WAV and measurements](https://github.com/solmyr1980/ucr-pathways/actions/runs/44938917097/artifacts/14721210729). The GitHub-hosted Ubuntu CPU synthesized 33.78 seconds of audio in 118.38 seconds and used 6.32 GiB peak resident memory. Building the engine and downloading its weights took 83 seconds. The final WAV measured 152.8 words per minute, −18.34 LUFS integrated and −1.50 dBTP. Both the ZIP and the WAV passed their checksum checks, the WAV decoded in full, and the delivered script matched the storyboard selection. WAV SHA-256: `79540bc820aae119168848c3dfdc2915457757dc8c4250e5bb74878ba6e03ecb`.
+
+| Check on delivered audio | Previous Nano sample | New Qwen sample | Recorded voice |
+| --- | ---: | ---: | ---: |
+| Median speaker similarity | 0.57 | 0.61 | 0.84 |
+| Median voiced pitch | 151 Hz | 138 Hz | 150 Hz |
+| Middle 80% of pitch, in semitones | 9.4 | 8.2 | 8.3 |
+| Median gap between words, for gaps over 0.24 seconds | 0.72 s | 0.62 s | 0.54 s |
+
+An English CAMPPlus speaker encoder compared nonoverlapping six-second windows of each review WAV with twelve held-out six-second excerpts of the narrator. The genuine-voice column uses leave-one-out comparisons among those excerpts. The reference start times in seconds were 6, 18, 40, 86, 98, 151, 166, 179, 201, 218, 239 and 250. The comparison used the same windows and encoder for both reviews. The two samples use different scripts, and the cosine scores are not probabilities. Pitch statistics used Praat’s voiced frames. Gap estimates used Whisper word timestamps. [Speaker encoder](https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx)
+
+Offline Whisper base.en recovered all 86 words in order, ignoring case and punctuation. The new reading has a pitch range close to the recorded excerpts, though its pitch is lower overall. A local pitch-shifted test matched the recorded median but reduced the speaker score to 0.49, so the review WAV preserves the generated pitch. The narrator’s ear remains the test for accent, misplaced emphasis and metallic or unnatural sounds. The first question, “Where could that question take them?”, begins around 0:08. The final business questions begin around 0:27.
+
+At the measured rate, 3½ minutes of finished narration would take roughly 12 minutes of synthesis after installation. This is a linear estimate from one passage. Full-length production would require review of individual readings and new cue timings.
+
+### Reproduce the Qwen sample
+
+1. Prepare a ZIP with two files at its root. `prompt.wav` holds a single uninterrupted utterance by the consenting narrator (mono PCM16, 24 kHz, 3–20 seconds). `prompt.txt` holds its verbatim English transcript. Use the transcript of the recorded words even when the target narration says something different.
+2. Store the ZIP at a private HTTPS download URL and place that URL in the repository Actions secret `UCR_QWEN_PROMPT_URL`.
+3. Open [Test Qwen curriculum narration](https://github.com/solmyr1980/ucr-pathways/actions/workflows/test-curriculum-voice-qwen.yml), select **Run workflow** on **main** and leave one-time delivery off. Download **UCR-voice-clone-take-2** after the run. It contains the synthetic WAV, storyboard text, timing, resource measurements and checksum. Review artifacts expire after 14 days.
+
+For an attended transfer without a persistent URL, enable one-time delivery. Download the run's `qwen-receiving-certificate` artifact, check that the certificate's common name is `UCR-run-<run ID>`, then encrypt the ZIP with `openssl cms -encrypt -binary -aes-256-gcm -outform DER -in prompt.zip -out payload.cms recipient.pem`. Place only the resulting ciphertext at `.github/qwen-prompt-<run ID>.cms` on `main` before the receiving step times out. Remove it from the branch after receipt. The private key stays on that runner. The workflow uploads only the public receiving certificate and the review outputs.
+
+The [installer](voice-clone/install-qwen.sh) pins the inference engine and checks both model files. The [synthesis script](voice-clone/synthesize-qwen.py) reads the current storyboard, sets a sampling seed, measures the initial speaking rate and uses FFmpeg to adjust the tempo while preserving pitch. Its default target is the narrator’s measured 152 words per minute. CPU instructions and thread count can affect generation even with the same seed.
