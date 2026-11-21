@@ -28,7 +28,7 @@ These decisions were explicitly established in the conversation. Preserve them u
 7. **Layout must serve readability.** The full butterfly cannot remain large alongside a readable 24-course grid. During selection, use the **relevant cluster crop/visual on the left**, not the entire butterfly squeezed into that space. Let the final completed grid use more or all screen space if needed. Avoid complex resizing unless it helps.
 8. **Precompute the actual complete 24-course schedule.** The viewer sees it fill progressively, but course selections and semester positions come from a real, existing UCR Pathways programme record. No gaps or subsequent human-invented filler stage are needed. The ordering of selections is thematic for narration, **not** chronological by semester.
 9. **Explain course relationships at selection time.** Groups of courses are the unit of explanation. The voice should convey their substantive content, why the subjects complement one another, and how they contribute to the student's interests. Do **not** read every card's course title. Once all 24 appear, there is **no second explanation** of the completed semester schedule.
-10. **End with a short invitation.** Invite viewers to submit their interests and display the [UCR submission URL and its QR code](#33-interest-submission) together on the final screen.
+10. **End with a visual payoff, then a short invitation.** Show the completed programme as the meaningful outcome of combining interests, then invite viewers to submit their own interests. Display the [UCR submission URL and its QR code](#33-interest-submission) together on the final screen. See the [next-iteration ending](#23-ending-direction-for-the-next-video).
 11. **Public, third-person voice.** Narration should refer to “a student interested in ...”, not address the particular student as “you” throughout. The final invitation can address viewers directly.
 12. **Calm, intellectually engaging tone.** Prefer specific, neutral and confident academic explanation over synthetic excitement, promotional superlatives or an advertising voice. Interest should emerge from the connections between ideas and the animation, not from artificial enthusiasm.
 
@@ -54,6 +54,16 @@ The move from **economics (BEN) to politics (GOS)** should visibly demonstrate t
 **Provisional narration:** “Economic questions lead us to political ones. Who sets the rules that shape markets? Who decides how resources are distributed? To explore those questions, we can bring politics into the programme.” Adapt the wording and timing to the actual narration and animations. The key is to explain the *intellectual connection*, not merely announce a change of cluster.
 
 This is a reusable storytelling principle, not a fixed BEN-to-GOS sequence for every student. Do not require a transition for small changes within a discipline or invent academic connections unsupported by the approved record.
+
+### 2.3 Ending direction for the next video
+
+Replace the anticlimactic static completion with a short, restrained visual payoff and invitation (provisionally **15–20 seconds** in total):
+
+1. **Completed-programme reveal (about 5 seconds).** The last course arrives and the six-semester grid expands to use the screen. Briefly emphasize the contributions of the different academic clusters with their existing colours; retain the real 24-course schedule. Avoid a long static hold.
+2. **The payoff (about 5–7 seconds).** Connect the result back to the student's motivating interests. For the existing economics-and-politics pilot, provisional narration: “One question has taken us through economics, politics, history and sustainability. Together, they form a six-semester programme built around that student's interests.” A short on-screen summary may read: **“One question. Many disciplines. One programme.”** Adapt this to the actual record rather than imposing the same subjects or tagline on every video.
+3. **The invitation (about 5–8 seconds).** Recede the curriculum to make room for **“What would you build?”** and the invitation to share interests. Use the existing UCR logo, branding and verified [submission URL and QR image](#33-interest-submission) together. Provisional narration: “That was one possibility. What would you build around your interests?”
+
+These durations, copy and visual details are provisional. Preserve an academically restrained tone and make the combined-disciplinary programme feel like a result, without promotional exaggeration. Check that the QR code is readable and scannable from the final rendered frame. Review overall pacing rather than simply adding more runtime.
 
 Do not introduce master's admission requirements into the initial pilot. They may be revisited for future versions.
 
@@ -195,7 +205,7 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 4. Precompute all 24 destination cards and their fixed positions directly from `p-001`. Animate course selection by narrative group, with the source tile highlighted and the readable titled card appearing at its destination. Newly selected courses may be emphasized while earlier cards recede slightly.
 5. Improve typography, card spacing, resizing, transitional motion and the full-frame final state. Retain readable codes plus titles, **no descriptions**. Avoid squeezing the whole butterfly and finished grid into one frame.
 6. Refine the academically grounded narration and generate a natural, calm voice. Synchronize narration and visuals at the group level. Prefer free tools; if a paid/external service is truly necessary, describe the trade-off before using it.
-7. Integrate the existing [UCR branding assets](#31-visual-source-images--uploaded-on-github) into the next video, using the official logo, colours and fonts where appropriate without cluttering the animation. Show the [submission URL and QR image](#33-interest-submission) together on the closing screen. Scan the QR code from the rendered frame to verify that it opens the displayed URL.
+7. Integrate the existing [UCR branding assets](#31-visual-source-images--uploaded-on-github) into the next video, using the official logo, colours and fonts where appropriate without cluttering the animation. Implement the [completed-programme payoff and invitation](#23-ending-direction-for-the-next-video), displaying the [submission URL and QR image](#33-interest-submission) together on the closing screen. Scan the QR code from the rendered frame to verify that it opens the displayed URL.
 8. Render one reviewable 16:9 MP4. Inspect representative frames (opening, early selection, BEN→GOS transition, later full grid, closing), listen to the voice and check complete playback. Report issues candidly.
 9. Keep the pilot separate from production publication. Store validated reusable **source code and instructions** in this sub-project when implementation is authorized. Do not overwrite the authoritative academic data or deploy/publish the example without separate authorization.
 
@@ -213,6 +223,7 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 - Audio is intelligible and appropriately natural, and on-screen text is free from clipping or overlaps.
 - The video can be generated without a required paid account; limitations are recorded.
 - UCR's existing logo, colours and fonts are used appropriately and legibly; the branding supports rather than competes with the curriculum animation.
+- The ending gives the completed curriculum a brief visual payoff, connects it to the student's interests, and avoids a prolonged static hold.
 - The closing screen shows the submission URL and a scannable QR code that leads to the same page.
 - No private student data appear, and no project-internal `UCR Pathways` product branding is presented to students.
 
