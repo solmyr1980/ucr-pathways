@@ -63,13 +63,15 @@ jobs:
         if: inputs.one_time_delivery
         run: |
           umask 077
-          path=".github/qwen-prompt-$GITHUB_RUN_ID.cms"
-          for try in {1..90}; do
-            if git fetch --quiet --depth=1 origin main && git cat-file -e "FETCH_HEAD:$path" 2>/dev/null; then
-              git show "FETCH_HEAD:$path" > "$QWEN/private/payload.cms"
+          url="https://raw.githubusercontent.com/$GITHUB_REPOSITORY/main/.github/qwen-prompt-$GITHUB_RUN_ID.cms"
+          for try in {1..65}; do
+            # The encrypted object is addressed to this runner.
+            # Fetch just that object and bypass cached 404s while it is being prepared.
+            if curl -fsSL --connect-timeout 8 --max-time 15 "$url?attempt=$try" \
+                -o "$QWEN/private/payload.cms"; then
               break
             fi
-            sleep 10
+            sleep 6
           done
           openssl cms -decrypt -binary -inform DER -in "$QWEN/private/payload.cms" \
             -recip "$QWEN/recipient.pem" -inkey "$QWEN/private/key.pem" -out "$QWEN/private/prompt.zip"

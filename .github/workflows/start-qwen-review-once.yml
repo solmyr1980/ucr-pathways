@@ -14,4 +14,6 @@ jobs:
       - name: Dispatch the manual audio test
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run test-curriculum-voice-qwen.yml --repo "$GITHUB_REPOSITORY" --ref main -f take=3 -f one_time_delivery=true
+        run: |
+          gh run cancel 44941562663 --repo "$GITHUB_REPOSITORY" || true
+          gh workflow run test-curriculum-voice-qwen.yml --repo "$GITHUB_REPOSITORY" --ref main -f take=3 -f one_time_delivery=true
