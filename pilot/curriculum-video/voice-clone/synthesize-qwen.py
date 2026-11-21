@@ -39,7 +39,10 @@ def main():
     parser.add_argument("prompt_zip", type=Path, help="ZIP containing prompt.wav and prompt.txt")
     parser.add_argument("models", type=Path)
     parser.add_argument("out", type=Path)
+    parser.add_argument("--target-wpm", type=float, default=152, help="Speaking rate measured in the reference")
     args = parser.parse_args()
+    if not 90 <= args.target_wpm <= 220:
+        parser.error("Choose a reference speaking rate between 90 and 220 words/minute.")
     args.out.mkdir(parents=True, exist_ok=True)
     script = passage()
     start = time.monotonic()
@@ -66,17 +69,28 @@ def main():
             "--ref-wav", str(work / "prompt.wav"), "--ref-text", str(work / "prompt.txt"),
             "--lang", "English", "--device", "CPU", "--seed", "42", "--max-new", "750",
             "-o", str(raw),
-        ], input=script.strip()+"\n", text=True, check=True, stdout=subprocess.DEVNULL,
+        ], input=script.strip() + "\n", text=True, check=True, stdout=subprocess.DEVNULL,
            stderr=subprocess.DEVNULL)
         synthesis = time.monotonic() - start
-        levels = loudness(raw)
+        with wave.open(str(raw)) as original:
+            raw_duration = original.getnframes() / original.getframerate()
+        raw_wpm = 60 * len(script.split()) / raw_duration
+        # Preserve the model's relative pauses and stress. Limit time stretching
+        # to 15% in either direction to avoid a large change to articulation.
+        tempo = min(1.15, max(0.85, args.target_wpm / raw_wpm))
+        paced = work / "paced.wav"
+        subprocess.run([
+            "ffmpeg", "-nostdin", "-v", "error", "-i", str(raw),
+            "-af", f"atempo={tempo:.6f}", str(paced),
+        ], check=True)
+        levels = loudness(paced)
         filt = ("loudnorm=I=-18:TP=-1.5:LRA=11:linear=true"
                 f":measured_I={levels['input_i']}:measured_TP={levels['input_tp']}"
                 f":measured_LRA={levels['input_lra']}:measured_thresh={levels['input_thresh']}"
                 f":offset={levels['target_offset']}")
         wav = args.out / "UCR-voice-clone-take-2.wav"
         subprocess.run([
-            "ffmpeg", "-y", "-nostdin", "-v", "error", "-i", str(raw), "-af", filt,
+            "ffmpeg", "-y", "-nostdin", "-v", "error", "-i", str(paced), "-af", filt,
             "-ar", "24000", "-ac", "1", "-c:a", "pcm_s16le", "-metadata",
             "comment=Synthetic narration for UCR Pathways voice review.", str(wav),
         ], check=True)
@@ -89,6 +103,8 @@ def main():
     metrics = {
         "model": "Qwen3-TTS 1.7B Base Q8_0", "seed": 42,
         "words": len(script.split()), "prompt_seconds": round(prompt_duration, 2),
+        "raw_words_per_minute": round(raw_wpm, 1), "target_wpm": args.target_wpm,
+        "tempo_multiplier": round(tempo, 4), "delivered_wpm": round(60 * len(script.split()) / duration, 1),
         "audio_seconds": round(duration, 3), "synthesis_seconds": round(synthesis, 2),
         "peak_child_rss_kib_linux": resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss,
         "integrated_lufs": float(final["input_i"]), "true_peak_dbtp": float(final["input_tp"]),
