@@ -12,11 +12,6 @@ on:
         description: Start of the clean Nano prompt within the prepared reference (seconds)
         type: string
         default: '70.8'
-      reference_source:
-        description: Reference delivery
-        type: choice
-        options: [repository-secret, pilot-transfer]
-        default: repository-secret
 
 defaults:
   run:
@@ -53,23 +48,21 @@ jobs:
       - name: Set the scratch directory
         run: echo "VOICE_DIR=$RUNNER_TEMP/ucr-voice" >> "$GITHUB_ENV"
 
-      - name: Open the one-time encrypted reference transfer
-        if: inputs.reference_source == 'pilot-transfer'
+      - name: Fetch the reviewed reference using the repository secret
+        env:
+          REFERENCE_URL: ${{ secrets.UCR_VOICE_REFERENCE_URL }}
         run: |
+          if [[ "$REFERENCE_URL" != https://* ]]; then
+            echo "::error::Set the UCR_VOICE_REFERENCE_URL Actions secret to a private HTTPS download for the reviewed reference."
+            exit 1
+          fi
           umask 077
           mkdir -p "$VOICE_DIR"
-          openssl req -x509 -newkey rsa:3072 -nodes -days 1 \
-            -subj "/CN=UCR voice pilot $GITHUB_RUN_ID" \
-            -keyout "$VOICE_DIR/transfer.key" -out "$VOICE_DIR/transfer.crt"
-
-      - name: Publish the transfer's public certificate
-        if: inputs.reference_source == 'pilot-transfer'
-        uses: actions/upload-artifact@v4
-        with:
-          name: pilot-transfer-public-certificate
-          path: ${{ runner.temp }}/ucr-voice/transfer.crt
-          if-no-files-found: error
-          retention-days: 1
+          if ! curl --fail --silent --location --proto '=https' --proto-redir '=https' \
+              --max-time 120 --retry 2 "$REFERENCE_URL" -o "$VOICE_DIR/reference.audio"; then
+            echo "::error::The private reference download failed."
+            exit 1
+          fi
 
       - name: Install the CPU synthesizer and verify model downloads
         run: |
@@ -85,43 +78,6 @@ jobs:
           esac
           /usr/bin/time -v -o "$VOICE_DIR/install-time.txt" \
             bash "$VOICE_SCRIPT/$installer" "$VOICE_DIR/models"
-
-      - name: Fetch the reviewed reference using the repository secret
-        if: inputs.reference_source == 'repository-secret'
-        env:
-          REFERENCE_URL: ${{ secrets.UCR_VOICE_REFERENCE_URL }}
-        run: |
-          if [[ "$REFERENCE_URL" != https://* ]]; then
-            echo "::error::Set the UCR_VOICE_REFERENCE_URL Actions secret to a private HTTPS download for the reviewed reference."
-            exit 1
-          fi
-          umask 077
-          if ! curl --fail --silent --location --proto '=https' --proto-redir '=https' \
-              --max-time 120 --retry 2 "$REFERENCE_URL" -o "$VOICE_DIR/reference.audio"; then
-            echo "::error::The private reference download failed."
-            exit 1
-          fi
-
-      - name: Receive the pilot reference inside this runner
-        if: inputs.reference_source == 'pilot-transfer'
-        run: |
-          umask 077
-          payload=".github/voice-reference-$GITHUB_RUN_ID.cms"
-          endpoint="https://raw.githubusercontent.com/$GITHUB_REPOSITORY/refs/heads/main/$payload"
-          for attempt in $(seq 1 48); do
-            if curl --fail --silent --location --max-time 15 "$endpoint?attempt=$attempt" -o "$VOICE_DIR/reference.cms" ||
-                { git fetch --quiet --no-tags --depth=1 origin main &&
-                  git show "FETCH_HEAD:$payload" > "$VOICE_DIR/reference.cms"; } 2>/dev/null; then
-              openssl cms -decrypt -binary -inform DER -in "$VOICE_DIR/reference.cms" \
-                -recip "$VOICE_DIR/transfer.crt" -inkey "$VOICE_DIR/transfer.key" \
-                -out "$VOICE_DIR/reference.audio"
-              rm -f "$VOICE_DIR/transfer.key" "$VOICE_DIR/reference.cms"
-              exit 0
-            fi
-            sleep 5
-          done
-          echo "::error::The encrypted reference did not arrive in time."
-          exit 1
 
       - name: Synthesize and validate the review clip
         run: |

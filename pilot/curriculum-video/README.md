@@ -303,13 +303,32 @@ The downloaded ZIP and enclosed MP4 matched their Actions checksums. Review of d
 
 ## 10. Voice-cloning review
 
-The [audio-only test workflow](../../.github/workflows/test-curriculum-voice.yml) runs OpenVoice V2 on GitHub-hosted Ubuntu 24.04 with CPU-only PyTorch. It converts the tone colour of the existing Piper Alba voice using a reviewed recording of the narrator. It reads the hook, curriculum overview and gateway explanation directly from [the current storyboard](storyboard.json). Piper supplies the base pronunciation, rhythm and accent. The conversion tests how far the voice's tone moves towards the narrator's. The [voice synthesis script](voice-clone/synthesize.py) and [dependency and model installer](voice-clone/install.sh) run independently of the video.
+The [audio-only workflow](../../.github/workflows/test-curriculum-voice.yml) reads the hook, curriculum overview and gateway explanation directly from [the storyboard](storyboard.json). Both candidates ran on GitHub-hosted Ubuntu 24.04 with CPU-only PyTorch. The video renderer still takes each scene and course cue from the times Piper measures in `narrate.py`. Any later change of voice would require new timings from the chosen narration.
 
-[OpenVoice V2](https://github.com/myshell-ai/OpenVoice) and its [converter weights](https://huggingface.co/myshell-ai/OpenVoiceV2) use the MIT license. The upstream V2 demo combines MeloTTS, its language resources and the converter. This experiment uses the converter with the existing Piper model and verifies the source and model downloads against their pinned revisions and checksums. Pocket TTS is an alternative designed for CPU voice cloning. Its [official clone-capable weights](https://huggingface.co/kyutai/pocket-tts) require a Hugging Face login and acceptance of the model's access terms.
+### Results on 21 November 2026
 
-### Run another audio review
+| Model and run | Audio | Synthesis wall time | Peak synthesis memory | Speaker similarity |
+| --- | ---: | ---: | ---: | ---: |
+| [OpenVoice V2 with Piper Alba](https://github.com/solmyr1980/ucr-pathways/actions/runs/44926012912) | 57.6 s | 42.9 s | 2.35 GiB | 0.19 |
+| [Chatterbox Nano](https://github.com/solmyr1980/ucr-pathways/actions/runs/44926416879) | 53.9 s | 107.4 s | 4.32 GiB | 0.56 |
 
-1. Select a 3–5 minute mono reference containing only the consenting narrator. Make the file available at a private HTTPS download URL and store that URL in the repository's Actions secret `UCR_VOICE_REFERENCE_URL`.
-2. Open [Test curriculum narration voice](https://github.com/solmyr1980/ucr-pathways/actions/workflows/test-curriculum-voice.yml). Select **Run workflow** on **main**.
-3. Download **UCR-voice-clone-review** from the completed run. The ZIP contains the synthetic WAV, exact narration text, audio checks and CPU timing. It expires after 14 days. The output artifact is associated with a public repository. Keep the original meeting audio and prepared voice reference outside Git.
-4. Listen for likeness, pronunciation, accent, rhythm and distortions before deciding whether to use the voice in a later cut. Full narration would require a separate decision and new cue timing from the generated audio.
+The synthesis times include loading the models and preparing the speaker conditioning. Installation and model downloads took 43 seconds for OpenVoice and 81 seconds for Nano. The audio ZIP and WAV matched the reported SHA-256 checksums and both WAVs decoded without errors. The sample peaks remained below full scale.
+
+Speaker similarity is the median cosine similarity between five-second excerpts of the output and a reference built from four held-out clips of the narrator. The same check scored plain Piper Alba at 0.03. Pairwise scores within the held-out recording ranged from 0.64 to 0.77. These values compare candidates on this recording. Likeness, accent, natural rhythm and audible artifacts still require listening. Offline speech recognition recovered the OpenVoice script. On the Nano track, it missed “Introductory” at about 0:29 and recovered the remainder of the gateway explanation. Listen to that phrase during review. The Nano WAV measured −28.3 LUFS and −7.3 dBTP. Its playback level is quiet relative to the video’s current narration.
+
+OpenVoice V2 changes the tone of an existing voice. In this implementation Piper supplies much of the pronunciation, accent and pacing. The MIT-licensed [OpenVoice code](https://github.com/myshell-ai/OpenVoice) and [conversion weights](https://huggingface.co/myshell-ai/OpenVoiceV2) are freely available. The upstream V2 demo uses MeloTTS and additional language resources. The pilot used the existing Piper Alba model to test the converter separately.
+
+Chatterbox Nano directly conditions speech generation on a short voice prompt and produced the closer match in the speaker comparison. Its [source](https://github.com/resemble-ai/chatterbox) and [weights](https://huggingface.co/ResembleAI/chatterbox-nano) are MIT-licensed. The source project is archived. The pilot pins a revision containing Nano and verifies its source and model downloads. Pocket TTS was also considered. Its [official clone-capable weights](https://huggingface.co/kyutai/pocket-tts) require a Hugging Face login and acceptance of their access terms.
+
+The measurements suggest that synthesizing about 3½ minutes of narration would take roughly two minutes for OpenVoice and five to six minutes for Nano on a similar CPU runner after installation. This is an extrapolation from seven cues. The pilot ends with the audio review before any full-length narration or video integration.
+
+### Reference and reproduction
+
+The 4:24 mono reference uses five passages from the consenting narrator's opening monologue. The approximate intervals in the source are 00:16.72–00:42.88, 00:53.49–01:51.96, 01:59.90–03:09.47, 03:10.08–03:38.56 and 03:39.47–05:00.65. Transcript review and two speaker-detection passes guided the selection. The cuts exclude the opening interjection and the uncertain overlap around 01:59. OpenVoice averages speaker conditioning across the selected passage. Nano uses 12.2 seconds beginning at 70.8 seconds into the assembled reference.
+
+1. Put the reviewed 3–5 minute reference at a private HTTPS download URL. Set the repository Actions secret `UCR_VOICE_REFERENCE_URL` to that URL. The first runs used a one-time encrypted transfer. Git history contains the ciphertext and each decryption key stayed on its own runner.
+2. Open [Test curriculum narration voice](https://github.com/solmyr1980/ucr-pathways/actions/workflows/test-curriculum-voice.yml) and select **Run workflow** on **main**. Select **chatterbox-nano** for the primary review or **openvoice-v2** for the comparison. For a different reference, set `prompt_start_seconds` to the start of a clean 12.2-second passage for Nano.
+3. Download **UCR-voice-clone-review** from the completed run. The ZIP contains the synthetic WAV, script, checksums and CPU measurements. The artifact is attached to a public repository and expires after 14 days.
+4. Use the review track to judge resemblance and narration quality before deciding whether to proceed with the full soundtrack.
+
+[OpenVoice installer](voice-clone/install.sh) · [OpenVoice synthesis](voice-clone/synthesize.py) · [Nano installer](voice-clone/install-nano.sh) · [Nano synthesis](voice-clone/synthesize-nano.py)
