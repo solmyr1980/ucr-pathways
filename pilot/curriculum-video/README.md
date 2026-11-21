@@ -194,7 +194,6 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 - How much the full butterfly zoom and active-cluster panel should change size during the transition; judge by readability and simplicity.
 - Whether earlier cards fade slightly in each scene; desirable but not essential for pilot feasibility.
 - Whether images/visuals from the live Shiny renderer can be transformed into individually addressable vector elements instead of using PNG crops. This is an optimization, not a prerequisite.
-- Whether/where an approved MP4 and the reusable code should be retained in GitHub or other persistent storage.
 
 **Working rule:** Treat this file as the specific, reusable **pilot handoff**, not as a new UCR Pathways production policy. Update it with demonstrated results and explicit user decisions as the video pilot progresses.
 ## 9. Review cut and reproduction
@@ -211,11 +210,19 @@ The public example passed the structural example validator. The separate course 
 
 1. In the repository’s [Actions tab](https://github.com/solmyr1980/ucr-pathways/actions/workflows/render-curriculum-video.yml), select **Render curriculum video pilot**.
 2. Select **Run workflow**, choose the **main** branch and select **Run workflow** again.
-3. Open the completed run and look under **Artifacts**. Download **UCR-curriculum-pilot** and extract `UCR-curriculum-pilot.mp4` from the ZIP. GitHub requires sign-in to download the artifact. The artifact expires after seven days.
+3. Open the completed run and look under **Artifacts**. Download **UCR-curriculum-pilot** in your browser (not through GitHub Desktop) and extract `UCR-curriculum-pilot.mp4` from the ZIP. GitHub requires sign-in. The artifact expires automatically after **14 days**.
 
 The workflow uses the public `p-001 / ucr-depth` example and the same storyboard, Piper Alba voice and renderer as the archived review cut. It checks playback, narration cues, scene and motion frames, and all 24 course positions against the archived grid. The invitation matches the archived cut. The QR code and URL remain specified for a later revision.
 
 The [initial GitHub Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/44886275213) passed all checks on 21 November 2026. It rendered 196.500 seconds at 1920 × 1080 and 24 fps, with H.264 video and mono AAC narration. The archived cut runs 197.208 seconds. Fresh Piper synthesis can shift cue timing slightly.
+
+### Review and YouTube publication
+
+1. Download the MP4 from the GitHub Actions artifact and review it locally. If changes are needed, revise the storyboard or renderer and trigger another run.
+2. Once approved, upload the downloaded MP4 **manually** through YouTube Studio and publish or schedule it there. There is no YouTube API integration or automatic upload.
+3. Let the GitHub Actions artifact expire after **14 days**; no manual GitHub cleanup or permanent copy of the generated MP4 is required.
+
+Keep source code, storyboard, academic inputs and reusable images in Git. **Do not commit new rendered MP4s to the repository**, even temporarily: deleting a committed video would leave it in Git history. The existing archived pilot review cut is a historical reference, not the model for subsequent outputs.
 
 ### Reproduce the film
 
