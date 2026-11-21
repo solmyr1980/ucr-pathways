@@ -1,6 +1,6 @@
 # UCR curriculum video — pilot production brief and handoff
 
-**Status:** The second animated review cut uses the SVG curriculum, the reusable introduction, two narrated cross-cluster transitions and the verified interest-submission QR. [Render and download the current cut](#render-with-github-actions).
+**Status:** The second animated review cut uses the SVG curriculum, the reusable introduction, two narrated cross-cluster transitions and the verified interest-submission QR. [Download the 3:27 review cut from the successful Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/44905954515).
 **Established:** 18 November 2026  
 **Repository:** `solmyr1980/ucr-pathways`, branch `main`  
 **Purpose:** Preserve the design decisions, inputs, initial narration and implementation findings from the curriculum-video discussion so the work can resume without restarting the concept design.
@@ -295,4 +295,8 @@ Voice credit: Alba (en_GB, medium), Piper voice collection. The voice model card
 
 ### Review checks
 
+The [21 November 2026 review run](https://github.com/solmyr1980/ucr-pathways/actions/runs/44905954515) rendered [source commit 2ef80ff](https://github.com/solmyr1980/ucr-pathways/commit/2ef80fff845e6562356625d60aef3c0330f955bb). The MP4 runs 207.000 seconds at 1920 × 1080 and 24 fps, with H.264 video and mono AAC narration. The artifact expires on 5 December 2026. A fresh run produces a new download. The MP4 SHA-256 is `cc20c7b959a3efe23e41d5ff9f8168905f70d101968a927f56c097fcddb11877`.
+
 The workflow decodes the entire MP4, checks the audio and video streams and every spoken cue, samples scene changes and card flights, and verifies that the 24 course labels and settled cards occupy their source and destination positions. It compares the encoded grid before and during both cross-cluster transitions and decodes the closing QR at two resolutions. The run summary records the duration, offering exceptions and SHA-256 of the MP4. The file is for human review of the voice, typography and pacing.
+
+The downloaded ZIP and enclosed MP4 matched their Actions checksums. Review of decoded frames covered the opening, gateway, interest statement, course flight, both cluster transitions, completed grid and invitation. The final grid was also inspected at a desktop playback size of 1280 × 720. The delivered audio measured −17.4 LUFS integrated and −1.2 dBFS true peak. Offline speech recognition recovered the narration from the opening through the invitation, with occasional transcription differences. Direct listening is still needed to judge the synthetic voice’s naturalness.
