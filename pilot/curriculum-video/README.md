@@ -71,19 +71,19 @@ Do not introduce master's admission requirements into the initial pilot. They ma
 
 ### 3.1 Visual source images — uploaded on GitHub
 
-All seven images are currently in [`assets/video/`](../../assets/video/). Use the repository files as inputs, not the compressed chat screenshots.
+The current authoritative video graphics are the seven **SVG files** in [`assets/video/`](../../assets/video/). Use these repository assets rather than the old PNG exports or compressed chat screenshots.
 
 | File | Role |
 | --- | --- |
-| [`assets/video/curriculum.png`](../../assets/video/curriculum.png) | Full butterfly; shows six clusters and course codes |
-| [`assets/video/BEN.png`](../../assets/video/BEN.png) | Business & Entrepreneurship close-up |
-| [`assets/video/DIS.png`](../../assets/video/DIS.png) | Data Science & Intelligent Systems close-up |
-| [`assets/video/ENS.png`](../../assets/video/ENS.png) | Environment & Sustainability close-up |
-| [`assets/video/GOS.png`](../../assets/video/GOS.png) | Government & Society close-up |
-| [`assets/video/HCB.png`](../../assets/video/HCB.png) | Human Health & Well-being close-up |
-| [`assets/video/MCC.png`](../../assets/video/MCC.png) | Media, Culture & Communication close-up |
+| [`assets/video/curriculum.svg`](../../assets/video/curriculum.svg) | Full butterfly; shows six clusters and course codes |
+| [`assets/video/BEN.svg`](../../assets/video/BEN.svg) | Business & Entrepreneurship close-up |
+| [`assets/video/DIS.svg`](../../assets/video/DIS.svg) | Data Science & Intelligent Systems close-up |
+| [`assets/video/ENS.svg`](../../assets/video/ENS.svg) | Environment & Sustainability close-up |
+| [`assets/video/GOS.svg`](../../assets/video/GOS.svg) | Government & Society close-up |
+| [`assets/video/HCB.svg`](../../assets/video/HCB.svg) | Human Health & Well-being close-up |
+| [`assets/video/MCC.svg`](../../assets/video/MCC.svg) | Media, Culture & Communication close-up |
 
-The PNGs retain course layouts and colours. When highlighting precise course tiles, calculate coordinates against the **actual source image** and test alignment after scaling. If individual vector/HTML elements from the original butterfly renderer can be reused, that may improve precision, but do not make vectorization a prerequisite for the pilot. The close-ups have titles; the butterfly mainly carries codes.
+These SVGs contain identifiable course elements. The current Python renderer still assumes PNG files and hardcoded coordinates from their former dimensions: **adapt it for these SVG inputs in the next video iteration**. Use SVG course identifiers and actual geometry where practical; verify highlight alignment and readability after rendering. Do not assume the old PNG coordinates remain valid.
 
 **UCR branding for the next video iteration:** Reuse the existing [UCR logo](../../assets/brand/ucr-primary-plum.png), [brand colours and font definitions](../../assets/css/brand.css), and available [`assets/fonts/`](../../assets/fonts/) files. Integrate these deliberately into the video's visual identity (for example, the opening, headings and closing) while keeping course content readable. Use the actual repository assets rather than recreating the logo or inventing branding. Keep project-internal `UCR Pathways` branding out of the public-facing video.
 
@@ -201,7 +201,7 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 
 **Objective:** Produce one improved, genuinely animated full-length reference video from the existing public `p-001 / ucr-depth` record. **This README is the complete assignment:** do not require a second prompt specifying the storyboard changes, code modifications, rendering workflow, validation or deliverable. The existing scripts and GitHub Actions workflow reproduce the *old* pilot; implement the agreed next-iteration changes below as part of producing the new video, not as a separate prerequisite task.
 
-**Execution and delivery:** Work directly on `main`. Modify and commit the existing Python renderer, narration/storyboard and GitHub Actions workflow only as needed, retaining working components and the validated academic data. Use the latest suitable curriculum images already available in the repository; if improved exports have not yet been supplied, use the existing assets and disclose the limitation rather than blocking or inventing replacements. Run the revised GitHub Actions workflow, resolve technical failures, and verify the rendered MP4 against the acceptance criteria below. Return the **successful run URL** and instructions to download its **14-day artifact** for human review. Do **not** commit generated MP4s, upload to YouTube, publish anything or request routine intermediate approval. If an external blocker prevents completion, preserve tested progress and precise continuation instructions in GitHub and report the blocker.
+**Execution and delivery:** Work directly on `main`. Modify and commit the existing Python renderer, narration/storyboard and GitHub Actions workflow only as needed, retaining working components and the validated academic data. Use the seven SVG assets listed in §3.1 and adapt the existing PNG-based renderer and verification as necessary. Do not request new graphic uploads or assume the old PNG coordinates apply. Run the revised GitHub Actions workflow, resolve technical failures, and verify the rendered MP4 against the acceptance criteria below. Return the **successful run URL** and instructions to download its **14-day artifact** for human review. Do **not** commit generated MP4s, upload to YouTube, publish anything or request routine intermediate approval. If an external blocker prevents completion, preserve tested progress and precise continuation instructions in GitHub and report the blocker.
 
 1. Read this handoff and only the UCR Pathways authoritative documents needed for the particular implementation. Retrieve the current main-branch source record, enriched course reference and uploaded PNGs; check their actual content.
 2. Implement the [reusable hook, butterfly overview and BEN gateway explanation](#21-opening-direction-for-the-next-video) before introducing the particular student. Then preserve the **source cluster → highlighted courses → six-semester grid** animation. Include a clearly visible, narrated [BEN-to-GOS transition](#22-cross-disciplinary-transitions-for-the-next-video) that briefly revisits the butterfly to show the two fields, while the same grid persists and continues filling.
