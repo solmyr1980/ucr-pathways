@@ -195,9 +195,13 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 - Initial mock-ups showed cramped/faded text in some course cards and rough layout. Revisit card typography, spacing, visual prominence and margins instead of assuming the prototype looks polished.
 - Current visual tests do not amount to academic verification of all narrated course claims. Cross-check the enriched workbook and ensure every one of the 24 cards matches the approved record.
 
-## 7. Recommended next implementation pass (suitable for ChatGPT Work)
+## 7. Next production assignment — executable from one sentence
 
-**Objective:** Produce one improved, genuinely animated full-length pilot from the existing public `p-001 / ucr-depth` record. Do not create a new programme, alter the canonical record or deploy an application.
+**Invocation:** “Produce the next improved curriculum video following `pilot/curriculum-video/README.md` in `solmyr1980/ucr-pathways`.”
+
+**Objective:** Produce one improved, genuinely animated full-length reference video from the existing public `p-001 / ucr-depth` record. **This README is the complete assignment:** do not require a second prompt specifying the storyboard changes, code modifications, rendering workflow, validation or deliverable. The existing scripts and GitHub Actions workflow reproduce the *old* pilot; implement the agreed next-iteration changes below as part of producing the new video, not as a separate prerequisite task.
+
+**Execution and delivery:** Work directly on `main`. Modify and commit the existing Python renderer, narration/storyboard and GitHub Actions workflow only as needed, retaining working components and the validated academic data. Use the latest suitable curriculum images already available in the repository; if improved exports have not yet been supplied, use the existing assets and disclose the limitation rather than blocking or inventing replacements. Run the revised GitHub Actions workflow, resolve technical failures, and verify the rendered MP4 against the acceptance criteria below. Return the **successful run URL** and instructions to download its **14-day artifact** for human review. Do **not** commit generated MP4s, upload to YouTube, publish anything or request routine intermediate approval. If an external blocker prevents completion, preserve tested progress and precise continuation instructions in GitHub and report the blocker.
 
 1. Read this handoff and only the UCR Pathways authoritative documents needed for the particular implementation. Retrieve the current main-branch source record, enriched course reference and uploaded PNGs; check their actual content.
 2. Implement the [reusable hook, butterfly overview and BEN gateway explanation](#21-opening-direction-for-the-next-video) before introducing the particular student. Then preserve the **source cluster → highlighted courses → six-semester grid** animation. Include a clearly visible, narrated [BEN-to-GOS transition](#22-cross-disciplinary-transitions-for-the-next-video) that briefly revisits the butterfly to show the two fields, while the same grid persists and continues filling.
