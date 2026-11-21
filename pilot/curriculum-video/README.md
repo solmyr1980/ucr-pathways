@@ -19,8 +19,8 @@ The video should communicate an academically reasoned selection process through 
 
 These decisions were explicitly established in the conversation. Preserve them unless the user revises them.
 
-1. **Begin with the relevant cluster and the butterfly.** A more readable, interest-relevant cluster can appear first; zoom out to reveal that it is just one of six clusters making up the full curriculum, the visual nicknamed **the butterfly**. Avoid a lengthy explanation of every course code or of the butterfly's internal organization. The butterfly conveys scope and possibilities, not a diagram the viewer must fully decode.
-2. **Show the student's interest in the butterfly's white space**, preferably upper-left, in large readable type. The original interest wording is preferred. Avoid a separate title-only scene unless testing demonstrates a clear benefit. The precise introduction and zoom transition may be refined.
+1. **Begin with a short, reusable hook about educational choice, then introduce the butterfly.** Set up the familiar decision to choose a disciplinary degree, then make the contrast explicit with **“But what if your interests cross those boundaries?”** Use simple animated subject blocks for the hook, not the UCR curriculum image. After the hook, reveal the six-cluster butterfly and explain the open-curriculum idea before beginning the individual student's programme. See [opening direction below](#21-opening-direction-for-the-next-video).
+2. **After the shared introduction, show the specific student's interests in the butterfly's white space**, preferably upper-left, in large readable type. The original wording is preferred. Avoid a separate title-only scene unless testing demonstrates a clear benefit. The precise introduction and zoom transition may be refined.
 3. **Narration and selection happen together.** As the narrator explains a coherent academic grouping and why it responds to the student's interests, the corresponding source courses light up in the currently displayed cluster.
 4. **The six-semester programme accumulates in parallel.** Relevant course selections become readable cards in a grid **two rows by three columns** (six semester panels, four courses each). The grid occupies the right side as the currently relevant cluster occupies the left. A card should show the **full course title** and, where helpful, its code. Course descriptions are *not* shown: the video is only a teaser, and the narrator should convey their essence.
 5. **Switch the cluster visual when the narration changes subject.** For example, when moving from economics to politics, replace Business & Entrepreneurship (BEN) on the left with Government & Society (GOS), highlight the selected GOS courses, and add them to the *same* grid. The grid never resets. The same mechanism should work for Environment & Sustainability and other clusters.
@@ -31,6 +31,21 @@ These decisions were explicitly established in the conversation. Preserve them u
 10. **End with a short invitation.** Invite viewers to submit their interests and display the [UCR submission URL and its QR code](#33-interest-submission) together on the final screen.
 11. **Public, third-person voice.** Narration should refer to “a student interested in ...”, not address the particular student as “you” throughout. The final invitation can address viewers directly.
 12. **Calm, intellectually engaging tone.** Prefer specific, neutral and confident academic explanation over synthetic excitement, promotional superlatives or an advertising voice. Interest should emerge from the connections between ideas and the animation, not from artificial enthusiasm.
+
+### 2.1 Opening direction for the next video
+
+Use a **shared introduction** for student-interest videos, and potentially the counselor-comparison series. **Business & Entrepreneurship (BEN)** is the default example for explaining open courses, gateways and gateway-dependent courses because its conventional gateway structure is easy to demonstrate. Do **not** choose BEN merely as the academic focus of a particular student's programme; after the introduction, move to whatever clusters the approved record actually supports. There is no need to give every cluster its own introduction. For example, Media, Culture & Communication has no gateways.
+
+**Provisional sequence and narration (not a locked final script):**
+
+1. **Hook, about 0–18 seconds.** Show simple, clearly separated subject paths (such as economics, psychology and politics), not the UCR butterfly. Establish that choosing a degree often entails committing to a disciplinary focus, without claiming that conventional programmes have no electives. Then deliver the contrast: **“But what if your interests cross those boundaries?”** Show subject blocks beginning to combine. The follow-up thought is that students could explore before specializing or maintain several interests throughout their studies.
+2. **Open-curriculum reveal, about 18–30 seconds.** Transition those abstract blocks into the full UCR curriculum butterfly. Explain that UCR's Liberal Arts and Sciences programme allows students to choose across six academic clusters. Make the cluster names readable as part of the video presentation; do not expect viewers to decipher tiny course codes on the full map.
+3. **How course choice works, about 30–48 seconds.** Move to an enlarged **BEN** cluster, keep it on screen long enough to understand the structure, and visually distinguish courses without gateway requirements, gateway courses and courses that require a gateway. Explain in plain language that gateways provide foundations for some more advanced courses. Where the visual uses “Locked”, explain it as **“Gateway required”**, not permanent inaccessibility. Demonstrate actual gateway-to-course relationships without implying that one gateway unlocks every course in the cluster.
+4. **Transition to the example, about 48–58 seconds.** Introduce the approved student's original interest statement, place it legibly on the butterfly, then proceed to the existing **source cluster → highlighted courses → six-semester grid** construction and interest-specific narration.
+
+**Visual and editorial principles:** Make the **“but”** a clear turning point, not a UCR promotional claim. Keep the opening graphic simple and animated; use the existing UCR brand assets when UCR enters. Preserve a readable, unhurried butterfly and gateway demonstration. This sequence is intended to be reusable; only the final handoff into the student or counselor example needs to change. Avoid duplicated interest statements during transitions.
+
+**Open for the next review:** Exact voice-over wording, animation design, seconds per scene and total film length remain adjustable. These durations are planning estimates, not acceptance thresholds. Do not merely append the introduction if that makes the film unnecessarily long; review pacing across the whole video. Check specific gateway claims against the current course data and [UCR curriculum](https://ucr.nl/education/curriculum/) and [Business & Entrepreneurship](https://ucr.nl/education/courses/business-entrepreneurship/) explanations.
 
 Do not introduce master's admission requirements into the initial pilot. They may be revisited for future versions.
 
@@ -167,7 +182,7 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 **Objective:** Produce one improved, genuinely animated full-length pilot from the existing public `p-001 / ucr-depth` record. Do not create a new programme, alter the canonical record or deploy an application.
 
 1. Read this handoff and only the UCR Pathways authoritative documents needed for the particular implementation. Retrieve the current main-branch source record, enriched course reference and uploaded PNGs; check their actual content.
-2. Preserve the **source cluster → highlighted courses → six-semester grid** animation. Start with the relevant cluster / full butterfly reveal, show the example interest, and switch left-panel cluster by thematic narration while the single grid fills on the right.
+2. Implement the [reusable hook, butterfly overview and BEN gateway explanation](#21-opening-direction-for-the-next-video) before introducing the particular student. Then preserve the **source cluster → highlighted courses → six-semester grid** animation, switching the left-panel cluster by thematic narration while the single grid fills on the right.
 3. Calculate precise tile/highlight positions from source image dimensions or underlying course elements. Do not rely blindly on coordinates from a previous screenshot; check each highlight against the corresponding code and the rendered frame.
 4. Precompute all 24 destination cards and their fixed positions directly from `p-001`. Animate course selection by narrative group, with the source tile highlighted and the readable titled card appearing at its destination. Newly selected courses may be emphasized while earlier cards recede slightly.
 5. Improve typography, card spacing, resizing, transitional motion and the full-frame final state. Retain readable codes plus titles, **no descriptions**. Avoid squeezing the whole butterfly and finished grid into one frame.
@@ -178,6 +193,8 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 
 ### Acceptance test for the next iteration
 
+- The opening uses a clear **“but”** contrast before showing UCR; the six clusters and BEN gateway example are understandable and unhurried.
+- The move from the shared introduction to the particular student's interests is coherent, with no duplicate or overlapping text.
 - The course titles and semester labels are legible at normal desktop video size.
 - Selection highlighting identifies the correct code in the displayed cluster.
 - Every one of the **24 unique courses** appears once in its **approved** semester.
