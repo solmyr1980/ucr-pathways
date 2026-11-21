@@ -1,6 +1,6 @@
 # UCR curriculum video — pilot production brief and handoff
 
-**Status:** [Watch or download the animated review cut (MP4, 3:17)](review/UCR-curriculum-pilot.mp4). Completed on 18 November 2026. See [render and verification notes](#9-review-cut-and-reproduction).
+**Status:** The animated review cut (3:17) was completed on 18 November 2026. It can be reproduced with [GitHub Actions](#render-with-github-actions). See [render and verification notes](#9-review-cut-and-reproduction).
 **Established:** 18 November 2026  
 **Repository:** `solmyr1980/ucr-pathways`, branch `main`  
 **Purpose:** Preserve the design decisions, inputs, initial narration and implementation findings from the curriculum-video discussion so the work can resume without restarting the concept design.
@@ -198,7 +198,7 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 **Working rule:** Treat this file as the specific, reusable **pilot handoff**, not as a new UCR Pathways production policy. Update it with demonstrated results and explicit user decisions as the video pilot progresses.
 ## 9. Review cut and reproduction
 
-The [review MP4](review/UCR-curriculum-pilot.mp4) runs **3:17** at 1920 × 1080 and 24 fps. It opens on Business & Entrepreneurship, reveals the full butterfly, then follows the narration through the seven groups. Each selected card moves from its highlighted tile to its semester. The academic core selection uses its actual tile in the full butterfly. The completed grid remains on screen for about twelve seconds. The final invitation asks viewers to submit their interests. The [submission URL and QR code](#33-interest-submission) are specified for the next render.
+The original review cut runs **3:17** at 1920 × 1080 and 24 fps. It opens on Business & Entrepreneurship, reveals the full butterfly, then follows the narration through the seven groups. Each selected card moves from its highlighted tile to its semester. The academic core selection uses its actual tile in the full butterfly. The completed grid remains on screen for about twelve seconds. The final invitation asks viewers to submit their interests. The [submission URL and QR code](#33-interest-submission) are specified for the next render.
 
 ### Academic checks
 
@@ -212,7 +212,7 @@ The public example passed the structural example validator. The separate course 
 2. Select **Run workflow**, choose the **main** branch and select **Run workflow** again.
 3. Open the completed run and look under **Artifacts**. Download **UCR-curriculum-pilot** in your browser (not through GitHub Desktop) and extract `UCR-curriculum-pilot.mp4` from the ZIP. GitHub requires sign-in. The artifact expires automatically after **14 days**.
 
-The workflow uses the public `p-001 / ucr-depth` example and the same storyboard, Piper Alba voice and renderer as the archived review cut. It checks playback, narration cues, scene and motion frames, and all 24 course positions against the archived grid. The invitation matches the archived cut. The QR code and URL remain specified for a later revision.
+The workflow uses the public `p-001 / ucr-depth` example and the same storyboard, Piper Alba voice and renderer as the archived review cut. It checks playback, narration cues, scene and motion frames, and all 24 course cards against their positions in the public example. The invitation matches the archived cut. The QR code and URL remain specified for a later revision.
 
 The [initial GitHub Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/44886275213) passed all checks on 21 November 2026. It rendered 196.500 seconds at 1920 × 1080 and 24 fps, with H.264 video and mono AAC narration. The archived cut runs 197.208 seconds. Fresh Piper synthesis can shift cue timing slightly.
 
@@ -222,7 +222,7 @@ The [initial GitHub Actions run](https://github.com/solmyr1980/ucr-pathways/acti
 2. Once approved, upload the downloaded MP4 **manually** through YouTube Studio and publish or schedule it there. There is no YouTube API integration or automatic upload.
 3. Let the GitHub Actions artifact expire after **14 days**; no manual GitHub cleanup or permanent copy of the generated MP4 is required.
 
-Keep source code, storyboard, academic inputs and reusable images in Git. **Do not commit new rendered MP4s to the repository**, even temporarily: deleting a committed video would leave it in Git history. The existing archived pilot review cut is a historical reference, not the model for subsequent outputs.
+Keep source code, storyboard, academic inputs and reusable images in Git. Keep rendered MP4s outside the repository, including local review copies. Use Actions artifacts for temporary downloads. Deleting a committed video from the current branch leaves its bytes in Git history.
 
 ### Reproduce the film
 
@@ -240,8 +240,10 @@ curl -fL "$model_url.json" -o "$out/alba.onnx.json"
 
 python pilot/curriculum-video/narrate.py "$out/alba.onnx" "$out"
 python pilot/curriculum-video/render.py "$out"
-ffmpeg -xerror -v error -i "$out/UCR-curriculum-pilot.mp4" -f null -
+python pilot/curriculum-video/verify.py "$out"
 ```
+
+For an additional check against a local copy of the original review cut, pass `--reference /path/to/UCR-curriculum-pilot.mp4` to `verify.py`.
 
 [Storyboard and narration](storyboard.json) associate each short passage with its course codes. [Narration synthesis](narrate.py) measures the audio for each passage and writes the voice track and timing file. [Animation and encoding](render.py) use those timestamps and native-resolution tile coordinates. To revise the layout alone, reuse the voice and timing files. To edit the script, regenerate both. Fresh neural synthesis can vary slightly in timing.
 
@@ -253,4 +255,4 @@ Voice credit: Alba (en_GB, medium), Piper voice collection. The voice model card
 - Inspected the opening, card selections, cluster change, final grid and invitation in rendered frames. The grid persists as the source changes.
 - Decoded the entire MP4 without errors. Video and audio run 197.208 and 197.200 seconds respectively. Integrated loudness was −17.2 LUFS and true peak −1.3 dBFS.
 - Checked the spoken sequence with offline speech recognition. Naturalness and pacing still need a listener’s judgment.
-- Review file SHA-256: `95b45cc1132fc6ea6e778fbc080441af849dc738e0faa78a340c843f45ab43ad`. The review copy was added to the public pilot folder on 19 November 2026.
+- Review file SHA-256: `95b45cc1132fc6ea6e778fbc080441af849dc738e0faa78a340c843f45ab43ad`. This checksum identifies the original review cut.
