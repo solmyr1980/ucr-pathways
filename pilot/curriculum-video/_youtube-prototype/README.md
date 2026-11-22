@@ -43,7 +43,7 @@ About this video
 
 This video was developed with the assistance of generative AI. It uses synthetic narration and programmatic animations based on actual UCR course information. The curriculum presented is illustrative.
 
-## Proposed pinned comment
+## Approved pinned comment
 
 Which academic interests would you like to combine? Share them in the comments. Your combination could inspire a future video.
 
