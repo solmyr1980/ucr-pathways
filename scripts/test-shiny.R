@@ -273,8 +273,13 @@ fixture_with_ucr_count <- function(count) {
 for (count in 1:3) {
   fixture <- fixture_with_ucr_count(count)
   stopifnot(length(student$student_ucr_programmes(fixture)) == count)
-  stopifnot(nzchar(as.character(student$render_compare_table(fixture))))
+  fixture$blocks[[1]]$rows[[1]]$cells$comparator$note <- "COURSE-ALIGNMENT-SENTINEL"
+  desktop_comparison_html <- as.character(student$render_compare_table(fixture))
   mobile_comparison_html <- as.character(student$render_mobile_comparison(fixture))
+  for (html in c(desktop_comparison_html, mobile_comparison_html)) {
+    stopifnot(!grepl("COURSE-ALIGNMENT-SENTINEL", html, fixed = TRUE),
+              grepl("Applied Economics Research Course (incl. thesis)", html, fixed = TRUE))
+  }
   stopifnot(grepl("mobile-comparison", mobile_comparison_html, fixed = TRUE))
   stopifnot(grepl(paste("1 of", count + 1), mobile_comparison_html, fixed = TRUE))
   stopifnot(lengths(regmatches(mobile_comparison_html, gregexpr("data-comparison-index", mobile_comparison_html, fixed = TRUE))) == count + 1)

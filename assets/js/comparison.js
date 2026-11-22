@@ -39,6 +39,14 @@ export function visibleProgrammeLabel(record, programme) {
   return 'Another UCR programme option';
 }
 
+// Older examples stored two external component facts in the free-text note field.
+export function comparisonComponentName(cell, programme) {
+  if (isComparatorProgramme(programme) && ['incl. thesis', 'about 6 courses'].includes(cell.note)) {
+    return `${cell.text} (${cell.note})`;
+  }
+  return cell.text;
+}
+
 export function comparisonNotes(record) {
   return (record.notes || []).filter(note =>
     (!note.placement || note.placement === 'comparison') && note.text

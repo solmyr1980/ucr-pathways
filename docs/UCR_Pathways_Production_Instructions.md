@@ -565,7 +565,7 @@ Use the following fields only after checking their substance against the academi
 | `conceptProgrammeIds` | Select existing `academicRationale.alternatives[].concept` text by programme ID after review. Keep the single canonical concept field. |
 | `noteTypes` | Select an unambiguous existing `notes[].text` by type after reviewing its content. Internal note types are not automatically display content. |
 | `componentNotes` | Reviewed reader-facing notes keyed by existing comparator component ID. |
-| `cellNotes` | Reviewed `{programmeId, reference, text}` entries; `reference` is the cell's stable UCR course code or external component ID. No row-index mapping. |
+| `cellNotes` | Reviewed `{programmeId, reference, text}` entries retained for academic traceability; `reference` is the cell's stable UCR course code or external component ID. No row-index mapping. |
 
 Descriptions and status explanations may be populated independently as review proceeds. Missing fields use neutral application copy or are omitted. No raw internal exception, year/route, source, component/cell-note or presentation-message field supplies a prose fallback. Legacy normal/caution comparisons retain their factual table under an explicit review notice; concepts and mixed notes await explicit selection. Caution keeps a clear general specialist-training warning; case-specific detail belongs in reviewed audience explanations/notes. A comparison explicitly declared partial/unresolved is shown externally only unless the validated §2.1A qualified-comparison contract supports its precise partial scope. Presentation external-only overrides still withhold it. An unresolved external exception can never be marked complete merely because stored components total 180 EC.
 

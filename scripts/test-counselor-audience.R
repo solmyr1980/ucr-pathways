@@ -12,7 +12,7 @@ stopifnot(!grepl("INTERNAL-SENTINEL", html, fixed = TRUE), grepl("awaiting revie
 stopifnot(grepl("column-select", html, fixed = TRUE), grepl("blank cell", html, fixed = TRUE))
 r$audience <- list(schemaVersion = "1.0", programmeDescription = "Study art and culture in society.", comparisonExplanation = "The required specialist placement differs.", conceptProgrammeIds = list("ucr-1"), cellNotes = list(list(programmeId = "comparator", reference = r$comparator$components[[1]]$id, text = "Reviewed partial correspondence.")))
 html <- as.character(e$render_comparison(r))
-stopifnot(grepl("Study art and culture in society", html), grepl("required specialist placement differs", html), grepl("Reviewed partial correspondence", html), !grepl("INTERNAL-SENTINEL", html))
+stopifnot(grepl("Study art and culture in society", html), grepl("required specialist placement differs", html), !grepl("Reviewed partial correspondence", html), !grepl("INTERNAL-SENTINEL", html))
 stopifnot(grepl(htmltools::htmlEscape(r$academicRationale$alternatives[[1]]$concept), html, fixed = TRUE))
 x <- load_record("cp-000277")
 x$audience <- NULL # Explicit unreviewed exception fixture.

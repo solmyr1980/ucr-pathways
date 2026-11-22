@@ -287,7 +287,7 @@ Detailed block construction, stable component references and anti-template check
 
 # 6. Explanatory notes and canonical records
 
-Explanatory notes should use reusable semantic templates defined in the Production Instructions and appear only when needed to prevent a material misunderstanding. A warranted limitation note must remain visible across representations.
+Explanatory notes should use reusable semantic templates defined in the Production Instructions and appear only when needed to prevent a material misunderstanding. A warranted limitation note must remain visible across representations. Comparison cells ordinarily show the course or component name and its EC value. Keep individual alignment rationales, including counselor `audience.cellNotes`, in the academic record. State material qualifications at programme or comparison level and retain course-description links where available.
 
 Create one canonical structured comparison record before rendering any surface. The record must identify its origin (`student` or `counselor`) and preserve the comparator identity, between one and three ordered UCR alternative identities, complete UCR schedules, the complete reconstructed comparator curriculum (or the explicitly accepted counselor verified boundary), comparator evidence, lossless comparison structure, deliberate gaps, credits, validation status and source/verification metadata.
 

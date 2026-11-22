@@ -4,6 +4,7 @@ import path from 'node:path';
 import {spawn} from 'node:child_process';
 import {createRequire} from 'node:module';
 import assert from 'node:assert/strict';
+import {isUcrProgramme, normalizeCell, UCR_DEFAULT_COURSE_EC} from './example-utils.mjs';
 const require = createRequire(import.meta.url);
 const {chromium} = require(process.env.UCR_PLAYWRIGHT_MODULE || 'playwright');
 const out = path.resolve(process.env.UCR_RENDERED_EVIDENCE_DIR || '/tmp/ucr-counselor-shared-rendered');
@@ -53,6 +54,26 @@ try {
      assert.ok(!body.includes('First-listed Culture and Economics'),`${id}: cell bookkeeping exposed`);
      assert.ok(!body.includes('2261'),`${id}: catalogue code exposed`);
      if (await page.locator('.compare-view').count()) {
+      const unexpected = page.locator('.comparison-cell > :not(.cell-text):not(.ec-badge), .cell-note');
+      assert.equal(await unexpected.count(), 0, `${id}: unexpected course commentary`);
+      if (variant === 'actual') {
+       const record = JSON.parse(fs.readFileSync(`data/counselor/comparisons/${id}.json`));
+       const expected = record.blocks.flatMap(block => block.rows.map(row => record.programmes.map(programme => {
+        const cell = normalizeCell(row.cells[programme.id]);
+        if (!cell) return null;
+        const isUcr = isUcrProgramme(programme);
+        const ec = cell.credits ?? (isUcr ? UCR_DEFAULT_COURSE_EC : null);
+        return [cell.text, ec == null ? '' : `${ec} EC`, isUcr ? cell.courseCode || '' : ''];
+       })));
+       const displayed = await page.locator('.compare-view tbody tr:not(.block-row)').evaluateAll(rows =>
+        rows.map(row => Array.from(row.cells, cell => cell.classList.contains('empty-cell') ? null : [
+         cell.querySelector('.cell-text').textContent.trim(),
+         cell.querySelector('.ec-badge')?.textContent || '',
+         cell.querySelector('.course-link')?.dataset.code || ''
+        ])));
+       assert.deepEqual(displayed, expected, `${id}: course rows, blanks, credits or links changed`);
+       assert.deepEqual(await page.locator('.block-title').allTextContents(), record.blocks.map(block => block.title));
+      }
       assert.ok(!body.includes('What this comparison shows'));
       assert.ok(await page.locator('.closest-match h2').isVisible());
       assert.ok(await page.getByText('This pre-produced comparison is the same for every student.', {exact:true}).isVisible());

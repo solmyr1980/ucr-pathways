@@ -69,6 +69,14 @@ cta_buttons <- function(location_class) {
   )
 }
 
+# Older examples stored two external component facts in the free-text note field.
+comparison_component_name <- function(cell, programme) {
+  if (is_comparator_programme(programme) && safe_text(cell$note) %in% c("incl. thesis", "about 6 courses")) {
+    return(paste0(cell$text, " (", cell$note, ")"))
+  }
+  safe_text(cell$text)
+}
+
 render_compare_table <- function(record) {
   programmes <- record$programmes %||% list()
   blocks <- record$blocks %||% list()
@@ -103,9 +111,8 @@ render_compare_table <- function(record) {
         ec <- credit_text(value$credits, if (is_ucr_programme(programme)) UCR_COURSE_EC else NULL)
         tags$td(
           class = if (isTRUE(value$emphasis)) "comparison-cell emphasis" else "comparison-cell",
-          div(class = "cell-text", safe_text(value$text)),
-          if (nzchar(ec)) div(class = "ec-badge", ec),
-          if (nzchar(safe_text(value$note))) div(class = "cell-note", safe_text(value$note))
+          div(class = "cell-text", comparison_component_name(value, programme)),
+          if (nzchar(ec)) div(class = "ec-badge", ec)
         )
       })
       body_rows[[length(body_rows) + 1]] <- do.call(tags$tr, cells)
@@ -140,9 +147,8 @@ render_mobile_comparison <- function(record) {
         ec <- credit_text(value$credits, if (is_ucr_programme(programme)) UCR_COURSE_EC else NULL)
         tags$li(
           class = if (isTRUE(value$emphasis)) "mobile-comparison-item emphasis" else "mobile-comparison-item",
-          div(class = "cell-text", safe_text(value$text)),
-          if (nzchar(ec)) div(class = "ec-badge", ec),
-          if (nzchar(safe_text(value$note))) div(class = "cell-note", safe_text(value$note))
+          div(class = "cell-text", comparison_component_name(value, programme)),
+          if (nzchar(ec)) div(class = "ec-badge", ec)
         )
       }))
       if (!length(items)) return(NULL)
@@ -427,7 +433,6 @@ ui <- fluidPage(
       .comparison-cell.emphasis { background:rgba(255,225,164,.36); }
       .empty-cell { background:rgba(92,96,107,.035); }
       .ec-badge { display:inline-block; margin-top:6px; padding:2px 6px; border-radius:999px; background:rgba(73,30,52,.08); color:var(--grey); font-size:11px; }
-      .cell-note { color:var(--grey); font-size:12px; margin-top:5px; }
       .mobile-comparison { display:none; }
       .mobile-comparison-nav { display:grid; grid-template-columns:44px minmax(0,1fr) 44px; align-items:center; gap:8px; margin:4px 0 12px; }
       .mobile-comparison-button { width:42px; height:42px; border-radius:50%; border:1px solid rgba(73,30,52,.22); background:#fff; color:var(--plum); font-size:22px; line-height:1; }

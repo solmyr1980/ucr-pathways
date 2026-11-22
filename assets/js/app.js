@@ -1,4 +1,4 @@
-import { visibleProgrammeLabel, comparisonNotes, comparisonGuidance, isComparatorProgramme, isUcrAlternative } from './comparison.js';
+import { comparisonComponentName, visibleProgrammeLabel, comparisonNotes, comparisonGuidance, isComparatorProgramme, isUcrAlternative } from './comparison.js';
 
 const params = new URLSearchParams(window.location.search);
 const hasExample = params.has('example');
@@ -147,7 +147,7 @@ function renderCompare() {
         const classes = ['cell'];
         if (cell.emphasis) classes.push('emphasis');
         const ec = cellCredits(cell, programme);
-        html += `<div class="${classes.join(' ')}">${esc(cell.text)}${ec ? `<span class="ec-badge">${esc(ec)}</span>` : ''}${cell.note ? `<span class="cell-note">${esc(cell.note)}</span>` : ''}</div>`;
+        html += `<div class="${classes.join(' ')}">${esc(comparisonComponentName(cell, programme))}${ec ? `<span class="ec-badge">${esc(ec)}</span>` : ''}</div>`;
       });
       html += '</div>';
     });
@@ -187,7 +187,7 @@ function renderSingle() {
     html += `<section class="single-section"><h3>${esc(block.title)}</h3><ul class="single-courses">`;
     items.forEach(item => {
       const ec = cellCredits(item, programme);
-      html += `<li>${esc(item.text)}${ec ? `<span class="ec-badge">${esc(ec)}</span>` : ''}${item.note ? `<span class="single-course-note">${esc(item.note)}</span>` : ''}</li>`;
+      html += `<li>${esc(comparisonComponentName(item, programme))}${ec ? `<span class="ec-badge">${esc(ec)}</span>` : ''}</li>`;
     });
     html += '</ul></section>';
   });

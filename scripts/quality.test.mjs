@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { isUcrProgramme, normalizeCell, validateExample } from './example-utils.mjs';
-import { visibleProgrammeLabel, comparisonNotes } from '../assets/js/comparison.js';
+import { visibleProgrammeLabel, comparisonComponentName, comparisonNotes } from '../assets/js/comparison.js';
 
 const records = fs.readdirSync('data/examples').filter(f => f.endsWith('.json'))
   .map(f => JSON.parse(fs.readFileSync(`data/examples/${f}`)));
@@ -170,6 +170,16 @@ test('case-specific labels and substantive notes survive presentation', () => {
   for (const record of records.filter(r => ['p-002', 'p-004', 'p-005'].includes(r.id))) {
     assert.ok(comparisonNotes(record).length > 0, `${record.id} must retain its limitation note`);
   }
+});
+
+test('comparison labels preserve component facts and omit free-text alignment notes', () => {
+  const [external, ucr] = records[0].programmes;
+  const component = { text: 'Research course', note: 'incl. thesis' };
+  assert.equal(comparisonComponentName(component, external), 'Research course (incl. thesis)');
+  assert.equal(comparisonComponentName(component, ucr), 'Research course');
+  component.note = 'Both courses develop research methods.';
+  assert.equal(comparisonComponentName(component, external), 'Research course');
+  assert.equal(comparisonComponentName(component, ucr), 'Research course');
 });
 
 test('new production origins require interpretation or a provider-specific key', () => {

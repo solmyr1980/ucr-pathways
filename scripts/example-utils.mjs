@@ -1,5 +1,5 @@
 import { comparatorMetadata, visibleProgrammeLabel } from '../assets/js/comparison.js';
-export { comparatorMetadata, visibleProgrammeLabel, comparisonNotes } from '../assets/js/comparison.js';
+export { comparisonComponentName, comparatorMetadata, visibleProgrammeLabel, comparisonNotes } from '../assets/js/comparison.js';
 import { hasBoundedAcceptance } from './counselor-acceptance.mjs';
 import fs from 'node:fs';
 import path from 'node:path';

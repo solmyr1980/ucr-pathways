@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {
+  comparisonComponentName,
   comparisonNotes,
   exampleFiles,
   readExample,
@@ -97,7 +98,7 @@ function renderComparison(example) {
         const cell = normalizeCell(row.cells?.[programme.id]);
         if (!cell) return '<td class="comparison-cell empty"></td>';
         const ec = cellCredit(cell, programme);
-        return `<td class="comparison-cell">${escapeHtml(cell.text)}${ec ? ` · ${escapeHtml(ec)}` : ''}${cell.note ? `<span class="cell-note">${escapeHtml(cell.note)}</span>` : ''}</td>`;
+        return `<td class="comparison-cell">${escapeHtml(comparisonComponentName(cell, programme))}${ec ? ` · ${escapeHtml(ec)}` : ''}</td>`;
       }).join('');
       return `<tr>${cells}</tr>`;
     }).join('');
