@@ -393,3 +393,39 @@ Whisper small.en recovered all 86 script words in order and added “so” befor
 The CPU runner spent 3 minutes 34 seconds building and obtaining the engine and weights, and 4 minutes 28 seconds generating and finishing the WAV, with peak resident memory of 6.02 GiB. Playback measured −17.99 LUFS and −1.50 dBTP. A linear projection for 3½ minutes at this delivery rate is about 20 minutes after setup. The final duration of the full storyboard at this slower pace is untested. An earlier attempt received HTTP 403 while retrieving the sealed prompt with Git. The successful workflow downloaded the encrypted object directly. Neither the reference nor its transcript is present in the artifact.
 
 To reproduce this take, follow the private prompt and dispatch instructions in section 11 and select **3** in the **take** field. Use a ZIP containing the selected 8.5-second, 24 kHz mono PCM16 prompt and its English transcript. The original 4:24 reference was assembled as described in section 10. Download **UCR-voice-clone-take-3** from the completed run. Its metrics include every sentence boundary and the applied filter gains.
+
+## 13. Script-reading voice sample — 22 November 2026
+
+[Download the 36.56-second audio review](https://github.com/solmyr1980/ucr-pathways/actions/runs/45004347749/artifacts/14747072016) from the [successful CPU run](https://github.com/solmyr1980/ucr-pathways/actions/runs/45004347749). The artifact expires on 6 December 2026. It uses the same 86 storyboard words as takes 2 and 3, from “Consider a student interested in economics” through “What do its accounts tell them?” The video remains at the previously reviewed cut.
+
+The narrator supplied a new 3:43.04 recording of the video script. All conditioning and reference measurements in this test use that recording. The workflow transcribed the full reading and tested two accurately transcribed utterances from outside the sample passage. Both produced the correct opening sentence. The 7.24-second prompt at 2:29.99–2:37.23 produced the higher audition speaker score, 0.814 versus 0.752. All six groups of the delivered narration were synthesized using that prompt.
+
+| Matched check | Previous synthetic take 3 | New synthetic sample | Narrator’s new recording |
+| --- | ---: | ---: | ---: |
+| Speaker similarity against the new reference | 0.534 | 0.807 | 0.890 |
+| Estimated median voiced pitch on the same words | 151 Hz | 105 Hz | 125 Hz |
+| Middle 80% of voiced pitch, in semitones | 8.4 | 9.5 | 10.4 |
+| Passage duration | 47.01 s | 36.56 s | about 39.7 s |
+
+The comparison uses the same speaker encoder, evaluation windows and target words for both synthetic takes. Sixteen six-second excerpts of the new recording supplied the held-out reference. The scores support an improvement in speaker similarity. The new sample’s typical pitch is still about three semitones below the narrator’s on these words. The [pitch check](voice-clone/measure_review_pitch.py) estimates periodic voiced frames by normalized autocorrelation. For the original, use `--start 63.52 --end 103.23`, the approximate boundaries from automatic transcription. The scores and pitch measurements cannot settle whether the accent sounds right or the congested quality heard in earlier takes has disappeared.
+
+Whisper small.en recovered all 86 delivered words in order. The sample runs at 141 words per minute including pauses. Five editorial rests range from 0.38 to 0.92 seconds. The downloaded PCM confirmed silence at all five boundaries. Listen at **0:08–0:11** for the stress and subsequent pause in “Where could that question take them?” At **0:29–0:37**, listen for the transition to “Consider a new business” and whether the two final questions sound distinct. Speech recognition estimated nine inter-word gaps of at least half a second across the sample.
+
+The WAV is mono 24 kHz, 16-bit PCM. It decoded in full and measured −18.0 LUFS integrated and −1.5 dB true peak. The downloaded ZIP and WAV matched their checksums. WAV SHA-256 is `b43682594d13bb52f5e2cc3823bb666493cbf0fc72011aa5b8691c93cfc0d057`.
+
+The successful run took eight minutes from its start through completion. Runner setup for the synthesis and assessment tools took 3:05. Reference analysis, two prompt auditions, synthesis, assembly and assessment took 4:32 with 6.03 GiB peak resident memory. Earlier runs found a package availability issue, an audio-decoder incompatibility and a report serialization error. The successful run used the available package, passed FFmpeg-decoded PCM to the recognizer and wrote numeric measurements in standard JSON.
+
+### Repeat the listening test
+
+The [audio-only Actions workflow](../../.github/workflows/review-script-reading.yml) runs on a standard Ubuntu CPU runner. A hosted work session can perform the transfer on the narrator's behalf. For another recording, update the first field of [the request file](voice-clone/reading-request.sha256) with its SHA-256 on `main`. That change starts the job. To repeat the current recording, select **Run workflow** on `main`.
+
+1. Download the current run's `reading-recipient-<attempt>` artifact. Extract `recipient.pem` and verify that its subject is exactly `CN=UCR-run-<run ID>-<attempt>`. Each retry needs its own certificate.
+2. Encrypt the complete recording with `openssl cms -encrypt -binary -aes-256-gcm -outform DER -in Recording.m4a -out sealed.cms recipient.pem`. In a single commit on `main`, place the binary ciphertext at `.github/voice-transfer/<run ID>-<attempt>/part-0` and a plain-text file named `count` containing `1` alongside it. A transfer client with smaller payload limits may split the ciphertext across consecutively numbered parts starting at zero and set `count` accordingly.
+3. The runner decrypts in its temporary directory, checks the complete input against the requested digest, and deletes the reference, temporary prompt excerpts and key after use. Remove the transfer directory from `main` once the receiving step succeeds. Git history retains the encrypted parts.
+4. Download **UCR-voice-clone-script-reading** from the run. It contains one synthetic WAV, its script and checksum, word and speaker checks, and CPU measurements. The earlier synthetic take is scored alongside it while the earlier artifact is available. Each review artifact lasts 14 days.
+
+The [review script](voice-clone/reading_review.py) uses the pinned Qwen CPU engine and weights from section 11. Whisper small.en transcribes the full input. The selector matches those words against complete storyboard sentences outside the review passage. It chooses two nonoverlapping utterances when available and synthesizes the opening sentence with each. Fewer recognized word errors rank first, followed by speaker similarity. A second set of real-voice windows, excluded from prompt selection and audition scoring, measures the delivered WAV. The speaker metric is the median cosine similarity of six-second output windows to the held-out reference centroid. The genuine-voice benchmark compares each held-out window to the centroid of the others.
+
+For the delivery test, six groups preserve the context within related sentences. The assembler inserts a short break before the opening question and longer breaks after the question and before the new-business example. It keeps the model's internal phrasing, uses a second seed when the recognizer flags a difference, and normalizes playback loudness. The script applies no target speaking rate, pitch shift or meeting-derived equalization.
+
+This run uses zero-shot conditioning. The [upstream training procedure](https://github.com/QwenLM/Qwen3-TTS/tree/main/finetuning) specifies GPU-based preparation and a training implementation that uses FlashAttention 2. The free CPU job does not provide that training environment. This sample supports a judgment about zero-shot synthesis only. Full narration and cue timings await the narrator's approval.
