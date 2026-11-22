@@ -529,3 +529,7 @@ Subtitles are an accessibility and publication deliverable. They do not require 
 ## 23. YouTube chapters — 22 November 2026
 
 **Decision:** Do not add YouTube chapter timestamps by default to the approximately 3½-minute curriculum videos. The continuous story is short enough that chapters offer limited navigational value and would create unnecessary publication work. Consider chapters only for a substantially longer video or a clear viewer need, subject to editorial review. No change to the renderer or current publication package is necessary.
+
+## 24. YouTube playlist — 22 November 2026
+
+**Decision:** Create one YouTube playlist for the UCR curriculum-video series, so viewers can explore different combinations of academic interests in one place. Add each approved video to the same playlist when it is published. The playlist is a navigation and discovery aid, not a reason to increase publication volume or standardize away the distinctive academic content of each example. This requires no change to the video renderer; playlist creation and membership can initially be handled manually in YouTube Studio as part of the assisted publication process. Do not create or publish the playlist without separate authorization.
