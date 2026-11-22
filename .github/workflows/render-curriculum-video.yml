@@ -52,7 +52,7 @@ jobs:
           SUMS
           )
 
-      - name: Synthesize narration and render MP4
+      - name: Synthesize narration, time English subtitles and render MP4
         run: |
           out="$RUNNER_TEMP/ucr-curriculum-video"
           python "$PILOT_DIR/narrate.py" "$out/alba.onnx" "$out"
@@ -63,10 +63,24 @@ jobs:
           out="$RUNNER_TEMP/ucr-curriculum-video"
           python "$PILOT_DIR/verify.py" "$out" | tee -a "$GITHUB_STEP_SUMMARY"
 
+      - name: Stage the approved YouTube materials
+        run: |
+          out="$RUNNER_TEMP/ucr-curriculum-video"
+          python "$PILOT_DIR/package_youtube.py" "$out" | tee -a "$GITHUB_STEP_SUMMARY"
+
       - uses: actions/upload-artifact@v4
         with:
           name: UCR-curriculum-pilot
-          path: ${{ runner.temp }}/ucr-curriculum-video/UCR-curriculum-pilot.mp4
+          path: |
+            ${{ runner.temp }}/ucr-curriculum-video/UCR-curriculum-pilot.mp4
+            ${{ runner.temp }}/ucr-curriculum-video/UCR-curriculum-pilot.en.srt
           if-no-files-found: error
           retention-days: 14
           compression-level: 0
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: UCR-curriculum-youtube-package
+          path: ${{ runner.temp }}/ucr-curriculum-video/youtube/
+          if-no-files-found: error
+          retention-days: 14

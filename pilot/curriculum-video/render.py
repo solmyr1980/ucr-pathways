@@ -90,18 +90,11 @@ def source_data():
         for j, c in enumerate(s["courses"])
     }
     assert len(slots) == 24
-    unplanned = {
-        c["code"]
-        for s in semesters
-        for c in s["courses"]
-        if not catalog[c["code"]].get(s["term"])
-    }
     return (
         record["interests"],
         prog["label"],
         slots,
         [s["label"] for s in semesters],
-        unplanned,
     )
 
 
@@ -111,9 +104,7 @@ def tween(a, b, p):
 
 class Film:
     def __init__(self, timing):
-        self.interest, self.title, self.slots, self.labels, self.unplanned = (
-            source_data()
-        )
+        self.interest, self.title, self.slots, self.labels = source_data()
         self.scenes = json.loads(timing.read_text())
         hook = next(s for s in self.scenes if s["scene"] == "hook")
         self.subjects = [subject["label"] for subject in hook["subjects"]]
@@ -135,10 +126,12 @@ class Film:
                 for i, code in enumerate(codes):
                     assert code.startswith(s["scene"]) and code in self.map.boxes
                     assert code in self.source(code).boxes
-                    self.events.append(
-                        (start + 0.08 + (end - start) * i / len(codes), code)
-                    )
+                    when = start + 0.08 + (end - start) * i / len(codes)
+                    if s.get("gateway_demo") and code == DEPENDENT:
+                        when = s["word_times"]["unlocks"][0] + 0.35
+                    self.events.append((when, code))
         self.times = [t for t, _ in self.events]
+        assert self.times == sorted(self.times)
         assert sorted(c for t, c in self.events) == sorted(self.slots)
         logo = Image.open(ROOT / "assets/brand/ucr-primary-plum.png").convert("RGBA")
         self.logo = logo.crop(logo.getbbox())
@@ -213,46 +206,46 @@ class Film:
         return im
 
     @lru_cache(None)
-    def gateway(self, step):
-        im = self.shell().copy()
-        d = ImageDraw.Draw(im)
-        label(d, (52, 150), NAMES["BEN"], 70, PLUM, "serif")
-        size = (1100, 670)
-        m = self.maps["BEN"]
-        selected = [(OPEN_COURSE,), (DEPENDENT,), (GATEWAY,), (GATEWAY, DEPENDENT)][step]
-        panel, _ = m.view(m.fit(size), size, selected, 0.46)
-        im.paste(panel, (767, 274))
-
-        if step == 0:
-            label(d, (62, 342), "OPEN COURSE", 26, COLORS["BEN"], "bold")
-            label(d, (62, 423), OPEN_COURSE, 25, MUTED, "bold")
-            y = paragraph(d, (60, 474), self.slots[OPEN_COURSE][2], 650, 57, 68, "serif", PLUM)
-            label(d, (62, y + 29), "No gateway required", 32)
-            return im
-
-        # The same two course positions persist as the gateway is completed.
-        label(d, (62, 334), "GATEWAY COURSE", 25, COLORS["BEN"], "bold")
-        label(d, (62, 391), GATEWAY, 23, MUTED, "bold")
-        paragraph(d, (60, 437), self.slots[GATEWAY][2], 648, 48, 57, "serif", PLUM)
-        d.line((64, 565, 64, 618), fill=PLUM, width=4)
-        d.line([(52, 605), (64, 620), (76, 605)], fill=PLUM, width=4)
-        unlocked = step == 3
-        color = COLORS["ENS"] if unlocked else MUTED
-        # A shackle and an explicit label communicate the state even in grayscale.
-        x, y = 64, 673
-        if unlocked:
-            d.arc((x + 14, y - 17, x + 39, y + 10), 180, 360, fill=color, width=4)
-            d.line((x + 14, y - 3, x + 14, y + 6), fill=color, width=4)
+    def course_status(self, status):
+        badge = Image.new("RGB", (492, 68), PAPER)
+        d = ImageDraw.Draw(badge)
+        locked = status == "locked"
+        lock_state = status in ("locked", "unlocked")
+        color = MUTED if locked else COLORS["BEN"] if status == "gateway" else COLORS["ENS"]
+        background = {"locked": "#EBE7E5", "gateway": "#F2E4E9"}.get(status, "#E4EDE5")
+        d.rounded_rectangle((0, 0, 491, 67), radius=10, fill=background)
+        if lock_state:
+            x, y = 19, 23
+            if locked:
+                d.arc((x + 4, y - 11, x + 27, y + 18), 180, 360, fill=color, width=4)
+                for side in (x + 4, x + 26):
+                    d.line((side, y + 4, side, y + 15), fill=color, width=4)
+            else:
+                d.arc((x + 14, y - 11, x + 38, y + 16), 180, 360, fill=color, width=4)
+                d.line((x + 14, y + 2, x + 14, y + 15), fill=color, width=4)
+            d.rounded_rectangle((x, y + 11, x + 31, y + 35), radius=4, fill=color)
+            label(d, (70, 9), "Econometrics locked" if locked else "Econometrics unlocked", 23, color, "bold")
+            requirement = ("Research Methods & Statistics required" if locked
+                           else "After Research Methods & Statistics")
+            label(d, (70, 39), requirement, 17, color)
         else:
-            d.arc((x + 4, y - 17, x + 27, y + 13), 180, 360, fill=color, width=4)
-            for side in (x + 4, x + 26):
-                d.line((side, y - 2, side, y + 7), fill=color, width=4)
-        d.rounded_rectangle((x, y + 5, x + 31, y + 28), radius=4, fill=color)
-        label(d, (122, y - 2), "Unlocked" if unlocked else "Locked · gateway required",
-              31, color, "bold")
-        label(d, (62, 754), DEPENDENT, 23, MUTED, "bold")
-        label(d, (60, 799), self.slots[DEPENDENT][2], 55, PLUM, "serif")
-        return im
+            text = "Open course · No gateway required" if status == "open" else "Gateway course · Leads to Econometrics"
+            label(d, (18, 23), text, 22, color, "bold")
+        return badge
+
+    def show_course_status(self, im, scene, code, t):
+        if code == OPEN_COURSE:
+            im.paste(self.course_status("open"), (52, 333))
+        if scene.get("gateway_demo") and code in (GATEWAY, DEPENDENT):
+            release = scene["word_times"]["unlocks"][0]
+            if t < scene["cues"][1][2]:
+                badge = self.course_status("gateway")
+            else:
+                badge = Image.blend(
+                    self.course_status("locked"), self.course_status("unlocked"),
+                    ease((t - release) / 0.32),
+                )
+            im.paste(badge, (52, 333))
 
     @lru_cache(None)
     def interest_frame(self):
@@ -308,8 +301,7 @@ class Film:
             d.rounded_rectangle(
                 (x + 12, cy + 2, x + 17, cy + 69), radius=2, fill=accent
             )
-            display_code = code + (" *" if expand and code in self.unplanned else "")
-            label(d, (x + 25, cy + 3), display_code, 17, accent, "bold")
+            label(d, (x + 25, cy + 3), code, 17, accent, "bold")
             size = round(mix(25, 29, expand))
             if expand == 1:
                 while size > 25 and font(size).getlength(title) > width - 48:
@@ -340,12 +332,7 @@ class Film:
         d.text((1866, 160), f"{count} / 24", font=font(23), fill=MUTED, anchor="rm")
         coords = self.grid(im, count, expand, emphasis, strength)
         if k == "complete":
-            note = "Illustrative schedule."
-            if self.unplanned:
-                note += (
-                    "  * These courses have no planned offering in the semester shown."
-                )
-            label(d, (52, 1020), note, 24, MUTED)
+            label(d, (52, 1020), "Illustrative programme", 24, MUTED)
             if emphasis:
                 field = next(word for word, prefix in s["highlights"].items() if prefix == emphasis)
                 d.text((1866, 1020), field.capitalize(), anchor="rt",
@@ -423,6 +410,7 @@ class Film:
             code = next(c for st, c in self.events if st >= s["start"])
             im = self.base(sid, n)[0].copy()
             self.focus(im, code, None, 1)
+            self.show_course_status(im, s, code, t)
             return im
         start, code = self.events[n - 1]
         age = t - start
@@ -431,6 +419,7 @@ class Film:
         base, boxes = self.base(sid, n if arrived else n - 1)
         im = base.copy()
         origin = self.focus(im, code, prev, ease(age / 0.45))
+        self.show_course_status(im, s, code, t)
         if not arrived:
             x, y, x2, y2 = boxes[code]
             flight = ease((age - 0.45) / 0.75)
@@ -480,15 +469,6 @@ class Film:
                     self.hook(hook["end"], hook["cues"][1][2]), self.overview(), p
                 )
             return self.overview()
-        if k == "gateway":
-            i = max(0, bisect.bisect_right([c[2] for c in s["cues"]], t) - 1)
-            change = s["cues"][i][2]
-            if i == 2 and t >= s["word_times"]["unlock"][0]:
-                i = 3
-                change = s["word_times"]["unlock"][0]
-            p = ease((t - change) / 0.32)
-            old = self.gateway(i - 1) if i else self.overview()
-            return Image.blend(old, self.gateway(i), p) if p < 1 else self.gateway(i)
         if k == "interest":
             return self.interest_frame()
         if k == "bridge":
@@ -549,7 +529,7 @@ class Film:
         k = s["scene"]
         moving = (
             (k == "hook" and (age < 1.6 or (cue == 1 and cue_age < 1.35)))
-            or (k == "gateway" and (cue_age < 0.60 or 0 <= t - s["word_times"]["unlock"][0] < 0.45))
+            or (s.get("gateway_demo") and 0 <= t - s["word_times"]["unlocks"][0] < 0.35)
             or (k == "overview" and age < 0.9)
             or k == "complete"
             or (k == "invitation" and age < 1.15)

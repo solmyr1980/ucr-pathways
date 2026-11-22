@@ -256,9 +256,9 @@ The public example passed the structural example validator. The separate course 
 
 1. In the repository’s [Actions tab](https://github.com/solmyr1980/ucr-pathways/actions/workflows/render-curriculum-video.yml), select **Render curriculum video pilot**.
 2. Select **Run workflow**, choose the **main** branch and select **Run workflow** again.
-3. Open the completed run and look under **Artifacts**. Download **UCR-curriculum-pilot** in your browser (not through GitHub Desktop) and extract `UCR-curriculum-pilot.mp4` from the ZIP. GitHub requires sign-in. The artifact expires automatically after **14 days**.
+3. Open the completed run and look under **Artifacts**. Download **UCR-curriculum-pilot** in your browser (not through GitHub Desktop) and extract `UCR-curriculum-pilot.mp4` and its English SRT from the ZIP. Download **UCR-curriculum-youtube-package** for the approved title, hybrid thumbnail, draft description, pinned comment and a copy of the same SRT. GitHub requires sign-in. Both artifacts expire after **14 days**.
 
-A source or workflow change on `main` can also request the render by including `[render curriculum video]` in its commit message. Documentation changes do not trigger a render. Both entry points use the same job and 14-day MP4 artifact.
+A source or workflow change on `main` can also request the render by including `[render curriculum video]` in its commit message. Documentation changes do not trigger a render. Both entry points use the same render and verification job.
 
 The [first cut's Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/44886275213) is a historical reference. It used the old PNG coordinates and did not show the submission QR.
 
@@ -287,6 +287,7 @@ curl -fL "$model_url.json" -o "$out/alba.onnx.json"
 python pilot/curriculum-video/narrate.py "$out/alba.onnx" "$out"
 python pilot/curriculum-video/render.py "$out"
 python pilot/curriculum-video/verify.py "$out"
+python pilot/curriculum-video/package_youtube.py "$out"
 ```
 
 [Storyboard and narration](storyboard.json) associate each passage with its course codes. [Narration synthesis](narrate.py) measures the voice of each passage and writes the track and timing file. The [map reader](maps.py) uses the original viewBox and course geometry. The [renderer](render.py) maps those coordinates and measured cue times into the video. For a layout change, reuse the timing and voice files. For script changes, regenerate both. Fresh Piper synthesis can vary slightly in duration.

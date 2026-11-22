@@ -13,7 +13,8 @@ from pathlib import Path
 
 import zxingcpp
 from PIL import Image, ImageChops, ImageStat
-from render import ASSETS, FPS, HERE, URL, VIEW, VIEW_X, VIEW_Y, Film, H, W
+from render import ASSETS, DEPENDENT, FPS, GATEWAY, HERE, OPEN_COURSE, URL, VIEW, VIEW_X, VIEW_Y, Film, H, W
+from subtitles import FILENAME as SRT, stamp
 
 FILENAME = "UCR-curriculum-pilot.mp4"
 
@@ -76,6 +77,28 @@ def compare_encoded(actual, expected, context):
     )
 
 
+def verify_subtitles(out, scenes, duration, samples, rate):
+    captions = [caption for scene in scenes for caption in scene["captions"]]
+    assert captions
+    expected = " ".join(cue[1] for scene in scenes for cue in scene["cues"])
+    assert " ".join(" ".join(lines) for _, _, lines in captions) == expected
+    blocks = (out / SRT).read_text(encoding="utf-8").strip().split("\n\n")
+    assert len(blocks) == len(captions)
+    previous_end = 0
+    peak_speed = 0
+    for index, (block, (start, end, lines)) in enumerate(zip(blocks, captions), 1):
+        assert block.splitlines() == [str(index), f"{stamp(start)} --> {stamp(end)}", *lines]
+        assert previous_end <= start < end <= duration
+        assert 1 <= len(lines) <= 2 and all(0 < len(line) <= 42 for line in lines)
+        speed = len(" ".join(lines)) / (end - start)
+        peak_speed = max(peak_speed, speed)
+        assert speed <= 24, (lines, speed)
+        speech = samples[round(start * rate):round(end * rate)]
+        assert max(map(abs, speech)) > 500, f"Subtitle outside audible speech at {start:.2f}s"
+        previous_end = end
+    print(f"Verified {len(captions)} English subtitles, exact script text, timing and {peak_speed:.1f} peak characters/second.")
+
+
 def verify(out):
     movie = out / FILENAME
     film = Film(out / "timing.json")
@@ -127,6 +150,8 @@ def verify(out):
             previous_cue_end = end
         previous_end = scene["end"]
 
+    verify_subtitles(out, film.scenes, duration, samples, rate)
+
     # Use decoded MP4 frames for content, motion, continuity and QR tests.
     def at(time):
         # Seek into a numbered frame, clear of a millisecond rounding boundary.
@@ -139,7 +164,7 @@ def verify(out):
 
     for scene in film.scenes:
         at((scene["start"] + scene["end"]) / 2)
-        if scene["scene"] in ("hook", "gateway"):
+        if scene["scene"] == "hook":
             for _, _, start, end in scene["cues"]:
                 at((start + end) / 2)
         if scene["scene"] == "bridge":
@@ -225,12 +250,22 @@ def verify(out):
         assert tinted == {c for c in boxes if c.startswith(prefix)} and tinted, (word, tinted)
         print(f"{word.capitalize()} spoken at {first:.2f}–{last:.2f}s: {', '.join(sorted(tinted))}")
 
-    gateway = next(s for s in film.scenes if s["scene"] == "gateway")
-    release = gateway["word_times"]["unlock"][0]
+    assert all(s["scene"] != "gateway" for s in film.scenes)
+    gateway = next(s for s in film.scenes if s.get("gateway_demo"))
+    events = {code: time for time, code in film.events}
+    release = gateway["word_times"]["unlocks"][0]
+    assert events[OPEN_COURSE] < events[GATEWAY] < release < events[DEPENDENT]
     locked = at(release - 0.20)
-    unlocked = at(release + 0.48)
-    state = (52, 645, 540, 720)
-    assert image_error(locked.crop(state), unlocked.crop(state)) > 4
+    unlocked = at(release + 0.33)
+    state = (52, 333, 544, 401)
+    compare_encoded(locked.crop(state), film.course_status("locked"), "Econometrics locked")
+    compare_encoded(unlocked.crop(state), film.course_status("unlocked"), "Econometrics unlocked")
+    grid_region = (583, 219, 1868, 998)
+    compare_encoded(locked.crop(grid_region), unlocked.crop(grid_region), "Grid while Econometrics unlocks")
+    open_course = at(events[OPEN_COURSE] + 1.26)
+    compare_encoded(open_course.crop(state), film.course_status("open"), "Introduction to Economics open")
+    gateway_course = at(events[GATEWAY] + 1.26)
+    compare_encoded(gateway_course.crop(state), film.course_status("gateway"), "Research Methods & Statistics gateway")
     for scene in film.scenes:
         if "question_focus" in scene:
             for index, word in scene["question_focus"].items():
@@ -239,7 +274,10 @@ def verify(out):
                 assert start <= first < last <= end and question.endswith("?")
                 print(f"Question at {start:.2f}–{end:.2f}s, focus on '{word}' at {first:.2f}s.")
     print("Scene starts (seconds):", ", ".join(f"{s['scene']} {s['start']:.2f}" for s in film.scenes))
-    print(f"Econometrics unlocks at {release:.2f}s.")
+    print(f"Econometrics unlocks in the accumulating grid at {release:.2f}s.")
+    print("Gateway review frames (seconds):", ", ".join(
+        f"{code} {events[code]:.2f}" for code in (OPEN_COURSE, GATEWAY, DEPENDENT)
+    ))
 
     for time in (film.scenes[-1]["start"] + 1.3, duration - 1):
         actual = at(time)
@@ -256,10 +294,6 @@ def verify(out):
     )
     print(
         "Both transitions retain the same grid. The closing QR decodes to the displayed URL at 1080p and 540p."
-    )
-    print(
-        "Illustrative placements without planned offerings:",
-        ", ".join(sorted(film.unplanned)) or "none",
     )
     with movie.open("rb") as stream:
         print("MP4 SHA-256:", hashlib.file_digest(stream, "sha256").hexdigest())

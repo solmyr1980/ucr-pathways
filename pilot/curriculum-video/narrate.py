@@ -14,14 +14,15 @@ from parselmouth.praat import call
 from piper import PiperVoice, SynthesisConfig
 from piper.config import PiperConfig
 from pocketsphinx import Decoder
+from subtitles import FILENAME, timed_captions, words, write_srt
 
 HERE = Path(__file__).resolve().parent
 
 
 def word_times(decoder, pcm, rate, text):
     """Align the known script to this cue. Times are relative to its first sample."""
-    words = re.findall(r"[a-z]+(?:'[a-z]+)?", text.lower())
-    decoder.set_align_text(" ".join(words))
+    expected = words(text)
+    decoder.set_align_text(" ".join(expected))
     mono = subprocess.run(
         ["ffmpeg", "-v", "error", "-f", "s16le", "-ar", str(rate), "-ac", "1",
          "-i", "-", "-ar", "16000", "-f", "s16le", "-"],
@@ -32,7 +33,7 @@ def word_times(decoder, pcm, rate, text):
     decoder.end_utt()
     aligned = [(s.word.split("(")[0], s.start_frame / 100, (s.end_frame + 1) / 100)
                for s in decoder.seg() if not s.word.startswith("<")]
-    if [word for word, _, _ in aligned] != words:
+    if [word for word, _, _ in aligned] != expected:
         raise ValueError(f"Could not align spoken cue: {text!r}. Decoded: {aligned}")
     return aligned
 
@@ -77,11 +78,16 @@ def main():
     voice = PiperVoice(session=session, config=PiperConfig.from_dict(config))
     rate = voice.config.sample_rate
     decoder = Decoder()
+    decoder.add_word("specialise", decoder.lookup_word("specialize"), False)
+    decoder.add_word("industrialisation", decoder.lookup_word("industrialization"), False)
+    decoder.add_word("unlocks", decoder.lookup_word("unlock") + " S", False)
+    decoder.add_word("ucr", "Y UW S IY AA R", True)
     story = json.loads((HERE / "storyboard.json").read_text())
     with wave.open(str(args.out / "voice.wav"), "wb") as track:
         track.setparams((1, 2, rate, 0, "NONE", "not compressed"))
         for scene in story:
             scene["start"] = track.tell() / rate
+            scene["captions"] = []
             for index, cue in enumerate(scene["cues"]):
                 start = track.tell() / rate
                 focus = scene.get("question_focus", {}).get(str(index))
@@ -89,19 +95,20 @@ def main():
                 pronunciations = scene.get("pronunciations", {}).get(str(index), {})
                 pcm = synthesize_cue(voice, cue[1], settings, pronunciations)
                 marks = list(scene["highlights"]) if "highlights" in scene else scene.get("sync_words", {}).get(str(index), [])
+                aligned = word_times(decoder, pcm, rate, cue[1])
                 if focus or marks:
-                    aligned = word_times(decoder, pcm, rate, cue[1])
                     for target in ([focus] if focus else []) + marks:
                         [(first, last)] = [(a, b) for w, a, b in aligned if w == target]
                         if target == focus:
                             pcm = accent_question(pcm, rate, first, last)
                         scene.setdefault("word_times", {})[target] = [start + first, start + last]
                 track.writeframes(pcm)
-                cue.extend([start, track.tell() / rate])
+                end = track.tell() / rate
+                cue.extend([start, end])
+                scene["captions"].extend(timed_captions(cue[1], aligned, start, end))
                 track.writeframes(bytes(2 * round(rate * 0.32)))
             hold = {
                 "overview": 1.1,
-                "gateway": 1.15,
                 "interest": 0.6,
                 "complete": 0.9,
                 "invitation": 3.0,
@@ -109,6 +116,7 @@ def main():
             track.writeframes(bytes(2 * round(rate * hold)))
             scene["end"] = track.tell() / rate
     (args.out / "timing.json").write_text(json.dumps(story, indent=2))
+    write_srt(args.out / FILENAME, story)
 
 
 if __name__ == "__main__":
