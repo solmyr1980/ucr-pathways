@@ -480,9 +480,20 @@ Before approving **each new video for publication**:
 
 1. **Distinct question and academic substance.** The student's interests and approved curriculum must support a specific question or theme. Narration must explain meaningful, example-specific connections between the chosen subjects and actual courses. Changing only names, labels or course cards does not justify another video.
 2. **Recognizable format, genuinely different story.** Reuse the established butterfly, gateway explanation, card animation, synthetic narration and closing identity. Vary the student interests, academic pathway, course-group explanations and intellectual emphasis where justified by the underlying record; do not invent variation for its own sake.
-3. **Human editorial approval.** Review academic accuracy, feasibility caveats, originality relative to already published videos, intelligibility, pacing and alignment of audio with visuals. Do not automatically publish generated videos. Approve only examples that add a discernible viewer benefit.
+3. **Human editorial approval.** Review academic accuracy, honest illustrative framing, originality relative to already published videos, intelligibility, pacing and alignment of audio with visuals. Do not automatically publish generated videos. Approve only examples that add a discernible viewer benefit.
 4. **Selective release and feedback.** Start with substantively different examples. Monitor viewer retention and relevant comments, and use those observations to improve the series before increasing publication volume. Comments can inspire future examples but are not automatically permission to identify or feature their authors.
 
 **Publication decision test:** Would someone who watched the previous videos learn something meaningful and new from this example? If not, revise or withhold it. For companion webpages, publish helpful, accurate explanatory text and transcripts where appropriate, not large numbers of near-identical search-targeted pages.
 
 This is an editorial guardrail, **not** a claim that Google or YouTube automatically penalizes synthetic voices, repeated visual branding or all AI-assisted content. It does not change the current renderer, voice, or existing reviewed video.
+
+## 18. Illustrative video schedules — production decision, 22 November 2026
+
+**Applies to the current curriculum video and future examples.** These films show *illustrative six-semester programmes* built from approved UCR course content. They are not promises that the depicted course sequence, starting term, or future offerings will be available to an individual student. In particular, the existing demonstration starts in autumn 2026 and cannot be treated as a future student's actual starting schedule.
+
+- **Show the programme without term-specific offering warnings.** Do not put asterisks on course cards or add footnotes, spoken explanations or on-screen warnings about planned-offering mismatches. For the current example, this includes the historical BENBUSI211 and BENECON314 offering exceptions documented in sections 9 and 16; those passages describe *earlier rendered cuts*, not instructions to retain their warnings.
+- **State the status once, simply:** use “Illustrative programme” (or an equally concise, accurate phrase) in the video. Do not describe it as a guaranteed, currently available personal schedule.
+- **Keep the academic substance trustworthy.** Continue to use the approved programme record and real UCR courses; preserve correct course content and gateway relationships. This editorial choice does not authorize invented courses or misleading claims about what UCR teaches.
+- **Apply the same convention to future videos**, regardless of the example's nominal start date. A video need not explain the uncertainties of future timetables, nor should publication hinge on reconciling historical or projected semester-by-semester offerings. If an example is explicitly presented as an *actionable current schedule* rather than an illustration, that is a different claim and requires separate verification.
+
+**Implementation:** Apply this presentation change when producing the next video cut. Do not revise the existing MP4 merely to update this documentation, and do not alter the underlying approved academic record.
