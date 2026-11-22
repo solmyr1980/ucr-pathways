@@ -52,6 +52,16 @@ def accent_question(pcm, rate, word_start, word_end):
     return samples.tobytes()
 
 
+def synthesize_cue(voice, text, settings, pronunciations):
+    # Keep each sentence's boundary when substituting a short raw Piper phoneme span.
+    readings = re.split(r"(?<=[.?!]) +", text) if pronunciations else [text]
+    for phrase, phones in pronunciations.items():
+        assert text.count(phrase) == 1, phrase
+        readings = [s.replace(phrase, f"[[{phones}]]") for s in readings]
+    return b"".join(chunk.audio_int16_bytes for reading in readings
+                    for chunk in voice.synthesize(reading, settings))
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("model", type=Path)
@@ -76,7 +86,8 @@ def main():
                 start = track.tell() / rate
                 focus = scene.get("question_focus", {}).get(str(index))
                 settings = SynthesisConfig(length_scale=1.06 if focus else 1.01)
-                pcm = b"".join(c.audio_int16_bytes for c in voice.synthesize(cue[1], settings))
+                pronunciations = scene.get("pronunciations", {}).get(str(index), {})
+                pcm = synthesize_cue(voice, cue[1], settings, pronunciations)
                 marks = list(scene["highlights"]) if "highlights" in scene else scene.get("sync_words", {}).get(str(index), [])
                 if focus or marks:
                     aligned = word_times(decoder, pcm, rate, cue[1])
