@@ -1,6 +1,6 @@
 # UCR curriculum video — pilot production brief and handoff
 
-**Status:** Synthetic narration is the default for further video production. Voice cloning was suspended by decision on 22 November 2026; see section 14. The second animated review cut uses the SVG curriculum, the reusable introduction, two narrated cross-cluster transitions and the verified interest-submission QR. [Download the 3:27 review cut from the successful Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/44905954515).
+The current review cut runs 3:29 and implements the seven editorial decisions in section 15 with the existing Alba synthetic narrator. The 14-day download expires on 6 December 2026. [Download the review MP4 in its ZIP](https://github.com/solmyr1980/ucr-pathways/actions/runs/45014054212/artifacts/14750318752) · [Verification and review times](#16-third-review-cut--22-november-2026)
 **Established:** 18 November 2026  
 **Repository:** `solmyr1980/ucr-pathways`, branch `main`  
 **Purpose:** Preserve the design decisions, inputs, initial narration and implementation findings from the curriculum-video discussion so the work can resume without restarting the concept design.
@@ -216,7 +216,7 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 ### Acceptance test for the next iteration
 
 - The opening uses a clear **“but”** contrast before showing UCR; the six clusters and BEN gateway example are understandable and unhurried.
-- The gateway explanation distinguishes **academic course level** from **gateway requirements**, including an advanced course that does not require a gateway.
+- For cuts from section 15 onward, show Introduction to Economics as open and Econometrics as locked until the student completes Research Methods & Statistics. The advanced open-course example belongs to the historical second cut.
 - The move from the shared introduction to the particular student's interests is coherent, with no duplicate or overlapping text.
 - The course titles and semester labels are legible at normal desktop video size.
 - Selection highlighting identifies the correct code in the displayed cluster.
@@ -453,3 +453,21 @@ These decisions supersede conflicting provisional wording and demonstrations abo
 7. **Make both calls to action explicit.** Tell viewers that submitting interests via the UCR link/QR can lead to a proposed personalized curriculum. Separately invite viewers to leave academic interests in the video comments as possible inspiration for a future video; a comment is **not** a promise of an individualized response. Use concise, legible on-screen copy while retaining the correct URL and scannable QR. If examples derive from public comments, avoid automatically publishing commenter identities or personal details. The aim is to encourage interaction and demonstrate thoughtful responsiveness.
 
 **Implementation boundary:** Preserve historical cuts, narration experiments and reference assets. Apply these changes together in the next programmed review cut after this editorial decision; do not publish automatically. No immediate change to the working voice model is required.
+
+## 16. Third review cut — 22 November 2026
+
+The new cut opens with the two subjects the student named, economics and politics. The storyboard associates each opening label with a course in the selected programme. The renderer checks those courses against the schedule and the subjects against the interest statement and narration. A future example can supply an `interest_phrase` when the student's wording differs from the discipline label.
+
+The shorter Business & Entrepreneurship demonstration shows Introduction to Economics as open. Econometrics appears with a closed padlock. The map then highlights Research Methods & Statistics, and the padlock opens with the spoken word “unlock” at 0:44. The student’s interest statement follows at 0:47. The nine central storyboard scenes retain their course order, narration, flights and transitions. The two bridges carry forward 12 and 22 filled slots respectively.
+
+The completed grid highlights six economics courses, five politics courses, three history courses and Governance of Sustainability. The renderer times each group to the spoken discipline using PocketSphinx word alignment on the actual Alba take. At 3:04, the history pass picks out Modern History, History of Empires and Researching the “American Century”. From 3:10, viewers can use the UCR form for a proposed personalised curriculum or leave interests in the comments to inspire a future video.
+
+### Verification of the delivered file
+
+The Actions job rendered 209.375 seconds at 1920 × 1080 and 24 fps with H.264 video and mono AAC narration. The downloaded ZIP matched GitHub’s digest, and both streams of the extracted MP4 decoded in full. Its SHA-256 is `e79cc14effff944a7ff8febbab38851baaac316bd71aa16e2e032af88b41f91a`. [Render commit](https://github.com/solmyr1980/ucr-pathways/commit/1b7f515cbea997e3c54871687f09ad28a0687356) · [Successful Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/45014054212) · [Download the review artifact](https://github.com/solmyr1980/ucr-pathways/actions/runs/45014054212/artifacts/14750318752)
+
+All 24 course cards arrived once in their canonical slots. Checks on encoded frames confirmed the gateway state change, grid continuity and the specific cards highlighted at each of the four spoken field names. Visual review covered the opening, gateway, first course flight, both transitions, each field highlight and the invitation. The QR on the extracted closing frame decoded to the displayed UCR address at 1080p, 720p and 540p.
+
+The public record passed structural validation. The two offering exceptions for the selected programme persist in the current workbook. BENBUSI211 has no planned offering in spring 2028 and BENECON314 has none in spring 2029. Both have an asterisk on the completed grid beside the existing explanation.
+
+Alba gives the opening, student and closing questions a little more time. A small pitch adjustment follows the aligned focus word in each. Two speech recognizers misheard “Can its” and “shaped” in the first render. Explicit phonemes clarified those words without changing the script or its course cues. In the delivered MP4, “Where could that question take them?” begins around 0:54. The silence immediately before the question measures 0.77 seconds, compared with 0.47 seconds in the second cut, using the same −40 dBFS threshold. The median voiced pitch falls from 286 Hz on “take” to 173 Hz on “them”. The full soundtrack measures −17.2 LUFS integrated and −0.4 dB true peak. Offline Whisper small.en recovered both corrected phrases, the question and both closing invitations from the downloaded MP4. Across the 450-word script, it transcribed “six-semester” as “sixth semester” and used an American spelling for “practises”. These are acoustic and intelligibility checks. The perceived naturalness of the reading still needs a listening judgment.
