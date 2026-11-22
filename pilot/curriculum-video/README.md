@@ -34,6 +34,8 @@ These decisions were explicitly established in the conversation. Preserve them u
 
 ### 2.1 Opening direction for the next video
 
+*Historical opening concept: the gateway scene's placement and wording here are superseded by Section 28. The shared hook and butterfly introduction remain applicable.*
+
 Use a **shared introduction** for student-interest videos, and potentially the counselor-comparison series. **Business & Entrepreneurship (BEN)** is the default example for explaining open courses, gateways and gateway-dependent courses because its conventional gateway structure is easy to demonstrate. Do **not** choose BEN merely as the academic focus of a particular student's programme; after the introduction, move to whatever clusters the approved record actually supports. There is no need to give every cluster its own introduction. For example, Media, Culture & Communication has no gateways.
 
 **Provisional sequence and narration (not a locked final script):**
@@ -80,7 +82,7 @@ The current authoritative video graphics are the seven **SVG files** in [`assets
 | [`assets/video/DIS.svg`](../../assets/video/DIS.svg) | Data Science & Intelligent Systems close-up |
 | [`assets/video/ENS.svg`](../../assets/video/ENS.svg) | Environment & Sustainability close-up |
 | [`assets/video/GOS.svg`](../../assets/video/GOS.svg) | Government & Society close-up |
-| [`assets/video/HCB.svg`](../../assets/video/HCB.svg) | Human Health & Well-being close-up |
+| [`assets/video/HCB.svg`](../../assets/video/HCB.svg) | Health, Cognition & Behavior close-up |
 | [`assets/video/MCC.svg`](../../assets/video/MCC.svg) | Media, Culture & Communication close-up |
 
 The renderer reads each course rectangle by its SVG `data-id`. It uses the full map and all six cluster close-ups. The verifier also locates the visible code in the SVG text and checks it against the rectangle and encoded frame.
@@ -447,7 +449,7 @@ These decisions supersede conflicting provisional wording and demonstrations abo
 
 1. **Tailor the opening disciplines to each example.** Preserve the reusable animated opening structure, but choose its discipline labels from the specific student's stated interests **and the real academic content of that example's approved curriculum**. Do not hard-code economics, psychology and politics, and do not add attractive fields the curriculum cannot support. Three subjects are a useful visual default, not an academic requirement. This personal relevance takes precedence over a separate cross-video discipline-rotation scheme; varied student cases will naturally showcase breadth.
 2. **Generalize the cross-disciplinary line.** Replace “keep two fields in conversation” with “bring different fields into conversation throughout your studies,” or an equally clear expression that accommodates more than two fields.
-3. **Shorten the gateway explanation.** Present only open courses, gateway courses, and gateway-dependent (visually locked) courses. Keep the established Business & Entrepreneurship demonstration: Introduction to Economics is open; Research Methods and Statistics is the gateway for Econometrics. Explain that relationship directly. Omit the 100-/300-level and introductory/advanced discussion, including the separate Governance of Sustainability open-advanced example. Keep the meaningful open/locked visual distinction and unlock relationship; removing level terminology does **not** mean removing locked-course cues.
+3. **Shorten the gateway explanation (historical; replaced by Section 28).** Present only open courses, gateway courses, and gateway-dependent (visually locked) courses. Keep the established Business & Entrepreneurship demonstration: Introduction to Economics is open; Research Methods and Statistics is the gateway for Econometrics. Explain that relationship directly. Omit the 100-/300-level and introductory/advanced discussion, including the separate Governance of Sustainability open-advanced example. Keep the meaningful open/locked visual distinction and unlock relationship; removing level terminology does **not** mean removing locked-course cues.
 4. **Improve question intonation without exaggeration.** Maintain a calm academic synthetic voice, but make questions such as “Where could that question take them?” distinguishable from declarative sentences through natural phrasing, pauses and intonation. Evaluate the audio as heard; punctuation alone is not proof of expressive speech. Retain the current voice as baseline and consider another free synthetic voice only if a concrete deficiency persists.
 5. **Preserve the central construction.** Keep the current course selection, flights, accumulating six-semester grid, cross-cluster transitions and their timing relationship with narration; these were positively reviewed. Do not restructure them simply to accommodate the shorter introduction.
 6. **Highlight all four academic contributions at completion.** The present payoff tints BEN, GOS and ENS but lacks a separate history pass. Add a history-specific emphasis of the actual history course cards within GOS (rather than tinting all GOS cards a second time). Keep economics, politics and sustainability highlighting as well; time the four highlights with the corresponding spoken words.
@@ -506,6 +508,8 @@ This is an editorial guardrail, **not** a claim that Google or YouTube automatic
 **Provisional title for the current example:** “Can You Combine Economics, Politics and History in One Degree? | UCR”. Final wording remains subject to the publication-package review. The next editorial decision concerns the thumbnail. YouTube uploading will initially use an assisted manual workflow; do not implement an API upload integration yet.
 
 ## 20. Gateway explanation within curriculum construction — 22 November 2026
+
+**Historical decision, superseded by Section 28.** The inline single-course demonstration was tested in the fourth/fifth cuts and subsequently rejected after review. The text below is retained to explain those cuts; it does not govern the next version.
 
 **Agreed editorial decision for the next video revision:** Remove the standalone gateway demonstration from between the general open-curriculum introduction and the student's example. It interrupts the intended narrative progression: crossing disciplinary boundaries → introducing the student's interests → constructing the six-semester programme → showing the completed result.
 
@@ -566,3 +570,17 @@ An independent transcription of the downloaded soundtrack matched the gateway ex
 [Compare the fourth and fifth cuts with captions visible](review/fifth-cut-caption-comparison.jpg) · [Render commit](https://github.com/solmyr1980/ucr-pathways/commit/593621fecf55428ef60b75af51f3c80d7c3af84f) · [Successful Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/45024258601) · [Download the MP4 and English SRT](https://github.com/solmyr1980/ucr-pathways/actions/runs/45024258601/artifacts/14754937797) · [Download the YouTube materials](https://github.com/solmyr1980/ucr-pathways/actions/runs/45024258601/artifacts/14754887920)
 
 MP4 SHA-256 `43309a363a68971ac69752016b29ea9236248897b56fada6f109c5169e787be9`
+
+## 28. Compact gateway overview and official cluster label — 22 November 2026
+
+**Latest approved editorial direction; supersedes the gateway-placement decisions in Sections 15 and 20.** The fourth and fifth cuts showed that emphasizing one open course and one gateway-dependent course during the student's programme construction can misleadingly suggest these are the only examples. Do **not** single out Introduction to Economics, Research Methods & Statistics or Econometrics in that narration, or repeat a gateway explanation while courses are being selected.
+
+**Next cut:** After the six-cluster butterfly is introduced, briefly display the enlarged **Business & Entrepreneurship (BEN)** cluster, which already separates **open courses (left)**, **gateway courses (middle)** and **locked courses (right)**. Highlight the *regions* in this order—left, right, middle—in sync with a minimal explanation such as:
+
+> In this cluster, courses on the left are open from the start. Courses on the right require the relevant gateway courses in the middle before they become available.
+
+Keep the segment as short as clear comprehension allows, without naming individual course titles, explaining levels, identifying individual gateway-to-course pairs or animating a single course as a special exception. Keep the existing SVG's deliberate open-versus-locked visual distinction. Then introduce the student's interests and proceed directly into the successful interest-led course selection, grid-building animation and cross-cluster transitions, narrated by substantive academic questions rather than gateway terminology. This BEN illustration is a reading guide, **not** an assertion that every cluster uses the same gateway structure or that one gateway opens all locked courses. Future videos may use an appropriately illustrative real cluster, without inventing structure.
+
+**Correct HCB display label:** The authoritative enriched course workbook, `data/reference/ucr_courses_enriched.xlsx`, uses `dep=HCB`, `deplabel=Health, Cognition & Behavior`. The video has instead hard-coded `Human Health & Well-being` in `pilot/curriculum-video/maps.py` (first entered in the video brief on 18 November 2026 and copied to the renderer on 21 November). Use **Health, Cognition & Behavior** in the next rendered video and publication graphics; validate cluster labels against the current workbook's `deplabel` values rather than silently substituting video-only names. Preserve all other established visual and academic decisions unless a concrete discrepancy is verified.
+
+**Scope:** These instructions apply to the **next** video and related publication package (MP4, English SRT, thumbnail and approved YouTube text), not to the archived review cuts. Continue to label the programme illustrative and omit course-offering asterisks. Verify narration/visual synchronization, subtitle-safe framing, the 24 approved course placements and QR. No publication without separate approval.
