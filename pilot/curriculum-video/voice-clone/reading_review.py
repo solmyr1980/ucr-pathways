@@ -6,6 +6,7 @@ import re
 import subprocess
 import time
 import wave
+from difflib import SequenceMatcher
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -214,6 +215,20 @@ def main():
                    remaining_synthesis_and_assembly_s=round(generated-audition_end, 1),
                    assessment_s=round(time.monotonic()-generated, 1),
                    sha256=hashlib.sha256(final.read_bytes()).hexdigest())
+    old = work / "previous" / "UCR-voice-clone-take-3.wav"
+    if old.is_file():
+        if hashlib.sha256(old.read_bytes()).hexdigest() != "f64741696dabd274edaa6acb71fe62029168be166f968a527e8c34d5d26c0212":
+            raise ValueError("Unexpected comparison WAV.")
+        metrics["previous_synthetic_speaker_cosine"] = score(old, test)
+    # Locate the reader's corresponding passage for independent playback checks.
+    # Its timing is never passed to synthesis.
+    full_text = [t for w in words for t in tokens(w.word)]
+    positions = [w for w in words for _ in tokens(w.word)]
+    blocks = [b for b in SequenceMatcher(None, tokens(script), full_text, autojunk=False).get_matching_blocks() if b.size]
+    if (blocks and sum(b.size for b in blocks) >= .9 * len(tokens(script))
+            and blocks[-1].b + blocks[-1].size - blocks[0].b < 1.25 * len(tokens(script))):
+        metrics["recorded_passage_interval_s"] = [round(positions[blocks[0].b].start, 2),
+                                                round(positions[blocks[-1].b + blocks[-1].size - 1].end, 2)]
     (out / "metrics.json").write_text(json.dumps(metrics, indent=2) + "\n")
     (out / "script.txt").write_text(script + "\n")
     print(json.dumps(metrics, indent=2))

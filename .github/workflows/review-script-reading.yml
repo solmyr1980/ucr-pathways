@@ -6,6 +6,7 @@ on:
     paths: ['pilot/curriculum-video/voice-clone/reading-request.sha256']
 permissions:
   contents: read
+  actions: read
 jobs:
   listen:
     runs-on: ubuntu-24.04
@@ -38,9 +39,9 @@ jobs:
           fi
           bash "$SCRIPTS/install-qwen.sh" "$BASE/models"
           python3 -m venv "$BASE/env"
-          "$BASE/env/bin/pip" install numpy==2.2.6 faster-whisper==1.2.1 sherpa-onnx==1.12.14 jiwer==4.0.0
+          "$BASE/env/bin/pip" install numpy==2.2.6 faster-whisper==1.2.1 sherpa-onnx==1.12.30 jiwer==4.0.0
           mkdir "$BASE/models/whisper"
-          revision=$(curl -fsSL --retry 3 https://huggingface.co/api/models/Systran/faster-whisper-small.en | jq -er .sha)
+          revision=d1d751a5f8271d482d14ca55d9e2deeebbae577f
           echo "Whisper revision $revision"
           for name in config.json tokenizer.json vocabulary.txt model.bin; do
             curl -fsSL --retry 3 "https://huggingface.co/Systran/faster-whisper-small.en/resolve/$revision/$name?download=true" \
@@ -66,6 +67,14 @@ jobs:
           done
           openssl cms -decrypt -binary -inform DER -in sealed.cms -recip "$BASE/recipient.pem" -inkey key.pem -out reading.m4a
           echo "$(cut -d' ' -f1 "$GITHUB_WORKSPACE/$SCRIPTS/reading-request.sha256")  reading.m4a" | sha256sum -c -
+      - name: Retrieve the earlier synthetic WAV for a matched comparison while available
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44942347196
+          name: UCR-voice-clone-take-3
+          path: ${{ runner.temp }}/voice-review/private/previous
       - name: Select the prompt, synthesize and assess the sample
         run: |
           /usr/bin/time -v -o "$BASE/review/processing-time.txt" "$BASE/env/bin/python" "$SCRIPTS/reading_review.py" \
