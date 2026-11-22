@@ -1,6 +1,6 @@
 # UCR curriculum video — pilot production brief and handoff
 
-**Status:** The second animated review cut uses the SVG curriculum, the reusable introduction, two narrated cross-cluster transitions and the verified interest-submission QR. [Download the 3:27 review cut from the successful Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/44905954515).
+**Status:** Synthetic narration is the default for further video production. Voice cloning was suspended by decision on 22 November 2026; see section 14. The second animated review cut uses the SVG curriculum, the reusable introduction, two narrated cross-cluster transitions and the verified interest-submission QR. [Download the 3:27 review cut from the successful Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/44905954515).
 **Established:** 18 November 2026  
 **Repository:** `solmyr1980/ucr-pathways`, branch `main`  
 **Purpose:** Preserve the design decisions, inputs, initial narration and implementation findings from the curriculum-video discussion so the work can resume without restarting the concept design.
@@ -429,3 +429,13 @@ The [review script](voice-clone/reading_review.py) uses the pinned Qwen CPU engi
 For the delivery test, six groups preserve the context within related sentences. The assembler inserts a short break before the opening question and longer breaks after the question and before the new-business example. It keeps the model's internal phrasing, uses a second seed when the recognizer flags a difference, and normalizes playback loudness. The script applies no target speaking rate, pitch shift or meeting-derived equalization.
 
 This run uses zero-shot conditioning. The [upstream training procedure](https://github.com/QwenLM/Qwen3-TTS/tree/main/finetuning) specifies GPU-based preparation and a training implementation that uses FlashAttention 2. The free CPU job does not provide that training environment. This sample supports a judgment about zero-shot synthesis only. Full narration and cue timings await the narrator's approval.
+
+## 14. Narration decision — 22 November 2026
+
+**Decision:** Suspend further voice-cloning development for the curriculum video. Use a high-quality artificial/synthetic narrator as the production default. Preserve the voice-cloning experiments, code, measurements and review artifacts as historical research; do not remove or integrate the experimental workflows into the main renderer.
+
+**Reasoning:** The cloned samples were promising but did not justify further production effort. Audible joins around inserted pauses reduced continuity, and reproducing vocal identity did not reliably deliver polished emphasis, rhythm and pacing. Narration must remain closely synchronized with course highlighting and animation. These are practical findings from the pilot, not a claim that voice cloning is inherently incapable of natural narration or synchronization.
+
+**Immediate production rule:** Retain the existing working synthetic-voice narration and GitHub Actions video workflow as the baseline. Do not switch voice engines or regenerate the video solely because of this decision. Revisit the voice only if review identifies a concrete deficiency. Time spoken cues and visuals together; prioritize intelligibility, natural phrasing and coherent audiovisual pacing over exact runtime.
+
+**Next work:** The user will review the latest video and identify remaining editorial and visual changes. Implement those changes together in the next review cut. The voice-cloning workstream is paused, not a prerequisite for further video production.
