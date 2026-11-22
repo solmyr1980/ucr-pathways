@@ -41,7 +41,7 @@ University College Roosevelt is an English-taught Liberal Arts and Sciences coll
 
 About this video
 
-This video was developed with the assistance of generative AI. It uses synthetic narration and programmatic animations based on actual UCR course information. The curriculum presented is illustrative.
+This video was developed with the assistance of generative AI, including synthetic narration and programmatic animation. Its narration, visuals and academic content were reviewed by a human before publication. The curriculum is illustrative and uses actual UCR courses.
 
 ## Approved pinned comment
 
