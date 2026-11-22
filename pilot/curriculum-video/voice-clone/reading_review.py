@@ -36,7 +36,8 @@ def write_wav(path, data):
 
 
 def transcribe(asr, path):
-    segments, _ = asr.transcribe(str(path), language="en", beam_size=5, word_timestamps=True,
+    samples = decode(path, 16000).copy()
+    segments, _ = asr.transcribe(samples, language="en", beam_size=5, word_timestamps=True,
                                  condition_on_previous_text=False, vad_filter=True)
     return [w for segment in segments for w in segment.words]
 

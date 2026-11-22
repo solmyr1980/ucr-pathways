@@ -49,6 +49,7 @@ jobs:
           done
           curl -fsSL --retry 3 https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx \
             -o "$BASE/models/speaker.onnx"
+          echo "98daf9bcf1c8abf3db374fec4c27a5eda7c58705bb3f180d057b085a72a88bb5  $BASE/models/speaker.onnx" | sha256sum -c -
           (cd "$BASE/models" && sha256sum speaker.onnx whisper/*) > "$BASE/review/assessment-models.sha256"
       - name: Receive the new recording
         run: |
@@ -66,7 +67,8 @@ jobs:
             cat part >> sealed.cms
           done
           openssl cms -decrypt -binary -inform DER -in sealed.cms -recip "$BASE/recipient.pem" -inkey key.pem -out reading.m4a
-          echo "$(cut -d' ' -f1 "$GITHUB_WORKSPACE/$SCRIPTS/reading-request.sha256")  reading.m4a" | sha256sum -c -
+          read -r expected_sha _ < "$GITHUB_WORKSPACE/$SCRIPTS/reading-request.sha256"
+          echo "$expected_sha  reading.m4a" | sha256sum -c -
       - name: Retrieve the earlier synthetic WAV for a matched comparison while available
         continue-on-error: true
         uses: actions/download-artifact@v4
