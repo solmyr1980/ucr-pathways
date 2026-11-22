@@ -1,0 +1,85 @@
+name: Review the scripted voice recording
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['pilot/curriculum-video/voice-clone/reading-request.sha256']
+permissions:
+  contents: read
+jobs:
+  listen:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    env:
+      SCRIPTS: pilot/curriculum-video/voice-clone
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: pilot/curriculum-video
+      - name: Prepare one-time recipient
+        run: |
+          umask 077
+          base="$RUNNER_TEMP/voice-review"
+          mkdir -p "$base"/{private,models,review}
+          echo "BASE=$base" >> "$GITHUB_ENV"
+          openssl req -x509 -newkey rsa:3072 -nodes -days 1 -subj "/CN=UCR-run-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" \
+            -keyout "$base/private/key.pem" -out "$base/recipient.pem"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reading-recipient-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/voice-review/recipient.pem
+          retention-days: 1
+      - name: Install CPU synthesis and assessment tools
+        run: |
+          if ! command -v ffmpeg >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
+          bash "$SCRIPTS/install-qwen.sh" "$BASE/models"
+          python3 -m venv "$BASE/env"
+          "$BASE/env/bin/pip" install numpy==2.2.6 faster-whisper==1.2.1 sherpa-onnx==1.12.14 jiwer==4.0.0
+          mkdir "$BASE/models/whisper"
+          revision=$(curl -fsSL --retry 3 https://huggingface.co/api/models/Systran/faster-whisper-small.en | jq -er .sha)
+          echo "Whisper revision $revision"
+          for name in config.json tokenizer.json vocabulary.txt model.bin; do
+            curl -fsSL --retry 3 "https://huggingface.co/Systran/faster-whisper-small.en/resolve/$revision/$name?download=true" \
+              -o "$BASE/models/whisper/$name"
+          done
+          curl -fsSL --retry 3 https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_campplus_sv_en_voxceleb_16k.onnx \
+            -o "$BASE/models/speaker.onnx"
+          (cd "$BASE/models" && sha256sum speaker.onnx whisper/*) > "$BASE/review/assessment-models.sha256"
+      - name: Receive the new recording
+        run: |
+          umask 077
+          cd "$BASE/private"
+          url="https://raw.githubusercontent.com/$GITHUB_REPOSITORY/main/.github/voice-transfer/$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+          for try in {1..90}; do
+            if curl -fsSL --max-time 12 "$url/count?attempt=$try" -o count; then break; fi
+            sleep 6
+          done
+          count=$(cat count)
+          [[ "$count" =~ ^[1-9][0-9]?$ ]]
+          for ((i=0;i<count;i++)); do
+            curl -fsSL --retry 3 "$url/part-$i" -o "part"
+            cat part >> sealed.cms
+          done
+          openssl cms -decrypt -binary -inform DER -in sealed.cms -recip "$BASE/recipient.pem" -inkey key.pem -out reading.m4a
+          echo "$(cut -d' ' -f1 "$GITHUB_WORKSPACE/$SCRIPTS/reading-request.sha256")  reading.m4a" | sha256sum -c -
+      - name: Select the prompt, synthesize and assess the sample
+        run: |
+          /usr/bin/time -v -o "$BASE/review/processing-time.txt" "$BASE/env/bin/python" "$SCRIPTS/reading_review.py" \
+            "$BASE/private/reading.m4a" "$BASE/models" "$BASE/private" "$BASE/review"
+          cd "$BASE/review"
+          ffmpeg -nostdin -v error -xerror -i UCR-voice-clone-script-reading.wav -f null -
+          sha256sum UCR-voice-clone-script-reading.wav > SHA256SUMS
+          cat metrics.json >> "$GITHUB_STEP_SUMMARY"
+      - name: Remove the private recording and conditioning material
+        if: always()
+        run: rm -rf -- "$RUNNER_TEMP/voice-review/private"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: UCR-voice-clone-script-reading
+          path: ${{ runner.temp }}/voice-review/review/
+          retention-days: 14
+          if-no-files-found: error
