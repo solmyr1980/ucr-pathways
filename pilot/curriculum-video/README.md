@@ -1,6 +1,6 @@
 # UCR curriculum video — pilot production brief and handoff
 
-The current review cut runs 3:29 and implements the seven editorial decisions in section 15 with the existing Alba synthetic narrator. The 14-day download expires on 6 December 2026. [Download the review MP4 in its ZIP](https://github.com/solmyr1980/ucr-pathways/actions/runs/45014054212/artifacts/14750318752) · [Verification and review times](#16-third-review-cut--22-november-2026)
+The current 3:24 review cut integrates the gateway explanation into the student’s course selection and includes timed English subtitles. The review downloads expire on 6 December 2026. [Video and English SRT](https://github.com/solmyr1980/ucr-pathways/actions/runs/45022933764/artifacts/14753794159) · [YouTube materials](https://github.com/solmyr1980/ucr-pathways/actions/runs/45022933764/artifacts/14754810183) · [Verification](#26-fourth-review-cut--22-november-2026)
 **Established:** 18 November 2026  
 **Repository:** `solmyr1980/ucr-pathways`, branch `main`  
 **Purpose:** Preserve the design decisions, inputs, initial narration and implementation findings from the curriculum-video discussion so the work can resume without restarting the concept design.
@@ -540,3 +540,15 @@ Subtitles are an accessibility and publication deliverable. They do not require 
 **Description disclosure:** State explicitly that generative AI assisted production, including synthetic narration and programmatic animation, and that a human reviewed the **final video**: its complete narration, visuals and academic content. Use the concise approved wording in [`_youtube-prototype/README.md`](_youtube-prototype/README.md). Include the human-review statement in the published description **only after the final review has actually taken place**, not merely because automated verification passed or an earlier cut was reviewed.
 
 **End screens:** Do not add YouTube end screens to the initial approximately 3½-minute curriculum videos. They could cover the existing QR code and primary invitation to request a personalized curriculum. Reconsider them later if a series of published videos makes navigation more valuable. No renderer or YouTube API changes are needed now.
+
+## 26. Fourth review cut — 22 November 2026
+
+The butterfly now leads directly into the example student’s interests. The selection of Introduction to Economics introduces an open course. Research Methods & Statistics enters the grid as a gateway course. Econometrics stays locked until the explanation reaches “unlocks” at 1:31, then moves into its original semester slot. The running grid and course flights carry the explanation. The completed grid says “Illustrative programme”.
+
+Alba narrates this cut. The subtitle generator aligns the script to the actual synthesis, breaks it into phrases and exports an English SRT with up to two lines of 42 characters each. Actions verified 53 subtitles at a peak reading speed of 20.0 characters per second and checked them against the decoded soundtrack. An independent transcription of the downloaded MP4 checked spoken wording and caption placement. A second recognizer recovered “households buy” from the first-course excerpt after the full-video pass misheard it. The closing phrase “across six semesters” was recognized as scripted.
+
+Actions decoded the full 204.125-second MP4 at 1920 × 1080 and 24 fps. It checked all 24 card arrivals, the lock and unlock states, both cross-cluster transitions and the closing QR. The downloaded video and publication-package ZIPs matched their Actions digests. Both contain the same SRT. The approved hybrid thumbnail and YouTube copy matched the source assets. The draft description retains the approved AI disclosure. `REVIEW.md` holds the approved human-review sentence for insertion after full human review of this MP4.
+
+[Render commit](https://github.com/solmyr1980/ucr-pathways/commit/0edb7ed3b381ee72295a7eeac02cf5600577817d) · [Successful Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/45022933764) · [Video and English SRT](https://github.com/solmyr1980/ucr-pathways/actions/runs/45022933764/artifacts/14753794159) · [YouTube materials](https://github.com/solmyr1980/ucr-pathways/actions/runs/45022933764/artifacts/14754810183)
+
+MP4 SHA-256 `74322fb5f78c9d27cea4187819217084ad8aa9e2ddb9411d008549408c0733cb`
