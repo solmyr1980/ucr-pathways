@@ -497,3 +497,9 @@ This is an editorial guardrail, **not** a claim that Google or YouTube automatic
 - **Apply the same convention to future videos**, regardless of the example's nominal start date. A video need not explain the uncertainties of future timetables, nor should publication hinge on reconciling historical or projected semester-by-semester offerings. If an example is explicitly presented as an *actionable current schedule* rather than an illustration, that is a different claim and requires separate verification.
 
 **Implementation:** Apply this presentation change when producing the next video cut. Do not revise the existing MP4 merely to update this documentation, and do not alter the underlying approved academic record.
+
+## 19. YouTube title direction — 22 November 2026
+
+**Agreed approach for the video series:** Lead YouTube titles with a meaningful combination of academic disciplines, rather than a highly specific research question or an entirely generic promise of personalisation. This should help prospective students recognize the interdisciplinary opportunity while preserving a distinctive subject combination for each example. Use genuine fields supported by the approved programme, not generic keyword combinations. The question and educational relationships can be developed within the video and description. Vary title structure where editorially justified; do not mechanically recycle one formula.
+
+**Provisional title for the current example:** “Can You Combine Economics, Politics and History in One Degree? | UCR”. Final wording remains subject to the publication-package review. The next editorial decision concerns the thumbnail. YouTube uploading will initially use an assisted manual workflow; do not implement an API upload integration yet.
