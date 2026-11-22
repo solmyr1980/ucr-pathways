@@ -277,7 +277,7 @@ Use a Linux checkout with Python 3.12, FFmpeg (libx264 and AAC), libcairo2 and L
 ```bash
 python -m venv /tmp/ucr-video-env
 . /tmp/ucr-video-env/bin/activate
-pip install piper-tts==1.8.0 openpyxl==3.1.5 Pillow==13.0.0 CairoSVG==2.9.1 zxing-cpp==3.1.1
+pip install piper-tts==1.8.0 openpyxl==3.1.5 Pillow==13.0.0 CairoSVG==2.9.1 zxing-cpp==3.1.1 pocketsphinx==5.0.4 praat-parselmouth==0.4.7
 out=/tmp/ucr-curriculum-video
 mkdir -p "$out"
 model_url=https://huggingface.co/rhasspy/piper-voices/resolve/0ca208afc2a2ee102b1e961e72e0a7e4907be3d0/en/en_GB/alba/medium/en_GB-alba-medium.onnx

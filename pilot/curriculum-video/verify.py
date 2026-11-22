@@ -208,6 +208,39 @@ def verify(out):
     for code, box in boxes.items():
         compare_encoded(actual.crop(box), grid.crop(box), f"Final card {code}")
 
+    # These are disciplinary families in the approved schedule, independent of
+    # the storyboard selectors. Sample encoded card backgrounds away from text.
+    expected = {"economics": "BENECON", "politics": "GOSPOLI",
+                "history": "GOSHIST", "sustainability": "ENSDELT"}
+    for word, prefix in expected.items():
+        first, last = final["word_times"][word]
+        assert final["start"] < first < last < final["end"]
+        actual = at((first + last) / 2)
+        tinted = set()
+        for code, box in boxes.items():
+            point = (box[2] - 13, box[3] - 13)
+            difference = max(abs(a - b) for a, b in zip(actual.getpixel(point), grid.getpixel(point)))
+            if difference > 10:
+                tinted.add(code)
+        assert tinted == {c for c in boxes if c.startswith(prefix)} and tinted, (word, tinted)
+        print(f"{word.capitalize()} spoken at {first:.2f}–{last:.2f}s: {', '.join(sorted(tinted))}")
+
+    gateway = next(s for s in film.scenes if s["scene"] == "gateway")
+    release = gateway["word_times"]["unlock"][0]
+    locked = at(release - 0.20)
+    unlocked = at(release + 0.48)
+    state = (52, 645, 540, 720)
+    assert image_error(locked.crop(state), unlocked.crop(state)) > 4
+    for scene in film.scenes:
+        if "question_focus" in scene:
+            for index, word in scene["question_focus"].items():
+                _, question, start, end = scene["cues"][int(index)]
+                first, last = scene["word_times"][word]
+                assert start <= first < last <= end and question.endswith("?")
+                print(f"Question at {start:.2f}–{end:.2f}s, focus on '{word}' at {first:.2f}s.")
+    print("Scene starts (seconds):", ", ".join(f"{s['scene']} {s['start']:.2f}" for s in film.scenes))
+    print(f"Econometrics unlocks at {release:.2f}s.")
+
     for time in (film.scenes[-1]["start"] + 1.3, duration - 1):
         actual = at(time)
         for size in [(W, H), (960, 540)]:

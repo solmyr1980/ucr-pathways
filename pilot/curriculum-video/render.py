@@ -21,12 +21,7 @@ COLORS = {"BEN": "#9C333D", "GOS": "#77532B", "ENS": "#4A6857", "ACC": PLUM}
 URL = "https://ucr.nl/tell-us-about-your-interests/"
 VIEW = (492, 320)
 VIEW_X, VIEW_Y = 52, 417
-GATEWAY, DEPENDENT, OPEN_INTRO, OPEN_ADVANCED = (
-    "BENGATE102",
-    "BENECON312",
-    "BENECON111",
-    "ENSDELT312",
-)
+GATEWAY, DEPENDENT, OPEN_COURSE = "BENGATE102", "BENECON312", "BENECON111"
 
 
 @lru_cache(None)
@@ -85,8 +80,7 @@ def source_data():
     keys = next(rows)
     catalog = {row[keys.index("osiris")]: dict(zip(keys, row)) for row in rows}
     book.close()
-    assert catalog[OPEN_INTRO]["preq1"] == catalog[OPEN_ADVANCED]["preq1"] == "NONE"
-    assert OPEN_ADVANCED[-3] == "3" and OPEN_INTRO[-3] == "1"
+    assert catalog[OPEN_COURSE]["preq1"] == "NONE"
     assert catalog[DEPENDENT]["preq1"] == GATEWAY
     assert catalog[GATEWAY]["preq1"] == "NONE"
     assert len(semesters) == 6 and all(len(s["courses"]) == 4 for s in semesters)
@@ -121,6 +115,13 @@ class Film:
             source_data()
         )
         self.scenes = json.loads(timing.read_text())
+        hook = next(s for s in self.scenes if s["scene"] == "hook")
+        self.subjects = [subject["label"] for subject in hook["subjects"]]
+        for subject in hook["subjects"]:
+            assert subject["courses"] and set(subject["courses"]) <= self.slots.keys()
+            phrase = subject.get("interest_phrase", subject["label"])
+            assert phrase.casefold() in self.interest.casefold()
+            assert subject["label"].casefold() in hook["cues"][0][1].casefold()
         self.ends = [s["end"] for s in self.scenes]
         self.maps = {k: CourseMap(k) for k in ("curriculum", *NAMES)}
         self.map = self.maps["curriculum"]
@@ -166,24 +167,32 @@ class Film:
         label(d, (96, 118), title, 91, PAPER, "display")
         if age >= turn:
             label(d, (96, 224), "cross those boundaries?", 91, PAPER, "display")
-        # Three subject paths start apart; their coloured blocks join below the question.
-        for i, (name, color) in enumerate(
-            zip(("Economics", "Psychology", "Politics"), (YELLOW, LILAC, BLUE))
-        ):
+        colors = (YELLOW, BLUE, LILAC)
+        count = len(self.subjects)
+        # Centre both arrangements. Each subject's evidence belongs to the example.
+        width = min(370, 1480 // count)
+        apart = min(600, (W - 260 - width) / max(1, count - 1))
+        for i, name in enumerate(self.subjects):
+            color = colors[i % len(colors)]
             intro = ease((age - i * 0.22) / 0.95)
-            x = round(mix(95 + i * 600, 396 + i * 375, p))
-            y = round(mix(478 + i * 34, 561, p) + 55 * (1 - intro))
+            offset = i - (count - 1) / 2
+            x = round((W - width) / 2 + offset * mix(apart, width + 5, p))
+            y = round(mix(490 + offset * 34, 561, p) + 55 * (1 - intro))
             for j in range(3):
-                left = x + round(j * mix(27, 0, p))
-                top = y + round(j * mix(32, 0, p))
+                left = x + round((j - 2) * mix(27, 0, p))
+                top = y + round((j - 2) * mix(32, 0, p))
                 d.rounded_rectangle(
-                    (left, top, left + 370, top + 157),
+                    (left, top, left + width, top + 157),
                     radius=8,
                     fill=color if j == 2 else PLUM,
                     outline=color,
                     width=3,
                 )
-            label(d, (left + 30, top + 55), name, 51, PLUM, "serif")
+            size = 51
+            while font(size, "serif").getlength(name) > width - 44:
+                size -= 1
+            d.text((left + width / 2, top + 78), name, anchor="mm",
+                   font=font(size, "serif"), fill=PLUM)
         return im
 
     @lru_cache(None)
@@ -207,34 +216,42 @@ class Film:
     def gateway(self, step):
         im = self.shell().copy()
         d = ImageDraw.Draw(im)
-        k = "ENS" if step == 2 else "BEN"
-        label(d, (52, 150), NAMES[k], 70, PLUM, "serif")
-        tag = ["Open course", "Gateway required", "Open advanced course"][step]
-        label(d, (62, 325), tag.upper(), 24, COLORS[k], "bold")
-        codes = [(OPEN_INTRO,), (GATEWAY, DEPENDENT), (OPEN_ADVANCED,)][step]
-        y = 394
-        for i, c in enumerate(codes):
-            label(d, (62, y), c, 25, COLORS[k], "bold")
-            y = (
-                paragraph(d, (60, y + 45), self.slots[c][2], 560, 49, 57, "serif", PLUM)
-                + 32
-            )
-            if i == 0 and step == 1:
-                label(d, (62, y), "provides the foundation for", 24, MUTED)
-                y += 68
-        if step != 1:
-            label(
-                d,
-                (62, y + 16),
-                ("100-level" if step == 0 else "300-level")
-                + "  ·  No gateway required",
-                27,
-            )
-        m = self.maps[k]
+        label(d, (52, 150), NAMES["BEN"], 70, PLUM, "serif")
         size = (1100, 670)
-        # Keep the entire cluster in view while naming the specific relationship alongside it.
-        panel, _ = m.view(m.fit(size), size, codes, 0.46)
+        m = self.maps["BEN"]
+        selected = [(OPEN_COURSE,), (DEPENDENT,), (GATEWAY,), (GATEWAY, DEPENDENT)][step]
+        panel, _ = m.view(m.fit(size), size, selected, 0.46)
         im.paste(panel, (767, 274))
+
+        if step == 0:
+            label(d, (62, 342), "OPEN COURSE", 26, COLORS["BEN"], "bold")
+            label(d, (62, 423), OPEN_COURSE, 25, MUTED, "bold")
+            y = paragraph(d, (60, 474), self.slots[OPEN_COURSE][2], 650, 57, 68, "serif", PLUM)
+            label(d, (62, y + 29), "No gateway required", 32)
+            return im
+
+        # The same two course positions persist as the gateway is completed.
+        label(d, (62, 334), "GATEWAY COURSE", 25, COLORS["BEN"], "bold")
+        label(d, (62, 391), GATEWAY, 23, MUTED, "bold")
+        paragraph(d, (60, 437), self.slots[GATEWAY][2], 648, 48, 57, "serif", PLUM)
+        d.line((64, 565, 64, 618), fill=PLUM, width=4)
+        d.line([(52, 605), (64, 620), (76, 605)], fill=PLUM, width=4)
+        unlocked = step == 3
+        color = COLORS["ENS"] if unlocked else MUTED
+        # A shackle and an explicit label communicate the state even in grayscale.
+        x, y = 64, 673
+        if unlocked:
+            d.arc((x + 14, y - 17, x + 39, y + 10), 180, 360, fill=color, width=4)
+            d.line((x + 14, y - 3, x + 14, y + 6), fill=color, width=4)
+        else:
+            d.arc((x + 4, y - 17, x + 27, y + 13), 180, 360, fill=color, width=4)
+            for side in (x + 4, x + 26):
+                d.line((side, y - 2, side, y + 7), fill=color, width=4)
+        d.rounded_rectangle((x, y + 5, x + 31, y + 28), radius=4, fill=color)
+        label(d, (122, y - 2), "Unlocked" if unlocked else "Locked · gateway required",
+              31, color, "bold")
+        label(d, (62, 754), DEPENDENT, 23, MUTED, "bold")
+        label(d, (60, 799), self.slots[DEPENDENT][2], 55, PLUM, "serif")
         return im
 
     @lru_cache(None)
@@ -278,13 +295,13 @@ class Film:
                 continue
             accent = COLORS[code[:3]]
             fill = "#F8F6F2"
-            if code[:3] == emphasis:
+            if emphasis and code.startswith(emphasis):
                 fill = tuple(
                     round(v)
                     for v in tween(
                         ImageColor.getrgb(fill),
                         ImageColor.getrgb(accent),
-                        strength * 0.19,
+                        strength * 0.34,
                     )
                 )
             d.rounded_rectangle(box, radius=5, fill=fill)
@@ -329,6 +346,10 @@ class Film:
                     "  * These courses have no planned offering in the semester shown."
                 )
             label(d, (52, 1020), note, 24, MUTED)
+            if emphasis:
+                field = next(word for word, prefix in s["highlights"].items() if prefix == emphasis)
+                d.text((1866, 1020), field.capitalize(), anchor="rt",
+                       font=font(27, "bold"), fill=COLORS[emphasis[:3]])
         else:
             section = (
                 "Across clusters"
@@ -431,13 +452,16 @@ class Film:
     def invitation(self):
         im = self.shell().copy()
         d = ImageDraw.Draw(im)
-        label(d, (65, 210), "What would", 111, PLUM, "display")
-        label(d, (65, 341), "you build?", 111, PLUM, "display")
-        label(d, (71, 534), "Share your interests with UCR.", 39, INK)
-        d.line((72, 623, 1105, 623), fill=RULE, width=2)
-        label(d, (71, 666), URL, 37, PLUM, "bold")
-        qr = self.qr.resize((550, 550), Image.Resampling.NEAREST)
-        im.paste(qr, (1255, 220))
+        label(d, (67, 155), "What would you build?", 101, PLUM, "display")
+        label(d, (73, 379), "A curriculum around your interests", 53, PLUM, "serif")
+        paragraph(d, (74, 482), "Tell UCR what you want to study. We can propose a personalised curriculum.",
+                  1080, 39, 57)
+        label(d, (73, 646), URL, 38, PLUM, "bold")
+        qr = self.qr.resize((480, 480), Image.Resampling.NEAREST)
+        im.paste(qr, (1340, 248))
+        d.line((73, 775, 1848, 775), fill=RULE, width=2)
+        label(d, (73, 818), "An idea for a future video", 48, PLUM, "serif")
+        label(d, (74, 910), "Leave your academic interests in the video comments.", 37)
         return im
 
     def frame(self, t):
@@ -458,7 +482,11 @@ class Film:
             return self.overview()
         if k == "gateway":
             i = max(0, bisect.bisect_right([c[2] for c in s["cues"]], t) - 1)
-            p = ease((t - s["cues"][i][2]) / 0.55)
+            change = s["cues"][i][2]
+            if i == 2 and t >= s["word_times"]["unlock"][0]:
+                i = 3
+                change = s["word_times"]["unlock"][0]
+            p = ease((t - change) / 0.32)
             old = self.gateway(i - 1) if i else self.overview()
             return Image.blend(old, self.gateway(i), p) if p < 1 else self.gateway(i)
         if k == "interest":
@@ -484,12 +512,16 @@ class Film:
                             (0, 110),
                         )
                 return im
-            # Briefly tint the contributing courses as the voice names the fields.
-            phase = (age - 1.1) / max(1, s["cues"][0][3] - s["start"] - 2.2) * 3
-            if 0 <= phase < 3:
-                group = ("BEN", "GOS", "ENS")[int(phase)]
-                strength = math.sin(math.pi * (phase % 1)) ** 2
-                return self.base(sid, 24, 1, group, strength)[0]
+            # Anchor each pass to the named word in the continuous final reading.
+            words = list(s["highlights"])
+            for i, word in enumerate(words):
+                start, end = s["word_times"][word]
+                stop = end + 0.65
+                if i + 1 < len(words):
+                    stop = min(stop, s["word_times"][words[i + 1]][0])
+                if start <= t < stop:
+                    strength = min(ease((t - start) / 0.12), ease((stop - t) / 0.18))
+                    return self.base(sid, 24, 1, s["highlights"][word], strength)[0]
             return self.base(sid, 24, 1)[0]
         if k == "invitation":
             im = self.invitation()
@@ -517,7 +549,7 @@ class Film:
         k = s["scene"]
         moving = (
             (k == "hook" and (age < 1.6 or (cue == 1 and cue_age < 1.35)))
-            or (k == "gateway" and cue_age < 0.60)
+            or (k == "gateway" and (cue_age < 0.60 or 0 <= t - s["word_times"]["unlock"][0] < 0.45))
             or (k == "overview" and age < 0.9)
             or k == "complete"
             or (k == "invitation" and age < 1.15)
