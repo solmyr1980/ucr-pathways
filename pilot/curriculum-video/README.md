@@ -519,3 +519,9 @@ This decision supersedes the earlier placement of the separate BEN gateway secti
 **Agreed hierarchy for the video series:** The primary call to action is to submit interests through the UCR website to request an illustrative personalised curriculum. Put this invitation and the verified UCR link prominently in the video and its description. The secondary call to action is to leave academic interests in YouTube comments as possible inspiration for a future video; use the pinned comment to invite this participation. A public comment is not an individual curriculum request and does not promise a personalised reply or inclusion in a future video. Do not automatically publish commenters' identities in follow-up videos.
 
 Judge success primarily by meaningful prospective-student interest and curriculum requests, with public comments as a complementary signal of participation—not a substitute for student engagement. Keep both invitations, but make their different purposes clear.
+
+## 22. English subtitles for every curriculum video — 22 November 2026
+
+**Agreed publication standard:** Provide accurate English subtitles with every published curriculum video. Generate a timed subtitle file (preferably `.srt`) from the final approved spoken narration and its measured cue timing in the existing production workflow. Check that the subtitles match the **actual delivered audio**, including wording changes and segment boundaries, and that timing is usable at normal playback speed. Upload the subtitle file to YouTube Studio along with the approved video; YouTube's automatic captions are not a substitute for the reviewed file.
+
+Subtitles are an accessibility and publication deliverable. They do not require changing the narrator or automatically publishing the video. For the next review cut, include the subtitles in the GitHub Actions review package where feasible, preserving the existing video renderer and editorial approval gate.
