@@ -552,3 +552,17 @@ Actions decoded the full 204.125-second MP4 at 1920 × 1080 and 24 fps. It check
 [Render commit](https://github.com/solmyr1980/ucr-pathways/commit/0edb7ed3b381ee72295a7eeac02cf5600577817d) · [Successful Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/45022933764) · [Video and English SRT](https://github.com/solmyr1980/ucr-pathways/actions/runs/45022933764/artifacts/14753794159) · [YouTube materials](https://github.com/solmyr1980/ucr-pathways/actions/runs/45022933764/artifacts/14754810183)
 
 MP4 SHA-256 `74322fb5f78c9d27cea4187819217084ad8aa9e2ddb9411d008549408c0733cb`
+
+## 27. Fifth review cut — 22 November 2026
+
+Viewing the fourth cut with subtitles exposed two problems. Two-line captions covered course titles in the bottom semester row and part of the comment invitation. When Alba introduced the requirement for Econometrics, the camera still showed Research Methods & Statistics.
+
+The fifth cut keeps the course lettering at its established size and uses the space between rows and headings to leave the lower sixth of the frame clear. The completed programme and closing invitations fit above that space. The camera now moves from the gateway to the locked Econometrics tile as Alba introduces the requirement. Its semester slot stays empty until the course unlocks at 1:31 and flies into place. Separate captions follow the requirement and the unlock. The gateway course name fits on one subtitle line. The narration script, Alba voice, 24-course schedule and approved YouTube materials carry forward.
+
+The downloaded MP4 runs 3:24.25 at 1080p and 24 fps. All 4,902 decoded frames had uniform luminance in the bottom 180 pixels. A preview with centered two-line subtitles confirmed the bottom course row and both invitations were readable. The closing QR with captions visible decoded at 720p, 540p and 360p. Actions checked all 24 card arrivals, the grid across both transitions, the four discipline highlights and all 57 subtitle cues. The two downloaded archives matched their Actions digests and contained identical SRTs. The packaged title, hybrid thumbnail, description and pinned comment matched the approved materials, including the condition on the human-review disclosure in Section 25.
+
+An independent transcription of the downloaded soundtrack matched the gateway explanation and both invitations. A second recognizer recovered “households buy” and “accounts” on excerpts after the first pass misheard them. All matched words overlapped their subtitle windows within a 0.24-second tolerance. Full human review of the final narration, visuals and academic content remains pending.
+
+[Compare the fourth and fifth cuts with captions visible](review/fifth-cut-caption-comparison.jpg) · [Render commit](https://github.com/solmyr1980/ucr-pathways/commit/593621fecf55428ef60b75af51f3c80d7c3af84f) · [Successful Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/45024258601) · [Download the MP4 and English SRT](https://github.com/solmyr1980/ucr-pathways/actions/runs/45024258601/artifacts/14754937797) · [Download the YouTube materials](https://github.com/solmyr1980/ucr-pathways/actions/runs/45024258601/artifacts/14754887920)
+
+MP4 SHA-256 `43309a363a68971ac69752016b29ea9236248897b56fada6f109c5169e787be9`
