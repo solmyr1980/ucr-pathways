@@ -1,6 +1,7 @@
 # UCR curriculum video — pilot production brief and handoff
 
-The current 3:24 review cut integrates the gateway explanation into the student’s course selection and includes timed English subtitles. The review downloads expire on 6 December 2026. [Video and English SRT](https://github.com/solmyr1980/ucr-pathways/actions/runs/45022933764/artifacts/14753794159) · [YouTube materials](https://github.com/solmyr1980/ucr-pathways/actions/runs/45022933764/artifacts/14754810183) · [Verification](#26-fourth-review-cut--22-november-2026)
+The sixth review cut runs 3:19. The enlarged Business & Entrepreneurship map explains gateways before the student’s example begins. The review downloads expire on 6 December 2026. [MP4 and English SRT](https://github.com/solmyr1980/ucr-pathways/actions/runs/45027282662/artifacts/14756745304) · [YouTube materials](https://github.com/solmyr1980/ucr-pathways/actions/runs/45027282662/artifacts/14756017097) · [Sixth-cut verification](#29-sixth-review-cut--22-november-2026)
+
 **Established:** 18 November 2026  
 **Repository:** `solmyr1980/ucr-pathways`, branch `main`  
 **Purpose:** Preserve the design decisions, inputs, initial narration and implementation findings from the curriculum-video discussion so the work can resume without restarting the concept design.
@@ -218,7 +219,7 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 ### Acceptance test for the next iteration
 
 - The opening uses a clear **“but”** contrast before showing UCR; the six clusters and BEN gateway example are understandable and unhurried.
-- For cuts from section 15 onward, show Introduction to Economics as open and Econometrics as locked until the student completes Research Methods & Statistics. The advanced open-course example belongs to the historical second cut.
+- Follow Section 28 for the gateway guide. The enlarged BEN map highlights the open, locked and gateway regions in that order, before the student’s interests. During construction each course enters the grid with its academic explanation.
 - The move from the shared introduction to the particular student's interests is coherent, with no duplicate or overlapping text.
 - The course titles and semester labels are legible at normal desktop video size.
 - Selection highlighting identifies the correct code in the displayed cluster.
@@ -584,3 +585,17 @@ Keep the segment as short as clear comprehension allows, without naming individu
 **Correct HCB display label:** The authoritative enriched course workbook, `data/reference/ucr_courses_enriched.xlsx`, uses `dep=HCB`, `deplabel=Health, Cognition & Behavior`. The video has instead hard-coded `Human Health & Well-being` in `pilot/curriculum-video/maps.py` (first entered in the video brief on 18 November 2026 and copied to the renderer on 21 November). Use **Health, Cognition & Behavior** in the next rendered video and publication graphics; validate cluster labels against the current workbook's `deplabel` values rather than silently substituting video-only names. Preserve all other established visual and academic decisions unless a concrete discrepancy is verified.
 
 **Scope:** These instructions apply to the **next** video and related publication package (MP4, English SRT, thumbnail and approved YouTube text), not to the archived review cuts. Continue to label the programme illustrative and omit course-offering asterisks. Verify narration/visual synchronization, subtitle-safe framing, the 24 approved course placements and QR. No publication without separate approval.
+
+## 29. Sixth review cut — 22 November 2026
+
+The enlarged Business & Entrepreneurship map follows the six-cluster butterfly at 0:29.4. Alba introduces the open courses on the left, the locked courses on the right and the gateway courses in the middle. Each region highlights on the spoken direction, at 31.32, 34.59 and 36.44 seconds respectively. The guide uses the original SVG tile colours and shows all 22 BEN courses. The renderer checks each region against the workbook’s gateway relationships and reads the six cluster names from its `deplabel` column. The overview displays **Health, Cognition & Behavior**.
+
+The student’s interest statement follows at 0:39.8. The first selections ask how prices affect households and firms. The evidence courses ask how the student would design a study and whether investment causes growth. The fifth cut’s 24 cards enter in the same order and occupy the same semester slots. The two bridges carry forward 12 and 22 courses. The four discipline highlights, “Illustrative programme” label and both closing invitations remain in place.
+
+[Render commit](https://github.com/solmyr1980/ucr-pathways/commit/6a9ce28b70ec9e495b979a8ddec21ef9cb4b5e4e) · [Successful Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/45027282662) · [MP4 and English SRT](https://github.com/solmyr1980/ucr-pathways/actions/runs/45027282662/artifacts/14756745304) · [YouTube materials](https://github.com/solmyr1980/ucr-pathways/actions/runs/45027282662/artifacts/14756017097)
+
+The downloaded MP4 decoded in full at 1920 × 1080, 24 fps, with 199.167 seconds of H.264 video and mono AAC audio. Actions checked all course flights and destinations, the change of region on each spoken direction, both transitions, and the four discipline highlights. All 4,780 frames kept the lower 180 pixels clear. With subtitles visible, the closing QR decoded to the displayed UCR form at 720p, 540p and 360p.
+
+The 55 English subtitle cues match the full script. Independent transcription of the downloaded audio recovered all 445 spoken words, using the US spelling “practices” for “practises”. The recognized words overlapped their subtitle windows within a 0.24-second tolerance. Both ZIP archives matched their Actions digests and contained identical subtitles. The hybrid thumbnail, title, draft description and pinned comment matched the approved source. The approved human-review sentence remains in `REVIEW.md` for insertion after a person has reviewed this MP4.
+
+MP4 SHA-256 `93ce02e7d7912a338c00e2d754fddac55c972aaa05d63933a1bdbe8786285ddd`
