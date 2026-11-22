@@ -11,7 +11,7 @@ Current assets:
 - `DIS.svg` — Data Science & Intelligent Systems
 - `ENS.svg` — Environment & Sustainability
 - `GOS.svg` — Government & Society
-- `HCB.svg` — Human Health & Well-being
+- `HCB.svg` — Health, Cognition & Behavior
 - `MCC.svg` — Media, Culture & Communication
 
 The SVGs are source visuals, not rendered videos. Rendered MP4s are delivered as temporary GitHub Actions artifacts, not committed here.
