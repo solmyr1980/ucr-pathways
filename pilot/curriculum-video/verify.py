@@ -13,7 +13,7 @@ from pathlib import Path
 
 import zxingcpp
 from PIL import Image, ImageChops, ImageStat
-from render import ASSETS, DEPENDENT, FPS, GATEWAY, HERE, OPEN_COURSE, URL, VIEW, VIEW_X, VIEW_Y, Film, H, W
+from render import ASSETS, DEPENDENT, FPS, GATEWAY, HERE, OPEN_COURSE, PAPER, PLUM, URL, VIEW, VIEW_X, VIEW_Y, Film, H, W
 from subtitles import FILENAME as SRT, stamp
 
 FILENAME = "UCR-curriculum-pilot.mp4"
@@ -163,22 +163,27 @@ def verify(out):
         return actual
 
     for scene in film.scenes:
-        at((scene["start"] + scene["end"]) / 2)
+        sample = at((scene["start"] + scene["end"]) / 2)
+        band = sample.crop((0, 900, W, H))
+        background = PLUM if scene["scene"] == "hook" else PAPER
+        # Check peak error too: a text stroke would disappear in a whole-band average.
+        difference = ImageChops.difference(band, Image.new("RGB", band.size, background))
+        assert max(high for _, high in difference.getextrema()) <= 6, scene["scene"]
         if scene["scene"] == "hook":
             for _, _, start, end in scene["cues"]:
                 at((start + end) / 2)
         if scene["scene"] == "bridge":
             frames = [
                 at(scene["start"] - 0.15),
-                at((scene["start"] + scene["end"]) / 2),
+                sample,
                 at(scene["end"] - 0.08),
             ]
             # The atlas changes twice. All previously filled and empty slots stay fixed.
             for current in frames[1:]:
                 assert (
                     image_error(
-                        frames[0].crop((583, 219, 1868, 998)),
-                        current.crop((583, 219, 1868, 998)),
+                        frames[0].crop((583, 186, 1868, 887)),
+                        current.crop((583, 186, 1868, 887)),
                     )
                     < 2
                 )
@@ -260,8 +265,22 @@ def verify(out):
     state = (52, 333, 544, 401)
     compare_encoded(locked.crop(state), film.course_status("locked"), "Econometrics locked")
     compare_encoded(unlocked.crop(state), film.course_status("unlocked"), "Econometrics unlocked")
-    grid_region = (583, 219, 1868, 998)
+    grid_region = (583, 186, 1868, 887)
     compare_encoded(locked.crop(grid_region), unlocked.crop(grid_region), "Grid while Econometrics unlocks")
+    # The locked map tile must actually be Econometrics, with its semester slot empty.
+    m = film.source(DEPENDENT)
+    panel, _ = m.view(m.close(DEPENDENT, VIEW), VIEW, [DEPENDENT], 0.58)
+    viewport = (VIEW_X, VIEW_Y, VIEW_X + VIEW[0], VIEW_Y + VIEW[1])
+    for shot in (locked, unlocked):
+        compare_encoded(shot.crop(viewport), panel, "Econometrics preview before flight")
+    sid = film.scenes.index(gateway)
+    before_flight, slots = film.base(sid, film.times.index(events[DEPENDENT]))
+    box = slots[DEPENDENT]
+    compare_encoded(locked.crop(box), before_flight.crop(box), "Empty Econometrics slot")
+    gateway_captions = [" ".join(lines) for _, _, lines in gateway["captions"]]
+    assert "Econometrics requires that gateway." in gateway_captions
+    assert "Completing it unlocks Econometrics." in gateway_captions
+    assert all(slot[3] < 900 for slot in slots.values())
     open_course = at(events[OPEN_COURSE] + 1.26)
     compare_encoded(open_course.crop(state), film.course_status("open"), "Introduction to Economics open")
     gateway_course = at(events[GATEWAY] + 1.26)

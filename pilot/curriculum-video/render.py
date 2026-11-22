@@ -200,9 +200,9 @@ class Film:
             stamp, _ = m.view(m.fit((95, 61)), (95, 61))
             im.paste(stamp, (54, y))
             label(d, (167, y + 14), name, 27, INK)
-        size = (1160, 755)
+        size = (1160, 663)
         diagram, _ = self.map.view(self.map.fit(size), size)
-        im.paste(diagram, (708, 252))
+        im.paste(diagram, (708, 219))
         return im
 
     @lru_cache(None)
@@ -250,9 +250,9 @@ class Film:
     @lru_cache(None)
     def interest_frame(self):
         im = self.shell().copy()
-        size = (1430, 845)
+        size = (1430, 731)
         diagram, _ = self.map.view(self.map.fit(size), size)
-        im.paste(diagram, (434, 165))
+        im.paste(diagram, (434, 154))
         d = ImageDraw.Draw(im)
         # The full map's upper-left white space is deliberately reserved for the quotation.
         d.rectangle((52, 165, 900, 516), fill=PAPER)
@@ -262,6 +262,7 @@ class Film:
 
     def grid(self, im, count, expand=0, emphasis=None, strength=0):
         d = ImageDraw.Draw(im)
+        # Keep all six semesters above the lower sixth used by two-line subtitles.
         start = round(mix(583, 52, expand))
         gap = 16
         width = (1868 - start - 2 * gap) // 3
@@ -269,19 +270,19 @@ class Film:
         coords = {}
         for code, (s, r, title) in self.slots.items():
             x = start + (s % 3) * (width + gap)
-            y = 219 + (s // 3) * 397
+            y = 186 + (s // 3) * 358
             if r == 0:
                 d.rounded_rectangle(
-                    (x, y, x + width, y + 380),
+                    (x, y, x + width, y + 342),
                     radius=12,
                     fill="white",
                     outline=RULE,
                     width=2,
                 )
-                label(d, (x + 16, y + 14), self.labels[s], 26, PLUM, "bold")
-                d.line((x + 16, y + 52, x + width - 16, y + 52), fill=RULE, width=1)
-            cy = y + 63 + r * 77
-            box = (x + 12, cy, x + width - 12, cy + 72)
+                label(d, (x + 16, y + 9), self.labels[s], 26, PLUM, "bold")
+                d.line((x + 16, y + 39, x + width - 16, y + 39), fill=RULE, width=1)
+            cy = y + 45 + r * 72
+            box = (x + 12, cy, x + width - 12, cy + 70)
             coords[code] = box
             if code not in visible:
                 d.rounded_rectangle(box, radius=5, fill="#F5F4F1")
@@ -299,7 +300,7 @@ class Film:
                 )
             d.rounded_rectangle(box, radius=5, fill=fill)
             d.rounded_rectangle(
-                (x + 12, cy + 2, x + 17, cy + 69), radius=2, fill=accent
+                (x + 12, cy + 2, x + 17, cy + 68), radius=2, fill=accent
             )
             label(d, (x + 25, cy + 3), code, 17, accent, "bold")
             size = round(mix(25, 29, expand))
@@ -313,7 +314,7 @@ class Film:
             for j, line in enumerate(lines(title, width - 48, size, "regular")):
                 assert font(size).getlength(line) <= width - 48
                 d.text(
-                    (x + 25, cy + 24 + j * leading),
+                    (x + 25, cy + 23 + j * leading),
                     line,
                     font=font(size),
                     fill=INK,
@@ -328,14 +329,14 @@ class Film:
         im = self.shell().copy()
         d = ImageDraw.Draw(im)
         x = round(mix(583, 52, expand))
-        label(d, (x, 138), self.title, round(mix(43, 56, expand)), PLUM, "serif")
-        d.text((1866, 160), f"{count} / 24", font=font(23), fill=MUTED, anchor="rm")
+        label(d, (x, 117), self.title, round(mix(43, 56, expand)), PLUM, "serif")
+        d.text((1866, 143), f"{count} / 24", font=font(23), fill=MUTED, anchor="rm")
         coords = self.grid(im, count, expand, emphasis, strength)
         if k == "complete":
-            label(d, (52, 1020), "Illustrative programme", 24, MUTED)
+            label(d, (302, 39), "Illustrative programme", 24, MUTED)
             if emphasis:
                 field = next(word for word, prefix in s["highlights"].items() if prefix == emphasis)
-                d.text((1866, 1020), field.capitalize(), anchor="rt",
+                d.text((1465, 49), field.capitalize(), anchor="rm",
                        font=font(27, "bold"), fill=COLORS[emphasis[:3]])
         else:
             section = (
@@ -345,7 +346,7 @@ class Film:
             )
             label(d, (52, 143), section, 26, COLORS.get(k, PLUM), "bold")
             paragraph(d, (50, 211), s["heading"], 490, 51, 59, "serif", PLUM)
-            d.line((561, 132, 561, 997), fill=RULE, width=2)
+            d.line((561, 132, 561, 886), fill=RULE, width=2)
         return im, coords
 
     def focus(self, im, code, prev, p):
@@ -361,8 +362,8 @@ class Film:
             outline=RULE,
             width=1,
         )
-        label(d, (52, 786), code, 23, COLORS[code[:3]], "bold")
-        paragraph(d, (50, 837), self.slots[code][2], 494, 39, 47, "serif", PLUM)
+        label(d, (52, 754), code, 23, COLORS[code[:3]], "bold")
+        paragraph(d, (50, 799), self.slots[code][2], 494, 39, 47, "serif", PLUM)
         cx, cy = centres.get(code, (VIEW[0] / 2, VIEW[1] / 2))
         return VIEW_X + max(0, min(VIEW[0], cx)), VIEW_Y + max(0, min(VIEW[1], cy))
 
@@ -398,7 +399,7 @@ class Film:
         im.paste(panel, (VIEW_X, VIEW_Y))
         d = ImageDraw.Draw(im)
         for i, k in enumerate(fields):
-            y = 789 + 65 * i
+            y = 759 + 66 * i
             d.rounded_rectangle((52, y + 4, 66, y + 30), radius=3, fill=COLORS[k])
             label(d, (83, y), NAMES[k], 29, PLUM, "bold")
         return im
@@ -418,7 +419,15 @@ class Film:
         arrived = age >= 1.2
         base, boxes = self.base(sid, n if arrived else n - 1)
         im = base.copy()
-        origin = self.focus(im, code, prev, ease(age / 0.45))
+        focus_code, focus_age = code, age
+        if s.get("gateway_demo"):
+            # Preview the required course while its semester slot is still empty.
+            preview_age = t - s["cues"][1][2]
+            if code == GATEWAY and preview_age >= 0:
+                focus_code, prev, focus_age = DEPENDENT, GATEWAY, preview_age
+            elif code == DEPENDENT:
+                prev = DEPENDENT
+        origin = self.focus(im, focus_code, prev, ease(focus_age / 0.45))
         self.show_course_status(im, s, code, t)
         if not arrived:
             x, y, x2, y2 = boxes[code]
@@ -448,9 +457,9 @@ class Film:
         label(d, (73, 646), URL, 38, PLUM, "bold")
         qr = self.qr.resize((480, 480), Image.Resampling.NEAREST)
         im.paste(qr, (1340, 248))
-        d.line((73, 775, 1848, 775), fill=RULE, width=2)
-        label(d, (73, 818), "An idea for a future video", 48, PLUM, "serif")
-        label(d, (74, 910), "Leave your academic interests in the video comments.", 37)
+        d.line((73, 749, 1848, 749), fill=RULE, width=2)
+        label(d, (73, 771), "An idea for a future video", 48, PLUM, "serif")
+        label(d, (74, 842), "Leave your academic interests in the video comments.", 37)
         return im
 
     def frame(self, t):
@@ -510,7 +519,7 @@ class Film:
                 return im
             last = self.base(sid - 1, 24, 1)[0]
             nx, ny, nw, nh = (
-                round(v) for v in tween((0, 0, W, H), (73, 804, 370, 208), p)
+                round(v) for v in tween((0, 0, W, H), (73, 666, 370, 208), p)
             )
             im = im.copy()
             small = last.resize((nw, nh), Image.Resampling.BILINEAR)
@@ -529,7 +538,9 @@ class Film:
         k = s["scene"]
         moving = (
             (k == "hook" and (age < 1.6 or (cue == 1 and cue_age < 1.35)))
-            or (s.get("gateway_demo") and 0 <= t - s["word_times"]["unlocks"][0] < 0.35)
+            or (s.get("gateway_demo") and (
+                (cue == 1 and cue_age < 0.45) or 0 <= t - s["word_times"]["unlocks"][0] < 0.35
+            ))
             or (k == "overview" and age < 0.9)
             or k == "complete"
             or (k == "invitation" and age < 1.15)

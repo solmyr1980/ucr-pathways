@@ -25,9 +25,16 @@ def caption_lines(tokens):
         if len(left) <= WIDTH and len(right) <= WIDTH:
             # Prefer balanced lines and keep articles and prepositions with their phrases.
             penalty = 12 if tokens[i - 1].lower() in {"a", "an", "the", "to", "of", "and"} else 0
-            candidates.append((abs(len(left) - len(right)) + penalty, left, right))
+            # Keep title-case names together, including a connecting “and”.
+            before, after = tokens[i - 1].rstrip(",.?!:"), tokens[i]
+            inside_name = (
+                (tokens[i - 1] == before and before.istitle() and after.istitle())
+                or (before.istitle() and after == "and" and i + 1 < len(tokens) and tokens[i + 1].istitle())
+                or (before == "and" and i >= 2 and tokens[i - 2].istitle() and after.istitle())
+            )
+            candidates.append((inside_name, abs(len(left) - len(right)) + penalty, left, right))
     assert candidates, text
-    _, left, right = min(candidates)
+    _, _, left, right = min(candidates)
     return [left, right]
 
 
@@ -40,6 +47,8 @@ def cue_break(tokens, first, last):
             continue
         previous = tokens[i - 1]
         following = tokens[i].lower()
+        if previous.lower() in {"and", "or"}:
+            continue
         if previous.endswith((".", "?", "!", ":")):
             priority = 3
         elif previous.endswith(",") and previous not in {"Here,", "Together,"}:
@@ -66,7 +75,14 @@ def timed_captions(text, aligned, offset, cue_end):
         last = first + 1
         while last < len(tokens) and len(wrap(" ".join(tokens[first:last + 1]))) <= 2:
             last += 1
-        if last < len(tokens):
+        # Give each substantive sentence its own cue, even when two would fit.
+        sentence = next((i for i in range(first + 1, last + 1)
+                         if tokens[i - 1].endswith((".", "?", "!"))
+                         and len(" ".join(tokens[first:i])) >= 24
+                         and len(" ".join(tokens[i:])) >= 24), None)
+        if sentence is not None:
+            last = sentence
+        elif last < len(tokens):
             last = cue_break(tokens, first, last)
         start = offset + aligned[boundaries[first]][1]
         end = min(cue_end, offset + aligned[boundaries[last] - 1][2])
