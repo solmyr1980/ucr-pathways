@@ -533,3 +533,9 @@ Subtitles are an accessibility and publication deliverable. They do not require 
 ## 24. YouTube playlist — 22 November 2026
 
 **Decision:** Create one YouTube playlist for the UCR curriculum-video series, so viewers can explore different combinations of academic interests in one place. Add each approved video to the same playlist when it is published. The playlist is a navigation and discovery aid, not a reason to increase publication volume or standardize away the distinctive academic content of each example. This requires no change to the video renderer; playlist creation and membership can initially be handled manually in YouTube Studio as part of the assisted publication process. Do not create or publish the playlist without separate authorization.
+
+## 25. Human review disclosure and YouTube end screens — 22 November 2026
+
+**Description disclosure:** State explicitly that generative AI assisted production, including synthetic narration and programmatic animation, and that a human reviewed the **final video**: its complete narration, visuals and academic content. Use the concise approved wording in [`_youtube-prototype/README.md`](_youtube-prototype/README.md). Include the human-review statement in the published description **only after the final review has actually taken place**, not merely because automated verification passed or an earlier cut was reviewed.
+
+**End screens:** Do not add YouTube end screens to the initial approximately 3½-minute curriculum videos. They could cover the existing QR code and primary invitation to request a personalized curriculum. Reconsider them later if a series of published videos makes navigation more valuable. No renderer or YouTube API changes are needed now.
