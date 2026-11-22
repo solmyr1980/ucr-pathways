@@ -525,3 +525,7 @@ Judge success primarily by meaningful prospective-student interest and curriculu
 **Agreed publication standard:** Provide accurate English subtitles with every published curriculum video. Generate a timed subtitle file (preferably `.srt`) from the final approved spoken narration and its measured cue timing in the existing production workflow. Check that the subtitles match the **actual delivered audio**, including wording changes and segment boundaries, and that timing is usable at normal playback speed. Upload the subtitle file to YouTube Studio along with the approved video; YouTube's automatic captions are not a substitute for the reviewed file.
 
 Subtitles are an accessibility and publication deliverable. They do not require changing the narrator or automatically publishing the video. For the next review cut, include the subtitles in the GitHub Actions review package where feasible, preserving the existing video renderer and editorial approval gate.
+
+## 23. YouTube chapters — 22 November 2026
+
+**Decision:** Do not add YouTube chapter timestamps by default to the approximately 3½-minute curriculum videos. The continuous story is short enough that chapters offer limited navigational value and would create unnecessary publication work. Consider chapters only for a substantially longer video or a clear viewer need, subject to editorial review. No change to the renderer or current publication package is necessary.
