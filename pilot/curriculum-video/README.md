@@ -513,3 +513,9 @@ This is an editorial guardrail, **not** a claim that Google or YouTube automatic
 **Across future videos:** Demonstrate a real gateway relationship only when the approved student's curriculum provides a natural, academically supported example. Do not invent a gateway explanation or select unrelated courses merely to show the feature. Preserve the course-selection flights, accumulating semester grid, discipline transitions, and substantive narration that are already working well.
 
 This decision supersedes the earlier placement of the separate BEN gateway section in the opening and Section 15's instruction to retain it **there**; it does not reverse the decision to keep the gateway and locked-course visual cues. **No immediate video re-render or publication is authorized by this documentation change.**
+
+## 21. YouTube calls to action — 22 November 2026
+
+**Agreed hierarchy for the video series:** The primary call to action is to submit interests through the UCR website to request an illustrative personalised curriculum. Put this invitation and the verified UCR link prominently in the video and its description. The secondary call to action is to leave academic interests in YouTube comments as possible inspiration for a future video; use the pinned comment to invite this participation. A public comment is not an individual curriculum request and does not promise a personalised reply or inclusion in a future video. Do not automatically publish commenters' identities in follow-up videos.
+
+Judge success primarily by meaningful prospective-student interest and curriculum requests, with public comments as a complementary signal of participation—not a substitute for student engagement. Keep both invitations, but make their different purposes clear.
