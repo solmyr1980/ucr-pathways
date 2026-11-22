@@ -13,7 +13,7 @@ This draft accompanies the [third curriculum-video review cut](../README.md#16-t
 
 The mockups use the UCR wordmark, IvyMode and the film’s colour palette. The simplified cards depict the six-semester structure. For future videos, keep the UCR identity and choose the dominant disciplines and artwork from the example’s actual academic story.
 
-## Recommended YouTube title
+## Approved YouTube title
 
 > Economics, Politics and History in One Degree | UCR
 
