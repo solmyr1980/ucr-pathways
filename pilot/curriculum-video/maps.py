@@ -8,14 +8,7 @@ import cairosvg
 from PIL import Image, ImageDraw
 
 ASSETS = Path(__file__).resolve().parents[2] / "assets/video"
-NAMES = {
-    "BEN": "Business & Entrepreneurship",
-    "DIS": "Data Science & Intelligent Systems",
-    "ENS": "Environment & Sustainability",
-    "GOS": "Government & Society",
-    "HCB": "Human Health & Well-being",
-    "MCC": "Media, Culture & Communication",
-}
+CLUSTERS = ("BEN", "DIS", "ENS", "GOS", "HCB", "MCC")
 PLUM = "#491E34"
 
 

@@ -13,7 +13,8 @@ from pathlib import Path
 
 import zxingcpp
 from PIL import Image, ImageChops, ImageStat
-from render import ASSETS, DEPENDENT, FPS, GATEWAY, HERE, OPEN_COURSE, PAPER, PLUM, URL, VIEW, VIEW_X, VIEW_Y, Film, H, W
+from render import (ASSETS, FPS, GUIDE_SIZE, GUIDE_X, GUIDE_Y, HERE, PAPER, PLUM,
+                    URL, VIEW, VIEW_X, VIEW_Y, Film, H, W)
 from subtitles import FILENAME as SRT, stamp
 
 FILENAME = "UCR-curriculum-pilot.mp4"
@@ -255,36 +256,33 @@ def verify(out):
         assert tinted == {c for c in boxes if c.startswith(prefix)} and tinted, (word, tinted)
         print(f"{word.capitalize()} spoken at {first:.2f}–{last:.2f}s: {', '.join(sorted(tinted))}")
 
-    assert all(s["scene"] != "gateway" for s in film.scenes)
-    gateway = next(s for s in film.scenes if s.get("gateway_demo"))
-    events = {code: time for time, code in film.events}
-    release = gateway["word_times"]["unlocks"][0]
-    assert events[OPEN_COURSE] < events[GATEWAY] < release < events[DEPENDENT]
-    locked = at(release - 0.20)
-    unlocked = at(release + 0.33)
-    state = (52, 333, 544, 401)
-    compare_encoded(locked.crop(state), film.course_status("locked"), "Econometrics locked")
-    compare_encoded(unlocked.crop(state), film.course_status("unlocked"), "Econometrics unlocked")
-    grid_region = (583, 186, 1868, 887)
-    compare_encoded(locked.crop(grid_region), unlocked.crop(grid_region), "Grid while Econometrics unlocks")
-    # The locked map tile must actually be Econometrics, with its semester slot empty.
-    m = film.source(DEPENDENT)
-    panel, _ = m.view(m.close(DEPENDENT, VIEW), VIEW, [DEPENDENT], 0.58)
-    viewport = (VIEW_X, VIEW_Y, VIEW_X + VIEW[0], VIEW_Y + VIEW[1])
-    for shot in (locked, unlocked):
-        compare_encoded(shot.crop(viewport), panel, "Econometrics preview before flight")
-    sid = film.scenes.index(gateway)
-    before_flight, slots = film.base(sid, film.times.index(events[DEPENDENT]))
-    box = slots[DEPENDENT]
-    compare_encoded(locked.crop(box), before_flight.crop(box), "Empty Econometrics slot")
-    gateway_captions = [" ".join(lines) for _, _, lines in gateway["captions"]]
-    assert "Econometrics requires that gateway." in gateway_captions
-    assert "Completing it unlocks Econometrics." in gateway_captions
-    assert all(slot[3] < 900 for slot in slots.values())
-    open_course = at(events[OPEN_COURSE] + 1.26)
-    compare_encoded(open_course.crop(state), film.course_status("open"), "Introduction to Economics open")
-    gateway_course = at(events[GATEWAY] + 1.26)
-    compare_encoded(gateway_course.crop(state), film.course_status("gateway"), "Research Methods & Statistics gateway")
+    kinds = [s["scene"] for s in film.scenes]
+    assert kinds[:5] == ["hook", "overview", "gateway_overview", "interest", "BEN"]
+    assert kinds.count("gateway_overview") == 1
+    assert film.names["HCB"] == "Health, Cognition & Behavior"
+    guide = film.scenes[2]
+    assert guide["cluster"] == "BEN" and all(not cue[0] for cue in guide["cues"])
+    assert film.events[0][0] >= film.scenes[3]["end"]
+    assert all(box[3] < 900 for box in boxes.values())
+    original, _ = film.guide_map.view(film.guide_camera, GUIDE_SIZE)
+    times = [guide["word_times"][side][0] for side in ("left", "right", "middle")]
+    assert guide["start"] < times[0] < times[1] < times[2] < guide["end"]
+    # Sample the encoded state on both sides of each spoken direction. Only the
+    # header and perimeter may change; the source colours and titles stay intact.
+    for side, first, previous in zip(("left", "right", "middle"), times, (None, "left", "right")):
+        for t, active in ((first - 0.10, previous), (first + 0.10, side)):
+            shot = at(t)
+            for column, (left, right) in film.guide_columns.items():
+                value = shot.getpixel((left + 12, 218))
+                is_highlighted = max(value) < 130
+                assert is_highlighted == (column == active), (t, column, value)
+                interior = (left + 5, GUIDE_Y + 5, right - 5, GUIDE_Y + GUIDE_SIZE[1] - 5)
+                patch = tuple(v - (GUIDE_X if i % 2 == 0 else GUIDE_Y)
+                              for i, v in enumerate(interior))
+                compare_encoded(shot.crop(interior), original.crop(patch), f"Original {column} region")
+    print("BEN guide, spoken region changes:", ", ".join(
+        f"{side} {t:.2f}s" for side, t in zip(("left", "right", "middle"), times)
+    ))
     for scene in film.scenes:
         if "question_focus" in scene:
             for index, word in scene["question_focus"].items():
@@ -293,11 +291,6 @@ def verify(out):
                 assert start <= first < last <= end and question.endswith("?")
                 print(f"Question at {start:.2f}–{end:.2f}s, focus on '{word}' at {first:.2f}s.")
     print("Scene starts (seconds):", ", ".join(f"{s['scene']} {s['start']:.2f}" for s in film.scenes))
-    print(f"Econometrics unlocks in the accumulating grid at {release:.2f}s.")
-    print("Gateway review frames (seconds):", ", ".join(
-        f"{code} {events[code]:.2f}" for code in (OPEN_COURSE, GATEWAY, DEPENDENT)
-    ))
-
     for time in (film.scenes[-1]["start"] + 1.3, duration - 1):
         actual = at(time)
         for size in [(W, H), (960, 540)]:

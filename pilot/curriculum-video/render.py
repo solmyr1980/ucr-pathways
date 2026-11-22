@@ -9,7 +9,7 @@ from functools import lru_cache
 from pathlib import Path
 
 import openpyxl
-from maps import ASSETS, NAMES, PLUM, CourseMap
+from maps import ASSETS, CLUSTERS, PLUM, CourseMap
 from PIL import Image, ImageColor, ImageDraw, ImageFont
 
 HERE = Path(__file__).resolve().parent
@@ -21,7 +21,9 @@ COLORS = {"BEN": "#9C333D", "GOS": "#77532B", "ENS": "#4A6857", "ACC": PLUM}
 URL = "https://ucr.nl/tell-us-about-your-interests/"
 VIEW = (492, 320)
 VIEW_X, VIEW_Y = 52, 417
-GATEWAY, DEPENDENT, OPEN_COURSE = "BENGATE102", "BENECON312", "BENECON111"
+GUIDE_SIZE = (1450, 624)
+GUIDE_X, GUIDE_Y = (W - GUIDE_SIZE[0]) // 2, 260
+GUIDE_ORDER = ("left", "right", "middle")
 
 
 @lru_cache(None)
@@ -80,9 +82,12 @@ def source_data():
     keys = next(rows)
     catalog = {row[keys.index("osiris")]: dict(zip(keys, row)) for row in rows}
     book.close()
-    assert catalog[OPEN_COURSE]["preq1"] == "NONE"
-    assert catalog[DEPENDENT]["preq1"] == GATEWAY
-    assert catalog[GATEWAY]["preq1"] == "NONE"
+    names = {}
+    for cluster in CLUSTERS:
+        labels = {row["deplabel"] for row in catalog.values() if row["dep"] == cluster}
+        if len(labels) != 1 or not all(labels):
+            raise ValueError(f"Expected one official display label for {cluster}: {labels}")
+        names[cluster] = labels.pop()
     assert len(semesters) == 6 and all(len(s["courses"]) == 4 for s in semesters)
     slots = {
         c["code"]: (i, j, catalog[c["code"]]["name"])
@@ -95,6 +100,7 @@ def source_data():
         prog["label"],
         slots,
         [s["label"] for s in semesters],
+        names, catalog,
     )
 
 
@@ -104,7 +110,7 @@ def tween(a, b, p):
 
 class Film:
     def __init__(self, timing):
-        self.interest, self.title, self.slots, self.labels = source_data()
+        self.interest, self.title, self.slots, self.labels, self.names, catalog = source_data()
         self.scenes = json.loads(timing.read_text())
         hook = next(s for s in self.scenes if s["scene"] == "hook")
         self.subjects = [subject["label"] for subject in hook["subjects"]]
@@ -114,12 +120,36 @@ class Film:
             assert phrase.casefold() in self.interest.casefold()
             assert subject["label"].casefold() in hook["cues"][0][1].casefold()
         self.ends = [s["end"] for s in self.scenes]
-        self.maps = {k: CourseMap(k) for k in ("curriculum", *NAMES)}
+        self.maps = {k: CourseMap(k) for k in ("curriculum", *CLUSTERS)}
         self.map = self.maps["curriculum"]
-        for k in NAMES:
+        for k in CLUSTERS:
             assert {c for c in self.map.boxes if c.startswith(k)} == {
                 c for c in self.maps[k].boxes if c.startswith(k)
             }
+        guide = next(s for s in self.scenes if s["scene"] == "gateway_overview")
+        self.guide_map = self.maps[guide["cluster"]]
+        codes = {code for code, row in catalog.items() if row["dep"] == guide["cluster"]}
+        assert codes == self.guide_map.boxes.keys()
+        required = {catalog[code]["preq1"] for code in codes} - {"NONE"}
+        assert required and required <= codes
+        self.regions = {
+            "left": [c for c in codes if catalog[c]["preq1"] == "NONE" and c not in required],
+            "middle": sorted(required),
+            "right": [c for c in codes if catalog[c]["preq1"] in required],
+        }
+        # This reading guide applies to a real map with three separate columns.
+        boxes = self.guide_map.boxes
+        bounds = [(min(boxes[c][0] for c in group), max(boxes[c][2] for c in group))
+                  for group in self.regions.values()]
+        assert sum(map(len, self.regions.values())) == len(codes)
+        assert all(a[1] < b[0] for a, b in zip(bounds, bounds[1:]))
+        self.guide_camera = self.guide_map.fit(GUIDE_SIZE, codes, margin=3)
+        x, _, width, _ = self.guide_camera
+        self.guide_columns = {
+            side: (round(GUIDE_X + (left - x) * GUIDE_SIZE[0] / width) - 2,
+                   round(GUIDE_X + (right - x) * GUIDE_SIZE[0] / width) + 2)
+            for side, (left, right) in zip(self.regions, bounds)
+        }
         self.events = []
         for s in self.scenes:
             for codes, _, start, end in s["cues"]:
@@ -127,8 +157,6 @@ class Film:
                     assert code.startswith(s["scene"]) and code in self.map.boxes
                     assert code in self.source(code).boxes
                     when = start + 0.08 + (end - start) * i / len(codes)
-                    if s.get("gateway_demo") and code == DEPENDENT:
-                        when = s["word_times"]["unlocks"][0] + 0.35
                     self.events.append((when, code))
         self.times = [t for t, _ in self.events]
         assert self.times == sorted(self.times)
@@ -194,7 +222,7 @@ class Film:
         d = ImageDraw.Draw(im)
         label(d, (52, 148), "Six academic clusters", 80, PLUM, "serif")
         # The six small silhouettes are taken from the actual six cluster close-ups.
-        for i, (k, name) in enumerate(NAMES.items()):
+        for i, (k, name) in enumerate(self.names.items()):
             y = 318 + i * 101
             m = self.maps[k]
             stamp, _ = m.view(m.fit((95, 61)), (95, 61))
@@ -206,46 +234,28 @@ class Film:
         return im
 
     @lru_cache(None)
-    def course_status(self, status):
-        badge = Image.new("RGB", (492, 68), PAPER)
-        d = ImageDraw.Draw(badge)
-        locked = status == "locked"
-        lock_state = status in ("locked", "unlocked")
-        color = MUTED if locked else COLORS["BEN"] if status == "gateway" else COLORS["ENS"]
-        background = {"locked": "#EBE7E5", "gateway": "#F2E4E9"}.get(status, "#E4EDE5")
-        d.rounded_rectangle((0, 0, 491, 67), radius=10, fill=background)
-        if lock_state:
-            x, y = 19, 23
-            if locked:
-                d.arc((x + 4, y - 11, x + 27, y + 18), 180, 360, fill=color, width=4)
-                for side in (x + 4, x + 26):
-                    d.line((side, y + 4, side, y + 15), fill=color, width=4)
-            else:
-                d.arc((x + 14, y - 11, x + 38, y + 16), 180, 360, fill=color, width=4)
-                d.line((x + 14, y + 2, x + 14, y + 15), fill=color, width=4)
-            d.rounded_rectangle((x, y + 11, x + 31, y + 35), radius=4, fill=color)
-            label(d, (70, 9), "Econometrics locked" if locked else "Econometrics unlocked", 23, color, "bold")
-            requirement = ("Research Methods & Statistics required" if locked
-                           else "After Research Methods & Statistics")
-            label(d, (70, 39), requirement, 17, color)
-        else:
-            text = "Open course · No gateway required" if status == "open" else "Gateway course · Leads to Econometrics"
-            label(d, (18, 23), text, 22, color, "bold")
-        return badge
+    def guide_frame(self, cluster, active):
+        im = self.shell().copy()
+        d = ImageDraw.Draw(im)
+        label(d, (52, 126), self.names[cluster], 63, PLUM, "serif")
+        panel, _ = self.guide_map.view(self.guide_camera, GUIDE_SIZE)
+        im.paste(panel, (GUIDE_X, GUIDE_Y))
+        for side, title in (("left", "Open"), ("middle", "Gateway"), ("right", "Locked")):
+            left, right = self.guide_columns[side]
+            selected = side == active
+            d.rounded_rectangle((left, 201, right, 251), radius=6,
+                                fill=PLUM if selected else "#EDE8E3")
+            d.text(((left + right) / 2, 226), title, anchor="mm", font=font(28, "bold"),
+                   fill="white" if selected else PLUM)
+            if selected:
+                # Enclose the region without recolouring its original SVG tiles.
+                d.rectangle((left, GUIDE_Y, right, GUIDE_Y + GUIDE_SIZE[1] - 1),
+                            outline=PLUM, width=3)
+        return im
 
-    def show_course_status(self, im, scene, code, t):
-        if code == OPEN_COURSE:
-            im.paste(self.course_status("open"), (52, 333))
-        if scene.get("gateway_demo") and code in (GATEWAY, DEPENDENT):
-            release = scene["word_times"]["unlocks"][0]
-            if t < scene["cues"][1][2]:
-                badge = self.course_status("gateway")
-            else:
-                badge = Image.blend(
-                    self.course_status("locked"), self.course_status("unlocked"),
-                    ease((t - release) / 0.32),
-                )
-            im.paste(badge, (52, 333))
+    def guide_region(self, scene, t):
+        return next((side for side in reversed(GUIDE_ORDER)
+                     if t >= scene["word_times"][side][0]), None)
 
     @lru_cache(None)
     def interest_frame(self):
@@ -342,7 +352,7 @@ class Film:
             section = (
                 "Across clusters"
                 if k == "bridge"
-                else ("Academic core" if k == "ACC" else NAMES[k])
+                else ("Academic core" if k == "ACC" else self.names[k])
             )
             label(d, (52, 143), section, 26, COLORS.get(k, PLUM), "bold")
             paragraph(d, (50, 211), s["heading"], 490, 51, 59, "serif", PLUM)
@@ -369,7 +379,7 @@ class Film:
 
     @lru_cache(maxsize=12)
     def bridge_view(self, stage, fields):
-        if stage in NAMES:
+        if stage in CLUSTERS:
             m = self.maps[stage]
             return m.view(m.fit(VIEW), VIEW)[0]
         codes = [c for c in self.map.boxes if c.startswith(fields)]
@@ -401,7 +411,7 @@ class Film:
         for i, k in enumerate(fields):
             y = 759 + 66 * i
             d.rounded_rectangle((52, y + 4, 66, y + 30), radius=3, fill=COLORS[k])
-            label(d, (83, y), NAMES[k], 29, PLUM, "bold")
+            label(d, (83, y), self.names[k], 29, PLUM, "bold")
         return im
 
     def selection(self, sid, n, t):
@@ -411,7 +421,6 @@ class Film:
             code = next(c for st, c in self.events if st >= s["start"])
             im = self.base(sid, n)[0].copy()
             self.focus(im, code, None, 1)
-            self.show_course_status(im, s, code, t)
             return im
         start, code = self.events[n - 1]
         age = t - start
@@ -419,16 +428,7 @@ class Film:
         arrived = age >= 1.2
         base, boxes = self.base(sid, n if arrived else n - 1)
         im = base.copy()
-        focus_code, focus_age = code, age
-        if s.get("gateway_demo"):
-            # Preview the required course while its semester slot is still empty.
-            preview_age = t - s["cues"][1][2]
-            if code == GATEWAY and preview_age >= 0:
-                focus_code, prev, focus_age = DEPENDENT, GATEWAY, preview_age
-            elif code == DEPENDENT:
-                prev = DEPENDENT
-        origin = self.focus(im, focus_code, prev, ease(focus_age / 0.45))
-        self.show_course_status(im, s, code, t)
+        origin = self.focus(im, code, prev, ease(age / 0.45))
         if not arrived:
             x, y, x2, y2 = boxes[code]
             flight = ease((age - 0.45) / 0.75)
@@ -478,6 +478,8 @@ class Film:
                     self.hook(hook["end"], hook["cues"][1][2]), self.overview(), p
                 )
             return self.overview()
+        if k == "gateway_overview":
+            return self.guide_frame(s["cluster"], self.guide_region(s, t))
         if k == "interest":
             return self.interest_frame()
         if k == "bridge":
@@ -536,16 +538,15 @@ class Film:
         cue = max(0, bisect.bisect_right([c[2] for c in s["cues"]], t) - 1)
         cue_age = t - s["cues"][cue][2]
         k = s["scene"]
+        if k == "gateway_overview":
+            return sid, self.guide_region(s, t)
         moving = (
             (k == "hook" and (age < 1.6 or (cue == 1 and cue_age < 1.35)))
-            or (s.get("gateway_demo") and (
-                (cue == 1 and cue_age < 0.45) or 0 <= t - s["word_times"]["unlocks"][0] < 0.35
-            ))
             or (k == "overview" and age < 0.9)
             or k == "complete"
             or (k == "invitation" and age < 1.15)
             or (k == "bridge" and (age < 1.3 or s["end"] - t < 1.4))
-            or (k in (*NAMES, "ACC") and n and t - self.times[n - 1] < 1.25)
+            or (k in (*CLUSTERS, "ACC") and n and t - self.times[n - 1] < 1.25)
         )
         return sid, n, cue, t if moving else None
 

@@ -80,7 +80,6 @@ def main():
     decoder = Decoder()
     decoder.add_word("specialise", decoder.lookup_word("specialize"), False)
     decoder.add_word("industrialisation", decoder.lookup_word("industrialization"), False)
-    decoder.add_word("unlocks", decoder.lookup_word("unlock") + " S", False)
     decoder.add_word("ucr", "Y UW S IY AA R", True)
     story = json.loads((HERE / "storyboard.json").read_text())
     with wave.open(str(args.out / "voice.wav"), "wb") as track:
