@@ -210,7 +210,7 @@ def main():
                    duration_seconds=round(seconds, 3), words=len(tokens(script)),
                    words_per_minute=round(60 * len(tokens(script)) / seconds, 1),
                    recognized_text=heard, recognized_word_errors=errors,
-                   gaps_over_half_second=sum(g >= .5 for g in gaps), phrases=timing,
+                   gaps_over_half_second=sum(1 for gap in gaps if gap >= .5), phrases=timing,
                    integrated_lufs=float(levels["input_i"]), true_peak_dbtp=float(levels["input_tp"]),
                    preparation_s=round(prepared-start, 1), auditions_s=round(audition_end-prepared, 1),
                    remaining_synthesis_and_assembly_s=round(generated-audition_end, 1),
@@ -230,9 +230,10 @@ def main():
             and blocks[-1].b + blocks[-1].size - blocks[0].b < 1.25 * len(tokens(script))):
         metrics["recorded_passage_interval_s"] = [round(positions[blocks[0].b].start, 2),
                                                 round(positions[blocks[-1].b + blocks[-1].size - 1].end, 2)]
-    (out / "metrics.json").write_text(json.dumps(metrics, indent=2) + "\n")
+    report = json.dumps(metrics, indent=2, default=np.generic.item, allow_nan=False)
+    (out / "metrics.json").write_text(report + "\n")
     (out / "script.txt").write_text(script + "\n")
-    print(json.dumps(metrics, indent=2))
+    print(report)
 
 
 if __name__ == "__main__":
