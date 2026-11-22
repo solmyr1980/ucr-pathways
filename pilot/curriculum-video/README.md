@@ -471,3 +471,18 @@ All 24 course cards arrived once in their canonical slots. Checks on encoded fra
 The public record passed structural validation. The two offering exceptions for the selected programme persist in the current workbook. BENBUSI211 has no planned offering in spring 2028 and BENECON314 has none in spring 2029. Both have an asterisk on the completed grid beside the existing explanation.
 
 Alba gives the opening, student and closing questions a little more time. A small pitch adjustment follows the aligned focus word in each. Two speech recognizers misheard “Can its” and “shaped” in the first render. Explicit phonemes clarified those words without changing the script or its course cues. In the delivered MP4, “Where could that question take them?” begins around 0:54. The silence immediately before the question measures 0.77 seconds, compared with 0.47 seconds in the second cut, using the same −40 dBFS threshold. The median voiced pitch falls from 286 Hz on “take” to 173 Hz on “them”. The full soundtrack measures −17.2 LUFS integrated and −0.4 dB true peak. Offline Whisper small.en recovered both corrected phrases, the question and both closing invitations from the downloaded MP4. Across the 450-word script, it transcribed “six-semester” as “sixth semester” and used an American spelling for “practises”. These are acoustic and intelligibility checks. The perceived naturalness of the reading still needs a listening judgment.
+
+## 17. Publication-quality editorial check for a video series — 22 November 2026
+
+**Goal:** Publish useful, academically grounded curriculum examples rather than mass-produced near-duplicates. AI-generated narration and programmatic rendering are acceptable production methods; neither alone establishes quality or a Google/YouTube ranking penalty.
+
+Before approving **each new video for publication**:
+
+1. **Distinct question and academic substance.** The student's interests and approved curriculum must support a specific question or theme. Narration must explain meaningful, example-specific connections between the chosen subjects and actual courses. Changing only names, labels or course cards does not justify another video.
+2. **Recognizable format, genuinely different story.** Reuse the established butterfly, gateway explanation, card animation, synthetic narration and closing identity. Vary the student interests, academic pathway, course-group explanations and intellectual emphasis where justified by the underlying record; do not invent variation for its own sake.
+3. **Human editorial approval.** Review academic accuracy, feasibility caveats, originality relative to already published videos, intelligibility, pacing and alignment of audio with visuals. Do not automatically publish generated videos. Approve only examples that add a discernible viewer benefit.
+4. **Selective release and feedback.** Start with substantively different examples. Monitor viewer retention and relevant comments, and use those observations to improve the series before increasing publication volume. Comments can inspire future examples but are not automatically permission to identify or feature their authors.
+
+**Publication decision test:** Would someone who watched the previous videos learn something meaningful and new from this example? If not, revise or withhold it. For companion webpages, publish helpful, accurate explanatory text and transcripts where appropriate, not large numbers of near-identical search-targeted pages.
+
+This is an editorial guardrail, **not** a claim that Google or YouTube automatically penalizes synthetic voices, repeated visual branding or all AI-assisted content. It does not change the current renderer, voice, or existing reviewed video.
