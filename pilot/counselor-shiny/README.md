@@ -11,9 +11,8 @@ This pilot tests the deterministic counselor-app architecture and uses the same 
 - opening a result loads a **pre-produced fixed counselor record** rather than generating a personalized comparison;
 - the same comparison can therefore be reached through programme-driven or interest-driven discovery;
 - each normal comparison shows exactly one external comparator and between one and three UCR alternatives; a completed exception shows the supported external programme and a reason, with no artificial UCR column;
-- a short overview identifies the closest UCR match and any additional alternatives before the curriculum table, using validated programme labels and audience-selected canonical concepts;
-- reviewed academic-year and route labels appear as secondary details, with applicable scope and curriculum warnings visible;
-- a short qualification explains the limits of curricular correspondence for degree equivalence, professional qualification and automatic master’s eligibility;
+- the programme identity and one short introduction lead directly to the table, with a single warning where the case requires it;
+- reviewed concepts, academic explanations, pathway details and general guidance are available below the table;
 - the first UCR alternative is the closest feasible match, while additional alternatives appear only when upstream production found them evidence-backed, coherent, substantively distinct and feasible;
 - the interface does not imply that every target has the same number of UCR alternatives;
 - external programme provenance is integrated into the comparator heading and links to the approved official source;
@@ -24,9 +23,19 @@ This pilot tests the deterministic counselor-app architecture and uses the same 
 
 ## Comparison presentation
 
-The counselor screen opens with a one-sentence personalization notice. The overview shows any applicable caution or qualified scope, highlights the closest UCR match, and lists any additional alternatives. Degree, professional and admissions qualifications and reviewed curriculum details follow in compact text.
+The shared renderer follows Master Specification §4.4. It opens at the external programme title after a selection from search. On ordinary pages the next elements are the common introduction, mobile column controls where applicable, and the table. The external title and institution come from the programme index and comparator metadata. Column headings use the existing case-specific labels.
 
-The **Academic differences and limitations** disclosure just above the table contains the existing reviewed programme-level notes and explanations, followed by the reviewed external programme description when available. Course and component notes stay with their respective table cells. The table opens with guidance on partial matches, blank cells and optional research credits. The Program Builder link follows the table.
+Below the table the disclosures use these existing fields:
+
+| Disclosure | Source |
+|---|---|
+| Scope of this comparison | Qualified records link here from the visible statement. `audience.comparisonScope` supplies the assessed and excluded scope. The count above the table sums documented component credits and can include credits outside the assessed scope. |
+| Academic differences and limitations | `audience.noteTypes` selects `notes[].text`. In their absence, use `audience.comparisonExplanation`. A short specialist note used as a caution above the table appears there once. |
+| About the UCR study options | The reviewed comparison explanation, if distinct and not already displayed, and the canonical `academicRationale.alternatives[].concept` entries selected by `audience.conceptProgrammeIds`. |
+| About the external programme | `audience.programmeDescription` and the reviewed `audience.curriculum` year, route and limitation. |
+| How to read the table | Shared guidance on gaps, independent research, illustrative options and the limits of degree and admissions claims. |
+
+Empty sections are omitted. The Program Builder link follows the disclosures. Individual alignment explanations remain in the academic record. Table cells show course or component names and credits, and the UCR course buttons open their descriptions.
 
 Search remains discovery rather than personalization. Relationship classifications such as `Direct programme interest`, `Stable study direction` and `Curricular topic` continue to affect search ranking internally, but counselor-facing result cards display only the matching interest phrases.
 
@@ -57,8 +66,8 @@ Edit only the entry for the permanent counselor ID to change how an existing **c
 These are **illustrative examples only**, not the current choices for these cases. Valid modes are:
 
 - `normal`: display the full comparison (also the default if no entry exists);
-- `caution`: display the full comparison with a prominent message above the summary; `message` is required and may be shared by a historical cohort or individualized;
-- `external-only`: display only the external programme/curriculum and optional `message`, not the UCR alternatives.
+- `caution`: display one qualification above the table, combined with the scope statement for a qualified comparison. The settings file requires `message` for provenance; the renderer uses reviewed content and shared public copy;
+- `external-only`: show the external programme and its verified curriculum under the external-only status.
 
 Search and discovery remain unchanged. An external-only result displays a "View programme" button. All original
 decision/canonical records, academic rationale, schedules, comparisons and QC reports remain untouched.
@@ -78,7 +87,7 @@ The complete 438-case review index was reconciled with the finished QC histories
 
 The 54 revised no-matches come from `docs/qc/counselor-stage2-preexisting-no-match-review.md`. The 35 assessed comparisons come from `data/counselor/qc/stage2-ucr-assessment.json`; the status and completeness reconciliation uses `data/counselor/review-programmes.json`. The 55-case review had one retained exception (cp-000301). The two comparison lists have no overlap.
 
-This is a **historical provenance flag**, not a fresh substantive judgment that each comparison is academically strong or weak. All 89 caution cases initially display the same agreed warning:
+This is a **historical provenance flag**, not a fresh substantive judgment that each comparison is academically strong or weak. All 89 initial caution settings recorded the same agreed warning:
 
 > UCR offers programmes in related academic fields, but these may differ substantially from the disciplinary programme shown. Important specialist subjects or forms of training may not be available at UCR.
 
@@ -186,6 +195,6 @@ Shiny remains the current implementation candidate. Hosting technology can still
 
 The optional canonical `audience` contract is documented in Production Instructions §7.4. Only selected audience prose and ordinary academic facts reach the counselor view. Internal research/context, arbitrary notes and legacy presentation messages are never narrative fallbacks. Unreviewed external-only records retain a status explanation and official link while their component lists are withheld. A reviewed partial list must explicitly identify its verified subset and incompleteness. Existing concepts remain canonical and are displayed by reference after review.
 
-At widths up to 700px, the original table scrolls between full-width columns. Previous/next, programme selection, current name/position and sticky block titles preserve the row/block structure and deliberate gaps. Back to overview returns to the comparison summary; desktop keeps the side-by-side table.
+At widths up to 700px, the original table scrolls between full-width columns. Previous/next, programme selection, current name/position and sticky block titles preserve the row/block structure and deliberate gaps. Back to overview returns to the programme title; desktop keeps the side-by-side table.
 
 Run `npm run test:counselor-audience`, `Rscript scripts/test-counselor-audience.R`, `python scripts/validate-course-descriptions.py` and the existing Shiny/compiler/bundle checks. `node scripts/test-counselor-rendered.mjs` starts local Shiny servers and tests real records plus isolated runtime-only fixtures; it requires Rscript and Playwright Chromium. `UCR_RSCRIPT`, `UCR_PLAYWRIGHT_MODULE` and `UCR_RENDERED_EVIDENCE_DIR` can select local test dependencies/output. The fixtures never write canonical records or presentation settings. This test does not deploy the app or approve academic cases.

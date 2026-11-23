@@ -273,10 +273,6 @@ course_description_dialog <- function(code, course_name, description) {
   )
 }
 
-ucr_programmes_for_summary <- function(record) {
-  Filter(is_ucr_programme, record$programmes %||% list())
-}
-
 # Only explicit audience content can authorize narrative display. Internal fields
 # remain in the canonical record and are never used as display fallbacks.
 audience_content <- function(record) {
@@ -341,70 +337,66 @@ qualified_comparison <- function(record) {
   }, logical(1)))
 }
 
-render_comparison_scope <- function(record) {
-  if (!qualified_comparison(record)) return(NULL)
-  s <- audience_content(record)$comparisonScope
-  if (!is.list(s) || !all(vapply(s[c("label", "assessed", "excluded")], function(x) nzchar(safe_text(x)), logical(1)))) return(NULL)
-  total <- sum(vapply(curriculum_view(record)$components, function(c) as.numeric(c$credits), numeric(1)))
-  div(class = "qualified-scope curriculum-status",
-      tags$h2(safe_text(s$label)),
-      tags$p(paste0("Nominal external degree: 180 EC. Documented components shown: ", format(total, trim = TRUE), " EC.")),
-      tags$p(tags$strong("Assessed scope: "), safe_text(s$assessed)),
-      tags$p(tags$strong("Outside the assessed scope: "), safe_text(s$excluded)),
-      tags$p("Unknown requirements are not open electives and are not assessed as matched or unmatched components."))
+# Use the reviewed note selections only. An override controls visibility but
+# its internal message never supplies reader-facing prose.
+selected_notes <- function(record) {
+  types <- unlist(audience_content(record)$noteTypes, use.names = FALSE)
+  Filter(function(n) safe_text(n$type) %in% types && nzchar(trimws(safe_text(n$text))),
+         record$notes %||% list())
 }
 
-render_audience_context <- function(record) {
-  view <- curriculum_view(record)
-  description <- audience_text(record, "programmeDescription")
-  explanation <- audience_text(record, "comparisonExplanation")
+caution_text <- function(notes) {
+  # Prefer a complete, short specialist note. Never truncate a qualification.
+  for (type in c("missing-specialist-components", "less-disciplinary-depth", "related-fields-not-full-discipline")) {
+    for (note in notes) {
+      value <- trimws(safe_text(note$text))
+      if (identical(note$type, type) && length(strsplit(value, "[[:space:]]+")[[1]]) <= 35)
+        return(value)
+    }
+  }
+  "UCR offers related study with substantial differences in specialist subjects or training."
+}
+
+render_comparison_details <- function(record, view, qualified, notes, warning) {
+  audience <- audience_content(record)
+  explanation <- trimws(audience_text(record, "comparisonExplanation"))
+  description <- trimws(audience_text(record, "programmeDescription"))
+  # Give each reviewed text one home. Notes explain specific differences.
+  # The overview describes the UCR options; the description belongs to the external degree.
+  note_text <- setdiff(trimws(vapply(notes, function(n) safe_text(n$text), character(1))), c("", warning))
+  differences <- note_text
+  if (!length(notes) && nzchar(explanation)) differences <- explanation
+  overview <- if (nzchar(explanation) && !explanation %in% c(differences, warning)) explanation else ""
+  concepts <- lapply(Filter(is_ucr_programme, record$programmes %||% list()), function(p) {
+    if (!p$id %in% unlist(audience$conceptProgrammeIds, use.names = FALSE)) return(NULL)
+    concept <- safe_text(alternative_rationale_for(record, p$id)$concept)
+    if (nzchar(concept)) tagList(tags$dt(visible_label(record, p)), tags$dd(concept))
+  })
+  concepts <- Filter(Negate(is.null), concepts)
+  scope <- audience$comparisonScope
   metadata <- c(if (nzchar(view$year)) paste("Academic year", view$year),
                 if (nzchar(view$route)) paste("External pathway:", view$route))
-  notes <- render_audience_notes(record)
-  div(class = "audience-context",
-    if (length(metadata)) tags$p(class = "comparison-metadata", paste(metadata, collapse = " · ")),
-    if (nzchar(view$limitation)) tags$p(
-      class = if (view$status == "unreviewed") "comparison-metadata" else "curriculum-status",
-      view$limitation),
-    if (nzchar(description) || nzchar(explanation) || length(notes)) {
-      tags$details(class = "comparison-details",
-        tags$summary(if (nzchar(explanation) || length(notes)) "Academic differences and limitations" else "About the external programme"),
-        notes,
-        if (nzchar(explanation)) tags$p(explanation),
-        if (nzchar(description)) tags$p(description))
-    }
-  )
-}
+  external <- setdiff(c(description, view$limitation),
+                      c("", warning, differences, overview, if (qualified) c(scope$assessed, scope$excluded)))
 
-render_audience_notes <- function(record) {
-  a <- audience_content(record)
-  notes <- Filter(function(n) safe_text(n$type) %in% unlist(a$noteTypes, use.names = FALSE), record$notes %||% list())
-  do.call(tagList, lapply(notes, function(n) tags$p(class = "source-note", safe_text(n$text))))
-}
-
-render_comparison_summary <- function(record) {
-  programmes <- ucr_programmes_for_summary(record)
-  if (!length(programmes)) return(NULL)
-
-  cards <- lapply(seq_along(programmes), function(index) {
-    programme <- programmes[[index]]
-    rationale <- alternative_rationale_for(record, programme$id)
-    concept <- if (is.null(rationale) || !programme$id %in% unlist(audience_content(record)$conceptProgrammeIds, use.names = FALSE)) "" else safe_text(rationale$concept)
-    div(
-      class = if (index == 1) "summary-card closest-match" else "summary-card",
-      div(class = "summary-kicker", if (index == 1) "Closest UCR match" else "Additional UCR option"),
-      tags$h2(visible_label(record, programme)),
-      if (nzchar(concept)) tags$p(concept)
-    )
-  })
-
-  div(
-    class = "comparison-summary comparison-summary--compact", id = "comparison-overview",
-    render_comparison_scope(record),
-    div(class = "summary-grid", do.call(tagList, cards)),
-    tags$p(class = "equivalence-note", "Curriculum correspondence does not establish degree equivalence, professional qualification or automatic eligibility for a master’s programme."),
-    tags$p(class = "comparison-metadata", "UCR options illustrate possible course combinations. Future course offerings may vary."),
-    render_audience_context(record)
+  div(class = "comparison-details",
+    if (qualified) tags$details(tags$summary("Scope of this comparison"),
+      div(id = "scope-boundary",
+        tags$p(tags$strong("Assessed scope: "), safe_text(scope$assessed)),
+        tags$p(tags$strong("Outside the assessed scope: "), safe_text(scope$excluded)),
+        tags$p("Unknown requirements are not open electives and are excluded from the comparison rows."))),
+    if (length(differences)) tags$details(tags$summary("Academic differences and limitations"),
+      lapply(differences, tags$p)),
+    if (nzchar(overview) || length(concepts)) tags$details(tags$summary("About the UCR study options"),
+      if (nzchar(overview)) tags$p(overview),
+      if (length(concepts)) tags$dl(concepts)),
+    if (length(external) || length(metadata)) tags$details(tags$summary("About the external programme"),
+      if (length(metadata)) tags$p(class = "comparison-metadata", paste(metadata, collapse = " · ")),
+      lapply(external, tags$p)),
+    tags$details(tags$summary("How to read the table"),
+      tags$p("The first UCR column shows the closest feasible course combination. A blank cell means there is no close correspondence in that row. Optional independent research falls outside each UCR programme’s 180 EC."),
+      tags$p("The same comparison appears for everyone who selects this programme. UCR course combinations are illustrative and future offerings may vary. Degree equivalence, professional qualification and admission to a master’s programme require separate assessment."),
+      if (qualified) tags$p("Optional UCR research does not establish equivalence with unverified external final training."))
   )
 }
 
@@ -451,14 +443,16 @@ render_compare_table <- function(record) {
 
   labels <- vapply(programmes, function(p) visible_label(record, p), character(1))
   div(class = "compare-view", `data-count` = length(programmes),
-    tags$p(class = "comparison-legend", if (qualified_comparison(record)) "Rows show curricular relationships, including partial matches, between documented external components and complete 180-EC UCR compositions. A blank cell beside a known component means no close correspondence in that row. Unknown requirements are excluded from these rows. Optional independent research is additional to each UCR composition’s 180 EC; it does not establish equivalence with unverified external final training." else "Rows show curricular relationships, including partial matches, rather than course equivalence. A blank cell means there is no closely comparable component in that row. Optional independent research is additional to the displayed 180 EC."),
     div(class = "comparison-navigation", role = "navigation", `aria-label` = "Comparison columns",
+      div(class = "column-picker",
+        tags$label(`for` = "column-select", "Programme column"),
+        tags$span(class = "column-position", `aria-live` = "polite", paste("1 of", length(programmes))),
+        div(class = "column-choice",
+          tags$span(class = "column-name", `aria-hidden` = "true", labels[[1]]),
+          tags$select(id = "column-select", class = "column-select",
+            do.call(tagList, lapply(seq_along(labels), function(i) tags$option(value = i - 1, labels[[i]])))))),
       tags$button(type = "button", class = "column-previous secondary-button", "← Previous"),
-      tags$label("Programme column", tags$select(class = "column-select", `aria-label` = "Programme column",
-        do.call(tagList, lapply(seq_along(labels), function(i) tags$option(value = i - 1, labels[[i]]))))),
       tags$button(type = "button", class = "column-next secondary-button", "Next →"),
-      tags$span(class = "column-position", `aria-live` = "polite", paste("1 of", length(programmes))),
-      tags$span(class = "column-name", labels[[1]]),
       tags$a(href = "#comparison-overview", "Back to overview")
     ),
     div(class = "compare-scroll", tabindex = "0", role = "region", `aria-label` = "Curriculum comparison; scroll horizontally to compare columns",
@@ -519,7 +513,7 @@ render_exception <- function(record, presentation_only = FALSE) {
       brand_header(),
       actionButton("back_to_search", "← Back to search", class = "secondary-button")),
     div(class = "comparison-head comparison-head--compact",
-      tags$h1(safe_text(meta$name)),
+      tags$h1(tabindex = "-1", safe_text(meta$name)),
       tags$p(class = "comparison-institution", safe_text(meta$institution))),
     div(class = "comparison-summary comparison-summary--compact exception-summary", id = "comparison-overview",
       tags$h2(class = "comparison-status", status),
@@ -546,11 +540,14 @@ render_exception <- function(record, presentation_only = FALSE) {
 render_comparison <- function(record) {
   if (identical(safe_text(record$recordStatus), "exception")) return(render_exception(record))
   setting <- presentation_setting(safe_text(record$id))
-  if ((curriculum_view(record)$status %in% c("partial", "unresolved") || !is.null(record$acceptance)) &&
-      !qualified_comparison(record)) {
+  view <- curriculum_view(record)
+  qualified <- qualified_comparison(record)
+  if ((view$status %in% c("partial", "unresolved") || !is.null(record$acceptance)) && !qualified)
     return(render_exception(record))
-  }
   if (identical(setting$mode, "external-only")) return(render_exception(record, presentation_only = TRUE))
+  notes <- selected_notes(record)
+  caution <- identical(setting$mode, "caution")
+  warning <- if (caution && !qualified) caution_text(notes) else ""
   meta <- comparator_meta(record)
   div(
     class = "comparison-shell",
@@ -559,18 +556,23 @@ render_comparison <- function(record) {
       actionButton("back_to_search", "← Back to search", class = "secondary-button")
     ),
     div(
-      class = "comparison-head comparison-head--compact",
-      tags$h1(safe_text(meta$name)),
+      class = "comparison-head comparison-head--compact", id = "comparison-overview",
+      tags$h1(tabindex = "-1", safe_text(meta$name)),
       tags$p(class = "comparison-institution", safe_text(meta$institution)),
-      tags$p("This pre-produced comparison is the same for every student.")
+      tags$p(class = "comparison-intro", "The table compares this degree with possible UCR programmes. Courses in the same row may overlap only partly.")
     ),
-    if (identical(setting$mode, "caution")) {
-      div(class = "presentation-caution",
-        tags$strong("Important: limited disciplinary correspondence"),
-        tags$p("UCR offers related academic study, but specialist subjects or forms of training may differ substantially."))
-    },
-    render_comparison_summary(record),
+    if (qualified) {
+      scope <- audience_content(record)$comparisonScope
+      total <- sum(vapply(view$components, function(c) as.numeric(c$credits), numeric(1)))
+      tags$p(class = "qualified-scope comparison-warning",
+        tags$strong(paste0(scope$label, ".")),
+        paste0(format(total, trim = TRUE), " of ", scope$nominalCredits,
+               " external EC are shown. The full external pathway remains unverified."),
+        if (caution) "Specialist training also differs.",
+        tags$a(href = "#scope-boundary", "See scope and exclusions"))
+    } else if (caution) tags$p(class = "presentation-caution comparison-warning", warning),
     render_compare_table(record),
+    render_comparison_details(record, view, qualified, notes, warning),
     div(class = "cta-row", tags$a(class = "primary-cta", href = PROGRAM_BUILDER_URL, target = "_blank", rel = "noopener", "Explore the UCR Program Builder ↗"))
   )
 }
@@ -612,23 +614,41 @@ ui <- fluidPage(
       .search-box{background:#fff;border:1px solid rgba(73,30,52,.16);border-radius:16px;padding:20px;margin-bottom:20px}.search-grid{display:grid;grid-template-columns:minmax(0,1fr) 260px 180px;gap:12px;align-items:end}.form-control{min-height:48px;border-radius:10px;border-color:rgba(73,30,52,.28);font-size:16px}.pilot-note{background:rgba(255,225,164,.45);border-radius:10px;padding:10px 13px;color:var(--grey);font-size:13px;margin-top:12px}
       .results-meta{color:var(--grey);margin:4px 0 12px}.results{display:grid;gap:10px}.result-card{display:flex;justify-content:space-between;align-items:center;gap:20px;background:#fff;border:1px solid rgba(73,30,52,.14);border-radius:14px;padding:17px 18px}.result-card h3{margin:0 0 4px;font-size:23px}.institution{margin:0;color:var(--grey)}.match-line{color:var(--grey);font-size:13px;margin-top:8px;line-height:1.4}.open-comparison{background:var(--plum);color:#fff;border:0;border-radius:9px;padding:11px 14px;font-weight:700;white-space:nowrap}.no-results{padding:26px;background:#fff;border-radius:14px;color:var(--grey)}
       .comparison-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:18px}.comparison-head h1{margin:0 0 8px;font-size:clamp(31px,3vw,43px)}.comparison-head p{color:var(--grey);max-width:850px}.secondary-button{background:transparent!important;color:var(--plum)!important;border:1px solid rgba(73,30,52,.28)!important;border-radius:10px}
-      .comparison-summary{margin:0 0 20px;background:#fff;border:1px solid rgba(73,30,52,.14);border-radius:14px;padding:18px}.route-note{margin-top:12px;padding:10px 12px;border-radius:9px;background:rgba(185,217,235,.32);color:var(--plum)}
+      .comparison-summary{background:#fff;border:1px solid rgba(73,30,52,.14);border-radius:14px}
       .comparison-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 0}.comparison-toolbar .ucr-header{padding:0;min-width:0}.comparison-toolbar .ucr-logo{width:180px;max-width:100%;height:auto}
       .comparison-head--compact{display:block;margin-bottom:12px}.comparison-head--compact h1{margin-bottom:3px;overflow-wrap:anywhere}.comparison-head--compact p{margin:0}.comparison-institution{font-weight:700}.comparison-summary--compact{padding:14px;margin-bottom:12px}
-      .summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px}.summary-card{border:1px solid rgba(73,30,52,.14);border-radius:9px;padding:10px 12px;min-width:0;overflow-wrap:anywhere}.closest-match{border-color:rgba(73,30,52,.4);background:rgba(185,217,235,.15)}.summary-card h2{font-family:Inter,Arial,sans-serif;font-size:17px;font-weight:700;margin:3px 0;color:var(--plum)}.summary-card p{margin:0;color:var(--grey);font-size:14px;line-height:1.4}.summary-kicker{font-size:12px;font-weight:700;color:var(--grey)}
-      .equivalence-note{margin:10px 0 5px;color:var(--black);font-weight:600}.comparison-metadata{margin:3px 0;color:var(--grey);font-size:13px}.comparison-details{margin-top:8px}.comparison-details summary{display:list-item;color:var(--plum);font-weight:700;cursor:pointer}.comparison-details p{margin:7px 0 0}.comparison-summary--compact .qualified-scope{margin:0 0 10px}.comparison-summary--compact .qualified-scope h2{font-size:21px;margin:0 0 5px}.comparison-summary--compact .qualified-scope p{margin:3px 0}.comparison-summary--compact .audience-context .curriculum-status{margin:6px 0}
+      .comparison-head .comparison-intro{margin:8px 0 0;max-width:85ch;line-height:1.45}
+      .comparison-metadata{margin:3px 0;color:var(--grey);font-size:13px}
+      .comparison-details{max-width:85ch;margin-top:20px}.comparison-details details{border-bottom:1px solid rgba(73,30,52,.2);padding:0 0 0 2px}.comparison-details summary{display:list-item;color:var(--plum);font-weight:700;cursor:pointer;padding:12px 0}.comparison-details p,.comparison-details dl{margin:0 0 12px;line-height:1.5}.comparison-details dd+dt{margin-top:10px}
       .exception-summary{max-width:880px}.exception-summary .comparison-status{font-size:clamp(21px,2.5vw,28px);margin:0 0 9px}.exception-summary p{line-height:1.55}.exception-metadata{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:10px;font-size:13px;color:var(--grey)}
       .external-curriculum{max-width:880px}.external-curriculum h2{font-size:clamp(21px,2.5vw,28px);margin:0 0 9px}.external-table th,.external-table td{padding:8px 12px}.external-table th:last-child,.external-table td:last-child{width:88px;text-align:right;white-space:nowrap}
-      .presentation-caution{margin:0 0 12px;padding:10px 14px;border:2px solid #995e24;border-radius:12px;background:#fff1d6;color:#593711;line-height:1.45}.presentation-caution strong{display:block;font-size:16px}.presentation-caution p{margin:3px 0 0}
+      .comparison-warning{margin:0 0 12px;border-left:4px solid #995e24;padding:7px 12px;background:#fff1d6;color:#593711;line-height:1.45}.comparison-warning a{text-decoration:underline}
       .compare-scroll{overflow-x:auto;border:1px solid rgba(73,30,52,.14);border-radius:14px;background:#fff}.compare-table{border-collapse:separate;border-spacing:0;min-width:min(1120px,100%);width:100%;table-layout:fixed}.compare-table th,.compare-table td{border-right:1px solid rgba(73,30,52,.1);border-bottom:1px solid rgba(73,30,52,.1);padding:13px 15px;vertical-align:top}.compare-table thead th{background:var(--plum);color:#fff;border-right-color:rgba(255,255,255,.18)}.programme-title{font-size:16px;font-weight:700}.programme-title a,.programme-source{color:inherit}.programme-source{display:inline-block;margin-top:5px;color:#fff;opacity:.82;font-size:12px}.block-row th{background:var(--blue);color:var(--plum);font-size:14px;font-weight:700}.comparison-cell{background:#fff;line-height:1.35}.comparison-cell.emphasis{background:rgba(255,225,164,.36)}.empty-cell{background:rgba(92,96,107,.035)}.ec-badge{display:inline-block;margin-top:6px;padding:2px 6px;border-radius:999px;background:rgba(73,30,52,.08);color:var(--grey);font-size:11px}.transparency-note{margin-top:18px;background:#fff;border-left:5px solid var(--plum);padding:14px 17px;color:var(--grey);line-height:1.5}.transparency-note p{margin:5px 0 0}.cta-row{display:flex;justify-content:flex-end;margin-top:20px}.primary-cta{display:inline-block;background:var(--plum);color:#fff!important;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none!important}
       .cell-text,.programme-title{overflow-wrap:anywhere}.course-link{max-width:100%;overflow-wrap:anywhere;padding:0;border:0;background:none;color:var(--plum);font:inherit;text-align:left;text-decoration:underline;cursor:pointer}.course-link:hover,.course-link:focus-visible{color:var(--black)}.modal-content{border-radius:14px}.modal-title{color:var(--plum);font-family:IvyMode,Georgia,serif}.course-description{font-size:15px;line-height:1.6}
-      .comparison-navigation{display:none}.comparison-legend{font-size:14px;color:var(--grey);line-height:1.5}.curriculum-status,.audience-limitation{border-left:4px solid var(--plum);padding:8px 12px;background:rgba(255,225,164,.28)}
-      @media(max-width:700px){.comparison-navigation{display:flex;position:sticky;top:0;z-index:10;gap:8px;flex-wrap:wrap;align-items:center;background:var(--white);padding:10px 0;border-bottom:2px solid var(--plum)}.comparison-navigation label{width:100%;order:-1;margin:0;font-size:13px}.column-select{display:block;width:100%;max-width:100%;min-height:44px;border:1px solid var(--plum);border-radius:7px;background:white;font-size:15px}.comparison-navigation button{min-height:44px;padding:7px 10px}.column-position,.comparison-navigation a{font-size:13px}.compare-view .compare-table{width:calc(var(--programme-count) * (100vw - 30px));min-width:calc(var(--programme-count) * (100vw - 30px))}.block-title{position:sticky;left:15px;display:block;width:calc(100vw - 60px);max-width:calc(100vw - 60px)}.column-name{width:100%;font-size:14px;font-weight:700;overflow-wrap:anywhere}.summary-grid{grid-template-columns:1fr}.external-table{min-width:100%}}
+      .comparison-navigation{display:none}
+      @media(max-width:700px){
+        .comparison-navigation{display:flex;position:sticky;top:0;z-index:10;gap:6px 8px;flex-wrap:wrap;align-items:center;background:var(--white);padding:6px 0;border-bottom:2px solid var(--plum)}
+        .column-picker{width:100%;display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:2px;font-size:13px}.column-picker label{margin:0}
+        .column-choice{position:relative;grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;padding:5px 10px;border:1px solid var(--plum);border-radius:7px;background:white}
+        .column-choice::after{content:'▾';color:var(--plum)}.column-choice:focus-within{outline:2px solid var(--plum);outline-offset:1px}
+        .column-name{min-width:0;overflow-wrap:anywhere;font-size:15px;font-weight:700}.column-select{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;font-size:16px}
+        .comparison-navigation button{min-height:44px;padding:6px 10px}.comparison-navigation a{margin-left:auto;font-size:13px}
+        .compare-view .compare-table{width:calc(var(--programme-count) * (100vw - 30px));min-width:calc(var(--programme-count) * (100vw - 30px))}
+        .block-title{position:sticky;left:15px;display:block;width:calc(100vw - 60px);max-width:calc(100vw - 60px)}.external-table{min-width:100%}
+      }
       @media(max-width:900px){.container-fluid{padding:0 14px 40px}.search-grid{grid-template-columns:1fr}.result-card{display:block}.open-comparison{margin-top:13px}.comparison-head{display:block}.comparison-head .secondary-button{margin-top:10px}.ucr-logo{max-width:210px}}
     ")),
     tags$link(rel = "stylesheet", href = "ucr-assets/css/brand.css"),
     tags$link(rel = "stylesheet", href = "ucr-assets/css/shiny.css"),
     tags$script(HTML("
+      $(document).on('shiny:bound', '#back_to_search', function(){
+        const heading = this.closest('.comparison-shell').querySelector('h1');
+        heading.focus({preventScroll:true});
+        window.scrollTo(0, 0);
+      });
+      $(document).on('click', '.qualified-scope a', function(){
+        document.getElementById('scope-boundary').closest('details').open = true;
+      });
       function selectColumn(view, index) {
         const scroll = view.querySelector('.compare-scroll');
         const count = Number(view.dataset.count);

@@ -10,8 +10,9 @@ const {chromium} = require(process.env.UCR_PLAYWRIGHT_MODULE || 'playwright');
 const out = path.resolve(process.env.UCR_RENDERED_EVIDENCE_DIR || '/tmp/ucr-counselor-shared-rendered');
 fs.mkdirSync(out, {recursive:true});
 const results=[];
+const settings = JSON.parse(fs.readFileSync('data/counselor/presentation-overrides.json')).cases;
 const cases = {
-  actual: [['cp-000377','Actuarial Science'],['cp-000003','Pedagogical'],['cp-000001','Public Administration'],['cp-000019','Arts and Culture'],['cp-000035','Biology'],['cp-000330','Mechanical Engineering'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000311','Notarial Law'],['cp-000013','Philosophy of a Specific Discipline'],['cp-000227','Public Governance']],
+  actual: [['cp-000377','Actuarial Science'],['cp-000003','Pedagogical'],['cp-000001','Public Administration'],['cp-000002','International Social Challenges'],['cp-000043','English Language and Culture'],['cp-000097','Medicine'],['cp-000269','Psychology & Technology'],['cp-000019','Arts and Culture'],['cp-000035','Biology'],['cp-000330','Mechanical Engineering'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000311','Notarial Law'],['cp-000013','Philosophy of a Specific Discipline'],['cp-000227','Public Governance']],
   fixtures: [['cp-000004','Psychology'],['cp-000002','Management of International'],['cp-000005','Psychology'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000019','Arts and Culture'],['cp-000003','Pedagogical']]
 };
 // Stage 1 representatives use actual canonical data, including still-unresolved controls.
@@ -58,6 +59,19 @@ try {
       assert.equal(await unexpected.count(), 0, `${id}: unexpected course commentary`);
       if (variant === 'actual') {
        const record = JSON.parse(fs.readFileSync(`data/counselor/comparisons/${id}.json`));
+       const mode = settings[id]?.mode;
+       assert.equal(await page.locator('.comparison-warning').count(), mode==='caution' || record.acceptance?.basis==='qualified-comparison' ? 1 : 0);
+       assert.equal(await page.locator('.programme-source[href="https://ucr.nl/education/courses/"]').count(),record.programmes.length-1);
+       const audience = record.audience || {};
+       const reviewed = [
+        audience.programmeDescription, audience.comparisonExplanation, audience.curriculum?.limitation,
+        ...(record.notes || []).filter(n=>audience.noteTypes?.includes(n.type)).map(n=>n.text),
+        ...(record.academicRationale?.alternatives || []).filter(a=>audience.conceptProgrammeIds?.includes(a.programmeId)).map(a=>a.concept)
+       ];
+       const paragraphs = await page.locator('.comparison-details p, .comparison-details dd, .presentation-caution').allTextContents();
+       for (const value of new Set(reviewed.filter(Boolean))) {
+        assert.equal(paragraphs.filter(p=>p.trim()===value.trim()).length,1,`${id}: expected reviewed text once: ${value}`);
+       }
        const expected = record.blocks.flatMap(block => block.rows.map(row => record.programmes.map(programme => {
         const cell = normalizeCell(row.cells[programme.id]);
         if (!cell) return null;
@@ -75,26 +89,47 @@ try {
        assert.deepEqual(await page.locator('.block-title').allTextContents(), record.blocks.map(block => block.title));
       }
       assert.ok(!body.includes('What this comparison shows'));
-      assert.ok(await page.locator('.closest-match h2').isVisible());
-      assert.ok(await page.getByText('This pre-produced comparison is the same for every student.', {exact:true}).isVisible());
-      assert.match(await page.locator('.equivalence-note').innerText(), /degree equivalence, professional qualification or automatic eligibility/);
-      assert.match(await page.locator('.comparison-legend').innerText(), /partial matches.*blank cell.*Optional independent research.*180 EC/);
+      assert.equal(await page.locator('.summary-card,.comparison-summary,.comparison-legend').count(), 0);
+      const intro = await page.locator('.comparison-intro').innerText();
+      assert.ok(intro.split(/\s+/).length <= 30);
+      const layout = await page.locator('.comparison-shell').evaluate(el => ({
+       sections: Array.from(el.children, child => child.classList[0]),
+       tableTop: el.querySelector('.compare-table').getBoundingClientRect().top,
+       firstCourseTop: el.querySelector('tbody tr:not(.block-row)').getBoundingClientRect().top,
+       scroll: window.scrollY
+      }));
+      const warnings = await page.locator('.comparison-warning').count();
+      assert.ok(warnings <= 1);
+      assert.deepEqual(layout.sections, ['comparison-toolbar','comparison-head',
+       ...(warnings ? [await page.locator('.comparison-warning').evaluate(el => el.classList[0])] : []),
+       'compare-view','comparison-details','cta-row']);
+      assert.equal(layout.scroll, 0, `${id}: opening from search must start at the title`);
+      assert.ok(layout.tableTop < viewport.height, `${id}: table below the fold (${layout.tableTop}px)`);
+      if (size==='desktop' || !warnings)
+       assert.ok(layout.firstCourseTop < viewport.height, `${id}: first course below the fold (${layout.firstCourseTop}px)`);
+      assert.ok(await page.locator('.cta-row a[href="https://program.ucr.nl/"]').count());
      }
-     const details = page.locator('.audience-context .comparison-details');
-     let detailsText = '';
-     if (await details.count()) {
-      assert.equal(await details.evaluate(el=>el.open),false);
-      assert.ok(await details.evaluate(el=>Boolean(el.compareDocumentPosition(document.querySelector('.compare-view')) & Node.DOCUMENT_POSITION_FOLLOWING)));
-      await details.locator('summary').click();
-      assert.equal(await details.evaluate(el=>el.open),true);
-      detailsText = await details.innerText();
-      assert.ok(!detailsText.includes('INTERNAL-SENTINEL'),`${variant}/${id}: research leakage in details`);
-      await details.locator('summary').click();
+     const details = page.locator('.comparison-details details');
+     const texts = [];
+     for (const disclosure of await details.all()) {
+      assert.equal(await disclosure.evaluate(el => el.open), false);
+      assert.ok(await disclosure.evaluate(el => Boolean(document.querySelector('.compare-view')
+       .compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING)));
+      await disclosure.locator('summary').click();
+      assert.equal(await disclosure.evaluate(el => el.open), true);
+      texts.push(await disclosure.innerText());
+      await disclosure.locator('summary').click();
+     }
+     const detailsText = texts.join('\n');
+     assert.ok(!detailsText.includes('INTERNAL-SENTINEL'), `${variant}/${id}: research leakage in details`);
+     if (texts.length) {
+      assert.match(detailsText, /Degree equivalence, professional qualification and admission/);
+      assert.match(detailsText, /blank cell.*Optional independent research.*180 EC/);
      }
      if (id==='cp-000377') {
       const actuarial = JSON.parse(fs.readFileSync('data/counselor/comparisons/cp-000377.json'));
       assert.equal(await page.locator('.comparison-head h1').innerText(),actuarial.comparator.name);
-      assert.ok(body.includes(actuarial.academicRationale.alternatives[0].concept));
+      assert.ok(detailsText.includes(actuarial.academicRationale.alternatives[0].concept));
       assert.ok(detailsText.includes('no dedicated insurance or pension sequence or actuarial thesis'));
      }
      assert.equal(await page.locator('.comparison-shell a[href^="https://"]').count()>0,true);
@@ -124,10 +159,11 @@ try {
       await page.locator('.compare-view').evaluate(el=>window.scrollTo(0,el.getBoundingClientRect().top+window.scrollY));
       await page.screenshot({path:path.join(out,`${variant}-${id}-${size}-table.png`)});
       await page.locator('.comparison-navigation a').click();
+      assert.ok(await page.locator('#comparison-overview').evaluate(el=>Math.abs(el.getBoundingClientRect().top)<2));
      }
      const modals=[];
      if(variant==='fixtures' && id==='cp-000019') {
-      assert.ok(body.includes('Qualified academic-core comparison') && body.includes('Nominal external degree: 180 EC') && body.includes('Unknown requirements are not open electives'));
+      assert.ok(body.includes('Qualified academic-core comparison') && body.includes('of 180 external EC') && detailsText.includes('Unknown requirements are not open electives'));
       assert.equal(await page.locator('.compare-view').count(),1);
      }
      if(id==='cp-000019') {
@@ -159,20 +195,29 @@ try {
      const externalOnly = (variant === 'fixtures' && id === 'cp-000002') || id === 'cp-000311';
      if(variant==='actual' && current.acceptance?.basis==='qualified-comparison' && !externalOnly) {
       assert.equal(await page.locator('.compare-view').count(),1);
-      assert.ok(body.includes(current.audience.comparisonScope.label) && body.includes(current.audience.comparisonScope.excluded));
-      assert.ok(body.includes('Nominal external degree: 180 EC') && body.includes('Unknown requirements are not open electives'));
-      assert.equal(await page.locator('.course-link').count()>0,true);
-      if(id==='cp-000317') assert.ok(body.includes('final 30 EC') && body.includes('150 EC'));
+      const scope = current.audience.comparisonScope;
+      const total = current.comparator.components.reduce((sum,c) => sum+c.credits, 0);
+      const banner = page.locator('.qualified-scope');
+      assert.ok((await banner.innerText()).includes(scope.label));
+      assert.ok((await banner.innerText()).includes(`${total} of 180 external EC`));
+      assert.ok(!(await banner.innerText()).includes(scope.excluded));
+      await banner.getByRole('link').click();
+      const boundary = page.locator('#scope-boundary');
+      assert.ok(await boundary.isVisible());
+      const scopeText = await boundary.innerText();
+      assert.ok(scopeText.includes(scope.assessed) && scopeText.includes(scope.excluded));
+      assert.ok(scopeText.includes('Unknown requirements are not open electives'));
+      assert.ok(await page.locator('.course-link').count()>0);
+      if(id==='cp-000317') assert.ok(scopeText.includes('final 30 EC') && total===150);
       if(id==='cp-000040') {
        assert.equal(current.acceptance.scope,'academic-core');
-       assert.equal(current.comparator.components.reduce((sum,c)=>sum+c.credits,0),165);
-       assert.ok(body.includes('165') && body.includes('15 EC') && body.includes('restricted Arts minor'));
+       assert.equal(total,165);
+       assert.ok(scopeText.includes('15 EC') && scopeText.includes('restricted Arts minor'));
       }
-      if(id==='cp-000113') {assert.equal(current.acceptance.scope,'academic-core');assert.equal(current.programmes.length,3);assert.ok(body.includes('150')&&/final\s+30\s+EC/.test(body));}
-      if(id==='cp-000397') {assert.equal(current.acceptance.scope,'documented-curriculum');assert.equal(current.comparator.components.reduce((sum,c)=>sum+c.credits,0),177);assert.ok(body.includes('177')&&/3\s+EC/.test(body));}
+      if(id==='cp-000113') {assert.equal(current.acceptance.scope,'academic-core');assert.equal(current.programmes.length,3);assert.ok(total===150&&/final\s+30\s+EC/.test(scopeText));}
+      if(id==='cp-000397') {assert.equal(current.acceptance.scope,'documented-curriculum');assert.ok(total===177&&/3\s+EC/.test(scopeText));}
       if(id==='cp-000266') assert.equal(current.programmes.length,3,'Two independently reviewed UCR options must be present');
-      const scopeBox=await page.locator('.qualified-scope').boundingBox(),contextBox=await page.locator('.audience-context').first().boundingBox();
-      assert.ok(scopeBox && contextBox && scopeBox.y<contextBox.y,`${id}: scope must precede explanatory prose`);
+      await boundary.locator('..').locator('summary').click();
       const codes={'cp-000250':'HCBBIOM211','cp-000060':'HCBCOGN312','cp-000033':'BENBUSI112','cp-000440':'BENENTR111','cp-000317':'GOSLAWJ311','cp-000266':'ENSDELT311','cp-000041':'BENBUSI312','cp-000040':'MCCCOMM312','cp-000113':'MCCCOMM311','cp-000397':'BENECON311'};
       const code=codes[id],button=page.locator(`.course-link[data-code="${code}"]`).first();
       if(size==='mobile'){const index=await button.evaluate(b=>Array.from(b.closest('tr').children).indexOf(b.closest('td')));await page.locator('.column-select').selectOption(String(index));await page.waitForTimeout(250);}
@@ -234,8 +279,13 @@ try {
      }
      if (id === 'cp-000119' && variant === 'actual') assert.ok(!body.includes('Philosophy, myth & cultural meaning'));
      if (id === 'cp-000330') assert.ok(!body.includes('Computational systems, robotics & sustainable technology'));
-     if(variant==='fixtures'&&id==='cp-000005'){assert.ok(detailsText.includes('other content remains under review'));assert.ok(body.includes('Curriculum details are awaiting review'));}
-     if(variant==='fixtures'&&id==='cp-000004')assert.ok(body.includes('specialist subjects or forms of training may differ'));
+     if(variant==='fixtures'&&id==='cp-000005'){assert.ok(detailsText.includes('other content remains under review'));assert.ok(detailsText.includes('Curriculum details are awaiting review'));}
+     if (variant==='fixtures' && id==='cp-000004') assert.equal(await page.locator('.presentation-caution').count(),1);
+     if (variant==='actual' && id==='cp-000097') {
+      const note=current.notes.find(n => n.type==='related-fields-not-full-discipline').text;
+      assert.equal(await page.locator('.presentation-caution').innerText(),note);
+      assert.ok(!detailsText.includes(note));
+     }
      if(variant==='actual'&&id==='cp-000035') {
       const currentBiology = JSON.parse(fs.readFileSync('data/counselor/comparisons/cp-000035.json', 'utf8'));
       assert.ok(detailsText.includes(currentBiology.audience.comparisonExplanation), 'CP035 reviewed comparison explanation missing');
