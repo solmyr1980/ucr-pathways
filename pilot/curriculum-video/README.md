@@ -600,25 +600,10 @@ The 55 English subtitle cues match the full script. Independent transcription of
 
 MP4 SHA-256 `93ce02e7d7912a338c00e2d754fddac55c972aaa05d63933a1bdbe8786285ddd`
 
-## 30. Similar-profile alumni destinations before QR invitation — revised 23 November 2026
+## 30. Future alumni destinations — deferred shared Pathways enhancement (23 November 2026)
 
-**Current editorial and privacy direction; supersedes the linked-individual-trajectory approach previously recorded in this section.** After the completed illustrative curriculum and its discipline highlights, introduce destinations pursued by alumni with academically *similar* profiles, not alumni represented as having completed the exact programme or exact combination. Keep the closing QR invitation after the destination scenes.
+**Decision:** Do not implement alumni master's or employer linkages specifically for the curriculum video. They belong to a future **shared, optional UCR Pathways enrichment** for both student records and counselor comparisons; the Master Specification §6.1 owns the durable decision. Once the shared method is designed, approved and implemented, videos may reuse the same publication-safe enrichment rather than developing a parallel matching workflow.
 
-**Proposed sequence and narration (refine after reviewing actual locally selected destinations):**
+**Current video:** Proceed using the successful sixth review cut as the baseline, without the proposed post-curriculum master's and employer scenes. Preserve the completed curriculum and discipline highlights, then move directly to the established QR-code/interest-submission invitation. Do not insert a placeholder question about graduate destinations, delay rendering for alumni evidence, or change existing validated programme content, narration standards, subtitles, YouTube package or QR checks to accommodate this deferred feature. Do not publish without separate approval.
 
-1. Show the completed curriculum and ask: “What could you do with a degree that combines these disciplines?”
-2. Display a curated selection of master's programmes actually pursued by UCR graduates selected through the private similarity analysis. Suggested narration: “Graduates with similar academic profiles have gone on to study master's programmes such as these.”
-3. Display a separately curated selection of employers/organisations where graduates from the selected alumni pool have worked. Suggested narration: “And they have worked at organisations such as these.”
-4. Continue to the existing interest-submission invitation, URL and QR code.
-
-**Local-only evidence workflow:**
-
-- Use the already-approved **illustrative video academic profile** as the starting point. Establish its constituent disciplines and their relative importance based on the actual programme, rather than infer that its exact 24-course structure existed in any alumnus's history.
-- On the user's local computer or another institutionally approved restricted environment, match that academic profile to individual alumni's completed tracks using a documented, academically intelligible similarity rule. Select an appropriate pool of genuinely comparable alumni; verify that the threshold and size yield sufficient, not misleading, examples. No production code should require the private alumni source to run on GitHub Actions.
-- Retrieve actual master's destinations and actual employer records from the selected pool. Keep master's and employer lists **separate**; do not publish individual alumni identities, exact completed-track combinations, alumni IDs, matching scores, master–employer pairs, or person-by-person trajectories. Do not imply that the shown employers follow the specifically shown master's programmes for the same people.
-- Review the locally generated shortlist for accuracy, source-quality problems, distinctive outliers, potential indirect identification, and suitability for public use. Do not assume that “similar” wording, a large matching pool or separate lists automatically anonymises every released name. Institutional privacy and lawful-use requirements continue to apply.
-- Upload to the public GitHub repository **only** the per-video, explicitly reviewed, minimal publication-ready lists of destinations, plus non-identifying video metadata if necessary. No raw, cleaned or individual-level alumni dataset, track list, or restricted selection crosswalk belongs in public GitHub history. The video renderer consumes that reviewed per-video data without accessing alumni records.
-
-**Claim boundary:** The video must accurately claim only that graduates with academic profiles similar to the *illustrative* profile have attended the listed programmes and/or worked at the listed organisations. This is observational illustration, **not** evidence that students with an exact two- or three-track combination followed a given route, and not a promise of admission or employment. If similarity is too weak or suitable publication-safe examples cannot be selected, omit or reword the destination scene rather than force a misleading claim.
-
-Preserve the existing 24-course animation, selected clusters, narration style, subtitle-safe lower band, synchronized English SRT, publication materials, and QR scan checks. No new render or external publication is authorized merely by this decision.
+**Later videos:** Revisit the originally proposed bridge (“What could you do with a degree that combines these disciplines?” → selected master's destinations → selected employers → QR invitation) only when the central student/counselor enrichment provides verified, privacy-reviewed destinations and appropriate wording. The old proposals in this section are historical, not current render instructions.
