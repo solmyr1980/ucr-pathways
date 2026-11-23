@@ -328,6 +328,16 @@ When a comprehensive counselor re-audit is authorised, each case proceeds throug
 
 ---
 
+## 6.1 Deferred alumni postgraduate and career linkages
+
+Postgraduate study and career destinations are a potential **shared enrichment of approved UCR programme profiles**, relevant to both student-origin records and counselor comparisons. Curriculum videos and other public presentations are downstream uses of that shared enrichment, **not** independently responsible for defining academic-to-alumni matching methodology.
+
+**Current production decision (23 November 2026):** Student records and counselor comparisons proceed without alumni master's-programme or employer linkages. Such destinations are not required for academic completeness, validation, publication eligibility or video generation. Do not delay current production or retrofit records merely to supply them.
+
+When this enrichment is developed, define one reusable, academically defensible method to compare an approved curriculum's profile with private alumni education records. Perform individual-level matching and destination selection only in an appropriately restricted local/institutional environment. Keep private completed tracks, personal trajectories and match-level evidence out of the public GitHub repository. Any published destination claims must be proportionate, privacy-reviewed, and derived from an approved minimal per-record publication export; avoid identifying individual alumni or asserting that an alumnus completed the exact illustrated programme unless specifically authorised and supported.
+
+Design the enhancement for both student and counselor outputs before integrating it into videos, and keep it optional so existing academic records and public formats remain valid without it.
+
 # 7. Public website
 
 The public website is a **curated communication and showcase layer**, not the exhaustive counselor database and not the private student app.
