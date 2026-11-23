@@ -22,6 +22,8 @@ Academic production uses:
 
 Do not duplicate this procedure in batch assignments or other workflow documents.
 
+**Deferred optional alumni outcomes:** Continue producing and validating student and counselor records without master's-programme or employer linkages. Such information is not part of the current academic record completion requirements or a precondition for generating downstream videos. Future alumni matching must be designed once as a shared, privacy-controlled enrichment under Master Specification §6.1; do not improvise per-video or per-record destination matching during normal production.
+
 ---
 
 # 1. Shared academic principles
