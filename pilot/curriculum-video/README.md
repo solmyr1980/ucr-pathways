@@ -599,11 +599,3 @@ The downloaded MP4 decoded in full at 1920 × 1080, 24 fps, with 199.167 seconds
 The 55 English subtitle cues match the full script. Independent transcription of the downloaded audio recovered all 445 spoken words, using the US spelling “practices” for “practises”. The recognized words overlapped their subtitle windows within a 0.24-second tolerance. Both ZIP archives matched their Actions digests and contained identical subtitles. The hybrid thumbnail, title, draft description and pinned comment matched the approved source. The approved human-review sentence remains in `REVIEW.md` for insertion after a person has reviewed this MP4.
 
 MP4 SHA-256 `93ce02e7d7912a338c00e2d754fddac55c972aaa05d63933a1bdbe8786285ddd`
-
-## 30. Future alumni destinations — deferred shared Pathways enhancement (23 November 2026)
-
-**Decision:** Do not implement alumni master's or employer linkages specifically for the curriculum video. They belong to a future **shared, optional UCR Pathways enrichment** for both student records and counselor comparisons; the Master Specification §6.1 owns the durable decision. Once the shared method is designed, approved and implemented, videos may reuse the same publication-safe enrichment rather than developing a parallel matching workflow.
-
-**Current video:** Proceed using the successful sixth review cut as the baseline, without the proposed post-curriculum master's and employer scenes. Preserve the completed curriculum and discipline highlights, then move directly to the established QR-code/interest-submission invitation. Do not insert a placeholder question about graduate destinations, delay rendering for alumni evidence, or change existing validated programme content, narration standards, subtitles, YouTube package or QR checks to accommodate this deferred feature. Do not publish without separate approval.
-
-**Later videos:** Revisit the originally proposed bridge (“What could you do with a degree that combines these disciplines?” → selected master's destinations → selected employers → QR invitation) only when the central student/counselor enrichment provides verified, privacy-reviewed destinations and appropriate wording. The old proposals in this section are historical, not current render instructions.
