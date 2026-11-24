@@ -25,9 +25,9 @@ This pilot tests the deterministic counselor-app architecture and uses the same 
 
 The shared renderer follows Master Specification §4.4. It opens at the external programme title after a selection from search. On ordinary pages the next elements are the common introduction, mobile column controls where applicable, and the table. The external title and institution come from the programme index and comparator metadata. Column headings use the existing case-specific labels.
 
-The default paragraph explains the closest feasible option, shared rows and blank cells. A case-specific paragraph replaces it in full when the approved record warrants a qualification. The optional `introduction` in `data/counselor/presentation-overrides.json` is the only per-case text used for this purpose. The historical `message` stays internal. Caution and qualified comparisons require individually reviewed copy. Qualified paragraphs include `{credits}` once. The renderer inserts the documented and nominal totals and links to the single collapsed disclosure of `audience.comparisonScope.assessed` and `.excluded`. The text identifies which part was actually assessed, even when all 180 EC are listed.
+The opening paragraph identifies the closest feasible option and ends with the shared sentences about course content and blank cells. When the approved record warrants a qualification, case-specific sentences replace the default opening. The optional `introduction` in `data/counselor/presentation-overrides.json` is the only per-case text used for this purpose. The historical `message` stays internal. Caution and qualified comparisons require individually reviewed copy. Qualified paragraphs include `{credits}` once. The renderer inserts the documented and nominal totals and links to the single collapsed disclosure of `audience.comparisonScope.assessed` and `.excluded`. The text identifies which part was actually assessed, even when all 180 EC are listed.
 
-Ordinary and caution pages end with the table and Program Builder link. Academic narratives remain in the canonical records. Table cells show course or component names and credits, and the UCR course buttons open their descriptions. Exception and external-only pages use their separate renderer.
+Ordinary and caution pages end with the table and Program Builder link. Academic narratives remain in the canonical records. Table cells show course or component names and credits, and the UCR course buttons open their descriptions. The closing section groups research with open choices where the academic pairings allow it. Exception and external-only pages introduce the external degree before giving any applicable reason for the missing comparison.
 
 Search remains discovery rather than personalization. Relationship classifications such as `Direct programme interest`, `Stable study direction` and `Curricular topic` continue to affect search ranking internally, but counselor-facing result cards display only the matching interest phrases.
 
@@ -46,7 +46,7 @@ Edit the entry for the permanent counselor ID to change how an existing comparis
     "cp-000043": {
       "mode": "caution",
       "message": "UCR offers related literature and cultural study, but not the English-language training or specialist linguistics sequence of this degree.",
-      "introduction": "The closest feasible UCR combination approaches English through literature, stylistics and cultural history. Read shared rows as connections in subject matter. They do not imply equivalent training in English proficiency, structural and historical linguistics or the full sequence in British literary history at Radboud. A blank cell means there is no close counterpart."
+      "introduction": "The closest feasible UCR combination approaches English through literature, stylistics and cultural history. Radboud gives more sustained attention to English proficiency, structural and historical linguistics, and British literary history."
     },
     "cp-000046": {
       "mode": "external-only",

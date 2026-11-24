@@ -343,11 +343,7 @@ qualified_comparison <- function(record) {
   }, logical(1)))
 }
 
-# Complete paragraphs are editorial choices. Historical narrative fields do not
-# create page sections. The credit token binds qualified copy to the actual table.
-COMMON_INTRODUCTION <- paste(
-  "This table compares the bachelor’s curriculum with possible UCR course combinations.",
-  "The first UCR column shows the closest feasible option.",
+ROW_GUIDANCE <- paste(
   "Courses in the same row cover related material without necessarily being equivalent.",
   "A blank cell means there is no close counterpart."
 )
@@ -360,24 +356,24 @@ comparison_introduction <- function(setting, qualified, view, scope) {
       intro <- paste(
         "The table shows {credits} from the external degree. Only the assessed scope can be compared",
         "with the UCR course combinations, starting with the closest feasible option.",
-        "The full external pathway remains unverified. Courses in the same row are related",
-        "without necessarily being equivalent. A blank cell means there is no close counterpart."
+        "The full external pathway remains unverified."
       )
     }
     credits <- sum(vapply(view$components, function(x) as.numeric(x$credits), numeric(1)))
     intro <- sub("{credits}", paste(format(credits, trim = TRUE), "of", scope$nominalCredits, "EC"), intro, fixed = TRUE)
-    return(tags$p(class = "comparison-intro qualified-scope", intro,
+    return(tags$p(class = "comparison-intro qualified-scope", paste(intro, ROW_GUIDANCE),
       tags$a(href = "#scope-boundary", "Assessed scope and exclusions")))
   }
   if (!nzchar(intro) || bounded_copy) {
     intro <- if (identical(setting$mode, "caution")) paste(
       "The first UCR column shows the closest feasible course combination for related study.",
-      "The external degree offers specialist subjects or training beyond these UCR courses.",
-      "Courses in the same row cover related material without necessarily being equivalent.",
-      "A blank cell means there is no close counterpart."
-    ) else COMMON_INTRODUCTION
+      "The external degree offers specialist subjects or training beyond these UCR courses."
+    ) else paste(
+      "This table compares the bachelor’s curriculum with possible UCR course combinations.",
+      "The first UCR column shows the closest feasible option."
+    )
   }
-  tags$p(class = "comparison-intro", intro)
+  tags$p(class = "comparison-intro", paste(intro, ROW_GUIDANCE))
 }
 
 render_assessed_scope <- function(scope) {
@@ -386,6 +382,49 @@ render_assessed_scope <- function(scope) {
       div(id = "scope-boundary",
         tags$p(tags$strong("Assessed scope: "), safe_text(scope$assessed)),
         tags$p(tags$strong("Outside the assessed scope: "), safe_text(scope$excluded)))))
+}
+
+# Reorder intact rows in the counselor view. The approved cells determine which
+# courses share a row. Only reviewed external choices join the closing section.
+counselor_blocks <- function(record, setting) {
+  blocks <- record$blocks
+  research <- record$optionalIndependentResearch
+  if (!length(blocks) || is.null(research)) return(blocks)
+  choices <- unlist(setting$closingChoices, use.names = FALSE)
+  keep_research <- isTRUE(setting$keepResearchInBlock)
+  anchor <- safe_text(research$researchComponentId)
+  first_ucr <- Filter(is_ucr_programme, record$programmes)[[1]]$id
+  closing <- list()
+  remaining <- list()
+
+  for (block in blocks) {
+    block$title <- setting$blockTitles[[block$id]] %||% block$title
+    if (identical(block$id, setting$closingBlock)) {
+      remaining[[length(remaining) + 1L]] <- block
+      next
+    }
+    move <- vapply(block$rows, function(row) {
+      external <- safe_text(cell_value(row$cells$comparator)$componentId)
+      ucr <- cell_value(row$cells[[first_ucr]])
+      external %in% choices || (!keep_research && (
+        identical(ucr$comparisonElementId, research$id) ||
+        (nzchar(anchor) && external == anchor) ||
+        (!nzchar(anchor) && identical(ucr$courseCode, "ACCPPDE101"))
+      ))
+    }, logical(1))
+    closing <- c(closing, block$rows[move])
+    block$rows <- block$rows[!move]
+    if (length(block$rows)) remaining[[length(remaining) + 1L]] <- block
+  }
+  if (!length(closing)) return(remaining)
+  last <- length(remaining)
+  if (last && identical(remaining[[last]]$id, setting$closingBlock)) {
+    remaining[[last]]$rows <- c(remaining[[last]]$rows, closing)
+  } else {
+    title <- if (keep_research) "Elective space" else if (length(choices)) "Research and elective space" else "Research"
+    remaining[[last + 1L]] <- list(title = title, rows = closing)
+  }
+  remaining
 }
 
 render_compare_table <- function(record) {
@@ -408,7 +447,7 @@ render_compare_table <- function(record) {
   })
 
   rows <- list()
-  for (block in record$blocks %||% list()) {
+  for (block in counselor_blocks(record, presentation_setting(safe_text(record$id)))) {
     rows[[length(rows) + 1]] <- tags$tr(class = "block-row", tags$th(colspan = length(programmes), tags$span(class = "block-title", safe_text(block$title))))
     for (row in block$rows %||% list()) {
       cells <- lapply(programmes, function(programme) {
@@ -505,9 +544,11 @@ render_exception <- function(record, presentation_only = FALSE) {
       tags$p(class = "comparison-institution", safe_text(meta$institution))),
     div(class = "comparison-summary comparison-summary--compact exception-summary", id = "comparison-overview",
       tags$h2(class = "comparison-status", status),
-      if (nzchar(explanation)) tags$p(class = "exception-explanation", explanation),
-      if (nzchar(description) && !identical(description, explanation))
-        tags$p(class = "exception-description", description),
+      if (nzchar(description) || nzchar(explanation)) tags$p(
+        if (nzchar(description)) tags$span(class = "exception-description", description),
+        if (nzchar(explanation) && !identical(explanation, description))
+          tags$span(class = "exception-explanation", explanation)
+      ),
       if (!is.null(qualification)) tags$p(class = "comparison-metadata", qualification),
       div(class = "exception-metadata",
         if (nzchar(view$year)) tags$span(paste("Academic year", view$year)),

@@ -64,13 +64,27 @@ for (path in list.files("data/counselor/comparisons", pattern = "^cp-.*\\.json$"
   if (identical(setting$mode, "caution") || qualified) stopifnot(nzchar(paragraph))
   stopifnot(identical(grepl("{credits}", paragraph, fixed = TRUE), qualified))
   intro <- as.character(e$comparison_introduction(setting, qualified, view, record$audience$comparisonScope))
+  row_sentence <- "Courses in the same row cover related material without necessarily being equivalent."
   stopifnot(!grepl("{credits}", intro, fixed = TRUE),
             grepl("blank cell", intro, ignore.case = TRUE),
-            grepl("equival", intro),
+            lengths(regmatches(intro, gregexpr(row_sentence, intro, fixed = TRUE))) == 1L,
             grepl("closest", intro) || record$id == "cp-000373")
+  blocks <- e$counselor_blocks(record, setting)
+  final_rows <- blocks[[length(blocks)]]$rows
+  final_ids <- vapply(final_rows, function(r) e$safe_text(r$cells$comparator$componentId), character(1))
+  stopifnot(all(unlist(setting$closingChoices) %in% final_ids),
+            all(names(setting$blockTitles) %in% vapply(blocks, function(b) e$safe_text(b$id), character(1))))
+  first_ucr <- Filter(e$is_ucr_programme, record$programmes)[[1]]$id
+  has_research <- function(block) any(vapply(block$rows, function(row)
+    identical(row$cells[[first_ucr]]$comparisonElementId, "optional-independent-research"), logical(1)))
+  expected_block <- if (isTRUE(setting$keepResearchInBlock)) {
+    Filter(has_research, record$blocks)[[1]]$id
+  } else blocks[[length(blocks)]]$id
+  stopifnot(identical(Filter(has_research, blocks)[[1]]$id, expected_block))
+  if (!is.null(setting$closingBlock)) stopifnot(identical(tail(record$blocks, 1L)[[1]]$id, setting$closingBlock))
   if (qualified) {
     documented <- sum(vapply(view$components, function(x) as.numeric(x$credits), numeric(1)))
     stopifnot(grepl(paste(format(documented, trim = TRUE), "of 180 EC"), intro, fixed = TRUE))
   }
 }
-cat("Corpus introduction coverage and qualified credit totals passed.\n")
+cat("Corpus introductions, research and elective placement, and qualified credit totals passed.\n")

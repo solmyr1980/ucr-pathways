@@ -12,7 +12,7 @@ fs.mkdirSync(out, {recursive:true});
 const results=[];
 const settings = JSON.parse(fs.readFileSync('data/counselor/presentation-overrides.json')).cases;
 const cases = {
-  actual: [['cp-000150','Business Administration'],['cp-000373','UCR Liberal Arts'],['cp-000410','Artificial Intelligence'],['cp-000377','Actuarial Science'],['cp-000003','Pedagogical'],['cp-000001','Public Administration'],['cp-000002','International Social Challenges'],['cp-000043','English Language and Culture'],['cp-000097','Medicine'],['cp-000269','Psychology & Technology'],['cp-000019','Arts and Culture'],['cp-000035','Biology'],['cp-000330','Mechanical Engineering'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000311','Notarial Law'],['cp-000013','Philosophy of a Specific Discipline'],['cp-000227','Public Governance']],
+  actual: [['cp-000030','American Studies'],['cp-000388','Cultural Anthropology'],['cp-000441','Biology'],['cp-000150','Business Administration'],['cp-000373','UCR Liberal Arts'],['cp-000410','Artificial Intelligence'],['cp-000377','Actuarial Science'],['cp-000003','Pedagogical'],['cp-000001','Public Administration'],['cp-000002','International Social Challenges'],['cp-000043','English Language and Culture'],['cp-000097','Medicine'],['cp-000269','Psychology & Technology'],['cp-000019','Arts and Culture'],['cp-000035','Biology'],['cp-000330','Mechanical Engineering'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000311','Notarial Law'],['cp-000013','Philosophy of a Specific Discipline'],['cp-000227','Public Governance']],
   fixtures: [['cp-000004','Psychology'],['cp-000002','Management of International'],['cp-000005','Psychology'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000019','Arts and Culture'],['cp-000003','Pedagogical']]
 };
 // Stage 1 representatives use actual canonical data, including still-unresolved controls.
@@ -82,14 +82,14 @@ try {
          cell.querySelector('.ec-badge')?.textContent || '',
          cell.querySelector('.course-link')?.dataset.code || ''
         ])));
-       assert.deepEqual(displayed, expected, `${id}: course rows, blanks, credits or links changed`);
-       assert.deepEqual(await page.locator('.block-title').allTextContents(), record.blocks.map(block => block.title));
+       const signatures = rows => rows.map(row => JSON.stringify(row)).sort();
+       assert.deepEqual(signatures(displayed), signatures(expected), `${id}: course rows, blanks, credits or links changed`);
       }
       assert.ok(!body.includes('What this comparison shows'));
       assert.equal(await page.locator('.summary-card,.comparison-summary,.comparison-legend').count(), 0);
       const intro = await page.locator('.comparison-intro').innerText();
       assert.match(intro, /blank cell/i);
-      assert.match(intro, /equival/);
+      assert.equal(intro.split('Courses in the same row cover related material without necessarily being equivalent.').length, 2);
       assert.ok(intro.split(/\s+/).length <= 90);
       assert.equal(await page.locator('.comparison-head p:not(.comparison-institution)').count(),1);
       const layout = await page.locator('.comparison-shell').evaluate(el => ({
@@ -212,8 +212,8 @@ try {
       if(id==='cp-000397') {assert.equal(current.acceptance.scope,'documented-curriculum');assert.ok(total===177&&/3\s+EC/.test(scopeText));}
       if(id==='cp-000266') assert.equal(current.programmes.length,3,'Two independently reviewed UCR options must be present');
       await boundary.locator('..').locator('summary').click();
-      const codes={'cp-000250':'HCBBIOM211','cp-000060':'HCBCOGN312','cp-000033':'BENBUSI112','cp-000440':'BENENTR111','cp-000317':'GOSLAWJ311','cp-000266':'ENSDELT311','cp-000041':'BENBUSI312','cp-000040':'MCCCOMM312','cp-000113':'MCCCOMM311','cp-000397':'BENECON311','cp-000410':current.programmes[1].schedule.semesters[0].courses[0].code};
-      const code=codes[id],button=page.locator(`.course-link[data-code="${code}"]`).first();
+      const codes={'cp-000250':'HCBBIOM211','cp-000060':'HCBCOGN312','cp-000033':'BENBUSI112','cp-000440':'BENENTR111','cp-000317':'GOSLAWJ311','cp-000266':'ENSDELT311','cp-000041':'BENBUSI312','cp-000040':'MCCCOMM312','cp-000113':'MCCCOMM311','cp-000397':'BENECON311'};
+      const code=codes[id] ?? current.programmes[1].schedule.semesters[0].courses[0].code,button=page.locator(`.course-link[data-code="${code}"]`).first();
       if(size==='mobile'){const index=await button.evaluate(b=>Array.from(b.closest('tr').children).indexOf(b.closest('td')));await page.locator('.column-select').selectOption(String(index));await page.waitForTimeout(250);}
       await button.click();await page.locator('.modal.in').waitFor();
       const description=JSON.parse(fs.readFileSync(`pilot/shiny/data/courses/${code.slice(0,3)}.json`)).descriptions[code];
@@ -245,6 +245,10 @@ try {
        assert.equal(await page.locator('.exception-description').innerText(), reviewed.programmeDescription);
        if (externalOnly) assert.ok(!body.includes(reviewed.comparisonExplanation), `${id}: comparison prose surfaced`);
        else assert.equal(await page.locator('.exception-explanation').innerText(), reviewed.comparisonExplanation);
+       const opening = await page.locator('.exception-summary > p').allTextContents();
+       assert.equal(opening.length, current.acceptance?.basis === 'robust-no-match' ? 2 : 1);
+       assert.equal(opening[0].trim().replace(/\s+/g,' '), externalOnly ? reviewed.programmeDescription :
+        reviewed.programmeDescription + ' ' + reviewed.comparisonExplanation);
        const selected = current.comparator.components.filter(component => reviewed.curriculum.componentIds.includes(component.id));
        const table = page.locator('.external-table');
        assert.equal(await table.count(), selected.length ? 1 : 0);
