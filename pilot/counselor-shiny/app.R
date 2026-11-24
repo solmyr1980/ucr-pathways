@@ -84,6 +84,12 @@ read_presentation_settings <- function(path) {
          !nzchar(trimws(entry$message)))) {
       stop("Invalid presentation message for ", id, ".")
     }
+    intro <- entry$introduction
+    if (!is.null(intro) && (!is.character(intro) || length(intro) != 1L ||
+        !nzchar(trimws(intro)) || grepl("[\r\n]", intro) ||
+        grepl("[{}]", gsub("{credits}", "", intro, fixed = TRUE)))) {
+      stop("Invalid counselor introduction for ", id, ".")
+    }
     if (identical(entry$mode, "caution") && is.null(entry$message)) {
       stop("Caution mode requires a case-specific message for ", id, ".")
     }
@@ -337,67 +343,49 @@ qualified_comparison <- function(record) {
   }, logical(1)))
 }
 
-# Use the reviewed note selections only. An override controls visibility but
-# its internal message never supplies reader-facing prose.
-selected_notes <- function(record) {
-  types <- unlist(audience_content(record)$noteTypes, use.names = FALSE)
-  Filter(function(n) safe_text(n$type) %in% types && nzchar(trimws(safe_text(n$text))),
-         record$notes %||% list())
-}
+# Complete paragraphs are editorial choices. Historical narrative fields do not
+# create page sections. The credit token binds qualified copy to the actual table.
+COMMON_INTRODUCTION <- paste(
+  "This table compares the bachelor’s curriculum with possible UCR course combinations.",
+  "The first UCR column shows the closest feasible option.",
+  "Courses in the same row cover related material without necessarily being equivalent.",
+  "A blank cell means there is no close counterpart."
+)
 
-caution_text <- function(notes) {
-  # Prefer a complete, short specialist note. Never truncate a qualification.
-  for (type in c("missing-specialist-components", "less-disciplinary-depth", "related-fields-not-full-discipline")) {
-    for (note in notes) {
-      value <- trimws(safe_text(note$text))
-      if (identical(note$type, type) && length(strsplit(value, "[[:space:]]+")[[1]]) <= 35)
-        return(value)
+comparison_introduction <- function(setting, qualified, view, scope) {
+  intro <- safe_text(setting$introduction)
+  bounded_copy <- grepl("{credits}", intro, fixed = TRUE)
+  if (qualified) {
+    if (!bounded_copy) {
+      intro <- paste(
+        "The table shows {credits} from the external degree. Only the assessed scope can be compared",
+        "with the UCR course combinations, starting with the closest feasible option.",
+        "The full external pathway remains unverified. Courses in the same row are related",
+        "without necessarily being equivalent. A blank cell means there is no close counterpart."
+      )
     }
+    credits <- sum(vapply(view$components, function(x) as.numeric(x$credits), numeric(1)))
+    intro <- sub("{credits}", paste(format(credits, trim = TRUE), "of", scope$nominalCredits, "EC"), intro, fixed = TRUE)
+    return(tags$p(class = "comparison-intro qualified-scope", intro,
+      tags$a(href = "#scope-boundary", "Assessed scope and exclusions")))
   }
-  "UCR offers related study with substantial differences in specialist subjects or training."
+  if (!nzchar(intro) || bounded_copy) {
+    intro <- if (identical(setting$mode, "caution")) paste(
+      "The first UCR column shows the closest feasible course combination for related study.",
+      "The external degree offers specialist subjects or training beyond these UCR courses.",
+      "Courses in the same row cover related material without necessarily being equivalent.",
+      "A blank cell means there is no close counterpart."
+    ) else COMMON_INTRODUCTION
+  }
+  tags$p(class = "comparison-intro", intro)
 }
 
-render_comparison_details <- function(record, view, qualified, notes, warning) {
-  audience <- audience_content(record)
-  explanation <- trimws(audience_text(record, "comparisonExplanation"))
-  description <- trimws(audience_text(record, "programmeDescription"))
-  # Give each reviewed text one home. Notes explain specific differences.
-  # The overview describes the UCR options; the description belongs to the external degree.
-  note_text <- setdiff(trimws(vapply(notes, function(n) safe_text(n$text), character(1))), c("", warning))
-  differences <- note_text
-  if (!length(notes) && nzchar(explanation)) differences <- explanation
-  overview <- if (nzchar(explanation) && !explanation %in% c(differences, warning)) explanation else ""
-  concepts <- lapply(Filter(is_ucr_programme, record$programmes %||% list()), function(p) {
-    if (!p$id %in% unlist(audience$conceptProgrammeIds, use.names = FALSE)) return(NULL)
-    concept <- safe_text(alternative_rationale_for(record, p$id)$concept)
-    if (nzchar(concept)) tagList(tags$dt(visible_label(record, p)), tags$dd(concept))
-  })
-  concepts <- Filter(Negate(is.null), concepts)
-  scope <- audience$comparisonScope
-  metadata <- c(if (nzchar(view$year)) paste("Academic year", view$year),
-                if (nzchar(view$route)) paste("External pathway:", view$route))
-  external <- setdiff(c(description, view$limitation),
-                      c("", warning, differences, overview, if (qualified) c(scope$assessed, scope$excluded)))
-
+render_assessed_scope <- function(scope) {
   div(class = "comparison-details",
-    if (qualified) tags$details(tags$summary("Scope of this comparison"),
+    tags$details(tags$summary("Scope of this comparison"),
       div(id = "scope-boundary",
         tags$p(tags$strong("Assessed scope: "), safe_text(scope$assessed)),
-        tags$p(tags$strong("Outside the assessed scope: "), safe_text(scope$excluded)),
-        tags$p("Unknown requirements are not open electives and are excluded from the comparison rows."))),
-    if (length(differences)) tags$details(tags$summary("Academic differences and limitations"),
-      lapply(differences, tags$p)),
-    if (nzchar(overview) || length(concepts)) tags$details(tags$summary("About the UCR study options"),
-      if (nzchar(overview)) tags$p(overview),
-      if (length(concepts)) tags$dl(concepts)),
-    if (length(external) || length(metadata)) tags$details(tags$summary("About the external programme"),
-      if (length(metadata)) tags$p(class = "comparison-metadata", paste(metadata, collapse = " · ")),
-      lapply(external, tags$p)),
-    tags$details(tags$summary("How to read the table"),
-      tags$p("The first UCR column shows the closest feasible course combination. A blank cell means there is no close correspondence in that row. Optional independent research falls outside each UCR programme’s 180 EC."),
-      tags$p("The same comparison appears for everyone who selects this programme. UCR course combinations are illustrative and future offerings may vary. Degree equivalence, professional qualification and admission to a master’s programme require separate assessment."),
-      if (qualified) tags$p("Optional UCR research does not establish equivalence with unverified external final training."))
-  )
+        tags$p(tags$strong("Outside the assessed scope: "), safe_text(scope$excluded)))))
 }
 
 render_compare_table <- function(record) {
@@ -545,9 +533,7 @@ render_comparison <- function(record) {
   if ((view$status %in% c("partial", "unresolved") || !is.null(record$acceptance)) && !qualified)
     return(render_exception(record))
   if (identical(setting$mode, "external-only")) return(render_exception(record, presentation_only = TRUE))
-  notes <- selected_notes(record)
-  caution <- identical(setting$mode, "caution")
-  warning <- if (caution && !qualified) caution_text(notes) else ""
+  scope <- audience_content(record)$comparisonScope
   meta <- comparator_meta(record)
   div(
     class = "comparison-shell",
@@ -559,20 +545,10 @@ render_comparison <- function(record) {
       class = "comparison-head comparison-head--compact", id = "comparison-overview",
       tags$h1(tabindex = "-1", safe_text(meta$name)),
       tags$p(class = "comparison-institution", safe_text(meta$institution)),
-      tags$p(class = "comparison-intro", "The table compares this degree with possible UCR programmes. Courses in the same row may overlap only partly.")
+      comparison_introduction(setting, qualified, view, scope)
     ),
-    if (qualified) {
-      scope <- audience_content(record)$comparisonScope
-      total <- sum(vapply(view$components, function(c) as.numeric(c$credits), numeric(1)))
-      tags$p(class = "qualified-scope comparison-warning",
-        tags$strong(paste0(scope$label, ".")),
-        paste0(format(total, trim = TRUE), " of ", scope$nominalCredits,
-               " external EC are shown. The full external pathway remains unverified."),
-        if (caution) "Specialist training also differs.",
-        tags$a(href = "#scope-boundary", "See scope and exclusions"))
-    } else if (caution) tags$p(class = "presentation-caution comparison-warning", warning),
     render_compare_table(record),
-    render_comparison_details(record, view, qualified, notes, warning),
+    if (qualified) render_assessed_scope(scope),
     div(class = "cta-row", tags$a(class = "primary-cta", href = PROGRAM_BUILDER_URL, target = "_blank", rel = "noopener", "Explore the UCR Program Builder ↗"))
   )
 }
@@ -619,10 +595,10 @@ ui <- fluidPage(
       .comparison-head--compact{display:block;margin-bottom:12px}.comparison-head--compact h1{margin-bottom:3px;overflow-wrap:anywhere}.comparison-head--compact p{margin:0}.comparison-institution{font-weight:700}.comparison-summary--compact{padding:14px;margin-bottom:12px}
       .comparison-head .comparison-intro{margin:8px 0 0;max-width:85ch;line-height:1.45}
       .comparison-metadata{margin:3px 0;color:var(--grey);font-size:13px}
-      .comparison-details{max-width:85ch;margin-top:20px}.comparison-details details{border-bottom:1px solid rgba(73,30,52,.2);padding:0 0 0 2px}.comparison-details summary{display:list-item;color:var(--plum);font-weight:700;cursor:pointer;padding:12px 0}.comparison-details p,.comparison-details dl{margin:0 0 12px;line-height:1.5}.comparison-details dd+dt{margin-top:10px}
+      .comparison-details{max-width:85ch;margin-top:20px}.comparison-details details{border-bottom:1px solid rgba(73,30,52,.2);padding:0 0 0 2px}.comparison-details summary{display:list-item;color:var(--plum);font-weight:700;cursor:pointer;padding:12px 0}.comparison-details p{margin:0 0 12px;line-height:1.5}
       .exception-summary{max-width:880px}.exception-summary .comparison-status{font-size:clamp(21px,2.5vw,28px);margin:0 0 9px}.exception-summary p{line-height:1.55}.exception-metadata{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:10px;font-size:13px;color:var(--grey)}
       .external-curriculum{max-width:880px}.external-curriculum h2{font-size:clamp(21px,2.5vw,28px);margin:0 0 9px}.external-table th,.external-table td{padding:8px 12px}.external-table th:last-child,.external-table td:last-child{width:88px;text-align:right;white-space:nowrap}
-      .comparison-warning{margin:0 0 12px;border-left:4px solid #995e24;padding:7px 12px;background:#fff1d6;color:#593711;line-height:1.45}.comparison-warning a{text-decoration:underline}
+      .comparison-intro a{text-decoration:underline}
       .compare-scroll{overflow-x:auto;border:1px solid rgba(73,30,52,.14);border-radius:14px;background:#fff}.compare-table{border-collapse:separate;border-spacing:0;min-width:min(1120px,100%);width:100%;table-layout:fixed}.compare-table th,.compare-table td{border-right:1px solid rgba(73,30,52,.1);border-bottom:1px solid rgba(73,30,52,.1);padding:13px 15px;vertical-align:top}.compare-table thead th{background:var(--plum);color:#fff;border-right-color:rgba(255,255,255,.18)}.programme-title{font-size:16px;font-weight:700}.programme-title a,.programme-source{color:inherit}.programme-source{display:inline-block;margin-top:5px;color:#fff;opacity:.82;font-size:12px}.block-row th{background:var(--blue);color:var(--plum);font-size:14px;font-weight:700}.comparison-cell{background:#fff;line-height:1.35}.comparison-cell.emphasis{background:rgba(255,225,164,.36)}.empty-cell{background:rgba(92,96,107,.035)}.ec-badge{display:inline-block;margin-top:6px;padding:2px 6px;border-radius:999px;background:rgba(73,30,52,.08);color:var(--grey);font-size:11px}.transparency-note{margin-top:18px;background:#fff;border-left:5px solid var(--plum);padding:14px 17px;color:var(--grey);line-height:1.5}.transparency-note p{margin:5px 0 0}.cta-row{display:flex;justify-content:flex-end;margin-top:20px}.primary-cta{display:inline-block;background:var(--plum);color:#fff!important;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none!important}
       .cell-text,.programme-title{overflow-wrap:anywhere}.course-link{max-width:100%;overflow-wrap:anywhere;padding:0;border:0;background:none;color:var(--plum);font:inherit;text-align:left;text-decoration:underline;cursor:pointer}.course-link:hover,.course-link:focus-visible{color:var(--black)}.modal-content{border-radius:14px}.modal-title{color:var(--plum);font-family:IvyMode,Georgia,serif}.course-description{font-size:15px;line-height:1.6}
       .comparison-navigation{display:none}

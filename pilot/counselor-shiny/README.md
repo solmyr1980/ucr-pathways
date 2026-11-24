@@ -11,31 +11,23 @@ This pilot tests the deterministic counselor-app architecture and uses the same 
 - opening a result loads a **pre-produced fixed counselor record** rather than generating a personalized comparison;
 - the same comparison can therefore be reached through programme-driven or interest-driven discovery;
 - each normal comparison shows exactly one external comparator and between one and three UCR alternatives; a completed exception shows the supported external programme and a reason, with no artificial UCR column;
-- the programme identity and one short introduction lead directly to the table, with a single warning where the case requires it;
-- reviewed concepts, academic explanations, pathway details and general guidance are available below the table;
+- the programme identity and one reviewed paragraph lead directly to the table;
+- qualified comparisons link to their reviewed assessed and excluded scope;
 - the first UCR alternative is the closest feasible match, while additional alternatives appear only when upstream production found them evidence-backed, coherent, substantively distinct and feasible;
 - the interface does not imply that every target has the same number of UCR alternatives;
 - external programme provenance is integrated into the comparator heading and links to the approved official source;
 - UCR comparison headings use descriptive case-specific labels;
 - UCR components display EC information and link to the UCR course overview;
-- material explanatory notes remain visible, and returning to search preserves the query and filters;
+- material qualifications appear in the introduction, and returning to search preserves the query and filters;
 - the interface uses UCR branding without a visible Pathways sub-brand.
 
 ## Comparison presentation
 
 The shared renderer follows Master Specification §4.4. It opens at the external programme title after a selection from search. On ordinary pages the next elements are the common introduction, mobile column controls where applicable, and the table. The external title and institution come from the programme index and comparator metadata. Column headings use the existing case-specific labels.
 
-Below the table the disclosures use these existing fields:
+The default paragraph explains the closest feasible option, shared rows and blank cells. A case-specific paragraph replaces it in full when the approved record warrants a qualification. The optional `introduction` in `data/counselor/presentation-overrides.json` is the only per-case text used for this purpose. The historical `message` stays internal. Caution and qualified comparisons require individually reviewed copy. Qualified paragraphs include `{credits}` once. The renderer inserts the documented and nominal totals and links to the single collapsed disclosure of `audience.comparisonScope.assessed` and `.excluded`. The text identifies which part was actually assessed, even when all 180 EC are listed.
 
-| Disclosure | Source |
-|---|---|
-| Scope of this comparison | Qualified records link here from the visible statement. `audience.comparisonScope` supplies the assessed and excluded scope. The count above the table sums documented component credits and can include credits outside the assessed scope. |
-| Academic differences and limitations | `audience.noteTypes` selects `notes[].text`. In their absence, use `audience.comparisonExplanation`. A short specialist note used as a caution above the table appears there once. |
-| About the UCR study options | The reviewed comparison explanation, if distinct and not already displayed, and the canonical `academicRationale.alternatives[].concept` entries selected by `audience.conceptProgrammeIds`. |
-| About the external programme | `audience.programmeDescription` and the reviewed `audience.curriculum` year, route and limitation. |
-| How to read the table | Shared guidance on gaps, independent research, illustrative options and the limits of degree and admissions claims. |
-
-Empty sections are omitted. The Program Builder link follows the disclosures. Individual alignment explanations remain in the academic record. Table cells show course or component names and credits, and the UCR course buttons open their descriptions.
+Ordinary and caution pages end with the table and Program Builder link. Academic narratives remain in the canonical records. Table cells show course or component names and credits, and the UCR course buttons open their descriptions. Exception and external-only pages use their separate renderer.
 
 Search remains discovery rather than personalization. Relationship classifications such as `Direct programme interest`, `Stable study direction` and `Curricular topic` continue to affect search ranking internally, but counselor-facing result cards display only the matching interest phrases.
 
@@ -45,7 +37,7 @@ Academic comparison decisions and UCR course selections remain unchanged. The co
 `data/counselor/presentation-overrides.json` as a separate, versioned display policy.
 With no case entry, an existing comparison defaults to its full presentation. The accepted historical baseline now gives every currently indexed case an explicit mode; omitting a future case still defaults to normal unless it is a canonical exception.
 
-Edit only the entry for the permanent counselor ID to change how an existing **comparison** is displayed:
+Edit the entry for the permanent counselor ID to change how an existing comparison is displayed. The example uses the reviewed CP043 paragraph.
 
 ```json
 {
@@ -53,7 +45,8 @@ Edit only the entry for the permanent counselor ID to change how an existing **c
   "cases": {
     "cp-000043": {
       "mode": "caution",
-      "message": "UCR offers related literature and cultural study, but not the English-language training or specialist linguistics sequence of this degree."
+      "message": "UCR offers related literature and cultural study, but not the English-language training or specialist linguistics sequence of this degree.",
+      "introduction": "The closest feasible UCR combination approaches English through literature, stylistics and cultural history. Read shared rows as connections in subject matter. They do not imply equivalent training in English proficiency, structural and historical linguistics or the full sequence in British literary history at Radboud. A blank cell means there is no close counterpart."
     },
     "cp-000046": {
       "mode": "external-only",
@@ -63,15 +56,15 @@ Edit only the entry for the permanent counselor ID to change how an existing **c
 }
 ```
 
-These are **illustrative examples only**, not the current choices for these cases. Valid modes are:
+The modes shown here illustrate how the configuration works. Valid modes are:
 
 - `normal`: display the full comparison (also the default if no entry exists);
-- `caution`: display one qualification above the table, combined with the scope statement for a qualified comparison. The settings file requires `message` for provenance; the renderer uses reviewed content and shared public copy;
+- `caution`: display one qualification above the table, combined with the scope statement for a qualified comparison. The settings file retains `message` for provenance and uses the reviewed `introduction` for display;
 - `external-only`: show the external programme and its verified curriculum under the external-only status.
 
 Search and discovery remain unchanged. An external-only result displays a "View programme" button. All original
 decision/canonical records, academic rationale, schedules, comparisons and QC reports remain untouched.
-Deleting an entry (or switching it to `normal`) immediately restores the full comparison **on the next deployment**.
+Switching an entry to `normal` restores an academically valid comparison on the next deployment. Retain its reviewed introduction where the qualification still applies.
 The app validates the settings on startup and the deployment bundle includes the file.
 A true canonical exception still uses its own academic reason and is never reclassified by a display override.
 
@@ -193,7 +186,7 @@ Shiny remains the current implementation candidate. Hosting technology can still
 
 ## Reviewed audience content and mobile comparisons
 
-The optional canonical `audience` contract is documented in Production Instructions §7.4. Only selected audience prose and ordinary academic facts reach the counselor view. Internal research/context, arbitrary notes and legacy presentation messages are never narrative fallbacks. Unreviewed external-only records retain a status explanation and official link while their component lists are withheld. A reviewed partial list must explicitly identify its verified subset and incompleteness. Existing concepts remain canonical and are displayed by reference after review.
+The optional canonical `audience` contract is documented in Production Instructions §7.4. Only selected audience prose and ordinary academic facts reach the counselor view. Internal research/context, arbitrary notes and legacy presentation messages are never narrative fallbacks. Unreviewed external-only records retain a status explanation and official link while their component lists are withheld. A reviewed partial list must explicitly identify its verified subset and incompleteness. Existing concepts remain canonical and inform the editorial review.
 
 At widths up to 700px, the original table scrolls between full-width columns. Previous/next, programme selection, current name/position and sticky block titles preserve the row/block structure and deliberate gaps. Back to overview returns to the programme title; desktop keeps the side-by-side table.
 

@@ -43,3 +43,24 @@ const partial = {...unresolved, audience: {schemaVersion: '1.0', curriculum: {st
 assert.equal(buildProductionRecord(partial, process.cwd()).audience.curriculum.status, 'partial');
 assert.throws(() => buildProductionRecord({...partial, audience: {...partial.audience, curriculum: {...partial.audience.curriculum, status: 'complete'}}}, process.cwd()), /cannot be marked complete|complete requires/);
 console.log('Audience compiler compatibility, lossless pass-through, stable references and negative contract checks passed.');
+
+// Also runs on data-only pushes, when CI skips the R/browser suite.
+const settings = read('data/counselor/presentation-overrides.json').cases;
+const directory = 'data/counselor/comparisons';
+for (const file of fs.readdirSync(directory).filter(name => /^cp-\d{6}\.json$/.test(name))) {
+  const record = read(`${directory}/${file}`);
+  const setting = settings[record.id] ?? {};
+  if (record.recordStatus === 'exception' || setting.mode === 'external-only') continue;
+  const qualified = record.acceptance?.basis === 'qualified-comparison';
+  if (!qualified && ['partial', 'unresolved'].includes(record.audience?.curriculum?.status)) continue;
+  const intro = setting.introduction;
+  if (qualified || setting.mode === 'caution') {
+    assert.equal(typeof intro, 'string', `${record.id}: review the material limitation before release`);
+  }
+  if (intro === undefined) continue;
+  assert.ok(typeof intro === 'string' && intro.trim().length && !/[\r\n]/.test(intro), `${record.id}: expected one paragraph`);
+  const tokens = intro.match(/\{credits\}/g) ?? [];
+  assert.equal(tokens.length, qualified ? 1 : 0, `${record.id}: check the introduction against the current scope`);
+  assert.doesNotMatch(intro.replace('{credits}', ''), /[{}]/, record.id);
+}
+console.log('Production counselor introductions cover all visible caution and qualified comparisons.');

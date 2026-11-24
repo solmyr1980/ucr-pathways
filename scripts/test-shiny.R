@@ -114,18 +114,13 @@ for (index in seq_along(acceptance_records)) {
   table_end <- regexpr("</table>", page_html, fixed = TRUE)[[1]]
   stopifnot(table_end > 0, !grepl("summary-card", page_html, fixed = TRUE))
   details_html <- substring(page_html, table_end)
-  stopifnot(grepl("professional qualification", details_html, fixed = TRUE))
+  stopifnot(!grepl("<details", details_html, fixed = TRUE))
   for (programme in ucr_programmes) {
-    stopifnot(grepl(htmltools::htmlEscape(counselor$visible_label(record, programme)), details_html, fixed = TRUE))
-    rationale <- counselor$alternative_rationale_for(record, programme$id)
-    if (!is.null(rationale) && nzchar(counselor$safe_text(rationale$concept))) {
-      stopifnot(grepl(htmltools::htmlEscape(counselor$safe_text(rationale$concept)), details_html, fixed = TRUE))
-    }
+    stopifnot(grepl(htmltools::htmlEscape(counselor$visible_label(record, programme)), page_html, fixed = TRUE))
   }
-  route <- counselor$safe_text(counselor$comparator_meta(record)$route)
-  if (nzchar(route)) stopifnot(grepl(htmltools::htmlEscape(route), details_html, fixed = TRUE))
+  stopifnot(regexpr('class="comparison-intro"', page_html, fixed = TRUE)[[1]] <
+            regexpr('class="compare-view"', page_html, fixed = TRUE)[[1]])
 }
-stopifnot(grepl("Brain &amp; Cognition specialisation", as.character(counselor$render_comparison(acceptance_records[[4]])), fixed = TRUE))
 
 # Presentation-only overrides must not mutate academic comparisons or exception records.
 stopifnot(identical(counselor$presentation_mode("cp-000001"), "normal"))
@@ -140,8 +135,8 @@ stopifnot(identical(counselor$presentation_mode("cp-000043"), "caution"))
 stopifnot(identical(counselor$presentation_mode("cp-000301"), "external-only"))
 caution_record <- jsonlite::fromJSON("data/counselor/comparisons/cp-000043.json", simplifyVector = FALSE)
 caution_record_html <- as.character(counselor$render_comparison(caution_record))
-stopifnot(grepl('class="presentation-caution comparison-warning"', caution_record_html, fixed = TRUE))
-stopifnot(grepl("differences in specialist subjects or training", caution_record_html, fixed = TRUE))
+stopifnot(grepl('class="comparison-intro"', caution_record_html, fixed = TRUE))
+stopifnot(grepl("historical linguistics", caution_record_html, fixed = TRUE))
 stopifnot(grepl('class="compare-view"', caution_record_html, fixed = TRUE))
 retained_exception <- jsonlite::fromJSON("data/counselor/comparisons/cp-000301.json", simplifyVector = FALSE)
 stopifnot(identical(retained_exception$recordStatus, "exception"))
@@ -149,18 +144,18 @@ retained_exception_html <- as.character(counselor$render_comparison(retained_exc
 stopifnot(grepl("No sufficiently close UCR comparison", retained_exception_html, fixed = TRUE))
 stopifnot(!grepl('class="compare-view"', retained_exception_html, fixed = TRUE))
 academic_before <- serialize(acceptance_records[[1]], NULL)
+original_setting <- counselor$COUNSELOR_PRESENTATION[["cp-000001"]]
 normal_html <- as.character(counselor$render_comparison(acceptance_records[[1]]))
 counselor$COUNSELOR_PRESENTATION[["cp-000001"]] <- list(
   mode = "caution", message = "The external degree has specialist content not taught at UCR."
 )
 caution_html <- as.character(counselor$render_comparison(acceptance_records[[1]]))
-stopifnot(grepl('class="presentation-caution comparison-warning"', caution_html, fixed = TRUE))
+stopifnot(grepl('class="comparison-intro"', caution_html, fixed = TRUE))
 stopifnot(!grepl("specialist content not taught at UCR", caution_html, fixed = TRUE))
-stopifnot(grepl("differences in specialist subjects or training", caution_html, fixed = TRUE))
+stopifnot(grepl("specialist subjects or training", caution_html, fixed = TRUE))
 stopifnot(grepl('class="compare-view"', caution_html, fixed = TRUE))
 stopifnot(grepl("UCR courses", caution_html, fixed = TRUE))
-stopifnot(grepl("presentation-caution", caution_html, fixed = TRUE))
-stopifnot(regexpr("presentation-caution", caution_html, fixed = TRUE)[[1]] <
+stopifnot(regexpr("comparison-intro", caution_html, fixed = TRUE)[[1]] <
           regexpr('class="compare-view"', caution_html, fixed = TRUE)[[1]])
 
 counselor$COUNSELOR_PRESENTATION[["cp-000001"]] <- list(mode = "external-only")
@@ -171,7 +166,7 @@ stopifnot(!grepl("UCR courses", hidden_html, fixed = TRUE))
 stopifnot(!grepl('class="compare-view"', hidden_html, fixed = TRUE))
 hidden_result <- list(list(programme = counselor$COUNSELOR_DATA$programmes[[1]], matches = list()))
 stopifnot(grepl("View programme", as.character(counselor$render_result_cards(hidden_result)), fixed = TRUE))
-counselor$COUNSELOR_PRESENTATION[["cp-000001"]] <- list(mode = "normal")
+counselor$COUNSELOR_PRESENTATION[["cp-000001"]] <- original_setting
 stopifnot(identical(as.character(counselor$render_comparison(acceptance_records[[1]])), normal_html))
 stopifnot(grepl("Compare with UCR",
                 as.character(counselor$render_result_cards(hidden_result)), fixed = TRUE))
@@ -191,7 +186,7 @@ unlink(config_fixture)
 # The overview leads directly to the table and its reading guidance.
 comparison_html <- as.character(counselor$render_comparison(acceptance_records[[1]]))
 stopifnot(!grepl("What this comparison shows", comparison_html, fixed = TRUE))
-stopifnot(grepl("may overlap only partly", comparison_html, fixed = TRUE))
+stopifnot(grepl("without necessarily being equivalent", comparison_html, fixed = TRUE))
 
 # Only UCR cells with course codes open the shared course-description data.
 ucr <- Filter(counselor$is_ucr_programme, acceptance_records[[1]]$programmes)[[1]]

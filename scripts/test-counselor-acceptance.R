@@ -7,7 +7,7 @@ Sys.unsetenv('UCR_ACCEPTANCE_FIXTURE_OUTPUT')
 r <- jsonlite::fromJSON(f,simplifyVector=FALSE)
 stopifnot(e$qualified_comparison(r))
 html <- as.character(e$render_comparison(r))
-stopifnot(grepl('qualified-scope',html),grepl('Unknown requirements are not open electives',html),grepl('column-select',html),grepl('course-link',html))
+stopifnot(grepl('qualified-scope',html),grepl('Outside the assessed scope',html),grepl('column-select',html),grepl('course-link',html))
 for (kind in c('missing-adverse','missing-scope','unresolved','missing-evidence','exception','missing-schedule')) {
  x <- r
  if(kind=='missing-adverse')x$acceptance$uncertainties[[1]]$adverseResolutions <- list()
@@ -16,7 +16,7 @@ for (kind in c('missing-adverse','missing-scope','unresolved','missing-evidence'
  if(kind=='missing-evidence')x$acceptance$challengeEvidenceRefs <- list()
  if(kind=='exception')x$recordStatus <- 'exception'
  if(kind=='missing-schedule')x$programmes[[2]]$schedule <- NULL
- stopifnot(!e$qualified_comparison(x),!grepl('class="compare-view"',as.character(e$render_comparison(x)),fixed=TRUE), !grepl('class="qualified-scope',as.character(e$render_comparison(x)),fixed=TRUE))
+ stopifnot(!e$qualified_comparison(x),!grepl('class="compare-view"',as.character(e$render_comparison(x)),fixed=TRUE), !grepl('qualified-scope',as.character(e$render_comparison(x)),fixed=TRUE))
 }
 e$COUNSELOR_PRESENTATION[[r$id]] <- list(mode='external-only')
 stopifnot(!grepl('class="compare-view"',as.character(e$render_comparison(r)),fixed=TRUE))

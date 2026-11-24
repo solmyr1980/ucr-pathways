@@ -8,12 +8,12 @@ r$comparator$sourceNotes <- r$comparator$academicYear <- r$comparator$route <- "
 r$notes <- lapply(r$notes, function(n) { n$text <- "INTERNAL-SENTINEL"; n })
 r$blocks <- lapply(r$blocks, function(b) { b$rows <- lapply(b$rows, function(row) { row$cells <- lapply(row$cells, function(cell) { if (is.list(cell)) cell$note <- "INTERNAL-SENTINEL"; cell }); row }); b })
 html <- as.character(e$render_comparison(r))
-stopifnot(!grepl("INTERNAL-SENTINEL", html, fixed = TRUE), grepl("awaiting review", html, fixed = TRUE))
+stopifnot(!grepl("INTERNAL-SENTINEL", html, fixed = TRUE), !grepl("awaiting review", html, fixed = TRUE))
 stopifnot(grepl("column-select", html, fixed = TRUE), grepl("blank cell", html, fixed = TRUE))
 r$audience <- list(schemaVersion = "1.0", programmeDescription = "Study art and culture in society.", comparisonExplanation = "The required specialist placement differs.", conceptProgrammeIds = list("ucr-1"), cellNotes = list(list(programmeId = "comparator", reference = r$comparator$components[[1]]$id, text = "Reviewed partial correspondence.")))
 html <- as.character(e$render_comparison(r))
-stopifnot(grepl("Study art and culture in society", html), grepl("required specialist placement differs", html), !grepl("Reviewed partial correspondence", html), !grepl("INTERNAL-SENTINEL", html))
-stopifnot(grepl(htmltools::htmlEscape(r$academicRationale$alternatives[[1]]$concept), html, fixed = TRUE))
+stopifnot(!grepl("Study art and culture in society", html), !grepl("required specialist placement differs", html), !grepl("Reviewed partial correspondence", html), !grepl("INTERNAL-SENTINEL", html))
+stopifnot(!grepl(htmltools::htmlEscape(r$academicRationale$alternatives[[1]]$concept), html, fixed = TRUE))
 x <- load_record("cp-000277")
 x$audience <- NULL # Explicit unreviewed exception fixture.
 x$acceptance <- NULL
@@ -47,3 +47,30 @@ for (code in c("BENBUSI211", "MCCHEAM316")) {
 }
 stopifnot(grepl(e$COURSE_DESCRIPTION_UNAVAILABLE, as.character(e$course_description_dialog("UNKNOWN","Unknown",NULL)),fixed=TRUE))
 cat("Counselor audience leakage, progressive review, incomplete curriculum and modal regression checks passed.\n")
+
+
+e$COUNSELOR_PRESENTATION <- e$read_presentation_settings(e$PRESENTATION_FILE)
+
+# A caution or bounded comparison needs reviewed copy before release. Run across
+# the real corpus so a newly added case cannot silently use the ordinary default.
+for (path in list.files("data/counselor/comparisons", pattern = "^cp-.*\\.json$", full.names = TRUE)) {
+  record <- jsonlite::fromJSON(path, simplifyVector = FALSE)
+  setting <- e$presentation_setting(record$id)
+  if (identical(record$recordStatus, "exception") || identical(setting$mode, "external-only")) next
+  view <- e$curriculum_view(record)
+  qualified <- e$qualified_comparison(record)
+  if (view$status %in% c("partial", "unresolved") && !qualified) next
+  paragraph <- e$safe_text(setting$introduction)
+  if (identical(setting$mode, "caution") || qualified) stopifnot(nzchar(paragraph))
+  stopifnot(identical(grepl("{credits}", paragraph, fixed = TRUE), qualified))
+  intro <- as.character(e$comparison_introduction(setting, qualified, view, record$audience$comparisonScope))
+  stopifnot(!grepl("{credits}", intro, fixed = TRUE),
+            grepl("blank cell", intro, ignore.case = TRUE),
+            grepl("equival", intro),
+            grepl("closest", intro) || record$id == "cp-000373")
+  if (qualified) {
+    documented <- sum(vapply(view$components, function(x) as.numeric(x$credits), numeric(1)))
+    stopifnot(grepl(paste(format(documented, trim = TRUE), "of 180 EC"), intro, fixed = TRUE))
+  }
+}
+cat("Corpus introduction coverage and qualified credit totals passed.\n")

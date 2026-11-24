@@ -12,7 +12,7 @@ fs.mkdirSync(out, {recursive:true});
 const results=[];
 const settings = JSON.parse(fs.readFileSync('data/counselor/presentation-overrides.json')).cases;
 const cases = {
-  actual: [['cp-000377','Actuarial Science'],['cp-000003','Pedagogical'],['cp-000001','Public Administration'],['cp-000002','International Social Challenges'],['cp-000043','English Language and Culture'],['cp-000097','Medicine'],['cp-000269','Psychology & Technology'],['cp-000019','Arts and Culture'],['cp-000035','Biology'],['cp-000330','Mechanical Engineering'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000311','Notarial Law'],['cp-000013','Philosophy of a Specific Discipline'],['cp-000227','Public Governance']],
+  actual: [['cp-000150','Business Administration'],['cp-000373','UCR Liberal Arts'],['cp-000410','Artificial Intelligence'],['cp-000377','Actuarial Science'],['cp-000003','Pedagogical'],['cp-000001','Public Administration'],['cp-000002','International Social Challenges'],['cp-000043','English Language and Culture'],['cp-000097','Medicine'],['cp-000269','Psychology & Technology'],['cp-000019','Arts and Culture'],['cp-000035','Biology'],['cp-000330','Mechanical Engineering'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000311','Notarial Law'],['cp-000013','Philosophy of a Specific Discipline'],['cp-000227','Public Governance']],
   fixtures: [['cp-000004','Psychology'],['cp-000002','Management of International'],['cp-000005','Psychology'],['cp-000119','Theology'],['cp-000428','Religious Studies'],['cp-000277','African Studies'],['cp-000019','Arts and Culture'],['cp-000003','Pedagogical']]
 };
 // Stage 1 representatives use actual canonical data, including still-unresolved controls.
@@ -59,19 +59,16 @@ try {
       assert.equal(await unexpected.count(), 0, `${id}: unexpected course commentary`);
       if (variant === 'actual') {
        const record = JSON.parse(fs.readFileSync(`data/counselor/comparisons/${id}.json`));
-       const mode = settings[id]?.mode;
-       assert.equal(await page.locator('.comparison-warning').count(), mode==='caution' || record.acceptance?.basis==='qualified-comparison' ? 1 : 0);
+       const qualified = record.acceptance?.basis === 'qualified-comparison';
+       assert.equal(await page.locator('.comparison-intro').count(),1);
+       assert.equal(await page.locator('.comparison-intro a[href="#scope-boundary"]').count(),qualified ? 1 : 0);
+       assert.equal(await page.locator('.comparison-shell details').count(),qualified ? 1 : 0);
        assert.equal(await page.locator('.programme-source[href="https://ucr.nl/education/courses/"]').count(),record.programmes.length-1);
-       const audience = record.audience || {};
-       const reviewed = [
-        audience.programmeDescription, audience.comparisonExplanation, audience.curriculum?.limitation,
-        ...(record.notes || []).filter(n=>audience.noteTypes?.includes(n.type)).map(n=>n.text),
-        ...(record.academicRationale?.alternatives || []).filter(a=>audience.conceptProgrammeIds?.includes(a.programmeId)).map(a=>a.concept)
-       ];
-       const paragraphs = await page.locator('.comparison-details p, .comparison-details dd, .presentation-caution').allTextContents();
-       for (const value of new Set(reviewed.filter(Boolean))) {
-        assert.equal(paragraphs.filter(p=>p.trim()===value.trim()).length,1,`${id}: expected reviewed text once: ${value}`);
-       }
+       const paragraph = settings[id]?.introduction;
+       const total = record.comparator.components.reduce((sum,c) => sum+c.credits, 0);
+       const introText = await page.locator('.comparison-intro').innerText();
+       if (paragraph) assert.ok(introText.includes(paragraph.replace('{credits}', `${total} of 180 EC`)));
+       else assert.match(introText, /first UCR column shows the closest feasible option/);
        const expected = record.blocks.flatMap(block => block.rows.map(row => record.programmes.map(programme => {
         const cell = normalizeCell(row.cells[programme.id]);
         if (!cell) return null;
@@ -91,21 +88,22 @@ try {
       assert.ok(!body.includes('What this comparison shows'));
       assert.equal(await page.locator('.summary-card,.comparison-summary,.comparison-legend').count(), 0);
       const intro = await page.locator('.comparison-intro').innerText();
-      assert.ok(intro.split(/\s+/).length <= 30);
+      assert.match(intro, /blank cell/i);
+      assert.match(intro, /equival/);
+      assert.ok(intro.split(/\s+/).length <= 90);
+      assert.equal(await page.locator('.comparison-head p:not(.comparison-institution)').count(),1);
       const layout = await page.locator('.comparison-shell').evaluate(el => ({
        sections: Array.from(el.children, child => child.classList[0]),
        tableTop: el.querySelector('.compare-table').getBoundingClientRect().top,
        firstCourseTop: el.querySelector('tbody tr:not(.block-row)').getBoundingClientRect().top,
        scroll: window.scrollY
       }));
-      const warnings = await page.locator('.comparison-warning').count();
-      assert.ok(warnings <= 1);
+      const hasScope = await page.locator('.qualified-scope').count();
       assert.deepEqual(layout.sections, ['comparison-toolbar','comparison-head',
-       ...(warnings ? [await page.locator('.comparison-warning').evaluate(el => el.classList[0])] : []),
-       'compare-view','comparison-details','cta-row']);
+       'compare-view',...(hasScope ? ['comparison-details'] : []),'cta-row']);
       assert.equal(layout.scroll, 0, `${id}: opening from search must start at the title`);
       assert.ok(layout.tableTop < viewport.height, `${id}: table below the fold (${layout.tableTop}px)`);
-      if (size==='desktop' || !warnings)
+      if (size==='desktop')
        assert.ok(layout.firstCourseTop < viewport.height, `${id}: first course below the fold (${layout.firstCourseTop}px)`);
       assert.ok(await page.locator('.cta-row a[href="https://program.ucr.nl/"]').count());
      }
@@ -123,14 +121,12 @@ try {
      const detailsText = texts.join('\n');
      assert.ok(!detailsText.includes('INTERNAL-SENTINEL'), `${variant}/${id}: research leakage in details`);
      if (texts.length) {
-      assert.match(detailsText, /Degree equivalence, professional qualification and admission/);
-      assert.match(detailsText, /blank cell.*Optional independent research.*180 EC/);
+      assert.equal(texts.length, 1);
+      assert.match(detailsText, /Outside the assessed scope/);
      }
      if (id==='cp-000377') {
-      const actuarial = JSON.parse(fs.readFileSync('data/counselor/comparisons/cp-000377.json'));
-      assert.equal(await page.locator('.comparison-head h1').innerText(),actuarial.comparator.name);
-      assert.ok(detailsText.includes(actuarial.academicRationale.alternatives[0].concept));
-      assert.ok(detailsText.includes('no dedicated insurance or pension sequence or actuarial thesis'));
+      assert.match(await page.locator('.comparison-intro').innerText(), /insurance and pensions sequence/);
+      assert.equal(texts.length, 0);
      }
      assert.equal(await page.locator('.comparison-shell a[href^="https://"]').count()>0,true);
      const source=JSON.parse(fs.readFileSync(`data/counselor/comparisons/${id}.json`,'utf8')).comparator.primarySourceUrl;
@@ -163,7 +159,7 @@ try {
      }
      const modals=[];
      if(variant==='fixtures' && id==='cp-000019') {
-      assert.ok(body.includes('Qualified academic-core comparison') && body.includes('of 180 external EC') && detailsText.includes('Unknown requirements are not open electives'));
+      assert.ok(body.includes('full external pathway remains unverified') && body.includes('of 180 EC') && detailsText.includes('Outside the assessed scope'));
       assert.equal(await page.locator('.compare-view').count(),1);
      }
      if(id==='cp-000019') {
@@ -198,15 +194,13 @@ try {
       const scope = current.audience.comparisonScope;
       const total = current.comparator.components.reduce((sum,c) => sum+c.credits, 0);
       const banner = page.locator('.qualified-scope');
-      assert.ok((await banner.innerText()).includes(scope.label));
-      assert.ok((await banner.innerText()).includes(`${total} of 180 external EC`));
+      assert.ok((await banner.innerText()).includes(`${total} of 180 EC`));
       assert.ok(!(await banner.innerText()).includes(scope.excluded));
       await banner.getByRole('link').click();
       const boundary = page.locator('#scope-boundary');
       assert.ok(await boundary.isVisible());
       const scopeText = await boundary.innerText();
       assert.ok(scopeText.includes(scope.assessed) && scopeText.includes(scope.excluded));
-      assert.ok(scopeText.includes('Unknown requirements are not open electives'));
       assert.ok(await page.locator('.course-link').count()>0);
       if(id==='cp-000317') assert.ok(scopeText.includes('final 30 EC') && total===150);
       if(id==='cp-000040') {
@@ -218,7 +212,7 @@ try {
       if(id==='cp-000397') {assert.equal(current.acceptance.scope,'documented-curriculum');assert.ok(total===177&&/3\s+EC/.test(scopeText));}
       if(id==='cp-000266') assert.equal(current.programmes.length,3,'Two independently reviewed UCR options must be present');
       await boundary.locator('..').locator('summary').click();
-      const codes={'cp-000250':'HCBBIOM211','cp-000060':'HCBCOGN312','cp-000033':'BENBUSI112','cp-000440':'BENENTR111','cp-000317':'GOSLAWJ311','cp-000266':'ENSDELT311','cp-000041':'BENBUSI312','cp-000040':'MCCCOMM312','cp-000113':'MCCCOMM311','cp-000397':'BENECON311'};
+      const codes={'cp-000250':'HCBBIOM211','cp-000060':'HCBCOGN312','cp-000033':'BENBUSI112','cp-000440':'BENENTR111','cp-000317':'GOSLAWJ311','cp-000266':'ENSDELT311','cp-000041':'BENBUSI312','cp-000040':'MCCCOMM312','cp-000113':'MCCCOMM311','cp-000397':'BENECON311','cp-000410':current.programmes[1].schedule.semesters[0].courses[0].code};
       const code=codes[id],button=page.locator(`.course-link[data-code="${code}"]`).first();
       if(size==='mobile'){const index=await button.evaluate(b=>Array.from(b.closest('tr').children).indexOf(b.closest('td')));await page.locator('.column-select').selectOption(String(index));await page.waitForTimeout(250);}
       await button.click();await page.locator('.modal.in').waitFor();
@@ -279,16 +273,14 @@ try {
      }
      if (id === 'cp-000119' && variant === 'actual') assert.ok(!body.includes('Philosophy, myth & cultural meaning'));
      if (id === 'cp-000330') assert.ok(!body.includes('Computational systems, robotics & sustainable technology'));
-     if(variant==='fixtures'&&id==='cp-000005'){assert.ok(detailsText.includes('other content remains under review'));assert.ok(detailsText.includes('Curriculum details are awaiting review'));}
-     if (variant==='fixtures' && id==='cp-000004') assert.equal(await page.locator('.presentation-caution').count(),1);
-     if (variant==='actual' && id==='cp-000097') {
-      const note=current.notes.find(n => n.type==='related-fields-not-full-discipline').text;
-      assert.equal(await page.locator('.presentation-caution').innerText(),note);
-      assert.ok(!detailsText.includes(note));
+     if(variant==='fixtures' && id==='cp-000005') {
+      assert.equal(texts.length,0);
+      assert.ok(!body.includes('other content remains under review'));
      }
-     if(variant==='actual'&&id==='cp-000035') {
-      const currentBiology = JSON.parse(fs.readFileSync('data/counselor/comparisons/cp-000035.json', 'utf8'));
-      assert.ok(detailsText.includes(currentBiology.audience.comparisonExplanation), 'CP035 reviewed comparison explanation missing');
+     if(variant==='fixtures' && id==='cp-000004') assert.match(body, /specialist subjects or training/);
+     if(variant==='actual' && id==='cp-000097') assert.match(body, /supervised contact and placements/);
+     if(variant==='actual' && id==='cp-000035') {
+      assert.match(body, /research internship/);
       for(const [code,expected] of [['ENSECOL111','diversity of living organisms'],['ENSECOL112','human-driven biodiversity loss'],['ENSECOL211','genes to populations']]) {
        const button=page.locator(`.course-link[data-code="${code}"]`).first();
        if(size==='mobile') {const index=await button.evaluate(b=>Array.from(b.closest('tr').children).indexOf(b.closest('td')));await page.locator('.column-select').selectOption(String(index));await page.waitForTimeout(250);}
