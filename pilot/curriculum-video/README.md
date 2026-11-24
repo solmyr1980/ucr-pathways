@@ -2,6 +2,8 @@
 
 The sixth review cut runs 3:19. The enlarged Business & Entrepreneurship map explains gateways before the student’s example begins. The review downloads expire on 6 December 2026. [MP4 and English SRT](https://github.com/solmyr1980/ucr-pathways/actions/runs/45027282662/artifacts/14756745304) · [YouTube materials](https://github.com/solmyr1980/ucr-pathways/actions/runs/45027282662/artifacts/14756017097) · [Sixth-cut verification](#29-sixth-review-cut--22-november-2026)
 
+For a voice comparison, the [Heart narration cut](experiments/heart-voice/README.md) uses the same sixth-cut pictures and script with an alternative American English narrator.
+
 **Established:** 18 November 2026  
 **Repository:** `solmyr1980/ucr-pathways`, branch `main`  
 **Purpose:** Preserve the design decisions, inputs, initial narration and implementation findings from the curriculum-video discussion so the work can resume without restarting the concept design.
