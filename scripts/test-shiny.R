@@ -24,7 +24,10 @@ stopifnot(counselor$relationship_weight("Direct programme interest") > counselor
 stopifnot(all(vapply(counselor$COUNSELOR_DATA$programmes, function(x) nzchar(x$searchNorm), logical(1))))
 
 nld_results <- counselor$search_programmes(counselor$COUNSELOR_DATA, language = "NLD")
-stopifnot(all(vapply(nld_results, function(x) identical(x$programme$language, "NLD"), logical(1))))
+offers_dutch <- function(programme) "NLD" %in% trimws(strsplit(programme$language, "[/,]")[[1]])
+expected_dutch <- Filter(offers_dutch, counselor$COUNSELOR_DATA$programmes)
+stopifnot(setequal(vapply(nld_results, function(x) counselor$comparison_id(x$programme), character(1)),
+                   vapply(expected_dutch, counselor$comparison_id, character(1))))
 if (counselor$IS_PILOT_DATA) {
   stopifnot(length(counselor$COUNSELOR_DATA$programmes) == 5, length(nld_results) == 2)
 }
