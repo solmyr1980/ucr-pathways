@@ -2,17 +2,32 @@
 
 import hashlib
 import json
+from functools import lru_cache
 
 
 def blob_hash(data):
     return hashlib.sha1(f'blob {len(data)}\0'.encode() + data).hexdigest()
 
 
+@lru_cache(maxsize=4)
+def consistency_review(root):
+    evidence = root / 'docs/qc/evidence/counselor-consistency-2026-11-24.json'
+    return json.loads(evidence.read_bytes())['artifacts'] if evidence.is_file() else {}
+
+
+def matches_review(root, path, expected, actual):
+    if actual == expected:
+        return True
+    # A dated follow-up supersedes exactly one version of a named artifact.
+    amendment = consistency_review(root).get(path.relative_to(root).as_posix())
+    return amendment is not None and amendment == {'before': expected, 'after': actual}
+
+
 def canonical_review_blob_matches(root, path, expected):
     if not path.is_file():
         return expected is None
     current = path.read_bytes()
-    if blob_hash(current) == expected:
+    if matches_review(root, path, expected, blob_hash(current)):
         return True
     if expected is None:
         return False
@@ -40,4 +55,4 @@ def canonical_review_blob_matches(root, path, expected):
             return False
         audience[field] = original[field]
     reviewed = (json.dumps(record, ensure_ascii=False, indent=2) + '\n').encode()
-    return blob_hash(reviewed) == expected
+    return matches_review(root, path, expected, blob_hash(reviewed))

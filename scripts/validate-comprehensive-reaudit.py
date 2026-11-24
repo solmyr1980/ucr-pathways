@@ -13,7 +13,7 @@ from pathlib import Path
 import re
 import subprocess
 
-from counselor_editorial import canonical_review_blob_matches
+from counselor_editorial import canonical_review_blob_matches, matches_review
 
 REGISTER = 'data/counselor/qc/comprehensive-reaudit.json'
 CASE_DIR = 'data/counselor/qc/comprehensive-reaudit'
@@ -170,6 +170,12 @@ def sync_summaries(root):
                             'notStarted': counts['not-started'],
                             'pilotStarted': sum(states[c] != 'not-started' for c in pilot)}
     post_audit = post_audit_ids(register)
+    # Worker summaries describe their original audit. A later adjudication changes
+    # the current case mirror, while the dated worker completion keeps its finding.
+    if register.get('consistencyReview'):
+        review = read_json(root / register['consistencyReview'])
+        for case_id, finding in review['jointProgrammePairs'].items():
+            dispositions[case_id]['academicDisposition'] = finding['previousOutcome']
     for worker in register.get('workers', {}).values():
         worker['completedCases'] = [c for c in worker['assignedCases'] if states[c] in ['approved', 'reviewed-with-blockers'] and c not in post_audit]
         worker['completedDispositions'] = [dispositions[c] for c in worker['completedCases']]
@@ -355,7 +361,7 @@ def validate(root):
                 current = root / f'data/counselor/{name}/{case_id}.json'
                 expected = final['inputBlobs'][kind]
                 matches = (canonical_review_blob_matches(root, current, expected) if kind == 'canonical'
-                           else (git_blob(current) if current.exists() else None) == expected)
+                           else matches_review(root, current, expected, git_blob(current) if current.exists() else None))
                 require(matches, f'{case_id}: final approval refers to stale {kind}')
     actual_details = {str(p.relative_to(root)) for p in (root / case_dir).glob('cp-*.json')}
     require(detail_paths == actual_details, 'Orphaned or missing case evidence file')

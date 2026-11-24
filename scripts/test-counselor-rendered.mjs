@@ -44,6 +44,15 @@ try {
    for(const [size,viewport] of [['desktop',{width:1440,height:1000}],['mobile',{width:390,height:844}]]) {
     const page=await browser.newPage({viewport});const errors=[];page.on('pageerror',e=>errors.push(e.message));
     await page.goto(url);await page.locator('#search_text').waitFor();
+    if (variant === 'actual' && size === 'desktop') {
+     await page.locator('#search_text').fill('Actuarial Science');
+     const selector = page.locator('#language + .selectize-control');
+     for (const [value,label] of [['ENG','English'], ['NLD','Dutch'], ['All','All']]) {
+      await selector.locator('.selectize-input').click();
+      await selector.locator(`.option[data-value="${value}"]`).filter({hasText:label}).click();
+      await page.locator('.open-comparison[data-id="cp-000377"]').waitFor();
+     }
+    }
     for(const [id,query] of cases[variant]) {
      await page.locator('#search_text').fill(query);
      const open=page.locator(`.open-comparison[data-id="${id}"]`);await open.waitFor({timeout:20000});
@@ -74,7 +83,8 @@ try {
         if (!cell) return null;
         const isUcr = isUcrProgramme(programme);
         const ec = cell.credits ?? (isUcr ? UCR_DEFAULT_COURSE_EC : null);
-        return [cell.text, ec == null ? '' : `${ec} EC`, isUcr ? cell.courseCode || '' : ''];
+        const credit = cell.comparisonElementId === 'optional-independent-research' ? `${ec} EC outside the scheduled 180 EC` : ec == null ? '' : `${ec} EC`;
+        return [cell.text, credit, isUcr ? cell.courseCode || '' : ''];
        })));
        const displayed = await page.locator('.compare-view tbody tr:not(.block-row)').evaluateAll(rows =>
         rows.map(row => Array.from(row.cells, cell => cell.classList.contains('empty-cell') ? null : [
@@ -82,6 +92,9 @@ try {
          cell.querySelector('.ec-badge')?.textContent || '',
          cell.querySelector('.course-link')?.dataset.code || ''
         ])));
+       for (let i = 1; i < record.programmes.length; i++) {
+        assert.equal(displayed.filter(row => row[i]?.[1] === '15 EC outside the scheduled 180 EC').length, 1);
+       }
        const signatures = rows => rows.map(row => JSON.stringify(row)).sort();
        assert.deepEqual(signatures(displayed), signatures(expected), `${id}: course rows, blanks, credits or links changed`);
       }

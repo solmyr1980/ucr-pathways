@@ -1,6 +1,20 @@
 e <- new.env()
 source("pilot/counselor-shiny/app.R", local = e)
 load_record <- function(id) jsonlite::fromJSON(paste0("data/counselor/comparisons/", id, ".json"), simplifyVector = FALSE)
+# A multilingual programme appears in every applicable filter in the original search order.
+language_fixture <- e$prepare_search_data(list(
+  list(programmeProviderId = "one", displayName = "One", language = "ENG,NLD"),
+  list(programmeProviderId = "two", displayName = "Two", language = "NLD / DEU / ENG"),
+  list(programmeProviderId = "three", displayName = "Three", language = "ENG"),
+  list(programmeProviderId = "four", displayName = "Four", language = "")
+), list())
+ids <- function(results) vapply(results, function(x) x$programme$programmeProviderId, character(1))
+all_ids <- ids(e$search_programmes(language_fixture))
+for (lang in c("ENG", "NLD", "DEU")) {
+  eligible <- switch(lang, ENG = c("one","two","three"), NLD = c("one","two"), DEU = "two")
+  stopifnot(identical(ids(e$search_programmes(language_fixture, language = lang)),
+                      all_ids[all_ids %in% eligible]))
+}
 r <- load_record("cp-000019")
 before <- serialize(r, NULL)
 r$audience <- NULL # Explicit unreviewed legacy fixture.

@@ -202,6 +202,8 @@ Use one search experience where practical:
 
 Interest search is a discovery mechanism only. Entering an interest does not regenerate or personalize the selected comparison.
 
+The teaching-language filter includes a multilingual listing under each of its registered languages.
+
 ## 4.3 Interest-search ranking
 
 Use `interest_relationship` as the principal evidence distinction for deterministic search ranking:
@@ -286,7 +288,7 @@ The ordinary academic comparison is a **lossless 180-EC representation of each c
 
 In addition to that 180-EC academic representation, every UCR alternative must display one standardized comparison-only opportunity: **Optional independent research — 15 EC**. This element is not one of the 24 scheduled UCR courses, is not included in the six-semester schedule, and does not count toward the displayed programme's 180 EC. Where the comparator contains an identifiable bachelor thesis, capstone, research project or equivalent independent-research component, show the UCR optional-research element in parallel with that comparator component. Where the comparator contains no such component, place the optional-research element in the same substantive block as Personal & Professional Development. The enriched UCR course database must not contain this comparison-only element.
 
-In the counselor table, group theses, optional independent research and open minor or elective space in a closing section by default. Move whole rows with their reviewed counterparts. Keep discipline-specific projects in their subject block where the pairing is clearer there, and retain explicit assessed or excluded boundaries. Section headings describe their displayed rows.
+In the counselor table, label the credits for optional independent research “15 EC outside the scheduled 180 EC” once per UCR column. Group theses, optional independent research and open minor or elective space in a closing section by default. Move whole rows with their reviewed counterparts. Keep discipline-specific projects in their subject block where the pairing is clearer there, and retain explicit assessed or excluded boundaries. Section headings describe their displayed rows.
 
 Blocks classify and align programme components; they do not replace them with selective summaries. Preserve meaningful blank cells and structural differences, and do not force row-by-row symmetry, equal block sizes, identical credit allocations or one-to-one course equivalence. The number and size of blocks should follow the curricula rather than a fixed template. Do not use numerical depth/breadth scores.
 

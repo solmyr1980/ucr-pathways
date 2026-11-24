@@ -115,6 +115,10 @@ relationship_weight <- function(x) {
 
 prepare_search_data <- function(programmes, interests) {
   prepared_programmes <- lapply(programmes, function(programme) {
+    programme$languageCodes <- trimws(strsplit(safe_text(programme$language), "[/,]")[[1]])
+    programme$languageCodes <- unique(programme$languageCodes[nzchar(programme$languageCodes)])
+    codes <- trimws(strsplit(safe_text(programme$language), "[/,]")[[1]])
+    programme$languageCodes <- unique(codes[nzchar(codes)])
     programme$searchNorm <- norm(paste(
       safe_text(programme$displayName),
       safe_text(programme$institution),
@@ -199,7 +203,7 @@ search_programmes <- function(search_data, query = "", institution = "All", lang
 
   for (programme in search_data$programmes) {
     if (!identical(institution, "All") && !identical(safe_text(programme$institution), institution)) next
-    if (!identical(language, "All") && !identical(safe_text(programme$language), language)) next
+    if (!identical(language, "All") && !language %in% programme$languageCodes) next
 
     provider_id <- as.character(programme$programmeProviderId)
     p_interests <- search_data$interestsByProvider[[provider_id]] %||% list()
@@ -454,6 +458,9 @@ render_compare_table <- function(record) {
         value <- cell_value(row$cells[[programme$id]])
         if (is.null(value)) return(tags$td(class = "empty-cell", "\u00A0"))
         ec <- credit_text(value$credits, if (is_ucr_programme(programme)) UCR_COURSE_EC else NULL)
+        if (identical(value$comparisonElementId, "optional-independent-research")) {
+          ec <- paste(ec, "outside the scheduled 180 EC")
+        }
         code <- if (is_ucr_programme(programme)) safe_text(value$courseCode) else ""
         name <- safe_text(value$text)
         tags$td(
@@ -742,9 +749,11 @@ server <- function(input, output, session) {
   })
 
   output$language_filter <- renderUI({
-    languages <- sort(unique(vapply(COUNSELOR_DATA$programmes, function(x) safe_text(x$language), character(1))))
-    labels <- vapply(languages, function(x) switch(x, ENG = "English", NLD = "Dutch", x), character(1))
-    selectInput("language", "Teaching language", choices = c("All" = "All", setNames(languages, labels)), selected = isolate(saved_search$language))
+    languages <- unique(unlist(lapply(COUNSELOR_DATA$programmes, "[[", "languageCodes")))
+    labels <- vapply(languages, function(x) switch(x, ARA = "Arabic", DAN = "Danish",
+      NLD = "Dutch", ENG = "English", FRA = "French", DEU = "German", ELL = "Greek",
+      HEB = "Hebrew", ITA = "Italian", POR = "Portuguese", RUS = "Russian", SPA = "Spanish", x), character(1))
+    selectInput("language", "Teaching language", choices = c("All" = "All", setNames(languages, labels)[order(labels)]), selected = isolate(saved_search$language))
   })
 
   output$search_results <- renderUI({
