@@ -15,6 +15,31 @@ for (lang in c("ENG", "NLD", "DEU")) {
   stopifnot(identical(ids(e$search_programmes(language_fixture, language = lang)),
                       all_ids[all_ids %in% eligible]))
 }
+
+phrase_fixture <- e$prepare_search_data(list(
+  list(programmeProviderId = "title", displayName = "Political Economy", language = "ENG"),
+  list(programmeProviderId = "interest", displayName = "History", language = "NLD"),
+  list(programmeProviderId = "split", displayName = "Political", institution = "Economy Institute"),
+  list(programmeProviderId = "substring", displayName = "Geopolitical Economy")
+), list(
+  list(programmeProviderId = "interest", interest = "European political-economy since 1945"),
+  list(programmeProviderId = "interest", interest = "Political thought"),
+  list(programmeProviderId = "split", interest = "The economy"),
+  list(programmeProviderId = "split", interest = "Political"),
+  list(programmeProviderId = "split", interest = "Economy and political institutions")
+))
+search <- function(query, ...) e$search_programmes(phrase_fixture, query, ...)
+exact <- search('"political economy"')
+stopifnot(identical(ids(exact), c("title", "interest")),
+          identical(exact[[2]]$matches[[1]]$interest, "European political-economy since 1945"),
+          length(exact[[2]]$matches) == 1L,
+          identical(ids(search('“POLITICAL ECONOMY”')), ids(exact)),
+          identical(ids(search('"political economy"', language = "NLD")), "interest"),
+          identical(ids(search('"political economy" "political thought"')), "interest"),
+          setequal(ids(search('"political economy" institutions')), ids(exact)),
+          identical(ids(search('"political economy')), ids(search("political economy"))),
+          length(search("political economy")) == 4L)
+
 r <- load_record("cp-000019")
 before <- serialize(r, NULL)
 r$audience <- NULL # Explicit unreviewed legacy fixture.

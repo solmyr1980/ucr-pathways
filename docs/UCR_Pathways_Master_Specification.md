@@ -200,6 +200,8 @@ Use one search experience where practical:
 
 > **Search in English by programme or interest**
 
+Double quotation marks require the enclosed words together, in order, in the English programme name or in a single listed interest. Each quoted phrase must match. Unquoted words continue to support broad discovery and rank the results.
+
 Interest search is a discovery mechanism only. Entering an interest does not regenerate or personalize the selected comparison.
 
 The teaching-language filter includes a multilingual listing under each of its registered languages.

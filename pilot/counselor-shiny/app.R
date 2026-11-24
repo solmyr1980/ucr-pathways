@@ -195,10 +195,26 @@ term_hits_normalized <- function(terms, haystack) {
   sum(vapply(terms, function(term) grepl(term, haystack, fixed = TRUE), logical(1)))
 }
 
+phrase_hits_by_field <- function(phrases, programme, interests) {
+  hits <- integer(1L + length(interests))
+  if (!length(phrases)) return(hits)
+  fields <- c(norm(programme$displayName), vapply(interests, `[[`, character(1), "searchNorm"))
+  fields <- paste0(" ", fields, " ")
+  for (phrase in phrases) {
+    found <- grepl(paste0(" ", phrase, " "), fields, fixed = TRUE)
+    if (!any(found)) return(NULL)
+    hits <- hits + found
+  }
+  hits
+}
+
 search_programmes <- function(search_data, query = "", institution = "All", language = "All") {
+  query <- chartr("\u201c\u201d", '""', safe_text(query))
+  quoted <- '"[^"]*"'
+  phrases <- vapply(regmatches(query, gregexpr(quoted, query))[[1]], norm, character(1), USE.NAMES = FALSE)
+  phrases <- unique(phrases[nzchar(phrases)])
   query_norm <- norm(query)
-  terms <- unlist(strsplit(query_norm, "\\s+"))
-  terms <- terms[nzchar(terms)]
+  terms <- strsplit(norm(gsub(quoted, " ", query)), " ", fixed = TRUE)[[1]]
   result <- list()
 
   for (programme in search_data$programmes) {
@@ -214,13 +230,18 @@ search_programmes <- function(search_data, query = "", institution = "All", lang
     if (!nzchar(query_norm)) {
       score <- 1
     } else {
-      p_hits <- term_hits_normalized(terms, programme_norm)
-      if (p_hits > 0) score <- score + 180 + 25 * p_hits
-      if (grepl(query_norm, programme_norm, fixed = TRUE)) score <- score + 100
+      phrase_hits <- phrase_hits_by_field(phrases, programme, p_interests)
+      if (is.null(phrase_hits)) next
+      p_hits <- term_hits_normalized(terms, programme_norm) + phrase_hits[1]
+      if (p_hits > 0) {
+        score <- 180 + 25 * p_hits
+        if (grepl(query_norm, programme_norm, fixed = TRUE)) score <- score + 100
+      }
 
-      for (interest in p_interests) {
+      for (i in seq_along(p_interests)) {
+        interest <- p_interests[[i]]
         interest_norm <- safe_text(interest$searchNorm)
-        hits <- term_hits_normalized(terms, interest_norm)
+        hits <- term_hits_normalized(terms, interest_norm) + phrase_hits[i + 1L]
         if (hits > 0) {
           interest_score <- as.numeric(interest$searchWeight %||% relationship_weight(interest$relationship)) + 12 * hits
           if (grepl(query_norm, interest_norm, fixed = TRUE)) interest_score <- interest_score + 45
@@ -613,7 +634,8 @@ render_search_shell <- function(search_text = "") {
       class = "search-box",
       div(
         class = "search-grid",
-        textInput("search_text", "Search in English by programme or interest", value = search_text, placeholder = "e.g. Psychology, climate change, artificial intelligence…"),
+        textInput("search_text", "Search in English by programme or interest", value = search_text,
+          placeholder = 'Try "climate change" for an exact phrase'),
         uiOutput("institution_filter"),
         uiOutput("language_filter")
       ),
