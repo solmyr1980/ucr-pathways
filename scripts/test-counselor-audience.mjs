@@ -47,8 +47,15 @@ console.log('Audience compiler compatibility, lossless pass-through, stable refe
 // Also runs on data-only pushes, when CI skips the R/browser suite.
 const settings = read('data/counselor/presentation-overrides.json').cases;
 const directory = 'data/counselor/comparisons';
+const productionIndex = read('data/counselor/programmes.json');
+const indexedStatus = new Map(productionIndex.programmes.map(programme => [
+  programme.comparisonId, programme.recordStatus ?? 'comparison'
+]));
 for (const file of fs.readdirSync(directory).filter(name => /^cp-\d{6}\.json$/.test(name))) {
   const record = read(`${directory}/${file}`);
+  if (indexedStatus.has(record.id)) {
+    assert.equal(indexedStatus.get(record.id), record.recordStatus ?? 'comparison', `${record.id}: production index status differs from the canonical decision`);
+  }
   const setting = settings[record.id] ?? {};
   if (setting.mode === 'caution') {
     assert.ok(typeof setting.message === 'string' && setting.message.trim(), `${record.id}: caution mode requires a message`);
