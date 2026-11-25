@@ -1,6 +1,6 @@
 # UCR curriculum video — pilot production brief and handoff
 
-Kokoro **Heart** (`af_heart`, American English) is the default narrator for UCR curriculum videos. The current 3:19 film is the Heart-narrated sixth cut selected on 25 November 2026. [Download the Heart video (through 8 December)](https://github.com/solmyr1980/ucr-pathways/actions/runs/45361383751/artifacts/14904293490) · [English SRT and YouTube materials (through 6 December)](https://github.com/solmyr1980/ucr-pathways/actions/runs/45027282662/artifacts/14756017097) · [Render future videos](https://github.com/solmyr1980/ucr-pathways/actions/workflows/render-curriculum-video.yml)
+Kokoro **Heart** (`af_heart`, American English) is the default narrator for UCR curriculum videos. The current 3:32 cut adds the alumni destinations in §31 to the 3:19 Heart-narrated sixth cut. The links below refer to the sixth-cut baseline. [Download the Heart video (through 8 December)](https://github.com/solmyr1980/ucr-pathways/actions/runs/45361383751/artifacts/14904293490) · [English SRT and YouTube materials (through 6 December)](https://github.com/solmyr1980/ucr-pathways/actions/runs/45027282662/artifacts/14756017097) · [Render future videos](https://github.com/solmyr1980/ucr-pathways/actions/workflows/render-curriculum-video.yml)
 
 **Established:** 18 November 2026  
 **Repository:** `solmyr1980/ucr-pathways`, branch `main`  
@@ -602,3 +602,18 @@ MP4 SHA-256 `93ce02e7d7912a338c00e2d754fddac55c972aaa05d63933a1bdbe8786285ddd`
 ## 30. Production narrator — 25 November 2026
 
 Kokoro Heart is the production voice for this series. The selected sixth-cut MP4 is the Heart recording from 24 November, with the original 4,780 frames and 55 English subtitle cues. The Alba version of this cut is retired. Use the [standard render workflow](../../.github/workflows/render-curriculum-video.yml) for future scripts. It synthesizes the narration and derives the timing without an earlier recording.
+
+## 31. Alumni destinations — 25 November 2026
+
+After the completed six-semester curriculum and before the closing invitation, show two still screens headed **Postgraduate programmes** and **Employers**. For each example, use alumni who completed at least two distinct tracks from the subjects selected for that example. For the economics, politics and history video, Politics corresponds to Political Science in the alumni workbook.
+
+Aim for 20 distinct postgraduate programmes and 20 distinct employers, subject to legibility. Include programme and institution names. Aim for roughly equal Dutch and international representation, several countries, and a mix of well-known top universities and other destinations supported by the records. For employers, favour recognizable organizations, with room for smaller employers. Display employer names only. Keep individual records and the exact track filter out of the audience-facing copy.
+
+Use the following narration and captions:
+
+1. “Here are some postgraduate programmes pursued by UCR graduates who studied a similar mix of subjects.”
+2. “And here are some of the organizations where those graduates have worked.”
+
+The complete 1080p cut inserts the first screen at 2:59.750 for seven seconds and the second at 3:06.750 for six seconds. The closing invitation resumes at 3:12.750. The delivered film combines the sixth-cut render with this insert. Its English subtitles include the two new cues and shift the closing cues by 13 seconds.
+
+MP4 SHA-256 `760504536e5b6eceaf53177710e07be6942b40899f0f47f2f9458f89f4bab31a`
