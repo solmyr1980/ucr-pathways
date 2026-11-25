@@ -1,0 +1,27 @@
+name: Retire the sixth-cut Alba download
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/retire-alba-sixth-cut.yml']
+permissions:
+  actions: write
+jobs:
+  retire:
+    if: github.repository == 'solmyr1980/ucr-pathways' && contains(github.event.head_commit.message, '[retire Alba cut]')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - name: Confirm the retained cut and retire only the superseded MP4 artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          api="repos/$GITHUB_REPOSITORY/actions"
+          gh api "$api/artifacts/14904293490" | jq -e '.name == "UCR-curriculum-cut-6-Heart" and .workflow_run.id == 45361383751 and .expired == false'
+          gh api "$api/artifacts/14904293490/zip" > heart.zip
+          echo '8b6f808065b2a1271395df5539855a305bcf1036d1a6c4f8b1024e6c847ccd61  heart.zip' | sha256sum -c -
+          test "$(unzip -Z1 heart.zip)" = 'UCR-curriculum-cut-6-Heart.mp4'
+          unzip -p heart.zip UCR-curriculum-cut-6-Heart.mp4 | sha256sum
+          gh api "$api/artifacts/14756745304" | jq -e '.name == "UCR-curriculum-pilot" and .workflow_run.id == 45027282662 and .digest == "sha256:de5e0e08290ddfdbd5feaeb569869b2a8ac3b73fedb39f50e740602a7c71ee06"'
+          gh api --method DELETE "$api/artifacts/14756745304"
+          gh api "$api/runs/45027282662/artifacts" | jq -e 'all(.artifacts[]; .id != 14756745304) and any(.artifacts[]; .id == 14756017097)'
