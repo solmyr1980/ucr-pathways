@@ -50,6 +50,9 @@ const directory = 'data/counselor/comparisons';
 for (const file of fs.readdirSync(directory).filter(name => /^cp-\d{6}\.json$/.test(name))) {
   const record = read(`${directory}/${file}`);
   const setting = settings[record.id] ?? {};
+  if (setting.mode === 'caution') {
+    assert.ok(typeof setting.message === 'string' && setting.message.trim(), `${record.id}: caution mode requires a message`);
+  }
   if (record.recordStatus === 'exception' || setting.mode === 'external-only') continue;
   const qualified = record.acceptance?.basis === 'qualified-comparison';
   if (!qualified && ['partial', 'unresolved'].includes(record.audience?.curriculum?.status)) continue;
