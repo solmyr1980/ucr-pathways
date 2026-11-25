@@ -106,7 +106,10 @@ def verify(out):
     storyboard = json.loads((HERE / "storyboard.json").read_text())
     assert len(film.scenes) == len(storyboard)
     assert len(film.events) == 24
-    video, audio = probe(movie)
+    video, audio, subtitles = probe(movie)
+    assert subtitles["codec_name"] == "mov_text" and subtitles["tags"]["language"] == "eng"
+    embedded_srt = decode(movie, "-map", "0:s:0", "-f", "srt", "-").decode()
+    assert embedded_srt.strip().splitlines() == (out / SRT).read_text(encoding="utf-8").strip().splitlines()
 
     assert (
         video["codec_name"],

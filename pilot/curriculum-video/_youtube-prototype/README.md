@@ -1,6 +1,6 @@
 # YouTube thumbnail and metadata prototype
 
-This draft accompanies the [third curriculum-video review cut](../README.md#16-third-review-cut--22-november-2026) and uses the public [Economics, Politics and Global Development example](../../../data/examples/p-001.json), programme `ucr-depth`. The copy presents it as an illustrative programme and follows the [series editorial decisions](../README.md#17-publication-quality-editorial-check-for-a-video-series--22-november-2026) and [YouTube calls to action](../README.md#21-youtube-calls-to-action--22-november-2026). The current review cut uses the Alba synthetic narrator.
+This publication package accompanies the [current curriculum video](../README.md) and uses the public [Economics, Politics and Global Development example](../../../data/examples/p-001.json), programme `ucr-depth`. The copy presents it as an illustrative programme and follows the [series editorial decisions](../README.md#17-publication-quality-editorial-check-for-a-video-series--22-november-2026) and [YouTube calls to action](../README.md#21-youtube-calls-to-action--22-november-2026). Kokoro Heart narrates the current cut.
 
 ## Thumbnail mockups
 

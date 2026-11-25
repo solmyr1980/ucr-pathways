@@ -11,6 +11,7 @@ from pathlib import Path
 import openpyxl
 from maps import ASSETS, CLUSTERS, PLUM, CourseMap
 from PIL import Image, ImageColor, ImageDraw, ImageFont
+from subtitles import FILENAME as SRT
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -568,6 +569,20 @@ class Film:
             "-",
             "-i",
             str(out / "voice.wav"),
+            "-i",
+            str(out / SRT),
+            "-map",
+            "0:v:0",
+            "-map",
+            "1:a:0",
+            "-map",
+            "2:s:0",
+            "-c:s",
+            "mov_text",
+            "-metadata:s:s:0",
+            "language=eng",
+            "-disposition:s:0",
+            "0",
             "-c:v",
             "libx264",
             "-threads",

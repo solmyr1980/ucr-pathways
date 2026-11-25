@@ -1,8 +1,6 @@
 # UCR curriculum video — pilot production brief and handoff
 
-The sixth review cut runs 3:19. The enlarged Business & Entrepreneurship map explains gateways before the student’s example begins. The review downloads expire on 6 December 2026. [MP4 and English SRT](https://github.com/solmyr1980/ucr-pathways/actions/runs/45027282662/artifacts/14756745304) · [YouTube materials](https://github.com/solmyr1980/ucr-pathways/actions/runs/45027282662/artifacts/14756017097) · [Sixth-cut verification](#29-sixth-review-cut--22-november-2026)
-
-For a voice comparison, the [Heart narration cut](experiments/heart-voice/README.md) uses the same sixth-cut pictures and script with an alternative American English narrator.
+Kokoro **Heart** (`af_heart`, American English) is the default narrator for UCR curriculum videos. The current 3:19 film is the Heart-narrated sixth cut selected on 25 November 2026. [Download the Heart video (through 8 December)](https://github.com/solmyr1980/ucr-pathways/actions/runs/45361383751/artifacts/14904293490) · [English SRT and YouTube materials (through 6 December)](https://github.com/solmyr1980/ucr-pathways/actions/runs/45027282662/artifacts/14756017097) · [Render future videos](https://github.com/solmyr1980/ucr-pathways/actions/workflows/render-curriculum-video.yml)
 
 **Established:** 18 November 2026  
 **Repository:** `solmyr1980/ucr-pathways`, branch `main`  
@@ -238,7 +236,6 @@ Editing principle: shorten or combine lines when needed to synchronize naturally
 
 ## 8. Open decisions — do not silently treat these as settled
 
-- The final synthesized voice (and whether it is achievable entirely with free tooling).
 - Exact overall runtime and timing between narration groups.
 - How much the full butterfly zoom and active-cluster panel should change size during the transition; judge by readability and simplicity.
 - Whether earlier cards fade slightly in each scene; desirable but not essential for pilot feasibility.
@@ -282,22 +279,22 @@ Use a Linux checkout with Python 3.12, FFmpeg (libx264 and AAC), libcairo2 and L
 ```bash
 python -m venv /tmp/ucr-video-env
 . /tmp/ucr-video-env/bin/activate
-pip install piper-tts==1.8.0 openpyxl==3.1.5 Pillow==13.0.0 CairoSVG==2.9.1 zxing-cpp==3.1.1 pocketsphinx==5.0.4 praat-parselmouth==0.4.7
+pip install kokoro-onnx==0.4.9 onnxruntime==1.32.0 openpyxl==3.1.5 Pillow==13.0.0 CairoSVG==2.9.1 zxing-cpp==3.1.1 pocketsphinx==5.0.4
 out=/tmp/ucr-curriculum-video
 mkdir -p "$out"
-model_url=https://huggingface.co/rhasspy/piper-voices/resolve/0ca208afc2a2ee102b1e961e72e0a7e4907be3d0/en/en_GB/alba/medium/en_GB-alba-medium.onnx
-curl -fL "$model_url" -o "$out/alba.onnx"
-curl -fL "$model_url.json" -o "$out/alba.onnx.json"
+release=https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0
+curl -fL "$release/kokoro-v1.0.onnx" -o "$out/kokoro-v1.0.onnx"
+curl -fL "$release/voices-v1.0.bin" -o "$out/voices-v1.0.bin"
 
-python pilot/curriculum-video/narrate.py "$out/alba.onnx" "$out"
+python pilot/curriculum-video/narrate.py "$out/kokoro-v1.0.onnx" "$out/voices-v1.0.bin" "$out"
 python pilot/curriculum-video/render.py "$out"
 python pilot/curriculum-video/verify.py "$out"
 python pilot/curriculum-video/package_youtube.py "$out"
 ```
 
-[Storyboard and narration](storyboard.json) associate each passage with its course codes. [Narration synthesis](narrate.py) measures the voice of each passage and writes the track and timing file. The [map reader](maps.py) uses the original viewBox and course geometry. The [renderer](render.py) maps those coordinates and measured cue times into the video. For a layout change, reuse the timing and voice files. For script changes, regenerate both. Fresh Piper synthesis can vary slightly in duration.
+[Storyboard and narration](storyboard.json) associate each passage with its course codes. [Narration synthesis](narrate.py) measures the voice of each passage and writes the track and timing file. The [map reader](maps.py) uses the original viewBox and course geometry. The [renderer](render.py) maps those coordinates and measured cue times into the video. For a layout change, reuse the timing and voice files. For script changes, regenerate both.
 
-Voice credit: Alba (en_GB, medium), Piper voice collection. The voice model card credits the Alba dataset under CC BY 4.0 and describes the fine-tuning lineage. [Voice model card](https://huggingface.co/rhasspy/piper-voices/blob/main/en/en_GB/alba/medium/MODEL_CARD)
+Narration uses the stock Heart voice from [Kokoro v1.0](https://huggingface.co/hexgrad/Kokoro-82M). The normal renderer synthesizes each new storyboard directly with Heart and times its subtitles and visual cues to that recording.
 
 ### Review checks
 
@@ -442,7 +439,7 @@ This run uses zero-shot conditioning. The [upstream training procedure](https://
 
 **Reasoning:** The cloned samples were promising but did not justify further production effort. Audible joins around inserted pauses reduced continuity, and reproducing vocal identity did not reliably deliver polished emphasis, rhythm and pacing. Narration must remain closely synchronized with course highlighting and animation. These are practical findings from the pilot, not a claim that voice cloning is inherently incapable of natural narration or synchronization.
 
-**Immediate production rule:** Retain the existing working synthetic-voice narration and GitHub Actions video workflow as the baseline. Do not switch voice engines or regenerate the video solely because of this decision. Revisit the voice only if review identifies a concrete deficiency. Time spoken cues and visuals together; prioritize intelligibility, natural phrasing and coherent audiovisual pacing over exact runtime.
+**Production rule at the time (see §30 for the current voice):** Retain the existing working synthetic-voice narration and GitHub Actions video workflow as the baseline. Do not switch voice engines or regenerate the video solely because of this decision. Revisit the voice only if review identifies a concrete deficiency. Time spoken cues and visuals together; prioritize intelligibility, natural phrasing and coherent audiovisual pacing over exact runtime.
 
 **Next work:** The user will review the latest video and identify remaining editorial and visual changes. Implement those changes together in the next review cut. The voice-cloning workstream is paused, not a prerequisite for further video production.
 
@@ -594,10 +591,14 @@ The enlarged Business & Entrepreneurship map follows the six-cluster butterfly a
 
 The student’s interest statement follows at 0:39.8. The first selections ask how prices affect households and firms. The evidence courses ask how the student would design a study and whether investment causes growth. The fifth cut’s 24 cards enter in the same order and occupy the same semester slots. The two bridges carry forward 12 and 22 courses. The four discipline highlights, “Illustrative programme” label and both closing invitations remain in place.
 
-[Render commit](https://github.com/solmyr1980/ucr-pathways/commit/6a9ce28b70ec9e495b979a8ddec21ef9cb4b5e4e) · [Successful Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/45027282662) · [MP4 and English SRT](https://github.com/solmyr1980/ucr-pathways/actions/runs/45027282662/artifacts/14756745304) · [YouTube materials](https://github.com/solmyr1980/ucr-pathways/actions/runs/45027282662/artifacts/14756017097)
+[Render commit](https://github.com/solmyr1980/ucr-pathways/commit/6a9ce28b70ec9e495b979a8ddec21ef9cb4b5e4e) · [Successful Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/45027282662) · [YouTube materials](https://github.com/solmyr1980/ucr-pathways/actions/runs/45027282662/artifacts/14756017097)
 
 The downloaded MP4 decoded in full at 1920 × 1080, 24 fps, with 199.167 seconds of H.264 video and mono AAC audio. Actions checked all course flights and destinations, the change of region on each spoken direction, both transitions, and the four discipline highlights. All 4,780 frames kept the lower 180 pixels clear. With subtitles visible, the closing QR decoded to the displayed UCR form at 720p, 540p and 360p.
 
 The 55 English subtitle cues match the full script. Independent transcription of the downloaded audio recovered all 445 spoken words, using the US spelling “practices” for “practises”. The recognized words overlapped their subtitle windows within a 0.24-second tolerance. Both ZIP archives matched their Actions digests and contained identical subtitles. The hybrid thumbnail, title, draft description and pinned comment matched the approved source. The approved human-review sentence remains in `REVIEW.md` for insertion after a person has reviewed this MP4.
 
 MP4 SHA-256 `93ce02e7d7912a338c00e2d754fddac55c972aaa05d63933a1bdbe8786285ddd`
+
+## 30. Production narrator — 25 November 2026
+
+Kokoro Heart is the production voice for this series. The selected sixth-cut MP4 is the Heart recording from 24 November, with the original 4,780 frames and 55 English subtitle cues. The Alba version of this cut is retired. Use the [standard render workflow](../../.github/workflows/render-curriculum-video.yml) for future scripts. It synthesizes the narration and derives the timing without an earlier recording.

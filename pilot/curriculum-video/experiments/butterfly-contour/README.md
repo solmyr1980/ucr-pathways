@@ -14,7 +14,7 @@ In the 1280 × 720 playback review, the spine helped direct attention to the gat
 
 ## Inputs and reproduction
 
-The only media to retrieve is **UCR-curriculum-cut-6-YouTube-package.zip**, saved in the project owner’s ChatGPT Library under **UCR Pathways** on 22 November 2026. It contains the exact MP4 and English SRT. The script checks both against their SHA-256 digests before rendering. The two reviewed outputs are also saved in that folder under the filenames below. The production renderer and source map are pinned at the [sixth-cut commit](https://github.com/solmyr1980/ucr-pathways/commit/6a9ce28b70ec9e495b979a8ddec21ef9cb4b5e4e).
+To reproduce the archived experiment exactly, use the 22 November 2026 revision (version 0) of **UCR-curriculum-cut-6-YouTube-package.zip** from the project owner’s UCR Pathways file history. The current package contains Heart. The archived experiment used the original Alba audio. The script checks both against their SHA-256 digests before rendering. The two reviewed outputs are also saved in that folder under the filenames below. The production renderer and source map are pinned at the [sixth-cut commit](https://github.com/solmyr1980/ucr-pathways/commit/6a9ce28b70ec9e495b979a8ddec21ef9cb4b5e4e).
 
 | Archived input | Purpose |
 | --- | --- |
@@ -52,5 +52,5 @@ A clean replay from the saved ZIP reproduced both reviewed MP4s byte for byte. T
 
 1. Insert a dedicated full-overview scene between `gateway_overview` and `interest` in the production storyboard. Use the scene boundary for placement. Frame 954 belongs specifically to the sixth cut.
 2. Reuse `Film.overview()` as the background and composite the RGBA crop returned by `contour.draw()` at `contour.ORIGIN`. Mark the moving frames in `Film.frame_key()` so the renderer redraws the trace. If the map or camera has changed, refit the hand-drawn wings and check the gateway edges against the new overview.
-3. Use the saved take and word boundaries to preserve this reading. For a new reading, the recorded settings were the sixth cut’s pinned Piper Alba medium model, Piper 1.8.0 and `length_scale=1.01`. Align the new take and use its actual word times to drive the trace and captions. The prototype’s −3.7 dB gain matched an already mastered excerpt. A production render should mix the scene with its other narration before final mastering.
+3. Use the saved take and word boundaries to reproduce the archived reading. For production, synthesize the sentence with Kokoro Heart and use its measured word times to drive the trace and captions. The prototype’s −3.7 dB gain matched an already mastered excerpt. A production render should mix the scene with its other narration before final mastering.
 4. Review the transition at normal playback size, with captions on and off. Check that all six clusters stay visible during the trace, the line clears the course labels, the contour disappears completely and the student sequence remains synchronized. Use the regular full-cut checks if this scene enters production.

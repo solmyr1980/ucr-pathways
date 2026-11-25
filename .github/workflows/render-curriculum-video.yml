@@ -23,7 +23,7 @@ jobs:
     timeout-minutes: 20
     env:
       PILOT_DIR: pilot/curriculum-video
-      MODEL_URL: https://huggingface.co/rhasspy/piper-voices/resolve/0ca208afc2a2ee102b1e961e72e0a7e4907be3d0/en/en_GB/alba/medium/en_GB-alba-medium.onnx
+      KOKORO_RELEASE: https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0
     steps:
       - uses: actions/checkout@v4
         with:
@@ -37,25 +37,25 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends ffmpeg libcairo2 fonts-liberation
-          python -m pip install piper-tts==1.8.0 openpyxl==3.1.5 Pillow==13.0.0 CairoSVG==2.9.1 zxing-cpp==3.1.1 pocketsphinx==5.0.4 praat-parselmouth==0.4.7
+          python -m pip install kokoro-onnx==0.4.9 onnxruntime==1.32.0 openpyxl==3.1.5 Pillow==13.0.0 CairoSVG==2.9.1 zxing-cpp==3.1.1 pocketsphinx==5.0.4
 
-      - name: Download the Alba voice
+      - name: Download Kokoro and verify the Heart voice pack
         run: |
           out="$RUNNER_TEMP/ucr-curriculum-video"
           mkdir -p "$out"
-          curl --fail --silent --show-error --location --retry 3 "$MODEL_URL" -o "$out/alba.onnx"
-          curl --fail --silent --show-error --location --retry 3 "$MODEL_URL.json" -o "$out/alba.onnx.json"
+          curl --fail --silent --show-error --location --retry 3 "$KOKORO_RELEASE/kokoro-v1.0.onnx" -o "$out/kokoro-v1.0.onnx"
+          curl --fail --silent --show-error --location --retry 3 "$KOKORO_RELEASE/voices-v1.0.bin" -o "$out/voices-v1.0.bin"
 
           (cd "$out" && sha256sum --check <<'SUMS'
-          1f9da809b6da1ef4190bb5dd6cce4f4af803274539e9cf9e0693085150bac3d7  alba.onnx
-          ed4b1f015a8aae5eb26d4bdeed7b712c660f5698a0dd954aa6df9c8be60b900b  alba.onnx.json
+          7d5df8ecf7d4b1878015a32686053fd0eebe2bc377234608764cc0ef3636a6c5  kokoro-v1.0.onnx
+          bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d  voices-v1.0.bin
           SUMS
           )
 
       - name: Synthesize narration, time English subtitles and render MP4
         run: |
           out="$RUNNER_TEMP/ucr-curriculum-video"
-          python "$PILOT_DIR/narrate.py" "$out/alba.onnx" "$out"
+          python "$PILOT_DIR/narrate.py" "$out/kokoro-v1.0.onnx" "$out/voices-v1.0.bin" "$out"
           python "$PILOT_DIR/render.py" "$out"
 
       - name: Verify the pilot
