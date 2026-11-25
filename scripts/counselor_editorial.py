@@ -15,11 +15,24 @@ def consistency_review(root):
     return json.loads(evidence.read_bytes())['artifacts'] if evidence.is_file() else {}
 
 
+@lru_cache(maxsize=4)
+def peer_reviews(root):
+    path = root / 'docs/qc/evidence/counselor-peer-review-2026-11-25.json'
+    return json.loads(path.read_bytes())['changes'] if path.is_file() else {}
+
+
 def matches_review(root, path, expected, actual):
     if actual == expected:
         return True
     # A dated follow-up supersedes exactly one version of a named artifact.
-    amendment = consistency_review(root).get(path.relative_to(root).as_posix())
+    relative = path.relative_to(root).as_posix()
+    peer = peer_reviews(root).get(path.stem, {}).get('artifacts', {}).get(relative)
+    if peer and actual == peer['after']:
+        # The earlier editorial pass could change only the reviewed audience prose.
+        if expected in {peer['before'], peer.get('reviewedBefore', peer['before'])}:
+            return True
+        actual = peer['before']
+    amendment = consistency_review(root).get(relative)
     return amendment is not None and amendment == {'before': expected, 'after': actual}
 
 

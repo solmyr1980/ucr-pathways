@@ -13,7 +13,7 @@ from pathlib import Path
 import re
 import subprocess
 
-from counselor_editorial import canonical_review_blob_matches, matches_review
+from counselor_editorial import canonical_review_blob_matches, matches_review, peer_reviews
 
 REGISTER = 'data/counselor/qc/comprehensive-reaudit.json'
 CASE_DIR = 'data/counselor/qc/comprehensive-reaudit'
@@ -127,7 +127,7 @@ def validate_stage2(root, register):
             for kind, directory in [('decision', 'decisions'), ('canonical', 'comparisons')]:
                 path = root / f'data/counselor/{directory}/{case_id}.json'
                 expected = evidence.get('inputBlobs', {}).get(kind)
-                matches = canonical_review_blob_matches(root, path, expected) if kind == 'canonical' else git_blob(path) == expected
+                matches = canonical_review_blob_matches(root, path, expected) if kind == 'canonical' else matches_review(root, path, expected, git_blob(path))
                 require(matches, f'{case_id}: stale Stage 2 {kind}')
 
 
@@ -299,6 +299,16 @@ def validate(root):
             require(entry[key] == case[key], f'{case_id}: central/detail {key} mismatch')
         if 'academicDisposition' in entry or 'academicDisposition' in case:
             disposition = records[case_id].get('exception', {}).get('type', 'comparison')
+            later = peer_reviews(root).get(case_id)
+            if later:
+                require(later['outcome'] == disposition and later['reason'] and later['peers'],
+                        f'{case_id}: peer review differs from current academic decision')
+                for directory in ['comparisons', 'decisions']:
+                    path = root / f'data/counselor/{directory}/{case_id}.json'
+                    key = path.relative_to(root).as_posix()
+                    require(later['artifacts'][key]['after'] == git_blob(path),
+                            f'{case_id}: stale peer-reviewed {directory}')
+                disposition = later['previousOutcome']
             require(entry.get('academicDisposition') == case.get('academicDisposition') == disposition,
                     f'{case_id}: academic disposition differs from canonical record')
         require(entry['stageOutcomes'] == {n: s['outcome'] for n, s in case['stages'].items()}, f'{case_id}: stage outcomes differ')
