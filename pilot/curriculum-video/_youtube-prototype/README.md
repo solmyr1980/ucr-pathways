@@ -39,9 +39,9 @@ About UCR
 
 University College Roosevelt is an English-taught Liberal Arts and Sciences college in Middelburg, the Netherlands, affiliated with Utrecht University.
 
-About this video
+How this video was made
 
-This video was developed with the assistance of generative AI, including synthetic narration and programmatic animation. Its narration, visuals and academic content were reviewed by a human before publication. The curriculum is illustrative and uses actual UCR courses.
+We compiled the course titles, descriptions and scheduling data, drafted the opening and closing, and developed the visual concept. We used ChatGPT to revise those drafts and help write the walkthrough of the sample programme using the course descriptions. Python scripts follow fixed rules to render the curriculum map and animate each course card into its assigned semester. A text-to-speech model reads the script. Before publication, a human reviews the entire video, checking the course choices, academic claims, visuals, narration and subtitles.
 
 ## Approved pinned comment
 

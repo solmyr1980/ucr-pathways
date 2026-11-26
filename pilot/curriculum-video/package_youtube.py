@@ -10,7 +10,8 @@ from subtitles import FILENAME
 HERE = Path(__file__).resolve().parent
 APPROVED = HERE / "_youtube-prototype"
 REVIEW_SENTENCE = (
-    "Its narration, visuals and academic content were reviewed by a human before publication."
+    "Before publication, a human reviews the entire video, checking the course choices, "
+    "academic claims, visuals, narration and subtitles."
 )
 
 
@@ -42,9 +43,9 @@ def package(out):
         "# UCR curriculum video review\n\n"
         "The title, hybrid thumbnail, description and pinned comment accompany the MP4 "
         "in the UCR-curriculum-pilot artifact. The English SRT comes from the same render.\n\n"
-        "Human review of this final MP4 is pending. Once a person has reviewed the entire "
-        "narration, visuals and academic content, insert the following approved sentence "
-        "after the generative-AI disclosure in the description.\n\n"
+        "Human review of this final MP4 is pending. After reviewing the course choices, "
+        "academic claims, visuals, narration and subtitles in the full video, add the following "
+        "approved sentence at the end of the ‘How this video was made’ paragraph.\n\n"
         f"> {REVIEW_SENTENCE}\n\n"
         "The English subtitle file accompanies the video in YouTube Studio. "
         "Use the series playlist when publication and playlist actions have been authorized.\n",

@@ -541,7 +541,7 @@ Subtitles are an accessibility and publication deliverable. They do not require 
 
 ## 25. Human review disclosure and YouTube end screens — 22 November 2026
 
-**Description disclosure:** State explicitly that generative AI assisted production, including synthetic narration and programmatic animation, and that a human reviewed the **final video**: its complete narration, visuals and academic content. Use the concise approved wording in [`_youtube-prototype/README.md`](_youtube-prototype/README.md). Include the human-review statement in the published description **only after the final review has actually taken place**, not merely because automated verification passed or an earlier cut was reviewed.
+**Description disclosure (updated 26 November 2026):** Use the approved “How this video was made” heading and paragraph in the [YouTube description](_youtube-prototype/README.md#approved-youtube-description) as standard copy for every curriculum video. Draft packages omit the final sentence about human review. Restore that sentence after a person has reviewed the full final video, including the course choices, academic claims, visuals, narration and subtitles.
 
 **End screens:** Do not add YouTube end screens to the initial approximately 3½-minute curriculum videos. They could cover the existing QR code and primary invitation to request a personalized curriculum. Reconsider them later if a series of published videos makes navigation more valuable. No renderer or YouTube API changes are needed now.
 
