@@ -1,0 +1,39 @@
+# UCR curriculum video handoff
+
+**On hold since 26 November 2026.** Resume production and publication only once the project owner lifts the hold. The last production candidate is the **3:32 Kokoro Heart cut with alumni destinations**. The latest experiment is the **48.5-second silent, question-led cut**. The short cuts are review material. The project had not completed the final human publication review at the time of this handoff.
+
+## What to open first
+
+| To understand | Open | What to look for |
+| --- | --- | --- |
+| The established long format | `UCR-curriculum-alumni-YouTube-package.zip` in the narrated-cuts archive | The 24-course programme builds across six semesters. It includes gateway guidance, discipline transitions, postgraduate and employer examples, and the interest-submission QR. The package contains English subtitles and draft YouTube materials. |
+| What worked in the silent format | `UCR-Pathways-butterfly-clusters.mp4` in the experiments archive | The 73.7-second pilot introduces the example, names all six clusters on the butterfly and shows the full schedule and alumni destinations. The project owner preferred the narration-free presentation. |
+| Why the next experiment changed the opening | `UCR-Pathways-short-pilot-course-in-motion.mp4` in the experiments archive | Introduction to Economics expands into a readable card and enters Year 1, Semester 1 ahead of the other courses. This improved one transition. The long course lists still dominated much of the cut. |
+| The latest editorial experiment | `UCR-Pathways-question-led-experiment.mp4` in the experiments archive | The student’s question leads into economics, politics and history. One real course illustrates each subject. The three courses move into their real semesters before the remaining 21 appear. The alumni lists are short, pauseable views. |
+
+## What we learned
+
+- **Narration.** The long format uses Kokoro Heart. The voice-cloning trials explored accent, likeness, pauses and emphasis. Later Qwen samples improved measured speaker similarity and phrasing, but listening feedback on nasality and naturalness drove further trials. The cloning experiments stayed outside the production render. See [voice trials in the production log](README.md#10-voice-cloning-review) and [the Heart decision](README.md#30-production-narrator--25-november-2026).
+- **Movement and text.** Feedback called the earlier silent video static, disengaging and text-heavy. The UCR reference video helped explain why. Its three-years-to-one-semester sequence uses motion to show how four courses per semester become 24. Its emphasis is degree structure and requirements. Its later illustrations often depend on captions to explain the academic activity. We can use its visual clarity while giving a prospective student a more direct view of what they could study.
+- **Academic content.** The question-led cut is a concrete change in direction. It opens with “Why do some countries become rich while others stay poor?” and uses International Macroeconomics, Foundations of Comparative Politics and History of Empires. The chapter questions and graphics suggest academic content. Course titles and broad illustrations still leave room to show more of what a student would actually investigate. A future test could show one credible comparison or example before revealing the schedule. The editorial discussion drew on [UCAS programme-choice evidence](https://www.ucas.com/media/229611/download) and the [University of Amsterdam student panel](https://student.uva.nl/en/information/uva-panel). Those surveys speak to programme choice. This project did not measure viewing engagement.
+- **The two butterfly experiments.** The 23 November [narrated contour experiment](experiments/butterfly-contour/README.md) traced the wings and gateway spine. The trace needed extra explanation and screen time, so it stayed out of production. The later [silent pilots](experiments/silent-pilots/README.md) use the real curriculum map as a readable locator. The project owner asked to keep the names of all six clusters. Course codes in the full map can be secondary to those names.
+- **Alumni evidence and the invitation.** The approved method links destinations to alumni who completed at least two of the featured tracks. The screens give viewers a sense of the range of postgraduate programmes and employers. Keep the copy short and the lists pauseable. The UCR interest-submission form is the primary invitation. See [the alumni rules](README.md#31-alumni-destinations--25-november-2026) and [the two calls to action](README.md#21-youtube-calls-to-action--22-november-2026).
+
+## Source and private review archives
+
+| Where | What it preserves |
+| --- | --- |
+| [Production log](README.md), [storyboard](storyboard.json) and [render workflow](../../.github/workflows/render-curriculum-video.yml) | Long-form source, decisions and verification from the early pilots through the Heart and alumni versions. The standard Actions workflow renders the narrated base cut. The archived 3:32 cut was made by inserting the alumni segment into that base and shifting the closing subtitles. |
+| [YouTube production notes](_youtube-prototype/README.md) | Three thumbnail treatments, the selected hybrid and approved title, description, pinned comment and human-review disclosure. The archive preserves the historical draft copy as delivered. Use the current GitHub copy when re-staging a future release. |
+| [Silent-pilot sources](experiments/silent-pilots/README.md) and [contour sources](experiments/butterfly-contour/README.md) | The standalone experiments, their inputs and commands. The contour workflow has its own pinned sixth-cut source and audio. |
+| **UCR-Pathways-video-narrated-cuts-2026-11-26.zip** | Original Actions downloads for review cuts 1–5, both available Heart exports, the current sixth-cut and alumni packages and recoverable publication materials. The ZIP includes render commits and SHA-256 checksums. The full retired Alba sixth-cut MP4 was not recovered in this snapshot. Its source, subtitles and publication materials survive, and its exact comparison excerpt is in the experiments bundle. |
+| **UCR-Pathways-video-experiments-2026-11-26.zip** | All four silent review exports, both exact contour comparison clips and the static assets for the silent renderers. Includes the original private alumni workbook snapshot for provenance. |
+| **UCR-Pathways-video-voice-trials-2026-11-26.zip** | Five recovered Actions packages with the synthesized WAVs and available measurements. The archive index points to the privately held voice references. |
+
+The three dated ZIPs are private files in the project owner’s ChatGPT Library. Search by the exact filename above. Original Actions URLs in the production log identify historical runs and may expire. Keep personal voice recordings, individual alumni source data, private student records and review MP4s out of the public repository. File checksums and Actions provenance travel with the archive.
+
+## Where to pick up
+
+1. Compare the 3:32 narrated cut with the 48.5-second question-led experiment. Decide whether the next output is a short academic teaser or a fuller programme walkthrough.
+2. For the teaser, build the example around the student's academic question. Show what students could examine and how each selected course contributes. Check the examples against the current enriched course reference and the approved illustrative schedule. Reveal the full plan once the viewer has seen the connection.
+3. Before any release, review the actual video, course claims and destinations, QR, legibility and, if narrated, the English subtitles. Use the approved YouTube wording and add the human-review line only after that review. Publication requires separate authorization.

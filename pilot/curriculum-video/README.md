@@ -1,6 +1,8 @@
 # UCR curriculum video — pilot production brief and handoff
 
-Kokoro **Heart** (`af_heart`, American English) is the default narrator for UCR curriculum videos. The current 3:32 cut adds the alumni destinations in §31 to the 3:19 Heart-narrated sixth cut. The links below refer to the sixth-cut baseline. [Download the Heart video (through 8 December)](https://github.com/solmyr1980/ucr-pathways/actions/runs/45361383751/artifacts/14904293490) · [English SRT and YouTube materials (through 6 December)](https://github.com/solmyr1980/ucr-pathways/actions/runs/45027282662/artifacts/14756017097) · [Render future videos](https://github.com/solmyr1980/ucr-pathways/actions/workflows/render-curriculum-video.yml)
+**Status, 26 November 2026:** The video project is on hold. Start with the [video handoff](HANDOFF.md) for the viewing order, decisions, archive filenames and restart point.
+
+Kokoro **Heart** (`af_heart`, American English) is the production narrator. The latest long-form review package is the 3:32 cut with [alumni destinations](#31-alumni-destinations--25-november-2026). The [render workflow](../../.github/workflows/render-curriculum-video.yml) is retained for reproduction after the hold.
 
 **Established:** 18 November 2026  
 **Repository:** `solmyr1980/ucr-pathways`, branch `main`  
@@ -601,7 +603,7 @@ MP4 SHA-256 `93ce02e7d7912a338c00e2d754fddac55c972aaa05d63933a1bdbe8786285ddd`
 
 ## 30. Production narrator — 25 November 2026
 
-Kokoro Heart is the production voice for this series. The selected sixth-cut MP4 is the Heart recording from 24 November, with the original 4,780 frames and 55 English subtitle cues. The Alba version of this cut is retired. Use the [standard render workflow](../../.github/workflows/render-curriculum-video.yml) for future scripts. It synthesizes the narration and derives the timing without an earlier recording.
+Kokoro Heart is the production voice for this series. The selected sixth-cut MP4 is the Heart recording from 24 November, with the original 4,780 frames and 55 English subtitle cues. The Alba version of this cut is retired. Use the [standard render workflow](../../.github/workflows/render-curriculum-video.yml) for future scripts. It synthesizes the narration and derives the timing without an earlier recording. The [historical Heart Actions run](https://github.com/solmyr1980/ucr-pathways/actions/runs/45361383751) identifies the comparison render. The private narrated-cuts archive preserves its output.
 
 ## 31. Alumni destinations — 25 November 2026
 

@@ -35,6 +35,10 @@ The [UCR Course-Outline Database](course-outline-database/README.md) is a separa
 
 The [Dutch master’s admissions pilot](research/masters-admissions/README.md) studies admissions evidence and UCR curriculum feasibility.
 
+## Curriculum video pilot
+
+The [video handoff](pilot/curriculum-video/HANDOFF.md) records the production and experimental cuts, the reasons for the editorial decisions and where to resume. The video project is on hold.
+
 ## Repository operating rule
 
 Routine approved work is performed directly on `main`.
