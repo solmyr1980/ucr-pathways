@@ -349,6 +349,10 @@ Most public examples will normally be selected from approved counselor compariso
 
 Programme-specific content must come from approved structured publication records rather than being hardcoded into the renderer. A public example retains the same comparator plus one-to-three-UCR-alternative architecture as its approved source record; public presentation must not invent extra alternatives to fill a layout.
 
+## 7.1 Interest-led public pilot
+
+The direct-link study-options pilot starts with a prospective student's interests. It presents selected, validated six-semester UCR curricula. Dutch bachelor targets connect counselor interests to UCR schedules during preparation. The public pages and browser index contain only UCR study options. Only selected master's programmes and employers from the related-track alumni method may accompany a curriculum. The pilot stays outside the main navigation during review. Replacing the homepage or expanding to the full catalogue requires a separate decision.
+
 ---
 
 # 8. LinkedIn
