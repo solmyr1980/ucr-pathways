@@ -72,7 +72,8 @@ def check_html(live):
                 assert item.xpath('string(summary)') == c['name']
                 assert item.xpath('string(p[1])') == f"{c['code']} · {c['credits']:g} EC"
                 assert item.xpath('string(p[2])') == descriptions[c['code']]
-        for heading, items in [('Master’s programmes', [' — '.join(pair) for pair in destinations[slug]['masters']]),
+        for heading, items in [('Master’s programmes', [' — '.join(pair) for pair in destinations[slug].get('masters', [])]),
+                               ('Postgraduate programmes', [' — '.join(pair) for pair in destinations[slug].get('postgraduate', [])]),
                                ('Employers', destinations[slug]['employers'])]:
             actual = page.xpath('//section[h3=$heading]/ul/li',heading=heading)
             assert [li.text_content() for li in actual] == items

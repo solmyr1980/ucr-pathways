@@ -1,4 +1,4 @@
-"""Read the private workbook locally. Emit only distinct labels or verify the public selection."""
+"""Check the pilot’s public destination labels against the private reviewed shortlists."""
 import argparse
 from collections import Counter
 import json
@@ -41,25 +41,80 @@ def candidates(workbook, options):
     return pools
 
 
+def reviewed_selection(workbook, options):
+    slugs = {(o['source'], o['alternative']): o['slug'] for o in options}
+    if len(slugs) != len(options):
+        raise ValueError('Pilot alternatives must have distinct source IDs')
+    selection = {slug: {'masters': [], 'employers': []} for slug in slugs.values()}
+    mixed = set()
+    counts = {}
+    book = load_workbook(workbook, read_only=True, data_only=True)
+    try:
+        rows = iter(book['Shortlist coverage'].values)
+        header = next(rows)
+        employer_count = header.index('Employers selected')
+        degree_count = header.index('Programmes selected')
+        for row in rows:
+            slug = slugs.get(row[:2])
+            if slug:
+                if slug in counts:
+                    raise ValueError(f'Duplicate coverage record for {slug}')
+                counts[slug] = (row[degree_count], row[employer_count])
+
+        rows = iter(book['Shortlists'].values)
+        if tuple(next(rows)) != ('Comparison ID', 'Alternative ID', 'UCR curriculum', 'Destination type',
+                                 'Employer or postgraduate programme', 'Institution', 'Qualification'):
+            raise ValueError('Unexpected Shortlists columns')
+        for comparison, alternative, _, kind, name, institution, award in rows:
+            slug = slugs.get((comparison, alternative))
+            if not slug:
+                continue
+            if not isinstance(name, str) or not name.strip():
+                raise ValueError(f'Missing destination name for {slug}')
+            if kind == 'Employer' and institution is None and award is None:
+                selection[slug]['employers'].append(name)
+            elif kind == 'Postgraduate' and isinstance(institution, str) and institution.strip():
+                if not isinstance(award, str) or award.lower() not in MASTER_TYPES | {'professional doctorate', 'phd'}:
+                    raise ValueError(f'Unrecognised postgraduate award for {slug}')
+                if award.lower() not in MASTER_TYPES:
+                    mixed.add(slug)
+                selection[slug]['masters'].append([name, institution])
+            else:
+                raise ValueError(f'Unexpected destination record for {slug}')
+    finally:
+        book.close()
+
+    for slug, group in selection.items():
+        degrees, employers = group['masters'], group['employers']
+        if counts.get(slug) != (len(degrees), len(employers)):
+            raise ValueError(f'Shortlist coverage differs for {slug}')
+        if (max(len(degrees), len(employers)) > 20 or len(set(employers)) != len(employers)
+                or len(set(map(tuple, degrees))) != len(degrees)):
+            raise ValueError(f'Duplicate or oversized shortlist for {slug}')
+        if slug in mixed:
+            selection[slug] = {'postgraduate': degrees, 'employers': employers}
+    return selection
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('workbook', type=Path)
-    parser.add_argument('--candidates', metavar='SLUG', help='Print distinct labels for local editorial review')
+    action = parser.add_mutually_exclusive_group()
+    action.add_argument('--write', action='store_true', help='Write the approved pilot labels from the reviewed workbook')
+    action.add_argument('--candidates', metavar='SLUG', help='Inspect distinct labels in the historical source export')
     args = parser.parse_args()
     options = json.loads((HERE / 'options.json').read_text())
-    pools = candidates(args.workbook, options)
     if args.candidates:
-        for group in pools[args.candidates]:
+        for group in candidates(args.workbook, options)[args.candidates]:
             for i, item in enumerate(sorted(group, key=lambda k: (-group[k], k))):
                 print(i, ' — '.join(item) if isinstance(item, tuple) else item)
         return
-    approved = json.loads((HERE / 'destinations.json').read_text())
-    assert approved.keys() == pools.keys(), 'Curricula in destination selection differ'
-    for slug, (degrees, employers) in pools.items():
-        for selected, pool in [(list(map(tuple, approved[slug]['masters'])), degrees),
-                               (approved[slug]['employers'], employers)]:
-            assert len(selected) <= 20 and len(set(selected)) == len(selected), slug
-            assert all(item in pool for item in selected), f'Unverified destination in {slug}'
+    selection = reviewed_selection(args.workbook, options)
+    public_file = HERE / 'destinations.json'
+    if args.write:
+        public_file.write_text(json.dumps(selection, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    if json.loads(public_file.read_text()) != selection:
+        raise ValueError('Public destination labels differ from the reviewed pilot shortlists')
     print(f'All selected labels verified for {len(options)} curricula.')
 
 

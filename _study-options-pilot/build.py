@@ -73,11 +73,13 @@ def curriculum(option, semesters, descriptions, selected):
             assert s['label'] == f'Year {y+1} · Semester {j+1}', s['label']
             cols.append(f'<section><h4>Semester {j+1}</h4>{course_list(s, descriptions)}</section>')
         years.append(f'<section class="year"><h3>Year {y+1}</h3><div class="terms">{"".join(cols)}</div></section>')
-    masters = ''.join(f'<li>{escape(name)} <span>— {escape(institution)}</span></li>' for name, institution in selected['masters'])
+    degree_key = 'postgraduate' if 'postgraduate' in selected else 'masters'
+    heading = 'Postgraduate programmes' if degree_key == 'postgraduate' else 'Master’s programmes'
+    degrees = ''.join(f'<li>{escape(name)} <span>— {escape(institution)}</span></li>' for name, institution in selected[degree_key])
     employers = ''.join(f'<li>{escape(name)}</li>' for name in selected['employers'])
     groups = []
-    if masters:
-        groups.append(f'<section><h3>Master’s programmes</h3><ul class="destinations">{masters}</ul></section>')
+    if degrees:
+        groups.append(f'<section><h3>{heading}</h3><ul class="destinations">{degrees}</ul></section>')
     if employers:
         groups.append(f'<section><h3>Employers</h3><ul class="destinations">{employers}</ul></section>')
     alumni = ''
@@ -134,7 +136,7 @@ def build():
             rows = evidence['interestRows']
             assert rows and all((source, row) in interests and row in assessed for row in rows), (slug, topic)
         dest = selected[slug]
-        assert set(dest) == {'masters', 'employers'}
+        assert set(dest) in ({'masters', 'employers'}, {'postgraduate', 'employers'})
         for key, values in dest.items():
             assert len(values) <= 20
             assert all((isinstance(v, str) and v.strip()) if key == 'employers' else

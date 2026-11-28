@@ -213,7 +213,7 @@ Do not claim a deep-link/prefill capability until it actually exists.
 
 ## 5.3 Interest-led study-options pilot
 
-The public review pilot at `study-options-pilot/` uses its own curated selection of UCR alternatives from approved counselor records. The pilot assignment authorizes this bounded selection for direct-link review. Build each page from its canonical six-semester schedule and code-keyed course descriptions. Resolve counselor interest rows during the build and export only the supported UCR topics. Publish the selected alumni destination labels in the HTML. Keep the workbook, individual histories, counselor links and full-size search fixture out of the pilot output. See the [rebuild and selection instructions](../_study-options-pilot/README.md).
+The public review pilot at `study-options-pilot/` uses its own curated selection of UCR alternatives from approved counselor records. The pilot assignment authorizes this bounded selection for direct-link review. Build each page from its canonical six-semester schedule and code-keyed course descriptions. Resolve counselor interest rows during the build and export only the supported UCR topics. Match approved alumni shortlists to each curriculum by comparison ID and UCR alternative ID. Publish programme–institution pairs and employer names in the HTML. A list that includes a doctorate uses the heading “Postgraduate programmes”. Keep the workbook, individual histories, counselor links and full-size search fixture out of the pilot output. See the [rebuild and selection instructions](../_study-options-pilot/README.md).
 
 ---
 

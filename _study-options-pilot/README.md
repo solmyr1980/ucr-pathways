@@ -20,30 +20,30 @@ Edit `options.json` for source record, UCR alternative, stable slug, student-fac
 
 The public index contains topic aliases and each UCR option’s slug and topic list. The matcher recognizes phrases before single words and counts each interest once. An unrecognized interest stays in the query and prevents a full match. Results sort by coverage and then by the topic order in each option. The empty search restores ordinary curriculum links. The complete plans and destination lists are in the initial HTML.
 
-| Review example | Search | Historical tracks | Master’s / employers |
+| Review example | Search | Historical tracks | Postgraduate programmes / employers |
 | --- | --- | --- | --- |
 | Politics, law and public institutions | government and law | POLI, LAWJ, SOCI | 20 / 20 |
 | Economics, business and data | business and data | ECON, DATA | 2 / 0 |
-| AI, language and the brain | AI and neuroscience | COGN, COMP, LING | 20 / 20 |
+| AI, language and the brain | AI and neuroscience | COGN, COMP, LING | 20 / 17 |
 | Biomedical science and health | genetics and pharmacology | BIOM, LIFE | 20 / 20 |
-| Earth, climate and economics | climate and economics | EART, ENVI, ECON | 20 / 20 |
-| Environmental modelling and data science | climate and machine learning | EART, COMP, DATA | 20 / 15 |
-| Film, literature and visual culture | film | FTME, LITR, THEA | 20 / 20 |
+| Earth, climate and economics | climate and economics | EART, ENVI, ECON | 20 / 19 |
+| Environmental modelling and data science | climate and machine learning | EART, COMP, DATA | 15 / 11 |
+| Film, literature and visual culture | film | FTME, LITR, THEA | 17 / 12 |
 
 Try `film and aerospace engineering` for a partial match and `veterinary dentistry` for an empty result. The two environmental options share one counselor source but use distinct approved schedules and track selections.
 
 ## Alumni destinations
 
-Use the private `alumni_destinations.xlsx` outside the checkout. `alumni.py` matches each graduate to a curriculum when at least two distinct selected track codes appear across track1–track6. For example, the Earth/climate/economics list uses Earth & Environmental Science, Environmental Studies and Economics. The computational environment plan uses Earth & Environmental Science, Computer Science and Data Science. For economics/business/data, the workbook has Economics and Data Science but no Business track. Broadening that filter to produce more destinations would change the academic basis.
+The public selection comes from the **Shortlists** sheet of the private reviewed curriculum coverage workbook. Match each pilot option by comparison ID and UCR alternative ID. The underlying review uses eligible first postgraduate degrees (deg1) and eligible jobs from job1–job5 for alumni who completed at least two related historical tracks. It checks how the recorded programme or role relates to the scheduled UCR courses. Treat the destinations as historical examples.
 
-To review a selection, run the first command locally, inspect the distinct destination labels, then edit the relevant entry in `destinations.json`. Verify every selected master's programme–institution pair and employer against the filtered workbook with the second command. Only the selected labels go into the generated pages. The audience sees programmes and employers in separate lists, with no job titles, people, linked histories or group counts.
+After public-use approval, run the following commands from the repository root with the workbook outside the checkout. The first updates the pilot selection. The second checks the labels and counts against the workbook. Then rebuild and verify the HTML as described above.
 
 ```sh
-python _study-options-pilot/alumni.py /private/path/alumni_destinations.xlsx --candidates film-literature
-python _study-options-pilot/alumni.py /private/path/alumni_destinations.xlsx
+python _study-options-pilot/alumni.py "/private/path/UCR Alumni Curriculum Coverage.xlsx" --write
+python _study-options-pilot/alumni.py "/private/path/UCR Alumni Curriculum Coverage.xlsx"
 ```
 
-The reader selects explicit master's degree types and expands “Uni” in labels. The editorial selection omits duplicates, ambiguous employers and personal names. Where possible it includes Dutch and international destinations across several countries. Keep sparse selections short and omit empty groups. These are historical examples, independent of current admissions or employment arrangements.
+Publish only the selected programme–institution pairs and employer names. Keep sparse lists short and omit empty groups. Where a list includes a professional doctorate, the page uses “Postgraduate programmes”. Lists containing only master’s-level awards use “Master’s programmes”.
 
 ## Scale and delivery checks
 
